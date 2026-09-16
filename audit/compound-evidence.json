@@ -62758,5 +62758,796 @@
       }
     ],
     "originalCellsDigest": "39a76158822134849042f56747144356d1c2015552a49e4ca2ab16d592e772a7"
+  },
+  {
+    "id": "reward-design-mpc-original-1-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "8daa8bd3749326e933d1151e682cfd24c469531785becdc0782e4b924fb64d59",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r1-reward-terms-anchor",
+        "text": "A typical legged_gym locomotion objective exposes at least a dozen weighted terms: the initial-commit default config declares fifteen reward-scale entries (nine nonzero) with joint-limit, velocity/torque soft-limit and contact-force penalty settings in the same rewards block.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      },
+      {
+        "id": "r1-eureka-83-29",
+        "text": "Eureka's rewards outperform human experts on 83% of a 29-task suite.",
+        "requiredCitationIds": [
+          "eureka-2024"
+        ]
+      },
+      {
+        "id": "r1-ilqr-realtime-hw",
+        "text": "The MuJoCo-iLQR baseline achieves real-time whole-body MPC on hardware experiments.",
+        "requiredCitationIds": [
+          "mujoco-ilqr-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:1 (ready-source-correction): plan adopted from the frozen packet after full integrator review; originalCellsDigest recomputed over the applied cells. Integrator review: packet plan reviewed in full against the frozen packet; every evidence passage of this record needle-verified by this integrator against the retained source-session corpus (source worker session 052eb068-fda2-4da3-9935-d4769a94310b, 21 fetch log entries all 200) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; see integration lane needle-verification.json.",
+      "planDigest": "db9ca71d4779584c790b732890a3d153a34f4faefe35c06b88fc762b87a2ba1c"
+    },
+    "evidence": [
+      {
+        "partId": "r1-reward-terms-anchor",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://raw.githubusercontent.com/leggedrobotics/legged_gym/ae614c029977157123225f538ecdd3f873e54bd4/legged_gym/envs/base/legged_robot_config.py",
+        "supportingPassage": "class scales: termination = -0.0; tracking_lin_vel = 1.0; tracking_ang_vel = 0.5; lin_vel_z = -2.0; ang_vel_xy = -0.05; orientation = -0.; torques = -0.00001; dof_vel = -0.; dof_acc = -2.5e-7; base_height = -0.; feet_air_time = 1.0; collision = -1.; feet_stumble = -0.0; action_rate = -0.01; stand_still = -0. ... soft_dof_pos_limit = 1. # percentage of urdf limits, values above this limit are penalized; soft_dof_vel_limit = 1.; soft_torque_limit = 1.; base_height_target = 1.; max_contact_force = 100. # forces above this value are penalized (semicolon-joined verbatim lines from the raw file; indentation collapsed)"
+      },
+      {
+        "partId": "r1-eureka-83-29",
+        "citationId": "eureka-2024",
+        "sourceUrl": "https://arxiv.org/abs/2310.12931",
+        "supportingPassage": "In a diverse suite of 29 open-source RL environments that include 10 distinct robot morphologies, Eureka outperforms human experts on 83% of the tasks, leading to an average normalized improvement of 52%."
+      },
+      {
+        "partId": "r1-ilqr-realtime-hw",
+        "citationId": "mujoco-ilqr-2026",
+        "sourceUrl": "https://arxiv.org/abs/2503.04613",
+        "supportingPassage": "Our baseline method achieves real-time whole-body MPC on a variety of hardware experiments, including dynamic quadruped locomotion, quadruped walking on two legs, and full-sized humanoid bipedal locomotion."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r1-reward-terms-anchor",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r1-reward-terms-anchor (record audit/rl-sim2real.md:reward-design-mpc:1): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "ac362cc7e8eed8d2559a6795bffae95ac96d633be21e41dbe9bf0aa312f745d0"
+      },
+      {
+        "partId": "r1-eureka-83-29",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r1-eureka-83-29 (record audit/rl-sim2real.md:reward-design-mpc:1): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "c4317317d4721cdce6111245c0d0fd12d4c9ee28b7b6542a928686ea19f07b9b"
+      },
+      {
+        "partId": "r1-ilqr-realtime-hw",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r1-ilqr-realtime-hw (record audit/rl-sim2real.md:reward-design-mpc:1): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "e10232ad833c4bbb9e453faf5d3d53ea258d2dd109c349d7737a91fa78cab0d7"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-4-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "4dc019817ebed19709a17b36b9d1f51ea8e10383a3f184d1d753ac7a04423807",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r4-local",
+        "text": "LOCAL-AND part (integrator proves from the repo at application time): the RewardShaping interactive exposes exactly twelve weight sliders from lib/reward-shaping.ts TERMS, the component prints a live 'Terms: 12' readout, and the article says twelve terms sit on the illustrative preview; the lib header discloses the model as twelve illustrative terms, not the paper reward or a runnable pinned legged_gym configuration.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "r4-local",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://github.com/leggedrobotics/legged_gym",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/reward-shaping.ts header prints 'This local teaching model uses twelve illustrative terms and weights, not the paper reward or a runnable pinned legged_gym configuration.' and 'maps weights to illustrative failure attractors (freeze, prance, chatter)'; the TERMS array holds exactly twelve entries (velTrack, yawTrack, torque, jointAccel, actionRate, jointLimit, collision, baseHeight, orientation, airTime, stumble, termination). components/interactive/reward-shaping.tsx maps TERMS to one range slider per entry (line 418) and prints a live 'Terms: <span>{TERMS.length}</span>' readout (line 246). content/rl-sim2real/reward-design-mpc.mdx prints 'Twelve weighted terms sit on the illustrative behavior preview below. Its weights, per-term magnitudes and freeze/prance/chatter categories are teaching choices, not the paper's nine-term objective or a runnable `legged_gym` configuration.'"
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:4 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at application-time HEAD (see lane local-proof.json); the row is repo-internal, so the anchor citation legged-gym-repo-2021 carries the passage cell with the repo-only disclosure per the safety-remainder SA9/SA32 convention; no fetch was made or needed for this row.",
+      "planDigest": "0e859ca68cebbf51a3b109964cad912fe43579c1f0bb53f44c97f54057e4601b"
+    },
+    "adjudications": [
+      {
+        "partId": "r4-local",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r4-local (record audit/rl-sim2real.md:reward-design-mpc:4): supported as a repo-internal conjunct re-proved by this integrator at application-time HEAD (lane local-proof.json); the anchor citation carries the repo-only disclosure passage; no fetch applies.",
+        "evidenceDigest": "e9dae15d21127a46bee6e92f515e1e83885f387f49c01d22b3fde3fe5321c3b8"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-5-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "3c8db752a64be1f2d3a7ee547338a104494cb3756600d0c3ae5b245f1bddf842",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r5-local",
+        "text": "LOCAL-AND part (integrator proves from the repo at application time): freeze, prance and chatter are declared an illustrative teaching taxonomy in the article prose and the lib header, and the contrasting Rudin-observed artifacts sentence carries its own rudin-2021 citation bound by the row-2 plan.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "r5-local",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://arxiv.org/abs/2109.11978",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): content/rl-sim2real/reward-design-mpc.mdx prints 'The preview maps weight settings to three illustrative categories: freeze, prance, and chatter. Those classifications and the displayed motion are outputs of this local teaching model, not policies trained in the cited simulator. Rudin and colleagues report different observed artifacts, including a dragging leg and unusually high or low base height, and describe tuning reward weights before transferring their policy to hardware <Cite id=\"rudin-2021\" />.' lib/reward-shaping.ts header prints 'maps weights to illustrative failure attractors (freeze, prance, chatter)' and 'an illustrative teaching model, not measured simulator output'."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:5 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at application-time HEAD (see lane local-proof.json); the row is repo-internal, so the anchor citation rudin-2021 carries the passage cell with the repo-only disclosure per the safety-remainder SA9/SA32 convention; no fetch was made or needed for this row.",
+      "planDigest": "3e927ce65dc8095a7a6aba42a4a85bf74527e59f315d7aa3efbbe8cfad7a0ea8"
+    },
+    "adjudications": [
+      {
+        "partId": "r5-local",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r5-local (record audit/rl-sim2real.md:reward-design-mpc:5): supported as a repo-internal conjunct re-proved by this integrator at application-time HEAD (lane local-proof.json); the anchor citation carries the repo-only disclosure passage; no fetch applies.",
+        "evidenceDigest": "f285fb2e2503606f3ada81f839bdcdd6b7c699b611de3441aa623147f7b07309"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-11-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "da15c80d90a840bd40ff65f0eea90065fb9ef6d3f3bb55bd106da9254d90bef2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r11-local",
+        "text": "LOCAL-AND part (integrator proves from the repo at application time): the EurekaLoop panel is captioned 'Scripted replay of the Eureka loop' in the UI, its component doc comment discloses that the generations are a scripted illustration rather than a recording of a real Eureka run, and the article prose frames the panel as replay.",
+        "requiredCitationIds": [
+          "eureka-2024"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "r11-local",
+        "citationId": "eureka-2024",
+        "sourceUrl": "https://arxiv.org/abs/2310.12931",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): components/interactive/eureka-loop.tsx prints at line 215 'Scripted replay of the Eureka loop (propose reward code, train, select on fitness, reflect on reward statistics, mutate). The code, statistics, and reflections are an illustration of the mechanism, not a recording of a real run.' and its doc comment at lines 21-22 prints 'The generations are a scripted illustration of the mechanism, labeled as such, not a recording of a real Eureka run.' The generations come from EUREKA_GENERATIONS in lib/eureka.ts."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:11 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at application-time HEAD (see lane local-proof.json); the row is repo-internal, so the anchor citation eureka-2024 carries the passage cell with the repo-only disclosure per the safety-remainder SA9/SA32 convention; no fetch was made or needed for this row.",
+      "planDigest": "c2d0ccb97d5b4715af68e23ce6b8cf1590d62df034e98f15888d80e6157a7b6d"
+    },
+    "adjudications": [
+      {
+        "partId": "r11-local",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r11-local (record audit/rl-sim2real.md:reward-design-mpc:11): supported as a repo-internal conjunct re-proved by this integrator at application-time HEAD (lane local-proof.json); the anchor citation carries the repo-only disclosure passage; no fetch applies.",
+        "evidenceDigest": "326a2c08152113f6ce28f203e755dcb32ab211cc6a745a9eccb3bdbe1c08ed87"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-14-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "63ade173d254d9c69533697fe289e162148edee9f3f11e5b1775e77df894cd51",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r14-adr-widens",
+        "text": "Automatic Domain Randomization widens the randomization distribution itself as performance crosses thresholds.",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "r14-isaac-lab-adr",
+        "text": "ADR ships in Isaac Lab as a supported, configurable curriculum with reference configurations.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:14 (ready-source-correction): plan adopted from the frozen packet after full integrator review; originalCellsDigest recomputed over the applied cells. Integrator review: packet plan reviewed in full against the frozen packet; every evidence passage of this record needle-verified by this integrator against the retained source-session corpus (source worker session 052eb068-fda2-4da3-9935-d4769a94310b, 21 fetch log entries all 200) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; see integration lane needle-verification.json.",
+      "planDigest": "259e340fff8419b11e5bb0ebc1ba65cc293ac256ea38a69992fba0a1c1b9fb0b"
+    },
+    "evidence": [
+      {
+        "partId": "r14-adr-widens",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "Once enough performance data is collected, it is averaged and compared to thresholds. If the average model performance is better than the high threshold tH, the parameter for the chosen dimension is increased. It is decreased if the average model performance is worse than the low threshold tL."
+      },
+      {
+        "partId": "r14-isaac-lab-adr",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Furthermore, Isaac Lab supports Automatic Domain Randomization (ADR) (OpenAI et al.). The dexsuite examples in Isaac Lab provide reference ADR configurations for RL training."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r14-adr-widens",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r14-adr-widens (record audit/rl-sim2real.md:reward-design-mpc:14): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "d1dfb9be7d3efd867040cf1cfc40055c004b33fc27be0453980fa25d2fe9dcbc"
+      },
+      {
+        "partId": "r14-isaac-lab-adr",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r14-isaac-lab-adr (record audit/rl-sim2real.md:reward-design-mpc:14): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "1d690d6a8fbd84d754d9255686e308b69b49beef52f853d08259caa051f73824"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-19-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 19,
+    "originalCellsDigest": "804af93029d6bf58db9c80325321a28d4c2770f8214d483ac0dcd231f2e580f2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r19-lee-terrain-generations",
+        "text": "A sim-trained controller took two generations of ANYmal hardware through natural terrain (mud, snow, rubble, vegetation, gushing water) that is beyond the reach of prior published work in legged locomotion.",
+        "requiredCitationIds": [
+          "lee-2020"
+        ]
+      },
+      {
+        "id": "r19-miki-payload-fog",
+        "text": "A perceptive sim-trained controller dealt with steep stairs, unknown payloads, and perception-degrading fog in search-and-rescue scenarios.",
+        "requiredCitationIds": [
+          "miki-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:19 (ready-source-correction): plan adopted from the frozen packet after full integrator review; originalCellsDigest recomputed over the applied cells. Integrator review: packet plan reviewed in full against the frozen packet; every evidence passage of this record needle-verified by this integrator against the retained source-session corpus (source worker session 052eb068-fda2-4da3-9935-d4769a94310b, 21 fetch log entries all 200) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; see integration lane needle-verification.json. Article endpoint applied by this integrator: the unsourced 'pushes' robustness and the 'hand-designed stacks never achieved' superlative were replaced by the papers' own comparative per the packet endpoint.",
+      "planDigest": "8b397261645fad26c8e9a6e1c60031d9eb0b7c44bcfa90347bf6cf53e54c524e"
+    },
+    "evidence": [
+      {
+        "partId": "r19-lee-terrain-generations",
+        "citationId": "lee-2020",
+        "sourceUrl": "https://arxiv.org/abs/2010.11251",
+        "supportingPassage": "The trained controller has taken two generations of quadrupedal ANYmal robots to a variety of natural environments that are beyond the reach of prior published work in legged locomotion. The controller retains its robustness under conditions that have never been encountered during training: deformable terrain such as mud and snow, dynamic footholds such as rubble, and overground impediments such as thick vegetation and gushing water."
+      },
+      {
+        "partId": "r19-miki-payload-fog",
+        "citationId": "miki-2022",
+        "sourceUrl": "https://arxiv.org/html/2201.08117v1",
+        "supportingPassage": "In search-and-rescue scenarios, the controller dealt with steep stairs, unknown payloads, and perception-degrading fog."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r19-lee-terrain-generations",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r19-lee-terrain-generations (record audit/rl-sim2real.md:reward-design-mpc:19): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "6a10be9918bc1255fb36836fb2ac7ba493c844bfc5823b5986ddafec3a97a573"
+      },
+      {
+        "partId": "r19-miki-payload-fog",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r19-miki-payload-fog (record audit/rl-sim2real.md:reward-design-mpc:19): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "101fcffcf9f7002363c395d4b053b86d16802e8daa78d89f2751688f29026b65"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-21-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 21,
+    "originalCellsDigest": "dc97dd8ced18d9f55d0785982d95b5a8592d326ef31dbd1a10f5a9ad0ce6d3ab",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r21-hydroelastic-from-drake",
+        "text": "Newton's hydroelastic contact modeling is imported from model-based contact research: it is inspired by Drake's contact model and uses continuous pressure distributions across finite-area contact patches.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      },
+      {
+        "id": "r21-tri-drake-partnership",
+        "text": "TRI, developer of the Drake physics engine, partners with Newton to advance solver development and contact modeling capabilities.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      },
+      {
+        "id": "r21-newton-physics-layer",
+        "text": "Newton acts as a modern physics layer for robot-learning frameworks such as Isaac Lab and MuJoCo Playground.",
+        "requiredCitationIds": [
+          "state-of-simulation-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:21 (ready-source-correction): plan adopted from the frozen packet after full integrator review; originalCellsDigest recomputed over the applied cells. Integrator review: packet plan reviewed in full against the frozen packet; every evidence passage of this record needle-verified by this integrator against the retained source-session corpus (source worker session 052eb068-fda2-4da3-9935-d4769a94310b, 21 fetch log entries all 200) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; see integration lane needle-verification.json. Article endpoint applied by this integrator: the unsupported contact-implicit-import clause and the unprinted 2025-2026 span were cut, and Cite newton-manipulation-blog-2026 was added beside state-of-simulation-2026 per the packet endpoint.",
+      "planDigest": "0854ec1104730c686f2273bbdc20339be72a8524ac5f6114fdf2a6ab4b244db0"
+    },
+    "evidence": [
+      {
+        "partId": "r21-hydroelastic-from-drake",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Hydroelastic contacts, inspired by this Drake contact model, use a continuous pressure distribution across finite-area contact patches rather than a set of contact points. This provides higher-fidelity and more robust object interaction required for tactile sensing and manipulation policies, ultimately achieving better sim-to-real transfer."
+      },
+      {
+        "partId": "r21-tri-drake-partnership",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Toyota Research Institute (TRI), developer of the Drake physics engine, is also partnering with Newton to advance solver development and contact modeling capabilities."
+      },
+      {
+        "partId": "r21-newton-physics-layer",
+        "citationId": "state-of-simulation-2026",
+        "sourceUrl": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+        "supportingPassage": "In the broader simulation ecosystem, Newton acts as a modern physics layer for robot learning frameworks such as Isaac Lab and MuJoCo Playground, giving researchers a path toward scalable, differentiable, simulator-agnostic physics."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r21-hydroelastic-from-drake",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r21-hydroelastic-from-drake (record audit/rl-sim2real.md:reward-design-mpc:21): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "dcd8503003d4f91c0a3f739ad624cca84f1e876ba4f15bb397621f8380ff215c"
+      },
+      {
+        "partId": "r21-tri-drake-partnership",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r21-tri-drake-partnership (record audit/rl-sim2real.md:reward-design-mpc:21): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "89cdab96e8952d6aeb685b8d4db9648c37564645008327b4bb438654d47c4e2c"
+      },
+      {
+        "partId": "r21-newton-physics-layer",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r21-newton-physics-layer (record audit/rl-sim2real.md:reward-design-mpc:21): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "28cbce805f346c5981487db0d5b2ba80ff112520ec50a8b0b83b21b80be6d404"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-22-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 22,
+    "originalCellsDigest": "803ccb552deedea776654ccb713110d8d4b787b566c24a48255b7483e828d0fc",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r22-local",
+        "text": "LOCAL-AND part (integrator proves from the repo at application time): the MpcComparison table and the MpcVsRl interactive read the same lib/mpc-vs-rl.ts data model, the header frames the model-based controller as iLQR whole-body MPC in the style of Zhang et al. ICRA 2026, and both surfaces disclose the traces as an illustrative teaching model rather than measured hardware data.",
+        "requiredCitationIds": [
+          "mujoco-ilqr-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "r22-local",
+        "citationId": "mujoco-ilqr-2026",
+        "sourceUrl": "https://arxiv.org/abs/2503.04613",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): components/mdx/mpc-comparison.tsx line 1 imports MPC_RL_COMPARISON_ROWS from '@/lib/mpc-vs-rl' and renders one row per entry (line 49). lib/mpc-vs-rl.ts exports MPC_RL_COMPARISON_ROWS (line 173) and its header prints 'The model-based controller (iLQR whole-body MPC in the style of Zhang et al., ICRA 2026) re-solves against the measured state every step' and 'Traces are base-height deviation in centimeters over control steps, an illustrative teaching model rather than measured hardware data; the UI labels it as such.'"
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:22 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at application-time HEAD (see lane local-proof.json); the row is repo-internal, so the anchor citation mujoco-ilqr-2026 carries the passage cell with the repo-only disclosure per the safety-remainder SA9/SA32 convention; no fetch was made or needed for this row.",
+      "planDigest": "b957d3c3702399dd6f7062564165b71c67907be48d91d3d7c9bd3c5c46432382"
+    },
+    "adjudications": [
+      {
+        "partId": "r22-local",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part r22-local (record audit/rl-sim2real.md:reward-design-mpc:22): supported as a repo-internal conjunct re-proved by this integrator at application-time HEAD (lane local-proof.json); the anchor citation carries the repo-only disclosure passage; no fetch applies.",
+        "evidenceDigest": "e1e1bf9789917d7416719732252d2e54b2c2135e58e75e419a8d3808f275b70b"
+      }
+    ]
+  },
+  {
+    "id": "reward-design-mpc-original-23-20260916",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 23,
+    "originalCellsDigest": "1cb957ee763ce8937c48131974c6898d79d86e953f9bf561116ae5ed6d8d6b61",
+    "kind": "frontmatter-p1",
+    "parts": [
+      {
+        "id": "p1-rudin-2021",
+        "text": "rudin-2021 resolves to 'Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning', Rudin/Hoeller/Reist/Hutter, CoRL 2021.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "p1-legged-gym-repo-2021",
+        "text": "legged-gym-repo-2021 resolves to the live leggedrobotics/legged_gym repository, 'Isaac Gym Environments for Legged Robots', maintainer Nikita Rudin, initial commit October 2021.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      },
+      {
+        "id": "p1-isaac-lab-2025",
+        "text": "isaac-lab-2025 resolves to 'Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning', byline NVIDIA: Mayank Mittal and 104 other authors, submitted 6 Nov 2025.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "p1-openai-rubiks-cube-2019",
+        "text": "openai-rubiks-cube-2019 resolves to 'Solving Rubik's Cube with a Robot Hand', OpenAI and 18 coauthors, 2019.",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "p1-eureka-2024",
+        "text": "eureka-2024 resolves to 'Eureka: Human-Level Reward Design via Coding Large Language Models', Ma et al., ICLR 2024 (v2, Apr 2024).",
+        "requiredCitationIds": [
+          "eureka-2024"
+        ]
+      },
+      {
+        "id": "p1-rda-2026",
+        "text": "rda-2026 resolves to 'RDA: Reward Design Agent for Reinforcement Learning', Lee et al., 2026, accepted to RLC'26.",
+        "requiredCitationIds": [
+          "rda-2026"
+        ]
+      },
+      {
+        "id": "p1-rewards-constraints-2024",
+        "text": "rewards-constraints-2024 resolves to 'Not Only Rewards But Also Constraints: Applications on Legged Robot Locomotion', Kim et al., accepted to IEEE T-RO 2024.",
+        "requiredCitationIds": [
+          "rewards-constraints-2024"
+        ]
+      },
+      {
+        "id": "p1-gain-adaptation-2025",
+        "text": "gain-adaptation-2025 resolves to 'Gain Tuning Is Not What You Need: Reward Gain Adaptation for Constrained Locomotion Learning', Srisuchinnawong and Manoonpong, RSS 2025.",
+        "requiredCitationIds": [
+          "gain-adaptation-2025"
+        ]
+      },
+      {
+        "id": "p1-stagewise-cmorl-2024",
+        "text": "stagewise-cmorl-2024 resolves to 'Stage-Wise Reward Shaping for Acrobatic Robots', Kim et al., 2024.",
+        "requiredCitationIds": [
+          "stagewise-cmorl-2024"
+        ]
+      },
+      {
+        "id": "p1-mujoco-ilqr-2026",
+        "text": "mujoco-ilqr-2026 resolves to 'Whole-Body Model-Predictive Control of Legged Robots with MuJoCo', Zhang et al. (9 authors), v3 March 2026, to appear at ICRA 2026.",
+        "requiredCitationIds": [
+          "mujoco-ilqr-2026"
+        ]
+      },
+      {
+        "id": "p1-lee-2020",
+        "text": "lee-2020 resolves to 'Learning Quadrupedal Locomotion over Challenging Terrain', Lee/Hwangbo/Wellhausen/Koltun/Hutter, Science Robotics 2020 Vol. 5 Issue 47.",
+        "requiredCitationIds": [
+          "lee-2020"
+        ]
+      },
+      {
+        "id": "p1-miki-2022",
+        "text": "miki-2022 resolves to 'Learning robust perceptive locomotion for quadrupedal robots in the wild', Miki et al., Science Robotics Vol. 7 Issue 62, 2022.",
+        "requiredCitationIds": [
+          "miki-2022"
+        ]
+      },
+      {
+        "id": "p1-bd-spot-rl-2024",
+        "text": "bd-spot-rl-2024 resolves to Boston Dynamics' 'Starting on the Right Foot with Reinforcement Learning' blog (2024), corporate byline.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      },
+      {
+        "id": "p1-bd-atlas-lbm-2025",
+        "text": "bd-atlas-lbm-2025 resolves to 'Large Behavior Models and Atlas Find New Footing' (2025), whose Blog Authors line names Cousineau, Kuindersma, Manuelli and Marion as the registry lists.",
+        "requiredCitationIds": [
+          "bd-atlas-lbm-2025"
+        ]
+      },
+      {
+        "id": "p1-gemini-robotics-2-2026",
+        "text": "gemini-robotics-2-2026 resolves to 'Gemini Robotics 2 brings whole body intelligence to robots', Carolina Parada, Google DeepMind, July 30 2026.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "p1-state-of-simulation-2026",
+        "text": "state-of-simulation-2026 resolves to 'The State of Simulation for Physical AI: An Overview', Nu\u00f1ez Cano et al., published July 21 2026.",
+        "requiredCitationIds": [
+          "state-of-simulation-2026"
+        ]
+      },
+      {
+        "id": "p1-newton-manipulation-blog-2026",
+        "text": "newton-manipulation-blog-2026 resolves to 'Newton Adds Contact-Rich Manipulation and Locomotion Capabilities for Industrial Robotics', NVIDIA Technical Blog, Philipp Reist, Miguel Zamora Mora, JC Chang, Rishabh Chadha and Mohammad Mohajerani, 2026-03-16.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reward-design-mpc:23 (ready-source-correction): plan adopted from the frozen packet after full integrator review; originalCellsDigest recomputed over the applied cells. Integrator review: packet plan reviewed in full against the frozen packet; every evidence passage of this record needle-verified by this integrator against the retained source-session corpus (source worker session 052eb068-fda2-4da3-9935-d4769a94310b, 21 fetch log entries all 200) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; see integration lane needle-verification.json. Integrator completion: the packet's 16-part plan predates the row-21 frontmatter endpoint that makes newton-manipulation-blog-2026 canonical for this article, so the 17th identity part was added by this integrator from the same retained corpus (title, five author sections and the printed 2026-03-16 date) to keep the P1 batch exactly equal to the post-correction frontmatter.",
+      "planDigest": "a6663277006901321c946a8b3d67c3d51890263cda148dd50c672b5d7b7e3aa5"
+    },
+    "evidence": [
+      {
+        "partId": "p1-rudin-2021",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://arxiv.org/abs/2109.11978",
+        "supportingPassage": "Title:Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning \u2014 Authors: Nikita Rudin, David Hoeller, Philipp Reist, Marco Hutter \u2014 Comments: CoRL 2021 \u2014 [Submitted on 24 Sep 2021 ... v3 19 Aug 2022]"
+      },
+      {
+        "partId": "p1-legged-gym-repo-2021",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://github.com/leggedrobotics/legged_gym",
+        "supportingPassage": "leggedrobotics/ legged_gym Public \u2014 Isaac Gym Environments for Legged Robots \u2014 This repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym. \u2014 Maintainer: Nikita Rudin \u2014 Affiliation: Robotic Systems Lab, ETH Zurich \u2014 licenses: initial open-source commit ae614c029977157123225f538ecdd3f873e54bd4, 5 years ago Oct 29, 2021"
+      },
+      {
+        "partId": "p1-isaac-lab-2025",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/abs/2511.04831",
+        "supportingPassage": "Title:Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning \u2014 Authors: NVIDIA: Mayank Mittal, Pascal Roth, ... \u2014 View a PDF of the paper ... by NVIDIA: Mayank Mittal and 104 other authors \u2014 [Submitted on 6 Nov 2025]"
+      },
+      {
+        "partId": "p1-openai-rubiks-cube-2019",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/abs/1910.07113",
+        "supportingPassage": "Title:Solving Rubik's Cube with a Robot Hand \u2014 Authors: OpenAI, Ilge Akkaya, Marcin Andrychowicz, ... Wojciech Zaremba, Lei Zhang \u2014 View a PDF of the paper ... by OpenAI and 18 other authors \u2014 [Submitted on 16 Oct 2019]"
+      },
+      {
+        "partId": "p1-eureka-2024",
+        "citationId": "eureka-2024",
+        "sourceUrl": "https://arxiv.org/abs/2310.12931",
+        "supportingPassage": "Title:Eureka: Human-Level Reward Design via Coding Large Language Models \u2014 Authors: Yecheng Jason Ma, William Liang, Guanzhi Wang, ... Linxi Fan, Anima Anandkumar \u2014 Comments: ICLR 2024 \u2014 [Submitted on 19 Oct 2023 (v1), last revised 30 Apr 2024 (this version, v2)]"
+      },
+      {
+        "partId": "p1-rda-2026",
+        "citationId": "rda-2026",
+        "sourceUrl": "https://arxiv.org/abs/2606.01672",
+        "supportingPassage": "Title:RDA: Reward Design Agent for Reinforcement Learning \u2014 Authors: Hojoon Lee, Ajay Subramanian, Ben Abbatematteo, Vijay Veerabadran, Pedro Matias, Karl Ridgeway, Nitin Kamra \u2014 Comments: Accepted to RLC'26 \u2014 [Submitted on 1 Jun 2026]"
+      },
+      {
+        "partId": "p1-rewards-constraints-2024",
+        "citationId": "rewards-constraints-2024",
+        "sourceUrl": "https://arxiv.org/abs/2308.12517",
+        "supportingPassage": "Title:Not Only Rewards But Also Constraints: Applications on Legged Robot Locomotion \u2014 Authors: Yunho Kim, Hyunsik Oh, Jeonghyun Lee, Jinhyeok Choi, Gwanghyeon Ji, Moonkyu Jung, Donghoon Youm, Jemin Hwangbo \u2014 Comments: Accepted to IEEE Transactions on Robotics (T-RO) 2024 \u2014 [v4 20 Jul 2024]"
+      },
+      {
+        "partId": "p1-gain-adaptation-2025",
+        "citationId": "gain-adaptation-2025",
+        "sourceUrl": "https://arxiv.org/abs/2510.10759",
+        "supportingPassage": "Title:Gain Tuning Is Not What You Need: Reward Gain Adaptation for Constrained Locomotion Learning \u2014 Authors: Arthicha Srisuchinnawong, Poramate Manoonpong \u2014 Comments: RSS 2025, compressed version \u2014 Journal reference: Proceedings of Robotics: Science and Systems XXI (2025)"
+      },
+      {
+        "partId": "p1-stagewise-cmorl-2024",
+        "citationId": "stagewise-cmorl-2024",
+        "sourceUrl": "https://arxiv.org/abs/2409.15755",
+        "supportingPassage": "Title:Stage-Wise Reward Shaping for Acrobatic Robots: A Constrained Multi-Objective Reinforcement Learning Approach \u2014 Authors: Dohyeong Kim, Hyeokjin Kwon, Junseok Kim, Gunmin Lee, Songhwai Oh \u2014 [Submitted on 24 Sep 2024]"
+      },
+      {
+        "partId": "p1-mujoco-ilqr-2026",
+        "citationId": "mujoco-ilqr-2026",
+        "sourceUrl": "https://arxiv.org/abs/2503.04613",
+        "supportingPassage": "Title:Whole-Body Model-Predictive Control of Legged Robots with MuJoCo \u2014 Authors: John Z. Zhang, Taylor A. Howell, Zeji Yi, Chaoyi Pan, Guanya Shi, Guannan Qu, Tom Erez, Yuval Tassa, Zachary Manchester \u2014 Comments: to appear at ICRA 2026 \u2014 [v1 6 Mar 2025 ... v3 6 Mar 2026]"
+      },
+      {
+        "partId": "p1-lee-2020",
+        "citationId": "lee-2020",
+        "sourceUrl": "https://arxiv.org/abs/2010.11251",
+        "supportingPassage": "Title:Learning Quadrupedal Locomotion over Challenging Terrain \u2014 Authors: Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter \u2014 Journal reference: Science Robotics 2020 Vol. 5, Issue 47, eabc5986 \u2014 [Submitted on 21 Oct 2020]"
+      },
+      {
+        "partId": "p1-miki-2022",
+        "citationId": "miki-2022",
+        "sourceUrl": "https://arxiv.org/abs/2201.08117",
+        "supportingPassage": "Title:Learning robust perceptive locomotion for quadrupedal robots in the wild \u2014 Authors: Takahiro Miki, Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter \u2014 Journal reference: Science Robotics, 19 Jan 2022, Vol 7, Issue 62"
+      },
+      {
+        "partId": "p1-bd-spot-rl-2024",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "Starting on the Right Foot with Reinforcement Learning | Boston Dynamics \u2014 In order to design control software that can be extended over time ..., we've integrated reinforcement learning into Spot's locomotion control system. (bostondynamics.com blog; page carries no personal byline; 2024-dated assets, e.g. wp-content/uploads/2024/03/)"
+      },
+      {
+        "partId": "p1-bd-atlas-lbm-2025",
+        "citationId": "bd-atlas-lbm-2025",
+        "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+        "supportingPassage": "Large Behavior Models and Atlas Find New Footing | Boston Dynamics \u2014 Boston Dynamics and TRI Research Team \u2014 Blog Authors: Eric Cousineau, Scott Kuindersma, Lucas Manuelli, Pat Marion (2025-dated assets, e.g. wp-content/uploads/2025/08/)"
+      },
+      {
+        "partId": "p1-gemini-robotics-2-2026",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "July 30, 2026 Models \u2014 Gemini Robotics 2 brings whole body intelligence to robots \u2014 Carolina Parada"
+      },
+      {
+        "partId": "p1-state-of-simulation-2026",
+        "citationId": "state-of-simulation-2026",
+        "sourceUrl": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+        "supportingPassage": "The State of Simulation for Physical AI: An Overview \u2014 Published July 21, 2026 \u2014 Johnny Nu\u00f1ez Cano, Mitesh Patel, Asier Arranz, lior ben horin, Raymond Lo, Rishabh Chadha (+NVIDIA)"
+      },
+      {
+        "partId": "p1-newton-manipulation-blog-2026",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Newton Adds Contact-Rich Manipulation and Locomotion Capabilities for Industrial Robotics \u2014 NVIDIA Technical Blog \u2014 About the Authors: About Philipp Reist (director of simulation technology at NVIDIA), About Miguel Zamora Mora, About JC Chang, About Rishabh Chadha, About Mohammad Mohajerani \u2014 2026-03-16 (semicolon-joined verbatim title, author-section headings and printed date from the fetched page)"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "p1-rudin-2021",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-rudin-2021 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "32a9b5a02d4fce4e0847869e748959d2e894d6ad75b920baf801e1adca11e4af"
+      },
+      {
+        "partId": "p1-legged-gym-repo-2021",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-legged-gym-repo-2021 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "01b489a63091a4e09045d9646bea3469bfc37f34e58f9db8b0ef243454576a07"
+      },
+      {
+        "partId": "p1-isaac-lab-2025",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-isaac-lab-2025 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "3af2d579bd06bd15186df4099d40c3b664b3bebe16d288c10df57d93e1543341"
+      },
+      {
+        "partId": "p1-openai-rubiks-cube-2019",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-openai-rubiks-cube-2019 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "68939f0d06d4a911f6fc79d3aae638942431ec7f74a28fbab8e9143454f62d9e"
+      },
+      {
+        "partId": "p1-eureka-2024",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-eureka-2024 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "e5a3c386511beac02ec8dff155fc81350518cf4c813950d291900c01c2fba56a"
+      },
+      {
+        "partId": "p1-rda-2026",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-rda-2026 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "eede0018e4a02b2e1b5e030ad55cd05368e7b980fa2154eea1028adb49c6d2d3"
+      },
+      {
+        "partId": "p1-rewards-constraints-2024",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-rewards-constraints-2024 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "410593534b53e48d07f550fb17fdd72e560c4a653d6414b2d60ea91a34fc0410"
+      },
+      {
+        "partId": "p1-gain-adaptation-2025",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-gain-adaptation-2025 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "cc8b7054aca0cdf3c6391bfea4f29730a1bc828deca828405f6da92f02ac7c5f"
+      },
+      {
+        "partId": "p1-stagewise-cmorl-2024",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-stagewise-cmorl-2024 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "76688d85cb5b8228311511be69b452c5974f893a6dcc23aeb99b24ec23f99812"
+      },
+      {
+        "partId": "p1-mujoco-ilqr-2026",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-mujoco-ilqr-2026 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "c5281b1267a6879842d051c70fcdea883ce2f1c5a119dd812d2fa2129185954e"
+      },
+      {
+        "partId": "p1-lee-2020",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-lee-2020 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "8b77114c6d2dea9fd6b55d68320b544573fc5e36f3f21a69178c05be3fe40f15"
+      },
+      {
+        "partId": "p1-miki-2022",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-miki-2022 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "5eb27f99db21f7e9ff0189c12a2ad5b0c2c5a090e6509bc68a1b730f8bebabf1"
+      },
+      {
+        "partId": "p1-bd-spot-rl-2024",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-bd-spot-rl-2024 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "a3d2cddf4ed2ddfe2178d783db65c170e956ad2fba56d3eb9074995e810b1c08"
+      },
+      {
+        "partId": "p1-bd-atlas-lbm-2025",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-bd-atlas-lbm-2025 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "40ea81b3529f910b8788018e59348c5a03eb074ba306975fcbe9d57e3c00acd0"
+      },
+      {
+        "partId": "p1-gemini-robotics-2-2026",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-gemini-robotics-2-2026 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "a7267a6897bd1514d3ad889cc530af6fdc98d10285319a99407b624f90a2d8f3"
+      },
+      {
+        "partId": "p1-state-of-simulation-2026",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-state-of-simulation-2026 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "b7fd17cac8b4a44736b2b5c331f96126f6c06a0fc4bab10b6da9d8078b66b9b6"
+      },
+      {
+        "partId": "p1-newton-manipulation-blog-2026",
+        "outcome": "supported",
+        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part p1-newton-manipulation-blog-2026 (record audit/rl-sim2real.md:reward-design-mpc:23): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "49c404feff3339cc725dde4463cd17907713ca0554b06be695238e33c896bfbc"
+      }
+    ]
   }
 ]
