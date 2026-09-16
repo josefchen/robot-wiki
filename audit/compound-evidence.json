@@ -68964,6 +68964,65 @@
     "evidenceDigest": "182be927a980445acc0642548430548b180ee9e947b19dbdd343c552fd267727"
    }
   ]
+ },
+ {
+  "id": "legged-locomotion-8-duty-factor-disclaimer-20260916i",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "legged-locomotion",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "100f787b1aa8c18b7b9e21c822c4868c3a9888b38737b3d235ef6bcb3bf9025f",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "l8-classical-instance",
+    "text": "Park et al. 2017 supply the classical INSTANCE of speed-dependent duty-cycle modulation: Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling', stance time T_st = L/v_d scales inversely with speed with fixed swing duration, and §7 uses speed-dependent stride length below 3 m/s. This is one controller's schedule, not a universal statement about all classical controllers.",
+    "requiredCitationIds": [
+     "park-2017-bounding"
+    ]
+   },
+   {
+    "id": "l8-authored-values-local-AND",
+    "text": "LOCAL-AND: the disclaimer's 'canonical nominal values' are the authored constants in lib/gait.ts (walk 0.75, trot 0.50, bound 0.45, pronk 0.35 with the listed phase offsets; DEFAULT_GAIT walk; GAIT_ORDER walk/trot/bound/pronk), rendered by components/interactive/gait-diagram.tsx and mounted at legged-locomotion.mdx line 35; the corrected sentence scopes them as authored nominal values. The 'learned alike' clause stays the article's framing over the air-time reward discussion (Rudin Table 2 includes feet air time), not a Park attribution. The integrator must re-run this local proof at apply time.",
+    "requiredCitationIds": [
+     "park-2017-bounding"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 1da30453-1006-48e0-8a96-1a4bb8f54184; retained row-7 re-confirmation + packet needle verification + local-AND proof 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 d80e6e2cf65a50321968b408ec66ece06d165a492331d2ae9cdd763c76871f37) at HEAD cc09291a: row binding (audit/rl-sim2real.md:legged-locomotion:8), ordinal and currentTupleDigest 8de21bc7399f995bfc18fabc2e0fa4ad9f7d79f112f7e3b5ac81ba5f8601f8a8 re-derived with the repo lib/audit-ledger.ts parser and matched against the live ledger row immediately before application (parent row-dispatch preflight exit 0, mode current-head-identity-check). Classical conjunct: the retained, applied row-7 plan locomotion-park7-20260915-legged-locomotion-7 was re-confirmed read-only at this apply HEAD in audit/compound-evidence.json (Sec. 4.3 title \"Duty cycle modulation via vertical impulse scaling\", T_st = L/v_d with fixed swing duration, the 3 m/s stride-length schedule bound; same citation id park-2017-bounding and same registered URL), and the packet passage l8-park-classical-instance was needle-verified against that record; the live URL answered 403 to the preparer re-probe (2026-09-16T14:29:07Z, sha256 5b5e17bd…, saved body byte-verified), so the retained material is preserved provenance, not a fresh fetch. Local conjunct: re-executed by this integrator at apply time — lib/gait.ts GAITS authored constants (walk 0.75 lh 0/lf 0.25/rh 0.5/rf 0.75; trot 0.5 lf+rh 0, rf+lh 0.5; bound 0.45 front 0/hind 0.5; pronk 0.35 all 0), GAIT_ORDER walk/trot/bound/pronk, DEFAULT_GAIT walk, the module-header canonical-pattern framing, gait-diagram.tsx duty-readout rendering GAITS[].dutyFactor, and the article mount (line 35) plus the disclaimer sentence (line 64) carrying <Cite id=\"park-2017-bounding\" /> on the span. Citation park-2017-bounding verified registered in data/citations.ts and reused read-only; no new registrations. Rows 1, 6, 17 and 18 stay honestly HELD (paywalled Choi primaries x2; authored-toy schema family; stale frontmatter-P1 claim cell). Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "6761fb1c5b36db30f6f1ddd9173c18b681d0edbd934c0df1d4c73dab0a51f333"
+  },
+  "evidence": [
+   {
+    "partId": "l8-classical-instance",
+    "citationId": "park-2017-bounding",
+    "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+    "supportingPassage": "Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling'; stance time T_st = L/v_d scales inversely with speed; fixed swing duration vs stride-length growth; Park §7 uses speed-dependent stride length below 3 m/s."
+   },
+   {
+    "partId": "l8-authored-values-local-AND",
+    "citationId": "park-2017-bounding",
+    "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+    "supportingPassage": "Park-side instance as above (retained). The authored duty factors and phase offsets are LOCAL facts read at HEAD cc09291a: lib/gait.ts GAITS (walk 0.75 / trot 0.5 / bound 0.45 / pronk 0.35), consumed by components/interactive/gait-diagram.tsx; article mount line 35, disclaimer sentence line 64 with <Cite id=\"park-2017-bounding\" /> on the span."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "l8-classical-instance",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 1da30453-1006-48e0-8a96-1a4bb8f54184; retained row-7 re-confirmation + packet needle verification + local-AND proof 2026-09-16",
+    "rationale": "Needle-verified against the packet passage l8-park-classical-instance and re-confirmed read-only against the retained applied row-7 plan at this apply HEAD before adjudication: Park Sec. 4.3 is literally titled \"Duty cycle modulation via vertical impulse scaling\", stance time T_st = L/v_d scales inversely with speed with fixed swing duration, and the Sec. 7 experimental schedule uses speed-dependent stride length below 3 m/s — ONE classical controller's schedule, so the corrected note keeps Park to the single-controller instance and the universal \"classical and learned alike\" clause of the audited sentence is recorded as the article's framing, not a Park attribution.",
+    "evidenceDigest": "3ee676c6190a5f185e74e375b406f656326ee1003c6d0e1340b2548e7801222c"
+   },
+   {
+    "partId": "l8-authored-values-local-AND",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 1da30453-1006-48e0-8a96-1a4bb8f54184; retained row-7 re-confirmation + packet needle verification + local-AND proof 2026-09-16",
+    "rationale": "Local proof re-executed by this integrator at apply time (read-only, no network evidence exists or is claimed for the authored constants): lib/gait.ts GAITS defines the four duty factors and phase offsets exactly as the part states (walk 0.75 lh 0/lf 0.25/rh 0.5/rf 0.75; trot 0.5 diagonal pairs; bound 0.45 front/hind pairs; pronk 0.35 all-zero offsets) with GAIT_ORDER walk/trot/bound/pronk and DEFAULT_GAIT walk; components/interactive/gait-diagram.tsx renders GAITS[].dutyFactor as the duty-readout; the article mounts the diagram at line 35 and the audited disclaimer sentence at line 64 carries <Cite id=\"park-2017-bounding\" /> on the span, which is the citation the part reuses. The corrected verdict scopes \"canonical nominal values\" to these authored repo constants per the legacy packet's adjudicated proposal (record 3, 2026-09-08), re-verified locally here.",
+    "evidenceDigest": "2c589fd6d8ea9195a12aac2139d8665c157f84b38f630dcead1e2c59de139bad"
+   }
+  ]
  }
 
 ]

@@ -16169,6 +16169,23 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "legged-locomotion-r8-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/legged-locomotion",
+   "oldHash": "cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858",
+   "newHash": "cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858",
+   "reason": "Exactly rl-sim2real/legged-locomotion original 8 (duty-factor disclaimer row: standing verified verdict corrected to **corrected**, with the source cell scoped to the registered park-2017-bounding URL and the retained row-7 classical-instance facts plus the local-AND lib/gait.ts authored constants) per the frozen packet convergence-source-u-legged-locomotion-20260916i. The packet passage and the retained row-7 Park material were needle-verified by this integrator against the sha256-verified records before adjudication, and the local proof (GAITS constants, duty-readout wiring, article mount and disclaimer span) was re-executed at apply HEAD (checks enumerated in the lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-legged-locomotion-integration-20260916i. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 1 selected record of frozen packet convergence-source-u-legged-locomotion-20260916i, sha256 d80e6e2cf65a50321968b408ec66ece06d165a492331d2ae9cdd763c76871f37) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]
