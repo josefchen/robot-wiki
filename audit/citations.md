@@ -371,6 +371,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | vjepa-2024 | https://arxiv.org/abs/2404.08471 | ok | match | none (verified as cited) |  |
 | jepa-value-planning-2026 | https://arxiv.org/abs/2601.00844 | ok | match | none (verified as cited) |  |
 | ami-labs-2026 | https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/ | ok | match | none (verified as cited) |  |
+| ami-labs-founding-2026 | https://techcrunch.com/2026/01/23/whos-behind-ami-labs-yann-lecuns-world-model-startup/ | ok | match | none (registered 2026-09-16 by the jepa integrator; first audited 2026-09-16) | REQUIRED registration per frozen packet convergence-source-x-jepa-20260916j record 1 (jepa row 9 part j9-ami-expansion). January piece fetched live in the packet session (curl GET 200, 240,641 bytes, sha256 9b81d9b2…, retained sha-verified in the source lane); title, byline Anna Heim and dateline 4:04 PM PST · January 23, 2026 needle-verified by this zero-retrieval integrator against the retained body before registering. Fetch-of-record provenance, not a fresh liveness probe. |
 | cosmos-3-2026 | https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf | ok | match (pdf) | none (verified as cited) |  |
 | cosmos-policy-2026 | https://arxiv.org/abs/2601.16163 | ok | match | none (first audited 2026-09-06) |  |
 | genie-3-2025 | https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/ | ok | match | none (verified as cited) |  |

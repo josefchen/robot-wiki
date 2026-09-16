@@ -3641,6 +3641,27 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
+    // REQUIRED registration per frozen packet
+    // convergence-source-x-jepa-20260916j record 1 (jepa row 9 part
+    // j9-ami-expansion: the only TechCrunch print that AMI 'stands for
+    // Advanced Machine Intelligence'). Fetched live by the packet's
+    // source session (curl GET 200, 2026-09-16T15:18:58Z, 240,641 bytes,
+    // retained sha-verified at
+    // convergence-source-x-jepa-20260916j/sources/tc-20260123.html);
+    // title, byline Anna Heim and dateline 4:04 PM PST - January 23, 2026
+    // needle-verified by this zero-retrieval integrator against the
+    // retained body before registering. The March raise piece stays on
+    // ami-labs-2026; the January piece prints the CEO as 'Alex LeBrun'
+    // (the March form is 'Alexandre'), recorded in the jepa row-9 note.
+    id: 'ami-labs-founding-2026',
+    title: "Who's behind AMI Labs, Yann LeCun's 'world model' startup",
+    authors: ['Anna Heim'],
+    year: 2026,
+    venue: 'TechCrunch',
+    url: 'https://techcrunch.com/2026/01/23/whos-behind-ami-labs-yann-lecuns-world-model-startup/',
+    type: 'press',
+  },
+  {
     // NVIDIA newsroom launch release for Cosmos 3, registered by the
     // generative-video integrator for the launch dateline only. Fetched
     // live by the frozen packet's source session (curl GET 200, 2026-09-16,
