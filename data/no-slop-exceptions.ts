@@ -179,4 +179,39 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
       'IEC webstore publication 26037 answered HTTP 200 on 2026-08-22 with this document title, dashes included, matching the registry entry.',
     verifiedOn: '2026-08-22',
   },
+
+  /* ------------------------------------------------------------------ *
+   * Verbatim source titles surfaced by audit integrations (2026-09-16).
+   * Each entry is the cited document's OWN title or venue string as the
+   * registry recorded it during source verification; the dash is the
+   * publisher's punctuation, not our prose, and titles are never reworded.
+   * ------------------------------------------------------------------ */
+  {
+    id: 'orb-slam3-2021',
+    quote:
+      'ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM',
+    reason:
+      "Published title of the IEEE T-RO paper, rendered verbatim in the scene-representation module's References entry. The en dash in 'Visual–Inertial' is the journal's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'The citation registry records IEEE DOI landing metadata fetched via FetchUrl on 2026-09-14 for doi:10.1109/TRO.2021.3075644, which returns the title with U+2013 in "Visual–Inertial" exactly where this entry has it.',
+    verifiedOn: '2026-09-16',
+  },
+  {
+    id: 'hinterstoisser-2012',
+    quote: 'Computer Vision – ACCV 2012',
+    reason:
+      "The LNCS volume's own title as Crossref prints it, rendered verbatim inside the hinterstoisser-2012 References venue string in the perception module. The en dash is Springer's title punctuation, not our prose; venue titles are never reworded.",
+    verifiedBy:
+      'The citation registry records a Crossref field projection read 2026-09-06 for doi:10.1007/978-3-642-37331-2_42 naming container "Computer Vision – ACCV 2012" (print year 2013), with the en dash where this entry has it.',
+    verifiedOn: '2026-09-16',
+  },
+  {
+    id: 'ifr-world-robotics-2025',
+    quote: 'World Robotics 2025 – Industrial Robots',
+    reason:
+      "The report's own title as IFR prints it on the hosted executive summary, rendered verbatim in the industrial-deployment module's References entry. The en dash is IFR's title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "The citation registry records the IFR-hosted public executive-summary extract at ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf under this exact title; the stored title matches the document's own cover naming.",
+    verifiedOn: '2026-09-16',
+  },
 ];

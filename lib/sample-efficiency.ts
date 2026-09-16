@@ -253,7 +253,7 @@ export const ANCHORS: readonly Anchor[] = [
   {
     id: 'hand-eye',
     seconds: 2 * 30 * 24 * 3600,
-    label: 'About 800k attempts, 6–14 robots, two months',
+    label: 'About 800k attempts, 6-14 robots, two months',
     citation: 'levine-hand-eye-2016',
   },
 ];

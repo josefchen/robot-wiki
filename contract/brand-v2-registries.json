@@ -1602,7 +1602,7 @@
       "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/pi-line/",
       "title": "The Pi Line",
-      "description": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and where open weights stop.",
+      "description": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/manipulation/pi-line/",
@@ -1621,7 +1621,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "00a58cab22535e6079072c07f07dbc8e3c497dce355d7aabb832216ff8cf9907"
+      "fingerprint": "80ec8a1e1f3ad4e46eea720f7215cbea3d1f61780c407aabe4d2c99a44c8fe2a"
     },
     {
       "id": "metadata:/manipulation/realtime-execution/",
@@ -2176,7 +2176,7 @@
       "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/world-models/taxonomy/",
       "title": "What Is a World Model?",
-      "description": "Six paradigms share one name: latent dynamics, decoder-free latent, generative video, JEPA, unified world-action, and symbolic.",
+      "description": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/world-models/taxonomy/",
@@ -2195,7 +2195,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "318e78917407fc55e7886f5acf9075d03619d45be776a1dd5a7efe68ad9d6203"
+      "fingerprint": "57d331a873d686cc00c0e526a72dc8470d8f32ac5dfb2aa5cfaa3103234e234e"
     },
     {
       "id": "metadata:/404/",
@@ -3415,9 +3415,9 @@
       "category": "editorial-image",
       "ownershipId": "image:temporal-ensembling",
       "sourceRegistryId": "temporal-ensembling",
-      "byteHash": "8f614edd4d3c99bc0a3e15c9b259b8b30a3d6475b87df8914693717e3bb55296",
-      "semanticHash": "1e5c607dd67c845fb6322919ef079487d2af2b74bac1578f282acba7a7fb46d5",
-      "fingerprint": "eca83a77749c021e27281337b3ab7cdfb529ee8ba049bb615687f8a2d9f0053f"
+      "byteHash": "fc9e74e11fd90cd5f07883d796f89f8ce8554de807d74ac44242144cfe8f4645",
+      "semanticHash": "95af9be7687bf5c887fe8e1aeaad83df63b309bb9b3419574a5d5c595fbc9449",
+      "fingerprint": "5d54dfdafa4602f7510854a9d61851d7a2a4f1677dc114f940861748a3c09845"
     },
     {
       "id": "asset:models/so101/assets/base_motor_holder_so101_v1.glb",
@@ -4109,9 +4109,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-witness",
@@ -4125,7 +4125,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "3701a889b6f2419b9a6769b2e7395f0569f604abf4e7e574252a433cb9801160"
+        "fingerprint": "8bfa8501665031b88690e484a86890e7fc09ebeac578b8ab8cb49782b6323afa"
       },
       {
         "id": "interactive:CompoundingError",
@@ -4356,9 +4356,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -4367,7 +4367,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "7d2e4d9e6e2028e486a72a088094af7803dd15c3b6077c9218c2e771c0bfd292"
+        "fingerprint": "28fb118a2d8ed7373e7c40cff4db01cc812cdce915e0d2bdc78d95a11c4de669"
       },
       {
         "id": "interactive:DataScaleChart",
@@ -5048,13 +5048,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
+            "id": "unavailable-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented unavailable witness"
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f2ad9946249fc56bab6d25155defc23689f71744f851e15b34a9b327493b2158"
+        "fingerprint": "49bbb9f700e4ea0a5482ccfda8ab640966d162d8fa36c5c7e5e7e3d6063a16b8"
       },
       {
         "id": "interactive:GraspWrenchLab",
@@ -6005,13 +6005,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
+            "id": "unavailable-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented unavailable witness"
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "714e290fa21e88a44794a4348b378b2b1a5de6db9a9f2e616576fca52f1b9ac3"
+        "fingerprint": "936348865e9160f5c318bf602478553ad06472ca49f4a8104d995a24a3af0d10"
       },
       {
         "id": "interactive:PlanarFkArm",
@@ -6346,13 +6346,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "e1d8206dea082bf618505ccb76bed5f7586b107ff43fc1c548d660fb1b7733d3"
+        "fingerprint": "3a1a4494e8ef8237b779f9c57ead1166147ad37bf623aca081169b5c03850134"
       },
       {
         "id": "interactive:SceneRepresentationLadder",
@@ -8839,9 +8839,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-witness",
@@ -8855,7 +8855,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d8ff6947b13b344915b7b7d3bf7d47c474e98972ea0566e90ff13a04d1493f2e"
+        "fingerprint": "a8b942306f75aa284c0456260b981dac302015ae45f8eae77bd36f6811cb42fd"
       },
       {
         "id": "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
@@ -8903,9 +8903,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -8914,7 +8914,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "562a2ea4d247bcfc8701baefc9e10a44de2c15f893d5a29a4411f5fec17cde52"
+        "fingerprint": "d0b83a85528e057be46477b0a14dd473414da476b5279718aa8456980b7593a6"
       },
       {
         "id": "mount:/manipulation/diffusion-policy/:DenoisingLoop:1",
@@ -9085,13 +9085,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
+            "id": "unavailable-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented unavailable witness"
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "4996a9f4ff005f510a6cdcd7b5c47da67ac10f85ae54ad2ef83a3b5fe2f64615"
+        "fingerprint": "175d63ffccb48cc0347cd7358fdde39e938911c72d95f366eab8f4f2ee5f2fac"
       },
       {
         "id": "mount:/manipulation/hierarchical/:HierarchyTimescales:1",
@@ -9354,13 +9354,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
+            "id": "unavailable-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented unavailable witness"
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "ed26cb9ec2424fabcb99c92e158589b5d07b22f9e01522b30a8c11e9dea631d4"
+        "fingerprint": "dfa37a1fbfdadd16448846835824cdcf5d000e0e362772cf561174569394a93f"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
@@ -10119,13 +10119,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "01ee0118515730ae6d40066a37af848c5e7030f588f03486b76fbc6dca39e0cc"
+        "fingerprint": "b9b0bf13cd3dec7c04f1c56c74e3a8461ecd81beb744a4f3f36e85747583c735"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
@@ -11690,6 +11690,7 @@
         "components/article/breadcrumbs.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/references.tsx",
+        "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
@@ -11727,6 +11728,7 @@
         "components/article/breadcrumbs.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/references.tsx",
+        "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
@@ -11771,7 +11773,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "e3e36b724d40bad82726d345425602d59951eb12d47e58a2cfc13d18b74412d8"
+      "fingerprint": "7af6921608fa0cbc1c44ee4e461099b5d75816f4d3ac9a5bfa1d0ff26f92d10a"
     },
     {
       "id": "control:segmented",
@@ -11977,5 +11979,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "119a565661fce64f8fec43b9e2a561411a145aae3028afc74c349fd8150017d9"
+  "rootFingerprint": "107ef65e0960d4b8304c490074cad5a391d9e48cfd4b1ab0e98b75e188b9d6d6"
 }
