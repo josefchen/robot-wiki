@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "13c596837965d682b492c174307ef9d5f652af73d463c8a5b90cf9feafeb48ca",
+  "fingerprint": "55d4aff1aa881fa0fe2bcf48eb495ee0b5a42b0776e1f11ad1d87a68f6f87d4e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1869,7 +1869,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17714,
+      "visibleTextLength": 17766,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1937,11 +1937,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 12,
-        "citationCount": 7,
+        "citationCount": 8,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "12 min",
-        "citationCountText": "7",
+        "citationCountText": "8",
         "bibliographyIds": [
           "high-speed-flight-2021",
           "swift-drone-racing-2023",
@@ -1949,7 +1949,8 @@
           "falanga-latency-2019",
           "micro-drone-swarm-2022",
           "soria-nmpc-swarm-2021",
-          "vasarhelyi-flocking-2018"
+          "vasarhelyi-flocking-2018",
+          "reynolds-boids-1987"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -2283,7 +2284,7 @@
         },
         {
           "kind": "reference",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -2293,7 +2294,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -2305,7 +2306,7 @@
         },
         {
           "kind": "citation",
-          "count": 50,
+          "count": 52,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -2315,7 +2316,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 50,
+              "count": 52,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -2548,7 +2549,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18077,
+      "visibleTextLength": 18087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47856,7 +47857,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18226,
+      "visibleTextLength": 19389,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47924,19 +47925,24 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 11,
-        "citationCount": 10,
+        "citationCount": 15,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "11 min",
-        "citationCountText": "10",
+        "citationCountText": "15",
         "bibliographyIds": [
           "cosmos-3-2026",
+          "nvidia-cosmos-3-launch-2026",
+          "genie-1-2024",
+          "genie-2-2024",
           "genie-3-2025",
           "project-genie-2026",
           "gr-1-2023",
           "gr-2-2024",
           "1x-world-model-lab-2026",
           "odyssey-2-2025",
+          "odyssey-starchild-1-2026",
+          "odyssey-agora-1-2026",
           "interactive-world-simulator-2026",
           "roboworld-2026",
           "world-model-survey-2026"
@@ -48336,7 +48342,7 @@
         },
         {
           "kind": "reference",
-          "count": 10,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -48346,7 +48352,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48358,7 +48364,7 @@
         },
         {
           "kind": "citation",
-          "count": 44,
+          "count": 52,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -48368,7 +48374,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 52,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48609,6 +48615,22 @@
         {
           "tag": "button",
           "text": "Show all 295 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 25 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 32 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -54240,7 +54262,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18032,
+      "visibleTextLength": 18084,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54308,11 +54330,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 12,
-        "citationCount": 7,
+        "citationCount": 8,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "12 min",
-        "citationCountText": "7",
+        "citationCountText": "8",
         "bibliographyIds": [
           "high-speed-flight-2021",
           "swift-drone-racing-2023",
@@ -54320,7 +54342,8 @@
           "falanga-latency-2019",
           "micro-drone-swarm-2022",
           "soria-nmpc-swarm-2021",
-          "vasarhelyi-flocking-2018"
+          "vasarhelyi-flocking-2018",
+          "reynolds-boids-1987"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -54654,7 +54677,7 @@
         },
         {
           "kind": "reference",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -54664,7 +54687,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54676,7 +54699,7 @@
         },
         {
           "kind": "citation",
-          "count": 50,
+          "count": 52,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -54686,7 +54709,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 50,
+              "count": 52,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54919,7 +54942,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18395,
+      "visibleTextLength": 18405,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100227,7 +100250,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18710,
+      "visibleTextLength": 19873,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100295,19 +100318,24 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 11,
-        "citationCount": 10,
+        "citationCount": 15,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "11 min",
-        "citationCountText": "10",
+        "citationCountText": "15",
         "bibliographyIds": [
           "cosmos-3-2026",
+          "nvidia-cosmos-3-launch-2026",
+          "genie-1-2024",
+          "genie-2-2024",
           "genie-3-2025",
           "project-genie-2026",
           "gr-1-2023",
           "gr-2-2024",
           "1x-world-model-lab-2026",
           "odyssey-2-2025",
+          "odyssey-starchild-1-2026",
+          "odyssey-agora-1-2026",
           "interactive-world-simulator-2026",
           "roboworld-2026",
           "world-model-survey-2026"
@@ -100707,7 +100735,7 @@
         },
         {
           "kind": "reference",
-          "count": 10,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100717,7 +100745,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100729,7 +100757,7 @@
         },
         {
           "kind": "citation",
-          "count": 44,
+          "count": 52,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100739,7 +100767,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 52,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100980,6 +101008,22 @@
         {
           "tag": "button",
           "text": "Show all 295 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 25 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 32 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,

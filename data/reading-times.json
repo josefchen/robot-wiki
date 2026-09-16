@@ -100,7 +100,7 @@
     "minutes": 9
   },
   "world-models/generative-video": {
-    "words": 2176,
+    "words": 2199,
     "minutes": 11
   },
   "world-models/jepa": {
@@ -216,7 +216,7 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2360,
+    "words": 2330,
     "minutes": 12
   },
   "adjacent/surgical": {
@@ -224,7 +224,7 @@
     "minutes": 10
   },
   "adjacent/space": {
-    "words": 2189,
+    "words": 2190,
     "minutes": 11
   }
 }

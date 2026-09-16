@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d4e482e2067389b112c1a2ea208a30f2a09d6f32dd2304c4e82ad46c7068d9a1",
+  "fingerprint": "e8f666c29884f88cd1b42b3eb551670fd04f476f2bce7dc59111c60072337fa4",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -760,7 +760,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18032,
+      "visibleTextLength": 18084,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -887,7 +887,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18395,
+      "visibleTextLength": 18405,
       "route": "/adjacent/space/",
       "viewport": "1440x900"
     },
@@ -8761,7 +8761,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18710,
+      "visibleTextLength": 19873,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -10077,7 +10077,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17714,
+      "visibleTextLength": 17766,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -10204,7 +10204,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18077,
+      "visibleTextLength": 18087,
       "route": "/adjacent/space/",
       "viewport": "375x812"
     },
@@ -18078,7 +18078,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18226,
+      "visibleTextLength": 19389,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },

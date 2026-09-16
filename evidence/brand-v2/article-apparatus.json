@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "bee3166f7baca7f4ba74a7d017b102969055348ab529b058ba1ec7de6a3cbedb",
+  "fingerprint": "439997b77e45f482ccbab40756ef8bf1235a1ea6cf43d0f76e0232bfebac40dd",
   "viewports": [
     "375x812",
     "1440x900"
@@ -106,7 +106,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/autonomous-vehicles/",
+          "href": "http://localhost:43401/adjacent/autonomous-vehicles/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -1119,7 +1119,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 17714,
+      "visibleTextLength": 17766,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -1157,13 +1157,13 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/drones/",
+          "href": "http://localhost:43401/adjacent/drones/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 98,
+      "focusableCount": 101,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -1246,6 +1246,18 @@
             "index": 6,
             "sourceHref": "https://www.science.org/doi/10.1126/scirobotics.aat3536",
             "title": "Optimized flocking of autonomous drones in confined environments",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "reynolds-boids-1987",
+            "index": 7,
+            "sourceHref": "https://www.red3d.com/cwr/boids/",
+            "title": "Flocks, Herds and Schools: A Distributed Behavioral Model",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -1443,6 +1455,16 @@
           "inProse": true
         },
         {
+          "id": "reynolds-boids-1987",
+          "label": "Reynolds 1987",
+          "href": "https://www.red3d.com/cwr/boids/",
+          "opensExternally": true,
+          "tooltipText": "Flocks, Herds and Schools: A Distributed Behavioral ModelCraig W. Reynolds, Computer Graphics (SIGGRAPH '87) 21, pages 25-43 as printed by the fetched Soria reference list; ACM DL machine-walled so canonical pages unconfirmed, 1987",
+          "describedByResolves": true,
+          "referenceHref": "#ref-reynolds-boids-1987",
+          "inProse": true
+        },
+        {
           "id": "vasarhelyi-flocking-2018",
           "label": "Vásárhelyi 2018",
           "href": "https://www.science.org/doi/10.1126/scirobotics.aat3536",
@@ -1574,28 +1596,6 @@
           "section": "see-also",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "documentOrder": 78,
-          "tabStop": 78,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/rl-sim2real/why-rl-locomotion/",
-          "text": "Why RL Won Locomotion but Not Manipulation",
-          "documentOrder": 79,
-          "tabStop": 79,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/rl-sim2real/legged-locomotion/",
-          "text": "Legged Locomotion Lineage",
           "documentOrder": 80,
           "tabStop": 80,
           "tabPresses": 100,
@@ -1605,10 +1605,32 @@
         },
         {
           "section": "see-also",
-          "href": "/classical/state-estimation/",
-          "text": "State Estimation",
+          "href": "/rl-sim2real/why-rl-locomotion/",
+          "text": "Why RL Won Locomotion but Not Manipulation",
           "documentOrder": 81,
           "tabStop": 81,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
+          "href": "/rl-sim2real/legged-locomotion/",
+          "text": "Legged Locomotion Lineage",
+          "documentOrder": 82,
+          "tabStop": 82,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
+          "href": "/classical/state-estimation/",
+          "text": "State Estimation",
+          "documentOrder": 83,
+          "tabStop": 83,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -1618,8 +1640,8 @@
           "section": "linked-from",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "documentOrder": 82,
-          "tabStop": 82,
+          "documentOrder": 84,
+          "tabStop": 84,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -1629,28 +1651,6 @@
           "section": "linked-from",
           "href": "/adjacent/surgical/",
           "text": "Surgical Robotics",
-          "documentOrder": 83,
-          "tabStop": 83,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://arxiv.org/abs/2110.05113",
-          "text": "Learning High-Speed Flight in the Wild",
-          "documentOrder": 84,
-          "tabStop": 84,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://www.nature.com/articles/s41586-023-06419-4",
-          "text": "Champion-level drone racing using deep reinforcement learning",
           "documentOrder": 85,
           "tabStop": 85,
           "tabPresses": 100,
@@ -1660,8 +1660,8 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2310.10943",
-          "text": "Reaching the Limit in Autonomous Racing: Optimal Control versus Reinforcement Learning",
+          "href": "https://arxiv.org/abs/2110.05113",
+          "text": "Learning High-Speed Flight in the Wild",
           "documentOrder": 86,
           "tabStop": 86,
           "tabPresses": 100,
@@ -1671,8 +1671,8 @@
         },
         {
           "section": "references",
-          "href": "https://doi.org/10.1109/LRA.2019.2898117",
-          "text": "How Fast Is Too Fast? The Role of Perception Latency in High-Speed Sense and Avoid",
+          "href": "https://www.nature.com/articles/s41586-023-06419-4",
+          "text": "Champion-level drone racing using deep reinforcement learning",
           "documentOrder": 87,
           "tabStop": 87,
           "tabPresses": 100,
@@ -1682,8 +1682,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.science.org/doi/10.1126/scirobotics.abm5954",
-          "text": "Swarm of micro flying robots in the wild",
+          "href": "https://arxiv.org/abs/2310.10943",
+          "text": "Reaching the Limit in Autonomous Racing: Optimal Control versus Reinforcement Learning",
           "documentOrder": 88,
           "tabStop": 88,
           "tabPresses": 100,
@@ -1693,8 +1693,19 @@
         },
         {
           "section": "references",
-          "href": "https://www.nature.com/articles/s42256-021-00341-y",
-          "text": "Predictive control of aerial swarms in cluttered environments",
+          "href": "https://doi.org/10.1109/LRA.2019.2898117",
+          "text": "How Fast Is Too Fast? The Role of Perception Latency in High-Speed Sense and Avoid",
+          "documentOrder": 89,
+          "tabStop": 89,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://www.science.org/doi/10.1126/scirobotics.abm5954",
+          "text": "Swarm of micro flying robots in the wild",
           "documentOrder": 90,
           "tabStop": 90,
           "tabPresses": 100,
@@ -1704,10 +1715,32 @@
         },
         {
           "section": "references",
+          "href": "https://www.nature.com/articles/s42256-021-00341-y",
+          "text": "Predictive control of aerial swarms in cluttered environments",
+          "documentOrder": 92,
+          "tabStop": 92,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
           "href": "https://www.science.org/doi/10.1126/scirobotics.aat3536",
           "text": "Optimized flocking of autonomous drones in confined environments",
-          "documentOrder": 91,
-          "tabStop": 91,
+          "documentOrder": 93,
+          "tabStop": 93,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://www.red3d.com/cwr/boids/",
+          "text": "Flocks, Herds and Schools: A Distributed Behavioral Model",
+          "documentOrder": 94,
+          "tabStop": 94,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -1720,7 +1753,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 18077,
+      "visibleTextLength": 18087,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -1758,7 +1791,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/space/",
+          "href": "http://localhost:43401/adjacent/space/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -2519,7 +2552,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/surgical/",
+          "href": "http://localhost:43401/adjacent/surgical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -3127,7 +3160,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/calibration/",
+          "href": "http://localhost:43401/classical/calibration/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -3618,7 +3651,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/control/",
+          "href": "http://localhost:43401/classical/control/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -4776,7 +4809,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/grasp-planning/",
+          "href": "http://localhost:43401/classical/grasp-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -5431,7 +5464,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/kinematics/",
+          "href": "http://localhost:43401/classical/kinematics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -6087,7 +6120,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/motion-planning/",
+          "href": "http://localhost:43401/classical/motion-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -6966,7 +6999,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/perception/",
+          "href": "http://localhost:43401/classical/perception/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -8462,7 +8495,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/ros2-for-ml-engineers/",
+          "href": "http://localhost:43401/classical/ros2-for-ml-engineers/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -8875,7 +8908,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/scene-representation/",
+          "href": "http://localhost:43401/classical/scene-representation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -10075,7 +10108,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/state-estimation/",
+          "href": "http://localhost:43401/classical/state-estimation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -10801,7 +10834,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/data-bottleneck/",
+          "href": "http://localhost:43401/data-hardware/data-bottleneck/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -11521,7 +11554,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/datasets/",
+          "href": "http://localhost:43401/data-hardware/datasets/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -12216,7 +12249,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/evaluation-crisis/",
+          "href": "http://localhost:43401/data-hardware/evaluation-crisis/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -12965,7 +12998,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/hardware-taxonomy/",
+          "href": "http://localhost:43401/data-hardware/hardware-taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -14124,7 +14157,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/industrial-deployment/",
+          "href": "http://localhost:43401/data-hardware/industrial-deployment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -15205,7 +15238,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/robot-learning-stack/",
+          "href": "http://localhost:43401/data-hardware/robot-learning-stack/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -15684,7 +15717,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/teleop-rigs/",
+          "href": "http://localhost:43401/data-hardware/teleop-rigs/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -16367,7 +16400,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/bear-case/",
+          "href": "http://localhost:43401/frontier/bear-case/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -17317,7 +17350,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/competing-theses/",
+          "href": "http://localhost:43401/frontier/competing-theses/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -18566,7 +18599,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/dexterity/",
+          "href": "http://localhost:43401/frontier/dexterity/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -19758,7 +19791,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/generalization/",
+          "href": "http://localhost:43401/frontier/generalization/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -20490,7 +20523,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/reliability-gap/",
+          "href": "http://localhost:43401/frontier/reliability-gap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -21121,7 +21154,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/safety-and-assurance/",
+          "href": "http://localhost:43401/frontier/safety-and-assurance/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -22355,7 +22388,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/action-chunking/",
+          "href": "http://localhost:43401/manipulation/action-chunking/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -23267,7 +23300,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/action-spaces/",
+          "href": "http://localhost:43401/manipulation/action-spaces/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -23801,7 +23834,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/bc-foundations/",
+          "href": "http://localhost:43401/manipulation/bc-foundations/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -24343,7 +24376,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/comparison-matrix/",
+          "href": "http://localhost:43401/manipulation/comparison-matrix/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -25372,7 +25405,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/cross-embodiment/",
+          "href": "http://localhost:43401/manipulation/cross-embodiment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -26015,7 +26048,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/diffusion-policy/",
+          "href": "http://localhost:43401/manipulation/diffusion-policy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -26649,7 +26682,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/foundation-models/",
+          "href": "http://localhost:43401/manipulation/foundation-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -27104,7 +27137,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/generalist-policies/",
+          "href": "http://localhost:43401/manipulation/generalist-policies/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -27920,7 +27953,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/hierarchical/",
+          "href": "http://localhost:43401/manipulation/hierarchical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -28702,7 +28735,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/knowledge-insulation/",
+          "href": "http://localhost:43401/manipulation/knowledge-insulation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -29323,7 +29356,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/pi-line/",
+          "href": "http://localhost:43401/manipulation/pi-line/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -30299,7 +30332,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/realtime-execution/",
+          "href": "http://localhost:43401/manipulation/realtime-execution/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -30919,7 +30952,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/rl-finetuning/",
+          "href": "http://localhost:43401/manipulation/rl-finetuning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -31956,7 +31989,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/robot-learning-roadmap/",
+          "href": "http://localhost:43401/manipulation/robot-learning-roadmap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -32399,7 +32432,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/vla-models/",
+          "href": "http://localhost:43401/manipulation/vla-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -33193,7 +33226,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/humanoid-wbc/",
+          "href": "http://localhost:43401/rl-sim2real/humanoid-wbc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -34038,7 +34071,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/legged-locomotion/",
+          "href": "http://localhost:43401/rl-sim2real/legged-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -34766,7 +34799,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/offline-rl/",
+          "href": "http://localhost:43401/rl-sim2real/offline-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -35184,7 +35217,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/parallel-sim-rl/",
+          "href": "http://localhost:43401/rl-sim2real/parallel-sim-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -35815,7 +35848,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/reward-design-mpc/",
+          "href": "http://localhost:43401/rl-sim2real/reward-design-mpc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -36725,7 +36758,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/rl-for-robotics/",
+          "href": "http://localhost:43401/rl-sim2real/rl-for-robotics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -38084,7 +38117,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/sim2real-transfer/",
+          "href": "http://localhost:43401/rl-sim2real/sim2real-transfer/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -38927,7 +38960,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/why-rl-locomotion/",
+          "href": "http://localhost:43401/rl-sim2real/why-rl-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -39462,7 +39495,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/evaluation/",
+          "href": "http://localhost:43401/world-models/evaluation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -39944,7 +39977,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/generative-sim/",
+          "href": "http://localhost:43401/world-models/generative-sim/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -40493,7 +40526,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 18226,
+      "visibleTextLength": 19389,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -40531,13 +40564,13 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/generative-video/",
+          "href": "http://localhost:43401/world-models/generative-video/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 109,
+      "focusableCount": 124,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -40556,8 +40589,44 @@
             "focusable": true
           },
           {
-            "id": "genie-3-2025",
+            "id": "nvidia-cosmos-3-launch-2026",
             "index": 1,
+            "sourceHref": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai",
+            "title": "NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "genie-1-2024",
+            "index": 2,
+            "sourceHref": "https://arxiv.org/abs/2402.15391",
+            "title": "Genie: Generative Interactive Environments",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "genie-2-2024",
+            "index": 3,
+            "sourceHref": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+            "title": "Genie 2: A large-scale foundation world model",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "genie-3-2025",
+            "index": 4,
             "sourceHref": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
             "title": "Genie 3: A new frontier for world models",
             "colour": "rgb(36, 95, 255)",
@@ -40569,7 +40638,7 @@
           },
           {
             "id": "project-genie-2026",
-            "index": 2,
+            "index": 5,
             "sourceHref": "https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/",
             "title": "Google Project Genie lets you create interactive worlds from a photo or prompt",
             "colour": "rgb(36, 95, 255)",
@@ -40581,7 +40650,7 @@
           },
           {
             "id": "gr-1-2023",
-            "index": 3,
+            "index": 6,
             "sourceHref": "https://arxiv.org/abs/2312.13139",
             "title": "Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation",
             "colour": "rgb(36, 95, 255)",
@@ -40593,7 +40662,7 @@
           },
           {
             "id": "gr-2-2024",
-            "index": 4,
+            "index": 7,
             "sourceHref": "https://arxiv.org/abs/2410.06158",
             "title": "GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation",
             "colour": "rgb(36, 95, 255)",
@@ -40605,7 +40674,7 @@
           },
           {
             "id": "1x-world-model-lab-2026",
-            "index": 5,
+            "index": 8,
             "sourceHref": "https://www.1x.tech/discover/1x-world-model-lab",
             "title": "1X Launches World Model Lab to Scale Humanoid Intelligence",
             "colour": "rgb(36, 95, 255)",
@@ -40617,7 +40686,7 @@
           },
           {
             "id": "odyssey-2-2025",
-            "index": 6,
+            "index": 9,
             "sourceHref": "https://odyssey.ml/introducing-odyssey-2",
             "title": "Introducing Odyssey-2: A General-Purpose World Model",
             "colour": "rgb(36, 95, 255)",
@@ -40628,8 +40697,32 @@
             "focusable": true
           },
           {
+            "id": "odyssey-starchild-1-2026",
+            "index": 10,
+            "sourceHref": "https://odyssey.systems/introducing-starchild-1",
+            "title": "Starchild-1: The First Real-Time Multimodal World Model",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "odyssey-agora-1-2026",
+            "index": 11,
+            "sourceHref": "https://odyssey.systems/introducing-agora-1",
+            "title": "Agora-1: The Multi-Agent World Model",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
             "id": "interactive-world-simulator-2026",
-            "index": 7,
+            "index": 12,
             "sourceHref": "https://arxiv.org/abs/2603.08546",
             "title": "Interactive World Simulator for Robot Policy Training and Evaluation",
             "colour": "rgb(36, 95, 255)",
@@ -40641,7 +40734,7 @@
           },
           {
             "id": "roboworld-2026",
-            "index": 8,
+            "index": 13,
             "sourceHref": "https://arxiv.org/abs/2607.01060",
             "title": "RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation",
             "colour": "rgb(36, 95, 255)",
@@ -40653,7 +40746,7 @@
           },
           {
             "id": "world-model-survey-2026",
-            "index": 9,
+            "index": 14,
             "sourceHref": "https://arxiv.org/abs/2605.00080",
             "title": "World Model for Robot Learning: A Comprehensive Survey",
             "colour": "rgb(36, 95, 255)",
@@ -40695,13 +40788,13 @@
           "inProse": true
         },
         {
-          "id": "cosmos-3-2026",
+          "id": "nvidia-cosmos-3-launch-2026",
           "label": "NVIDIA 2026",
-          "href": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
+          "href": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai",
           "opensExternally": true,
-          "tooltipText": "Cosmos 3: Omnimodal World Models for Physical AINVIDIA, Aditi, Niket Agarwal et al., 2026",
+          "tooltipText": "NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AINVIDIA, NVIDIA Newsroom, 2026",
           "describedByResolves": true,
-          "referenceHref": "#ref-cosmos-3-2026",
+          "referenceHref": "#ref-nvidia-cosmos-3-launch-2026",
           "inProse": true
         },
         {
@@ -40752,6 +40845,26 @@
           "tooltipText": "Cosmos 3: Omnimodal World Models for Physical AINVIDIA, Aditi, Niket Agarwal et al., 2026",
           "describedByResolves": true,
           "referenceHref": "#ref-cosmos-3-2026",
+          "inProse": true
+        },
+        {
+          "id": "genie-1-2024",
+          "label": "Bruce 2024",
+          "href": "https://arxiv.org/abs/2402.15391",
+          "opensExternally": true,
+          "tooltipText": "Genie: Generative Interactive EnvironmentsJake Bruce, Michael Dennis, Ashley Edwards et al., 2024",
+          "describedByResolves": true,
+          "referenceHref": "#ref-genie-1-2024",
+          "inProse": true
+        },
+        {
+          "id": "genie-2-2024",
+          "label": "Parker-Holder 2024",
+          "href": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+          "opensExternally": true,
+          "tooltipText": "Genie 2: A large-scale foundation world modelJack Parker-Holder, Philip Ball, Jake Bruce et al., Google DeepMind, 2024",
+          "describedByResolves": true,
+          "referenceHref": "#ref-genie-2-2024",
           "inProse": true
         },
         {
@@ -40832,6 +40945,26 @@
           "tooltipText": "Introducing Odyssey-2: A General-Purpose World ModelOliver Cameron, Odyssey, 2025",
           "describedByResolves": true,
           "referenceHref": "#ref-odyssey-2-2025",
+          "inProse": true
+        },
+        {
+          "id": "odyssey-starchild-1-2026",
+          "label": "Cameron 2026",
+          "href": "https://odyssey.systems/introducing-starchild-1",
+          "opensExternally": true,
+          "tooltipText": "Starchild-1: The First Real-Time Multimodal World ModelOliver Cameron, Odyssey, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-odyssey-starchild-1-2026",
+          "inProse": true
+        },
+        {
+          "id": "odyssey-agora-1-2026",
+          "label": "Cameron 2026",
+          "href": "https://odyssey.systems/introducing-agora-1",
+          "opensExternally": true,
+          "tooltipText": "Agora-1: The Multi-Agent World ModelOliver Cameron, Odyssey, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-odyssey-agora-1-2026",
           "inProse": true
         },
         {
@@ -40958,7 +41091,7 @@
           "text": "Home",
           "documentOrder": 3,
           "tabStop": 3,
-          "tabPresses": 117,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -40969,7 +41102,7 @@
           "text": "World Models",
           "documentOrder": 4,
           "tabStop": 4,
-          "tabPresses": 117,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -40978,9 +41111,9 @@
           "section": "see-also",
           "href": "/world-models/taxonomy/",
           "text": "What Is a World Model?",
-          "documentOrder": 80,
-          "tabStop": 80,
-          "tabPresses": 117,
+          "documentOrder": 88,
+          "tabStop": 88,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -40989,9 +41122,9 @@
           "section": "see-also",
           "href": "/world-models/generative-sim/",
           "text": "Generative Simulation",
-          "documentOrder": 81,
-          "tabStop": 81,
-          "tabPresses": 117,
+          "documentOrder": 89,
+          "tabStop": 89,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41000,9 +41133,9 @@
           "section": "see-also",
           "href": "/world-models/evaluation/",
           "text": "World Model Evaluation for Robotics",
-          "documentOrder": 82,
-          "tabStop": 82,
-          "tabPresses": 117,
+          "documentOrder": 90,
+          "tabStop": 90,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41011,9 +41144,9 @@
           "section": "see-also",
           "href": "/world-models/world-models-vs-simulators/",
           "text": "World Models vs Physics Simulators",
-          "documentOrder": 83,
-          "tabStop": 83,
-          "tabPresses": 117,
+          "documentOrder": 91,
+          "tabStop": 91,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41022,9 +41155,9 @@
           "section": "linked-from",
           "href": "/world-models/jepa/",
           "text": "JEPA and the Non-Generative Counterargument",
-          "documentOrder": 84,
-          "tabStop": 84,
-          "tabPresses": 117,
+          "documentOrder": 92,
+          "tabStop": 92,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41033,9 +41166,9 @@
           "section": "linked-from",
           "href": "/world-models/generative-sim/",
           "text": "Generative Simulation",
-          "documentOrder": 85,
-          "tabStop": 85,
-          "tabPresses": 117,
+          "documentOrder": 93,
+          "tabStop": 93,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41044,9 +41177,9 @@
           "section": "linked-from",
           "href": "/world-models/evaluation/",
           "text": "World Model Evaluation for Robotics",
-          "documentOrder": 86,
-          "tabStop": 86,
-          "tabPresses": 117,
+          "documentOrder": 94,
+          "tabStop": 94,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41055,9 +41188,9 @@
           "section": "linked-from",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "documentOrder": 87,
-          "tabStop": 87,
-          "tabPresses": 117,
+          "documentOrder": 95,
+          "tabStop": 95,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41066,9 +41199,42 @@
           "section": "references",
           "href": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
           "text": "Cosmos 3: Omnimodal World Models for Physical AI",
-          "documentOrder": 88,
-          "tabStop": 88,
-          "tabPresses": 117,
+          "documentOrder": 96,
+          "tabStop": 96,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai",
+          "text": "NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI",
+          "documentOrder": 98,
+          "tabStop": 98,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2402.15391",
+          "text": "Genie: Generative Interactive Environments",
+          "documentOrder": 99,
+          "tabStop": 99,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+          "text": "Genie 2: A large-scale foundation world model",
+          "documentOrder": 101,
+          "tabStop": 101,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41077,9 +41243,9 @@
           "section": "references",
           "href": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
           "text": "Genie 3: A new frontier for world models",
-          "documentOrder": 90,
-          "tabStop": 90,
-          "tabPresses": 117,
+          "documentOrder": 103,
+          "tabStop": 103,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41088,9 +41254,9 @@
           "section": "references",
           "href": "https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/",
           "text": "Google Project Genie lets you create interactive worlds from a photo or prompt",
-          "documentOrder": 91,
-          "tabStop": 91,
-          "tabPresses": 117,
+          "documentOrder": 104,
+          "tabStop": 104,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41099,9 +41265,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2312.13139",
           "text": "Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation",
-          "documentOrder": 92,
-          "tabStop": 92,
-          "tabPresses": 117,
+          "documentOrder": 105,
+          "tabStop": 105,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41110,9 +41276,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2410.06158",
           "text": "GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation",
-          "documentOrder": 94,
-          "tabStop": 94,
-          "tabPresses": 117,
+          "documentOrder": 107,
+          "tabStop": 107,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41121,9 +41287,9 @@
           "section": "references",
           "href": "https://www.1x.tech/discover/1x-world-model-lab",
           "text": "1X Launches World Model Lab to Scale Humanoid Intelligence",
-          "documentOrder": 96,
-          "tabStop": 96,
-          "tabPresses": 117,
+          "documentOrder": 109,
+          "tabStop": 109,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41132,9 +41298,31 @@
           "section": "references",
           "href": "https://odyssey.ml/introducing-odyssey-2",
           "text": "Introducing Odyssey-2: A General-Purpose World Model",
-          "documentOrder": 97,
-          "tabStop": 97,
-          "tabPresses": 117,
+          "documentOrder": 110,
+          "tabStop": 110,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://odyssey.systems/introducing-starchild-1",
+          "text": "Starchild-1: The First Real-Time Multimodal World Model",
+          "documentOrder": 111,
+          "tabStop": 111,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://odyssey.systems/introducing-agora-1",
+          "text": "Agora-1: The Multi-Agent World Model",
+          "documentOrder": 112,
+          "tabStop": 112,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41143,9 +41331,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2603.08546",
           "text": "Interactive World Simulator for Robot Policy Training and Evaluation",
-          "documentOrder": 98,
-          "tabStop": 98,
-          "tabPresses": 117,
+          "documentOrder": 113,
+          "tabStop": 113,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41154,9 +41342,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2607.01060",
           "text": "RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation",
-          "documentOrder": 100,
-          "tabStop": 100,
-          "tabPresses": 117,
+          "documentOrder": 115,
+          "tabStop": 115,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41165,9 +41353,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2605.00080",
           "text": "World Model for Robot Learning: A Comprehensive Survey",
-          "documentOrder": 101,
-          "tabStop": 101,
-          "tabPresses": 117,
+          "documentOrder": 116,
+          "tabStop": 116,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -41217,7 +41405,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/jepa/",
+          "href": "http://localhost:43401/world-models/jepa/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -41813,7 +42001,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/latent-dynamics/",
+          "href": "http://localhost:43401/world-models/latent-dynamics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -42388,7 +42576,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/model-based-robot-learning/",
+          "href": "http://localhost:43401/world-models/model-based-robot-learning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -42855,7 +43043,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/taxonomy/",
+          "href": "http://localhost:43401/world-models/taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -43594,7 +43782,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/world-models-vs-simulators/",
+          "href": "http://localhost:43401/world-models/world-models-vs-simulators/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -44118,7 +44306,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/autonomous-vehicles/",
+          "href": "http://localhost:43401/adjacent/autonomous-vehicles/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -45131,7 +45319,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18032,
+      "visibleTextLength": 18084,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -45169,13 +45357,13 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/drones/",
+          "href": "http://localhost:43401/adjacent/drones/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 116,
+      "focusableCount": 119,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -45258,6 +45446,18 @@
             "index": 6,
             "sourceHref": "https://www.science.org/doi/10.1126/scirobotics.aat3536",
             "title": "Optimized flocking of autonomous drones in confined environments",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "reynolds-boids-1987",
+            "index": 7,
+            "sourceHref": "https://www.red3d.com/cwr/boids/",
+            "title": "Flocks, Herds and Schools: A Distributed Behavioral Model",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -45455,6 +45655,16 @@
           "inProse": true
         },
         {
+          "id": "reynolds-boids-1987",
+          "label": "Reynolds 1987",
+          "href": "https://www.red3d.com/cwr/boids/",
+          "opensExternally": true,
+          "tooltipText": "Flocks, Herds and Schools: A Distributed Behavioral ModelCraig W. Reynolds, Computer Graphics (SIGGRAPH '87) 21, pages 25-43 as printed by the fetched Soria reference list; ACM DL machine-walled so canonical pages unconfirmed, 1987",
+          "describedByResolves": true,
+          "referenceHref": "#ref-reynolds-boids-1987",
+          "inProse": true
+        },
+        {
           "id": "vasarhelyi-flocking-2018",
           "label": "Vásárhelyi 2018",
           "href": "https://www.science.org/doi/10.1126/scirobotics.aat3536",
@@ -45566,7 +45776,7 @@
           "text": "Home",
           "documentOrder": 21,
           "tabStop": 21,
-          "tabPresses": 124,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45577,7 +45787,7 @@
           "text": "Adjacent Domains",
           "documentOrder": 22,
           "tabStop": 22,
-          "tabPresses": 124,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45586,9 +45796,9 @@
           "section": "see-also",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "documentOrder": 96,
-          "tabStop": 96,
-          "tabPresses": 124,
+          "documentOrder": 98,
+          "tabStop": 98,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45597,9 +45807,9 @@
           "section": "see-also",
           "href": "/rl-sim2real/why-rl-locomotion/",
           "text": "Why RL Won Locomotion but Not Manipulation",
-          "documentOrder": 97,
-          "tabStop": 97,
-          "tabPresses": 124,
+          "documentOrder": 99,
+          "tabStop": 99,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45608,9 +45818,9 @@
           "section": "see-also",
           "href": "/rl-sim2real/legged-locomotion/",
           "text": "Legged Locomotion Lineage",
-          "documentOrder": 98,
-          "tabStop": 98,
-          "tabPresses": 124,
+          "documentOrder": 100,
+          "tabStop": 100,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45619,9 +45829,9 @@
           "section": "see-also",
           "href": "/classical/state-estimation/",
           "text": "State Estimation",
-          "documentOrder": 99,
-          "tabStop": 99,
-          "tabPresses": 124,
+          "documentOrder": 101,
+          "tabStop": 101,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45630,9 +45840,9 @@
           "section": "linked-from",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "documentOrder": 100,
-          "tabStop": 100,
-          "tabPresses": 124,
+          "documentOrder": 102,
+          "tabStop": 102,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45641,9 +45851,9 @@
           "section": "linked-from",
           "href": "/adjacent/surgical/",
           "text": "Surgical Robotics",
-          "documentOrder": 101,
-          "tabStop": 101,
-          "tabPresses": 124,
+          "documentOrder": 103,
+          "tabStop": 103,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45652,9 +45862,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2110.05113",
           "text": "Learning High-Speed Flight in the Wild",
-          "documentOrder": 102,
-          "tabStop": 102,
-          "tabPresses": 124,
+          "documentOrder": 104,
+          "tabStop": 104,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45663,9 +45873,9 @@
           "section": "references",
           "href": "https://www.nature.com/articles/s41586-023-06419-4",
           "text": "Champion-level drone racing using deep reinforcement learning",
-          "documentOrder": 103,
-          "tabStop": 103,
-          "tabPresses": 124,
+          "documentOrder": 105,
+          "tabStop": 105,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45674,9 +45884,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2310.10943",
           "text": "Reaching the Limit in Autonomous Racing: Optimal Control versus Reinforcement Learning",
-          "documentOrder": 104,
-          "tabStop": 104,
-          "tabPresses": 124,
+          "documentOrder": 106,
+          "tabStop": 106,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45685,9 +45895,9 @@
           "section": "references",
           "href": "https://doi.org/10.1109/LRA.2019.2898117",
           "text": "How Fast Is Too Fast? The Role of Perception Latency in High-Speed Sense and Avoid",
-          "documentOrder": 105,
-          "tabStop": 105,
-          "tabPresses": 124,
+          "documentOrder": 107,
+          "tabStop": 107,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45696,9 +45906,9 @@
           "section": "references",
           "href": "https://www.science.org/doi/10.1126/scirobotics.abm5954",
           "text": "Swarm of micro flying robots in the wild",
-          "documentOrder": 106,
-          "tabStop": 106,
-          "tabPresses": 124,
+          "documentOrder": 108,
+          "tabStop": 108,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45707,9 +45917,9 @@
           "section": "references",
           "href": "https://www.nature.com/articles/s42256-021-00341-y",
           "text": "Predictive control of aerial swarms in cluttered environments",
-          "documentOrder": 108,
-          "tabStop": 108,
-          "tabPresses": 124,
+          "documentOrder": 110,
+          "tabStop": 110,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45718,9 +45928,20 @@
           "section": "references",
           "href": "https://www.science.org/doi/10.1126/scirobotics.aat3536",
           "text": "Optimized flocking of autonomous drones in confined environments",
-          "documentOrder": 109,
-          "tabStop": 109,
-          "tabPresses": 124,
+          "documentOrder": 111,
+          "tabStop": 111,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://www.red3d.com/cwr/boids/",
+          "text": "Flocks, Herds and Schools: A Distributed Behavioral Model",
+          "documentOrder": 112,
+          "tabStop": 112,
+          "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -45732,7 +45953,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18395,
+      "visibleTextLength": 18405,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -45770,7 +45991,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/space/",
+          "href": "http://localhost:43401/adjacent/space/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -46531,7 +46752,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/adjacent/surgical/",
+          "href": "http://localhost:43401/adjacent/surgical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -47139,7 +47360,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/calibration/",
+          "href": "http://localhost:43401/classical/calibration/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -47630,7 +47851,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/control/",
+          "href": "http://localhost:43401/classical/control/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -48788,7 +49009,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/grasp-planning/",
+          "href": "http://localhost:43401/classical/grasp-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -49443,7 +49664,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/kinematics/",
+          "href": "http://localhost:43401/classical/kinematics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -50099,7 +50320,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/motion-planning/",
+          "href": "http://localhost:43401/classical/motion-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -50978,7 +51199,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/perception/",
+          "href": "http://localhost:43401/classical/perception/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -52474,7 +52695,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/ros2-for-ml-engineers/",
+          "href": "http://localhost:43401/classical/ros2-for-ml-engineers/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -52887,7 +53108,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/scene-representation/",
+          "href": "http://localhost:43401/classical/scene-representation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -54087,7 +54308,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/classical/state-estimation/",
+          "href": "http://localhost:43401/classical/state-estimation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -54813,7 +55034,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/data-bottleneck/",
+          "href": "http://localhost:43401/data-hardware/data-bottleneck/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -55533,7 +55754,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/datasets/",
+          "href": "http://localhost:43401/data-hardware/datasets/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -56228,7 +56449,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/evaluation-crisis/",
+          "href": "http://localhost:43401/data-hardware/evaluation-crisis/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -56977,7 +57198,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/hardware-taxonomy/",
+          "href": "http://localhost:43401/data-hardware/hardware-taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -58136,7 +58357,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/industrial-deployment/",
+          "href": "http://localhost:43401/data-hardware/industrial-deployment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -59217,7 +59438,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/robot-learning-stack/",
+          "href": "http://localhost:43401/data-hardware/robot-learning-stack/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -59696,7 +59917,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/data-hardware/teleop-rigs/",
+          "href": "http://localhost:43401/data-hardware/teleop-rigs/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -60379,7 +60600,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/bear-case/",
+          "href": "http://localhost:43401/frontier/bear-case/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -61329,7 +61550,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/competing-theses/",
+          "href": "http://localhost:43401/frontier/competing-theses/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -62578,7 +62799,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/dexterity/",
+          "href": "http://localhost:43401/frontier/dexterity/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -63770,7 +63991,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/generalization/",
+          "href": "http://localhost:43401/frontier/generalization/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -64502,7 +64723,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/reliability-gap/",
+          "href": "http://localhost:43401/frontier/reliability-gap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -65133,7 +65354,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/frontier/safety-and-assurance/",
+          "href": "http://localhost:43401/frontier/safety-and-assurance/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -66367,7 +66588,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/action-chunking/",
+          "href": "http://localhost:43401/manipulation/action-chunking/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -67279,7 +67500,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/action-spaces/",
+          "href": "http://localhost:43401/manipulation/action-spaces/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -67813,7 +68034,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/bc-foundations/",
+          "href": "http://localhost:43401/manipulation/bc-foundations/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -68355,7 +68576,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/comparison-matrix/",
+          "href": "http://localhost:43401/manipulation/comparison-matrix/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -69384,7 +69605,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/cross-embodiment/",
+          "href": "http://localhost:43401/manipulation/cross-embodiment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -70027,7 +70248,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/diffusion-policy/",
+          "href": "http://localhost:43401/manipulation/diffusion-policy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -70661,7 +70882,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/foundation-models/",
+          "href": "http://localhost:43401/manipulation/foundation-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -71116,7 +71337,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/generalist-policies/",
+          "href": "http://localhost:43401/manipulation/generalist-policies/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -71932,7 +72153,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/hierarchical/",
+          "href": "http://localhost:43401/manipulation/hierarchical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -72714,7 +72935,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/knowledge-insulation/",
+          "href": "http://localhost:43401/manipulation/knowledge-insulation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -73335,7 +73556,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/pi-line/",
+          "href": "http://localhost:43401/manipulation/pi-line/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -74311,7 +74532,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/realtime-execution/",
+          "href": "http://localhost:43401/manipulation/realtime-execution/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -74931,7 +75152,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/rl-finetuning/",
+          "href": "http://localhost:43401/manipulation/rl-finetuning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -75968,7 +76189,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/robot-learning-roadmap/",
+          "href": "http://localhost:43401/manipulation/robot-learning-roadmap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -76411,7 +76632,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/manipulation/vla-models/",
+          "href": "http://localhost:43401/manipulation/vla-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -77205,7 +77426,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/humanoid-wbc/",
+          "href": "http://localhost:43401/rl-sim2real/humanoid-wbc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -78050,7 +78271,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/legged-locomotion/",
+          "href": "http://localhost:43401/rl-sim2real/legged-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -78778,7 +78999,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/offline-rl/",
+          "href": "http://localhost:43401/rl-sim2real/offline-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -79196,7 +79417,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/parallel-sim-rl/",
+          "href": "http://localhost:43401/rl-sim2real/parallel-sim-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -79827,7 +80048,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/reward-design-mpc/",
+          "href": "http://localhost:43401/rl-sim2real/reward-design-mpc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -80737,7 +80958,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/rl-for-robotics/",
+          "href": "http://localhost:43401/rl-sim2real/rl-for-robotics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -82096,7 +82317,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/sim2real-transfer/",
+          "href": "http://localhost:43401/rl-sim2real/sim2real-transfer/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -82939,7 +83160,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/rl-sim2real/why-rl-locomotion/",
+          "href": "http://localhost:43401/rl-sim2real/why-rl-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -83474,7 +83695,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/evaluation/",
+          "href": "http://localhost:43401/world-models/evaluation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -83956,7 +84177,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/generative-sim/",
+          "href": "http://localhost:43401/world-models/generative-sim/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -84505,7 +84726,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18710,
+      "visibleTextLength": 19873,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -84543,13 +84764,13 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/generative-video/",
+          "href": "http://localhost:43401/world-models/generative-video/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 131,
+      "focusableCount": 146,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -84568,8 +84789,44 @@
             "focusable": true
           },
           {
-            "id": "genie-3-2025",
+            "id": "nvidia-cosmos-3-launch-2026",
             "index": 1,
+            "sourceHref": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai",
+            "title": "NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "genie-1-2024",
+            "index": 2,
+            "sourceHref": "https://arxiv.org/abs/2402.15391",
+            "title": "Genie: Generative Interactive Environments",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "genie-2-2024",
+            "index": 3,
+            "sourceHref": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+            "title": "Genie 2: A large-scale foundation world model",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "genie-3-2025",
+            "index": 4,
             "sourceHref": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
             "title": "Genie 3: A new frontier for world models",
             "colour": "rgb(36, 95, 255)",
@@ -84581,7 +84838,7 @@
           },
           {
             "id": "project-genie-2026",
-            "index": 2,
+            "index": 5,
             "sourceHref": "https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/",
             "title": "Google Project Genie lets you create interactive worlds from a photo or prompt",
             "colour": "rgb(36, 95, 255)",
@@ -84593,7 +84850,7 @@
           },
           {
             "id": "gr-1-2023",
-            "index": 3,
+            "index": 6,
             "sourceHref": "https://arxiv.org/abs/2312.13139",
             "title": "Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation",
             "colour": "rgb(36, 95, 255)",
@@ -84605,7 +84862,7 @@
           },
           {
             "id": "gr-2-2024",
-            "index": 4,
+            "index": 7,
             "sourceHref": "https://arxiv.org/abs/2410.06158",
             "title": "GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation",
             "colour": "rgb(36, 95, 255)",
@@ -84617,7 +84874,7 @@
           },
           {
             "id": "1x-world-model-lab-2026",
-            "index": 5,
+            "index": 8,
             "sourceHref": "https://www.1x.tech/discover/1x-world-model-lab",
             "title": "1X Launches World Model Lab to Scale Humanoid Intelligence",
             "colour": "rgb(36, 95, 255)",
@@ -84629,7 +84886,7 @@
           },
           {
             "id": "odyssey-2-2025",
-            "index": 6,
+            "index": 9,
             "sourceHref": "https://odyssey.ml/introducing-odyssey-2",
             "title": "Introducing Odyssey-2: A General-Purpose World Model",
             "colour": "rgb(36, 95, 255)",
@@ -84640,8 +84897,32 @@
             "focusable": true
           },
           {
+            "id": "odyssey-starchild-1-2026",
+            "index": 10,
+            "sourceHref": "https://odyssey.systems/introducing-starchild-1",
+            "title": "Starchild-1: The First Real-Time Multimodal World Model",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "odyssey-agora-1-2026",
+            "index": 11,
+            "sourceHref": "https://odyssey.systems/introducing-agora-1",
+            "title": "Agora-1: The Multi-Agent World Model",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
             "id": "interactive-world-simulator-2026",
-            "index": 7,
+            "index": 12,
             "sourceHref": "https://arxiv.org/abs/2603.08546",
             "title": "Interactive World Simulator for Robot Policy Training and Evaluation",
             "colour": "rgb(36, 95, 255)",
@@ -84653,7 +84934,7 @@
           },
           {
             "id": "roboworld-2026",
-            "index": 8,
+            "index": 13,
             "sourceHref": "https://arxiv.org/abs/2607.01060",
             "title": "RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation",
             "colour": "rgb(36, 95, 255)",
@@ -84665,7 +84946,7 @@
           },
           {
             "id": "world-model-survey-2026",
-            "index": 9,
+            "index": 14,
             "sourceHref": "https://arxiv.org/abs/2605.00080",
             "title": "World Model for Robot Learning: A Comprehensive Survey",
             "colour": "rgb(36, 95, 255)",
@@ -84707,13 +84988,13 @@
           "inProse": true
         },
         {
-          "id": "cosmos-3-2026",
+          "id": "nvidia-cosmos-3-launch-2026",
           "label": "NVIDIA 2026",
-          "href": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
+          "href": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai",
           "opensExternally": true,
-          "tooltipText": "Cosmos 3: Omnimodal World Models for Physical AINVIDIA, Aditi, Niket Agarwal et al., 2026",
+          "tooltipText": "NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AINVIDIA, NVIDIA Newsroom, 2026",
           "describedByResolves": true,
-          "referenceHref": "#ref-cosmos-3-2026",
+          "referenceHref": "#ref-nvidia-cosmos-3-launch-2026",
           "inProse": true
         },
         {
@@ -84764,6 +85045,26 @@
           "tooltipText": "Cosmos 3: Omnimodal World Models for Physical AINVIDIA, Aditi, Niket Agarwal et al., 2026",
           "describedByResolves": true,
           "referenceHref": "#ref-cosmos-3-2026",
+          "inProse": true
+        },
+        {
+          "id": "genie-1-2024",
+          "label": "Bruce 2024",
+          "href": "https://arxiv.org/abs/2402.15391",
+          "opensExternally": true,
+          "tooltipText": "Genie: Generative Interactive EnvironmentsJake Bruce, Michael Dennis, Ashley Edwards et al., 2024",
+          "describedByResolves": true,
+          "referenceHref": "#ref-genie-1-2024",
+          "inProse": true
+        },
+        {
+          "id": "genie-2-2024",
+          "label": "Parker-Holder 2024",
+          "href": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+          "opensExternally": true,
+          "tooltipText": "Genie 2: A large-scale foundation world modelJack Parker-Holder, Philip Ball, Jake Bruce et al., Google DeepMind, 2024",
+          "describedByResolves": true,
+          "referenceHref": "#ref-genie-2-2024",
           "inProse": true
         },
         {
@@ -84844,6 +85145,26 @@
           "tooltipText": "Introducing Odyssey-2: A General-Purpose World ModelOliver Cameron, Odyssey, 2025",
           "describedByResolves": true,
           "referenceHref": "#ref-odyssey-2-2025",
+          "inProse": true
+        },
+        {
+          "id": "odyssey-starchild-1-2026",
+          "label": "Cameron 2026",
+          "href": "https://odyssey.systems/introducing-starchild-1",
+          "opensExternally": true,
+          "tooltipText": "Starchild-1: The First Real-Time Multimodal World ModelOliver Cameron, Odyssey, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-odyssey-starchild-1-2026",
+          "inProse": true
+        },
+        {
+          "id": "odyssey-agora-1-2026",
+          "label": "Cameron 2026",
+          "href": "https://odyssey.systems/introducing-agora-1",
+          "opensExternally": true,
+          "tooltipText": "Agora-1: The Multi-Agent World ModelOliver Cameron, Odyssey, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-odyssey-agora-1-2026",
           "inProse": true
         },
         {
@@ -84970,7 +85291,7 @@
           "text": "Home",
           "documentOrder": 25,
           "tabStop": 25,
-          "tabPresses": 125,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -84981,7 +85302,7 @@
           "text": "World Models",
           "documentOrder": 26,
           "tabStop": 26,
-          "tabPresses": 125,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -84990,9 +85311,9 @@
           "section": "see-also",
           "href": "/world-models/taxonomy/",
           "text": "What Is a World Model?",
-          "documentOrder": 102,
-          "tabStop": 102,
-          "tabPresses": 125,
+          "documentOrder": 110,
+          "tabStop": 110,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85001,9 +85322,9 @@
           "section": "see-also",
           "href": "/world-models/generative-sim/",
           "text": "Generative Simulation",
-          "documentOrder": 103,
-          "tabStop": 103,
-          "tabPresses": 125,
+          "documentOrder": 111,
+          "tabStop": 111,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85012,9 +85333,9 @@
           "section": "see-also",
           "href": "/world-models/evaluation/",
           "text": "World Model Evaluation for Robotics",
-          "documentOrder": 104,
-          "tabStop": 104,
-          "tabPresses": 125,
+          "documentOrder": 112,
+          "tabStop": 112,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85023,9 +85344,9 @@
           "section": "see-also",
           "href": "/world-models/world-models-vs-simulators/",
           "text": "World Models vs Physics Simulators",
-          "documentOrder": 105,
-          "tabStop": 105,
-          "tabPresses": 125,
+          "documentOrder": 113,
+          "tabStop": 113,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85034,9 +85355,9 @@
           "section": "linked-from",
           "href": "/world-models/jepa/",
           "text": "JEPA and the Non-Generative Counterargument",
-          "documentOrder": 106,
-          "tabStop": 106,
-          "tabPresses": 125,
+          "documentOrder": 114,
+          "tabStop": 114,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85045,9 +85366,9 @@
           "section": "linked-from",
           "href": "/world-models/generative-sim/",
           "text": "Generative Simulation",
-          "documentOrder": 107,
-          "tabStop": 107,
-          "tabPresses": 125,
+          "documentOrder": 115,
+          "tabStop": 115,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85056,9 +85377,9 @@
           "section": "linked-from",
           "href": "/world-models/evaluation/",
           "text": "World Model Evaluation for Robotics",
-          "documentOrder": 108,
-          "tabStop": 108,
-          "tabPresses": 125,
+          "documentOrder": 116,
+          "tabStop": 116,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85067,9 +85388,9 @@
           "section": "linked-from",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "documentOrder": 109,
-          "tabStop": 109,
-          "tabPresses": 125,
+          "documentOrder": 117,
+          "tabStop": 117,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85078,9 +85399,42 @@
           "section": "references",
           "href": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
           "text": "Cosmos 3: Omnimodal World Models for Physical AI",
-          "documentOrder": 110,
-          "tabStop": 110,
-          "tabPresses": 125,
+          "documentOrder": 118,
+          "tabStop": 118,
+          "tabPresses": 150,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai",
+          "text": "NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI",
+          "documentOrder": 120,
+          "tabStop": 120,
+          "tabPresses": 150,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2402.15391",
+          "text": "Genie: Generative Interactive Environments",
+          "documentOrder": 121,
+          "tabStop": 121,
+          "tabPresses": 150,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+          "text": "Genie 2: A large-scale foundation world model",
+          "documentOrder": 123,
+          "tabStop": 123,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85089,9 +85443,9 @@
           "section": "references",
           "href": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
           "text": "Genie 3: A new frontier for world models",
-          "documentOrder": 112,
-          "tabStop": 112,
-          "tabPresses": 125,
+          "documentOrder": 125,
+          "tabStop": 125,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85100,9 +85454,9 @@
           "section": "references",
           "href": "https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/",
           "text": "Google Project Genie lets you create interactive worlds from a photo or prompt",
-          "documentOrder": 113,
-          "tabStop": 113,
-          "tabPresses": 125,
+          "documentOrder": 126,
+          "tabStop": 126,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85111,9 +85465,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2312.13139",
           "text": "Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation",
-          "documentOrder": 114,
-          "tabStop": 114,
-          "tabPresses": 125,
+          "documentOrder": 127,
+          "tabStop": 127,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85122,9 +85476,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2410.06158",
           "text": "GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation",
-          "documentOrder": 116,
-          "tabStop": 116,
-          "tabPresses": 125,
+          "documentOrder": 129,
+          "tabStop": 129,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85133,9 +85487,9 @@
           "section": "references",
           "href": "https://www.1x.tech/discover/1x-world-model-lab",
           "text": "1X Launches World Model Lab to Scale Humanoid Intelligence",
-          "documentOrder": 118,
-          "tabStop": 118,
-          "tabPresses": 125,
+          "documentOrder": 131,
+          "tabStop": 131,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85144,9 +85498,31 @@
           "section": "references",
           "href": "https://odyssey.ml/introducing-odyssey-2",
           "text": "Introducing Odyssey-2: A General-Purpose World Model",
-          "documentOrder": 119,
-          "tabStop": 119,
-          "tabPresses": 125,
+          "documentOrder": 132,
+          "tabStop": 132,
+          "tabPresses": 150,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://odyssey.systems/introducing-starchild-1",
+          "text": "Starchild-1: The First Real-Time Multimodal World Model",
+          "documentOrder": 133,
+          "tabStop": 133,
+          "tabPresses": 150,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://odyssey.systems/introducing-agora-1",
+          "text": "Agora-1: The Multi-Agent World Model",
+          "documentOrder": 134,
+          "tabStop": 134,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85155,9 +85531,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2603.08546",
           "text": "Interactive World Simulator for Robot Policy Training and Evaluation",
-          "documentOrder": 120,
-          "tabStop": 120,
-          "tabPresses": 125,
+          "documentOrder": 135,
+          "tabStop": 135,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85166,9 +85542,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2607.01060",
           "text": "RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation",
-          "documentOrder": 122,
-          "tabStop": 122,
-          "tabPresses": 125,
+          "documentOrder": 137,
+          "tabStop": 137,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85177,9 +85553,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2605.00080",
           "text": "World Model for Robot Learning: A Comprehensive Survey",
-          "documentOrder": 123,
-          "tabStop": 123,
-          "tabPresses": 125,
+          "documentOrder": 138,
+          "tabStop": 138,
+          "tabPresses": 150,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -85229,7 +85605,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/jepa/",
+          "href": "http://localhost:43401/world-models/jepa/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -85825,7 +86201,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/latent-dynamics/",
+          "href": "http://localhost:43401/world-models/latent-dynamics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -86400,7 +86776,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/model-based-robot-learning/",
+          "href": "http://localhost:43401/world-models/model-based-robot-learning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -86867,7 +87243,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/taxonomy/",
+          "href": "http://localhost:43401/world-models/taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -87606,7 +87982,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:40245/world-models/world-models-vs-simulators/",
+          "href": "http://localhost:43401/world-models/world-models-vs-simulators/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
