@@ -67035,5 +67035,500 @@
     "evidenceDigest": "bd699a6afe4cfd80885e96bdc45747058db64421f3fe43a8916f763b53600a79"
    }
   ]
+ },
+
+ {
+  "id": "surgical-1-isrg-q4-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "surgical",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "6e0761be6e039d303901769d57e59ebd9558edbfcc6ac7d343885bebdc246daf",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sg1-installed-base",
+    "text": "Intuitive's da Vinci installed base reached 11,106 systems as of December 31, 2025, an increase of 12% compared with 9,902 as of December 31, 2024 (Q4 2025 earnings release, Jan. 22, 2026)",
+    "requiredCitationIds": [
+     "intuitive-q4-2025"
+    ]
+   },
+   {
+    "id": "sg1-q4-placements",
+    "text": "Intuitive placed 532 da Vinci surgical systems in the fourth quarter of 2025, of which 303 were da Vinci 5 systems (Q4 2025 earnings release)",
+    "requiredCitationIds": [
+     "intuitive-q4-2025"
+    ]
+   },
+   {
+    "id": "sg1-procedure-growth-correction",
+    "text": "Worldwide da Vinci procedure growth in full-year 2025 was 18% (release: 'Worldwide da Vinci procedure growth of approximately 13% to 15% in 2026, compared to 18% in 2025'); the approximately 17% figure the release prints is for the fourth quarter only. Article span corrected from 'da Vinci procedures grew roughly 17 percent worldwide that year' to 'da Vinci procedures grew roughly 18 percent worldwide in 2025'",
+    "requiredCitationIds": [
+     "intuitive-q4-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/adjacent.md:surgical:1 (ready-source-correction) genuinely reviewed before application: all 3 evidence passages needle-verified by this integrator against the packet retained fetch corpus (isrg-q4-2025.html). Every cited id resolves in data/citations.ts at application HEAD b336da2. Article span corrected this pass: da Vinci procedures grew roughly 17 percent worldwide that year -> roughly 18 percent worldwide in 2025 (the release prints approximately 17% for the fourth quarter only and 18% for full-year 2025). Zero network retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916.",
+   "planDigest": "b7665b677ed57b3d9033c4fc8c82e2a33910a93ac5892f7b28768ff70a754708"
+  },
+  "evidence": [
+   {
+    "partId": "sg1-installed-base",
+    "citationId": "intuitive-q4-2025",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2026/01/22/3224266/0/en/intuitive-announces-fourth-quarter-earnings.html",
+    "supportingPassage": "The Company grew its da Vinci surgical system installed base to 11,106 systems as of December 31, 2025, an increase of 12% compared with 9,902 as of December 31, 2024."
+   },
+   {
+    "partId": "sg1-q4-placements",
+    "citationId": "intuitive-q4-2025",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2026/01/22/3224266/0/en/intuitive-announces-fourth-quarter-earnings.html",
+    "supportingPassage": "The Company placed 532 da Vinci surgical systems, of which 303 were da Vinci 5 systems, in the fourth quarter of 2025, compared with 493 systems, of which 174 were da Vinci 5 systems, in the fourth quarter of 2024."
+   },
+   {
+    "partId": "sg1-procedure-growth-correction",
+    "citationId": "intuitive-q4-2025",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2026/01/22/3224266/0/en/intuitive-announces-fourth-quarter-earnings.html",
+    "supportingPassage": "Q4 Highlights ... Da Vinci procedures grew approximately 17% and Ion procedures grew approximately 44%. ... The Company expects the following results for the full year of 2026: Worldwide da Vinci procedure growth of approximately 13% to 15% in 2026, compared to 18% in 2025."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sg1-installed-base",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "98fece9bbf7665ef06d483d916fc443aadf084ca39d6efa4e0ecf4ca9990b742"
+   },
+   {
+    "partId": "sg1-q4-placements",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "ecee997adce2cfb7db77afad4eecf88a6270204a15deba689ad3223dbbbfd2b1"
+   },
+   {
+    "partId": "sg1-procedure-growth-correction",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "P2 period-scope defect corrected: the release prints approximately 17% for Q4 only and 18% for full-year 2025; the article span now prints the full-year 2025 figure.",
+    "evidenceDigest": "08a52c0a85afa949bf67fbefcb952e6d5f174a84992e8904cd42c757736d0b6e"
+   }
+  ]
+ },
+ {
+  "id": "surgical-2-dv5-clearance-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "surgical",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "2a041ec1defa7d5c6a55a3e397e62f2dec88c09c78037b51a1e79ecc13debf14",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sg2-clearance-identity",
+    "text": "da Vinci 5 received FDA 510(k) clearance in March 2024 (release dateline March 14, 2024); it is Intuitive's fifth-generation, next-generation multiport robotic system (Intuitive release, primary claimant)",
+    "requiredCitationIds": [
+     "davinci5-clearance-2024"
+    ]
+   },
+   {
+    "id": "sg2-enhancements",
+    "text": "The system includes more than 150 enhancements over da Vinci Xi, among them new surgeon controllers with vibration and tremor controls, a next-generation 3D display and image processing, integrated insufflation and an electrosurgical unit, and more than 10,000 times the computing power of da Vinci Xi",
+    "requiredCitationIds": [
+     "davinci5-clearance-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/adjacent.md:surgical:2 (ready-evidence-completion) genuinely reviewed before application: all 2 evidence passages needle-verified by this integrator against the packet retained fetch corpus (isrg-dv5-clearance.html). Every cited id resolves in data/citations.ts at application HEAD b336da2.  Zero network retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916.",
+   "planDigest": "733698026d5cc0f7c77976221cc5aa892b20023432e3d79afd02e1be108604ea"
+  },
+  "evidence": [
+   {
+    "partId": "sg2-clearance-identity",
+    "citationId": "davinci5-clearance-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/03/14/2846718/7637/en/Intuitive-Announces-FDA-Clearance-of-Fifth-Generation-Robotic-System-da-Vinci-5.html",
+    "supportingPassage": "announced today that the U.S. Food and Drug Administration (FDA) provided 510(k) clearance for da Vinci 5, the company's next-generation multiport robotic system. \"We are pleased to receive FDA clearance for our fifth-generation robotic system, da Vinci 5,\" said Gary Guthart, CEO. ... (SUNNYVALE, Calif., March 14, 2024, GLOBE NEWSWIRE; March 14, 2024 16:30 ET)"
+   },
+   {
+    "partId": "sg2-enhancements",
+    "citationId": "davinci5-clearance-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/03/14/2846718/7637/en/Intuitive-Announces-FDA-Clearance-of-Fifth-Generation-Robotic-System-da-Vinci-5.html",
+    "supportingPassage": "Da Vinci 5 builds on Intuitive's da Vinci Xi's highly functional design ... The system includes more than 150 enhancements, including: Improved accuracy and precision: Da Vinci 5's design and engineering enhancements, including new surgeon controllers and powerful vibration and tremor controls, make it the smoothest and most precise system Intuitive has developed to date. Next-generation 3D display and image processing: Da Vinci 5 is equipped with Intuitive's highest quality and most natural 3D imaging system ... Expanded computing power and advanced data capabilities: Da Vinci 5 has more than 10,000 times the computing power of da Vinci Xi. ... da Vinci 5 has integrated key OR technologies, including insufflation and an electrosurgical unit."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sg2-clearance-identity",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "16d57257452efcef79699d6ef3f16782bb26aebff5279e6ba897a62e390949f5"
+   },
+   {
+    "partId": "sg2-enhancements",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "5e91825979544079d94180bbf274d642e306f152445fffb6bb029c5902a4bba4"
+   }
+  ]
+ },
+ {
+  "id": "surgical-3-force-feedback-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "surgical",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "2d7f6551c40e5e1963b58010d55bda8b1afa1be8728744997a8ec55e625a1d42",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sg3-first-modality-framing",
+    "text": "Intuitive describes da Vinci 5's Force Feedback (optional instruments that measure and let the surgeon feel subtle forces tips exert on tissue) as something 'no other surgical technology in any modality offers', under its own header 'First-of-its-kind force-sensing technology' - a vendor claim the article attributes to the company, not to a regulator",
+    "requiredCitationIds": [
+     "davinci5-clearance-2024"
+    ]
+   },
+   {
+    "id": "sg3-43-percent",
+    "text": "In Intuitive's preclinical trials with surgeons at all experience levels, Force Feedback demonstrated up to 43 percent less force exerted on tissue (vendor-reported preclinical result)",
+    "requiredCitationIds": [
+     "davinci5-clearance-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/adjacent.md:surgical:3 (ready-evidence-completion) genuinely reviewed before application: both elements verified verbatim on the single registered clearance page (isrg-dv5-clearance.html); the ledger source cell dropped the unregistered 2025-03-27 Awad release, which is unnecessary. Every cited id resolves in data/citations.ts at application HEAD b336da2.  Zero network retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916.",
+   "planDigest": "04d5ed1fd4856ced638611fc892572262951fc4efa91acac26010141177c8a4a"
+  },
+  "evidence": [
+   {
+    "partId": "sg3-first-modality-framing",
+    "citationId": "davinci5-clearance-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/03/14/2846718/7637/en/Intuitive-Announces-FDA-Clearance-of-Fifth-Generation-Robotic-System-da-Vinci-5.html",
+    "supportingPassage": "First-of-its-kind force-sensing technology: Da Vinci 5 introduces Force Feedback technology and optional instruments that enable the system to measure, and surgeons to feel, subtle forces exerted on tissue during surgery -something no other surgical technology in any modality offers."
+   },
+   {
+    "partId": "sg3-43-percent",
+    "citationId": "davinci5-clearance-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/03/14/2846718/7637/en/Intuitive-Announces-FDA-Clearance-of-Fifth-Generation-Robotic-System-da-Vinci-5.html",
+    "supportingPassage": "In preclinical trials with surgeons at all experience levels, Force Feedback demonstrated up to 43 percent less force exerted on tissue, which may translate to less trauma on tissue."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sg3-first-modality-framing",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "e873a486715e9f61eeb315f15c9e057fd62b1899085a0d158e59d8447d02b383"
+   },
+   {
+    "partId": "sg3-43-percent",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "c567eeacbbff11f880daf2c0a03e27fb2a0ca5c1ab4eb0ebc1f72a1f47376e49"
+   }
+  ]
+ },
+ {
+  "id": "surgical-4-cmr-denovo-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "surgical",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "a1adadd0ec5ee5c72b28788c77ab63657a71196221fd0e596215465020d6f056",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sg4-denovo-indication",
+    "text": "FDA granted Versius marketing authorization through the De Novo pathway in October 2024, establishing an initial U.S. indication for adult patients 22 and older, for cholecystectomy (soft-tissue minimal access surgery) - the sole indication at authorization",
+    "requiredCitationIds": [
+     "cmr-versius-authorization-2024"
+    ]
+   },
+   {
+    "id": "sg4-first-through-route",
+    "text": "Per CMR's release, Versius is the first multi-port, soft tissue general surgical Robotic Assisted Surgical Device to be authorized through FDA's De Novo application process (vendor-primary statement about its own authorization)",
+    "requiredCitationIds": [
+     "cmr-versius-authorization-2024"
+    ]
+   },
+   {
+    "id": "sg4-market-figure",
+    "text": "Of nearly 10 million annual major operating room procedures in the U.S., only approximately 2.5% were robotic assisted (figure the company paired with the announcement)",
+    "requiredCitationIds": [
+     "cmr-versius-authorization-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/adjacent.md:surgical:4 (ready-evidence-completion) genuinely reviewed before application: all 3 evidence passages needle-verified by this integrator against the packet retained fetch corpus (cmr-versius.html). Every cited id resolves in data/citations.ts at application HEAD b336da2.  Zero network retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916.",
+   "planDigest": "0bac593b705999e7f9856806d3b48c98cbf52bff4af2c5e2d017dc0648af3350"
+  },
+  "evidence": [
+   {
+    "partId": "sg4-denovo-indication",
+    "citationId": "cmr-versius-authorization-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/10/15/2963054/0/en/CMR-Surgical-receives-US-FDA-Marketing-Authorization-for-Versius-Surgical-System.html",
+    "supportingPassage": "Versius granted marketing authorization through FDA's De Novo process which establishes initial indication for adults undergoing cholecystectomy ... is indicated in the U.S. for adult patients 22 years of age and older, eligible for soft tissue minimal access surgery, for cholecystectomy."
+   },
+   {
+    "partId": "sg4-first-through-route",
+    "citationId": "cmr-versius-authorization-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/10/15/2963054/0/en/CMR-Surgical-receives-US-FDA-Marketing-Authorization-for-Versius-Surgical-System.html",
+    "supportingPassage": "The FDA marketing authorization of Versius is a significant milestone for CMR as Versius is the first multi-port, soft tissue general surgical Robotic Assisted Surgical Device (RASD) to successfully be authorized through FDA's De Novo application process."
+   },
+   {
+    "partId": "sg4-market-figure",
+    "citationId": "cmr-versius-authorization-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/10/15/2963054/0/en/CMR-Surgical-receives-US-FDA-Marketing-Authorization-for-Versius-Surgical-System.html",
+    "supportingPassage": "The U.S. is an important market with a strong demand for a flexible surgical robotic system that can be used across any care setting. Of nearly 10 million annual major operating room procedures in the U.S., only approximately 2.5% were robotic assisted."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sg4-denovo-indication",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "5ead4ad777c80f8c09816b2ce01f0cedfa00f7c6e6de8dba3ebcbab9569f4a55"
+   },
+   {
+    "partId": "sg4-first-through-route",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "1ed26fb6b2beb73d54c21f9da5f53675f4ffd683bdfb28192fbbbcada9fb28e7"
+   },
+   {
+    "partId": "sg4-market-figure",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "1e472d881e59a22a11895e8220259a6f4a7675025db6a68db587f346f73fb6dd"
+   }
+  ]
+ },
+ {
+  "id": "surgical-6-yang-framework-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "surgical",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "8cec8e7c979e9e0b2fdd4cecdd0630abbeb7c8856cd27ee010401f0548354477",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sg6-level0-motion-scaling",
+    "text": "In the six-level framework Yang and colleagues propose, teleoperated systems sit at Level 0 (No autonomy), and the authors state explicitly that 'a surgical robot with motion scaling also fits this category because the output represents the surgeon's desired motion'",
+    "requiredCitationIds": [
+     "yang-autonomy-2017"
+    ]
+   },
+   {
+    "id": "sg6-practicing-medicine",
+    "text": "At the higher levels of autonomy (specifically Level 5 and possibly Level 4), the robot is not only a medical device but is also practicing medicine; the FDA regulates medical devices but not the practice of medicine, which is left to the medical societies; one possibility the editorial raises is FDA certification of robot design safety with licensing/certification of the robotic surgeon by the medical establishment, as is currently done for human surgeons",
+    "requiredCitationIds": [
+     "yang-autonomy-2017"
+    ]
+   },
+   {
+    "id": "sg6-510k-pma-gap",
+    "text": "Per a 2014 survey cited by the editorial, bringing a medical device to market averaged roughly $31 million under 510(k) versus $94 million for PMA, and averaged 10 months from filing to clearance under 510(k) versus 54 months for PMA - a gap on the order of tens of millions of dollars and years of review",
+    "requiredCitationIds": [
+     "yang-autonomy-2017"
+    ]
+   },
+   {
+    "id": "sg6-risk-tolerance-correction",
+    "text": "CORRECTION: the editorial does not state that risk tolerance is the binding constraint on higher levels. It states technology may advance faster than regulatory, ethical, and legal frameworks, that risk management during implementation is critical, and that 'the risk tolerance to autonomous robots is expected to change' as autonomous machines such as self-driving cars become commonplace. Article span corrected from 'risk tolerance, not technical capability, is the binding constraint on higher levels' to 'risk tolerance to autonomous robots is expected to change as autonomous machines such as self-driving cars become commonplace'",
+    "requiredCitationIds": [
+     "yang-autonomy-2017"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/adjacent.md:surgical:6 (ready-source-correction) genuinely reviewed before application: all 4 evidence passages needle-verified by this integrator against the packet retained corpus (yang-ucla.txt, the author-institution mirror PDF text of the machine-walled editorial). Every cited id resolves in data/citations.ts at application HEAD b336da2. Article span corrected this pass: the risk-tolerance clause now mirrors the editorial printed position (risk tolerance to autonomous robots expected to change as autonomous machines such as self-driving cars become commonplace) instead of the overstated binding-constraint framing; the packet verdict cell text (V with parenthetical) is normalized to V with the correction carried in the Note cell. Zero network retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916.",
+   "planDigest": "fe4b870bfcb8d0c0289f31a5932a261a8566188e2fc51bdf48e9d251a29b52e0"
+  },
+  "evidence": [
+   {
+    "partId": "sg6-level0-motion-scaling",
+    "citationId": "yang-autonomy-2017",
+    "sourceUrl": "https://biomechatronics.ucla.edu/wp-content/uploads/2017/09/yang-et-al-2017-medical-roboticse28094regulatory-ethical-and-legal-co1.pdf",
+    "supportingPassage": "Level 0: No autonomy. This level includes tele-operated robots or prosthetic devices that respond to and follow the user's command. A surgical robot with motion scaling also fits this category because the output represents the surgeon's desired motion."
+   },
+   {
+    "partId": "sg6-practicing-medicine",
+    "citationId": "yang-autonomy-2017",
+    "sourceUrl": "https://biomechatronics.ucla.edu/wp-content/uploads/2017/09/yang-et-al-2017-medical-roboticse28094regulatory-ethical-and-legal-co1.pdf",
+    "supportingPassage": "At the higher levels of autonomy (specifically Level 5 and possibly Level 4), the robot is not only a medical device but is also practicing medicine. The FDA regulates medical devices but not the practice of medicine, which is left to the medical societies. Handling the overlap is therefore challenging and requires orchestrated effort from all stakeholders. One possibility is for the FDA to certify the safety of a surgical robot design but require licensing and/or certification of the robotic surgeon by the medical establishment, as is currently done for human surgeons."
+   },
+   {
+    "partId": "sg6-510k-pma-gap",
+    "citationId": "yang-autonomy-2017",
+    "sourceUrl": "https://biomechatronics.ucla.edu/wp-content/uploads/2017/09/yang-et-al-2017-medical-roboticse28094regulatory-ethical-and-legal-co1.pdf",
+    "supportingPassage": "In the United States, the Food and Drug Administration (FDA) reviews and clears robotic-assisted devices via the 510(k) (premarket notification) process. Some future medical robots may instead be classified as high-risk devices (Class 3) requiring the most stringent PMA (premarket approval) regulatory pathway. The difference can be significant. For example, based on a 2014 survey (4), it costs an average of roughly $31 million to bring a medical device to market under the 510(k) program. For a PMA device, the average cost was $94 million. It took an average of 10 months for a 510(k) device from first filing (submission) to clearance. A PMA device took an average of 54 months"
+   },
+   {
+    "partId": "sg6-risk-tolerance-correction",
+    "citationId": "yang-autonomy-2017",
+    "sourceUrl": "https://biomechatronics.ucla.edu/wp-content/uploads/2017/09/yang-et-al-2017-medical-roboticse28094regulatory-ethical-and-legal-co1.pdf",
+    "supportingPassage": "Technology may advance faster than regulatory, ethical, and legal frameworks. Risk management during implementation is critical to avoid backlash that would impede progress. ... For surgical robots, one key aspect of Levels 1 to 4 is that the treating physician is still in control to a significant extent. ... Aside from evolving technology, the risk tolerance to autonomous robots is expected to change. As autonomous machines such as self-driving cars become commonplace, we anticipate that acceptance of risk from autonomous robots for medical applications will also increase."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sg6-level0-motion-scaling",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "57e28d93678f65bc3b322d578cdcd92af67ef9920ccc963f24851a03157052cb"
+   },
+   {
+    "partId": "sg6-practicing-medicine",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "e57ee047f286837653da51f6c3ba57e11141ede6fe713c63e5a4e75c5ef9a6b9"
+   },
+   {
+    "partId": "sg6-510k-pma-gap",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "808771b1a10ff421a90b6d103737d5b89a825fa1e5b0ff6e48ccf74e0efc9727"
+   },
+   {
+    "partId": "sg6-risk-tolerance-correction",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "P3 attribution faithfulness: 'risk tolerance, not technical capability, is the binding constraint on higher levels' sharpens the editorial's actual printed position (risk tolerance expected to change; technology may advance faster than regulatory/ethical/legal frameworks) into a stronger claim the editorial does not make",
+    "evidenceDigest": "b64680bbca9085bf1f55a856bb3b0f90067ff0f600c0b8c11b0ad68d325ce1f0"
+   }
+  ]
+ },
+ {
+  "id": "surgical-7-compounding-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "surgical",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "701fcb20408e781b73a93dd763746e5e8f591cbd0e7724f54082b6c5da9e329c",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sg7-compounding-arithmetic",
+    "text": "LOCAL PROOF (no source): a learned policy that succeeds at 95 percent per step compounds to 0.95^30 = 0.21463876394293727 (21.4639%) over 30 steps; the article's 21.5 percent is this value at one decimal. Integrator must attach/re-derive this local proof as the AND leg of the row. Anchor citation (cmr-versius-authorization-2024) is the registered release cited by the same article span for the sourced clause; no fetch applies to the arithmetic conjunct.",
+    "requiredCitationIds": [
+     "cmr-versius-authorization-2024"
+    ]
+   },
+   {
+    "id": "sg7-market-denominator",
+    "text": "The same sentence's sourced clause - an unthinkable result across 2.5 percent of ten million annual procedures - traces verbatim to the registered CMR release: 'Of nearly 10 million annual major operating room procedures in the U.S., only approximately 2.5% were robotic assisted' (fetched live this session)",
+    "requiredCitationIds": [
+     "cmr-versius-authorization-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/adjacent.md:surgical:7 (ready-source-correction-with-local-AND) genuinely reviewed before application: ready-source-correction-with-local-AND adapted to the strict schema mirroring the grasp-planning-12 internal-local-AND convention: the local-proof part carries the span own anchor citation cmr-versius-authorization-2024 with an explicit no-fetch passage; the local derivation 0.95^30 = 0.21463876394293727 -> 21.4639 percent -> 21.5 at one decimal was re-run by this integrator this session; the sourced clause passage was needle-verified against cmr-versius.html; no fetch was performed and none is claimed. Every cited id resolves in data/citations.ts at application HEAD b336da2.  Zero network retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916.",
+   "planDigest": "bd3b763246aa8476327e991643eb3e5379137c7a54f23c6be51267314f37f087"
+  },
+  "evidence": [
+   {
+    "partId": "sg7-compounding-arithmetic",
+    "citationId": "cmr-versius-authorization-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/10/15/2963054/0/en/CMR-Surgical-receives-US-FDA-Marketing-Authorization-for-Versius-Surgical-System.html",
+    "supportingPassage": "LOCAL PROOF (no HTTP fetch applies to the arithmetic conjunct): integrator local derivation re-run this session: 0.95^30 = 0.21463876394293727 -> 21.4639 percent -> 21.5 at one decimal, which is what the article prints. The anchor citation is the registered CMR release cited by the same article span for the sourced clause only; no fetch applies and no external source is claimed for the arithmetic."
+   },
+   {
+    "partId": "sg7-market-denominator",
+    "citationId": "cmr-versius-authorization-2024",
+    "sourceUrl": "https://www.globenewswire.com/news-release/2024/10/15/2963054/0/en/CMR-Surgical-receives-US-FDA-Marketing-Authorization-for-Versius-Surgical-System.html",
+    "supportingPassage": "Of nearly 10 million annual major operating room procedures in the U.S., only approximately 2.5% were robotic assisted."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sg7-compounding-arithmetic",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Local-AND conjunct closed by this integrator own derivation (0.95^30 = 0.21463876394293727 -> 21.4639 percent -> 21.5 at one decimal), re-derived this session and never fetched; the anchor citation carries only the span registered source for the sourced clause. Packet adjudication: the compound figure is arithmetic on stated inputs, not a source-printed number; no citation can or should be manufactured for it.",
+    "evidenceDigest": "c5e61d134e6b50250e49374f4cfcec76e74b9af489f4caa0eab11a80571d66af"
+   },
+   {
+    "partId": "sg7-market-denominator",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "86893c83335f471241405e4b7c7debbb1f1b2246c9afa7334dc3385973727aa1"
+   }
+  ]
+ },
+ {
+  "id": "surgical-8-star-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "surgical",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "ca387b10d7374be511b03a50a6519e85790ba572f077a7bf6427ebc1c356deca",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sg8-star-identity",
+    "text": "The Smart Tissue Autonomous Robot (STAR) study (Shademan et al., Sci Transl Med 8(337):337ra64, May 4, 2016) demonstrated in vivo supervised autonomous soft tissue surgery, with a computer program generating the plan for suturing and intestinal anastomosis on deformable soft tissue while the system ran under supervision",
+    "requiredCitationIds": [
+     "star-suturing-2016"
+    ]
+   },
+   {
+    "id": "sg8-star-outcomes",
+    "text": "On anastomosis metrics including suture spacing consistency and the pressure at which the anastomosis leaked, the supervised autonomous system's outcome was superior to surgery performed by expert surgeons and RAS techniques in ex vivo porcine tissues and in living pigs; the article's 'matched or exceeded both expert surgeons and conventional robot-assisted technique in porcine studies' is a conservative rendering (optional tighten: 'exceeded')",
+    "requiredCitationIds": [
+     "star-suturing-2016"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/adjacent.md:surgical:8 (ready-evidence-completion) genuinely reviewed before application: both evidence passages needle-verified by this integrator against the retained PubMed efetch text preserved in the source worker session log (66a2447b-db3d-4c95-89be-f58c1e9ffb6e.jsonl); no lane corpus file exists for PubMed, per the established lane convention. Every cited id resolves in data/citations.ts at application HEAD b336da2.  Zero network retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916.",
+   "planDigest": "b441086984586952669e6d00d2dcc404602fe812fd47981c6646e664e6318e4c"
+  },
+  "evidence": [
+   {
+    "partId": "sg8-star-identity",
+    "citationId": "star-suturing-2016",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/27147588/",
+    "supportingPassage": "We demonstrate in vivo supervised autonomous soft tissue surgery in an open surgical setting, enabled by a plenoptic three-dimensional and near-infrared fluorescent (NIRF) imaging system and an autonomous suturing algorithm. Inspired by the best human surgical practices, a computer program generates a plan to complete complex surgical tasks on deformable soft tissue, such as suturing and intestinal anastomosis."
+   },
+   {
+    "partId": "sg8-star-outcomes",
+    "citationId": "star-suturing-2016",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/27147588/",
+    "supportingPassage": "We compared metrics of anastomosis-including the consistency of suturing informed by the average suture spacing, the pressure at which the anastomosis leaked, the number of mistakes that required removing the needle from the tissue, completion time, and lumen reduction in intestinal anastomoses-between our supervised autonomous system, manual laparoscopic surgery, and clinically used RAS approaches. Despite dynamic scene changes and tissue movement during surgery, we demonstrate that the outcome of supervised autonomous procedures is superior to surgery performed by expert surgeons and RAS techniques in ex vivo porcine tissues and in living pigs."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sg8-star-identity",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "73ed3a007a825d140f82f51b7623f67167072331f495b1e294c630987597325c"
+   },
+   {
+    "partId": "sg8-star-outcomes",
+    "outcome": "supported",
+    "reviewedBy": "surgical-integrator-20260916 (session 10511c47-5af2-4a20-9a08-4c3d84f2bcc6, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Needle-verified verbatim by this integrator against the retained packet evidence before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "d5b48d30a466fa49deae74b7e7dccbc1d4612dd91ebc11e444fde3b51ee2430d"
+   }
+  ]
  }
+
 ]
