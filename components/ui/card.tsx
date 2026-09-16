@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import Link from 'next/link';
 import { cx } from '@/lib/utils';
+import { IntentLink } from '@/components/ui/intent-link';
 
 type CardProps = {
   title?: string;
@@ -29,7 +29,7 @@ export function Card({
   );
   if (href) {
     return (
-      <Link
+      <IntentLink
         href={href}
         data-brand-control-id="control:link-focus"
         data-brand-surface-id={`surface:${level}`}
@@ -52,7 +52,7 @@ export function Card({
         <div className={cx('text-sm text-text-dim', title && 'mt-1')}>
           {children}
         </div>
-      </Link>
+      </IntentLink>
     );
   }
 

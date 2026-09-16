@@ -128,7 +128,7 @@ describe('canonical design-system documentation', () => {
       expect(text).toContain('contract/design-integrity.md');
     }
     expect(agents).toContain('Do not invent a logo');
-    expect(readme).toContain('there is\nno separate logo');
+    expect(readme).toMatch(/there is\s+no separate logo/i);
   });
 
   it('only names npm scripts that exist', () => {

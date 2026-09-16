@@ -1065,14 +1065,14 @@
       "date": "2026-04-16",
       "valuationUsd": null,
       "leadInvestors": ["Hillhouse Capital", "HSG"],
-      "sourceUrl": "https://olachina.org/tars-ai/"
+      "sourceUrl": "https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector"
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
       { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "TARS Robotics raises $513M seed", "asOf": "2026-08-18" },
-      { "url": "https://olachina.org/tars-ai/", "title": "China's TARS AI Raises $455M in Embodied Intelligence Round (Ola China; $455M Pre-A announced 2026-04-16, Hillhouse + Sequoia China co-led)", "asOf": "2026-08-18" }
+      { "url": "https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector", "title": "TARS Raises $455M Pre-A Round, Setting Record in China's Embodied AI Sector (Pandaily; announced 2026-04-16)", "asOf": "2026-08-25" }
     ],
     "confidence": "medium"
   },

@@ -3,6 +3,7 @@ import { So101ChainPreview } from '@/components/home/so101-chain-preview';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { Action } from '@/components/ui';
+import { IntentLink } from '@/components/ui/intent-link';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import { SEGMENT_ORDER } from '@/lib/market-map';
 import { so101Preview } from '@/lib/so101-kinematics';
@@ -12,6 +13,8 @@ import {
   DOMAIN_META,
   modulesByDomain,
 } from '@/data/modules';
+import { learningPaths } from '@/lib/learning-paths';
+import { websiteJsonLd } from '@/lib/seo';
 
 /**
  * Home: the brand title sheet, the seven-domain typographic index, the live
@@ -55,6 +58,7 @@ const SECTION_SIGNATURES = {
   featured: 'plain/module-heading/live-instrument',
   hardware: 'plain/module-heading/credited-figure',
   tools: 'plain/module-heading/schematic-pair',
+  learningPaths: 'plain/module-heading/ordered-link-lists',
   howToRead: 'ruled-plain/closing-heading/guidance-prose',
 } as const;
 
@@ -68,6 +72,7 @@ export default function Home() {
   const adjacentModules = (modulesByDomain().adjacent ?? []).filter(
     (m) => m.status === 'published',
   );
+  const paths = learningPaths();
 
   return (
     <>
@@ -85,6 +90,10 @@ export default function Home() {
         data-brand-module-signature={SECTION_SIGNATURES.intro}
         className={`${container} pt-8 lg:pt-10`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: websiteJsonLd() }}
+        />
         {/* VAL-DSHOME-009: below md the grid is an exact 80px band that
             sits immediately below the descriptor/wordmark lockup and
             closes the hero sheet, with the overview and CTA outside the
@@ -235,13 +244,13 @@ export default function Home() {
             return (
               <li key={domain}>
                 <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
-                  <Link
+                  <IntentLink
                     data-brand-control-id="control:link-focus"
                     href={`/${domain}/`}
                     className="font-sans text-[15px] font-medium text-text transition-colors hover:text-accent"
                   >
                     {meta.name}
-                  </Link>
+                  </IntentLink>
                   {isAdjacent && adjacentModules.length > 0 ? (
                     <p className="text-sm leading-snug text-text-dim">
                       {adjacentModules.map((m, i) => (
@@ -251,13 +260,13 @@ export default function Home() {
                               ? ', and '
                               : ', '
                             : ''}
-                          <Link
+                          <IntentLink
                             data-brand-control-id="control:link-focus"
                             href={`/adjacent/${m.slug}/`}
                             className="transition-colors hover:text-accent"
                           >
                             {m.title}
-                          </Link>
+                          </IntentLink>
                         </span>
                       ))}
                       .
@@ -292,13 +301,13 @@ export default function Home() {
           A 95% per-step success rate sounds strong. Compounded over a 30-step
           episode it is not. Move the sliders to see how small per-step errors
           erode end-to-end reliability; the{' '}
-          <Link
+          <IntentLink
             data-brand-control-id="control:link-focus"
             href="/frontier"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
             frontier essays
-          </Link>{' '}
+          </IntentLink>{' '}
           develop the argument.
         </p>
         <ReliabilityCompounding className="mt-5" />
@@ -322,13 +331,13 @@ export default function Home() {
           The policies and controllers this wiki covers run on physical
           machines. Every photograph and diagram on the site is licensed and
           credited, and the full list lives on the{' '}
-          <Link
+          <IntentLink
             data-brand-control-id="control:link-focus"
             href="/credits"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
             credits page
-          </Link>
+          </IntentLink>
           .
         </p>
         <ImageRef id="spot-raf-agile-liberty-2021" />
@@ -452,6 +461,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Curated sequences through the taxonomy: a discovery surface that
+          says which order the registry intends a newcomer to read in. */}
+      <section
+        aria-labelledby="learning-paths-heading"
+        data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.learningPaths}
+        className={`${container} mt-14`}
+      >
+        <h2
+          id="learning-paths-heading"
+          data-tektur-role="section-display"
+          className="font-display-section text-xl tracking-tight text-text"
+        >
+          Learning paths
+        </h2>
+        <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
+          Pick a sequence when you want a coherent route through the wiki.
+          Each path starts with the concepts later articles assume.
+        </p>
+        <div className="mt-6 grid gap-x-8 gap-y-8 md:grid-cols-3">
+          {paths.map((path) => (
+            <section
+              key={path.id}
+              aria-labelledby={`learning-path-${path.id}`}
+              className="border-t border-border pt-4"
+            >
+              <h3 className="font-sans text-base font-semibold tracking-tight text-text">
+                <IntentLink
+                  data-brand-control-id="control:link-focus"
+                  href={path.hub}
+                  className="transition-colors hover:text-accent"
+                >
+                  {path.title}
+                </IntentLink>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-text-dim">
+                {path.description}
+              </p>
+              <ol className="mt-4 list-decimal space-y-2 pl-5 font-sans text-sm text-text-dim marker:font-mono marker:text-[11px]">
+                {path.entries.map((entry) => (
+                  <li key={`${entry.domain}/${entry.slug}`}>
+                    <IntentLink
+                      data-brand-control-id="control:link-focus"
+                      href={`/${entry.domain}/${entry.slug}/`}
+                      className="text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
+                    >
+                      {entry.title}
+                    </IntentLink>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ))}
+        </div>
+      </section>
+
       {/* How to read this wiki: guidance woven into the flow, with links. */}
       <section
         id="how-to-read"
@@ -475,13 +540,13 @@ export default function Home() {
             Modules stand alone, but inside a domain they build on each other
             in registry order: later entries assume the earlier ones. If you
             come from machine learning rather than robotics, start with{' '}
-            <Link
+            <IntentLink
               data-brand-control-id="control:link-focus"
               href="/manipulation/action-chunking"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
             >
               Action Chunking (ACT and ALOHA)
-            </Link>
+            </IntentLink>
             . It shows the format every module follows: precise prose, inline
             citations, and a live interactive you can manipulate.
           </p>
@@ -491,13 +556,13 @@ export default function Home() {
             links to the entry that derives it, so you can read forward and
             backfill as needed. Terms of art are defined where they first
             appear and collected in the{' '}
-            <Link
+            <IntentLink
               data-brand-control-id="control:link-focus"
               href="/glossary"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
             >
               glossary
-            </Link>
+            </IntentLink>
             .
           </p>
           <p>

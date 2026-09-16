@@ -8379,7 +8379,7 @@ export const CITATIONS: Citation[] = [
     // the ACWG maintains it) and the document is published open under
     // CC BY 4.0. Version 3 is current; there is no Version 4.
     id: 'gsn-standard-v3',
-    title: 'Goal Structuring Notation Community Standard Version 3',
+    title: 'Goal Structuring Notation Community Standard (Version 3)',
     authors: ['SCSC Assurance Case Working Group'],
     year: 2021,
     venue: 'Safety-Critical Systems Club',
@@ -8525,7 +8525,9 @@ export const CITATIONS: Citation[] = [
     // sixth straight quarter of growth. Cobots are 19.6% of UNITS ordered
     // (7,212 of 36,766) and 10.7% of order value ($241M of $2.25bn); an
     // earlier version of this comment reported the unit share as a value
-    // share and the article inherited the error (audit 2026-09-06).
+    // share and the article inherited the error (audit 2026-09-06). The
+    // corrected live slug includes "broader" (verified 2026-08-24); the
+    // former slug returned a Cloudflare 403.
     id: 'a3-orders-2025',
     title:
       'Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption',
@@ -8672,6 +8674,45 @@ export const CITATIONS: Citation[] = [
     venue: 'This is Money, 2025-11-18',
     url: 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html',
     type: 'press',
+  },
+  // ---- ROS 2 for ML engineers (classical/ros2-for-ml-engineers, 2026-08-24) ----
+  // These pages have no individual byline. The project/maintainer collective
+  // is retained as the organizational author rather than inventing names.
+  {
+    id: 'ros2-lyrical-2026',
+    title: "Lyrical Luth (codename 'lyrical'; May, 2026)",
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html',
+    type: 'docs',
+  },
+  {
+    id: 'ros2-interfaces-2026',
+    title: 'Interfaces (topics, services, actions)',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html',
+    type: 'docs',
+  },
+  {
+    id: 'ros2-qos-2026',
+    title: 'Quality of Service settings',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Concepts/Intermediate/About-Quality-of-Service-Settings.html',
+    type: 'docs',
+  },
+  {
+    id: 'moveit-planning-scene-2026',
+    title: 'Planning Scene',
+    authors: ['MoveIt Maintainers'],
+    year: 2026,
+    venue: 'MoveIt 2 Documentation, as of 2026-08-24',
+    url: 'https://moveit.picknik.ai/main/api/html/planning_scene_overview.html',
+    type: 'docs',
   },
 ];
 

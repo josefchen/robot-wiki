@@ -37,14 +37,13 @@ import {
   classifyStatus,
   extractDoi,
   isUnexplained,
-  parseCrossrefWork,
   shouldFallbackToGet,
   shouldRetryStatus,
   validateExceptions,
   verifyCrossrefWork,
-  type CrossrefWork,
   type LinkCheckResult,
 } from '../lib/citation-links.ts';
+import { fetchCrossrefWork } from '../lib/crossref-client.ts';
 import { CITATIONS, type Citation } from '../data/citations.ts';
 import { LINK_CHECK_EXCEPTIONS } from '../data/link-check-exceptions.ts';
 
@@ -109,32 +108,6 @@ async function fetchStatus(
     // We only need the status; release the body so PDFs are not downloaded.
     await response.body?.cancel().catch(() => undefined);
     return { status: response.status, finalUrl: response.url };
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-/**
- * Verify a bot-walled DOI-bearing URL through Crossref content negotiation.
- * Returns null when Crossref cannot answer (network failure, unparseable
- * payload); the caller then leaves the original verdict in place.
- */
-async function fetchCrossrefWork(doi: string, timeoutMs: number): Promise<CrossrefWork | null> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const response = await fetch(`https://doi.org/${doi}`, {
-      redirect: 'follow',
-      signal: controller.signal,
-      headers: {
-        'User-Agent': BROWSER_UA,
-        Accept: 'application/vnd.citationstyles.csl+json',
-      },
-    });
-    if (!response.ok) return null;
-    return parseCrossrefWork(await response.json());
-  } catch {
-    return null;
   } finally {
     clearTimeout(timer);
   }

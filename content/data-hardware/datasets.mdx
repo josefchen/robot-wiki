@@ -17,8 +17,9 @@ citations:
   - diversity-scaling-2025
 seeAlso:
   - "data-hardware/data-bottleneck"
+  - "data-hardware/robot-learning-stack"
+  - "manipulation/robot-learning-roadmap"
   - "manipulation/cross-embodiment"
-  - "data-hardware/teleop-rigs"
 ---
 
 import { DatasetTable } from '@/components/interactive/dataset-table';
@@ -75,3 +76,9 @@ Convert to hours wherever you can. DROID's 350 hours across 76,000 trajectories 
 Check the license before the leaderboard. DROID ships CC BY 4.0, which permits commercial training with attribution, and AgiBot World's non-commercial terms are printed by its own release repository; BridgeData V2's CC BY 4.0 and RoboMIND's non-commercial terms rest on project pages that no longer print them, and OXE inherits whatever each of its 60 constituents chose. A policy trained on NC data is an NC policy in practice, whatever the license lawyers eventually decide.
 
 Finally, weigh breadth against consistency. OXE's federation maximizes diversity and inherits every constituent's quirks; DROID's monoculture gives up embodiment coverage for a clean action space. The scaling-laws work says environment and task diversity dominates raw volume, and that multi-embodiment pretraining may be optional when task diversity is high <Cite id="diversity-scaling-2025" />. If that result holds, the DROID and RoboMIND bets age better than the OXE bet. The field has not settled it.
+
+## From dataset headline to training contract
+
+A useful dataset passes four gates. The legal gate permits the intended deployment and preserves required attribution. The semantic gate defines actions, units, frames, rates and termination consistently enough to convert. The distribution gate contains the tasks, scenes, failures and embodiments needed for the claimed generalization. The operational gate makes episodes downloadable, versioned and traceable to a release. A million episodes that fail one gate can be less useful than a smaller collection that passes all four.
+
+Do not concatenate datasets first and reconcile them later. Choose a canonical observation and action schema, write an adapter per source, and retain source identity through training and evaluation. Track sampling weights and performance by source cohort so positive transfer is distinguishable from one corpus dominating the mixture. The [robot-learning stack](/data-hardware/robot-learning-stack) supplies the versioned artifacts for that process, while the [robot-learning roadmap](/manipulation/robot-learning-roadmap) shows where dataset selection belongs in the broader program.

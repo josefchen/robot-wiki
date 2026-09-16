@@ -7,11 +7,10 @@ import { join } from 'node:path';
  *
  * The owner's go-public decision (2026-08-16) set ALLOW_INDEXING in
  * lib/site.ts to true, so the shipped artifact must permit crawling and
- * carry no residual noindex directive on any crawlable route. The one
- * deliberate exception is the 404 page, which pins its own route-level
- * robots noindex (app/not-found.tsx) so it stays non-indexable independent
- * of the global switch; that independence is what the VAL-BRAND-006 pin in
- * not-found-metadata.spec.ts still guards from the browser side.
+ * carry no residual noindex directive on any sitemap route. Two deliberate
+ * exceptions sit outside that set: /search is a query-dependent utility,
+ * /privacy is a policy disclosure rather than an acquisition page, and /404
+ * is an error page. All three pin their own route-level noindex metadata.
  *
  * Checked against the SHIPPED artifact (out/ on disk): robots.txt state and
  * per-route robots meta are export-time facts the dev server cannot show.
@@ -70,5 +69,25 @@ test.describe('per-route robots meta (VAL-BRAND-007)', () => {
   test('/404/ stays noindex independent of the switch', () => {
     const html = readFileSync(join(OUT, '404.html'), 'utf8');
     expect(html).toMatch(/<meta name="robots"[^>]*noindex/);
+  });
+
+  test('/search/ is crawlable but noindex and excluded from the sitemap', () => {
+    const html = readFileSync(join(OUT, 'search', 'index.html'), 'utf8');
+    const robotsMeta = (html.match(/<meta name="robots"[^>]*>/g) ?? []).join(' ');
+    expect(robotsMeta).toContain('noindex');
+    expect(robotsMeta).toContain('follow');
+    expect(readFileSync(join(OUT, 'sitemap.xml'), 'utf8')).not.toContain(
+      `${SITE_ORIGIN}/search/`,
+    );
+  });
+
+  test('/privacy/ is followable but noindex and excluded from the sitemap', () => {
+    const html = readFileSync(join(OUT, 'privacy', 'index.html'), 'utf8');
+    const robotsMeta = (html.match(/<meta name="robots"[^>]*>/g) ?? []).join(' ');
+    expect(robotsMeta).toContain('noindex');
+    expect(robotsMeta).toContain('follow');
+    expect(readFileSync(join(OUT, 'sitemap.xml'), 'utf8')).not.toContain(
+      `${SITE_ORIGIN}/privacy/`,
+    );
   });
 });

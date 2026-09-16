@@ -650,6 +650,10 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | evst-cell-cost-2026 | https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/ | ok | match | none (first audited 2026-09-06) |  |
 | ocado-oia-2026 | https://ocadointelligentautomation.com/ | ok | match | none (first audited 2026-09-06) |  |
 | kroger-ocado-closures-2025 | https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) |  |
+| moveit-planning-scene-2026 | https://moveit.picknik.ai/main/api/html/planning_scene_overview.html | ok | match | none (first audited 2026-09-16) | Fetched 200 during the SEO-merge integration; page title "moveit2: Planning Scene" contains the registered page name. |
+| ros2-lyrical-2026 | https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html | FAIL | unavailable | UNRESOLVED (registered by the 2026-09-16 SEO merge; awaits a real fetch) | docs.ros.org serves a "Making sure you're not a bot!" challenge page to non-browser fetches; title never reached. |
+| ros2-interfaces-2026 | https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html | FAIL | unavailable | UNRESOLVED (registered by the 2026-09-16 SEO merge; awaits a real fetch) | Same docs.ros.org bot-challenge response as ros2-lyrical-2026. |
+| ros2-qos-2026 | https://docs.ros.org/en/lyrical/Concepts/Intermediate/About-Quality-of-Service-Settings.html | FAIL | unavailable | UNRESOLVED (registered by the 2026-09-16 SEO merge; awaits a real fetch) | Same docs.ros.org bot-challenge response as ros2-lyrical-2026. |
 
 ## Verification (recorded 2026-08-18, reconciliation sweep)
 
