@@ -16084,6 +16084,91 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "taxonomy-r16-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/taxonomy",
+   "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "reason": "Exactly world-models/taxonomy original 16 (worldvla-2025 evidence completion of the standing verified verdict: \"WorldVLA interleaves action and image tokens autoregressive...) per the frozen packet convergence-source-t-taxonomy-20260916h. The packet's recorded passages were needle-verified by this integrator against the retained sha256-verified source bodies before adjudication (123/123 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-taxonomy-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-t-taxonomy-20260916h, sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "taxonomy-r17-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/taxonomy",
+   "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "reason": "Exactly world-models/taxonomy original 17 (cosmos-policy-2026 evidence completion of the standing verified verdict: \"Cosmos Policy is the same idea on top of the Cosmos backbon...) per the frozen packet convergence-source-t-taxonomy-20260916h. The packet's recorded passages were needle-verified by this integrator against the retained sha256-verified source bodies before adjudication (123/123 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-taxonomy-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-t-taxonomy-20260916h, sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "taxonomy-r18-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/taxonomy",
+   "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "reason": "Exactly world-models/taxonomy original 18 (occworld-2023 evidence completion of the standing verified verdict: \"OccWorld ... predicts how a scene's occupancy grid evolves ...) per the frozen packet convergence-source-t-taxonomy-20260916h. The packet's recorded passages were needle-verified by this integrator against the retained sha256-verified source bodies before adjudication (123/123 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-taxonomy-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-t-taxonomy-20260916h, sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "taxonomy-r19-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/taxonomy",
+   "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "reason": "Exactly world-models/taxonomy original 19 (mujoco-2012 evidence completion of the standing verified verdict: \"MuJoCo is an explicit, hand-specified state-transition mode...) per the frozen packet convergence-source-t-taxonomy-20260916h. The packet's recorded passages were needle-verified by this integrator against the retained sha256-verified source bodies before adjudication (123/123 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-taxonomy-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-t-taxonomy-20260916h, sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "taxonomy-r20-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/taxonomy",
+   "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+   "reason": "Exactly world-models/taxonomy original 20 (3dgs-2023 evidence completion of the standing verified verdict: \"A 3DGS reconstruction of a real scene is a learned renderer...) per the frozen packet convergence-source-t-taxonomy-20260916h. The packet's recorded passages were needle-verified by this integrator against the retained sha256-verified source bodies before adjudication (123/123 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-taxonomy-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-t-taxonomy-20260916h, sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]

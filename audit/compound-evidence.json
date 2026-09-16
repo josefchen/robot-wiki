@@ -68669,6 +68669,301 @@
     "evidenceDigest": "ea9c08018383757dcb7f3b81d9057bc2b369b82147a558bbd54df8531f12a934"
    }
   ]
+ },
+ {
+  "id": "taxonomy-16-worldvla-20260916h",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "taxonomy",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "a8d7b2c8a53f9168805409358e4e61aaee7f3847fdc85a282561b0392adfe0b2",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "t16-worldvla-autoregressive-unification",
+    "text": "WorldVLA is, in the paper's own words, 'an autoregressive action world model that unifies action and image understanding and generation', integrating a Vision-Language-Action model and a world model in one single framework; its printed token mechanism is three separate tokenizers (images, text, actions) whose tokens share the same vocabulary so understanding and generation are 'unified within a single LLM architecture'. The article's 'interleaves action and image tokens autoregressively' is the article's paraphrase of that mechanism (the paper prints no form of 'interleaves').",
+    "requiredCitationIds": [
+     "worldvla-2025"
+    ]
+   },
+   {
+    "id": "t16-worldvla-mutual-enhancement",
+    "text": "The mutual-improvement claim is the paper's own: 'We demonstrate that WorldVLA outperforms standalone action and world models, highlighting the mutual enhancement between the world model and the action model.' (abstract, verbatim; the body also prints 'These results underscore the mutual benefits derived from integrating world and action models').",
+    "requiredCitationIds": [
+     "worldvla-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) at HEAD 1eb5c5b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all five currentTupleDigest values equal the live rows). Every quoted passage was independently needle-verified by this integrator (123/123 checks, lane needle-verification.json) against the retained sha256-verified fetch bodies preserved in the source lane (four arXiv pages byte-match the packet fetchLog; MuJoCo row 19 rests on the packet's FetchUrl-of-record IEEE public-abstract passage with the abstract-tier limitation disclosed, registry P1 verified read-only). All five citations (worldvla-2025, cosmos-policy-2026, occworld-2023, mujoco-2012, 3dgs-2023) verified already registered in data/citations.ts at their registered URLs; no new registrations; occworld-2023 and 3dgs-2023 reused consistently with their existing compound bindings. Original 4 stays honestly HELD (internal WM_PARADIGMS local-count row; standing owner question; no registered citation exists for the local-count conjunct), bound to its standing plan and untouched. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "17f2bf269287da70924b3780f711b4fdbf6488b6e68fcb6a66d870aa763436fd"
+  },
+  "evidence": [
+   {
+    "partId": "t16-worldvla-autoregressive-unification",
+    "citationId": "worldvla-2025",
+    "sourceUrl": "https://arxiv.org/html/2506.21539",
+    "supportingPassage": "As depicted in Fig. 1 , WorldVLA employs three separate tokenizers to encode images, text, and actions. The tokens from different modalities are set to share the same vocabulary so that understanding and generation across these modalities can be unified within a single LLM architecture."
+   },
+   {
+    "partId": "t16-worldvla-mutual-enhancement",
+    "citationId": "worldvla-2025",
+    "sourceUrl": "https://arxiv.org/abs/2506.21539",
+    "supportingPassage": "We present WorldVLA, an autoregressive action world model that unifies action and image understanding and generation. Our WorldVLA intergrates Vision-Language-Action (VLA) model and world model in one single framework. The world model predicts future images by leveraging both action and image understanding, with the purpose of learning the underlying physics of the environment to improve action generation. Meanwhile, the action model generates the subsequent actions based on image observations, aiding in visual understanding and in turn helps visual generation of the world model. We demonstrate that WorldVLA outperforms standalone action and world models, highlighting the mutual enhancement between the world model and the action model."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "t16-worldvla-autoregressive-unification",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-verified fetch bodies before adjudication: the full HTML body prints the token mechanism verbatim (\"WorldVLA employs three separate tokenizers to encode images, text, and actions\" plus \"The tokens from different modalities are set to share the same vocabulary so that understanding and generation across these modalities can be unified within a single LLM architecture\"), the abs page prints the unification sentence (\"an autoregressive action world model that unifies action and image understanding and generation\", carried in this plan's abstract evidence item), and no form of \"interleav\" occurs anywhere in the retained 182,633-byte body or the abs page (0 hits): the article span's \"interleaves\" is disclosed in the row note as the article's paraphrase, never certified as a paper-printed clause.",
+    "evidenceDigest": "83f2c28b966bc191449502f74468084140563c39a38b133506ae52d6fba331d4"
+   },
+   {
+    "partId": "t16-worldvla-mutual-enhancement",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified verbatim against the retained sha256-verified abs page: \"We demonstrate that WorldVLA outperforms standalone action and world models, highlighting the mutual enhancement between the world model and the action model.\" is the abstract's own sentence, so the mutual-improvement claim is the paper's, exactly as the standing verified verdict records.",
+    "evidenceDigest": "9bbe86920183ac79719077f7ebe076e4f4dc057077b83b8a4ca3ca8c399e3428"
+   }
+  ]
+ },
+ {
+  "id": "taxonomy-17-cosmos-policy-20260916h",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "taxonomy",
+  "rowOrdinal": 17,
+  "originalCellsDigest": "53215a5b0de559986d948f40710a32e11467c04a19757727d505e8cff8191e25",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "t17-cosmos-policy-post-training",
+    "text": "Cosmos Policy adapts 'a large pretrained video model (Cosmos-Predict2) into an effective robot policy through a single stage of post-training on the robot demonstration data collected on the target platform, with no architectural modifications' (abstract, verbatim). The article span's 'post-training the Cosmos-Predict2 video model into a robot policy with no architectural modifications' restates exactly this.",
+    "requiredCitationIds": [
+     "cosmos-policy-2026"
+    ]
+   },
+   {
+    "id": "t17-cosmos-policy-latent-frames",
+    "text": "Cosmos Policy 'learns to directly generate robot actions encoded as latent frames within the video model's latent diffusion process' and 'generates future state images and values (expected cumulative rewards), which are similarly encoded as latent frames' (abstract, verbatim); the current note cell's latent-frames summary reproduces this. The span's opening clause 'the same idea on top of the Cosmos backbone' is the article's own editorial comparison to WorldVLA, disclosed as such.",
+    "requiredCitationIds": [
+     "cosmos-policy-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) at HEAD 1eb5c5b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all five currentTupleDigest values equal the live rows). Every quoted passage was independently needle-verified by this integrator (123/123 checks, lane needle-verification.json) against the retained sha256-verified fetch bodies preserved in the source lane (four arXiv pages byte-match the packet fetchLog; MuJoCo row 19 rests on the packet's FetchUrl-of-record IEEE public-abstract passage with the abstract-tier limitation disclosed, registry P1 verified read-only). All five citations (worldvla-2025, cosmos-policy-2026, occworld-2023, mujoco-2012, 3dgs-2023) verified already registered in data/citations.ts at their registered URLs; no new registrations; occworld-2023 and 3dgs-2023 reused consistently with their existing compound bindings. Original 4 stays honestly HELD (internal WM_PARADIGMS local-count row; standing owner question; no registered citation exists for the local-count conjunct), bound to its standing plan and untouched. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "cc150c27bd5566a5a92eef14c3d32155ca8e669ac03908faae16fd26f1a9f43e"
+  },
+  "evidence": [
+   {
+    "partId": "t17-cosmos-policy-post-training",
+    "citationId": "cosmos-policy-2026",
+    "sourceUrl": "https://arxiv.org/abs/2601.16163",
+    "supportingPassage": "In this work, we introduce Cosmos Policy, a simple approach for adapting a large pretrained video model (Cosmos-Predict2) into an effective robot policy through a single stage of post-training on the robot demonstration data collected on the target platform, with no architectural modifications. Cosmos Policy learns to directly generate robot actions encoded as latent frames within the video model's latent diffusion process, harnessing the model's pretrained priors and core learning algorithm to capture complex action distributions. Additionally, Cosmos Policy generates future state images and values (expected cumulative rewards), which are similarly encoded as latent frames, enabling test-time planning of action trajectories with higher likelihood of success."
+   },
+   {
+    "partId": "t17-cosmos-policy-latent-frames",
+    "citationId": "cosmos-policy-2026",
+    "sourceUrl": "https://arxiv.org/abs/2601.16163",
+    "supportingPassage": "In this work, we introduce Cosmos Policy, a simple approach for adapting a large pretrained video model (Cosmos-Predict2) into an effective robot policy through a single stage of post-training on the robot demonstration data collected on the target platform, with no architectural modifications. Cosmos Policy learns to directly generate robot actions encoded as latent frames within the video model's latent diffusion process, harnessing the model's pretrained priors and core learning algorithm to capture complex action distributions. Additionally, Cosmos Policy generates future state images and values (expected cumulative rewards), which are similarly encoded as latent frames, enabling test-time planning of action trajectories with higher likelihood of success."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "t17-cosmos-policy-post-training",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified verbatim against the retained sha256-verified abs page: \"adapting a large pretrained video model (Cosmos-Predict2) into an effective robot policy through a single stage of post-training on the robot demonstration data collected on the target platform, with no architectural modifications\" is printed by the abstract; P1 anchors (title, all 11 authors in order, year 2026) match the registry entry exactly.",
+    "evidenceDigest": "dd43aa3710be2fafd6ee4c749124341ede667af42604d763d4c887c4240197ec"
+   },
+   {
+    "partId": "t17-cosmos-policy-latent-frames",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified verbatim against the retained sha256-verified abs page: \"learns to directly generate robot actions encoded as latent frames within the video model's latent diffusion process\" and \"generates future state images and values (expected cumulative rewards), which are similarly encoded as latent frames\" are printed by the abstract. The span's \"the same idea on top of the Cosmos backbone\" is disclosed in the row note as the article's editorial comparison to WorldVLA; the abstract-page tier certifies nothing beyond what the abstract prints.",
+    "evidenceDigest": "01de9ade9c3811fdb2c1ad0d2436c85fee3370be0ad5e45d72778451f9f954bd"
+   }
+  ]
+ },
+ {
+  "id": "taxonomy-18-occworld-20260916h",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "taxonomy",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "1048862dc94141deebdeb85b2d067a5e8d77072d36258e604c46afe76b9ac494",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "t18-occworld-occupancy-evolution",
+    "text": "OccWorld is 'a new framework of learning a world model, OccWorld, in the 3D Occupancy space to simultaneously predict the movement of the ego car and the evolution of the surrounding scenes' (abstract, verbatim); the article's 'predicts how a scene's occupancy grid evolves' renders this with the article's own term 'occupancy grid' where the paper prints '3D Occupancy space'/'3D occupancy'.",
+    "requiredCitationIds": [
+     "occworld-2023"
+    ]
+   },
+   {
+    "id": "t18-occworld-planning-no-supervision",
+    "text": "'OccWorld also produces competitive planning results without using instance and map supervision.' (abstract, verbatim; final sentence of the abstract's results paragraph).",
+    "requiredCitationIds": [
+     "occworld-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) at HEAD 1eb5c5b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all five currentTupleDigest values equal the live rows). Every quoted passage was independently needle-verified by this integrator (123/123 checks, lane needle-verification.json) against the retained sha256-verified fetch bodies preserved in the source lane (four arXiv pages byte-match the packet fetchLog; MuJoCo row 19 rests on the packet's FetchUrl-of-record IEEE public-abstract passage with the abstract-tier limitation disclosed, registry P1 verified read-only). All five citations (worldvla-2025, cosmos-policy-2026, occworld-2023, mujoco-2012, 3dgs-2023) verified already registered in data/citations.ts at their registered URLs; no new registrations; occworld-2023 and 3dgs-2023 reused consistently with their existing compound bindings. Original 4 stays honestly HELD (internal WM_PARADIGMS local-count row; standing owner question; no registered citation exists for the local-count conjunct), bound to its standing plan and untouched. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "bde3a44af9d8498436d02c9531ce60cf5c1eccad230af40f8745e87fef3b3043"
+  },
+  "evidence": [
+   {
+    "partId": "t18-occworld-occupancy-evolution",
+    "citationId": "occworld-2023",
+    "sourceUrl": "https://arxiv.org/abs/2311.16038",
+    "supportingPassage": "In this paper, we explore a new framework of learning a world model, OccWorld, in the 3D Occupancy space to simultaneously predict the movement of the ego car and the evolution of the surrounding scenes. We propose to learn a world model based on 3D occupancy rather than 3D bounding boxes and segmentation maps for three reasons: 1) expressiveness. 3D occupancy can describe the more fine-grained 3D structure of the scene; 2) efficiency. 3D occupancy is more economical to obtain (e.g., from sparse LiDAR points). 3) versatility. 3D occupancy can adapt to both vision and LiDAR. [...] OccWorld also produces competitive planning results without using instance and map supervision."
+   },
+   {
+    "partId": "t18-occworld-planning-no-supervision",
+    "citationId": "occworld-2023",
+    "sourceUrl": "https://arxiv.org/abs/2311.16038",
+    "supportingPassage": "In this paper, we explore a new framework of learning a world model, OccWorld, in the 3D Occupancy space to simultaneously predict the movement of the ego car and the evolution of the surrounding scenes. We propose to learn a world model based on 3D occupancy rather than 3D bounding boxes and segmentation maps for three reasons: 1) expressiveness. 3D occupancy can describe the more fine-grained 3D structure of the scene; 2) efficiency. 3D occupancy is more economical to obtain (e.g., from sparse LiDAR points). 3) versatility. 3D occupancy can adapt to both vision and LiDAR. [...] OccWorld also produces competitive planning results without using instance and map supervision."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "t18-occworld-occupancy-evolution",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified verbatim against the retained sha256-verified abs page: \"we explore a new framework of learning a world model, OccWorld, in the 3D Occupancy space to simultaneously predict the movement of the ego car and the evolution of the surrounding scenes\" is printed by the abstract; the row note records the precision that \"occupancy grid\" is the article's term where the paper prints \"3D Occupancy space\"/\"3D occupancy\". Reused registered citation occworld-2023 consistent with the existing scene-representation-24-occworld-20260916d binding (same passages, same registered URL); never duplicated.",
+    "evidenceDigest": "41fff6824d330f5c753c8bf5c62509e2fbcff7ab1e0b5d0397fa37541cae3d45"
+   },
+   {
+    "partId": "t18-occworld-planning-no-supervision",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified verbatim against the retained sha256-verified abs page: \"OccWorld also produces competitive planning results without using instance and map supervision.\" is the abstract's own results sentence.",
+    "evidenceDigest": "bad462179c0b6601edd15a1eb6ffc33b3e1781a9d2594f556663c7bfc704f31e"
+   }
+  ]
+ },
+ {
+  "id": "taxonomy-19-mujoco-20260916h",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "taxonomy",
+  "rowOrdinal": 19,
+  "originalCellsDigest": "9164f49d1cf3eb97bfd9dabde3467be9518ce4b67dfb3418510f6d91fc5d0929",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "t19-mujoco-physics-engine-model-based-control",
+    "text": "MuJoCo is 'a new physics engine tailored to model-based control' whose 'Models are specified using either a high-level C++ API or an intuitive XML file format' (abstract, verbatim) - the hand-specified predicate of the article span.",
+    "requiredCitationIds": [
+     "mujoco-2012"
+    ]
+   },
+   {
+    "id": "t19-mujoco-forward-dynamics-states-controls",
+    "text": "'The engine can compute both forward and inverse dynamics' and 'the dynamics can be evaluated for different states and controls in parallel' (abstract, verbatim) - the printed basis for the span's 'given a state and an action, it predicts the next state, and its predictions are nothing if not action-dependent'. The 'explicit state-transition model' wording and the physics-engine-is-a-world-model verdict are the article's argument under the survey's functional cut (as the current note discloses); the span's 'simply not learned' rests on the printed API/XML specification mechanism, not on a printed clause.",
+    "requiredCitationIds": [
+     "mujoco-2012"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) at HEAD 1eb5c5b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all five currentTupleDigest values equal the live rows). Every quoted passage was independently needle-verified by this integrator (123/123 checks, lane needle-verification.json) against the retained sha256-verified fetch bodies preserved in the source lane (four arXiv pages byte-match the packet fetchLog; MuJoCo row 19 rests on the packet's FetchUrl-of-record IEEE public-abstract passage with the abstract-tier limitation disclosed, registry P1 verified read-only). All five citations (worldvla-2025, cosmos-policy-2026, occworld-2023, mujoco-2012, 3dgs-2023) verified already registered in data/citations.ts at their registered URLs; no new registrations; occworld-2023 and 3dgs-2023 reused consistently with their existing compound bindings. Original 4 stays honestly HELD (internal WM_PARADIGMS local-count row; standing owner question; no registered citation exists for the local-count conjunct), bound to its standing plan and untouched. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "5e8f1706dd35e7d42d15926bbd7b733f705193f9d26a5944846600ff94f83c5f"
+  },
+  "evidence": [
+   {
+    "partId": "t19-mujoco-physics-engine-model-based-control",
+    "citationId": "mujoco-2012",
+    "sourceUrl": "https://doi.org/10.1109/IROS.2012.6386109",
+    "supportingPassage": "We describe a new physics engine tailored to model-based control. Multi-joint dynamics are represented in generalized coordinates and computed via recursive algorithms. Contact responses are computed via efficient new algorithms we have developed, based on the modern velocity-stepping approach which avoids the difficulties with spring-dampers. Models are specified using either a high-level C++ API or an intuitive XML file format. A built-in compiler transforms the user model into an optimized data structure used for runtime computation. The engine can compute both forward and inverse dynamics. The latter are well-defined even in the presence of contacts and equality constraints. The model can include tendon wrapping as well as actuator activation states (e.g. pneumatic cylinders or muscles). To facilitate optimal control applications and in particular sampling and finite differencing, the dynamics can be evaluated for different states and controls in parallel."
+   },
+   {
+    "partId": "t19-mujoco-forward-dynamics-states-controls",
+    "citationId": "mujoco-2012",
+    "sourceUrl": "https://doi.org/10.1109/IROS.2012.6386109",
+    "supportingPassage": "We describe a new physics engine tailored to model-based control. Multi-joint dynamics are represented in generalized coordinates and computed via recursive algorithms. Contact responses are computed via efficient new algorithms we have developed, based on the modern velocity-stepping approach which avoids the difficulties with spring-dampers. Models are specified using either a high-level C++ API or an intuitive XML file format. A built-in compiler transforms the user model into an optimized data structure used for runtime computation. The engine can compute both forward and inverse dynamics. The latter are well-defined even in the presence of contacts and equality constraints. The model can include tendon wrapping as well as actuator activation states (e.g. pneumatic cylinders or muscles). To facilitate optimal control applications and in particular sampling and finite differencing, the dynamics can be evaluated for different states and controls in parallel."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "t19-mujoco-physics-engine-model-based-control",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Verified against the packet's FetchUrl-of-record passage (IEEE Xplore public abstract page rendered 2026-09-16T13:27:34Z-13:29:11Z; plain curl bot-walled HTTP 202/zero bytes, logged by the preparer; no retained local body and zero retrieval by this integrator, limitation disclosed): \"We describe a new physics engine tailored to model-based control.\" and \"Models are specified using either a high-level C++ API or an intuitive XML file format.\" supply the physics-engine and hand-specified predicates. Registry P1 fields (Todorov/Erez/Tassa, IROS 2012, registered DOI URL) verified read-only. The trap Section-I sentence about other controller-design software (\"written down explicitly\") is quoted nowhere in the applied material.",
+    "evidenceDigest": "9521575261d8413e4832d3e172a7bc90a1acb60dfecb297a900be156b5aa36e3"
+   },
+   {
+    "partId": "t19-mujoco-forward-dynamics-states-controls",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Same packet-of-record basis: \"The engine can compute both forward and inverse dynamics.\" and \"the dynamics can be evaluated for different states and controls in parallel\" are recorded verbatim in the packet passage and supply the state-and-control forward-dynamics predicates. \"Explicit state-transition model\" and the physics-engine-is-a-world-model verdict remain the article's argument under the survey's functional cut, and no printed \"not learned\" clause is claimed: the abstract page proves only what the abstract prints (full text paywalled).",
+    "evidenceDigest": "f23e7565533ea8293504a33bb9f6cff8ff4da5b1d4d7a75bd35c51577e95b437"
+   }
+  ]
+ },
+ {
+  "id": "taxonomy-20-3dgs-20260916h",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "taxonomy",
+  "rowOrdinal": 20,
+  "originalCellsDigest": "d1592c3c01c83becf96dc90397641c200d137fbfc91c0e4d3bf38b9e96c0c9fe",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "t20-3dgs-learned-renderer-novel-view",
+    "text": "3DGS is a method for 'novel-view synthesis of scenes captured with multiple photos or videos' achieving 'real-time (>= 30 fps) novel-view synthesis', whose scene representation is obtained by 'interleaved optimization/density control of the 3D Gaussians' and rendered by 'a fast visibility-aware rendering algorithm that supports anisotropic splatting' (abstract, verbatim) - the printed basis for the span's 'learned renderer: it predicts what the scene looks like from a new camera pose'.",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   },
+   {
+    "id": "t20-3dgs-boundary-verdict-disclosed",
+    "text": "The abstract prints no occurrence of 'world model' or 'action'; the current note's 'no action-conditioned dynamics' is an absence-in-this-source statement and the boundary verdict (not a world model, fails the functional cut) is the article's own argument under the survey's functional cut, disclosed as such in the note cell and never certified as a paper-printed clause.",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a1b7b09c54c183e71cdc6cd98e08be4d8172804fc924e0c1fcde36bd66d9b52d) at HEAD 1eb5c5b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all five currentTupleDigest values equal the live rows). Every quoted passage was independently needle-verified by this integrator (123/123 checks, lane needle-verification.json) against the retained sha256-verified fetch bodies preserved in the source lane (four arXiv pages byte-match the packet fetchLog; MuJoCo row 19 rests on the packet's FetchUrl-of-record IEEE public-abstract passage with the abstract-tier limitation disclosed, registry P1 verified read-only). All five citations (worldvla-2025, cosmos-policy-2026, occworld-2023, mujoco-2012, 3dgs-2023) verified already registered in data/citations.ts at their registered URLs; no new registrations; occworld-2023 and 3dgs-2023 reused consistently with their existing compound bindings. Original 4 stays honestly HELD (internal WM_PARADIGMS local-count row; standing owner question; no registered citation exists for the local-count conjunct), bound to its standing plan and untouched. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "e6bdcee08e78236c86f35e9ec9037feb6e78ff89a1d38892d8a759765d8661d8"
+  },
+  "evidence": [
+   {
+    "partId": "t20-3dgs-learned-renderer-novel-view",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "Radiance Field methods have recently revolutionized novel-view synthesis of scenes captured with multiple photos or videos. [...] We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow high-quality real-time (>= 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space; Second, we perform interleaved optimization/density control of the 3D Gaussians, notably optimizing anisotropic covariance to achieve an accurate representation of the scene; Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering."
+   },
+   {
+    "partId": "t20-3dgs-boundary-verdict-disclosed",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "Radiance Field methods have recently revolutionized novel-view synthesis of scenes captured with multiple photos or videos. [...] We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow high-quality real-time (>= 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space; Second, we perform interleaved optimization/density control of the 3D Gaussians, notably optimizing anisotropic covariance to achieve an accurate representation of the scene; Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "t20-3dgs-learned-renderer-novel-view",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified verbatim against the retained sha256-verified abs page: \"Radiance Field methods have recently revolutionized novel-view synthesis of scenes captured with multiple photos or videos\", \"high-quality real-time (>= 30 fps) novel-view synthesis at 1080p resolution\", \"interleaved optimization/density control of the 3D Gaussians\" and \"a fast visibility-aware rendering algorithm that supports anisotropic splatting\" are printed by the abstract, supplying the learned-renderer and novel-view predicates.",
+    "evidenceDigest": "6da23c54d2be8484f84b756a0aca03a145ba90af77e4e5bfb7d1f7caa82237b1"
+   },
+   {
+    "partId": "t20-3dgs-boundary-verdict-disclosed",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator fb594c0b-fe58-4104-9037-a38939e83be5; preserved-packet + retained-source needle re-verification 2026-09-16 (123/123 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified absence on the retained sha256-verified abs page: the abstract prints no occurrence of \"world model\" and no occurrence of the word \"action\", so the row note's \"no action-conditioned dynamics\" stays an absence-in-this-source statement and the not-a-world-model boundary verdict stays the article's argument under the survey's functional cut, disclosed as such and never certified as a paper-printed clause. The ACM TOG venue is not printed by the author-manuscript abs page and is not certified.",
+    "evidenceDigest": "182be927a980445acc0642548430548b180ee9e947b19dbdd343c552fd267727"
+   }
+  ]
  }
 
 ]
