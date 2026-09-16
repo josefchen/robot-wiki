@@ -35,7 +35,7 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
     }
-    expect(plans).toHaveLength(632);
+    expect(plans).toHaveLength(684);
   });
 
   it('held rows 3 (OXE) and 5 (DROID) stay byte-untouched in the evidence-column shape', () => {
@@ -61,7 +61,7 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
 
   it('approved deltas carry the 12 new approval entries against the unchanged prose hash', () => {
     const deltas = JSON.parse(readFileSync(DELTAS, 'utf8')) as { entries: Array<{ id: string; oldHash: string; newHash: string }> };
-    expect(deltas.entries).toHaveLength(706);
+    expect(deltas.entries).toHaveLength(758);
     const mine = deltas.entries.filter((e) => /^db-r\d+-20260915-1$/.test(e.id));
     expect(mine).toHaveLength(12);
     for (const e of mine) expect(e.oldHash).toBe(e.newHash);

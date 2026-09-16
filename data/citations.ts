@@ -4596,6 +4596,20 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2402.10329',
     type: 'paper',
   },
+    // Project site for UMI (RSS 2024; Best Systems Paper Award Finalist
+    // per the site's own byline). Registered by the teleop-rigs evidence
+    // completion 2026-09-16: the 111/35/231 hourly rates and the
+    // any-home-any-restaurant 2-minute start are site-only claims (packet
+    // convergence-source-f-teleop-rigs-20260916, rows 9-10); fields from the
+    // site's own team byline and BibTeX.
+  {
+    id: 'umi-gripper-site-2024',
+    title:  'Universal Manipulation Interface (UMI) project site',
+    authors: ['Cheng Chi', 'Zhenjia Xu', 'Chuer Pan', 'Eric Cousineau', 'Benjamin Burchfiel', 'Siyuan Feng', 'Russ Tedrake', 'Shuran Song'],
+    year: 2024,
+    url: 'https://umi-gripper.github.io/',
+    type: 'docs',
+  },
   {
     // Verified against the arXiv abs page (2026-08-08): 85 authors; first three listed.
     id: 'ego4d-2022',
@@ -4884,6 +4898,19 @@ export const CITATIONS: Citation[] = [
     arxiv: '2407.03162',
     url: 'https://arxiv.org/abs/2407.03162',
     type: 'paper',
+  },
+    // Apple's own January 8, 2024 press release printing the Vision Pro
+    // U.S. launch price ("available starting at $3,499 (U.S.) with 256GB of
+    // storage"). Registered by the teleop-rigs evidence completion
+    // 2026-09-16 (packet row 13); first-party vendor source.
+  {
+    id: 'apple-visionpro-price-2024',
+    title: 
+      'Apple Vision Pro available in the U.S. on February 2 (press release)',
+    authors: ['Apple'],
+    year: 2024,
+    url: 'https://www.apple.com/newsroom/2024/01/apple-vision-pro-available-in-the-us-on-february-2/',
+    type: 'blog',
   },
   {
     // Verified against the arXiv abs page (2026-08-09): 9 authors, TRI and

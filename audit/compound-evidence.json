@@ -61001,4 +61001,953 @@
     }
   ]
 }
+,
+  {
+    "id": "teleop-rigs-1-act-6tasks-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 1,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr1-act-abstract-figures",
+        "text": "ACT learns 6 difficult real-world tasks with 80-90% success, with only 10 minutes worth of demonstrations.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "tr1-act-bimanual-setup",
+        "text": "The rig the six tasks were run on is bimanual: the paper builds 'a bimanual parallel-jaw grippers setup with two ViperX 6-DoF robot arms'.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "tr1-act-registry-identity",
+        "text": "Registry act-aloha-2023 names the intended document: 'Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware', Tony Z. Zhao, Vikash Kumar, Sergey Levine, Chelsea Finn, 2023, arXiv 2304.13705.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:1 (ready-evidence-completion): abstract figures verbatim in the preserved abs render; the bimanual qualifier rests on the paper hardware section (two ViperX 6-DoF arms), consistent with registered plan act-current-11-20260907 (reused read-only; see reuse-check.json). Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "eba2fcdceb1a68ae34aec7f8b1090a632356f9ddc77485166652d6195c67adf7"
+    },
+    "evidence": [
+      {
+        "partId": "tr1-act-abstract-figures",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://arxiv.org/abs/2304.13705",
+        "supportingPassage": "ACT allows the robot to learn 6 difficult tasks in the real world, such as opening a translucent condiment cup and slotting a battery with 80-90% success, with only 10 minutes worth of demonstrations."
+      },
+      {
+        "partId": "tr1-act-bimanual-setup",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://arxiv.org/html/2304.13705v1",
+        "supportingPassage": "When choosing the robot to use, principles 1, 4, and 5 lead us to build a bimanual parallel-jaw grippers setup with two ViperX 6-DoF robot arms [1, 66]. We do not employ dexterous hands due to price and maintenance considerations."
+      },
+      {
+        "partId": "tr1-act-registry-identity",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://arxiv.org/abs/2304.13705",
+        "supportingPassage": "# Title: Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\n\nAuthors: Tony Z. Zhao, Vikash Kumar, Sergey Levine, Chelsea Finn\n\n[Submitted on 23 Apr 2023]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr1-act-abstract-figures",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr1-act-abstract-figures (record audit/data-hardware.md:teleop-rigs:1): supported. 1 (ready-evidence-completion): abstract figures verbatim in the preserved abs render; the bimanual qualifier rests on the paper hardware section (two ViperX 6-DoF arms), consistent with registered plan act-current-11-20260907 (reused read-only; see reuse-check.json).",
+        "evidenceDigest": "c7b477bcb5e2542b239c414b239f90c074d9ddc49d918513555ddc7917434666"
+      },
+      {
+        "partId": "tr1-act-bimanual-setup",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr1-act-bimanual-setup (record audit/data-hardware.md:teleop-rigs:1): supported. 1 (ready-evidence-completion): abstract figures verbatim in the preserved abs render; the bimanual qualifier rests on the paper hardware section (two ViperX 6-DoF arms), consistent with registered plan act-current-11-20260907 (reused read-only; see reuse-check.json).",
+        "evidenceDigest": "b3907f89e8bd3d99adb9b58db5bbc7361ffab5072904db960b750f38da006fb0"
+      },
+      {
+        "partId": "tr1-act-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr1-act-registry-identity (record audit/data-hardware.md:teleop-rigs:1): supported. 1 (ready-evidence-completion): abstract figures verbatim in the preserved abs render; the bimanual qualifier rests on the paper hardware section (two ViperX 6-DoF arms), consistent with registered plan act-current-11-20260907 (reused read-only; see reuse-check.json).",
+        "evidenceDigest": "77a1707ba14ec043ebdc0127cab65e7660da69cecceffb65a6f10f18b47d4700"
+      }
+    ],
+    "originalCellsDigest": "6f1ded1b66fb83e90092d5c836f196e5e2283c058def88f512fe4f534adb0956"
+  },
+  {
+    "id": "teleop-rigs-2-maloha-50demos-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 2,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr2-maloha-figures",
+        "text": "With 50 demonstrations per task and co-training with static ALOHA data, success rates can increase by up to 90% on mobile manipulation tasks including sauteing and serving a piece of shrimp and opening a two-door wall cabinet.",
+        "requiredCitationIds": [
+          "mobile-aloha-2024"
+        ]
+      },
+      {
+        "id": "tr2-maloha-registry-identity",
+        "text": "Registry mobile-aloha-2024 names the intended document: 'Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation', Zipeng Fu, Tony Z. Zhao, Chelsea Finn, 2024, arXiv 2401.02117.",
+        "requiredCitationIds": [
+          "mobile-aloha-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:2 (ready-evidence-completion): 50-demos/up-to-90% abstract sentence verbatim; \"up to\" retained as the source bound; consistent with the generalization-lane mobile-aloha passages (see reuse-check.json). Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "50fccd2d83bf9b349e0613faf2e50b9103181647c037fe5c63629dadddff3550"
+    },
+    "evidence": [
+      {
+        "partId": "tr2-maloha-figures",
+        "citationId": "mobile-aloha-2024",
+        "sourceUrl": "https://arxiv.org/abs/2401.02117",
+        "supportingPassage": "With 50 demonstrations for each task, co-training can increase success rates by up to 90%, allowing Mobile ALOHA to autonomously complete complex mobile manipulation tasks such as sauteing and serving a piece of shrimp, opening a two-door wall cabinet to store heavy cooking pots, calling and entering an elevator, and lightly rinsing a used pan using a kitchen faucet."
+      },
+      {
+        "partId": "tr2-maloha-registry-identity",
+        "citationId": "mobile-aloha-2024",
+        "sourceUrl": "https://arxiv.org/abs/2401.02117",
+        "supportingPassage": "# Title: Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation\n\nAuthors: Zipeng Fu, Tony Z. Zhao, Chelsea Finn\n\n[Submitted on 4 Jan 2024]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr2-maloha-figures",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr2-maloha-figures (record audit/data-hardware.md:teleop-rigs:2): supported. 2 (ready-evidence-completion): 50-demos/up-to-90% abstract sentence verbatim; \"up to\" retained as the source bound; consistent with the generalization-lane mobile-aloha passages (see reuse-check.json).",
+        "evidenceDigest": "88e0606618e98c24ad06f71163f0ffabd2d3eccd672a281dc26554d1075c4a52"
+      },
+      {
+        "partId": "tr2-maloha-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr2-maloha-registry-identity (record audit/data-hardware.md:teleop-rigs:2): supported. 2 (ready-evidence-completion): 50-demos/up-to-90% abstract sentence verbatim; \"up to\" retained as the source bound; consistent with the generalization-lane mobile-aloha passages (see reuse-check.json).",
+        "evidenceDigest": "c05fec72caf3783928b6810b9bdfb651424bbd6114750b58603da8e1d92b40ab"
+      }
+    ],
+    "originalCellsDigest": "34ab186b708d50df23c814d8348b4ee9796849bf88bd8c3d48144cb9e55ae701"
+  },
+  {
+    "id": "teleop-rigs-3-trossen-ai-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 3,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr3-tros-prices",
+        "text": "The Trossen AI product line lists WidowX AI at $4,545.95, Solo AI at $11,385.95, Stationary AI at $23,995.95, and Mobile AI at $33,695.95 (vendor list prices, live page).",
+        "requiredCitationIds": [
+          "trossen-ai-2026"
+        ]
+      },
+      {
+        "id": "tr3-tros-canfd-inerve",
+        "text": "The line runs a CAN FD control protocol delivering over 500Hz data transfers, advertises 500Hz control frequency, and uses the iNerve control board/controller.",
+        "requiredCitationIds": [
+          "trossen-ai-2026"
+        ]
+      },
+      {
+        "id": "tr3-tros-lerobot-openpi",
+        "text": "Trossen AI hardware is fully integrated into the OpenPI framework (collect data, train Pi0 and Pi 0.5 policies, inference) and natively supports Hugging Face LeRobot.",
+        "requiredCitationIds": [
+          "trossen-ai-2026"
+        ]
+      },
+      {
+        "id": "tr3-tros-rebrand",
+        "text": "The ALOHA hardware line rebranded as Trossen AI ('ALOHA IS NOW TROSSEN AI').",
+        "requiredCitationIds": [
+          "trossen-ai-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:3 (ready-evidence-completion over an applied correction): vendor prices $4,545.95/$11,385.95/$23,995.95/$33,695.95 and CAN FD/iNerve/LeRobot/OpenPI claims verified against the preserved trossenrobotics.com/ai render; the same passages are already registered in compound plans hardware-taxonomy-r1/r2-20260915 (byte-exact reuse verified read-only; see reuse-check.json). All figures vendor-reported list prices. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "96bda1c8ec4cc4ccddc62a421eba0660ce155dd1ffea209146cfc62ae8d641ef"
+    },
+    "evidence": [
+      {
+        "partId": "tr3-tros-prices",
+        "citationId": "trossen-ai-2026",
+        "sourceUrl": "https://www.trossenrobotics.com/ai",
+        "supportingPassage": "$4,545.95 ... $11,385.95 ... $23,995.95 ... $33,695.95 (four AI-line prices rendered on the product-line page)"
+      },
+      {
+        "partId": "tr3-tros-canfd-inerve",
+        "citationId": "trossen-ai-2026",
+        "sourceUrl": "https://www.trossenrobotics.com/ai",
+        "supportingPassage": "HIGH-SPEED CAN FD CONTROL PROTOCOL - CAN FD delivers over 500Hz data transfers, reduced latency, and enhanced real-time performance, enabling seamless communication and superior precision. ... 500Hz CONTROL FREQUENCY ... Ultra-High Performance iNerve(R) Controller ... iNerve Control Board"
+      },
+      {
+        "partId": "tr3-tros-lerobot-openpi",
+        "citationId": "trossen-ai-2026",
+        "sourceUrl": "https://www.trossenrobotics.com/ai",
+        "supportingPassage": "We're excited to announce that Trossen AI hardware is now fully integrated into the OpenPI framework, making it easier than ever to collect data, train Pi0 and Pi 0.5 policies, and inference- all in one unified ecosystem. ... Native support for Hugging Face LeRobot ... HUGGING FACE LEROBOT - Native support for Hugging Face LeRobot."
+      },
+      {
+        "partId": "tr3-tros-rebrand",
+        "citationId": "trossen-ai-2026",
+        "sourceUrl": "https://www.trossenrobotics.com/ai",
+        "supportingPassage": "ALOHA IS NOW TROSSEN AI"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr3-tros-prices",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr3-tros-prices (record audit/data-hardware.md:teleop-rigs:3): supported. 3 (ready-evidence-completion over an applied correction): vendor prices $4,545.95/$11,385.95/$23,995.95/$33,695.95 and CAN FD/iNerve/LeRobot/OpenPI claims verified against the preserved trossenrobotics.com/ai render; the same passages are already registered in compound plans hardware-taxonomy-r1/r2-20260915 (byte-exact reuse verified read-only; see reuse-check.json). All figures vendor-reported list prices.",
+        "evidenceDigest": "2f4beeb25dcc1686a5d81f2f13c6d35fa2c56d1e2f72fb218668ed90ced4fae2"
+      },
+      {
+        "partId": "tr3-tros-canfd-inerve",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr3-tros-canfd-inerve (record audit/data-hardware.md:teleop-rigs:3): supported. 3 (ready-evidence-completion over an applied correction): vendor prices $4,545.95/$11,385.95/$23,995.95/$33,695.95 and CAN FD/iNerve/LeRobot/OpenPI claims verified against the preserved trossenrobotics.com/ai render; the same passages are already registered in compound plans hardware-taxonomy-r1/r2-20260915 (byte-exact reuse verified read-only; see reuse-check.json). All figures vendor-reported list prices.",
+        "evidenceDigest": "d55df9256e9da391ac0f7c0378385f0e780dc80c230ab6961b63f31968a448a5"
+      },
+      {
+        "partId": "tr3-tros-lerobot-openpi",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr3-tros-lerobot-openpi (record audit/data-hardware.md:teleop-rigs:3): supported. 3 (ready-evidence-completion over an applied correction): vendor prices $4,545.95/$11,385.95/$23,995.95/$33,695.95 and CAN FD/iNerve/LeRobot/OpenPI claims verified against the preserved trossenrobotics.com/ai render; the same passages are already registered in compound plans hardware-taxonomy-r1/r2-20260915 (byte-exact reuse verified read-only; see reuse-check.json). All figures vendor-reported list prices.",
+        "evidenceDigest": "938b93497ebc5833da1f721e8f9df020c8510049eabe9a8fcb0a2ac27985b2de"
+      },
+      {
+        "partId": "tr3-tros-rebrand",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr3-tros-rebrand (record audit/data-hardware.md:teleop-rigs:3): supported. 3 (ready-evidence-completion over an applied correction): vendor prices $4,545.95/$11,385.95/$23,995.95/$33,695.95 and CAN FD/iNerve/LeRobot/OpenPI claims verified against the preserved trossenrobotics.com/ai render; the same passages are already registered in compound plans hardware-taxonomy-r1/r2-20260915 (byte-exact reuse verified read-only; see reuse-check.json). All figures vendor-reported list prices.",
+        "evidenceDigest": "ceb8e2686153e81dfc513f7bc632cc1b7f3be43a32a432f24e3db768f1642126"
+      }
+    ],
+    "originalCellsDigest": "ccd2186a7afa2a4927b11fed315aaa4560ed5598e24801923705a922ea4fee7e"
+  },
+  {
+    "id": "teleop-rigs-5-gello-bom-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 5,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr5-gello-under-300",
+        "text": "GELLO can be constructed for under \\$300 (prose), and Table I lists 'GELLO (Ours) \\$300' against 3D Mouse \\$150, VR (Meta Quest 2) \\$300, robot-to-robot teleop (e.g. UR5) \\$30,000, and Omega7 haptic \\$40,000.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      },
+      {
+        "id": "tr5-gello-assembly",
+        "text": "The paper calls the assembly process straightforward and requiring minimal technical expertise, and publishes no build time.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      },
+      {
+        "id": "tr5-gello-designs",
+        "text": "Published GELLO designs cover three robot arms: Franka, UR5, and xArm.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:5 (ready-evidence-completion): under-$300 prose + Table I $300 + straightforward-assembly + Franka/UR5/xArm designs verbatim in the retained gello HTML; the banked removal of the ~30-minute build figure re-confirmed (grep 0, see local-proof.json). Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "0092fec8950f5216af89c3885d0c5d4846ba2c8e841fe1a4062c223d0c15a0a1"
+    },
+    "evidence": [
+      {
+        "partId": "tr5-gello-under-300",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "This is achieved through the use of economical backdrivable servo motors, 3D printed components, and a minimalist design, making it possible to construct a teleoperation solution for under \\$300. A cost comparison is shown in Table I. ... TABLE I: A cost comparison of the price of commonly used teleoperation systems. ... Teleop Device Approximate Cost 3D Mouse (SpaceNavigator) \\$150 GELLO (Ours) \\$300 VR (Meta Quest 2) \\$300 Robot-to-robot Teleop (e.g. UR5) \\$30,000 Haptic Device (Omega7) \\$40,000"
+      },
+      {
+        "partId": "tr5-gello-assembly",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "Simple to replicate: The sourcing for parts is minimal beyond off-the-shelf motors and 3D printing components. The assembly process is also straightforward, requiring minimal technical expertise."
+      },
+      {
+        "partId": "tr5-gello-designs",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "To make GELLO accessible to everyone, we have designed and built GELLO systems for 3 commonly used robotic arms: Franka, UR5, and xArm. All software and hardware are open-sourced and can be found on our website: https://wuphilipp.github.io/gello/."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr5-gello-under-300",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr5-gello-under-300 (record audit/data-hardware.md:teleop-rigs:5): supported. 5 (ready-evidence-completion): under-$300 prose + Table I $300 + straightforward-assembly + Franka/UR5/xArm designs verbatim in the retained gello HTML; the banked removal of the ~30-minute build figure re-confirmed (grep 0, see local-proof.json).",
+        "evidenceDigest": "0251087bd226510cd845df31299af65be75d4d20d79851dc724bd5b5bfb14783"
+      },
+      {
+        "partId": "tr5-gello-assembly",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr5-gello-assembly (record audit/data-hardware.md:teleop-rigs:5): supported. 5 (ready-evidence-completion): under-$300 prose + Table I $300 + straightforward-assembly + Franka/UR5/xArm designs verbatim in the retained gello HTML; the banked removal of the ~30-minute build figure re-confirmed (grep 0, see local-proof.json).",
+        "evidenceDigest": "6f3c6802cf72cbec1ad21f31fc0be95b58802f340ddcab7b22fad34d5350eed0"
+      },
+      {
+        "partId": "tr5-gello-designs",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr5-gello-designs (record audit/data-hardware.md:teleop-rigs:5): supported. 5 (ready-evidence-completion): under-$300 prose + Table I $300 + straightforward-assembly + Franka/UR5/xArm designs verbatim in the retained gello HTML; the banked removal of the ~30-minute build figure re-confirmed (grep 0, see local-proof.json).",
+        "evidenceDigest": "bb7ba74d0bc8d3f5650e01ae18cc9d529da2a6ef3bdcbac125fc6423862e2713"
+      }
+    ],
+    "originalCellsDigest": "9fb5a46a23f74fc87797fd51160bb0f411a76ef2788d66e7eb78457af0933f34"
+  },
+  {
+    "id": "teleop-rigs-6-gello-userstudy-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 6,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr6-gello-12-participants",
+        "text": "The user study involved 12 participants doing bi-manual robot teleoperation using two UR robots, comparing GELLO, 3D mouses, and VR controllers under controlled conditions.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      },
+      {
+        "id": "tr6-gello-5-tasks",
+        "text": "Each user attempted 5 tasks (Table II: Hat, Mask, Banana, Towel, USB) with all 3 teleoperation devices; the simplest task (placing the hat on the rack) requires controlling a single arm, so the bimanual property belongs to the two-UR5 rig, not to all five tasks.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      },
+      {
+        "id": "tr6-gello-reliable-faster",
+        "text": "GELLO enables more reliable and efficient demonstration collection than VR controllers and 3D spacemouses, with consistently faster completion times.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:6 (ready-source-correction): 12-participant user study, 5 tasks on a bimanual pair of UR5 arms (Fig. 1 \"two UR5s\"; simplest task single-arm), 3D mouses and VR controllers, more reliable and consistently faster; the wording-precision correction is applied to article + data spans via packet endpoints. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "4493b4415fbc6f8166768938f92c3ef8243a0b40f44a85052cca1e76525971e5"
+    },
+    "evidence": [
+      {
+        "partId": "tr6-gello-12-participants",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "We conducted a user study involving 12 participants, focusing on bi-manual robot teleoperation using two UR robots to assess the comparative effectiveness of GELLO, 3D mouses, and VR controllers under controlled conditions."
+      },
+      {
+        "partId": "tr6-gello-5-tasks",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "Each user attempts to accomplish the 5 tasks with all 3 teleoperation devices. ... TABLE II: The task success rate for different teleoperation systems. Device Hat Mask Banana Towel USB Avg Gello 0.92 0.92 1.0 0.92 0.83 0.92 3D Mice 0.75 0.58 0.67 0.58 0.58 0.63 VR 0.92 0.83 0.75 0.58 0.5 0.72 ... For the simplest task, which only requires controlling a single arm, placing the hat on the rack, GELLO and VR perform comparably. ... Fig. 1: We show GELLO teleoperation systems built for three different types of robots: (A) two UR5s, (B) an xArm, and (C) a Franka."
+      },
+      {
+        "partId": "tr6-gello-reliable-faster",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "Through an extensive user study, we show that GELLO enables more reliable and efficient demonstration collection compared to commonly used teleoperation devices in the imitation learning literature such as VR controllers and 3D spacemouses. ... Figure 5 provides a summary of the completion times taken by each device across all five tasks, given successful task execution. Utilizing GELLO results in consistently faster completion times."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr6-gello-12-participants",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr6-gello-12-participants (record audit/data-hardware.md:teleop-rigs:6): supported. 6 (ready-source-correction): 12-participant user study, 5 tasks on a bimanual pair of UR5 arms (Fig. 1 \"two UR5s\"; simplest task single-arm), 3D mouses and VR controllers, more reliable and consistently faster; the wording-precision correction is applied to article + data spans via packet endpoints.",
+        "evidenceDigest": "cd9d248cb28b2bacb626f513726ec7ef10e3b7f6f2400f730d1827266f3d35e5"
+      },
+      {
+        "partId": "tr6-gello-5-tasks",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr6-gello-5-tasks (record audit/data-hardware.md:teleop-rigs:6): supported. 6 (ready-source-correction): 12-participant user study, 5 tasks on a bimanual pair of UR5 arms (Fig. 1 \"two UR5s\"; simplest task single-arm), 3D mouses and VR controllers, more reliable and consistently faster; the wording-precision correction is applied to article + data spans via packet endpoints.",
+        "evidenceDigest": "58d04864e4108b362b701f9d8e43d06b349a37e17e4c33b4fe883d174b7a9a75"
+      },
+      {
+        "partId": "tr6-gello-reliable-faster",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr6-gello-reliable-faster (record audit/data-hardware.md:teleop-rigs:6): supported. 6 (ready-source-correction): 12-participant user study, 5 tasks on a bimanual pair of UR5 arms (Fig. 1 \"two UR5s\"; simplest task single-arm), 3D mouses and VR controllers, more reliable and consistently faster; the wording-precision correction is applied to article + data spans via packet endpoints.",
+        "evidenceDigest": "90e66bebbafb191830625ab78d834df0f41555da1c132ed02d74f31c2e5bc7ad"
+      }
+    ],
+    "originalCellsDigest": "7a44d028248a03268750c62d922cb2170c834f5aca09a099bf5a478d6e4d85e8"
+  },
+  {
+    "id": "teleop-rigs-7-gello-twin-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 7,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr7-gello-smallscale",
+        "text": "GELLO is built as a small-scale version of the target arm with a kinematically equivalent structure, so joints and links correspond directly and target joint positions are sent straight to the arm without inverse kinematics.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      },
+      {
+        "id": "tr7-gello-feel-limits",
+        "text": "The operator can feel resistance from the controller when joints are close to kinematic singularities or joint limits, which the paper credits with more reliable teleoperation.",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      },
+      {
+        "id": "tr7-gello-absences",
+        "text": "The paper publishes no build time and states no scaling factor; it never uses the phrase 'embodiment gap' (zero occurrences of 'scaling factor', 'alpha', and 'embodiment' in the live HTML text).",
+        "requiredCitationIds": [
+          "gello-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:7 (ready-evidence-completion over an applied correction): small-scale kinematically-equivalent structure and feel-resistance-at-limits sentences verbatim; the phantom alpha=0.5 scaling factor and embodiment-gap framing stay excluded (integrator grep re-proof in local-proof.json: scaling factor/alpha/embodiment gap all 0). Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "b6c38a263dd5cc00d89daecb1392d1fd8e2275539fb118ebfaa0edb41e4679d9"
+    },
+    "evidence": [
+      {
+        "partId": "tr7-gello-smallscale",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "We build GELLO as a small-scale version of the target arm which possesses a kinematically equivalent structure. This means that the joints and links of GELLO correspond directly to those of the target arm, allowing the user to control the GELLO manipulator as if they were directly controlling the target arm, as in kinesthetic teaching. Target joint positions are directly sent to the target arm for operation, avoiding the need to compute inverse kinematics."
+      },
+      {
+        "partId": "tr7-gello-feel-limits",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "The user can feel resistance from the controller when the joints are close to kinematic singularities or joint limits and is thus more aware of these failures, leading to more reliable teleoperation."
+      },
+      {
+        "partId": "tr7-gello-absences",
+        "citationId": "gello-2023",
+        "sourceUrl": "https://arxiv.org/html/2309.13037v1",
+        "supportingPassage": "Absence evidence, grep over this session's fetched HTML (2026-09-15T23:09:14Z): 'scaling factor' 0 matches; 'alpha' 0 matches; 'embodiment gap' 0 matches; 'embodiment' 0 matches; 'minutes' 0 matches. The paper publishes no build time and no scaling factor."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr7-gello-smallscale",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr7-gello-smallscale (record audit/data-hardware.md:teleop-rigs:7): supported. 7 (ready-evidence-completion over an applied correction): small-scale kinematically-equivalent structure and feel-resistance-at-limits sentences verbatim; the phantom alpha=0.5 scaling factor and embodiment-gap framing stay excluded (integrator grep re-proof in local-proof.json: scaling factor/alpha/embodiment gap all 0).",
+        "evidenceDigest": "9f05373d15d340a40950b7a9a036b4a58b22abb1ad877988e0526443bd4310bd"
+      },
+      {
+        "partId": "tr7-gello-feel-limits",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr7-gello-feel-limits (record audit/data-hardware.md:teleop-rigs:7): supported. 7 (ready-evidence-completion over an applied correction): small-scale kinematically-equivalent structure and feel-resistance-at-limits sentences verbatim; the phantom alpha=0.5 scaling factor and embodiment-gap framing stay excluded (integrator grep re-proof in local-proof.json: scaling factor/alpha/embodiment gap all 0).",
+        "evidenceDigest": "827e77f3ca8b93c7fb563fe752a466b14f082e58a4a5c9bd90851ac85c01875b"
+      },
+      {
+        "partId": "tr7-gello-absences",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr7-gello-absences (record audit/data-hardware.md:teleop-rigs:7): supported. 7 (ready-evidence-completion over an applied correction): small-scale kinematically-equivalent structure and feel-resistance-at-limits sentences verbatim; the phantom alpha=0.5 scaling factor and embodiment-gap framing stay excluded (integrator grep re-proof in local-proof.json: scaling factor/alpha/embodiment gap all 0).",
+        "evidenceDigest": "57c6e7388013f23744f4e5419c88fdd0829ccbc54bd7669d388f333174c82bed"
+      }
+    ],
+    "originalCellsDigest": "6eed0634f141d5cf7857992bafa7b60d6746deb21e0056ae519bdc3e3f5ce3fb"
+  },
+  {
+    "id": "teleop-rigs-8-umi-rig-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 8,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr8-umi-bom-printed",
+        "text": "The paper bills the 3D-printed gripper at a BoM cost of \\$73 and the GoPro camera and accessories at \\$298.",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      },
+      {
+        "id": "tr8-umi-371-local-proof",
+        "text": "The \\$371 rig total is not printed in the paper; it equals 73+298. The integrator re-runs this arithmetic locally at application time (python3: 73+298 == 371) before applying.",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      },
+      {
+        "id": "tr8-umi-fisheye-stroke",
+        "text": "UMI uses a 155-degree Fisheye lens on a wrist-mounted GoPro, and UMI's own printed gripper has an 80 mm finger stroke.",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      },
+      {
+        "id": "tr8-umi-any-arm-ur5-franka",
+        "text": "Per Fig. 2 any robot arm with a compatible gripper and camera setup can be equipped; the paper demonstrates UR5 and deploys the same policy checkpoint on a Franka Emika FR2 as the cross-embodiment proof.",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:8 (ready-source-correction-with-local-AND): BoM $73 + GoPro $298 printed addends verified verbatim (LaTeXML doubled-render fold); the $371 total is the integrator-side local conjunct (73+298=371 re-proven; $371 grep 0 over the retained HTML - see local-proof.json), never a fetch. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "3031af268b6c788adefb49395319d3cb6a84c85083b80ab8904cb46307e1b71f"
+    },
+    "evidence": [
+      {
+        "partId": "tr8-umi-bom-printed",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+        "supportingPassage": "The UMI gripper weighs 780g, with an external dimension of L310mm x W175mm x H210mm and finger stroke of 80mm. The 3D printed gripper has a BoM cost of \\$73, while the GoPro camera and accessories total \\$298. As shown in Fig. 2, we can equip any robot arms with a compatible gripper and camera setup."
+      },
+      {
+        "partId": "tr8-umi-371-local-proof",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+        "supportingPassage": "Local arithmetic over the printed addends: 73 + 298 = 371 (recomputed by the integrator at application time). The live HTML contains no '\\$371' string (grep 0 matches this session), so the total stays labelled as derived, not quoted."
+      },
+      {
+        "partId": "tr8-umi-fisheye-stroke",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+        "supportingPassage": "We use a 155-degree Fisheye lens attachment on wrist-mounted GoPro camera, which provides sufficient visual context for a wide range of tasks, as shown in Fig. 2. ... The UMI gripper weighs 780g, with an external dimension of L310mm x W175mm x H210mm and finger stroke of 80mm."
+      },
+      {
+        "partId": "tr8-umi-any-arm-ur5-franka",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+        "supportingPassage": "As shown in Fig. 2, we can equip any robot arms with a compatible gripper and camera setup. ... Cross-robot generalization: To demonstrate UMI's cross-embodiment generality, we also deployed the same policy checkpoint on a Franka Emika FR2 robot, shown in Fig. 1 and Fig. 8. ... For policy observation across both the UR5 and Franka FR2 platforms, we employ each robot arm with a single wrist-mounted GoPro Hero 9 camera."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr8-umi-bom-printed",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr8-umi-bom-printed (record audit/data-hardware.md:teleop-rigs:8): supported. 8 (ready-source-correction-with-local-AND): BoM $73 + GoPro $298 printed addends verified verbatim (LaTeXML doubled-render fold); the $371 total is the integrator-side local conjunct (73+298=371 re-proven; $371 grep 0 over the retained HTML - see local-proof.json), never a fetch.",
+        "evidenceDigest": "4d9e3bc21f2049d6f57a4fc762dfd23342619bcbcc04ee72690a894620a02102"
+      },
+      {
+        "partId": "tr8-umi-371-local-proof",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr8-umi-371-local-proof (record audit/data-hardware.md:teleop-rigs:8): supported. 8 (ready-source-correction-with-local-AND): BoM $73 + GoPro $298 printed addends verified verbatim (LaTeXML doubled-render fold); the $371 total is the integrator-side local conjunct (73+298=371 re-proven; $371 grep 0 over the retained HTML - see local-proof.json), never a fetch.",
+        "evidenceDigest": "f20d9a3981270aebdbcde92a93dc0d58214555b3da0004323cc92dafc8bfc374"
+      },
+      {
+        "partId": "tr8-umi-fisheye-stroke",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr8-umi-fisheye-stroke (record audit/data-hardware.md:teleop-rigs:8): supported. 8 (ready-source-correction-with-local-AND): BoM $73 + GoPro $298 printed addends verified verbatim (LaTeXML doubled-render fold); the $371 total is the integrator-side local conjunct (73+298=371 re-proven; $371 grep 0 over the retained HTML - see local-proof.json), never a fetch.",
+        "evidenceDigest": "3a7581c1478c079fadf4ab73d38207bc6ae8081527f262a5cb609be0c5eaaebf"
+      },
+      {
+        "partId": "tr8-umi-any-arm-ur5-franka",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr8-umi-any-arm-ur5-franka (record audit/data-hardware.md:teleop-rigs:8): supported. 8 (ready-source-correction-with-local-AND): BoM $73 + GoPro $298 printed addends verified verbatim (LaTeXML doubled-render fold); the $371 total is the integrator-side local conjunct (73+298=371 re-proven; $371 grep 0 over the retained HTML - see local-proof.json), never a fetch.",
+        "evidenceDigest": "f48d9a909ff1d87dd9be6091dc168561cf34d9ca0247c8f0898e3127b55d8178"
+      }
+    ],
+    "originalCellsDigest": "f58e824571c0c9dcb220556c5dfdbeb9d1aff1f8e9ad1dd8b66a4cc8a5fc745f"
+  },
+  {
+    "id": "teleop-rigs-9-umi-throughput-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 9,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr9-umi-paper-windows",
+        "text": "The paper measures throughput as the number of demonstrations collectable within 15 minutes by the same operator using human hand, UMI gripper, and spacemouse-based teleoperation (Fig. 11).",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      },
+      {
+        "id": "tr9-umi-paper-3x-48",
+        "text": "On the cup arrangement task the UMI gripper is more than 3x faster than teleportation, at 48% speed of the human hand.",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      },
+      {
+        "id": "tr9-umi-site-rates",
+        "text": "The project site's rate block reads 111/h UMI Gripper, 231/h Human Hand, 35/h Teleoperation via Space Mouse; these hourly rates appear nowhere in the paper.",
+        "requiredCitationIds": [
+          "umi-gripper-site-2024"
+        ]
+      },
+      {
+        "id": "tr9-umi-site-registration",
+        "text": "No registered citation exists for umi-gripper.github.io at HEAD (414 registry entries checked); registration umi-gripper-site-2024 is proposed with fields: title 'Universal Manipulation Interface (project site)', authors Chi, Xu, Pan, Cousineau, Burchfiel, Feng, Tedrake, Song, year 2024, url https://umi-gripper.github.io/, type docs.",
+        "requiredCitationIds": [
+          "umi-gripper-site-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:9 (ready-source-correction): attribution split - the paper states the 15-minute windows and >3x-at-48% ratios (cup arrangement task); the 111/35/231 hourly rates are the project site's (site registered as umi-gripper-site-2024; article rates sentence re-pointed via packet endpoint). BoM/throughput passages consistent with registered plan data-bottleneck-db13-umi-20260915 (see reuse-check.json). Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "0ab341b1b152ab590ba9b0c6570b22cd92d38571c1c582d4e042e60444350020"
+    },
+    "evidence": [
+      {
+        "partId": "tr9-umi-paper-windows",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+        "supportingPassage": "To demonstrate this effect, we record the number of demonstrations that can be collected within 15 minutes by the same operation using 3 different methods (Fig. 11): 1) Human hand demonstration 2) UMI gripper 3) Spacemouse-based teleoperation, which is a typical teleoperation interface used in many learning from demonstration works."
+      },
+      {
+        "partId": "tr9-umi-paper-3x-48",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+        "supportingPassage": "On the cup arrangement task, the UMI gripper is more than 3x faster than teleportation, at 48% speed of the human hand, shown in Fig. 11 (d)."
+      },
+      {
+        "partId": "tr9-umi-site-rates",
+        "citationId": "umi-gripper-site-2024",
+        "sourceUrl": "https://umi-gripper.github.io/",
+        "supportingPassage": "For the cup arrangement task, UMI gripper is over 3x faster than teleportation, reaching 48% of human hand speed. 111/h UMI Gripper 231/h Human Hand 35/h Teleoperation via Space Mouse"
+      },
+      {
+        "partId": "tr9-umi-site-registration",
+        "citationId": "umi-gripper-site-2024",
+        "sourceUrl": "https://umi-gripper.github.io/",
+        "supportingPassage": "Latest version: arXiv or here. Robotics: Science and Systems (RSS) 2024 ... @inproceedings{chi2024universal, title={Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots}, author={Chi, Cheng and Xu, Zhenjia and Pan, Chuer and Cousineau, Eric and Burchfiel, Benjamin and Feng, Siyuan and Tedrake, Russ and Song, Shuran}, booktitle={Proceedings of Robotics: Science and Systems (RSS)}, year={2024}}"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr9-umi-paper-windows",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr9-umi-paper-windows (record audit/data-hardware.md:teleop-rigs:9): supported. 9 (ready-source-correction): attribution split - the paper states the 15-minute windows and >3x-at-48% ratios (cup arrangement task); the 111/35/231 hourly rates are the project site's (site registered as umi-gripper-site-2024; article rates sentence re-pointed via packet endpoint). BoM/throughput passages consistent with registered plan data-bottleneck-db13-umi-20260915 (see reuse-check.json).",
+        "evidenceDigest": "24a241c0a06bdd0b87306778fe3f2e2e25bdb30dcbce48f277b9b499b5d31670"
+      },
+      {
+        "partId": "tr9-umi-paper-3x-48",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr9-umi-paper-3x-48 (record audit/data-hardware.md:teleop-rigs:9): supported. 9 (ready-source-correction): attribution split - the paper states the 15-minute windows and >3x-at-48% ratios (cup arrangement task); the 111/35/231 hourly rates are the project site's (site registered as umi-gripper-site-2024; article rates sentence re-pointed via packet endpoint). BoM/throughput passages consistent with registered plan data-bottleneck-db13-umi-20260915 (see reuse-check.json).",
+        "evidenceDigest": "4e494166a71f5423573b656d7dce58ad5249d7e2605bc3e57679a791a0d53454"
+      },
+      {
+        "partId": "tr9-umi-site-rates",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr9-umi-site-rates (record audit/data-hardware.md:teleop-rigs:9): supported. 9 (ready-source-correction): attribution split - the paper states the 15-minute windows and >3x-at-48% ratios (cup arrangement task); the 111/35/231 hourly rates are the project site's (site registered as umi-gripper-site-2024; article rates sentence re-pointed via packet endpoint). BoM/throughput passages consistent with registered plan data-bottleneck-db13-umi-20260915 (see reuse-check.json).",
+        "evidenceDigest": "d9ad92457c3f86ef3cdf619069b582fda6dc295d37c890a3b35fcb340eb0b88f"
+      },
+      {
+        "partId": "tr9-umi-site-registration",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr9-umi-site-registration (record audit/data-hardware.md:teleop-rigs:9): supported. 9 (ready-source-correction): attribution split - the paper states the 15-minute windows and >3x-at-48% ratios (cup arrangement task); the 111/35/231 hourly rates are the project site's (site registered as umi-gripper-site-2024; article rates sentence re-pointed via packet endpoint). BoM/throughput passages consistent with registered plan data-bottleneck-db13-umi-20260915 (see reuse-check.json).",
+        "evidenceDigest": "040157e077a750ef88a05a489c9de720b784ab72f9bc330077d3a701221f1b1b"
+      }
+    ],
+    "originalCellsDigest": "5b9486a9f0b2c8e14c8b80a3939adf78dd7ba3ff62d87ba009b8774303df2e2f"
+  },
+  {
+    "id": "teleop-rigs-10-umi-2min-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 10,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr10-umi-2min-site",
+        "text": "The project site states collection can start in any home or any restaurant within 2 minutes; the sentence is the site's, not the paper's.",
+        "requiredCitationIds": [
+          "umi-gripper-site-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:10 (ready-source-correction): site-only 2-minute start claim verified verbatim against the preserved site render; registered citation umi-gripper-site-2024 added to the data sources via the shared packet endpoint. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "e8f99f4a4365426e3938ec931f768cf1290a293ad5b6b6f4158ad4377c0ec509"
+    },
+    "evidence": [
+      {
+        "partId": "tr10-umi-2min-site",
+        "citationId": "umi-gripper-site-2024",
+        "sourceUrl": "https://umi-gripper.github.io/",
+        "supportingPassage": "With UMI, you can go to any home, any restaurant and start data collection within 2 minutes."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr10-umi-2min-site",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr10-umi-2min-site (record audit/data-hardware.md:teleop-rigs:10): supported. 10 (ready-source-correction): site-only 2-minute start claim verified verbatim against the preserved site render; registered citation umi-gripper-site-2024 added to the data sources via the shared packet endpoint.",
+        "evidenceDigest": "d4bf19e629ce63c88f574e05f660a34dd27cd7956eab07c48c666012d442e11c"
+      }
+    ],
+    "originalCellsDigest": "0b65ccff2649a530902bbcfe96f7a3542283e202bd4f75b36cb9bb7b065ac9f5"
+  },
+  {
+    "id": "teleop-rigs-11-droid-fleet-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 11,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr11-droid-scale",
+        "text": "DROID contains 76k demonstration trajectories or 350 hours of interaction data, collected by 50 data collectors across 13 institutions over the course of 12 months.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "tr11-droid-rig",
+        "text": "The same hardware setup is used across all 13 institutions: a Franka Panda 7DoF arm, two Zed 2 stereo cameras, a wrist-mounted Zed Mini, and an Oculus/Meta Quest 2 headset with controllers for teleoperation.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "tr11-droid-registry-identity",
+        "text": "Registry droid-2024 names the intended document: 'DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset', Khazatsky, Pertsch, Nair (first three of 101 authors), 2024, arXiv 2403.12945.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:11 (ready-evidence-completion): 76k/350h/50 collectors/13 institutions/12 months and the Quest 2 / Franka Panda rig verified against preserved abs + retained droid HTML; abs-vs-HTML task-count discrepancy (84 vs 86) stays recorded, no task count claimed; rig passage consistent with registered plan hardware-taxonomy-r16-droid-rig-20260915 (see reuse-check.json). Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator. Continuation-integrator correction 2026-09-16: the packet passage counted \"(103 authors)\"; the retained abs body prints \"by Alexander Khazatsky and 100 other authors\" (101 unique author links, needle-addendum.json droidAuthorLinkCountUnique=101), so the applied part text and passage say 101. Packet files remain frozen; deviation recorded in handoff.",
+      "planDigest": "305c9d69faea140738888c4bdf127a487bca270bdd56b8e9373557a3c5181f61"
+    },
+    "evidence": [
+      {
+        "partId": "tr11-droid-scale",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. ... a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 84 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months. (abs page)"
+      },
+      {
+        "partId": "tr11-droid-rig",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "We use the same hardware setup across all 13 institutions to streamline data collection while maximizing portability and flexibility. The setup consists of a Franka Panda 7DoF robot arm, two adjustable Zed 2 stereo cameras, a wrist-mounted Zed Mini stereo camera, and an Oculus Quest 2 headset with controllers for teleoperation. ... For teleoperation, we use the controllers of a Meta Quest 2 headset to control the pose of the arm in 6D space as well as the gripper in continuous space."
+      },
+      {
+        "partId": "tr11-droid-registry-identity",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/abs/2403.12945",
+        "supportingPassage": "# Title: DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset\n\nAuthors: Alexander Khazatsky, Karl Pertsch, Suraj Nair ... (101 authors)\n\n[Submitted on 19 Mar 2024 ... this version, v2 22 Apr 2025]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr11-droid-scale",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr11-droid-scale (record audit/data-hardware.md:teleop-rigs:11): supported. 11 (ready-evidence-completion): 76k/350h/50 collectors/13 institutions/12 months and the Quest 2 / Franka Panda rig verified against preserved abs + retained droid HTML; abs-vs-HTML task-count discrepancy (84 vs 86) stays recorded, no task count claimed; rig passage consistent with registered plan hardware-taxonomy-r16-droid-rig-20260915 (see reuse-check.json).",
+        "evidenceDigest": "e99e76fcb4db902d7a95d9e2c1cbc1f0939915f9228be1092971ecd77b71cc44"
+      },
+      {
+        "partId": "tr11-droid-rig",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr11-droid-rig (record audit/data-hardware.md:teleop-rigs:11): supported. 11 (ready-evidence-completion): 76k/350h/50 collectors/13 institutions/12 months and the Quest 2 / Franka Panda rig verified against preserved abs + retained droid HTML; abs-vs-HTML task-count discrepancy (84 vs 86) stays recorded, no task count claimed; rig passage consistent with registered plan hardware-taxonomy-r16-droid-rig-20260915 (see reuse-check.json).",
+        "evidenceDigest": "2af8a1d61b9bf4848a7d371d526758b7a24a9af414697e0458f08eab90946637"
+      },
+      {
+        "partId": "tr11-droid-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr11-droid-registry-identity (record audit/data-hardware.md:teleop-rigs:11): supported. 11 (ready-evidence-completion): 76k/350h/50 collectors/13 institutions/12 months and the Quest 2 / Franka Panda rig verified against preserved abs + retained droid HTML; abs-vs-HTML task-count discrepancy (84 vs 86) stays recorded, no task count claimed; rig passage consistent with registered plan hardware-taxonomy-r16-droid-rig-20260915 (see reuse-check.json).",
+        "evidenceDigest": "3845c322d1ce43dba97aa7c370e9bda38190cd7f925fae02f1e0b9ee1dbf4947"
+      }
+    ],
+    "originalCellsDigest": "13c5dc6ce7fcfd2f70b6c51d166539d56f7e872a436f5c4dee0070a23e2e4cae"
+  },
+  {
+    "id": "teleop-rigs-12-television-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 12,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr12-tv-stereo-mirror",
+        "text": "Open-TeleVision lets operators actively perceive the robot's surroundings stereoscopically and mirrors the operator's arm and hand movements on the robot.",
+        "requiredCitationIds": [
+          "open-television-2024"
+        ]
+      },
+      {
+        "id": "tr12-tv-validation",
+        "text": "The system is validated by collecting data and training imitation policies on four long-horizon, precise tasks (Can Sorting, Can Insertion, Folding, Unloading) for 2 different humanoid robots, deployed in the real world.",
+        "requiredCitationIds": [
+          "open-television-2024"
+        ]
+      },
+      {
+        "id": "tr12-tv-registry-identity",
+        "text": "Registry open-television-2024 names the intended document: 'Open-TeleVision: Teleoperation with Immersive Active Visual Feedback', Xuxin Cheng, Jialong Li, Shiqi Yang, Ge Yang, Xiaolong Wang, 2024, arXiv 2407.01512.",
+        "requiredCitationIds": [
+          "open-television-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:12 (ready-evidence-completion): stereoscopic perception, arm/hand mirroring and four long-horizon tasks on two humanoid robots verbatim in the preserved abs render. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "0290d1c8efab221558b7ff639a39b732818a344149b45302b78876f140edb4c2"
+    },
+    "evidence": [
+      {
+        "partId": "tr12-tv-stereo-mirror",
+        "citationId": "open-television-2024",
+        "sourceUrl": "https://arxiv.org/abs/2407.01512",
+        "supportingPassage": "we propose an immersive teleoperation system Open-TeleVision that allows operators to actively perceive the robot's surroundings in a stereoscopic manner. Additionally, the system mirrors the operator's arm and hand movements on the robot, creating an immersive experience as if the operator's mind is transmitted to a robot embodiment."
+      },
+      {
+        "partId": "tr12-tv-validation",
+        "citationId": "open-television-2024",
+        "sourceUrl": "https://arxiv.org/abs/2407.01512",
+        "supportingPassage": "We validate the effectiveness of our system by collecting data and training imitation learning policies on four long-horizon, precise tasks (Can Sorting, Can Insertion, Folding, and Unloading) for 2 different humanoid robots and deploy them in the real world."
+      },
+      {
+        "partId": "tr12-tv-registry-identity",
+        "citationId": "open-television-2024",
+        "sourceUrl": "https://arxiv.org/abs/2407.01512",
+        "supportingPassage": "# Title: Open-TeleVision: Teleoperation with Immersive Active Visual Feedback\n\nAuthors: Xuxin Cheng, Jialong Li, Shiqi Yang, Ge Yang, Xiaolong Wang\n\n[Submitted on 1 Jul 2024 (v1); last revised 8 Jul 2024 (this version, v2)]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr12-tv-stereo-mirror",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr12-tv-stereo-mirror (record audit/data-hardware.md:teleop-rigs:12): supported. 12 (ready-evidence-completion): stereoscopic perception, arm/hand mirroring and four long-horizon tasks on two humanoid robots verbatim in the preserved abs render.",
+        "evidenceDigest": "09ffad0efe29887fca87f8841117e4f0ad8e8abb38f9e7c4e6b65b1c2965962f"
+      },
+      {
+        "partId": "tr12-tv-validation",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr12-tv-validation (record audit/data-hardware.md:teleop-rigs:12): supported. 12 (ready-evidence-completion): stereoscopic perception, arm/hand mirroring and four long-horizon tasks on two humanoid robots verbatim in the preserved abs render.",
+        "evidenceDigest": "85c2ed39252e24a25e7a6102b5d17869d00303cbf0c4a2b12309f7e5ec7b8b9f"
+      },
+      {
+        "partId": "tr12-tv-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr12-tv-registry-identity (record audit/data-hardware.md:teleop-rigs:12): supported. 12 (ready-evidence-completion): stereoscopic perception, arm/hand mirroring and four long-horizon tasks on two humanoid robots verbatim in the preserved abs render.",
+        "evidenceDigest": "71cc66b6b396834ca75e4bc44300c48923c0445d96d91d779da970faad61c95c"
+      }
+    ],
+    "originalCellsDigest": "960581eb64aeadd3e16369f954ceeb62baa328fa9abe9e1620ee8277d17dab2a"
+  },
+  {
+    "id": "teleop-rigs-13-bunny-visionpro-20260916",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 13,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tr13-bvp-abstract-claims",
+        "text": "Bunny-VisionPro is a real-time bimanual dexterous teleoperation system leveraging a VR headset, with novel low-cost haptic-feedback devices for the operator and collision and singularity avoidance built in.",
+        "requiredCitationIds": [
+          "bunny-visionpro-2024"
+        ]
+      },
+      {
+        "id": "tr13-visionpro-price",
+        "text": "Apple Vision Pro's launch price was \\$3,499 (U.S.) with 256GB of storage, per Apple's January 8, 2024 press release.",
+        "requiredCitationIds": [
+          "apple-visionpro-price-2024"
+        ]
+      },
+      {
+        "id": "tr13-bvp-registry-identity",
+        "text": "Registry bunny-visionpro-2024 names the intended document: 'Bunny-VisionPro: Real-Time Bimanual Dexterous Teleoperation for Imitation Learning', Ding, Qin, Zhu, Jia, Yang, Yang, Qi, Wang (first eight listed), 2024, arXiv 2407.03162.",
+        "requiredCitationIds": [
+          "bunny-visionpro-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record teleop-rigs:13 (ready-source-correction): VR-headset system, low-cost haptic devices and collision/singularity avoidance verbatim in the preserved abs render; the $3,499 launch price is Apple's own press-release figure (registered citation apple-visionpro-price-2024; price parenthetical given its own chip via packet endpoint). Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified against the retained curl HTML and the preserved FetchUrl bodies from the source session (see integration lane needle-verification.json and needle-addendum.json for the nine manually adjudicated render-artifact folds); every cited id confirmed registered in data/citations.ts after the two packet-proposed registrations; zero retrieval by this integrator.",
+      "planDigest": "2f1c088bd25c4e984bef71effe0094b785938536edd3b3e6f453df1ed0e2b7f9"
+    },
+    "evidence": [
+      {
+        "partId": "tr13-bvp-abstract-claims",
+        "citationId": "bunny-visionpro-2024",
+        "sourceUrl": "https://arxiv.org/abs/2407.03162",
+        "supportingPassage": "We introduce Bunny-VisionPro, a real-time bimanual dexterous teleoperation system that leverages a VR headset. Unlike previous vision-based teleoperation systems, we design novel low-cost devices to provide haptic feedback to the operator, enhancing immersion. Our system prioritizes safety by incorporating collision and singularity avoidance while maintaining real-time performance through innovative designs."
+      },
+      {
+        "partId": "tr13-visionpro-price",
+        "citationId": "apple-visionpro-price-2024",
+        "sourceUrl": "https://www.apple.com/newsroom/2024/01/apple-vision-pro-available-in-the-us-on-february-2/",
+        "supportingPassage": "Pricing and Availability - Apple Vision Pro will be available starting at \\$3,499 (U.S.) with 256GB of storage. Pre-orders for Apple Vision Pro will begin on Friday, January 19, at 5 a.m. PST, with availability beginning Friday, February 2."
+      },
+      {
+        "partId": "tr13-bvp-registry-identity",
+        "citationId": "bunny-visionpro-2024",
+        "sourceUrl": "https://arxiv.org/abs/2407.03162",
+        "supportingPassage": "# Title: Bunny-VisionPro: Real-Time Bimanual Dexterous Teleoperation for Imitation Learning\n\nAuthors: Runyu Ding, Yuzhe Qin, Jiyue Zhu, Chengzhe Jia, Shiqi Yang, Ruihan Yang, Xiaojuan Qi, Xiaolong Wang\n\n[Submitted on 3 Jul 2024]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tr13-bvp-abstract-claims",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr13-bvp-abstract-claims (record audit/data-hardware.md:teleop-rigs:13): supported. 13 (ready-source-correction): VR-headset system, low-cost haptic devices and collision/singularity avoidance verbatim in the preserved abs render; the $3,499 launch price is Apple's own press-release figure (registered citation apple-visionpro-price-2024; price parenthetical given its own chip via packet endpoint).",
+        "evidenceDigest": "1ddbaf96a12407b8731621ee2fa60abcd7e21c7dd2a50c954827e6e8ea9b1612"
+      },
+      {
+        "partId": "tr13-visionpro-price",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr13-visionpro-price (record audit/data-hardware.md:teleop-rigs:13): supported. 13 (ready-source-correction): VR-headset system, low-cost haptic devices and collision/singularity avoidance verbatim in the preserved abs render; the $3,499 launch price is Apple's own press-release figure (registered citation apple-visionpro-price-2024; price parenthetical given its own chip via packet endpoint).",
+        "evidenceDigest": "10dba7565675dff8d30090909b237123d595cd2d55e0b203d817abdc09a3ab71"
+      },
+      {
+        "partId": "tr13-bvp-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "teleop-rigs-integrator-20260916 (session 617dd78f-e16c-4d9b-8bcc-976bb111a7ae, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part tr13-bvp-registry-identity (record audit/data-hardware.md:teleop-rigs:13): supported. 13 (ready-source-correction): VR-headset system, low-cost haptic devices and collision/singularity avoidance verbatim in the preserved abs render; the $3,499 launch price is Apple's own press-release figure (registered citation apple-visionpro-price-2024; price parenthetical given its own chip via packet endpoint).",
+        "evidenceDigest": "97724ec5ad65d65f3cbd09e12ccfbb838826a2c81472a422298395ad75e4621d"
+      }
+    ],
+    "originalCellsDigest": "183904526edfeaae1250a04ab960fa82b6497d68f13679f06dc4c9d604b95215"
+  }
 ]

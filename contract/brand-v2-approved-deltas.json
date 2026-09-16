@@ -13877,6 +13877,210 @@
     "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
-}
+},
+  {
+    "id": "tr-r1-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 1: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r2-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 2: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r3-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 3: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r5-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 5: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r6-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 6: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). This row carries applied article/data spans from the packet endpoints. All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r7-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 7: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r8-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 8: local-AND row completed with the integrator-side conjunct (see local-proof.json); ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r9-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 9: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). This row carries applied article/data spans from the packet endpoints. This row depends on a packet-proposed citation registration applied in the same change. All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r10-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 10: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). This row depends on a packet-proposed citation registration applied in the same change. All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r11-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 11: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r12-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 12: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "tr-r13-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/teleop-rigs",
+    "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+    "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+    "reason": "Exactly data-hardware/teleop-rigs original 13: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json; nine render-artifact folds manually adjudicated in needle-addendum.json). This row carries applied article/data spans from the packet endpoints. This row depends on a packet-proposed citation registration applied in the same change. All 12 selected records are teleop-rigs rows from frozen packet convergence-source-f-teleop-rigs-20260916 (sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e); eight article/data spans were applied (row 6 wording precision: five tasks on a bimanual pair of UR5 arms; rows 9/13 citation re-pointing of site-sourced rates and the Apple launch price) and two packet-proposed citations were registered (umi-gripper-site-2024, apple-visionpro-price-2024) into the article frontmatter and data sources. lastReviewed did not move (row-scoped evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-teleop-rigs-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 12 selected records of frozen packet convergence-source-f-teleop-rigs-20260916, sha256 60d405bafaa6dd57526667fbd96be0e83975a8c6fd60e34864ab9249f6ab6e4e) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  }
   ]
 }

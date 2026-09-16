@@ -403,6 +403,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | egodex-2025 | https://arxiv.org/abs/2505.11709 | ok | match | none (verified as cited) |  |
 | egoscale-2026 | https://arxiv.org/abs/2602.16710 | ok | match | none (verified as cited) |  |
 | umi-2024 | https://arxiv.org/abs/2402.10329 | ok | match | none (verified as cited) |  |
+| umi-gripper-site-2024 | https://umi-gripper.github.io/ | ok | match | none (verified as cited) | registered 2026-09-16 by the teleop-rigs evidence completion (packet convergence-source-f-teleop-rigs-20260916 rows 9-10; site-only rates and 2-minute start claim). Live fetch 200 in the packet session; identity and claims verified by the integrator against the preserved FetchUrl body (integration lane needle-verification.json). |
 | ego4d-2022 | https://arxiv.org/abs/2110.07058 | ok | match | none (verified as cited) |  |
 | so-arm100-repo-2026 | https://github.com/TheRobotStudio/SO-ARM100 | ok | match | none (verified as cited) |  |
 | lerobot-docs-2026 | https://huggingface.co/docs/lerobot/index | ok | match | none (verified as cited) |  |
@@ -424,6 +425,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | gello-2023 | https://arxiv.org/abs/2309.13037 | ok | match | none (verified as cited) |  |
 | open-television-2024 | https://arxiv.org/abs/2407.01512 | ok | match | none (verified as cited) |  |
 | bunny-visionpro-2024 | https://arxiv.org/abs/2407.03162 | ok | match | none (verified as cited) |  |
+| apple-visionpro-price-2024 | https://www.apple.com/newsroom/2024/01/apple-vision-pro-available-in-the-us-on-february-2/ | ok | match | none (verified as cited) | registered 2026-09-16 by the teleop-rigs evidence completion (row 13 Vision Pro launch price). Live fetch 200 in the packet session; first-party vendor press release, price sentence verified by the integrator against the preserved FetchUrl body (integration lane needle-verification.json). |
 | optimal-stopping-2025 | https://arxiv.org/abs/2503.10966 | ok | match | none (verified as cited) |  |
 | simpler-2024 | https://arxiv.org/abs/2405.05941 | ok | match | none (verified as cited) |  |
 | libero-2023 | https://arxiv.org/abs/2306.03310 | ok | match | none (verified as cited) |  |

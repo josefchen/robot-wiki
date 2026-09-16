@@ -13,9 +13,11 @@ citations:
   - lerobot-pricing-2026
   - gello-2023
   - umi-2024
+  - umi-gripper-site-2024
   - droid-2024
   - open-television-2024
   - bunny-visionpro-2024
+  - apple-visionpro-price-2024
 seeAlso:
   - "data-hardware/data-bottleneck"
   - "data-hardware/hardware-taxonomy"
@@ -53,13 +55,13 @@ The trade is throughput. Each additional collector needs another full workstatio
 
 ## GELLO: the kinematic twin
 
-GELLO takes the matched-kinematics idea and shrinks it. The device is a scaled replica of the target arm built from 3D-printed links and off-the-shelf motors, so the operator moves it like the arm itself and joint readings map one-to-one onto robot commands. Parts cost under \$300, the paper calls the assembly process straightforward, says it needs minimal technical expertise, and quotes no build time; the published designs cover Franka, UR5, and xArm <Cite id="gello-2023" />. In the paper's user study, 12 participants collected demonstrations for five bimanual UR5 tasks using GELLO, a VR controller, and a 3D spacemouse; GELLO came out more reliable and faster than both <Cite id="gello-2023" />.
+GELLO takes the matched-kinematics idea and shrinks it. The device is a scaled replica of the target arm built from 3D-printed links and off-the-shelf motors, so the operator moves it like the arm itself and joint readings map one-to-one onto robot commands. Parts cost under \$300, the paper calls the assembly process straightforward, says it needs minimal technical expertise, and quotes no build time; the published designs cover Franka, UR5, and xArm <Cite id="gello-2023" />. In the paper's user study, 12 participants ran five tasks on a bimanual pair of UR5 arms using GELLO, VR controllers, and a 3D spacemouse; GELLO came out more reliable and faster than both <Cite id="gello-2023" />.
 
 Two limits define the family. The \$300 buys a controller only; the robot arm it drives is a separate cost. And kinematic matching is per-model: every new arm needs its own GELLO design, which is the price of the one-to-one joint mapping.
 
 ## UMI: collection without a robot
 
-UMI removes the robot from collection entirely. The operator holds a 3D-printed parallel-jaw gripper fitted with a wrist-mounted GoPro and a 155-degree fisheye lens, performs the task wherever it naturally happens, and SLAM recovers the gripper pose from the video <Cite id="umi-2024" />. The paper bills the printed gripper at \$73 and the GoPro plus accessories at \$298, for a \$371 collection rig <Cite id="umi-2024" />. The paper measures throughput in 15-minute collection windows and reports the gripper more than 3x faster than spacemouse teleoperation at 48% of bare-hand speed; the project site's rates are 111 demonstrations per hour on the cup arrangement task, against 35 per hour for teleoperation and 231 per hour for the unassisted human hand <Cite id="umi-2024" />.
+UMI removes the robot from collection entirely. The operator holds a 3D-printed parallel-jaw gripper fitted with a wrist-mounted GoPro and a 155-degree fisheye lens, performs the task wherever it naturally happens, and SLAM recovers the gripper pose from the video <Cite id="umi-2024" />. The paper bills the printed gripper at \$73 and the GoPro plus accessories at \$298, for a \$371 collection rig <Cite id="umi-2024" />. The paper measures throughput in 15-minute collection windows and reports the gripper more than 3x faster than spacemouse teleoperation at 48% of bare-hand speed; the project site's rates are 111 demonstrations per hour on the cup arrangement task, against 35 per hour for teleoperation and 231 per hour for the unassisted human hand <Cite id="umi-gripper-site-2024" />.
 
 The price of robot-free collection is an embodiment gap the interface has to close at deployment time. UMI does it with inference-time latency matching and a camera-relative action representation, and the resulting policies deploy zero-shot onto any arm with a compatible gripper and camera setup; the paper demonstrates UR5 and Franka, and its own printed gripper has an 80 mm finger stroke <Cite id="umi-2024" />. What the data lacks is a force channel, which matters for contact-rich tasks. Where robot-free collection fits in the wider data economics is the subject of [The Data Bottleneck](/data-hardware/data-bottleneck).
 
@@ -67,7 +69,7 @@ The price of robot-free collection is an embodiment gap the interface has to clo
 
 VR teleoperation keeps the robot fixed and lets the operator move from inside a headset, with the robot mirroring the operator's hand or controller poses through a <Term id="retargeting">retargeting</Term> layer. DROID is the fleet-scale proof of the family: 50 operators across 13 institutions teleoperated Franka Panda rigs with Meta Quest 2 headsets and collected 76,000 trajectories totaling 350 hours over 12 months <Cite id="droid-2024" />. <Term id="diffusion-policy">Diffusion policies</Term> trained on that pool beat policies trained on the next-best dataset by 22% in-distribution in controlled comparisons <Cite id="droid-2024" />, and the project maintains calibration protocols because multi-site retargeting drifts without them.
 
-The newer systems push on immersion and fidelity. Open-TeleVision renders the robot's surroundings stereoscopically and mirrors the operator's arm and hand motion, validated on long-horizon tasks on two humanoid platforms <Cite id="open-television-2024" />. Bunny-VisionPro runs on an Apple Vision Pro (launch price \$3,499), adds low-cost haptic feedback devices for the operator, and builds collision and singularity avoidance into the retargeting <Cite id="bunny-visionpro-2024" />. The family's weakness is the embodiment gap itself: human hands share no kinematics with robot arms, so every action passes through <Term id="inverse-kinematics">IK</Term> and calibration, and that mapping is where demonstration quality is kept or lost.
+The newer systems push on immersion and fidelity. Open-TeleVision renders the robot's surroundings stereoscopically and mirrors the operator's arm and hand motion, validated on long-horizon tasks on two humanoid platforms <Cite id="open-television-2024" />. Bunny-VisionPro runs on an Apple Vision Pro (launch price \$3,499 <Cite id="apple-visionpro-price-2024" />), adds low-cost haptic feedback devices for the operator, and builds collision and singularity avoidance into the retargeting <Cite id="bunny-visionpro-2024" />. The family's weakness is the embodiment gap itself: human hands share no kinematics with robot arms, so every action passes through <Term id="inverse-kinematics">IK</Term> and calibration, and that mapping is where demonstration quality is kept or lost.
 
 ## Choosing by axis
 
