@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "70823fd45b6ae37596b4321d85bf6966b87625c4ac49b7a506808bb92ab2ec3f",
+  "fingerprint": "b784050ebb67e2470997795e4f97ff421c5d500033f01980f224ea0b0882c4e0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -41523,7 +41523,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15080,
+      "visibleTextLength": 15075,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41674,7 +41674,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Isaac Gym was the first demonstration of end-to-end RL for c"
+          "text": "Isaac Gym ran an end-to-end GPU accelerated training pipelin"
         },
         {
           "familyHead": "newsreader",
@@ -93916,7 +93916,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15555,
+      "visibleTextLength": 15550,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94067,7 +94067,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Isaac Gym was the first demonstration of end-to-end RL for c"
+          "text": "Isaac Gym ran an end-to-end GPU accelerated training pipelin"
         },
         {
           "familyHead": "newsreader",

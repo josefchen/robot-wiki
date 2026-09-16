@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "f1c3ae8ccc4c0c209793a0e15465000dfb04d39ce060de6b6c25e4523cd3d33f",
+  "fingerprint": "4e8b809ee32b8f83e7f068bff107f3d1988fd3d79ab58bec0177287e20294b27",
   "viewports": [
     "375x812",
     "1440x900"
@@ -6976,7 +6976,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15080,
+      "visibleTextLength": 15075,
       "tables": [
         {
           "index": 0,
@@ -14493,7 +14493,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15555,
+      "visibleTextLength": 15550,
       "tables": [
         {
           "index": 0,

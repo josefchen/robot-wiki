@@ -9518,7 +9518,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 15080,
+      "visibleTextLength": 15075,
       "header": {
         "present": true,
         "display": "flex",

@@ -87255,7 +87255,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223 exactly as approved delta seo-merge-20260916-b3-article-metadata-4 permits: The citation-rendering ledger member grew with the newly registered citations; this entry approves the current label-and-meta digest on the merged line.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1 exactly as approved delta seo-merge-20260916-metadata-label-and-meta permits: The citation-rendering:label-and-meta member is a post-seal addition recording the rendered citation chip label/meta census (432 chips); this member is created by the merged audit-lane state and is recorded against the sealed baseline as an approved new member.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87267,9 +87267,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223",
+          "currentHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-b3-article-metadata-4"
+          "approvedDelta": "seo-merge-20260916-metadata-label-and-meta"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87886,6 +87886,34 @@
           "currentHash": "ea95c050eaf7938259f468147a20b1138207ca47bf1915bea8fcdc4391073c8b",
           "status": "identical",
           "approvedDelta": null
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-founding-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:ami-labs-founding-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:ami-labs-founding-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:ami-labs-founding-2026 moved from null to 4708718fcde1a104378165b5361995845dc7b3c97644926129ad899f4860b9de exactly as approved delta seo-merge-20260916-metadata-ami-labs permits: The audit lane added citation ami-labs-founding-2026 (Anna Heim, TechCrunch, on AMI Labs founding) while integrating originals packets; this member is created by that addition and is recorded against the sealed baseline as an approved new citation member.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:ami-labs-founding-2026",
+          "baselineHash": null,
+          "currentHash": "4708718fcde1a104378165b5361995845dc7b3c97644926129ad899f4860b9de",
+          "status": "approved-addition",
+          "approvedDelta": "seo-merge-20260916-metadata-ami-labs"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100527,7 +100555,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858 exactly as approved delta locomotion-park7-7-20260915-1 permits: Exactly legged-locomotion original 7: the drift gloss 'made high-speed bounding practical by scaling the duty cycle with speed' is replaced by the paper's own preserved mechanism (Sec. 4.3 'Duty cycle modulation via vertical impulse scaling', stance time T_st = L/v_d with fixed swing duration) and the Sec. 7 experimental stride-length schedule (speed-dependent below 3 m/s, fixed above), with abstract-level 6.4 m/s and CoT 0.47 qualified by side-wall contact and roll instability. The park-2017-bounding registry endpoint was verified unchanged (already registered, no duplicate added). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-locomotion-park7-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858 exactly as approved delta legged-locomotion-r8-20260916-1 permits: Exactly rl-sim2real/legged-locomotion original 8 (duty-factor disclaimer row: standing verified verdict corrected to corrected, with the source cell scoped to the registered park-2017-bounding URL and the retained row-7 classical-instance facts plus the local-AND lib/gait.ts authored constants) per the frozen packet convergence-source-u-legged-locomotion-20260916i. The packet passage and the retained row-7 Park material were needle-verified by this integrator against the sha256-verified records before adjudication, and the local proof (GAITS constants, duty-readout wiring, article mount and disclaimer span) was re-executed at apply HEAD (checks enumerated in the lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-legged-locomotion-integration-20260916i. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row correction only); lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100541,7 +100569,7 @@
           "baselineHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
           "currentHash": "cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858",
           "status": "approved-delta",
-          "approvedDelta": "locomotion-park7-7-20260915-1"
+          "approvedDelta": "legged-locomotion-r8-20260916-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100583,7 +100611,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/parallel-sim-rl moved from d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb to 326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4 exactly as approved delta newton-engine-20260912-2f6e8bc798bf35e18a permits: Exactly originals7/11/12/13/14/15/17: cut unsupported current Brax attribution, separate NVIDIA framework/backends and early-access status, Linux Foundation project identity, solver-dependent differentiation, complete solver inventory, example-only SDF band, vendor Skild/future Samsung/simulated RB-Y1 workflows, two workload ratios with protocol limits, and named-author Drake opinion. Four measured mobile tooltips receive local max-sm offsets without changing source text. Isaac/Rudin and all unselected paragraphs remain protected by exact fragment reverse reconstruction. Actual reviews bind twelve mandatory AND parts and twelve source/part pairs from two retained primary documents. Original September8 GET provenance, literal ranges and final inputs are in convergence-newton-engine-integration-20260912. No new retrieval, whole-P1, independent validation or release credit.",
+      "actual": "prose member article:rl-sim2real/parallel-sim-rl moved from d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb to 0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6 exactly as approved delta seo-merge-20260916-prose-parallel-sim-rl permits: The merged tree's rl-sim2real/parallel-sim-rl prose combines the sealed baseline with every approved audit-lane correction through the parallel-sim-rl originals integration (commit 93cb40e), including the Isaac Gym 'first demonstration' sentence replaced by the source-backed pipeline wording; this member records that exact sealed-to-merged transition.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100595,9 +100623,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/parallel-sim-rl",
           "baselineHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
-          "currentHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "currentHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6",
           "status": "approved-delta",
-          "approvedDelta": "newton-engine-20260912-2f6e8bc798bf35e18a"
+          "approvedDelta": "seo-merge-20260916-prose-parallel-sim-rl"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100667,7 +100695,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b exactly as approved delta newton-engine-20260912-6a115dfde665c0aa65 permits: Exactly original20: replace unsupported productization inference with the retained Newton tiled-sensor ray-tracing/triangle-mesh/Gaussian-splat description. One measured mobile tooltip receives a local max-sm offset. SplatSim/RoboGSim/ASAP/Lee and every existing wrapper remain byte-identical outside this fragment. Actual reviews bind twelve mandatory AND parts and twelve source/part pairs from two retained primary documents. Original September8 GET provenance, literal ranges and final inputs are in convergence-newton-engine-integration-20260912. No new retrieval, whole-P1, independent validation or release credit.",
+      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b exactly as approved delta sim2real-transfer-r22-20260916-1 permits: Exactly rl-sim2real/sim2real-transfer original 22 (ready-source-correction of the stale Sec. 4.2 locator to Sec. 4.1 (State/Action Representations bullet block), positional proof and live confirmation recorded; verdict and note substance unchanged) per the frozen packet convergence-source-s-sim2real-transfer-20260916h. All packet evidence passages and precision disclosures needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (83/83 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-transfer-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-cell correction only); lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100681,7 +100709,7 @@
           "baselineHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
           "currentHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
           "status": "approved-delta",
-          "approvedDelta": "newton-engine-20260912-6a115dfde665c0aa65"
+          "approvedDelta": "sim2real-transfer-r22-20260916-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100695,7 +100723,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/why-rl-locomotion moved from 25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b to 2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670 exactly as approved delta domain-randomization-source-2-20260909 permits: Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "actual": "prose member article:rl-sim2real/why-rl-locomotion moved from 25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b to 2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670 exactly as approved delta why-rl-locomotion-r12-20260916-1 permits: Exactly rl-sim2real/why-rl-locomotion original 12 (fail-closed frontmatter P1 sweep with fresh fetch + passage for all 7 identities, Isaac name-list and Lin venue caveats recorded) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100709,7 +100737,7 @@
           "baselineHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
           "currentHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
           "status": "approved-delta",
-          "approvedDelta": "domain-randomization-source-2-20260909"
+          "approvedDelta": "why-rl-locomotion-r12-20260916-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132235,7 +132263,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 30635 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 30625 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

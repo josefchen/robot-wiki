@@ -10514,6 +10514,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-founding-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:angelopoulos-conformal-2021",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13139,7 +13144,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1010,
+        "populationSize": 1011,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13635,6 +13640,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:amazon-vulcan-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ames-cbf-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-founding-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:angelopoulos-conformal-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:anyskin-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:apple-visionpro-price-2024",
