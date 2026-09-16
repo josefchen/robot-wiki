@@ -14472,6 +14472,132 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
+  },
+  {
+    "id": "se-r8-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:classical/state-estimation",
+    "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+    "newHash": "c7dda646edcf05a047772c22e6b90a4d17c0751889a405d890f3f08d3160aec4",
+    "reason": "Exactly classical/state-estimation original 8: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; every part passage needle-verified by this integrator against the retained source-session corpus (MIT-hosted full text of the paywalled Springer chapter, abstract-bridged identity); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-state-estimation-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. Row basis: packet explicit-parts plan (first-two-moments/system-covariance/stochastic-map passages)",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-g-state-estimation-20260916b, sha256 a2e5bc93268e9fd04645b9566d408621db889b3415d57a8b8707f9ab9ef50e46) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-005",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "se-r9-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:classical/state-estimation",
+    "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+    "newHash": "c7dda646edcf05a047772c22e6b90a4d17c0751889a405d890f3f08d3160aec4",
+    "reason": "Exactly classical/state-estimation original 9: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; every part passage needle-verified by this integrator against the retained source-session corpus (Berkeley-hosted copy of the bot-blocked SPIE paper); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-state-estimation-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. Row basis: packet explicit-parts plan (deterministic sigma points, true nonlinearity applied per point, no Jacobians)",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-g-state-estimation-20260916b, sha256 a2e5bc93268e9fd04645b9566d408621db889b3415d57a8b8707f9ab9ef50e46) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-005",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "se-r10-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:classical/state-estimation",
+    "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+    "newHash": "c7dda646edcf05a047772c22e6b90a4d17c0751889a405d890f3f08d3160aec4",
+    "reason": "Exactly classical/state-estimation original 10: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; every part passage needle-verified by this integrator against the retained source-session corpus (MIT-hosted author preprint of the paywalled IEEE paper, dead author host documented); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-state-estimation-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. Row basis: packet explicit-parts plan (sum-product unification abstract, single-setting intro)",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-g-state-estimation-20260916b, sha256 a2e5bc93268e9fd04645b9566d408621db889b3415d57a8b8707f9ab9ef50e46) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-005",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "se-r12-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:classical/state-estimation",
+    "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+    "newHash": "c7dda646edcf05a047772c22e6b90a4d17c0751889a405d890f3f08d3160aec4",
+    "reason": "Exactly classical/state-estimation original 12: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; every part passage needle-verified by this integrator against the retained source-session corpus (CMU RI eprint of the paywalled T-RO paper); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-state-estimation-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. Row basis: packet explicit-parts plan (QR update abstract, affected-entries intro)",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-g-state-estimation-20260916b, sha256 a2e5bc93268e9fd04645b9566d408621db889b3415d57a8b8707f9ab9ef50e46) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-005",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "se-r14-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:classical/state-estimation",
+    "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+    "newHash": "c7dda646edcf05a047772c22e6b90a4d17c0751889a405d890f3f08d3160aec4",
+    "reason": "Exactly classical/state-estimation original 14: source correction plus ledger evidence completion with integrator plan review and per-part supported adjudications; every part passage needle-verified by this integrator against the retained source-session corpus (gtsam.org landing text and the borglab README); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-state-estimation-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. Row basis: no fetched GTSAM source prints the reference-implementation epithet; article span reworded to the printed BSD/factor-graph characterization",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-g-state-estimation-20260916b, sha256 a2e5bc93268e9fd04645b9566d408621db889b3415d57a8b8707f9ab9ef50e46) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-005",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "se-r15-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:classical/state-estimation",
+    "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+    "newHash": "c7dda646edcf05a047772c22e6b90a4d17c0751889a405d890f3f08d3160aec4",
+    "reason": "Exactly classical/state-estimation original 15: source correction (printed count range) plus ledger evidence completion with integrator plan review and per-part supported adjudications; every part passage needle-verified by this integrator against the retained source-session corpus (arXiv abs v3 and full-text HTML v3 of the same document); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-state-estimation-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. Row basis: Section IV-B prints the per-pair IMU count as a range (small number to hundreds); article corrected from bare hundreds and names the preintegrated factor",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-g-state-estimation-20260916b, sha256 a2e5bc93268e9fd04645b9566d408621db889b3415d57a8b8707f9ab9ef50e46) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-005",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "se-r17-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:classical/state-estimation",
+    "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+    "newHash": "c7dda646edcf05a047772c22e6b90a4d17c0751889a405d890f3f08d3160aec4",
+    "reason": "Exactly classical/state-estimation original 17: internal-row evidence completion with the conjunctive local proof run by this integrator before application (kalman unit suite 14/14 green; deterministic dropout fraction 0.20266 over 30,050 readings across seeds 1-50; DEFAULT_SETTINGS identical to the world truth constants), anchored to registered kalman-1960-filter per the internal-row convention; zero retrieval by this integrator (no fetch applies); lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-state-estimation-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-g-state-estimation-20260916b, sha256 a2e5bc93268e9fd04645b9566d408621db889b3415d57a8b8707f9ab9ef50e46) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-005",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
   }
   ]
 }

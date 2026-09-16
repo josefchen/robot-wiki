@@ -63549,5 +63549,359 @@
         "evidenceDigest": "49c404feff3339cc725dde4463cd17907713ca0554b06be695238e33c896bfbc"
       }
     ]
+  },
+
+  {
+    "id": "state-estimation-8-20260916",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "f8231274e0d31d698b5c93822cf82e300b49dd42c292fcc8a70ac27ce1d78ca0",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "se8-covariance-moments",
+        "text": "Smith, Self and Cheeseman model each uncertain spatial relationship by its first two moments (mean and covariance), a system of such relationships by a state vector with a system covariance matrix, and the stochastic map as mean plus covariance matrix including inter-dependencies.",
+        "requiredCitationIds": [
+          "smith-1990"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record state-estimation:8 (ready-evidence-completion): plan adopted from the frozen packet after full integrator review; originalCellsDigest computed over the applied cells. Integrator review: every evidence passage needle-verified by this integrator against the retained source-session corpus (raw PDFs/README/arXiv HTML retained in convergence-source-g-state-estimation-20260916b; two preserved-fetch-text passages verified as packet==row-files identical with fetchLog HTTP 200; see lane needle-verification.json, 18/18 verified) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; Two article endpoints applied for rows 14 and 15 only; this row changes ledger evidence cells only.",
+      "planDigest": "d8ccb4c3a3ea2e7b3cf5223fe28ac5ca3374a5f23d99f799e58fdd7d6af93002"
+    },
+    "evidence": [
+      {
+        "partId": "se8-covariance-moments",
+        "citationId": "smith-1990",
+        "sourceUrl": "https://web.mit.edu/2.166/www/handouts/smith90stochastic.pdf",
+        "supportingPassage": "we choose to model an uncertain spatial relationship by estimating the first two moments of its probability distribution\u2014the mean, x\u0302 and the covariance, C(x)"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "se8-covariance-moments",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se8-covariance-moments (record audit/classical.md:state-estimation:8): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "af18d412092a2720f66c8d2d85f039930ee0c68945d36c9f7c6dea2e89dfc1f9"
+      }
+    ]
+  },
+  {
+    "id": "state-estimation-9-20260916",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "82ac7019b52e6a3bc1bb990a59f507d21d678bb7ced8dc7b90b9080106d97688",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "se9-deterministic-sigma-points",
+        "text": "The unscented transform uses a small, deterministically chosen set of sigma points whose sample mean and covariance match the prior; the true nonlinear function is applied to each point, with no Jacobian evaluation.",
+        "requiredCitationIds": [
+          "julier-uhlmann-1997"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record state-estimation:9 (ready-evidence-completion): plan adopted from the frozen packet after full integrator review; originalCellsDigest computed over the applied cells. Integrator review: every evidence passage needle-verified by this integrator against the retained source-session corpus (raw PDFs/README/arXiv HTML retained in convergence-source-g-state-estimation-20260916b; two preserved-fetch-text passages verified as packet==row-files identical with fetchLog HTTP 200; see lane needle-verification.json, 18/18 verified) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; Two article endpoints applied for rows 14 and 15 only; this row changes ledger evidence cells only.",
+      "planDigest": "1a1e9d38f1d709ed50c0397d0d3755f5e08781122d07e673aa685443d89352b5"
+    },
+    "evidence": [
+      {
+        "partId": "se9-deterministic-sigma-points",
+        "citationId": "julier-uhlmann-1997",
+        "sourceUrl": "https://people.eecs.berkeley.edu/~pabbeel/cs287-fa15/optreadings/JulierUhlmann-UKF.pdf",
+        "supportingPassage": "The samples are not drawn at random but rather according to a specific, deterministic algorithm. Since the problems of statistical convergence are not an issue, high order information about the distribution can be captured using only a very small number of points."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "se9-deterministic-sigma-points",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se9-deterministic-sigma-points (record audit/classical.md:state-estimation:9): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "86899f18cf129d2c69f4d24bffb83b2e3e233e147b58712a22f8d50dbe8e1b5a"
+      }
+    ]
+  },
+  {
+    "id": "state-estimation-10-20260916",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "5f5590f96d01e5baed6964c7620f26f4b9cd639477ee7dbfb654a6abaad11f33",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "se10-sum-product-unification",
+        "text": "The 2001 tutorial presents the sum-product algorithm operating on factor graphs as the generic message-passing algorithm from which a wide variety of previously separate algorithms (forward/backward, Viterbi, turbo decoding, belief propagation, Kalman filtering, FFT) are derived as specific instances.",
+        "requiredCitationIds": [
+          "kschischang-2001"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record state-estimation:10 (ready-evidence-completion): plan adopted from the frozen packet after full integrator review; originalCellsDigest computed over the applied cells. Integrator review: every evidence passage needle-verified by this integrator against the retained source-session corpus (raw PDFs/README/arXiv HTML retained in convergence-source-g-state-estimation-20260916b; two preserved-fetch-text passages verified as packet==row-files identical with fetchLog HTTP 200; see lane needle-verification.json, 18/18 verified) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; Two article endpoints applied for rows 14 and 15 only; this row changes ledger evidence cells only.",
+      "planDigest": "3b107e6d7dab17cb2436260607997c64853de7420c2a9d8d207e22bae376e959"
+    },
+    "evidence": [
+      {
+        "partId": "se10-sum-product-unification",
+        "citationId": "kschischang-2001",
+        "sourceUrl": "https://www.mit.edu/~6.454/www_fall_2000/chanal/factor.pdf",
+        "supportingPassage": "A wide variety of algorithms developed in artificial intelligence, signal processing, and digital communications can be derived as specific instances of the sum-product algorithm, including the forward/backward algorithm, the Viterbi algorithm, the iterative \u201cturbo\u201d decoding algorithm, Pearl\u2019s belief propagation algorithm for Bayesian networks, the Kalman filter, and certain fast Fourier transform algorithms."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "se10-sum-product-unification",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se10-sum-product-unification (record audit/classical.md:state-estimation:10): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "8aae33d886dcd494931d012993e41318f25fe21e87a838a4c3a600c0f5986bc9"
+      }
+    ]
+  },
+  {
+    "id": "state-estimation-12-20260916",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "4e1e9bea694bdb05a42f9765d2b244dd41ba07640ebf1dfe6e28449b7589ecc4",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "se12-incremental-update",
+        "text": "iSAM performs incremental updates by directly updating the square root information matrix as measurements arrive, reusing previously calculated components of the factor and computing only entries actually affected by the new measurements (abstract: 'recalculating only the matrix entries that actually change').",
+        "requiredCitationIds": [
+          "kaess-2008"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record state-estimation:12 (ready-evidence-completion): plan adopted from the frozen packet after full integrator review; originalCellsDigest computed over the applied cells. Integrator review: every evidence passage needle-verified by this integrator against the retained source-session corpus (raw PDFs/README/arXiv HTML retained in convergence-source-g-state-estimation-20260916b; two preserved-fetch-text passages verified as packet==row-files identical with fetchLog HTTP 200; see lane needle-verification.json, 18/18 verified) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; Two article endpoints applied for rows 14 and 15 only; this row changes ledger evidence cells only.",
+      "planDigest": "1fa06c274efa970e37ad4aff09d10d39f8668ecbd865bebbd1d875a7330a1c79"
+    },
+    "evidence": [
+      {
+        "partId": "se12-incremental-update",
+        "citationId": "kaess-2008",
+        "sourceUrl": "https://publications.ri.cmu.edu/storage/publications/pub_files/2008/12/Kaess08tro.pdf",
+        "supportingPassage": "That means we reuse the previously calculated components of the square root factor, and only perform calculations for entries that are actually affected by the new measurements."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "se12-incremental-update",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se12-incremental-update (record audit/classical.md:state-estimation:12): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "b874449ddee89c8206a6fa65a8cdff7a4feff90b5e6b401d6baa0864dad38094"
+      }
+    ]
+  },
+  {
+    "id": "state-estimation-14-20260916",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "7c59ad772a708c504e9a467424130ed315bdfa62811d529e4b53247e425f04f1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "se14-gtsam-what-it-is",
+        "text": "GTSAM is a BSD-licensed C++ library that implements smoothing and mapping (SAM) in robotics and vision, using factor graphs and Bayes networks as the underlying computing paradigm, and powers many autonomous systems in academia and industry.",
+        "requiredCitationIds": [
+          "gtsam-2026"
+        ]
+      },
+      {
+        "id": "se14-no-reference-implementation-wording",
+        "text": "Neither gtsam.org nor the repository README prints the phrase 'the reference implementation'; the article span is corrected to the printed characterization rather than the authored epithet.",
+        "requiredCitationIds": [
+          "gtsam-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record state-estimation:14 (ready-source-correction): plan adopted from the frozen packet after full integrator review; originalCellsDigest computed over the applied cells. Integrator review: every evidence passage needle-verified by this integrator against the retained source-session corpus (raw PDFs/README/arXiv HTML retained in convergence-source-g-state-estimation-20260916b; two preserved-fetch-text passages verified as packet==row-files identical with fetchLog HTTP 200; see lane needle-verification.json, 18/18 verified) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; Article endpoint applied to content/classical/state-estimation.mdx per the packet endpoints object.",
+      "planDigest": "cdf007e7727c0563805839e60ecc191af305fbdf3b1f9f943ccab49dde654f45"
+    },
+    "evidence": [
+      {
+        "partId": "se14-gtsam-what-it-is",
+        "citationId": "gtsam-2026",
+        "sourceUrl": "https://gtsam.org/",
+        "supportingPassage": "GTSAM is a BSD-licensed C++ library for smoothing and mapping in robotics and computer vision, including SLAM (Simultaneous Localization and Mapping), VO (Visual Odometry), and SFM (Structure from Motion). It uses factor graphs and Bayes networks as the underlying computing paradigm rather than sparse matrices to optimize for the most probable configuration or an optimal plan. Coupled with a capable sensor front-end (not provided here), GTSAM powers many impressive autonomous systems in both academia and industry."
+      },
+      {
+        "partId": "se14-no-reference-implementation-wording",
+        "citationId": "gtsam-2026",
+        "sourceUrl": "https://raw.githubusercontent.com/borglab/gtsam/develop/README.md",
+        "supportingPassage": "ABSENCE CHECK + printed characterization (integrator, 2026-09-16): 'grep -c \"reference implementation\"' over both retained GTSAM documents returns 0 for the develop-branch README and the phrase occurs nowhere in the retained gtsam.org landing text; the README prints the library's own name and characterization: '# GTSAM: Georgia Tech Smoothing and Mapping Library' and 'GTSAM is a C++ library that implements smoothing and mapping (SAM) in robotics and vision, using Factor Graphs and Bayes Networks as the underlying computing paradigm rather than sparse matrices.'"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "se14-gtsam-what-it-is",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se14-gtsam-what-it-is (record audit/classical.md:state-estimation:14): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "24975344a33e1954f2d926ed0b5e026461a085635f504d57b872297394bb9e68"
+      },
+      {
+        "partId": "se14-no-reference-implementation-wording",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se14-no-reference-implementation-wording (record audit/classical.md:state-estimation:14): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "d47ddc25aa6c5dc3b9218cf150c1d7b0337e14301969b57d449ac02a96fc5830"
+      }
+    ]
+  },
+  {
+    "id": "state-estimation-15-20260916",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "6b831e9fad74deb4993d09424cc02e9c71958dd07c1410a2d1c5111c07128a31",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "se15-preintegration-abstract",
+        "text": "Preintegration addresses high-rate inertial measurements by preintegrating them between selected keyframes into single relative motion constraints (abstract, verbatim).",
+        "requiredCitationIds": [
+          "forster-2017"
+        ]
+      },
+      {
+        "id": "se15-hundreds-range",
+        "text": "The per-keyframe-pair IMU count is printed as a range: 'from a small number to hundreds of IMU measurements', depending on IMU rate and keyframe frequency; the article span is corrected from the bare 'hundreds' to this printed range.",
+        "requiredCitationIds": [
+          "forster-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record state-estimation:15 (ready-source-correction): plan adopted from the frozen packet after full integrator review; originalCellsDigest computed over the applied cells. Integrator review: every evidence passage needle-verified by this integrator against the retained source-session corpus (raw PDFs/README/arXiv HTML retained in convergence-source-g-state-estimation-20260916b; two preserved-fetch-text passages verified as packet==row-files identical with fetchLog HTTP 200; see lane needle-verification.json, 18/18 verified) with zero network retrieval by this integrator; every cited id confirmed registered in data/citations.ts; Article endpoint applied to content/classical/state-estimation.mdx per the packet endpoints object.",
+      "planDigest": "c1b3fdcbbcb3a85096d101b03d2a2a8fb81863728e1c76d2fb7537c859dc7a43"
+    },
+    "evidence": [
+      {
+        "partId": "se15-preintegration-abstract",
+        "citationId": "forster-2017",
+        "sourceUrl": "https://arxiv.org/abs/1512.02363",
+        "supportingPassage": "In this paper, we address this issue by preintegrating inertial measurements between selected keyframes into single relative motion constraints."
+      },
+      {
+        "partId": "se15-hundreds-range",
+        "citationId": "forster-2017",
+        "sourceUrl": "https://arxiv.org/html/1512.02363v3",
+        "supportingPassage": "the set of IMU measurements acquired between two consecutive keyframes i and j. Depending on the IMU measurement rate and the frequency of selected keyframes, each set I_ij can contain from a small number to hundreds of IMU measurements."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "se15-preintegration-abstract",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se15-preintegration-abstract (record audit/classical.md:state-estimation:15): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "6c779c0994e4272675929a1712288320e8d13f67b90941fd91a6e6b5ee6b4f7f"
+      },
+      {
+        "partId": "se15-hundreds-range",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se15-hundreds-range (record audit/classical.md:state-estimation:15): supported. Passage(s) needle-verified against the retained source-session corpus; cited id registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "1ac1ff659b2e7a1abbb7fa6b84335fe9795487e14fef6c7c52abaa6408919bca"
+      }
+    ]
+  },
+  {
+    "id": "state-estimation-17-20260916",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 17,
+    "originalCellsDigest": "492ae6aad488c23b77a41e8070158b6d27967a298879b48a4a5a926ec1ea2209",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "se17-dropout-rate",
+        "text": "The position sensor drops each reading independently with probability DROPOUT = 0.2, so about one reading in five is missing (designed expectation, not a fixed per-window count). (Internal conjunct: repo-internal source at application HEAD; anchor citation kalman-1960-filter is the filter recursion the component implements, per the reward-design-mpc r4 / safety-remainder internal-row convention.)",
+        "requiredCitationIds": [
+          "kalman-1960-filter"
+        ]
+      },
+      {
+        "id": "se17-seed-world",
+        "text": "Truth, measurements and dropouts are a pure function of the displayed seed (mulberry32 + Box-Muller), fixed per seed; sliders never touch the world. (Internal conjunct: repo-internal source at application HEAD; anchor citation kalman-1960-filter is the filter recursion the component implements, per the reward-design-mpc r4 / safety-remainder internal-row convention.)",
+        "requiredCitationIds": [
+          "kalman-1960-filter"
+        ]
+      },
+      {
+        "id": "se17-beliefs-and-matched-defaults",
+        "text": "The sigmaQ/sigmaR sliders set the filter's assumed noise (belief), while the world's true noise constants SIGMA_A_TRUE = 0.2 and SIGMA_R_TRUE = 1.0 are fixed and exactly equal to DEFAULT_SETTINGS sigmaQ = 0.2, sigmaR = 1.0. (Internal conjunct: repo-internal source at application HEAD; anchor citation kalman-1960-filter is the filter recursion the component implements, per the reward-design-mpc r4 / safety-remainder internal-row convention.)",
+        "requiredCitationIds": [
+          "kalman-1960-filter"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record state-estimation:17 (ready-source-correction-with-local-AND): plan adapted by this integrator from the frozen packet (packet parts carried empty citation ids, which cannot satisfy the compound-evidence registry rule). Adaptation follows the established internal-row convention: parts anchored to registered kalman-1960-filter with its DOI URL, evidence passage quoting the repo text read-only at application HEAD 6110d38. The conjunctive local proof was run by this integrator before application: existing tests/unit/kalman.test.ts 14/14 green; deterministic dropout fraction 0.20266 over 30,050 readings across seeds 1-50 (within 0.005 of DROPOUT=0.2); DEFAULT_SETTINGS sigmaQ/sigmaR numerically identical to SIGMA_A_TRUE/SIGMA_R_TRUE (lane kalman-local-proof.json). Zero network retrieval; no fetch applies to this internal row.",
+      "planDigest": "1d99c8cc96d2534d1eb87bc022cd7ce4a1e47c2e9876f287b3d6c8f388e59bbf"
+    },
+    "evidence": [
+      {
+        "partId": "se17-dropout-rate",
+        "citationId": "kalman-1960-filter",
+        "sourceUrl": "https://doi.org/10.1115/1.3662552",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/kalman.ts at HEAD 6110d38 prints 'const DROPOUT = 0.2;', 'const SIGMA_A_TRUE = 0.2;', 'const SIGMA_R_TRUE = 1.0;', 'export const DEFAULT_SETTINGS: KalmanSettings = { sigmaQ: 0.2, sigmaR: 1.0 };' commented 'Matched to the world's true noise levels (see the constants below).', 'measurements[t] = rand() < DROPOUT ? null : pos + SIGMA_R_TRUE * randn();', and the header 'The world (true trajectory, measurement stream, dropouts) is generated once per seed with a fixed-seed PRNG, so a run is exactly reproducible'. components/interactive/kalman-tracker.tsx prints 'The two sliders set what the filter BELIEVES about the world', 'The world is fixed by the seed in the readout', and 'the gray dots are the position sensor's readings (about one in five drops out)'."
+      },
+      {
+        "partId": "se17-seed-world",
+        "citationId": "kalman-1960-filter",
+        "sourceUrl": "https://doi.org/10.1115/1.3662552",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/kalman.ts at HEAD 6110d38 prints 'const DROPOUT = 0.2;', 'const SIGMA_A_TRUE = 0.2;', 'const SIGMA_R_TRUE = 1.0;', 'export const DEFAULT_SETTINGS: KalmanSettings = { sigmaQ: 0.2, sigmaR: 1.0 };' commented 'Matched to the world's true noise levels (see the constants below).', 'measurements[t] = rand() < DROPOUT ? null : pos + SIGMA_R_TRUE * randn();', and the header 'The world (true trajectory, measurement stream, dropouts) is generated once per seed with a fixed-seed PRNG, so a run is exactly reproducible'. components/interactive/kalman-tracker.tsx prints 'The two sliders set what the filter BELIEVES about the world', 'The world is fixed by the seed in the readout', and 'the gray dots are the position sensor's readings (about one in five drops out)'."
+      },
+      {
+        "partId": "se17-beliefs-and-matched-defaults",
+        "citationId": "kalman-1960-filter",
+        "sourceUrl": "https://doi.org/10.1115/1.3662552",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/kalman.ts at HEAD 6110d38 prints 'const DROPOUT = 0.2;', 'const SIGMA_A_TRUE = 0.2;', 'const SIGMA_R_TRUE = 1.0;', 'export const DEFAULT_SETTINGS: KalmanSettings = { sigmaQ: 0.2, sigmaR: 1.0 };' commented 'Matched to the world's true noise levels (see the constants below).', 'measurements[t] = rand() < DROPOUT ? null : pos + SIGMA_R_TRUE * randn();', and the header 'The world (true trajectory, measurement stream, dropouts) is generated once per seed with a fixed-seed PRNG, so a run is exactly reproducible'. components/interactive/kalman-tracker.tsx prints 'The two sliders set what the filter BELIEVES about the world', 'The world is fixed by the seed in the readout', and 'the gray dots are the position sensor's readings (about one in five drops out)'."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "se17-dropout-rate",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se17-dropout-rate (record audit/classical.md:state-estimation:17): supported by repo-internal source read-only at application HEAD plus the integrator-run local proof; anchor citation registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "202adfafb7699b99260a685ae44b6071e7e82ecdb6c3b907852a71a0fcdd15ed"
+      },
+      {
+        "partId": "se17-seed-world",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se17-seed-world (record audit/classical.md:state-estimation:17): supported by repo-internal source read-only at application HEAD plus the integrator-run local proof; anchor citation registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "d66a4134fb5b5e032b8a074d0096a4fef2dcf5a75270c267164be534884f1f7f"
+      },
+      {
+        "partId": "se17-beliefs-and-matched-defaults",
+        "outcome": "supported",
+        "reviewedBy": "state-estimation-integrator-20260916 (session 421a5b53-f6f0-4170-82b5-9cd390183b7f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of part se17-beliefs-and-matched-defaults (record audit/classical.md:state-estimation:17): supported by repo-internal source read-only at application HEAD plus the integrator-run local proof; anchor citation registered; conjunction holds for the applied row cells.",
+        "evidenceDigest": "10d686160b1de8b30deff5735c2dbf2dc39ea5cad78db6a21f93a64468cbcfa8"
+      }
+    ]
   }
 ]
