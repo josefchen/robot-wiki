@@ -67529,6 +67529,260 @@
     "evidenceDigest": "d5b48d30a466fa49deae74b7e7dccbc1d4612dd91ebc11e444fde3b51ee2430d"
    }
   ]
+ },
+ {
+  "id": "control-1-astrom-20260916f",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "c9d0558165af68e49d0efb30fdeaa6bf0f0e2e9c51f5c7615b0e9120d40abbe2",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "c1-95",
+    "text": "More than 95% of all industrial control problems are solved by PID control (with many actually PI).",
+    "requiredCitationIds": [
+     "astrom-murray-2008"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "f7fed8db00025c62b6dde84e6e97c763e90c5e1c2515789e58449bc01bff9b69"
+  },
+  "evidence": [
+   {
+    "partId": "c1-95",
+    "citationId": "astrom-murray-2008",
+    "sourceUrl": "http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf",
+    "supportingPassage": "More than 95% of all industrial control problems are solved by PID control, although many of these controllers are actually proportional-integral (PI) controllers because derivative action is often not included [DM02]."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "c1-95",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified author-hosted Caltech PDF text before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "806079e2264d34d803049b43a3189a29a41138b6ec8ad2ac83c071d8a2d39fe9"
+   }
+  ]
+ },
+ {
+  "id": "control-2-astrom-20260916f",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "13bbe6740034bb003fa2cb2b7e6ddda56ad4fd8b86f656af8ef2545d18394dbb",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "c2-many-pi",
+    "text": "Many industrial PID controllers are actually PI (derivative action often not included).",
+    "requiredCitationIds": [
+     "astrom-murray-2008"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "a4b537b6acecce0c7c4da23224767b319b69c786fd865b14bd1ecde8ca149103"
+  },
+  "evidence": [
+   {
+    "partId": "c2-many-pi",
+    "citationId": "astrom-murray-2008",
+    "sourceUrl": "http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf",
+    "supportingPassage": "More than 95% of all industrial control problems are solved by PID control, although many of these controllers are actually proportional-integral (PI) controllers because derivative action is often not included [DM02]."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "c2-many-pi",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified author-hosted Caltech PDF text before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "55dbc69c3cf5302b46e5d3fe7b9074f5af669b71cab52345462f269cc5938eaa"
+   }
+  ]
+ },
+ {
+  "id": "control-3-astrom-20260916f",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "7b9ab4074f9ec84fc364da11e6e605067b48597ed3e9135357df78246f6c0403",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "c3-three-terms",
+    "text": "PID: the past as the integral of the error, the present as the proportional term, the future as a linear extrapolation of the error.",
+    "requiredCitationIds": [
+     "astrom-murray-2008"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "05e5807c28188cbdb6d6023c751cf2c4d52674021e1a5b78c4a2a4daabd4374d"
+  },
+  "evidence": [
+   {
+    "partId": "c3-three-terms",
+    "citationId": "astrom-murray-2008",
+    "sourceUrl": "http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf",
+    "supportingPassage": "The control action is thus a sum of three terms: the past as represented by the integral of the error, the present as represented by the proportional term and the future as represented by a linear extrapolation of the error (the derivative term)."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "c3-three-terms",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified author-hosted Caltech PDF text before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+    "evidenceDigest": "0302eaa0cb42897f2d658bd907a49f76a930b7a394d7b6bad7b20e2b5caa6cc9"
+   }
+  ]
+ },
+ {
+  "id": "control-11-qb-20260916f",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "9c9d16c1210a0ade8a23355711f998dd34564f060c583e85bd54c11034fc6195",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "c11-4600",
+    "text": "More than 4600 total MPC applications reported through 1999; refining the largest area (67% of classified applications), petrochemicals next.",
+    "requiredCitationIds": [
+     "qin-badgwell-2003"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "b333f1f85bbfc32b5d842d56efb1d9ea34be9d2efc5ff84796b84834434e0ef2"
+  },
+  "evidence": [
+   {
+    "partId": "c11-4600",
+    "citationId": "qin-badgwell-2003",
+    "sourceUrl": "https://cepac.cheme.cmu.edu/pasilectures/darciodolak/Review_article_2.pdf",
+    "supportingPassage": "More than 4600 total MPC applications are reported in Tables 6 and 7, over twice the number in our previous survey from 5 years earlier (Qin & Badgwell, 1997). The largest single block of applications is in reﬁning, which amounts to 67% of all classiﬁed applications. This is also one of the original application areas where MPC technology has a solid track record of success. A signiﬁcant number of applications can also be found in petrochemicals and chemicals"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "c11-4600",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+    "rationale": "Needle-verified by this integrator against the retained sha256-verified CMU full text with one binding correction applied first: the source prints \"The largest single block of applications\", not the packet's \"largest number of applications\"; the corrected passage is contained verbatim (fi-ligature extraction as printed) and supports this part as stated.",
+    "evidenceDigest": "03bb23659ec599d058877994a0158c79af2c000b4b15e1de9119c1a7329f7ec7"
+   }
+  ]
+ },
+ {
+  "id": "control-13-dc-20260916f",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 13,
+  "originalCellsDigest": "1b67dabb1b62743d629dae51c326f863a1cf3ed43a25289e075ae63df67ea49d",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "c13-1khz",
+    "text": "State estimation, swing leg planning, and leg impedance control run at 1 kHz (MPC replans at 20-30 Hz; motor-current layer 4.5 kHz).",
+    "requiredCitationIds": [
+     "di-carlo-2018"
+    ]
+   },
+   {
+    "id": "c13-local-stat",
+    "text": "LOCAL-AND: integrator confirms the rendered Stat 'whole-body layer 1 kHz / Di Carlo's estimation and leg loops' and the absence of the stale '500-1000 Hz' wording.",
+    "requiredCitationIds": [
+     "di-carlo-2018"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "4e4b64e412f961afedfb7cafdeda56718f14bee303b71a26eedb5cba2d30b509"
+  },
+  "evidence": [
+   {
+    "partId": "c13-1khz",
+    "citationId": "di-carlo-2018",
+    "sourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/474e8173-7b22-46e6-a51b-3d8e8a383357/content",
+    "supportingPassage": "The result from the optimization is used directly and without filter in (4) to find joint torques. State estimation, swing leg planning, and leg impedance control happen at 1 kHz. Fig. 2. Control system block diagram. The reference trajectory contains desired velocities and contact sequence from the operator. Blocks shaded blue run at 30 Hz, blocks shaded red run at 1 kHz, and blocks shaded green run at 4.5 kHz."
+   },
+   {
+    "partId": "c13-local-stat",
+    "citationId": "di-carlo-2018",
+    "sourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/474e8173-7b22-46e6-a51b-3d8e8a383357/content",
+    "supportingPassage": "Local integrator proof at application time, no fetch for this part (anchor citation di-carlo-2018, the row's fetched source): LOCAL-AND (integrator, applied 2026-09-16): content/classical/control.mdx prints the Stat note exactly as corrected (label \"whole-body layer\", value \"1 kHz\", note \"Di Carlo's estimation and leg loops\") and contains zero occurrences of the stale \"500-1000 Hz\" span (grep count 0 at application HEAD 4fea1f4)."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "c13-1khz",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified DSpace author-manuscript text (sec. V body sentence and Fig. 2 caption both exact); the local-AND part rests on the integrator's own committed-article proof, not a fetch.",
+    "evidenceDigest": "da4e291cc13c6911c4fa8098703a5e4dc1c1de0f88f6a964e24cbf7f83efbc37"
+   },
+   {
+    "partId": "c13-local-stat",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified DSpace author-manuscript text (sec. V body sentence and Fig. 2 caption both exact); the local-AND part rests on the integrator's own committed-article proof, not a fetch.",
+    "evidenceDigest": "3e0e825e6aedb44345e80acf18cb2ab6a11220177ebabc605798ea30a3d8bdb8"
+   }
+  ]
+ },
+ {
+  "id": "control-16-kh-20260916f",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "45c894a7655aed0023f611797960f9f4e26ddead1f7e5fcc7acf8b0ec5fd746a",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "c16-eq14",
+    "text": "Operational-space dynamics at the end-effector: Lambda(x) x-ddot + mu(x, x-dot) + p(x) = F, with p(x)=grad U(x) gravity and F the operational force vector.",
+    "requiredCitationIds": [
+     "khatib-1987"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "45b36801de1f06fb8f73daedd4dd792626a50a6e4ffb7295ba820d080b2f5c90"
+  },
+  "evidence": [
+   {
+    "partId": "c16-eq14",
+    "citationId": "khatib-1987",
+    "sourceUrl": "https://cs.stanford.edu/group/manips/publications/pdfs/Khatib_1987_RA.pdf",
+    "supportingPassage": "The end-effector equations of motion in operational space can be written [13], [14] in the form  Λ(x)è + μ(x, è) + p(x) = F  (14)   [tesseract 500 dpi rendering of the printed equation; the double-dot accents over x in è print as dots above the x in the scan] and U(x) represents the potential energy due to gravity. F is the operational force vector. Let p(x) be the vector of gravity forces  p(x)=∇U(x). (13)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "c16-eq14",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+    "rationale": "Needle-verified by this integrator as disclosed OCR fragments in the retained 500-dpi tesseract text of the image-only author-hosted scan; the fragments support the end-effector (not center-of-mass) location of equation (14) as stated, with accent ambiguity disclosed in the row note.",
+    "evidenceDigest": "970a5a883fead6c8a146b275e3c1cd12eab694a11749ebd302b17dd87f5c560e"
+   }
+  ]
  }
 
 ]

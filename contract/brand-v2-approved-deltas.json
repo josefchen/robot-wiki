@@ -15752,6 +15752,114 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "control-r1-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/control",
+   "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "reason": "Exactly classical/control original 1 (More than 95% of all industrial control problems are solved ...): evidence completion per the frozen packet convergence-source-o-control-20260916f. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-control-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-o-control-20260916f, sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "control-r2-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/control",
+   "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "reason": "Exactly classical/control original 2 (Qualifier on the D term...): evidence completion per the frozen packet convergence-source-o-control-20260916f. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-control-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-o-control-20260916f, sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "control-r3-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/control",
+   "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "reason": "Exactly classical/control original 3 (P reacts to the present error, I accounts for the past, D is...): evidence completion per the frozen packet convergence-source-o-control-20260916f. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-control-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-o-control-20260916f, sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "control-r11-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/control",
+   "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "reason": "Exactly classical/control original 11 (By 2003 a vendor survey counted thousands of installed appli...): evidence completion per the frozen packet convergence-source-o-control-20260916f. Every retained passage was needle-verified by this integrator before adjudication (with the packet's \"largest number of applications\" reading corrected to the source's printed \"largest single block of applications\"); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-control-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-o-control-20260916f, sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "control-r13-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/control",
+   "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "reason": "Exactly classical/control original 13 (Stat \"whole-body layer 1 kHz\" note...): evidence completion per the frozen packet convergence-source-o-control-20260916f. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-control-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-o-control-20260916f, sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "control-r16-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/control",
+   "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+   "reason": "Exactly classical/control original 16 (Khatib 1987 operational space: Lambda(x) x-doubledot + mu + ...): evidence completion per the frozen packet convergence-source-o-control-20260916f. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-control-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-o-control-20260916f, sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]
