@@ -16493,6 +16493,57 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "generative-sim-r4-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-sim",
+   "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+   "newHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+   "reason": "Exactly world-models/generative-sim original 4 (Stat: \"RoboCasa365 2,500 kitchens, ICLR 2026\"...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (RoboCasa365 PDF at the exact registered URL, preparer fetch of record 2026-09-16T21:15:37Z). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-af-generative-sim-20260916n, sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "generative-sim-r9-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-sim",
+   "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+   "newHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+   "reason": "Exactly world-models/generative-sim original 9 (\"RoboCasa365 extends the same platform to 365 everyday tasks...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (RoboCasa365 PDF at the exact registered URL, preparer fetch of record 2026-09-16T21:15:37Z). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-af-generative-sim-20260916n, sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "generative-sim-r14-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-sim",
+   "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+   "newHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+   "reason": "Exactly world-models/generative-sim original 14 (Push test: appearance is not physics (3DGS twin supplies app...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (abstract-scope 3dgs-2023 + splatsim-2024 evidence, exactly the packet-prepared wording). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-af-generative-sim-20260916n, sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]

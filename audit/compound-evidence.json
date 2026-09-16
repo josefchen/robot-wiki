@@ -70335,6 +70335,203 @@
     "evidenceDigest": "49579218047669fca9c4988fb9e4f69183464776bac361542fc93ed269e5b692"
    }
   ]
+ },
+ {
+  "id": "generative-sim-4-robocasa365-stat-20260916n",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-sim",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "832b00fd1bf0abfab65cf8fb5db8199a4eb10fbaa969bb72647b65cba89a1452",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gs4-identity-venue",
+    "text": "The registered URL's own body prints the registry identity and the venue: 'Published as a conference paper at ICLR 2026' above the title 'RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots' with byline 'Soroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri, Yuke Zhu' (The University of Texas at Austin; 2 NVIDIA Research; * Equal contribution) - the registry's exact 4-author list in order - and project URL https://robocasa.ai.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   },
+   {
+    "id": "gs4-2500-kitchens",
+    "text": "The Stat's '2,500 kitchens' prints twice in different forms: the abstract's 'RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments' (the ledger note's quote, verbatim, 1 hit) and the Figure 1 caption's '2500 diverse kitchen scenes' (1 hit); the whole-document census finds no other kitchen-environment total ('2,500 diverse kitchen environments' 1, '2500 diverse kitchen scenes' 1, '2,500 kitchen scenes' 1, plus one evaluation-scope '10 kitchen scenes'). The article's 'kitchens' is a plural gloss of the printed 'kitchen environments'/'kitchen scenes'.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) at HEAD 1e034913: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all four row digests equal to the packet). Every evidence passage was independently needle-verified by this zero-retrieval integrator against the retained sha256-verified bodies preserved in the source lane: sources/robocasa365_iclr26.pdf (sha256 3253894415...9bc99d, 43,595,464 bytes, curl GET 200 at the exact registered URL 2026-09-16T21:15:37Z by the preparer) with its pdftotext fulltext sources/robocasa365-fulltext.txt, plus the retained abs pages sources/3dgs-2308.04079-abs.html and sources/splatsim-2409.10161-abs.html (curl GET 200, 2026-09-16T21:15:38Z). All packet needle counts reproduced (abstract sentence x1, Fig1 caption x1, venue footer x25, hours needle x1, settings needle x1, kitchen and hours censuses exactly as recorded); one packet needle count corrected by disclosure only: the bare phrase \"comprehensive simulation benchmark\" prints twice (abstract + conclusion framing of the same paper), the packet recorded 1 - both are the paper framing RoboCasa365, no contradiction. Glyph disclosures: the supportingPassage renders the em-dash of \"data-making\" as a hyphen, the asterisk-operator as *, pdftotext small caps and superscript affiliation digits as plain text (packet-disclosed); the 3DGS abs page itself prints ASCII \"(>= 30 fps)\". Row 14 is ABSTRACT-SCOPE evidence exactly as dispatched: the 3DGS abstract scopes 3D Gaussians to rendering/novel-view synthesis with no dynamics anywhere in its printed scope, and the SplatSim abstract makes splats \"the primary rendering primitive\" \"in simulators\" while \"maintaining the scalability and cost-efficiency of simulation\"; no broader reading is certified and the SplatSim body engine-coupling sentence was not fetched. The push-test article span carries no Cite element; the two registered citations are bound as this row evidence per the dispatch brief (3dgs-2023 reused read-only; splatsim-2024 reused from the sim2real-transfer:21 binding - no duplicate registrations, the packet proposes none). Row 15 stays honestly HELD: the packet fail-closed frontmatter enumeration found isaac-lab-2025's live abs page prints 106 authors differing from the registry in order and glyph-level details (\"Soowan Park (박수완)\" vs \"Soowan Park\", Hangul absent; curly vs straight quotes), so the sweep row's blanket P1 claim cannot be freshly certified; conflict preserved per the pi_RL precedent, no registry edit. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "745ce9f65717b6ff06101690244622e1b33776330e179378216eb8420dec8783"
+  },
+  "evidence": [
+   {
+    "partId": "gs4-identity-venue",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Published as a conference paper at ICLR 2026 - ROBOCASA365: A LARGE-SCALE SIMULATION FRAMEWORK FOR TRAINING AND BENCHMARKING GENERALIST ROBOTS - Soroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri, Yuke Zhu - The University of Texas at Austin, 2 NVIDIA Research; * Equal contribution - https://robocasa.ai"
+   },
+   {
+    "partId": "gs4-2500-kitchens",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'Built on the RoboCasa platform, RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments, with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data-making it one of the most diverse and large-scale resources for studying generalist policies.' Figure 1 caption: 'RoboCasa365 includes 365 everyday tasks, 2500 diverse kitchen scenes, over 600 hours of human demonstration data, plus 1600 hours of synthetically generated demonstration data, and systematic benchmarks for training and evaluating generalist robot models.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gs4-identity-venue",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: first page of the registered URL's own body prints venue ICLR 2026 (all 25 page footers), the exact registry title (small-caps print normalized, disclosed) and the exact 4-author byline in order; registry year 2026 is the printed conference year.",
+    "evidenceDigest": "81dfb8e472f8fb97b4d6e7bff6386304ab71087e6941e5c5a1a97183cf6feab1"
+   },
+   {
+    "partId": "gs4-2500-kitchens",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: the abstract prints the exact quoted sentence (1 hit) and Figure 1 independently prints the 2500-scenes figure; whole-document needle census finds no competing kitchen total, so the both-passages rule is satisfied rather than assumed.",
+    "evidenceDigest": "80073fa668410098c81cb89206a954499144c616c1692a6a79e6d6fb6ce27b87"
+   }
+  ]
+ },
+ {
+  "id": "generative-sim-9-robocasa365-platform-20260916n",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-sim",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "eaf1ee7972be918794a029262a3effde4315a3b3a1d0c1ed094a53aea707ca74",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gs9-365-tasks-2500-environments",
+    "text": "The first conjunct traces to the abstract: 'Built on the RoboCasa platform, RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments' - 'extends the same platform' is the article's gloss of 'Built on the RoboCasa platform'; the article drops the source's 'diverse'.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   },
+   {
+    "id": "gs9-600-1600-hours",
+    "text": "The hours conjunct traces to the abstract: 'with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data' - the article's '600+' and '1,600+' gloss the printed 'over 600' and 'over 1600' (page prints 1600 without the thousands comma); the body's precise 612-hour and 1,615-hour totals sit above those floors and contradict nothing.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   },
+   {
+    "id": "gs9-settings-benchmarks",
+    "text": "The settings conjunct traces to the abstract with a recorded compression: 'RoboCasa365 is designed to support systematic evaluations for different problem settings, including multi-task learning, robot foundation model training, and lifelong learning'; the article's 'explicit support for ... lifelong-learning benchmarks' compresses that sentence plus the abstract's own framing of RoboCasa365 as 'a comprehensive simulation benchmark'.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) at HEAD 1e034913: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all four row digests equal to the packet). Every evidence passage was independently needle-verified by this zero-retrieval integrator against the retained sha256-verified bodies preserved in the source lane: sources/robocasa365_iclr26.pdf (sha256 3253894415...9bc99d, 43,595,464 bytes, curl GET 200 at the exact registered URL 2026-09-16T21:15:37Z by the preparer) with its pdftotext fulltext sources/robocasa365-fulltext.txt, plus the retained abs pages sources/3dgs-2308.04079-abs.html and sources/splatsim-2409.10161-abs.html (curl GET 200, 2026-09-16T21:15:38Z). All packet needle counts reproduced (abstract sentence x1, Fig1 caption x1, venue footer x25, hours needle x1, settings needle x1, kitchen and hours censuses exactly as recorded); one packet needle count corrected by disclosure only: the bare phrase \"comprehensive simulation benchmark\" prints twice (abstract + conclusion framing of the same paper), the packet recorded 1 - both are the paper framing RoboCasa365, no contradiction. Glyph disclosures: the supportingPassage renders the em-dash of \"data-making\" as a hyphen, the asterisk-operator as *, pdftotext small caps and superscript affiliation digits as plain text (packet-disclosed); the 3DGS abs page itself prints ASCII \"(>= 30 fps)\". Row 14 is ABSTRACT-SCOPE evidence exactly as dispatched: the 3DGS abstract scopes 3D Gaussians to rendering/novel-view synthesis with no dynamics anywhere in its printed scope, and the SplatSim abstract makes splats \"the primary rendering primitive\" \"in simulators\" while \"maintaining the scalability and cost-efficiency of simulation\"; no broader reading is certified and the SplatSim body engine-coupling sentence was not fetched. The push-test article span carries no Cite element; the two registered citations are bound as this row evidence per the dispatch brief (3dgs-2023 reused read-only; splatsim-2024 reused from the sim2real-transfer:21 binding - no duplicate registrations, the packet proposes none). Row 15 stays honestly HELD: the packet fail-closed frontmatter enumeration found isaac-lab-2025's live abs page prints 106 authors differing from the registry in order and glyph-level details (\"Soowan Park (박수완)\" vs \"Soowan Park\", Hangul absent; curly vs straight quotes), so the sweep row's blanket P1 claim cannot be freshly certified; conflict preserved per the pi_RL precedent, no registry edit. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "fd0627593212bb6bd1dfdd9660f3f5bfa6dde55b2100e863c8ef4c49fd351c4d"
+  },
+  "evidence": [
+   {
+    "partId": "gs9-365-tasks-2500-environments",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'To fill this gap, we present RoboCasa365, a comprehensive simulation benchmark for household mobile manipulation. Built on the RoboCasa platform, RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments, with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data-making it one of the most diverse and large-scale resources for studying generalist policies.'"
+   },
+   {
+    "partId": "gs9-600-1600-hours",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data-making it one of the most diverse and large-scale resources for studying generalist policies.' Figure 1 caption: 'over 600 hours of human demonstration data, plus 1600 hours of synthetically generated demonstration data'."
+   },
+   {
+    "partId": "gs9-settings-benchmarks",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'RoboCasa365 is designed to support systematic evaluations for different problem settings, including multi-task learning, robot foundation model training, and lifelong learning.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gs9-365-tasks-2500-environments",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: abstract prints the sentence verbatim (needle 1 hit); 'extends the same platform' gloss of 'Built on the RoboCasa platform' recorded.",
+    "evidenceDigest": "e3f9d766af857bb006562f8c0504ca8f80fff50e274c369d288d06d258885aad"
+   },
+   {
+    "partId": "gs9-600-1600-hours",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: abstract prints the exact ledger-note quote verbatim (needle 1 hit); the over/plus glosses and the comma-less '1600' are recorded; body totals 612/1,615 hours are consistent, so the both-passages rule is satisfied rather than assumed.",
+    "evidenceDigest": "d593f3a02a815b9ae6adb6dc12a8d891f520098ea33c0b45bfb8efc945a2bbfb"
+   },
+   {
+    "partId": "gs9-settings-benchmarks",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: abstract prints the exact ledger-note quote verbatim (needle 1 hit); the 'explicit support ... benchmarks' compression is disclosed rather than certified as a source phrase.",
+    "evidenceDigest": "49d5376d6bb673ad6089dbb23760db0500b2a0f97f3444e384375f50a7fc884f"
+   }
+  ]
+ },
+ {
+  "id": "generative-sim-14-appearance-not-physics-20260916n",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-sim",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "57557f5b38fac54c5f458a9e4550e5138beb9c3f77656b3f9b29e5a357531065",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gs14-3dgs-is-rendering",
+    "text": "The 3DGS paper's own abstract scopes 3D Gaussian Splatting entirely to appearance: real-time novel-view synthesis and rendering, with no dynamics anywhere in its printed scope - 'high-quality real-time (>= 30 fps) novel-view synthesis at 1080p resolution', 'we represent the scene with 3D Gaussians', 'a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering'.",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   },
+   {
+    "id": "gs14-splatsim-rendering-primitive-in-simulators",
+    "text": "The SplatSim abstract states the division of labor inside simulators: 'leverages Gaussian Splatting as the primary rendering primitive', 'By replacing traditional mesh representations with Gaussian Splats in simulators' (a rendering-layer swap), while 'maintaining the scalability and cost-efficiency of simulation' - the simulator stays the simulator, supplying what the splat renderer does not.",
+    "requiredCitationIds": [
+     "splatsim-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) at HEAD 1e034913: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all four row digests equal to the packet). Every evidence passage was independently needle-verified by this zero-retrieval integrator against the retained sha256-verified bodies preserved in the source lane: sources/robocasa365_iclr26.pdf (sha256 3253894415...9bc99d, 43,595,464 bytes, curl GET 200 at the exact registered URL 2026-09-16T21:15:37Z by the preparer) with its pdftotext fulltext sources/robocasa365-fulltext.txt, plus the retained abs pages sources/3dgs-2308.04079-abs.html and sources/splatsim-2409.10161-abs.html (curl GET 200, 2026-09-16T21:15:38Z). All packet needle counts reproduced (abstract sentence x1, Fig1 caption x1, venue footer x25, hours needle x1, settings needle x1, kitchen and hours censuses exactly as recorded); one packet needle count corrected by disclosure only: the bare phrase \"comprehensive simulation benchmark\" prints twice (abstract + conclusion framing of the same paper), the packet recorded 1 - both are the paper framing RoboCasa365, no contradiction. Glyph disclosures: the supportingPassage renders the em-dash of \"data-making\" as a hyphen, the asterisk-operator as *, pdftotext small caps and superscript affiliation digits as plain text (packet-disclosed); the 3DGS abs page itself prints ASCII \"(>= 30 fps)\". Row 14 is ABSTRACT-SCOPE evidence exactly as dispatched: the 3DGS abstract scopes 3D Gaussians to rendering/novel-view synthesis with no dynamics anywhere in its printed scope, and the SplatSim abstract makes splats \"the primary rendering primitive\" \"in simulators\" while \"maintaining the scalability and cost-efficiency of simulation\"; no broader reading is certified and the SplatSim body engine-coupling sentence was not fetched. The push-test article span carries no Cite element; the two registered citations are bound as this row evidence per the dispatch brief (3dgs-2023 reused read-only; splatsim-2024 reused from the sim2real-transfer:21 binding - no duplicate registrations, the packet proposes none). Row 15 stays honestly HELD: the packet fail-closed frontmatter enumeration found isaac-lab-2025's live abs page prints 106 authors differing from the registry in order and glyph-level details (\"Soowan Park (박수완)\" vs \"Soowan Park\", Hangul absent; curly vs straight quotes), so the sweep row's blanket P1 claim cannot be freshly certified; conflict preserved per the pi_RL precedent, no registry edit. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "ec328a92028044df01112836091b3c9e7cf1dc8a98f2408ee3a4d5f7ffd160e9"
+  },
+  "evidence": [
+   {
+    "partId": "gs14-3dgs-is-rendering",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "Abstract: 'We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow high-quality real-time (>= 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space ... Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering.'"
+   },
+   {
+    "partId": "gs14-splatsim-rendering-primitive-in-simulators",
+    "citationId": "splatsim-2024",
+    "sourceUrl": "https://arxiv.org/abs/2409.10161",
+    "supportingPassage": "Abstract: 'In this paper, we propose SplatSim, a novel framework that leverages Gaussian Splatting as the primary rendering primitive to reduce the Sim2Real gap for RGB-based manipulation policies. By replacing traditional mesh representations with Gaussian Splats in simulators, SplatSim produces highly photorealistic synthetic data while maintaining the scalability and cost-efficiency of simulation.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gs14-3dgs-is-rendering",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: the claim's appearance half maps onto the 3DGS abstract's own printed scope (novel-view synthesis / rendering only); the article's 'a renderer has no dynamics to integrate' is consistent with a source whose printed scope contains no dynamics.",
+    "evidenceDigest": "4b6d7979919d5f194b4293326f11aad39d6b69da515146c3d1c1b8230cdfb0ff"
+   },
+   {
+    "partId": "gs14-splatsim-rendering-primitive-in-simulators",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: the claim's engine half maps onto the SplatSim abstract's own words: splats are the RENDERING primitive, replacing mesh REPRESENTATIONS in simulators, while simulation itself is maintained - abstract-scope evidence, disclosed; the body's exact engine-coupling sentence was not fetched.",
+    "evidenceDigest": "08488dad576385ec3023b522daa86e0d2dbe26253f7bf59c089afb8e6d8e1747"
+   }
+  ]
  }
 
 ]
