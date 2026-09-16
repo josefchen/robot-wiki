@@ -65603,5 +65603,470 @@
     "evidenceDigest": "9ad878d4939e4c67e03144f5185f6990cb3116ad29f887ce7a476f69f16a70e9"
    }
   ]
+ },
+ {
+  "id": "scene-representation-3-point-cloud-silence-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "9df1b25507a0b13e1f90f2ef82057bfe88a30273d1bc6abb6e329b363a94d9d4",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr3-pointnet-characterization",
+    "text": "A point cloud is an unordered set of 3D points and PointNet requires invariance to the order in which the points are supplied, cited to pointnet-2017 whose abstract prints the irregular-format characterization and the permutation-invariance design.",
+    "requiredCitationIds": [
+     "pointnet-2017"
+    ]
+   },
+   {
+    "id": "sr3-empty-vs-unobserved-internal",
+    "text": "The silence conjunct (a region with no points might be empty or unobserved; the store cannot tell which) is the article's own analysis, mirrored by lib/scene-representation.ts's point-cloud model, and carries no external source; integrator verifies it by local AND over the article span and the lib entry (Internal conjunct: repo-internal source at application HEAD 13eca4a; anchor citation pointnet-2017 is the point-set characterization the row's cited half uses, per the state-estimation-17 internal-row convention.)",
+    "requiredCitationIds": [
+     "pointnet-2017"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:3 (ready-source-correction-with-local-AND) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "51c76668c9e26c15b7c73bd7d4f0c6422547aa0b324493d8ad4d4ff7c772cbdb"
+  },
+  "evidence": [
+   {
+    "partId": "sr3-pointnet-characterization",
+    "citationId": "pointnet-2017",
+    "sourceUrl": "https://arxiv.org/abs/1612.00593",
+    "supportingPassage": "Point cloud is an important type of geometric data structure. Due to its irregular format, most researchers transform such data to regular 3D voxel grids or collections of images. This, however, renders data unnecessarily voluminous and causes issues. In this paper, we design a novel type of neural network that directly consumes point clouds and well respects the permutation invariance of points in the input."
+   },
+   {
+    "partId": "sr3-empty-vs-unobserved-internal",
+    "citationId": "pointnet-2017",
+    "sourceUrl": "https://arxiv.org/abs/1612.00593",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): lib/scene-representation.ts prints point-cloud unobserved = 'Nothing at all, which reads exactly like free space: an empty region and an unseen region are the same absence of points.' and free-space capability note = 'a missing point can mean empty or unobserved, and the store does not distinguish them'. The article span 'A region with no points might be empty or unobserved, and the store cannot tell you which.' carries no citation in the span; the conjunct is the wiki's own analysis mirrored by the internal model."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr3-pointnet-characterization",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr3-pointnet-characterization (record audit/classical.md:scene-representation:3): supported by the needle-verified retained packet passage(s) for the fetch-backed conjunct; conjunction holds for the applied row cells.",
+    "evidenceDigest": "49487dd460c3818935032fc1c1255a8e41b0719987baca5d4b2be6046a92dab8"
+   },
+   {
+    "partId": "sr3-empty-vs-unobserved-internal",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr3-empty-vs-unobserved-internal (record audit/classical.md:scene-representation:3): supported by repo-internal source read-only at application HEAD plus the integrator local AND proof; anchor citation registered; conjunction holds for the applied row cells.",
+    "evidenceDigest": "8b957cf8e5bea23ec417cc220788496a074253b4f32e231532d67e1cc1807b12"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-18-mast3r-head-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "2bccda8ca01739379366ca4148da9c8beb46bd880f13ea170435c1fac129c7ee",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr18-mast3r-head",
+    "text": "MASt3R augments the DUSt3R network with a new head that outputs dense local features, trained with an additional matching loss, so matching is cast as a 3D task grounded in the same pointmap regression.",
+    "requiredCitationIds": [
+     "mast3r-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:18 (ready-evidence-completion) reviewed and adjudicated part-by-part by this integrator before application. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "05a8f4e73297e89893e474437b4a090ad4de013bb98e0fdd83397549a10df8c2"
+  },
+  "evidence": [
+   {
+    "partId": "sr18-mast3r-head",
+    "citationId": "mast3r-2024",
+    "sourceUrl": "https://arxiv.org/abs/2406.09756",
+    "supportingPassage": "In this work, we take a different stance and propose to cast matching as a 3D task with DUSt3R, a recent and powerful 3D reconstruction framework based on Transformers. Based on pointmaps regression, this method displayed impressive robustness in matching views with extreme viewpoint changes, yet with limited accuracy. We aim here to improve the matching capabilities of such an approach while preserving its robustness. We thus propose to augment the DUSt3R network with a new head that outputs dense local features, trained with an additional matching loss."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr18-mast3r-head",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr18-mast3r-head (record audit/classical.md:scene-representation:18): supported by the needle-verified retained packet passage(s) for the fetch-backed conjunct; conjunction holds for the applied row cells.",
+    "evidenceDigest": "2971c687991492826201a3d9046c6102b2c3868144a238c0c93ba0a1ee04edc0"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-24-occworld-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 24,
+  "originalCellsDigest": "0f77178e8635652b8f07cd2b2b6ce50fa816c32e1490309f9acc534c4d9bfff0",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr24-occworld-core",
+    "text": "OccWorld learns a world model in the 3D Occupancy space, simultaneously predicting ego movement and surrounding-scene evolution, and produces competitive planning results without using instance and map supervision (abstract, verbatim).",
+    "requiredCitationIds": [
+     "occworld-2023"
+    ]
+   },
+   {
+    "id": "sr24-pixels-contrast-caveat",
+    "text": "Caveat part: the span's contrast 'rather than how pixels do' is printed by no fetched page; the abstract's printed contrast is 3D bounding boxes and segmentation maps. Integrator accepts it as the article's own framing or re-scopes it.",
+    "requiredCitationIds": [
+     "occworld-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:24 (ready-evidence-completion) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "9d087631153a32fee643b79523a994ea745118b7645b1874c9b447181735b961"
+  },
+  "evidence": [
+   {
+    "partId": "sr24-occworld-core",
+    "citationId": "occworld-2023",
+    "sourceUrl": "https://arxiv.org/abs/2311.16038",
+    "supportingPassage": "In this paper, we explore a new framework of learning a world model, OccWorld, in the 3D Occupancy space to simultaneously predict the movement of the ego car and the evolution of the surrounding scenes. We propose to learn a world model based on 3D occupancy rather than 3D bounding boxes and segmentation maps [...] OccWorld also produces competitive planning results without using instance and map supervision."
+   },
+   {
+    "partId": "sr24-pixels-contrast-caveat",
+    "citationId": "occworld-2023",
+    "sourceUrl": "https://arxiv.org/abs/2311.16038",
+    "supportingPassage": "We propose to learn a world model based on 3D occupancy rather than 3D bounding boxes and segmentation maps for three reasons: 1) expressiveness. 3D occupancy can describe the more fine-grained 3D structure of the scene; 2) efficiency. Integrator absence check on the retained fetched abstract (sources/arxiv/2311.16038-abs.html, fetch 2026-09-16T06:10:47Z): the string \"pixel\" appears nowhere in the retained page; the abstract's printed contrast is 3D bounding boxes and segmentation maps, so \"rather than how pixels do\" is disclosed in the row note as the article's own contrast, never as a paper-printed clause."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr24-occworld-core",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr24-occworld-core (record audit/classical.md:scene-representation:24): supported by the needle-verified retained packet passage(s) for the fetch-backed conjunct; conjunction holds for the applied row cells.",
+    "evidenceDigest": "b6fe9e09695059d46b2613af27d47850118f204459b4e6855168ba26f8426ab4"
+   },
+   {
+    "partId": "sr24-pixels-contrast-caveat",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr24-pixels-contrast-caveat (record audit/classical.md:scene-representation:24): supported by the needle-verified retained packet passage(s) for the fetch-backed conjunct; conjunction holds for the applied row cells.",
+    "evidenceDigest": "8cb74327253ce3c12491d773e2017c89eddb2a9f4f26651ab352945ea12b0de7"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-49-disagreement-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 49,
+  "originalCellsDigest": "53687db158623d1c431a71cb4d09c0766186b71a16f9e6e4f26bd2bbb6eb88f5",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr49-counterposition",
+    "text": "Dex-NeRF (Ichnowski, Avigal, Kerr, Goldberg, CoRL 2021) is the named counter-position: it uses a radiance field for geometry, leveraging NeRF's view-independent learned density and transparency-aware depth-rendering fed into the Dex-Net grasp planner (abstract, verbatim).",
+    "requiredCitationIds": [
+     "dex-nerf-2021"
+    ]
+   },
+   {
+    "id": "sr49-realsense-body",
+    "text": "Body support for the span's RealSense detail, Sec. 5.4 verbatim: 'we observe that the RealSense is unable to compute the depth of most transparent objects, and often produces regions of unknown depth (shown in black) where transparent objects are' (already bound in retained-cross-scene-representation-23-20260907; re-confirmed live this session).",
+    "requiredCitationIds": [
+     "dex-nerf-2021"
+    ]
+   },
+   {
+    "id": "sr49-verdict-side-internal",
+    "text": "Verdict side (internal, integrator local AND): article line 84 stakes the renderer-not-physics verdict citing 3dgs-2023, mirroring content/world-models/taxonomy.mdx line 99; splatsim-2024 and robogsim-2024 carry the appropriate-use side with their own citations (registry-checked read-only).",
+    "requiredCitationIds": [
+     "3dgs-2023",
+     "splatsim-2024",
+     "robogsim-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:49 (ready-evidence-completion) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "bfe267d3cfe84af62c2d5242ca34f04e3fd2a4ceef1db31afdb44de9201109e0"
+  },
+  "evidence": [
+   {
+    "partId": "sr49-counterposition",
+    "citationId": "dex-nerf-2021",
+    "sourceUrl": "https://arxiv.org/abs/2110.14217",
+    "supportingPassage": "We propose using neural radiance fields (NeRF) to detect, localize, and infer the geometry of transparent objects with sufficient accuracy to find and grasp them securely. We leverage NeRF's view-independent learned density, place lights to increase specular reflections, and perform a transparency-aware depth-rendering that we feed into the Dex-Net grasp planner."
+   },
+   {
+    "partId": "sr49-realsense-body",
+    "citationId": "dex-nerf-2021",
+    "sourceUrl": "https://arxiv.org/pdf/2110.14217",
+    "supportingPassage": "In this experiment, we observe that the RealSense is unable to compute the depth of most transparent objects, and often produces regions of unknown depth (shown in black) where transparent objects are."
+   },
+   {
+    "partId": "sr49-verdict-side-internal",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): content/classical/scene-representation.mdx prints the verdict side: taxonomy.mdx prints the learned-renderer verdict with <Cite id=\"3dgs-2023\" /> and the article's disagreement span stakes the same verdict on that citation; registry-checked read-only (registered id, populated metadata), no fetch applies to this internal conjunct."
+   },
+   {
+    "partId": "sr49-verdict-side-internal",
+    "citationId": "splatsim-2024",
+    "sourceUrl": "https://arxiv.org/abs/2409.10161",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): content/classical/scene-representation.mdx prints the appropriate-use side: the article carries <Cite id=\"splatsim-2024\" /> on the sim-to-real evaluation span where a reconstructed scene trains or evaluates a policy; registry-checked read-only (registered id, populated metadata), no fetch applies to this internal conjunct."
+   },
+   {
+    "partId": "sr49-verdict-side-internal",
+    "citationId": "robogsim-2024",
+    "sourceUrl": "https://arxiv.org/abs/2411.11839",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): content/classical/scene-representation.mdx prints the appropriate-use side: the article carries <Cite id=\"robogsim-2024\" /> on the sim-to-real evaluation span where a reconstructed scene trains or evaluates a policy; registry-checked read-only (registered id, populated metadata), no fetch applies to this internal conjunct."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr49-counterposition",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr49-counterposition (record audit/classical.md:scene-representation:49): supported by the needle-verified retained packet passage(s) for the fetch-backed conjunct; conjunction holds for the applied row cells.",
+    "evidenceDigest": "6f0edef9340122b6bee2404e13837886ba7f9e8dfa61fd1ecaa983e23819aca1"
+   },
+   {
+    "partId": "sr49-realsense-body",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr49-realsense-body (record audit/classical.md:scene-representation:49): supported by the needle-verified retained packet passage(s) for the fetch-backed conjunct; conjunction holds for the applied row cells.",
+    "evidenceDigest": "cb50ee4f4431cd4552398d6020020ec40c110696d7739406421c687ba849bd17"
+   },
+   {
+    "partId": "sr49-verdict-side-internal",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr49-verdict-side-internal (record audit/classical.md:scene-representation:49): supported by the needle-verified retained packet passage(s) for the fetch-backed conjunct plus repo-internal spans verified read-only; conjunction holds for the applied row cells.",
+    "evidenceDigest": "59824eace22a32ab4e33670fa07a6f04b620a79fb2f602a773d9256a563cb924"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-19-taxonomy-crossref-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 19,
+  "originalCellsDigest": "1fbb127641341cc50dcd64a9cd3b16af43be7a73d3d0b788f3cd0e1b62058a18",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr19-taxonomy-verbatim",
+    "text": "The world-models taxonomy (content/world-models/taxonomy.mdx, line 99 at HEAD 3144138) prints the learned-renderer verdict with its own 3dgs-2023 citation; the scene-representation article (line 84) references it as the wiki's own prior position (Internal conjunct: repo-internal source at application HEAD 13eca4a; anchor citation 3dgs-2023 is the citation the taxonomy verdict span itself carries, per the state-estimation-17 internal-row convention.)",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:19 (ready-source-correction-with-local-AND) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "9e38d01e36340debcd5405b3da755e3ad015f91e491629d1ef7747555a87c2a0"
+  },
+  "evidence": [
+   {
+    "partId": "sr19-taxonomy-verbatim",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): content/world-models/taxonomy.mdx prints 'A 3DGS reconstruction of a real scene is a learned renderer: it predicts what the scene looks like from a new camera pose <Cite id=\"3dgs-2023\" />... Appearance is learned, physics is not, and a renderer alone fails the functional cut because it has no answer to what happens under an action.'; content/classical/scene-representation.mdx references it as this wiki's own prior verdict ('This wiki has already staked out the verdict, in the world-models taxonomy: a splat reconstruction is a learned renderer, so appearance is learned and physics is not')."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr19-taxonomy-verbatim",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr19-taxonomy-verbatim (record audit/classical.md:scene-representation:19): supported by repo-internal source read-only at application HEAD plus the integrator local AND proof; anchor citation registered; conjunction holds for the applied row cells.",
+    "evidenceDigest": "74d250d0018b90aeee577976bfae2aebff3fae67274a4486a17393ea913e4519"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-45-occluder-demo-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 45,
+  "originalCellsDigest": "0dca689b850c1f195842c7ac87f51d8c953d1541834aa8155c4a49d11686f3cc",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr45-shadow-geometry",
+    "text": "The occluded region is derived geometry: occlusionShadow() projects the sensor through the occluder's near corners to the back-wall clip; no sensor ray reaches it (pure geometry, same source drives drawing and classification) (Internal conjunct: repo-internal source at application HEAD 13eca4a; anchor citation moravec-elfes-1985 is the occupancy-grid unknown-state semantics the demo grid implements, per the state-estimation-17 internal-row convention.)",
+    "requiredCitationIds": [
+     "moravec-elfes-1985"
+    ]
+   },
+   {
+    "id": "sr45-unknown-vs-fill",
+    "text": "occupancyCells() classifies shadow cells as 'unknown' (distinct from free and occupied; rendered at opacity 0.42 with an aria label naming the behavior), while the splat panel draws deterministic hallucinatedSplats() inside the same shadow at the same rendering confidence as measured samples (Internal conjunct: repo-internal source at application HEAD 13eca4a; anchor citation 3dgs-2023 is the splat model whose rendering-confidence semantics the splat panel mirrors, per the state-estimation-17 internal-row convention.)",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:45 (ready-source-correction-with-local-AND) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "6d54ce06e11bd3a7140f5e0618d3415f0135768c0cf3d4883c8755c22db5a5ed"
+  },
+  "evidence": [
+   {
+    "partId": "sr45-shadow-geometry",
+    "citationId": "moravec-elfes-1985",
+    "sourceUrl": "https://doi.org/10.1109/ROBOT.1985.1087316",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): lib/scene-representation.ts occlusionShadow() projects the sensor position (150,196) through the occluder's near corners to the back-wall clip line, deriving 'the region the sensor cannot see'; occupancyCells() marks cells whose centre falls inside that shadow 'unknown', held apart from free and occupied, matching the occupancy-grid unobserved string 'An explicit unknown label, held apart from free and from occupied, which is the property the planner needs.'"
+   },
+   {
+    "partId": "sr45-unknown-vs-fill",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): lib/scene-representation.ts hallucinatedSplats() deterministically scatters splat samples inside the same occlusion-shadow polygon, matching the gaussian-splat unobserved string 'Whatever the optimisation found convenient, rendered with the same confidence as measured geometry. The store has no unknown state to report.'; components/interactive/scene-representation-ladder.tsx renders occupancy cells with a distinct 'unknown' state (cell.state === 'unknown', opacity 0.42, aria label 'Plan view of the scene as an occupancy grid: free, occupied and unknown cells') while the splat panel consumes hallucinatedSplats(spacingCm)."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr45-shadow-geometry",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr45-shadow-geometry (record audit/classical.md:scene-representation:45): supported by repo-internal source read-only at application HEAD plus the integrator local AND proof; anchor citation registered; conjunction holds for the applied row cells.",
+    "evidenceDigest": "6ddb624beb5cdd014c0294a56c071ea54cd2178a9ffa139ff360362195ce9dce"
+   },
+   {
+    "partId": "sr45-unknown-vs-fill",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr45-unknown-vs-fill (record audit/classical.md:scene-representation:45): supported by repo-internal source read-only at application HEAD plus the integrator local AND proof; anchor citation registered; conjunction holds for the applied row cells.",
+    "evidenceDigest": "97b40e19386524b3a0719994c9b6c36b3cc78dfa6e30771d5dbd539650398648"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-46-slider-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 46,
+  "originalCellsDigest": "5bfd57ea504ead3a2a6589a0be0af51d141c2d41d3d4c9638ba587d2d8a4b284",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr46-slider-cost-only",
+    "text": "The resolution slider indexes RESOLUTION_CM and feeds only footprint(id, cellCm); capability grades are per-representation constants inside the static REPRESENTATIONS array and the component's capability indicators are independent of the slider (module invariant 1) (Internal conjunct: repo-internal source at application HEAD 13eca4a; anchor citation moravec-elfes-1985 is the occupancy-grid storage model the grid footprint computes, per the state-estimation-17 internal-row convention.)",
+    "requiredCitationIds": [
+     "moravec-elfes-1985"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:46 (ready-source-correction-with-local-AND) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "f6408bce07140c481b04d5bd445e5b3b20ba7dee0c70d1ff3d468a62b4c7fd74"
+  },
+  "evidence": [
+   {
+    "partId": "sr46-slider-cost-only",
+    "citationId": "moravec-elfes-1985",
+    "sourceUrl": "https://doi.org/10.1109/ROBOT.1985.1087316",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): lib/scene-representation.ts prints 'export const RESOLUTION_CM: readonly number[] = [30, 20, 15, 10];' and footprint(id, cellCm) as the only slider-dependent quantity; capability grades are constants inside the static REPRESENTATIONS array, and the module's documented invariant 1 reads (comment lines 14-16) 'Capability grades are a property of the REPRESENTATION alone. The resolution slider changes how much memory the map costs and how finely it is drawn, and it never changes what the map can answer'. components/interactive/scene-representation-ladder.tsx wires resolutionIndex state -> resolutionCm(resolutionIndex) -> footprint(selectedId, cellCm) into only the cost readout (aria-live), never the capability indicators."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr46-slider-cost-only",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr46-slider-cost-only (record audit/classical.md:scene-representation:46): supported by repo-internal source read-only at application HEAD plus the integrator local AND proof; anchor citation registered; conjunction holds for the applied row cells.",
+    "evidenceDigest": "6c388bfb99c5c1f5d4fb31d95fc54ec88c8a176abe57608f9c30d36473266db8"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-47-capability-table-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 47,
+  "originalCellsDigest": "a6d95a49d75dac00837837427bdcdec1408ef0b45f44b2c123dcb90d7caa871b",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr47-no-clean-sweep",
+    "text": "The capability table grades five representations over three capabilities (point cloud no/partial/no, occupancy yes/no/no, TSDF yes/yes/partial, mesh partial/yes/partial, splat no/no/yes); no representation holds 'yes' on all three, so no representation answers free space, contact normal and novel view all well (Internal conjunct: repo-internal source at application HEAD 13eca4a; anchor citation 3dgs-2023 is the splat capability grades (novel-view yes, free-space no) the table prints, per the state-estimation-17 internal-row convention.)",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:47 (ready-source-correction-with-local-AND) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "0423b3dd3d0130c6a6d14757261080544de01bf7dba23ae5c105cb5355c9681b"
+  },
+  "evidence": [
+   {
+    "partId": "sr47-no-clean-sweep",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): lib/scene-representation.ts REPRESENTATIONS capability table prints point-cloud: free-space 'no', contact-normal 'partial', novel-view 'no'; occupancy-grid: free-space 'yes', contact-normal 'no', novel-view 'no'; tsdf: free-space 'yes', contact-normal 'yes', novel-view 'partial'; mesh: free-space 'partial', contact-normal 'yes', novel-view 'partial'; gaussian-splat: free-space 'no', contact-normal 'no', novel-view 'yes'. No representation holds 'yes' on all three; CAPABILITY_STATE_TEXT renders 'partial' as 'only after work'. components/interactive/scene-representation-ladder.tsx renders these states (data-testid scene-capabilities) and the article span states 'No representation on this ladder answers all three well'."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr47-no-clean-sweep",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr47-no-clean-sweep (record audit/classical.md:scene-representation:47): supported by repo-internal source read-only at application HEAD plus the integrator local AND proof; anchor citation registered; conjunction holds for the applied row cells.",
+    "evidenceDigest": "45a60f3551ee084bf14701809b24c49226db90b38141ddeaa33c61f0d8f7fdd1"
+   }
+  ]
+ },
+  {
+  "id": "scene-representation-48-absence-semantics-20260916d",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 48,
+  "originalCellsDigest": "117928adb6718baf38f9a3969875513f4aba1032dbbd172deff0afbd4b6c16cb",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sr48-vacuous-absence",
+    "text": "P4 holds vacuously for this article: zero 'not disclosed' / 'n/a' strings, no Stat/table/data-field surfaces carrying absent values, 24/24 registry entries populated, and the ladder's storage figures are declared on-screen approximations rather than undisclosed measurements (Internal conjunct: repo-internal source at application HEAD 13eca4a; anchor citation moravec-elfes-1985 is the article's founding occupancy citation, used only as the internal row's anchor, per the state-estimation-17 internal-row convention.)",
+    "requiredCitationIds": [
+     "moravec-elfes-1985"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record audit/classical.md:scene-representation:48 (ready-source-correction-with-local-AND) reviewed and adjudicated part-by-part by this integrator before application. Plan adapted from the frozen packet where packet parts carried empty citation ids or incomplete item coverage: internal conjuncts are anchored to registered citations with REPO TEXT evidence read-only at application HEAD per the state-estimation-17 internal-row convention; the row-24 caveat part carries the retained abstract's printed contrast plus the integrator's verified absence check; the row-49 verdict-side part carries its three registered citations as REPO TEXT items. Every fetch-backed passage was needle-verified against the packet's retained fetch corpus (passages map + fetchLog, sources/ in the source lane) before adjudication; the local AND conjuncts (lib/scene-representation.ts, components/interactive/scene-representation-ladder.tsx, content/world-models/taxonomy.mdx, content/classical/scene-representation.mdx) were re-verified read-only by this integrator at application HEAD 13eca4a639e99ca19a71306c1bd88d060c450613. Zero network retrieval by this integrator; no article change proposed or applied.",
+   "planDigest": "8e52f98668cc3697e5492758e83e2bf2e9f97e4c10def5d7a922aac671385cba"
+  },
+  "evidence": [
+   {
+    "partId": "sr48-vacuous-absence",
+    "citationId": "moravec-elfes-1985",
+    "sourceUrl": "https://doi.org/10.1109/ROBOT.1985.1087316",
+    "supportingPassage": "REPO TEXT (read-only at application HEAD 13eca4a, no HTTP fetch applies to this internal conjunct): Scans over content/classical/scene-representation.mdx: 'not disclosed' appears 0 times, 'n/a' appears 0 times, no <Stat> component, no markdown table rows, no data-field blocks; frontmatter lists exactly 24 citations, all registered in data/citations.ts with populated title/authors/year/url; the only interactive component (SceneRepresentationLadder) renders storage-cost figures from its own documented on-screen approximations, not absent-value fields. P4 absence semantics hold vacuously."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sr48-vacuous-absence",
+    "outcome": "supported",
+    "reviewedBy": "scene-representation-integrator-20260916 (session 234303e3-a09f-42f0-9068-89363d0c55f3, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator adjudication of part sr48-vacuous-absence (record audit/classical.md:scene-representation:48): supported by repo-internal source read-only at application HEAD plus the integrator local AND proof; anchor citation registered; conjunction holds for the applied row cells.",
+    "evidenceDigest": "9cc7a5066214804e30527bfcbafb0d2dd9a425b84fcaaf3d0048e24199470300"
+   }
+  ]
  }
 ]

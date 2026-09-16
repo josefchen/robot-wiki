@@ -15085,6 +15085,168 @@
    "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
+ },
+ {
+  "id": "sr-r3-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 3: split-basis evidence completion: PointNet fetched half (irregular format + permutation invariance, needle-verified retained fetch) plus the internal lib/scene-representation.ts conjunct via integrator local AND. Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r18-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 18: evidence completion on the MASt3R abstract verbatim head sentence plus the 3D-matching framing sentence, both needle-verified in the retained fetch. Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r24-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 24: evidence completion on the OccWorld abstract verbatim sentences with the pixels-contrast caveat recorded verbatim in the row note (the article's own contrast; the abstract prints boxes-vs-occupancy, verified by absence check on the retained fetch). Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r49-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 49: represented-disagreement evidence completion: Dex-NeRF abstract counter-position and Sec. 5.4 RealSense sentence needle-verified in the retained fetches, verdict side and appropriate-use side verified as internal spans with their own citations. Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r19-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 19: internal cross-article evidence completion via integrator local AND over the world-models taxonomy span and the referencing scene-representation span, both verified read-only at application HEAD. Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r45-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 45: internal evidence completion with local AND: occlusion-shadow geometry, explicit unknown cells and deterministic splat fill re-verified read-only in lib/scene-representation.ts and the ladder component at application HEAD. Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r46-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 46: internal evidence completion with local AND: capability constants vs slider-fed footprint re-verified read-only against the module invariant and component wiring at application HEAD. Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r47-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 47: internal evidence completion with local AND: the five-row capability table re-verified read-only entry-for-entry against the row's source cell at application HEAD. Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "sr-r48-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/scene-representation",
+  "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+  "reason": "Exactly classical/scene-representation original 48: internal evidence completion with local AND: vacuous P4 absence semantics re-verified read-only by scans over the article (zero not-disclosed/n/a surfaces, 24 registered citations). Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-k-scene-representation-20260916d, sha256 5a3de633ad31b1c301a5d7c8a784ceb60b87a1e41cc1f952b6b40b8df88c1d76; rows 1 and 10 held by dispatch and untouched) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-005",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
  }
   ]
 }
