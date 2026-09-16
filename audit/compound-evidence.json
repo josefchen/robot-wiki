@@ -70217,6 +70217,124 @@
     "evidenceDigest": "db013b2c2f23aff1f23cfec1164aae99e9e12960ba20743b584d1f1283fec546"
    }
   ]
+ },
+ {
+  "id": "rl-for-robotics-1-mdp-formalization-20260916m",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "rl-for-robotics",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "0732f3732bfa6177a474879840fb86bb8be92f079b861da170a296ffe94a7491",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "rfr1m-registry-page-identity",
+    "text": "The registered citation's landing page (Wayback capture 20260818231355 of the authors' book page, fetched live this session) prints the registry identity exactly - title 'Reinforcement Learning: An Introduction', authors 'Richard S. Sutton and Andrew G. Barto', 'Second Edition', 'MIT Press, Cambridge, MA, 2018' - and links the free 'Full Pdf' (RLbook2020.pdf) whose live body is byte-identical to the retained copy used for glyph verification.",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   },
+   {
+    "id": "rfr1m-ch3-mdp-elements-glyph-verified",
+    "text": "Chapter 3 (mutool glyph extraction, PDF page 70, printed pages 47-49) prints the article's four formal elements: the agent-environment loop 'the agent receives some representation of the environment's state, St ∈ S, and on that basis selects an action, At ∈ A(s). One time step later ... the agent receives a numerical reward, Rt+1 ∈ R, and finds itself in a new state, St+1' with trajectory (3.1) 'S0, A0, R1, S1, A1, R2, S2, A2, R3, . . .'; 'In a finite MDP, the sets of states, actions, and rewards (S, A, and R) all have a finite number of elements'; and the transition rule as Eq. (3.2) 'p(s', r | s, a) =dot= Pr{St = s', Rt = r | St−1 = s, At−1 = a}' (the t/t-1 convention this printing actually puts inside the equation, its lead-in stating 'probability of those values occurring at time t, given particular values of the preceding state and action'), followed by 'The function p defines the dynamics of the MDP' - the article's 'a transition rule'. Symbols restored from mutool artifacts and disclosed in the evidence derivation; raw extraction lines preserved there verbatim.",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 03829c42774fcf7ea1e4e9c9572f94494af7882c49bc1652be357c909641cfdb) at HEAD 8296704cada4db5efc8129ea62f307d19a5f260c: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, currentHeadIdentityValid true) before application, and re-derived with the repo lib/audit-ledger.ts parser (both digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator with zero network retrieval (63/63 checks, lane needle-verification.json): the wayback book-page identity block against the ae lane's sha-verified retained live body, and both equation quotations at GLYPH level against the retained RLbook2020.pdf (sha256 2dd0d71d..., byte-identical to the ae live fetch) using the packet's mutool extracts plus independent read-only mutool re-traces (glyph-rerun/). This plan carries the CORRECTED equation quotations the 20260916k pass held for: row 1's Eq. 3.2 in the printed t/t-1 convention (Pr{St = s', Rt = r | St-1 = s, At-1 = a}; pdftotext's minus drop at sb-fulltext.txt line 3590 explains the earlier t+1/t misreading) and row 5's Eq. 6.8 WITH the discount gamma between Rt+1 and max (pdftotext drops gamma from this PDF, proven at line 4041; Sarsa Eq. 6.7 prints the same gamma). The article prints no equation (token sweep zero hits) and its spans are byte-unchanged, so no article edit arises. The cited id sutton-barto-2018 was verified registered exactly once with the registered wayback URL; no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "e0aed6b603786e6deb6d4f72c1a2bce738cb993cef81a5574f004b55f6a9ede3"
+  },
+  "evidence": [
+   {
+    "partId": "rfr1m-registry-page-identity",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html",
+    "supportingPassage": "Title tag: 'Sutton & Barto Book: Reinforcement Learning: An Introduction'. Body: 'Reinforcement Learning: An Introduction Richard S. Sutton and Andrew G. Barto Second Edition (see here for the first edition) MIT Press, Cambridge, MA, 2018 Buy from Amazon Errata and Notes Full Pdf Without Margins Code Solutions ...' with 'Full Pdf' href RLbook2020.pdf (and RLbook2020trimmed.pdf)."
+   },
+   {
+    "partId": "rfr1m-ch3-mdp-elements-glyph-verified",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "http://www.incompleteideas.net/book/RLbook2020.pdf",
+    "supportingPassage": "Chapter 3, Finite Markov Decision Processes, Sec. 3.1 (mutool text of PDF page 70; printed pages 47-49): 'the agent receives some representation of the environment's state, St ∈ S, and on that basis selects an action, At ∈ A(s). One time step later, in part as a consequence of its action, the agent receives a numerical reward, Rt+1 ∈ R, and finds itself in a new state, St+1.' trajectory (3.1): 'S0, A0, R1, S1, A1, R2, S2, A2, R3, . . .' 'In a finite MDP, the sets of states, actions, and rewards (S, A, and R) all have a finite number of elements.' lead-in: 'there is a probability of those values occurring at time t, given particular values of the preceding state and action:' Eq. (3.2): 'p(s', r | s, a) ≐ Pr{St = s', Rt = r | St−1 = s, At−1 = a},' followed by 'The function p defines the dynamics of the MDP.' and 'The dynamics function p : S × R × S × A → [0, 1] is an ordinary deterministic function of four arguments.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "rfr1m-registry-page-identity",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Needle-verified by this integrator against the ae packet's sha-verified retained live body (sources/sb-wayback-bookpage-live.html, fetch of record 2026-09-16T19:47:57Z): the title tag prints 'Sutton & Barto Book: Reinforcement Learning: An Introduction' and the body identity block prints 'Reinforcement Learning: An Introduction Richard S. Sutton and Andrew G. Barto Second Edition ... MIT Press, Cambridge, MA, 2018' exactly; the 'Full Pdf' anchor's href is RLbook2020.pdf (plus the trimmed variant), and that linked PDF's live body is byte-identical (sha256 2dd0d71d...) to the retained z-lane copy the glyph verification ran on. Registry title/authors/year/edition match the page; sutton-barto-2018 reused read-only.",
+    "evidenceDigest": "700f6c62a741191083f4d9da4060fab3bb7df1cf6510b39c2ba58d552581bbb5"
+   },
+   {
+    "partId": "rfr1m-ch3-mdp-elements-glyph-verified",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Needle-verified at glyph level against the retained PDF (sha256 2dd0d71d...) via the ae packet's mutool extract (glyph-extracts/p070.txt) plus this integrator's independent read-only mutool re-trace of the same page (glyph-rerun/z-p070.txt): Eq. (3.2) prints '.= Pr{St =s0, Rt =r | St−1 =s, At−1 =a},' - plain-t subscripts before the conditioning bar, t−1 after it (U+2212 minuses preserved by mutool and dropped by pdftotext at sb-fulltext.txt line 3590, which is how the earlier pass misread the subscripts as t+1/t) - with the printed lead-in 'probability of those values occurring at time t, given particular values of the preceding state and action' and 'The function p defines the dynamics of the MDP.'; the interface paragraph above prints Rt+1/St+1 and footnote 4 discloses that both conventions are in use, so no future pass should 'correct' either into the other. The article prints no equation of its own (token sweep, zero hits); its four-element prose maps element-for-element onto the printed Ch. 3 text.",
+    "evidenceDigest": "d29230f2532f68d50be19a1bf26aaf42068289d48ab703c62f65fe9258dbd715"
+   }
+  ]
+ },
+ {
+  "id": "rl-for-robotics-5-qlearning-offpolicy-20260916m",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "rl-for-robotics",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "11f0eeedbc72d62ebf1486bfffa7cc115e67c8892e61d2b7dd73539112546608",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "rfr5m-qlearning-target-rule-glyph-verified",
+    "text": "Sec. 6.5 'Q-learning: Off-policy TD Control' (printed pp. 131-132) prints the mechanism the article paraphrases, WITH the discount factor as printed: Q(St, At) ← Q(St, At) + α[Rt+1 + γ max_a Q(St+1, a) − Q(St, At)] (Eq. 6.8). The update fits the value of a state-action pair and bootstraps from γ max_a Q(St+1, a), the best available next action - the article's wording for the printed discounted maximum.",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   },
+   {
+    "id": "rfr5m-offpolicy-character-glyph-verified",
+    "text": "The 'rather than the one that was taken' conjunct is the section's printed off-policy character: Q-learning is 'an off-policy TD control algorithm' whose learned Q 'directly approximates q*, the optimal action-value function, independent of the policy being followed'. The printed on-policy contrast is Sarsa Eq. 6.7, which bootstraps from Q(St+1, At+1) - the action actually taken - with the same printed γ: Q(St, At) ← Q(St, At) + α[Rt+1 + γQ(St+1, At+1) − Q(St, At)].",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 03829c42774fcf7ea1e4e9c9572f94494af7882c49bc1652be357c909641cfdb) at HEAD 8296704cada4db5efc8129ea62f307d19a5f260c: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, currentHeadIdentityValid true) before application, and re-derived with the repo lib/audit-ledger.ts parser (both digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator with zero network retrieval (63/63 checks, lane needle-verification.json): the wayback book-page identity block against the ae lane's sha-verified retained live body, and both equation quotations at GLYPH level against the retained RLbook2020.pdf (sha256 2dd0d71d..., byte-identical to the ae live fetch) using the packet's mutool extracts plus independent read-only mutool re-traces (glyph-rerun/). This plan carries the CORRECTED equation quotations the 20260916k pass held for: row 1's Eq. 3.2 in the printed t/t-1 convention (Pr{St = s', Rt = r | St-1 = s, At-1 = a}; pdftotext's minus drop at sb-fulltext.txt line 3590 explains the earlier t+1/t misreading) and row 5's Eq. 6.8 WITH the discount gamma between Rt+1 and max (pdftotext drops gamma from this PDF, proven at line 4041; Sarsa Eq. 6.7 prints the same gamma). The article prints no equation (token sweep zero hits) and its spans are byte-unchanged, so no article edit arises. The cited id sutton-barto-2018 was verified registered exactly once with the registered wayback URL; no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "2cc06fa41325f3beafe834418ddbbb8c3b123aefad4b0883ce601edf19333872"
+  },
+  "evidence": [
+   {
+    "partId": "rfr5m-qlearning-target-rule-glyph-verified",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "http://www.incompleteideas.net/book/RLbook2020.pdf",
+    "supportingPassage": "6.5 Q-learning: Off-policy TD Control. One of the early breakthroughs in reinforcement learning was the development of an off-policy TD control algorithm known as Q-learning (Watkins, 1989), defined by Q(St, At) ← Q(St, At) + α [Rt+1 + γ max_a Q(St+1, a) − Q(St, At)] . (6.8) In this case, the learned action-value function, Q, directly approximates q*, the optimal action-value function, independent of the policy being followed. This dramatically simplifies the analysis of the algorithm and enabled early convergence proofs."
+   },
+   {
+    "partId": "rfr5m-offpolicy-character-glyph-verified",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "http://www.incompleteideas.net/book/RLbook2020.pdf",
+    "supportingPassage": "Sec. 6.4 (Sarsa), PDF page 151: Q(St, At) ← Q(St, At) + α [Rt+1 + γQ(St+1, At+1) − Q(St, At)] . (6.7) Sarsa. This update is done after every transition from a nonterminal state St. ... Sec. 6.5: One of the early breakthroughs in reinforcement learning was the development of an off-policy TD control algorithm known as Q-learning (Watkins, 1989), defined by ... In this case, the learned action-value function, Q, directly approximates q*, the optimal action-value function, independent of the policy being followed."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "rfr5m-qlearning-target-rule-glyph-verified",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Needle-verified at glyph level (glyph-extracts/p151-153.txt, PDF pages 151/153, plus this integrator's independent re-traces under glyph-rerun/): Eq. (6.8) prints 'Q(St, At)  Q(St, At) + ↵ / h / Rt+1 + γ max / a / Q(St+1, a) − Q(St, At) / i / . / (6.8)' - the CMMI10 γ sits between 'Rt+1 +' and 'max' (mutool prints α as ↵ and the square brackets as h/i on their own lines, and drops the leftward update arrow; the passage restores those from the same artifacts and keeps γ and the U+2212 minus exactly as extracted). pdftotext drops γ from this PDF's text layer entirely (proven at sb-fulltext.txt line 4041, the Ch. 3 discount-rate sentence; the earlier packet's γ-less Eq. 6.8 quotation came from that artifact at line 9515). The section title '6.5. Q-learning: Off-policy TD Control', the Watkins attribution and 'independent of the policy being followed' needle-verify verbatim; the article's discount-agnostic paraphrase is supported at the book's printed scope.",
+    "evidenceDigest": "2a2251a93c5ef8eca5045b017a738d12a695a873de2c0b4b2e1dd3adbb899bc2"
+   },
+   {
+    "partId": "rfr5m-offpolicy-character-glyph-verified",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Sarsa Eq. (6.7) on PDF page 151 prints 'Rt+1 + γQ(St+1, At+1) − Q(St, At)' - the same γ, bootstrapping from the action actually taken - so the article's 'rather than the one that was taken' names the printed on-policy/off-policy BOOTSTRAP-SOURCE contrast (At+1 vs max over a), not a difference in discounting: both printed equations discount identically. The off-policy character sentences and the Sarsa on-policy control box title needle-verify verbatim.",
+    "evidenceDigest": "49579218047669fca9c4988fb9e4f69183464776bac361542fc93ed269e5b692"
+   }
+  ]
  }
 
 ]
