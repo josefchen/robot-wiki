@@ -70138,6 +70138,85 @@
     "evidenceDigest": "183e50e34762f7bfd326ca16eb67ef23a5ba7d52c3cfb253f01a06ce931c7031"
    }
   ]
+ },
+ {
+  "id": "evaluation-crisis-9-libero-plus-20260916l",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "evaluation-crisis",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "08bab6373b121fa9a493bdd40d1272585e59b9ff80fc74a3848bd4a3865c65d2",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "ec9-seven-dimensions",
+    "text": "The seven-dimensions conjunct traces verbatim to the abstract: 'introducing controlled perturbations across seven dimensions: objects layout, camera viewpoints, robot initial states, language instructions, light conditions, background textures and sensor noise'. The article's list is a singular-form/lighting-synonym gloss of this printed list.",
+    "requiredCitationIds": [
+     "libero-plus-2025"
+    ]
+   },
+   {
+    "id": "ec9-collapse-95-to-below-30",
+    "text": "The collapse conjunct traces to the abstract's own sentence pairing the two named factors with the drop: 'models exhibit extreme sensitivity to perturbation factors, including camera viewpoints and robot initial states, with performance dropping from 95% to below 30% under modest perturbations'. Abstract-scope disclosure: the per-dimension attribution (each of those two shifts alone driving the collapse) lives in the paper body, which was not fetched; the abstract proves the pairing printed above.",
+    "requiredCitationIds": [
+     "libero-plus-2025"
+    ]
+   },
+   {
+    "id": "ec9-language-insensitivity",
+    "text": "The language conjunct traces verbatim: 'models are largely insensitive to language variations, with further experiments revealing that models tend to ignore language instructions completely' - the article's 'performance barely moves' is its gloss of 'largely insensitive', and 'models ignore instructions' of 'tend to ignore language instructions completely'. The article's 'shuffle or remove the instruction' operation names are body-scope detail beyond the abstract.",
+    "requiredCitationIds": [
+     "libero-plus-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator d2f0ac29-9d7e-4bea-8cf4-dc45ccf007ba; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 defe33b6e1ce7a8eb835dc31b7926ccbfc88d30a98388d71f7021cf28d517364) at HEAD b1d7481b49580e62a485fbc42ef6eb17e1d78b43: row binding (/records/1 -> audit/data-hardware.md:evaluation-crisis:9), ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, ledger sha256 a3f47e0a...) before application, and the pre-state four-cell tuple re-derived with the same digest convention (5500db73..., equal to the packet). Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch body preserved in the source lane (sources/libero-plus-2510.13626-abs.html, 42924 bytes, the arXiv abs page fetched 2026-09-16T18:34:30Z-18:34:31Z by BOTH FetchUrl render and plain uncredentialed curl GET with identical logging): all three passages are verbatim in the abstract, exactly one hit each, and the scope needles hold (the abstract prints neither the shuffle/remove operation names nor any per-dimension attribution wording, so both article glosses stay disclosed as beyond-abstract). P1 re-confirmed read-only: page title equals the registry title exactly, all 13 authors in order equal the registry list, dateline v1 15 Oct 2025 (page now v3 26 Dec 2025, same year, no registry conflict). Cited id verified registered per-id in data/citations.ts (libero-plus-2025, url exactly the fetched URL); no new registrations. Original 1 stays honestly HELD (internal arithmetic row; the article cites nothing for the claim - compoundPlanSchema family question with a standing owner question), byte-unchanged. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "d759f64014b601fd885dee7c515c4bf05d58c195af20d084ce384d93a23ccfcb"
+  },
+  "evidence": [
+   {
+    "partId": "ec9-seven-dimensions",
+    "citationId": "libero-plus-2025",
+    "sourceUrl": "https://arxiv.org/abs/2510.13626",
+    "supportingPassage": "We perform a systematic vulnerability analysis by introducing controlled perturbations across seven dimensions: objects layout, camera viewpoints, robot initial states, language instructions, light conditions, background textures and sensor noise."
+   },
+   {
+    "partId": "ec9-collapse-95-to-below-30",
+    "citationId": "libero-plus-2025",
+    "sourceUrl": "https://arxiv.org/abs/2510.13626",
+    "supportingPassage": "Our analysis exposes critical weaknesses: models exhibit extreme sensitivity to perturbation factors, including camera viewpoints and robot initial states, with performance dropping from 95% to below 30% under modest perturbations."
+   },
+   {
+    "partId": "ec9-language-insensitivity",
+    "citationId": "libero-plus-2025",
+    "sourceUrl": "https://arxiv.org/abs/2510.13626",
+    "supportingPassage": "Surprisingly, models are largely insensitive to language variations, with further experiments revealing that models tend to ignore language instructions completely."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "ec9-seven-dimensions",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d2f0ac29-9d7e-4bea-8cf4-dc45ccf007ba; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified arXiv abs page before adjudication: the abstract prints 'controlled perturbations across seven dimensions: objects layout, camera viewpoints, robot initial states, language instructions, light conditions, background textures and sensor noise' (1 hit; 'seven dimensions' 1 hit), so the count and the full seven-item list are the abstract's own words; the article's singular-form/lighting-synonym rendering is a recorded gloss.",
+    "evidenceDigest": "18bd6ac6def683d3e269dfdfab976606380f57ad48b153b22a1d549118da01ae"
+   },
+   {
+    "partId": "ec9-collapse-95-to-below-30",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d2f0ac29-9d7e-4bea-8cf4-dc45ccf007ba; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified arXiv abs page before adjudication: one sentence prints 'extreme sensitivity to perturbation factors, including camera viewpoints and robot initial states, with performance dropping from 95% to below 30% under modest perturbations' (each fragment 1 hit). Abstract-scope disclosure preserved: the per-dimension tables that would attribute the drop to each dimension alone live in the unfetched paper body; the abstract proves the pairing it prints.",
+    "evidenceDigest": "b9905d5b6b29603463b66032ca3893767cc675eb1a1df87780151530ac17a781"
+   },
+   {
+    "partId": "ec9-language-insensitivity",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d2f0ac29-9d7e-4bea-8cf4-dc45ccf007ba; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified arXiv abs page before adjudication: the abstract prints 'models are largely insensitive to language variations, with further experiments revealing that models tend to ignore language instructions completely' (both fragments 1 hit). Beyond-abstract disclosure preserved: the article's 'shuffle or remove the instruction' operation names are body-scope detail the abstract does not itemize.",
+    "evidenceDigest": "db013b2c2f23aff1f23cfec1164aae99e9e12960ba20743b584d1f1283fec546"
+   }
+  ]
  }
 
 ]
