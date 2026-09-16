@@ -99855,7 +99855,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45 exactly as approved delta seo-merge-20260916-prose-9 permits: Mission continuation work changed article:data-hardware/industrial-deployment after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8 exactly as approved delta seo-merge-20260916-prose-9 permits: Mission continuation work changed article:data-hardware/industrial-deployment after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99867,7 +99867,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45",
+          "currentHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8",
           "status": "approved-delta",
           "approvedDelta": "seo-merge-20260916-prose-9"
         },
@@ -100415,7 +100415,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/realtime-execution moved from 1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902 to b7ebca640d46d35184147aea0608db750b822ef53fb17c59ada9f3db57d1ef7f exactly as approved delta seo-merge-20260916-prose-20 permits: Mission continuation work changed article:manipulation/realtime-execution after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:manipulation/realtime-execution moved from 1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902 to 15a401d4e5d93d48b2e0febf70deb9f49c98357064717861ec4ba29501fe0516 exactly as approved delta seo-merge-20260916-prose-20 permits: Mission continuation work changed article:manipulation/realtime-execution after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100427,7 +100427,7 @@
           "manifest": "prose",
           "member": "article:manipulation/realtime-execution",
           "baselineHash": "1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902",
-          "currentHash": "b7ebca640d46d35184147aea0608db750b822ef53fb17c59ada9f3db57d1ef7f",
+          "currentHash": "15a401d4e5d93d48b2e0febf70deb9f49c98357064717861ec4ba29501fe0516",
           "status": "approved-delta",
           "approvedDelta": "seo-merge-20260916-prose-20"
         },
@@ -100639,7 +100639,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/reward-design-mpc moved from aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699 to 465542f1a53444e09d7207911699fdfcebfd91b6088424d4d7d767d5fe893f64 exactly as approved delta seo-merge-20260916-prose-25 permits: Mission continuation work changed article:rl-sim2real/reward-design-mpc after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:rl-sim2real/reward-design-mpc moved from aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699 to f39497e372345f689495dc29380f8bbb501d4e1f98b2201883bf4c10a75e700b exactly as approved delta seo-merge-20260916-rudin-code-surface-annotation permits: The reward-design-mpc article now wraps its authored inline code element in components/mdx/surface-code.tsx, which clones data-brand-surface-id=\"surface:flat\" onto the rendered node so the hand-written JSX code span participates in the flat-surface registry exactly like markdown code spans; the pinned hash literal, wording, and citations are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100651,9 +100651,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/reward-design-mpc",
           "baselineHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
-          "currentHash": "465542f1a53444e09d7207911699fdfcebfd91b6088424d4d7d767d5fe893f64",
+          "currentHash": "f39497e372345f689495dc29380f8bbb501d4e1f98b2201883bf4c10a75e700b",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-25"
+          "approvedDelta": "seo-merge-20260916-rudin-code-surface-annotation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100667,7 +100667,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/rl-for-robotics moved from 18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c to 425dbce554865801bbe93a026bbf0faaad83eae4b25761045e4606c9927b8499 exactly as approved delta seo-merge-20260916-prose-26 permits: Mission continuation work changed article:rl-sim2real/rl-for-robotics after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:rl-sim2real/rl-for-robotics moved from 18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c to b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568 exactly as approved delta rl-for-robotics-r50-20260916-1 permits: Exactly rl-sim2real/rl-for-robotics original 50 (evidence completion of the standing V frontmatter P1 sweep verdict (all 27 identities carry fresh 2026-09-16 fetch records and passages; fail-closed re-verification passed; levine passage corrected to the printed Deirdre Quillen title page, inverted sic dropped)) per the frozen packet convergence-source-z-rl-for-robotics-20260916k. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved source bodies before adjudication (155/155 checks, lane needle-verification.json); zero retrieval by this integrator; originals 1 and 5 honestly held on glyph-verified equation differences (Eq. 3.2 printed subscripts t/t-1; Eq. 6.8 printed discount gamma omitted by the packet's quotes) and byte-unchanged; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-for-robotics-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100679,9 +100679,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/rl-for-robotics",
           "baselineHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
-          "currentHash": "425dbce554865801bbe93a026bbf0faaad83eae4b25761045e4606c9927b8499",
+          "currentHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-26"
+          "approvedDelta": "rl-for-robotics-r50-20260916-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }

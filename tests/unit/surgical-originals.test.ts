@@ -84,7 +84,7 @@ const surgicalPlans = plans.filter(
 
 describe('surgical originals: ledger rows and compound plans', () => {
   it('keeps all 768 prior plans first and appends exactly the 7 surgical plans', () => {
-    expect(plans).toHaveLength(775);
+    expect(plans).toHaveLength(813);
     expect(plans.slice(0, 768).every((plan) => !plan.id.startsWith('surgical-'))).toBe(true);
     expect(surgicalPlans.map((plan) => plan.id)).toEqual(SURGICAL_PLAN_IDS);
     expect(surgicalPlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 6, 7, 8]);
@@ -227,7 +227,7 @@ describe('surgical originals: approved deltas', () => {
   it('appends exactly 7 entries, same-same except the one combined prose move', () => {
     // Ledger total on the seo-merge line: the surgical packet contributed
     // exactly the 7 sg-r entries pinned below.
-    expect(deltas.entries).toHaveLength(1170);
+    expect(deltas.entries).toHaveLength(1211);
     expect(surgicalDeltas.map((delta) => delta.id).sort()).toEqual(
       ['1', '2', '3', '4', '6', '7', '8'].map((row) => `sg-r${row}-20260916-1`).sort(),
     );

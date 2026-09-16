@@ -21763,6 +21763,22 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "seo-merge-20260916-rudin-code-surface-annotation",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "f39497e372345f689495dc29380f8bbb501d4e1f98b2201883bf4c10a75e700b",
+      "reason": "The reward-design-mpc article now wraps its authored inline code element in components/mdx/surface-code.tsx, which clones data-brand-surface-id=\"surface:flat\" onto the rendered node so the hand-written JSX code span participates in the flat-surface registry exactly like markdown code spans; the pinned hash literal, wording, and citations are unchanged.",
+      "ownerApproval": "User approved merging the SEO growth workstream and the Droid audit lane into the Robot Wiki mission continuation and finishing the mission remainder (Devin session, 2026-09-16).",
+      "responsibleMilestone": "SEO growth merge + audit-lane forward merge, 2026-09-16",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-SURF-010",
+        "VAL-DESIGN-018"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
