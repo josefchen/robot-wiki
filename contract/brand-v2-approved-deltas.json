@@ -16544,6 +16544,70 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "sweeps-registry-hwbc20-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/humanoid-wbc",
+   "reason": "Exactly rl-sim2real/humanoid-wbc original 20 (frontmatter P1 sweep): corrected the stale claim cell (16 -> 15 ids, gr00t-n1-2025 no longer in the article frontmatter) to the exact P1 batch form and bound the fresh 15-identity compound evidence per the frozen AG packet. Every identity needle-verified by this integrator against the retained sha256-pinned fetch bodies; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger/plan evidence only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packets convergence-source-ag-frontmatter-sweeps-20260917a sha256 4e7cf1e320628f58662cb33a2f966069552d812a26fac2b8c6e82211a7045015 and convergence-source-ai-motionplanning7-20260917a sha256 8e59a92d40778d265c25b63455c52f5e9cc58ee671268f8284c65764485cc15f, plus the ah-lane registry correction) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sweeps-registry-gensim15-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-sim",
+   "reason": "Exactly world-models/generative-sim original 15 (frontmatter P1 sweep): narrowed the domain-wide batch wording to generative-sim's own 8 identities in the exact P1 batch form and bound the fresh 8-identity compound evidence, resolving the af-lane isaac-lab-2025 hold via the PDF Appendix A contributor-sequence surface (registry 106-name list == PDF sequence with three repeated names deduplicated keep-first), per the frozen AG packet. Every identity needle-verified by this integrator against the retained sha256-pinned fetch bodies; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed; lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packets convergence-source-ag-frontmatter-sweeps-20260917a sha256 4e7cf1e320628f58662cb33a2f966069552d812a26fac2b8c6e82211a7045015 and convergence-source-ai-motionplanning7-20260917a sha256 8e59a92d40778d265c25b63455c52f5e9cc58ee671268f8284c65764485cc15f, plus the ah-lane registry correction) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sweeps-registry-legged18-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/legged-locomotion",
+   "reason": "Exactly rl-sim2real/legged-locomotion original 18 (frontmatter P1 sweep): corrected the stale claim cell (12 -> 13 ids) to the exact P1 batch form naming the CURRENT 13-id set and bound the fresh 13-identity compound evidence (choi-2023/park-2017-bounding via FetchUrl renders with Crossref corroboration, disclosed) per the frozen AG packet. Every identity needle-verified by this integrator against the retained sha256-pinned fetch bodies; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed; lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packets convergence-source-ag-frontmatter-sweeps-20260917a sha256 4e7cf1e320628f58662cb33a2f966069552d812a26fac2b8c6e82211a7045015 and convergence-source-ai-motionplanning7-20260917a sha256 8e59a92d40778d265c25b63455c52f5e9cc58ee671268f8284c65764485cc15f, plus the ah-lane registry correction) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sweeps-registry-mp7-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:classical/motion-planning",
+   "reason": "Exactly classical/motion-planning original 7 (kinodynamic row): scalar evidence completion against the corrected lavalle-kuffner-2001 registration (url LavKuf01.pdf -> LavKuf01b.pdf, fields-only, per the ah-lane 13-consumer survey), quoting only what the packet's retained LavKuf01b.pdf fetch prints, page-anchored (title page + abstract p.1, EXTEND/NEW_STATE p.13), with the p.2 [20]-terminology contradiction sweep recorded in the note. Registry edit: data/citations.ts lavalle-kuffner-2001 url + comment only; audit/citations.md link-check row, honest-gaps note and a dated correction section updated in the same change. Passages needle-verified by this integrator against the retained OCR pages under the packet-disclosed normalizations; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed (motion-planning.mdx untouched; the cited sentence's support changed underneath it, not the sentence); lastReviewed deliberately not moved per the registry-only carve-out.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packets convergence-source-ag-frontmatter-sweeps-20260917a sha256 4e7cf1e320628f58662cb33a2f966069552d812a26fac2b8c6e82211a7045015 and convergence-source-ai-motionplanning7-20260917a sha256 8e59a92d40778d265c25b63455c52f5e9cc58ee671268f8284c65764485cc15f, plus the ah-lane registry correction) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]

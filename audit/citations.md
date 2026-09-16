@@ -116,7 +116,10 @@ errors, 11 covered by documented exceptions. Exit code 0.
   output in every mode is symbol soup, so no title can be extracted and
   compared. The URLs are the canonical author copies and fetch fine (HTTP 200,
   application/pdf); only the title comparison is impossible. Recorded here
-  rather than papered over.
+  rather than papered over. For **lavalle-kuffner-2001** the registered URL is
+  LavKuf01b.pdf since the 2026-09-17 identity correction below (the prior
+  LavKuf01.pdf served a different paper but the same Type 3 gap); identity was
+  verified through the OCR channel instead of the text layer.
 
 ## http-only sources: the archival-capture policy
 
@@ -450,7 +453,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | lozano-perez-1983 | https://doi.org/10.1109/TC.1983.1676196 | ok (crossref) | match (crossref) | none (verified as cited) | chain: 302 -> 202 https://ieeexplore.ieee.org/document/1676196/; final: https://ieeexplore.ieee.org/document/1676196/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/TC.1983.1676196 matches the registry title and year |
 | kavraki-1996 | https://doi.org/10.1109/70.508439 | ok (crossref) | match (crossref) | none (verified as cited) | chain: 302 -> 301 -> 202 https://ieeexplore.ieee.org/document/508439/; final: https://ieeexplore.ieee.org/document/508439/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/70.508439 matches the registry title and year |
 | lavalle-1998 | https://lavalle.pl/papers/Lav98c.pdf | ok | unavailable | none (verified as cited) |  |
-| lavalle-kuffner-2001 | https://lavalle.pl/papers/LavKuf01.pdf | ok | unavailable | none (verified as cited) |  |
+| lavalle-kuffner-2001 | https://lavalle.pl/papers/LavKuf01b.pdf | ok | unavailable | url corrected 2026-09-17 (wrong-body LavKuf01.pdf -> the IJRR paper) | Reachability and identity of LavKuf01b.pdf verified by the 2026-09-16 packet fetch records (plain uncredentialed curl GET HTTP 200 at 22:17:47Z and 22:35:17Z, sha256 c8dee51d6f1fa16f2f03e0a29c0ab75323ace847e0729c964b1d36648a02b092, OCR title page = Randomized Kinodynamic Planning, LaValle + Kuffner); title still not extractable in-text (same early-LaTeX Type 3 fonts). The link checker itself was NOT re-run by the zero-retrieval 2026-09-17 integrator; see the correction section below. |
 | karaman-frazzoli-2011 | https://arxiv.org/abs/1105.1186 | ok | match | none (verified as cited) |  |
 | gammell-2014 | https://arxiv.org/abs/1404.2334 | ok | match | none (verified as cited) |  |
 | ratliff-2009 | https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/ | ok | match | none (verified as cited) | chain: 301 -> 301 -> 200 https://publications.ri.cmu.edu/chomp-gradient-optimization-techniques-for-efficient-motion-planning; final: https://publications.ri.cmu.edu/chomp-gradient-optimization-techniques-for-efficient-motion-planning |
@@ -785,3 +788,35 @@ One new identity, not a new full-registry liveness run. The literal four-author 
 ## JEPA primary-body metadata correction — retained-source review, 2026-09-08
 
 The V-JEPA 2 v1 body prints 29 authors, including Mahmoud Assran, Mojtaba Komeili and Matthew Muckley. The abs metadata uses Mido Assran and splits Mojtaba/Komeili into two entries; the historical DBLP aliases are not the literal body list. The registry now follows the complete ordered body list. Actual prior retrieval timestamps and exact full tool-result hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-world-model-source-integration-20260908/jepa-event-binding.json; identity passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-world-model-source-integration-20260908/source-proof.json. No new fetch, liveness status, citation verdict promotion, or whole-P1 credit. The nine unresolved citation gaps remain unchanged.
+
+
+## LaValle-Kuffner IJRR identity correction — 2026-09-17
+
+Fields-only registry correction dispatched by the owner (13-consumer survey
+convergence-source-ah-registry-survey-20260917a/registry-correction-proposal.json):
+the url of `lavalle-kuffner-2001` changed from
+https://lavalle.pl/papers/LavKuf01.pdf to https://lavalle.pl/papers/LavKuf01b.pdf;
+title, authors, year, venue and type are unchanged. The prior URL served a
+DIFFERENT paper: LavKuf01.pdf (7,759,444 bytes, sha256
+a055d86869c6b4d3b63de2f8ce02f237af97f31d2616b3f0bafbefe8fe26f1d0) is the WAFR-2000
+chapter "Rapidly-Exploring Random Trees: Progress and Prospects", reproduced by
+title-page OCR in the survey; LavKuf01b.pdf (906,176 bytes, sha256
+c8dee51d6f1fa16f2f03e0a29c0ab75323ace847e0729c964b1d36648a02b092, 37-page author
+manuscript) is the registry title "Randomized Kinodynamic Planning" by LaValle
+(Iowa State) and Kuffner, Jr. (University of Tokyo), with the Crossref DOI
+10.1177/02783640122067453 confirming IJRR 20(5):378-400, issued 2001-05. The
+journal binding rests on Crossref/OpenAlex metadata plus the abstract match;
+the OCR-verified PDF surfaces print no journal name or pagination (precision
+disclosure in the survey). Honest gap unchanged in substance: LavKuf01b.pdf
+carries the same garbled Type 3 text layer, so the title remains
+unavailable to the checker and was verified through pdftoppm+tesseract
+instead. This zero-retrieval integrator did not re-run `npm run
+check:citations`; the row's ok/unavailable verdicts are preserved and the
+fresh fetch records backing the URL swap live in the ah survey and the
+20260917a packets (fetch of record 2026-09-16T22:17:47Z and a byte-identical
+re-fetch 2026-09-16T22:35:17Z). Per the survey's consumer dispositions:
+lib/rrt.ts and the e2e specs name no URL and are untouched;
+tests/unit/motion-planning-originals.test.ts is updated in this same change
+(url pin + held-row wording); the historical 2026-09-16 integration-history
+narratives stay as written. Registered-entry comment refreshed to record the
+identity verification.
