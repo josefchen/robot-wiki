@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "439997b77e45f482ccbab40756ef8bf1235a1ea6cf43d0f76e0232bfebac40dd",
+  "fingerprint": "b7e04656cf5442ab21a2d13132ae400dd86e8736c2439a04b1702b960b0ff5d1",
   "viewports": [
     "375x812",
     "1440x900"
@@ -106,7 +106,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/autonomous-vehicles/",
+          "href": "/adjacent/autonomous-vehicles/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -1157,7 +1157,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/drones/",
+          "href": "/adjacent/drones/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -1791,7 +1791,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/space/",
+          "href": "/adjacent/space/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -2552,7 +2552,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/surgical/",
+          "href": "/adjacent/surgical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -3160,7 +3160,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/calibration/",
+          "href": "/classical/calibration/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -3651,7 +3651,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/control/",
+          "href": "/classical/control/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -4809,7 +4809,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/grasp-planning/",
+          "href": "/classical/grasp-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -5464,7 +5464,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/kinematics/",
+          "href": "/classical/kinematics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -6120,7 +6120,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/motion-planning/",
+          "href": "/classical/motion-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -6999,7 +6999,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/perception/",
+          "href": "/classical/perception/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -8495,7 +8495,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/ros2-for-ml-engineers/",
+          "href": "/classical/ros2-for-ml-engineers/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -8908,7 +8908,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/scene-representation/",
+          "href": "/classical/scene-representation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -10108,7 +10108,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/state-estimation/",
+          "href": "/classical/state-estimation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -10834,7 +10834,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/data-bottleneck/",
+          "href": "/data-hardware/data-bottleneck/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -11554,7 +11554,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/datasets/",
+          "href": "/data-hardware/datasets/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -12249,7 +12249,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/evaluation-crisis/",
+          "href": "/data-hardware/evaluation-crisis/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -12998,7 +12998,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/hardware-taxonomy/",
+          "href": "/data-hardware/hardware-taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -14157,7 +14157,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/industrial-deployment/",
+          "href": "/data-hardware/industrial-deployment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -15238,7 +15238,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/robot-learning-stack/",
+          "href": "/data-hardware/robot-learning-stack/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -15717,7 +15717,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/teleop-rigs/",
+          "href": "/data-hardware/teleop-rigs/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -16400,7 +16400,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/bear-case/",
+          "href": "/frontier/bear-case/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -17350,7 +17350,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/competing-theses/",
+          "href": "/frontier/competing-theses/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -18599,7 +18599,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/dexterity/",
+          "href": "/frontier/dexterity/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -19791,7 +19791,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/generalization/",
+          "href": "/frontier/generalization/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -20523,7 +20523,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/reliability-gap/",
+          "href": "/frontier/reliability-gap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -21154,7 +21154,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/safety-and-assurance/",
+          "href": "/frontier/safety-and-assurance/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -22388,7 +22388,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/action-chunking/",
+          "href": "/manipulation/action-chunking/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -23300,7 +23300,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/action-spaces/",
+          "href": "/manipulation/action-spaces/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -23834,7 +23834,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/bc-foundations/",
+          "href": "/manipulation/bc-foundations/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -24376,7 +24376,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/comparison-matrix/",
+          "href": "/manipulation/comparison-matrix/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -25405,7 +25405,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/cross-embodiment/",
+          "href": "/manipulation/cross-embodiment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -26048,7 +26048,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/diffusion-policy/",
+          "href": "/manipulation/diffusion-policy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -26682,7 +26682,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/foundation-models/",
+          "href": "/manipulation/foundation-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -27137,7 +27137,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/generalist-policies/",
+          "href": "/manipulation/generalist-policies/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -27953,7 +27953,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/hierarchical/",
+          "href": "/manipulation/hierarchical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -28735,7 +28735,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/knowledge-insulation/",
+          "href": "/manipulation/knowledge-insulation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -29356,7 +29356,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/pi-line/",
+          "href": "/manipulation/pi-line/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -30332,7 +30332,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/realtime-execution/",
+          "href": "/manipulation/realtime-execution/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -30952,7 +30952,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/rl-finetuning/",
+          "href": "/manipulation/rl-finetuning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -31989,7 +31989,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/robot-learning-roadmap/",
+          "href": "/manipulation/robot-learning-roadmap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -32432,7 +32432,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/vla-models/",
+          "href": "/manipulation/vla-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -33226,7 +33226,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/humanoid-wbc/",
+          "href": "/rl-sim2real/humanoid-wbc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -34071,7 +34071,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/legged-locomotion/",
+          "href": "/rl-sim2real/legged-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -34799,7 +34799,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/offline-rl/",
+          "href": "/rl-sim2real/offline-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -35217,7 +35217,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/parallel-sim-rl/",
+          "href": "/rl-sim2real/parallel-sim-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -35848,7 +35848,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/reward-design-mpc/",
+          "href": "/rl-sim2real/reward-design-mpc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -36758,7 +36758,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/rl-for-robotics/",
+          "href": "/rl-sim2real/rl-for-robotics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -38117,7 +38117,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/sim2real-transfer/",
+          "href": "/rl-sim2real/sim2real-transfer/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -38960,7 +38960,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/why-rl-locomotion/",
+          "href": "/rl-sim2real/why-rl-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -39495,7 +39495,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/evaluation/",
+          "href": "/world-models/evaluation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -39977,7 +39977,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/generative-sim/",
+          "href": "/world-models/generative-sim/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -40564,7 +40564,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/generative-video/",
+          "href": "/world-models/generative-video/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -41405,7 +41405,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/jepa/",
+          "href": "/world-models/jepa/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -42001,7 +42001,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/latent-dynamics/",
+          "href": "/world-models/latent-dynamics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -42576,7 +42576,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/model-based-robot-learning/",
+          "href": "/world-models/model-based-robot-learning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -43043,7 +43043,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/taxonomy/",
+          "href": "/world-models/taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -43782,7 +43782,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/world-models-vs-simulators/",
+          "href": "/world-models/world-models-vs-simulators/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -44306,7 +44306,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/autonomous-vehicles/",
+          "href": "/adjacent/autonomous-vehicles/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -45357,7 +45357,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/drones/",
+          "href": "/adjacent/drones/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -45991,7 +45991,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/space/",
+          "href": "/adjacent/space/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -46752,7 +46752,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/adjacent/surgical/",
+          "href": "/adjacent/surgical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -47360,7 +47360,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/calibration/",
+          "href": "/classical/calibration/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -47851,7 +47851,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/control/",
+          "href": "/classical/control/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -49009,7 +49009,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/grasp-planning/",
+          "href": "/classical/grasp-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -49664,7 +49664,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/kinematics/",
+          "href": "/classical/kinematics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -50320,7 +50320,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/motion-planning/",
+          "href": "/classical/motion-planning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -51199,7 +51199,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/perception/",
+          "href": "/classical/perception/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -52695,7 +52695,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/ros2-for-ml-engineers/",
+          "href": "/classical/ros2-for-ml-engineers/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -53108,7 +53108,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/scene-representation/",
+          "href": "/classical/scene-representation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -54308,7 +54308,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/classical/state-estimation/",
+          "href": "/classical/state-estimation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -55034,7 +55034,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/data-bottleneck/",
+          "href": "/data-hardware/data-bottleneck/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -55754,7 +55754,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/datasets/",
+          "href": "/data-hardware/datasets/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -56449,7 +56449,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/evaluation-crisis/",
+          "href": "/data-hardware/evaluation-crisis/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -57198,7 +57198,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/hardware-taxonomy/",
+          "href": "/data-hardware/hardware-taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -58357,7 +58357,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/industrial-deployment/",
+          "href": "/data-hardware/industrial-deployment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -59438,7 +59438,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/robot-learning-stack/",
+          "href": "/data-hardware/robot-learning-stack/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -59917,7 +59917,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/data-hardware/teleop-rigs/",
+          "href": "/data-hardware/teleop-rigs/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -60600,7 +60600,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/bear-case/",
+          "href": "/frontier/bear-case/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -61550,7 +61550,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/competing-theses/",
+          "href": "/frontier/competing-theses/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -62799,7 +62799,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/dexterity/",
+          "href": "/frontier/dexterity/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -63991,7 +63991,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/generalization/",
+          "href": "/frontier/generalization/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -64723,7 +64723,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/reliability-gap/",
+          "href": "/frontier/reliability-gap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -65354,7 +65354,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/frontier/safety-and-assurance/",
+          "href": "/frontier/safety-and-assurance/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -66588,7 +66588,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/action-chunking/",
+          "href": "/manipulation/action-chunking/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -67500,7 +67500,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/action-spaces/",
+          "href": "/manipulation/action-spaces/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -68034,7 +68034,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/bc-foundations/",
+          "href": "/manipulation/bc-foundations/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -68576,7 +68576,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/comparison-matrix/",
+          "href": "/manipulation/comparison-matrix/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -69605,7 +69605,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/cross-embodiment/",
+          "href": "/manipulation/cross-embodiment/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -70248,7 +70248,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/diffusion-policy/",
+          "href": "/manipulation/diffusion-policy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -70882,7 +70882,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/foundation-models/",
+          "href": "/manipulation/foundation-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -71337,7 +71337,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/generalist-policies/",
+          "href": "/manipulation/generalist-policies/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -72153,7 +72153,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/hierarchical/",
+          "href": "/manipulation/hierarchical/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -72935,7 +72935,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/knowledge-insulation/",
+          "href": "/manipulation/knowledge-insulation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -73556,7 +73556,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/pi-line/",
+          "href": "/manipulation/pi-line/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -74532,7 +74532,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/realtime-execution/",
+          "href": "/manipulation/realtime-execution/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -75152,7 +75152,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/rl-finetuning/",
+          "href": "/manipulation/rl-finetuning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -76189,7 +76189,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/robot-learning-roadmap/",
+          "href": "/manipulation/robot-learning-roadmap/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -76632,7 +76632,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/manipulation/vla-models/",
+          "href": "/manipulation/vla-models/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -77426,7 +77426,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/humanoid-wbc/",
+          "href": "/rl-sim2real/humanoid-wbc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -78271,7 +78271,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/legged-locomotion/",
+          "href": "/rl-sim2real/legged-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -78999,7 +78999,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/offline-rl/",
+          "href": "/rl-sim2real/offline-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -79417,7 +79417,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/parallel-sim-rl/",
+          "href": "/rl-sim2real/parallel-sim-rl/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -80048,7 +80048,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/reward-design-mpc/",
+          "href": "/rl-sim2real/reward-design-mpc/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -80958,7 +80958,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/rl-for-robotics/",
+          "href": "/rl-sim2real/rl-for-robotics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -82317,7 +82317,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/sim2real-transfer/",
+          "href": "/rl-sim2real/sim2real-transfer/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -83160,7 +83160,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/rl-sim2real/why-rl-locomotion/",
+          "href": "/rl-sim2real/why-rl-locomotion/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -83695,7 +83695,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/evaluation/",
+          "href": "/world-models/evaluation/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -84177,7 +84177,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/generative-sim/",
+          "href": "/world-models/generative-sim/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -84764,7 +84764,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/generative-video/",
+          "href": "/world-models/generative-video/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -85605,7 +85605,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/jepa/",
+          "href": "/world-models/jepa/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -86201,7 +86201,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/latent-dynamics/",
+          "href": "/world-models/latent-dynamics/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -86776,7 +86776,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/model-based-robot-learning/",
+          "href": "/world-models/model-based-robot-learning/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -87243,7 +87243,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/taxonomy/",
+          "href": "/world-models/taxonomy/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }
@@ -87982,7 +87982,7 @@
       "ariaCurrentPage": [
         {
           "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
-          "href": "http://localhost:43401/world-models/world-models-vs-simulators/",
+          "href": "/world-models/world-models-vs-simulators/",
           "insideNavLandmark": true,
           "matchesRoute": true
         }

@@ -361,7 +361,10 @@ function collectApparatus(): Omit<
       }
       return {
         outline: el.outerHTML.replace(/\s+/g, ' ').slice(0, 120),
-        href,
+        // Pathname, not the absolute href: the fixture serves the export on
+        // an ephemeral port, so recording the resolved URL would churn the
+        // committed evidence on every run.
+        href: pathname,
         insideNavLandmark: taxonomy.some((nav) => nav.contains(el)),
         matchesRoute: pathname !== null && pathname === here,
       };

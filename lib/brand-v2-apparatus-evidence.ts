@@ -663,7 +663,7 @@ const observationSchema = z.object({
   ariaCurrentPage: z.array(
     z.object({
       outline: z.string(),
-      /** Absolute href when the marked element is an anchor. */
+      /** Pathname of the marked element when it is an anchor. */
       href: z.string().nullable(),
       insideNavLandmark: z.boolean(),
       matchesRoute: z.boolean(),
