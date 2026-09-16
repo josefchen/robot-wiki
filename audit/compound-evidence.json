@@ -67783,6 +67783,84 @@
     "evidenceDigest": "970a5a883fead6c8a146b275e3c1cd12eab694a11749ebd302b17dd87f5c560e"
    }
   ]
+ },
+ {
+  "id": "perception-9-tsai-solve-20260916g",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "432afd82556d37a349d86d82d89dc38e226efe38e31c65fa77c566e60c7253d0",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "p9-camera-to-gripper",
+    "text": "Tsai and Lenz (1989) describe a novel technique for computing the position and orientation of a camera relative to the last joint of a robot manipulator in an eye-on-hand configuration: solving the camera-to-gripper transform, not merely posing a camera-to-robot (base-frame) transform.",
+    "requiredCitationIds": [
+     "tsai-lenz-1989"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 75ed5de9-0e9a-4b4c-be1f-d47421f29292; preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a707a050bb4ec32d61d9436284360a2454cd9a64f9c3e6277d5d6fa9c97488cb) at HEAD 19fd002: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (row 9 digest 3fe85ad7..., row 17 digest 8fd3bd33..., both equal to the packet). Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/tsai-lenz-1989-ieee-abstract.md, the FetchUrl-rendered IEEE Xplore public abstract page, fetch of record 2026-09-16T11:48:21.322Z-11:48:35.090Z, identical earlier fetch 11:43:07Z-11:47:05Z; plain curl bot-walled 202/zero bytes, logged by the preparer): both passages are verbatim in the retained abstract, and the abstract prints neither \"static target\" nor \"AX = XB\", matching the row 17 precision disclosure. The abstract proves only what it prints (full text paywalled); the camera-to-gripper reading is licensed inside the same abstract by \"a camera rigidly mounted at the gripper\" plus \"computing ... relative to the last joint\". Cited id verified registered per-id in data/citations.ts (tsai-lenz-1989, P1 fields matching the fetched page read-only); no new registrations. Originals 1, 2, 3, 7, 19 and 59 stay honestly HELD (compoundPlanSchema requires min 1 registered requiredCitationIds per part and the article spans carry no citation), consistent with the standing 2026-09-15 hold. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "274952f37af86fda57ff849a7c4ca0c2b61914fa1b8997591c1f9f86d2d3148d"
+  },
+  "evidence": [
+   {
+    "partId": "p9-camera-to-gripper",
+    "citationId": "tsai-lenz-1989",
+    "sourceUrl": "https://doi.org/10.1109/70.34770",
+    "supportingPassage": "The authors describe a novel technique for computing position and orientation of a camera relative to the last joint of a robot manipulator in an eye-on-hand configuration."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "p9-camera-to-gripper",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 75ed5de9-0e9a-4b4c-be1f-d47421f29292; preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified FetchUrl rendering of the IEEE Xplore public abstract page before adjudication: the abstract's own words (\"a novel technique for computing position and orientation of a camera relative to the last joint ... in an eye-on-hand configuration\", with the camera \"rigidly mounted at the gripper\") support the corrected solve-the-camera-to-gripper-transform verdict as stated, and the abstract nowhere says the authors pose a camera-to-robot transform.",
+    "evidenceDigest": "04fed4391d397b4dd8e452f701c540c4d3897d23ea8fff1cf50a9b4430268161"
+   }
+  ]
+ },
+ {
+  "id": "perception-17-tsai-protocol-20260916g",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 17,
+  "originalCellsDigest": "c479824ec755851f1e88a4dc9bb847b2183aeed5db6027c2623b9675364523c3",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "p17-protocol-mechanics",
+    "text": "Hand-eye protocol mechanics: the robot makes a series of automatically planned (known) motions with the camera rigidly mounted at the gripper, and at the end of each move it takes a total of 90 ms to grab an image, extract image feature coordinates, and perform camera extrinsic calibration.",
+    "requiredCitationIds": [
+     "tsai-lenz-1989"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 75ed5de9-0e9a-4b4c-be1f-d47421f29292; preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a707a050bb4ec32d61d9436284360a2454cd9a64f9c3e6277d5d6fa9c97488cb) at HEAD 19fd002: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (row 9 digest 3fe85ad7..., row 17 digest 8fd3bd33..., both equal to the packet). Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/tsai-lenz-1989-ieee-abstract.md, the FetchUrl-rendered IEEE Xplore public abstract page, fetch of record 2026-09-16T11:48:21.322Z-11:48:35.090Z, identical earlier fetch 11:43:07Z-11:47:05Z; plain curl bot-walled 202/zero bytes, logged by the preparer): both passages are verbatim in the retained abstract, and the abstract prints neither \"static target\" nor \"AX = XB\", matching the row 17 precision disclosure. The abstract proves only what it prints (full text paywalled); the camera-to-gripper reading is licensed inside the same abstract by \"a camera rigidly mounted at the gripper\" plus \"computing ... relative to the last joint\". Cited id verified registered per-id in data/citations.ts (tsai-lenz-1989, P1 fields matching the fetched page read-only); no new registrations. Originals 1, 2, 3, 7, 19 and 59 stay honestly HELD (compoundPlanSchema requires min 1 registered requiredCitationIds per part and the article spans carry no citation), consistent with the standing 2026-09-15 hold. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "9262fa2918b35e0bdbd12b7f78ad714fbbe660afefa9abb8721c80faedc78fa0"
+  },
+  "evidence": [
+   {
+    "partId": "p17-protocol-mechanics",
+    "citationId": "tsai-lenz-1989",
+    "sourceUrl": "https://doi.org/10.1109/70.34770",
+    "supportingPassage": "The robot makes a series of automatically planned movements with a camera rigidly mounted at the gripper. At the end of each move, it takes a total of 90 ms to grab an image, extract image feature coordinates, and perform camera extrinsic calibration."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "p17-protocol-mechanics",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 75ed5de9-0e9a-4b4c-be1f-d47421f29292; preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified FetchUrl rendering of the IEEE Xplore public abstract page before adjudication: the printed protocol sentences (automatically planned movements, camera rigidly mounted at the gripper, per-move total of 90 ms for image grab + feature-coordinate extraction + camera extrinsic calibration) support the protocol mechanics as stated, with the precision disclosure that the abstract prints neither \"static target\" nor \"AX = XB\" recorded in the row note.",
+    "evidenceDigest": "8f367b86a839c450ee9c89ab630f54d1fcd682d43f68d7fb9c4f1d76c4c35bcf"
+   }
+  ]
  }
 
 ]

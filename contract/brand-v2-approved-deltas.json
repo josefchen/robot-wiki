@@ -15860,6 +15860,42 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "perception-r9-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/perception",
+   "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+   "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+   "reason": "Exactly classical/perception original 9 (Stat \"hand-eye (AX = XB) / 1989 / Tsai and Lenz pose the cam...): evidence completion per the frozen packet convergence-source-q-perception-20260916g. Both retained passages (IEEE Xplore public abstract, fetch of record 2026-09-16T11:48:21.322Z-11:48:35.090Z) were needle-verified verbatim by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 2 selected records of frozen packet convergence-source-q-perception-20260916g, sha256 a707a050bb4ec32d61d9436284360a2454cd9a64f9c3e6277d5d6fa9c97488cb) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "perception-r17-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/perception",
+   "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+   "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+   "reason": "Exactly classical/perception original 17 (Hand-eye protocol: robot moves through known motions while t...): evidence completion per the frozen packet convergence-source-q-perception-20260916g. Both retained passages (IEEE Xplore public abstract, fetch of record 2026-09-16T11:48:21.322Z-11:48:35.090Z) were needle-verified verbatim by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 2 selected records of frozen packet convergence-source-q-perception-20260916g, sha256 a707a050bb4ec32d61d9436284360a2454cd9a64f9c3e6277d5d6fa9c97488cb) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]
