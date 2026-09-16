@@ -148,8 +148,10 @@ describe('ComparisonMatrix', () => {
     expect(rowNamed('ACT')).toBeDefined();
     expect(rowNamed('Diffusion Policy')).toBeDefined();
     await user.click(screen.getByRole('button', { name: /^not released$/i }));
-    expect(rowNamed('ACT')).toBeUndefined();
-    expect(rowNamed('Diffusion Policy')).toBeUndefined();
+    // The audit corrected every method to downloadable or not-disclosed
+    // weights, so Not released legitimately shows the empty state.
+    expect(screen.queryByRole('table')).toBeNull();
+    expect(screen.getByRole('status')).toHaveTextContent(/no methods match/i);
     await user.click(screen.getByRole('button', { name: /all weights/i }));
     expect(bodyRows()).toHaveLength(METHODS.length);
   });
@@ -204,7 +206,10 @@ describe('ComparisonMatrix', () => {
   it('reset restores filters and the initial sort', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
-    await user.click(screen.getByRole('button', { name: /^not released$/i }));
+    // Not released now matches zero methods (audit-corrected data), which
+    // would remove the table and its sort buttons; use Not disclosed, which
+    // still exercises a non-default filter before reset.
+    await user.click(within(screen.getByRole('group', { name: 'Filter by weights' })).getByRole('button', { name: /^not disclosed$/i }));
     await user.click(screen.getByRole('button', { name: /sort by method/i }));
 
     await user.click(screen.getByRole('button', { name: /^reset$/i }));

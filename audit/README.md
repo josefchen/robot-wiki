@@ -2186,6 +2186,13 @@ Exact source identities, original retrieval moments, final tuple reviews, comman
 
 
 <!-- rl-reader-current:start -->
+## Current: seo-merge audit checkpoint — 2026-09-16
+
+**905 complete / 89 incomplete / 994 original identities / 57 articles. 815 compound plans; 1,214 approval-ledger entries.** Counts are computed live from the merged ledgers, not acceptance. The audit lane remains open: nine citations stay unresolved with documented fetch failures or verified exceptions, and independent Sol/high scrutiny plus user testing remain pending with both skip flags false. Content remains RED until the content gate clears. Do not publish while the content gate is red.
+
+The seo-merge line carries the ten-article SEO corpus (57 published articles) alongside the audit workstream. Prior checkpoints are preserved below; this block tracks the live merged-tree counts and is refreshed as packets land.
+<!-- rl-reader-current:end -->
+
 ## Historical: six-method aggregate checkpoint — 2026-09-08
 
 **375 complete / 619 incomplete / 994 original identities / 47 articles. 281 compound plans; 359 exact approval objects.** Only original `audit/manipulation.md:rl-finetuning:11` applied: 30 AND-parts, 41 paired items, eight citations. This is implementation, not acceptance. RL-finetuning is 11/11; main RL remains 48/52. Formal Mission progress remains 307/331.
@@ -2193,7 +2200,6 @@ Exact source identities, original retrieval moments, final tuple reviews, comman
 Retained source passages and original retrieval provenance were verified without new requests. Recap closed status and cross-paper superlatives were removed; reported code is distinguished from inspected weights/licensing. Scientific conflicts, denominators and predecessor corrections remain. All 993 unselected records, 374 prior complete records, 280 prior plan objects/serialization and 356 prior approvals are preserved. Three exact member deltas retain all 47 inherited baseline failure objects. The stale originals 3/7/11 incompleteness assertion was replaced with exact distinct-plan/current-completion protection, retaining every original 6/8/9/10 mutation case.
 
 Final checks: 141/141 focused unit cases pass in eight files. The initial browser matrix passed 40/42; two desktop-only taxonomy selectors were repaired to exercise the visible drawer, and all four targeted viewport cases pass, yielding 42 distinct covered browser cases with overlapping reruns excluded. Eleven final captures were read; drawer Escape/inert/focus restoration, keyboard access to the rightmost table column, eight source tooltip pairs and complete bylines were checked at 375×812 and 1440×900. Normal lint including prelint and nonincremental TypeScript pass. Content remains RED at 624 findings plus nine separate citation gaps. OG facts, renderer inputs and 96 destination files are unchanged-input reuse only; no new build/export or render acceptance. The 35-minute wall target was exceeded, not met. Checks and real invocation failures are recorded in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-method-table-closeout-20260908`; the final handoff names their actual results. No whole-article P1, current liveness or review-date change is claimed. Content remains RED; 619 incomplete originals, nine separate citation gaps, 47 baseline failures, production/reading-time proof, full corpus/reference comparison and independent Sol/high scrutiny/user testing remain open. Both independent-validation skip flags remain false. Do not publish while the content gate is red.
-<!-- rl-reader-current:end -->
 
 ## Historical: correctly bound RL source checkpoint — 2026-09-08
 

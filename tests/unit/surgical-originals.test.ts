@@ -84,8 +84,10 @@ const surgicalPlans = plans.filter(
 
 describe('surgical originals: ledger rows and compound plans', () => {
   it('keeps all 768 prior plans first and appends exactly the 7 surgical plans', () => {
-    expect(plans).toHaveLength(813);
+    // The merged ledger keeps appending later packets; the surgical block
+    // keeps its append position, so pin the slot rather than a moving total.
     expect(plans.slice(0, 768).every((plan) => !plan.id.startsWith('surgical-'))).toBe(true);
+    expect(plans.slice(768, 775).map((plan) => plan.id)).toEqual(SURGICAL_PLAN_IDS);
     expect(surgicalPlans.map((plan) => plan.id)).toEqual(SURGICAL_PLAN_IDS);
     expect(surgicalPlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 6, 7, 8]);
   });
@@ -225,9 +227,12 @@ describe('surgical originals: approved deltas', () => {
   const FINAL_HASH = 'c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb';
 
   it('appends exactly 7 entries, same-same except the one combined prose move', () => {
-    // Ledger total on the seo-merge line: the surgical packet contributed
-    // exactly the 7 sg-r entries pinned below.
-    expect(deltas.entries).toHaveLength(1211);
+    // The merged delta ledger keeps appending later packets; the surgical
+    // block keeps its append position, so pin the slot rather than a moving
+    // total.
+    expect(
+      deltas.entries.slice(1158, 1165).map((delta) => delta.id),
+    ).toEqual(['1', '2', '3', '4', '6', '7', '8'].map((row) => `sg-r${row}-20260916-1`));
     expect(surgicalDeltas.map((delta) => delta.id).sort()).toEqual(
       ['1', '2', '3', '4', '6', '7', '8'].map((row) => `sg-r${row}-20260916-1`).sort(),
     );

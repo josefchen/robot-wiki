@@ -18,12 +18,18 @@ describe('source-backed visual-servo origin pair', () => {
       expect(record.evidenceFailures, `original ${ordinal}`).toEqual([]);
       expect(record.compound?.planId).toBe(`perception-calibration-servo-origins-${ordinal}-20260913`);
     }
-    // 2026-09-15 perception originals pass completed 16/18 (Horaud author
-    // PDF, horaud-dornaika-1995 registered) and 33/34 (D400 datasheet /
-    // PhoXi page, Azure leg retained); 9 and 17 stay held on the
-    // unreachable Tsai-Lenz IEEE abstract and must remain incomplete.
-    for (const ordinal of [9, 17]) {
-      expect(perception.claimRecords[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+    // 2026-09-16 perception pass completed 9 and 17: the Tsai-Lenz IEEE
+    // Xplore abstract page was fetched through the registered DOI and each
+    // row was adjudicated against the abstract's own printed words (row 9
+    // corrected to a camera-to-gripper solve, row 17 verified protocol
+    // mechanics). The full text remains paywalled and unclaimed.
+    for (const [ordinal, planId] of [
+      [9, 'perception-9-tsai-solve-20260916g'],
+      [17, 'perception-17-tsai-protocol-20260916g'],
+    ] as const) {
+      const record = perception.claimRecords[ordinal - 1];
+      expect(record.evidenceFailures, `original ${ordinal}`).toEqual([]);
+      expect(record.compound?.planId).toBe(planId);
     }
   });
 

@@ -129,10 +129,12 @@ describe('source-scoped neural SLAM prose', () => {
 
   it('preserves earlier source repairs and leaves excluded holds incomplete', () => {
     const current = records();
-    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 25, 40, 41, 42, 43, 44]) {
+    for (const ordinal of [12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 25, 26, 27, 31, 33, 40, 41, 42, 43, 44, 45, 49]) {
       expect(current[ordinal - 1].evidenceFailures, `original ${ordinal}`).toEqual([]);
     }
-    for (const ordinal of [18, 24, 26, 27, 31, 33, 45, 49]) {
+    // Later scene-representation packets completed the formerly excluded
+    // 18/24/26/27/31/33/45/49; only originals 1 and 10 remain incomplete.
+    for (const ordinal of [1, 10]) {
       expect(current[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
     }
     expect(source).toContain('<span className="block">Source: <Cite id="layered-costmaps-2014" /></span>');

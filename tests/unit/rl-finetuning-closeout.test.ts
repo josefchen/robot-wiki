@@ -14,7 +14,11 @@ const plans = () => catalog.map(p => p.id.startsWith('rl-finetuning-closeout-')
   ? structuredClone(p) : p);
 const rows = (compoundPlans = plans()) =>
   parseLedger('audit/manipulation.md', text('audit/manipulation.md'),
-    new Set(CITATIONS.map(c => c.id)), { compoundPlans })
+    new Set(CITATIONS.map(c => c.id)), {
+      // Plans only bind rows in their own ledger; scoping keeps each
+      // mutation re-parse proportional to this ledger, not the catalog.
+      compoundPlans: compoundPlans.filter(p => p.ledgerPath === 'audit/manipulation.md'),
+    })
     .find(section => section.slug === 'rl-finetuning')!.claimRecords;
 
 describe('bounded DPPO and ConRFT closeout', () => {

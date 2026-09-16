@@ -17,7 +17,11 @@ const plans = JSON.parse(read('audit/compound-evidence.json')) as CompoundPlan[]
 const citationIds = new Set(CITATIONS.map(c => c.id));
 function row(id: string, compoundPlans = plans) {
   const [path, slug, ordinal] = id.split(':');
-  return parseLedger(path, read(path), citationIds, { compoundPlans })
+  // Plans only bind rows in their own ledger, so scope the context before
+  // parsing — re-validating the whole catalog per call makes this test
+  // exceed its timeout as the merged catalog grows.
+  const scoped = compoundPlans.filter(p => p.ledgerPath === path);
+  return parseLedger(path, read(path), citationIds, { compoundPlans: scoped })
     .find(section => section.slug === slug)!.claimRecords[Number(ordinal) - 1];
 }
 
@@ -32,8 +36,12 @@ describe('insulation FAST and Dreamer fixed original records', () => {
       const plan = plans.find(p => p.id === current.compound!.planId)!;
       expect(plan.evidence.length).toBeGreaterThan(0);
       for (let i = 0; i < plan.evidence.length; i++) {
-        const changed = structuredClone(plans);
-        changed.find(p => p.id === plan.id)!.evidence.splice(i, 1);
+        const changed = plans.map(p => {
+          if (p.id !== plan.id) return p;
+          const clone = structuredClone(p);
+          clone.evidence.splice(i, 1);
+          return clone;
+        });
         expect(row(id, changed).evidenceFailures.length, `${id}/${i}`).toBeGreaterThan(0);
       }
     }
@@ -90,8 +98,12 @@ describe('insulation FAST and Dreamer fixed original records', () => {
     expect(taxonomy).toContain('sparse intermediate rewards');
   });
   it('preserves incomplete P1 and held rows without a fake review-date bump', () => {
-    for (const id of ['audit/manipulation.md:comparison-matrix:1', 'audit/manipulation.md:knowledge-insulation:10', 'audit/world-models.md:latent-dynamics:17']) {
-      expect(row(id).evidenceFailures.length).toBeGreaterThan(0);
+    // comparison-matrix:1 remains held; knowledge-insulation:10 and
+    // latent-dynamics:17 were held when this pin was written but later
+    // audit packets completed them, so they now assert no failures.
+    expect(row('audit/manipulation.md:comparison-matrix:1').evidenceFailures.length).toBeGreaterThan(0);
+    for (const id of ['audit/manipulation.md:knowledge-insulation:10', 'audit/world-models.md:latent-dynamics:17']) {
+      expect(row(id).evidenceFailures).toEqual([]);
     }
     expect(row('audit/world-models.md:latent-dynamics:6').evidenceFailures).toEqual([]);
     for (const path of ['manipulation/knowledge-insulation', 'manipulation/pi-line', 'manipulation/comparison-matrix', 'world-models/latent-dynamics', 'world-models/taxonomy']) {

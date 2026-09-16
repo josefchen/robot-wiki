@@ -59,7 +59,9 @@ describe('reliability-gap originals integration (packet 6be17fb6, 2026-09-15)', 
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
     }
-    expect(plans).toHaveLength(620);
+    // The merged ledger keeps appending later packets; this packet's block
+    // keeps its append slot at 606..619, so pin the slot, not a moving total.
+    expect(plans.slice(606, 620).map((p) => p.id)).toEqual(PLAN_IDS);
   });
 
   it('held row 6 stays byte-untouched in the old five-cell form', () => {
@@ -71,7 +73,12 @@ describe('reliability-gap originals integration (packet 6be17fb6, 2026-09-15)', 
 
   it('approved deltas carry the 14 new approval entries', () => {
     const deltas = JSON.parse(readFileSync(DELTAS, 'utf8')) as { entries: Array<{ id: string }> };
-    expect(deltas.entries).toHaveLength(694);
+    // Append-only ledger: pin the packet's slot at 677..690, not the total.
+    expect(
+      deltas.entries.slice(677, 691).map((e) => e.id),
+    ).toEqual(
+      [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((row) => `rg-r${row}-20260915-1`),
+    );
     const mine = deltas.entries.filter((e) => /^rg-r\d+-20260915-1$/.test(e.id));
     expect(mine).toHaveLength(14);
   });

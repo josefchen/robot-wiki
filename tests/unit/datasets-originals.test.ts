@@ -187,13 +187,14 @@ describe('datasets originals: ledger rows', () => {
 
 describe('datasets originals: compound plans', () => {
   it('appends exactly eleven new plans and preserves the prior 718 in order', () => {
-    expect(plans).toHaveLength(729);
+    // The merged ledger keeps appending later packets; pin this packet's
+    // append slot (718..728) rather than a moving total.
     expect(plans[717].id).toBe('grasp-planning-12-internal-local-and-20260916');
-    expect(plans.slice(718).map((plan) => plan.id)).toEqual(Object.values(planIdByRow));
+    expect(plans.slice(718, 729).map((plan) => plan.id)).toEqual(Object.values(planIdByRow));
   });
 
   it('binds every plan to the data-hardware datasets ledger with fresh digests', () => {
-    for (const plan of plans.slice(718)) {
+    for (const plan of plans.slice(718, 729)) {
       expect(plan.ledgerPath).toBe('audit/data-hardware.md');
       expect(plan.articleSlug).toBe('datasets');
       expect(plan.kind).toBe('explicit-parts');
@@ -206,7 +207,7 @@ describe('datasets originals: compound plans', () => {
   });
 
   it('covers every required (part, citation) pair exactly, with registered ids except the held deed part', () => {
-    for (const plan of plans.slice(718)) {
+    for (const plan of plans.slice(718, 729)) {
       const required = plan.parts.flatMap((part) =>
         part.requiredCitationIds.map((id) => JSON.stringify([part.id, id])));
       const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
@@ -230,7 +231,7 @@ describe('datasets originals: compound plans', () => {
       'ds6-held-38timesteps-license',
       'ds10-license-held',
     ]);
-    for (const plan of plans.slice(718)) {
+    for (const plan of plans.slice(718, 729)) {
       expect(plan.adjudications.map((review) => review.partId).sort())
         .toEqual(plan.parts.map((part) => part.id).sort());
       for (const review of plan.adjudications) {
@@ -266,13 +267,14 @@ describe('datasets originals: compound plans', () => {
 
 describe('datasets originals: approved deltas', () => {
   it('appends exactly eleven new entries and preserves the prior 793 in order', () => {
-    expect(deltas.entries).toHaveLength(804);
-    expect(deltas.entries[792].id).toBe('gp-r12-20260916-1');
-    expect(deltas.entries.slice(793).map((entry) => entry.id)).toEqual(newDeltaIds);
+    // The merged delta ledger keeps appending later packets; pin this
+    // packet's append slot (790..800) rather than a moving total.
+    expect(deltas.entries[789].id).toBe('gp-r12-20260916-1');
+    expect(deltas.entries.slice(790, 801).map((entry) => entry.id)).toEqual(newDeltaIds);
   });
 
   it('records every entry against the datasets prose member with the true before/after hashes', () => {
-    for (const entry of deltas.entries.slice(793)) {
+    for (const entry of deltas.entries.slice(790, 801)) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:data-hardware/datasets');
       expect(entry.oldHash).toBe(OLD_PROSE_HASH);

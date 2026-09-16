@@ -108,12 +108,11 @@ function rowCells(index: number): string[] {
 
 describe('scene-representation originals: compound plans appended lawfully', () => {
   it('carries exactly the 9 dispatched plans, append-only after the 740 prior plans', () => {
-    // 768 = 759 at the space checkpoint + 9 generative-video plans appended by
-    // the generative-video originals integration (2026-09-16)
-    // appended by the space originals integration (2026-09-16).
-    // 775 = 768 at the generative-video checkpoint + 7 surgical plans
-    // appended by the surgical originals integration (2026-09-16).
-    expect(plans.length).toBe(775);
+    // The merged ledger keeps appending later packets; this packet's block
+    // keeps its append slot at 740..748, so pin the slot, not a moving total.
+    expect(plans.slice(740, 749).map((plan) => plan.id).sort()).toEqual(
+      [...EXPECTED_PLAN_IDS].sort(),
+    );
     const mine = plans.filter((plan) => EXPECTED_PLAN_IDS.includes(plan.id));
     expect(mine.map((plan) => plan.id).sort()).toEqual([...EXPECTED_PLAN_IDS].sort());
     // Append-only: no prior plan id moved or disappeared. Two older
@@ -228,9 +227,12 @@ describe('scene-representation originals: packet-critical passages survive verba
 
 describe('scene-representation originals: approved deltas and protected neighbors', () => {
   it('appends exactly the 9 dispatched delta entries after the 815 prior ones', () => {
-    // 852 = 845 at the generative-video checkpoint + 7 surgical deltas
-    // appended by the surgical originals integration (2026-09-16).
-    expect(deltas.entries.length).toBe(852);
+    // The merged delta ledger keeps appending later packets; this packet's
+    // entries keep their append slot at 1116..1124 (id order differs from
+    // ordinal order), so pin the slot, not a moving total.
+    expect(deltas.entries.slice(1116, 1125).map((entry) => entry.id).sort()).toEqual(
+      [...ROW_ORDINALS].map((ordinal) => `sr-r${ordinal}-20260916-1`).sort(),
+    );
     const mine = deltas.entries.filter((entry) => entry.id.startsWith('sr-r'));
     expect(mine.map((entry) => entry.id).sort()).toEqual(
       [...ROW_ORDINALS].map((ordinal) => `sr-r${ordinal}-20260916-1`).sort(),

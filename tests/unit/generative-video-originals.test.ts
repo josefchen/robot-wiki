@@ -86,9 +86,9 @@ const mine = gvPlans.filter((plan) => GV_PLAN_IDS.includes(plan.id));
 
 describe('generative-video originals: ledger rows and compound plans', () => {
   it('keeps all 759 prior plans first and appends exactly the 9 dispatched plans', () => {
-    // 775 = 768 at this lane's close + 7 surgical plans appended by the
-    // surgical originals integration (2026-09-16)
-    expect(plans).toHaveLength(775);
+    // The merged ledger keeps appending later packets; this packet's block
+    // keeps its append slot at 759..767, so pin the slot, not a moving total.
+    expect(plans.slice(759, 768).map((plan) => plan.id)).toEqual(GV_PLAN_IDS);
     expect(plans.slice(0, 759).every((plan) => !plan.id.startsWith('generative-video-6-'))).toBe(true);
     expect(mine.map((plan) => plan.id)).toEqual(GV_PLAN_IDS);
     expect(mine.map((plan) => plan.rowOrdinal)).toEqual([6, 11, 12, 15, 16, 17, 20, 21, 22]);
@@ -265,7 +265,16 @@ describe('generative-video originals: approved deltas', () => {
   const gvDeltas = deltas.entries.filter((delta) => delta.id.startsWith('gv-'));
 
   it('appends 9 row entries plus the relationships and frontmatter members, append-only', () => {
-    expect(deltas.entries).toHaveLength(852);
+    // The merged delta ledger keeps appending later packets; this packet's
+    // 11 entries keep their append slot at 1135..1145, so pin the slot, not
+    // a moving total.
+    expect(deltas.entries.slice(1135, 1146).map((delta) => delta.id).sort()).toEqual(
+      [
+        ...[6, 11, 12, 15, 16, 17, 20, 21, 22].map((row) => `gv-r${row}-20260916-1`),
+        'gv-relationships-20260916-1',
+        'gv-article-metadata-20260916-1',
+      ].sort(),
+    );
     expect(gvDeltas.filter((delta) => delta.manifest === 'prose').map((delta) => delta.id).sort())
       .toEqual([6, 11, 12, 15, 16, 17, 20, 21, 22].map((row) => `gv-r${row}-20260916-1`).sort());
     expect(gvDeltas.filter((delta) => delta.manifest === 'relationships')).toHaveLength(1);

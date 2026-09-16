@@ -75,7 +75,7 @@ test('illustrative SVG geometry follows independently calculated raw weights', (
   expect(bars.map(b => Number(b[3]))).toEqual([0.95, 0.65, 0.45]);
 });
 
-test('ACT preserves original row histories and requires all seven P1 identities', async () => {
+test('ACT preserves original row histories and requires all sixteen P1 identities', async () => {
   const { parseLedger, originalClaimDigest } = await import('@/lib/audit-ledger');
   const { CITATIONS } = await import('@/data/citations');
   const { default: matter } = await import('gray-matter');
@@ -86,7 +86,9 @@ test('ACT preserves original row histories and requires all seven P1 identities'
     compoundPlans: plans, articleCitations: { 'action-chunking': matter(source).data.citations },
   }).find(s => s.slug === 'action-chunking')!;
   expect(act.claimRows).toBe(32);
-  expect(act.claimRecords.filter(r => !r.evidenceFailures.length)).toHaveLength(23);
+  // Later action-chunking packets completed the remaining originals; all 32
+  // claim records now carry no evidence failures.
+  expect(act.claimRecords.filter(r => !r.evidenceFailures.length)).toHaveLength(32);
   expect(act.claimRecords[13].citationId).toBe('act-reference-2023');
   expect(act.claimRecords[13].verdict).toBe('corrected');
   expect(act.claimRecords[31].verdict).toBe('corrected');
@@ -105,7 +107,10 @@ test('ACT preserves original row histories and requires all seven P1 identities'
   const p1 = plans.find((p: { id: string }) => p.id === 'action-chunking-frontmatter-p1');
   expect(p1.parts.flatMap((p: { requiredCitationIds: string[] }) => p.requiredCitationIds)).toEqual(matter(source).data.citations);
   expect(p1.planReview).not.toBeNull();
-  expect(p1.adjudications).toHaveLength(7);
+  // The frontmatter identity union grew to sixteen parts; adjudications
+  // must cover every part.
+  expect(p1.adjudications).toHaveLength(16);
+  expect(p1.adjudications).toHaveLength(p1.parts.length);
   expect(closeout.find((r: { rowOrdinal: number }) => r.rowOrdinal === 32).originalPlan.evidence).toEqual([]);
   for (const part of p1.parts) {
     const mutated = structuredClone(plans);
