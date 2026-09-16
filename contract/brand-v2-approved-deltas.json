@@ -15427,6 +15427,204 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "gv-r6-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
+   "newHash": "1de350b01f0799ce4833450502c1e4441f34ad7b7bd2d867fe573d89b25ebb05",
+   "reason": "Exactly world-models/generative-video original 6: Cosmos 3 launch-dateline re-evidence on the newly registered NVIDIA launch release (nvidia-cosmos-3-launch-2026; dateline 'NVIDIA GTC Taipei', dated May 31, 2026); the existing 'launched at GTC Taipei in late May 2026' correction stands and the launch span's Cite moves from the technical-report citation (cosmos-3-2026) to the launch release. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r11-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
+   "newHash": "1de350b01f0799ce4833450502c1e4441f34ad7b7bd2d867fe573d89b25ebb05",
+   "reason": "Exactly world-models/generative-video original 11: Genie 1 evidence completion on the newly registered genie-1-2024 (30,000 hours of Internet gameplay videos from hundreds of 2D platformer games, latent action interface learned fully unsupervised from Internet videos, 'Genie currently operates around 1FPS'); the span gains its missing Cite marker. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r12-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
+   "newHash": "1de350b01f0799ce4833450502c1e4441f34ad7b7bd2d867fe573d89b25ebb05",
+   "reason": "Exactly world-models/generative-video original 12: the dispatched source correction. 'at 360p' is printed by no fetchable text (the Genie 3 blog's comparison table is an image; the models page carries no Genie 2 text), so it is cut; the span is rescoped to the printed 'consistent worlds for up to a minute, with the majority of examples shown lasting 10-20s' and gains the newly registered genie-2-2024 Cite. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r15-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "newHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "reason": "Exactly world-models/generative-video original 15: Project Genie evidence completion across project-genie-2026 (Ars: 60-seconds-at-a-time AI Ultra gating, 60-second exploration cap) and the newly registered first-party google-project-genie-2026 (AI Ultra U.S. rollout, 'Limitations in generations to 60 seconds'); the earlier because-clause cut is confirmed absent from both sources; no article change from this row. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r16-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "newHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "reason": "Exactly world-models/generative-video original 16: GR-1 evidence completion on registered gr-1-2023 (CALVIN 88.9% to 94.9%, zero-shot unseen scenes 53.3% to 85.4%, pre-train-then-finetune design, end-to-end image/action prediction, all verbatim in the abstract); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r17-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "newHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "reason": "Exactly world-models/generative-video original 17: GR-2 evidence completion on registered gr-2-2024 (38 million video clips, over 50 billion tokens, 97.7% average success across more than 100 tasks, all verbatim in the abstract); no article change. The Gemini Robotics GR2 robot posts bound elsewhere (humanoid-wbc) are distinct documents and are not reused here. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r20-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "newHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "reason": "Exactly world-models/generative-video original 20: 1X World Model Lab evidence completion on registered 1x-world-model-lab-2026 (JUN 04 '26 byline, Sam Sinha ex-Luma AI appointment, five-part data mixture, pre-training-your-own-video-foundation-models line); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r21-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "newHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+   "reason": "Exactly world-models/generative-video original 21: Odyssey-2 evidence completion on registered odyssey-2-2025 (causal and autoregressive, real-time action-aware streaming, new frame every 50 milliseconds / 20 fps, real-time text steering, October 27th, 2025 byline); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-r22-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
+   "newHash": "1de350b01f0799ce4833450502c1e4441f34ad7b7bd2d867fe573d89b25ebb05",
+   "reason": "Exactly world-models/generative-video original 22: Starchild-1/Agora-1 evidence completion on the two newly registered pages odyssey-starchild-1-2026 ('synchronized audio and video in real-time', May 17th, 2026) and odyssey-agora-1-2026 ('up to four players to interact within the same generated world in real time', May 18th, 2026); the span gains its missing Cite markers. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-relationships-20260916-1",
+   "manifest": "relationships",
+   "memberId": "article:world-models/generative-video",
+   "oldHash": "d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd",
+   "newHash": "776ddde0d3314b1503834a5c61919df19e57db322e2ca4cb1a5edb367fd3b310",
+   "reason": "Relationships member of the same 9-record application: the body's Cite set changes exactly as the packet's missingDependencies direct (launch span cosmos-3-2026 -> nvidia-cosmos-3-launch-2026; genie-1-2024, genie-2-2024, odyssey-starchild-1-2026, odyssey-agora-1-2026 attached to previously uncited spans). No seeAlso, term, or internal-link change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "gv-article-metadata-20260916-1",
+   "manifest": "article-metadata",
+   "memberId": "article-fact-frontmatter:world-models/generative-video",
+   "oldHash": "c451dead7ec4a9ad4a00c0e55d9060c32574824cdbb6e07f80614d5fc5a80f82",
+   "newHash": "8c10aa6ef77a24e9255011bd22a4fe2872266a57ae532f9f981adad3dd711f1b",
+   "reason": "Frontmatter-facts member of the same 9-record application: the declared citation list gains the five newly attached registry ids (nvidia-cosmos-3-launch-2026, genie-1-2024, genie-2-2024, odyssey-starchild-1-2026, odyssey-agora-1-2026) so the References list covers every body citation; lastReviewed is deliberately not moved (partial-article evidence pass, not a whole-article clean audit). Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-generative-video-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 9 selected records of frozen packet convergence-source-n-generative-video-20260916e, sha256 bf74a8266bad76a19353dc32d0627462f83c15db8139f19b6e1937d4ca863f88) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-003",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
   ]
 }

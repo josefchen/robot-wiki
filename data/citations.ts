@@ -3641,6 +3641,22 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
+    // NVIDIA newsroom launch release for Cosmos 3, registered by the
+    // generative-video integrator for the launch dateline only. Fetched
+    // live by the frozen packet's source session (curl GET 200, 2026-09-16,
+    // 83,088 bytes, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/nv-launch-release.html);
+    // prints the dateline 'NVIDIA GTC Taipei' and the date string
+    // 'May 31, 2026'. The technical report stays on cosmos-3-2026.
+    id: 'nvidia-cosmos-3-launch-2026',
+    title: 'NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'NVIDIA Newsroom',
+    url: 'https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai',
+    type: 'press',
+  },
+  {
     // Official body dated2026-6-22; arXiv2606.02800v4 lists NVIDIA
     // and294 individuals, matching the complete AppendixG.1 contributor set.
     // G.2 acknowledgments are separate; no whole-edition byte equivalence implied.
@@ -3972,6 +3988,96 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Genie 1 paper, registered by the generative-video integrator. Abs
+    // page and full PDF fetched live by the frozen packet's source session
+    // (curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/genie1-abs.html
+    // and genie1-paper.txt); 25-author list and order taken verbatim from
+    // the abs page. The abs page prints no venue (the packet's proposed
+    // 'ICML 2024' is printed by no retained text, so no venue is recorded).
+    id: 'genie-1-2024',
+    title: 'Genie: Generative Interactive Environments',
+    authors: [
+      'Jake Bruce',
+      'Michael Dennis',
+      'Ashley Edwards',
+      'Jack Parker-Holder',
+      'Yuge Shi',
+      'Edward Hughes',
+      'Matthew Lai',
+      'Aditi Mavalankar',
+      'Richie Steigerwald',
+      'Chris Apps',
+      'Yusuf Aytar',
+      'Sarah Bechtle',
+      'Feryal Behbahani',
+      'Stephanie Chan',
+      'Nicolas Heess',
+      'Lucy Gonzalez',
+      'Simon Osindero',
+      'Sherjil Ozair',
+      'Scott Reed',
+      'Jingwei Zhang',
+      'Konrad Zolna',
+      'Jeff Clune',
+      'Nando de Freitas',
+      'Satinder Singh',
+      'Tim Rocktäschel',
+    ],
+    year: 2024,
+    arxiv: '2402.15391',
+    url: 'https://arxiv.org/abs/2402.15391',
+    type: 'paper',
+  },
+  {
+    // Genie 2 blog, registered by the generative-video integrator. Fetched
+    // live twice by the frozen packet's source session (FetchUrl 200 and
+    // curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/genie2-blog.html);
+    // 32-name byline taken verbatim from the page ('Please cite as
+    // Parker-Holder et al.' also printed), byline date December 4, 2024.
+    id: 'genie-2-2024',
+    title: 'Genie 2: A large-scale foundation world model',
+    authors: [
+      'Jack Parker-Holder',
+      'Philip Ball',
+      'Jake Bruce',
+      'Vibhavari Dasagi',
+      'Kristian Holsheimer',
+      'Christos Kaplanis',
+      'Alexandre Moufarek',
+      'Guy Scully',
+      'Jeremy Shar',
+      'Jimmy Shi',
+      'Stephen Spencer',
+      'Jessica Yung',
+      'Michael Dennis',
+      'Sultan Kenjeyev',
+      'Shangbang Long',
+      'Vlad Mnih',
+      'Harris Chan',
+      'Maxime Gazeau',
+      'Bonnie Li',
+      'Fabio Pardo',
+      'Luyu Wang',
+      'Lei Zhang',
+      'Frederic Besse',
+      'Tim Harley',
+      'Anna Mitenkova',
+      'Jane Wang',
+      'Jeff Clune',
+      'Demis Hassabis',
+      'Raia Hadsell',
+      'Adrian Bolton',
+      'Satinder Singh',
+      'Tim Rocktäschel',
+    ],
+    year: 2024,
+    venue: 'Google DeepMind',
+    url: 'https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/',
+    type: 'blog',
+  },
+  {
     // Verified against the DeepMind blog (2026-08-08): byline Jack
     // Parker-Holder and Shlomi Fruchter, 2025-08-05; 24 fps, 720p,
     // few-minutes consistency, published limitation list.
@@ -4155,6 +4261,36 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
+    // Starchild-1 announcement, registered by the generative-video
+    // integrator. Fetched live twice by the frozen packet's source session
+    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/starchild.html);
+    // byline Oliver Cameron, May 17th, 2026; prints 'synchronized audio and
+    // video in real-time'.
+    id: 'odyssey-starchild-1-2026',
+    title: 'Starchild-1: The First Real-Time Multimodal World Model',
+    authors: ['Oliver Cameron'],
+    year: 2026,
+    venue: 'Odyssey',
+    url: 'https://odyssey.systems/introducing-starchild-1',
+    type: 'blog',
+  },
+  {
+    // Agora-1 announcement, registered by the generative-video
+    // integrator. Fetched live twice by the frozen packet's source session
+    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/agora.html);
+    // byline Oliver Cameron, May 18th, 2026; prints 'up to four players to
+    // interact within the same generated world in real time'.
+    id: 'odyssey-agora-1-2026',
+    title: 'Agora-1: The Multi-Agent World Model',
+    authors: ['Oliver Cameron'],
+    year: 2026,
+    venue: 'Odyssey',
+    url: 'https://odyssey.systems/introducing-agora-1',
+    type: 'blog',
+  },
+  {
     // Verified against Ars Technica (2026-08-08): Ryan Whitwam,
     // 2026-01-29; Project Genie launch coverage reporting the 60-second
     // per-world session cap. Press source (no first-party technical post
@@ -4167,6 +4303,24 @@ export const CITATIONS: Citation[] = [
     venue: 'Ars Technica',
     url: 'https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/',
     type: 'press',
+  },
+  {
+    // Google's own Project Genie blog, registered by the generative-video
+    // integrator as a first-party durability addition beside the Ars press
+    // citation. Fetched live twice by the frozen packet's source session
+    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/google-project-genie.html);
+    // prints the Jan 29, 2026 AI Ultra U.S. rollout and the limitation list
+    // 'Limitations in generations to 60 seconds'. Page H1/og:title is the
+    // registered title (the <title> tag is an SEO variant); no personal
+    // byline is printed, so the corporate author stands.
+    id: 'google-project-genie-2026',
+    title: 'Project Genie: Experimenting with infinite, interactive worlds',
+    authors: ['Google'],
+    year: 2026,
+    venue: 'Google (The Keyword)',
+    url: 'https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/',
+    type: 'blog',
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 4 authors,

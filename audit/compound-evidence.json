@@ -66617,5 +66617,423 @@
     "evidenceDigest": "5cfe7208d4f45f428f1614d65a80d8e82084ea88d5a65aef7f738c7012cf14b3"
    }
   ]
+ },
+ {
+  "id": "generative-video-6-cosmos3-launch-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "925bfa91e62b89f19e411060196354d7d2601cd277df18f7f29b56644a55d4a2",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv6-launch-dateline",
+    "text": "Cosmos 3 was launched at GTC Taipei in late May 2026, per the NVIDIA launch release datelined 'NVIDIA GTC Taipei' and dated date string not machine-extracted.",
+    "requiredCitationIds": [
+     "nvidia-cosmos-3-launch-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:6 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). Article citation attachment this pass. Cosmos 3 launch dateline re-evidence: NVIDIA newsroom launch release (registered nvidia-cosmos-3-launch-2026) prints the GTC Taipei dateline sentence and the May 31, 2026 date string; the existing article correction (launched at GTC Taipei in late May 2026) stands, and the launch span now cites the launch release instead of the technical report. Zero retrieval by this integrator.",
+   "planDigest": "c3ba67972fb2822e94a2abc21388d30c458abf742f8e5c78627b73634d48d29d"
+  },
+  "evidence": [
+   {
+    "partId": "gv6-launch-dateline",
+    "citationId": "nvidia-cosmos-3-launch-2026",
+    "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai",
+    "supportingPassage": "NVIDIA GTC Taipei —NVIDIA today launched NVIDIA Cosmos™ 3 , an open world foundation model for physical AI built on a breakthrough mixture-of-transformers architecture that combines vision reasoning, world generation and action prediction in a single system."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv6-launch-dateline",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Cosmos 3 launch dateline re-evidence: NVIDIA newsroom launch release (registered nvidia-cosmos-3-launch-2026) prints the GTC Taipei dateline sentence and the May 31, 2026 date string; the existing article correction (launched at GTC Taipei in late May 2026) stands, and the launch span now cites the launch release instead of the technical report. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "3507b3b2e41f06844c464cd0b1175deb8085dd3caabea57d5e6708fe28e58e12"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-11-genie1-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "170abd47ee35f3042af97e71f76675ad4f8b3b58bddf9308ca08ba0778e1b8b3",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv11-genie1-facts",
+    "text": "The original Genie learned latent actions unsupervised from 30,000 hours of Internet gameplay videos (hundreds of 2D platformers) and generated 2D worlds at about one frame per second ('Genie currently operates around 1FPS').",
+    "requiredCitationIds": [
+     "genie-1-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:11 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). Article citation attachment this pass. Genie 1 facts: 30,000 hours of Internet gameplay videos from hundreds of 2D platformer games, latent action interface learned fully unsupervised from Internet videos, and the printed 1FPS limitation, all verbatim in the retained PDF text. Zero retrieval by this integrator.",
+   "planDigest": "d652c6bfaed803522b10a3edf4898184d75b4dc65b9f6b8e7aa6416b121dec92"
+  },
+  "evidence": [
+   {
+    "partId": "gv11-genie1-facts",
+    "citationId": "genie-1-2024",
+    "sourceUrl": "https://arxiv.org/pdf/2402.15391",
+    "supportingPassage": "parameter model. We train Genie on a filtered set of 30,000 hours of Internet gameplay videos from hundreds of 2D platformer games, producing a foundation world model for this setting. To demonstrate the generality of our approach, made possible via a latent action interface, learned fully unsupervised from Internet videos. On the right we see a few generated steps for taking two latent actions. See more examples on our website. to get consistent environments over long horizons. Finally, Genie currently operates around 1FPS and requires future advances to achieve an efficient frame rate for interaction. Still, we believe Genie opens up vast potential for future research. Given its generality, the"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv11-genie1-facts",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Genie 1 facts: 30,000 hours of Internet gameplay videos from hundreds of 2D platformer games, latent action interface learned fully unsupervised from Internet videos, and the printed 1FPS limitation, all verbatim in the retained PDF text. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "f1820e7b40bc9784193b5d80c8b75c2ac11b1aa38d5e155adb69d2b838854179"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-12-genie2-scope-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 12,
+  "originalCellsDigest": "e35e24f1e6b50773aa4f335400e82403b4bb5a35debf6cd2741616b7e75b7492",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv12-genie2-printed-facts",
+    "text": "Genie 2 (announced December 4, 2024) generates consistent 3D worlds for up to a minute, with the majority of examples lasting 10-20s.",
+    "requiredCitationIds": [
+     "genie-2-2024"
+    ]
+   },
+   {
+    "id": "gv12-360p-cut",
+    "text": "Correction part: the article span drops 'at 360p'; the figure appears only inside the Genie 3 blog's comparison-table image and is printed by no machine-readable text, so it cannot carry verbatim evidence.",
+    "requiredCitationIds": [
+     "genie-3-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:12 (ready-source-correction) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). Article span corrected this pass: 360p cut, horizons rescoped to the printed sentence. Genie 2 scope correction: December 4, 2024 byline, complex 3D visual scenes, and the up-to-a-minute / 10-20s horizon sentence are verbatim from the Genie 2 blog; the 360p figure is printed by no fetchable text (the Genie 3 blog comparison table is an image and the models page carries no Genie 2 text), so it is cut from the article span and the ledger tuple. Zero retrieval by this integrator.",
+   "planDigest": "0df1d06df44bf53412dd5ec1e5b94db9edae0eb5c1db8e286ec4930a45fd9493"
+  },
+  "evidence": [
+   {
+    "partId": "gv12-genie2-printed-facts",
+    "citationId": "genie-2-2024",
+    "sourceUrl": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+    "supportingPassage": "Genie 2 can generate consistent worlds for up to a minute, with the majority of examples shown lasting 10-20s."
+   },
+   {
+    "partId": "gv12-360p-cut",
+    "citationId": "genie-3-2025",
+    "sourceUrl": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+    "supportingPassage": "The Genie 3 blog renders its Genie 1/2/3 comparison as an image; the saved HTML (sources/genie3-blog.html) contains no 360p text in any element or attribute."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv12-genie2-printed-facts",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Genie 2 scope correction: December 4, 2024 byline, complex 3D visual scenes, and the up-to-a-minute / 10-20s horizon sentence are verbatim from the Genie 2 blog; the 360p figure is printed by no fetchable text (the Genie 3 blog comparison table is an image and the models page carries no Genie 2 text), so it is cut from the article span and the ledger tuple. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "20ca51a7e660a2498583f8ed14eaea605a38280f23e61ac235a244df3106fc60"
+   },
+   {
+    "partId": "gv12-360p-cut",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Genie 2 scope correction: December 4, 2024 byline, complex 3D visual scenes, and the up-to-a-minute / 10-20s horizon sentence are verbatim from the Genie 2 blog; the 360p figure is printed by no fetchable text (the Genie 3 blog comparison table is an image and the models page carries no Genie 2 text), so it is cut from the article span and the ledger tuple. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "802a1df2e1ed463b0474131e8fd3498ce8c90bdc32a04f20e2e665d02c977ae4"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-15-project-genie-cap-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 15,
+  "originalCellsDigest": "cd15eaa2a8663a1feee068f2a71c0cf48ad7c45f320bce580cab4c24d1626e18",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv15-cap-and-gating",
+    "text": "Project Genie, released January 2026, is gated to Google AI Ultra subscribers and caps exploration of each world at 60 seconds.",
+    "requiredCitationIds": [
+     "project-genie-2026",
+     "google-project-genie-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:15 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). No article change from this row. Project Genie cap and gating: Ars Technica prints the 60-seconds-at-a-time AI Ultra gating and the 60-second exploration cap; Google's own blog prints the AI Ultra U.S. rollout and the limitation-list line Limitations in generations to 60 seconds; the because-clause cut is confirmed absent from both sources. Zero retrieval by this integrator.",
+   "planDigest": "71b4e5b5cd6fa7ef9b96979b5974146c8ec7e0a8118b1107fedc879cb0bd8d22"
+  },
+  "evidence": [
+   {
+    "partId": "gv15-cap-and-gating",
+    "citationId": "project-genie-2026",
+    "sourceUrl": "https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/",
+    "supportingPassage": "Project Genie lets you generate new worlds 60 seconds at a time, but only if you pay for AI Ultra. However, there will be some input lag, and you can only explore each world for 60 seconds."
+   },
+   {
+    "partId": "gv15-cap-and-gating",
+    "citationId": "google-project-genie-2026",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
+    "supportingPassage": "Starting today, we're rolling out access to Project Genie for Google AI Ultra subscribers in the U.S (18+). Since Genie 3 is an early research model, there are a few known areas for improvement: Generated worlds might not look completely true-to-life or always adhere closely to prompts or images, or real-world physics Characters can sometimes be less controllable, or experience higher latency in control Limitations in generations to 60 seconds A few of the Genie 3 model capabilities we announced in August, such as promptable events that change the world as you explore it, are not yet included in this prototype."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv15-cap-and-gating",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Project Genie cap and gating: Ars Technica prints the 60-seconds-at-a-time AI Ultra gating and the 60-second exploration cap; Google's own blog prints the AI Ultra U.S. rollout and the limitation-list line Limitations in generations to 60 seconds; the because-clause cut is confirmed absent from both sources. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "93f7bb05cbcb1c6103ead193fe9dea416edd96c6ed1e7782847fbf395104a7fe"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-16-gr1-calvin-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "aca65c7d289ace20f8f7b1d80ce9bb05d5a6ef0d2dbb8542771c96e26d68df6e",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv16-gr1-figures",
+    "text": "GR-1 pre-trains on large-scale video then fine-tunes on robot data, predicting actions and future images end to end; CALVIN success improves 88.9%->94.9% and zero-shot unseen scenes 53.3%->85.4% (abstract, verbatim).",
+    "requiredCitationIds": [
+     "gr-1-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:16 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). No article change from this row. GR-1 figures: CALVIN 88.9% to 94.9% and zero-shot unseen scenes 53.3% to 85.4%, plus the pre-train-then-finetune design and end-to-end image/action prediction, all verbatim in the registered arXiv abstract. Zero retrieval by this integrator.",
+   "planDigest": "0f824c550178b69733e27db8884a5b26fa2d92048b9cc5eb5173500912d530ae"
+  },
+  "evidence": [
+   {
+    "partId": "gv16-gr1-figures",
+    "citationId": "gr-1-2023",
+    "sourceUrl": "https://arxiv.org/abs/2312.13139",
+    "supportingPassage": "Thanks to a flexible design, GR-1 can be seamlessly finetuned on robot data after pre-trained on a large-scale video dataset. It predicts robot actions as well as future images in an end-to-end manner. On CALVIN benchmark, our method outperforms state-of-the-art baseline methods and improves the success rate from 88.9% to 94.9%. In the setting of zero-shot unseen scene generalization, GR-1 improves the success rate from 53.3% to 85.4%."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv16-gr1-figures",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): GR-1 figures: CALVIN 88.9% to 94.9% and zero-shot unseen scenes 53.3% to 85.4%, plus the pre-train-then-finetune design and end-to-end image/action prediction, all verbatim in the registered arXiv abstract. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "35a2ec3deb2a004fef03913371b63f7227d31fb54772c0033c2ca1080cfcfc9e"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-17-gr2-scale-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 17,
+  "originalCellsDigest": "c7b3bc941dc978caf9115cdff46d523b1c6413e95863de862e6e9dfb544d61c3",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv17-gr2-figures",
+    "text": "GR-2 is pre-trained on 38 million video clips (over 50 billion tokens) and fine-tuned on robot trajectories, achieving 97.7% average success across more than 100 tasks (abstract, verbatim).",
+    "requiredCitationIds": [
+     "gr-2-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:17 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). No article change from this row. GR-2 scale: 38 million video clips, over 50 billion tokens, and 97.7% average success across more than 100 tasks, all verbatim in the registered arXiv abstract. Zero retrieval by this integrator.",
+   "planDigest": "bf8265d7f376a71ee8f005e467808e40ececfc9b0578ef65e172da72e9e799b1"
+  },
+  "evidence": [
+   {
+    "partId": "gv17-gr2-figures",
+    "citationId": "gr-2-2024",
+    "sourceUrl": "https://arxiv.org/abs/2410.06158",
+    "supportingPassage": "This large-scale pre-training, involving 38 million video clips and over 50 billion tokens, equips GR-2 with the ability to generalize across a wide range of robotic tasks and environments during subsequent policy learning. It exhibits impressive multi-task learning capabilities, achieving an average success rate of 97.7% across more than 100 tasks."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv17-gr2-figures",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): GR-2 scale: 38 million video clips, over 50 billion tokens, and 97.7% average success across more than 100 tasks, all verbatim in the registered arXiv abstract. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "6b2d04407d9bafc9549ba1d65ffa23f5c3fd060224254a1a04fa0d5e124bc903"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-20-1x-lab-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 20,
+  "originalCellsDigest": "56afed36dd8552f0f72fa41aabe3b0741eb0dbda892428470125bec5ac164736",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv20-lab-launch",
+    "text": "In June 2026 (byline JUN 04 '26) 1X established the 1X World Model Lab, a frontier research organization for large-scale embodied world model pretraining, led by Sam Sinha (previously a founding research scientist at Luma AI) as Founding AI Researcher and Head of World Models.",
+    "requiredCitationIds": [
+     "1x-world-model-lab-2026"
+    ]
+   },
+   {
+    "id": "gv20-data-mixture",
+    "text": "The lab's scaling recipe names the five-part mixture: web-scale media + egocentric human videos + sim + dexterous remote operated robot data + on-policy NEO data; the CEO's quote commits to pre-training 1X's own video foundation models.",
+    "requiredCitationIds": [
+     "1x-world-model-lab-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:20 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). No article change from this row. 1X World Model Lab: June 2026 (JUN 04 '26 byline) lab announcement, Sam Sinha ex-Luma AI appointment as Founding AI Researcher and Head of World Models, the five-part data mixture, and the pre-training-your-own-video-foundation-models line, all verbatim from the registered 1X blog. Zero retrieval by this integrator.",
+   "planDigest": "1c9c92320ff4cac1e1c332acb64c2cf5026dd853bbd919ef61729a5c1ac0ac84"
+  },
+  "evidence": [
+   {
+    "partId": "gv20-lab-launch",
+    "citationId": "1x-world-model-lab-2026",
+    "sourceUrl": "https://www.1x.tech/discover/1x-world-model-lab",
+    "supportingPassage": "Today, we're excited to announce that 1X has officially established the 1X World Model Lab , our new frontier research organization dedicated to accelerating the path to fully autonomous humanoids through large-scale embodied world model pretraining. Also, we’re proud to welcome Sam Sinha– previously a founding research scientist at Luma AI and a leader in scaling multimodal generative video models– as our Founding AI Researcher and Head of World Models."
+   },
+   {
+    "partId": "gv20-data-mixture",
+    "citationId": "1x-world-model-lab-2026",
+    "sourceUrl": "https://www.1x.tech/discover/1x-world-model-lab",
+    "supportingPassage": "The next frontier in AI requires scaling: web-scale media + egocentric human videos + sim + dexterous remote operated robot data + on-policy NEO data → real-world deployment for robot data collection and RL → abundance of data → physical AI But to reach full autonomy fastest you must own the entire stack — down to pre-training your own video foundation models."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv20-lab-launch",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): 1X World Model Lab: June 2026 (JUN 04 '26 byline) lab announcement, Sam Sinha ex-Luma AI appointment as Founding AI Researcher and Head of World Models, the five-part data mixture, and the pre-training-your-own-video-foundation-models line, all verbatim from the registered 1X blog. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "c23276b4cd9aebaa80a98f54043cbdf5d30fa392892f2dd153366a3af5976788"
+   },
+   {
+    "partId": "gv20-data-mixture",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): 1X World Model Lab: June 2026 (JUN 04 '26 byline) lab announcement, Sam Sinha ex-Luma AI appointment as Founding AI Researcher and Head of World Models, the five-part data mixture, and the pre-training-your-own-video-foundation-models line, all verbatim from the registered 1X blog. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "436d94cd43257a874fd55fce90f870a83551bd6a93acce4d1a789e695798d70d"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-21-odyssey2-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 21,
+  "originalCellsDigest": "cb63b8f47fadb78b8dc65a13758c0c486cf25d11e9d4e1fbbdec9d873d238cb3",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv21-odyssey2-facts",
+    "text": "Odyssey-2 (October 27th, 2025, Oliver Cameron) is a causal, autoregressive interactive video model: each frame is generated solely from prior frames and user actions, streamed at one new frame every 50 milliseconds (20 fps), and steerable with natural text prompts in real time.",
+    "requiredCitationIds": [
+     "odyssey-2-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:21 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). No article change from this row. Odyssey-2 facts: causal and autoregressive framing, real-time action-aware streaming, a new frame every 50 milliseconds (20 fps), and real-time text steering, all verbatim from the registered blog with the October 27th, 2025 byline. Zero retrieval by this integrator.",
+   "planDigest": "d7d5bcec3e31ceef3feb0c187253821a6f52c9d939cc459dbb81ac4fbcef88ca"
+  },
+  "evidence": [
+   {
+    "partId": "gv21-odyssey2-facts",
+    "citationId": "odyssey-2-2025",
+    "sourceUrl": "https://odyssey.ml/introducing-odyssey-2",
+    "supportingPassage": "In other words, it must be causal and autoregressive, generating each frame solely from the context of prior frames and your actions. With Odyssey-2, we’ve made this possible through a novel multi-stage training pipeline that transitions the model to causal behavior—yielding a real-time, action-aware video model that responds continuously to input. Odyssey-2 on the other hand begins streaming video instantly—producing a new frame of video every 50 milliseconds (meaning imagined video is streamed at 20 frames per second). As the video plays, you shape it in real time using natural text prompts—much like talking to a language model."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv21-odyssey2-facts",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Odyssey-2 facts: causal and autoregressive framing, real-time action-aware streaming, a new frame every 50 milliseconds (20 fps), and real-time text steering, all verbatim from the registered blog with the October 27th, 2025 byline. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "2f90c027019250bb897d1dcc04df3421c0935373800b7b05cee1ab59a91a6a20"
+   }
+  ]
+ },
+ {
+  "id": "generative-video-22-starchild-agora-20260916e",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-video",
+  "rowOrdinal": 22,
+  "originalCellsDigest": "2605eb5b55664bc31b6e52e057aa2c6ff3a679879ec7ad01a2a86db5b6d0bcc9",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gv22-starchild-audio",
+    "text": "Starchild-1 (previewed May 17th, 2026, Oliver Cameron) is presented as the first multimodal world model: a general world model that autoregressively generates synchronized audio and video in real time while responding to streaming user input.",
+    "requiredCitationIds": [
+     "odyssey-starchild-1-2026"
+    ]
+   },
+   {
+    "id": "gv22-agora-multiagent",
+    "text": "Agora-1 (released May 18th, 2026, Oliver Cameron) is a multi-agent world model: it allows up to four players to interact within the same generated world in real time.",
+    "requiredCitationIds": [
+     "odyssey-agora-1-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record generative-video:22 (ready-evidence-completion) genuinely reviewed before application: every evidence passage needle-verified by this integrator against the packet's retained fetch corpus (sha-verified sources in convergence-source-n-generative-video-20260916e); every cited id resolved in data/citations.ts at application HEAD 9d8cf93 (six new registrations applied in this same commit). Article citation attachment this pass. Starchild-1 and Agora-1: synchronized audio and video in real-time and the first-multimodal-world-model framing (May 17th, 2026) plus up to four players in the same generated world in real time (May 18th, 2026), verbatim from both newly registered pages. Zero retrieval by this integrator.",
+   "planDigest": "67897f764ceaf77c1dc0a200497002246eb4f35bc223c5d68a269e3cb58c864d"
+  },
+  "evidence": [
+   {
+    "partId": "gv22-starchild-audio",
+    "citationId": "odyssey-starchild-1-2026",
+    "sourceUrl": "https://odyssey.systems/introducing-starchild-1",
+    "supportingPassage": "Today, we’re excited to share a preview of Starchild-1, the world’s first multimodal world model. In Starchild-1, we’ve trained a general world model that autoregressively generates synchronized audio and video in real-time, while continuously responding to streaming user input."
+   },
+   {
+    "partId": "gv22-agora-multiagent",
+    "citationId": "odyssey-agora-1-2026",
+    "sourceUrl": "https://odyssey.systems/introducing-agora-1",
+    "supportingPassage": "Agora-1 enables multiple participants—human or AI—to share and interact within the same world simulation in real-time Agora-1 allows up to four players to interact within the same generated world in real time."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gv22-starchild-audio",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Starchild-1 and Agora-1: synchronized audio and video in real-time and the first-multimodal-world-model framing (May 17th, 2026) plus up to four players in the same generated world in real time (May 18th, 2026), verbatim from both newly registered pages. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "f5b2c755397b3c9048c86e7e9d8460ceab9270ddadff7556494d0777436ac28b"
+   },
+   {
+    "partId": "gv22-agora-multiagent",
+    "outcome": "supported",
+    "reviewedBy": "generative-video-integrator-20260916 (session 2a4d8b08-11f6-48ff-a8cd-c69cfd7db627, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Starchild-1 and Agora-1: synchronized audio and video in real-time and the first-multimodal-world-model framing (May 17th, 2026) plus up to four players in the same generated world in real time (May 18th, 2026), verbatim from both newly registered pages. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "bd699a6afe4cfd80885e96bdc45747058db64421f3fe43a8916f763b53600a79"
+   }
+  ]
  }
 ]
