@@ -65020,5 +65020,588 @@
       "evidenceDigest": "325938317c04bfbbac1e4c69a8de5d333300f13a8553aa50abb8e9a79163e480"
     }
   ]
-}
+},
+ {
+  "id": "drones-1-swift-intro-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "ed36073c52d239b7be6f1d6b81375e76a3717fb55b21aa0b996006b17e8e2573",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr1-racing-envelope",
+    "text": "Racing quadrotors exert forces several times their own weight (page: 'surpass their own weight by a factor of five or more'), reach more than 100 km/h and accelerations several times that of gravity, even in confined spaces (Swift Nature 2023, Main intro paragraph 2)",
+    "requiredCitationIds": [
+     "swift-drone-racing-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:1 (ready-evidence-completion) reviewed against the frozen packet: the Swift Nature intro passage was needle-verified against the packet's retained FetchUrl fetch (swift23-intro-racing-envelope, HTTP 200, 2026-09-16T05:56Z) and the registered citation resolves in data/citations.ts. The article span is a faithful paraphrase ('factor of five or more' vs 'several times their own weight'); no article change.",
+   "planDigest": "bda5b668406e0ff6a39874f98ea6da029b75b8dee7740709bf059c314f3f69f6"
+  },
+  "evidence": [
+   {
+    "partId": "dr1-racing-envelope",
+    "citationId": "swift-drone-racing-2023",
+    "sourceUrl": "https://www.nature.com/articles/s41586-023-06419-4",
+    "supportingPassage": "During a race, the vehicles exert forces that surpass their own weight by a factor of five or more, reaching speeds of more than 100 km h−1 and accelerations several times that of gravity, even in confined spaces."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr1-racing-envelope",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the retained Nature intro prints forces surpassing own weight by a factor of five or more, speeds of more than 100 km h-1, accelerations several times gravity, in confined spaces - every element of the claim.",
+    "evidenceDigest": "c1367f621c3a655108dd3ba48ab0010732273335efd99682bd0512101741a208"
+   }
+  ]
+ },
+ {
+  "id": "drones-2-loquercio-forests-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "77559a474c891f3ac6c67f2903128dbe9a8665809f2db7ce038c0bf07b311ba1",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr2-e2e-outperforms",
+    "text": "By 2021 (JREF: Science Robotics 2021 Vol. 6, Issue 59, abg5810) a neural-network policy flew through challenging real environments including dense forests with zero-shot transfer from simulation, outperforming traditional obstacle avoidance pipelines (Loquercio et al. abstract)",
+    "requiredCitationIds": [
+     "high-speed-flight-2021"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:2 reviewed: the Loquercio arXiv abstract passages (e2e + pipeline) needle-verified against the retained curl fetch (46,286 bytes, 2026-09-16T05:56:19Z); journal reference prints Science Robotics 2021. 'Classical' vs the abstract's 'traditional' pipelines recorded as synonym, not mismatch. No article change.",
+   "planDigest": "2c6d293b8dde4c05913293cff8d33284257218ed4b1b4afe7dfb5108bec0a1d5"
+  },
+  "evidence": [
+   {
+    "partId": "dr2-e2e-outperforms",
+    "citationId": "high-speed-flight-2021",
+    "sourceUrl": "https://arxiv.org/abs/2110.05113",
+    "supportingPassage": "Our work demonstrates that end-to-end policies trained in simulation enable high-speed autonomous flight through challenging environments, outperforming traditional obstacle avoidance pipelines. ... By simulating realistic sensor noise, our approach achieves zero-shot transfer from simulation to challenging real-world environments that were never experienced during training: dense forests, snow-covered terrain, derailed trains, and collapsed buildings. (Journal reference printed on the abs page: Science Robotics 2021 Vol. 6, Issue 59, abg5810)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr2-e2e-outperforms",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the retained abstract prints zero-shot transfer to the four environment classes and outperforming traditional obstacle avoidance pipelines; JREF prints 2021.",
+    "evidenceDigest": "1a5d873ab46ef14fc82a7d35449c7ebdf638283190bec10dfded8bc629e08fc6"
+   }
+  ]
+ },
+ {
+  "id": "drones-3-swift-recipe-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "f3a26a85498bfc933c8314c36cf30ce1dae9376344f9b6702e96b53cbce6e404",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr3-champions",
+    "text": "Swift raced three human champions including the world champions of two international leagues and won several races against each (abstract)",
+    "requiredCitationIds": [
+     "swift-drone-racing-2023"
+    ]
+   },
+   {
+    "id": "dr3-sim-residuals-fastest",
+    "text": "Control policy trained in simulation with model-free on-policy deep RL; data-driven residual models of perception and dynamics identified from real-world track data augment the simulator before fine-tuning; fastest race time recorded (Main/Fig. 2/Results)",
+    "requiredCitationIds": [
+     "swift-drone-racing-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:3 reviewed: champions abstract passage and the Main/Fig.2/Results residual-models passage both needle-verified against the same retained Nature fetch; every element of the claim (three champions, sim training, data-driven perception/dynamics residuals fitted from real track data, fastest race time, UZH) is printed. No article change.",
+   "planDigest": "509cadc40fa38d59928d8b0084252c18dab29b8862eeae55f5a245556ee541c5"
+  },
+  "evidence": [
+   {
+    "partId": "dr3-champions",
+    "citationId": "swift-drone-racing-2023",
+    "sourceUrl": "https://www.nature.com/articles/s41586-023-06419-4",
+    "supportingPassage": "Swift competed against three human champions, including the world champions of two international leagues, in real-world head-to-head races. Swift won several races against each of the human champions and demonstrated the fastest recorded race time."
+   },
+   {
+    "partId": "dr3-sim-residuals-fastest",
+    "citationId": "swift-drone-racing-2023",
+    "sourceUrl": "https://www.nature.com/articles/s41586-023-06419-4",
+    "supportingPassage": "The control policy is represented by a feedforward neural network and is trained in simulation using model-free on-policy deep RL. ... To transfer the racing policy from simulation to the physical world, we augment the simulation with data-driven residual models of the vehicle's perception and dynamics. These residual models are identified from real-world experience collected on the race track. ... These residual models are integrated into the simulation and the racing policy is fine-tuned in this augmented simulation. ... Swift also achieves the fastest race time recorded, with a lead of half a second over the best time clocked by a human pilot (A. Vanover). (Authors and Affiliations: 'Robotics and Perception Group, University of Zurich, Zurich, Switzerland'.)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr3-champions",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: abstract prints three champions incl. two league world champions and wins against each; Main/Fig.2/Results print sim-trained policy, data-driven perception/dynamics residuals identified from real track data, and the fastest recorded race time.",
+    "evidenceDigest": "e631d7b7c8ee3f792f061cf54a50784249692ea8e1c7a3c84853ba467d66e84c"
+   },
+   {
+    "partId": "dr3-sim-residuals-fastest",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: abstract prints three champions incl. two league world champions and wins against each; Main/Fig.2/Results print sim-trained policy, data-driven perception/dynamics residuals identified from real track data, and the fastest recorded race time.",
+    "evidenceDigest": "ff51a083c5c12f4f4d5f7f887f9effb30b3b43b45e224bbce93084c9041465a9"
+   }
+  ]
+ },
+ {
+  "id": "drones-4-song-rl-vs-oc-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "2a4cb1634439e27b907b5fb038f6ccb688d746ab1907ce32882968c0776a564c",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr4-rl-vs-oc",
+    "text": "Song et al. abstract: RL outperformed OC; advantage is 'a better objective' not 'optimizes better'; trajectory-as-interface limits OC; RL optimizes task-level reward with domain randomization; peak >12g and 108 km/h",
+    "requiredCitationIds": [
+     "racing-rl-vs-oc-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:4 reviewed: Song abstract passage needle-verified against the retained arXiv fetch (44,376 bytes); the 'greater than 12 times' vs ledger 'more than 12 times' transcription recorded in the row note. No article change.",
+   "planDigest": "0c47b5a4a6fdf9e19b394b4c42f1afb4f2061ccc99dd33cac7ca85d620a23068"
+  },
+  "evidence": [
+   {
+    "partId": "dr4-rl-vs-oc",
+    "citationId": "racing-rl-vs-oc-2023",
+    "sourceUrl": "https://arxiv.org/abs/2310.10943",
+    "supportingPassage": "We show that a neural network controller trained with reinforcement learning (RL) outperformed optimal control (OC) methods in this setting. ... Our study indicates that the fundamental advantage of RL over OC is not that it optimizes its objective better but that it optimizes a better objective. OC decomposes the problem into planning and control with an explicit intermediate representation, such as a trajectory, that serves as an interface. ... In contrast, RL can directly optimize a task-level objective and can leverage domain randomization to cope with model uncertainty ... Our findings allowed us to push an agile drone to its maximum performance, achieving a peak acceleration greater than 12 times the gravitational acceleration and a peak velocity of 108 kilometers per hour."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr4-rl-vs-oc",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the retained abstract prints the better-objective diagnosis, the trajectory-as-interface limitation, domain randomization, peak >12g and 108 km/h verbatim.",
+    "evidenceDigest": "0ccffb134ffdf3b6d03689ea4e331124cd9b764affa3feb946e601181d6aa92a"
+   }
+  ]
+ },
+ {
+  "id": "drones-5-loquercio-method-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "cf67fd77ed348489932638d55f389a506920042b3d6a77e19a22eac6ac7b96bc",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr5-method-and-critique",
+    "text": "Loquercio et al. abstract: depth-to-trajectory CNN in a receding-horizon loop, trained in simulation by privileged imitation, realistic sensor noise, zero-shot to forests/snow/derailed trains/collapsed buildings; pipeline critique printed verbatim: 'can be problematic for high-speed navigation in cluttered environments'",
+    "requiredCitationIds": [
+     "high-speed-flight-2021"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:5 reviewed: the pipeline-critique sentence quoted in the article appears verbatim in the retained abstract fetch; method elements (receding horizon, privileged imitation, realistic sensor noise, four zero-shot environments) all printed. No article change.",
+   "planDigest": "98c15d5dac956216cfa9aedf0d6506eb96350052ffe5bb2dcd257877c9009281"
+  },
+  "evidence": [
+   {
+    "partId": "dr5-method-and-critique",
+    "citationId": "high-speed-flight-2021",
+    "sourceUrl": "https://arxiv.org/abs/2110.05113",
+    "supportingPassage": "State-of-the-art methods generally separate the navigation problem into subtasks: sensing, mapping, and planning. While this approach has proven successful at low speeds, the separation it builds upon can be problematic for high-speed navigation in cluttered environments. Indeed, the subtasks are executed sequentially, leading to increased processing latency and a compounding of errors through the pipeline. ... The key principle is to directly map noisy sensory observations to collision-free trajectories in a receding-horizon fashion. ... The sensorimotor mapping is performed by a convolutional network that is trained exclusively in simulation via privileged learning: imitating an expert with access to privileged information. By simulating realistic sensor noise, our approach achieves zero-shot transfer from simulation to challenging real-world environments that were never experienced during training: dense forests, snow-covered terrain, derailed trains, and collapsed buildings."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr5-method-and-critique",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the retained abstract prints the receding-horizon direct mapping, privileged imitation, realistic sensor noise, the four zero-shot environments, and the quoted pipeline-critique sentence verbatim.",
+    "evidenceDigest": "15141a96a7c6a7c1da335648bfd95ebd4c2b58245abffb5208d1f7d07ae0fefa"
+   }
+  ]
+ },
+ {
+  "id": "drones-6-falanga-table1-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "ab5f0f4eead5d61940521c2b502860f99ad8b82bd2e85c75870dfd8394c90ec1",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr6-xb3-70ms",
+    "text": "Stereo latency upper bound 70 ms taken from the Bumblebee XB3 datasheet (PDF p. 6)",
+    "requiredCitationIds": [
+     "falanga-latency-2019"
+    ]
+   },
+   {
+    "id": "dr6-7to12-summary",
+    "text": "Event cameras reach 7-12% higher maximum speed than stereo depending on sensing range (PDF p. 6)",
+    "requiredCitationIds": [
+     "falanga-latency-2019"
+    ]
+   },
+   {
+    "id": "dr6-table1-numbers",
+    "text": "Table I p. 7: stereo s=8 tau=0.070 gives 19.21 m/s at u2=25 and 25.40 at u2=50; event s=8 gives 13.88/21.94/31.03, i.e. +7.2% least-agile and +22.2% at u2=50 (31.03 vs 25.40)",
+    "requiredCitationIds": [
+     "falanga-latency-2019"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:6 reviewed: all three Falanga passages (XB3 datasheet sentence, 7-12% summary, Table I) needle-verified against the retained PDF fetch; the integrator recomputed the ratios from the printed Table I cells (13.88/12.95 = +7.2% least-agile; 31.03/25.40 = +22.2% at u2=50; 3.60/3.24 = +11.1%, 8.84/8.10 = +9.1% for u2=10 across ranges), reproducing the paper's printed 7-12% summary. Verdict simplified to V with the arithmetic recorded in the note.",
+   "planDigest": "0dd26b75f6274403cdaa1f599733194af8a779ef83bfbd225289653887f7c5cd"
+  },
+  "evidence": [
+   {
+    "partId": "dr6-xb3-70ms",
+    "citationId": "falanga-latency-2019",
+    "sourceUrl": "https://rpg.ifi.uzh.ch/docs/RAL19_Falanga.pdf",
+    "supportingPassage": "As upper-bound, we consider the Bumblebee XB3, whose datasheet reports a latency of tau_S = 0.070 s. (p. 6; introduced on p. 5: 'based on the datasheet of commercially available stereo cameras suitable for quadrotor flight, we can obtain an estimate of the upper-bound and the lower-bound')"
+   },
+   {
+    "partId": "dr6-7to12-summary",
+    "citationId": "falanga-latency-2019",
+    "sourceUrl": "https://rpg.ifi.uzh.ch/docs/RAL19_Falanga.pdf",
+    "supportingPassage": "Depending on the sensing range, low-latency event cameras allow the robot to reach a maximum speed that can be between 7% and 12% larger than the one achievable with a stereo frame-based camera. (p. 6; same page: 'We considered four cases for the maximum lateral acceleration the robot can produce: u2 = 10 m/s2, u2 = 25 m/s2, u2 = 50 m/s2, and u2 = 200 m/s2. These values correspond to a thrust-to-weight ratio of approximately 1.5, 2.8 5.2 and 20, respectively.')"
+   },
+   {
+    "partId": "dr6-table1-numbers",
+    "citationId": "falanga-latency-2019",
+    "sourceUrl": "https://rpg.ifi.uzh.ch/docs/RAL19_Falanga.pdf",
+    "supportingPassage": "TABLE I (p. 7, case-study results; columns = max speed [m/s] for maximum lateral acceleration u2=10/25/50/200 m/s^2): Stereo Frame, sensing range 8.0 m, latency 0.070 s: 12.95 / 19.21 / 25.40 / 41.56. Mono Event, sensing range 8.0 m: latency 0.029 s: 13.88 (u2=10); latency 0.018 s: 21.94 (u2=25); latency 0.012 s: 31.03 (u2=50). Mono Event 5.0 m: 0.017: 8.84 (u2=10); Stereo 5.0 m: 0.070: 8.10 (u2=10). Mono Event 2.0 m: 0.007: 3.60 (u2=10); Stereo 2.0 m: 0.070: 3.24 (u2=10). TABLE I caption: 'The results of our case study. We compare monocular frame-based cameras, stereo frame-based cameras and event cameras for different robot agility values.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr6-xb3-70ms",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: p.6 prints the XB3 0.070 s datasheet upper bound and the 7-12% summary; p.7 Table I prints 12.95/19.21/25.40 (stereo) and 13.88/21.94/31.03 (event) at s=8, from which the article's per-airframe readings follow by arithmetic the integrator re-ran locally.",
+    "evidenceDigest": "7af8166d44e542586d3862efdb9d41b7a6e5758695e4fc9567af1db39d9b75b8"
+   },
+   {
+    "partId": "dr6-7to12-summary",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: p.6 prints the XB3 0.070 s datasheet upper bound and the 7-12% summary; p.7 Table I prints 12.95/19.21/25.40 (stereo) and 13.88/21.94/31.03 (event) at s=8, from which the article's per-airframe readings follow by arithmetic the integrator re-ran locally.",
+    "evidenceDigest": "838196867020df9d2bc2d011b09d4ab5237f7ffabf01e1afbf418ae0e3d62b35"
+   },
+   {
+    "partId": "dr6-table1-numbers",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: p.6 prints the XB3 0.070 s datasheet upper bound and the 7-12% summary; p.7 Table I prints 12.95/19.21/25.40 (stereo) and 13.88/21.94/31.03 (event) at s=8, from which the article's per-airframe readings follow by arithmetic the integrator re-ran locally.",
+    "evidenceDigest": "f12dfea7cfb2c47ac9292ab55e87c820995ffb583028bff9dee29eb110a98919"
+   }
+  ]
+ },
+ {
+  "id": "drones-7-soria-nmpc-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "5635208d4262f2cb748671af5addff6528bb262cb509487c3fd4b63421a1eaa8",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr7-abstract-mechanism",
+    "text": "Predictive model folds potential-field interaction principles into an objective optimized under dynamics knowledge; improves speed, order and safety; independent of environment layout; validated with five quadrotors in a real-world indoor obstacle environment (abstract)",
+    "requiredCitationIds": [
+     "soria-nmpc-swarm-2021"
+    ]
+   },
+   {
+    "id": "dr7-supp-nmpc-collisions",
+    "text": "Supplementary names the model 'NMPC swarm model' and prints PF-vs-NMPC collision-safety metrics with NMPC at zero collisions; the collision comparison is simulation-scoped (Supp Tables 5-7)",
+    "requiredCitationIds": [
+     "soria-nmpc-swarm-2021"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:7 reviewed: abstract and supplementary passages needle-verified against the retained fetches. The packet itself flags that 'fewer collisions than the reactive equivalent' is printed for simulations (supp Tables 5-7), not as a quantified real-world comparison; the integrator kept the article span on the abstract's own 'improves the speed, order and safety' claim over the reactive potential-field baseline, with the simulation-scoped caveat recorded verbatim in the row note rather than silently tightening or hedging.",
+   "planDigest": "4e93eb6572d0ab83013b8f2a0d437adc79935234d666c701d5757896b0befd5d"
+  },
+  "evidence": [
+   {
+    "partId": "dr7-abstract-mechanism",
+    "citationId": "soria-nmpc-swarm-2021",
+    "sourceUrl": "https://www.nature.com/articles/s42256-021-00341-y",
+    "supportingPassage": "Here, we propose a predictive model that incorporates the local principles of potential field models in an objective function and optimizes those principles under the knowledge of the agents' dynamics and environment. We show that our approach improves the speed, order and safety of the swarm, it is independent of the environment layout and is scalable in the swarm speed and inter-agent distance. Our model is validated with a swarm of five quadrotors that can successfully navigate in a real-world indoor environment populated with obstacles."
+   },
+   {
+    "partId": "dr7-supp-nmpc-collisions",
+    "citationId": "soria-nmpc-swarm-2021",
+    "sourceUrl": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42256-021-00341-y/MediaObjects/42256_2021_341_MOESM1_ESM.pdf",
+    "supportingPassage": "Supplementary Table 4: Parameter description of the NMPC swarm model. ... Phi_agent-safety: 'A measure of the number of collisions among the swarm's agents. It is equal to 1 when no collision is registered (ideal case), while it is equal to 0 when all pairs of agents are colliding (worst case).' ... Supplementary Tables 5-7: aggregate performance of the simulated PF and the NMPC swarms: Phi_agent-safety / Phi_obs-safety are 1+/-0 for NMPC in every case, while PF falls slightly below 1 in several cases (e.g. Table 5 Case B obs-safety (99.98+/-0.06)e-2, Table 6 Case A agent-safety (99.98+/-0.13)e-2)."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr7-abstract-mechanism",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the public abstract prints the mechanism, speed/order/safety improvement, layout independence and the five-quadrotor real-world indoor validation; the public supplementary prints the NMPC swarm model and the PF-vs-NMPC collision-safety metrics with NMPC at zero collisions, simulation-scoped as the row note records.",
+    "evidenceDigest": "55bb94327dfea1d7d9c843e84223d99a5a40dd66dc4f0bb27d5b685a8485097d"
+   },
+   {
+    "partId": "dr7-supp-nmpc-collisions",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the public abstract prints the mechanism, speed/order/safety improvement, layout independence and the five-quadrotor real-world indoor validation; the public supplementary prints the NMPC swarm model and the PF-vs-NMPC collision-safety metrics with NMPC at zero collisions, simulation-scoped as the row note records.",
+    "evidenceDigest": "8b6ae8b497d02465ad9f44b5011bc4daa84eb0f4556c2d51dc4682de80527d8e"
+   }
+  ]
+ },
+ {
+  "id": "drones-8-vasarhelyi-flocking-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "b06da635be887c4ef8e40d11092b152dede5d2303511c0ccb93fcb2a0ee480cd",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr8-crossref-biblio",
+    "text": "Bibliographic identity: Optimized flocking of autonomous drones in confined environments, six authors (Vasarhelyi first), Science Robotics 3, 2018, abstract printing 30-drone validation (Crossref)",
+    "requiredCitationIds": [
+     "vasarhelyi-flocking-2018"
+    ]
+   },
+   {
+    "id": "dr8-dryad-30-outdoor",
+    "text": "Dryad record of the same study prints: evolutionary-optimization-framework flocking model, coherent collective motion, field experiments with a self-organized swarm of 30 drones, largest such aerial outdoor system without central control",
+    "requiredCitationIds": [
+     "vasarhelyi-flocking-2018"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:8 reviewed: the mis-citation correction (re-point to vasarhelyi-flocking-2018) predates this lane and is confirmed in the article and registry at HEAD; Crossref and Dryad passages needle-verified against the retained fetches, covering 'optimized interaction terms' (evolutionary optimization framework), 30 drones, coherent collective motion, outdoor. Evidence completion only.",
+   "planDigest": "5ac581ab422e5321a3a121e0daa2ea4cb8a2cb09938fbad7e30e04bcae82515f"
+  },
+  "evidence": [
+   {
+    "partId": "dr8-crossref-biblio",
+    "citationId": "vasarhelyi-flocking-2018",
+    "sourceUrl": "https://api.crossref.org/works/10.1126/scirobotics.aat3536",
+    "supportingPassage": "Title: 'Optimized flocking of autonomous drones in confined environments'; authors: Gabor Vasarhelyi, Csaba Viragh, Gergo Somorjai, Tamas Nepusz, Agoston E. Eiben, Tamas Vicsek; issued 2018-07-25; container: Science Robotics (vol 3); abstract: 'A flocking model that uses an evolutionary optimization framework is validated with a self-organized swarm of 30 drones.'"
+   },
+   {
+    "partId": "dr8-dryad-30-outdoor",
+    "citationId": "vasarhelyi-flocking-2018",
+    "sourceUrl": "https://datadryad.org/dataset/doi:10.5061/dryad.mq85r61",
+    "supportingPassage": "In this paper, we propose such a flocking model for real drones incorporating an evolutionary optimization framework with carefully chosen order parameters and fitness functions. ... We showed that coherent and realistic collective motion patterns persisted even around perturbing obstacles. Furthermore, we validated our model on real hardware, carrying out field experiments with a self-organized swarm of 30 drones. This is the largest of such aerial outdoor systems without central control reported to date exhibiting flocking with collective collision and object avoidance."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr8-crossref-biblio",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: Crossref prints the six-author 2018 Science Robotics identity and the 30-drone abstract line; the Dryad record of the same study prints the evolutionary-optimization flocking model, coherent collective motion, field experiments, and largest such aerial outdoor system without central control.",
+    "evidenceDigest": "39c70b25cbc40a5f2f3955dea0890992e700aa9f610e65a65f5dc3074a9d2d39"
+   },
+   {
+    "partId": "dr8-dryad-30-outdoor",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: Crossref prints the six-author 2018 Science Robotics identity and the 30-drone abstract line; the Dryad record of the same study prints the evolutionary-optimization flocking model, coherent collective motion, field experiments, and largest such aerial outdoor system without central control.",
+    "evidenceDigest": "f4e0257db8873c0422901dd1c898f7cf45ed357fe99a59f6c282e55110919e50"
+   }
+  ]
+ },
+ {
+  "id": "drones-9-zhou-swarm-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "17126f31f175d3a2d0e55188b1ab44a6465c5409118ba01fe5951614707ceba8",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr9-method-elements",
+    "text": "Palm-sized fully autonomous drones; spatial-temporal joint-optimization planner solving within only a few milliseconds from onboard sensing; inter-robot collision avoidance among planning requirements; coordination without external facilities (PubMed abstract)",
+    "requiredCitationIds": [
+     "micro-drone-swarm-2022"
+    ]
+   },
+   {
+    "id": "dr9-ten-bamboo",
+    "text": "Ten drones validated flying through the dense bamboo forest ('To validate such capability for 10 drones', 'Fly through dense forest' section, first-author PDF pp. 5-6)",
+    "requiredCitationIds": [
+     "micro-drone-swarm-2022"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:9 reviewed: PubMed abstract passage (bibliographic line + method elements) and the first-author PDF's 10-drones bamboo-forest demonstration both needle-verified against the retained fetches; the packet's arXiv ruling-out (title search zero results; 2204.04753 is a different paper) recorded. No article change.",
+   "planDigest": "e2715e67317472ff5d89570f3ee3c4fec8696b640adca6aa0149331514623863"
+  },
+  "evidence": [
+   {
+    "partId": "dr9-method-elements",
+    "citationId": "micro-drone-swarm-2022",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35507682/",
+    "supportingPassage": "Sci Robot. 2022 May 4;7(66):eabm5954. Zhou X, Wen X, Wang Z, Gao Y, Li H, Wang Q, Yang T, Lu H, Cao Y, Xu C, Gao F. Swarm of micro flying robots in the wild. ... we develop miniature but fully autonomous drones with a trajectory planner that can function in a timely and accurate manner based on limited information from onboard sensors. The planning problem satisfies various task requirements including flight efficiency, obstacle avoidance, and inter-robot collision avoidance, dynamical feasibility, swarm coordination, and so on, thus realizing an extensible planner. Furthermore, the proposed planner deforms trajectory shapes and adjusts time allocation synchronously based on spatial-temporal joint optimization. A high-quality trajectory thus can be obtained after exhaustively exploiting the solution space within only a few milliseconds, even in the most constrained environment. The planner is finally integrated into the developed palm-sized swarm platform with onboard perception, localization, and control. ... Our approach evolves aerial robotics in three aspects: capability of cluttered environment navigation, extensibility to diverse task requirements, and coordination as a swarm without external facilities."
+   },
+   {
+    "partId": "dr9-ten-bamboo",
+    "citationId": "micro-drone-swarm-2022",
+    "sourceUrl": "https://zhepeiwang.github.io/pubs/sr_2022_swarm.pdf",
+    "supportingPassage": "First-author public copy of the Science Robotics paper (PDF p. 1 prints the abstract above; the wild demonstration is printed in the body): PDF p. 5, 'Fly through dense forest' experiment section: 'available space between two bamboos may be less than 30 cm wide, and therefore, only miniature-sized drones are allowed to pass'; PDF p. 6: 'Except for dense vertically growing bamboos, other kinds of obstacles exist ... To validate such capability for 10 drones, goals on ...'; PDF p. 2 caption: 'This video cover is a composite image of the aerial swarm in a bamboo forest.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr9-method-elements",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the PubMed abstract prints palm-sized autonomy, the few-milliseconds spatial-temporal optimizer, inter-robot collision avoidance, and coordination without external facilities; the first-author public copy prints the 10-drone dense bamboo forest validation.",
+    "evidenceDigest": "772427e74bef1ed880d686890f8f8e4415ee2487cadb530bc49de5fe2d8cef7c"
+   },
+   {
+    "partId": "dr9-ten-bamboo",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: the PubMed abstract prints palm-sized autonomy, the few-milliseconds spatial-temporal optimizer, inter-robot collision avoidance, and coordination without external facilities; the first-author public copy prints the 10-drone dense bamboo forest validation.",
+    "evidenceDigest": "abdcde21153a0683f718883d7fdd329a1561cf77540e74d409daf2332ebd527c"
+   }
+  ]
+ },
+ {
+  "id": "drones-10-reynolds-boids-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "e469a24d936b3aff5a92206f6797b53a6c95627f90ec1f95682054b53ffd2356",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr10-reynolds-identity",
+    "text": "Author page prints: Flocks, Herds, and Schools: A Distributed Behavioral Model, the 1987 model, the SIGGRAPH '87 boids paper",
+    "requiredCitationIds": [
+     "reynolds-boids-1987"
+    ]
+   },
+   {
+    "id": "dr10-reynolds-biblio",
+    "text": "Printed bibliographic line (Soria ref list): Reynolds, C. W., Comput. Graph. 21, 25-43 (1987); ACM DL record bot-walled (403) so pages need ACM confirmation before registration",
+    "requiredCitationIds": [
+     "reynolds-boids-1987"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:10 reviewed: author-page and Soria-reference-list passages needle-verified against the retained fetches. The packet proposes registering reynolds-boids-1987 and citing the span; this integrator applied both (data/citations.ts + drones.mdx span + frontmatter), recording the ACM-DL 403 and the unconfirmed canonical page range in the registry venue and the row note. The span-cite edit is a product change tracked in approved-deltas, not an evidence part.",
+   "planDigest": "8e77b83453fb50a534bca3d51dee6690ddb848102506befd0e289da52594cce7"
+  },
+  "evidence": [
+   {
+    "partId": "dr10-reynolds-identity",
+    "citationId": "reynolds-boids-1987",
+    "sourceUrl": "https://www.red3d.com/cwr/boids/",
+    "supportingPassage": "Boids (Flocks, Herds, and Schools: a Distributed Behavioral Model) - page title. Page description: 'Background and update on BOIDS, the 1987 model of group motion in flocks, herds, schools and related phenomena.' Body: 'Flocks, Herds, and Schools: A Distributed Behavioral Model ... the SIGGRAPH '87 boids paper' and 'There was a technical paper on boids published at that conference' [SIGGRAPH '87]."
+   },
+   {
+    "partId": "dr10-reynolds-biblio",
+    "citationId": "reynolds-boids-1987",
+    "sourceUrl": "https://www.nature.com/articles/s42256-021-00341-y",
+    "supportingPassage": "Reference 20 of the fetched Soria et al. Nature Machine Intelligence page: 'Reynolds, C. W. Flocks, herds and schools: a distributed behavioral model. Comput. Graph. 21, 25-43 (1987).'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr10-reynolds-identity",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: Reynolds's own page prints the paper title, 'the 1987 model' and the SIGGRAPH '87 boids paper; the fetched Soria reference list prints the full bibliographic line (Comput. Graph. 21, 25-43 (1987)). ACM DL remained machine-walled; the unconfirmed page range is disclosed, not guessed.",
+    "evidenceDigest": "470cfba691d233e7e6dd3c70f9fa400b83efbf3f22e8f09f6287a14a5cc90efe"
+   },
+   {
+    "partId": "dr10-reynolds-biblio",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported: Reynolds's own page prints the paper title, 'the 1987 model' and the SIGGRAPH '87 boids paper; the fetched Soria reference list prints the full bibliographic line (Comput. Graph. 21, 25-43 (1987)). ACM DL remained machine-walled; the unconfirmed page range is disclosed, not guessed.",
+    "evidenceDigest": "6accec9da731332f9cffb03781f55837c092d647c04d32ebf30debf7dda7970d"
+   }
+  ]
+ },
+ {
+  "id": "drones-11-assignment-layer-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "drones",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "5f4764bc0a6580b12d3a1bb70e16a754a2bd2e8c2fb867714ff5280a51dc3dab",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "dr11-none-addresses-assignment",
+    "text": "Supported: none of the three cited swarm studies prints task assignment/allocation in its scope (Zhou: navigation/coordination; Soria: predictive swarm control; Vasarhelyi: flocking)",
+    "requiredCitationIds": [
+     "micro-drone-swarm-2022",
+     "soria-nmpc-swarm-2021",
+     "vasarhelyi-flocking-2018"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record drones:11 (ready-source-correction-with-local-AND) reviewed: the integrator performed the clause-by-clause absence proof over the three printed-scope passages retained in the packet (Zhou: navigation/extensible planning/coordination without external facilities; Soria: predictive swarm motion control; Vasarhelyi: flocking with collision and object avoidance) - none of the three printed scopes contains task assignment, allocation, coverage or search-assignment among its contributions, so the restricted per-paper span is supported. The field-wide sentence is certified by no fetched source and no local proof can certify it (finite printed scopes prove nothing about the whole literature), so it was CUT from the article, not hedged; the correction is recorded in approved-deltas dr-r11-20260916-1.",
+   "planDigest": "640ff7b7cbad34bb48e622f93e719ac0795f1e3754dee90bda9b30f683fcf5a5"
+  },
+  "evidence": [
+   {
+    "partId": "dr11-none-addresses-assignment",
+    "citationId": "micro-drone-swarm-2022",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35507682/",
+    "supportingPassage": "Zhou et al. printed scope (PubMed abstract, 2026-09-16T05:57:36Z): 'Our approach evolves aerial robotics in three aspects: capability of cluttered environment navigation, extensibility to diverse task requirements, and coordination as a swarm without external facilities.' - navigation, planning, coordination; task assignment/allocation appears nowhere in the printed scope."
+   },
+   {
+    "partId": "dr11-none-addresses-assignment",
+    "citationId": "soria-nmpc-swarm-2021",
+    "sourceUrl": "https://www.nature.com/articles/s42256-021-00341-y",
+    "supportingPassage": "Soria et al. printed scope (Nature MI abstract, 2026-09-16T05:56Z): 'Here, we propose a predictive model that incorporates the local principles of potential field models in an objective function and optimizes those principles under the knowledge of the agents' dynamics and environment... improves the speed, order and safety of the swarm... validated with a swarm of five quadrotors' - collective motion control; task assignment appears nowhere in the printed scope."
+   },
+   {
+    "partId": "dr11-none-addresses-assignment",
+    "citationId": "vasarhelyi-flocking-2018",
+    "sourceUrl": "https://datadryad.org/dataset/doi:10.5061/dryad.mq85r61",
+    "supportingPassage": "Vasarhelyi et al. printed scope (Dryad record of the same study, 2026-09-16T05:59:23Z): 'we propose such a flocking model for real drones incorporating an evolutionary optimization framework... carrying out field experiments with a self-organized swarm of 30 drones... exhibiting flocking with collective collision and object avoidance' - flocking control; task assignment appears nowhere in the printed scope."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "dr11-none-addresses-assignment",
+    "outcome": "supported",
+    "reviewedBy": "drones-integrator-20260916 (session cf827bfd-57f0-4dbd-a88a-d0d5ccc04a2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported as corrected: the three retained printed scopes contain no task-assignment clause, so the restricted span 'coordinates implicitly; none of it decides who goes where' is supported for the cited studies; the unsupported field-wide extension is cut from the article (applied this pass), which is the packet's proposed correction with the integrator's local AND as the conjunct.",
+    "evidenceDigest": "9ad878d4939e4c67e03144f5185f6990cb3116ad29f887ce7a476f69f16a70e9"
+   }
+  ]
+ }
 ]

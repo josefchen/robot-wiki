@@ -14886,6 +14886,205 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
-    }
+    },
+
+ {
+  "id": "dr-r1-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 1: Swift racing-envelope evidence completion on the registered Nature intro passage (factor of five or more, >100 km/h, several times gravity); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r2-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 2: Loquercio forests evidence completion on the registered arXiv abstract (zero-shot forests/snow/derailed trains/collapsed buildings; outperforming traditional pipelines; JREF 2021); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r3-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 3: Swift recipe evidence completion on the registered Nature passages (three champions, sim-trained policy, data-driven perception/dynamics residuals from real track data, fastest race time); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r4-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 4: Song RL-vs-OC evidence completion on the registered arXiv abstract (better objective, trajectory as interface, >12g, 108 km/h); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r5-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 5: Loquercio method evidence completion on the registered arXiv abstract incl. the pipeline-critique sentence quoted verbatim; no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r6-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 6: Falanga Table I evidence completion on the first-author PDF (XB3 0.070 s, 12.95/19.21/25.40 stereo vs 13.88/21.94/31.03 event at s=8, printed 7-12% summary); integrator re-ran the ratios locally; no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r7-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 7: Soria NMPC evidence completion on the public abstract plus public supplementary (mechanism, speed/order/safety, layout independence, five-quadrotor indoor validation; PF-vs-NMPC collision metrics simulation-scoped and recorded as such); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r8-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 8: Vasarhelyi evidence completion over the already-applied mis-citation correction (Crossref identity + Dryad study abstract: evolutionary-optimization flocking, 30 drones, coherent outdoor collective motion); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r9-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 9: Zhou swarm evidence completion (PubMed abstract method elements + first-author public PDF 10-drones bamboo-forest demonstration); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r10-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 10: Reynolds evidence completion plus registration: reynolds-boids-1987 registered from the author page and the printed Soria reference line, and the previously uncited article span now carries the citation. Article change: one <Cite> on the founding-models span and the frontmatter citation entry. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "dr-r11-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:adjacent/drones",
+  "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+  "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+  "reason": "Exactly adjacent/drones original 11: assignment-layer source correction with local AND. The per-paper half is supported from the three printed scopes in the frozen packet (integrator clause-by-clause absence proof); the field-wide sentence ('not yet been demonstrated on real outdoor swarms at scale') is certified by no fetched source and was CUT from the article, not hedged. Article change: that sentence removed. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-l-drones-20260916d, sha256 4533890500154bc024007c082f913f4fb04181de659416f922051283566c94fe) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-001",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+ }
   ]
 }

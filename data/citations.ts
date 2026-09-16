@@ -7041,6 +7041,26 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Registered 2026-09-16 from the frozen drones source packet (zero
+    // retrieval by the integrator): the author's own page (red3d.com,
+    // curl GET 200, 80,969 bytes, 2026-09-16T05:57:36Z) prints the title,
+    // "the 1987 model" and "the SIGGRAPH '87 boids paper". The printed
+    // bibliographic line comes from the fetched Soria Nature MI reference
+    // list: "Reynolds, C. W. Flocks, herds and schools: a distributed
+    // behavioral model. Comput. Graph. 21, 25-43 (1987)." The ACM DL record
+    // (doi 10.1145/37402.37406) is Cloudflare-walled to machines (HTTP 403
+    // in the preparing session), so the ACM-canonical page range is not
+    // confirmed; the venue records the Soria-printed range with that caveat.
+    id: 'reynolds-boids-1987',
+    title: 'Flocks, Herds and Schools: A Distributed Behavioral Model',
+    authors: ['Craig W. Reynolds'],
+    year: 1987,
+    venue:
+      "Computer Graphics (SIGGRAPH '87) 21, pages 25-43 as printed by the fetched Soria reference list; ACM DL machine-walled so canonical pages unconfirmed",
+    url: 'https://www.red3d.com/cwr/boids/',
+    type: 'paper',
+  },
+  {
     // Verified against the live arXiv abs page (2026-08-15): title, six
     // authors, Science Robotics 2021 journal reference.
     id: 'high-speed-flight-2021',
