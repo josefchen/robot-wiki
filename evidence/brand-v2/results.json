@@ -99799,7 +99799,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45 exactly as approved delta evaluation-benchmarks-originals-20260913-0 permits: Source-backed correction of evaluation originals 8,10,11,12,13 after complete retained-text review and exact original-event/passage equality; 33 AND parts, 33 citation pairs and 35 evidence items. Distinguishes task/suite populations, real/sim units, gap mitigation, ranking comparators, masking and user-side inference. Preserves excluded originals, completed statistics, nine-source union and date. Worker source/prose review and reader tests remain bounded; no source-visual/P1/release acceptance.",
+      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45 exactly as approved delta evaluation-crisis-r9-20260916-1 permits: Exactly data-hardware/evaluation-crisis original 9 (LIBERO-Plus: seven perturbation dimensions; 95% clean falls ...): evidence completion per the frozen packet convergence-source-ab-evaluation-crisis-20260916l. The three retained abstract passages (arXiv abs page 2510.13626, fetch of record 2026-09-16T18:34:30Z-18:34:31Z by both FetchUrl render and uncredentialed curl GET, HTTP 200, identical logging) were needle-verified verbatim by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-crisis-integration-20260916l. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99813,7 +99813,7 @@
           "baselineHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
           "currentHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
           "status": "approved-delta",
-          "approvedDelta": "evaluation-benchmarks-originals-20260913-0"
+          "approvedDelta": "evaluation-crisis-r9-20260916-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99855,7 +99855,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8 exactly as approved delta seo-merge-20260916-prose-9 permits: Mission continuation work changed article:data-hardware/industrial-deployment after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45 exactly as approved delta seo-merge-20260916-prose-9 permits: Mission continuation work changed article:data-hardware/industrial-deployment after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99867,7 +99867,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8",
+          "currentHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45",
           "status": "approved-delta",
           "approvedDelta": "seo-merge-20260916-prose-9"
         },
@@ -100415,7 +100415,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/realtime-execution moved from 1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902 to 15a401d4e5d93d48b2e0febf70deb9f49c98357064717861ec4ba29501fe0516 exactly as approved delta seo-merge-20260916-prose-20 permits: Mission continuation work changed article:manipulation/realtime-execution after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:manipulation/realtime-execution moved from 1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902 to b7ebca640d46d35184147aea0608db750b822ef53fb17c59ada9f3db57d1ef7f exactly as approved delta seo-merge-20260916-prose-20 permits: Mission continuation work changed article:manipulation/realtime-execution after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100427,7 +100427,7 @@
           "manifest": "prose",
           "member": "article:manipulation/realtime-execution",
           "baselineHash": "1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902",
-          "currentHash": "15a401d4e5d93d48b2e0febf70deb9f49c98357064717861ec4ba29501fe0516",
+          "currentHash": "b7ebca640d46d35184147aea0608db750b822ef53fb17c59ada9f3db57d1ef7f",
           "status": "approved-delta",
           "approvedDelta": "seo-merge-20260916-prose-20"
         },
@@ -100667,7 +100667,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/rl-for-robotics moved from 18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c to b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568 exactly as approved delta rl-for-robotics-r50-20260916-1 permits: Exactly rl-sim2real/rl-for-robotics original 50 (evidence completion of the standing V frontmatter P1 sweep verdict (all 27 identities carry fresh 2026-09-16 fetch records and passages; fail-closed re-verification passed; levine passage corrected to the printed Deirdre Quillen title page, inverted sic dropped)) per the frozen packet convergence-source-z-rl-for-robotics-20260916k. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved source bodies before adjudication (155/155 checks, lane needle-verification.json); zero retrieval by this integrator; originals 1 and 5 honestly held on glyph-verified equation differences (Eq. 3.2 printed subscripts t/t-1; Eq. 6.8 printed discount gamma omitted by the packet's quotes) and byte-unchanged; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-for-robotics-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+      "actual": "prose member article:rl-sim2real/rl-for-robotics moved from 18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c to 425dbce554865801bbe93a026bbf0faaad83eae4b25761045e4606c9927b8499 exactly as approved delta rl-for-robotics-r5-20260916-2 permits: Exactly rl-sim2real/rl-for-robotics original 5 (evidence completion of the standing V verdict on the Q-learning sentence, with the Eq. 6.8 evidence quotation corrected to the glyph-verified print (discount gamma between Rt+1 and max; pdftotext gamma-drop disclosed)) per the frozen packet convergence-source-ae-rl-equations-20260916m. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved bodies and glyph extracts before adjudication (63/63 checks, lane needle-verification.json), including independent read-only mutool re-traces of the retained RLbook2020.pdf; zero retrieval by this integrator; the article prints no equation and its spans are byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-equations-integration-20260916m. Not whole-article, full-document manual-review, independent or release acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100679,9 +100679,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/rl-for-robotics",
           "baselineHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
-          "currentHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+          "currentHash": "425dbce554865801bbe93a026bbf0faaad83eae4b25761045e4606c9927b8499",
           "status": "approved-delta",
-          "approvedDelta": "rl-for-robotics-r50-20260916-1"
+          "approvedDelta": "rl-for-robotics-r5-20260916-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100779,7 +100779,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541 exactly as approved delta seo-merge-20260916-prose-28 permits: The SEO growth merge changed article:world-models/generative-sim: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541 exactly as approved delta generative-sim-r14-20260916-1 permits: Exactly world-models/generative-sim original 14 (Push test: appearance is not physics (3DGS twin supplies app...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (abstract-scope 3dgs-2023 + splatsim-2024 evidence, exactly the packet-prepared wording). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100793,7 +100793,7 @@
           "baselineHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
           "currentHash": "aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-28"
+          "approvedDelta": "generative-sim-r14-20260916-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -133004,7 +133004,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 11 comment-free use(s) across 9 first-party runtime file(s) and 6650 use(s) across 299 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 11 comment-free use(s) across 9 first-party runtime file(s) and 6681 use(s) across 303 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133157,14 +133157,14 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 299,
+          "exportFileCount": 303,
           "exportFileKinds": [
             ".html",
             ".js",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 6650,
+          "exportOccurrences": 6681,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -133181,7 +133181,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki.com` still resolves 5 comment-free use(s) across 5 first-party runtime file(s) and 6111 use(s) across 298 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki.com` still resolves 5 comment-free use(s) across 5 first-party runtime file(s) and 6131 use(s) across 302 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133330,14 +133330,14 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 298,
+          "exportFileCount": 302,
           "exportFileKinds": [
             ".html",
             ".js",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 6111,
+          "exportOccurrences": 6131,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"

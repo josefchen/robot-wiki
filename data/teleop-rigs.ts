@@ -29,7 +29,7 @@ const ROWS: TeleopRig[] = [
     family: 'Bimanual leader-follower workstation',
     representatives: ['ALOHA 2 (Stanford)', 'Trossen AI Stationary and Mobile AI'],
     costUsd: null,
-    costNote: 'Community issue, researched Jun 2026: ALOHA / ALOHA 2 ~ $17k–32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
+    costNote: 'Community issue, researched Jun 2026: ALOHA / ALOHA 2 ~ $17k-32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
     dataQuality: 'high',
     dataQualityNote:
       'Leader and follower arms share kinematics; demonstrations land directly in the robot joint space at 500 Hz',
@@ -41,7 +41,7 @@ const ROWS: TeleopRig[] = [
       'The operator drives a kinematically identical arm, so recorded motion is the robot motion',
     details: {
       cost:
-        'A June 2026 community compilation in alpibrusl/lex-robot estimates the combined ALOHA / ALOHA 2 category at about $17k–32k. It does not identify the currency code, endpoint configurations, or itemized inclusions/exclusions; this is not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
+        'A June 2026 community compilation in alpibrusl/lex-robot estimates the combined ALOHA / ALOHA 2 category at about $17k-32k. It does not identify the currency code, endpoint configurations, or itemized inclusions/exclusions; this is not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
       dataQuality:
         'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. ACT learned six difficult bimanual tasks to 80-90% success from only 10 minutes of demonstrations on the original low-cost ALOHA hardware.',
       throughput:

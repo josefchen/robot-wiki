@@ -39,7 +39,7 @@ test('IFR retained science, chronology, disagreement and Stat values', async ({ 
     'customer-industry categories, not application families', '14 percent',
   ]) await expect(lead).toContainText(text, { useInnerText: true });
   const stats = prose.locator(':scope > div.grid').first();
-  for (const text of ['4,663,698', '542,076', '2021–2024 each above 500k', '54%', 'in 2024']) {
+  for (const text of ['4,663,698', '542,076', '2021-2024 each above 500k', '54%', 'in 2024']) {
     await expect(stats).toContainText(text);
   }
   const uses = prose.locator('p').filter({ hasText: 'OSHA’s Technical Manual lists uses' });

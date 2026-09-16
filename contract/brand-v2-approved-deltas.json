@@ -21780,22 +21780,107 @@
       ],
       "disposition": "permanent"
     },
-{
-    "id": "evaluation-crisis-r9-20260916-1",
-    "manifest": "prose",
-    "memberId": "article:data-hardware/evaluation-crisis",
-    "oldHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
-    "newHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
-    "reason": "Exactly data-hardware/evaluation-crisis original 9 (LIBERO-Plus: seven perturbation dimensions; 95% clean falls ...): evidence completion per the frozen packet convergence-source-ab-evaluation-crisis-20260916l. The three retained abstract passages (arXiv abs page 2510.13626, fetch of record 2026-09-16T18:34:30Z-18:34:31Z by both FetchUrl render and uncredentialed curl GET, HTTP 200, identical logging) were needle-verified verbatim by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-crisis-integration-20260916l. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
-    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 1 selected record /records/1 of frozen packet convergence-source-ab-evaluation-crisis-20260916l, sha256 defe33b6e1ce7a8eb835dc31b7926ccbfc88d30a98388d71f7021cf28d517364, at HEAD b1d7481b49580e62a485fbc42ef6eb17e1d78b43) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
+    {
+      "id": "evaluation-crisis-r9-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
+      "newHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
+      "reason": "Exactly data-hardware/evaluation-crisis original 9 (LIBERO-Plus: seven perturbation dimensions; 95% clean falls ...): evidence completion per the frozen packet convergence-source-ab-evaluation-crisis-20260916l. The three retained abstract passages (arXiv abs page 2510.13626, fetch of record 2026-09-16T18:34:30Z-18:34:31Z by both FetchUrl render and uncredentialed curl GET, HTTP 200, identical logging) were needle-verified verbatim by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-crisis-integration-20260916l. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 1 selected record /records/1 of frozen packet convergence-source-ab-evaluation-crisis-20260916l, sha256 defe33b6e1ce7a8eb835dc31b7926ccbfc88d30a98388d71f7021cf28d517364, at HEAD b1d7481b49580e62a485fbc42ef6eb17e1d78b43) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
         "VAL-B2-BASE-002",
         "VAL-B2-BASE-010",
         "VAL-AUDIT-004",
         "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-}
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-for-robotics-r1-20260916-2",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "newHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "reason": "Exactly rl-sim2real/rl-for-robotics original 1 (evidence completion of the standing V verdict on the MDP-formalization sentence, with the Eq. 3.2 evidence quotation corrected to the glyph-verified print (t/t-1 convention; pdftotext minus-drop disclosed)) per the frozen packet convergence-source-ae-rl-equations-20260916m. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved bodies and glyph extracts before adjudication (63/63 checks, lane needle-verification.json), including independent read-only mutool re-traces of the retained RLbook2020.pdf; zero retrieval by this integrator; the article prints no equation and its spans are byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-equations-integration-20260916m. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply the selected records of frozen packet convergence-source-ae-rl-equations-20260916m, sha256 03829c42774fcf7ea1e4e9c9572f94494af7882c49bc1652be357c909641cfdb) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-for-robotics-r5-20260916-2",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "newHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "reason": "Exactly rl-sim2real/rl-for-robotics original 5 (evidence completion of the standing V verdict on the Q-learning sentence, with the Eq. 6.8 evidence quotation corrected to the glyph-verified print (discount gamma between Rt+1 and max; pdftotext gamma-drop disclosed)) per the frozen packet convergence-source-ae-rl-equations-20260916m. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved bodies and glyph extracts before adjudication (63/63 checks, lane needle-verification.json), including independent read-only mutool re-traces of the retained RLbook2020.pdf; zero retrieval by this integrator; the article prints no equation and its spans are byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-equations-integration-20260916m. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply the selected records of frozen packet convergence-source-ae-rl-equations-20260916m, sha256 03829c42774fcf7ea1e4e9c9572f94494af7882c49bc1652be357c909641cfdb) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generative-sim-r4-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "newHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "reason": "Exactly world-models/generative-sim original 4 (Stat: \"RoboCasa365 2,500 kitchens, ICLR 2026\"...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (RoboCasa365 PDF at the exact registered URL, preparer fetch of record 2026-09-16T21:15:37Z). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-af-generative-sim-20260916n, sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generative-sim-r9-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "newHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "reason": "Exactly world-models/generative-sim original 9 (\"RoboCasa365 extends the same platform to 365 everyday tasks...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (RoboCasa365 PDF at the exact registered URL, preparer fetch of record 2026-09-16T21:15:37Z). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-af-generative-sim-20260916n, sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generative-sim-r14-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "newHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "reason": "Exactly world-models/generative-sim original 14 (Push test: appearance is not physics (3DGS twin supplies app...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (abstract-scope 3dgs-2023 + splatsim-2024 evidence, exactly the packet-prepared wording). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-af-generative-sim-20260916n, sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
   ]
 }

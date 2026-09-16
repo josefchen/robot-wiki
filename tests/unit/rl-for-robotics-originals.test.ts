@@ -5,23 +5,27 @@ import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
 
 /**
- * Pins the 2026-09-16k rl-for-robotics-originals integration: the two applied
- * rl-sim2real/rl-for-robotics rows (originals 49 DROID/OXE corpora and 50
- * frontmatter P1 sweep) must bind to their compound plans and parse complete
- * (no evidence failures) with supported adjudications, from the committed
- * ledger and catalog exactly as check-audit-coverage reads them. Originals 1
- * and 5 are HELD by this integrator on glyph-verified equation differences
- * against the retained RLbook2020.pdf (Eq. 3.2 printed subscripts t/t-1 vs the
- * packet's t+1/t; Eq. 6.8 and the algorithm box print a discount gamma the
- * packet's quotations omit) and stay unbound and incomplete.
+ * Pins the 2026-09-16k rl-for-robotics-originals integration (rows 49 DROID/
+ * OXE corpora and 50 frontmatter P1 sweep) and the 2026-09-16m equation-
+ * fidelity completion of the two rows the k pass HELD: originals 1 and 5 now
+ * bind compound plans whose evidence quotations were corrected to the
+ * glyph-verified print of the retained RLbook2020.pdf - Eq. 3.2 in its t/t-1
+ * convention (Pr{St = s', Rt = r | St-1 = s, At-1 = a}) and Eq. 6.8 WITH the
+ * discount gamma between Rt+1 and max (Sarsa Eq. 6.7 prints the same gamma).
+ * The article prints no equation, so its spans are untouched; these tests pin
+ * the corrected ledger cells and the plan passages that carry them.
  */
 const ROOT = join(import.meta.dirname, '../..');
 const PACKET_SHA = '329a75d3be70438a7ea294116925ba2336e8f5295edb72e8c20d4613c6968129';
+const PACKET_SHA_M = '03829c42774fcf7ea1e4e9c9572f94494af7882c49bc1652be357c909641cfdb';
 const EXPECTED_20260916K: Readonly<Record<number, string>> = {
   49: 'rl-for-robotics-49-droid-oxe-corpora-20260916k',
   50: 'rl-for-robotics-50-frontmatter-p1-sweep-20260916k',
 };
-const HELD_ORDINALS = [1, 5];
+const EXPECTED_20260916M: Readonly<Record<number, string>> = {
+  1: 'rl-for-robotics-1-mdp-formalization-20260916m',
+  5: 'rl-for-robotics-5-qlearning-offpolicy-20260916m',
+};
 
 function loadLedger() {
   const markdown = readFileSync(join(ROOT, 'audit/rl-sim2real.md'), 'utf8');
@@ -109,21 +113,87 @@ describe('rl-for-robotics originals integration (2026-09-16k evidence completion
     }
   });
 
-  it('keeps the two glyph-held rows unbound and evidence-incomplete', () => {
-    const { section } = loadLedger();
-    for (const ordinal of HELD_ORDINALS) {
-      const record = section.claimRecords[ordinal - 1];
-      expect(record.compound?.planId ?? '').toBe('');
-      expect(record.evidenceFailures.length).toBeGreaterThan(0);
-    }
-  });
-
   it('records integrator plan review on every 20260916k rl-for-robotics plan', () => {
     const { compoundPlans } = loadLedger();
     for (const planId of Object.values(EXPECTED_20260916K)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
       expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
       expect(plan.planReview?.rationale).toContain(PACKET_SHA);
+    }
+  });
+});
+
+describe('rl-for-robotics equation-fidelity completions (2026-09-16m)', () => {
+  it('binds the two corrected-equation rows to complete compound evidence', () => {
+    const { compoundPlans, section } = loadLedger();
+    for (const [ordinal, planId] of Object.entries(EXPECTED_20260916M)) {
+      const record = section.claimRecords[Number(ordinal) - 1];
+      expect(record.compound?.planId ?? '').toBe(planId);
+      expect(record.compound?.structuralFailures ?? ['missing']).toEqual([]);
+      expect(record.compound?.adjudicationFailures ?? ['missing']).toEqual([]);
+      expect(record.evidenceFailures).toEqual([]);
+      const plan = compoundPlans.find((p) => p.id === planId)!;
+      expect(plan.adjudications.map((a) => a.outcome)).toEqual(
+        plan.parts.map(() => 'supported'),
+      );
+    }
+  });
+
+  it('row 1 carries the glyph-verified t/t-1 Eq. 3.2 quotation', () => {
+    const { compoundPlans, section } = loadLedger();
+    const r1 = section.claimRecords[0];
+    expect(r1.claim).toBe('"formalized as a Markov decision process: states, actions, a transition rule, a reward"');
+    expect(r1.sourceChecked).toContain('sutton-barto-2018 @ https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html');
+    expect(r1.sourceChecked).toContain('http://www.incompleteideas.net/book/RLbook2020.pdf');
+    expect(r1.sourceChecked).toContain('2026-09-16T19:47:57Z');
+    // the corrected equation form: plain-t subscripts before the bar,
+    // t-1 after it, exactly as the retained PDF prints Eq. 3.2
+    expect(r1.note).toContain("Pr{St = s', Rt = r | St-1 = s, At-1 = a}");
+    expect(r1.note).toContain("p(s', r | s, a)");
+    expect(r1.note).toContain('The function p defines the dynamics of the MDP');
+    // the held pass's wrong t+1/t quotation must not survive anywhere in the row
+    expect(r1.note).not.toContain("Pr{St+1 = s'");
+    const plan = compoundPlans.find((p) => p.id === EXPECTED_20260916M[1])!;
+    const ch3 = plan.evidence.find((e) => e.partId === 'rfr1m-ch3-mdp-elements-glyph-verified')!;
+    expect(ch3.sourceUrl).toBe('http://www.incompleteideas.net/book/RLbook2020.pdf');
+    expect(ch3.supportingPassage).toContain("Pr{St = s', Rt = r | St−1 = s, At−1 = a}");
+    expect(ch3.supportingPassage).toContain('(3.2)');
+    expect(ch3.supportingPassage).toContain('The function p defines the dynamics of the MDP.');
+    expect(ch3.supportingPassage).not.toContain('Pr{St+1');
+    const registry = plan.evidence.find((e) => e.partId === 'rfr1m-registry-page-identity')!;
+    expect(registry.sourceUrl).toBe('https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html');
+    expect(registry.supportingPassage).toContain('Richard S. Sutton and Andrew G. Barto Second Edition');
+    expect(registry.supportingPassage).toContain('MIT Press, Cambridge, MA, 2018');
+  });
+
+  it('row 5 carries the glyph-verified discount gamma in Eq. 6.8', () => {
+    const { compoundPlans, section } = loadLedger();
+    const r5 = section.claimRecords[4];
+    expect(r5.sourceChecked).toContain("Ch. 6.5 'Q-learning: Off-policy TD Control'");
+    expect(r5.sourceChecked).toContain('RLbook2020.pdf');
+    // the corrected equation form: gamma between Rt+1 and max, in both the
+    // row note (ASCII) and the plan passage (printed glyphs, U+2212 minus)
+    expect(r5.note).toContain('alpha[Rt+1 + gamma max_a Q(St+1,a) - Q(St,At)]');
+    expect(r5.note).toContain('Sarsa Eq. 6.7 prints the same gamma');
+    const plan = compoundPlans.find((p) => p.id === EXPECTED_20260916M[5])!;
+    const q = plan.evidence.find((e) => e.partId === 'rfr5m-qlearning-target-rule-glyph-verified')!;
+    expect(q.sourceUrl).toBe('http://www.incompleteideas.net/book/RLbook2020.pdf');
+    expect(q.supportingPassage).toContain('Rt+1 + γ max_a Q(St+1, a) − Q(St, At)');
+    expect(q.supportingPassage).toContain('(6.8)');
+    expect(q.supportingPassage).toContain('independent of the policy being followed');
+    // the held pass's gamma-less quotation must not survive in the passage
+    expect(q.supportingPassage).not.toMatch(/Rt\+1 \+ max/);
+    const sarsa = plan.evidence.find((e) => e.partId === 'rfr5m-offpolicy-character-glyph-verified')!;
+    expect(sarsa.supportingPassage).toContain('Rt+1 + γQ(St+1, At+1) − Q(St, At)');
+    expect(sarsa.supportingPassage).toContain('(6.7) Sarsa');
+  });
+
+  it('records integrator plan review on every 20260916m plan', () => {
+    const { compoundPlans } = loadLedger();
+    for (const planId of Object.values(EXPECTED_20260916M)) {
+      const plan = compoundPlans.find((p) => p.id === planId)!;
+      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+      expect(plan.planReview?.rationale).toContain(PACKET_SHA_M);
     }
   });
 });

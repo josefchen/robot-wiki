@@ -70217,6 +70217,321 @@
     "evidenceDigest": "db013b2c2f23aff1f23cfec1164aae99e9e12960ba20743b584d1f1283fec546"
    }
   ]
+ },
+ {
+  "id": "rl-for-robotics-1-mdp-formalization-20260916m",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "rl-for-robotics",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "0732f3732bfa6177a474879840fb86bb8be92f079b861da170a296ffe94a7491",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "rfr1m-registry-page-identity",
+    "text": "The registered citation's landing page (Wayback capture 20260818231355 of the authors' book page, fetched live this session) prints the registry identity exactly - title 'Reinforcement Learning: An Introduction', authors 'Richard S. Sutton and Andrew G. Barto', 'Second Edition', 'MIT Press, Cambridge, MA, 2018' - and links the free 'Full Pdf' (RLbook2020.pdf) whose live body is byte-identical to the retained copy used for glyph verification.",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   },
+   {
+    "id": "rfr1m-ch3-mdp-elements-glyph-verified",
+    "text": "Chapter 3 (mutool glyph extraction, PDF page 70, printed pages 47-49) prints the article's four formal elements: the agent-environment loop 'the agent receives some representation of the environment's state, St ∈ S, and on that basis selects an action, At ∈ A(s). One time step later ... the agent receives a numerical reward, Rt+1 ∈ R, and finds itself in a new state, St+1' with trajectory (3.1) 'S0, A0, R1, S1, A1, R2, S2, A2, R3, . . .'; 'In a finite MDP, the sets of states, actions, and rewards (S, A, and R) all have a finite number of elements'; and the transition rule as Eq. (3.2) 'p(s', r | s, a) =dot= Pr{St = s', Rt = r | St−1 = s, At−1 = a}' (the t/t-1 convention this printing actually puts inside the equation, its lead-in stating 'probability of those values occurring at time t, given particular values of the preceding state and action'), followed by 'The function p defines the dynamics of the MDP' - the article's 'a transition rule'. Symbols restored from mutool artifacts and disclosed in the evidence derivation; raw extraction lines preserved there verbatim.",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 03829c42774fcf7ea1e4e9c9572f94494af7882c49bc1652be357c909641cfdb) at HEAD 8296704cada4db5efc8129ea62f307d19a5f260c: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, currentHeadIdentityValid true) before application, and re-derived with the repo lib/audit-ledger.ts parser (both digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator with zero network retrieval (63/63 checks, lane needle-verification.json): the wayback book-page identity block against the ae lane's sha-verified retained live body, and both equation quotations at GLYPH level against the retained RLbook2020.pdf (sha256 2dd0d71d..., byte-identical to the ae live fetch) using the packet's mutool extracts plus independent read-only mutool re-traces (glyph-rerun/). This plan carries the CORRECTED equation quotations the 20260916k pass held for: row 1's Eq. 3.2 in the printed t/t-1 convention (Pr{St = s', Rt = r | St-1 = s, At-1 = a}; pdftotext's minus drop at sb-fulltext.txt line 3590 explains the earlier t+1/t misreading) and row 5's Eq. 6.8 WITH the discount gamma between Rt+1 and max (pdftotext drops gamma from this PDF, proven at line 4041; Sarsa Eq. 6.7 prints the same gamma). The article prints no equation (token sweep zero hits) and its spans are byte-unchanged, so no article edit arises. The cited id sutton-barto-2018 was verified registered exactly once with the registered wayback URL; no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "e0aed6b603786e6deb6d4f72c1a2bce738cb993cef81a5574f004b55f6a9ede3"
+  },
+  "evidence": [
+   {
+    "partId": "rfr1m-registry-page-identity",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html",
+    "supportingPassage": "Title tag: 'Sutton & Barto Book: Reinforcement Learning: An Introduction'. Body: 'Reinforcement Learning: An Introduction Richard S. Sutton and Andrew G. Barto Second Edition (see here for the first edition) MIT Press, Cambridge, MA, 2018 Buy from Amazon Errata and Notes Full Pdf Without Margins Code Solutions ...' with 'Full Pdf' href RLbook2020.pdf (and RLbook2020trimmed.pdf)."
+   },
+   {
+    "partId": "rfr1m-ch3-mdp-elements-glyph-verified",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "http://www.incompleteideas.net/book/RLbook2020.pdf",
+    "supportingPassage": "Chapter 3, Finite Markov Decision Processes, Sec. 3.1 (mutool text of PDF page 70; printed pages 47-49): 'the agent receives some representation of the environment's state, St ∈ S, and on that basis selects an action, At ∈ A(s). One time step later, in part as a consequence of its action, the agent receives a numerical reward, Rt+1 ∈ R, and finds itself in a new state, St+1.' trajectory (3.1): 'S0, A0, R1, S1, A1, R2, S2, A2, R3, . . .' 'In a finite MDP, the sets of states, actions, and rewards (S, A, and R) all have a finite number of elements.' lead-in: 'there is a probability of those values occurring at time t, given particular values of the preceding state and action:' Eq. (3.2): 'p(s', r | s, a) ≐ Pr{St = s', Rt = r | St−1 = s, At−1 = a},' followed by 'The function p defines the dynamics of the MDP.' and 'The dynamics function p : S × R × S × A → [0, 1] is an ordinary deterministic function of four arguments.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "rfr1m-registry-page-identity",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Needle-verified by this integrator against the ae packet's sha-verified retained live body (sources/sb-wayback-bookpage-live.html, fetch of record 2026-09-16T19:47:57Z): the title tag prints 'Sutton & Barto Book: Reinforcement Learning: An Introduction' and the body identity block prints 'Reinforcement Learning: An Introduction Richard S. Sutton and Andrew G. Barto Second Edition ... MIT Press, Cambridge, MA, 2018' exactly; the 'Full Pdf' anchor's href is RLbook2020.pdf (plus the trimmed variant), and that linked PDF's live body is byte-identical (sha256 2dd0d71d...) to the retained z-lane copy the glyph verification ran on. Registry title/authors/year/edition match the page; sutton-barto-2018 reused read-only.",
+    "evidenceDigest": "700f6c62a741191083f4d9da4060fab3bb7df1cf6510b39c2ba58d552581bbb5"
+   },
+   {
+    "partId": "rfr1m-ch3-mdp-elements-glyph-verified",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Needle-verified at glyph level against the retained PDF (sha256 2dd0d71d...) via the ae packet's mutool extract (glyph-extracts/p070.txt) plus this integrator's independent read-only mutool re-trace of the same page (glyph-rerun/z-p070.txt): Eq. (3.2) prints '.= Pr{St =s0, Rt =r | St−1 =s, At−1 =a},' - plain-t subscripts before the conditioning bar, t−1 after it (U+2212 minuses preserved by mutool and dropped by pdftotext at sb-fulltext.txt line 3590, which is how the earlier pass misread the subscripts as t+1/t) - with the printed lead-in 'probability of those values occurring at time t, given particular values of the preceding state and action' and 'The function p defines the dynamics of the MDP.'; the interface paragraph above prints Rt+1/St+1 and footnote 4 discloses that both conventions are in use, so no future pass should 'correct' either into the other. The article prints no equation of its own (token sweep, zero hits); its four-element prose maps element-for-element onto the printed Ch. 3 text.",
+    "evidenceDigest": "d29230f2532f68d50be19a1bf26aaf42068289d48ab703c62f65fe9258dbd715"
+   }
+  ]
+ },
+ {
+  "id": "rl-for-robotics-5-qlearning-offpolicy-20260916m",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "rl-for-robotics",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "11f0eeedbc72d62ebf1486bfffa7cc115e67c8892e61d2b7dd73539112546608",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "rfr5m-qlearning-target-rule-glyph-verified",
+    "text": "Sec. 6.5 'Q-learning: Off-policy TD Control' (printed pp. 131-132) prints the mechanism the article paraphrases, WITH the discount factor as printed: Q(St, At) ← Q(St, At) + α[Rt+1 + γ max_a Q(St+1, a) − Q(St, At)] (Eq. 6.8). The update fits the value of a state-action pair and bootstraps from γ max_a Q(St+1, a), the best available next action - the article's wording for the printed discounted maximum.",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   },
+   {
+    "id": "rfr5m-offpolicy-character-glyph-verified",
+    "text": "The 'rather than the one that was taken' conjunct is the section's printed off-policy character: Q-learning is 'an off-policy TD control algorithm' whose learned Q 'directly approximates q*, the optimal action-value function, independent of the policy being followed'. The printed on-policy contrast is Sarsa Eq. 6.7, which bootstraps from Q(St+1, At+1) - the action actually taken - with the same printed γ: Q(St, At) ← Q(St, At) + α[Rt+1 + γQ(St+1, At+1) − Q(St, At)].",
+    "requiredCitationIds": [
+     "sutton-barto-2018"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 03829c42774fcf7ea1e4e9c9572f94494af7882c49bc1652be357c909641cfdb) at HEAD 8296704cada4db5efc8129ea62f307d19a5f260c: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, currentHeadIdentityValid true) before application, and re-derived with the repo lib/audit-ledger.ts parser (both digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator with zero network retrieval (63/63 checks, lane needle-verification.json): the wayback book-page identity block against the ae lane's sha-verified retained live body, and both equation quotations at GLYPH level against the retained RLbook2020.pdf (sha256 2dd0d71d..., byte-identical to the ae live fetch) using the packet's mutool extracts plus independent read-only mutool re-traces (glyph-rerun/). This plan carries the CORRECTED equation quotations the 20260916k pass held for: row 1's Eq. 3.2 in the printed t/t-1 convention (Pr{St = s', Rt = r | St-1 = s, At-1 = a}; pdftotext's minus drop at sb-fulltext.txt line 3590 explains the earlier t+1/t misreading) and row 5's Eq. 6.8 WITH the discount gamma between Rt+1 and max (pdftotext drops gamma from this PDF, proven at line 4041; Sarsa Eq. 6.7 prints the same gamma). The article prints no equation (token sweep zero hits) and its spans are byte-unchanged, so no article edit arises. The cited id sutton-barto-2018 was verified registered exactly once with the registered wayback URL; no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "2cc06fa41325f3beafe834418ddbbb8c3b123aefad4b0883ce601edf19333872"
+  },
+  "evidence": [
+   {
+    "partId": "rfr5m-qlearning-target-rule-glyph-verified",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "http://www.incompleteideas.net/book/RLbook2020.pdf",
+    "supportingPassage": "6.5 Q-learning: Off-policy TD Control. One of the early breakthroughs in reinforcement learning was the development of an off-policy TD control algorithm known as Q-learning (Watkins, 1989), defined by Q(St, At) ← Q(St, At) + α [Rt+1 + γ max_a Q(St+1, a) − Q(St, At)] . (6.8) In this case, the learned action-value function, Q, directly approximates q*, the optimal action-value function, independent of the policy being followed. This dramatically simplifies the analysis of the algorithm and enabled early convergence proofs."
+   },
+   {
+    "partId": "rfr5m-offpolicy-character-glyph-verified",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "http://www.incompleteideas.net/book/RLbook2020.pdf",
+    "supportingPassage": "Sec. 6.4 (Sarsa), PDF page 151: Q(St, At) ← Q(St, At) + α [Rt+1 + γQ(St+1, At+1) − Q(St, At)] . (6.7) Sarsa. This update is done after every transition from a nonterminal state St. ... Sec. 6.5: One of the early breakthroughs in reinforcement learning was the development of an off-policy TD control algorithm known as Q-learning (Watkins, 1989), defined by ... In this case, the learned action-value function, Q, directly approximates q*, the optimal action-value function, independent of the policy being followed."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "rfr5m-qlearning-target-rule-glyph-verified",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Needle-verified at glyph level (glyph-extracts/p151-153.txt, PDF pages 151/153, plus this integrator's independent re-traces under glyph-rerun/): Eq. (6.8) prints 'Q(St, At)  Q(St, At) + ↵ / h / Rt+1 + γ max / a / Q(St+1, a) − Q(St, At) / i / . / (6.8)' - the CMMI10 γ sits between 'Rt+1 +' and 'max' (mutool prints α as ↵ and the square brackets as h/i on their own lines, and drops the leftward update arrow; the passage restores those from the same artifacts and keeps γ and the U+2212 minus exactly as extracted). pdftotext drops γ from this PDF's text layer entirely (proven at sb-fulltext.txt line 4041, the Ch. 3 discount-rate sentence; the earlier packet's γ-less Eq. 6.8 quotation came from that artifact at line 9515). The section title '6.5. Q-learning: Off-policy TD Control', the Watkins attribution and 'independent of the policy being followed' needle-verify verbatim; the article's discount-agnostic paraphrase is supported at the book's printed scope.",
+    "evidenceDigest": "2a2251a93c5ef8eca5045b017a738d12a695a873de2c0b4b2e1dd3adbb899bc2"
+   },
+   {
+    "partId": "rfr5m-offpolicy-character-glyph-verified",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 61a83126-858d-46a8-a704-588d99e420a9; ae-packet glyph re-verification 2026-09-16 (63/63 checks, lane needle-verification.json; independent read-only mutool re-traces under glyph-rerun/)",
+    "rationale": "Sarsa Eq. (6.7) on PDF page 151 prints 'Rt+1 + γQ(St+1, At+1) − Q(St, At)' - the same γ, bootstrapping from the action actually taken - so the article's 'rather than the one that was taken' names the printed on-policy/off-policy BOOTSTRAP-SOURCE contrast (At+1 vs max over a), not a difference in discounting: both printed equations discount identically. The off-policy character sentences and the Sarsa on-policy control box title needle-verify verbatim.",
+    "evidenceDigest": "49579218047669fca9c4988fb9e4f69183464776bac361542fc93ed269e5b692"
+   }
+  ]
+ },
+ {
+  "id": "generative-sim-4-robocasa365-stat-20260916n",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-sim",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "832b00fd1bf0abfab65cf8fb5db8199a4eb10fbaa969bb72647b65cba89a1452",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gs4-identity-venue",
+    "text": "The registered URL's own body prints the registry identity and the venue: 'Published as a conference paper at ICLR 2026' above the title 'RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots' with byline 'Soroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri, Yuke Zhu' (The University of Texas at Austin; 2 NVIDIA Research; * Equal contribution) - the registry's exact 4-author list in order - and project URL https://robocasa.ai.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   },
+   {
+    "id": "gs4-2500-kitchens",
+    "text": "The Stat's '2,500 kitchens' prints twice in different forms: the abstract's 'RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments' (the ledger note's quote, verbatim, 1 hit) and the Figure 1 caption's '2500 diverse kitchen scenes' (1 hit); the whole-document census finds no other kitchen-environment total ('2,500 diverse kitchen environments' 1, '2500 diverse kitchen scenes' 1, '2,500 kitchen scenes' 1, plus one evaluation-scope '10 kitchen scenes'). The article's 'kitchens' is a plural gloss of the printed 'kitchen environments'/'kitchen scenes'.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) at HEAD 1e034913: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all four row digests equal to the packet). Every evidence passage was independently needle-verified by this zero-retrieval integrator against the retained sha256-verified bodies preserved in the source lane: sources/robocasa365_iclr26.pdf (sha256 3253894415...9bc99d, 43,595,464 bytes, curl GET 200 at the exact registered URL 2026-09-16T21:15:37Z by the preparer) with its pdftotext fulltext sources/robocasa365-fulltext.txt, plus the retained abs pages sources/3dgs-2308.04079-abs.html and sources/splatsim-2409.10161-abs.html (curl GET 200, 2026-09-16T21:15:38Z). All packet needle counts reproduced (abstract sentence x1, Fig1 caption x1, venue footer x25, hours needle x1, settings needle x1, kitchen and hours censuses exactly as recorded); one packet needle count corrected by disclosure only: the bare phrase \"comprehensive simulation benchmark\" prints twice (abstract + conclusion framing of the same paper), the packet recorded 1 - both are the paper framing RoboCasa365, no contradiction. Glyph disclosures: the supportingPassage renders the em-dash of \"data-making\" as a hyphen, the asterisk-operator as *, pdftotext small caps and superscript affiliation digits as plain text (packet-disclosed); the 3DGS abs page itself prints ASCII \"(>= 30 fps)\". Row 14 is ABSTRACT-SCOPE evidence exactly as dispatched: the 3DGS abstract scopes 3D Gaussians to rendering/novel-view synthesis with no dynamics anywhere in its printed scope, and the SplatSim abstract makes splats \"the primary rendering primitive\" \"in simulators\" while \"maintaining the scalability and cost-efficiency of simulation\"; no broader reading is certified and the SplatSim body engine-coupling sentence was not fetched. The push-test article span carries no Cite element; the two registered citations are bound as this row evidence per the dispatch brief (3dgs-2023 reused read-only; splatsim-2024 reused from the sim2real-transfer:21 binding - no duplicate registrations, the packet proposes none). Row 15 stays honestly HELD: the packet fail-closed frontmatter enumeration found isaac-lab-2025's live abs page prints 106 authors differing from the registry in order and glyph-level details (\"Soowan Park (박수완)\" vs \"Soowan Park\", Hangul absent; curly vs straight quotes), so the sweep row's blanket P1 claim cannot be freshly certified; conflict preserved per the pi_RL precedent, no registry edit. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "745ce9f65717b6ff06101690244622e1b33776330e179378216eb8420dec8783"
+  },
+  "evidence": [
+   {
+    "partId": "gs4-identity-venue",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Published as a conference paper at ICLR 2026 - ROBOCASA365: A LARGE-SCALE SIMULATION FRAMEWORK FOR TRAINING AND BENCHMARKING GENERALIST ROBOTS - Soroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri, Yuke Zhu - The University of Texas at Austin, 2 NVIDIA Research; * Equal contribution - https://robocasa.ai"
+   },
+   {
+    "partId": "gs4-2500-kitchens",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'Built on the RoboCasa platform, RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments, with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data-making it one of the most diverse and large-scale resources for studying generalist policies.' Figure 1 caption: 'RoboCasa365 includes 365 everyday tasks, 2500 diverse kitchen scenes, over 600 hours of human demonstration data, plus 1600 hours of synthetically generated demonstration data, and systematic benchmarks for training and evaluating generalist robot models.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gs4-identity-venue",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: first page of the registered URL's own body prints venue ICLR 2026 (all 25 page footers), the exact registry title (small-caps print normalized, disclosed) and the exact 4-author byline in order; registry year 2026 is the printed conference year.",
+    "evidenceDigest": "81dfb8e472f8fb97b4d6e7bff6386304ab71087e6941e5c5a1a97183cf6feab1"
+   },
+   {
+    "partId": "gs4-2500-kitchens",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: the abstract prints the exact quoted sentence (1 hit) and Figure 1 independently prints the 2500-scenes figure; whole-document needle census finds no competing kitchen total, so the both-passages rule is satisfied rather than assumed.",
+    "evidenceDigest": "80073fa668410098c81cb89206a954499144c616c1692a6a79e6d6fb6ce27b87"
+   }
+  ]
+ },
+ {
+  "id": "generative-sim-9-robocasa365-platform-20260916n",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-sim",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "eaf1ee7972be918794a029262a3effde4315a3b3a1d0c1ed094a53aea707ca74",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gs9-365-tasks-2500-environments",
+    "text": "The first conjunct traces to the abstract: 'Built on the RoboCasa platform, RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments' - 'extends the same platform' is the article's gloss of 'Built on the RoboCasa platform'; the article drops the source's 'diverse'.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   },
+   {
+    "id": "gs9-600-1600-hours",
+    "text": "The hours conjunct traces to the abstract: 'with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data' - the article's '600+' and '1,600+' gloss the printed 'over 600' and 'over 1600' (page prints 1600 without the thousands comma); the body's precise 612-hour and 1,615-hour totals sit above those floors and contradict nothing.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   },
+   {
+    "id": "gs9-settings-benchmarks",
+    "text": "The settings conjunct traces to the abstract with a recorded compression: 'RoboCasa365 is designed to support systematic evaluations for different problem settings, including multi-task learning, robot foundation model training, and lifelong learning'; the article's 'explicit support for ... lifelong-learning benchmarks' compresses that sentence plus the abstract's own framing of RoboCasa365 as 'a comprehensive simulation benchmark'.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) at HEAD 1e034913: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all four row digests equal to the packet). Every evidence passage was independently needle-verified by this zero-retrieval integrator against the retained sha256-verified bodies preserved in the source lane: sources/robocasa365_iclr26.pdf (sha256 3253894415...9bc99d, 43,595,464 bytes, curl GET 200 at the exact registered URL 2026-09-16T21:15:37Z by the preparer) with its pdftotext fulltext sources/robocasa365-fulltext.txt, plus the retained abs pages sources/3dgs-2308.04079-abs.html and sources/splatsim-2409.10161-abs.html (curl GET 200, 2026-09-16T21:15:38Z). All packet needle counts reproduced (abstract sentence x1, Fig1 caption x1, venue footer x25, hours needle x1, settings needle x1, kitchen and hours censuses exactly as recorded); one packet needle count corrected by disclosure only: the bare phrase \"comprehensive simulation benchmark\" prints twice (abstract + conclusion framing of the same paper), the packet recorded 1 - both are the paper framing RoboCasa365, no contradiction. Glyph disclosures: the supportingPassage renders the em-dash of \"data-making\" as a hyphen, the asterisk-operator as *, pdftotext small caps and superscript affiliation digits as plain text (packet-disclosed); the 3DGS abs page itself prints ASCII \"(>= 30 fps)\". Row 14 is ABSTRACT-SCOPE evidence exactly as dispatched: the 3DGS abstract scopes 3D Gaussians to rendering/novel-view synthesis with no dynamics anywhere in its printed scope, and the SplatSim abstract makes splats \"the primary rendering primitive\" \"in simulators\" while \"maintaining the scalability and cost-efficiency of simulation\"; no broader reading is certified and the SplatSim body engine-coupling sentence was not fetched. The push-test article span carries no Cite element; the two registered citations are bound as this row evidence per the dispatch brief (3dgs-2023 reused read-only; splatsim-2024 reused from the sim2real-transfer:21 binding - no duplicate registrations, the packet proposes none). Row 15 stays honestly HELD: the packet fail-closed frontmatter enumeration found isaac-lab-2025's live abs page prints 106 authors differing from the registry in order and glyph-level details (\"Soowan Park (박수완)\" vs \"Soowan Park\", Hangul absent; curly vs straight quotes), so the sweep row's blanket P1 claim cannot be freshly certified; conflict preserved per the pi_RL precedent, no registry edit. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "fd0627593212bb6bd1dfdd9660f3f5bfa6dde55b2100e863c8ef4c49fd351c4d"
+  },
+  "evidence": [
+   {
+    "partId": "gs9-365-tasks-2500-environments",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'To fill this gap, we present RoboCasa365, a comprehensive simulation benchmark for household mobile manipulation. Built on the RoboCasa platform, RoboCasa365 introduces 365 everyday tasks across 2,500 diverse kitchen environments, with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data-making it one of the most diverse and large-scale resources for studying generalist policies.'"
+   },
+   {
+    "partId": "gs9-600-1600-hours",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'with over 600 hours of human demonstration data and over 1600 hours of synthetically generated demonstration data-making it one of the most diverse and large-scale resources for studying generalist policies.' Figure 1 caption: 'over 600 hours of human demonstration data, plus 1600 hours of synthetically generated demonstration data'."
+   },
+   {
+    "partId": "gs9-settings-benchmarks",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Abstract: 'RoboCasa365 is designed to support systematic evaluations for different problem settings, including multi-task learning, robot foundation model training, and lifelong learning.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gs9-365-tasks-2500-environments",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: abstract prints the sentence verbatim (needle 1 hit); 'extends the same platform' gloss of 'Built on the RoboCasa platform' recorded.",
+    "evidenceDigest": "e3f9d766af857bb006562f8c0504ca8f80fff50e274c369d288d06d258885aad"
+   },
+   {
+    "partId": "gs9-600-1600-hours",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: abstract prints the exact ledger-note quote verbatim (needle 1 hit); the over/plus glosses and the comma-less '1600' are recorded; body totals 612/1,615 hours are consistent, so the both-passages rule is satisfied rather than assumed.",
+    "evidenceDigest": "d593f3a02a815b9ae6adb6dc12a8d891f520098ea33c0b45bfb8efc945a2bbfb"
+   },
+   {
+    "partId": "gs9-settings-benchmarks",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: abstract prints the exact ledger-note quote verbatim (needle 1 hit); the 'explicit support ... benchmarks' compression is disclosed rather than certified as a source phrase.",
+    "evidenceDigest": "49d5376d6bb673ad6089dbb23760db0500b2a0f97f3444e384375f50a7fc884f"
+   }
+  ]
+ },
+ {
+  "id": "generative-sim-14-appearance-not-physics-20260916n",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-sim",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "57557f5b38fac54c5f458a9e4550e5138beb9c3f77656b3f9b29e5a357531065",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "gs14-3dgs-is-rendering",
+    "text": "The 3DGS paper's own abstract scopes 3D Gaussian Splatting entirely to appearance: real-time novel-view synthesis and rendering, with no dynamics anywhere in its printed scope - 'high-quality real-time (>= 30 fps) novel-view synthesis at 1080p resolution', 'we represent the scene with 3D Gaussians', 'a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering'.",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   },
+   {
+    "id": "gs14-splatsim-rendering-primitive-in-simulators",
+    "text": "The SplatSim abstract states the division of labor inside simulators: 'leverages Gaussian Splatting as the primary rendering primitive', 'By replacing traditional mesh representations with Gaussian Splats in simulators' (a rendering-layer swap), while 'maintaining the scalability and cost-efficiency of simulation' - the simulator stays the simulator, supplying what the splat renderer does not.",
+    "requiredCitationIds": [
+     "splatsim-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 57fa9ef830b74ee7dcaa40b5362878fa918c4eac02510b9df568c4611e2c00ed) at HEAD 1e034913: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all four row digests equal to the packet). Every evidence passage was independently needle-verified by this zero-retrieval integrator against the retained sha256-verified bodies preserved in the source lane: sources/robocasa365_iclr26.pdf (sha256 3253894415...9bc99d, 43,595,464 bytes, curl GET 200 at the exact registered URL 2026-09-16T21:15:37Z by the preparer) with its pdftotext fulltext sources/robocasa365-fulltext.txt, plus the retained abs pages sources/3dgs-2308.04079-abs.html and sources/splatsim-2409.10161-abs.html (curl GET 200, 2026-09-16T21:15:38Z). All packet needle counts reproduced (abstract sentence x1, Fig1 caption x1, venue footer x25, hours needle x1, settings needle x1, kitchen and hours censuses exactly as recorded); one packet needle count corrected by disclosure only: the bare phrase \"comprehensive simulation benchmark\" prints twice (abstract + conclusion framing of the same paper), the packet recorded 1 - both are the paper framing RoboCasa365, no contradiction. Glyph disclosures: the supportingPassage renders the em-dash of \"data-making\" as a hyphen, the asterisk-operator as *, pdftotext small caps and superscript affiliation digits as plain text (packet-disclosed); the 3DGS abs page itself prints ASCII \"(>= 30 fps)\". Row 14 is ABSTRACT-SCOPE evidence exactly as dispatched: the 3DGS abstract scopes 3D Gaussians to rendering/novel-view synthesis with no dynamics anywhere in its printed scope, and the SplatSim abstract makes splats \"the primary rendering primitive\" \"in simulators\" while \"maintaining the scalability and cost-efficiency of simulation\"; no broader reading is certified and the SplatSim body engine-coupling sentence was not fetched. The push-test article span carries no Cite element; the two registered citations are bound as this row evidence per the dispatch brief (3dgs-2023 reused read-only; splatsim-2024 reused from the sim2real-transfer:21 binding - no duplicate registrations, the packet proposes none). Row 15 stays honestly HELD: the packet fail-closed frontmatter enumeration found isaac-lab-2025's live abs page prints 106 authors differing from the registry in order and glyph-level details (\"Soowan Park (박수완)\" vs \"Soowan Park\", Hangul absent; curly vs straight quotes), so the sweep row's blanket P1 claim cannot be freshly certified; conflict preserved per the pi_RL precedent, no registry edit. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "ec328a92028044df01112836091b3c9e7cf1dc8a98f2408ee3a4d5f7ffd160e9"
+  },
+  "evidence": [
+   {
+    "partId": "gs14-3dgs-is-rendering",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "Abstract: 'We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow high-quality real-time (>= 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space ... Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering.'"
+   },
+   {
+    "partId": "gs14-splatsim-rendering-primitive-in-simulators",
+    "citationId": "splatsim-2024",
+    "sourceUrl": "https://arxiv.org/abs/2409.10161",
+    "supportingPassage": "Abstract: 'In this paper, we propose SplatSim, a novel framework that leverages Gaussian Splatting as the primary rendering primitive to reduce the Sim2Real gap for RGB-based manipulation policies. By replacing traditional mesh representations with Gaussian Splats in simulators, SplatSim produces highly photorealistic synthetic data while maintaining the scalability and cost-efficiency of simulation.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "gs14-3dgs-is-rendering",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: the claim's appearance half maps onto the 3DGS abstract's own printed scope (novel-view synthesis / rendering only); the article's 'a renderer has no dynamics to integrate' is consistent with a source whose printed scope contains no dynamics.",
+    "evidenceDigest": "4b6d7979919d5f194b4293326f11aad39d6b69da515146c3d1c1b8230cdfb0ff"
+   },
+   {
+    "partId": "gs14-splatsim-rendering-primitive-in-simulators",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator ddef54bb-f212-44c3-87c1-62d1f1e47a37; zero-retrieval preserved-packet + retained-source needle re-verification 2026-09-16",
+    "rationale": "Needle-verified by this zero-retrieval integrator against the retained sha256-verified source-lane body before adjudication; preparer adjudication: the claim's engine half maps onto the SplatSim abstract's own words: splats are the RENDERING primitive, replacing mesh REPRESENTATIONS in simulators, while simulation itself is maintained - abstract-scope evidence, disclosed; the body's exact engine-coupling sentence was not fetched.",
+    "evidenceDigest": "08488dad576385ec3023b522daa86e0d2dbe26253f7bf59c089afb8e6d8e1747"
+   }
+  ]
  }
 
 ]

@@ -84,7 +84,7 @@ describe('five IFR and OSHA industrial originals', () => {
     expect(opening).toContain('each year from 2021 through 2024');
     expect(opening).toContain('with 542,076 installed in 2024');
     expect(opening).toContain('value="4,663,698"');
-    expect(opening).toContain('note="2021–2024 each above 500k"');
+    expect(opening).toContain('note="2021-2024 each above 500k"');
     expect(opening).not.toContain('value="4.66M"');
     expect(opening).not.toMatch(/2021[^.\n]*517,385/);
   });
