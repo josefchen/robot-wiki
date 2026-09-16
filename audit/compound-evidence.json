@@ -69858,6 +69858,286 @@
     "evidenceDigest": "08a087fb75f768293f05a66946682da356a1d18c5e1b127750da313e75245024"
    }
   ]
+ },
+ {
+  "id": "rl-for-robotics-49-droid-oxe-corpora-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "rl-for-robotics",
+  "rowOrdinal": 49,
+  "originalCellsDigest": "4e971aed4fdc3abc6fba81d8aaf9828dbfa9f29c12da9d93191e4d6d7e088ac4",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "rfr49-droid-corpus",
+    "text": "DROID is a large-scale robot-manipulation corpus per its own abstract at the registered abs page: 'a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 84 tasks by 50 data collectors' - identity fields (title, first authors, year, arXiv id) all match the registry.",
+    "requiredCitationIds": [
+     "droid-2024"
+    ]
+   },
+   {
+    "id": "rfr49-oxe-corpus",
+    "text": "Open X-Embodiment is a large-scale robot-manipulation corpus per its own abstract at the registered abs page: 'we provide datasets in standardized data formats and models' and 'We assemble a dataset from 22 different robots collected through a collaboration between 21 institutions, demonstrating 527 skills (160266 tasks)' - identity fields match the registry (294-name author list in order; title and year exact).",
+    "requiredCitationIds": [
+     "open-x-embodiment-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 10def91a-4ee7-4834-b176-c3be73c14947; preserved-packet needle re-verification 2026-09-16 (155/155 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 329a75d3be70438a7ea294116925ba2336e8f5295edb72e8c20d4613c6968129) at HEAD 93cb40eff9430a3cfe5f5268a616ed9b8b29507a: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 4 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha-verified retained source bodies with zero network retrieval (155/155 checks, lane needle-verification.json; text layer via pdftotext, glyph layer via mutool trace). Cited ids verified registered per-id in data/citations.ts (droid-2024, open-x-embodiment-2023 and, for the sweep, all 27 frontmatter ids); no new registrations proposed or needed. Originals 1 and 5 stay HELD by this integrator on glyph-verified differences between the packet's quotations and the retained RLbook2020.pdf: row 1's part rfr1-ch3-mdp-elements quotes Eq. (3.2) as Pr{St+1 = s', Rt+1 = r | St = s, At = a} while the PDF prints Pr{St = s', Rt = r | St-1 = s, At-1 = a} (plain-t subscripts before the conditioning bar, t MINUS 1 after it), and row 5's Eq. (6.8)/algorithm-box quotations omit the printed discount factor gamma (CMMI10 glyph between \"Rt+1 +\" and \"max\"; Eq. 6.7 prints the same gamma). Both rows are byte-unchanged. Source preparation is not acceptance.",
+   "planDigest": "5fd68657756eebbaf630f2ea8a99aa7b5b0773b3cda6c1783a30b8bae6f0af31"
+  },
+  "evidence": [
+   {
+    "partId": "rfr49-droid-corpus",
+    "citationId": "droid-2024",
+    "sourceUrl": "https://arxiv.org/abs/2403.12945",
+    "supportingPassage": "Title: DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset. Authors (first of 101 printed): Khazatsky, Alexander; Pertsch, Karl; Nair, Suraj. Dates: Submitted 19 March 2024 (arXiv:2403.12945). Abstract: In this work, we introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 84 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months."
+   },
+   {
+    "partId": "rfr49-oxe-corpus",
+    "citationId": "open-x-embodiment-2023",
+    "sourceUrl": "https://arxiv.org/abs/2310.08864",
+    "supportingPassage": "Title: Open X-Embodiment: Robotic Learning Datasets and RT-X Models. Authors: Open X-Embodiment Collaboration, Abby O'Neill, Abdul Rehman, Abhinav Gupta, Abhiram Maddukuri, ... (294 printed; registry carries the same 294 in order). Dates: Submitted 13 October 2023 (arXiv:2310.08864). Abstract: In this paper, we provide datasets in standardized data formats and models to make it possible to explore this possibility in the context of robotic manipulation, alongside experimental results that provide an example of effective X-robot policies. We assemble a dataset from 22 different robots collected through a collaboration between 21 institutions, demonstrating 527 skills (160266 tasks)."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "rfr49-droid-corpus",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 10def91a-4ee7-4834-b176-c3be73c14947; preserved-packet needle re-verification 2026-09-16 (155/155 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the packet's sha-verified retained body (sources/droid-2403.12945-abs.html, fetch of record 2026-09-16T16:50:58Z): the abstract prints 'a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data' and '564 scenes and 84 tasks by 50 data collectors' verbatim, and the page metas print the exact registry title, the registry's first three authors (of 101 printed) and the 2024/03/19 date. The article's 'corpora' naming rests on the paper's own 'Large-Scale ... Dataset' framing.",
+    "evidenceDigest": "1b4445205e7204896d52569f09e8c6538255abafb1da746082461fc635d416b9"
+   },
+   {
+    "partId": "rfr49-oxe-corpus",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 10def91a-4ee7-4834-b176-c3be73c14947; preserved-packet needle re-verification 2026-09-16 (155/155 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against sources/oxe-2310.08864-abs.html (same fetch window): the abstract prints 'we provide datasets in standardized data formats and models' and 'We assemble a dataset from 22 different robots collected through a collaboration between 21 institutions, demonstrating 527 skills (160266 tasks)' verbatim; the title and 2023/10/13 date metas are exact, the rendered author line matches the registry list head, and the citation_author #0 'Embodiment Collaboration' artifact is recorded rather than glossed.",
+    "evidenceDigest": "80e59463a7d4d32ec91363ea2e9852714795021d232b989134149ed5623bc284"
+   }
+  ]
+ },
+ {
+  "id": "rl-for-robotics-50-frontmatter-p1-sweep-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "rl-for-robotics",
+  "rowOrdinal": 50,
+  "originalCellsDigest": "602199e289eb8077f010223e60e8097869250b71675ee8f6ae91b57792d25943",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "p50-frontmatter-identity-sweep",
+    "text": "Every one of the article's 27 frontmatter citation ids resolves, at its exact registered URL fetched fresh 2026-09-16, to a live document whose title, author list and year match the registry entry under the house conventions (truncated author lists with in-file true-count comments; venue-year convention for iql-2022/autonomous-rl-2022; preserved owner-recorded pi-rl-2026 16-vs-14 author conflict; ddpg-2016 letter-case-only title difference; oxe author-#0 meta artifact with matching rendered line). Fail-closed check passed: no identity lacks a fresh fetch record and passage.",
+    "requiredCitationIds": [
+     "sutton-barto-2018",
+     "rudin-2021",
+     "haarnoja-walk-2019",
+     "qt-opt-2018",
+     "levine-hand-eye-2016",
+     "daydreamer-2022",
+     "ppo-2017",
+     "sac-2018",
+     "ddpg-2016",
+     "td3-2018",
+     "offline-rl-tutorial-2020",
+     "cql-2020",
+     "iql-2022",
+     "td3-bc-2021",
+     "q-transformer-2023",
+     "offline-rl-vs-bc-2022",
+     "robomimic-2021",
+     "rlpd-2023",
+     "her-2017",
+     "autonomous-rl-2022",
+     "reset-free-rl-2021",
+     "real-world-rl-ingredients-2020",
+     "hil-serl-2024",
+     "pi-rl-2026",
+     "pld-2026",
+     "droid-2024",
+     "open-x-embodiment-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 10def91a-4ee7-4834-b176-c3be73c14947; preserved-packet needle re-verification 2026-09-16 (155/155 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 329a75d3be70438a7ea294116925ba2336e8f5295edb72e8c20d4613c6968129) at HEAD 93cb40eff9430a3cfe5f5268a616ed9b8b29507a: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 4 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha-verified retained source bodies with zero network retrieval (155/155 checks, lane needle-verification.json; text layer via pdftotext, glyph layer via mutool trace). Cited ids verified registered per-id in data/citations.ts (droid-2024, open-x-embodiment-2023 and, for the sweep, all 27 frontmatter ids); no new registrations proposed or needed. The levine-hand-eye-2016 evidence passage binds the printed title-page text (Deirdre Quillen in the author block) rather than the packet's inverted sic, disclosed in the part adjudication. Originals 1 and 5 stay HELD by this integrator on glyph-verified differences between the packet's quotations and the retained RLbook2020.pdf: row 1's part rfr1-ch3-mdp-elements quotes Eq. (3.2) as Pr{St+1 = s', Rt+1 = r | St = s, At = a} while the PDF prints Pr{St = s', Rt = r | St-1 = s, At-1 = a} (plain-t subscripts before the conditioning bar, t MINUS 1 after it), and row 5's Eq. (6.8)/algorithm-box quotations omit the printed discount factor gamma (CMMI10 glyph between \"Rt+1 +\" and \"max\"; Eq. 6.7 prints the same gamma). Both rows are byte-unchanged. Source preparation is not acceptance.",
+   "planDigest": "d1b5a296d0ff09338ef0288cc8e0ce7fd8446008d7d9a1ef2b38dadb30632a82"
+  },
+  "evidence": [
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "sutton-barto-2018",
+    "sourceUrl": "https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html",
+    "supportingPassage": "Title tag: 'Sutton & Barto Book: Reinforcement Learning: An Introduction'. Body: 'Reinforcement Learning: An Introduction Richard S. Sutton and Andrew G. Barto Second Edition (see here for the first edition) MIT Press, Cambridge, MA, 2018' with 'Full Pdf' linking RLbook2020.pdf."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "rudin-2021",
+    "sourceUrl": "https://arxiv.org/abs/2109.11978",
+    "supportingPassage": "Title: 'Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning'. Authors (first of 4 printed): Rudin, Nikita; Hoeller, David; Reist, Philipp. Date printed: 2021/09/24."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "haarnoja-walk-2019",
+    "sourceUrl": "https://arxiv.org/abs/1812.11103",
+    "supportingPassage": "Title: 'Learning to Walk via Deep Reinforcement Learning'. Authors (first of 6 printed): Haarnoja, Tuomas; Ha, Sehoon; Zhou, Aurick. Date printed: 2018/12/26."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "qt-opt-2018",
+    "sourceUrl": "https://arxiv.org/abs/1806.10293",
+    "supportingPassage": "Title: 'QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation'. Authors (first of 11 printed): Kalashnikov, Dmitry; Irpan, Alex; Pastor, Peter. Date printed: 2018/06/27."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "levine-hand-eye-2016",
+    "sourceUrl": "https://arxiv.org/pdf/1603.02199v4",
+    "supportingPassage": "PDF title page: 'arXiv:1603.02199v4 [cs.LG] 28 Aug 2016 Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and Large-Scale Data Collection Sergey Levine Peter Pastor Alex Krizhevsky Deirdre Quillen Google' (all four registry authors in order; the email block prints DEQUILLEN @ GOOGLE . COM, confirming Quillen)"
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "daydreamer-2022",
+    "sourceUrl": "https://arxiv.org/abs/2206.14176",
+    "supportingPassage": "Title: 'DayDreamer: World Models for Physical Robot Learning'. Authors (first of 5 printed): Wu, Philipp; Escontrela, Alejandro; Hafner, Danijar. Date printed: 2022/06/28."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "ppo-2017",
+    "sourceUrl": "https://arxiv.org/abs/1707.06347",
+    "supportingPassage": "Title: 'Proximal Policy Optimization Algorithms'. Authors (first of 5 printed): Schulman, John; Wolski, Filip; Dhariwal, Prafulla. Date printed: 2017/07/20."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "sac-2018",
+    "sourceUrl": "https://arxiv.org/abs/1801.01290",
+    "supportingPassage": "Title: 'Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor'. Authors (first of 4 printed): Haarnoja, Tuomas; Zhou, Aurick; Abbeel, Pieter. Date printed: 2018/01/04."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "ddpg-2016",
+    "sourceUrl": "https://arxiv.org/abs/1509.02971",
+    "supportingPassage": "Title: 'Continuous control with deep reinforcement learning'. Authors (first of 8 printed): Lillicrap, Timothy P.; Hunt, Jonathan J.; Pritzel, Alexander. Date printed: 2015/09/09."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "td3-2018",
+    "sourceUrl": "https://arxiv.org/abs/1802.09477",
+    "supportingPassage": "Title: 'Addressing Function Approximation Error in Actor-Critic Methods'. Authors (first of 3 printed): Fujimoto, Scott; van Hoof, Herke; Meger, David. Date printed: 2018/02/26."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "offline-rl-tutorial-2020",
+    "sourceUrl": "https://arxiv.org/abs/2005.01643",
+    "supportingPassage": "Title: 'Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems'. Authors (first of 4 printed): Levine, Sergey; Kumar, Aviral; Tucker, George. Date printed: 2020/05/04."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "cql-2020",
+    "sourceUrl": "https://arxiv.org/abs/2006.04779",
+    "supportingPassage": "Title: 'Conservative Q-Learning for Offline Reinforcement Learning'. Authors (first of 4 printed): Kumar, Aviral; Zhou, Aurick; Tucker, George. Date printed: 2020/06/08."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "iql-2022",
+    "sourceUrl": "https://arxiv.org/abs/2110.06169",
+    "supportingPassage": "Title: 'Offline Reinforcement Learning with Implicit Q-Learning'. Authors (first of 3 printed): Kostrikov, Ilya; Nair, Ashvin; Levine, Sergey. Date printed: 2021/10/12."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "td3-bc-2021",
+    "sourceUrl": "https://arxiv.org/abs/2106.06860",
+    "supportingPassage": "Title: 'A Minimalist Approach to Offline Reinforcement Learning'. Authors (first of 2 printed): Fujimoto, Scott; Gu, Shixiang Shane. Date printed: 2021/06/12."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "q-transformer-2023",
+    "sourceUrl": "https://arxiv.org/abs/2309.10150",
+    "supportingPassage": "Title: 'Q-Transformer: Scalable Offline Reinforcement Learning via Autoregressive Q-Functions'. Authors (first of 25 printed): Chebotar, Yevgen; Vuong, Quan; Irpan, Alex. Date printed: 2023/09/18."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "offline-rl-vs-bc-2022",
+    "sourceUrl": "https://arxiv.org/abs/2204.05618",
+    "supportingPassage": "Title: 'When Should We Prefer Offline Reinforcement Learning Over Behavioral Cloning?'. Authors (first of 4 printed): Kumar, Aviral; Hong, Joey; Singh, Anikait. Date printed: 2022/04/12."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "robomimic-2021",
+    "sourceUrl": "https://arxiv.org/abs/2108.03298",
+    "supportingPassage": "Title: 'What Matters in Learning from Offline Human Demonstrations for Robot Manipulation'. Authors (first of 10 printed): Mandlekar, Ajay; Xu, Danfei; Wong, Josiah. Date printed: 2021/08/06."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "rlpd-2023",
+    "sourceUrl": "https://arxiv.org/abs/2302.02948",
+    "supportingPassage": "Title: 'Efficient Online Reinforcement Learning with Offline Data'. Authors (first of 4 printed): Ball, Philip J.; Smith, Laura; Kostrikov, Ilya. Date printed: 2023/02/06."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "her-2017",
+    "sourceUrl": "https://arxiv.org/abs/1707.01495",
+    "supportingPassage": "Title: 'Hindsight Experience Replay'. Authors (first of 10 printed): Andrychowicz, Marcin; Wolski, Filip; Ray, Alex. Date printed: 2017/07/05."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "autonomous-rl-2022",
+    "sourceUrl": "https://arxiv.org/abs/2112.09605",
+    "supportingPassage": "Title: 'Autonomous Reinforcement Learning: Formalism and Benchmarking'. Authors (first of 7 printed): Sharma, Archit; Xu, Kelvin; Sardana, Nikhil. Date printed: 2021/12/17."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "reset-free-rl-2021",
+    "sourceUrl": "https://arxiv.org/abs/2104.11203",
+    "supportingPassage": "Title: 'Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention'. Authors (first of 8 printed): Gupta, Abhishek; Yu, Justin; Zhao, Tony Z.. Date printed: 2021/04/22."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "real-world-rl-ingredients-2020",
+    "sourceUrl": "https://arxiv.org/abs/2004.12570",
+    "supportingPassage": "Title: 'The Ingredients of Real-World Robotic Reinforcement Learning'. Authors (first of 8 printed): Zhu, Henry; Yu, Justin; Gupta, Abhishek. Date printed: 2020/04/27."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "hil-serl-2024",
+    "sourceUrl": "https://arxiv.org/abs/2410.21845",
+    "supportingPassage": "Title: 'Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning'. Authors (first of 4 printed): Luo, Jianlan; Xu, Charles; Wu, Jeffrey. Date printed: 2024/10/29."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "pi-rl-2026",
+    "sourceUrl": "https://arxiv.org/abs/2510.25889",
+    "supportingPassage": "Title (meta, raw LaTeX): '$\\pi_\\texttt{RL}$: Online RL Fine-tuning for Flow-based Vision-Language-Action Models'. Authors (14 printed): Chen, Kang; Liu, Zhihao; Zhang, Tonghe; Guo, Zhen; Xu, Si; Lin, Hao; Zang, Hongzhi; Li, Xiang; Zhang, Quanlu; Yu, Zhaofei; Fan, Guoliang; Huang, Tiejun; Wang, Yu; Yu, Chao. Submission history: [v1] Wed, 29 Oct 2025; [v2] Thu, 27 Nov 2025; [v3] Thu, 29 Jan 2026."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "pld-2026",
+    "sourceUrl": "https://arxiv.org/abs/2511.00091",
+    "supportingPassage": "Title: 'Self-Improving Vision-Language-Action Models with Data Generation via Residual RL'. Authors (first of 12 printed): Xiao, Wenli; Lin, Haotian; Peng, Andy. Date printed: 2025/10/30."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "droid-2024",
+    "sourceUrl": "https://arxiv.org/abs/2403.12945",
+    "supportingPassage": "Title: 'DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset'. Authors (first of 101 printed): Khazatsky, Alexander; Pertsch, Karl; Nair, Suraj. Date printed: 2024/03/19."
+   },
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "citationId": "open-x-embodiment-2023",
+    "sourceUrl": "https://arxiv.org/abs/2310.08864",
+    "supportingPassage": "Title: 'Open X-Embodiment: Robotic Learning Datasets and RT-X Models'. Authors (first of 294 printed): Embodiment Collaboration; O'Neill, Abby; Rehman, Abdul. Date printed: 2023/10/13."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "p50-frontmatter-identity-sweep",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 10def91a-4ee7-4834-b176-c3be73c14947; preserved-packet needle re-verification 2026-09-16 (155/155 checks, lane needle-verification.json)",
+    "rationale": "Fail-closed sweep re-verified by this integrator: the article frontmatter enumerates exactly 27 citation ids and the packet carries one evidence item per identity, in the same order, each with a fresh 2026-09-16T16:50:57Z-16:54:05Z fetch record and a printed identity passage; identity metas were re-needled against all 25 retained arXiv abs bodies, the wayback book page (identity block + 'Full Pdf' link + Sep 16 2026 retrieval footer) and the levine PDF title page. One passage correction from the packet: levine-hand-eye-2016's packet passage read 'Deirdre Quinn [sic: Quillen in the email block]', but the retained title page prints 'Deirdre Quillen' in the author block itself (glyph-verified; email block DEQUILLEN), which matches the registry exactly, so the plan binds the printed text and the inverted sic is dropped. The recorded nuances (ddpg letter-case-only title, haarnoja RSS 2019 Comments line, iql/autonomous-rl v1-vs-venue year, oxe author-#0 meta artifact, pi-rl owner-preserved 16-vs-14 author conflict with the 14-author metadata side re-confirmed fresh) each carry their own evidence item.",
+    "evidenceDigest": "183e50e34762f7bfd326ca16eb67ef23a5ba7d52c3cfb253f01a06ce931c7031"
+   }
+  ]
  }
 
 ]

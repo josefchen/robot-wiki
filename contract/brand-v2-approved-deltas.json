@@ -21729,6 +21729,40 @@
         "VAL-AUDIT-006"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-for-robotics-r49-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "newHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "reason": "Exactly rl-sim2real/rl-for-robotics original 49 (evidence completion of the standing V verdict on the DROID and Open X-Embodiment corpus sentence (both registered abs pages fetched fresh by the preparer; abstract phrases and identity metas needle-verified against the retained bodies by this integrator)) per the frozen packet convergence-source-z-rl-for-robotics-20260916k. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved source bodies before adjudication (155/155 checks, lane needle-verification.json); zero retrieval by this integrator; originals 1 and 5 honestly held on glyph-verified equation differences (Eq. 3.2 printed subscripts t/t-1; Eq. 6.8 printed discount gamma omitted by the packet's quotes) and byte-unchanged; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-for-robotics-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply the selected records of frozen packet convergence-source-z-rl-for-robotics-20260916k, sha256 329a75d3be70438a7ea294116925ba2336e8f5295edb72e8c20d4613c6968129) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-for-robotics-r50-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "newHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "reason": "Exactly rl-sim2real/rl-for-robotics original 50 (evidence completion of the standing V frontmatter P1 sweep verdict (all 27 identities carry fresh 2026-09-16 fetch records and passages; fail-closed re-verification passed; levine passage corrected to the printed Deirdre Quillen title page, inverted sic dropped)) per the frozen packet convergence-source-z-rl-for-robotics-20260916k. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved source bodies before adjudication (155/155 checks, lane needle-verification.json); zero retrieval by this integrator; originals 1 and 5 honestly held on glyph-verified equation differences (Eq. 3.2 printed subscripts t/t-1; Eq. 6.8 printed discount gamma omitted by the packet's quotes) and byte-unchanged; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-for-robotics-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply the selected records of frozen packet convergence-source-z-rl-for-robotics-20260916k, sha256 329a75d3be70438a7ea294116925ba2336e8f5295edb72e8c20d4613c6968129) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
