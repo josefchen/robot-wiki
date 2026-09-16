@@ -14,6 +14,7 @@ citations:
   - micro-drone-swarm-2022
   - soria-nmpc-swarm-2021
   - vasarhelyi-flocking-2018
+  - reynolds-boids-1987
 seeAlso:
   - "adjacent/autonomous-vehicles"
   - "rl-sim2real/why-rl-locomotion"
@@ -58,13 +59,13 @@ Swift sits in the middle of the same spectrum. It is not one end-to-end network:
 
 ## Swarm robotics
 
-The second half of aerial robotics multiplies the robots. A swarm is many cheap platforms coordinating to do what one expensive platform cannot: cover a search area, map a forest, or fly a light show. The field's founding models came from biology, Reynolds' 1987 flocking model being the canonical one, and treat the group as a dynamical system of local attraction and repulsion terms. Those models explain collective motion, and they have been flown: Vásárhelyi and colleagues optimized the interaction terms and flew 30 drones in coherent outdoor flocking <Cite id="vasarhelyi-flocking-2018" />. What they do not provide is guarantees, because reactive potential fields have no lookahead, get trapped in local minima, and have no notion of the platform's dynamics.
+The second half of aerial robotics multiplies the robots. A swarm is many cheap platforms coordinating to do what one expensive platform cannot: cover a search area, map a forest, or fly a light show. The field's founding models came from biology, Reynolds' 1987 flocking model being the canonical one <Cite id="reynolds-boids-1987" />, and treat the group as a dynamical system of local attraction and repulsion terms. Those models explain collective motion, and they have been flown: Vásárhelyi and colleagues optimized the interaction terms and flew 30 drones in coherent outdoor flocking <Cite id="vasarhelyi-flocking-2018" />. What they do not provide is guarantees, because reactive potential fields have no lookahead, get trapped in local minima, and have no notion of the platform's dynamics.
 
 <SwarmControlTable className="my-6" />
 
 The table's second and third rows are the two serious answers, and they share one commitment: each drone plans ahead subject to its own dynamics, instead of reacting. Soria, Schiano, and Floreano folded the interaction terms into a nonlinear model-predictive controller, so every drone solves a receding-horizon optimization that contains both obstacle avoidance and neighbor terms; a swarm of five quadrotors navigated a real indoor obstacle field, faster and with fewer collisions than the reactive equivalent, with behavior independent of the environment layout <Cite id="soria-nmpc-swarm-2021" />. Zhou and colleagues pushed the same idea onto palm-sized drones: each robot runs a spatial-temporal trajectory optimizer that solves in a few milliseconds from onboard sensing, treats other drones as constraints, and needs no external localization <Cite id="micro-drone-swarm-2022" />. Ten of them flew autonomously through a dense bamboo forest, the demonstration that made the result famous, with the coordination entirely implicit in the constraints <Cite id="micro-drone-swarm-2022" />.
 
-The open problem in swarms is not control but the assignment layer above it. Everything cited above coordinates implicitly; none of it decides who goes where. Fleet-level task allocation, coverage, and search still lean on classical multi-robot planning, and the learned multi-agent policies that games and simulations have produced have not yet been demonstrated on real outdoor swarms at scale. Compared with the manipulation problems this wiki spends most of its length on, that is a tractable frontier, which is the honest summary of the whole domain: aerial robotics solved its hard problems earlier because they were solvable, and what remains is coordination and scale rather than physics.
+The open problem in swarms is not control but the assignment layer above it. Everything cited above coordinates implicitly; none of it decides who goes where. Compared with the manipulation problems this wiki spends most of its length on, that is a tractable frontier, which is the honest summary of the whole domain: aerial robotics solved its hard problems earlier because they were solvable, and what remains is coordination and scale rather than physics.
 
 ## What the rest of robotics takes from it
 
