@@ -90,10 +90,12 @@ describe('classical SLAM source corrections', () => {
   });
 
   it('retains all earlier scene source completions without claiming whole P1 or local proof', () => {
-    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 40, 41, 42, 43, 44]) {
+    for (const ordinal of [12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 40, 41, 42, 43, 44, 45, 49]) {
       expect(records()[ordinal - 1].evidenceFailures, `original ${ordinal}`).toEqual([]);
     }
-    for (const ordinal of [18, 24, 45, 49]) {
+    // Later scene-representation packets completed the formerly excluded
+    // 18/24/45/49; only originals 1 and 10 remain held incomplete.
+    for (const ordinal of [1, 10]) {
       expect(records()[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
     }
   });

@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -534,8 +535,23 @@ describe('the apparatus verdict families', () => {
   it('binds the References the frontmatter declares to the sealed frontmatter', () => {
     const sealed = readSealedFrontmatterFactMembers(ROOT);
     const current = currentArticleFactFrontmatterMembers(ROOT);
+    const articleMetadataDeltas = readRelationshipDeltas(
+      ROOT,
+      'article-metadata',
+    );
     expect(sealed.length).toBeGreaterThan(0);
-    expect(current.length).toBe(sealed.length);
+    // Articles published after the seal enter through approved additions —
+    // deltas whose memberId the baseline never sealed — so the effective
+    // population is the seal plus every approved frontmatter-fact addition.
+    const missingHash = createHash('sha256').update('missing').digest('hex');
+    const sealedIds = new Set(sealed.map(({ id }) => id));
+    const approvedAdditions = articleMetadataDeltas.filter(
+      ({ memberId, oldHash }) =>
+        memberId.startsWith('article-fact-frontmatter:') &&
+        !sealedIds.has(memberId) &&
+        oldHash === missingHash,
+    );
+    expect(current.length).toBe(sealed.length + approvedAdditions.length);
     // One collector, two gates: the sealed `article-metadata` manifest and
     // this row have to hash the frontmatter facts the same way.
     expect(
@@ -557,9 +573,12 @@ describe('the apparatus verdict families', () => {
 
     // Appending a valid registry id to `frontmatter.citations` moves the
     // rendered References list and the derived expectation together, so the
-    // rendered comparison stays green. Only the sealed side can see it.
+    // rendered comparison stays green. Only the sealed side can see it. The
+    // mutated member has to be a sealed one: a member that exists only as an
+    // approved addition has no sealed hash to move from.
+    const sealedIndex = current.findIndex(({ id }) => sealedIds.has(id));
     const moved = current.map((member, index) =>
-      index === 0 ? { ...member, hash: '0'.repeat(64) } : member,
+      index === sealedIndex ? { ...member, hash: '0'.repeat(64) } : member,
     );
     expect(
       [
@@ -575,7 +594,7 @@ describe('the apparatus verdict families', () => {
       /changed the frontmatter review date or declared References the migration sealed \([0-9a-f]{12} -> 000000000000\), and no approved delta names the change/,
     );
 
-    const memberId = current[0].id;
+    const memberId = current[sealedIndex].id;
     const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
     expect(
       [

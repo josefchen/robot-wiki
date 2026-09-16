@@ -42,7 +42,8 @@ describe('servo source scope', () => {
     expect(section).not.toContain('deletes the pose-estimation term');
     expect(section).toMatch(/depth/); expect(section).toMatch(/local/); expect(section).toMatch(/poor estimates/);
     expect(section).toMatch(/Part I[\s\S]*performance and stability/);
-    expect(section.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(5);
+    // A later packet added a sixth 2006 cite (the field-of-view sentence).
+    expect(section.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(6);
     expect(section.match(/<Cite id="chaumette-hutchinson-2007" \/>/g)).toHaveLength(2);
   });
   it('uses the source titles and complete accented bylines without repinning DOI URLs',()=>{

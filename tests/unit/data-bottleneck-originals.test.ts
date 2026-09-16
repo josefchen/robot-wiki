@@ -35,7 +35,9 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
     }
-    expect(plans).toHaveLength(684);
+    // The merged ledger keeps appending later packets; this packet's block
+    // keeps its append slot at 620..631, so pin the slot, not a moving total.
+    expect(plans.slice(620, 632).map((p) => p.id)).toEqual(PLAN_IDS);
   });
 
   it('held rows 3 (OXE) and 5 (DROID) stay byte-untouched in the evidence-column shape', () => {
@@ -61,7 +63,12 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
 
   it('approved deltas carry the 12 new approval entries against the unchanged prose hash', () => {
     const deltas = JSON.parse(readFileSync(DELTAS, 'utf8')) as { entries: Array<{ id: string; oldHash: string; newHash: string }> };
-    expect(deltas.entries).toHaveLength(758);
+    // Append-only ledger: pin the packet's slot at 691..702, not the total.
+    expect(
+      deltas.entries.slice(691, 703).map((e) => e.id),
+    ).toEqual(
+      [1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((row) => `db-r${row}-20260915-1`),
+    );
     const mine = deltas.entries.filter((e) => /^db-r\d+-20260915-1$/.test(e.id));
     expect(mine).toHaveLength(12);
     for (const e of mine) expect(e.oldHash).toBe(e.newHash);

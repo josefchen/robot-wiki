@@ -84,11 +84,14 @@ describe('industrial cost and responsibility coupled originals', () => {
       .toBe('https://www.osha.gov/otm/section-4-safety-hazards/chapter-4');
     expect(article).toContain('lastReviewed: "2026-08-22"');
   });
-  it('does not credit industrial52 or either held safety conjunction', () => {
+  it('does not credit industrial52; later packets completed the held safety conjunctions', () => {
     expect(parse().claimRecords[51].evidenceFailures.length).toBeGreaterThan(0);
     const safety = parseLedger('audit/frontier.md', readFileSync('audit/frontier.md', 'utf8'),
       new Set(CITATIONS.map(c => c.id)), { compoundPlans: plans })
       .find(s => s.slug === 'safety-and-assurance')!;
-    for (const n of [5, 6]) expect(safety.claimRecords[n - 1].evidenceFailures.length).toBeGreaterThan(0);
+    // Safety originals 5/6 were held when this pin was written; the
+    // safety-and-assurance packet has since bound and completed them, so the
+    // honest current assertion is that they carry no evidence failures.
+    for (const n of [5, 6]) expect(safety.claimRecords[n - 1].evidenceFailures).toEqual([]);
   });
 });

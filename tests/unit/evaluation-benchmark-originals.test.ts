@@ -13,7 +13,10 @@ describe('evaluation benchmark originals 8,10,11,12,13', () => {
   expect(selected.map(p => p.rowOrdinal)).toEqual(ordinals);
   expect(selected.map(p => [p.parts.length, p.parts.reduce((n,x) => n+x.requiredCitationIds.length,0),p.evidence.length])).toEqual([[6,6,7],[10,10,11],[3,3,3],[10,10,10],[4,4,4]]);
   for (const n of ordinals) expect(records()[n-1].evidenceFailures).toEqual([]);
-  for (const n of [1,9]) expect(records()[n-1].evidenceFailures.length).toBeGreaterThan(0);
+  // Row 9 (LIBERO-Plus) was completed by the 2026-09-16l evidence pass
+  // (plan evaluation-crisis-9-libero-plus-20260916l); row 1 stays held.
+  expect(records()[8].evidenceFailures).toEqual([]);
+  expect(records()[0].evidenceFailures.length).toBeGreaterThan(0);
  });
  it('preserves the nine-source union, original date and completed statistics', () => {
   expect(prose).toContain('lastReviewed: "2026-08-17"');

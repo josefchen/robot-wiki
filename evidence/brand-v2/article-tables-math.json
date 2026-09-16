@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c3201e2fa4c184b74396b6d62400387c6493bc71237bfd88740438b8be46757b",
+  "fingerprint": "7f9421d4ef708bef09a4924c8a70455aba45afc4d4cad06f344ff51cf219243b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -10,11 +10,13 @@
     "/adjacent/drones/",
     "/adjacent/space/",
     "/adjacent/surgical/",
+    "/classical/calibration/",
     "/classical/control/",
     "/classical/grasp-planning/",
     "/classical/kinematics/",
     "/classical/motion-planning/",
     "/classical/perception/",
+    "/classical/ros2-for-ml-engineers/",
     "/classical/scene-representation/",
     "/classical/state-estimation/",
     "/data-hardware/data-bottleneck/",
@@ -22,6 +24,7 @@
     "/data-hardware/evaluation-crisis/",
     "/data-hardware/hardware-taxonomy/",
     "/data-hardware/industrial-deployment/",
+    "/data-hardware/robot-learning-stack/",
     "/data-hardware/teleop-rigs/",
     "/frontier/bear-case/",
     "/frontier/competing-theses/",
@@ -30,29 +33,36 @@
     "/frontier/reliability-gap/",
     "/frontier/safety-and-assurance/",
     "/manipulation/action-chunking/",
+    "/manipulation/action-spaces/",
     "/manipulation/bc-foundations/",
     "/manipulation/comparison-matrix/",
     "/manipulation/cross-embodiment/",
     "/manipulation/diffusion-policy/",
+    "/manipulation/foundation-models/",
     "/manipulation/generalist-policies/",
     "/manipulation/hierarchical/",
     "/manipulation/knowledge-insulation/",
     "/manipulation/pi-line/",
     "/manipulation/realtime-execution/",
     "/manipulation/rl-finetuning/",
+    "/manipulation/robot-learning-roadmap/",
     "/manipulation/vla-models/",
     "/rl-sim2real/humanoid-wbc/",
     "/rl-sim2real/legged-locomotion/",
+    "/rl-sim2real/offline-rl/",
     "/rl-sim2real/parallel-sim-rl/",
     "/rl-sim2real/reward-design-mpc/",
     "/rl-sim2real/rl-for-robotics/",
     "/rl-sim2real/sim2real-transfer/",
     "/rl-sim2real/why-rl-locomotion/",
+    "/world-models/evaluation/",
     "/world-models/generative-sim/",
     "/world-models/generative-video/",
     "/world-models/jepa/",
     "/world-models/latent-dynamics/",
-    "/world-models/taxonomy/"
+    "/world-models/model-based-robot-learning/",
+    "/world-models/taxonomy/",
+    "/world-models/world-models-vs-simulators/"
   ],
   "observations": [
     {
@@ -62,7 +72,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28685,
+      "visibleTextLength": 28657,
       "tables": [
         {
           "index": 0,
@@ -113,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17610,
+      "visibleTextLength": 17766,
       "tables": [
         {
           "index": 0,
@@ -164,7 +174,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17973,
+      "visibleTextLength": 18087,
       "tables": [
         {
           "index": 0,
@@ -215,7 +225,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16543,
+      "visibleTextLength": 16686,
       "tables": [
         {
           "index": 0,
@@ -266,7 +276,70 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24052,
+      "visibleTextLength": 11529,
+      "tables": [],
+      "equations": [
+        {
+          "index": 0,
+          "display": false,
+          "mathmlText": "AX=XBAX = XB",
+          "annotationTex": "AX = XB",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "AX=XB",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "display": false,
+          "mathmlText": "tt",
+          "annotationTex": "t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "display": false,
+          "mathmlText": "t+Δtt + \\Delta t",
+          "annotationTex": "t + \\Delta t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t+Δt",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        }
+      ],
+      "scrollRegions": [],
+      "route": "/classical/calibration/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 25654,
       "tables": [],
       "equations": [
         {
@@ -743,7 +816,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16933,
+      "visibleTextLength": 17037,
       "tables": [],
       "equations": [
         {
@@ -1134,7 +1207,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15281,
+      "visibleTextLength": 17071,
       "tables": [
         {
           "index": 0,
@@ -1936,7 +2009,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26325,
+      "visibleTextLength": 27415,
       "tables": [
         {
           "index": 0,
@@ -2788,7 +2861,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 40695,
+      "visibleTextLength": 42073,
       "tables": [],
       "equations": [
         {
@@ -3189,7 +3262,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26902,
+      "visibleTextLength": 11762,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 28287,
       "tables": [],
       "equations": [
         {
@@ -3284,7 +3371,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18265,
+      "visibleTextLength": 19792,
       "tables": [
         {
           "index": 0,
@@ -3883,7 +3970,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14594,
+      "visibleTextLength": 14698,
       "tables": [
         {
           "index": 0,
@@ -4004,7 +4091,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13130,
+      "visibleTextLength": 15077,
       "tables": [
         {
           "index": 0,
@@ -4055,7 +4142,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17054,
+      "visibleTextLength": 17504,
       "tables": [
         {
           "index": 0,
@@ -4141,7 +4228,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26419,
+      "visibleTextLength": 26408,
       "tables": [
         {
           "index": 0,
@@ -4192,7 +4279,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21845,
+      "visibleTextLength": 22122,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4206,7 +4293,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14783,
+      "visibleTextLength": 12163,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 14666,
       "tables": [
         {
           "index": 0,
@@ -4257,7 +4358,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17465,
+      "visibleTextLength": 17569,
       "tables": [
         {
           "index": 0,
@@ -4308,7 +4409,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24436,
+      "visibleTextLength": 24540,
       "tables": [
         {
           "index": 0,
@@ -4359,7 +4460,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20463,
+      "visibleTextLength": 20567,
       "tables": [
         {
           "index": 0,
@@ -4410,7 +4511,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17211,
+      "visibleTextLength": 17315,
       "tables": [
         {
           "index": 0,
@@ -4545,7 +4646,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14457,
+      "visibleTextLength": 14561,
       "tables": [
         {
           "index": 0,
@@ -4680,7 +4781,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23984,
+      "visibleTextLength": 24090,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4694,7 +4795,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22111,
+      "visibleTextLength": 22393,
       "tables": [
         {
           "index": 0,
@@ -5039,7 +5140,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13742,
+      "visibleTextLength": 11732,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Action space requirements compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Action space requirements compared",
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
+          },
+          "tableWidth": 520,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Action space requirements compared",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/manipulation/action-spaces/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 14030,
       "tables": [
         {
           "index": 0,
@@ -5623,7 +5775,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27453,
+      "visibleTextLength": 28736,
       "tables": [
         {
           "index": 0,
@@ -5707,7 +5859,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14927,
+      "visibleTextLength": 15214,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -5721,7 +5873,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13956,
+      "visibleTextLength": 14060,
       "tables": [],
       "equations": [
         {
@@ -6047,7 +6199,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20976,
+      "visibleTextLength": 11808,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Foundation model families compared",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Foundation model families compared",
+            "clientWidth": 333,
+            "scrollWidth": 549,
+            "scrolledBy": 40
+          },
+          "tableWidth": 549,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Foundation model families compared",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 549,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/manipulation/foundation-models/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 21237,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6061,7 +6264,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18875,
+      "visibleTextLength": 18801,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6075,7 +6278,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11980,
+      "visibleTextLength": 12084,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6089,7 +6292,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25196,
+      "visibleTextLength": 25300,
       "tables": [],
       "equations": [
         {
@@ -6216,7 +6419,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16881,
+      "visibleTextLength": 16985,
       "tables": [
         {
           "index": 0,
@@ -6402,7 +6605,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 31816,
+      "visibleTextLength": 32104,
       "tables": [
         {
           "index": 0,
@@ -6559,7 +6762,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18304,
+      "visibleTextLength": 10918,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 19819,
       "tables": [
         {
           "index": 0,
@@ -6610,7 +6827,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20678,
+      "visibleTextLength": 20782,
       "tables": [
         {
           "index": 0,
@@ -6661,7 +6878,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18230,
+      "visibleTextLength": 18334,
       "tables": [
         {
           "index": 0,
@@ -6745,7 +6962,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14976,
+      "visibleTextLength": 13602,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/rl-sim2real/offline-rl/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 15075,
       "tables": [
         {
           "index": 0,
@@ -6796,7 +7027,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27022,
+      "visibleTextLength": 27126,
       "tables": [
         {
           "index": 0,
@@ -6893,7 +7124,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29973,
+      "visibleTextLength": 30432,
       "tables": [
         {
           "index": 0,
@@ -6944,7 +7175,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23368,
+      "visibleTextLength": 23651,
       "tables": [
         {
           "index": 0,
@@ -7030,7 +7261,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12372,
+      "visibleTextLength": 12476,
       "tables": [
         {
           "index": 0,
@@ -7081,7 +7312,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15648,
+      "visibleTextLength": 12501,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Evaluation shift taxonomy",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Evaluation shift taxonomy",
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
+          },
+          "tableWidth": 520,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Evaluation shift taxonomy",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/world-models/evaluation/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 17048,
       "tables": [],
       "equations": [
         {
@@ -7112,7 +7394,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17147,
+      "visibleTextLength": 19389,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7126,7 +7408,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14782,
+      "visibleTextLength": 16190,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7140,7 +7422,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14156,
+      "visibleTextLength": 15358,
       "tables": [
         {
           "index": 0,
@@ -7191,7 +7473,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17903,
+      "visibleTextLength": 10717,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/world-models/model-based-robot-learning/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 19479,
       "tables": [
         {
           "index": 0,
@@ -7236,13 +7532,64 @@
       "viewport": "375x812"
     },
     {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 12021,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Physics simulators and learned world models compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 8,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Physics simulators and learned world models compared",
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
+          },
+          "tableWidth": 520,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Physics simulators and learned world models compared",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewport": "375x812"
+    },
+    {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
       "rootOverflowX": "visible",
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29003,
+      "visibleTextLength": 28975,
       "tables": [
         {
           "index": 0,
@@ -7293,7 +7640,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17928,
+      "visibleTextLength": 18084,
       "tables": [
         {
           "index": 0,
@@ -7344,7 +7691,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18291,
+      "visibleTextLength": 18405,
       "tables": [
         {
           "index": 0,
@@ -7395,7 +7742,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16861,
+      "visibleTextLength": 17004,
       "tables": [
         {
           "index": 0,
@@ -7446,7 +7793,70 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24418,
+      "visibleTextLength": 11950,
+      "tables": [],
+      "equations": [
+        {
+          "index": 0,
+          "display": false,
+          "mathmlText": "AX=XBAX = XB",
+          "annotationTex": "AX = XB",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "AX=XB",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "display": false,
+          "mathmlText": "tt",
+          "annotationTex": "t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "display": false,
+          "mathmlText": "t+Δtt + \\Delta t",
+          "annotationTex": "t + \\Delta t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t+Δt",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        }
+      ],
+      "scrollRegions": [],
+      "route": "/classical/calibration/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 26075,
       "tables": [],
       "equations": [
         {
@@ -7923,7 +8333,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17299,
+      "visibleTextLength": 17458,
       "tables": [],
       "equations": [
         {
@@ -8314,7 +8724,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15647,
+      "visibleTextLength": 17492,
       "tables": [
         {
           "index": 0,
@@ -9116,7 +9526,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26691,
+      "visibleTextLength": 27836,
       "tables": [
         {
           "index": 0,
@@ -9968,7 +10378,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 41054,
+      "visibleTextLength": 42487,
       "tables": [],
       "equations": [
         {
@@ -10369,7 +10779,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27268,
+      "visibleTextLength": 12183,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 28708,
       "tables": [],
       "equations": [
         {
@@ -10464,7 +10888,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18629,
+      "visibleTextLength": 20211,
       "tables": [
         {
           "index": 0,
@@ -11063,7 +11487,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14948,
+      "visibleTextLength": 15077,
       "tables": [
         {
           "index": 0,
@@ -11184,7 +11608,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13484,
+      "visibleTextLength": 15456,
       "tables": [
         {
           "index": 0,
@@ -11235,7 +11659,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17408,
+      "visibleTextLength": 17883,
       "tables": [
         {
           "index": 0,
@@ -11321,7 +11745,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26773,
+      "visibleTextLength": 26787,
       "tables": [
         {
           "index": 0,
@@ -11372,7 +11796,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22199,
+      "visibleTextLength": 22501,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11386,7 +11810,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15137,
+      "visibleTextLength": 12542,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 15045,
       "tables": [
         {
           "index": 0,
@@ -11437,7 +11875,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17800,
+      "visibleTextLength": 17904,
       "tables": [
         {
           "index": 0,
@@ -11488,7 +11926,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24771,
+      "visibleTextLength": 24875,
       "tables": [
         {
           "index": 0,
@@ -11539,7 +11977,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20798,
+      "visibleTextLength": 20902,
       "tables": [
         {
           "index": 0,
@@ -11590,7 +12028,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17546,
+      "visibleTextLength": 17650,
       "tables": [
         {
           "index": 0,
@@ -11725,7 +12163,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14792,
+      "visibleTextLength": 14896,
       "tables": [
         {
           "index": 0,
@@ -11860,7 +12298,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24319,
+      "visibleTextLength": 24425,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11874,7 +12312,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22631,
+      "visibleTextLength": 23020,
       "tables": [
         {
           "index": 0,
@@ -12219,7 +12657,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14262,
+      "visibleTextLength": 12359,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Action space requirements compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Action space requirements compared",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Action space requirements compared",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/manipulation/action-spaces/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 14657,
       "tables": [
         {
           "index": 0,
@@ -12803,7 +13292,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27973,
+      "visibleTextLength": 29363,
       "tables": [
         {
           "index": 0,
@@ -12887,7 +13376,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15447,
+      "visibleTextLength": 15841,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -12901,7 +13390,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14476,
+      "visibleTextLength": 14687,
       "tables": [],
       "equations": [
         {
@@ -13227,7 +13716,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21496,
+      "visibleTextLength": 12435,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Foundation model families compared",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Foundation model families compared",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Foundation model families compared",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/manipulation/foundation-models/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 21864,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13241,7 +13781,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19395,
+      "visibleTextLength": 19428,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13255,7 +13795,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12500,
+      "visibleTextLength": 12711,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13269,7 +13809,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25716,
+      "visibleTextLength": 25927,
       "tables": [],
       "equations": [
         {
@@ -13396,7 +13936,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17401,
+      "visibleTextLength": 17612,
       "tables": [
         {
           "index": 0,
@@ -13582,7 +14122,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 32336,
+      "visibleTextLength": 32731,
       "tables": [
         {
           "index": 0,
@@ -13739,7 +14279,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18824,
+      "visibleTextLength": 11545,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 20446,
       "tables": [
         {
           "index": 0,
@@ -13790,7 +14344,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21109,
+      "visibleTextLength": 21257,
       "tables": [
         {
           "index": 0,
@@ -13841,7 +14395,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18661,
+      "visibleTextLength": 18809,
       "tables": [
         {
           "index": 0,
@@ -13925,7 +14479,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15407,
+      "visibleTextLength": 14077,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/rl-sim2real/offline-rl/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 15550,
       "tables": [
         {
           "index": 0,
@@ -13976,7 +14544,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27453,
+      "visibleTextLength": 27601,
       "tables": [
         {
           "index": 0,
@@ -14073,7 +14641,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 30404,
+      "visibleTextLength": 30907,
       "tables": [
         {
           "index": 0,
@@ -14124,7 +14692,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23799,
+      "visibleTextLength": 24126,
       "tables": [
         {
           "index": 0,
@@ -14210,7 +14778,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12803,
+      "visibleTextLength": 12951,
       "tables": [
         {
           "index": 0,
@@ -14261,7 +14829,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16034,
+      "visibleTextLength": 12985,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Evaluation shift taxonomy",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Evaluation shift taxonomy",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Evaluation shift taxonomy",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/world-models/evaluation/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 17532,
       "tables": [],
       "equations": [
         {
@@ -14292,7 +14911,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17533,
+      "visibleTextLength": 19873,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14306,7 +14925,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15168,
+      "visibleTextLength": 16674,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14320,7 +14939,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14542,
+      "visibleTextLength": 15842,
       "tables": [
         {
           "index": 0,
@@ -14371,7 +14990,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18289,
+      "visibleTextLength": 11201,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/world-models/model-based-robot-learning/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 19963,
       "tables": [
         {
           "index": 0,
@@ -14413,6 +15046,57 @@
         }
       ],
       "route": "/world-models/taxonomy/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 12505,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Physics simulators and learned world models compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 8,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Physics simulators and learned world models compared",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Physics simulators and learned world models compared",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/world-models/world-models-vs-simulators/",
       "viewport": "1440x900"
     }
   ]

@@ -159,10 +159,12 @@ describe('source-scoped calibration and TSDF corrections', () => {
 
   it('preserves later scene repairs and does not credit excluded originals', () => {
     const current = records('scene-representation');
-    for (const ordinal of [4, 5, 25, 32, 34, 35, 36, 37, 38, 39]) {
+    for (const ordinal of [4, 5, 25, 26, 27, 31, 32, 33, 34, 35, 36, 37, 38, 39, 45]) {
       expect(current[ordinal - 1].evidenceFailures, `prior original ${ordinal}`).toEqual([]);
     }
-    for (const ordinal of [10, 26, 27, 31, 33, 45]) {
+    // Later scene-representation packets completed the formerly excluded
+    // 26/27/31/33/45; only originals 1 and 10 remain incomplete.
+    for (const ordinal of [1, 10]) {
       expect(current[ordinal - 1].evidenceFailures.length, `excluded original ${ordinal}`).toBeGreaterThan(0);
     }
     expect(scene).toContain('does not perform loop closure');

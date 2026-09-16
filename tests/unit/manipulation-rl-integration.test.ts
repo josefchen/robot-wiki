@@ -53,7 +53,11 @@ const articleCitations = Object.fromEntries([
 ]);
 function row(id: string, compoundPlans = plans) {
   const [path, slug, ordinal] = id.split(':');
-  return parseLedger(path, read(path), citationIds, { compoundPlans, articleCitations })
+  // Plans only bind rows in their own ledger, so scope the context before
+  // parsing — re-validating the whole catalog per call makes this test
+  // exceed its timeout as the merged catalog grows.
+  const scoped = compoundPlans.filter((p) => p.ledgerPath === path);
+  return parseLedger(path, read(path), citationIds, { compoundPlans: scoped, articleCitations })
     .find((s) => s.slug === slug)!.claimRecords[Number(ordinal) - 1];
 }
 

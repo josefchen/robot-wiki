@@ -37,14 +37,18 @@ describe('bounded Term consumer identities', () => {
   });
   it('binds all published MDX without unresolved or unknown term ids', () => {
     const inventory = termConsumerInventory();
-    expect(inventory).toHaveLength(47);
+    // 57 published articles on the merged seo-merge line (was 47 before the
+    // seo workstream added ten articles); the pinned fixture owns the
+    // ordered identity list, this only pins the live population size.
+    expect(inventory).toHaveLength(57);
     expect(inventory.flatMap(a => a.unresolved)).toEqual([]);
     expect(inventory.flatMap(a => a.occurrences).filter(o => !getTerm(o.termId))).toEqual([]);
-    expect(new Set(inventory.map(a => a.route)).size).toBe(47);
+    expect(new Set(inventory.map(a => a.route)).size).toBe(57);
   });
   it('reconciles raw occurrences separately from article/term bindings', () => {
     const inventory = termConsumerInventory();
-    expect(inventory.filter(a => a.occurrences.length)).toHaveLength(46);
+    // All 57 merged articles carry at least one occurrence.
+    expect(inventory.filter(a => a.occurrences.length)).toHaveLength(57);
     // 53d2cf8 added legged-locomotion/teleoperation occurrence 1.
     // 6af0bdd removed competing-theses/imitation-learning occurrence 1.
     // Pin ordered members, not just a total that a replacement could preserve.

@@ -129,10 +129,12 @@ describe('paper-scoped occupancy and map tradeoffs', () => {
 
   it('preserves completed peers and all four excluded ORB holds', () => {
     const current = records();
-    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 25, 32, 34, 35, 38, 39, 40, 41, 42, 43, 44]) {
+    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 25, 26, 27, 31, 32, 33, 34, 35, 38, 39, 40, 41, 42, 43, 44]) {
       expect(current[ordinal - 1].evidenceFailures, `prior original ${ordinal}`).toEqual([]);
     }
-    for (const ordinal of [26, 27, 31, 33]) {
+    // Later scene-representation packets completed the formerly held ORB
+    // originals 26/27/31/33; only originals 1 and 10 remain incomplete.
+    for (const ordinal of [1, 10]) {
       expect(current[ordinal - 1].evidenceFailures.length, `held original ${ordinal}`).toBeGreaterThan(0);
     }
   });

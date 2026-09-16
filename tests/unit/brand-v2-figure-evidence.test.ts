@@ -25,9 +25,11 @@ import {
   originalSvgSemanticVerdicts,
   provenanceRecordVerdicts,
   reusableContentVerdicts,
+  sealedSvgBaselineMembers,
   type AssetRow,
   type MaterialRow,
 } from '@/lib/brand-v2-image-record';
+import type { ApprovedDelta } from '@/lib/brand-v2-baseline';
 
 /**
  * The figure lane's own gate (VAL-B2-ART-004/005/006, VAL-B2-IMG-001 to 008,
@@ -45,14 +47,22 @@ const registry = JSON.parse(
   readFileSync(join(ROOT, 'contract', 'brand-v2-registries.json'), 'utf8'),
 ) as { assets: AssetRow[]; materials: MaterialRow[] };
 
-const sealedSvgMembers = (
+const sealedSvgMembers = sealedSvgBaselineMembers(
   JSON.parse(
     readFileSync(
       join(ROOT, 'evidence', 'brand-v2', 'baseline', 'assets-svg.json'),
       'utf8',
     ),
-  ) as { members: Array<{ id: string; hash: string }> }
-).members;
+  ) as { members: Array<{ id: string; hash: string }> },
+  (
+    JSON.parse(
+      readFileSync(
+        join(ROOT, 'contract', 'brand-v2-approved-deltas.json'),
+        'utf8',
+      ),
+    ) as { entries: ApprovedDelta[] }
+  ).entries,
+);
 
 const artifact = JSON.parse(
   readFileSync(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH), 'utf8'),

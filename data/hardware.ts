@@ -168,7 +168,7 @@ export const HARDWARE: HardwareEntry[] = [
     category: 'arm',
     priceUsd: null,
     priceMaxUsd: null,
-    priceNote: 'Community issue (researched Jun 2026): ALOHA / ALOHA 2 ~ $17k-32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
+    priceNote: 'Community issue (researched Jun 2026): ALOHA / ALOHA 2 ~ $17k–32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
     priceAsOf: null,
     dof: null,
     dofNote: null,

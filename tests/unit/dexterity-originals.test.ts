@@ -152,29 +152,27 @@ describe('dexterity originals integration (packet convergence-source-c-dexterity
   });
 
   test('append-only catalog and approvals preserve every prior object', () => {
-    expect(plans).toHaveLength(657 + 15);
-    expect(deltas.entries).toHaveLength(731 + 15);
-    const mine = new Set(BINDINGS.map((b) => b.planId));
-    const deltaIds = new Set(
-      deltas.entries.slice(731).map((entry) => entry.id as string),
+    // The merged ledgers keep appending later packets; this packet keeps its
+    // append slots — plans 657..671, delta entries 728..742 — so pin the
+    // slots rather than the moving totals.
+    expect(plans.slice(657, 672).map((p) => p.id)).toEqual(BINDINGS.map((b) => b.planId));
+    const packetDeltas = deltas.entries.slice(728, 743);
+    expect(packetDeltas.map((entry) => entry.id)).toEqual(
+      [9, 13, 14, 16, 17, 18, 19, 20, 21, 22, 24, 26, 27, 29, 30].map((r) => `dex-r${r}-20260915-1`),
     );
-    expect(deltaIds.size).toBe(15);
-    for (const entry of deltas.entries.slice(731)) {
+    const mine = new Set(BINDINGS.map((b) => b.planId));
+    for (const entry of packetDeltas) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:frontier/dexterity');
       expect(entry.disposition).toBe('permanent');
     }
-    const endpointEntries = deltas.entries
-      .slice(731)
-      .filter((entry) => entry.oldHash !== entry.newHash);
+    const endpointEntries = packetDeltas.filter((entry) => entry.oldHash !== entry.newHash);
     expect(endpointEntries).toHaveLength(4);
     const sealed = '4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4';
     for (const entry of endpointEntries) {
       expect(entry.oldHash).toBe(sealed);
     }
-    const newHashes = new Set(
-      deltas.entries.slice(731).map((entry) => entry.newHash as string),
-    );
+    const newHashes = new Set(packetDeltas.map((entry) => entry.newHash as string));
     expect(newHashes.size).toBe(1);
     expect(plans.filter((p) => mine.has(p.id)).length).toBe(15);
   });

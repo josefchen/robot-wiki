@@ -41,6 +41,8 @@ const CLEAN_ROUTES_040 = [
   '/market-map/',
   '/playground/',
   '/search/',
+  '/editorial-policy/',
+  '/privacy/',
   '/404/',
 ];
 
@@ -102,7 +104,7 @@ test.afterAll(async () => {
 test.describe('derived populations', () => {
   test('VAL-EDU-035/040 populations come from the registry', () => {
     // Registry-derived: no literal published count is pinned (it drifted
-    // 42 -> 43 -> 47 across publishes); non-zero cardinality only.
+    // 42 -> 43 -> 47 -> 57 across publishes); non-zero cardinality only.
     expect(ARTICLE_ROUTES.length, 'published article count').toBeGreaterThan(0);
     expect(DOMAIN_ROUTES.length, 'seven domain landings').toBe(7);
     expect(new Set(COVERAGE_ROUTES).size).toBe(COVERAGE_ROUTES.length);
@@ -113,6 +115,8 @@ test.describe('derived populations', () => {
     expect(CLEAN_ROUTES_040).toContain('/glossary/');
     expect(CLEAN_ROUTES_040).toContain('/a-z/');
     expect(CLEAN_ROUTES_040).toContain('/search/');
+    expect(CLEAN_ROUTES_040).toContain('/editorial-policy/');
+    expect(CLEAN_ROUTES_040).toContain('/privacy/');
     expect(CLEAN_ROUTES_040).toContain('/404/');
   });
 });

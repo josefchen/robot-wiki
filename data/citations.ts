@@ -3641,6 +3641,43 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
+    // REQUIRED registration per frozen packet
+    // convergence-source-x-jepa-20260916j record 1 (jepa row 9 part
+    // j9-ami-expansion: the only TechCrunch print that AMI 'stands for
+    // Advanced Machine Intelligence'). Fetched live by the packet's
+    // source session (curl GET 200, 2026-09-16T15:18:58Z, 240,641 bytes,
+    // retained sha-verified at
+    // convergence-source-x-jepa-20260916j/sources/tc-20260123.html);
+    // title, byline Anna Heim and dateline 4:04 PM PST - January 23, 2026
+    // needle-verified by this zero-retrieval integrator against the
+    // retained body before registering. The March raise piece stays on
+    // ami-labs-2026; the January piece prints the CEO as 'Alex LeBrun'
+    // (the March form is 'Alexandre'), recorded in the jepa row-9 note.
+    id: 'ami-labs-founding-2026',
+    title: "Who's behind AMI Labs, Yann LeCun's 'world model' startup",
+    authors: ['Anna Heim'],
+    year: 2026,
+    venue: 'TechCrunch',
+    url: 'https://techcrunch.com/2026/01/23/whos-behind-ami-labs-yann-lecuns-world-model-startup/',
+    type: 'press',
+  },
+  {
+    // NVIDIA newsroom launch release for Cosmos 3, registered by the
+    // generative-video integrator for the launch dateline only. Fetched
+    // live by the frozen packet's source session (curl GET 200, 2026-09-16,
+    // 83,088 bytes, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/nv-launch-release.html);
+    // prints the dateline 'NVIDIA GTC Taipei' and the date string
+    // 'May 31, 2026'. The technical report stays on cosmos-3-2026.
+    id: 'nvidia-cosmos-3-launch-2026',
+    title: 'NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'NVIDIA Newsroom',
+    url: 'https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai',
+    type: 'press',
+  },
+  {
     // Official body dated2026-6-22; arXiv2606.02800v4 lists NVIDIA
     // and294 individuals, matching the complete AppendixG.1 contributor set.
     // G.2 acknowledgments are separate; no whole-edition byte equivalence implied.
@@ -3972,6 +4009,96 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Genie 1 paper, registered by the generative-video integrator. Abs
+    // page and full PDF fetched live by the frozen packet's source session
+    // (curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/genie1-abs.html
+    // and genie1-paper.txt); 25-author list and order taken verbatim from
+    // the abs page. The abs page prints no venue (the packet's proposed
+    // 'ICML 2024' is printed by no retained text, so no venue is recorded).
+    id: 'genie-1-2024',
+    title: 'Genie: Generative Interactive Environments',
+    authors: [
+      'Jake Bruce',
+      'Michael Dennis',
+      'Ashley Edwards',
+      'Jack Parker-Holder',
+      'Yuge Shi',
+      'Edward Hughes',
+      'Matthew Lai',
+      'Aditi Mavalankar',
+      'Richie Steigerwald',
+      'Chris Apps',
+      'Yusuf Aytar',
+      'Sarah Bechtle',
+      'Feryal Behbahani',
+      'Stephanie Chan',
+      'Nicolas Heess',
+      'Lucy Gonzalez',
+      'Simon Osindero',
+      'Sherjil Ozair',
+      'Scott Reed',
+      'Jingwei Zhang',
+      'Konrad Zolna',
+      'Jeff Clune',
+      'Nando de Freitas',
+      'Satinder Singh',
+      'Tim Rocktäschel',
+    ],
+    year: 2024,
+    arxiv: '2402.15391',
+    url: 'https://arxiv.org/abs/2402.15391',
+    type: 'paper',
+  },
+  {
+    // Genie 2 blog, registered by the generative-video integrator. Fetched
+    // live twice by the frozen packet's source session (FetchUrl 200 and
+    // curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/genie2-blog.html);
+    // 32-name byline taken verbatim from the page ('Please cite as
+    // Parker-Holder et al.' also printed), byline date December 4, 2024.
+    id: 'genie-2-2024',
+    title: 'Genie 2: A large-scale foundation world model',
+    authors: [
+      'Jack Parker-Holder',
+      'Philip Ball',
+      'Jake Bruce',
+      'Vibhavari Dasagi',
+      'Kristian Holsheimer',
+      'Christos Kaplanis',
+      'Alexandre Moufarek',
+      'Guy Scully',
+      'Jeremy Shar',
+      'Jimmy Shi',
+      'Stephen Spencer',
+      'Jessica Yung',
+      'Michael Dennis',
+      'Sultan Kenjeyev',
+      'Shangbang Long',
+      'Vlad Mnih',
+      'Harris Chan',
+      'Maxime Gazeau',
+      'Bonnie Li',
+      'Fabio Pardo',
+      'Luyu Wang',
+      'Lei Zhang',
+      'Frederic Besse',
+      'Tim Harley',
+      'Anna Mitenkova',
+      'Jane Wang',
+      'Jeff Clune',
+      'Demis Hassabis',
+      'Raia Hadsell',
+      'Adrian Bolton',
+      'Satinder Singh',
+      'Tim Rocktäschel',
+    ],
+    year: 2024,
+    venue: 'Google DeepMind',
+    url: 'https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/',
+    type: 'blog',
+  },
+  {
     // Verified against the DeepMind blog (2026-08-08): byline Jack
     // Parker-Holder and Shlomi Fruchter, 2025-08-05; 24 fps, 720p,
     // few-minutes consistency, published limitation list.
@@ -4155,6 +4282,36 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
+    // Starchild-1 announcement, registered by the generative-video
+    // integrator. Fetched live twice by the frozen packet's source session
+    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/starchild.html);
+    // byline Oliver Cameron, May 17th, 2026; prints 'synchronized audio and
+    // video in real-time'.
+    id: 'odyssey-starchild-1-2026',
+    title: 'Starchild-1: The First Real-Time Multimodal World Model',
+    authors: ['Oliver Cameron'],
+    year: 2026,
+    venue: 'Odyssey',
+    url: 'https://odyssey.systems/introducing-starchild-1',
+    type: 'blog',
+  },
+  {
+    // Agora-1 announcement, registered by the generative-video
+    // integrator. Fetched live twice by the frozen packet's source session
+    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/agora.html);
+    // byline Oliver Cameron, May 18th, 2026; prints 'up to four players to
+    // interact within the same generated world in real time'.
+    id: 'odyssey-agora-1-2026',
+    title: 'Agora-1: The Multi-Agent World Model',
+    authors: ['Oliver Cameron'],
+    year: 2026,
+    venue: 'Odyssey',
+    url: 'https://odyssey.systems/introducing-agora-1',
+    type: 'blog',
+  },
+  {
     // Verified against Ars Technica (2026-08-08): Ryan Whitwam,
     // 2026-01-29; Project Genie launch coverage reporting the 60-second
     // per-world session cap. Press source (no first-party technical post
@@ -4167,6 +4324,24 @@ export const CITATIONS: Citation[] = [
     venue: 'Ars Technica',
     url: 'https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/',
     type: 'press',
+  },
+  {
+    // Google's own Project Genie blog, registered by the generative-video
+    // integrator as a first-party durability addition beside the Ars press
+    // citation. Fetched live twice by the frozen packet's source session
+    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // convergence-source-n-generative-video-20260916e/sources/google-project-genie.html);
+    // prints the Jan 29, 2026 AI Ultra U.S. rollout and the limitation list
+    // 'Limitations in generations to 60 seconds'. Page H1/og:title is the
+    // registered title (the <title> tag is an SEO variant); no personal
+    // byline is printed, so the corporate author stands.
+    id: 'google-project-genie-2026',
+    title: 'Project Genie: Experimenting with infinite, interactive worlds',
+    authors: ['Google'],
+    year: 2026,
+    venue: 'Google (The Keyword)',
+    url: 'https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/',
+    type: 'blog',
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 4 authors,
@@ -7041,6 +7216,26 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Registered 2026-09-16 from the frozen drones source packet (zero
+    // retrieval by the integrator): the author's own page (red3d.com,
+    // curl GET 200, 80,969 bytes, 2026-09-16T05:57:36Z) prints the title,
+    // "the 1987 model" and "the SIGGRAPH '87 boids paper". The printed
+    // bibliographic line comes from the fetched Soria Nature MI reference
+    // list: "Reynolds, C. W. Flocks, herds and schools: a distributed
+    // behavioral model. Comput. Graph. 21, 25-43 (1987)." The ACM DL record
+    // (doi 10.1145/37402.37406) is Cloudflare-walled to machines (HTTP 403
+    // in the preparing session), so the ACM-canonical page range is not
+    // confirmed; the venue records the Soria-printed range with that caveat.
+    id: 'reynolds-boids-1987',
+    title: 'Flocks, Herds and Schools: A Distributed Behavioral Model',
+    authors: ['Craig W. Reynolds'],
+    year: 1987,
+    venue:
+      "Computer Graphics (SIGGRAPH '87) 21, pages 25-43 as printed by the fetched Soria reference list; ACM DL machine-walled so canonical pages unconfirmed",
+    url: 'https://www.red3d.com/cwr/boids/',
+    type: 'paper',
+  },
+  {
     // Verified against the live arXiv abs page (2026-08-15): title, six
     // authors, Science Robotics 2021 journal reference.
     id: 'high-speed-flight-2021',
@@ -8379,7 +8574,7 @@ export const CITATIONS: Citation[] = [
     // the ACWG maintains it) and the document is published open under
     // CC BY 4.0. Version 3 is current; there is no Version 4.
     id: 'gsn-standard-v3',
-    title: 'Goal Structuring Notation Community Standard Version 3',
+    title: 'Goal Structuring Notation Community Standard (Version 3)',
     authors: ['SCSC Assurance Case Working Group'],
     year: 2021,
     venue: 'Safety-Critical Systems Club',
@@ -8525,7 +8720,9 @@ export const CITATIONS: Citation[] = [
     // sixth straight quarter of growth. Cobots are 19.6% of UNITS ordered
     // (7,212 of 36,766) and 10.7% of order value ($241M of $2.25bn); an
     // earlier version of this comment reported the unit share as a value
-    // share and the article inherited the error (audit 2026-09-06).
+    // share and the article inherited the error (audit 2026-09-06). The
+    // corrected live slug includes "broader" (verified 2026-08-24); the
+    // former slug returned a Cloudflare 403.
     id: 'a3-orders-2025',
     title:
       'Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption',
@@ -8672,6 +8869,45 @@ export const CITATIONS: Citation[] = [
     venue: 'This is Money, 2025-11-18',
     url: 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html',
     type: 'press',
+  },
+  // ---- ROS 2 for ML engineers (classical/ros2-for-ml-engineers, 2026-08-24) ----
+  // These pages have no individual byline. The project/maintainer collective
+  // is retained as the organizational author rather than inventing names.
+  {
+    id: 'ros2-lyrical-2026',
+    title: "Lyrical Luth (codename 'lyrical'; May, 2026)",
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html',
+    type: 'docs',
+  },
+  {
+    id: 'ros2-interfaces-2026',
+    title: 'Interfaces (topics, services, actions)',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html',
+    type: 'docs',
+  },
+  {
+    id: 'ros2-qos-2026',
+    title: 'Quality of Service settings',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Concepts/Intermediate/About-Quality-of-Service-Settings.html',
+    type: 'docs',
+  },
+  {
+    id: 'moveit-planning-scene-2026',
+    title: 'Planning Scene',
+    authors: ['MoveIt Maintainers'],
+    year: 2026,
+    venue: 'MoveIt 2 Documentation, as of 2026-08-24',
+    url: 'https://moveit.picknik.ai/main/api/html/planning_scene_overview.html',
+    type: 'docs',
   },
 ];
 

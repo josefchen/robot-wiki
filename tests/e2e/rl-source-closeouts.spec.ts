@@ -6,6 +6,7 @@ import { expectedApparatusGraph } from '../../lib/brand-v2-apparatus-evidence';
 import { getCitation } from '../../data/citations';
 import { ANCHORS, BUDGET_SPEC, FLEET_SPEC } from '../../lib/sample-efficiency';
 import { missingOccurrences } from './source-reader-requirements';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import { setSlider } from './slider';
 
 const graph = expectedApparatusGraph(process.cwd());
@@ -56,18 +57,15 @@ async function captureSlices(page: Page, target: Locator, name: string, director
 
 for (const width of [1440, 375]) {
   test(`RL source closeouts and all mounted consumers at ${width}`, async ({ browser }, testInfo) => {
-    const context = await browser.newContext({ viewport: { width, height: 1000 } });
     const directory = process.env.RL_CLOSEOUT_CAPTURE_DIR ?? testInfo.outputPath('reader-captures');
     mkdirSync(directory, { recursive: true });
-    const page = await context.newPage();
     const errors: string[] = [];
     const requests: string[] = [];
-    page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
-    page.on('pageerror', (error) => errors.push(error.message));
-    page.on('request', (request) => requests.push(request.url()));
-    try {
-      expect(affected.map(([route]) => route)).toEqual(['/rl-sim2real/rl-for-robotics/']);
-      for (const [route, required] of affected) {
+    expect(affected.map(([route]) => route)).toEqual(['/rl-sim2real/rl-for-robotics/']);
+    await forEachInOwnContext(browser, affected, async (page, [route, required]) => {
+        page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
+        page.on('pageerror', (error) => errors.push(error.message));
+        page.on('request', (request) => requests.push(request.url()));
         expect((await page.goto(`http://127.0.0.1:3200${route}`))?.ok()).toBe(true);
         await expect(page.getByRole('heading', { name: 'RL for Robotics', exact: true, level: 1 })).toBeVisible();
         const observed = await page.locator('[data-cite-id]').evaluateAll((nodes) =>
@@ -144,13 +142,12 @@ for (const width of [1440, 375]) {
         const axe = await new AxeBuilder({ page }).analyze();
         expect(axe.violations).toEqual([]);
         expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
-      }
-      writeFileSync(join(directory, `${width}-reader-checks.json`), JSON.stringify({
-        affectedRoutes: affected.map(([route]) => route), errors, requests,
-        requiredGraph: affected, authorCounts: changed.map((id) => [id, getCitation(id)!.authors.length]),
-      }, null, 2));
-      expect(errors).toEqual([]);
-    } finally { await context.close(); }
+    }, { viewport: { width, height: 1000 } });
+    writeFileSync(join(directory, `${width}-reader-checks.json`), JSON.stringify({
+      affectedRoutes: affected.map(([route]) => route), errors, requests,
+      requiredGraph: affected, authorCounts: changed.map((id) => [id, getCitation(id)!.authors.length]),
+    }, null, 2));
+    expect(errors).toEqual([]);
   });
 }
 

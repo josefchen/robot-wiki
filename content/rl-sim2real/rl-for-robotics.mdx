@@ -76,7 +76,7 @@ The papers that trained on hardware published their budgets, and the numbers are
   <Stat label="Minitaur walking" value="160k steps" note="about two hours of real-world time, SAC" accent />
   <Stat label="A1 walking" value="1 h" note="DayDreamer: one A1 run; no simulator; physical interventions" />
   <Stat label="QT-Opt grasping" value="580k grasps" note="about 800 robot hours across 7 robots" />
-  <Stat label="hand-eye grasping" value="about 800k attempts" note="2016 preprint §5.2: two months, 6-14 robots" />
+  <Stat label="hand-eye grasping" value="about 800k attempts" note="2016 preprint §5.2: two months, 6–14 robots" />
 </div>
 
 <Term id="sample-efficiency">Sample efficiency</Term> is the axis these results turn on. Haarnoja and colleagues learned Minitaur locomotion from 160,000 control steps, roughly 400 rollouts, in about two hours of real-world time, and that figure is end to end: it contains the resets and the operator, which is why it sits far below the control rate the rollouts ran at <Cite id="haarnoja-walk-2019" />. DayDreamer reports one Unitree A1 training run in which the robot learned to roll over, stand and walk in one hour without a simulator. After that hour, ten minutes of additional online learning under pushes produced resistance to light pushes or recovery after harder pushes. The authors manually intervened at the edge of the training area without changing the robot’s joint configuration or orientation, so “without resets” does not mean intervention-free operation <Cite id="daydreamer-2022" />.

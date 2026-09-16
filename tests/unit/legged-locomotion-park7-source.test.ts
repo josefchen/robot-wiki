@@ -83,11 +83,16 @@ describe('legged locomotion Park bounding original 7', () => {
     expect(article.match(/<Cite id="park-2017-bounding" \/>/g)).toHaveLength(2);
   });
 
-  it('leaves the protected neighbors 6 and 8 and applied rows 2-5 untouched', () => {
+  it('leaves the protected neighbor 6 and applied rows 2-5 untouched', () => {
     const records = parse().claimRecords;
     expect(records[5].compound?.planId).toBeUndefined();
     expect(records[5].evidenceFailures.length).toBeGreaterThan(0);
-    expect(records[7].compound?.planId).toBeUndefined();
+    // Row 8 was this lane's protected neighbor; the 2026-09-16i integrator
+    // pass lawfully bound it (plan legged-locomotion-8-duty-factor-
+    // disclaimer-20260916i) with this park7 plan's retained material reused
+    // read-only, so the protection assertion became stale and now asserts
+    // the binding instead.
+    expect(records[7].compound?.planId).toBe('legged-locomotion-8-duty-factor-disclaimer-20260916i');
     expect(records[7].claim).toContain('canonical nominal values');
     expect(records[1].compound?.planId).toBe('learned-locomotion-legged-locomotion-2-20260908');
     expect(records[2].compound?.planId).toBe('learned-locomotion-legged-locomotion-3-20260908');

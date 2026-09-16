@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2c67600edccf5f4f576326cb4e8e35a4c1ddb30bb44ce7c03b072e0281a0a76e",
+  "fingerprint": "432e73d0c3d35f57ba96e952df373298ae27524458f218d453d2d395b9ff03bb",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -72,7 +72,7 @@
     "revealedByControls": [],
     "claimText": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability; the frontier essays develop the argument.",
     "currentStateText": "PER-STEP SUCCESS 95.0%",
-    "graphicTopPx": 1163.03,
+    "graphicTopPx": 1166.28,
     "graphicHeightPx": 379.44,
     "describedByText": "At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length."
   },
@@ -795,6 +795,42 @@
       "unclippedOverflow": []
     },
     {
+      "routeId": "route:/classical/calibration/",
+      "route": "/classical/calibration/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/calibration/",
+      "route": "/classical/calibration/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/calibration/",
+      "route": "/classical/calibration/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/calibration/",
+      "route": "/classical/calibration/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
       "routeId": "route:/classical/control/",
       "route": "/classical/control/",
       "viewportId": "375px",
@@ -968,6 +1004,42 @@
     {
       "routeId": "route:/classical/perception/",
       "route": "/classical/perception/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/ros2-for-ml-engineers/",
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/ros2-for-ml-engineers/",
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/ros2-for-ml-engineers/",
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/ros2-for-ml-engineers/",
+      "route": "/classical/ros2-for-ml-engineers/",
       "viewportId": "1440px",
       "width": 1440,
       "documentScrollWidthPx": 1440,
@@ -1299,6 +1371,42 @@
       "unclippedOverflow": []
     },
     {
+      "routeId": "route:/data-hardware/robot-learning-stack/",
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/robot-learning-stack/",
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/robot-learning-stack/",
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/robot-learning-stack/",
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
       "routeId": "route:/data-hardware/teleop-rigs/",
       "route": "/data-hardware/teleop-rigs/",
       "viewportId": "375px",
@@ -1328,6 +1436,42 @@
     {
       "routeId": "route:/data-hardware/teleop-rigs/",
       "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/editorial-policy/",
+      "route": "/editorial-policy/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/editorial-policy/",
+      "route": "/editorial-policy/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/editorial-policy/",
+      "route": "/editorial-policy/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/editorial-policy/",
+      "route": "/editorial-policy/",
       "viewportId": "1440px",
       "width": 1440,
       "documentScrollWidthPx": 1440,
@@ -1695,6 +1839,42 @@
       "unclippedOverflow": []
     },
     {
+      "routeId": "route:/manipulation/action-spaces/",
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/action-spaces/",
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/action-spaces/",
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/action-spaces/",
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
       "routeId": "route:/manipulation/bc-foundations/",
       "route": "/manipulation/bc-foundations/",
       "viewportId": "375px",
@@ -1832,6 +2012,42 @@
     {
       "routeId": "route:/manipulation/diffusion-policy/",
       "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/foundation-models/",
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/foundation-models/",
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/foundation-models/",
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/foundation-models/",
+      "route": "/manipulation/foundation-models/",
       "viewportId": "1440px",
       "width": 1440,
       "documentScrollWidthPx": 1440,
@@ -2055,6 +2271,42 @@
       "unclippedOverflow": []
     },
     {
+      "routeId": "route:/manipulation/robot-learning-roadmap/",
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/robot-learning-roadmap/",
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/robot-learning-roadmap/",
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/robot-learning-roadmap/",
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
       "routeId": "route:/manipulation/vla-models/",
       "route": "/manipulation/vla-models/",
       "viewportId": "375px",
@@ -2163,6 +2415,42 @@
       "unclippedOverflow": []
     },
     {
+      "routeId": "route:/privacy/",
+      "route": "/privacy/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/privacy/",
+      "route": "/privacy/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/privacy/",
+      "route": "/privacy/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/privacy/",
+      "route": "/privacy/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
       "routeId": "route:/rl-sim2real/",
       "route": "/rl-sim2real/",
       "viewportId": "375px",
@@ -2264,6 +2552,42 @@
     {
       "routeId": "route:/rl-sim2real/legged-locomotion/",
       "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/offline-rl/",
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/offline-rl/",
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/offline-rl/",
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/offline-rl/",
+      "route": "/rl-sim2real/offline-rl/",
       "viewportId": "1440px",
       "width": 1440,
       "documentScrollWidthPx": 1440,
@@ -2523,6 +2847,42 @@
       "unclippedOverflow": []
     },
     {
+      "routeId": "route:/world-models/evaluation/",
+      "route": "/world-models/evaluation/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/evaluation/",
+      "route": "/world-models/evaluation/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/evaluation/",
+      "route": "/world-models/evaluation/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/evaluation/",
+      "route": "/world-models/evaluation/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
       "routeId": "route:/world-models/generative-sim/",
       "route": "/world-models/generative-sim/",
       "viewportId": "375px",
@@ -2667,6 +3027,42 @@
       "unclippedOverflow": []
     },
     {
+      "routeId": "route:/world-models/model-based-robot-learning/",
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/model-based-robot-learning/",
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/model-based-robot-learning/",
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/model-based-robot-learning/",
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
       "routeId": "route:/world-models/taxonomy/",
       "route": "/world-models/taxonomy/",
       "viewportId": "375px",
@@ -2696,6 +3092,42 @@
     {
       "routeId": "route:/world-models/taxonomy/",
       "route": "/world-models/taxonomy/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/world-models-vs-simulators/",
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/world-models-vs-simulators/",
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/world-models-vs-simulators/",
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/world-models-vs-simulators/",
+      "route": "/world-models/world-models-vs-simulators/",
       "viewportId": "1440px",
       "width": 1440,
       "documentScrollWidthPx": 1440,
@@ -2713,7 +3145,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 24
+      "measuredMembers": 50
     },
     {
       "id": "profile:home-forced-colours",
@@ -2724,7 +3156,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 32
+      "measuredMembers": 62
     },
     {
       "id": "profile:home-reflow-320x800",
@@ -2735,7 +3167,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 244
+      "measuredMembers": 310
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -2746,7 +3178,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 244
+      "measuredMembers": 310
     },
     {
       "id": "profile:home-text-200",
@@ -2757,7 +3189,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 136
+      "measuredMembers": 169
     }
   ],
   "progressCounters": [
@@ -2788,9 +3220,9 @@
       "reconciledCounts": [
         {
           "memberId": "count:/manipulation/:articles",
-          "text": "12 articles",
-          "expected": 12,
-          "actual": 12
+          "text": "15 articles",
+          "expected": 15,
+          "actual": 15
         }
       ],
       "unreconciledCounts": []
@@ -2802,9 +3234,9 @@
       "reconciledCounts": [
         {
           "memberId": "count:/rl-sim2real/:articles",
-          "text": "7 articles",
-          "expected": 7,
-          "actual": 7
+          "text": "8 articles",
+          "expected": 8,
+          "actual": 8
         }
       ],
       "unreconciledCounts": []
@@ -2816,9 +3248,9 @@
       "reconciledCounts": [
         {
           "memberId": "count:/world-models/:articles",
-          "text": "5 articles",
-          "expected": 5,
-          "actual": 5
+          "text": "8 articles",
+          "expected": 8,
+          "actual": 8
         }
       ],
       "unreconciledCounts": []
@@ -2830,9 +3262,9 @@
       "reconciledCounts": [
         {
           "memberId": "count:/data-hardware/:articles",
-          "text": "6 articles",
-          "expected": 6,
-          "actual": 6
+          "text": "7 articles",
+          "expected": 7,
+          "actual": 7
         }
       ],
       "unreconciledCounts": []
@@ -2844,9 +3276,9 @@
       "reconciledCounts": [
         {
           "memberId": "count:/classical/:articles",
-          "text": "7 articles",
-          "expected": 7,
-          "actual": 7
+          "text": "9 articles",
+          "expected": 9,
+          "actual": 9
         }
       ],
       "unreconciledCounts": []
@@ -2886,9 +3318,9 @@
       "reconciledCounts": [
         {
           "memberId": "count:/a-z/:articles",
-          "text": "47 articles",
-          "expected": 47,
-          "actual": 47
+          "text": "57 articles",
+          "expected": 57,
+          "actual": 57
         },
         {
           "memberId": "count:/a-z/:glossary-terms",

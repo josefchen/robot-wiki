@@ -1,0 +1,135 @@
+---
+title: "The Robot Learning Stack"
+description: "The end-to-end robot learning stack from synchronized data and schemas through training, simulation, evaluation, model serving, ROS 2 integration, observability and recovery."
+domain: data-hardware
+slug: robot-learning-stack
+order: 7
+status: published
+datePublished: "2026-08-24"
+lastReviewed: "2026-08-24"
+citations:
+  - open-x-embodiment-2023
+  - droid-2024
+  - lerobot-docs-2026
+  - robomimic-2021
+  - isaac-lab-2025
+  - simpler-2024
+  - libero-plus-2025
+  - openvla-2024
+seeAlso:
+  - "manipulation/robot-learning-roadmap"
+  - "classical/ros2-for-ml-engineers"
+  - "data-hardware/datasets"
+  - "data-hardware/industrial-deployment"
+---
+
+A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component. Data capture, synchronization, schemas, calibration, training, evaluation, serving, control integration and recovery decide whether that checkpoint can be reproduced or trusted.
+
+The stack is easiest to reason about as seven contracts. Each contract has an artifact, an owner and a test. If a policy failure cannot be localized to one of them, the system is not yet observable enough.
+
+Try the check below and choose the artifact that makes a robot episode reproducible rather than merely replayable as video.
+
+<SelfCheck
+  prompt="Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code have changed?"
+  options={[
+    {
+      value: 'video-only',
+      label: 'A compressed video and a final success label',
+      why: 'This preserves appearance but loses robot state, action timing, transforms and the command that produced each transition.'
+    },
+    {
+      value: 'tensor-only',
+      label: 'The normalized tensors consumed by one training run',
+      why: 'Tensors help exact reruns but hide how units, frames and synchronization were derived. They cannot be reprocessed safely when the schema changes.'
+    },
+    {
+      value: 'versioned-episode',
+      label: 'Versioned raw streams with actions, transforms and calibration',
+      why: 'This preserves the evidence needed to reconstruct features, audit alignment and migrate preprocessing while keeping provenance.'
+    }
+  ]}
+  answer="versioned-episode"
+  takeaway="Store enough raw, timed and versioned context to rebuild a transition, not only enough pixels to watch it."
+/>
+
+## Contract 1: hardware and calibration
+
+The stack begins with the physical interface: cameras, joint encoders, gripper state, force or tactile sensors, controller and reset procedure. Record serial numbers, firmware, resolution, control mode and calibrated transforms. A dataset split cannot correct a camera that moved halfway through collection unless the movement is recorded.
+
+Define the action convention beside the hardware. Joint target, Cartesian delta and torque are different labels even when their array widths match. The [action-space guide](/manipulation/action-spaces) gives the selection rules; [calibration](/classical/calibration) covers the frame and timing residuals.
+
+The artifact is a machine-readable hardware manifest and calibration bundle. The test is a repeatable preflight sequence that checks frames, timestamps, joint limits and command response.
+
+## Contract 2: episode capture
+
+An episode should contain raw or minimally processed observations, robot state, commanded action, measured response where available, task identity, termination, success, intervention and timestamps. Keep resets and failures. Removing them creates a dataset that describes only the easy interior of the task.
+
+DROID standardized collection hardware and protocols across institutions, producing 76,000 in-the-wild manipulation trajectories with a comparatively consistent action space <Cite id="droid-2024" />. <Term id="open-x-embodiment">Open X-Embodiment</Term> chose breadth instead, normalizing more than one million trajectories across 22 embodiments <Cite id="open-x-embodiment-2023" />. The contrast is architectural: consistency simplifies labels; breadth increases transfer coverage and schema complexity.
+
+The artifact is an immutable episode store with checksums and provenance. The test replays random episodes, verifies monotonic timestamps, resolves every transform and plots command versus measured motion.
+
+## Contract 3: a versioned training schema
+
+Raw messages must become aligned model examples. This layer selects camera frames, interpolates state, transforms actions, normalizes values, chunks time and assigns splits. Every transformation needs a version.
+
+LeRobot provides datasets, policy implementations and tools around a common robot-learning workflow <Cite id="lerobot-docs-2026" />. That common shape is useful, but a format does not settle semantics. Record units, frame, rotation representation, control rate, horizon and missing-data policy explicitly.
+
+Split by the factor you claim to generalize across. Random episode splits can leak near-identical scenes and operators. Hold out environments for environment generalization, tasks for task generalization and embodiments for cross-embodiment claims.
+
+The artifact is a dataset manifest with schema version, transformation code, split definition and summary statistics. The test rebuilds the same sample IDs and distributions from the raw store.
+
+## Contract 4: reproducible training
+
+Training should emit more than weights. Save configuration, source revision, dataset manifest hash, random seeds, optimizer state, normalization statistics, dependency lock and metric history. Register every checkpoint with the exact preprocessing contract it expects.
+
+Begin with a baseline that minimizes moving parts. robomimic's study of offline human demonstrations found recurrent behavior cloning consistently strong and several batch-RL methods weak on the human-generated datasets <Cite id="robomimic-2021" />. That is a stack lesson: a sophisticated learner cannot compensate for a dataset whose behavior and reward structure do not support it.
+
+OpenVLA illustrates the opposite end: a public seven-billion-parameter VLA adapted on standardized robot trajectories <Cite id="openvla-2024" />. Fine-tuning it still needs the same action normalization, cameras and evaluation protocol as a smaller policy.
+
+The artifact is an addressable model package containing weights plus preprocessing and action-contract metadata. The test loads it in a clean environment and reproduces a fixed batch of outputs.
+
+## Contract 5: simulation and offline evaluation
+
+Simulation is a test surface, not a truth oracle. Use it for deterministic regression, safety envelopes, parameter sweeps and scenarios too expensive to repeat physically. Isaac Lab supports large batches of robot-learning environments and sensor modalities <Cite id="isaac-lab-2025" />.
+
+Calibrate simulation utility against hardware. SIMPLER measures how simulated policy performance correlates with real robot performance under matched tasks <Cite id="simpler-2024" />. If the rank order disagrees, more simulated episodes can increase confidence in the wrong selection.
+
+Offline evaluation should include dataset leakage checks, action-distribution support, open-loop errors and latency profiling. It cannot replace closed-loop trials.
+
+The artifact is a versioned evaluation suite with scenario seeds and expected ranges. The test runs every candidate checkpoint against the same suite before hardware access.
+
+## Contract 6: real-world evaluation
+
+Define success, timeout, intervention and reset before the run. Randomize initial conditions according to a recorded protocol. Report trial counts, uncertainty and failure categories. Save every evaluation episode back into the same data system.
+
+Stress one factor at a time. LIBERO-Plus showed that controlled visual and physical perturbations reveal robustness gaps hidden by standard benchmark averages <Cite id="libero-plus-2025" />. Your suite should likewise separate lighting, distractors, object pose, camera pose, friction and instruction changes.
+
+The artifact is a signed evaluation record linking model version, environment version and episode IDs. The test verifies that the displayed aggregate can be recomputed from those episodes.
+
+## Contract 7: serving and robot integration
+
+Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor. The [ROS 2 guide](/classical/ros2-for-ml-engineers) defines their runtime interfaces. Keep safety and high-rate feedback below the learned policy where possible.
+
+Measure end-to-end age, not only GPU kernel time. Log sensor timestamp, inference start and end, command publish and controller acceptance. Specify what happens on deadline miss, invalid observation, NaN output, out-of-range action and lost communication.
+
+The artifact is a deployable model bundle plus interface declaration and rollback target. The test injects each failure and proves the supervisor reaches a safe, observable state.
+
+## The data loop after deployment
+
+Failures should return to the dataset with context, not as a folder of interesting clips. Tag the failure stage, operator intervention, hardware state and suspected cause. Separate correction data from ordinary demonstrations so its sampling weight can be controlled.
+
+Promotion should be gated. A new checkpoint must pass offline regression, simulation where predictive, a small physical canary set, then the full evaluation matrix. Keep the previous package deployable until the new one has survived realistic duty cycles.
+
+## A minimal stack for a small team
+
+The stack does not require a platform department. A small team can begin with:
+
+- append-only raw episode files and a manifest;
+- one versioned conversion command;
+- a locked training configuration and checkpoint registry;
+- a deterministic offline test batch;
+- a scripted real-world evaluation sheet linked to episode IDs;
+- a policy process separated from command gating and control;
+- dashboards for observation age, inference latency, interventions and success.
+
+The principle is more important than the tools: every boundary has a contract and every claim can be traced to an artifact. That is what turns a model experiment into a robot-learning system.

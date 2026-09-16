@@ -6,6 +6,12 @@ import { CITATIONS } from '../../data/citations';
 import { parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 
 const article = readFileSync('content/classical/motion-planning.mdx', 'utf8');
+// The benchmark tables were extracted into TrajOptArmTable/TrajOptFullBodyTable;
+// their row values are pinned from the component source below.
+const trajoptTables = readFileSync(
+  'components/mdx/trajopt-results-table.tsx',
+  'utf8',
+);
 const catalog = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const ledger = readFileSync('audit/classical.md', 'utf8');
 const required = [
@@ -19,11 +25,16 @@ const required = [
   'those were penalized at discrete times', '198 seven-DoF PR2 arm problems',
   '96 eighteen-DoF full-body problems', 'three seconds per CHOMP initialization',
   'thirty-second full-body OMPL limit', 'not a separate smoothness measurement',
-  '| TrajOpt | 0.84 | 0.20 | 1.2 |', '| TrajOpt | 0.63 | 2.1 | 1.08 |',
+  '<TrajOptArmTable', '<TrajOptFullBodyTable',
   'Table II contains no CHOMP full-body result', "not evidence that sampling followed by refinement is the standard industrial pipeline today",
 ];
 describe('trajectory corrections retain their scientific counterconditions', () => {
   for (const text of required) it(text, () => expect(article).toContain(text));
+  it('keeps the TrajOpt benchmark row values in the extracted table components', () => {
+    for (const cell of ["'TrajOpt', '0.84', '0.20', '1.2'", "'TrajOpt', '0.63', '2.1', '1.08'"]) {
+      expect(trajoptTables).toContain(cell);
+    }
+  });
   it('retains math delimiters and the existing article review hold', () => {
     expect(article.match(/^\$\$$/gm)).toHaveLength(14);
     expect(article).toContain('lastReviewed: "2026-08-17"');

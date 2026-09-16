@@ -55,7 +55,9 @@ describe('teleop-rigs originals integration (packet 60d405ba, 2026-09-16)', () =
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
     }
-    expect(plans).toHaveLength(684);
+    // The merged ledger keeps appending later packets; this packet's block
+    // keeps its append slot at 672..683, so pin the slot, not a moving total.
+    expect(plans.slice(672, 684).map((p) => p.id)).toEqual(PLAN_IDS);
   });
 
   it('the excluded row 4 stays byte-preserved in the section', () => {
@@ -85,7 +87,12 @@ describe('teleop-rigs originals integration (packet 60d405ba, 2026-09-16)', () =
     const deltas = JSON.parse(readFileSync(DELTAS, 'utf8')) as {
       entries: Array<{ id: string; manifest: string; memberId: string }>;
     };
-    expect(deltas.entries).toHaveLength(758);
+    // Append-only ledger: pin the packet's slot at 743..754, not the total.
+    expect(
+      deltas.entries.slice(743, 755).map((e) => e.id),
+    ).toEqual(
+      [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((row) => `tr-r${row}-20260916-1`),
+    );
     const mine = deltas.entries.filter((e) => e.id.startsWith('tr-r') && e.id.endsWith('-20260916-1'));
     expect(mine).toHaveLength(12);
     for (const e of mine) {

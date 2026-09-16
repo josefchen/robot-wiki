@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3708164c4ed07e620994a45bb20f1a1cbbb89df72fdd8f3eacac76bcbbd97c6b",
+  "fingerprint": "b0e78b5415319f95408281afbbeb5c4b98610bc53eb5c6a059ecc2a142fa4707",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -11,11 +11,13 @@
     "/adjacent/space/",
     "/adjacent/surgical/",
     "/classical/",
+    "/classical/calibration/",
     "/classical/control/",
     "/classical/grasp-planning/",
     "/classical/kinematics/",
     "/classical/motion-planning/",
     "/classical/perception/",
+    "/classical/ros2-for-ml-engineers/",
     "/classical/scene-representation/",
     "/classical/state-estimation/",
     "/credits/",
@@ -25,7 +27,9 @@
     "/data-hardware/evaluation-crisis/",
     "/data-hardware/hardware-taxonomy/",
     "/data-hardware/industrial-deployment/",
+    "/data-hardware/robot-learning-stack/",
     "/data-hardware/teleop-rigs/",
+    "/editorial-policy/",
     "/frontier/",
     "/frontier/bear-case/",
     "/frontier/competing-theses/",
@@ -36,22 +40,27 @@
     "/glossary/",
     "/manipulation/",
     "/manipulation/action-chunking/",
+    "/manipulation/action-spaces/",
     "/manipulation/bc-foundations/",
     "/manipulation/comparison-matrix/",
     "/manipulation/cross-embodiment/",
     "/manipulation/diffusion-policy/",
+    "/manipulation/foundation-models/",
     "/manipulation/generalist-policies/",
     "/manipulation/hierarchical/",
     "/manipulation/knowledge-insulation/",
     "/manipulation/pi-line/",
     "/manipulation/realtime-execution/",
     "/manipulation/rl-finetuning/",
+    "/manipulation/robot-learning-roadmap/",
     "/manipulation/vla-models/",
     "/market-map/",
     "/playground/",
+    "/privacy/",
     "/rl-sim2real/",
     "/rl-sim2real/humanoid-wbc/",
     "/rl-sim2real/legged-locomotion/",
+    "/rl-sim2real/offline-rl/",
     "/rl-sim2real/parallel-sim-rl/",
     "/rl-sim2real/reward-design-mpc/",
     "/rl-sim2real/rl-for-robotics/",
@@ -59,16 +68,19 @@
     "/rl-sim2real/why-rl-locomotion/",
     "/search/",
     "/world-models/",
+    "/world-models/evaluation/",
     "/world-models/generative-sim/",
     "/world-models/generative-video/",
     "/world-models/jepa/",
     "/world-models/latent-dynamics/",
-    "/world-models/taxonomy/"
+    "/world-models/model-based-robot-learning/",
+    "/world-models/taxonomy/",
+    "/world-models/world-models-vs-simulators/"
   ],
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 4308,
+      "visibleTextLength": 5416,
       "header": {
         "present": true,
         "display": "flex",
@@ -231,7 +243,7 @@
     },
     {
       "route": "/a-z/",
-      "visibleTextLength": 5945,
+      "visibleTextLength": 6537,
       "header": {
         "present": true,
         "display": "flex",
@@ -394,7 +406,7 @@
     },
     {
       "route": "/adjacent/",
-      "visibleTextLength": 853,
+      "visibleTextLength": 880,
       "header": {
         "present": true,
         "display": "flex",
@@ -557,7 +569,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 28685,
+      "visibleTextLength": 28657,
       "header": {
         "present": true,
         "display": "flex",
@@ -720,7 +732,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 17610,
+      "visibleTextLength": 17766,
       "header": {
         "present": true,
         "display": "flex",
@@ -883,7 +895,7 @@
     },
     {
       "route": "/adjacent/space/",
-      "visibleTextLength": 17973,
+      "visibleTextLength": 18087,
       "header": {
         "present": true,
         "display": "flex",
@@ -1046,7 +1058,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 16543,
+      "visibleTextLength": 16686,
       "header": {
         "present": true,
         "display": "flex",
@@ -1209,7 +1221,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 1238,
+      "visibleTextLength": 1592,
       "header": {
         "present": true,
         "display": "flex",
@@ -1249,7 +1261,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1371,8 +1383,8 @@
       }
     },
     {
-      "route": "/classical/control/",
-      "visibleTextLength": 24052,
+      "route": "/classical/calibration/",
+      "visibleTextLength": 11529,
       "header": {
         "present": true,
         "display": "flex",
@@ -1412,7 +1424,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/classical/calibration/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "Robot Calibration"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/classical/control/",
+      "visibleTextLength": 25654,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1535,7 +1710,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 16933,
+      "visibleTextLength": 17037,
       "header": {
         "present": true,
         "display": "flex",
@@ -1575,7 +1750,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1698,7 +1873,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 15281,
+      "visibleTextLength": 17071,
       "header": {
         "present": true,
         "display": "flex",
@@ -1738,7 +1913,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1861,7 +2036,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 26325,
+      "visibleTextLength": 27415,
       "header": {
         "present": true,
         "display": "flex",
@@ -1901,7 +2076,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2024,7 +2199,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 40695,
+      "visibleTextLength": 42073,
       "header": {
         "present": true,
         "display": "flex",
@@ -2064,7 +2239,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2186,8 +2361,8 @@
       }
     },
     {
-      "route": "/classical/scene-representation/",
-      "visibleTextLength": 26902,
+      "route": "/classical/ros2-for-ml-engineers/",
+      "visibleTextLength": 11762,
       "header": {
         "present": true,
         "display": "flex",
@@ -2227,7 +2402,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/classical/ros2-for-ml-engineers/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "ROS 2 for Machine Learning Engineers"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "visibleTextLength": 28287,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2350,7 +2688,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 18265,
+      "visibleTextLength": 19792,
       "header": {
         "present": true,
         "display": "flex",
@@ -2390,7 +2728,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2513,7 +2851,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 21415,
+      "visibleTextLength": 21475,
       "header": {
         "present": true,
         "display": "flex",
@@ -2676,7 +3014,7 @@
     },
     {
       "route": "/data-hardware/",
-      "visibleTextLength": 1209,
+      "visibleTextLength": 1412,
       "header": {
         "present": true,
         "display": "flex",
@@ -2716,7 +3054,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2839,7 +3177,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 14594,
+      "visibleTextLength": 14698,
       "header": {
         "present": true,
         "display": "flex",
@@ -2879,7 +3217,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3002,7 +3340,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 13130,
+      "visibleTextLength": 15077,
       "header": {
         "present": true,
         "display": "flex",
@@ -3042,7 +3380,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3165,7 +3503,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 17054,
+      "visibleTextLength": 17504,
       "header": {
         "present": true,
         "display": "flex",
@@ -3205,7 +3543,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3328,7 +3666,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26419,
+      "visibleTextLength": 26408,
       "header": {
         "present": true,
         "display": "flex",
@@ -3368,7 +3706,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3491,7 +3829,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 21845,
+      "visibleTextLength": 22122,
       "header": {
         "present": true,
         "display": "flex",
@@ -3531,7 +3869,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3653,8 +3991,8 @@
       }
     },
     {
-      "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 14783,
+      "route": "/data-hardware/robot-learning-stack/",
+      "visibleTextLength": 12163,
       "header": {
         "present": true,
         "display": "flex",
@@ -3694,7 +4032,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/data-hardware/robot-learning-stack/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "The Robot Learning Stack"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "visibleTextLength": 14666,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3816,8 +4317,163 @@
       }
     },
     {
+      "route": "/editorial-policy/",
+      "visibleTextLength": 1953,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 16,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": false,
+        "exposedAriaCurrent": [],
+        "markerDeviceId": null,
+        "markerColour": null,
+        "markerAlignmentErrorPx": null
+      }
+    },
+    {
       "route": "/frontier/",
-      "visibleTextLength": 1144,
+      "visibleTextLength": 1171,
       "header": {
         "present": true,
         "display": "flex",
@@ -3980,7 +4636,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 17465,
+      "visibleTextLength": 17569,
       "header": {
         "present": true,
         "display": "flex",
@@ -4143,7 +4799,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 24436,
+      "visibleTextLength": 24540,
       "header": {
         "present": true,
         "display": "flex",
@@ -4306,7 +4962,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 20463,
+      "visibleTextLength": 20567,
       "header": {
         "present": true,
         "display": "flex",
@@ -4469,7 +5125,7 @@
     },
     {
       "route": "/frontier/generalization/",
-      "visibleTextLength": 17211,
+      "visibleTextLength": 17315,
       "header": {
         "present": true,
         "display": "flex",
@@ -4632,7 +5288,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 14457,
+      "visibleTextLength": 14561,
       "header": {
         "present": true,
         "display": "flex",
@@ -4795,7 +5451,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 23984,
+      "visibleTextLength": 24090,
       "header": {
         "present": true,
         "display": "flex",
@@ -4958,7 +5614,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 84066,
+      "visibleTextLength": 84095,
       "header": {
         "present": true,
         "display": "flex",
@@ -5121,7 +5777,7 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 2188,
+      "visibleTextLength": 2730,
       "header": {
         "present": true,
         "display": "flex",
@@ -5161,7 +5817,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5284,7 +5940,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22111,
+      "visibleTextLength": 22393,
       "header": {
         "present": true,
         "display": "flex",
@@ -5324,7 +5980,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5446,8 +6102,8 @@
       }
     },
     {
-      "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 13742,
+      "route": "/manipulation/action-spaces/",
+      "visibleTextLength": 11732,
       "header": {
         "present": true,
         "display": "flex",
@@ -5487,7 +6143,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/manipulation/action-spaces/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "Action Spaces for Robot Learning"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "visibleTextLength": 14030,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5610,7 +6429,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 27453,
+      "visibleTextLength": 28736,
       "header": {
         "present": true,
         "display": "flex",
@@ -5650,7 +6469,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5773,7 +6592,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 14927,
+      "visibleTextLength": 15214,
       "header": {
         "present": true,
         "display": "flex",
@@ -5813,7 +6632,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5936,7 +6755,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 13956,
+      "visibleTextLength": 14060,
       "header": {
         "present": true,
         "display": "flex",
@@ -5976,7 +6795,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6098,8 +6917,8 @@
       }
     },
     {
-      "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 20976,
+      "route": "/manipulation/foundation-models/",
+      "visibleTextLength": 11808,
       "header": {
         "present": true,
         "display": "flex",
@@ -6139,7 +6958,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/manipulation/foundation-models/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "Foundation Models for Robotics"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "visibleTextLength": 21237,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6262,7 +7244,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 18875,
+      "visibleTextLength": 18801,
       "header": {
         "present": true,
         "display": "flex",
@@ -6302,7 +7284,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6425,7 +7407,7 @@
     },
     {
       "route": "/manipulation/knowledge-insulation/",
-      "visibleTextLength": 11980,
+      "visibleTextLength": 12084,
       "header": {
         "present": true,
         "display": "flex",
@@ -6465,7 +7447,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6588,7 +7570,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 25196,
+      "visibleTextLength": 25300,
       "header": {
         "present": true,
         "display": "flex",
@@ -6628,7 +7610,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6751,7 +7733,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 16881,
+      "visibleTextLength": 16985,
       "header": {
         "present": true,
         "display": "flex",
@@ -6791,7 +7773,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6914,7 +7896,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 31816,
+      "visibleTextLength": 32104,
       "header": {
         "present": true,
         "display": "flex",
@@ -6954,7 +7936,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7076,8 +8058,8 @@
       }
     },
     {
-      "route": "/manipulation/vla-models/",
-      "visibleTextLength": 18304,
+      "route": "/manipulation/robot-learning-roadmap/",
+      "visibleTextLength": 10918,
       "header": {
         "present": true,
         "display": "flex",
@@ -7117,7 +8099,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 29,
+        "tabStopCount": 32,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/manipulation/robot-learning-roadmap/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "Robot Learning Curriculum for ML Engineers"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "visibleTextLength": 19819,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 32,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7240,7 +8385,7 @@
     },
     {
       "route": "/market-map/",
-      "visibleTextLength": 49964,
+      "visibleTextLength": 49960,
       "header": {
         "present": true,
         "display": "flex",
@@ -7403,7 +8548,7 @@
     },
     {
       "route": "/playground/",
-      "visibleTextLength": 1630,
+      "visibleTextLength": 1657,
       "header": {
         "present": true,
         "display": "flex",
@@ -7565,8 +8710,8 @@
       }
     },
     {
-      "route": "/rl-sim2real/",
-      "visibleTextLength": 1421,
+      "route": "/privacy/",
+      "visibleTextLength": 1429,
       "header": {
         "present": true,
         "display": "flex",
@@ -7606,7 +8751,162 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 16,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": false,
+        "exposedAriaCurrent": [],
+        "markerDeviceId": null,
+        "markerColour": null,
+        "markerAlignmentErrorPx": null
+      }
+    },
+    {
+      "route": "/rl-sim2real/",
+      "visibleTextLength": 1635,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7729,7 +9029,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 20678,
+      "visibleTextLength": 20782,
       "header": {
         "present": true,
         "display": "flex",
@@ -7769,7 +9069,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7892,7 +9192,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 18230,
+      "visibleTextLength": 18334,
       "header": {
         "present": true,
         "display": "flex",
@@ -7932,7 +9232,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8054,8 +9354,8 @@
       }
     },
     {
-      "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 14976,
+      "route": "/rl-sim2real/offline-rl/",
+      "visibleTextLength": 13602,
       "header": {
         "present": true,
         "display": "flex",
@@ -8095,7 +9395,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/rl-sim2real/offline-rl/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "Offline Reinforcement Learning for Robotics"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "visibleTextLength": 15075,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8218,7 +9681,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 27022,
+      "visibleTextLength": 27126,
       "header": {
         "present": true,
         "display": "flex",
@@ -8258,7 +9721,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8381,7 +9844,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 29973,
+      "visibleTextLength": 30432,
       "header": {
         "present": true,
         "display": "flex",
@@ -8421,7 +9884,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8544,7 +10007,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 23368,
+      "visibleTextLength": 23651,
       "header": {
         "present": true,
         "display": "flex",
@@ -8584,7 +10047,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8707,7 +10170,7 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "visibleTextLength": 12372,
+      "visibleTextLength": 12476,
       "header": {
         "present": true,
         "display": "flex",
@@ -8747,7 +10210,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8870,7 +10333,7 @@
     },
     {
       "route": "/search/",
-      "visibleTextLength": 545,
+      "visibleTextLength": 572,
       "header": {
         "present": true,
         "display": "flex",
@@ -9025,7 +10488,7 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 1218,
+      "visibleTextLength": 1779,
       "header": {
         "present": true,
         "display": "flex",
@@ -9065,7 +10528,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 22,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9187,8 +10650,8 @@
       }
     },
     {
-      "route": "/world-models/generative-sim/",
-      "visibleTextLength": 15648,
+      "route": "/world-models/evaluation/",
+      "visibleTextLength": 12501,
       "header": {
         "present": true,
         "display": "flex",
@@ -9228,7 +10691,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 22,
+        "tabStopCount": 25,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/world-models/evaluation/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "World Model Evaluation for Robotics"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "visibleTextLength": 17048,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9351,7 +10977,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 17147,
+      "visibleTextLength": 19389,
       "header": {
         "present": true,
         "display": "flex",
@@ -9391,7 +11017,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 22,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9514,7 +11140,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 14782,
+      "visibleTextLength": 16190,
       "header": {
         "present": true,
         "display": "flex",
@@ -9554,7 +11180,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 22,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9677,7 +11303,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 14156,
+      "visibleTextLength": 15358,
       "header": {
         "present": true,
         "display": "flex",
@@ -9717,7 +11343,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 22,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9839,8 +11465,8 @@
       }
     },
     {
-      "route": "/world-models/taxonomy/",
-      "visibleTextLength": 17903,
+      "route": "/world-models/model-based-robot-learning/",
+      "visibleTextLength": 10717,
       "header": {
         "present": true,
         "display": "flex",
@@ -9880,7 +11506,170 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 22,
+        "tabStopCount": 25,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/world-models/model-based-robot-learning/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "Model-Based Robot Learning"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "visibleTextLength": 19479,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9994,6 +11783,169 @@
             "value": "page",
             "insideDrawer": true,
             "accessibleName": "What Is a World Model?"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "visibleTextLength": 12021,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 25,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/world-models/world-models-vs-simulators/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "World Models vs Physics Simulators"
           }
         ],
         "markerDeviceId": "device:active-interval-rail",

@@ -159,7 +159,11 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
   const lanePlans = plans.filter((plan) => plan.id.startsWith('state-estimation-'));
 
   it('adds exactly seven reviewed, fully adjudicated plans', () => {
-    expect(plans).toHaveLength(718); // 713 at this lane's close + 5 grasp-planning plans (2026-09-16)
+    // The merged ledger keeps appending later packets; this lane's block
+    // keeps its append slot at 706..712, so pin the slot, not a moving total.
+    expect(
+      plans.slice(706, 713).map((plan) => plan.rowOrdinal),
+    ).toEqual([8, 9, 10, 12, 14, 15, 17]);
     expect(lanePlans.map((plan) => plan.rowOrdinal).sort((a, b) => a - b)).toEqual([
       8, 9, 10, 12, 14, 15, 17,
     ]);
@@ -181,11 +185,15 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
 
   it('keeps every prior plan object and its order intact', () => {
     expect(plans[705].id).toBe('reward-design-mpc-original-23-20260916');
-    expect(new Set(plans.map((plan) => plan.id)).size).toBe(718);
+    // Append-only ledger: uniqueness holds globally; the total keeps growing.
+    expect(new Set(plans.map((plan) => plan.id)).size).toBe(plans.length);
   });
 
   it('adds exactly seven approved-delta entries for this lane', () => {
-    expect(deltas.entries).toHaveLength(793); // 788 at this lane's close + 5 grasp-planning entries (2026-09-16)
+    // Slot-pinned: this lane's entries sit at 778..784 on the merged ledger.
+    expect(
+      deltas.entries.slice(778, 785).map((entry) => entry.id),
+    ).toEqual([8, 9, 10, 12, 14, 15, 17].map((row) => `se-r${row}-20260916-1`));
     const lane = deltas.entries.filter((entry) =>
       /^se-r(8|9|10|12|14|15|17)-20260916-1$/.test(entry.id),
     );

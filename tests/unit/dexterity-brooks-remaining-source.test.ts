@@ -145,6 +145,13 @@ describe('reviewed plans and adjudications are internally consistent', () => {
     ]) {
       expect(plans.some(p => p.id === id)).toBe(true);
     }
-    expect(plans).toHaveLength(684);
+    // The merged catalog keeps appending later packets; this packet's three
+    // plans keep their append slot at 468..470, so pin the slot, not a
+    // moving total.
+    expect(plans.slice(468, 471).map(p => p.id)).toEqual([
+      'dexterity-brooks-ernst-1-source-20260915',
+      'dexterity-brooks-eweek-4-source-20260915',
+      'dexterity-brooks-forecast-7-source-20260915',
+    ]);
   });
 });
