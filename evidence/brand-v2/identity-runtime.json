@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ed1dda4c453ba10d1a072ef7f180603b00840d0abbccc6d9c1b671b4a4f96951",
+  "fingerprint": "f25ee03e3aa72e16042bc28ad016519a7b2710f6a9332f800fdab3349790b1c9",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -19034,25 +19034,25 @@
     },
     {
       "literal": "robot-wiki",
-      "fileCount": 299,
+      "fileCount": 303,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 6650
+      "occurrences": 6681
     },
     {
       "literal": "robot-wiki.com",
-      "fileCount": 298,
+      "fileCount": 302,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 6111
+      "occurrences": 6131
     }
   ]
 }
