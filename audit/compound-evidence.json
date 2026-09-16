@@ -61950,4 +61950,813 @@
     ],
     "originalCellsDigest": "183904526edfeaae1250a04ab960fa82b6497d68f13679f06dc4c9d604b95215"
   }
+,
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-5",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 5,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa5-table5-850",
+        "text": "Marvel and Norcross reproduce the ISO 13855 decision table (their Table 5) and it prints C = 850 mm for a normal direction of approach protected by multiple separate beams (single-height beam: 1200 mm).",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      },
+      {
+        "id": "sa5-lower-bound-qualifier",
+        "text": "Article-span correction: the source states the value as a minimum (\"the value of C must be at least 850 mm\"), so the article must read \"an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams\", adding the lower-bound qualifier the 2026-09-06 batch-2 checkpoint identified as absent.",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:5 (ready-source-correction): Table 5 prints Normal + Multiple Separate Beams -> 850 mm (Single-Height Beam 1200 mm) and §VII prints \"must be at least 850 mm\"; integrator needle-verified both passages against the full retained PMC fetch and independently re-read the table cells; the article span now carries the source's own lower-bound qualifier (packet endpoint). Standing owner-question row: no authored-mapping dependency remains, nothing held. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "173a4d29239b53eca7b222b0f5cd2dd2e8d364ccdb059fc49162980d3693012e"
+    },
+    "evidence": [
+      {
+        "partId": "sa5-table5-850",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "Table 5. Decision criteria that determine the value of the intrusion distance, C, from ISO 13855. Choosing to provide safety by limiting the direction of approach, relying on the placement of sensors, or requiring a specific control device determines the safety buffer. | Decision Criteria: Direction of Approach; Conditions: Normal; Multiple Separate Beams; C: 850 mm. | Direction of Approach; Normal; Single-Height Beam; C: 1200 mm."
+      },
+      {
+        "partId": "sa5-lower-bound-qualifier",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "For example, if the integrator chooses to ensure safety by limiting the direction of approach to be normal to the machinery and protects the region by multiple laser-based sensors, the value of C must be at least 850 mm. If the operator also requires a two-handed control device, the value of C may be reduced to 250 mm."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa5-table5-850",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa5-table5-850 (record audit/frontier.md:safety-and-assurance:5): supported. Packet record safety-and-assurance:5 (ready-source-correction): Table 5 prints Normal + Multiple Separate Beams -> 850 mm (Single-Height Beam 1200 mm) and §VII prints \"must be at least 850 mm\"; integrator needle-verified both passages against the full retained PMC fetch and independently re-read the table cells; the article span now carries the source's own lower-bound qualifier (packet endpoint). Standing owner-question row: no authored-mapping dependency remains, nothing held.",
+        "evidenceDigest": "da6c67654b803b8906b209a94ff079a9ac25d66be7e4d3b2ee7a854bb14f95ca"
+      },
+      {
+        "partId": "sa5-lower-bound-qualifier",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa5-lower-bound-qualifier (record audit/frontier.md:safety-and-assurance:5): supported. Packet record safety-and-assurance:5 (ready-source-correction): Table 5 prints Normal + Multiple Separate Beams -> 850 mm (Single-Height Beam 1200 mm) and §VII prints \"must be at least 850 mm\"; integrator needle-verified both passages against the full retained PMC fetch and independently re-read the table cells; the article span now carries the source's own lower-bound qualifier (packet endpoint). Standing owner-question row: no authored-mapping dependency remains, nothing held.",
+        "evidenceDigest": "06c31dd0c6db262f302d38969eb1ccd8953607cdfaae68e4077b324f7fe5e4f5"
+      }
+    ],
+    "originalCellsDigest": "55b4336db6d3c9828d07b4d3b3d1a324a520f90be0232779e90fb3ce61b6fd87"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-6",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 6,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa6-1600-worst-case",
+        "text": "Marvel & Norcross §III states the operator speed vH is assumed to be a worst-case maximum of 1600 mm/s based on ISO 13855, with the provision that vH may be measured directly; when such measurements are unavailable it is assumed constant and directed at the robot. The article's span states exactly this, and the instrument default (1.6 m/s) carries this basis.",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      },
+      {
+        "id": "sa6-recorded-2000-inconsistency",
+        "text": "The same document's Discussion recommends the worst-case assumption of 2000 mm/s from ISO 13855 as possibly more prudent than 1600 mm/s; §III itself also records ISO 13855's 2000 mm/s maximum with the 1600 mm/s option for separation distances greater than 500 mm. The inconsistency is recorded in the ledger (verdict S) and is not resolved by the article.",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:6 (ready-evidence-completion): §III prints the 1600 mm/s worst-case framing and the measured-directly provision verbatim; the contradicting Discussion passage (prudent 2000 mm/s) is preserved; verdict stays S (source-internal inconsistency recorded). Integrator re-read both contradicting passages in the retained fetch per the both-passages rule. Standing owner-question row: both margins/speeds are printed by the source; nothing held. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "d25d96f5a3a0048a1e060797dbaf4fbbdeda295b54101f73e05f093305f0954e"
+    },
+    "evidence": [
+      {
+        "partId": "sa6-1600-worst-case",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "In Equation 3, the speed of the operator, vH, is assumed to be a worst-case maximum of 1600 mm/s based on the specifications in ISO 13855. ISO 13855 claims a maximum speed of 2000 mm/s for an operator when calculating the minimum protective distance for stationary machinery with the option for using 1600 mm/s in the case that the separation distance is greater than 500 mm. The new application in Equation 1, however, allows for the provision that vH may be measured directly. If such measurements are not available, vH is typically assumed to be constant and in the direction of the robot, though more realistic acceleration profiles may be adopted."
+      },
+      {
+        "partId": "sa6-recorded-2000-inconsistency",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "For instance, regarding the assumed value of the operator velocity, vH, even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the worst-case assumption of 2000 mm/s from ISO 13855 to accommodate instantaneous rapid motions and the uncertainties associated with operator detection. Although this worst-case assumption is not necessarily accurate at all times, it is clearly safer to assume than the special case"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa6-1600-worst-case",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa6-1600-worst-case (record audit/frontier.md:safety-and-assurance:6): supported. Packet record safety-and-assurance:6 (ready-evidence-completion): §III prints the 1600 mm/s worst-case framing and the measured-directly provision verbatim; the contradicting Discussion passage (prudent 2000 mm/s) is preserved; verdict stays S (source-internal inconsistency recorded). Integrator re-read both contradicting passages in the retained fetch per the both-passages rule. Standing owner-question row: both margins/speeds are printed by the source; nothing held.",
+        "evidenceDigest": "a7d823f1c8583a2f7bc3373b592a830e200cda8f6b4b46d052d890766120dd21"
+      },
+      {
+        "partId": "sa6-recorded-2000-inconsistency",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa6-recorded-2000-inconsistency (record audit/frontier.md:safety-and-assurance:6): supported. Packet record safety-and-assurance:6 (ready-evidence-completion): §III prints the 1600 mm/s worst-case framing and the measured-directly provision verbatim; the contradicting Discussion passage (prudent 2000 mm/s) is preserved; verdict stays S (source-internal inconsistency recorded). Integrator re-read both contradicting passages in the retained fetch per the both-passages rule. Standing owner-question row: both margins/speeds are printed by the source; nothing held.",
+        "evidenceDigest": "5e8191e37389dec8e1d7735d26cfeffd6ab33051eb00a7fbdb4c9aa00905c32f"
+      }
+    ],
+    "originalCellsDigest": "a0b6b670f57a2b1afb510811fdea1200e585ce19c66784b0ec5358302aa15ba6"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-7",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 7,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa7-impact-experiments",
+        "text": "Haddadin, Albu-Schäffer and Hirzinger carried out impact tests with the DLR-Lightweight Robot III using standard automobile crash test facilities at the ADAC, and evaluated several industrial robots of different weight on that basis (IJRR 2009).",
+        "requiredCitationIds": [
+          "haddadin-2009"
+        ]
+      },
+      {
+        "id": "sa7-registry-identity",
+        "text": "Registry haddadin-2009 names the intended document: 'Requirements for Safe Robots: Measurements, Analysis and New Insights', Haddadin / Albu-Schäffer / Hirzinger, The International Journal of Robotics Research, 2009, DOI 10.1177/0278364909343970.",
+        "requiredCitationIds": [
+          "haddadin-2009"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:7 (ready-evidence-completion): ADAC crash-test abstract sentence and the eprint bibliographic block (authors order, IJRR, 2009, DOI, ISSN) needle-verified verbatim against the retained DLR fetch. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "9630b94a8768263d72bc29d0809bfc1e97936a51aca1c0efffdee4107da533f6"
+    },
+    "evidence": [
+      {
+        "partId": "sa7-impact-experiments",
+        "citationId": "haddadin-2009",
+        "sourceUrl": "https://elib.dlr.de/62490/",
+        "supportingPassage": "In order to quantify the potential injury risk emanating from such a manipulator, impact tests with the DLR-Lightweight Robot III were carried out using standard automobile crash test facilities at the German Automobile Club (ADAC). Based on these tests, several industrial robots of different weight have been evaluated and the influence of the robot mass and velocity have been investigated."
+      },
+      {
+        "partId": "sa7-registry-identity",
+        "citationId": "haddadin-2009",
+        "sourceUrl": "https://elib.dlr.de/62490/",
+        "supportingPassage": "Haddadin, Sami and Albu-Schäffer, Alin Olimpiu and Hirzinger, Gerd (2009) 'Requirements for Safe Robots: Measurements, Analysis and New Insights.' The International Journal of Robotics Research. SAGE Publications. doi:10.1177/0278364909343970. ISSN 0278-3649. [PDF: https://elib.dlr.de/62490/1/HaddadinSafeRobots_ijrr2009.pdf]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa7-impact-experiments",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa7-impact-experiments (record audit/frontier.md:safety-and-assurance:7): supported. Packet record safety-and-assurance:7 (ready-evidence-completion): ADAC crash-test abstract sentence and the eprint bibliographic block (authors order, IJRR, 2009, DOI, ISSN) needle-verified verbatim against the retained DLR fetch.",
+        "evidenceDigest": "05810cd35469236aede71596f42e8bccf84df9256dd8b80d1d373f737e762a30"
+      },
+      {
+        "partId": "sa7-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa7-registry-identity (record audit/frontier.md:safety-and-assurance:7): supported. Packet record safety-and-assurance:7 (ready-evidence-completion): ADAC crash-test abstract sentence and the eprint bibliographic block (authors order, IJRR, 2009, DOI, ISSN) needle-verified verbatim against the retained DLR fetch.",
+        "evidenceDigest": "29de4b4b479397d4cd61587232efec439a73f46890bb4b4a56d71c6db138b594"
+      }
+    ],
+    "originalCellsDigest": "7956252b76b062010c2b3a3d55a4d51aa50505978be01bcc793662c4130bde74"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-8",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 8,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa8-by-region-geometry",
+        "text": "Han et al. (Frontiers in Robotics and AI 11, 2024) measured force pain thresholds at two body locations (deltoid, thigh) on 37 adults aged 19-32 using two impactor shapes (wedge W-R5, cylinder CS-R40), i.e. force limits reported by body region and contact geometry.",
+        "requiredCitationIds": [
+          "han-force-pain-2024"
+        ]
+      },
+      {
+        "id": "sa8-registry-identity",
+        "text": "Registry han-force-pain-2024 names the intended document: 'Evaluation of force pain thresholds to ensure collision safety in worker-robot collaborative operations', D. Han / M. Y. Park / J. Choi / H. Shin / R. Behrens / S. Rhim, Frontiers in Robotics and AI, 2024, DOI 10.3389/frobt.2024.1374999 — all six authors and the 2024-04-08 publication date print on the live page.",
+        "requiredCitationIds": [
+          "han-force-pain-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:8 (ready-evidence-completion): abstract two-locations/two-impactors sentence, TABLE 2 body locations and the six-author citation block needle-verified against the full retained Frontiers fetch; Table 3 Q3 values (274.9/300.7/256.2 N) confirmed printed exactly as numbers. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "e0328263fa026105d8ec3e8963102bf3b037bd2d116c00863d980af29b053dde"
+    },
+    "evidence": [
+      {
+        "partId": "sa8-by-region-geometry",
+        "citationId": "han-force-pain-2024",
+        "sourceUrl": "https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1374999/full",
+        "supportingPassage": "Specifically, the force pain threshold was measured at two different locations on the bodies of 37 adults aged 19–32 years, using two impactors with different shapes. [...] TABLE 2 Body locations for pain assessment. Deltoid: Lower 1/3 point of the deltoid area in the upper arm. Thigh: Midpoint of the line connecting the upper part of the patella in the anterior superior iliac spine. [...] TABLE 3 Descriptive statistics for the force pain threshold derived through data subjected to midpoint imputation. CS-R40/Deltoid Q3 274.9 N; CS-R40/Thigh Q3 300.7 N; W-R5/Deltoid Q3 164.0 N; W-R5/Thigh Q3 256.2 N."
+      },
+      {
+        "partId": "sa8-registry-identity",
+        "citationId": "han-force-pain-2024",
+        "sourceUrl": "https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1374999/full",
+        "supportingPassage": "Front. Robot. AI, 07 April 2024, Volume 11 - 2024. doi 10.3389/frobt.2024.1374999. Citation: Han D, Park MY, Choi J, Shin H, Behrens R and Rhim S (2024) Evaluation of force pain thresholds to ensure collision safety in worker-robot collaborative operations. Front. Robot. AI 11:1374999."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa8-by-region-geometry",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa8-by-region-geometry (record audit/frontier.md:safety-and-assurance:8): supported. Packet record safety-and-assurance:8 (ready-evidence-completion): abstract two-locations/two-impactors sentence, TABLE 2 body locations and the six-author citation block needle-verified against the full retained Frontiers fetch; Table 3 Q3 values (274.9/300.7/256.2 N) confirmed printed exactly as numbers.",
+        "evidenceDigest": "ad7d4850dbd1774a1421d4357d750dad549d691dee08e927031e8770bafd181e"
+      },
+      {
+        "partId": "sa8-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa8-registry-identity (record audit/frontier.md:safety-and-assurance:8): supported. Packet record safety-and-assurance:8 (ready-evidence-completion): abstract two-locations/two-impactors sentence, TABLE 2 body locations and the six-author citation block needle-verified against the full retained Frontiers fetch; Table 3 Q3 values (274.9/300.7/256.2 N) confirmed printed exactly as numbers.",
+        "evidenceDigest": "5c1fd5fcfbcb08a88f49a975270967c9e37f0f6d436dd46f188a432aa4618f43"
+      }
+    ],
+    "originalCellsDigest": "1c687b6ab824a32692157e4c13c2db69d7c02a2afdbed508e9d0c889c5cdabab"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-9",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 9,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa9-shared-module",
+        "text": "LOCAL-AND part (integrator proves from the repo at application time): both surfaces import the same constants from lib/force-limits.ts — the frontier instrument through lib/safety-modes.ts and the /classical/control contact-force lab through lib/impedance.ts — so the two pages render one shared figure and cannot drift.",
+        "requiredCitationIds": [
+          "han-force-pain-2024"
+        ]
+      },
+      {
+        "id": "sa9-shared-basis",
+        "text": "External part: the shared figure's stated research basis is Han et al. 2024 (75th-percentile force pain threshold by body region and contact geometry), fetched live this session; the rendered label and both surfaces name han-force-pain-2024.",
+        "requiredCitationIds": [
+          "han-force-pain-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:9 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at current HEAD: lib/force-limits.ts exports the shared 255 N thigh transient constant, safety-modes.ts and impedance.ts both import from that one module, /classical/control route exists. Frontiers passages needle-verified; the separate 255-vs-256.2 N comment discrepancy belongs to the row that owns that constant and is untouched here. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "ab11d2b717cc14a138a1bf918d159ec80a1724041fedd22dd6215ab0f2fd0946"
+    },
+    "evidence": [
+      {
+        "partId": "sa9-shared-module",
+        "citationId": "han-force-pain-2024",
+        "sourceUrl": "https://doi.org/10.3389/frobt.2024.1374999",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to an internal claim): lib/force-limits.ts exports TRANSIENT_CONTACT_LIMIT_N = 255, TRANSIENT_CONTACT_LIMIT_REGION = 'thigh', TRANSIENT_CONTACT_LIMIT_LABEL naming 'research basis: 75th-percentile force pain threshold, Han 2024', TRANSIENT_CONTACT_LIMIT_CITATION = 'han-force-pain-2024', with the header comment 'the constants and the rendered strings live HERE, once, and both components import them instead of recomputing' (VAL-FRONT-029). lib/safety-modes.ts imports TRANSIENT_CONTACT_LIMIT_LABEL/N from '@/lib/force-limits'. lib/impedance.ts line 52 imports TRANSIENT_CONTACT_LIMIT_N from '@/lib/force-limits' and line 192 compares run.peakForceN against it. content/classical/control.mdx line 167 renders the contact-force lab with <Cite id=\"han-force-pain-2024\" />."
+      },
+      {
+        "partId": "sa9-shared-basis",
+        "citationId": "han-force-pain-2024",
+        "sourceUrl": "https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1374999/full",
+        "supportingPassage": "Specifically, the force pain threshold was measured at two different locations on the bodies of 37 adults aged 19–32 years, using two impactors with different shapes."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa9-shared-module",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa9-shared-module (record audit/frontier.md:safety-and-assurance:9): supported. Packet record safety-and-assurance:9 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at current HEAD: lib/force-limits.ts exports the shared 255 N thigh transient constant, safety-modes.ts and impedance.ts both import from that one module, /classical/control route exists. Frontiers passages needle-verified; the separate 255-vs-256.2 N comment discrepancy belongs to the row that owns that constant and is untouched here.",
+        "evidenceDigest": "aa07254099445a8685a1e430d2fd097687e331f493cfcb86ec2515dabe42c24b"
+      },
+      {
+        "partId": "sa9-shared-basis",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa9-shared-basis (record audit/frontier.md:safety-and-assurance:9): supported. Packet record safety-and-assurance:9 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at current HEAD: lib/force-limits.ts exports the shared 255 N thigh transient constant, safety-modes.ts and impedance.ts both import from that one module, /classical/control route exists. Frontiers passages needle-verified; the separate 255-vs-256.2 N comment discrepancy belongs to the row that owns that constant and is untouched here.",
+        "evidenceDigest": "1ca4863c2950b9706a7b1770985c2a60c7843735e25fdcb9775b3d9c817e87ed"
+      }
+    ],
+    "originalCellsDigest": "71f61f0fd13a176e66832f1665e1f703d11d13bed9b285961ef7dddc044d4eb9"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-25",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 25,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa25-safe-set-invariance",
+        "text": "The CBF paper defines C as the safe set and forward invariance of C as the safety property (Definition 1).",
+        "requiredCitationIds": [
+          "ames-cbf-2019"
+        ]
+      },
+      {
+        "id": "sa25-qp-enforcement",
+        "text": "The safety conditions are affine in the input u, and the paper's Quadratic Program (QP) based controller finds the minimum perturbation on the desired input each step — minimally invasive modification of the commanded input.",
+        "requiredCitationIds": [
+          "ames-cbf-2019"
+        ]
+      },
+      {
+        "id": "sa25-registry-identity",
+        "text": "Registry ames-cbf-2019 names the intended document: arXiv 1903.11199, submitted 2019-03-27, six authors as listed (verified on the live abs page).",
+        "requiredCitationIds": [
+          "ames-cbf-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:25 (ready-evidence-completion): safe-set/Definition 1 and CBF-QP passages needle-verified against the retained abs render and pdftotext; integrator repair: the PDF prints \"guarentee\" (sic) and the ledger now quotes it exactly with [sic]. Six-author identity confirmed on the retained abs page. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "16188327f1c9ed99332b33548fb199c0ca932273adb457c93e90b0e4af22288b"
+    },
+    "evidence": [
+      {
+        "partId": "sa25-safe-set-invariance",
+        "citationId": "ames-cbf-2019",
+        "sourceUrl": "https://arxiv.org/pdf/1903.11199",
+        "supportingPassage": "We refer to C as the safe set. [...] Definition 1. The set C is forward invariant if for every x0 ∈ C, x(t) ∈ C for x(0) = x0 and all t ∈ I(x0 ). The system (6) is safe with respect to the set C if the set C is forward invariant. (PDF p. 3)"
+      },
+      {
+        "partId": "sa25-qp-enforcement",
+        "citationId": "ames-cbf-2019",
+        "sourceUrl": "https://arxiv.org/pdf/1903.11199",
+        "supportingPassage": "optimization-based control methods that modify the desired controller again in a minimally invasive fashion. (PDF p. 3) [...] To modify this controller in a minimal way so as to guarentee [sic] safety, we start by noticing that the conditions on safety given in (10) are affine in u. Thus, we can consider the following Quadratic Program (QP) based controller that finds the minimum perturbation on u: (CBF-QP) (PDF p. 4)"
+      },
+      {
+        "partId": "sa25-registry-identity",
+        "citationId": "ames-cbf-2019",
+        "sourceUrl": "https://arxiv.org/abs/1903.11199",
+        "supportingPassage": "arXiv:1903.11199 (eess.SY) [Submitted on 27 Mar 2019] Title: Control Barrier Functions: Theory and Applications. Authors: Aaron D. Ames, Samuel Coogan, Magnus Egerstedt, Gennaro Notomista, Koushil Sreenath, Paulo Tabuada. [v1] Wed, 27 Mar 2019 00:27:57 UTC — single version, matching registry authors and date."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa25-safe-set-invariance",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa25-safe-set-invariance (record audit/frontier.md:safety-and-assurance:25): supported. Packet record safety-and-assurance:25 (ready-evidence-completion): safe-set/Definition 1 and CBF-QP passages needle-verified against the retained abs render and pdftotext; integrator repair: the PDF prints \"guarentee\" (sic) and the ledger now quotes it exactly with [sic]. Six-author identity confirmed on the retained abs page.",
+        "evidenceDigest": "6db135ebf19d0c3c4bc47d41a70bfe1fe2e69002a6eb3221999ec4eab5545783"
+      },
+      {
+        "partId": "sa25-qp-enforcement",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa25-qp-enforcement (record audit/frontier.md:safety-and-assurance:25): supported. Packet record safety-and-assurance:25 (ready-evidence-completion): safe-set/Definition 1 and CBF-QP passages needle-verified against the retained abs render and pdftotext; integrator repair: the PDF prints \"guarentee\" (sic) and the ledger now quotes it exactly with [sic]. Six-author identity confirmed on the retained abs page.",
+        "evidenceDigest": "92484ffd1efe71df99326170ca3b7e3a651933ec42c7a79cb9f3e3900fd4579a"
+      },
+      {
+        "partId": "sa25-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa25-registry-identity (record audit/frontier.md:safety-and-assurance:25): supported. Packet record safety-and-assurance:25 (ready-evidence-completion): safe-set/Definition 1 and CBF-QP passages needle-verified against the retained abs render and pdftotext; integrator repair: the PDF prints \"guarentee\" (sic) and the ledger now quotes it exactly with [sic]. Six-author identity confirmed on the retained abs page.",
+        "evidenceDigest": "742d481530287a4b6f809adc1d81fed40fa4ab29b3292d0a770131163e442cf3"
+      }
+    ],
+    "originalCellsDigest": "a36fff0c0f9d9980e7f21d129077631e12f4409f79eee66a08fb4d091fe00393"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-26",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 26,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa26-survey-scope",
+        "text": "The survey's title covers the family the article names: Hamilton-Jacobi reachability, control barrier functions, and predictive (data-driven) safety-filter methods.",
+        "requiredCitationIds": [
+          "wabersich-safety-filters-2023"
+        ]
+      },
+      {
+        "id": "sa26-filter-architecture",
+        "text": "The paper names the architecture directly: a safety filter accepts any desired input (hand-designed stabilizing controllers, learning-based controllers, or human input) and modifies it as little as possible while ensuring the safety constraint.",
+        "requiredCitationIds": [
+          "wabersich-safety-filters-2023"
+        ]
+      },
+      {
+        "id": "sa26-registry-identity",
+        "text": "Registry wabersich-safety-filters-2023 names the intended document: IEEE Control Systems Magazine 43(5):137-177, October 2023, DOI 10.1109/MCS.2023.3291885, seven authors in registry order; the author-hosted preprint is the same article by its own banner.",
+        "requiredCitationIds": [
+          "wabersich-safety-filters-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:26 (ready-evidence-completion): title banner, desired-input sentence and the minimally-modifying safety-filter definition needle-verified against the retained preprint pdftotext; CSM 43(5):137-177 October 2023 citation and DOI needle-verified against the retained publications-index curl. Seven authors in registry order. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "a063d21512c354a661f515224daa4c65c6ca5972ccc66bb9ece0377d4f9f5439"
+    },
+    "evidence": [
+      {
+        "partId": "sa26-survey-scope",
+        "citationId": "wabersich-safety-filters-2023",
+        "sourceUrl": "https://hybrid-robotics.berkeley.edu/publications/CSM2023_Safety_Filters.pdf",
+        "supportingPassage": "Data-Driven Safety Filters — HAMILTON-JACOBI REACHABILITY, CONTROL BARRIER FUNCTIONS, AND PREDICTIVE METHODS FOR UNCERTAIN SYSTEMS. KIM P. WABERSICH∗, ANDREW J. TAYLOR∗, JASON J. CHOI∗, KOUSHIL SREENATH, CLAIRE J. TOMLIN, AARON D. AMES, and MELANIE N. ZEILINGER. This manuscript is a preprint version of the article published in IEEE Control Systems Magazine under the same title. (PDF p. 1)"
+      },
+      {
+        "partId": "sa26-filter-architecture",
+        "citationId": "wabersich-safety-filters-2023",
+        "sourceUrl": "https://hybrid-robotics.berkeley.edu/publications/CSM2023_Safety_Filters.pdf",
+        "supportingPassage": "Such desired input signals often come from stabilizing controllers hand-designed by domain specialists, learning-based controllers that maximize a particular reward signal, or human input to the system. A safety filter κF : Rnx × Rnu → U (see Figure 2) modifies this desired control input signal to produce an input signal u(t) = κF (x(t), udes (t)) that ensures the system respects the safety constraint (2), while minimally modifying the desired input signal (PDF p. 3)"
+      },
+      {
+        "partId": "sa26-registry-identity",
+        "citationId": "wabersich-safety-filters-2023",
+        "sourceUrl": "https://hybrid-robotics.berkeley.edu/publications/",
+        "supportingPassage": "Data-Driven Safety Filters: Hamilton-Jacobi Reachability, Control Barrier Functions, and Predictive Methods for Uncertain Systems. Kim P. Wabersich, Andrew J. Taylor, Jason J. Choi, Koushil Sreenath, Claire J. Tomlin, Aaron D. Ames, and Melanie N. Zeilinger. IEEE Control Systems Magazine (CSM), 43(5):137--177, October 2023. [entry links https://doi.org/10.1109/MCS.2023.3291885 and the local PDF /publications/CSM2023_Safety_Filters.pdf]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa26-survey-scope",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa26-survey-scope (record audit/frontier.md:safety-and-assurance:26): supported. Packet record safety-and-assurance:26 (ready-evidence-completion): title banner, desired-input sentence and the minimally-modifying safety-filter definition needle-verified against the retained preprint pdftotext; CSM 43(5):137-177 October 2023 citation and DOI needle-verified against the retained publications-index curl. Seven authors in registry order.",
+        "evidenceDigest": "6d1da6ca9e01d2c6da8845c5a88044310ca38e00d1f937b18b604d885ea6b32d"
+      },
+      {
+        "partId": "sa26-filter-architecture",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa26-filter-architecture (record audit/frontier.md:safety-and-assurance:26): supported. Packet record safety-and-assurance:26 (ready-evidence-completion): title banner, desired-input sentence and the minimally-modifying safety-filter definition needle-verified against the retained preprint pdftotext; CSM 43(5):137-177 October 2023 citation and DOI needle-verified against the retained publications-index curl. Seven authors in registry order.",
+        "evidenceDigest": "163174b564db9fd0f856fa4c092647b2d5fb53446eca7509aba885e341c7a967"
+      },
+      {
+        "partId": "sa26-registry-identity",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa26-registry-identity (record audit/frontier.md:safety-and-assurance:26): supported. Packet record safety-and-assurance:26 (ready-evidence-completion): title banner, desired-input sentence and the minimally-modifying safety-filter definition needle-verified against the retained preprint pdftotext; CSM 43(5):137-177 October 2023 citation and DOI needle-verified against the retained publications-index curl. Seven authors in registry order.",
+        "evidenceDigest": "61ba59479a4e4922654d1c01290962b85f66221e768f7789ea78b8cb1e105784"
+      }
+    ],
+    "originalCellsDigest": "4ca0bc609f0a65cee54d552858d6b2f1ad66648a208abbd1516cc6710e369c12"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-32",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 32,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa32-av-module-both-positions",
+        "text": "LOCAL-AND part (integrator proves from the repo at application time): /adjacent/autonomous-vehicles states the RSS position as a white-box mathematical condition checkable without crash statistics with its own <Cite id=\"rss-2017\" /> chip, and Koopman's complement position ('safe enough' spans more than crashes-per-mile; treating safety as one number is how programs fool themselves) with its own <Cite id=\"koopman-safe-enough-2026\" /> chip; both ids are in that module's frontmatter.",
+        "requiredCitationIds": [
+          "rss-2017",
+          "koopman-safe-enough-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:32 (ready-source-correction-with-local-AND): local conjunct re-verified at current HEAD: the AV module prints both named positions with exactly one rss-2017 and one koopman-safe-enough-2026 Cite each. Repo span needle-hit; anchor citation rss-2017 with its registered URL, passage cell discloses the repo-only basis. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "8fef5d869fea7a9f56c165d553f65ae74969a99cd70a26ea837d344d9111533f"
+    },
+    "evidence": [
+      {
+        "partId": "sa32-av-module-both-positions",
+        "citationId": "rss-2017",
+        "sourceUrl": "https://arxiv.org/abs/1708.06374",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies): content/adjacent/autonomous-vehicles.mdx line 96 prints, verbatim: \"Formal approaches have been proposed to escape the statistics entirely. Mobileye's Responsibility-Sensitive Safety model specifies, as a white-box mathematical condition, what it means to drive safely in terms of safe distances in longitudinal and lateral motion, so that an attacker or auditor can check compliance without crash statistics <Cite id=\\\"rss-2017\\\" />.\" and later in the same paragraph: \"Koopman's position is the complement: 'safe enough' means more than crashes divided by miles, spanning net statistical safety, the absence of risk hot spots like reckless driving or shifted risk to vulnerable people, standards conformance, accountability, and meeting every stakeholder safety constraint, and treating safety as one number is how programs fool themselves <Cite id=\\\"koopman-safe-enough-2026\\\" />.\" Frontmatter: rss-2017 (line 19), koopman-safe-enough-2026 (line 24)."
+      },
+      {
+        "partId": "sa32-av-module-both-positions",
+        "citationId": "koopman-safe-enough-2026",
+        "sourceUrl": "https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous",
+        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies): content/adjacent/autonomous-vehicles.mdx line 96 prints, verbatim: \"Koopman's position is the complement: 'safe enough' means more than crashes divided by miles, spanning net statistical safety, the absence of risk hot spots like reckless driving or shifted risk to vulnerable people, standards conformance, accountability, and meeting every stakeholder safety constraint, and treating safety as one number is how programs fool themselves <Cite id=\\\"koopman-safe-enough-2026\\\" />.\" — the AV module carries Koopman's side of the disagreement under its own citation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa32-av-module-both-positions",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa32-av-module-both-positions (record audit/frontier.md:safety-and-assurance:32): supported. Packet record safety-and-assurance:32 (ready-source-correction-with-local-AND): local conjunct re-verified at current HEAD: the AV module prints both named positions with exactly one rss-2017 and one koopman-safe-enough-2026 Cite each. Repo span needle-hit; anchor citation rss-2017 with its registered URL, passage cell discloses the repo-only basis.",
+        "evidenceDigest": "51d2fa7ea4952414fd85edbb93f8925b42eb816fcda5c38ee3b80b8e593726ca"
+      }
+    ],
+    "originalCellsDigest": "ef75596f71a19e96eb36ea574385a0e1c1f1c11d3724897b2ccffa26b230ae5f"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-33",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 33,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa33-coverage-exchangeable-anymodel",
+        "text": "The tutorial prints the coverage guarantee (Theorem 1: P(Ytest ∈ C(Xtest)) ≥ 1 − α), generalizes beyond i.i.d. to exchangeable data points (full conformal prediction section), and states conformal prediction works with any pre-trained model (abstract).",
+        "requiredCitationIds": [
+          "angelopoulos-conformal-2021"
+        ]
+      },
+      {
+        "id": "sa33-framework-origin",
+        "text": "The framework attribution 'Vovk, Gammerman and Shafer built the framework' rests on the registered book citation vovk-conformal-2022 (Algorithmic Learning in a Random World, Vovk/Gammerman/Shafer, Springer 2022), confirmed live via Crossref; the tutorial itself credits 'Vovk, Gammerman, and Saunders' for Theorem 1's original guarantee and 'first documented by Vovk' for the underlying result.",
+        "requiredCitationIds": [
+          "vovk-conformal-2022",
+          "angelopoulos-conformal-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:33 (ready-evidence-completion): Theorem 1 coverage guarantee, exchangeable-data sentence and the any-pre-trained-model abstract sentence needle-verified (squeeze-match for pdftotext math spacing) against the retained v6 PDF and abs render; Crossref book identity (Vovk/Gammerman/Shafer, 2022, Springer) needle-verified against the retained content-negotiation output. Vovk/Gammerman/Shafer attribution rests on the registered book; Theorem 1's own credit line (Saunders) is recorded in the row note. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "a7006762cdcc184a6374d8ffcc104d2ff1d8b9178801afb8dcb9bf305e5bf4f5"
+    },
+    "evidence": [
+      {
+        "partId": "sa33-coverage-exchangeable-anymodel",
+        "citationId": "angelopoulos-conformal-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2107.07511v6",
+        "supportingPassage": "Theorem 1 (Conformal coverage guarantee; Vovk, Gammerman, and Saunders [5]). Suppose (Xi , Yi )i=1,...,n and (Xtest , Ytest ) are i.i.d. and define q̂ as in step 3 above and C(Xtest ) as in step 4 above. Then the following holds: P(Ytest ∈ C(Xtest )) ≥ 1 − α. (p. 6) | Let (X1, Y1), . . . , (Xn+1, Yn+1) be n + 1 exchangeable data points. (p. 27) | One can use conformal prediction with any pre-trained model, such as a neural network, to produce sets that are guaranteed to contain the ground truth with a user-specified probability, such as 90%. (abstract)"
+      },
+      {
+        "partId": "sa33-framework-origin",
+        "citationId": "vovk-conformal-2022",
+        "sourceUrl": "https://doi.org/10.1007/978-3-031-06649-8",
+        "supportingPassage": "Crossref CSL JSON for 10.1007/978-3-031-06649-8: title 'Algorithmic Learning in a Random World'; author families Vovk, Gammerman, Shafer; issued 2022; publisher Springer International Publishing. (Bibliographic metadata via uncredentialed Crossref content negotiation this session, completed by 2026-09-15T23:16Z.) Corroborating tutorial credit (arXiv:2107.07511v6, p. 6): 'Conformal coverage guarantee; Vovk, Gammerman, and Saunders [5]'; (p. 17) 'as was first documented by Vovk in [14]'."
+      },
+      {
+        "partId": "sa33-framework-origin",
+        "citationId": "angelopoulos-conformal-2021",
+        "sourceUrl": "https://arxiv.org/abs/2107.07511",
+        "supportingPassage": "Retained live abs page (FetchUrl 200 in the source session, completed by 2026-09-15T23:10Z): paper titled \"A Gentle Introduction to Conformal Prediction\", Authors: Anastasios N. Angelopoulos, Stephen Bates — the tutorial the article credits to \"Angelopoulos and Bates\"."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa33-coverage-exchangeable-anymodel",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa33-coverage-exchangeable-anymodel (record audit/frontier.md:safety-and-assurance:33): supported. Packet record safety-and-assurance:33 (ready-evidence-completion): Theorem 1 coverage guarantee, exchangeable-data sentence and the any-pre-trained-model abstract sentence needle-verified (squeeze-match for pdftotext math spacing) against the retained v6 PDF and abs render; Crossref book identity (Vovk/Gammerman/Shafer, 2022, Springer) needle-verified against the retained content-negotiation output. Vovk/Gammerman/Shafer attribution rests on the registered book; Theorem 1's own credit line (Saunders) is recorded in the row note.",
+        "evidenceDigest": "5a550a6bbee3286556783625365b5363b953bd7f2fdfbd1555c50dd82e5601f2"
+      },
+      {
+        "partId": "sa33-framework-origin",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa33-framework-origin (record audit/frontier.md:safety-and-assurance:33): supported. Packet record safety-and-assurance:33 (ready-evidence-completion): Theorem 1 coverage guarantee, exchangeable-data sentence and the any-pre-trained-model abstract sentence needle-verified (squeeze-match for pdftotext math spacing) against the retained v6 PDF and abs render; Crossref book identity (Vovk/Gammerman/Shafer, 2022, Springer) needle-verified against the retained content-negotiation output. Vovk/Gammerman/Shafer attribution rests on the registered book; Theorem 1's own credit line (Saunders) is recorded in the row note.",
+        "evidenceDigest": "4c858ddf4a27d19997e0be2dd3ce84e599c7543e9ee42b5081f3690c6be9fa6f"
+      }
+    ],
+    "originalCellsDigest": "037d909e5d183faab97c4565c01b4acff90378751477f3340c694132070759f9"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-36",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 36,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa36-task-relevant-monitor",
+        "text": "The paper develops a probabilistic run-time monitor that detects 'harmful' (task-relevant) prediction failures by propagating trajectory prediction errors to the planning cost, i.e. a prediction error matters through its impact on what the planner would do.",
+        "requiredCitationIds": [
+          "farid-failure-2022"
+        ]
+      },
+      {
+        "id": "sa36-guarantees-and-limits",
+        "text": "The detector comes with guarantees on the false-positive and false-negative detection rates; the paper's own Limitations section states a strong FPR and FNR guarantee cannot hold simultaneously — a bound the article's 'statistical guarantees' phrasing respects.",
+        "requiredCitationIds": [
+          "farid-failure-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:36 (ready-evidence-completion): task-relevant-failure abstract sentence and the FPR/FNR-guarantees plus Limitations passages needle-verified against the retained v2 abs render and pdftotext; five-author identity confirmed. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "b76746a8836a1c8a60f99ba543768bc02a85ffb902af6bbe2f1f01c40059c9d5"
+    },
+    "evidence": [
+      {
+        "partId": "sa36-task-relevant-monitor",
+        "citationId": "farid-failure-2022",
+        "sourceUrl": "https://arxiv.org/abs/2207.12380v2",
+        "supportingPassage": "Motivated by the need to improve safety of autonomous vehicles without compromising on their performance, we develop a probabilistic run-time monitor that detects when a \"harmful\" prediction failure occurs, i.e., a task-relevant failure detector. We achieve this by propagating trajectory prediction errors to the planning cost to reason about their impact on the AV. (abstract)"
+      },
+      {
+        "partId": "sa36-guarantees-and-limits",
+        "citationId": "farid-failure-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2207.12380v2",
+        "supportingPassage": "We develop a fast and efficient task-relevant failure detector for the prediction module used in AV stacks which is simultaneously accompanied by guarantees on the false-positive and false-negative detection rates for improved interpretability. (PDF p. 2) | Limitations. As discussed in Sec. 4.3, we cannot provide a strong FPR and FNR guarantee simultaneously for our detector. This does not seem to be a fundamental limitation of the detector itself because our empirical results in Table 1 suggest that we can achieve low FPR and low FNR. (PDF p. 8)"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa36-task-relevant-monitor",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa36-task-relevant-monitor (record audit/frontier.md:safety-and-assurance:36): supported. Packet record safety-and-assurance:36 (ready-evidence-completion): task-relevant-failure abstract sentence and the FPR/FNR-guarantees plus Limitations passages needle-verified against the retained v2 abs render and pdftotext; five-author identity confirmed.",
+        "evidenceDigest": "020fac60fe7bd51f2473be188f02ef6dcad228833a8296b2f263d3d266e3458d"
+      },
+      {
+        "partId": "sa36-guarantees-and-limits",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa36-guarantees-and-limits (record audit/frontier.md:safety-and-assurance:36): supported. Packet record safety-and-assurance:36 (ready-evidence-completion): task-relevant-failure abstract sentence and the FPR/FNR-guarantees plus Limitations passages needle-verified against the retained v2 abs render and pdftotext; five-author identity confirmed.",
+        "evidenceDigest": "d5efb560a01a4625e9b277ceba1f2af387125b62837f8cc2cc61603db8019ccd"
+      }
+    ],
+    "originalCellsDigest": "95024fbe3ae2cde9c256d9d61a204a38f9be04cbf76375e045e570a5f370c204"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-38",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 38,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa38-safety-chart",
+        "text": "The cited ER 2 product page publishes a named \"Safety performance\" evaluation for the shipped model with two named metrics, Safety instruction following accuracy (97.9%) and Human proximity (1m) (93.0%) — safety evaluation shipped as a named capability on a product page, not only in a paper. Vendor-reported figures; the article asserts none of them.",
+        "requiredCitationIds": [
+          "gemini-robotics-er2-2026"
+        ]
+      },
+      {
+        "id": "sa38-semantic-safety-phrase",
+        "text": "The exact phrase \"semantic safety\" prints on the model card the cited page links (published 30 July 2026): \"It achieves significant gains on Safety Instruction Following, Human Safety monitoring and other semantic safety benchmarks.\" The claim stands on the pair, as the ledger note already records.",
+        "requiredCitationIds": [
+          "gemini-robotics-er2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:38 (ready-evidence-completion): Safety performance chart description (97.9%/93.0% vendor-reported) needle-verified on the retained cited-page fetch; \"semantic safety\" sentence needle-verified on the retained linked model card (published 30 July 2026); controller-candidate /embodied-safety/ 404 recorded; no numbers from either page are asserted in the article. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "cd684f4f05bf405b9abec3bb1e045a0a06b6b4f7366b908f1ac7147a2ff4eb31"
+    },
+    "evidence": [
+      {
+        "partId": "sa38-safety-chart",
+        "citationId": "gemini-robotics-er2-2026",
+        "sourceUrl": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
+        "supportingPassage": "A grouped bar chart titled \"Safety performance\" ... For \"Safety instruction following accuracy\", scores are Opus 5 at 95.9%, GPT 5.6 Sol at 91.4%, Gemini Robotics ER 1.6 at 47.2%, and Gemini Robotics ER 2 at 97.9%. For \"Human proximity (1m)\", scores are Opus 5 at 77.1%, GPT 5.6 Sol at 83.4%, Gemini Robotics ER 1.6 at 51.1%, and Gemini Robotics ER 2 at 93.0%. Gemini Robotics ER 2 scores highest in both categories."
+      },
+      {
+        "partId": "sa38-semantic-safety-phrase",
+        "citationId": "gemini-robotics-er2-2026",
+        "sourceUrl": "https://deepmind.google/models/model-cards/gemini-robotics-er-2",
+        "supportingPassage": "Published 30 July 2026. [...] It achieves significant gains on Safety Instruction Following, Human Safety monitoring and other semantic safety benchmarks, see the safety section in the release post. For new agentic safety and uncertainty resolution evaluations, please see our safety technical report."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa38-safety-chart",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa38-safety-chart (record audit/frontier.md:safety-and-assurance:38): supported. Packet record safety-and-assurance:38 (ready-evidence-completion): Safety performance chart description (97.9%/93.0% vendor-reported) needle-verified on the retained cited-page fetch; \"semantic safety\" sentence needle-verified on the retained linked model card (published 30 July 2026); controller-candidate /embodied-safety/ 404 recorded; no numbers from either page are asserted in the article.",
+        "evidenceDigest": "bbff926fc8e6fda8fe1752ce4163b4dd0f31b3776892f227878bd85aa5033262"
+      },
+      {
+        "partId": "sa38-semantic-safety-phrase",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa38-semantic-safety-phrase (record audit/frontier.md:safety-and-assurance:38): supported. Packet record safety-and-assurance:38 (ready-evidence-completion): Safety performance chart description (97.9%/93.0% vendor-reported) needle-verified on the retained cited-page fetch; \"semantic safety\" sentence needle-verified on the retained linked model card (published 30 July 2026); controller-candidate /embodied-safety/ 404 recorded; no numbers from either page are asserted in the article.",
+        "evidenceDigest": "970aa616b5cb645c7f4cc80ecdab550f14067ceaf77a595d9e4f62573c39a2ad"
+      }
+    ],
+    "originalCellsDigest": "9c201f4aa9ae6b64e06c10aaba1f7def297e6354f08c557f44a114b55a8929fd"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-39",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 39,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa39-no-forecast-timeline-reliability",
+        "text": "LOCAL-AND part (integrator re-proves clause-by-clause from the live article at application time): the article contains no forecast, no timeline and no reliability figure presented as consensus or otherwise.",
+        "requiredCitationIds": [
+          "rss-2017"
+        ]
+      },
+      {
+        "id": "sa39-disagreement-represented",
+        "text": "The article's one live disagreement (Koopman's contested 'safe enough' vs the RSS formal rule set of Shalev-Shwartz, Shammah and Shashua) is carried with both sides named, each with its own citation (koopman-safe-enough-2026; rss-2017), and handed to /adjacent/autonomous-vehicles where it is stated in full (SA32); the closing section is three open conditions, not a prediction.",
+        "requiredCitationIds": [
+          "koopman-safe-enough-2026",
+          "rss-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:39 (ready-source-correction-with-local-AND): local conjunct performed by this integrator at current HEAD: full 121-line article swept (forecast/timeline 0, not-disclosed/n-a 0), disagreement span with both named proponents and both Cite ids confirmed. Anchor citation rss-2017 with its registered URL, passage cell discloses the repo-only sweep basis. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "b6967504a314f44b24d3105773fece957ad3f88fcf46c1b96b95856ae7ec1e2a"
+    },
+    "evidence": [
+      {
+        "partId": "sa39-no-forecast-timeline-reliability",
+        "citationId": "rss-2017",
+        "sourceUrl": "https://arxiv.org/abs/1708.06374",
+        "supportingPassage": "REPO SWEEP (read-only, no HTTP fetch applies): full 121-line article at HEAD ba16fab6 swept for 'forecast', 'timeline', 'by 20', 'will be', 'predict', 'not disclosed', 'n/a' — the only 'predict*' hits are the technical terms control-barrier/conformal 'prediction' and 'trajectory predictor' (lines 97, 111, 113); no sentence states a forecast, timeline or reliability figure; the closing sections (117-121) state three open conditions and a description of the current state, not predictions."
+      },
+      {
+        "partId": "sa39-disagreement-represented",
+        "citationId": "rss-2017",
+        "sourceUrl": "https://arxiv.org/abs/1708.06374",
+        "supportingPassage": "REPO SPAN (read-only at HEAD): line 105 — \"The criticism is as old as the practice and it is worth carrying: an argument built to conclude that a system is safe will usually reach that conclusion, and Koopman has spent years on what \\\"safe enough\\\" can be made to mean when the number itself is contested <Cite id=\\\"koopman-safe-enough-2026\\\" />. The alternative on offer is a rule set formal enough to check, which is what Shalev-Shwartz, Shammah and Shashua proposed with responsibility-sensitive safety <Cite id=\\\"rss-2017\\\" />. The [autonomous vehicles](/adjacent/autonomous-vehicles) module carries that disagreement in full, because the AV industry has been having this argument for a decade.\""
+      },
+      {
+        "partId": "sa39-disagreement-represented",
+        "citationId": "koopman-safe-enough-2026",
+        "sourceUrl": "https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous",
+        "supportingPassage": "REPO SPAN (read-only at HEAD): line 105 — \"Koopman has spent years on what 'safe enough' can be made to mean when the number itself is contested <Cite id=\\\"koopman-safe-enough-2026\\\" />.\" — Koopman's side of the article's one live disagreement is named and separately cited."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa39-no-forecast-timeline-reliability",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa39-no-forecast-timeline-reliability (record audit/frontier.md:safety-and-assurance:39): supported. Packet record safety-and-assurance:39 (ready-source-correction-with-local-AND): local conjunct performed by this integrator at current HEAD: full 121-line article swept (forecast/timeline 0, not-disclosed/n-a 0), disagreement span with both named proponents and both Cite ids confirmed. Anchor citation rss-2017 with its registered URL, passage cell discloses the repo-only sweep basis.",
+        "evidenceDigest": "2c56b11043d97f7a07e9cd138288127e5b5b38d8732b6ac0cc42d162eb580605"
+      },
+      {
+        "partId": "sa39-disagreement-represented",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa39-disagreement-represented (record audit/frontier.md:safety-and-assurance:39): supported. Packet record safety-and-assurance:39 (ready-source-correction-with-local-AND): local conjunct performed by this integrator at current HEAD: full 121-line article swept (forecast/timeline 0, not-disclosed/n-a 0), disagreement span with both named proponents and both Cite ids confirmed. Anchor citation rss-2017 with its registered URL, passage cell discloses the repo-only sweep basis.",
+        "evidenceDigest": "5e0bf165abcd7ce0a38e013c5f80575a7a5db22bee2c4343d77312f068935788"
+      }
+    ],
+    "originalCellsDigest": "789900aeb7faba07ad02f1f951a0406a6dce722f8dc965c5578c6dd1f7eaa7c9"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-40",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 40,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa40-no-absent-fields",
+        "text": "LOCAL-AND part (integrator re-proves at application time): the article renders no table, stat box or field with an absent value, so no 'not disclosed'/'n/a' token is required or present; interactive readouts are computed values, not absent fields.",
+        "requiredCitationIds": [
+          "kalra-paddock-2016"
+        ]
+      },
+      {
+        "id": "sa40-registry-resolution",
+        "text": "All 29 frontmatter citation ids resolve to exactly one data/citations.ts entry each at HEAD, every entry carrying a real title, author list, year and URL — no placeholder, rounded or inferred stand-in in any field the article renders.",
+        "requiredCitationIds": [
+          "kalra-paddock-2016"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record safety-and-assurance:40 (ready-source-correction-with-local-AND): local conjunct performed by this integrator at current HEAD: 29/29 frontmatter ids resolve to exactly one registry entry, zero absence tokens. Integrator repair: the packet's file:// source URL cannot pass the mission's uncredentialed-HTTP(S) structural gate, so the cell anchors the registered citation kalra-paddock-2016 at its documented DOI URL (audit/citations.md verified-as-cited row), the same representation rows 32/39 use; the passage cell keeps the explicit repo-only disclosure. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
+      "planDigest": "add95dbcfb8f4c1f1e8bcce735ad4f08ba6f24e835cce777accf701e6f0c8ed2"
+    },
+    "evidence": [
+      {
+        "partId": "sa40-no-absent-fields",
+        "citationId": "kalra-paddock-2016",
+        "sourceUrl": "https://doi.org/10.1016/j.tra.2016.09.010",
+        "supportingPassage": "REPO SWEEP (read-only, no HTTP fetch applies): grep for 'not disclosed' and 'n/a' over the full article at HEAD returns zero hits; no Stat/table field renders an absent value; the collaborative-modes instrument and force readouts are computed from lib modules."
+      },
+      {
+        "partId": "sa40-registry-resolution",
+        "citationId": "kalra-paddock-2016",
+        "sourceUrl": "https://doi.org/10.1016/j.tra.2016.09.010",
+        "supportingPassage": "REPO CHECK (read-only at HEAD): per-id grep over data/citations.ts returns count==1 for each of the 29 frontmatter ids (iso-12100, iso-10218-1-2025, iso-10218-2-2025, iso-ts-15066, marvel-norcross-2017, haddadin-2009, han-force-pain-2024, iso-13849-1-2023, iec-61508-1-2010, iso-13850-2015, iec-60204-1-2016, iso-3691-4-2023, a3-robot-safety-standards, iso-cd-25785-1, osha-otm-robots, ames-cbf-2019, wabersich-safety-filters-2023, ul-4600-2023, gsn-standard-v3, vovk-conformal-2022, angelopoulos-conformal-2021, knowno-2023, sinha-anomaly-2024, farid-failure-2022, asimov-agentic-2026, gemini-robotics-er2-2026, koopman-safe-enough-2026, rss-2017, kalra-paddock-2016)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sa40-no-absent-fields",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa40-no-absent-fields (record audit/frontier.md:safety-and-assurance:40): supported. Packet record safety-and-assurance:40 (ready-source-correction-with-local-AND): local conjunct performed by this integrator at current HEAD: 29/29 frontmatter ids resolve to exactly one registry entry, zero absence tokens. Integrator repair: the packet's file:// source URL cannot pass the mission's uncredentialed-HTTP(S) structural gate, so the cell anchors the registered citation kalra-paddock-2016 at its documented DOI URL (audit/citations.md verified-as-cited row), the same representation rows 32/39 use; the passage cell keeps the explicit repo-only disclosure.",
+        "evidenceDigest": "f8dbe61071bbec4e7268244ea02373c450cafd3143a355b2d5d2155891d0117a"
+      },
+      {
+        "partId": "sa40-registry-resolution",
+        "outcome": "supported",
+        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part sa40-registry-resolution (record audit/frontier.md:safety-and-assurance:40): supported. Packet record safety-and-assurance:40 (ready-source-correction-with-local-AND): local conjunct performed by this integrator at current HEAD: 29/29 frontmatter ids resolve to exactly one registry entry, zero absence tokens. Integrator repair: the packet's file:// source URL cannot pass the mission's uncredentialed-HTTP(S) structural gate, so the cell anchors the registered citation kalra-paddock-2016 at its documented DOI URL (audit/citations.md verified-as-cited row), the same representation rows 32/39 use; the passage cell keeps the explicit repo-only disclosure.",
+        "evidenceDigest": "42a57dbf8b4d8602dbbc327fc25473407b29bafe712d8ae0ed83f9a0223e5ec5"
+      }
+    ],
+    "originalCellsDigest": "39a76158822134849042f56747144356d1c2015552a49e4ca2ab16d592e772a7"
+  }
 ]

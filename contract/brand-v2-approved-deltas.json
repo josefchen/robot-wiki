@@ -14081,6 +14081,227 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
+  },
+  {
+    "id": "sa-r5-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 5: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). This row carries the applied article span from the packet endpoint (lower-bound qualifier). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r6-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 6: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r7-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 7: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r8-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 8: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r9-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 9: local-AND row completed with the integrator-side conjunct re-verified at current HEAD (see needle-adjudication.json repoInternalConjuncts); ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r25-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 25: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). Integrator repair: exact-quote spelling restored to the fetched PDF's own \"guarentee [sic]\". All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r26-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 26: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r32-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 32: local-AND row completed with the integrator-side conjunct re-verified at current HEAD (see needle-adjudication.json repoInternalConjuncts); ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r33-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 33: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r36-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 36: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r38-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 38: ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r39-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 39: local-AND row completed with the integrator-side conjunct re-verified at current HEAD (see needle-adjudication.json repoInternalConjuncts); ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "sa-r40-20260916-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/safety-and-assurance",
+    "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+    "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836",
+    "reason": "Exactly frontier/safety-and-assurance original 40: local-AND row completed with the integrator-side conjunct re-verified at current HEAD (see needle-adjudication.json repoInternalConjuncts); ledger evidence completion bound to its registered citation; passages needle-verified by this integrator against the retained source-session corpus with zero retrieval (needle-verification.json, needle-adjudication.json). Integrator repair: registered-anchor URL (kalra-paddock-2016 DOI) replaces the packet's gate-impossible file:// URL; passage keeps the repo-only disclosure. All 13 selected records are frontier/safety-and-assurance rows from frozen packet convergence-source-e-safety-remainder-20260916 (sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120); one article span was applied (row 5 lower-bound qualifier per the packet endpoint); rows 9/32/39/40 completed with the integrator-side local conjunct re-verified at the current HEAD; two disclosed integrator repairs are recorded in the lane needle-adjudication.json (row 25 \"guarentee [sic]\" exact-quote fix; row 40 registered-anchor URL replacing a gate-impossible file:// URL). Evidence completion and precision corrections per packet endpoints, not a whole-article re-audit; house precedent from the 20260909-20260916 integrations. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-remainder-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 13 selected records of frozen packet convergence-source-e-safety-remainder-20260916, sha256 be6bbd5446093c891807edddc1c6c48c81e6c8453afc17da1dd36d7920713120) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
   }
   ]
 }
