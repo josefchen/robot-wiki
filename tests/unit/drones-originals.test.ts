@@ -112,7 +112,10 @@ function rowCells(index: number): string[] {
 
 describe('drones originals: compound plans appended lawfully', () => {
   it('carries exactly the 11 dispatched plans, append-only after the 729 prior plans', () => {
-    expect(plans.length).toBe(740);
+    // 759 = 740 at the drones checkpoint + 10 space plans appended by the
+    // space originals integration (2026-09-16); the 729 prior prefix and the
+    // 11 drones plans are unchanged.
+    expect(plans.length).toBe(759);
     expect(dronePlans.map((plan) => plan.id)).toEqual(EXPECTED_PLAN_IDS);
     // Append-only: no prior plan id moved or disappeared.
     expect(plans.slice(0, 729).every((plan) => !plan.id.startsWith('drones-'))).toBe(true);
@@ -247,7 +250,9 @@ describe('drones originals: article corrections applied, not hedged', () => {
 
 describe('drones originals: approved deltas and protected neighbors', () => {
   it('appends exactly the 11 dispatched delta entries after the 804 prior ones', () => {
-    expect(deltas.entries.length).toBe(815);
+    // 834 = 815 at the drones checkpoint + 10 space deltas (sp-r*) appended
+    // by the space originals integration (2026-09-16).
+    expect(deltas.entries.length).toBe(834);
     const mine = deltas.entries.filter((entry) => entry.id.startsWith('dr-r'));
     expect(mine.map((entry) => entry.id)).toEqual(
       EXPECTED_PLAN_IDS.map((id, index) => `dr-r${index + 1}-20260916-1`),

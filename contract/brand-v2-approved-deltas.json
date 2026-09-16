@@ -15247,6 +15247,186 @@
    "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
- }
+ },
+  {
+   "id": "sp-r1-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 1: Perseverance AutoNav/AEGIS evidence completion across both registered citations (Verma abstract: 88% of the 17.7-kilometer first-Mars-year distance, 2.4 km Opportunity 14-year record, 699.9 m without human review, 347.7 m single sol; AEGIS abstract: routine use on Curiosity since May 2016); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r3-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 3: MOXIE evidence completion on the JPL completion release (16th and final run, 122 grams total, 12 grams of oxygen an hour, twice NASA's original goals, 98% purity or better, Sept. 6, 2023 dateline); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r4-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 4: PRIME-1/IM-2 evidence completion on the NASA drill article (~400 m from Mons Mouton, on its side, closer to 10 hours vs 10 planned days, TRIDENT Honeybee 1 m rotary-percussive commanded motions, gases detected all anthropogenic with the release's researcher-believe hedge recorded in the row note); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r5-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 5: ETS-VII evidence completion (Springer chapter abstract: 2 m 6-DOF arm; eoPortal: 1998 autonomous rendezvous-docking demonstrations between the two spacecraft); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r6-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 6: Orbital Express evidence completion (Boeing 2007-04-17 'autonomously transferred propellant fuel and a battery', 2007-05-10 ASTRO capture; eoPortal as-flown March 9 to July 22, 2007, 136 days, covering the four-month span; SPIE paywall caveat recorded in the row note); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r7-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 7: Canadarm2/Dextre evidence completion on both registered CSA pages (17-metre arm, cosmic catches, two arms, 100-kg batteries, ground-crew operation); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r8-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 8: MEV-1 evidence completion on the Northrop Grumman 2025-04-09 release (2020 first commercial docking with IS-901 in the graveyard orbit and return to service, 2025 first commercial-to-commercial undocking, relocating to the next servicing mission); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r9-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 9: ADRAS-J evidence completion by direct fetch of the 2024-12-11 Astroscale release (approximately 15 meters closest approach, three fly-around observations, autonomous abort on relative attitude anomaly, JAXA Phase I); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r10-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "reason": "Exactly adjacent/space original 10: OSAM-1 evidence completion by direct fetch of the NASA 2024-03-01 statement (discontinue after independent review, continued technical, cost, and schedule challenges, community shift away from refueling unprepared spacecraft, no committed partner); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sp-r2-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:adjacent/space",
+   "oldHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
+   "newHash": "2b5f982ecd36dfad48978f7bef97894a97de9bef6b21cbcb8b472fff52345994",
+   "reason": "Exactly adjacent/space original 2: Ingenuity evidence completion plus one precise article-span correction. The article said 'in an atmosphere about one percent the density of Earth's' citing ingenuity-first-flight-2021, but that release prints 'only 1% the pressure at the surface compared to our planet'; the span now reads 'in an atmosphere with about one percent of Earth's surface pressure' (prose member f61d63c0... -> 2b5f982e...). Mission-end release verifies five-flights/30-days qualification, 72 flights, almost three years, April 19 first liftoff, January 2024 end. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 10 selected records of frozen packet convergence-source-m-space-20260916e, sha256 cf0b0c559af4466bb71985f9b609996198bb075eff5bb3b9dd21d641b848d973) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-001",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  }
   ]
 }

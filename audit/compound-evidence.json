@@ -66068,5 +66068,554 @@
     "evidenceDigest": "9cc7a5066214804e30527bfcbafb0d2dd9a425b84fcaaf3d0048e24199470300"
    }
   ]
+ },
+ {
+  "id": "space-1-autonav-aegis-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "db860091d4e95a2c654cc46a88152fc37eb141a336ebbce4d6634e16664197fe",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp1-autonav-records",
+    "text": "AutoNav evaluated 88% of the 17.7 km traveled in Perseverance's first Mars year; the previous maximum autonomous distance evaluated was 2.4 km by Opportunity over its 14-year lifetime; records include 699.9 m driven without human review and 347.7 m in a single sol (Verma et al. abstract, PubMed 37494463)",
+    "requiredCitationIds": [
+     "perseverance-autonomy-2023"
+    ]
+   },
+   {
+    "id": "sp1-aegis-supercam-curiosity",
+    "text": "AEGIS analyzes wide-angle imagery onboard to autonomously select targets for the SuperCam instrument during or immediately after long drives without ground communication; AEGIS has been in routine use on Curiosity since May 2016 selecting ChemCam targets, markedly increasing the pace of data collection (Verma abstract + Francis et al. 2017 abstract, PubMed 33157897)",
+    "requiredCitationIds": [
+     "perseverance-autonomy-2023",
+     "aegis-curiosity-2017"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:1 (ready-evidence-completion) genuinely reviewed before application: all 3 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (perseverance-autonomy-2023, aegis-curiosity-2017); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "d25ddccc7663f5ccb3c1003e658e450e8c7f596b197566ce34c854f3a5c99970"
+  },
+  "evidence": [
+   {
+    "partId": "sp1-autonav-records",
+    "citationId": "perseverance-autonomy-2023",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37494463/",
+    "supportingPassage": "NASA's Perseverance rover uses robotic autonomy to achieve its mission goals on Mars. Its self-driving autonomous navigation system (AutoNav) has been used to evaluate 88% of the 17.7-kilometer distance traveled during its first Mars year of operation. Previously, the maximum total autonomous distance evaluated was 2.4 kilometers by the Opportunity rover during its 14-year lifetime. AutoNav has set multiple planetary rover records, including the greatest distance driven without human review (699.9 meters) and the greatest single-day drive distance (347.7 meters). The Autonomous Exploration for Gathering Increased Science (AEGIS) system analyzes wide-angle imagery onboard to autonomously select targets for observations by the SuperCam instrument, a multimode sensor suite capable of millimeter-scale geochemical and mineralogical analysis. AEGIS enables observations of scientifically interesting targets during or immediately after long drives without the need for ground communication. (PubMed 37494463, abstract of Sci Robot 8(80) adi3099; registered DOI landing at science.org answers 403 to machines, probed 2026-09-16T08:02Z)"
+   },
+   {
+    "partId": "sp1-aegis-supercam-curiosity",
+    "citationId": "perseverance-autonomy-2023",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37494463/",
+    "supportingPassage": "The Autonomous Exploration for Gathering Increased Science (AEGIS) system analyzes wide-angle imagery onboard to autonomously select targets for observations by the SuperCam instrument, a multimode sensor suite capable of millimeter-scale geochemical and mineralogical analysis. AEGIS enables observations of scientifically interesting targets during or immediately after long drives without the need for ground communication."
+   },
+   {
+    "partId": "sp1-aegis-supercam-curiosity",
+    "citationId": "aegis-curiosity-2017",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33157897/",
+    "supportingPassage": "Sci Robot. 2017 Jun 21;2(7):eaan4582. doi: 10.1126/scirobotics.aan4582. AEGIS autonomous targeting for ChemCam on Mars Science Laboratory: Deployment and results of initial science team use. Francis R, Estlin T, Doran G, Johnstone S, Gaines D, Verma V, Burl M, Frydenvang J, Montano S, Wiens RC, Schaffer S, Gasnault O, DeFlores L, Blaney D, Bornstein B. ... The AEGIS (Autonomous Exploration for Gathering Increased Science) autonomous targeting system has been in routine use on NASA's Curiosity Mars rover since May 2016, selecting targets for the ChemCam remote geochemical spectrometer instrument. ... The system has substantially reduced lost time on the mission and markedly increased the pace of data collection with ChemCam. (PubMed 33157897, abstract; registered DOI landing at science.org answers 403 to machines, probed 2026-09-16T08:02Z)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp1-autonav-records",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): AutoNav evaluated 88% of the 17.7 km traveled in Perseverance's first Mars year; the previous maximum autonomous distance evaluated was 2.4 km by Opportunity over its 14-year lifetime; records include 699.9 m driven without human review and 347.7 m in a single sol (Verma et al. abstract, PubMed 37494463). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "cc221489e90e409585cdc96a0a484a447c94f8bb92017bbdc56af5d80a1362ad"
+   },
+   {
+    "partId": "sp1-aegis-supercam-curiosity",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): AEGIS analyzes wide-angle imagery onboard to autonomously select targets for the SuperCam instrument during or immediately after long drives without ground communication; AEGIS has been in routine use on Curiosity since May 2016 selecting ChemCam targets, markedly increasing the pace of data collection (Verma abstract + Francis et al. 2017 abstract, PubMed 33157897). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "36cd7f217d1aa08997812055cc779aa2f26b5da1b99dc79c87d54dea9acb3d4d"
+   }
+  ]
+ },
+ {
+  "id": "space-2-ingenuity-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "908eedde61ea06596d5115944ebe8f211083f2b57a7278aa76533d30897e73f8",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp2-qualification-and-72",
+    "text": "Qualified as a technology demonstration for up to five experimental test flights over 30 days; operated almost three years and performed 72 flights; mission ended January 2024 (mission-end release, Jan 25, 2024)",
+    "requiredCitationIds": [
+     "ingenuity-mission-end-2024"
+    ]
+   },
+   {
+    "id": "sp2-first-flight-and-atmosphere",
+    "text": "First aircraft in history to make a powered, controlled flight on another planet on April 19, 2021, in an atmosphere with about one percent of Earth's surface pressure (JPL first-flight release prints 'only 1% the pressure at the surface compared to our planet'; article's 'density' corrected to 'surface pressure')",
+    "requiredCitationIds": [
+     "ingenuity-first-flight-2021"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:2 (ready-source-correction) genuinely reviewed before application: all 2 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (ingenuity-mission-end-2024, ingenuity-first-flight-2021); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. Article span corrected this pass: density -> surface pressure (the setting the cited JPL release prints).",
+   "planDigest": "a41dc28f6ca40cd3ed7dcc869d949b01b3e512078345718f027cf869180d6b81"
+  },
+  "evidence": [
+   {
+    "partId": "sp2-qualification-and-72",
+    "citationId": "ingenuity-mission-end-2024",
+    "sourceUrl": "https://www.nasa.gov/news-release/after-three-years-on-mars-nasas-ingenuity-helicopter-mission-ends/",
+    "supportingPassage": "Originally designed as a technology demonstration to perform up to five experimental test flights over 30 days, the first aircraft on another world operated from the Martian surface for almost three years, performed 72 flights, and flew more than 14 times farther than planned while logging more than two hours of total flight time. ... Ingenuity landed on Mars Feb. 18, 2021, attached to the belly of NASA's Perseverance rover and first lifted off the Martian surface on April 19, proving that powered, controlled flight on Mars was possible. (MEDIA ADVISORY 24-017, Jan 25, 2024)"
+   },
+   {
+    "partId": "sp2-first-flight-and-atmosphere",
+    "citationId": "ingenuity-first-flight-2021",
+    "sourceUrl": "https://www.jpl.nasa.gov/news/nasas-ingenuity-mars-helicopter-succeeds-in-historic-first-flight/",
+    "supportingPassage": "Monday, NASA's Ingenuity Mars Helicopter became the first aircraft in history to make a powered, controlled flight on another planet. ... The Red Planet has a significantly lower gravity - one-third that of Earth's - and an extremely thin atmosphere with only 1% the pressure at the surface compared to our planet. This means there are relatively few air molecules with which Ingenuity's two 4-foot-wide (1.2-meter-wide) rotor blades can interact to achieve flight. (Release dated April 19, 2021)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp2-qualification-and-72",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Qualified as a technology demonstration for up to five experimental test flights over 30 days; operated almost three years and performed 72 flights; mission ended January 2024 (mission-end release, Jan 25, 2024). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "a5092e7caf168bb6a3d474a85cc536a9db10bb36d58d4405f6413ced2a8680c5"
+   },
+   {
+    "partId": "sp2-first-flight-and-atmosphere",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): First aircraft in history to make a powered, controlled flight on another planet on April 19, 2021, in an atmosphere with about one percent of Earth's surface pressure (JPL first-flight release prints 'only 1% the pressure at the surface compared to our planet'; article's 'density' corrected to 'surface pressure'). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "953e7b9149fee29a21d68e2a59fba75df48e7c80693af00f30d763571b4b003b"
+   }
+  ]
+ },
+ {
+  "id": "space-3-moxie-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "703cc31fa625802ca6c7491514f40ce61890f5d482c835cbdb7391a0fb2455f8",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp3-moxie-figures",
+    "text": "MOXIE ran 16 times (16th and final run Aug. 7), produced 122 g of oxygen total, peaked at 12 g/h at 98% purity or better, twice NASA's original goals, and concluded operations in September 2023 (JPL release, Sept. 6, 2023)",
+    "requiredCitationIds": [
+     "moxie-completion-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:3 (ready-evidence-completion) genuinely reviewed before application: all 1 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (moxie-completion-2023); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "ef48a56456c505db94432566fc310f5a4cc8d6dc3a231723b46c69ae0d48637c"
+  },
+  "evidence": [
+   {
+    "partId": "sp3-moxie-figures",
+    "citationId": "moxie-completion-2023",
+    "sourceUrl": "https://www.jpl.nasa.gov/news/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/",
+    "supportingPassage": "During the mission, MOXIE extracted oxygen from the Martian atmosphere 16 times, testing a way that future astronauts could make rocket propellant that would launch them back to Earth. ... That device, called MOXIE (Mars Oxygen In-Situ Resource Utilization Experiment), has generated oxygen for the 16th and final time aboard NASA's Perseverance rover. After the instrument proved far more successful than its creators at the Massachusetts Institute of Technology (MIT) expected, its operations are concluding. ... Since Perseverance landed on Mars in 2021, MOXIE has generated a total of 122 grams of oxygen - about what a small dog breathes in 10 hours. At its most efficient, MOXIE was able to produce 12 grams of oxygen an hour - twice as much as NASA's original goals for the instrument - at 98% purity or better. On its 16th run, on Aug. 7, the instrument made 9.8 grams of oxygen. (Jet Propulsion Laboratory, Sept. 6, 2023)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp3-moxie-figures",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): MOXIE ran 16 times (16th and final run Aug. 7), produced 122 g of oxygen total, peaked at 12 g/h at 98% purity or better, twice NASA's original goals, and concluded operations in September 2023 (JPL release, Sept. 6, 2023). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "28d796d44fef17b45d70e7c32902274fa130043954545be4c3c9250166a77d47"
+   }
+  ]
+ },
+ {
+  "id": "space-4-prime1-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "447f793cc97f237b227a76c021dccef871646b0fd75e5be1a9eca4e37bfee140",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp4-landing-and-duration",
+    "text": "Athena came to rest on its side inside a crater about 400 meters (1,300 feet) from the intended Mons Mouton landing site on March 6, 2025; mission ran closer to 10 hours against 10 planned days",
+    "requiredCitationIds": [
+     "prime-1-lunar-2025"
+    ]
+   },
+   {
+    "id": "sp4-trident-msolo",
+    "text": "TRIDENT, a 1-meter rotary-and-percussive augering drill built by Honeybee Robotics, performed its commanded motions as designed (auger rotated, drill extended to full range, percussion hammering); MSOLO scans detected only anthropogenic gases per NASA's initial data (propellant gases and traces of Earth water); 100% of the instruments worked",
+    "requiredCitationIds": [
+     "prime-1-lunar-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:4 (ready-evidence-completion) genuinely reviewed before application: all 2 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (prime-1-lunar-2025); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "b7156c1fbac28806870ae969a063498d1e6d7e6a864fedfd4ea8ed5f25134be2"
+  },
+  "evidence": [
+   {
+    "partId": "sp4-landing-and-duration",
+    "citationId": "prime-1-lunar-2025",
+    "sourceUrl": "https://www.nasa.gov/missions/artemis/nasas-lunar-drill-technology-passes-tests-on-the-moon/",
+    "supportingPassage": "The IM-2 mission touched down on the lunar surface on March 6, just around 1,300 feet (400 meters) from its intended landing site of Mons Mouton, a lunar plateau near the Moon's South Pole. The Athena lander was resting on its side inside a crater preventing it from recharging its solar cells, resulting in an end of the mission. ... \"We were supposed to have 10 days of operation on the Moon, and what we got was closer to 10 hours,\" said Julie Kleinhenz, NASA's lead systems engineer for PRIME-1, as well as the in-situ resource utilization system capability lead deputy for the agency."
+   },
+   {
+    "partId": "sp4-trident-msolo",
+    "citationId": "prime-1-lunar-2025",
+    "sourceUrl": "https://www.nasa.gov/missions/artemis/nasas-lunar-drill-technology-passes-tests-on-the-moon/",
+    "supportingPassage": "Once we got to the lunar surface, TRIDENT and MSOLO both started right up, and performed perfectly. From a technology demonstrations standpoint, 100% of the instruments worked. ... The lightweight, low-power augering drill built by Honeybee Robotics, known as TRIDENT, is 1 meter long and features rotary and percussive actuators that convert energy into the force needed to drill. ... Once on the Moon, the actuators on the drill performed as designed, completing multiple stages of movement necessary to drill into the lunar surface. Prompted by commands from technicians on Earth, the auger rotated, the drill extended to its full range, the percussion system performed a hammering motion, and the PRIME-1 team turned on an embedded core heater in the drill and used internal thermal sensors to monitor the temperature change. ... While MSOLO was able to perform several scans to detect gases, researchers believe from the initial data that the gases detected were all anthropogenic, or human in origin, such as gases vented from spacecraft propellants and traces of Earth water."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp4-landing-and-duration",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Athena came to rest on its side inside a crater about 400 meters (1,300 feet) from the intended Mons Mouton landing site on March 6, 2025; mission ran closer to 10 hours against 10 planned days. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "adb927c02fd2dfb5a5dbc1ed9bc82ea5fef8593f813098537a9d8187aac8b9b0"
+   },
+   {
+    "partId": "sp4-trident-msolo",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): TRIDENT, a 1-meter rotary-and-percussive augering drill built by Honeybee Robotics, performed its commanded motions as designed (auger rotated, drill extended to full range, percussion hammering); MSOLO scans detected only anthropogenic gases per NASA's initial data (propellant gases and traces of Earth water); 100% of the instruments worked. Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "f33e7c44d69ba3c733bf3c3162c09b0c2a1b4e6da97344299c2e73a3fbec88b4"
+   }
+  ]
+ },
+ {
+  "id": "space-5-etsvii-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "fca4d5fb3104aae73bb015d5aa745ff16c99afc30765e5df4281ef95d1f88c28",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp5-rvd-1998",
+    "text": "ETS-VII (chaser Hikoboshi + target Orihime, two spacecraft) demonstrated autonomous rendezvous and docking in 1998: first experiment July 7, 1998 with autonomous docking from 2 m; second docking Aug. 27, 1998; technologies from relative approach (10 km) to docking verified on orbit (eoPortal ETS-VII record citing the Kawano et al. JSR paper; AIAA landing machine-walled)",
+    "requiredCitationIds": [
+     "ets-vii-ard-2001"
+    ]
+   },
+   {
+    "id": "sp5-arm-2m-6dof",
+    "text": "ETS-VII carried out orbital robotics experiments with a 2 meter-long, 6 DOF manipulator arm mounted on the unmanned spacecraft (Springer abstract of the registered Yoshida chapter, printed verbatim; eoPortal: installed on Hikoboshi)",
+    "requiredCitationIds": [
+     "ets-vii-robot-2001"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:5 (ready-evidence-completion) genuinely reviewed before application: all 3 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (ets-vii-ard-2001, ets-vii-robot-2001); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "c9ffcd04effb8ac490bcb832dddcdc04c431dc9c57a7bca3a8ed56ed42eeabff"
+  },
+  "evidence": [
+   {
+    "partId": "sp5-rvd-1998",
+    "citationId": "ets-vii-ard-2001",
+    "sourceUrl": "https://www.eoportal.org/satellite-missions/ets-vii",
+    "supportingPassage": "The ETS-VII mission consists of two demonstration packages: autonomous rendezvous/docking (RVD) and robot experiments (RBT). ... The ETS-VII system consists of two spacecraft: a chaser satellite (Hikoboshi) with a total mass of 2,540 kg, and a target satellite (Orihime) of mass 410 kg. A manipulator arm (or robot arm) of 2 m length is installed on Hikoboshi providing a 6 DOF (Degree of Freedom) maneuvering capability. ... 1) On July 7, 1998, the first experiment was successfully performed. In this flight, autonomous docking from 2 m was demonstrated. The Chaser detached the Target based on \"separation command\" from the ground. The Chaser automatically conducted formation flight for 15 minutes at the range of 2 m from the Target and docked again. ... 2) The second rendezvous docking experiment was initiated on Aug. 7, 1998 ... As a result, the Chaser successfully docked with the Target on Aug. 27 ... Through these experiment flights, the autonomous rendezvous docking technologies from the relative approach to the docking (from 10 km to docking) were verified on orbit. (eoPortal ETS-VII record, last updated May 29, 2012; the record's reference [6] is the registered Kawano et al. JSR paper)"
+   },
+   {
+    "partId": "sp5-rvd-1998",
+    "citationId": "ets-vii-ard-2001",
+    "sourceUrl": "https://api.crossref.org/works/10.2514/2.3661",
+    "supportingPassage": "Crossref record for DOI 10.2514/2.3661: title 'Result of Autonomous Rendezvous Docking Experiment of Engineering Test Satellite-VII'; authors Isao Kawano, Masaaki Mokuno, Toru Kasai, Takashi Suzuki; Journal of Spacecraft and Rockets 38(1), 105-111; issued January 2001. Matches the registry entry ets-vii-ard-2001 exactly."
+   },
+   {
+    "partId": "sp5-arm-2m-6dof",
+    "citationId": "ets-vii-robot-2001",
+    "sourceUrl": "https://link.springer.com/chapter/10.1007/3-540-45118-8_22",
+    "supportingPassage": "Abstract: The Engineering Test Satellite VII (ETS-VII), developed and launched by National Space Development Agency of Japan (NASDA) has been successfully flown and carried out significant experiments on orbital robotics with a 2 meter-long, 6 DOF manipulator arm mounted on this un-manned spacecraft. The ETS-VII should be noted as one of remarkable outcomes of the research effort on space robots, particularly characterized as an orbital free-flying robot. (Springer public abstract page of the registered chapter, Experimental Robotics VII; body is subscription content)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp5-rvd-1998",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): ETS-VII (chaser Hikoboshi + target Orihime, two spacecraft) demonstrated autonomous rendezvous and docking in 1998: first experiment July 7, 1998 with autonomous docking from 2 m; second docking Aug. 27, 1998; technologies from relative approach (10 km) to docking verified on orbit (eoPortal ETS-VII record citing the Kawano et al. JSR paper; AIAA landing machine-walled). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "574e81ff912097bc3c66ebdd01d742cfb0ab9b3558b7c1aaadbb35e5e69b6266"
+   },
+   {
+    "partId": "sp5-arm-2m-6dof",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): ETS-VII carried out orbital robotics experiments with a 2 meter-long, 6 DOF manipulator arm mounted on the unmanned spacecraft (Springer abstract of the registered Yoshida chapter, printed verbatim; eoPortal: installed on Hikoboshi). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "e483b3f459c18050c2fd7c5728a6a2560adc5735da1f457f9a6b73174a1d6e9c"
+   }
+  ]
+ },
+ {
+  "id": "space-6-orbital-express-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "ab3b29857555af32a8920e57a5c7d04f9f76da8560236b6cfd682e31e4e564c0",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp6-oe-span",
+    "text": "Orbital Express flew from March 9, 2007 to July 22, 2007 (decommissioned after 136 days on orbit; operational until mid-July), an over-four-month demonstration (eoPortal record; the registered SPIE paper's 'flown from March to July 2007' framing is paywalled to this pass)",
+    "requiredCitationIds": [
+     "orbital-express-2008"
+    ]
+   },
+   {
+    "id": "sp6-oe-capture",
+    "text": "ASTRO separated from NextSat, backed away 10 meters, maintained proximity flight for a full orbit, then approached and captured NextSat with its docking mechanism at full autonomy (Boeing release, May 10, 2007)",
+    "requiredCitationIds": [
+     "orbital-express-2008"
+    ]
+   },
+   {
+    "id": "sp6-oe-transfers",
+    "text": "The system autonomously transferred propellant fuel (hydrazine) and used a robotic arm to transfer a battery to NextSat - the first autonomous spacecraft-to-spacecraft hardware transfer by robotic arm (Boeing release, Apr. 17, 2007)",
+    "requiredCitationIds": [
+     "orbital-express-2008"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:6 (ready-evidence-completion) genuinely reviewed before application: all 4 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (orbital-express-2008); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "cb8e029ace701889eb02e10c937c5e8ca2a26a3ad3389b077bec5d4251640f4a"
+  },
+  "evidence": [
+   {
+    "partId": "sp6-oe-span",
+    "citationId": "orbital-express-2008",
+    "sourceUrl": "https://www.eoportal.org/satellite-missions/stp-1",
+    "supportingPassage": "The OE mission was operational from launch (March 9, 2007) until mid-July 2007 demonstrating its various servicing functions in orbit. The different operations performed during the OE mission were completely automated and consisted of multiple spacecraft rendezvous, spacecraft proximity operations, spacecraft docking, spacecraft free-flyer capture, fluid transfers, and Orbital Replacement Unit (ORU) transfers. ... OE was decommissioned on July 22, 2007 (after 136 days on orbit) bringing the successful satellite servicing and robotics demonstration to an end. (eoPortal STP-1/Orbital Express record; quick facts: Launch date 09 Mar 2007)"
+   },
+   {
+    "partId": "sp6-oe-span",
+    "citationId": "orbital-express-2008",
+    "sourceUrl": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1117/12.783792?fields=title,abstract,year,authors",
+    "supportingPassage": "Semantic Scholar record for DOI 10.1117/12.783792: title 'Orbital Express program summary and mission overview', year 2008, author R. Friend - bibliographic identity matches registry entry orbital-express-2008. Abstract elided by the publisher; SPIE landing paywalled; NASA ADS answers 405 Human Verification to machines (probed 2026-09-16T08:11Z). The ledger cell's 'flown from March to July 2007' sentence could not be re-verified from a public copy of the registered paper; the mission span is instead evidenced by the eoPortal record's launch (March 9, 2007), operational-until (mid-July 2007), and decommissioning (July 22, 2007, after 136 days on orbit) lines."
+   },
+   {
+    "partId": "sp6-oe-capture",
+    "citationId": "orbital-express-2008",
+    "sourceUrl": "https://boeing.mediaroom.com/2007-05-10-Boeing-Orbital-Express-Completes-First-Autonomous-Free-Flight-and-Capture",
+    "supportingPassage": "The Boeing [NYSE: BA] Orbital Express system has completed another industry first by successfully performing a fully autonomous free-flight rendezvous and capture operation. ... Using its onboard cameras and advanced video guidance system, the Boeing Autonomous Space Transport Robotic Operations (ASTRO) servicing spacecraft separated from the NextSat client spacecraft, backed away to a distance of 10 meters (33 feet), maintained proximity flight with NextSat for a full orbit, and then approached and captured NextSat with its docking mechanism. The demonstration occurred at full spacecraft autonomy to mark the first on-orbit rendezvous and capture operation performed with no active exchange of relative navigation information or any intervention or control from the ground. (Boeing release, May 10, 2007)"
+   },
+   {
+    "partId": "sp6-oe-transfers",
+    "citationId": "orbital-express-2008",
+    "sourceUrl": "https://boeing.mediaroom.com/2007-04-17-Boeing-Orbital-Express-Conducts-First-Autonomous-Spacecraft-to-Spacecraft-Fluid-and-Component-Transfer",
+    "supportingPassage": "In its first on-orbit demonstration 300 miles above the Earth, Boeing's [NYSE: BA] Orbital Express system autonomously transferred propellant fuel and a battery from one spacecraft to another, marking industry firsts for the revolutionary system. During the fuel transfer demonstration, the Boeing Autonomous Space Transport Robotic Operations (ASTRO) servicing spacecraft successfully transferred hydrazine propellant with Ball Aerospace's NextSat, a prototypical modular next-generation serviceable client spacecraft. The ASTRO vehicle also used a robotic arm to transfer a battery to NextSat. It marked the first time that a spacecraft autonomously transferred hardware to another spacecraft using a robotic arm. ... Orbital Express, launched to orbit on a United Launch Alliance Atlas V rocket on March 8, is a Defense Advanced Research Projects Agency-led effort consisting of the Boeing ASTRO servicing spacecraft and the NextSat serviceable client spacecraft. (Boeing release, Apr. 17, 2007)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp6-oe-span",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Orbital Express flew from March 9, 2007 to July 22, 2007 (decommissioned after 136 days on orbit; operational until mid-July), an over-four-month demonstration (eoPortal record; the registered SPIE paper's 'flown from March to July 2007' framing is paywalled to this pass). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "5c956565fa66ee98efd1de373d9daf10da9c04cf571ed17e4ec5cf58dfe08b0a"
+   },
+   {
+    "partId": "sp6-oe-capture",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): ASTRO separated from NextSat, backed away 10 meters, maintained proximity flight for a full orbit, then approached and captured NextSat with its docking mechanism at full autonomy (Boeing release, May 10, 2007). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "6f3568470953275ccba965fdf844f1db643df1d3694b57b7d6e223b2fe303376"
+   },
+   {
+    "partId": "sp6-oe-transfers",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): The system autonomously transferred propellant fuel (hydrazine) and used a robotic arm to transfer a battery to NextSat - the first autonomous spacecraft-to-spacecraft hardware transfer by robotic arm (Boeing release, Apr. 17, 2007). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "6e6f865d9cff9e0d65ebb34217c19e724dba6d1a8b517191281a514f9851ec97"
+   }
+  ]
+ },
+ {
+  "id": "space-7-canadarm-dextre-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "a61fe1815b16b287d3f7bc14ab59dc7c5ff5daa192283b08d7146706dc74693f",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp7-canadarm2",
+    "text": "Canadarm2 is a 17-metre-long robotic arm extensively involved in ISS assembly that still performs 'cosmic catches', grappling visiting vehicles and berthing them, operated by astronauts or ground teams (CSA About Canadarm2, modified 2024-07-16)",
+    "requiredCitationIds": [
+     "canadarm2-csa-2024"
+    ]
+   },
+   {
+    "id": "sp7-dextre",
+    "text": "Dextre is a two-armed robot (two arms, seven joints each) that rides on the end of Canadarm2, installs and replaces exterior equipment including the Station's 100-kg batteries, and is operated by ground control teams at CSA and NASA (CSA About Dextre, modified 2024-06-04)",
+    "requiredCitationIds": [
+     "dextre-csa-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:7 (ready-evidence-completion) genuinely reviewed before application: all 2 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (canadarm2-csa-2024, dextre-csa-2024); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "51033e6d4d4517504c27d8cb8cce420e4831c0c383980586766a1c97bb76e1d0"
+  },
+  "evidence": [
+   {
+    "partId": "sp7-canadarm2",
+    "citationId": "canadarm2-csa-2024",
+    "sourceUrl": "https://www.asc-csa.gc.ca/eng/iss/canadarm2/about.asp",
+    "supportingPassage": "Canadarm2 is part of Canada's contribution to the International Space Station (ISS). This 17-metre-long robotic arm was extensively involved in the assembly of the orbiting laboratory. ... This Canadian robotic arm lends a helping hand to: perform Station maintenance; move supplies, equipment, Dextre and even astronauts; perform \"cosmic catches\" by grappling visiting vehicles and berthing them to the ISS. (Date modified: 2024-07-16)"
+   },
+   {
+    "partId": "sp7-dextre",
+    "citationId": "dextre-csa-2024",
+    "sourceUrl": "https://www.asc-csa.gc.ca/eng/iss/dextre/about.asp",
+    "supportingPassage": "Dextre is a versatile robot that maintains the International Space Station (ISS). ... Dextre can: install and replace small equipment, like exterior cameras or the 100-kg batteries used on the Space Station; replace defective components in the Station's electrical system ... Each of its arms has seven joints that can move up and down, go from side to side, and rotate. ... This multi-talented robot can ride on the end of Canadarm2 to move from worksite to worksite, or be ferried on the Mobile Base System. ... The robot is operated by ground control teams at CSA headquarters and NASA. ... [Image caption:] The end effectors of Dextre's two arms at rest. (Date modified: 2024-06-04)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp7-canadarm2",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Canadarm2 is a 17-metre-long robotic arm extensively involved in ISS assembly that still performs 'cosmic catches', grappling visiting vehicles and berthing them, operated by astronauts or ground teams (CSA About Canadarm2, modified 2024-07-16). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "7ec95be3ad6ef5f8082116460e41346d4e53a9a82c5da6ce7b60bde55eeb735a"
+   },
+   {
+    "partId": "sp7-dextre",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): Dextre is a two-armed robot (two arms, seven joints each) that rides on the end of Canadarm2, installs and replaces exterior equipment including the Station's 100-kg batteries, and is operated by ground control teams at CSA and NASA (CSA About Dextre, modified 2024-06-04). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "923805e45d794efadd99fe5a9fe186639b1e09ba0072eaca6e778b6fae4879ca"
+   }
+  ]
+ },
+ {
+  "id": "space-8-mev1-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "b34b208125ff31ee570b8a9c01b22c63d183be657a9a8a5a91271dda95065874",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp8-mev1-docking-undocking",
+    "text": "MEV-1 performed the first-ever in-orbit commercial spacecraft docking with Intelsat's IS-901 in the GEO graveyard orbit in 2020 and returned it to operation in GEO; after five years of life-extension it undocked on April 9, 2025, the first undocking between two commercial spacecraft in that orbit, and relocated to its next servicing mission (Northrop Grumman release, primary claimant)",
+    "requiredCitationIds": [
+     "mev1-servicing-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:8 (ready-evidence-completion) genuinely reviewed before application: all 1 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (mev1-servicing-2025); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "c84ca30523b619cf4e662e43fc1e909ef197d813388f47728221309bfe55d03c"
+  },
+  "evidence": [
+   {
+    "partId": "sp8-mev1-docking-undocking",
+    "citationId": "mev1-servicing-2025",
+    "sourceUrl": "https://news.northropgrumman.com/satellites/Northrop-Grumman-Achieves-First-Ever-Undocking-Between-Two-Commercial-Spacecraft-in-Geosynchronous-Orbit",
+    "supportingPassage": "A Mission Extension Vehicle (MEV) developed by Northrop Grumman Corporation's (NYSE: NOC) Space Logistics LLC has successfully undocked with Intelsat's IS-901 satellite, completing its life extension service. This marks the first undocking between two commercial spacecraft in the geosynchronous earth orbit (GEO) graveyard. ... MEV-1 has provided five years of life-extension services to IS-901, allowing Intelsat to operate this space-based asset beyond its design life. In 2020, MEV-1 successfully proved docking with IS-901 was possible in the GEO graveyard orbit and brought IS-901 back into operation in GEO. Now that life-extension services are complete, MEV-1 released the IS-901 satellite back into the GEO graveyard and is relocating to the next servicing mission. ... MEV-1 performed the first-ever in-orbit commercial spacecraft docking with IS-901 in the graveyard orbit before reducing the satellite's inclination and bringing it back into operation in GEO in 2020. (DULLES, Va. - April 9, 2025)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp8-mev1-docking-undocking",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): MEV-1 performed the first-ever in-orbit commercial spacecraft docking with Intelsat's IS-901 in the GEO graveyard orbit in 2020 and returned it to operation in GEO; after five years of life-extension it undocked on April 9, 2025, the first undocking between two commercial spacecraft in that orbit, and relocated to its next servicing mission (Northrop Grumman release, primary claimant). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "9c6fd2c642b0cfbd94adedacf66b77f408eea5a97cb8ccad08acd9a6f9f129e3"
+   }
+  ]
+ },
+ {
+  "id": "space-9-adrasj-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "cb3ef319ef23652ff975b9f427be8c50862b86335e965e38fec09a306c83a0d8",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp9-adrasj-approach",
+    "text": "ADRAS-J, flying JAXA's Phase I Commercial Removal of Debris Demonstration, approached a discarded rocket upper stage to approximately 15 meters during 2024 (final approach Nov. 30), the closest approach ever achieved by a commercial company to space debris through RPO; three fly-around observations completed; the approach ended in an autonomous abort triggered by the onboard collision-avoidance system on an unexpected relative attitude anomaly (Astroscale release, Dec. 11, 2024)",
+    "requiredCitationIds": [
+     "adras-j-15m-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:9 (ready-evidence-completion) genuinely reviewed before application: all 1 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (adras-j-15m-2024); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "8e2f1783653173cb12c2e78aaee3451dfc1e49295d110a5217aac3f9ecf2757d"
+  },
+  "evidence": [
+   {
+    "partId": "sp9-adrasj-approach",
+    "citationId": "adras-j-15m-2024",
+    "sourceUrl": "https://www.astroscale.com/en/news/astroscales-adras-j-achieves-historic-15-meter-approach-to-space-debris",
+    "supportingPassage": "Astroscale Japan Inc. (\"Astroscale Japan\"), a subsidiary of Astroscale Holdings Inc. (\"Astroscale\"), the market leader in satellite servicing and long-term orbital sustainability across all orbits, has announced that its commercial debris inspection demonstration satellite, Active Debris Removal by Astroscale-Japan (ADRAS-J), successfully approached a large piece of space debris — a rocket upper stage — to approximately 15 meters. This is the closest approach ever achieved by a commercial company to space debris through Rendezvous and Proximity Operations (RPO). ADRAS-J was selected by the Japan Aerospace Exploration Agency (JAXA) for Phase I of its Commercial Removal of Debris Demonstration. ... ADRAS-J successfully maintained this position until an autonomous abort was triggered by the onboard collision avoidance system due to an unexpected relative attitude anomaly with the upper stage. The spacecraft safely maneuvered away from the debris as designed before reaching the CIP. ... In addition to achieving the historic 15-meter approach, ADRAS-J successfully completed all observations of the debris required by the JAXA mission, including two fly-around operations that confirmed no major damage to the PAF and a third fly-around from a new angle of the upper stage. ... Key ADRAS-J mission milestones since launch: Feb. 22: start of rendezvous phase. ... Jul. 15: first successful fly-around observation. Jul. 16: second successful fly-around observation. ... Aug. 13: third successful fly-around observation. Nov. 30: final approach, successfully reaching 15 meters. (Tokyo, Japan, Dec. 11, 2024)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp9-adrasj-approach",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): ADRAS-J, flying JAXA's Phase I Commercial Removal of Debris Demonstration, approached a discarded rocket upper stage to approximately 15 meters during 2024 (final approach Nov. 30), the closest approach ever achieved by a commercial company to space debris through RPO; three fly-around observations completed; the approach ended in an autonomous abort triggered by the onboard collision-avoidance system on an unexpected relative attitude anomaly (Astroscale release, Dec. 11, 2024). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "2114a782b1e5c6ed1006b5dbea05689083a5ab3d71a6e4e7a332363a11fe0b8a"
+   }
+  ]
+ },
+ {
+  "id": "space-10-osam1-20260916",
+  "ledgerPath": "audit/adjacent.md",
+  "articleSlug": "space",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "a4f2e845234c3014765ca6140075af900b8759c5a8fdce7981683f080b910e6d",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "sp10-osam1-discontinuation",
+    "text": "In March 2024, following an in-depth, independent project review, NASA discontinued OSAM-1 due to continued technical, cost, and schedule challenges and a broader community evolution away from refueling unprepared spacecraft, which led to a lack of a committed partner (NASA statement, Mar 1, 2024)",
+    "requiredCitationIds": [
+     "osam1-discontinued-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+   "rationale": "Packet record space:10 (ready-evidence-completion) genuinely reviewed before application: all 1 evidence passage(s) needle-verified by this integrator against the packet's retained fetch corpus (osam1-discontinued-2024); every citation id resolved in data/citations.ts at application HEAD 63bdfcc. No article change.",
+   "planDigest": "7caa7c59d9e6b9874740adad7dc54399e17243909624adfe1049aaa010361dcd"
+  },
+  "evidence": [
+   {
+    "partId": "sp10-osam1-discontinuation",
+    "citationId": "osam1-discontinued-2024",
+    "sourceUrl": "https://www.nasa.gov/missions/update-on-status-of-nasas-osam-1-project/",
+    "supportingPassage": "Following an in-depth, independent project review, NASA has decided to discontinue the On-orbit Servicing, Assembly, and Manufacturing 1 (OSAM-1) project due to continued technical, cost, and schedule challenges, and a broader community evolution away from refueling unprepared spacecraft, which has led to a lack of a committed partner. Following Congressional notification processes, project management plans to complete an orderly shutdown, including the disposition of sensitive hardware, pursuing potential partnerships or alternative hardware uses, and licensing of applicable technological developments. (NASA Communications, Mar 01, 2024)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "sp10-osam1-discontinuation",
+    "outcome": "supported",
+    "reviewedBy": "space-integrator-20260916 (session 88da8ab4-421f-4d8a-a19c-8b09e07e00c0, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Supported from the retained packet fetch(es): In March 2024, following an in-depth, independent project review, NASA discontinued OSAM-1 due to continued technical, cost, and schedule challenges and a broader community evolution away from refueling unprepared spacecraft, which led to a lack of a committed partner (NASA statement, Mar 1, 2024). Needle-verified pre-adjudication; zero retrieval by this integrator.",
+    "evidenceDigest": "5cfe7208d4f45f428f1614d65a80d8e82084ea88d5a65aef7f738c7012cf14b3"
+   }
+  ]
  }
 ]
