@@ -23,6 +23,7 @@ citations:
   - bd-atlas-lbm-2025
   - gemini-robotics-2-2026
   - state-of-simulation-2026
+  - newton-manipulation-blog-2026
 seeAlso:
   - "rl-sim2real/legged-locomotion"
   - "rl-sim2real/humanoid-wbc"
@@ -111,9 +112,9 @@ The honest comparison runs on the axes where the two stacks actually differ. The
 
 <MpcComparison className="my-6" />
 
-The case for learning, at its strongest: locomotion is settled, and sim-RL controllers handle terrain, pushes, and hardware variation that hand-designed stacks never achieved, at the cost of one forward pass at deploy time <Cite id="lee-2020" /> <Cite id="miki-2022" />. Perception integrates naturally; there is no clean way to put an RGB image into a QP. Contact schedules emerge from exploration instead of being enumerated. And semantics exists only on the learned side: Gemini Robotics 2 controls three embodiments from one checkpoint, and no model-based stack does anything comparable <Cite id="gemini-robotics-2-2026" />.
+The case for learning, at its strongest: locomotion is settled, and sim-trained controllers handle terrain, unknown payloads, and hardware variation, taking two generations of ANYmal through ground beyond the reach of prior published work in legged locomotion (in the papers' own words), at the cost of one forward pass at deploy time <Cite id="lee-2020" /> <Cite id="miki-2022" />. Perception integrates naturally; there is no clean way to put an RGB image into a QP. Contact schedules emerge from exploration instead of being enumerated. And semantics exists only on the learned side: Gemini Robotics 2 controls three embodiments from one checkpoint, and no model-based stack does anything comparable <Cite id="gemini-robotics-2-2026" />.
 
-The case for model-based control, at its strongest: the strongest single 2026 result in legged control is not a learning result <Cite id="mujoco-ilqr-2026" />. Constraints are enforced, not penalized; a friction cone in a QP holds, a reward penalty merely advises. Data efficiency is infinite in the relevant sense, since MPC needs zero task data. The behavior is verifiable in ways a network is not. And contact fidelity is a modeling problem, which is why the learning stack spent 2025 and 2026 importing model-based contact research, hydroelastic pressure fields and contact-implicit optimization, into its simulators <Cite id="state-of-simulation-2026" />. The learning stack's current progress on manipulation is gated by better models, not better algorithms.
+The case for model-based control, at its strongest: the strongest single 2026 result in legged control is not a learning result <Cite id="mujoco-ilqr-2026" />. Constraints are enforced, not penalized; a friction cone in a QP holds, a reward penalty merely advises. Data efficiency is infinite in the relevant sense, since MPC needs zero task data. The behavior is verifiable in ways a network is not. And contact fidelity is a modeling problem, which is why the learning stack is importing model-based contact research into its simulators: Newton's hydroelastic contact modeling is inspired by Drake's contact model, Drake-developer TRI now partners with Newton on solver and contact modeling, and Newton acts as the physics layer under Isaac Lab <Cite id="state-of-simulation-2026" /> <Cite id="newton-manipulation-blog-2026" />. The learning stack's current progress on manipulation is gated by better models, not better algorithms.
 
 <MpcVsRl className="my-6" />
 

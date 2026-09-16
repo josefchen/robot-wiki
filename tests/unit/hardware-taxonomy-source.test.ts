@@ -155,7 +155,13 @@ describe('hardware-taxonomy 2026-09-15 integration', () => {
     }
     const teleop = ledger.split(/^### teleop-rigs\.mdx$/m)[1]?.split(/^### /m)[0] ?? '';
     const trossenTeleop = teleop.split('\n').find((line) => line.includes('Trossen AI prices and 500 Hz'));
-    expect(trossenTeleop, 'teleop Trossen row keeps its legacy shape').toBeDefined();
-    expect(trossenTeleop!.split(/(?<!\\)\|/).length).toBeLessThan(8);
+    // Untouched by the hardware-taxonomy lane itself: the verdict cell still
+    // carries this lane's price-cut correction. The 2026-09-16 teleop-rigs
+    // evidence completion later added the evidence columns and plan binding,
+    // so the row now has 8 populated cells (+2 outer-pipe empties) bound to teleop-rigs-3-trossen-ai-20260916.
+    expect(trossenTeleop, 'teleop Trossen row keeps its correction verdict').toBeDefined();
+    expect(trossenTeleop).toContain('C (same price-cut correction as hardware-taxonomy)');
+    expect(trossenTeleop!.split(/(?<!\\)\|/).length).toBe(10); // 8 cells + 2 outer-pipe empties
+    expect(trossenTeleop).toContain('teleop-rigs-3-trossen-ai-20260916');
   });
 });
