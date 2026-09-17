@@ -2893,6 +2893,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -2916,6 +2917,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -2939,6 +2941,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -2962,6 +2965,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -2979,6 +2983,7 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Caligraphic",
         "KaTeX_Main",
         "KaTeX_Math",
         "Newsreader",
@@ -2998,6 +3003,7 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Caligraphic",
         "KaTeX_Main",
         "KaTeX_Math",
         "Newsreader",
@@ -3017,6 +3023,7 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Caligraphic",
         "KaTeX_Main",
         "KaTeX_Math",
         "Newsreader",
@@ -3036,6 +3043,7 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Caligraphic",
         "KaTeX_Main",
         "KaTeX_Math",
         "Newsreader",
@@ -3055,7 +3063,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -3071,7 +3082,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -3087,7 +3101,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -3103,7 +3120,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -4371,8 +4391,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_AMS",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size2",
         "Newsreader",
         "math",
         "tektur"
@@ -4390,8 +4412,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_AMS",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size2",
         "Newsreader",
         "math",
         "tektur"
@@ -4409,8 +4433,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_AMS",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size2",
         "Newsreader",
         "math",
         "tektur"
@@ -4428,8 +4454,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_AMS",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size2",
         "Newsreader",
         "math",
         "tektur"
@@ -4943,7 +4971,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -4959,7 +4990,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -4975,7 +5009,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -4991,7 +5028,10 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
         "Newsreader",
+        "math",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -5009,6 +5049,7 @@
         "IBM Plex Sans",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size3",
         "Newsreader",
         "math",
         "tektur"
@@ -5028,6 +5069,7 @@
         "IBM Plex Sans",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size3",
         "Newsreader",
         "math",
         "tektur"
@@ -5047,6 +5089,7 @@
         "IBM Plex Sans",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size3",
         "Newsreader",
         "math",
         "tektur"
@@ -5066,6 +5109,7 @@
         "IBM Plex Sans",
         "KaTeX_Main",
         "KaTeX_Math",
+        "KaTeX_Size3",
         "Newsreader",
         "math",
         "tektur"
@@ -6579,6 +6623,7 @@
       "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
       "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
       "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+      "/_next/static/media/KaTeX_Size4-Regular.2sgotkdv3dcyv.woff2",
       "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
       "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
       "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
@@ -6754,6 +6799,18 @@
         ],
         "payloadSignature": "774f4632",
         "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Size4-Regular.2sgotkdv3dcyv.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
       },
       {
         "url": "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",

@@ -15,9 +15,11 @@ import { GAITS, GAIT_ORDER, DEFAULT_GAIT } from '../../lib/gait.ts';
  * its local-AND (repo-authored gait constants + the retained Park 2017
  * classical-instance material reused read-only from the applied row-7 plan),
  * from the committed ledger and catalog exactly as check-audit-coverage
- * reads them. The held rows 1 and 6 (paywalled Choi Science Robotics), 17
- * (authored-toy schema family) and 18 (stale frontmatter-P1 claim cell) stay
- * incomplete, and every other row keeps its pre-existing evidence state.
+ * reads them. The held row 17 (authored-toy schema family) stays incomplete,
+ * and every other row keeps its pre-existing evidence state. Rows 1 and 6
+ * completed in this tree's 20260917a paywall pass (Choi abstract via the
+ * publicly printed render); row 18 had completed earlier in the same-day
+ * frontmatter-sweep integration.
  */
 const ROOT = join(import.meta.dirname, '../..');
 const PACKET_SHA = 'd80e6e2cf65a50321968b408ec66ece06d165a492331d2ae9cdd763c76871f37';
@@ -100,17 +102,74 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
       expect(record.compound?.planId ?? '').toBe(planId);
       expect(record.evidenceFailures).toEqual([]);
     }
-    // rows 1, 6, 17, 18 stay honestly HELD per the dispatch:
-    // 1 and 6 need the paywalled Choi Science Robotics primary (x2);
-    // 17 is the authored-toy schema family (compoundPlanSchema
-    // requiredCitationIds min(1) on an internal interactive row);
-    // 18's frontmatter-P1 claim cell is stale (lists 12 ids; article
-    // frontmatter now carries 13), so the prepared batch cannot bind.
-    for (const ordinal of [1, 6, 17, 18]) {
-      const record = article.claimRecords[ordinal - 1];
-      expect(record.compound?.planId ?? '').toBe('');
-      expect(record.evidenceFailures.length).toBeGreaterThan(0);
+    // row 18 completed by the 20260917a frontmatter-sweep integration before
+    // this pass (stale pin repaired: it is no longer held)
+    const r18 = article.claimRecords[17];
+    expect(r18.compound?.planId ?? '').toBe('legged-locomotion-18-frontmatter-sweep-20260917a');
+    expect(r18.evidenceFailures).toEqual([]);
+    // row 17 stays honestly HELD: the authored-toy schema family
+    // (compoundPlanSchema requiredCitationIds min(1) on an internal
+    // interactive row)
+    const r17 = article.claimRecords[16];
+    expect(r17.compound?.planId ?? '').toBe('');
+    expect(r17.evidenceFailures.length).toBeGreaterThan(0);
+  });
+
+  it('binds the two 20260917a paywall rows (1 and 6) to complete compound evidence', () => {
+    const { sections, compoundPlans } = loadSection();
+    const article = sections.find((section) => section.slug === 'legged-locomotion')!;
+    const expected: Readonly<Record<number, string>> = {
+      1: 'legged-locomotion-1-stats-78min-20260917a',
+      6: 'legged-locomotion-6-choi-abstract-20260917a',
+    };
+    for (const [ordinal, planId] of Object.entries(expected)) {
+      const record = article.claimRecords[Number(ordinal) - 1];
+      expect(record.compound?.planId ?? '').toBe(planId);
+      expect(record.compound?.structuralFailures ?? ['missing']).toEqual([]);
+      expect(record.compound?.adjudicationFailures ?? ['missing']).toEqual([]);
+      expect(record.evidenceFailures).toEqual([]);
+      const plan = compoundPlans.find((p) => p.id === planId)!;
+      expect(plan.planReview?.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+      expect(plan.planReview?.rationale).toContain('af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d');
+      for (const review of plan.adjudications) expect(review.outcome).toBe('supported');
     }
+    // the stats claim cell now carries the applied 78-min stat, not the stale 1 h
+    const r1 = article.claimRecords[0];
+    expect(r1.claim).toContain('"78 min" Etzel hike (2.2 km, 120 m; planner 76 min)');
+    expect(r1.claim).not.toContain('"1 h"');
+    // row 6 discloses the abstract-equivalent scope of the training-loop clause
+    const r6 = article.claimRecords[5];
+    expect(r6.note).toContain('ABSTRACT SCOPE');
+    expect(r6.note).toContain("'inside the training loop' is the abstract-equivalent of 'for reinforcement learning'");
+  });
+
+  it('locks the needle-verified passages behind the paywall rows', () => {
+    const { compoundPlans } = loadSection();
+    const r1 = compoundPlans.find((p) => p.id === 'legged-locomotion-1-stats-78min-20260917a')!;
+    const rudin = r1.evidence.find((e) => e.partId === 'leg1-rudin-minutes-workstation-gpu')!;
+    expect(rudin.citationId).toBe('rudin-2021');
+    expect(rudin.sourceUrl).toBe('https://arxiv.org/abs/2109.11978');
+    expect(rudin.supportingPassage).toContain(
+      'training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain',
+    );
+    expect(rudin.supportingPassage).toContain('massive parallelism on a single workstation GPU');
+    const miki = r1.evidence.find((e) => e.partId === 'leg1-miki-78min-etzel-hike')!;
+    expect(miki.sourceUrl).toBe('https://ar5iv.labs.arxiv.org/html/2201.08117');
+    expect(miki.supportingPassage).toContain('The hiking route was 2.2 km long, with an elevation gain of 120 m.');
+    expect(miki.supportingPassage).toContain(
+      'finished the entire path in 78 minutes – virtually the same duration suggested by a hiking planner (76 minutes)',
+    );
+    const choiStat = r1.evidence.find((e) => e.partId === 'leg1-choi-3.03-sand-running')!;
+    expect(choiStat.citationId).toBe('choi-2023');
+    expect(choiStat.sourceUrl).toBe('https://www.science.org/doi/10.1126/scirobotics.ade2256');
+    expect(choiStat.supportingPassage).toContain('run on soft beach sand at 3.03 meters per second');
+    const r6 = compoundPlans.find((p) => p.id === 'legged-locomotion-6-choi-abstract-20260917a')!;
+    for (const item of r6.evidence) {
+      expect(item.citationId).toBe('choi-2023');
+      expect(item.sourceUrl).toBe('https://www.science.org/doi/10.1126/scirobotics.ade2256');
+    }
+    expect(r6.evidence.find((e) => e.partId === 'leg6-choi-cheap-granular-model')!
+      .supportingPassage).toContain('computationally efficient granular media model for reinforcement learning');
   });
 
   it('corrects the verdict with the retained Park instance and the local AND recorded', () => {

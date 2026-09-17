@@ -1075,6 +1075,7 @@ const FIGURE_VERDICTS = {
     ASSET_ROWS,
     ROOT,
     SEALED_SVG_MEMBERS,
+    APPROVED_DELTAS,
   ),
 } as const satisfies Record<
   string,

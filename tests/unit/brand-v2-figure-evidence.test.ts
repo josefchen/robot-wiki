@@ -28,6 +28,7 @@ import {
   type AssetRow,
   type MaterialRow,
 } from '@/lib/brand-v2-image-record';
+import type { ApprovedDelta } from '@/lib/brand-v2-baseline';
 
 /**
  * The figure lane's own gate (VAL-B2-ART-004/005/006, VAL-B2-IMG-001 to 008,
@@ -53,6 +54,15 @@ const sealedSvgMembers = (
     ),
   ) as { members: Array<{ id: string; hash: string }> }
 ).members;
+
+const approvedDeltas = (
+  JSON.parse(
+    readFileSync(
+      join(ROOT, 'contract', 'brand-v2-approved-deltas.json'),
+      'utf8',
+    ),
+  ) as { entries: ApprovedDelta[] }
+).entries;
 
 const artifact = JSON.parse(
   readFileSync(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH), 'utf8'),
@@ -430,7 +440,14 @@ describe('the record rows', () => {
       materialPaints.filter((paint) => paint.tile !== null).length,
     ).toBeGreaterThan(0);
     expect(
-      failuresOf(originalSvgSemanticVerdicts(assets, ROOT, sealedSvgMembers)),
+      failuresOf(
+        originalSvgSemanticVerdicts(
+          assets,
+          ROOT,
+          sealedSvgMembers,
+          approvedDeltas,
+        ),
+      ),
     ).toEqual([]);
 
     // The editorial population is the seven reusable images, never the 111
@@ -762,6 +779,50 @@ describe('the record rows', () => {
             ? { ...member, hash: '0'.repeat(64) }
             : member,
         ),
+        approvedDeltas,
+      ),
+    );
+    expect(
+      failures.some((f) => /does not reproduce the sealed baseline member/.test(f)),
+    ).toBe(true);
+  });
+
+  it('VAL-B2-VIZ-014 accepts the owner-approved semantic endpoint an assets-svg delta brackets', () => {
+    // The seal is immutable by design, so the sanctioned movement of
+    // images/temporal-ensembling.svg to its act-convention endpoint lives
+    // in the approved-delta allowlist. The verdict must honor exactly that
+    // bracket (old seal hash -> approved endpoint) and nothing looser.
+    const verdicts = originalSvgSemanticVerdicts(
+      assets,
+      ROOT,
+      sealedSvgMembers,
+      approvedDeltas,
+    );
+    const moved = verdicts.get('asset:images/temporal-ensembling.svg')!;
+    expect(
+      moved.observed.coveredByApprovedDelta,
+      'the approved act-convention endpoint must be recognized as sanctioned',
+    ).toBe(true);
+    expect(moved.failures).toEqual([]);
+    expect(
+      verdicts.get('asset:images/covariate-shift.svg')!.observed
+        .coveredByApprovedDelta,
+    ).toBe(false);
+  });
+
+  it('VAL-B2-VIZ-014 still reports an approved member whose tree moved past the delta endpoint', () => {
+    // Same member, same approved delta, but the seal is swapped for one the
+    // delta does not name: only the exact old->new bracket is accepted.
+    const failures = failuresOf(
+      originalSvgSemanticVerdicts(
+        assets,
+        ROOT,
+        sealedSvgMembers.map((member) =>
+          member.id === 'public-svg:images/temporal-ensembling.svg'
+            ? { ...member, hash: '0'.repeat(64) }
+            : member,
+        ),
+        approvedDeltas,
       ),
     );
     expect(

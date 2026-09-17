@@ -11,10 +11,12 @@ import { CITATIONS } from '../../data/citations';
 /**
  * Red-first proof for the surgical originals integration (frozen packet
  * convergence-source-p-surgical-20260916f, rows 1,2,3,4,6,7,8 selected; held
- * row 5 Maestro K221410 excluded per dispatch). Every applied-state assertion
- * here failed before application and must pass after it. The regression
- * guards (held Maestro row, protected neighbor sections, prior plan order)
- * passed before and must stay green.
+ * row 5 Maestro K221410 excluded per that dispatch, then completed by the
+ * 20260917a paywall pass on the FDA letter + predicate DB + SAGES TAVAC
+ * render + ScoPilot release). Every applied-state assertion here failed
+ * before application and must pass after it. The regression guards
+ * (protected neighbor sections, prior plan order) passed before and must
+ * stay green.
  *
  * Row 1 corrects the article span 'da Vinci procedures grew roughly 17
  * percent worldwide that year' to 'roughly 18 percent worldwide in 2025' (the
@@ -67,7 +69,7 @@ const deltas = JSON.parse(
   readFileSync('contract/brand-v2-approved-deltas.json', 'utf8'),
 ) as { entries: DeltaRecord[] };
 
-/** Dispatched row order; row 5 (Maestro K221410) is held and excluded. */
+/** Dispatched row order; row 5 (Maestro K221410) was held in 20260916f and completed in the 20260917a paywall pass. */
 const SURGICAL_PLAN_IDS = [
   'surgical-1-isrg-q4-20260916',
   'surgical-2-dv5-clearance-20260916',
@@ -77,20 +79,21 @@ const SURGICAL_PLAN_IDS = [
   'surgical-7-compounding-20260916',
   'surgical-8-star-20260916',
 ];
+const SURGICAL_20260917A_PLAN_ID = 'surgical-5-maestro-510k-scopilot-20260917a';
 
 const surgicalPlans = plans.filter(
   (plan) => plan.ledgerPath === 'audit/adjacent.md' && plan.articleSlug === 'surgical',
 );
 
 describe('surgical originals: ledger rows and compound plans', () => {
-  it('keeps all 768 prior plans first and appends exactly the 7 surgical plans', () => {
-    expect(plans).toHaveLength(775);
+  it('keeps all 768 prior plans first and appends the surgical plans (20260916f + 20260917a)', () => {
+    expect(plans).toHaveLength(856); // 845 at convergence-aq close + 11 convergence-as industrial plans (2026-09-17)
     expect(plans.slice(0, 768).every((plan) => !plan.id.startsWith('surgical-'))).toBe(true);
-    expect(surgicalPlans.map((plan) => plan.id)).toEqual(SURGICAL_PLAN_IDS);
-    expect(surgicalPlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 6, 7, 8]);
+    expect(surgicalPlans.map((plan) => plan.id)).toEqual([...SURGICAL_PLAN_IDS, SURGICAL_20260917A_PLAN_ID]);
+    expect(surgicalPlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 6, 7, 8, 5]);
   });
 
-  it('binds every applied ledger row to its exact plan; keeps held row 5 a 3-cell original row', () => {
+  it('binds every applied ledger row to its exact plan; row 5 complete since 20260917a', () => {
     const section = ledger.split('## surgical.mdx')[1].split('## space.mdx')[0];
     const rows = section
       .split('\n')
@@ -99,7 +102,7 @@ describe('surgical originals: ledger rows and compound plans', () => {
     expect(rows).toHaveLength(8);
     const appliedOrdinals = [1, 2, 3, 4, 6, 7, 8];
     for (const [index, row] of rows.entries()) {
-      const cells = row.split('|').slice(1, -1).map((cell) => cell.trim());
+      const cells = row.split(/(?<!\\)\|/).slice(1, -1).map((cell) => cell.trim());
       if (appliedOrdinals.includes(index + 1)) {
         expect(cells[2]).toBe('V');
         expect(cells[4]).toBe('');
@@ -109,11 +112,20 @@ describe('surgical originals: ledger rows and compound plans', () => {
         expect(cells[1].length).toBeGreaterThan(0);
         expect(cells[3].length).toBeGreaterThan(0);
       } else {
-        // Held Maestro row: original 3-column shape, no evidence plan binding.
+        // Maestro row 5, completed by the 20260917a paywall pass: FDA letter
+        // + predicate DB + SAGES TAVAC render + ScoPilot release
         expect(index + 1).toBe(5);
-        expect(cells).toHaveLength(3);
         expect(cells[0]).toContain('Maestro');
+        expect(cells[2]).toBe('V');
+        expect(cells[4]).toBe('');
+        expect(cells[5]).toBe('');
+        expect(cells[6]).toBe('');
+        expect(cells[7]).toBe(SURGICAL_20260917A_PLAN_ID);
         expect(cells[1]).toContain('K221410');
+        expect(cells[1]).toContain('K936308');
+        expect(cells[1]).toContain('sages.org/publications/tavac/moon-surgical-maestro-surgical-robotics-system');
+        expect(cells[3]).toContain('DATE DISCLOSURE');
+        expect(cells[3]).toContain('December 2, 2022 while TAVAC prints December 6, 2022');
       }
     }
   });
@@ -124,11 +136,11 @@ describe('surgical originals: ledger rows and compound plans', () => {
       .split('\n')
       .filter((line) => line.startsWith('| '))
       .filter((line) => !line.includes('Claim |') && !line.includes(' --- |'));
-    const appliedRows = [0, 1, 2, 3, 5, 6, 7].map((index) =>
-      rows[index].split('|').slice(1, -1).map((cell) => cell.trim()),
+    const appliedRows = [0, 1, 2, 3, 4, 5, 6, 7].map((index) =>
+      rows[index].split(/(?<!\\)\|/).slice(1, -1).map((cell) => cell.trim()),
     );
-    for (const [index, plan] of surgicalPlans.entries()) {
-      const cells = appliedRows[index];
+    for (const plan of surgicalPlans) {
+      const cells = appliedRows[plan.rowOrdinal - 1];
       expect(
         originalClaimDigest({
           claim: cells[0],
@@ -143,7 +155,10 @@ describe('surgical originals: ledger rows and compound plans', () => {
   it('carries valid packet-review digests on every surgical plan and adjudication', () => {
     for (const plan of surgicalPlans) {
       expect(plan.planReview.planDigest).toBe(compoundPlanDigest(plan));
-      expect(plan.planReview.reviewedBy).toContain('surgical-integrator-20260916');
+      const reviewer = plan.id === SURGICAL_20260917A_PLAN_ID
+        ? 'paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa'
+        : 'surgical-integrator-20260916';
+      expect(plan.planReview.reviewedBy).toContain(reviewer);
       for (const review of plan.adjudications) {
         expect(review.outcome).toBe('supported');
         expect(review.evidenceDigest).toBe(compoundPartDigest(plan, review.partId));
@@ -152,6 +167,27 @@ describe('surgical originals: ledger rows and compound plans', () => {
       for (const item of plan.evidence) expect(partIds.has(item.partId)).toBe(true);
       expect(plan.adjudications).toHaveLength(plan.parts.length);
     }
+  });
+
+  it('locks the needle-verified 20260917a Maestro passages', () => {
+    const plan = plans.find((entry) => entry.id === SURGICAL_20260917A_PLAN_ID)!;
+    expect(plan.planReview.rationale).toContain('af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d');
+    const tavac = plan.evidence.filter((item) => item.citationId === 'maestro-tavac-2023');
+    expect(tavac).toHaveLength(3);
+    for (const item of tavac) {
+      expect(item.sourceUrl).toBe('https://www.sages.org/publications/tavac/moon-surgical-maestro-surgical-robotics-system');
+    }
+    expect(tavac.find((item) => item.partId === 'surg5-first-510k-dec2022')!
+      .supportingPassage).toContain('510(k) approval for its Maestro surgical robotics system on December 6, 2022');
+    expect(tavac.find((item) => item.partId === 'surg5-endex-predicate-1990s')!
+      .supportingPassage).toContain('substantially equivalent to a predicate device: the ENDEX Endoscopic Positioning System (K936308)');
+    expect(tavac.find((item) => item.partId === 'surg5-30-patient-single-surgeon-series')!
+      .supportingPassage).toContain('30-patient trial using the Maestro robotic platform performed by Dr. Guy-Bernard Cadière');
+    expect(tavac.find((item) => item.partId === 'surg5-30-patient-single-surgeon-series')!
+      .supportingPassage).toContain('cholecystectomies, bariatric surgeries, hernia repairs, colorectal surgeries and antireflux surgeries, all without an assistant');
+    const scopilot = plan.evidence.find((item) => item.citationId === 'scopilot-clearance-2025')!;
+    expect(scopilot.supportingPassage).toContain('Enabled by NVIDIA Holoscan');
+    expect(scopilot.supportingPassage).toContain('follow a desired instrument tip seamlessly');
   });
 
   it('registers every evidence citation id and cites uncredentialed https urls', () => {
@@ -225,7 +261,7 @@ describe('surgical originals: approved deltas', () => {
   const FINAL_HASH = 'c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb';
 
   it('appends exactly 7 entries, same-same except the one combined prose move', () => {
-    expect(deltas.entries).toHaveLength(852);
+    expect(deltas.entries).toHaveLength(996); // 995 at convergence-aq close + 1 convergence-as industrial entry (2026-09-17)
     expect(surgicalDeltas.map((delta) => delta.id).sort()).toEqual(
       ['1', '2', '3', '4', '6', '7', '8'].map((row) => `sg-r${row}-20260916-1`).sort(),
     );
@@ -244,12 +280,25 @@ describe('surgical originals: approved deltas', () => {
       expect(delta.oldHash).toBe(PRE_HASH);
       expect(delta.newHash).toBe(PRE_HASH);
     }
+    // the 20260917a row-5 completion is a no-op prose record: the row changed
+    // ledger/plan evidence only, and lastReviewed deliberately did not move
+    const row5 = deltas.entries.find((delta) => delta.id === 'paywall0917a-surgical-noop')!;
+    expect(row5.memberId).toBe('article:adjacent/surgical');
+    expect(row5.oldHash).toBe(PRE_HASH);
+    expect(row5.newHash).toBe(PRE_HASH);
+    expect(row5.ownerApproval).toContain('convergence-am-preprint-equivalence-20260917a');
   });
 });
 
 describe('surgical originals: protected neighbors', () => {
-  it('keeps the held autonomous-vehicles row honestly held', () => {
-    expect(ledger).toContain('HELD 2026-09-15 (integrator, record 2 of 19)');
+  it('tracks the autonomous-vehicles row the 20260915 lane held to its 20260917a completion', () => {
+    // This lane pinned the hold when it landed (2026-09-17 paywall pass,
+    // before the convergence-aq lane ran). The hold was honestly resolved
+    // later the same day: no-hands-across-america-1995 was registered over
+    // https and the row completed, so the hold text is gone by design and
+    // the superseded cells are pinned in autonomous-vehicles-originals.
+    expect(ledger).not.toContain('HELD 2026-09-15 (integrator, record 2 of 19)');
+    expect(ledger).toContain('av-2-nhaa-tour-20260917a');
   });
 
   it('keeps the prior plan order stable in the append-only compound file', () => {
