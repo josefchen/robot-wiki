@@ -3662,6 +3662,42 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
+    // The Cosmos Predict1 platform paper: transformer diffusion and
+    // autoregressive WFMs (4B-14B), continuous/discrete video tokenizers,
+    // post-training into camera-control, instruction-following and driving
+    // variants. Abstract page verified live (HTTP 200, 2026-09-16).
+    id: 'cosmos-predict-2025',
+    title: 'Cosmos World Foundation Model Platform for Physical AI',
+    authors: ['NVIDIA'],
+    year: 2025,
+    arxiv: '2501.03575',
+    url: 'https://arxiv.org/abs/2501.03575',
+    type: 'paper',
+  },
+  {
+    // NVIDIA's own inference-performance tables for Cosmos-Predict2:
+    // required VRAM per variant (2B-Video2World 32.54 GB, 14B-Video2World
+    // 56.38 GB) and measured generation times across GPU hardware at
+    // 480p/16fps and 720p. Docs page verified live (HTTP 200, 2026-09-16).
+    id: 'cosmos-predict2-perf-2025',
+    title: 'Cosmos-Predict2 Inference Performance and GPU Memory Requirements',
+    authors: ['NVIDIA'],
+    year: 2025,
+    url: 'https://github.com/nvidia-cosmos/cosmos-predict2/blob/main/documentations/performance.md',
+    type: 'docs',
+  },
+  {
+    // NGC model card for Cosmos-1.0-Diffusion-14B-Video2World: 121-frame
+    // output at 1280x704/24fps and the offload-strategy VRAM table
+    // (14B exceeds 80 GB without offloading). Page verified live (2026-09-16).
+    id: 'cosmos-1-diffusion-14b-card-2025',
+    title: 'Cosmos-1.0-Diffusion-14B-Video2World Model Card',
+    authors: ['NVIDIA'],
+    year: 2025,
+    url: 'https://catalog.ngc.nvidia.com/orgs/nvidia/cosmos/models/cosmos-1.0-diffusion-14b-video2world',
+    type: 'docs',
+  },
+  {
     // NVIDIA newsroom launch release for Cosmos 3, registered by the
     // generative-video integrator for the launch dateline only. Fetched
     // live by the frozen packet's source session (curl GET 200, 2026-09-16,

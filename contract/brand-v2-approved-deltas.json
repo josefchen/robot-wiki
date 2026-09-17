@@ -21881,6 +21881,111 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "wm-cost-prose-20260917-1",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c2fe304dccabdd4ac69a1802b091cc3cae8c59046172026574103a0ce532c5c3",
+      "reason": "Adds the inference-economics section (WorldModelCostTable plus six paragraphs) to world-models/world-models-vs-simulators per owner request for deep world-model systems coverage; every figure is cited to vjepa2-2025, cosmos-predict-2025, cosmos-predict2-perf-2025, cosmos-1-diffusion-14b-card-2025, 3dgs-2023 or llama-3-2024.",
+      "ownerApproval": "Owner request of 2026-09-17 in the Devin session: research world-model inference economics deeply (autoregressive diffusion, latent prediction, explicit 3D, robot RL, systems architectures, robot inference) and add the side-by-side inference table to the encyclopedia.",
+      "responsibleMilestone": "world-model inference economics, 2026-09-17",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "wm-cost-rel-20260917-1",
+      "manifest": "relationships",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7b889bd353f68e0117b4999ffae8e59f4121638da6be4327a7ffb535d7da2412",
+      "reason": "The same section adds six Cite markers to the article, changing its relationships member; the citations are the newly registered Cosmos Predict sources plus existing vjepa2-2025, 3dgs-2023 and llama-3-2024.",
+      "ownerApproval": "Owner request of 2026-09-17 in the Devin session: research world-model inference economics deeply (autoregressive diffusion, latent prediction, explicit 3D, robot RL, systems architectures, robot inference) and add the side-by-side inference table to the encyclopedia.",
+      "responsibleMilestone": "world-model inference economics, 2026-09-17",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "wm-cost-frontmatter-20260917-1",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4965d12b7655dac033cd1fabcd54e26a5c2ab8990d1fe8d5e5bfdf22d0a9eddf",
+      "reason": "Frontmatter citations list extended with the six ids used by the new section; no other frontmatter field changed.",
+      "ownerApproval": "Owner request of 2026-09-17 in the Devin session: research world-model inference economics deeply (autoregressive diffusion, latent prediction, explicit 3D, robot RL, systems architectures, robot inference) and add the side-by-side inference table to the encyclopedia.",
+      "responsibleMilestone": "world-model inference economics, 2026-09-17",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "wm-cost-labelmeta-20260917-1",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5",
+      "reason": "Citation label-and-meta rendering member changed because the registry gained three new Cosmos Predict citations; rendering shape and existing labels unchanged.",
+      "ownerApproval": "Owner request of 2026-09-17 in the Devin session: research world-model inference economics deeply (autoregressive diffusion, latent prediction, explicit 3D, robot RL, systems architectures, robot inference) and add the side-by-side inference table to the encyclopedia.",
+      "responsibleMilestone": "world-model inference economics, 2026-09-17",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "wm-cost-cit-cosmos-predict-20260917-1",
+      "manifest": "article-metadata",
+      "memberId": "citation:cosmos-predict-2025",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4342a59ed2af662abb0aa6379e50b9dbcdfff3fe4102d365a137b7576f585190",
+      "reason": "New registry entry for the Cosmos Predict1 platform paper (arXiv 2501.03575), fetched live 2026-09-17 and recorded in audit/citations.md.",
+      "ownerApproval": "Owner request of 2026-09-17 in the Devin session: research world-model inference economics deeply (autoregressive diffusion, latent prediction, explicit 3D, robot RL, systems architectures, robot inference) and add the side-by-side inference table to the encyclopedia.",
+      "responsibleMilestone": "world-model inference economics, 2026-09-17",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "wm-cost-cit-cosmos-p2perf-20260917-1",
+      "manifest": "article-metadata",
+      "memberId": "citation:cosmos-predict2-perf-2025",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4647c6e35ca80eb5b7d194c527aa995d4d73049637c1de92689ec248d297a6ce",
+      "reason": "New registry entry for the Cosmos-Predict2 inference-performance documentation (VRAM and per-GPU generation-time tables), fetched live 2026-09-17 and recorded in audit/citations.md.",
+      "ownerApproval": "Owner request of 2026-09-17 in the Devin session: research world-model inference economics deeply (autoregressive diffusion, latent prediction, explicit 3D, robot RL, systems architectures, robot inference) and add the side-by-side inference table to the encyclopedia.",
+      "responsibleMilestone": "world-model inference economics, 2026-09-17",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "wm-cost-cit-cosmos-14b-20260917-1",
+      "manifest": "article-metadata",
+      "memberId": "citation:cosmos-1-diffusion-14b-card-2025",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0606d8b06a2e101c3637fbcf9686d017e61f15e663a27d712d0b022adb9efc31",
+      "reason": "New registry entry for the Cosmos-1.0-Diffusion-14B-Video2World NGC model card (121 frames at 1280x704/24fps, over 80 GB without offloading), fetched live 2026-09-17 and recorded in audit/citations.md.",
+      "ownerApproval": "Owner request of 2026-09-17 in the Devin session: research world-model inference economics deeply (autoregressive diffusion, latent prediction, explicit 3D, robot RL, systems architectures, robot inference) and add the side-by-side inference table to the encyclopedia.",
+      "responsibleMilestone": "world-model inference economics, 2026-09-17",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
