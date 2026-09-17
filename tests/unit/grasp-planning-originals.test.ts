@@ -62,7 +62,9 @@ function row(n: number): string[] {
   const dataRows = lines.filter((line) => !/^\|\s*---/.test(line) && !line.startsWith('| Claim'));
   expect(dataRows.length).toBeGreaterThanOrEqual(n);
   const cells = dataRows[n - 1].trim().slice(1, -1).split(/(?<!\\)\|/);
-  return cells.map((cell) => cell.trim());
+  // unescape escaped pipes exactly as lib/audit-ledger.ts cells() does, so
+  // digests recomputed here match the parser's four-cell tuple digests
+  return cells.map((cell) => cell.trim().replace(/\\\|/g, '|'));
 }
 
 const registeredIds = new Set(
@@ -101,6 +103,14 @@ const newDeltaIds = [
   'gp-r8-20260916-1',
   'gp-r10-20260916-1',
   'gp-r12-20260916-1',
+];
+// 20260917a paywall pass: rows 2, 4, 6, 9 bound to the retained MLS
+// authors'-PDF capture (Wayback id_, byte-stable across CDX 200 captures).
+const paywallPlanIds = [
+  'grasp-planning-2-mls-softfinger-20260917a',
+  'grasp-planning-4-mls-wrench-20260917a',
+  'grasp-planning-6-mls-force-closure-20260917a',
+  'grasp-planning-9-mls-nguyen-antipodal-20260917a',
 ];
 
 describe('grasp-planning originals: ledger rows complete', () => {
@@ -170,30 +180,55 @@ describe('grasp-planning originals: ledger rows complete', () => {
     expect(row(12)[6]).toContain('No external source is claimed for this internal behavior');
   });
 
-  it('leaves the six held rows untouched (1, 2, 3, 4, 6, 9)', () => {
+  it('keeps the source cells the 20260916 lane recorded for the two book-retry rows (1, 3)', () => {
+    // Rows 1 and 3 were authentically held at the 20260916 close; the
+    // 20260917a convergence-aq lane completed both (see the 20260917a
+    // describe below). What must survive is the source attribution the
+    // earlier lane recorded, not the incomplete shape.
     expect(row(1)[1]).toBe('murray-li-sastry-1994 ch. 5; prattichizzo-trinkle-2016');
-    expect(row(2)[1]).toBe('murray-li-sastry-1994');
     expect(row(3)[1]).toBe('cutkosky-1989 (title + canonical content)');
-    expect(row(4)[1]).toBe('murray-li-sastry-1994');
-    expect(row(6)[1]).toBe('nguyen-1988; murray-li-sastry-1994');
-    expect(row(9)[1]).toBe('nguyen-1988; murray-li-sastry-1994 Thm 5.6');
-    for (const n of [1, 2, 3, 4, 6, 9]) {
-      expect(row(n)).toHaveLength(3);
-      expect(row(n)[6]).toBeUndefined();
-      expect(row(n)[7]).toBeUndefined();
+    for (const n of [1, 3]) {
+      expect(row(n)).toHaveLength(8);
+      expect(row(n)[6].length).toBeGreaterThan(60);
     }
+  });
+
+  it('completes the four paywall rows on the retained MLS capture (2, 4, 6, 9)', () => {
+    const byRow: Readonly<Record<number, string>> = {
+      2: 'grasp-planning-2-mls-softfinger-20260917a',
+      4: 'grasp-planning-4-mls-wrench-20260917a',
+      6: 'grasp-planning-6-mls-force-closure-20260917a',
+      9: 'grasp-planning-9-mls-nguyen-antipodal-20260917a',
+    };
+    for (const [n, planId] of Object.entries(byRow)) {
+      expect(row(Number(n))[7]).toBe(planId);
+      expect(row(Number(n))[3]).toBe('');
+      expect(row(Number(n))[4]).toBe('');
+      expect(row(Number(n))[5]).toBe('');
+      // every paywall row names the byte-stable Wayback id_ capture
+      expect(row(Number(n))[1]).toContain(
+        'http://web.archive.org/web/20140610230413id_/http://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf',
+      );
+      expect(row(Number(n))[1]).toContain('sha256 c85b9e1b9465789812edb750254fc88faff2b1557763e7cf1aa1e85307fc4a02');
+    }
+    // scope disclosures stay in the notes
+    expect(row(6)[6]).toContain('SCOPE DISCLOSURE');
+    expect(row(6)[6]).toContain('frictionless point contacts');
+    expect(row(9)[2]).toContain('C (');
+    expect(row(9)[6]).toContain('Theorem 5.6');
+    expect(row(9)[6]).toContain('[82] V.-D. Nguyen');
   });
 });
 
 describe('grasp-planning originals: compound plans', () => {
   it('appends exactly five new plans and preserves the prior 713 in order', () => {
-    expect(plans).toHaveLength(718);
+    expect(plans).toHaveLength(856); // 845 at convergence-aq close + 11 convergence-as industrial plans (2026-09-17)
     expect(plans[712].id).toBe('state-estimation-17-20260916');
-    expect(plans.slice(713).map((plan) => plan.id)).toEqual(newPlanIds);
+    expect(plans.slice(713, 718).map((plan) => plan.id)).toEqual(newPlanIds);
   });
 
   it('binds every plan to the classical grasp-planning ledger with fresh digests', () => {
-    for (const plan of plans.slice(713)) {
+    for (const plan of plans.slice(713, 718)) {
       expect(plan.ledgerPath).toBe('audit/classical.md');
       expect(plan.articleSlug).toBe('grasp-planning');
       expect(plan.kind).toBe('explicit-parts');
@@ -206,7 +241,7 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('covers every required (part, citation) pair exactly with registered ids and real passages', () => {
-    for (const plan of plans.slice(713)) {
+    for (const plan of plans.slice(713, 718)) {
       const required = plan.parts.flatMap((part) =>
         part.requiredCitationIds.map((id) => JSON.stringify([part.id, id])));
       const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
@@ -221,7 +256,7 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('adjudicates every part supported with fresh evidence digests', () => {
-    for (const plan of plans.slice(713)) {
+    for (const plan of plans.slice(713, 718)) {
       expect(plan.adjudications.map((review) => review.partId).sort())
         .toEqual(plan.parts.map((part) => part.id).sort());
       for (const review of plan.adjudications) {
@@ -263,17 +298,65 @@ describe('grasp-planning originals: compound plans', () => {
     const gp5 = plans.find((entry) => entry.id === 'grasp-planning-5-gws-evidence-20260916')!;
     expect(gp5.evidence[0].supportingPassage).toContain('Grasp Wrench Space GWS');
   });
+
+  it('appends the four 20260917a paywall plans after the whole prior catalog', () => {
+    expect(plans.slice(826, 830).map((plan) => plan.id)).toEqual(paywallPlanIds);
+    for (const plan of plans.slice(826, 830)) {
+      expect(plan.ledgerPath).toBe('audit/classical.md');
+      expect(plan.articleSlug).toBe('grasp-planning');
+      expect(plan.kind).toBe('explicit-parts');
+      expect(plan.originalCellsDigest).toBe(
+        digest([row(plan.rowOrdinal)[0], row(plan.rowOrdinal)[1], row(plan.rowOrdinal)[2], row(plan.rowOrdinal)[6]]),
+      );
+      expect(plan.planReview.planDigest).toBe(planDigestOf(plan));
+      expect(plan.planReview.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+      expect(plan.planReview.rationale).toContain('6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0');
+      for (const review of plan.adjudications) {
+        expect(review.outcome).toBe('supported');
+        expect(review.evidenceDigest).toBe(partDigestOf(plan, review.partId));
+      }
+      for (const item of plan.evidence) {
+        expect(item.citationId).toBe('murray-li-sastry-1994');
+        expect(item.sourceUrl).toBe(
+          'http://web.archive.org/web/20140610230413id_/http://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf',
+        );
+      }
+    }
+  });
+
+  it('locks the needle-verified MLS passages in the paywall plans', () => {
+    const gp2 = plans.find((entry) => entry.id === 'grasp-planning-2-mls-softfinger-20260917a')!;
+    expect(gp2.evidence[0].supportingPassage).toContain(
+      'A more realistic contact model is the soft-finger contact',
+    );
+    expect(gp2.evidence[0].supportingPassage).toContain('coefficient of torsional friction');
+    const gp4 = plans.find((entry) => entry.id === 'grasp-planning-4-mls-wrench-20260917a')!;
+    expect(gp4.evidence.find((item) => item.partId === 'gp4-wrench-adjoint-stack')!
+      .supportingPassage).toContain('the torque generated by applying a force fb at a distance −pbc');
+    expect(gp4.evidence.find((item) => item.partId === 'gp4-planar-wrench-3vector')!
+      .supportingPassage).toContain('A wrench in SE(2) is represented by a linear component f ∈ R2');
+    const gp6 = plans.find((entry) => entry.id === 'grasp-planning-6-mls-force-closure-20260917a')!;
+    expect(gp6.evidence[0].supportingPassage).toContain(
+      'The convex hull of {Gi } contains a neighborhood of the origin',
+    );
+    expect(gp6.evidence[0].supportingPassage).toContain('fN ∈ int(F C)');
+    const gp9 = plans.find((entry) => entry.id === 'grasp-planning-9-mls-nguyen-antipodal-20260917a')!;
+    expect(gp9.evidence[0].supportingPassage).toContain(
+      'A planar grasp with two point contacts with friction is force-closure if and only if the line connecting the contact point lies inside both friction cones.',
+    );
+    expect(gp9.evidence[0].supportingPassage).toContain('[82] V.-D. Nguyen');
+  });
 });
 
 describe('grasp-planning originals: approved deltas', () => {
   it('appends exactly five new entries and preserves the prior 788 in order', () => {
-    expect(deltas.entries).toHaveLength(793);
+    expect(deltas.entries).toHaveLength(996); // 995 at convergence-aq close + 1 convergence-as industrial entry (2026-09-17)
     expect(deltas.entries[787].id).toBe('se-r17-20260916-1');
-    expect(deltas.entries.slice(788).map((entry) => entry.id)).toEqual(newDeltaIds);
+    expect(deltas.entries.slice(788, 793).map((entry) => entry.id)).toEqual(newDeltaIds);
   });
 
   it('records every entry against the grasp-planning prose member with pinned-baseline oldHash', () => {
-    for (const entry of deltas.entries.slice(788)) {
+    for (const entry of deltas.entries.slice(788, 793)) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:classical/grasp-planning');
       expect(entry.oldHash).toBe(PINNED_PROSE_HASH);
@@ -286,15 +369,30 @@ describe('grasp-planning originals: approved deltas', () => {
       expect(entry.reason).toContain('zero retrieval');
     }
   });
+
+  it('records the 20260917a paywall re-scope from the same pinned baseline hash', () => {
+    const entry = deltas.entries.find((e) => e.id === 'paywall0917a-grasp-prose')!;
+    expect(entry.manifest).toBe('prose');
+    expect(entry.memberId).toBe('article:classical/grasp-planning');
+    expect(entry.oldHash).toBe(PINNED_PROSE_HASH);
+    expect(entry.newHash).not.toBe(CURRENT_PROSE_HASH);
+    expect(entry.newHash.length).toBe(64);
+    expect(entry.ownerApproval).toContain('convergence-al-books-authorsites-20260917a');
+    expect(entry.reason).toContain('strictly inside both friction cones');
+  });
 });
 
 describe('grasp-planning originals: regression guards (green before and after)', () => {
-  it('keeps the article prose byte-identical (no article change in this lane)', () => {
+  it('keeps the other audited spans byte-identical and applies only the paywall re-scope', () => {
     expect(article).toContain('the wrenches along the cone edges at unit normal force');
     expect(article).toContain('Reuleaux stated it in 1875 and Somoff in 1897');
     expect(article).toContain('three contacts are necessary and sufficient in the plane and four in space');
     expect(article).toContain('per unit of normal force at the contacts');
     expect(article).toContain('The default tripod of top, right, and bottom contacts is force closure at $\\mu = 0.7$');
+    // 20260917a paywall re-scope: the theorem statement as printed, without
+    // the "strictly" the paywalled Nguyen body never showed under a fetch
+    expect(article).toContain('lies inside both friction cones <Cite id="nguyen-1988" />');
+    expect(article).not.toContain('lies strictly inside both friction cones');
   });
 
   it('keeps every bound citation id registered and in the frontmatter', () => {
@@ -312,5 +410,58 @@ describe('grasp-planning originals: regression guards (green before and after)',
       expect(registeredIds.has(id)).toBe(true);
       expect(article).toContain(`  - ${id}\n`);
     }
+  });
+});
+describe('grasp-planning originals: 20260917a book-retry rows 1 and 3', () => {
+  const PLAN_1 = 'grasp-planning-1-cone-polyhedral-20260917a';
+  const PLAN_3 = 'grasp-planning-3-cutkosky-1989-20260917a';
+
+  it('binds rows 1 and 3 to their exact plans', () => {
+    expect(row(1)[7]).toBe(PLAN_1);
+    expect(row(3)[7]).toBe(PLAN_3);
+    for (const planId of [PLAN_1, PLAN_3]) {
+      const plan = plans.find((p) => p.id === planId)!;
+      expect(plan.planReview?.reviewedBy).toContain('convergence-aq integrator');
+      expect(plan.planReview?.rationale).toContain(
+        'ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6',
+      );
+    }
+  });
+
+  it('pins row 1: cone bound and half-angle from MLS94, polyhedral approximation from the Springer chapter', () => {
+    const plan = plans.find((p) => p.id === PLAN_1)!;
+    expect(plan.kind).toBe('explicit-parts');
+    expect(plan.parts).toHaveLength(2);
+    expect(plan.adjudications.map((a) => a.outcome)).toEqual(['supported', 'supported']);
+    const mls = plan.evidence.find((e) => e.partId === 'cone-bound-and-half-angle')!;
+    expect(mls.citationId).toBe('murray-li-sastry-1994');
+    expect(mls.supportingPassage).toContain('cone centered about the surface normal');
+    expect(mls.supportingPassage).toContain('α = tan−1 µ');
+    const springer = plan.evidence.find((e) => e.partId === 'polyhedral-approximation')!;
+    expect(springer.citationId).toBe('prattichizzo-trinkle-2016');
+    expect(springer.supportingPassage).toContain('approximated as the non-negative span of a finite number');
+    expect(springer.supportingPassage).toContain('an inscribed regular polyhedral cone');
+    expect(springer.supportingPassage).toContain('Fig. 38.11 Quadratic cone approximated as a polyhedral cone with seven generators');
+    // row 1's three conjuncts are now complete (the prior 2/3 partial named the cone and half-angle)
+    expect(row(1)[0]).toBe('Coulomb friction cone norm(f^t) <= mu f^n; half-angle arctan mu; polyhedral approximation');
+  });
+
+  it('pins row 3: Cutkosky 1989 via the BDML-hosted exact paper with the Napier nuance', () => {
+    const plan = plans.find((p) => p.id === PLAN_3)!;
+    expect(plan.kind).toBe('explicit-parts');
+    expect(plan.parts).toHaveLength(3);
+    expect(plan.adjudications.map((a) => a.outcome)).toEqual(
+      plan.parts.map(() => 'supported'),
+    );
+    const identity = plan.evidence.find((e) => e.partId === 'identity-exact-paper')!;
+    expect(identity.citationId).toBe('cutkosky-1989');
+    expect(identity.supportingPassage).toContain('IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 5, NO. 3. JUNE 1989');
+    expect(identity.supportingPassage).toContain('On Grasp Choice, Gra');
+    const napier = plan.evidence.find((e) => e.partId === 'power-vs-precision')!;
+    expect(napier.supportingPassage).toContain('Napier [20] suggests a scheme in which grasps are divided into power grasps and precision grasps');
+    const tree = plan.evidence.find((e) => e.partId === 'hierarchical-tree')!;
+    expect(tree.supportingPassage).toContain('two basic categories suggested by Napier [20]');
+    // the note discloses that the power/precision dichotomy is Napier's, cited inside Cutkosky
+    expect(row(3)[6]).toContain('Napier');
   });
 });

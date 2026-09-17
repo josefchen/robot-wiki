@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6f97ef37cfe1c51cfc2b60656b5d928d393fc79c4ffeb14fc89b04e1f7805205",
+  "fingerprint": "44cb235859402282d5f7cc645b25814b64c2bf1e4b33caa6a4a3a72cf41898ec",
   "viewports": [
     "375x812",
     "1440x900"
@@ -18,7 +18,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 4147,
+      "visibleTextLength": 4259,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -69,7 +69,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15221,
+      "visibleTextLength": 15281,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -120,7 +120,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21293,
+      "visibleTextLength": 21415,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -375,7 +375,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "/images/temporal-ensembling.svg",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.",
+          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
           "declaredWidth": "640",
           "declaredHeight": "250",
           "loading": "lazy",
@@ -385,7 +385,7 @@
           "renderedWidth": 301,
           "renderedHeight": 117.58,
           "overflowPx": 0,
-          "caption": "Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk.",
+          "caption": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; divide by their sum before averaging. This emphasizes the reference convention: oldest gets the largest weight. The pinned ACT code uses m=0.01, not 0.5.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 12.95,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -5077,7 +5077,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24304,
+      "visibleTextLength": 26419,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -5170,14 +5170,14 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 12359,
+      "visibleTextLength": 22111,
       "figures": [
         {
           "imageId": "temporal-ensembling",
           "index": 0,
           "figureKind": "original-schematic",
           "src": "/images/temporal-ensembling.svg",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.",
+          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
           "declaredWidth": "640",
           "declaredHeight": "250",
           "loading": "lazy",
@@ -5187,7 +5187,7 @@
           "renderedWidth": 309,
           "renderedHeight": 120.7,
           "overflowPx": 0,
-          "caption": "Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk.",
+          "caption": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; divide by their sum before averaging. This emphasizes the reference convention: oldest gets the largest weight. The pinned ACT code uses m=0.01, not 0.5.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 12.95,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -5217,7 +5217,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 11842,
+      "visibleTextLength": 13742,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -5264,7 +5264,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 13253,
+      "visibleTextLength": 18230,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",
@@ -5315,7 +5315,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 4369,
+      "visibleTextLength": 4481,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5366,7 +5366,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 15587,
+      "visibleTextLength": 15647,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -5417,7 +5417,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21515,
+      "visibleTextLength": 21637,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5672,7 +5672,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "/images/temporal-ensembling.svg",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.",
+          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
           "declaredWidth": "640",
           "declaredHeight": "250",
           "loading": "lazy",
@@ -5682,7 +5682,7 @@
           "renderedWidth": 576,
           "renderedHeight": 225,
           "overflowPx": 0,
-          "caption": "Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk.",
+          "caption": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; divide by their sum before averaging. This emphasizes the reference convention: oldest gets the largest weight. The pinned ACT code uses m=0.01, not 0.5.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 12.95,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -10374,7 +10374,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24658,
+      "visibleTextLength": 26773,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -10467,14 +10467,14 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 12879,
+      "visibleTextLength": 22631,
       "figures": [
         {
           "imageId": "temporal-ensembling",
           "index": 0,
           "figureKind": "original-schematic",
           "src": "/images/temporal-ensembling.svg",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.",
+          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
           "declaredWidth": "640",
           "declaredHeight": "250",
           "loading": "lazy",
@@ -10484,7 +10484,7 @@
           "renderedWidth": 689,
           "renderedHeight": 269.14,
           "overflowPx": 0,
-          "caption": "Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk.",
+          "caption": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; divide by their sum before averaging. This emphasizes the reference convention: oldest gets the largest weight. The pinned ACT code uses m=0.01, not 0.5.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 12.95,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -10514,7 +10514,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 12362,
+      "visibleTextLength": 14262,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -10561,7 +10561,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 13684,
+      "visibleTextLength": 18661,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",

@@ -44,9 +44,11 @@ describe('bounded Term consumer identities', () => {
   });
   it('reconciles raw occurrences separately from article/term bindings', () => {
     const inventory = termConsumerInventory();
-    expect(inventory.filter(a => a.occurrences.length)).toHaveLength(46);
+    expect(inventory.filter(a => a.occurrences.length)).toHaveLength(47);
     // 53d2cf8 added legged-locomotion/teleoperation occurrence 1.
     // 6af0bdd removed competing-theses/imitation-learning occurrence 1.
+    // a7c35d3 added six cross-embodiment Term markers (ART-003), making
+    // every published article a raw-occurrence holder.
     // Pin ordered members, not just a total that a replacement could preserve.
     assertPopulation(identities(inventory));
     expect(inventory.reduce((n, a) => n + a.rawOpeningTags, 0)).toBe(pinned.articles.reduce((n, a) => n + a.rawOpeningTags, 0));

@@ -83,7 +83,7 @@ export default function Home() {
         aria-label="Introduction"
         data-pagefind-body
         data-brand-module-signature={SECTION_SIGNATURES.intro}
-        className={`${container} pt-8 lg:pt-10`}
+        className={`${container} pt-8`}
       >
         {/* VAL-DSHOME-009: below md the grid is an exact 80px band that
             sits immediately below the descriptor/wordmark lockup and
@@ -170,13 +170,18 @@ export default function Home() {
         </div>
         {/* Overview and CTA sit outside the sheet so the 80px band can
             close the hero exactly (the test measures the sheet bottom as
-            the grid's bottom). */}
-        <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
+            the grid's bottom). The paragraph is deliberately fused: the
+            premise grew two sentences and pushed the seventh domain row
+            below the first viewport and the featured instrument past the
+            1200px bound (VAL-DESIGN-003/004), so it states each claim
+            once in the fewest lines that keep the overview substantive
+            (VAL-DESIGN-011). */}
+        <p className="mt-4 max-w-[65ch] text-[17px] leading-relaxed text-text-dim">
           {PUBLIC_IDENTITY} is an encyclopedia of modern robotics for engineers who
-          already know machine learning. It covers learned manipulation
-          policies, sim-to-real reinforcement learning, world models,
-          teleoperation data pipelines, and the classical control stack
-          underneath them. Technical claims should be{' '}
+          already know machine learning: learned manipulation policies,
+          sim-to-real reinforcement learning, world models, teleoperation data
+          pipelines, and the classical control stack underneath. Technical claims
+          should be{' '}
           {/* The board's editorial-structure panel highlights the one phrase
               a zone is about; here that is the site's premise. <mark> is the
               non-colour carrier: the highlight is announced as marked text
@@ -188,12 +193,12 @@ export default function Home() {
           >
             traceable to cited evidence
           </mark>
-          . Sources include research papers, first-party documentation, and
-          explicitly labelled community estimates; a citation is not a guarantee
-          that a claim has been verified. The centre of gravity is robot learning,
-          and the site is not a catalogue of the industry.
+          . Sources range from research papers to first-party documentation and
+          labelled community estimates, and a citation is not a guarantee of
+          verification. The centre of gravity is robot learning, not a catalogue
+          of the industry.
         </p>
-        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
           <Action variant="primary" href="/manipulation/action-chunking">
             Start reading
           </Action>
@@ -234,7 +239,7 @@ export default function Home() {
             const isAdjacent = domain === 'adjacent';
             return (
               <li key={domain}>
-                <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
+                <div className="grid gap-0.5 py-2 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
                   <Link
                     data-brand-control-id="control:link-focus"
                     href={`/${domain}/`}

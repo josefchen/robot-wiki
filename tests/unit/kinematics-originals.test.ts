@@ -193,3 +193,106 @@ describe('kinematics originals integration (2026-09-15)', () => {
     );
   });
 });
+
+describe('kinematics originals: 20260917a paywall row 10 (iterative IK citation binding)', () => {
+  const PLAN_ID = 'kinematics-10-mr-iterative-ik-20260917a';
+  const article = readFileSync('content/classical/kinematics.mdx', 'utf8');
+  const ledger = readFileSync('audit/classical.md', 'utf8');
+  const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
+  const deltas = JSON.parse(
+    readFileSync('contract/brand-v2-approved-deltas.json', 'utf8'),
+  );
+
+  it('binds the row to the already-declared modern-robotics-2017 with an inline Cite', () => {
+    const start = ledger.indexOf('### kinematics.mdx');
+    const end = ledger.indexOf('### motion-planning.mdx', start);
+    const section = ledger.slice(start, end);
+    expect(section).toContain(`| ${PLAN_ID} |`);
+    expect(section).toContain('CITATION BINDING DECISION (2026-09-17 integrator)');
+    expect(section).toContain('no frontmatter-p1 plan exists for classical/kinematics');
+    // the span carries the Cite immediately before the delta-q display
+    expect(article).toContain(
+      'the general tool is iterative: linearize around the current configuration, take a step, repeat, <Cite id="modern-robotics-2017" />',
+    );
+    // frontmatter unchanged: modern-robotics-2017 was already declared
+    expect(article).toContain('  - modern-robotics-2017\n');
+  });
+
+  it('carries the verbatim chapter 6.2 companion transcript passages', () => {
+    const plan = plans.find((p: { id: string }) => p.id === PLAN_ID)!;
+    expect(plan.kind).toBe('explicit-parts');
+    expect(plan.evidence).toHaveLength(1);
+    const passage = plan.evidence[0].supportingPassage;
+    expect(passage).toContain('Newton-Raphson root-finding method for numerical inverse kinematics');
+    expect(passage).toContain('adding the pseudoinverse of the body Jacobian times the body twist V_b and repeat');
+    expect(plan.evidence[0].citationId).toBe('modern-robotics-2017');
+    expect(plan.evidence[0].sourceUrl).toBe(
+      'https://modernrobotics.northwestern.edu/nu-gm-book-resource/6-2-numerical-inverse-kinematics-part-2-of-2/',
+    );
+    expect(plan.planReview.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+    expect(plan.planReview.rationale).toContain('6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0');
+  });
+
+  it('records the prose and relationships deltas for the new Cite marker', () => {
+    const ids = new Set(deltas.entries.map((e: { id: string }) => e.id));
+    expect(ids.has('paywall0917a-kinematics-prose')).toBe(true);
+    expect(ids.has('paywall0917a-kinematics-relationships')).toBe(true);
+    const prose = deltas.entries.find((e: { id: string }) => e.id === 'paywall0917a-kinematics-prose')!;
+    expect(prose.oldHash).not.toBe(prose.newHash);
+    const rel = deltas.entries.find((e: { id: string }) => e.id === 'paywall0917a-kinematics-relationships')!;
+    expect(rel.memberId).toBe('article:classical/kinematics');
+  });
+});
+describe('kinematics originals: 20260917a book-retry row 5 (near-parallel DH re-scope)', () => {
+  const PLAN_ID = 'kinematics-5-mr-nearparallel-20260917a';
+  const article = readFileSync('content/classical/kinematics.mdx', 'utf8');
+  const ledger = readFileSync('audit/classical.md', 'utf8');
+  const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
+  const deltas = JSON.parse(
+    readFileSync('contract/brand-v2-approved-deltas.json', 'utf8'),
+  );
+
+  it('re-scopes the article span to the fetched ill-conditioning wording', () => {
+    expect(article).toContain(
+      "the parameters become ill-conditioned: as two consecutive joint axes drift toward parallel, the common normal they define can vary wildly with small changes in the axes' orientation",
+    );
+    expect(article).toContain(
+      'The product-of-exponentials formulation avoids that ill-conditioning',
+    );
+    // the overstated prior wording is gone
+    expect(article).not.toContain('Frame assignment is discontinuous');
+    expect(article).not.toContain('axis can flip');
+    expect(article).toContain('<Cite id="modern-robotics-2017" />');
+  });
+
+  it('binds the completed row to its plan with the author-hosted preprint identity', () => {
+    const start = ledger.indexOf('### kinematics.mdx');
+    const end = ledger.indexOf('### motion-planning.mdx', start);
+    const section = ledger.slice(start, end);
+    expect(section).toContain(`| ${PLAN_ID} |`);
+    expect(section).toContain('ill-conditioned as joint axes approach parallel');
+    expect(section).toContain('May 2017 preprint');
+    const plan = plans.find((p: { id: string }) => p.id === PLAN_ID)!;
+    expect(plan.parts).toHaveLength(3);
+    expect(plan.evidence).toHaveLength(3);
+    expect(plan.adjudications.map((a: { outcome: string }) => a.outcome)).toEqual(
+      plan.parts.map(() => 'supported'),
+    );
+    expect(plan.evidence[0].supportingPassage).toContain('ill-conditioned');
+    expect(plan.evidence[0].supportingPassage).toContain('vary wildly');
+    expect(plan.evidence[2].supportingPassage).toContain('May 2017 preprint');
+    expect(plan.planReview.reviewedBy).toContain('convergence-aq integrator');
+    expect(plan.planReview.rationale).toContain(
+      'ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6',
+    );
+  });
+
+  it('records the prose delta anchored to the pinned baseline hash', () => {
+    const delta = deltas.entries.find((e: { id: string }) => e.id === 'aq0917a-kinematics-prose')!;
+    expect(delta.memberId).toBe('article:classical/kinematics');
+    expect(delta.oldHash).toBe(
+      '2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b',
+    );
+    expect(delta.newHash).not.toBe(delta.oldHash);
+  });
+});

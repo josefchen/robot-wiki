@@ -64,6 +64,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     code: (props: ComponentPropsWithoutRef<'code'>) => (
       <code data-brand-surface-id="surface:flat" {...props} />
     ),
+    // GFM table syntax emits bare <th> cells with no scope, so a markdown
+    // table's header row associates with nothing (VAL-B2-ART-008,
+    // VAL-B2-A11Y-013). Every markdown table here is a data table whose
+    // header cells are column headers, so scope="col" is the correct
+    // default; an explicitly authored scope attribute still wins.
+    th: (props: ComponentPropsWithoutRef<'th'>) => (
+      <th scope="col" {...props} />
+    ),
     h2: ProseH2,
     h3: ProseH3,
     ...components,

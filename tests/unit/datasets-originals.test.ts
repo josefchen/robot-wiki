@@ -187,13 +187,15 @@ describe('datasets originals: ledger rows', () => {
 
 describe('datasets originals: compound plans', () => {
   it('appends exactly eleven new plans and preserves the prior 718 in order', () => {
-    expect(plans).toHaveLength(729);
+    // Total moved 729 -> 856 through later lanes (through convergence-as, 2026-09-17);
+    // this lane's eleven plans still sit at positions 718..728 with the prior 718 intact.
+    expect(plans).toHaveLength(856);
     expect(plans[717].id).toBe('grasp-planning-12-internal-local-and-20260916');
-    expect(plans.slice(718).map((plan) => plan.id)).toEqual(Object.values(planIdByRow));
+    expect(plans.slice(718, 729).map((plan) => plan.id)).toEqual(Object.values(planIdByRow));
   });
 
   it('binds every plan to the data-hardware datasets ledger with fresh digests', () => {
-    for (const plan of plans.slice(718)) {
+    for (const plan of plans.slice(718, 729)) {
       expect(plan.ledgerPath).toBe('audit/data-hardware.md');
       expect(plan.articleSlug).toBe('datasets');
       expect(plan.kind).toBe('explicit-parts');
@@ -206,7 +208,7 @@ describe('datasets originals: compound plans', () => {
   });
 
   it('covers every required (part, citation) pair exactly, with registered ids except the held deed part', () => {
-    for (const plan of plans.slice(718)) {
+    for (const plan of plans.slice(718, 729)) {
       const required = plan.parts.flatMap((part) =>
         part.requiredCitationIds.map((id) => JSON.stringify([part.id, id])));
       const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
@@ -230,7 +232,7 @@ describe('datasets originals: compound plans', () => {
       'ds6-held-38timesteps-license',
       'ds10-license-held',
     ]);
-    for (const plan of plans.slice(718)) {
+    for (const plan of plans.slice(718, 729)) {
       expect(plan.adjudications.map((review) => review.partId).sort())
         .toEqual(plan.parts.map((part) => part.id).sort());
       for (const review of plan.adjudications) {
@@ -266,13 +268,15 @@ describe('datasets originals: compound plans', () => {
 
 describe('datasets originals: approved deltas', () => {
   it('appends exactly eleven new entries and preserves the prior 793 in order', () => {
-    expect(deltas.entries).toHaveLength(804);
+    // Total moved 804 -> 996 through later lanes (through convergence-as, 2026-09-17);
+    // this lane's eleven entries still sit at positions 793..803 with the prior 793 intact.
+    expect(deltas.entries).toHaveLength(996);
     expect(deltas.entries[792].id).toBe('gp-r12-20260916-1');
-    expect(deltas.entries.slice(793).map((entry) => entry.id)).toEqual(newDeltaIds);
+    expect(deltas.entries.slice(793, 804).map((entry) => entry.id)).toEqual(newDeltaIds);
   });
 
   it('records every entry against the datasets prose member with the true before/after hashes', () => {
-    for (const entry of deltas.entries.slice(793)) {
+    for (const entry of deltas.entries.slice(793, 804)) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:data-hardware/datasets');
       expect(entry.oldHash).toBe(OLD_PROSE_HASH);

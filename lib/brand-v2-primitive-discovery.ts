@@ -95,6 +95,42 @@ export type PrimitiveDiscovery = {
   marks: MarkEvidence[];
 };
 
+/**
+ * Content inside a closed native disclosure is present in the served HTML
+ * but is not rendered: Chromium lays it out with `content-visibility`
+ * rather than `display: none`, so computed styles and stale geometry still
+ * look "visible" to a naive box test. A control the reader cannot point at
+ * is not a target, and its phantom box overlaps unrelated content (the
+ * commit-to-reveal second mounts measured their sliders against a heading
+ * 4000px away). Every ancestor disclosure is checked, because a disclosure
+ * nested inside another closed disclosure is just as unreachable; the only
+ * exception is content inside the closed disclosure's own summary, which is
+ * the part that renders.
+ *
+ * The predicate body below is duplicated verbatim inside
+ * discoverBrandPrimitives, because the primitives spec hands that function
+ * to `page.evaluate`, which serializes the function alone and cannot see
+ * module scope. The unit suite compares the two copies through the
+ * disclosure-predicate markers, so they cannot drift apart.
+ */
+export function hiddenByClosedDisclosure(element: Element): boolean {
+  /* disclosure-predicate-begin */
+  for (
+    let details = element.closest('details');
+    details !== null;
+    details = details.parentElement?.closest('details') ?? null
+  ) {
+    if ((details as HTMLDetailsElement).open) continue;
+    const summary = element.closest('summary');
+    if (summary !== null && summary.closest('details') === details) {
+      continue;
+    }
+    return true;
+  }
+  return false;
+  /* disclosure-predicate-end */
+}
+
 export function discoverBrandPrimitives(): PrimitiveDiscovery {
   const MINIMUM_TARGET_PX = 24;
   const NATIVE_CONTROL =
@@ -143,6 +179,26 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
 
   const datasetOf = (element: Element): DOMStringMap =>
     (element as HTMLElement | SVGElement).dataset;
+
+  // Verbatim copy of the exported hiddenByClosedDisclosure predicate; the
+  // disclosure-predicate markers let the unit suite prove the copies match.
+  const hiddenByClosedDisclosure = (element: Element): boolean => {
+    /* disclosure-predicate-begin */
+    for (
+      let details = element.closest('details');
+      details !== null;
+      details = details.parentElement?.closest('details') ?? null
+    ) {
+      if ((details as HTMLDetailsElement).open) continue;
+      const summary = element.closest('summary');
+      if (summary !== null && summary.closest('details') === details) {
+        continue;
+      }
+      return true;
+    }
+    return false;
+    /* disclosure-predicate-end */
+  };
 
   const transparent = (colour: string): boolean =>
     colour === 'transparent' ||
@@ -194,7 +250,7 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
       exposed:
         node.closest(
           '[aria-hidden="true"], [role="presentation"], [role="none"]',
-        ) === null,
+        ) === null && !hiddenByClosedDisclosure(node),
       nativeControl: node.matches(NATIVE_CONTROL),
       widgetRole: role !== null && WIDGET_ROLES.has(role),
       keyboardReachable:
@@ -268,7 +324,10 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
   for (const node of annotatedControls) {
     if (controlSet.has(node)) continue;
     const entry = byElement.get(node);
-    if (!entry) continue;
+    // The union exists so a stray or misspelled ID still has to reconcile.
+    // A node behind a closed disclosure renders nothing, so it is neither a
+    // stray rendered ID nor part of the population.
+    if (!entry || !entry.exposed) continue;
     controlEntries.push({ entry, origin: 'annotation' });
   }
 
@@ -493,7 +552,9 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
   for (const node of document.querySelectorAll('[data-brand-surface-id]')) {
     if (surfaceSet.has(node)) continue;
     const entry = byElement.get(node);
-    if (!entry) continue;
+    // Same rule as the control union: a surface behind a closed disclosure
+    // paints nothing and cannot be part of the rendered population.
+    if (!entry || !entry.exposed) continue;
     surfaceEntries.push({ entry, reason: 'annotated', origin: 'annotation' });
   }
 

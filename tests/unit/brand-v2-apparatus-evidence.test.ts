@@ -27,6 +27,7 @@ import {
   currentArticleFactFrontmatterMembers,
   currentRelationshipMembers,
 } from '@/lib/relationship-manifest';
+import { DEFAULT_THESIS_ID, THESES } from '@/lib/competing-theses';
 import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
 
 /**
@@ -529,6 +530,36 @@ describe('the apparatus verdict families', () => {
         ({ dynamicCitationSites }) => dynamicCitationSites,
       ).length,
     ).toBeGreaterThan(0);
+  });
+
+  it('expands one occurrence population per data source, not one per JSX spelling of the same expression', () => {
+    const graph = expectedApparatusGraph(ROOT);
+    const route = '/frontier/competing-theses/';
+    const expected = graph.get(route)!;
+    // thesis-explorer.tsx spells <CiteRef id={id}/> twice inside one
+    // .map() callback: a block-level branch for two specific source ids
+    // and the bare rendering for every other row. Both spellings draw from
+    // the same data rows, so the mount owes each default-state occurrence
+    // exactly once, not once per branch.
+    const perMount = new Map<string, number>();
+    for (const site of expected.dynamicCitationSites) {
+      perMount.set(
+        site.mountId,
+        (perMount.get(site.mountId) ?? 0) + site.occurrences.length,
+      );
+    }
+    const selected = THESES.find(({ id }) => id === DEFAULT_THESIS_ID)!;
+    const dataRows = (
+      ['evidenceFor', 'evidenceAgainst'] as const
+    ).flatMap((side) => selected[side].flatMap((row) => row.citationIds));
+    expect(dataRows.length).toBeGreaterThan(0);
+    expect(perMount.size).toBeGreaterThan(0);
+    for (const [mountId, expanded] of perMount) {
+      expect(
+        expanded,
+        `${mountId} expanded its mapped occurrences once per JSX spelling of the same expression`,
+      ).toBe(dataRows.length);
+    }
   });
 
   it('binds the References the frontmatter declares to the sealed frontmatter', () => {

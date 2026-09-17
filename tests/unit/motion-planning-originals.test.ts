@@ -11,11 +11,11 @@ import { CITATIONS } from '../../data/citations.ts';
  * definitions and the Kavraki 1996 PRM row) must bind to their compound
  * plans and parse complete (no evidence failures) with supported
  * adjudications, from the committed ledger and catalog exactly as
- * check-audit-coverage reads them. The two parent-held rows (7, the
- * kinodynamic row blocked on the lavalle-kuffner-2001 registered-URL
- * misbinding; 15, the repo-internal rrt-explorer demo-scene row under the
- * compoundPlanSchema requiredCitationIds min(1) constraint) stay unbound
- * and incomplete.
+ * check-audit-coverage reads them. Row 7 (kinodynamic) was completed by the
+ * 2026-09-17a dispatch (registry url corrected to LavKuf01b.pdf + scalar
+ * evidence; see sweeps-registry-originals.test.ts); the repo-internal
+ * rrt-explorer demo-scene row 15 (compoundPlanSchema requiredCitationIds
+ * min(1) constraint) stays unbound and incomplete.
  */
 const ROOT = join(import.meta.dirname, '../..');
 const PACKET_SHA = '9f356ad25eba709e1817aad8719a5a488220440c2d27998b062473c65156c4cf';
@@ -24,7 +24,7 @@ const EXPECTED_20260916J: Readonly<Record<number, string>> = {
   2: 'motion-planning-2-cspace-definitions-20260916j',
   4: 'motion-planning-4-prm-20260916j',
 };
-const HELD_ORDINALS = [7, 15];
+const HELD_ORDINALS = [15];
 
 const loadSection = () => {
   const markdown = readFileSync(join(ROOT, 'audit/classical.md'), 'utf8');
@@ -137,7 +137,7 @@ describe('motion-planning originals integration (2026-09-16j evidence completion
     expect(mp4book.supportingPassage).toContain('a uniform, dense sequence');
   });
 
-  it('reuses the registered citations read-only, including the untouched lavalle-kuffner-2001 entry', () => {
+  it('reuses the registered citations read-only, including the url-corrected lavalle-kuffner-2001 entry', () => {
     const registered = new Map(CITATIONS.map((c) => [c.id, c]));
     const lp = registered.get('lozano-perez-1983')!;
     expect(lp.url).toBe('https://doi.org/10.1109/TC.1983.1676196');
@@ -149,14 +149,15 @@ describe('motion-planning originals integration (2026-09-16j evidence completion
     const lavalle = registered.get('lavalle-2006')!;
     expect(lavalle.url).toBe('https://lavalle.pl/planning/');
     expect(lavalle.year).toBe(2006);
-    // The registry-correction proposal for the misbound PDF is PARENT-HELD:
-    // this lane must not modify the lavalle-kuffner-2001 registry entry.
+    // The 2026-09-17a registry correction landed in this same change: the url
+    // now binds the IJRR paper (LavKuf01b.pdf); title/authors/year/venue/type
+    // are unchanged (ah-lane 13-consumer survey, fields-only correction).
     const lk = registered.get('lavalle-kuffner-2001')!;
-    expect(lk.url).toBe('https://lavalle.pl/papers/LavKuf01.pdf');
+    expect(lk.url).toBe('https://lavalle.pl/papers/LavKuf01b.pdf');
     expect(lk.title).toBe('Randomized Kinodynamic Planning');
   });
 
-  it('keeps the two parent-held rows unbound and evidence-incomplete', () => {
+  it('keeps the remaining repo-internal held row unbound and evidence-incomplete', () => {
     const { motionPlanning } = loadSection();
     for (const ordinal of HELD_ORDINALS) {
       const record = motionPlanning.claimRecords[ordinal - 1];

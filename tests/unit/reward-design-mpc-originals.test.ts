@@ -10,7 +10,7 @@ const LEDGER = join(ROOT, 'audit', 'rl-sim2real.md');
 const PLANS = join(ROOT, 'audit', 'compound-evidence.json');
 const DELTAS = join(ROOT, 'contract', 'brand-v2-approved-deltas.json');
 
-const ROW_ORDINALS = [1, 4, 5, 11, 14, 19, 20, 21, 22, 23];
+const ROW_ORDINALS = [1, 4, 5, 11, 14, 16, 19, 20, 21, 22, 23];
 
 const PLAN_BINDINGS: Record<number, string> = {
   1: 'reward-design-mpc-original-1-20260916',
@@ -75,7 +75,7 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     expect(fm).toContain('- newton-manipulation-blog-2026');
   });
 
-  it('all ten selected rows carry complete evidence with no failures', () => {
+  it('all eleven selected rows carry complete evidence with no failures', () => {
     const rows = sectionRows();
     const ordered = rows.slice().sort((a, b) => a.line - b.line);
     for (const ordinal of ROW_ORDINALS) {
@@ -118,21 +118,49 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     }
   });
 
-  it('adds ten approved-delta entries for the applied rows', () => {
+  it('adds eleven approved-delta entries for the applied rows', () => {
     const deltas = JSON.parse(readFileSync(DELTAS, 'utf8') as unknown as string);
     const ids = new Set(deltas.entries.map((e: { id: string }) => e.id));
-    for (const ordinal of ROW_ORDINALS) {
+    // The ten 2026-09-16 packet rows carry the rdm-rN-20260916-1 family.
+    for (const ordinal of [1, 4, 5, 11, 14, 19, 20, 21, 22, 23]) {
       expect(ids.has(`rdm-r${ordinal}-20260916-1`), `delta rdm-r${ordinal}`).toBe(true);
     }
+    // 2026-09-17b rdm16 re-preparation (packet convergence-source-ak-rdm16-reprep-20260917b).
+    expect(ids.has('rdm16-r16-20260917-1')).toBe(true);
   });
 
-  it('held row 16 stays untouched with its convention verdict', () => {
+  it('row 16 applies the 2026-09-17b rdm16 rewording under the frontmatter constraint', () => {
+    const article = readFileSync(ARTICLE, 'utf8');
+    expect(article).toContain('The classical stack for legged control is a hierarchy: a footstep and contact planner');
+    expect(article).toContain('"model hierarchies commonly seen in traditional model-based MPC"');
+    expect(article).toContain('"reduced-order models and hierarchical control approaches"');
+    expect(article).toContain('<Cite id="mujoco-ilqr-2026" />');
+    expect(article).not.toContain('three layers at three rates');
+    expect(article).not.toContain('half-second to one-second horizon');
+    expect(article).not.toContain('20 to 100 Hz');
+    expect(article).not.toContain('500 to 1000 Hz');
+  });
+
+  it('row 16 completes as scalar mujoco-ilqr-2026 evidence with the frontmatter unchanged', () => {
     const ordered = sectionRows().slice().sort((a, b) => a.line - b.line);
     const row16 = ordered[15];
-    expect(row16.claim).toContain('half-second to one-second horizon');
-    expect(row16.verdict.replace(/\*/g, '')).toBe('verified-by-convention');
-    expect(row16.evidenceFailures.length).toBeGreaterThan(0);
+    expect(row16.claim).toContain('model hierarchies commonly seen in traditional model-based MPC');
+    expect(row16.claim).toContain('full-order MPC was assumed too slow to run online');
+    expect(row16.verdict.replace(/\*/g, '')).toBe('C');
+    expect(row16.citationId).toBe('mujoco-ilqr-2026');
+    expect(row16.sourceUrl).toBe('https://arxiv.org/html/2503.04613');
+    expect(row16.supportingPassage).toContain('without the model hierarchies commonly seen in traditional model-based MPC');
+    expect(row16.supportingPassage).toContain('reduced-order models and hierarchical control approaches');
+    expect(row16.evidenceFailures).toEqual([]);
     expect(row16.compound).toBeUndefined();
+    // HARD CONSTRAINT: the frontmatter citation set is unchanged (the 17 frozen ids).
+    const ids = frontmatterCitations()['reward-design-mpc'];
+    expect(ids).toHaveLength(17);
+    expect(ids).toContain('mujoco-ilqr-2026');
+    expect(ids).not.toContain('di-carlo-2018');
+    // Row 23's frozen frontmatter-p1 plan must remain complete.
+    const row23 = ordered[22];
+    expect(row23.evidenceFailures).toEqual([]);
   });
 
   it('every new plan evidence item cites a registered id with a substantive passage', () => {

@@ -59,8 +59,13 @@ export function HeadingPermalink({
         data-brand-control-id="control:secondary-action"
         // Painted at full strength rather than dimmed: a non-text graphic
         // has to clear 3:1 against the page in every state, and signal blue
-        // held at 70% opacity over paper measures 2.2:1.
-        className="ml-2 cursor-pointer text-accent transition-colors hover:text-ink"
+        // held at 70% opacity over paper measures 2.2:1. The glyph stays
+        // 15px; the hit box is a 24px square so the control meets the
+        // WCAG 2.2 target-size minimum on its own geometry instead of
+        // leaning on the SC 2.5.8 spacing exception, which fails wherever
+        // the heading's own autolink anchor or an adjacent instrument
+        // comes within 24px of the icon.
+        className="ml-2 inline-flex size-6 cursor-pointer items-center justify-center text-accent transition-colors hover:text-ink"
       >
         <LinkSimple size={15} aria-hidden />
       </button>
