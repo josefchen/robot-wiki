@@ -180,13 +180,16 @@ describe('grasp-planning originals: ledger rows complete', () => {
     expect(row(12)[6]).toContain('No external source is claimed for this internal behavior');
   });
 
-  it('leaves the two authentically held rows untouched (1, 3)', () => {
+  it('keeps the source cells the 20260916 lane recorded for the two book-retry rows (1, 3)', () => {
+    // Rows 1 and 3 were authentically held at the 20260916 close; the
+    // 20260917a convergence-aq lane completed both (see the 20260917a
+    // describe below). What must survive is the source attribution the
+    // earlier lane recorded, not the incomplete shape.
     expect(row(1)[1]).toBe('murray-li-sastry-1994 ch. 5; prattichizzo-trinkle-2016');
     expect(row(3)[1]).toBe('cutkosky-1989 (title + canonical content)');
     for (const n of [1, 3]) {
-      expect(row(n)).toHaveLength(3);
-      expect(row(n)[6]).toBeUndefined();
-      expect(row(n)[7]).toBeUndefined();
+      expect(row(n)).toHaveLength(8);
+      expect(row(n)[6].length).toBeGreaterThan(60);
     }
   });
 
@@ -219,7 +222,7 @@ describe('grasp-planning originals: ledger rows complete', () => {
 
 describe('grasp-planning originals: compound plans', () => {
   it('appends exactly five new plans and preserves the prior 713 in order', () => {
-    expect(plans).toHaveLength(836);
+    expect(plans).toHaveLength(845); // 836 at the paywall lane's close + 9 convergence-aq plans (2026-09-17)
     expect(plans[712].id).toBe('state-estimation-17-20260916');
     expect(plans.slice(713, 718).map((plan) => plan.id)).toEqual(newPlanIds);
   });
@@ -347,7 +350,7 @@ describe('grasp-planning originals: compound plans', () => {
 
 describe('grasp-planning originals: approved deltas', () => {
   it('appends exactly five new entries and preserves the prior 788 in order', () => {
-    expect(deltas.entries).toHaveLength(989);
+    expect(deltas.entries).toHaveLength(995); // 989 at the paywall lane's close + 6 convergence-aq entries (2026-09-17)
     expect(deltas.entries[787].id).toBe('se-r17-20260916-1');
     expect(deltas.entries.slice(788, 793).map((entry) => entry.id)).toEqual(newDeltaIds);
   });
@@ -407,5 +410,58 @@ describe('grasp-planning originals: regression guards (green before and after)',
       expect(registeredIds.has(id)).toBe(true);
       expect(article).toContain(`  - ${id}\n`);
     }
+  });
+});
+describe('grasp-planning originals: 20260917a book-retry rows 1 and 3', () => {
+  const PLAN_1 = 'grasp-planning-1-cone-polyhedral-20260917a';
+  const PLAN_3 = 'grasp-planning-3-cutkosky-1989-20260917a';
+
+  it('binds rows 1 and 3 to their exact plans', () => {
+    expect(row(1)[7]).toBe(PLAN_1);
+    expect(row(3)[7]).toBe(PLAN_3);
+    for (const planId of [PLAN_1, PLAN_3]) {
+      const plan = plans.find((p) => p.id === planId)!;
+      expect(plan.planReview?.reviewedBy).toContain('convergence-aq integrator');
+      expect(plan.planReview?.rationale).toContain(
+        'ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6',
+      );
+    }
+  });
+
+  it('pins row 1: cone bound and half-angle from MLS94, polyhedral approximation from the Springer chapter', () => {
+    const plan = plans.find((p) => p.id === PLAN_1)!;
+    expect(plan.kind).toBe('explicit-parts');
+    expect(plan.parts).toHaveLength(2);
+    expect(plan.adjudications.map((a) => a.outcome)).toEqual(['supported', 'supported']);
+    const mls = plan.evidence.find((e) => e.partId === 'cone-bound-and-half-angle')!;
+    expect(mls.citationId).toBe('murray-li-sastry-1994');
+    expect(mls.supportingPassage).toContain('cone centered about the surface normal');
+    expect(mls.supportingPassage).toContain('α = tan−1 µ');
+    const springer = plan.evidence.find((e) => e.partId === 'polyhedral-approximation')!;
+    expect(springer.citationId).toBe('prattichizzo-trinkle-2016');
+    expect(springer.supportingPassage).toContain('approximated as the non-negative span of a finite number');
+    expect(springer.supportingPassage).toContain('an inscribed regular polyhedral cone');
+    expect(springer.supportingPassage).toContain('Fig. 38.11 Quadratic cone approximated as a polyhedral cone with seven generators');
+    // row 1's three conjuncts are now complete (the prior 2/3 partial named the cone and half-angle)
+    expect(row(1)[0]).toBe('Coulomb friction cone norm(f^t) <= mu f^n; half-angle arctan mu; polyhedral approximation');
+  });
+
+  it('pins row 3: Cutkosky 1989 via the BDML-hosted exact paper with the Napier nuance', () => {
+    const plan = plans.find((p) => p.id === PLAN_3)!;
+    expect(plan.kind).toBe('explicit-parts');
+    expect(plan.parts).toHaveLength(3);
+    expect(plan.adjudications.map((a) => a.outcome)).toEqual(
+      plan.parts.map(() => 'supported'),
+    );
+    const identity = plan.evidence.find((e) => e.partId === 'identity-exact-paper')!;
+    expect(identity.citationId).toBe('cutkosky-1989');
+    expect(identity.supportingPassage).toContain('IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 5, NO. 3. JUNE 1989');
+    expect(identity.supportingPassage).toContain('On Grasp Choice, Gra');
+    const napier = plan.evidence.find((e) => e.partId === 'power-vs-precision')!;
+    expect(napier.supportingPassage).toContain('Napier [20] suggests a scheme in which grasps are divided into power grasps and precision grasps');
+    const tree = plan.evidence.find((e) => e.partId === 'hierarchical-tree')!;
+    expect(tree.supportingPassage).toContain('two basic categories suggested by Napier [20]');
+    // the note discloses that the power/precision dichotomy is Napier's, cited inside Cutkosky
+    expect(row(3)[6]).toContain('Napier');
   });
 });

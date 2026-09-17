@@ -8869,6 +8869,27 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html',
     type: 'press',
   },
+  {
+    // Registered 2026-09-17 by the convergence-aq integrator from the frozen
+    // AO packet (convergence-ao-av2-plus-bookretry-20260917a, binding
+    // autonomous-vehicles:2), removing the 2026-09-15 registration hold: the
+    // tour pages serve over https with no redirect (re-verified fresh by the
+    // preparer 2026-09-17; index 5,933 B, home page 1,444 B, ralph.html
+    // 20,895 B, all sha256-pinned in the lane), so the locked registry schema
+    // (https URLs and dated web.archive.org captures alone) admits the live
+    // URL and no capture identity had to be constructed. The site is the
+    // project's own CMU Robotics Institute page set (tjochem@ri.cmu.edu,
+    // pomerlea@cs.cmu.edu); the tour's steering program RALPH and its ALVINN
+    // lineage are printed there. alvinn-1988 remains the architecture
+    // citation; this entry carries the 1995 demonstration-tour record.
+    id: 'no-hands-across-america-1995',
+    title: 'No Hands Across America (Navlab 5 USA tour)',
+    authors: ['Dean Pomerleau', 'Todd Jochem'],
+    year: 1995,
+    venue: 'Carnegie Mellon University Robotics Institute (project pages)',
+    url: 'https://www.cs.cmu.edu/~tjochem/nhaa/nhaa_home_page.html',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

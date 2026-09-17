@@ -72437,6 +72437,697 @@
    "evidenceDigest": "cf8e04a350340b4b6d7baa0497da468eb4dbf75bb9293a9706aaa0bc60084018"
   }
  ]
+},
+ {
+ "id": "av-2-nhaa-tour-20260917a",
+ "ledgerPath": "audit/adjacent.md",
+ "articleSlug": "autonomous-vehicles",
+ "rowOrdinal": 2,
+ "originalCellsDigest": "6ac029b46bfdccdbf50638c501476da45bd6814a4097fa7dc963eadb4931090e",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "tour-1995-ralph-record",
+   "text": "The cross-country tour is the 1995 No Hands Across America Navlab 5 run: RALPH steered 2797 of 2849 miles (98.2%) while the two researchers handled the throttle and brake.",
+   "requiredCitationIds": [
+    "no-hands-across-america-1995"
+   ]
+  },
+  {
+   "id": "alvinn-lineage",
+   "text": "RALPH belongs to the ALVINN program family: ALVINN employs an artificial neural network to learn road characteristics and determine steering.",
+   "requiredCitationIds": [
+    "no-hands-across-america-1995"
+   ]
+  },
+  {
+   "id": "https-registration-route",
+   "text": "The tour site serves over https with no redirect, so the citation registers at the live schema-valid https URL without constructing a capture identity.",
+   "requiredCitationIds": [
+    "no-hands-across-america-1995"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the held tour row: three conjuncts (1995 RALPH-steered tour record with 98.2% autonomous miles and humans on throttle/brake; ALVINN-lineage framing of RALPH; https availability of the tour site removing the registration blocker) all evidenced from the project own CMU pages retained sha256-pinned in lane convergence-ao-av2-plus-bookretry-20260917a. Registration-first honored: no-hands-across-america-1995 verified absent, then registered in data/citations.ts and audit/citations.md in this same commit; alvinn-1988 stays the architecture citation. Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "cdc7481d54221112ed0c8e2b175dc308b0d81da994b71428e2aaa54d146e5ef0"
+ },
+ "evidence": [
+  {
+   "partId": "tour-1995-ralph-record",
+   "citationId": "no-hands-across-america-1995",
+   "sourceUrl": "https://www.cs.cmu.edu/~tjochem/nhaa/nhaa_home_page.html",
+   "supportingPassage": "No Hands Across America Home Page TRIP COMPLETE !!! 2797/2849 miles (98.2%) This is the home page for the No Hands Across America Navlab 5 USA tour. During this tour of America, which was sponsored by Delco Electronics, AssistWare Technology, and Carnegie Mellon University, two researcher from CMU's Robotics Institute \"drove\" from Pittsburgh, PA to San Diego, CA using the RALPH computer program. RALPH (Rapidly Adapting Lateral Position Handler) uses video images to determine the location of the road ahead and the appropriate steering direction to keep the vehicle on the road. (The researchers handled the throttle and brake.)"
+  },
+  {
+   "partId": "alvinn-lineage",
+   "citationId": "no-hands-across-america-1995",
+   "sourceUrl": "https://www.cs.cmu.edu/~tjochem/nhaa/ralph.html",
+   "supportingPassage": "ALVINN is a typical system of this type. ALVINN employs an artificial neural network to learn the characteristic features of particular roads under specific conditions. It utilizes this learned road model to determine how the vehicle should be steered in order to remain in its lane."
+  },
+  {
+   "partId": "https-registration-route",
+   "citationId": "no-hands-across-america-1995",
+   "sourceUrl": "https://www.cs.cmu.edu/~tjochem/nhaa/",
+   "supportingPassage": "Index of /~tjochem/nhaa Name Last modified Size Description Parent Directory - Journal.html 1995-08-18 16:56 35K apu.tiff 1995-07-26 22:30 77K assistware_logo.gif 1995-06-26 18:06 1.0K cmu_logo.gif 1995-06-26 18:11 1.9K current_location.html 1995-07-31 04:57 113"
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "tour-1995-ralph-record",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained home-page bytes (sha256 9c27fb41...): trip-complete banner with the 2797/2849 (98.2%) figure, the Pittsburgh-to-San Diego RALPH run, and the throttle/brake parenthesis all glyph-exact.",
+   "evidenceDigest": "e57df8aba8ce3cbbbe8101345574f8ee1a30a831306153eb4c81d99a9ce08c43"
+  },
+  {
+   "partId": "alvinn-lineage",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained ralph.html bytes (sha256 0b8e2eed...); the IEEE IV 1995 text on the project page supplies the lineage framing that the verdict cell compresses.",
+   "evidenceDigest": "3c9a34ea59a2de3156db881fa6757aa6ea4a75caae9132f5dc828b0b27effd4e"
+  },
+  {
+   "partId": "https-registration-route",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained index bytes (sha256 1c45224f...); the 1995 site directory itself answers 200 over https (5,933 B, final URL identical to requested), which removes the 2026-09-15 registration blocker recorded in the superseded HELD note.",
+   "evidenceDigest": "606a605d41150e5896f8bbafaa41b327b278bb2e0b3ea95fa32e456af916864f"
+  }
+ ]
+},
+ {
+ "id": "kinematics-5-mr-nearparallel-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "kinematics",
+ "rowOrdinal": 5,
+ "originalCellsDigest": "46cbdebc0cb6769aa8b0d1952a2d17e28e51b9858a25240c6b4a2d6b0b16cdfb",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "dh-near-parallel-illconditioned",
+   "text": "D-H parameters become ill-conditioned when adjacent joint axes are nearly parallel: the common normal can vary wildly with small changes in the axes' orientation.",
+   "requiredCitationIds": [
+    "modern-robotics-2017"
+   ]
+  },
+  {
+   "id": "poe-avoids-contrast",
+   "text": "The PoE formula avoids that ill-conditioning: with arbitrary base and end-effector frames it is completely defined, needing no link reference frames.",
+   "requiredCitationIds": [
+    "modern-robotics-2017"
+   ]
+  },
+  {
+   "id": "identity-bridge-preprint",
+   "text": "The fetched document is the May 2017 preprint of Modern Robotics by Lynch and Park, Cambridge University Press 2017 - the registered modern-robotics-2017 work.",
+   "requiredCitationIds": [
+    "modern-robotics-2017"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the held near-parallel row from the author-hosted May 2017 preprint of Modern Robotics (hades.mech.northwestern.edu, Lynch lab server; footer identity printed in the PDF): Appendix C.6 prints the ill-conditioned near-parallel mechanism and the PoE contrast. Article span re-scoped in this same commit to the fetched wording (approved delta); original claim cell pinned in tests/unit/kinematics-originals.test.ts. Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "f7e8cadf96a062ffc48dd47d15a983b7ee4a1855942500d33e483cff50d51c5a"
+ },
+ "evidence": [
+  {
+   "partId": "dh-near-parallel-illconditioned",
+   "citationId": "modern-robotics-2017",
+   "sourceUrl": "https://hades.mech.northwestern.edu/images/7/7f/MR.pdf",
+   "supportingPassage": "Another disadvantage of the D–H parameters is that they can become ill-conditioned. For example, when adjacent joint axes are nearly parallel, the common normal between the joint axes can vary wildly with small changes in the axes’ orientation. This ill-conditioned behavior of the D–H parameters makes their accurate measurement and identification difficult, since robots typically have manufacturing and other errors so that, e.g., a collection of joint axes may indeed deviate from being exactly parallel or from intersecting at a single common point."
+  },
+  {
+   "partId": "poe-avoids-contrast",
+   "citationId": "modern-robotics-2017",
+   "sourceUrl": "https://hades.mech.northwestern.edu/images/7/7f/MR.pdf",
+   "supportingPassage": "The requirements for identifying the D–H parameters of a robot can be contrasted with those for the PoE formula. Once a zero position for the robot has been specified, and a base frame and end-effector frame established (recall that, unlike the case with D–H parameters, the base and end-effector frames can be chosen arbitrarily with no restrictions), then the product of exponentials formula is completely defined. No link reference frames are necessary and no additional bookkeeping is needed to distinguish between revolute and prismatic joints."
+  },
+  {
+   "partId": "identity-bridge-preprint",
+   "citationId": "modern-robotics-2017",
+   "sourceUrl": "https://hades.mech.northwestern.edu/images/7/7f/MR.pdf",
+   "supportingPassage": "May 2017 preprint of Modern Robotics, Lynch and Park, Cambridge U. Press, 2017. http://modernrobotics.org"
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "dh-near-parallel-illconditioned",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained PDF text extraction (sha256 ba8b441e...); pdftotext prints the hyphenated ill-conditioned across a soft line break, hyphen restored, glyphs otherwise as extracted.",
+   "evidenceDigest": "31876c45c77be9340ef78edf43df871fb801af795c4b8a7466c595dcb1441d7e"
+  },
+  {
+   "partId": "poe-avoids-contrast",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the same retained extraction; the contrast passage is the book own statement of what the article compresses as avoids the ill-conditioning.",
+   "evidenceDigest": "9e166ed3893afcf496bb4965d80b314b1bc5ac9b496bc7f0b7f0c4ff9759bb88"
+  },
+  {
+   "partId": "identity-bridge-preprint",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Identity line printed in the PDF footer on the extraction pages; same title, authors, publisher and year as the registered entry. Author-hosted (modernrobotics.org domain family), not a third-party re-host.",
+   "evidenceDigest": "db84bb5bdc558679106f8f9e0ddc0c4154f921b4d8f5aad381b2f3f2dc686764"
+  }
+ ]
+},
+ {
+ "id": "grasp-planning-1-cone-polyhedral-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "grasp-planning",
+ "rowOrdinal": 1,
+ "originalCellsDigest": "60ebacb21d8380efb11c7f9ea817787e619c57b82b7357f7de94f99214ebd774",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "cone-bound-and-half-angle",
+   "text": "Coulomb friction cone bound sqrt(f1^2+f2^2) <= mu f3 with f3 >= 0, and half-angle alpha = arctan(mu).",
+   "requiredCitationIds": [
+    "murray-li-sastry-1994"
+   ]
+  },
+  {
+   "id": "polyhedral-approximation",
+   "text": "The quadratic friction cone is commonly approximated by a polyhedral cone: the non-negative span of a finite number of generators (Fig. 38.11: seven generators).",
+   "requiredCitationIds": [
+    "prattichizzo-trinkle-2016"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the prior 2/3 partial: cone bound and half-angle from the MLS94 authors copy (byte-stable Wayback id_ capture whose base32-SHA1 equals every CDX 200-capture digest 2010-2014), the previously unprinted polyhedral conjunct from the co-author-hosted Springer Handbook Grasping 2nd-ed chapter 38 (registered prattichizzo-trinkle-2016; edition identity via chapter number, title, authors and author hosting, no explicit 2016 copyright line in the extraction - disclosed). Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "6b56121e617a9dfda15691d96762a9b2062e402f4e457d61de25360179536aab"
+ },
+ "evidence": [
+  {
+   "partId": "cone-bound-and-half-angle",
+   "citationId": "murray-li-sastry-1994",
+   "sourceUrl": "http://web.archive.org/web/20140610230413id_/http://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf",
+   "supportingPassage": "The set of forces which can be applied at a contact must lie in a cone centered about the surface normal. This cone is called the friction cone; the angle of the cone with respect to the normal is given by α = tan−1 µ. (5.3) F Cci = {f ∈ R3 : f12 + f22 ≤ µf3, f3 ≥ 0}"
+  },
+  {
+   "partId": "polyhedral-approximation",
+   "citationId": "prattichizzo-trinkle-2016",
+   "sourceUrl": "https://www.cse.lehigh.edu/~trink/Courses/RoboticsII/reading/Grasping-Chapter38ofSpringerHanbookOfRobotics_ed2.pdf",
+   "supportingPassage": "Any of the friction cones discussed can be approximated as the non-negative span of a finite number ng of generators sij of the friction cone. If contact i is of type HF, we represent the friction cone by the non-negative sum of uniformly spaced contact force generators (Fig. 38.11) whose non-negative span approximates the Coulomb cone with an inscribed regular polyhedral cone. Fig. 38.11 Quadratic cone approximated as a polyhedral cone with seven generators"
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "cone-bound-and-half-angle",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained MLS94 text extraction (sha256 c85b9e1b...); eq. (5.3) glyphs as extracted (square-root bar flattened, superscripts inline), disclosed.",
+   "evidenceDigest": "f21817e6509ffaefbed006236d020c4f59e11f7cce09a906241532f664e8350e"
+  },
+  {
+   "partId": "polyhedral-approximation",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained chapter text extraction (sha256 eb5e48e9...); header prints 38. Grasping / Domenico Prattichizzo, Jeffrey C. Trinkle; co-author Trinkle own Lehigh course hosting. Springer extraction ligature glyphs normalized, disclosed.",
+   "evidenceDigest": "bd3d3faedac768a83e337b26c38499fc1e19d955214f4e2a98064ed54029dfb3"
+  }
+ ]
+},
+ {
+ "id": "grasp-planning-3-cutkosky-1989-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "grasp-planning",
+ "rowOrdinal": 3,
+ "originalCellsDigest": "04e64e26083de4980cbb5222ca854f628a7bc33726a6647d51b87c1ff3df74dd",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "identity-exact-paper",
+   "text": "The fetched document is the exact registered paper: IEEE Transactions on Robotics and Automation, Vol. 5, No. 3, June 1989, p. 269, Mark R. Cutkosky.",
+   "requiredCitationIds": [
+    "cutkosky-1989"
+   ]
+  },
+  {
+   "id": "power-vs-precision",
+   "text": "Grasps divide into power grasps (large contact areas, stability and security, little or no ability to impart motions) and precision grasps (held with the tips of the fingers and thumb, sensitivity and dexterity).",
+   "requiredCitationIds": [
+    "cutkosky-1989"
+   ]
+  },
+  {
+   "id": "hierarchical-tree",
+   "text": "The taxonomy is a hierarchical tree of grasps built on the two basic categories.",
+   "requiredCitationIds": [
+    "cutkosky-1989"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the Cutkosky row from the exact registered IEEE TRA 5(3):269 June 1989 paper hosted on Cutkosky own Stanford BDML twiki: identity title block, the power/precision division with both defining passages, and the hierarchical-tree sentence. Napier [20] attribution nuance recorded in the row note. Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "66012bd10815a546655db66a00777b7708949ad0ca191efac0a0bedc399bb058"
+ },
+ "evidence": [
+  {
+   "partId": "identity-exact-paper",
+   "citationId": "cutkosky-1989",
+   "sourceUrl": "https://bdml.stanford.edu/twiki/pub/Seabed/LiteratureReview/Cutkosky_-_1989_-_On_Grasp_Choice_Grasp_Models_and_the_Design_of_Hands_for_Manufacturing_Tasks.pdf",
+   "supportingPassage": "IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 5, NO. 3. JUNE 1989 269 On Grasp Choice, Grasp Models, and the Design of Hands for Manufacturing Tasks MARK R. CUTKOSKY"
+  },
+  {
+   "partId": "power-vs-precision",
+   "citationId": "cutkosky-1989",
+   "sourceUrl": "https://bdml.stanford.edu/twiki/pub/Seabed/LiteratureReview/Cutkosky_-_1989_-_On_Grasp_Choice_Grasp_Models_and_the_Design_of_Hands_for_Manufacturing_Tasks.pdf",
+   "supportingPassage": "Napier [20] suggests a scheme in which grasps are divided into power grasps and precision grasps. Where considerations of stability and security predominate (as in holding a hammer or getting a jar lid unstuck) a power grasp is chosen. Power grasps are distinguished by large areas of contact between the grasped object and the surfaces of the fingers and palm and by little or no ability to impart motions with the fingers. Where considerations of sensitivity and dexterity predominate a precision grasp is chosen. In precision grasps, the object is held with the tips of the fingers and thumb."
+  },
+  {
+   "partId": "hierarchical-tree",
+   "citationId": "cutkosky-1989",
+   "sourceUrl": "https://bdml.stanford.edu/twiki/pub/Seabed/LiteratureReview/Cutkosky_-_1989_-_On_Grasp_Choice_Grasp_Models_and_the_Design_of_Hands_for_Manufacturing_Tasks.pdf",
+   "supportingPassage": "In the following section we begin with the two basic categories suggested by Napier [20] and develop a hierarchical tree of grasps."
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "identity-exact-paper",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained BDML PDF text extraction (sha256 0d6dbc63...); matches registered cutkosky-1989 (DOI 10.1109/70.34763) bibliographic identity.",
+   "evidenceDigest": "01f2fff9d619d278d63eae61ca588cd27f07dc5858bdd1f6409b42a1df2efd93"
+  },
+  {
+   "partId": "power-vs-precision",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction; both defining passages glyph-exact. The paper credits Napier [20] for the division; the row note records that attribution nuance.",
+   "evidenceDigest": "3b69bb28d87db6be537df37851f76a91b67fdc76c0ba6be46e7089f838fd3a67"
+  },
+  {
+   "partId": "hierarchical-tree",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction; this is the paper own statement of the tree the article calls Cutkosky taxonomy.",
+   "evidenceDigest": "c3adf80832323c8138c0e42eedd4a6a1bcc660f689a908f39f18952818db4a77"
+  }
+ ]
+},
+ {
+ "id": "state-estimation-1-bayes-draft-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "state-estimation",
+ "rowOrdinal": 1,
+ "originalCellsDigest": "34ae425a43d9ac5c77acace573af9848c2bdce617cd2955c9b421da42573d33b",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "draft-identity",
+   "text": "The fetched document is an EARLY DRAFT (1999-2000) of Probabilistic Robotics by Thrun, Burgard and Fox - the registered thrun-2005 work, chapter structure matching the published book.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "predict-control-update",
+   "text": "Predict: the belief is the integral (sum) of the product of the transition probability and the prior - the control update, or prediction.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "measurement-update-eta",
+   "text": "Update: multiply by the sensor model and normalize via the constant eta.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "recursion",
+   "text": "The Bayes filter is recursive: the belief at time t is calculated from the belief at time t-1.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the Bayes-filter row via the UFPR-hosted EARLY DRAFT (1999-2000) of Probabilistic Robotics with the draft-status disclosure in the identity part: chapter structure matches the published book; the displayed predict/update recursions are stated in the draft prose (Table 2.1 equation glyphs mangle in pdftotext, so the binding is to the prose); R/Q letter-swap caveat recorded in the row note. Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "fff3243ffa31f6fc60508552a0a6325fa62cd14f176568f3d72ccf8d6c5b333f"
+ },
+ "evidence": [
+  {
+   "partId": "draft-identity",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "PROBABILISTIC ROBOTICS Sebastian THRUN Stanford University Wolfram BURGARD University of Freiburg Dieter FOX University of Washington EARLY DRAFT—NOT FOR DISTRIBUTION c Sebastian Thrun, Dieter Fox, Wolfram Burgard, 1999-2000"
+  },
+  {
+   "partId": "predict-control-update",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "the belief bel(xt ) that the robot assigns to state xt is obtained by the integral (sum) of the product of two distributions: the prior assigned to xt−1 , and the probability that control ut induces a transition from xt−1 to xt . ... this update step is called the control update, or prediction."
+  },
+  {
+   "partId": "measurement-update-eta",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "The second step of the Bayes filter is called the measurement update. In Line 4, the Bayes filter algorithm multiplies the belief bel(xt ) by the probability that the measurement zt may have been observed. ... the resulting product is generally not a probability, that is, it may not integrate to 1. Hence, the result is normalized, by virtue of the normalization constant η."
+  },
+  {
+   "partId": "recursion",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "The Bayes filter is recursive; the belief at time t is calculated from the belief at time t − 1."
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "draft-identity",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained title-page extraction (sha256 da70a013...); draft status printed on the page itself; public university host, no credentials.",
+   "evidenceDigest": "8a6c1df9c71acc9a8d9fbdbd1d86641ba10019c5175b3bb66f1723ff1b835e44"
+  },
+  {
+   "partId": "predict-control-update",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction; elisions only remove sentences between the quoted spans.",
+   "evidenceDigest": "3c81b5eaf5a78760f9b7ec1430364e5f565c122925a8e2d5f15ec67ccef1f5dd"
+  },
+  {
+   "partId": "measurement-update-eta",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction; the eta-normalization sentence is the draft own statement of the displayed update equation.",
+   "evidenceDigest": "244046a98973c86faa40f251e90aa3b389e0785bb594f7dc8ad30b3c5e0ac550"
+  },
+  {
+   "partId": "recursion",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction.",
+   "evidenceDigest": "64650af4f705acfc2a78294628a143f7a498ee1f918bd65dd28f70e35c6242d6"
+  }
+ ]
+},
+ {
+ "id": "state-estimation-2-kf-table31-kalman1960-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "state-estimation",
+ "rowOrdinal": 2,
+ "originalCellsDigest": "d1db3d9a2d118602c18be9fd9e5d4bbee0fc902312b510d193b105ba48ab06e9",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "linear-gaussian-table31",
+   "text": "The displayed predict/update equations are the linear-Gaussian Kalman filter algorithm: mu-bar = A mu + B u; Sigma-bar = A Sigma A^T + R; K = Sigma-bar C^T (C Sigma-bar C^T + Q)^-1; mu = mu-bar + K (z - C mu-bar); Sigma = (I - K C) Sigma-bar.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "gain-semantics",
+   "text": "The Kalman gain specifies the degree to which the measurement is incorporated into the new state estimate.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "origin-1960",
+   "text": "Kalman 1960: a nonlinear difference (or differential) equation is derived for the covariance matrix of the optimal estimation error; the optimal linear filter coefficients follow from its solution without further calculations.",
+   "requiredCitationIds": [
+    "kalman-1960-filter"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the two-source KF row: the displayed matrix recursion and gain semantics bind to thrun-2005 ch. 3 via the UFPR-hosted EARLY DRAFT Table 3.1 (draft-status and R/Q letter-swap caveats recorded in the row note); the 1960 origin binds to the Kalman body via the Rutgers-hosted Lukesh re-transcription (re-transcription, not the typeset scan; 1960 notation differs from the displayed modern form - disclosed). Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "2dadac6a54041933006f8c14b3af5aeaa464f938a905e57705af78f6ca80c357"
+ },
+ "evidence": [
+  {
+   "partId": "linear-gaussian-table31",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "Algorithm Kalman filter(µt−1 , Σt−1 , ut , zt ): µ̄t = At µt−1 + Bt ut Σ̄t = At Σt−1 ATt + Rt Kt = Σ̄t CtT (Ct Σ̄t CtT + Qt )−1 µt = µ̄t + Kt (zt − Ct µ̄t ) Σt = (I − Kt Ct ) Σ̄t return µt , Σt Table 3.1 The Kalman filter algorithm for linear Gaussian state transitions and measurements."
+  },
+  {
+   "partId": "gain-semantics",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "The variable Kt , computed in Line 4 is called Kalman gain. It specifies the degree to which the measurement is incorporated into the new state estimate."
+  },
+  {
+   "partId": "origin-1960",
+   "citationId": "kalman-1960-filter",
+   "sourceUrl": "http://eceweb1.rutgers.edu/~gajic/pdffiles/519KalmanFiltering/kalman1960.pdf",
+   "supportingPassage": "R. E. KALMAN Research Institute for Advanced Study, Baltimore, Md. A New Approach to Linear Filtering and Prediction Problems ... Transactions of the ASME–Journal of Basic Engineering, 82 (Series D): 35-45. Copyright © 1960 by ASME. A nonlinear difference (or differential) equation is derived for the covariance matrix of the optimal estimation error. From the solution of this equation the coefficients of the difference (or differential) equation of the optimal linear filter are obtained without further calculations."
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "linear-gaussian-table31",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction (Table 3.1, flattened from the two-column algorithm layout); the draft prints Rt in the covariance update and Qt in the gain denominator - the published-book letter swap the row note discloses.",
+   "evidenceDigest": "6d405334862d5c3e04fe7f458d1078924230cab09ab8801b312dd7c260025684"
+  },
+  {
+   "partId": "gain-semantics",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction.",
+   "evidenceDigest": "a9c564e8d654dad4aa448cb3e6265f7c1726759a4c3b959aeae6149450ea01c2"
+  },
+  {
+   "partId": "origin-1960",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained Rutgers extraction (sha256 c8270bec...): Lukesh re-transcription identity block plus the abstract sentences; 1960 notation differs from the displayed modern form, which binds to thrun-2005.",
+   "evidenceDigest": "7c700128c7c6b2d000d2c078064f39f3942158fac36d4e41b5320b1466817d82"
+  }
+ ]
+},
+ {
+ "id": "state-estimation-3-kalman-projection-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "state-estimation",
+ "rowOrdinal": 3,
+ "originalCellsDigest": "be620d4e2ee8e8ba547e08377b8496470ce5643c1f33d97052f802a0bbde6d93",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "quadratic-loss-gaussian",
+   "text": "Minimum-variance under Gaussian assumptions: with quadratic loss the conditional expectation is optimal without distribution assumptions (Theorem 1-a), and Gaussian processes satisfy the general theorem automatically (Corollary).",
+   "requiredCitationIds": [
+    "kalman-1960-filter"
+   ]
+  },
+  {
+   "id": "projection-best-linear",
+   "text": "Best linear estimator under merely white noise: the estimate is the orthogonal projection - the linear function of the observations that minimizes the quadratic loss.",
+   "requiredCitationIds": [
+    "kalman-1960-filter"
+   ]
+  },
+  {
+   "id": "second-order-white-noise",
+   "text": "The linear theory needs only first and second order averages; arbitrary random signals are represented up to second order as linear-system output driven by independent or uncorrelated (white) noise.",
+   "requiredCitationIds": [
+    "kalman-1960-filter"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the minimum-variance/best-linear row from the 1960 body via the Rutgers-hosted Lukesh re-transcription: minimum-variance as quadratic-loss (L = eps^2) optimality with the Gaussian corollary, best-linear as the projection characterization, and the second-order/white-noise basis. Re-transcription disclosure carried in the row note. Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "92caa33bec5b4d384bab6d79516e6fcb24a263da29772878aef3ae1791890f9c"
+ },
+ "evidence": [
+  {
+   "partId": "quadratic-loss-gaussian",
+   "citationId": "kalman-1960-filter",
+   "sourceUrl": "http://eceweb1.rutgers.edu/~gajic/pdffiles/519KalmanFiltering/kalman1960.pdf",
+   "supportingPassage": "Then the random variable x1*(t1|t) which minimizes the average loss (3) is the conditional expectation x1*(t1|t) = E[x1(t1)|y(t0), …, y(t)] ... Corollary. If the random processes {x1(t)}, {x2(t)}, and {y(t)} are gaussian, Theorem 1 holds. ... Theorem l-a. If L(ε) = ε2, then Theorem 1 is true without assumptions (A) and (B)."
+  },
+  {
+   "partId": "projection-best-linear",
+   "citationId": "kalman-1960-filter",
+   "sourceUrl": "http://eceweb1.rutgers.edu/~gajic/pdffiles/519KalmanFiltering/kalman1960.pdf",
+   "supportingPassage": "We call x the orthogonal projection of x on Y(t). There is another way in which the orthogonal projection can be characterized: x is that vector in Y(t) (i.e., that linear function of the random variables y(t0), ..., y(t)) which minimizes the quadratic loss function."
+  },
+  {
+   "partId": "second-order-white-noise",
+   "citationId": "kalman-1960-filter",
+   "sourceUrl": "http://eceweb1.rutgers.edu/~gajic/pdffiles/519KalmanFiltering/kalman1960.pdf",
+   "supportingPassage": "It is seen that all statistical calculations and results are based on first and second order averages; no other statistical data are needed. ... arbitrary random signals are represented (up to second order average statistical properties) as the output of a linear dynamic system excited by independent or uncorrelated random signals (“white noise”)."
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "quadratic-loss-gaussian",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction (Theorem 1 through Theorem 1-a); minimum-variance binds as quadratic-loss optimality per the row scope note.",
+   "evidenceDigest": "56ec1b3670074d6f43ef6b31ecc332bd53641354b751ee1d3a5ce91c7d72f870"
+  },
+  {
+   "partId": "projection-best-linear",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction.",
+   "evidenceDigest": "5822e830ee2332ea3c79d74e0ebb3dd80ae0b224fe154aa3321a444a27534bbf"
+  },
+  {
+   "partId": "second-order-white-noise",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction; this is the printed basis for under merely white noise without a Gaussian assumption.",
+   "evidenceDigest": "224d84e209c37120552612dcc53e5ebbdeab2b1a2c5553130d58601c38b4f86a"
+  }
+ ]
+},
+ {
+ "id": "state-estimation-6-ekf-jacobians-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "state-estimation",
+ "rowOrdinal": 6,
+ "originalCellsDigest": "b0516823383499b40298e0d6d1e0545c1e7c5320c2d6cd0de4cad14549911b1f",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "process-jacobian-G",
+   "text": "The process model is linearized as g(ut, xt-1) approx g(ut, mu-t-1) + Gt (xt-1 - mu-t-1); Gt is the Jacobian.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "measurement-jacobian-H",
+   "text": "The measurement model is linearized the same way: h(xt) approx h(mu-bar-t) + Ht (xt - mu-bar-t) (3.52).",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "ekf-vs-kf-and-covariance",
+   "text": "EKFs use the Jacobians Gt and Ht instead of the linear system matrices At, Bt, Ct, with covariance recursion Sigma-bar-t = Gt Sigma-t-1 Gt^T + (process noise).",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the EKF-Jacobian row from the UFPR-hosted EARLY DRAFT sec. 3.3: process and measurement Taylor linearizations defining Gt and Ht, the EKF-vs-KF matrix substitution sentence, and the covariance recursion. Draft-status and R/Q letter-swap caveats in the row note. Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "4dd7b3d6e48ed5d75ed0e66330c2d5b74e4fcb19b0a3f5b2460282a93df337ca"
+ },
+ "evidence": [
+  {
+   "partId": "process-jacobian-G",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "g(ut , xt−1 ) ≈ g(ut , µt−1 ) + Gt (xt−1 − µt−1 ) ... This matrix is often called the Jacobian."
+  },
+  {
+   "partId": "measurement-jacobian-H",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "EKFs implement the exact same linearization for the measurement function h. Here the Taylor expansion is developed around µ̄t , the state deemed most likely by the robot at the time it linearizes h: h(xt ) ≈ h(µ̄t ) + Ht (xt − µ̄t ) (3.52)"
+  },
+  {
+   "partId": "ekf-vs-kf-and-covariance",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "EKFs use Jacobians Gt and Ht instead of the corresponding linear system matrices At , Bt , and Ct in Kalman filters. The Jacobian Gt corresponds to the matrices At and Bt , and the Jacobian Ht corresponds to Ct . ... Σ̄t = Gt Σt−1 GTt + Rt"
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "process-jacobian-G",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction (eq. 3.50 context and the Jacobian naming sentence).",
+   "evidenceDigest": "ae85d59503d86d9051aeec8eedd396ed4fd761c8a2c597fbb3dd4e6412c22b88"
+  },
+  {
+   "partId": "measurement-jacobian-H",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction (eq. 3.52 with the Ht definition flattened from the under-brace layout).",
+   "evidenceDigest": "6d85baa0b8ea67bbb6f216cbd2399d30e8821fef75eba6a7ab79cc10e29efa61"
+  },
+  {
+   "partId": "ekf-vs-kf-and-covariance",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction; the draft prints Rt where the published book and article span write Qt - the disclosed letter swap, structure identical.",
+   "evidenceDigest": "08c0cce2c35982801bdc526351701e979d538395a0ced68c4483c4d15294850d"
+  }
+ ]
+},
+ {
+ "id": "state-estimation-7-ekf-failure-mechanism-20260917a",
+ "ledgerPath": "audit/classical.md",
+ "articleSlug": "state-estimation",
+ "rowOrdinal": 7,
+ "originalCellsDigest": "f4d14e0a805e9f94c6d90ab7bca5dcefe40dc98bb58b160ac4678f124e1445fa",
+ "kind": "explicit-parts",
+ "parts": [
+  {
+   "id": "nonlinearity-distorts-belief",
+   "text": "A Gaussian pushed through a strongly nonlinear function is typically non-Gaussian: nonlinearities in g distort the belief and destroy its Gaussian shape.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  },
+  {
+   "id": "tangent-linearization",
+   "text": "Linearization keeps a Gaussian posterior by replacing g with the linear function tangent to g at the mean - the approximation whose validity the failure mode is about.",
+   "requiredCitationIds": [
+    "thrun-2005"
+   ]
+  }
+ ],
+ "planReview": {
+  "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+  "rationale": "Complete the EKF failure-mode row on the printed mechanism with the packet APPLICATION CONDITION honored and disclosed: the draft prints the belief-distortion and tangent-linearization passages but no dedicated failure-mode/divergence sentence; the article compression (propagated Sigma stops describing the true error) follows from those two printed facts. Frozen AO packet convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6.",
+  "planDigest": "acbce52cdbfe044908e43d58eb0bd8879f80f2442f527dfaa16a770217308673"
+ },
+ "evidence": [
+  {
+   "partId": "nonlinearity-distorts-belief",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "A Gaussian projected through this function is typically non-Gaussian. This is because nonlinearities in g distort the belief in ways that destroys its nice Gaussian shape, as illustrated in the figure."
+  },
+  {
+   "partId": "tangent-linearization",
+   "citationId": "thrun-2005",
+   "sourceUrl": "https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf",
+   "supportingPassage": "Linearization approximates g by a linear function that is tangent to g at the mean of the Gaussian. By projecting the Gaussian through this linear approximation, the posterior is Gaussian."
+  }
+ ],
+ "adjudications": [
+  {
+   "partId": "nonlinearity-distorts-belief",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction (sec. 3.3.1).",
+   "evidenceDigest": "9675b72aa1915b1b384b43fca56e2f2cad0f7ab738827020321cf8f1670485cf"
+  },
+  {
+   "partId": "tangent-linearization",
+   "outcome": "supported",
+   "reviewedBy": "convergence-aq integrator (custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2 at max; dispatch mis_2b1673fa, parent fd137388) 2026-09-17; not independent acceptance",
+   "rationale": "Needle-verified against the retained extraction; together the two passages print the mechanism the article compresses as the covariance and the actual error part ways, with the compression disclosed in the row note.",
+   "evidenceDigest": "122964fe1a8b28e3a6bfb1636d360db84f8d6b6845b81e9386436431375ad744"
+  }
+ ]
 }
 
 ]

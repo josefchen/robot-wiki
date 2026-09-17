@@ -13,8 +13,8 @@ type PlanRecord = {
   id: string;
   rowOrdinal: number;
   parts: Array<{ id: string }>;
-  evidence: Array<{ citationId: string; sourceUrl: string; supportingPassage: string }>;
-  planReview?: { reviewedBy: string; planDigest: string };
+  evidence: Array<{ partId: string; citationId: string; sourceUrl: string; supportingPassage: string }>;
+  planReview?: { reviewedBy: string; planDigest: string; rationale?: string };
   adjudications: Array<{ partId: string; outcome: string; evidenceDigest: string }>;
 };
 const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')) as unknown as PlanRecord[];
@@ -144,11 +144,17 @@ describe('state-estimation originals: ledger evidence completion', () => {
     }
   });
 
-  it('leaves the five held rows (1, 2, 3, 6, 7) untouched and incomplete', () => {
+  it('keeps the five book-retry rows as compound rows, now bound to 20260917a plans', () => {
+    // Rows 1, 2, 3, 6, 7 were authentically held at this lane's close; the
+    // 20260917a convergence-aq lane completed them (see the 20260917a
+    // describe below). The compound-row discipline survives: scalar
+    // evidence cells stay empty and evidence lives in the bound plan.
     for (const n of [1, 2, 3, 6, 7]) {
       const cells = row(n);
       expect(cells[3] ?? '').toBe('');
-      expect(cells[7] ?? '').toBe('');
+      expect(cells[4] ?? '').toBe('');
+      expect(cells[5] ?? '').toBe('');
+      expect(cells[7]).toBe(`state-estimation-${n}-` + ({ 1: 'bayes-draft', 2: 'kf-table31-kalman1960', 3: 'kalman-projection', 6: 'ekf-jacobians', 7: 'ekf-failure-mechanism' } as const)[n as 1 | 2 | 3 | 6 | 7] + '-20260917a');
     }
     expect(row(1)[1]).toContain('thrun-2005');
     expect(row(3)[1]).toContain('kalman-1960-filter');
@@ -156,10 +162,11 @@ describe('state-estimation originals: ledger evidence completion', () => {
 });
 
 describe('state-estimation originals: compound plans and approved deltas', () => {
-  const lanePlans = plans.filter((plan) => plan.id.startsWith('state-estimation-'));
+  // This lane's own plans; the 20260917a convergence-aq completions are pinned separately below.
+  const lanePlans = plans.filter((plan) => /^state-estimation-\d+-20260916$/.test(plan.id));
 
   it('adds exactly seven reviewed, fully adjudicated plans', () => {
-    expect(plans).toHaveLength(718); // 713 at this lane's close + 5 grasp-planning plans (2026-09-16)
+    expect(plans).toHaveLength(845); // 718 at the 20260916 close + 118 later-lane plans + 9 convergence-aq plans (2026-09-17)
     expect(lanePlans.map((plan) => plan.rowOrdinal).sort((a, b) => a - b)).toEqual([
       8, 9, 10, 12, 14, 15, 17,
     ]);
@@ -181,11 +188,11 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
 
   it('keeps every prior plan object and its order intact', () => {
     expect(plans[705].id).toBe('reward-design-mpc-original-23-20260916');
-    expect(new Set(plans.map((plan) => plan.id)).size).toBe(718);
+    expect(new Set(plans.map((plan) => plan.id)).size).toBe(845);
   });
 
   it('adds exactly seven approved-delta entries for this lane', () => {
-    expect(deltas.entries).toHaveLength(793); // 788 at this lane's close + 5 grasp-planning entries (2026-09-16)
+    expect(deltas.entries).toHaveLength(995); // 788 at the 20260916 close + later-lane entries through 989 + 6 convergence-aq entries (2026-09-17)
     const lane = deltas.entries.filter((entry) =>
       /^se-r(8|9|10|12|14|15|17)-20260916-1$/.test(entry.id),
     );
@@ -198,5 +205,83 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
       expect(entry.responsibleMilestone).toBe('brand-v2-editorial');
       expect(entry.affectedAssertions).toContain('VAL-AUDIT-009');
     }
+  });
+});
+describe('state-estimation originals: 20260917a book-retry rows 1, 2, 3, 6, 7', () => {
+  const BINDINGS: Readonly<Record<number, string>> = {
+    1: 'state-estimation-1-bayes-draft-20260917a',
+    2: 'state-estimation-2-kf-table31-kalman1960-20260917a',
+    3: 'state-estimation-3-kalman-projection-20260917a',
+    6: 'state-estimation-6-ekf-jacobians-20260917a',
+    7: 'state-estimation-7-ekf-failure-mechanism-20260917a',
+  };
+
+  it('binds each completed row to its exact plan with supported adjudications', () => {
+    for (const [ordinal, planId] of Object.entries(BINDINGS)) {
+      expect(row(Number(ordinal))[7]).toBe(planId);
+      const plan = plans.find((p) => p.id === planId)!;
+      expect(plan.planReview?.reviewedBy).toContain('convergence-aq integrator');
+      expect(plan.planReview?.rationale).toContain(
+        'ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6',
+      );
+      expect(plan.adjudications.map((a) => a.outcome)).toEqual(
+        plan.parts.map(() => 'supported'),
+      );
+    }
+  });
+
+  it('pins row 1: Bayes filter recursions from the disclosed EARLY DRAFT of Probabilistic Robotics', () => {
+    const plan = plans.find((p) => p.id === BINDINGS[1])!;
+    expect(plan.evidence).toHaveLength(4);
+    expect(plan.evidence.find((e) => e.partId === 'predict-control-update')!.supportingPassage)
+      .toContain('the belief bel(xt ) that the robot assigns to state xt is obtained by the integral (sum)');
+    expect(plan.evidence.find((e) => e.partId === 'measurement-update-eta')!.supportingPassage)
+      .toContain('The second step of the Bayes filter is called the measurement update');
+    expect(plan.evidence.find((e) => e.partId === 'recursion')!.supportingPassage)
+      .toContain('The Bayes filter is recursive');
+    expect(plan.evidence.find((e) => e.partId === 'draft-identity')!.supportingPassage)
+      .toContain('PROBABILISTIC ROBOTICS');
+    // the row note carries the draft-status disclosure
+    expect(row(1)[6]).toContain('EARLY DRAFT');
+  });
+
+  it('pins row 2: Table 3.1 recursions from the draft, gain semantics, and the 1960 origin from the Rutgers re-transcription', () => {
+    const plan = plans.find((p) => p.id === BINDINGS[2])!;
+    expect(plan.evidence).toHaveLength(3);
+    expect(plan.evidence.find((e) => e.partId === 'linear-gaussian-table31')!.supportingPassage)
+      .toContain('Algorithm Kalman filter(');
+    expect(plan.evidence.find((e) => e.partId === 'gain-semantics')!.supportingPassage)
+      .toContain('computed in Line 4 is called Kalman gain');
+    const origin = plan.evidence.find((e) => e.partId === 'origin-1960')!;
+    expect(origin.citationId).toBe('kalman-1960-filter');
+    expect(origin.supportingPassage).toContain('Research Institute for Advanced Study');
+    expect(row(2)[6]).toContain('re-transcription');
+  });
+
+  it('pins row 3: Kalman 1960 minimum-variance and projection results', () => {
+    const plan = plans.find((p) => p.id === BINDINGS[3])!;
+    expect(plan.evidence).toHaveLength(3);
+    expect(plan.evidence.find((e) => e.partId === 'quadratic-loss-gaussian')!.supportingPassage)
+      .toContain('minimizes the average loss');
+    expect(plan.evidence.find((e) => e.partId === 'projection-best-linear')!.supportingPassage)
+      .toContain('orthogonal projection');
+    expect(plan.evidence.find((e) => e.partId === 'second-order-white-noise')!.supportingPassage)
+      .toContain('first and second order aver');
+    expect(row(3)[6]).toContain('Rutgers-hosted Lukesh re-transcription');
+    expect(row(3)[6]).toContain('Theorem 1-a');
+  });
+
+  it('pins rows 6 and 7: EKF Jacobians and the failure mechanism from the disclosed draft', () => {
+    const ekf = plans.find((p) => p.id === BINDINGS[6])!;
+    expect(ekf.evidence.find((e) => e.partId === 'process-jacobian-G')!.supportingPassage)
+      .toContain('This matrix is often called the Jacobian');
+    expect(ekf.evidence.find((e) => e.partId === 'measurement-jacobian-H')!.supportingPassage)
+      .toContain('the exact same linearization for the measurement function');
+    const failure = plans.find((p) => p.id === BINDINGS[7])!;
+    expect(failure.evidence.find((e) => e.partId === 'nonlinearity-distorts-belief')!.supportingPassage)
+      .toContain('A Gaussian projected through this function is typically non-Gaussian');
+    expect(failure.evidence.find((e) => e.partId === 'tangent-linearization')!.supportingPassage)
+      .toContain('Linearization approximates g by a linear function that is tangent to g');
+    expect(row(7)[6]).toContain('compression');
   });
 });

@@ -820,3 +820,28 @@ tests/unit/motion-planning-originals.test.ts is updated in this same change
 (url pin + held-row wording); the historical 2026-09-16 integration-history
 narratives stay as written. Registered-entry comment refreshed to record the
 identity verification.
+
+
+## No Hands Across America registration — 2026-09-17
+
+`no-hands-across-america-1995` registered by the convergence-aq integrator (lane
+convergence-aq-books-industrial-integration-20260917a) from the frozen AO packet
+`convergence-ao-av2-plus-bookretry-20260917a` (rows.json sha256
+ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, binding
+autonomous-vehicles:2). This removes the 2026-09-15 registration hold recorded in the
+adjacent ledger: the hold existed only because the tour site appeared to serve over plain
+http while the locked registry schema (data/schemas/citation.ts) admits https URLs and
+dated web.archive.org captures alone. The preparer re-verified all three tour URLs fresh
+on 2026-09-17 over https with no redirect (index 5,933 B; nhaa_home_page.html 1,444 B,
+sha256 9c27fb4132fdbfbe4aabe06fe9ce78b3b16a1de96265fdbcb4dbe592f6473878; ralph.html
+20,895 B), so the live https URL registers directly and no capture identity was
+constructed. Absence verified before registering (zero occurrences in data/citations.ts
+and this ledger). The article's demonstration-tour span now carries the new citation
+(the P3 defect the hold named); `alvinn-1988` remains the architecture citation for the
+1988 network. Authors from the page's own contact line (tjochem@ri.cmu.edu,
+pomerlea@cs.cmu.edu) and the RALPH/ALVINN program record. No fresh fetch by this
+integrator; every passage needle-verified against the retained sha256-pinned bytes.
+
+| ID | URL | Verdict | Identity | Correction | Note |
+|---|---|---|---|---|---|
+| no-hands-across-america-1995 | https://www.cs.cmu.edu/~tjochem/nhaa/nhaa_home_page.html | ok (retained) | match (retained) | registered 2026-09-17 from the frozen AO packet (convergence-ao-av2-plus-bookretry-20260917a, binding autonomous-vehicles:2); https no-redirect re-verified fresh by the preparer 2026-09-17; integrator needle-verified the retained bytes; no fresh fetch |  |

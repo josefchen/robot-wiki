@@ -17982,6 +17982,107 @@
    "VAL-AUDIT-002"
   ],
   "disposition": "permanent"
+ },
+ {
+  "id": "aq0917a-av-tour-prose",
+  "manifest": "prose",
+  "memberId": "article:adjacent/autonomous-vehicles",
+  "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+  "newHash": "22dc71a7ec81924f4af72e437244edb483da45e27ce92ffe8f0a1e19d75f7107",
+  "reason": "No Hands Across America tour span re-cited per binding autonomous-vehicles:2 (frozen AO packet convergence-ao-av2-plus-bookretry-20260917a, row 2): the 1988 architecture sentence keeps alvinn-1988; a new sentence names the 1995 tour, RALPH, 2797 of 2849 miles, 98.2 percent, throttle and brake handled by the researchers, and carries the newly registered no-hands-across-america-1995. Fixes the P3 defect (tour previously attributed to the 1988 paper citation). All figures glyph-verified against the retained sha256-pinned fetches; no fresh retrieval by the integrator.",
+  "ownerApproval": "owner dispatch of 2026-09-17 for convergence-aq-books-industrial-integration-20260917a (role: integrator; frozen packets: convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, convergence-ap-industrial-deployment-20260917a rows.json sha256 f6443d0b60f8cc5daaf1f77b1a2bd0838b38c4f5ec1c6921b868e2ba2d38f30f)",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-012",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-002",
+   "VAL-AUDIT-005"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "aq0917a-av-frontmatter",
+  "manifest": "article-metadata",
+  "memberId": "article-fact-frontmatter:adjacent/autonomous-vehicles",
+  "oldHash": "470fadba0a632d36072091b9af49a7e1d4e40907477fdfa0ebb85288bac21627",
+  "newHash": "dd413bb9686ad1a7019ad307e34df4baa7dfbeee69bbc0eb5d4ae6f900bef351",
+  "reason": "autonomous-vehicles.mdx frontmatter citations list gains no-hands-across-america-1995 (directly after alvinn-1988), registering the new citation at the article surface in the same commit as the data/citations.ts registry entry (registration-first rule). No other frontmatter field changes.",
+  "ownerApproval": "owner dispatch of 2026-09-17 for convergence-aq-books-industrial-integration-20260917a (role: integrator; frozen packets: convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, convergence-ap-industrial-deployment-20260917a rows.json sha256 f6443d0b60f8cc5daaf1f77b1a2bd0838b38c4f5ec1c6921b868e2ba2d38f30f)",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-012",
+   "VAL-AUDIT-002"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "aq0917a-av-relationships",
+  "manifest": "relationships",
+  "memberId": "article:adjacent/autonomous-vehicles",
+  "oldHash": "e79b078a8da033ef4e0c512bd4657f1e776a7f8d1d0fc6fec53afa4df697b970",
+  "newHash": "32fa2ace1c045978092c2ba6b83fa743648d095c880338314464c6a0f77338ad",
+  "reason": "Body citation set for the autonomous-vehicles article gains no-hands-across-america-1995 (the new tour sentence); seeAlso, Term marks, and internal links are unchanged. Consequence of the same binding as the prose and frontmatter deltas above.",
+  "ownerApproval": "owner dispatch of 2026-09-17 for convergence-aq-books-industrial-integration-20260917a (role: integrator; frozen packets: convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, convergence-ap-industrial-deployment-20260917a rows.json sha256 f6443d0b60f8cc5daaf1f77b1a2bd0838b38c4f5ec1c6921b868e2ba2d38f30f)",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-012",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-002"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "aq0917a-kinematics-prose",
+  "manifest": "prose",
+  "memberId": "article:classical/kinematics",
+  "oldHash": "2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b",
+  "newHash": "c69b577c86776a84109cdce025c81d34f6db56ab2b44394381007057572c6a56",
+  "reason": "Near-parallel DH span re-scoped per binding classical:kinematics:5 (frozen AO packet, row 5): the prior wording (frame assignment discontinuous, axis can flip) overstated the source; the fetched Modern Robotics text says the common normal varies wildly as axes approach parallel (an ill-conditioning statement) and that the product-of-exponentials formulation avoids that ill-conditioning. The span now carries the fetched wording, still citing modern-robotics-2017. Glyph-verified against the retained extraction; no fresh retrieval.",
+  "ownerApproval": "owner dispatch of 2026-09-17 for convergence-aq-books-industrial-integration-20260917a (role: integrator; frozen packets: convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, convergence-ap-industrial-deployment-20260917a rows.json sha256 f6443d0b60f8cc5daaf1f77b1a2bd0838b38c4f5ec1c6921b868e2ba2d38f30f)",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-012",
+   "VAL-B2-ART-010",
+   "VAL-AUDIT-002",
+   "VAL-AUDIT-005"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "aq0917a-citation-nhaa-1995",
+  "manifest": "article-metadata",
+  "memberId": "citation:no-hands-across-america-1995",
+  "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+  "newHash": "7829ee31b1b9b002a5dab3813443bdf959fdb14ceb5d7b6bff7ab40d14b3b7cf",
+  "reason": "Registry record added by this integrator (registration-first, same commit as the article surface and the adjacent ledger completion): no-hands-across-america-1995, the CMU No Hands Across America tour pages over https (URL re-verified fresh with no redirect by the AO preparer 2026-09-17; integrator needle-verified the retained sha256-pinned bytes). Absence verified before registering. The label/meta digest anchors the new member against the seal the way every prior citation registration does (both post-date the sealed manifest).",
+  "ownerApproval": "Owner dispatch of 2026-09-17 for convergence-aq-books-industrial-integration-20260917a (role: integrator; frozen packets: convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, binding autonomous-vehicles:2) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-AUDIT-005"
+  ],
+  "disposition": "permanent"
+ },
+ {
+  "id": "aq0917a-citation-rendering-digest",
+  "manifest": "article-metadata",
+  "memberId": "citation-rendering:label-and-meta",
+  "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+  "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+  "reason": "The rendering-seal member tracks the citation labels the registry renders; the digest moves because no-hands-across-america-1995 is registered. Anchored against the seal as in every prior registration delta; fields-only rendering consequence of the registry add above.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 for convergence-aq-books-industrial-integration-20260917a (role: integrator; frozen packets: convergence-ao-av2-plus-bookretry-20260917a rows.json sha256 ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, binding autonomous-vehicles:2) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-AUDIT-005"
+  ],
+  "disposition": "permanent"
  }
 
   ]

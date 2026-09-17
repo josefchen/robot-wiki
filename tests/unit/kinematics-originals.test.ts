@@ -243,3 +243,56 @@ describe('kinematics originals: 20260917a paywall row 10 (iterative IK citation 
     expect(rel.memberId).toBe('article:classical/kinematics');
   });
 });
+describe('kinematics originals: 20260917a book-retry row 5 (near-parallel DH re-scope)', () => {
+  const PLAN_ID = 'kinematics-5-mr-nearparallel-20260917a';
+  const article = readFileSync('content/classical/kinematics.mdx', 'utf8');
+  const ledger = readFileSync('audit/classical.md', 'utf8');
+  const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
+  const deltas = JSON.parse(
+    readFileSync('contract/brand-v2-approved-deltas.json', 'utf8'),
+  );
+
+  it('re-scopes the article span to the fetched ill-conditioning wording', () => {
+    expect(article).toContain(
+      "the parameters become ill-conditioned: as two consecutive joint axes drift toward parallel, the common normal they define can vary wildly with small changes in the axes' orientation",
+    );
+    expect(article).toContain(
+      'The product-of-exponentials formulation avoids that ill-conditioning',
+    );
+    // the overstated prior wording is gone
+    expect(article).not.toContain('Frame assignment is discontinuous');
+    expect(article).not.toContain('axis can flip');
+    expect(article).toContain('<Cite id="modern-robotics-2017" />');
+  });
+
+  it('binds the completed row to its plan with the author-hosted preprint identity', () => {
+    const start = ledger.indexOf('### kinematics.mdx');
+    const end = ledger.indexOf('### motion-planning.mdx', start);
+    const section = ledger.slice(start, end);
+    expect(section).toContain(`| ${PLAN_ID} |`);
+    expect(section).toContain('ill-conditioned as joint axes approach parallel');
+    expect(section).toContain('May 2017 preprint');
+    const plan = plans.find((p: { id: string }) => p.id === PLAN_ID)!;
+    expect(plan.parts).toHaveLength(3);
+    expect(plan.evidence).toHaveLength(3);
+    expect(plan.adjudications.map((a: { outcome: string }) => a.outcome)).toEqual(
+      plan.parts.map(() => 'supported'),
+    );
+    expect(plan.evidence[0].supportingPassage).toContain('ill-conditioned');
+    expect(plan.evidence[0].supportingPassage).toContain('vary wildly');
+    expect(plan.evidence[2].supportingPassage).toContain('May 2017 preprint');
+    expect(plan.planReview.reviewedBy).toContain('convergence-aq integrator');
+    expect(plan.planReview.rationale).toContain(
+      'ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6',
+    );
+  });
+
+  it('records the prose delta anchored to the pinned baseline hash', () => {
+    const delta = deltas.entries.find((e: { id: string }) => e.id === 'aq0917a-kinematics-prose')!;
+    expect(delta.memberId).toBe('article:classical/kinematics');
+    expect(delta.oldHash).toBe(
+      '2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b',
+    );
+    expect(delta.newHash).not.toBe(delta.oldHash);
+  });
+});

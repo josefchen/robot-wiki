@@ -8,6 +8,7 @@ status: published
 lastReviewed: "2026-08-18"
 citations:
   - alvinn-1988
+  - no-hands-across-america-1995
   - dagger-2011
   - waymo-open-dataset-2020
   - vectornet-2020
@@ -35,7 +36,7 @@ seeAlso:
 
 import { AvStackTable } from '@/components/mdx/av-stack-table';
 
-Autonomous driving is the largest deployed autonomy system on Earth, and it got there before robot learning had a name. The distance between the two bookends is the whole story of this module. In 1988, ALVINN trained a three-layer neural network to steer a van from images from a camera and a laser range finder, and drove it across America in a demonstration tour <Cite id="alvinn-1988" />. In 2025, Waymo published a retrospective crash-rate study covering 56.7 million rider-only miles, miles driven with no human behind the steering wheel, and found statistically significant reductions against human benchmarks in every crash-outcome category it could statistically test <Cite id="waymo-crash-rates-2025" />. Between those bookends sits everything this wiki covers elsewhere: imitation learning, distribution shift, closed-loop evaluation, the long tail, and the gap between a working demo and a deployable system.
+Autonomous driving is the largest deployed autonomy system on Earth, and it got there before robot learning had a name. The distance between the two bookends is the whole story of this module. In 1988, ALVINN trained a three-layer neural network to steer a van from images from a camera and a laser range finder <Cite id="alvinn-1988" />. Its lineage went on to steer a van across America: in the 1995 No Hands Across America tour, the ALVINN-lineage RALPH program did the steering for 2,797 of 2,849 miles, 98.2 percent of the run, while the human researchers handled the throttle and brake <Cite id="no-hands-across-america-1995" />. In 2025, Waymo published a retrospective crash-rate study covering 56.7 million rider-only miles, miles driven with no human behind the steering wheel, and found statistically significant reductions against human benchmarks in every crash-outcome category it could statistically test <Cite id="waymo-crash-rates-2025" />. Between those bookends sits everything this wiki covers elsewhere: imitation learning, distribution shift, closed-loop evaluation, the long tail, and the gap between a working demo and a deployable system.
 
 For an ML engineer moving into robotics, AV is the field that already ran the experiment you are about to run. The sensor modalities differ, the action space is smaller, and the failure costs are higher, but the arguments are the same arguments: modular pipeline versus end-to-end learning, open-loop benchmarks versus closed-loop reality, and how much data it takes before the tail stops biting. This module covers the AV robotics stack, the reasons the problem remains open, and the specific lines along which AV work and robot learning continue to exchange methods.
 
