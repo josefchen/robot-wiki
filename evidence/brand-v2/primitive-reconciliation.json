@@ -246,7 +246,7 @@
     },
     "control:link-focus": {
       "kind": "controls",
-      "fingerprint": "e3e36b724d40bad82726d345425602d59951eb12d47e58a2cfc13d18b74412d8",
+      "fingerprint": "7af6921608fa0cbc1c44ee4e461099b5d75816f4d3ac9a5bfa1d0ff26f92d10a",
       "mountState": "production",
       "definedIn": [
         "app/(content)/[domain]/page.tsx",
@@ -260,6 +260,7 @@
         "components/article/breadcrumbs.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/references.tsx",
+        "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
@@ -297,6 +298,7 @@
         "components/article/breadcrumbs.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/references.tsx",
+        "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
@@ -1354,5 +1356,7 @@
     }
   },
   "unregisteredRendered": [],
-  "unannotatedRendered": []
+  "unannotatedRendered": [
+    "/rl-sim2real/reward-design-mpc/ surface <code> <code class=\"[overflow-wrap:anywhere]\">ae614c029977157123225f538ecdd3f873e54bd4</code>"
+  ]
 }
