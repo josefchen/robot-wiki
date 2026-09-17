@@ -126,7 +126,7 @@ or, when the arm is redundant and $J$ is not square, use the pseudoinverse $J^{+
 
 Inverse kinematics asks for the preimage: given a target $x_d$, find $q$ with $k(q) = x_d$. Three facts make it hard. The map $k$ is nonlinear in $q$, so no single matrix inversion applies. It is many-to-one where it is onto: a point inside the workspace is usually reachable with several distinct configurations, elbow left or elbow right, and a redundant arm reaches the same pose through a continuum of postures. And it is not onto everywhere: targets outside the workspace have no solution at all, and a solver should say so rather than pretend otherwise.
 
-Closed-form solutions exist for special geometries, most famously six-revolute arms whose last three axes intersect at the wrist, but the general tool is iterative: linearize around the current configuration, take a step, repeat,
+Closed-form solutions exist for special geometries, most famously six-revolute arms whose last three axes intersect at the wrist, but the general tool is iterative: linearize around the current configuration, take a step, repeat, <Cite id="modern-robotics-2017" />
 
 $$
 \Delta x = J(q)\,\Delta q \qquad \Delta q = J^{+}(q)\,\Delta x

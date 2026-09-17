@@ -17865,7 +17865,124 @@
     "VAL-B2-ART-010"
    ],
    "disposition": "permanent"
-  }
+  },
+  {
+  "id": "paywall0917a-control-prose",
+  "manifest": "prose",
+  "memberId": "article:classical/control",
+  "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+  "newHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820",
+  "reason": "Exactly classical/control originals 4 and 10: the MPC-origin span \"MPC grew out of refinery practice\" is corrected to the fetched survey's own wording \"MPC grew out of power-plant and petroleum-refinery practice\" (Qin-Badgwell 2003 Sec. 1: \"Originally developed to meet the specialized control needs of power plants and petroleum reneries\", fi ligature as extracted) and its inline Cite is re-pointed garcia-1989 -> qin-badgwell-2003, whose retained university-hosted full text prints the sentence; the paywalled garcia-1989 DOI stays registered and declared in frontmatter. Companion relationships delta paywall0917a-control-relationships. Every passage needle-verified by this integrator against the retained sha256-pinned fetch bytes (MLS Wayback id_ capture, MR companion transcript, dated ZN Wayback capture, CMU-hosted Qin-Badgwell PDF, arXiv abs/ar5iv HTML, PR Newswire text) or the SAGES TAVAC render retained in the preparer session log; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-an-paywall-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 (apply the 10 selected paywalled rows of frozen packets convergence-al-books-authorsites-20260917a sha256 6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0 and convergence-am-preprint-equivalence-20260917a sha256 af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d; autonomous-vehicles:2 excluded by the preflight stale-cell contract) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-BASE-012",
+   "VAL-AUDIT-002"
+  ],
+  "disposition": "permanent"
+ },
+  {
+  "id": "paywall0917a-control-relationships",
+  "manifest": "relationships",
+  "memberId": "article:classical/control",
+  "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+  "newHash": "dd43ebb2f6bccb675df15e21e7aa87b13b663c99ff65ab5cbefa76a5c0e55a03",
+  "reason": "Companion to paywall0917a-control-prose: the relationships manifest hashes the Cite markers the body writes, so re-pointing the MPC-origin span's marker from garcia-1989 to the already-declared qin-badgwell-2003 (which the same sentence's survey clause already cited) moves this member by exactly that swap. No other citation, link, or see-also edge changed.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 (apply the 10 selected paywalled rows of frozen packets convergence-al-books-authorsites-20260917a sha256 6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0 and convergence-am-preprint-equivalence-20260917a sha256 af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d; autonomous-vehicles:2 excluded by the preflight stale-cell contract) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-011",
+   "VAL-B2-ART-010"
+  ],
+  "disposition": "permanent"
+ },
+  {
+  "id": "paywall0917a-grasp-prose",
+  "manifest": "prose",
+  "memberId": "article:classical/grasp-planning",
+  "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+  "newHash": "094ae01324cb912ca4af66054b0e975411dd8156836b0d6fe818a7f9921a6858",
+  "reason": "Exactly classical/grasp-planning original 9 (Nguyen antipodal row): the span \"lies strictly inside both friction cones\" is re-scoped to the printed theorem statement \"lies inside both friction cones\" (MLS Theorem 5.6, attributed to the registered nguyen-1988), verdict C recorded in the ledger; the paywalled Nguyen body was not fetched, so the article claim now matches the verbatim theorem. The wiki's own proof-sketch and hardware-observation sentences are unchanged. Every passage needle-verified by this integrator against the retained sha256-pinned fetch bytes (MLS Wayback id_ capture, MR companion transcript, dated ZN Wayback capture, CMU-hosted Qin-Badgwell PDF, arXiv abs/ar5iv HTML, PR Newswire text) or the SAGES TAVAC render retained in the preparer session log; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-an-paywall-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 (apply the 10 selected paywalled rows of frozen packets convergence-al-books-authorsites-20260917a sha256 6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0 and convergence-am-preprint-equivalence-20260917a sha256 af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d; autonomous-vehicles:2 excluded by the preflight stale-cell contract) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-BASE-012",
+   "VAL-AUDIT-002"
+  ],
+  "disposition": "permanent"
+ },
+  {
+  "id": "paywall0917a-kinematics-prose",
+  "manifest": "prose",
+  "memberId": "article:classical/kinematics",
+  "oldHash": "2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b",
+  "newHash": "85a0a7b78e707d8856f7f65c673c3d5ce3a3333bb674d044a715bcd1ef90387b",
+  "reason": "Exactly classical/kinematics original 10 (iterative IK row): the iterative-IK lead-in (\"linearize around the current configuration, take a step, repeat\") now ends with <Cite id=\"modern-robotics-2017\" /> before the delta-q display, binding the span to the already-declared source whose chapter 6.2 companion transcript prints the Newton-Raphson/pseudoinverse loop verbatim; no other sentence changed, no frontmatter change. Companion relationships delta paywall0917a-kinematics-relationships. Every passage needle-verified by this integrator against the retained sha256-pinned fetch bytes (MLS Wayback id_ capture, MR companion transcript, dated ZN Wayback capture, CMU-hosted Qin-Badgwell PDF, arXiv abs/ar5iv HTML, PR Newswire text) or the SAGES TAVAC render retained in the preparer session log; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-an-paywall-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 (apply the 10 selected paywalled rows of frozen packets convergence-al-books-authorsites-20260917a sha256 6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0 and convergence-am-preprint-equivalence-20260917a sha256 af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d; autonomous-vehicles:2 excluded by the preflight stale-cell contract) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-BASE-012",
+   "VAL-AUDIT-002"
+  ],
+  "disposition": "permanent"
+ },
+  {
+  "id": "paywall0917a-kinematics-relationships",
+  "manifest": "relationships",
+  "memberId": "article:classical/kinematics",
+  "oldHash": "00b3515f4344ce4d36e0f7f159cb7e1305b8529d1463417d84cc67d94bf50d7d",
+  "newHash": "a1270839b0fde62e61a5b915c03a5b75331413904ef0f766d5e9bc6bd763ff18",
+  "reason": "Companion to paywall0917a-kinematics-prose: the relationships manifest hashes the Cite markers the body writes, so adding one modern-robotics-2017 marker (an id the article already declares and cites three times elsewhere) moves this member by exactly that addition. No other citation, link, or see-also edge changed.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 (apply the 10 selected paywalled rows of frozen packets convergence-al-books-authorsites-20260917a sha256 6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0 and convergence-am-preprint-equivalence-20260917a sha256 af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d; autonomous-vehicles:2 excluded by the preflight stale-cell contract) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-011",
+   "VAL-B2-ART-010"
+  ],
+  "disposition": "permanent"
+ },
+  {
+  "id": "paywall0917a-legged-noop",
+  "manifest": "prose",
+  "memberId": "article:rl-sim2real/legged-locomotion",
+  "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+  "newHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+  "reason": "Exactly rl-sim2real/legged-locomotion originals 1 and 6: the stats row's stale claim cell is refreshed (\"1 h\" Etzel hike -> the article's applied \"78 min\" stat, which the article prose already prints) and row 6 is completed at abstract-equivalent scope with the \"inside the training loop\" wording gap disclosed in the note. No-op hash record: no article prose changed (ledger/plan evidence only); lastReviewed deliberately not moved. Every passage needle-verified by this integrator against the retained sha256-pinned fetch bytes (MLS Wayback id_ capture, MR companion transcript, dated ZN Wayback capture, CMU-hosted Qin-Badgwell PDF, arXiv abs/ar5iv HTML, PR Newswire text) or the SAGES TAVAC render retained in the preparer session log; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-an-paywall-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 (apply the 10 selected paywalled rows of frozen packets convergence-al-books-authorsites-20260917a sha256 6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0 and convergence-am-preprint-equivalence-20260917a sha256 af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d; autonomous-vehicles:2 excluded by the preflight stale-cell contract) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-BASE-012",
+   "VAL-AUDIT-002"
+  ],
+  "disposition": "permanent"
+ },
+  {
+  "id": "paywall0917a-surgical-noop",
+  "manifest": "prose",
+  "memberId": "article:adjacent/surgical",
+  "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+  "newHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+  "reason": "Exactly adjacent/surgical original 5 (Maestro row): bound as compound evidence on the registered maestro-tavac-2023 and scopilot-clearance-2025 passages (Dec 2 2022 letter vs Dec 6 2022 TAVAC date difference and the K936308 1993/1994 predicate dates disclosed in the note). No-op hash record: no article prose changed (ledger/plan evidence only); lastReviewed deliberately not moved. Every passage needle-verified by this integrator against the retained sha256-pinned fetch bytes (MLS Wayback id_ capture, MR companion transcript, dated ZN Wayback capture, CMU-hosted Qin-Badgwell PDF, arXiv abs/ar5iv HTML, PR Newswire text) or the SAGES TAVAC render retained in the preparer session log; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-an-paywall-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 (apply the 10 selected paywalled rows of frozen packets convergence-al-books-authorsites-20260917a sha256 6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0 and convergence-am-preprint-equivalence-20260917a sha256 af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d; autonomous-vehicles:2 excluded by the preflight stale-cell contract) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-B2-BASE-012",
+   "VAL-AUDIT-002"
+  ],
+  "disposition": "permanent"
+ }
 
   ]
 }
