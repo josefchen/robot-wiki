@@ -16680,6 +16680,24 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "rdm16-r16-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/reward-design-mpc",
+   "oldHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3",
+   "newHash": "443226d4b6cdcf8f82187e710a7fe50af530d2f441a9ded61103865b1a36900f",
+   "reason": "Exactly rl-sim2real/reward-design-mpc original 16 (uncited classical-stack rates): the generic sentence's three numeric ranges (0.5-1 s horizon, 20-100 Hz MPC, 500-1000 Hz QP) are printed by none of the 17 declared sources and are removed, none substituted (the paper-specific iLQR/TV-LQR rates stay in the next paragraph with their own attribution); the surviving qualitative characterization is quoted verbatim from the declared mujoco-ilqr-2026 (section IV-B \"model hierarchies commonly seen in traditional model-based MPC\" / \"reduced-order models and hierarchical control approaches\"; introduction motivation) and carries an inline Cite reusing that already-declared id, so the frontmatter citation set is byte-unchanged (17 frozen ids) and complete row 23 with its frontmatter-p1 plan reward-design-mpc-original-23-20260916 does not regress; the three-layer enumeration stays this wiki's own architecture summary, not attributed to the source. Prose member hash records the span reword. Every needle verified by this integrator against the retained sha256-pinned fetch bodies (42/42, lane needle-verification.json); zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rdm16-integration-20260917b. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply the single selected record of frozen packet convergence-source-ak-rdm16-reprep-20260917b sha256 1018acd5abeef6be6bd2791f15ae136511d3c2dabb3a0917caa0bcd558c569ab, option (b) under the NO-NEW-FRONTMATTER-ID constraint: reword the uncited numeric stack sentence, bind the row to the already-declared mujoco-ilqr-2026, frontmatter unchanged) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]

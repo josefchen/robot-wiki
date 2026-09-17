@@ -11,10 +11,12 @@ import { CITATIONS } from '../../data/citations.ts';
  * scalar Goldberg evidence completions; classical scene-representation:1
  * 24-identity sweep bound to its compound plan) must parse complete from the
  * committed ledger and catalog exactly as check-audit-coverage reads them.
- * The packet's fifth record (rl-sim2real reward-design-mpc:16) is EXCLUDED
- * by the dispatch (frontmatter-p1 coupling with complete row 23) and stays
- * held: no Cite id may appear in reward-design-mpc.mdx and its row stays
- * incomplete with its convention verdict.
+ * The packet's fifth record (rl-sim2real reward-design-mpc:16) was EXCLUDED
+ * by that dispatch (frontmatter-p1 coupling with complete row 23); the
+ * 2026-09-17b re-preparation (convergence-source-ak-rdm16-reprep-20260917b)
+ * later applied it under the NO-NEW-FRONTMATTER-ID constraint: the inline
+ * cite reuses the already-declared mujoco-ilqr-2026, no di-carlo-2018 is
+ * introduced anywhere, and row 23 stays complete.
  */
 const ROOT = join(import.meta.dirname, '../..');
 const PACKET_SHA = '547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c';
@@ -160,16 +162,22 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     expect(sr10.evidenceFailures.length).toBeGreaterThan(0);
   });
 
-  it('keeps the excluded reward-design-mpc:16 record wholly unapplied', () => {
+  it('records the 2026-09-17b rdm16 re-preparation now applied to reward-design-mpc:16', () => {
+    // The re-prepared packet (convergence-source-ak-rdm16-reprep-20260917b) reworded
+    // the row-16 span under the NO-NEW-FRONTMATTER-ID constraint: the inline cite
+    // reuses the already-declared mujoco-ilqr-2026, so this lane's 2026-09-17a
+    // exclusion is superseded and the row is complete.
     const reward = sectionsOf('audit/rl-sim2real.md').find((s) => s.slug === 'reward-design-mpc')!;
     const row16 = reward.claimRecords[15];
-    expect(row16.claim).toContain('half-second to one-second horizon');
-    expect(row16.verdict.replace(/\*/g, '')).toBe('verified-by-convention');
-    expect(row16.evidenceFailures.length).toBeGreaterThan(0);
+    expect(row16.claim).toContain('model hierarchies commonly seen in traditional model-based MPC');
+    expect(row16.verdict.replace(/\*/g, '')).toBe('C');
+    expect(row16.citationId).toBe('mujoco-ilqr-2026');
+    expect(row16.evidenceFailures).toEqual([]);
     expect(row16.compound).toBeUndefined();
     const article = readFileSync(join(ROOT, 'content/rl-sim2real/reward-design-mpc.mdx'), 'utf8');
     expect(article).not.toContain('<Cite id="di-carlo-2018"');
     expect(article).not.toMatch(/^\s*- di-carlo-2018$/m);
+    expect(article).not.toContain('half-second to one-second horizon');
     // Row 23's frozen frontmatter-p1 plan must remain complete (17 ids).
     const row23 = reward.claimRecords[22];
     expect(row23.evidenceFailures).toEqual([]);
