@@ -246,14 +246,17 @@ describe('scene-representation originals: approved deltas and protected neighbor
     }
   });
 
-  it('protects the two held packet rows (1 and 10) byte-for-byte', () => {
+  it('protects held row 10 and the applied row-1 sweep binding', () => {
+    // 2026-09-17a single-leftovers: row 1's claim cell now counts the real 24
+    // frontmatter ids and binds the 24-identity compound plan; the three
+    // scalar evidence cells stay empty (compound rows reject scalar fields).
     expect(rowCells(0)[2]).toBe('V');
     expect(rowCells(0)[3] ?? '').toBe('');
-    expect(rowCells(0)[7] ?? '').toBe('');
+    expect(rowCells(0)[7] ?? '').toBe('scene-representation-1-identity-sweep-20260917a');
+    expect(rowCells(0)[0]).toContain('Bibliographic fidelity of all 24 cited registry entries');
     expect(rowCells(9)[2]).toBe('V');
     expect(rowCells(9)[3] ?? '').toBe('');
     expect(rowCells(9)[7] ?? '').toBe('');
-    expect(rowCells(0)[0]).toContain('Bibliographic fidelity of all 23 cited registry entries');
     expect(rowCells(9)[0]).toContain('Stored distance is the collision margin');
   });
 

@@ -16608,6 +16608,78 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "single-leftovers-rg6-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:frontier/reliability-gap",
+   "oldHash": "6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4",
+   "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc",
+   "reason": "Exactly frontier/reliability-gap original 6 (negative-editorial solved bar): the Stat reword marks the \">1,000h documented MTBF\" bar as this wiki's own proposed yardstick (\"solved bar (this wiki’s)\") and scopes the negative to the deployed systems the article's recorded technology.org sweep surveyed; ledger row completed with verdict C and the 2-part editorial-basis compound plan bound read-only to technology-org-deployed-2026. Prose member hash records the Stat reword (label and note; value unchanged). Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packet convergence-source-aj-single-leftovers-20260917a sha256 547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c, record 0 reward-design-mpc:16 excluded and held for re-preparation) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "single-leftovers-g17-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:frontier/generalization",
+   "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+   "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+   "reason": "Exactly frontier/generalization original 17 (Goldberg 100,000-year data gap attribution): scalar evidence completion to the registered citation goldberg-data-gap-2025 at the Crossref DOI record, with the Berkeley News interview surface and the durable techxplore mirror 403 disclosed in the row; quoted phrases needle-verified against both retained bodies. No-op hash record: the article span and frontmatter are byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packet convergence-source-aj-single-leftovers-20260917a sha256 547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c, record 0 reward-design-mpc:16 excluded and held for re-preparation) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "single-leftovers-b12-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:frontier/bear-case",
+   "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+   "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+   "reason": "Exactly frontier/bear-case original 12 (Goldberg premise ranking): scalar evidence completion to the registered citation goldberg-data-gap-2025; the premise conjunct is source-supported and the ranking phrase stays the wiki's own editorial judgment over its named-skeptic record (P5: named proponent with own citation). No-op hash record: article byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packet convergence-source-aj-single-leftovers-20260917a sha256 547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c, record 0 reward-design-mpc:16 excluded and held for re-preparation) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "single-leftovers-sr1-20260917-1",
+   "manifest": "prose",
+   "memberId": "article:classical/scene-representation",
+   "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+   "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+   "reason": "Exactly classical/scene-representation original 1 (bibliographic fidelity batch): claim cell corrected 23 -> 24 cited registry entries (the frontmatter at HEAD lists 24; the prior sweep's own count was 15 of 24) and the row bound to the fresh 24-identity compound plan (Crossref DOI records for the 11 DOI-backed ids, live arXiv abs pages for the 13 arXiv ids, channel closures for the Moravec names, KinectFusion author order and the three venues their abs pages do not print, all disclosed per part). No-op hash record: article and frontmatter byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+   "ownerApproval": "Owner dispatch of 2026-09-17 (apply exactly the 4 selected records of frozen packet convergence-source-aj-single-leftovers-20260917a sha256 547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c, record 0 reward-design-mpc:16 excluded and held for re-preparation) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]
