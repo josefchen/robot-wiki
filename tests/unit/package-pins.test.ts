@@ -171,11 +171,19 @@ describe('environment-trap script wiring', () => {
     // the boundary. `build:ungated` skips postbuild and so generates no
     // card, which would leave an artwork change deadlocked in the one chain
     // that exists to break deadlocks.
+    //
+    // ce2cf97 moved the two postbuild artifact steps (404-guard patch and
+    // search build) into the chain right after the export prune:
+    // --ignore-scripts skips postbuild, so without them the ungated export
+    // ships no pre-hydration 404 guard and no Pagefind index, and the
+    // link-safety seed fails on a partial export.
     expect(pkg.scripts['refresh:brand-v2-evidence']).toBe(
       'npm run generate:brand-v2-registries' +
         ' && npm run generate:og-cards' +
         ' && npm run build:ungated' +
         ' && node scripts/prune-export-artifacts.ts' +
+        ' && node scripts/patch-404-guard.ts' +
+        ' && node scripts/build-search.ts' +
         ' && npm run refresh:brand-v2-evidence:browser' +
         ' && npm run refresh:brand-v2-evidence:renderer-parity' +
         ' && npm run generate:brand-v2-enforcement',
@@ -188,9 +196,11 @@ describe('environment-trap script wiring', () => {
     );
     // Pinned independently of the exact chain string: whatever else moves,
     // the prune must stay immediately after the ungated build and ahead of
-    // the browser suites that read out/.
+    // the browser suites that read out/, with the ce2cf97 404-guard patch
+    // and search build in between (the ungated export skips postbuild and
+    // so ships neither guard nor index).
     expect(pkg.scripts['refresh:brand-v2-evidence']).toMatch(
-      /npm run build:ungated && node scripts\/prune-export-artifacts\.ts && npm run refresh:brand-v2-evidence:browser/,
+      /npm run build:ungated && node scripts\/prune-export-artifacts\.ts && node scripts\/patch-404-guard\.ts && node scripts\/build-search\.ts && npm run refresh:brand-v2-evidence:browser/,
     );
     // Each fail-closed artifact has a writer in the refresh chain.
     for (const spec of [
