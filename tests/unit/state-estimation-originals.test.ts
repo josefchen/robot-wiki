@@ -166,7 +166,7 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
   const lanePlans = plans.filter((plan) => /^state-estimation-\d+-20260916$/.test(plan.id));
 
   it('adds exactly seven reviewed, fully adjudicated plans', () => {
-    expect(plans).toHaveLength(845); // 718 at the 20260916 close + 118 later-lane plans + 9 convergence-aq plans (2026-09-17)
+    expect(plans).toHaveLength(856); // 845 at convergence-aq close + 11 convergence-as industrial plans (2026-09-17)
     expect(lanePlans.map((plan) => plan.rowOrdinal).sort((a, b) => a - b)).toEqual([
       8, 9, 10, 12, 14, 15, 17,
     ]);
@@ -188,11 +188,11 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
 
   it('keeps every prior plan object and its order intact', () => {
     expect(plans[705].id).toBe('reward-design-mpc-original-23-20260916');
-    expect(new Set(plans.map((plan) => plan.id)).size).toBe(845);
+    expect(new Set(plans.map((plan) => plan.id)).size).toBe(856);
   });
 
   it('adds exactly seven approved-delta entries for this lane', () => {
-    expect(deltas.entries).toHaveLength(995); // 788 at the 20260916 close + later-lane entries through 989 + 6 convergence-aq entries (2026-09-17)
+    expect(deltas.entries).toHaveLength(996); // 995 at convergence-aq close + 1 convergence-as industrial entry (2026-09-17)
     const lane = deltas.entries.filter((entry) =>
       /^se-r(8|9|10|12|14|15|17)-20260916-1$/.test(entry.id),
     );

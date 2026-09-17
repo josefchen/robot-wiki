@@ -110,9 +110,12 @@ describe('five Amazon industrial originals', () => {
     expect(article).toContain('by up to 25 percent <Cite id="amazon-sequoia-digit-2023" />');
   });
 
-  it('preserves prior peers, held originals, the exact citation union and review date', () => {
+  it('preserves prior peers, the as0917a-completed originals 8 and 52, the exact citation union and review date', () => {
     for (const n of [1, 2, 3, 4, 13, 14, 19, 20, 21, 27, 28, 39, 40, 50]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
-    for (const n of [8, 52]) expect(parse().claimRecords[n - 1].evidenceFailures.length).toBeGreaterThan(0);
+    // Rows 8 (stat cards) and 52 (EVST robotCost defect) were completed by the
+    // convergence-as industrial evidence-field lane on 2026-09-17; they are no
+    // longer held originals.
+    for (const n of [8, 52]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
     expect(article).toContain('lastReviewed: "2026-08-22"');
     expect(article.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
   });

@@ -139,8 +139,11 @@ describe('five IFR and OSHA industrial originals', () => {
     expect(citation.venue).not.toContain('2025-09-25');
   });
 
-  it('preserves the mixed Stat and authored holds, peer pair and old article review date', () => {
-    for (const n of [8, 52]) expect(parse().claimRecords[n - 1].evidenceFailures.length).toBeGreaterThan(0);
+  it('preserves the peer pair and old article review date; rows 8 and 52 completed 2026-09-17', () => {
+    // Rows 8 (mixed Stat cards) and 52 (authored component defect) were
+    // completed by the convergence-as industrial evidence-field lane on
+    // 2026-09-17; the prior mixed-Stat/authored holds are resolved.
+    for (const n of [8, 52]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
     for (const n of [27, 28]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
     expect(article).toContain('lastReviewed: "2026-08-22"');
     expect(article).toContain('value="~5,500" note="Unitree, its own figure"');

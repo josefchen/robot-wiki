@@ -18083,6 +18083,23 @@
    "VAL-AUDIT-005"
   ],
   "disposition": "permanent"
+ },
+ {
+  "id": "as0917a-industrial-ocado-scope",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/industrial-deployment",
+  "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+  "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d",
+  "reason": "industrial-deployment:25 prepared-partial resolution (flagged judgment call): the OIA registration-time six-item industry list, including Fashion & Apparel, no longer prints on the live ocadointelligentautomation.com homepage or /systems (re-fetched in the 2026-09-17 AR source window; passages retained and sha256-pinned in the lane packet). Fashion is dropped from the Ocado Intelligent Automation sentence so the claim stays inside today's printed scope (pharmaceuticals/healthcare, third-party logistics, industrial parts); the grid-robot warehouse and no-rebrand findings are unchanged.",
+  "ownerApproval": "Owner dispatch of 2026-09-17 for convergence-as-industrial-integration-20260917a (role: integrator; frozen packet: convergence-ar-industrial-evidencefields-20260917a rows.json, binding audit/data-hardware.md:industrial-deployment:25) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+   "VAL-B2-BASE-002",
+   "VAL-B2-BASE-010",
+   "VAL-AUDIT-004",
+   "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
  }
 
   ]

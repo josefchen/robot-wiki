@@ -222,7 +222,7 @@ describe('grasp-planning originals: ledger rows complete', () => {
 
 describe('grasp-planning originals: compound plans', () => {
   it('appends exactly five new plans and preserves the prior 713 in order', () => {
-    expect(plans).toHaveLength(845); // 836 at the paywall lane's close + 9 convergence-aq plans (2026-09-17)
+    expect(plans).toHaveLength(856); // 845 at convergence-aq close + 11 convergence-as industrial plans (2026-09-17)
     expect(plans[712].id).toBe('state-estimation-17-20260916');
     expect(plans.slice(713, 718).map((plan) => plan.id)).toEqual(newPlanIds);
   });
@@ -350,7 +350,7 @@ describe('grasp-planning originals: compound plans', () => {
 
 describe('grasp-planning originals: approved deltas', () => {
   it('appends exactly five new entries and preserves the prior 788 in order', () => {
-    expect(deltas.entries).toHaveLength(995); // 989 at the paywall lane's close + 6 convergence-aq entries (2026-09-17)
+    expect(deltas.entries).toHaveLength(996); // 995 at convergence-aq close + 1 convergence-as industrial entry (2026-09-17)
     expect(deltas.entries[787].id).toBe('se-r17-20260916-1');
     expect(deltas.entries.slice(788, 793).map((entry) => entry.id)).toEqual(newDeltaIds);
   });

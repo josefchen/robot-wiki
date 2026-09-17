@@ -73128,6 +73128,789 @@
    "evidenceDigest": "122964fe1a8b28e3a6bfb1636d360db84f8d6b6845b81e9386436431375ad744"
   }
  ]
+},
+{
+  "id": "industrial-unitree-5500-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "5015f418792ab36f5a44fa1c5c686d2ce83144ea43fa08bfa030822b95c6a1ef",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "shipped-5500",
+      "text": "Unitree shipped approximately 5,500 humanoid units across its product line in 2025 (technology.org body).",
+      "requiredCitationIds": [
+        "technology-org-deployed-2026"
+      ]
+    },
+    {
+      "id": "scorecard-corroboration",
+      "text": "Scorecard cross-print: commercially available; ~5,500 in 2025; 10,000-20,000 targeted 2026.",
+      "requiredCitationIds": [
+        "technology-org-deployed-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:5 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "aa44d6a34a1bd6d7161048e5a2a9d15ca99c3fe3b22074f8f7bcf906ad7d8995"
+  },
+  "evidence": [
+    {
+      "partId": "shipped-5500",
+      "citationId": "technology-org-deployed-2026",
+      "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+      "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    },
+    {
+      "partId": "scorecard-corroboration",
+      "citationId": "technology-org-deployed-2026",
+      "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+      "supportingPassage": "Unitree G1 / H1 | Commercially available; deployment case data limited | ~5,500 in 2025; 10,000-20,000 targeted 2026 | Yes – open commercial availability"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "shipped-5500",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "dc57f391051820f9cf0b6420e18d6283e45dfe9591beeb5bf28986797628a510"
+    },
+    {
+      "partId": "scorecard-corroboration",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "62fec5499bc5f64fa1da0a72bd7914569633b9322c669cc9d7a6194e6729dda0"
+    }
+  ]
+},
+{
+  "id": "industrial-volume-leader-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "0afb00befa8ba989ba410fd9d1be873f4e5f0d3a2aeb75e97f84ba64cf1dc869",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "western-competitor-only",
+      "text": "technology.org says only “ships more humanoids than any Western competitor”, not “the volume leader”.",
+      "requiredCitationIds": [
+        "technology-org-deployed-2026"
+      ]
+    },
+    {
+      "id": "leading-shipper-324",
+      "text": "unitree-profit-2026 calls Unitree “the world's leading humanoid shipper” (5,500+ delivered 2025; estimated 32.4% global share).",
+      "requiredCitationIds": [
+        "unitree-profit-2026"
+      ]
+    },
+    {
+      "id": "omdia-counter-position",
+      "text": "RoboZaps counter-position: Unitree self-reports 5,500+ and claims the volume crown; Omdia counts ~4,200 and ranks AgiBot first.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 3 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:6 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "74a1c9beee9a691d6fe0eab432dc01e99517a4a09eee37b16cd7c19f9230f258"
+  },
+  "evidence": [
+    {
+      "partId": "western-competitor-only",
+      "citationId": "technology-org-deployed-2026",
+      "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+      "supportingPassage": "Unitree ships more humanoids than any Western competitor, at roughly a tenth of the price, and its Q1 2026 profit still fell by half."
+    },
+    {
+      "partId": "leading-shipper-324",
+      "citationId": "unitree-profit-2026",
+      "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+      "supportingPassage": "Unitree's Q1 2026 data — profit halved, growth sharply decelerated — is the first real earnings signal from the world's leading humanoid shipper. [...] In 2025, the company delivered more than 5,500 humanoid robots, capturing an estimated 32.4% of global market share, and holds approximately 60% global market share in quadrupedal robots."
+    },
+    {
+      "partId": "omdia-counter-position",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing about when you read shipment headlines."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "western-competitor-only",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "e0e3af7d15e77ee93e01c29de273a25684aa818724b871d65b5badde80657a1b"
+    },
+    {
+      "partId": "leading-shipper-324",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "ddcced0ba0f99da21049eb44ff7ab9f8e8905e7b0f694a228cc31d626a914383"
+    },
+    {
+      "partId": "omdia-counter-position",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "f7b0484e7ef7535bbcd4ebe89c0375658c7a3aa6196d668e9564a7db2e9ce1d2"
+    }
+  ]
+},
+{
+  "id": "industrial-hundredfold-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "a1ecb24c51243fb071cd6998383e7caf44aa1afd78a23e5bf9658f4b50a7fbbf",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "hundredfold-5500",
+      "text": "542,076 / 5,500 = 98.6: “a hundred times” the self-reported humanoid figure (internal arithmetic over cited operands).",
+      "requiredCitationIds": [
+        "ifr-world-robotics-2025",
+        "technology-org-deployed-2026"
+      ]
+    },
+    {
+      "id": "hundredfold-4200",
+      "text": "542,076 / 4,200 = 129 against Omdia's count (internal arithmetic over cited operands).",
+      "requiredCitationIds": [
+        "ifr-world-robotics-2025",
+        "robozaps-humanoids-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:7 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "f8a436ad4c1f37cf547212be83884f59681b80be825da97d11d73f8ce0093300"
+  },
+  "evidence": [
+    {
+      "partId": "hundredfold-5500",
+      "citationId": "ifr-world-robotics-2025",
+      "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+      "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+    },
+    {
+      "partId": "hundredfold-5500",
+      "citationId": "technology-org-deployed-2026",
+      "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+      "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    },
+    {
+      "partId": "hundredfold-4200",
+      "citationId": "ifr-world-robotics-2025",
+      "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+      "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+    },
+    {
+      "partId": "hundredfold-4200",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing about when you read shipment headlines."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "hundredfold-5500",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "1f3d478247d6a66b6dd130c88cd3f3f210e146c8211362b806ab2547e44585b9"
+    },
+    {
+      "partId": "hundredfold-4200",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "3acbd4ed384b23172ff872409a6b51240c0627204501b58efe43287a0fd07e9a"
+    }
+  ]
+},
+{
+  "id": "industrial-stat-cards-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "1ccb37f7f7bbcc0fa4a1c75c8f0333d35fed32440b07f7296a5b41054c4ead8b",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "stat-stock-4663698",
+      "text": "Stat operand: 4,663,698 industrial robots in global operational stock, 2024.",
+      "requiredCitationIds": [
+        "ifr-world-robotics-2025"
+      ]
+    },
+    {
+      "id": "stat-installations-542076",
+      "text": "Stat operand: 542,076 industrial robots installed, 2024.",
+      "requiredCitationIds": [
+        "ifr-world-robotics-2025"
+      ]
+    },
+    {
+      "id": "stat-china-share-54",
+      "text": "Stat operand: 54% of 2024 global installations deployed in China.",
+      "requiredCitationIds": [
+        "ifr-world-robotics-2025"
+      ]
+    },
+    {
+      "id": "stat-humanoid-5500",
+      "text": "Stat operand: ~5,500 humanoid units shipped 2025 (Unitree's own figure).",
+      "requiredCitationIds": [
+        "technology-org-deployed-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 4 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:8 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "3749add3a57bf3b1bac0b3a334e6f9211e99eed1b5522875688c27d8c9e8df84"
+  },
+  "evidence": [
+    {
+      "partId": "stat-stock-4663698",
+      "citationId": "ifr-world-robotics-2025",
+      "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+      "supportingPassage": "In 2024, the operational stock of industrial robots was computed at 4,663,698 units\n(+9%). Since 2019, the operational stock of industrial robots had been increasing by 11%\non average each year."
+    },
+    {
+      "partId": "stat-installations-542076",
+      "citationId": "ifr-world-robotics-2025",
+      "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+      "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+    },
+    {
+      "partId": "stat-china-share-54",
+      "citationId": "ifr-world-robotics-2025",
+      "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+      "supportingPassage": "Three of the top five markets for industrial robots are in Asia: China is by far the largest\nmarket. More than every other robot (54%) installed worldwide in 2024 ended up in\nChina: Installations were up 7% to 295,045 units. Installations in Japan were down 4%\nto 44,453 units."
+    },
+    {
+      "partId": "stat-humanoid-5500",
+      "citationId": "technology-org-deployed-2026",
+      "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+      "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "stat-stock-4663698",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "83a080e1f9f48d9b0445800a8b8b8de65066b9194000b2d24b21c693808d917d"
+    },
+    {
+      "partId": "stat-installations-542076",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "3ae84e89b7274e8f8827305c9e86f2485839d9480693e92a30b0a482dca03895"
+    },
+    {
+      "partId": "stat-china-share-54",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "0ec03b4692da1a155763e84c96b923cb3091ea48d3f5828fb49e8057be51c669"
+    },
+    {
+      "partId": "stat-humanoid-5500",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "21bd76b4f90622ba54833b5b6999810c4131b807f93fb8da529256faa6286a24"
+    }
+  ]
+},
+{
+  "id": "industrial-kroger-closures-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 22,
+  "originalCellsDigest": "5c11ef42459fe469ca2af9c0974db98db3a3aca091341d13f6bb050cb856392c",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "three-of-eight",
+      "text": "Kroger closing three of its robotic warehouses (Wisconsin, Maryland, Florida) in January.",
+      "requiredCitationIds": [
+        "kroger-ocado-closures-2025"
+      ]
+    },
+    {
+      "id": "three-plus-five",
+      "text": "“Monitoring” its remaining five warehouses: 3 + 5 = 8 automated sheds.",
+      "requiredCitationIds": [
+        "kroger-ocado-closures-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:22 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "c66b5e8d5541c6d618b02b868f02e6b2632d721efab261bd6ba7c0e0a3672948"
+  },
+  "evidence": [
+    {
+      "partId": "three-of-eight",
+      "citationId": "kroger-ocado-closures-2025",
+      "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+      "supportingPassage": "Ocado shares fell to their lowest level in more than a decade after a key US partner said it was closing three of its robotic warehouses. Kroger, which operates supermarkets and department stores in the US, said it will shut sites in Wisconsin, Maryland and Florida in January."
+    },
+    {
+      "partId": "three-plus-five",
+      "citationId": "kroger-ocado-closures-2025",
+      "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+      "supportingPassage": "It also said it was 'monitoring' its remaining five warehouses, giving rise to speculation of further closures."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "three-of-eight",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "1ae60ba73c256dafd306752a4c25509d93804aabfbe58d300224f1b58797cb92"
+    },
+    {
+      "partId": "three-plus-five",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "241e0fb5fe4622caf493ab9bda267d69c953f9c627c6bfc424b3d92624da2e97"
+    }
+  ]
+},
+{
+  "id": "industrial-kroger-compensation-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 24,
+  "originalCellsDigest": "ddc812e9fefdaf424bb27a77bb51ead1e898a35dd83a615d56c2d6c3d3c8f346",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "compensation-190m",
+      "text": "Compensation of around £190 million for closing the sites.",
+      "requiredCitationIds": [
+        "kroger-ocado-closures-2025"
+      ]
+    },
+    {
+      "id": "five-monitored",
+      "text": "The five remaining warehouses are still being “monitor[ed]”.",
+      "requiredCitationIds": [
+        "kroger-ocado-closures-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:24 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "5214d3b07b1b85d4b31cbe45875e47f9fa96e60be1bd74cf0c8a23bd5e616933"
+  },
+  "evidence": [
+    {
+      "partId": "compensation-190m",
+      "citationId": "kroger-ocado-closures-2025",
+      "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+      "supportingPassage": "Ocado said it would receive compensation of around £190million for closing the sites."
+    },
+    {
+      "partId": "five-monitored",
+      "citationId": "kroger-ocado-closures-2025",
+      "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+      "supportingPassage": "It also said it was 'monitoring' its remaining five warehouses, giving rise to speculation of further closures."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "compensation-190m",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "e47288a0796b4860632c9802d7e718b828e4ae12718f6dcfed73b27796a80759"
+    },
+    {
+      "partId": "five-monitored",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "c7c4470d9379ef2f1b21e152f41671a56aef6f22b0173b3473b230461e9fa9a4"
+    }
+  ]
+},
+{
+  "id": "industrial-ocado-oia-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 25,
+  "originalCellsDigest": "b7a37089bb0eee287fc44b13eeded5d62a20eca836fb96e94b2fc12c97414b5f",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "systems-named",
+      "text": "OIA names OSRS, OMRS and OCADEX; grid-robot warehouses with bins stacked up to 21 units high.",
+      "requiredCitationIds": [
+        "ocado-oia-2026"
+      ]
+    },
+    {
+      "id": "outward-from-grocery",
+      "text": "Sells outward from grocery: “companies in industries from consumer retail to pharmaceuticals, industrial parts to third party logistics (3PL)”.",
+      "requiredCitationIds": [
+        "ocado-oia-2026"
+      ]
+    },
+    {
+      "id": "rebrand-absence",
+      "text": "Absence: neither live page (homepage or /systems) describes a rebrand.",
+      "requiredCitationIds": [
+        "ocado-oia-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 3 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:25 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "b20240f7cd5da4e3d6f1ca0b3bbcb674a0e5d532d5f1f941da959556c67a9099"
+  },
+  "evidence": [
+    {
+      "partId": "systems-named",
+      "citationId": "ocado-oia-2026",
+      "sourceUrl": "https://ocadointelligentautomation.com/",
+      "supportingPassage": "The Ocado Storage and Retrieval System (OSRS) is our flagship solution [...] our industry-leading Ocado Mobile Robot System (OMRS) [...] our OCADEX robotic pick arms [...] Robots navigate and fetch items from a fixed grid containing bins stacked up to 21 units high, orchestrated by our Warehouse Execution Software."
+    },
+    {
+      "partId": "outward-from-grocery",
+      "citationId": "ocado-oia-2026",
+      "sourceUrl": "https://ocadointelligentautomation.com/",
+      "supportingPassage": "companies in industries from consumer retail to pharmaceuticals, industrial parts to third party logistics (3PL) can improve their supply chains and boost productivity."
+    },
+    {
+      "partId": "rebrand-absence",
+      "citationId": "ocado-oia-2026",
+      "sourceUrl": "https://ocadointelligentautomation.com/systems",
+      "supportingPassage": "Neither the live homepage nor /systems prints \"rebrand\" or \"rebranded\" anywhere; the OIA name appears only as the division/brand name."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "systems-named",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "63f1e499cf8758890f011edb935daea63e3b9c9b91eae429af69493990207f67"
+    },
+    {
+      "partId": "outward-from-grocery",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "c000dd40f37ceff25abadbbf774bdc128a53d1e5acd69a506d3aa39ddbcc8fff"
+    },
+    {
+      "partId": "rebrand-absence",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "9783349cd414c015811a1339e9bb614ae5e488f270e529dacd0ac60364ce6728"
+    }
+  ]
+},
+{
+  "id": "industrial-morgan-stanley-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 35,
+  "originalCellsDigest": "c86731d30d34408bf2b1d2932405638a8b298425ad1978a0e25826da7df5a550",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "investors-harder-to-impress",
+      "text": "Investors harder to impress with polished videos and one-off demonstrations; increasingly looking for tangible ROI evidence.",
+      "requiredCitationIds": [
+        "morgan-stanley-pr-problem-2026"
+      ]
+    },
+    {
+      "id": "social-license",
+      "text": "The industry's social license to deploy may matter just as much as technical performance.",
+      "requiredCitationIds": [
+        "morgan-stanley-pr-problem-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:35 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "4f16fba0d8dbb197b62ee04cfd8e5423b56ad028eb288781729b26e775f5d5ea"
+  },
+  "evidence": [
+    {
+      "partId": "investors-harder-to-impress",
+      "citationId": "morgan-stanley-pr-problem-2026",
+      "sourceUrl": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
+      "supportingPassage": "In our recent experience, investors have become harder to impress with polished videos and one-off demonstrations alone and are increasingly looking for tangible evidence of real-world return on investment"
+    },
+    {
+      "partId": "social-license",
+      "citationId": "morgan-stanley-pr-problem-2026",
+      "sourceUrl": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
+      "supportingPassage": "The industry's social license to deploy may matter just as much as technical performance."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "investors-harder-to-impress",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "0b9d02b6ba45760feafbe958a597632f16238425c117d67b9381a9729129dac7"
+    },
+    {
+      "partId": "social-license",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "9164e21d42b014aa13d5359bc21cd256995e73be3c1f1c633d06aba6a6f57f1e"
+    }
+  ]
+},
+{
+  "id": "industrial-figure-8hr-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 36,
+  "originalCellsDigest": "6fee69bc41bf316904a31e285ece8fc7c54589ad2dc413a8bd9d6c7bf6a08b3d",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "livestream-description",
+      "text": "May 13 2026 eight-hour livestream of small-package sorting on Helix-02, at speeds the company says match human performance.",
+      "requiredCitationIds": [
+        "figure-8hr-shift-2026"
+      ]
+    },
+    {
+      "id": "fully-autonomous-own-claim",
+      "text": "“Fully autonomous running Helix-02” — Figure's own claim (CEO Brett Adcock).",
+      "requiredCitationIds": [
+        "figure-8hr-shift-2026"
+      ]
+    },
+    {
+      "id": "no-published-success-rate",
+      "text": "No published success rate; listed among the article's open questions.",
+      "requiredCitationIds": [
+        "figure-8hr-shift-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 3 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:36 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "ecb93c1f022bda40276c16df2ad1d09801a03f36e6aefd9f70388533a12fab66"
+  },
+  "evidence": [
+    {
+      "partId": "livestream-description",
+      "citationId": "figure-8hr-shift-2026",
+      "sourceUrl": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+      "supportingPassage": "The May 13 demonstration, running on the company's Helix-02 AI system, placed Figure AI robots on package-sorting conveyor belts for a continuous eight hours, processing barcoded packages at speeds the company says match human performance."
+    },
+    {
+      "partId": "fully-autonomous-own-claim",
+      "citationId": "figure-8hr-shift-2026",
+      "sourceUrl": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+      "supportingPassage": "Watch a team of humanoid robots running a full 8-hr shift at human performance levels. This is fully autonomous running Helix-02."
+    },
+    {
+      "partId": "no-published-success-rate",
+      "citationId": "figure-8hr-shift-2026",
+      "sourceUrl": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+      "supportingPassage": "The open questions center on reliability outside controlled conditions: success rates across varying object types, failure recovery when packages are misoriented or conveyor timing shifts, and scaling beyond small fleets."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "livestream-description",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "37ed4a9ddc7be9d5e32b8784f69d3497aad20865db55c6e6359b5a279539a163"
+    },
+    {
+      "partId": "fully-autonomous-own-claim",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "663a051ed1df818a686420b5f76b90b944cdbc9e9a877ce8b3a356297e54cbc5"
+    },
+    {
+      "partId": "no-published-success-rate",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "014aa43d51ba75a23ac58710e828cec179c2c10d27e2227a2d38b48cbf9209d2"
+    }
+  ]
+},
+{
+  "id": "industrial-acemoglu-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 41,
+  "originalCellsDigest": "0ca1602c85c13c0aabef7a498f5ccbab70a4b56629603fdaff6452d067ed6cc7",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "robust-negative-effects",
+      "text": "Robust negative effects of robots on employment and wages across commuting zones.",
+      "requiredCitationIds": [
+        "acemoglu-restrepo-2020"
+      ]
+    },
+    {
+      "id": "effect-sizes",
+      "text": "One more robot per thousand workers: employment-to-population ratio -0.2 percentage points, wages -0.42%.",
+      "requiredCitationIds": [
+        "acemoglu-restrepo-2020"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:41 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "8b16b7eecd9c1c95f97a513c4f4883189ec3534e9b23fdb7471325ba6b210fae"
+  },
+  "evidence": [
+    {
+      "partId": "robust-negative-effects",
+      "citationId": "acemoglu-restrepo-2020",
+      "sourceUrl": "https://ideas.repec.org/a/ucp/jpolec/doi10.1086-705716.html",
+      "supportingPassage": "We estimate robust negative effects of robots on employment and wages across commuting zones."
+    },
+    {
+      "partId": "effect-sizes",
+      "citationId": "acemoglu-restrepo-2020",
+      "sourceUrl": "https://ideas.repec.org/a/ucp/jpolec/doi10.1086-705716.html",
+      "supportingPassage": "One more robot per thousand workers reduces the employment-to-population ratio by 0.2 percentage points and wages by 0.42%."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "robust-negative-effects",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "cac37e3d6b09d15ec5a88209a1b089a0f0dc12fa54a15748a7f13576fcd1cd5e"
+    },
+    {
+      "partId": "effect-sizes",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "8a5a973c3f701ecc324bc0d7b4621a8a710bf15917f307fde7ab1bc24afad827"
+    }
+  ]
+},
+{
+  "id": "industrial-unitree-profit-20260917a",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 46,
+  "originalCellsDigest": "bec656fe962b070110eb23af3483cde3c2905fd4207a2e33506d358c43cdaefc",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "growth-deceleration",
+      "text": "Revenue growth decelerated from 332% to 68%, while profit effectively halved.",
+      "requiredCitationIds": [
+        "unitree-profit-2026"
+      ]
+    },
+    {
+      "id": "profit-figure",
+      "text": "Adjusted net profit fell to 40.25 million yuan (approximately $5.9 million), a year-on-year decline of 52.55%.",
+      "requiredCitationIds": [
+        "unitree-profit-2026"
+      ]
+    },
+    {
+      "id": "no-installed-base-comparison",
+      "text": "Absence: the article compares Unitree only to Tesla/Optimus, UBTECH and market expectations, never to the industrial installed base.",
+      "requiredCitationIds": [
+        "unitree-profit-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 3 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:46 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "f4e8aaeeafd9796201a3852099f07d916d125174abd55d025e29ed8c4eb90bd0"
+  },
+  "evidence": [
+    {
+      "partId": "growth-deceleration",
+      "citationId": "unitree-profit-2026",
+      "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+      "supportingPassage": "revenue growth decelerated from 332% to 68%, while profit effectively halved"
+    },
+    {
+      "partId": "profit-figure",
+      "citationId": "unitree-profit-2026",
+      "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+      "supportingPassage": "Adjusted net profit fell to 40.25 million yuan (approximately $5.9 million) from 84.84 million yuan in the same quarter last year, a year-on-year decline of 52.55%."
+    },
+    {
+      "partId": "no-installed-base-comparison",
+      "citationId": "unitree-profit-2026",
+      "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+      "supportingPassage": "Full live render (2026-07-11 article) read; it compares Unitree only to Tesla/Optimus, UBTECH and market expectations, never to the industrial installed base. The C verdict's re-attribution stands."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "growth-deceleration",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "cf0eda8f4146b9dda9fde60c866623271241a5cafae2df99cd277bfb24edd53f"
+    },
+    {
+      "partId": "profit-figure",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "3c72c8ff3e0c077d92a46a7b4188bd45786a7747433a97a86cd9ab67f42da568"
+    },
+    {
+      "partId": "no-installed-base-comparison",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+      "evidenceDigest": "46a007398e036789d341cae26506ac95253ac36d156e9c2982fd143a9e36528f"
+    }
+  ]
 }
 
 ]
