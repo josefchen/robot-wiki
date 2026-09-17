@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5dcc1748c003c5e769f6d7a2e49c36178c1a16e98be0cdc4d4a3d03644c22dd5",
+  "fingerprint": "3d8e50de25295388e00c83206fa1847a9f3677e450f8399ef3d2cecd6017b862",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -240,7 +240,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 4530,
+      "visibleTextLength": 4481,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -6590,7 +6590,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27575,
+      "visibleTextLength": 27590,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -8033,7 +8033,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 4308,
+      "visibleTextLength": 4259,
       "route": "/",
       "viewport": "375x812"
     },
@@ -14383,7 +14383,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27144,
+      "visibleTextLength": 27159,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },

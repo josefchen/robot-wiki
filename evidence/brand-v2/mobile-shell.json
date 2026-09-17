@@ -68,7 +68,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 4308,
+      "visibleTextLength": 4259,
       "header": {
         "present": true,
         "display": "flex",
@@ -8218,7 +8218,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 27144,
+      "visibleTextLength": 27159,
       "header": {
         "present": true,
         "display": "flex",

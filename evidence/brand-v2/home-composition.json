@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "bdb61f7601f0859367cb189c0dfa0b22fc9a251ab390b21bb2f7be89d6be9b19",
+  "fingerprint": "6bf3cde86af0038129e56b79f28d02587d251aba37796053722e45ab17d46ae8",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 4018,
+  "visibleTextLength": 4130,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -15,8 +15,8 @@
       "lineHeightPx": 84.79,
       "heightPx": 84.78,
       "renderedLines": 1,
-      "topPx": 73,
-      "bottomPx": 157.78,
+      "topPx": 65,
+      "bottomPx": 149.78,
       "descriptorText": "Citation-first encyclopedia of modern robot learning.",
       "descriptorFontFamilyHead": "IBM Plex Mono"
     }
@@ -29,8 +29,8 @@
       "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgb(11, 11, 12)",
       "colour": "rgb(255, 255, 255)",
-      "topPx": 428.03,
-      "bottomPx": 466.03
+      "topPx": 439.66,
+      "bottomPx": 477.66
     },
     {
       "controlId": "control:link-focus",
@@ -38,8 +38,8 @@
       "href": "#how-to-read",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 428.03,
-      "bottomPx": 466.03
+      "topPx": 439.66,
+      "bottomPx": 477.66
     },
     {
       "controlId": "control:link-focus",
@@ -47,8 +47,8 @@
       "href": "/manipulation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 582.03,
-      "bottomPx": 604.53
+      "topPx": 591.66,
+      "bottomPx": 614.16
     },
     {
       "controlId": "control:link-focus",
@@ -56,8 +56,8 @@
       "href": "/rl-sim2real/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 625.53,
-      "bottomPx": 648.03
+      "topPx": 631.16,
+      "bottomPx": 653.66
     },
     {
       "controlId": "control:link-focus",
@@ -65,8 +65,8 @@
       "href": "/world-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 669.03,
-      "bottomPx": 691.53
+      "topPx": 670.66,
+      "bottomPx": 693.16
     },
     {
       "controlId": "control:link-focus",
@@ -74,8 +74,8 @@
       "href": "/data-hardware/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 712.53,
-      "bottomPx": 735.03
+      "topPx": 710.16,
+      "bottomPx": 732.66
     },
     {
       "controlId": "control:link-focus",
@@ -83,8 +83,8 @@
       "href": "/classical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 774.03,
-      "bottomPx": 796.53
+      "topPx": 767.66,
+      "bottomPx": 790.16
     },
     {
       "controlId": "control:link-focus",
@@ -92,8 +92,8 @@
       "href": "/frontier/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 817.53,
-      "bottomPx": 840.03
+      "topPx": 807.16,
+      "bottomPx": 829.66
     },
     {
       "controlId": "control:link-focus",
@@ -101,8 +101,8 @@
       "href": "/adjacent/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 861.03,
-      "bottomPx": 883.53
+      "topPx": 846.66,
+      "bottomPx": 869.16
     },
     {
       "controlId": "control:link-focus",
@@ -110,8 +110,8 @@
       "href": "/adjacent/autonomous-vehicles/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 863.03,
-      "bottomPx": 881.03
+      "topPx": 848.66,
+      "bottomPx": 866.66
     },
     {
       "controlId": "control:link-focus",
@@ -119,8 +119,8 @@
       "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 863.03,
-      "bottomPx": 881.03
+      "topPx": 848.66,
+      "bottomPx": 866.66
     },
     {
       "controlId": "control:link-focus",
@@ -128,8 +128,8 @@
       "href": "/adjacent/surgical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 863.03,
-      "bottomPx": 881.03
+      "topPx": 848.66,
+      "bottomPx": 866.66
     },
     {
       "controlId": "control:link-focus",
@@ -137,8 +137,8 @@
       "href": "/adjacent/space/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 863.03,
-      "bottomPx": 881.03
+      "topPx": 848.66,
+      "bottomPx": 866.66
     },
     {
       "controlId": "control:link-focus",
@@ -146,8 +146,8 @@
       "href": "/frontier/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 1036.53,
-      "bottomPx": 1056.53
+      "topPx": 1020.16,
+      "bottomPx": 1040.16
     },
     {
       "controlId": "control:secondary-action",
@@ -155,8 +155,8 @@
       "href": null,
       "backgroundColour": "color(srgb 0.973176 0.973882 0.974588)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 1119.03,
-      "bottomPx": 1147.03
+      "topPx": 1102.66,
+      "bottomPx": 1130.66
     },
     {
       "controlId": "control:link-focus",
@@ -164,8 +164,8 @@
       "href": "/credits/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 1805.97,
-      "bottomPx": 1825.97
+      "topPx": 1789.59,
+      "bottomPx": 1809.59
     },
     {
       "controlId": "control:link-focus",
@@ -173,8 +173,8 @@
       "href": "https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2328.3,
-      "bottomPx": 2342.3
+      "topPx": 2311.92,
+      "bottomPx": 2325.92
     },
     {
       "controlId": "control:link-focus",
@@ -182,8 +182,8 @@
       "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2328.3,
-      "bottomPx": 2342.3
+      "topPx": 2311.92,
+      "bottomPx": 2325.92
     },
     {
       "controlId": "control:link-focus",
@@ -191,8 +191,8 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 2767.17,
-      "bottomPx": 2785.17
+      "topPx": 2750.8,
+      "bottomPx": 2768.8
     },
     {
       "controlId": "control:link-focus",
@@ -200,8 +200,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 2642.17,
-      "bottomPx": 2660.17
+      "topPx": 2625.8,
+      "bottomPx": 2643.8
     },
     {
       "controlId": "control:link-focus",
@@ -209,8 +209,8 @@
       "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 3026.17,
-      "bottomPx": 3046.17
+      "topPx": 3009.8,
+      "bottomPx": 3029.8
     },
     {
       "controlId": "control:link-focus",
@@ -218,8 +218,8 @@
       "href": "/glossary/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 3172.17,
-      "bottomPx": 3192.17
+      "topPx": 3155.8,
+      "bottomPx": 3175.8
     }
   ],
   "highlights": [
@@ -228,12 +228,12 @@
       "carriers": [
         "background"
       ],
-      "text": "cited to a primary source",
+      "text": "traceable to cited evidence",
       "nonColourCue": "mark-element",
       "rejectedStateCues": [],
       "annotation": "home-premise",
-      "topPx": 354.78,
-      "bottomPx": 376.78
+      "topPx": 315.16,
+      "bottomPx": 337.16
     }
   ],
   "domainEntries": [
@@ -241,62 +241,62 @@
       "name": "Manipulation & Learned Policies",
       "href": "/manipulation/",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
-      "topPx": 572.03,
-      "bottomPx": 615.53,
-      "heightPx": 43.5,
+      "topPx": 583.66,
+      "bottomPx": 623.16,
+      "heightPx": 39.5,
       "bordered": false
     },
     {
       "name": "RL, Sim-to-Real & Locomotion",
       "href": "/rl-sim2real/",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
-      "topPx": 615.53,
-      "bottomPx": 659.03,
-      "heightPx": 43.5,
+      "topPx": 623.16,
+      "bottomPx": 662.66,
+      "heightPx": 39.5,
       "bordered": false
     },
     {
       "name": "World Models",
       "href": "/world-models/",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
-      "topPx": 659.03,
-      "bottomPx": 702.53,
-      "heightPx": 43.5,
+      "topPx": 662.66,
+      "bottomPx": 702.16,
+      "heightPx": 39.5,
       "bordered": false
     },
     {
       "name": "Data, Hardware & Evaluation",
       "href": "/data-hardware/",
       "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
-      "topPx": 702.53,
-      "bottomPx": 764.03,
-      "heightPx": 61.5,
+      "topPx": 702.16,
+      "bottomPx": 759.66,
+      "heightPx": 57.5,
       "bordered": false
     },
     {
       "name": "Classical Foundations",
       "href": "/classical/",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
-      "topPx": 764.03,
-      "bottomPx": 807.53,
-      "heightPx": 43.5,
+      "topPx": 759.66,
+      "bottomPx": 799.16,
+      "heightPx": 39.5,
       "bordered": false
     },
     {
       "name": "Frontier & Open Problems",
       "href": "/frontier/",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
-      "topPx": 807.53,
-      "bottomPx": 851.03,
-      "heightPx": 43.5,
+      "topPx": 799.16,
+      "bottomPx": 838.66,
+      "heightPx": 39.5,
       "bordered": false
     },
     {
       "name": "frontier essays",
       "href": "/frontier/",
       "description": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability; the frontier essays develop the argument.",
-      "topPx": 981.53,
-      "bottomPx": 1059.53,
+      "topPx": 965.16,
+      "bottomPx": 1043.16,
       "heightPx": 78,
       "bordered": false
     },
@@ -304,9 +304,9 @@
       "name": "Adjacent Domains",
       "href": "/adjacent/",
       "description": "Autonomous Vehicles, Drones and Aerial Robotics, Surgical Robotics, and Space Robotics.",
-      "topPx": 851.03,
-      "bottomPx": 893.53,
-      "heightPx": 42.5,
+      "topPx": 838.66,
+      "bottomPx": 877.16,
+      "heightPx": 38.5,
       "bordered": false
     }
   ],
@@ -366,7 +366,7 @@
       "headingSizePx": 18
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry. Start reading How to read this wiki | Robot Wiki | Domain index | Featured interactive |  |  | Reset | 25%50%75%100%050100steps | Real hardware | A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. | Interactive tools | 100 mm | 3D Kinematics Playground | Market Map | How to read this wiki | A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform. | Introduction | Per-step success probability in percent, currently 95.0 | Episode length in steps, currently 30 | Line chart of episode success against episode length at 95.0 percent per-step success | Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning: learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath. Technical claims should be traceable to cited evidence. Sources range from research papers to first-party documentation and labelled community estimates, and a citation is not a guarantee of verification. The centre of gravity is robot learning, not a catalogue of the industry. Start reading How to read this wiki | Robot Wiki | Domain index | Featured interactive |  |  | Reset | 25%50%75%100%050100steps | Real hardware | A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. | Interactive tools | 100 mm | 3D Kinematics Playground | Market Map | How to read this wiki | A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform. | Introduction | Per-step success probability in percent, currently 95.0 | Episode length in steps, currently 30 | Line chart of episode success against episode length at 95.0 percent per-step success | Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -400,7 +400,7 @@
       "names": []
     }
   ],
-  "overviewProse": "Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry.",
+  "overviewProse": "Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning: learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath. Technical claims should be traceable to cited evidence. Sources range from research papers to first-party documentation and labelled community estimates, and a citation is not a guarantee of verification. The centre of gravity is robot learning, not a catalogue of the industry.",
   "progressMetadataMatches": [],
   "borderedCardCount": 4,
   "structureTable": [

@@ -1356,7 +1356,5 @@
     }
   },
   "unregisteredRendered": [],
-  "unannotatedRendered": [
-    "/rl-sim2real/reward-design-mpc/ surface <code> <code class=\"[overflow-wrap:anywhere]\">ae614c029977157123225f538ecdd3f873e54bd4</code>"
-  ]
+  "unannotatedRendered": []
 }
