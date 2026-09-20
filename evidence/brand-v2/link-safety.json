@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "14966e5c6597fa8c71c6af563d15c19921b5e88d0aa7c0a0cf32dde93af90507",
+  "fingerprint": "cdbb81f467e653bf66095f4c4d10149be45774ebc771827f3b204212e186bbe0",
   "source": "out/ static export",
   "routes": [
     {
@@ -770,8 +770,8 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "outboundAnchors": 21,
-      "distinctHrefs": 12,
+      "outboundAnchors": 34,
+      "distinctHrefs": 18,
       "shapes": [
         "citation-chip",
         "footer",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3072,
-  "distinctOutboundHrefs": 845,
+  "outboundAnchors": 3085,
+  "distinctOutboundHrefs": 848,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1343,
-    "reference-entry": 732,
+    "citation-chip": 1350,
+    "reference-entry": 738,
     "other": 603
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2535,
+  "anchorsWithNoreferrer": 2548,
   "keyboard": [
     {
       "route": "/",
@@ -1379,11 +1379,11 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "outboundInDom": 21,
-      "reachedByTab": 21,
+      "outboundInDom": 34,
+      "reachedByTab": 34,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 100
+      "tabStops": 125
     }
   ]
 }

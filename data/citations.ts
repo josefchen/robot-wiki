@@ -5453,15 +5453,16 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the author's paper archive (2026-08-11): Int. J.
-    // Robotics Research 20(5):378-400, May 2001. The journal treatment of
-    // RRTs, including kinodynamic planning with dynamics constraints.
+    // Identity-verified 2026-09-17: Crossref DOI 10.1177/02783640122067453
+    // (IJRR 20(5):378-400, May 2001) and title-page OCR of LavKuf01b.pdf.
+    // Prior url LavKuf01.pdf served the different paper 'Rapidly-Exploring
+    // Random Trees: Progress and Prospects' and was corrected.
     id: 'lavalle-kuffner-2001',
     title: 'Randomized Kinodynamic Planning',
     authors: ['Steven M. LaValle', 'James J. Kuffner'],
     year: 2001,
     venue: 'Int. J. Robotics Research',
-    url: 'https://lavalle.pl/papers/LavKuf01.pdf',
+    url: 'https://lavalle.pl/papers/LavKuf01b.pdf',
     type: 'paper',
   },
   {

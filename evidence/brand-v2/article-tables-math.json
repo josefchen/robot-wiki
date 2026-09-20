@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ba3f5e20954e787039db23ae659776f26c17200d409e98d1e73a0c0a12e83c8e",
+  "fingerprint": "20d7e6d2d0b6fccbb14e854fd243ae1e67b6088dc0d167db85858aacbaa90f45",
   "viewports": [
     "375x812",
     "1440x900"
@@ -7538,7 +7538,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12021,
+      "visibleTextLength": 18272,
       "tables": [
         {
           "index": 0,
@@ -7563,6 +7563,30 @@
           "tableWidth": 520,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Inference cost of four world representations compared on one machine",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 11,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Inference cost of four world representations compared on one machine",
+            "clientWidth": 333,
+            "scrollWidth": 522,
+            "scrolledBy": 40
+          },
+          "tableWidth": 522,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -7576,6 +7600,17 @@
           "tabIndex": 0,
           "clientWidth": 333,
           "scrollWidth": 520,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Inference cost of four world representations compared on one machine",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 522,
           "scrolledBy": 40
         }
       ],
@@ -15055,7 +15090,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12505,
+      "visibleTextLength": 18756,
       "tables": [
         {
           "index": 0,
@@ -15080,6 +15115,30 @@
           "tableWidth": 713,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Inference cost of four world representations compared on one machine",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 11,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Inference cost of four world representations compared on one machine",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -15090,6 +15149,17 @@
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "Physics simulators and learned world models compared",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Inference cost of four world representations compared on one machine",
           "tabIndex": 0,
           "clientWidth": 713,
           "scrollWidth": 713,
