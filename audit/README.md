@@ -1,3 +1,26 @@
+## Current checkpoint: two corrected verdict outcomes reconciled (2026-09-21)
+
+Exactly two authorized verdict/note corrections, **zero new structural completions**: audit/classical.md:motion-planning:5 is C for the already-applied seven-part RRT correction; audit/classical.md:perception:24 is C (evidence-limited cut) for the already-applied product-page attribution cut. The removed family claim is not asserted false. Both records were structurally complete before this slice. Counts remain **952 complete / 42 incomplete / 994 originals**, across 47 articles. Structural completeness is not source truth, article completion or independent acceptance. Older checkpoints below are historical.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 220 | 5 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 113 | 15 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 952 | 42 |
+
+Counting method: native parseLedger over AUDIT_LEDGERS with every article's canonical frontmatter citations; incomplete means evidenceFailures.length > 0. Claim/source cells and old note prefixes are unchanged; exact former cells and selected former plans/reviews are preserved in non-counted classical history. Same plan IDs, all seven RRT parts plus one PhoXi part, and all eight paired evidence items survive. Fresh actual Astra/max integrator/source-auditor reviews at 2026-09-21T22:38:37.908Z bind the new native tuple/plan/part digests; old review stamps are not copied. The original date-source rejection and the PhoXi wiki/manual evidence limit remain explicit.
+
+Current-role source review reused 15 retained excerpt entries from four source documents and inspected report images 1-2 and chapter images 24/39. The report's fixed-time approximate Euler rule, whole-edge feasibility and configuration/velocity scope remain distinct from the textbook's step-size-free obstacle-free nearest-swath construction. Bibliography [103] supports October 1998 TR 98-11. The complete PhoXi product response supports the named model and separate specification fields, not the removed principle claim. Original source retrieval times and status limitations are unchanged; zero new retrieval. No MDX, glossary, component, registry, approval catalog, parser, criterion, article review date or protected owner work changed.
+
+Verification so far: focused red-first verdict suite exited 1 with **8 failed / 8 passed / 16 tests**, exposing the exact old outcomes, missing reconciliation history/reviews and accounting. Post-application focused tests pass **112/112 across four files** (new verdict suite 16, audit-ledger 77, RRT/hierarchy 15, perception depth 4). Normal prelint, narrow ESLint and the isolated strict no-emit typecheck pass. Native preservation confirms all 994 identities/order, 992 unselected full records, all 952 prior complete IDs, 855 unselected plans and 999 approvals unchanged; owner files and unscoped tracked bytes match. The single final offline coverage run exited **1 with 47 full findings**, **952/42/994**, zero summary mismatches and empty stderr. Exactly the two assigned unresolved-verdict findings disappear; all remaining failure objects are unchanged and no finding is added. The 47 findings comprise 42 incomplete originals, three aggregate evidence-field failures and two other unresolved outcomes. Full JSON: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/coverage.json (10017118 bytes; SHA-256 40792164c9ba0316d637b006d2d340a092daaa4a09e3a6580173215d63b4046f). This is outcome closure, not extra structural completion or a green content gate. No full suite, build, browser, type generation, source request or publication. The content gate remains red; independent Sol/high scrutiny and user testing remain owed.
+
+---
+
 ## Current checkpoint: seven named authored-evidence holds restored (2026-09-21)
 
 Current native accounting: **952 complete / 42 incomplete / 994 originals**, across 47 articles. Exactly seven previously credited originals were restored to their named holds; this is a truthful withdrawal of completion, not seven positive completions. Zero unattempted selected originals. Structural counts are not source-truth certification, whole-article completion or independent acceptance. All earlier checkpoints below are historical snapshots.

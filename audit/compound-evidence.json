@@ -41492,7 +41492,7 @@
     "ledgerPath": "audit/classical.md",
     "articleSlug": "perception",
     "rowOrdinal": 24,
-    "originalCellsDigest": "869cdf2bc65ce9b28d5f7e9f16d17ea264ca7da3592834b79f924c8043366fba",
+    "originalCellsDigest": "083c80a17ff5c846245ac61e1aa9e0071abfec69555b9dab6be7aa684d6c63e2",
     "kind": "explicit-parts",
     "parts": [
       {
@@ -41504,9 +41504,9 @@
       }
     ],
     "planReview": {
-      "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
-      "rationale": "The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false. Reviewed all mandatory parts and coupled endpoints; this is not independent acceptance.",
-      "planDigest": "488df2eedb8d0fa7959f6506d0dd2e4cf120613b9b474b4de2a1fd2d6920e1fc"
+      "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+      "rationale": "Fresh current-role inspection of the complete retained product response and current paragraph supports the one unchanged AND part: an evidence-limited cut of an unsupported product-page family attribution while retaining the named scanner and separate fields. The cut is already implemented. The prior X was unrecognized, but no parser alias is needed: C classifies the applied editorial correction, not truth or falsity of the removed structured-light claim. Original transport/publication unknowns, old cells and wiki/manual lead status are preserved; no P1 or independent acceptance is asserted.",
+      "planDigest": "cb1b69afbd311d1c17ee361a04468b5a663c7ad24d46e4d6c5f821f4c013e7c5"
     },
     "evidence": [
       {
@@ -41520,9 +41520,9 @@
       {
         "partId": "cut-unsupported-page-attribution",
         "outcome": "supported",
-        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
-        "rationale": "Supported editorial cut, not support for the deleted claim: Cut the structured-light principle/family claim attached to this product page. Retain only the page's actual named industrial3D-scanner model and specifications; this cut does not assert the family claim is false. The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false.",
-        "evidenceDigest": "51b83ef8a3b4a8c11cd574a738d9b52fdd05747b4ee714b8341e47b3969aadee"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "The complete retained PhoXi product response identifies the industrial 3D Scanner L and separately states 0.200 mm calibration accuracy (1 sigma), 0.190 mm temporal noise (1 sigma), 870-2150 mm range and 250-2750 ms scanning time. It does not state the structured-light principle. The current named-model paragraph retains those fields and limits, and the family attribution and shared Three families introduction are already absent. C records that evidence-limited editorial cut, not verification or refutation of the removed family claim; historical wiki/manual assertions remain unverified leads.",
+        "evidenceDigest": "6bd726dafacb951a8723b6fd62b649b20e25707c8af5fb58ff1e4f371a92bcea"
       }
     ]
   },
@@ -45014,7 +45014,7 @@
     "ledgerPath": "audit/classical.md",
     "articleSlug": "motion-planning",
     "rowOrdinal": 5,
-    "originalCellsDigest": "d1f55e47a299ad6bf08d4ca63f6c4705d79b4004263450d12455015ef5bd99c7",
+    "originalCellsDigest": "d0d18e630d22c05c29d6775ba12dbb3d5147bde93e9a5d0c555375e80844d22c",
     "kind": "explicit-parts",
     "parts": [
       {
@@ -45068,9 +45068,9 @@
       }
     ],
     "planReview": {
-      "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-      "rationale": "The original fixed-geometric-step equation is not an adequate statement of LaValle's general 1998 report. The report's title and section 2 support authorship, state/control integration, whole-edge feasibility and an explicitly approximate Euler update; bibliography [103] in the author-hosted 2006 chapter supplies the October 1998 TR 98-11 date. Section 5.5/footnote 14 and Figure 5.18 describe a distinct step-size-free, initially obstacle-free nearest-swath construction. The state/configuration distinction requires the coupled glossary correction. All three reader endpoints are atomic. The old Kalos/Whitlock date passage is rejected, and neither the toy implementation nor adjacent originals or article review date is being certified or changed.",
-      "planDigest": "6c23440f997dd6c9fdedc0614885c634e6e8eed31c13068beac73a592f801df5"
+      "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+      "rationale": "Fresh current-role source review supports all seven unchanged AND parts of the already-applied RRT correction. Report pages 1-2 establish authorship, bounded-state/nearest/control construction, fixed-time approximate integration, full edge feasibility and the configuration/velocity distinction. Chapter page 39 bibliography [103] gives October 1998 TR 98-11; chapter page 24 preserves the distinct step-size-free obstacle-free swath formulation. All three atomic reader endpoints are present. The original overbroad equation and wrong date passage remain rejected in history. C closes this corrected outcome, not original-claim, P1, independent or release acceptance.",
+      "planDigest": "5dd199b0fa08334a136f22ca7d481b1e9ad66b6669a384ce860ea126ed184aec"
     },
     "evidence": [
       {
@@ -45120,51 +45120,51 @@
       {
         "partId": "report-identity",
         "outcome": "supported",
-        "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-        "rationale": "The inspected report title/byline identifies Steven M. LaValle and Iowa State University. This establishes the original report identity; its date is separately supported by the textbook bibliography rather than inferred from a file name or an unrelated bibliography entry.",
-        "evidenceDigest": "5198c1c4cb503b4fd418aa520c7a02ad42829649944cabec30e619934d1d1573"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "Current-role inspection of the retained report page 1 confirms the printed title, Steven M. LaValle byline and Department of Computer Science, Iowa State University affiliation. The current corrected claim and article use that exact report identity, not an inferred later publication or a whole-report certification.",
+        "evidenceDigest": "2e31a44b832ee0d0d49bc8301721a263ae124f3021bdc664122840bf48721549"
       },
       {
         "partId": "report-date",
         "outcome": "supported",
-        "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-        "rationale": "The inspected chapter-5 bibliography entry [103] names the RRT report, Iowa State Computer Science Technical Report 98-11 and October 1998. That exact dated entry supports retaining the Stat's 1998 value with explicit bibliography attribution. The Kalos/Whitlock 1986 passage supplies none of this and remains rejected.",
-        "evidenceDigest": "7c756263baa35026c91644246134186f16f11ed18213ffcedd8577163c1d104f"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "Current-role inspection of chapter PDF page 39 identifies bibliography [103] as LaValle's Rapidly-exploring random trees report, Technical Report 98-11, Computer Science Dept., Iowa State University, Oct. 1998. The genuine dated entry supports the attributed October 1998 claim and existing Stat. The unrelated Kalos/Whitlock 1986 extract remains rejected; no date dispute is silently resolved by relabeling.",
+        "evidenceDigest": "bcebc68073116afed01cb57cbe804cf60f3118e0e7043bbf3ecabd76ad4189fd"
       },
       {
         "partId": "sample-nearest-control",
         "outcome": "supported",
-        "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-        "rationale": "Section 2 selects a random state in bounded state space, finds the nearest tree vertex under the metric, selects an input and integrates it for a fixed time interval. These steps are more general than a normalized fixed-distance geometric step and support the corrected state/control description.",
-        "evidenceDigest": "8c5cd2cd57089d461ca58a33e9915f6238b8321d50941f18468fe44c25eca41b"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "The actual retained report page 2, GENERATE_RRT and its paragraph, selects a random state in bounded X, uses the chosen metric to find the nearest tree vertex, selects an input and integrates over fixed Delta t. The current article states those bounded operations. It does not equate fixed integration time with a universal fixed geometric extension distance.",
+        "evidenceDigest": "fe435e8692de854b46989467d2d46195fde5f68ea7c799562c22d21651e9f0b9"
       },
       {
         "partId": "local-feasibility",
         "outcome": "supported",
-        "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-        "rationale": "The report requires the vertices and every state along the paths represented by tree edges to remain in free state space. An endpoint-only collision test is insufficient. The corrected paragraph therefore explicitly preserves entire local-path feasibility.",
-        "evidenceDigest": "a3342eb7caa2f2b31b813d4de96fce4afc27978842063c3e1665226a2dab51ea"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "The report page 2 obstacle paragraph requires all vertices in X_free and each represented edge path entirely in X_free. Current prose explicitly requires the entire local paths to remain in free state space. This supports the full feasibility part, not merely a free endpoint or an unverified toy implementation.",
+        "evidenceDigest": "fb907272aac7380630fc720a4abab4a5a9b0affa5018396888879ffa0501ef78"
       },
       {
         "partId": "equation-correction",
         "outcome": "supported",
-        "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-        "rationale": "The inspected integration passage gives Euler's approximate update x_new approximately x + f(x,u) Delta t and recommends higher-order integration such as Runge-Kutta in general. The approximation sign and fixed-time interpretation are essential: arbitrary dynamics do not imply fixed geometric distance. The planar holonomic special case does not justify the old universal equation.",
-        "evidenceDigest": "ccffb8056ebfa5ed54523f6d0ac30e2b13403d5c5866405799d1ee48ff584e9d"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "The page 2 integration paragraph prints the approximate Euler update x_new approximately x + f(x,u) Delta t and recommends a higher-order method such as Runge-Kutta. The current displayed equation retains the approximation sign, and its prose distinguishes fixed time from distance for arbitrary dynamics. The nearby holonomic f(x,u)=u, bounded-input special case is not promoted to a universal geometric rule.",
+        "evidenceDigest": "55d5475530f145369a56341cbbe98270af6379cb39776f501ef8b6f5eb6ac470"
       },
       {
         "partId": "book-formulation-difference",
         "outcome": "supported",
-        "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-        "rationale": "The 2006 section expressly removes the original step-size parameter. In its initial obstacle-free construction, the nearest point is taken over the swath of edge paths; Figure 5.18 allows an interior edge point and splits the edge. This is a different construction, not a retrospective description of the report's fixed-time integration.",
-        "evidenceDigest": "627a64e0e53b428a9dcd23e381e59d40e01d97b086818e0d8b9f8f2af32efb3e"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "The actual chapter page 24 footnote 14 says the original RRT step-size parameter is eliminated in the current presentation. Figures 5.16-5.18 and their obstacle-free context use the nearest point in the swath, including a point inside an edge that is split. The corrected article preserves this distinct formulation and its initial scope; this is not a claim of source-internal contradiction or universal obstacle-free planning.",
+        "evidenceDigest": "3011dcc5b76df668b4bbe30cfa1864aaab9e8f94f9292d5b26d799f96c7e03e6"
       },
       {
         "partId": "state-glossary-coupling",
         "outcome": "supported",
-        "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
-        "rationale": "The report distinguishes configuration-based geometric problems from kinodynamic states that include configuration and velocity. The glossary's universal 'all search this space' ending is overbroad. Replace that ending and add lavalle-1998 while preserving, but not independently certifying, the earlier definition clauses and citations.",
-        "evidenceDigest": "077083bfe4d2df1dea6c33ba60cb59d2b40497f8113e2f57586e1b77ff366327"
+        "reviewedBy": "Droid f79de900-0da6-4667-ac6d-7d7316477a3a; integrator/source-auditor verdict-pair reconciliation; custom:droidproxy:gpt-6-astra/max; 2026-09-21T22:38:37.908Z; actual role event b305f7a6-8a72-4ab0-a0f6-3ffc2fe63ee9; not independent acceptance",
+        "rationale": "Current inspection of report page 2 distinguishes a standard configuration-space problem from kinodynamic X=T(C), whose state includes configuration and velocity, and allows other state interpretations. The current configuration-space glossary ending and lavalle-1998 citation already implement that qualification. Earlier definition clauses and neighboring original records receive no new certification.",
+        "evidenceDigest": "9a84a6ece22c4977312ddd7eea90bad5e52d1c0089e63f3367004ca76a584fdf"
       }
     ]
   },
