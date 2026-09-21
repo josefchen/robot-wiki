@@ -1,14 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
-import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
+import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
 
 /**
  * Pins the 2026-09-16k parallel-sim-rl originals integration: the five
  * dispatched rl-sim2real/parallel-sim-rl rows (originals 1, 3, 5, 6 and 18)
- * must bind to their compound plans and parse complete (no evidence
- * failures) with supported adjudications, from the committed ledger and
+ * retain exact plan bindings. Rows 1/3/5/6 remain complete; original18
+ * is held for its unresolved authored-model AND, from the committed ledger and
  * catalog exactly as check-audit-coverage reads them. Row 1 additionally
  * applies the packet's article-span correction (the Isaac Gym primacy
  * sentence); rows 3, 5, 6 and 18 change no article prose. Every other row
@@ -52,11 +53,11 @@ const loadSection = () => {
 };
 
 describe('parallel-sim-rl originals integration (2026-09-16k evidence completions)', () => {
-  it('binds the five applied rows to complete compound evidence', () => {
+  it('keeps the four source-complete applied rows complete', () => {
     const { sections, compoundPlans } = loadSection();
     const article = sections.find((section) => section.slug === 'parallel-sim-rl');
     expect(article).toBeDefined();
-    for (const [ordinal, planId] of Object.entries(EXPECTED_20260916K)) {
+    for (const [ordinal, planId] of Object.entries(EXPECTED_20260916K).filter(([n]) => Number(n) !== 18)) {
       const record = article!.claimRecords[Number(ordinal) - 1];
       expect(record.compound?.planId ?? '').toBe(planId);
       expect(record.compound?.structuralFailures ?? ['missing']).toEqual([]);
@@ -150,7 +151,7 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
 
     // Row 18: local-AND. The measured-anchor conjunct reuses the registered
     // rudin-2021 surface of the row-2 plan read-only; the illustrative-model
-    // conjunct is the integrator's in-repo local proof.
+    // conjunct remains held; that local proof is not external source evidence.
     const r18 = article.claimRecords[17];
     expect(r18.verdict).toBe('verified');
     expect(r18.sourceChecked).toContain('rudin-2021 @ https://ar5iv.labs.arxiv.org/html/2109.11978');
@@ -196,12 +197,55 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
     expect(byId['rudin-2021'].url).toBe('https://arxiv.org/abs/2109.11978');
   });
 
-  it('records integrator plan review on every 20260916k parallel-sim-rl plan', () => {
+  it('preserves the four unaffected integrator plan reviews', () => {
     const { compoundPlans } = loadSection();
-    for (const planId of Object.values(EXPECTED_20260916K)) {
+    for (const [ordinal, planId] of Object.entries(EXPECTED_20260916K)) {
+      if (Number(ordinal) === 18) continue;
       const plan = compoundPlans.find((p) => p.id === planId)!;
       expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
       expect(plan.planReview?.rationale).toContain(PACKET_SHA);
     }
   });
+  it.each([
+    {
+        "originalId": "audit/rl-sim2real.md:parallel-sim-rl:18",
+        "ordinal": 18,
+        "planId": "parallel-sim-rl-18-training-time-chart-20260916k",
+        "oldTuple": "c48d84728c0ef1633848263913732949a7713b5efea7cd27e2f13c4c712f4948",
+        "withdrawnReviewDigest": "0d1abfcdc6baaa280076d67c3602e0018c43227fcb9bdddb5723767b5817b123"
+    }
+])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const { sections, compoundPlans, markdown } = loadSection();
+    const article = sections.find(s => s.slug === 'parallel-sim-rl')!;
+    const record = article.claimRecords[ordinal - 1];
+    const plan = compoundPlans.find(p => p.id === planId)!;
+    expect(record.compound?.planId).toBe(planId);
+    expect(record.compound?.structuralFailures).toEqual([]);
+    expect(plan.planReview).toBeNull();
+    expect(plan.adjudications).toEqual([]);
+    expect(record.evidenceFailures).toEqual([
+      'compound plan review is missing or stale; changed/reduced plans need source-auditor review',
+      'compound source adjudication coverage must equal every part without duplicates or extras',
+    ]);
+    expect(record.note).toContain('HELD: restored named authored-evidence hold');
+    expect(plan.originalCellsDigest).toBe(originalClaimDigest(record));
+    expect(plan.originalCellsDigest).not.toBe(oldTuple);
+    // This archive is withdrawn history, never a fixture granting product credit.
+    const marker = `<!-- named-hold-archive:start ${originalId} -->\n` + '```json\n';
+    expect(markdown.split(marker)).toHaveLength(2);
+    const archived = JSON.parse(markdown.split(marker)[1].split('\n```\n<!-- named-hold-archive:end -->')[0]);
+    expect(archived.originalId).toBe(originalId);
+    expect(archived.planId).toBe(planId);
+    expect(originalClaimDigest(archived.originalCells)).toBe(oldTuple);
+    expect(record.claim).toBe(archived.originalCells.claim);
+    expect(record.sourceChecked).toBe(archived.originalCells.sourceChecked);
+    expect(record.verdict).toBe(archived.originalCells.verdict);
+    expect(record.note).toContain(archived.originalCells.note);
+    expect(createHash('sha256').update(JSON.stringify([
+      archived.planReview, archived.adjudications,
+    ])).digest('hex')).toBe(withdrawnReviewDigest);
+    expect(archived.planReview).not.toBeNull();
+    expect(archived.adjudications).toHaveLength(plan.parts.length);
+  });
+
 });

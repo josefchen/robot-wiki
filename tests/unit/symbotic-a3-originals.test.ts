@@ -131,11 +131,14 @@ describe('seven Symbotic and A3 industrial originals', () => {
     expect(p.evidence.find(e => e.partId === 'displayed-publication')?.supportingPassage).toBe('02/06/2026');
   });
 
-  it('preserves completed peers, the as0917a-completed originals 8 and 52, citation union and review date', () => {
+  it('preserves completed peers and original 8, the original 52 hold, citation union and review date', () => {
     for (const n of [1, 2, 3, 4, 13, 27, 28]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
-    // Rows 8 (stat cards) and 52 (EVST robotCost defect) were completed by the
-    // convergence-as industrial evidence-field lane on 2026-09-17.
-    for (const n of [8, 52]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
+    // Row 8 stays complete. Row 52 retains its genuine correction but is held:
+    // the September 17 scalar EVST passage did not prove the authored part.
+    expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
+    expect(parse().claimRecords[51].evidenceFailures).toContain(
+      'Supporting passage must contain the passage actually read, not a locator or placeholder',
+    );
     expect(article).toContain('lastReviewed: "2026-08-22"');
     expect(article.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
     expect(CITATIONS.find(c => c.id === 'osha-otm-robots')?.year).toBe(2026);

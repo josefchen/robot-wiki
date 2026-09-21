@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
-import { parseLedger } from '../../lib/audit-ledger';
+import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger';
 
 const ROOT = join(__dirname, '..', '..');
 const ARTICLE = join(ROOT, 'content', 'rl-sim2real', 'reward-design-mpc.mdx');
@@ -10,7 +11,7 @@ const LEDGER = join(ROOT, 'audit', 'rl-sim2real.md');
 const PLANS = join(ROOT, 'audit', 'compound-evidence.json');
 const DELTAS = join(ROOT, 'contract', 'brand-v2-approved-deltas.json');
 
-const ROW_ORDINALS = [1, 4, 5, 11, 14, 16, 19, 20, 21, 22, 23];
+const COMPLETE_ORDINALS = [1, 14, 16, 19, 20, 21, 22, 23];
 
 const PLAN_BINDINGS: Record<number, string> = {
   1: 'reward-design-mpc-original-1-20260916',
@@ -75,10 +76,10 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     expect(fm).toContain('- newton-manipulation-blog-2026');
   });
 
-  it('all eleven selected rows carry complete evidence with no failures', () => {
+  it('the eight unaffected selected rows remain complete', () => {
     const rows = sectionRows();
     const ordered = rows.slice().sort((a, b) => a.line - b.line);
-    for (const ordinal of ROW_ORDINALS) {
+    for (const ordinal of COMPLETE_ORDINALS) {
       const row = ordered[ordinal - 1];
       expect(row, `row ${ordinal} present`).toBeDefined();
       expect(row.evidenceFailures, `row ${ordinal} evidence failures`).toEqual([]);
@@ -163,7 +164,7 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     expect(row23.evidenceFailures).toEqual([]);
   });
 
-  it('every new plan evidence item cites a registered id with a substantive passage', () => {
+  it('preserves evidence fields, including uncredited local-history items', () => {
     const plans = JSON.parse(readFileSync(PLANS, 'utf8') as unknown as string) as Array<{
       id: string;
       evidence: Array<{ citationId: string; sourceUrl: string; supportingPassage: string }>;
@@ -178,5 +179,73 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
         expect(item.supportingPassage.length).toBeGreaterThan(80);
       }
     }
+  });
+  it.each([
+    {
+        "originalId": "audit/rl-sim2real.md:reward-design-mpc:4",
+        "ordinal": 4,
+        "planId": "reward-design-mpc-original-4-20260916",
+        "oldTuple": "4dc019817ebed19709a17b36b9d1f51ea8e10383a3f184d1d753ac7a04423807",
+        "withdrawnReviewDigest": "068cde5e2d92e66d1374e3e1e84e6241935ad266a047505fd3d80af120a9ee1e"
+    },
+    {
+        "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
+        "ordinal": 5,
+        "planId": "reward-design-mpc-original-5-20260916",
+        "oldTuple": "3c8db752a64be1f2d3a7ee547338a104494cb3756600d0c3ae5b245f1bddf842",
+        "withdrawnReviewDigest": "a92d42798b6ede5fdf91e84e64f16312625cd949bc9dce83fe8db94d7b9cc0a8"
+    },
+    {
+        "originalId": "audit/rl-sim2real.md:reward-design-mpc:11",
+        "ordinal": 11,
+        "planId": "reward-design-mpc-original-11-20260916",
+        "oldTuple": "da15c80d90a840bd40ff65f0eea90065fb9ef6d3f3bb55bd106da9254d90bef2",
+        "withdrawnReviewDigest": "d0c00e345e5d5b43f948a306702d0eeb7def4f088fb8ce3a01fa8594a4072775"
+    }
+])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const article = { claimRecords: sectionRows() };
+    const markdown = readFileSync(LEDGER, 'utf8');
+    const compoundPlans = parseCompoundPlans(JSON.parse(readFileSync(PLANS, 'utf8')));
+    const record = article.claimRecords[ordinal - 1];
+    const plan = compoundPlans.find(p => p.id === planId)!;
+    expect(record.compound?.planId).toBe(planId);
+    expect(record.compound?.structuralFailures).toEqual([]);
+    expect(plan.planReview).toBeNull();
+    expect(plan.adjudications).toEqual([]);
+    expect(record.evidenceFailures).toEqual([
+      'compound plan review is missing or stale; changed/reduced plans need source-auditor review',
+      'compound source adjudication coverage must equal every part without duplicates or extras',
+    ]);
+    expect(record.note).toContain('HELD: restored named authored-evidence hold');
+    expect(plan.originalCellsDigest).toBe(originalClaimDigest(record));
+    expect(plan.originalCellsDigest).not.toBe(oldTuple);
+    // This archive is withdrawn history, never a fixture granting product credit.
+    const marker = `<!-- named-hold-archive:start ${originalId} -->\n` + '```json\n';
+    expect(markdown.split(marker)).toHaveLength(2);
+    const archived = JSON.parse(markdown.split(marker)[1].split('\n```\n<!-- named-hold-archive:end -->')[0]);
+    expect(archived.originalId).toBe(originalId);
+    expect(archived.planId).toBe(planId);
+    expect(originalClaimDigest(archived.originalCells)).toBe(oldTuple);
+    expect(record.claim).toBe(archived.originalCells.claim);
+    expect(record.sourceChecked).toBe(archived.originalCells.sourceChecked);
+    expect(record.verdict).toBe(archived.originalCells.verdict);
+    expect(record.note).toContain(archived.originalCells.note);
+    expect(createHash('sha256').update(JSON.stringify([
+      archived.planReview, archived.adjudications,
+    ])).digest('hex')).toBe(withdrawnReviewDigest);
+    expect(archived.planReview).not.toBeNull();
+    expect(archived.adjudications).toHaveLength(plan.parts.length);
+  });
+
+  it('preserves genuine authored-example disclosures without claiming paper proof', () => {
+    const article = readFileSync(ARTICLE, 'utf8');
+    const reward = readFileSync(join(ROOT, 'lib/reward-shaping.ts'), 'utf8');
+    const controls = readFileSync(join(ROOT, 'components/interactive/reward-shaping.tsx'), 'utf8');
+    const replay = readFileSync(join(ROOT, 'components/interactive/eureka-loop.tsx'), 'utf8');
+    expect(article).toContain('Twelve weighted terms sit on the illustrative behavior preview below');
+    expect(controls).toContain('TERMS.map');
+    expect(reward.replace(/\n\s*\*\s?/g, ' ')).toContain('illustrative failure attractors (freeze, prance, chatter)');
+    expect(replay).toContain('Scripted replay of the Eureka loop');
+    expect(replay).toContain('not a recording of a real Eureka run');
   });
 });

@@ -18102,5 +18102,59 @@
   "disposition": "permanent"
  }
 
+  ,
+    {
+      "id": "mit-industrial-43-prose-20260921",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d",
+      "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+      "reason": "Scope only the row-43 MIT sentence to the retained official 2020 report: remove the unsupported identical-evidence attribution and categorical whole-occupation exemption, while retaining the jobless-future, task-displacement, new-work and policy/institution findings and already corrected leadership.",
+      "ownerApproval": "Josef's standing finish-it-all routine source-backed correction authority, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the orchestrator's exact 2026-09-21 integrator dispatch and /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-mit-adjacent-integration-20260921/authorization.json at base 6e5ee4c67a44e1f72941fa9f4e0ea17754fcd434. Authorizes only audit/data-hardware.md:industrial-deployment:43's exact oldSpan/newSpan prepared in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-mit-adjacent-recovery-20260921/rows.json (SHA256 e665abfaa887c4ffe106fff5a64c3d06169b2726b6d3ce1f355fe39d016606ac). This is not a new human signature or independent acceptance, and grants no P2, VAL-AUDIT-009, source-criteria or local-proof exception.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "hierarchy14-box-web-correction-20260921",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+      "newHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+      "reason": "Correct only the pi0.5 sentence: the retained v1 paper supports predicting relevant boxes before subtask labels and additional box-annotated indoor/household web data, not the removed keypoint objective or direct MOKA/RoboPoint inheritance attribution.",
+      "ownerApproval": "Standing Josef 'finish it all' routine source-backed correction authority in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/astra-mission-brief.md and the exact parent dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial52-hierarchy14-truth-repair-20260921/authorization.json. This is not a new human signature or independent acceptance; it grants no P2, VAL-AUDIT-009, source-criteria or local-proof exception.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
+  ,
+    {
+      "id": "hierarchy15-bounded-synthesis-correction-20260921",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+      "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c",
+      "reason": "Correct original15 by replacing universal supersession and runtime-keypoint claims with six fully sourced parts covering the five explicitly named document-bounded examples and the geometry scope distinction; preserve original14 exactly and retain historical conjunctions as corrected history.",
+      "ownerApproval": "Standing Josef finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy15-integration-20260921/authorization.json, bound to HEAD 79807c70bf339a47eb19c581eb0ae5bf3a2c6115 and source packet SHA-256 2054bd45ec7aecec89421dcf9600941a8fdb1d003d20bb6024cdc398c00304e4. Only the four specified endpoints are authorized; not a new human signature, human source certification, local-proof exception or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
   ]
 }

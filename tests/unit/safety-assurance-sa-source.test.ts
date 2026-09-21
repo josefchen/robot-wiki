@@ -10,11 +10,14 @@
  * dispatch applied the rows the 20260915 lane held or left unattempted
  * (SA5-9, SA25, SA26, SA32, SA33, SA36, SA38-40), so no row of this
  * section remains unbound, and SA40's corrected note counts 29 ids.
+ * SA5/6 keep those bindings but their authored-mapping conjunctions are held;
+ * literal source facts and the recorded inconsistency remain intact.
  */
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
-import { parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
+import { parseCompoundPlans, originalClaimDigest, parseLedger } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
 
 const root = join(__dirname, '..', '..');
@@ -128,8 +131,14 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
         expect(item.sourceUrl).not.toMatch(/[@\s]/);
         expect(item.supportingPassage.trim().length, `${planId}/${item.partId} passage substantive`).toBeGreaterThan(40);
       }
-      for (const review of plan!.adjudications) {
-        expect(review.outcome, `${planId}/${review.partId} supported`).toBe('supported');
+      if ([5, 6].includes(plan!.rowOrdinal)) {
+        expect(plan!.planReview).toBeNull();
+        expect(plan!.adjudications).toEqual([]);
+      } else {
+        expect(plan!.adjudications).toHaveLength(plan!.parts.length);
+        for (const review of plan!.adjudications) {
+          expect(review.outcome, `${planId}/${review.partId} supported`).toBe('supported');
+        }
       }
     }
   });
@@ -153,5 +162,79 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
     expect(cells[4]).toContain('29 frontmatter citation ids');
     expect(cells[4]).not.toContain('28 frontmatter citation ids');
     expect(cells[cells.length - 1]).toBe('safety-remainder-20260916-safety-and-assurance-40');
+  });
+  it.each([
+    {
+        "originalId": "audit/frontier.md:safety-and-assurance:5",
+        "ordinal": 5,
+        "planId": "safety-remainder-20260916-safety-and-assurance-5",
+        "oldTuple": "55b4336db6d3c9828d07b4d3b3d1a324a520f90be0232779e90fb3ce61b6fd87",
+        "withdrawnReviewDigest": "46dd278c6d35e614d3c86e92e8265edea3a0c8c3c9e92a3e4d61eb0b6e2bce52"
+    },
+    {
+        "originalId": "audit/frontier.md:safety-and-assurance:6",
+        "ordinal": 6,
+        "planId": "safety-remainder-20260916-safety-and-assurance-6",
+        "oldTuple": "a0b6b670f57a2b1afb510811fdea1200e585ce19c66784b0ec5358302aa15ba6",
+        "withdrawnReviewDigest": "895f6e01d8b13d82b2161e9267ccb8b7383a1ad2a044f7721fc6245a1d84a995"
+    }
+])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const markdown = ledger, compoundPlans = plans;
+    const article = parseLedger('audit/frontier.md', markdown, registryIds, { compoundPlans })
+      .find(s => s.slug === 'safety-and-assurance')!;
+    const record = article.claimRecords[ordinal - 1];
+    const plan = compoundPlans.find(p => p.id === planId)!;
+    expect(record.compound?.planId).toBe(planId);
+    expect(record.compound?.structuralFailures).toEqual([]);
+    expect(plan.planReview).toBeNull();
+    expect(plan.adjudications).toEqual([]);
+    expect(record.evidenceFailures).toEqual([
+      'compound plan review is missing or stale; changed/reduced plans need source-auditor review',
+      'compound source adjudication coverage must equal every part without duplicates or extras',
+    ]);
+    expect(record.note).toContain('HELD: restored named authored-evidence hold');
+    expect(plan.originalCellsDigest).toBe(originalClaimDigest(record));
+    expect(plan.originalCellsDigest).not.toBe(oldTuple);
+    // This archive is withdrawn history, never a fixture granting product credit.
+    const marker = `<!-- named-hold-archive:start ${originalId} -->\n` + '```json\n';
+    expect(markdown.split(marker)).toHaveLength(2);
+    const archived = JSON.parse(markdown.split(marker)[1].split('\n```\n<!-- named-hold-archive:end -->')[0]);
+    expect(archived.originalId).toBe(originalId);
+    expect(archived.planId).toBe(planId);
+    expect(originalClaimDigest(archived.originalCells)).toBe(oldTuple);
+    expect(record.claim).toBe(archived.originalCells.claim);
+    expect(record.sourceChecked).toBe(archived.originalCells.sourceChecked);
+    expect(record.verdict).toBe(archived.originalCells.verdict);
+    expect(record.note).toContain(archived.originalCells.note);
+    expect(createHash('sha256').update(JSON.stringify([
+      archived.planReview, archived.adjudications,
+    ])).digest('hex')).toBe(withdrawnReviewDigest);
+    expect(archived.planReview).not.toBeNull();
+    expect(archived.adjudications).toHaveLength(plan.parts.length);
+  });
+
+  it('retains the lower-bound correction and both velocity contexts without operand credit', () => {
+    const article = readFileSync(join(root, 'content/frontier/safety-and-assurance.mdx'), 'utf8');
+    const rows = parseLedger('audit/frontier.md', ledger, registryIds, { compoundPlans: plans })
+      .find(s => s.slug === 'safety-and-assurance')!.claimRecords;
+    expect(article).toContain('an intrusion margin of at least 850 mm');
+    expect(rows[4].note).toContain('applicability');
+    expect(rows[5].verdict).toBe('S');
+    expect(rows[5].note).toContain('1600 mm/s');
+    expect(rows[5].note).toContain('2000 mm/s');
+    expect(rows[5].note).toContain('may be measured directly');
+  });
+
+  it('still rejects missing source evidence from a complete unchanged safety peer', () => {
+    const parse = (catalog = plans) => parseLedger('audit/frontier.md', ledger, registryIds,
+      { compoundPlans: catalog }).find(s => s.slug === 'safety-and-assurance')!.claimRecords[2];
+    // Original3 is an unchanged complete starting point, not an already-held
+    // SA5/6 fixture that would make this evidence-removal assertion vacuous.
+    expect(parse().evidenceFailures).toEqual([]);
+    const changed = structuredClone(plans);
+    const peer = changed.find(p => p.id === APPLIED[0].planId)!;
+    expect(peer.evidence.length).toBeGreaterThan(0);
+    peer.evidence = peer.evidence.slice(1);
+    expect(parse(changed).compound?.structuralFailures.length).toBeGreaterThan(0);
   });
 });
