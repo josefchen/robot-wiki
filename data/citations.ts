@@ -4512,6 +4512,17 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2406.17557',
     type: 'paper',
   },
+  // CC BY 4.0: 2013 is the license-version publication year, not the undated deed webpage.
+  // Publisher License Versions table: 2013 Nov 25; retained retrieval 2026-09-21T22:59:00.538Z.
+  // https://wiki.creativecommons.org/wiki/License_Versions (no origin HTTP status exposed).
+  {
+    id: 'cc-by-4-0-deed',
+    title: 'Attribution 4.0 International',
+    authors: ['Creative Commons'],
+    year: 2013,
+    url: 'https://creativecommons.org/licenses/by/4.0/',
+    type: 'docs',
+  },
   {
     // Verified against the arXiv abs page (2026-08-08): 101 authors; first three listed.
     // License re-verified 2026-08-17: the dataset ships CC BY 4.0, not the

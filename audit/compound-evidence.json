@@ -64446,57 +64446,77 @@
   "ledgerPath": "audit/data-hardware.md",
   "articleSlug": "datasets",
   "rowOrdinal": 5,
-  "originalCellsDigest": "688e0ecb481a7a24f7df8b88ce2c996077a12a976afacad7802423a834d3a6b0",
+  "originalCellsDigest": "e0779c98df20ce631b4d08787ade3534238462a658ec36de276198a5132dd4c3",
   "kind": "explicit-parts",
   "parts": [
     {
       "id": "ds5-paper-license",
-      "text": "DROID is released under CC BY 4.0: the paper states the full dataset ships 'under CC-BY 4.0 license' (printed in both the abstract and the Sec. III release statement), correcting the earlier CC BY-NC 4.0 error.",
+      "text": "The DROID v2 paper releases the full dataset under CC BY 4.0.",
       "requiredCitationIds": [
         "droid-2024"
       ]
     },
     {
       "id": "ds5-deed-commercial-attribution",
-      "text": "CC BY 4.0 permits commercial use with attribution: the deed grants freedom to share and adapt the material 'for any purpose, even commercially', under the Attribution term requiring appropriate credit (deed citation proposed for registration; part waits on that registration).",
+      "text": "The CC BY 4.0 deed permits sharing and adaptation for any purpose, even commercially, under its stated attribution, link, change-notice and other terms; other rights may limit an intended use.",
+      "requiredCitationIds": [
+        "cc-by-4-0-deed"
+      ]
+    },
+    {
+      "id": "ds5-license-version-date",
+      "text": "CC license version 4.0 was released on 2013 Nov 25; this dates the license version, not the dataset or an undated webpage.",
       "requiredCitationIds": [
         "cc-by-4-0-deed"
       ]
     }
   ],
   "planReview": {
-    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-    "rationale": "Packet record datasets:5 (ready-evidence-completion over the applied CC BY-NC 4.0 -> CC BY 4.0 correction) reviewed: the paper license sentence was needle-verified against the retained droid-html-v2.html (printed twice, abstract + Sec. III) and the deed freedoms passage against sources/ccby4-deed.html. The deed part is held unresolved by this integrator: the registry schema requires a year and no frozen-packet evidence prints one for the deed, so the proposed cc-by-4-0-deed registration is lawfully blocked under this lane's zero-retrieval rule. The dataset-scope qualifier (dataset license, not code/model licenses) is preserved from the hold record.",
-    "planDigest": "8a9fb95a2303cecc24defc8cf922bf8397644964d4a3bf49a69e36c3afcac50a"
+    "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+    "rationale": "All original AND obligations retained across the corrected claim; every required pair reviewed from hash-verified retained primary text. Separate license scope, deed limitations/version date and BridgeData average remain explicit. Duplicate same-source excerpts combined without losing literal text. Current review is not a copied preparation stamp or independent acceptance.",
+    "planDigest": "c24d7beaf8e6c1cf5d043187b034914b59e8f33f4d04083908370f0254532e77"
   },
   "evidence": [
     {
       "partId": "ds5-paper-license",
       "citationId": "droid-2024",
       "sourceUrl": "https://arxiv.org/html/2403.12945v2",
-      "supportingPassage": "This includes the full dataset under CC-BY 4.0 license, an interactive dataset visualizer, code for training generalizable policies on DROID, pre-trained policy checkpoints, and a detailed guide for reproducing our robot hardware setup and control stack."
+      "supportingPassage": "This includes the full dataset under CC-BY 4.0 license, an interactive dataset visualizer, code for training generalizable policies on DROID, pre-trained policy checkpoints, and a detailed guide for reproducing our robot hardware setup and control stack.\n\nWe open-source the full DROID dataset under CC-BY 4.0 license, code for training policies using the dataset, and a detailed guide for reproducing our complete robot software and hardware setup."
     },
     {
       "partId": "ds5-deed-commercial-attribution",
       "citationId": "cc-by-4-0-deed",
       "sourceUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "supportingPassage": "You are free to: Share — copy and redistribute the material in any medium or format... Adapt — remix, transform, and build upon the material for any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made."
+      "supportingPassage": "You are free to: Share — copy and redistribute the material in any medium or format for any purpose, even commercially. Adapt — remix, transform, and build upon the material for any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material. Notice This deed highlights only some of the key features and terms of the actual license. It is not a license and has no legal value. You should carefully review all of the terms and conditions of the actual license before using the licensed material."
+    },
+    {
+      "partId": "ds5-license-version-date",
+      "citationId": "cc-by-4-0-deed",
+      "sourceUrl": "https://wiki.creativecommons.org/wiki/License_Versions",
+      "supportingPassage": "This page identifies the principal improvements to the Creative Commons license suite since the publication of the first licenses (version 1.0) in December 2002, through the current [version 4.0](https://wiki.creativecommons.org/wiki/Version_4 \"Version 4\"), published November 2013. It also highlights important similarities and differences among the major license versions. For more information on using CC tools or works offered under Creative Commons licenses, consult the [Frequently Asked Questions](https://wiki.creativecommons.org/wiki/Frequently_Asked_Questions \"Frequently Asked Questions\") page. For a further historical perspective, you are invited to review deprecated CC legal tools identified on the [retired legal tools page](http://creativecommons.org/retiredlicenses).\n\n| 4.0 | 2013 Nov 25 | - Initial announcement: [Copyright Experts Discuss CC License Version 4.0 at the Global Summit](http://creativecommons.org/weblog/entry/29639)<br>- Beginning of public discussion: [Version 4.0 – Public Discussion Launches](https://creativecommons.org/weblog/entry/30676)<br>- Draft 1: [Version 4.0 – License Draft Ready for Public Comment!](https://creativecommons.org/weblog/entry/32157)<br>- Draft 2: [Draft 2 of 4.0 Ready for Public Comment](https://creativecommons.org/weblog/entry/33632)<br>- Draft 3: [4.0 draft 3 published – final comment period underway](https://creativecommons.org/weblog/entry/36713)<br>- Draft 4: [4.0 draft 4 ready for comment — final consultation before publication](https://creativecommons.org/weblog/entry/39587) | [CC’s Next Generation Licenses — Welcome Version 4.0!](https://creativecommons.org/weblog/entry/40768) | - [What's New in 4.0: Summary](https://creativecommons.org/Version4)<br>- [Policy decisions and versioning notes](https://wiki.creativecommons.org/wiki/Version_4 \"Version 4\")<br>- [Creative Commons Version 4.0 wiki pages](https://wiki.creativecommons.org/wiki/4.0 \"4.0\") |"
     }
   ],
   "adjudications": [
     {
       "partId": "ds5-paper-license",
       "outcome": "supported",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Supported: the paper prints \"the full dataset under CC-BY 4.0 license\" twice (abstract and Sec. III release statement); needle-verified against the retained v2 HTML, byte-identical to the integrated source.",
-      "evidenceDigest": "a565e56d5cb52932832ee856b11334e2dee0285963b096c40ad2caf15bc9782b"
+      "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+      "rationale": "Both v2 release statements explicitly grant the full dataset under CC BY 4.0, not merely code or model artifacts. Earlier NC correction remains historical.",
+      "evidenceDigest": "22c58d8cf5762e593bf9a7df0d6248443c082c605dc52278f7dd96f22e59e07c"
     },
     {
       "partId": "ds5-deed-commercial-attribution",
-      "outcome": "unresolved",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "UNRESOLVED, held by this integrator: the deed passage itself (share/adapt \"for any purpose, even commercially\" under the Attribution term) was needle-verified verbatim against sources/ccby4-deed.html, but the cc-by-4-0-deed registry registration is lawfully blocked - the citation schema requires a year and neither the retained deed render (grep-confirmed: no year token) nor any other frozen-packet evidence prints one, and this lane performs zero retrieval. The part keeps its fetched passage and waits on a registration with a source-printed year; the paper-license part alone does not complete this row.",
-      "evidenceDigest": "4b8aef26ccf29dcee037d087cb7052eb9ffb4bbf525dfbed1ca961558a6a7902"
+      "outcome": "supported",
+      "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+      "rationale": "The deed explicitly permits Share and Adapt even commercially, conditional on attribution, license link, change notices, non-endorsement and no additional restrictions. The corrected prose does not claim blanket training permission.",
+      "evidenceDigest": "41d39bb27ab05ec5445bc8028c6e7aed91a92c6755e5d240031f35b41948434a"
+    },
+    {
+      "partId": "ds5-license-version-date",
+      "outcome": "supported",
+      "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+      "rationale": "The publisher opening dates version 4.0 to November 2013 and its table states 2013 Nov 25. Registry year denotes this license version only; DROID remains 2024 and the deed webpage date is not invented.",
+      "evidenceDigest": "5d2e71e00a1e9b4f7623172cbb533bf5e8244385955b1dd9015ebeda8f13a634"
     }
   ]
 },
@@ -64505,7 +64525,7 @@
   "ledgerPath": "audit/data-hardware.md",
   "articleSlug": "datasets",
   "rowOrdinal": 6,
-  "originalCellsDigest": "9afc87472fd05dfcd84fd3c6baa2342884ad0ea7bfefcbb4d8ea87b7d654f9b4",
+  "originalCellsDigest": "2bbe336fb9f56948c69c7fc74bd83ef02b1c394b02db58cdd650ce9696daa51c",
   "kind": "explicit-parts",
   "parts": [
     {
@@ -64523,59 +64543,91 @@
       ]
     },
     {
-      "id": "ds6-held-38timesteps-license",
-      "text": "HELD PARTS (not evidenced this session): the 38-timestep average trajectory length and the CC BY 4.0 data license rest solely on the project site, which now returns 404 with no Wayback capture; last live verification 2026-08-18. The integrator annotates or cuts these two elements; they are not certified here.",
+      "id": "ds6-project-average",
+      "text": "The official BridgeData V2 project page reports a 38-timestep average trajectory length and 5 Hz control frequency.",
+      "requiredCitationIds": [
+        "bridgedata-v2-2023"
+      ]
+    },
+    {
+      "id": "ds6-project-data-license",
+      "text": "The official BridgeData V2 project page states that all data is provided under the Creative Commons Attribution 4.0 International License.",
       "requiredCitationIds": [
         "bridgedata-v2-2023"
       ]
     }
   ],
   "planReview": {
-    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-    "rationale": "Packet record datasets:6 (ready-evidence-completion with two held elements) reviewed: the six paper-backed elements were needle-verified against sources/bridge-abs.html and sources/bridge-html.html (60,096 total; 50,365/9,731 split; 13 skills; 5 Hz VR teleoperation; WidowX 250 and the ~$4,000 setup). The held part stays unresolved: the dead-site evidence is retained (404 bodies; the Wayback page printing \"Wayback Machine has not archived that URL\"; the availability-API 429 recorded separately and not relied on); last live verification 2026-08-18. The article spans are annotated this pass, not certified.",
-    "planDigest": "4c4de7e5d5f25bc558b343a2b8b83c7d9a10cf9b8349bb34be0f904236340f2c"
+    "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+    "rationale": "All original AND obligations retained across the corrected claim; every required pair reviewed from hash-verified retained primary text. Separate license scope, deed limitations/version date and BridgeData average remain explicit. Duplicate same-source excerpts combined without losing literal text. Current review is not a copied preparation stamp or independent acceptance.",
+    "planDigest": "c6ac60ad08a2c5d797f43b10f2d8978916474a5a93f4febd99da1176018a0541"
   },
   "evidence": [
     {
       "partId": "ds6-total-and-robot",
       "citationId": "bridgedata-v2-2023",
-      "sourceUrl": "https://arxiv.org/abs/2308.12952",
-      "supportingPassage": "BridgeData V2 contains 60,096 trajectories collected across 24 environments on a publicly available low-cost robot. [Full text, Fig. 2:] A picture of our robot setup showing the WidowX 250 robot arm and various cameras. ... The robot setup (Figure 2) costs approximately $4,000 in total and consists of parts that are all publicly available with a turnaround time of less than two weeks."
+      "sourceUrl": "https://rail-berkeley.github.io/bridgedata/",
+      "supportingPassage": "- 60,096 trajectories\n  - 50,365 teleoperated demonstrations\n  - 9,731 rollouts from a scripted pick-and-place policy\n- 24 environments\n- 13 skills\n\nAll the data was collected on a WidowX 250 6DOF robot arm. We collect demonstrations\nby teleoperating the robot with a VR controller. The control frequency is 5 Hz and the average\ntrajectory length is 38 timesteps. For sensing, we use an RGBD camera that is fixed in an over-the-shoulder\nview, two RGB cameras with poses that are randomized during data collection, and RGB camera attached to the\nrobot's wrist. The images are saved at a 640x480 resolution."
+    },
+    {
+      "partId": "ds6-total-and-robot",
+      "citationId": "bridgedata-v2-2023",
+      "sourceUrl": "https://arxiv.org/html/2308.12952",
+      "supportingPassage": "3.1 System setup Figure 2: (System setup) A picture of our robot setup showing the WidowX 250 robot arm and various cameras. For sensing, we use an RGBD camera that is fixed in an over-the-shoulder view, two RGB cameras with poses that are randomized during data collection, and an RGB camera attached to the robot’s wrist. The images are saved at a 640x480 resolution and the control frequency is 5 Hz. We collect demonstrations by teleoperating the robot with a VR controller. See Appendix C for additional details. The robot setup (Figure 2 ) costs approximately $4,000 in total and consists of parts that are all publicly available with a turnaround time of less than two weeks."
+    },
+    {
+      "partId": "ds6-split-and-rate",
+      "citationId": "bridgedata-v2-2023",
+      "sourceUrl": "https://rail-berkeley.github.io/bridgedata/",
+      "supportingPassage": "- 60,096 trajectories\n  - 50,365 teleoperated demonstrations\n  - 9,731 rollouts from a scripted pick-and-place policy\n- 24 environments\n- 13 skills\n\nAll the data was collected on a WidowX 250 6DOF robot arm. We collect demonstrations\nby teleoperating the robot with a VR controller. The control frequency is 5 Hz and the average\ntrajectory length is 38 timesteps. For sensing, we use an RGBD camera that is fixed in an over-the-shoulder\nview, two RGB cameras with poses that are randomized during data collection, and RGB camera attached to the\nrobot's wrist. The images are saved at a 640x480 resolution."
     },
     {
       "partId": "ds6-split-and-rate",
       "citationId": "bridgedata-v2-2023",
       "sourceUrl": "https://arxiv.org/html/2308.12952",
-      "supportingPassage": "In total, BridgeData V2 contains 50,365 expert demonstrations and 9,731 trajectories from a scripted policy. [...] BridgeData V2 contains 50,365 demonstrations of 13 skills across 24 environments, more than 7 times as many demonstrations as the original Bridge Dataset. [...] the control frequency is 5 Hz. We collect demonstrations by teleoperating the robot with a VR controller. [...] We also augment the demonstrations with 9,731 trajectories collected from a heavily randomized pick-and-place policy to boost the robustness of the foundational objection repositioning skill."
+      "supportingPassage": "BridgeData V2 contains 50,365 demonstrations of 13 skills across 24 environments, more than 7 times as many demonstrations as the original Bridge Dataset. BridgeData V2 is not just a quantitative improvement: the new dataset is specifically designed as a useful resource for a wide range of robot learning research. The greater quantity and diversity of data enables better generalization to new lab settings and, unlike the first Bridge Dataset, the demonstrations were collected in scenes with many possible skills to support open-vocabulary task specification through either goal images or language instructions. We also augment the demonstrations with 9,731 trajectories collected from a heavily randomized pick-and-place policy to boost the robustness of the foundational objection repositioning skill."
     },
     {
-      "partId": "ds6-held-38timesteps-license",
+      "partId": "ds6-project-average",
       "citationId": "bridgedata-v2-2023",
-      "sourceUrl": "https://bridgedata.github.io/bridge-data-v2/",
-      "supportingPassage": "NO PASSAGE FETCHABLE THIS SESSION: the URL returned HTTP 404 (FetchUrl by 2026-09-16T04:11Z; curl root path 404 at 2026-09-16T04:11:12Z) and the Wayback Machine reports it has not archived that URL (2026-09-16T04:13:59Z). Prior live verification of both elements: 2026-08-18 (audit/data-hardware.md re-verification addendum). Held, not certified."
+      "sourceUrl": "https://rail-berkeley.github.io/bridgedata/",
+      "supportingPassage": "All the data was collected on a WidowX 250 6DOF robot arm. We collect demonstrations\nby teleoperating the robot with a VR controller. The control frequency is 5 Hz and the average\ntrajectory length is 38 timesteps. For sensing, we use an RGBD camera that is fixed in an over-the-shoulder\nview, two RGB cameras with poses that are randomized during data collection, and RGB camera attached to the\nrobot's wrist. The images are saved at a 640x480 resolution."
+    },
+    {
+      "partId": "ds6-project-data-license",
+      "citationId": "bridgedata-v2-2023",
+      "sourceUrl": "https://rail-berkeley.github.io/bridgedata/",
+      "supportingPassage": "All data is provided under the [Creative Commons\\\\\nAttribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)"
     }
   ],
   "adjudications": [
     {
       "partId": "ds6-total-and-robot",
       "outcome": "supported",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Supported: abstract prints 60,096 trajectories across 24 environments on a publicly available low-cost robot; Fig. 2 names the WidowX 250 and the ~$4,000 setup; Table 1 prints 60.1k/13/24.",
-      "evidenceDigest": "b5a988250c16be8f614978bcbafe1f877be41e78389d8e97107989acc82a86e5"
+      "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+      "rationale": "Official page states 60,096 trajectories and 24 environments on WidowX 250; retained v3 Fig. 2 and setup body explicitly support the low-cost publicly available approximately-$4,000 rig. Draft heading-only evidence was replaced with the actual paragraph.",
+      "evidenceDigest": "95b2766c6cc8989d6674259f94403e1af83757c0bb762f48ef1ccf03a9595aeb"
     },
     {
       "partId": "ds6-split-and-rate",
       "outcome": "supported",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Supported: the full text prints the 50,365 expert demonstrations / 9,731 scripted-policy split, the 13-skills and 24-environments counts, 5 Hz control, and VR-controller teleoperation.",
-      "evidenceDigest": "7eb6e124a654445a8e580b1956b07066e146332383890f372c800f2cce0c56e0"
+      "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+      "rationale": "Official page and retained v3 body support 50,365 teleoperated demonstrations, VR controller at 5 Hz, 9,731 scripted trajectories, heavily randomized pick-and-place and 13 skills.",
+      "evidenceDigest": "9bcce687b8871ad4a9e6f43c854beb6b6be20f88a28465a417cbd7bb11147ecd"
     },
     {
-      "partId": "ds6-held-38timesteps-license",
-      "outcome": "unresolved",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "UNRESOLVED, held: the 38-timestep average and the CC BY 4.0 data license rest solely on the project site, which returned 404 on both path forms (2026-09-16T04:11Z, bodies retained) while the Wayback page prints \"Wayback Machine has not archived that URL\" (2026-09-16T04:13:59Z); the availability API was separately rate-limited 429 and is recorded, not relied on. Last live verification 2026-08-18 per the committed addendum; the two article spans are annotated this pass (dead-source annotation), not certified, and the paper prints no timestep average or data license.",
-      "evidenceDigest": "1bc4a5d2d256e7aa8d94208fa48c9b53632fc3214064ff7ed893e9f2a5fbbbde"
+      "partId": "ds6-project-average",
+      "outcome": "supported",
+      "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+      "rationale": "The official rail-berkeley project page states 38 timesteps and 5 Hz. Wrong-host 404 observations do not establish this page was offline; derived seconds are removed rather than claimed as source text.",
+      "evidenceDigest": "1f566d6ff067aa50069d16678851f2346abc1f3d9872d7802e6cabc9fa259453"
+    },
+    {
+      "partId": "ds6-project-data-license",
+      "outcome": "supported",
+      "reviewedBy": "Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z",
+      "rationale": "The official same-work page says all data is provided under CC Attribution 4.0 International. This is a data statement, not the repository MIT code license or a RoboMIND grant.",
+      "evidenceDigest": "328382b6e707eb656ce9c216585123769d9da6f1d5edce2d9dbdc977199f332b"
     }
   ]
 },
