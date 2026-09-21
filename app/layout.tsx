@@ -1,11 +1,19 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';
+import localFont from 'next/font/local';
+import { AnonymousAnalytics } from '@/components/analytics/anonymous-analytics';
 import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
-import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
+import {
+  ALLOW_INDEXING,
+  ENABLE_ANALYTICS,
+  SITE_DISPLAY_NAME,
+  SITE_URL,
+} from '@/lib/site';
 import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '@/lib/identity';
-import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { HOME_SEO_DESCRIPTION, HOME_SEO_TITLE } from '@/lib/seo';
 import './globals.css';
 
 // The site's three faces, and the only three it loads. IBM Plex Sans and
@@ -32,14 +40,21 @@ const plexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
+const tektur = localFont({
+  src: '../assets/fonts/tektur/Tektur-Latin-wdth-wght.woff2',
+  variable: '--font-tektur',
+  weight: '400 900',
+  style: 'normal',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  // The '%s - robot-wiki' template must stay in lockstep with
+  // The '%s | Robot Wiki' template must stay in lockstep with
   // SITE_TITLE_SUFFIX in lib/search.ts, which strips the site name off
   // Pagefind result titles.
-  title: { default: 'robot-wiki', template: '%s - robot-wiki' },
-  description:
-    'An encyclopedic interactive guide to modern robotics for ML engineers.',
+  title: { default: HOME_SEO_TITLE, template: '%s | Robot Wiki' },
+  description: HOME_SEO_DESCRIPTION,
   // Author identity (VAL-DIST-009): declared once in the root layout so
   // every route inherits meta[name=author] (a route-level metadata object
   // replaces only the keys it declares; authors is never overridden).
@@ -49,36 +64,52 @@ export const metadata: Metadata = {
   creator: AUTHOR_NAME,
   // './' resolves against each route's own pathname, so every page gets a
   // route-correct canonical and og:url on the apex origin.
-  alternates: { canonical: './' },
+  alternates: {
+    canonical: './',
+    types: {
+      'application/rss+xml': `${SITE_URL}/feed.xml`,
+    },
+  },
   openGraph: {
-    type: 'website',
-    url: './',
-    siteName: 'robot-wiki',
-    // Site-level social card (VAL-DIST-002/005): a build-time PNG under
-    // /og/, served as a plain static file. Non-article routes inherit
-    // this block; routes that declare their own openGraph object (which
-    // replaces this one, no deep merge) re-declare images themselves.
-    images: siteOgImage(),
+    ...routeOpenGraph(SITE_DISPLAY_NAME),
+    description: HOME_SEO_DESCRIPTION,
+    locale: 'en_US',
   },
   // summary_large_image: the card is the 1.91:1 asset above, not a small
   // square thumbnail (VAL-DIST-001).
-  twitter: largeCardTwitter(),
+  twitter: {
+    ...routeTwitter(SITE_DISPLAY_NAME),
+    description: HOME_SEO_DESCRIPTION,
+  },
   // Site-wide robots guard, driven by ALLOW_INDEXING in lib/site.ts (the
-  // single switch). True since the go-public decision of 2026-08-16, so
-  // this resolves to undefined and no meta tag ships; /404/ pins its own
-  // route-level noindex either way (app/not-found.tsx).
-  robots: ALLOW_INDEXING ? undefined : { index: false, follow: false },
+  // single switch). Search engines may use the preview limits below when
+  // rendering richer result snippets; /search and /404 pin route-level
+  // noindex directives independently.
+  robots: ALLOW_INDEXING
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+          'max-video-preview': -1,
+        },
+      }
+    : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
+      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <body>
         <SkipLink />
         <SiteShell>{children}</SiteShell>
+        {ENABLE_ANALYTICS ? <AnonymousAnalytics /> : null}
       </body>
     </html>
   );

@@ -92,6 +92,7 @@ export function Term({ termId, term, definition, children }: TermProps) {
     >
       <Link
         href={`/glossary#${termId}`}
+        prefetch={false}
         aria-describedby={tooltipId}
         className="term-link"
       >

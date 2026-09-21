@@ -76,7 +76,7 @@ test.describe('classical state-estimation module', () => {
     ).toBeVisible();
 
     // Sidebar shows the module active under the classical domain.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'State Estimation', exact: true }),
     ).toHaveAttribute('aria-current', 'page');

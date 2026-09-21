@@ -77,10 +77,10 @@ function countMicroLabels(page: Page): Promise<number> {
 }
 
 test.describe('home page', () => {
-  test('renders the robot-wiki wordmark heading', async ({ page }) => {
+  test('renders the Robot Wiki wordmark heading', async ({ page }) => {
     await page.goto('/');
     await expect(
-      page.getByRole('heading', { level: 1, name: 'robot-wiki' }),
+      page.getByRole('heading', { level: 1, name: 'Robot Wiki' }),
     ).toBeVisible();
   });
 
@@ -97,7 +97,7 @@ test.describe('home page', () => {
     await page.goto('/');
     const wordmark = page.getByRole('heading', {
       level: 1,
-      name: 'robot-wiki',
+      name: 'Robot Wiki',
     });
     const overview = page.getByText(/encyclopedia of modern robotics/);
     // The full box must sit inside the first viewport (VAL-HOME-001/

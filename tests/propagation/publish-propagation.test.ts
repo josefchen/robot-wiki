@@ -96,7 +96,7 @@ async function get(path: string): Promise<{ status: number; body: string }> {
 
 // Vitest evaluates the describe factory at collection even when skipIf
 // skips the suite, so dereferencing `probe!` in the factory body throws
-// once no drafts remain (all 42 modules published, 2026-08-15). Type the
+// once no drafts remain (all 57 modules published as of 2026-08-24). Type the
 // sentinel as the real registry entry: with no drafts the suite is skipped
 // and the sentinel's fields are never read.
 import type { ModuleRegistryEntry } from '@/data/modules';
@@ -192,7 +192,7 @@ source so the content gate treats it as an ordinary article
 
     it('appears in the sidebar taxonomy under its domain', async () => {
       await page.goto(`${BASE}/`);
-      const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+      const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
       await nav
         .getByRole('button', { name: DOMAIN_META[PROBE_SENTINEL.domain].name })
         .click();

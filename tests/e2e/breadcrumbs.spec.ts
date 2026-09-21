@@ -87,7 +87,7 @@ test.describe('article breadcrumbs', () => {
       page.getByRole('navigation', { name: 'Breadcrumb' }),
     ).toBeVisible();
     await expect(
-      page.getByRole('navigation', { name: 'robot-wiki taxonomy' }),
+      page.getByRole('navigation', { name: 'Robot Wiki taxonomy' }),
     ).toBeVisible();
   });
 
@@ -157,7 +157,7 @@ test.describe('article breadcrumbs', () => {
           .getByRole('link', { name: 'Home' })
           .click();
         await page.waitForURL('/');
-        await expect(page.locator('h1')).toContainText('robot-wiki');
+        await expect(page.locator('h1')).toContainText('Robot Wiki');
       });
     }
   });

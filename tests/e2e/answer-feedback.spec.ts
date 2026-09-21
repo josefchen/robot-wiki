@@ -27,7 +27,8 @@ import { publishedModules } from '../../data/modules';
  */
 
 const EXPECTED_PREDICT = 8;
-const EXPECTED_SELF_CHECK = 6;
+const EXPECTED_SELF_CHECK = 16;
+const EXPECTED_REGION_ROUTES = 20;
 
 const VERDICT =
   /^\s*(correct|incorrect|wrong|right|nice|well done|good job|try again|yes|no|✓|✗|✔|✘)\s*[.!]?\s*$/i;
@@ -209,7 +210,9 @@ function expectCompleteRegions(
     check,
     `self-checks: ${check.map((r) => r.route).join(', ')}`,
   ).toHaveLength(EXPECTED_SELF_CHECK);
-  expect(new Set(complete.map((r) => r.route)).size).toBe(10);
+  expect(new Set(complete.map((r) => r.route)).size).toBe(
+    EXPECTED_REGION_ROUTES,
+  );
   return complete;
 }
 
@@ -234,7 +237,12 @@ async function derivedRegions(page: Page): Promise<Region[]> {
 }
 
 test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
-  test('the derived corpus is 8 prediction steps and 6 self-checks', async ({ page }) => {
+  // Each behavioral assertion walks the complete derived corpus. Keep the
+  // budget local to this suite so article growth cannot turn a finished walk
+  // into a default-timeout failure.
+  test.describe.configure({ timeout: 90_000 });
+
+  test('the derived corpus is 8 prediction steps and 16 self-checks', async ({ page }) => {
     expectCompleteRegions(await derivedRegions(page));
   });
 

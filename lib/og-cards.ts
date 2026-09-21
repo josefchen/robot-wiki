@@ -31,6 +31,15 @@
 export const OG_CARD_WIDTH = 1200;
 export const OG_CARD_HEIGHT = 630;
 
+export const ARTICLE_IMAGE_VARIANTS = [
+  { id: 'landscape', suffix: '', width: 1200, height: 630 },
+  { id: 'four-three', suffix: '-4x3', width: 1200, height: 900 },
+  { id: 'square', suffix: '-square', width: 1200, height: 1200 },
+] as const;
+
+export type ArticleImageVariant =
+  (typeof ARTICLE_IMAGE_VARIANTS)[number]['id'];
+
 /**
  * The apex origin, restated locally so card URL helpers do not create an
  * import cycle with lib/site.ts (which owns the canonical constant).
@@ -40,17 +49,37 @@ export const OG_CARD_HEIGHT = 630;
 export const SITE_URL_ORIGIN = 'https://robot-wiki.com';
 
 /** The site name every card block restates (og:site_name). */
-export const SITE_NAME = 'robot-wiki';
+export const SITE_NAME = 'Robot Wiki';
 
 /** Where card PNGs live under public/ and out/. */
 export const OG_CARD_DIR = '/og';
+
+/** Search-only 4:3 and square article artwork, distinct from OG/X corpus. */
+export const STRUCTURED_IMAGE_DIR = '/structured-images';
 
 /** The site-level card the non-article destinations share. */
 export const SITE_CARD_PATH = `${OG_CARD_DIR}/robot-wiki.png`;
 
 /** Card path for one published article. Carries the article slug. */
-export function articleCardPath(domain: string, slug: string): string {
-  return `${OG_CARD_DIR}/${domain}/${slug}.png`;
+export function articleCardPath(
+  domain: string,
+  slug: string,
+  variant: ArticleImageVariant = 'landscape',
+): string {
+  const definition = ARTICLE_IMAGE_VARIANTS.find((item) => item.id === variant);
+  if (!definition) throw new Error(`unknown article image variant: ${variant}`);
+  const directory = variant === 'landscape' ? OG_CARD_DIR : STRUCTURED_IMAGE_DIR;
+  return `${directory}/${domain}/${slug}${definition.suffix}.png`;
+}
+
+/** Search-facing image set; social metadata continues to use landscape. */
+export function articleStructuredImagePaths(
+  domain: string,
+  slug: string,
+): string[] {
+  return ARTICLE_IMAGE_VARIANTS.map((variant) =>
+    articleCardPath(domain, slug, variant.id),
+  );
 }
 
 /** Card text never carries an em-dash or en-dash (zero-dash rule). */
@@ -87,12 +116,12 @@ export function clampTitle(title: string, maxChars = 64): string {
 
 /** og:image:alt for an article card: names the article, never just the title. */
 export function ogImageAltForTitle(title: string): string {
-  return `Open graph card for the robot-wiki article ${sanitizeCardText(title)}`;
+  return `Open graph card for the Robot Wiki article ${sanitizeCardText(title)}`;
 }
 
 /** og:image:alt for the site-level card. */
 export function siteOgImageAlt(): string {
-  return 'Open graph card for robot-wiki, an interactive encyclopedia of modern robotics';
+  return 'Open graph card for Robot Wiki, a citation-first encyclopedia of modern robot learning';
 }
 
 /**
@@ -157,7 +186,7 @@ export type OgImageSet = Array<{ url: string; width: number; height: number; alt
  * replaces the layout's (no deep merge). The PLAIN article title is
  * declared explicitly (VAL-DIST-004): left unset, the framework fills
  * og:title from the templated document title, which leaves the
- * ' - robot-wiki' suffix on the card, and the card title must equal the
+ * '| Robot Wiki' suffix on the card, and the card title must equal the
  * page's rendered h1. og:description is left to fall back to the route's
  * metadata description (the module summary), the same value on both
  * sides, so the og and twitter pair can never drift.

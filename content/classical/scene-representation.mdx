@@ -5,7 +5,7 @@ domain: classical
 slug: scene-representation
 order: 7
 status: published
-lastReviewed: "2026-08-22"
+lastReviewed: "2026-08-24"
 citations:
   - moravec-elfes-1985
   - curless-levoy-1996
@@ -34,7 +34,8 @@ citations:
 seeAlso:
   - "classical/perception"
   - "classical/state-estimation"
-  - "world-models/taxonomy"
+  - "classical/ros2-for-ml-engineers"
+  - "world-models/world-models-vs-simulators"
 ---
 
 import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';
@@ -108,3 +109,9 @@ For mobile robots the pipeline above has a settled production form, and a reader
 Above the costmap sit two planners at different rates. A global planner searches the whole known map for a route, and a local controller tracks that route while reacting to what the sensors see now, replanning locally at control rate. The ROS 2 navigation stack is the reference implementation of the split <Cite id="nav2-2020" />. The algorithms inside both are the ones in [motion planning](/classical/motion-planning), applied to a 2D grid rather than a robot arm's configuration space.
 
 Notice what the deployed stack chose. Not the representation that renders best, and not the one with the most parameters, but the one that answers the question the planner asks, which is whether a cell is free.
+
+## A representation is a service contract
+
+Choose a scene representation by the queries its consumers issue. Localization needs stable landmarks and uncertainty. Collision checking needs occupied volume, resolution and a conservative update rule. Grasping may need surface pose and object identity. Rendering needs view-dependent appearance. One representation can support several queries, but no reconstruction should be promoted merely because it looks complete.
+
+For deployment, publish the frame, timestamp, resolution, confidence or unknown-state convention, update rate and invalidation rule with the map. Test that attached objects and removed obstacles propagate to the planning view before motion begins. The [ROS 2 guide](/classical/ros2-for-ml-engineers) describes this handoff through transforms and planning-scene updates. The distinction from a learned world model is equally important: a scene representation answers what is present now, while a world model must answer how the state changes under an action. The [simulator comparison](/world-models/world-models-vs-simulators) makes that boundary explicit.

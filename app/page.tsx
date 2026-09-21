@@ -1,11 +1,14 @@
-import Link from 'next/link';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { IntentLink } from '@/components/ui/intent-link';
 import {
   DOMAINS,
   DOMAIN_META,
   modulesByDomain,
 } from '@/data/modules';
+import { learningPaths } from '@/lib/learning-paths';
+import { websiteJsonLd } from '@/lib/seo';
+import { SITE_DESCRIPTOR, SITE_DISPLAY_NAME } from '@/lib/site';
 
 /**
  * Home: hero premise, the seven-domain typographic index, the live featured
@@ -31,6 +34,7 @@ export default function Home() {
   const adjacentModules = (modulesByDomain().adjacent ?? []).filter(
     (m) => m.status === 'published',
   );
+  const paths = learningPaths();
 
   return (
     <>
@@ -47,6 +51,10 @@ export default function Home() {
         data-pagefind-body
         className={`${container} pt-8 lg:pt-10`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: websiteJsonLd() }}
+        />
         {/* VAL-DSHOME-009: below md the grid is an exact 80px band that
             sits immediately below the descriptor/wordmark lockup and
             closes the hero sheet, with the overview and CTA outside the
@@ -54,11 +62,11 @@ export default function Home() {
             13rem). */}
         <div className="flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]">
           <div className="px-6 pb-6 pt-7 sm:px-8 md:py-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
-              Robotics encyclopaedia
+            <p className="font-mono text-[10px] leading-snug text-accent">
+              {SITE_DESCRIPTOR}
             </p>
-            <h1 className="mt-3 font-sans text-5xl font-semibold leading-none tracking-[-0.035em] text-text sm:text-6xl">
-              robot-wiki
+            <h1 className="mt-3 font-display text-5xl font-semibold leading-none tracking-[-0.035em] text-text sm:text-6xl">
+              {SITE_DISPLAY_NAME}
             </h1>
           </div>
           <div
@@ -74,19 +82,19 @@ export default function Home() {
             close the hero exactly (the test measures the sheet bottom as
             the grid's bottom). */}
         <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
-          robot-wiki is an encyclopedia of modern robotics for engineers who
+          Robot Wiki is an encyclopedia of modern robotics for engineers who
           already know machine learning. It covers learned manipulation
           policies, sim-to-real reinforcement learning, world models,
           teleoperation data pipelines, and the classical control stack
           underneath them, with every technical claim cited to a primary
           source.
         </p>
-        <Link
+        <IntentLink
           href="/manipulation/action-chunking"
           className="mt-5 inline-flex font-sans text-sm font-medium text-accent underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
         >
           Start reading
-        </Link>
+        </IntentLink>
       </section>
 
       {/* The seven taxonomy entries as one dense typographic index. */}
@@ -122,12 +130,12 @@ export default function Home() {
             return (
               <li key={domain}>
                 <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
-                  <Link
+                  <IntentLink
                     href={`/${domain}/`}
                     className="font-sans text-[15px] font-medium text-text transition-colors hover:text-accent"
                   >
                     {meta.name}
-                  </Link>
+                  </IntentLink>
                   {isAdjacent && adjacentModules.length > 0 ? (
                     <p className="text-sm leading-snug text-text-dim">
                       {adjacentModules.map((m, i) => (
@@ -137,12 +145,12 @@ export default function Home() {
                               ? ', and '
                               : ', '
                             : ''}
-                          <Link
+                          <IntentLink
                             href={`/adjacent/${m.slug}/`}
                             className="transition-colors hover:text-accent"
                           >
                             {m.title}
-                          </Link>
+                          </IntentLink>
                         </span>
                       ))}
                       .
@@ -175,12 +183,12 @@ export default function Home() {
           A 95% per-step success rate sounds strong. Compounded over a 30-step
           episode it is not. Move the sliders to see how small per-step errors
           erode end-to-end reliability; the{' '}
-          <Link
+          <IntentLink
             href="/frontier"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
             frontier essays
-          </Link>{' '}
+          </IntentLink>{' '}
           develop the argument.
         </p>
         <ReliabilityCompounding className="mt-5" />
@@ -202,12 +210,12 @@ export default function Home() {
           The policies and controllers this wiki covers run on physical
           machines. Every photograph and diagram on the site is licensed and
           credited, and the full list lives on the{' '}
-          <Link
+          <IntentLink
             href="/credits"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
             credits page
-          </Link>
+          </IntentLink>
           .
         </p>
         <ImageRef id="spot-raf-agile-liberty-2021" />
@@ -226,7 +234,7 @@ export default function Home() {
           Interactive tools
         </h2>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
-          <Link
+          <IntentLink
             href="/playground"
             className="group block"
           >
@@ -317,8 +325,8 @@ export default function Home() {
               kinematics, click-to-reach inverse kinematics, and trajectory
               replay.
             </p>
-          </Link>
-          <Link
+          </IntentLink>
+          <IntentLink
             href="/market-map"
             className="group block"
           >
@@ -392,7 +400,60 @@ export default function Home() {
               The embodied-AI industry as data: 111 companies across six
               segments, filterable by approach, geography, stage, and funding.
             </p>
-          </Link>
+          </IntentLink>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="learning-paths-heading"
+        data-pagefind-body
+        className={`${container} mt-14`}
+      >
+        <h2
+          id="learning-paths-heading"
+          className="font-sans text-xl font-semibold tracking-tight text-text"
+        >
+          Learning paths
+        </h2>
+        <p className="mt-3 max-w-[65ch] text-sm leading-relaxed text-text-dim">
+          Pick a sequence when you want a coherent route through the wiki.
+          Each path starts with the concepts later articles assume.
+        </p>
+        <div className="mt-6 grid gap-x-8 gap-y-8 md:grid-cols-3">
+          {paths.map((path) => (
+            <section
+              key={path.id}
+              aria-labelledby={`learning-path-${path.id}`}
+              className="border-t border-border pt-4"
+            >
+              <h3
+                id={`learning-path-${path.id}`}
+                className="font-sans text-base font-semibold tracking-tight text-text"
+              >
+                <IntentLink
+                  href={path.hub}
+                  className="transition-colors hover:text-accent"
+                >
+                  {path.title}
+                </IntentLink>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-text-dim">
+                {path.description}
+              </p>
+              <ol className="mt-4 list-decimal space-y-2 pl-5 font-sans text-sm text-text-dim marker:font-mono marker:text-[11px]">
+                {path.entries.map((entry) => (
+                  <li key={`${entry.domain}/${entry.slug}`}>
+                    <IntentLink
+                      href={`/${entry.domain}/${entry.slug}/`}
+                      className="text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
+                    >
+                      {entry.title}
+                    </IntentLink>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ))}
         </div>
       </section>
 
@@ -414,12 +475,12 @@ export default function Home() {
             Modules stand alone, but inside a domain they build on each other
             in registry order: later entries assume the earlier ones. If you
             come from machine learning rather than robotics, start with{' '}
-            <Link
+            <IntentLink
               href="/manipulation/action-chunking"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
             >
               Action Chunking (ACT and ALOHA)
-            </Link>
+            </IntentLink>
             . It shows the format every module follows: precise prose, inline
             citations, and a live interactive you can manipulate.
           </p>
@@ -429,12 +490,12 @@ export default function Home() {
             links to the entry that derives it, so you can read forward and
             backfill as needed. Terms of art are defined where they first
             appear and collected in the{' '}
-            <Link
+            <IntentLink
               href="/glossary"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
             >
               glossary
-            </Link>
+            </IntentLink>
             .
           </p>
           <p>

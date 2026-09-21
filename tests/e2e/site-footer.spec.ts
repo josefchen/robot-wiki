@@ -147,7 +147,7 @@ test.describe('crawler view (the exported HTML)', () => {
     // set (every published article plus the fixed non-article
     // destinations), not a stub. The floor is derived from the module
     // registry, the single source of truth for the article count (it
-    // moves with every publish: 42 -> 43 -> 47 as of 2026-08-23), so a
+    // moves with every publish: 42 -> 43 -> 47 -> 57 as of 2026-08-24), so a
     // publish cannot leave this bound stale.
     expect(routes.length).toBeGreaterThan(publishedModules().length);
     for (const route of routes) {

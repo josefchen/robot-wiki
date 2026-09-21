@@ -5,7 +5,7 @@ domain: world-models
 slug: generative-sim
 order: 5
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - robogen-2024
   - holodeck-2024
@@ -18,7 +18,8 @@ citations:
 seeAlso:
   - "world-models/generative-video"
   - "rl-sim2real/sim2real-transfer"
-  - "world-models/taxonomy"
+  - "world-models/world-models-vs-simulators"
+  - "world-models/evaluation"
 ---
 
 import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
@@ -75,3 +76,9 @@ This is the mechanical version of the taxonomy's verdict on 3DGS twins. A learne
 ## Where this leaves the field
 
 None of this makes the generative world-model paradigms wrong. It makes them premature as simulators of record. The evidence summarized in the [generative video](/world-models/generative-video) module shows learned models earning narrow roles in evaluation and data generation, while every one of their physical-consistency failure modes is a problem that a real solver simply does not have. The pragmatic reading for 2026: use generative models where their failure is cheap, authoring tasks, scenes, assets, and supervision, and use engines where their failure is expensive, integrating what happens when a robot acts. RoboGen, Holodeck, and RoboCasa are what that division of labor looks like when it ships <Cite id="robogen-2024" /><Cite id="holodeck-2024" /><Cite id="robocasa-2024" />.
+
+## Draw the hybrid boundary explicitly
+
+A productive generative-simulation stack assigns each layer to the component with testable strengths. A generator can propose layouts, tasks, textures, objects and initial states. An asset pipeline can reject invalid geometry and attach measured or bounded physical properties. A physics engine can integrate contacts and constraints. A scripted or learned supervisor can label outcomes. The final dataset should record which component produced every field.
+
+Validate at the boundary, not only at the end. Check asset scale and collision geometry before dynamics, static stability before policy rollouts, and contact parameters against a small set of real measurements before claiming transfer. Keep generated scenes that fail as adversarial tests rather than silently filtering them from reports. The [world-model and simulator comparison](/world-models/world-models-vs-simulators) provides the selection rule, while the [evaluation guide](/world-models/evaluation) separates visual plausibility, predictive accuracy and downstream policy evidence.

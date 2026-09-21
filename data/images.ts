@@ -42,8 +42,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     licenceUrl:
       'https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force',
     retrieved: '2026-08-10',
-    width: 1920,
-    height: 869,
+    width: 960,
+    height: 435,
     // Licence sentence read on the file page: "This image or file is a work
     // of a U.S. Air Force Airman or employee, taken or made as part of that
     // person's official duties. As a work of the U.S. federal government,
@@ -62,8 +62,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     licence: 'public-domain',
     licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-USGov',
     retrieved: '2026-08-10',
-    width: 1280,
-    height: 1762,
+    width: 960,
+    height: 1322,
     // Licence sentence read on the file page: "This image or file is a work
     // of a Defense Advanced Research Projects Agency (DARPA), an agency of
     // the United States Department of Defense, employee, taken or made as
@@ -83,8 +83,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     licence: 'public-domain',
     licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-USGov-NASA',
     retrieved: '2026-08-10',
-    width: 1280,
-    height: 1627,
+    width: 960,
+    height: 1220,
     // Licence sentence read on the file page: "This file is in the public
     // domain in the United States because it was solely created by NASA."
   },
@@ -101,8 +101,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     licence: 'cc-by-sa-4.0',
     licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
     retrieved: '2026-08-10',
-    width: 1920,
-    height: 1280,
+    width: 960,
+    height: 640,
     // Licence sentence read on the file page: "This file is licensed under
     // the Creative Commons Attribution-Share Alike 4.0 International
     // license." (author ANYbotics, own work).
@@ -120,8 +120,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     licence: 'cc-by-sa-4.0',
     licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
     retrieved: '2026-08-10',
-    width: 1920,
-    height: 1280,
+    width: 960,
+    height: 640,
     // Licence sentence read on the file page: "This file is licensed under
     // the Creative Commons Attribution-Share Alike 4.0 International
     // license." (author Ims, own work, CeBIT 2017 Hannover).
@@ -132,8 +132,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     alt: 'Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.',
     caption:
       'Demonstrations cover a narrow corridor of states around the expert path. The policy\'s first mistake takes it outside that corridor, where its next mistake is more likely. Deviation feeds itself.',
-    sourceName: 'robot-wiki (original diagram)',
-    creator: 'robot-wiki contributors',
+    sourceName: 'Robot Wiki (original diagram)',
+    creator: 'Robot Wiki contributors',
     licence: 'cc-by-4.0',
     licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
     retrieved: '2026-08-08',
@@ -141,7 +141,7 @@ const ARTICLE_IMAGES: SiteImage[] = [
     height: 250,
     // Original SVG drawn for this site. Convention (library/imagery.md):
     // site-created diagrams carry no sourceUrl, because there is no
-    // external original to link to; the credit names robot-wiki as the
+    // external original to link to; the credit names Robot Wiki as the
     // creator in text. The licence basis is the site's content licence
     // (CC BY 4.0, mission.md).
   },
@@ -151,8 +151,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     alt: 'Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.',
     caption:
       'Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk.',
-    sourceName: 'robot-wiki (original diagram)',
-    creator: 'robot-wiki contributors',
+    sourceName: 'Robot Wiki (original diagram)',
+    creator: 'Robot Wiki contributors',
     licence: 'cc-by-4.0',
     licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
     retrieved: '2026-08-07',

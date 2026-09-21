@@ -1,0 +1,31 @@
+{
+  "family": "Tektur",
+  "license": "SIL Open Font License 1.1",
+  "upstreamRepository": "https://github.com/hyvyys/Tektur",
+  "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954",
+  "googleFontsMetadata": "https://github.com/google/fonts/blob/main/ofl/tektur/METADATA.pb",
+  "files": [
+    {
+      "path": "Tektur-Latin-wdth-wght.woff2",
+      "role": "web-variable-latin",
+      "source": "https://fonts.gstatic.com/s/tektur/v6/XoHn2YHtS7q969k9BhQI.woff2",
+      "format": "woff2",
+      "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+      "axes": {
+        "wdth": { "minimum": 75, "default": 100, "maximum": 100 },
+        "wght": { "minimum": 400, "default": 400, "maximum": 900 }
+      },
+      "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+    },
+    {
+      "path": "Tektur-SemiBold.ttf",
+      "role": "offline-og-static",
+      "source": "https://github.com/hyvyys/Tektur/blob/0313e9612ed814c7a480fa54c7b295452b966954/fonts/ttf/Tektur-SBold.ttf",
+      "format": "ttf",
+      "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+      "style": "normal",
+      "weight": 600,
+      "width": 100
+    }
+  ]
+}

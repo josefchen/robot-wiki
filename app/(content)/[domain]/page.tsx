@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
+import { IntentLink } from '@/components/ui/intent-link';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { domainCollectionJsonLd, domainSeoTitle } from '@/lib/seo';
 
 /**
  * Domain landing view: the entry point every home card and sidebar overview
@@ -36,7 +37,7 @@ export async function generateMetadata({
   if (!domain) return {};
   const meta = DOMAIN_META[domain];
   return {
-    title: meta.name,
+    title: domainSeoTitle(domain),
     description: meta.description,
     // Full openGraph and twitter blocks, restated because a route-level
     // object replaces the layout's for the same key (no deep merge).
@@ -76,6 +77,12 @@ export default async function DomainLandingPage({
           ]),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: domainCollectionJsonLd(domain, published),
+        }}
+      />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: meta.name }]} />
       {/* data-pagefind-body: once any page in the export declares a body
           region, Pagefind drops every page that does not, so each
@@ -84,7 +91,7 @@ export default async function DomainLandingPage({
           list, excluding the breadcrumb chrome above it. */}
       <div data-pagefind-body>
         <header className="mb-8 border-b border-border pb-6">
-          <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+          <h1 className="font-display text-3xl font-semibold tracking-tight text-text">
             {meta.name}
           </h1>
           <p className="mt-3 leading-relaxed text-text-dim">{meta.description}</p>
@@ -104,12 +111,12 @@ export default async function DomainLandingPage({
                 <span className="font-mono text-xs text-text-dim">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <Link
+                <IntentLink
                   href={`/${m.domain}/${m.slug}`}
                   className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
                 >
                   {m.title}
-                </Link>
+                </IntentLink>
               </div>
               <p className="mt-1 pl-7 text-sm leading-relaxed text-text-dim">
                 {m.summary}

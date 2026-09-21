@@ -5,11 +5,11 @@
     1440,
     900
   ],
-  "linkCount": 60,
+  "linkCount": 70,
   "links": [
     {
       "href": "/",
-      "name": "robot-wiki"
+      "name": "Robot Wiki"
     },
     {
       "href": "/manipulation/",
@@ -64,6 +64,18 @@
       "name": "Knowledge Insulation"
     },
     {
+      "href": "/manipulation/robot-learning-roadmap/",
+      "name": "Robot Learning Roadmap for ML Engineers"
+    },
+    {
+      "href": "/manipulation/action-spaces/",
+      "name": "Action Spaces for Robot Learning"
+    },
+    {
+      "href": "/manipulation/foundation-models/",
+      "name": "Foundation Models for Robotics"
+    },
+    {
       "href": "/rl-sim2real/",
       "name": "Domain overview"
     },
@@ -96,6 +108,10 @@
       "name": "Reward Design and the MPC Debate"
     },
     {
+      "href": "/rl-sim2real/offline-rl/",
+      "name": "Offline Reinforcement Learning for Robotics"
+    },
+    {
       "href": "/world-models/",
       "name": "Domain overview"
     },
@@ -118,6 +134,18 @@
     {
       "href": "/world-models/generative-sim/",
       "name": "Generative Simulation"
+    },
+    {
+      "href": "/world-models/model-based-robot-learning/",
+      "name": "Model-Based Robot Learning"
+    },
+    {
+      "href": "/world-models/evaluation/",
+      "name": "World Model Evaluation for Robotics"
+    },
+    {
+      "href": "/world-models/world-models-vs-simulators/",
+      "name": "World Models vs Physics Simulators"
     },
     {
       "href": "/data-hardware/",
@@ -146,6 +174,10 @@
     {
       "href": "/data-hardware/industrial-deployment/",
       "name": "Industrial Deployment"
+    },
+    {
+      "href": "/data-hardware/robot-learning-stack/",
+      "name": "The Robot Learning Stack"
     },
     {
       "href": "/classical/",
@@ -178,6 +210,14 @@
     {
       "href": "/classical/scene-representation/",
       "name": "Scene Representation and Mapping"
+    },
+    {
+      "href": "/classical/calibration/",
+      "name": "Robot Calibration"
+    },
+    {
+      "href": "/classical/ros2-for-ml-engineers/",
+      "name": "ROS 2 for Machine Learning Engineers"
     },
     {
       "href": "/frontier/",

@@ -166,7 +166,7 @@ export function parseTrajectory(
   if (!isPlainObject(data)) {
     return {
       ok: false,
-      error: 'The JSON does not look like a robot-wiki trajectory file.',
+      error: 'The JSON does not look like a Robot Wiki trajectory file.',
     };
   }
   // The 'robot-atlas-trajectory' discriminator is the persisted file-format
@@ -175,7 +175,7 @@ export function parseTrajectory(
   if ('format' in data && data.format !== 'robot-atlas-trajectory') {
     return {
       ok: false,
-      error: 'The JSON does not look like a robot-wiki trajectory file.',
+      error: 'The JSON does not look like a Robot Wiki trajectory file.',
     };
   }
   if ('version' in data && data.version !== 1) {

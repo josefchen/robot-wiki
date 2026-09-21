@@ -1,3 +1,4 @@
+import { IntentLink } from '@/components/ui/intent-link';
 import {
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
@@ -47,6 +48,14 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
         >
           Source on GitHub
         </a>
+        .{' '}
+        <IntentLink href="/editorial-policy/" className={externalLink}>
+          Editorial policy
+        </IntentLink>
+        .{' '}
+        <IntentLink href="/privacy/" className={externalLink}>
+          Privacy
+        </IntentLink>
         .
       </p>
     </footer>

@@ -3,8 +3,8 @@
  * generator renders (scripts/generate-og-cards.ts). No node-only imports
  * here so the geometry is unit-testable under Vitest.
  *
- * Design system: the site's paper ground, hairline borders, plain sans
- * wordmark, one locked signal-blue accent and mono technical readouts.
+ * Design system: the Brand v2 paper ground, hairline borders, Tektur
+ * wordmark, locked signal-blue accent and mono technical readouts.
  * Nothing on a card is build state (AGENTS.md design rules 1 and 6: no
  * progress counters, no drafts).
  *
@@ -34,20 +34,17 @@ export interface CardArtworkInput {
 // PANEL is the one value with no token of its own: it is the right panel's
 // ground, a half-step off --color-bg toward --color-surface-2, so the panel
 // reads as a separate field without becoming a second surface colour.
-const BG = '#f4f3ef';
-const PANEL = '#efeee9';
-const BORDER = '#d9d6cd';
-const TEXT = '#1a1c1e';
-const DIM = '#55595d';
-const ACCENT = '#245edb';
+const BG = '#F5F6F7';
+const PANEL = '#FFFFFF';
+const BORDER = '#D9DADB';
+const TEXT = '#0B0B0C';
+const DIM = '#242D33';
+const ACCENT = '#245FFF';
 
-// The card's display face is the Geist TTF bundled with @vercel/og, not the
-// site's IBM Plex Sans. Satori needs a TTF/OTF on disk and next/font emits
-// only hashed woff2 into .next, so Plex is unavailable to a network-free
-// build script. Both are neutral grotesques at card scale; the ground, ink
-// and accent are the shipped tokens, which is what a reader actually reads.
-const SANS = 'Geist, sans-serif';
-const MONO = 'KaTeX_Typewriter, monospace';
+// Satori consumes checked-in offline TTF assets. Tektur SemiBold maps to the
+// registered display instance; IBM Plex Mono handles data labels.
+const SANS = 'Tektur, sans-serif';
+const MONO = 'IBM Plex Mono, monospace';
 
 /* ------------------------------------------------------------------ */
 /* Element helpers. Satori accepts plain element objects; a thin typed */
@@ -217,7 +214,7 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
                 marginTop: '18px',
               },
               [
-                div({ fontSize: '26px', color: TEXT }, 'robot-wiki'),
+                div({ fontSize: '26px', color: TEXT }, 'Robot Wiki'),
                 div(
                   { fontFamily: MONO, fontSize: '17px', color: DIM },
                   `${input.referenceCount} REFERENCES`,
@@ -268,10 +265,8 @@ export function siteCardElement(): CardNode {
           padding: '52px 48px 44px 60px',
         },
         [
-          // No descriptor here: the canonical lockup table omits the
-          // site descriptor from every Open Graph lockup
-          // (VAL-DSBRAND-002). Factual metadata below carries the
-          // card's information instead.
+          // The site card carries the exact Brand v2 descriptor; article
+          // cards omit it so their title and source facts keep priority.
           div(
             {
               display: 'flex',
@@ -281,10 +276,10 @@ export function siteCardElement(): CardNode {
               maxWidth: '620px',
             },
             [
-              div({ fontSize: '86px', lineHeight: 1.1, color: TEXT, letterSpacing: '-1px' }, 'robot-wiki'),
+              div({ fontSize: '86px', lineHeight: 1.1, color: TEXT, letterSpacing: '-1px' }, 'Robot Wiki'),
               div(
                 { marginTop: '22px', fontSize: '26px', lineHeight: 1.4, color: DIM },
-                'A citation-first reference to modern robotics for engineers.',
+                'Citation-first encyclopedia of modern robot learning.',
               ),
             ],
           ),

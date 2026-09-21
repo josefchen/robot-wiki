@@ -2,17 +2,20 @@ import type { Metadata } from 'next';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '@/lib/seo';
 
 const title = 'Glossary';
 
 export const metadata: Metadata = {
-  title,
-  description:
-    'Cited definitions of the robotics and machine-learning terms used across robot-wiki.',
+  title: STANDALONE_SEO_TITLES.glossary,
+  description: STANDALONE_SEO_DESCRIPTIONS.glossary,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - robot-wiki' document title.
+  // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
@@ -34,7 +37,7 @@ export default function GlossaryPage() {
           route unreachable by the query "Glossary" that the sidebar itself
           invites (VAL-SEARCH-021, VAL-SEARCH-022). */}
       <header data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1 className="font-display text-3xl font-semibold tracking-tight text-text">
           Glossary
         </h1>
         <p className="mt-2 font-mono text-xs text-text-dim">

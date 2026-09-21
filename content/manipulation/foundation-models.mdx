@@ -1,0 +1,128 @@
+---
+title: "Foundation Models for Robotics"
+description: "An operational guide to robotics foundation models: what is pretrained, what transfers, how VLA and world-model families differ, and which adaptation and embodiment costs remain after scale."
+domain: manipulation
+slug: foundation-models
+order: 15
+status: published
+datePublished: "2026-08-24"
+lastReviewed: "2026-08-24"
+citations:
+  - rt2-2023
+  - openvla-2024
+  - pi0-2024
+  - pi07-2026
+  - gr00t-n1-2025
+  - vjepa2-2025
+  - cosmos-3-2026
+  - knowledge-insulation-paper-2025
+seeAlso:
+  - "manipulation/vla-models"
+  - "manipulation/generalist-policies"
+  - "world-models/taxonomy"
+  - "manipulation/cross-embodiment"
+---
+
+“Foundation model” is a claim about reuse, not a synonym for a large neural network. In robotics, the useful test is whether one pretrained model supports materially different downstream tasks, environments or embodiments after bounded adaptation. Parameter count alone does not establish that property, and a model trained across many tasks can still be a closed, fixed policy rather than a foundation for new ones.
+
+Three families currently carry the label: vision-language-action models that emit controls, predictive world models used for planning or representation learning, and multimodal backbones adapted into either. They share pretraining scale and diverge at the output interface.
+
+Try the check below and choose the evidence that actually supports the foundation claim. The correct option requires transfer to a downstream setting rather than only a large training run.
+
+<SelfCheck
+  prompt="Which result is the strongest evidence that a robot model is functioning as a foundation model?"
+  options={[
+    {
+      value: 'parameter-count',
+      label: 'The checkpoint contains seven billion parameters',
+      why: 'Scale may increase capacity, but it says nothing by itself about reuse or adaptation. A seven-billion-parameter specialist remains a specialist.'
+    },
+    {
+      value: 'training-tasks',
+      label: 'The model memorizes a thousand training task labels',
+      why: 'Training breadth is relevant, but success on the training distribution does not demonstrate transfer. The claim needs a downstream setting that was not simply another row in the training set.'
+    },
+    {
+      value: 'bounded-adaptation',
+      label: 'One checkpoint adapts with limited data to new tasks and embodiments',
+      why: 'This is the operational evidence. The shared pretrained representation reduces the data or optimization required across genuinely different downstream settings.'
+    }
+  ]}
+  answer="bounded-adaptation"
+  takeaway="Judge foundation models by the breadth and cost of downstream reuse, not by parameter count or branding."
+/>
+
+## What must be specified
+
+A foundation-model claim is incomplete until it names four things:
+
+1. **Pretraining data:** web images and text, human video, robot trajectories, simulation or a mixture.
+2. **Pretraining objective:** next token, contrastive representation, video prediction, action denoising or another loss.
+3. **Downstream interface:** text, an action chunk, a predicted future, a value or a reusable embedding.
+4. **Adaptation budget:** zero-shot prompting, a linear probe, parameter-efficient tuning, full fine-tuning, or new robot data at scale.
+
+Those fields turn a label into a testable object. They also explain why two “robotics foundation models” can have little technical overlap.
+
+## VLA foundations: knowledge becomes action
+
+RT-2 established the central VLA argument: co-fine-tune a web-pretrained vision-language model on robot trajectories, express actions in its token vocabulary, and some semantic knowledge transfers into control <Cite id="rt2-2023" />. OpenVLA made a comparable recipe public, combining DINOv2 and SigLIP visual features with a LLaMA-family language backbone and fine-tuning on Open X-Embodiment <Cite id="openvla-2024" />.
+
+The pretrained asset here is semantic representation. It helps a robot interpret language and recognize concepts that are scarce in robot data. It does not supply embodiment-specific calibration, gripper dynamics, control rate or task success labels. Those enter during adaptation.
+
+The π0 line changed the action side. π0 uses a pretrained VLM plus a separate flow-matching action expert that generates continuous action chunks <Cite id="pi0-2024" />. The separation lets the semantic backbone and motor head operate at different widths and objectives. Later work made the design principle explicit as knowledge insulation: preserve the VLM's web knowledge while the action expert learns the high-frequency control distribution <Cite id="knowledge-insulation-paper-2025" />.
+
+By 2026, π0.7 framed the same line as a steerable generalist robotic foundation model, with high-level steering signals and broader downstream behavior <Cite id="pi07-2026" />. The relevant evidence is not the phrase in the title. It is whether the same pretrained system produces useful transfer under stated adaptation budgets and held-out physical conditions.
+
+## Humanoid foundations: embodiment is part of the bet
+
+GR00T N1 is an open foundation model aimed specifically at generalist humanoids. It combines a vision-language backbone with a diffusion-transformer action head and trains across real, simulated and synthetically generated trajectories <Cite id="gr00t-n1-2025" />. Its foundation scope is narrower than “all robots” and broader than one humanoid task.
+
+That distinction matters. A foundation can be domain-specific. Protein models, code models and robot models do not need to share an output space. The honest claim names the domain over which reuse has been demonstrated. For a humanoid model, morphology, whole-body balance and shared action coordinates are not incidental details; they define the reuse boundary.
+
+## Predictive foundations: represent or simulate the future
+
+World-model families pretrain a different capability. V-JEPA 2 learns predictive representations from more than a million hours of video, then adds an action-conditioned predictor with a much smaller quantity of robot video for planning <Cite id="vjepa2-2025" />. The transferable asset is a representation in which future states can be predicted and compared, not a direct language-to-action map.
+
+Cosmos 3 unifies understanding, generation, forward dynamics, inverse dynamics and policy-oriented outputs in an omnimodal model for physical AI <Cite id="cosmos-3-2026" />. Its scale supports several downstream roles, but each role still needs an evaluation suited to that output. A visually convincing future is not automatically a useful control model; [world-model evaluation](/world-models/evaluation) measures action sensitivity and policy-ranking utility directly.
+
+The [world-model taxonomy](/world-models/taxonomy) separates generative video, latent dynamics, JEPA and unified world-action systems. Grouping them only by scale hides the functional differences that determine whether a model can plan, train a policy or generate data.
+
+## What pretraining does not erase
+
+Foundation models reduce some marginal costs and leave others untouched.
+
+**They can reduce:**
+
+- semantic supervision for new language and object concepts;
+- representation learning from small robot datasets;
+- initialization cost across related tasks;
+- the need to train one visual backbone per policy.
+
+**They do not automatically reduce:**
+
+- the need for synchronized, correctly transformed actions;
+- calibration and control integration on a new robot;
+- closed-loop evaluation under physical perturbations;
+- inference latency and memory constraints;
+- safety cases and recovery behavior.
+
+The remaining costs explain why open weights are not the same as a deployable robot policy. A checkpoint can be downloadable while its training mixture, adaptation data, controller assumptions or benchmark protocol remain impossible to reproduce.
+
+## A comparison framework
+
+| Family | Pretrained capability | Typical downstream output | Strongest transfer claim | Main unresolved cost |
+| --- | --- | --- | --- | --- |
+| VLA | Vision-language semantics | Action tokens or continuous chunks | New tasks, objects and instructions | Robot data and control integration |
+| Generalist humanoid | Multimodal behavior across a morphology family | Whole-body action chunks | Tasks and related humanoid embodiments | Balance, contact and hardware variation |
+| Latent or JEPA world model | Predictive state representation | Latent future, value or plan | New tasks with shared dynamics structure | Planning objective and action grounding |
+| Generative world model | Visual and temporal generation | Future video or synthetic experience | Data generation and policy evaluation | Physical fidelity and inference cost |
+
+Compare systems within the same row before comparing across rows. A VLA success rate and a world model's video metric do not answer the same question.
+
+## How to evaluate a foundation claim
+
+Look for a matrix, not a highlight. Rows should vary tasks and environments; columns should vary embodiment, adaptation data and evaluation shift. Report the pretrained checkpoint, every tuned component and the amount of new robot interaction. Include a from-scratch baseline under the same data budget.
+
+Then ask what failed. If transfer collapses when camera placement changes, the representation is less foundational than the task list suggests. If a new arm needs full retraining on a large dataset, the model may be a strong multi-task policy with a narrow embodiment boundary. If a small adapter works across genuinely new tasks, the foundation description has earned useful meaning.
+
+The term is valuable when it predicts engineering leverage. Used precisely, it tells you which expensive capability has already been learned and which expensive capability you still have to supply.

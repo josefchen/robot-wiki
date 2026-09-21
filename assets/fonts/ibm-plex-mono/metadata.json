@@ -1,0 +1,17 @@
+{
+  "family": "IBM Plex Mono",
+  "license": "SIL Open Font License 1.1",
+  "upstreamRepository": "https://github.com/IBM/plex",
+  "upstreamRevision": "bf260093582f04622aacc1e9f9ca604d7ccd0c42",
+  "files": [
+    {
+      "path": "IBMPlexMono-Regular.ttf",
+      "role": "offline-og-data",
+      "source": "https://github.com/IBM/plex/blob/bf260093582f04622aacc1e9f9ca604d7ccd0c42/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Regular.ttf",
+      "format": "ttf",
+      "sha256": "7c6fbddca4b700be918f5f6183d9bd4464fa427fe435f0b480d77fe2bb8c5a43",
+      "style": "normal",
+      "weight": 400
+    }
+  ]
+}

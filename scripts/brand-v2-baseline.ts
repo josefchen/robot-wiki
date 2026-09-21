@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 import { DOMAINS, publishedModules } from '../data/modules.ts';
 import { COMPANIES } from '../data/companies.ts';
@@ -31,6 +32,8 @@ const FIXED_ROUTES = [
   '/search/',
   '/glossary/',
   '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
   '/a-z/',
   '/404/',
 ];
@@ -467,4 +470,8 @@ function statSafe(path: string): boolean {
   }
 }
 
-main();
+const invokedAsCli =
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedAsCli) main();
