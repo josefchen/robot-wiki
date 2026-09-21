@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { STANDALONE_SEO_TITLES } from '@/lib/seo';
 
 const title = '3D Kinematics Playground';
 
 export const metadata: Metadata = {
-  title,
+  title: STANDALONE_SEO_TITLES.playground,
   description:
     'A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.',
   // Full card blocks restated: a route-level object replaces the

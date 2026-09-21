@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title,
   description:
     'Search robot-wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).',
+  // Internal search results are useful to readers but are not standalone
+  // landing pages. Keep the route crawlable so noindex can be observed and
+  // links can still be followed, while excluding it from search results.
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: { index: false, follow: true },
+  },
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)

@@ -467,7 +467,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     const { publishedModules } = await import('../../data/modules');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
     // Registry-derived: no literal published count is pinned (it drifted
-    // 42 -> 43 -> 47 across publishes); non-zero cardinality only.
+    // 42 -> 43 -> 47 -> 57 across publishes); non-zero cardinality only.
     expect(routes.length).toBeGreaterThan(0);
     const carriers: Array<{ route: string; predicts: number; selfChecks: number }> = [];
     for (const route of routes) {
@@ -506,7 +506,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * registry, not hardcoded, so a region added on any published route is
    * visited here; the per-kind counts at the end are the drift guard.
    */
-  test('corpus sweep: option sets across all 14 regions (VAL-EDU-017, VAL-EDU-041)', async ({ page }) => {
+  test('corpus sweep: option sets across all 24 regions (VAL-EDU-017, VAL-EDU-041)', async ({ page }) => {
     const HEDGE = /\b(only|could|may|might|unless|depends|typically|generally|usually|tends to|at least|roughly|approximately)\b/i;
     const FILLER = /\ball of the (above|these)\b|\bnone of the\b/i;
     const { publishedModules } = await import('../../data/modules');
@@ -583,18 +583,24 @@ test.describe('prediction step (PredictThenReveal)', () => {
     expect(regionCount, 'sweep visited no regions on any published route').toBeGreaterThan(0);
     // Drift guard replacing the old fixed total: per-kind oracles over the
     // registry-derived walk. They currently protect 8 prediction steps and
-    // 6 self-checks; a region added on ANY published route changes one of
+    // 16 self-checks; a region added on ANY published route changes one of
     // them and the failure names the carrying routes. When a region is
     // added on purpose, re-derive both literals from content/ and update
     // them together.
     expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(8);
-    expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(6);
+    expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(16);
     expect(regionCount, 'discovered regions vs regions the walk visited').toBe(
       predictCount + selfCheckCount,
     );
-    expect(longestCount, 'correct-is-longest exceeds 6 of 14').toBeLessThanOrEqual(6);
+    expect(
+      longestCount,
+      `correct-is-longest exceeds half of ${regionCount}`,
+    ).toBeLessThanOrEqual(Math.floor(regionCount / 2));
     for (const pos of [1, 2, 3]) {
-      expect(hist[pos], `ordinal position ${pos} exceeds 7 of 14`).toBeLessThanOrEqual(7);
+      expect(
+        hist[pos],
+        `ordinal position ${pos} exceeds half of ${regionCount}`,
+      ).toBeLessThanOrEqual(Math.floor(regionCount / 2));
     }
     // Per-kind ordinal-position band (VAL-EDU-041, tightened 2026-08-20).
     // The aggregate histogram can hide opposite per-kind habits by
@@ -607,7 +613,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     // (matching the contract's aggregate "more than half" rule at the
     // per-kind granularity). Bounds are derived from each kind's own
     // count so the gate scales as placements are added. No chi-square
-    // threshold: at n=8 and n=6 a single added placement swings it.
+    // threshold: at n=8 even a single added placement can swing it.
     const perKindBands: Array<[string, Record<number, number>, number]> = [
       ['prediction steps', predictHist, predictCount],
       ['self-checks', selfCheckHist, selfCheckCount],
@@ -635,7 +641,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * absolute http(s) url matching the citation registry entry for the id.
    * An in-page anchor passes by resolving to an element on the same route.
    * And VAL-EDU-019: digit-normalised prompts, takeaways and reasoning
-   * texts are pairwise distinct across all 14 regions. Routes are derived
+   * texts are pairwise distinct across all 24 regions. Routes are derived
    * from the module registry, not hardcoded, and the per-kind counts at
    * the end catch a region added on any published route.
    */
@@ -756,10 +762,10 @@ test.describe('prediction step (PredictThenReveal)', () => {
     ).toBeGreaterThan(0);
     // Same drift guard as the option-set sweep: per-kind oracles over the
     // registry-derived walk, currently protecting 8 prediction steps and
-    // 6 self-checks. Re-derive both literals from content/ when a region
+    // 16 self-checks. Re-derive both literals from content/ when a region
     // is added on purpose.
     expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(8);
-    expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(6);
-    expect(prompts.size + takeaways.size + reasonings.size).toBe(14 * 3);
+    expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(16);
+    expect(prompts.size + takeaways.size + reasonings.size).toBe(24 * 3);
   });
 });

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>robot-wiki</title>
+  <rect width="64" height="64" rx="12" fill="#f4f3ef"/>
+  <rect x="9" y="15" width="46" height="38" rx="9" fill="#145c4f"/>
+  <rect x="15" y="21" width="34" height="24" rx="5" fill="#fbfaf7"/>
+  <circle cx="24" cy="32" r="4" fill="#145c4f"/>
+  <circle cx="40" cy="32" r="4" fill="#145c4f"/>
+  <path d="M25 40h14" stroke="#145c4f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 15V9" stroke="#145c4f" stroke-width="4" stroke-linecap="round"/>
+</svg>

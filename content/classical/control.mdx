@@ -5,7 +5,7 @@ domain: classical
 slug: control
 order: 3
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - astrom-murray-2008
   - ziegler-nichols-1942
@@ -32,7 +32,7 @@ citations:
   - han-force-pain-2024
 seeAlso:
   - "classical/motion-planning"
-  - "classical/kinematics"
+  - "manipulation/action-spaces"
   - "rl-sim2real/humanoid-wbc"
   - "rl-sim2real/reward-design-mpc"
 ---
@@ -167,6 +167,12 @@ The hardware consequence reaches everything the learned stack wants to do. A pos
 The lab below puts that claim in your hands. Command a penetration depth, program the stiffness and damping of the contact impedance, and watch the peak force move against the object's crush limit and a transient contact-force limit stated from published biomechanical measurements <Cite id="han-force-pain-2024" /> rather than the paywalled ISO table <Cite id="iso-ts-15066" />. Then select the position-controlled arm and watch the sliders grey out: there is nothing to program, because the position loop has already decided the force.
 
 <ImpedanceContactLab className="my-6" />
+
+## The policy-to-controller contract
+
+A learned action is a controller request, not a motor command by default. Specify the request type, expected update rate, horizon, frame, saturation behavior and the lower loop that interprets it. A Cartesian delta sent to a position controller has different contact behavior from the same delta interpreted as an impedance target. A torque output transfers still more responsibility to the policy and demands a faster, better observed loop.
+
+Keep deadline handling and hard bounds outside the model. On every tick, validate observation age, action shape, finite values, joint and workspace bounds, then define what the controller holds or stops when inference is late. Measure command-to-actuation latency rather than model latency alone. The [action-space guide](/manipulation/action-spaces) helps choose the interface; this control hierarchy determines whether that choice can be executed safely and at the claimed rate.
 
 ## Where this meets the learned stack
 

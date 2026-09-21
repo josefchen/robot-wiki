@@ -239,6 +239,10 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   const measurements = new Map<string, Measurement>();
 
   test.beforeAll(async ({ browser }) => {
+    // The registry-derived setup visits all 57 article exports before the
+    // assertions share its measurements. Keep this hook's budget local and
+    // large enough for the full corpus rather than weakening any clause.
+    test.setTimeout(90_000);
     expect(
       existsSync(outDir),
       'run `npm run build` first: this spec grades the shipped export',

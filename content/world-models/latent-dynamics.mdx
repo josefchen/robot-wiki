@@ -5,7 +5,7 @@ domain: world-models
 slug: latent-dynamics
 order: 2
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - dreamer-2019
   - dreamerv3-2023
@@ -18,7 +18,8 @@ citations:
   - world-model-survey-2026
 seeAlso:
   - "world-models/taxonomy"
-  - "world-models/generative-video"
+  - "world-models/model-based-robot-learning"
+  - "world-models/evaluation"
   - "world-models/jepa"
 ---
 
@@ -76,3 +77,9 @@ The honest limits, per the survey and the primary papers <Cite id="world-model-s
 - **No language story.** Nothing in this paradigm conditions on instructions or generalizes semantically. That gap, more than any benchmark, is why the field's attention moved to the generative-video paradigm covered in the next module.
 
 What the paradigm does have, and nothing else in this domain matches, is receipts: a decade of sample-efficiency results, one algorithm that walks a real quadruped in an hour, and one hyperparameter set that plays 150 games. If the question is control, latent dynamics is still the paradigm to beat.
+
+## Pick the model's role before its architecture
+
+A latent model can serve three different roles. It can generate imagined experience for actor and critic training, as in Dreamer. It can score candidate action sequences online, as in TD-MPC2. Or it can supply a representation while a separate policy acts. Each role has a different failure budget. Training-only imagination may tolerate slow generation but can bias the learned policy silently; online planning needs predictable latency and a fallback; representation learning needs evidence that the latent preserves task-relevant distinctions.
+
+Write the loop before selecting the loss: observation encoder, latent update, action proposal, rollout horizon, score, replanning rate and stop condition. Evaluate multi-step state usefulness and policy ranking, not reconstruction alone. Log planner improvement over its policy prior, because a planner that never changes the proposed action is paying model cost without using the model. The [model-based robot-learning guide](/world-models/model-based-robot-learning) covers these loops, and the [evaluation guide](/world-models/evaluation) defines evidence for each role.

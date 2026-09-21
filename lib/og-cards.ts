@@ -31,6 +31,15 @@
 export const OG_CARD_WIDTH = 1200;
 export const OG_CARD_HEIGHT = 630;
 
+export const ARTICLE_IMAGE_VARIANTS = [
+  { id: 'landscape', suffix: '', width: 1200, height: 630 },
+  { id: 'four-three', suffix: '-4x3', width: 1200, height: 900 },
+  { id: 'square', suffix: '-square', width: 1200, height: 1200 },
+] as const;
+
+export type ArticleImageVariant =
+  (typeof ARTICLE_IMAGE_VARIANTS)[number]['id'];
+
 /**
  * The apex origin, restated locally so card URL helpers do not create an
  * import cycle with lib/site.ts (which owns the canonical constant).
@@ -49,8 +58,24 @@ export const OG_CARD_DIR = '/og';
 export const SITE_CARD_PATH = `${OG_CARD_DIR}/robot-wiki.png`;
 
 /** Card path for one published article. Carries the article slug. */
-export function articleCardPath(domain: string, slug: string): string {
-  return `${OG_CARD_DIR}/${domain}/${slug}.png`;
+export function articleCardPath(
+  domain: string,
+  slug: string,
+  variant: ArticleImageVariant = 'landscape',
+): string {
+  const definition = ARTICLE_IMAGE_VARIANTS.find((item) => item.id === variant);
+  if (!definition) throw new Error(`unknown article image variant: ${variant}`);
+  return `${OG_CARD_DIR}/${domain}/${slug}${definition.suffix}.png`;
+}
+
+/** Search-facing image set; social metadata continues to use landscape. */
+export function articleStructuredImagePaths(
+  domain: string,
+  slug: string,
+): string[] {
+  return ARTICLE_IMAGE_VARIANTS.map((variant) =>
+    articleCardPath(domain, slug, variant.id),
+  );
 }
 
 /** Card text never carries an em-dash or en-dash (zero-dash rule). */

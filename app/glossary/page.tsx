@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { STANDALONE_SEO_TITLES } from '@/lib/seo';
 
 const title = 'Glossary';
 
 export const metadata: Metadata = {
-  title,
+  title: STANDALONE_SEO_TITLES.glossary,
   description:
     'Cited definitions of the robotics and machine-learning terms used across robot-wiki.',
   // Full card blocks restated: a route-level object replaces the

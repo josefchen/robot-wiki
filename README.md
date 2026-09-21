@@ -1,21 +1,21 @@
 # robot-wiki
 
-An open-source, encyclopedic guide to modern robotics, written for machine-learning engineers moving into the field. Articles pair cited long-form prose with interactive explanations: a 3D kinematics playground with real forward and inverse kinematics, step-through denoising loops, a filterable market map of 111 robotics companies, and a citation-backed glossary.
+An open-source, encyclopedic guide to modern robotics, written for machine-learning engineers moving into the field. The 57 published articles pair cited long-form prose with interactive explanations: a 3D kinematics playground with real forward and inverse kinematics, step-through denoising loops, a filterable market map of 111 robotics companies, and a 119-term citation-backed glossary.
 
-The site is fully static. Every page is pre-rendered at build time and all interactivity runs in the browser: no backend, no database, no tracking. It is live at <https://robot-wiki.com>.
+The site is fully static. Every page is pre-rendered at build time and all interactivity runs in the browser: no backend and no database. Production uses Vercel Web Analytics for anonymous, aggregate page measurement; query strings are removed before events are sent. It is live at <https://robot-wiki.com>.
 
-Every corpus count quoted below is reproducible: `npm run validate:content` prints the live corpus figures (42 published articles, 307 citations, 111 companies) that this README and the opening paragraphs of [`audit/README.md`](audit/README.md) quote.
+Every live corpus count is reproducible: `npm run validate:content` currently prints 57 published articles, 416 citations, 119 glossary terms, 118 registered images, and 111 companies. [`audit/README.md`](audit/README.md) preserves the earlier 42-article, 307-citation audit snapshot rather than rewriting historical ledger totals as the corpus grows.
 
 ## Coverage
 
 The wiki is organized into seven domains:
 
-- **Manipulation & Learned Policies**: behavior cloning, action chunking, diffusion policy, VLA models, the π line, RL fine-tuning, execution-time strategies.
-- **RL, Sim-to-Real & Locomotion**: why RL won locomotion, massively parallel simulation, domain randomization, legged and humanoid control, reward design versus MPC.
-- **World Models**: the six-paradigm taxonomy, latent-dynamics models, generative video models, JEPA, generative simulation.
-- **Data, Hardware & Evaluation**: the data bottleneck, major datasets, hardware taxonomy, teleoperation rigs, the evaluation crisis.
-- **Classical Foundations**: kinematics, motion planning, control, state estimation, grasp planning.
-- **Frontier & Open Problems**: the reliability gap, dexterity, generalization, competing theses, the bear case.
+- **Manipulation & Learned Policies**: a robot-learning roadmap, behavior cloning, action chunking, action spaces, diffusion policy, VLA and foundation models, the π line, and RL fine-tuning.
+- **RL, Sim-to-Real & Locomotion**: why RL won locomotion, offline RL, massively parallel simulation, domain randomization, legged and humanoid control, and reward design versus MPC.
+- **World Models**: the six-paradigm taxonomy, model-based robot learning, evaluation, latent dynamics, generative video, JEPA, generative simulation, and simulator comparisons.
+- **Data, Hardware & Evaluation**: the end-to-end robot-learning stack, data bottlenecks, major datasets, hardware taxonomy, teleoperation rigs, and evaluation.
+- **Classical Foundations**: kinematics, calibration, motion planning, control, state estimation, ROS 2 for ML engineers, grasp planning, perception, and scene representation.
+- **Frontier & Open Problems**: the reliability gap, dexterity, generalization, competing theses, the bear case, safety, and assurance.
 - **Adjacent Domains**: autonomous vehicles, drones, surgical robotics, space robotics.
 
 The 3D playground (<https://robot-wiki.com/playground/>) loads the SO-101 arm (Apache-2.0) and runs forward kinematics from joint sliders, inverse kinematics from a click-to-reach target using a damped-least-squares solver, and trajectory record/replay with JSON export. The market map (<https://robot-wiki.com/market-map/>) filters 111 companies by segment, country, stage, and approach, with source links and funding data on every entry.
@@ -26,7 +26,8 @@ A single Next.js 16 application (App Router, React 19, TypeScript strict, Tailwi
 
 ```
 app/          App Router routes: articles, domain landings, playground, market map,
-              search, glossary, A-Z index, credits, sitemap, robots.txt
+              search, glossary, A-Z index, credits, editorial policy, privacy,
+              RSS feed, sitemap, robots.txt
 components/   UI primitives, 2D interactive visualizations, 3D playground,
               market-map views, article chrome, navigation
 content/      MDX articles, one directory per domain
@@ -45,7 +46,7 @@ audit/        Per-claim content-integrity audit ledgers: every published
 
 ### Content pipeline
 
-- Articles are MDX files with Zod-validated frontmatter (`title`, `summary`, `domain`, `slug`, `order`, `status`, `lastReviewed`, `citations`, `seeAlso`).
+- Articles are MDX files with Zod-validated frontmatter (`title`, `description`, `domain`, `slug`, `order`, `status`, optional verified `datePublished`, `lastReviewed`, `citations`, `seeAlso`).
 - Citations live in a central registry (`data/citations.ts`). Prose cites sources with `<Cite id="..." />`, and the build fails if an id is not registered.
 - Glossary terms carry cited definitions. Prose wraps jargon in `<Term id="..." />` for a hover-and-focus definition; an unknown term id fails the build.
 - References, "See also", "Linked from" backlinks, breadcrumbs, reading time, and citation counts are generated at build time; authors never hand-write them.

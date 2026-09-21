@@ -19,3 +19,13 @@ export const AUTHOR_PROFILE_URL = 'https://github.com/josefchen';
  * Source repository, linked from the footer on every route (VAL-DIST-007).
  */
 export const REPOSITORY_URL = 'https://github.com/josefchen/robot-wiki';
+
+/** Public correction form. The form itself lives in the source repository. */
+export const CONTENT_CORRECTION_URL =
+  `${REPOSITORY_URL}/issues/new?template=content-correction.yml`;
+
+export function contentCorrectionUrl(articleTitle: string): string {
+  const url = new URL(CONTENT_CORRECTION_URL);
+  url.searchParams.set('title', `content correction: ${articleTitle}`);
+  return url.toString();
+}

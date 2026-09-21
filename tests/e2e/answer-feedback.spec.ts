@@ -27,7 +27,8 @@ import { publishedModules } from '../../data/modules';
  */
 
 const EXPECTED_PREDICT = 8;
-const EXPECTED_SELF_CHECK = 6;
+const EXPECTED_SELF_CHECK = 16;
+const EXPECTED_REGION_ROUTES = 20;
 
 const VERDICT =
   /^\s*(correct|incorrect|wrong|right|nice|well done|good job|try again|yes|no|✓|✗|✔|✘)\s*[.!]?\s*$/i;
@@ -211,7 +212,13 @@ async function derivedRegions(page: Page): Promise<Region[]> {
 }
 
 test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
-  test('the derived corpus is 8 prediction steps and 6 self-checks', async ({ page }) => {
+  // Each behavioral test walks all 24 regions, with the forced-colour and
+  // no-script contracts loading some routes more than once. Keep the timeout
+  // local to this registry-derived suite so corpus growth does not turn a
+  // completed assertion walk into a false 30-second failure.
+  test.describe.configure({ timeout: 90_000 });
+
+  test('the derived corpus is 8 prediction steps and 16 self-checks', async ({ page }) => {
     const regions = await derivedRegions(page);
     const predict = regions.filter((r) => r.kind === 'predict');
     const check = regions.filter((r) => r.kind === 'self-check');
@@ -221,7 +228,9 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
     expect(check, `self-checks: ${check.map((r) => r.route).join(', ')}`).toHaveLength(
       EXPECTED_SELF_CHECK,
     );
-    expect(new Set(regions.map((r) => r.route)).size).toBe(10);
+    expect(new Set(regions.map((r) => r.route)).size).toBe(
+      EXPECTED_REGION_ROUTES,
+    );
   });
 
   test('VAL-EDU-042: a commit marks the correct option and the reader pick, in both directions', async ({

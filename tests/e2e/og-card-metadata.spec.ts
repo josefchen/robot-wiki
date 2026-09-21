@@ -13,9 +13,9 @@ import { startStaticExportServer } from './static-export-server';
  * Population derivation: the article route set walks the module registry
  * (publishedModules, never a hardcoded list), the domain landings walk
  * DOMAINS, and the standalone routes are named once. The article total
- * moves with every publish (42 -> 43 -> 47 as of 2026-08-23), so no
+ * moves with every publish (42 -> 43 -> 47 -> 57 as of 2026-08-24), so no
  * literal sum is stated here; the completeness relation inside the spec
- * is ALL_ROUTES = ARTICLE_ROUTES + 7 domains + 7 standalone routes.
+ * is ALL_ROUTES = ARTICLE_ROUTES + 7 domains + 9 standalone routes.
  *
  * Crawler view: the exported .html read directly (the contract allows
  * this form), plus one no-JavaScript browser pass pinning that nothing
@@ -35,6 +35,8 @@ const NON_ARTICLE_ROUTES = [
   '/playground/',
   '/glossary/',
   '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
   '/search/',
   ...DOMAINS.map((d) => `/${d}/`),
 ] as const;
@@ -97,11 +99,11 @@ function strippedTitle(html: string): string {
 test.describe('social card metadata (VAL-DIST-001, VAL-DIST-004)', () => {
   test('the published route set is derived, complete, and sized', () => {
     // Registry-derived (ARTICLE_ROUTES is the publishedModules() map), so
-    // no literal total is pinned; it drifted 42 -> 43 -> 47 across
+    // no literal total is pinned; it drifted 42 -> 43 -> 47 -> 57 across
     // publishes. Non-zero cardinality, then the completeness relations.
     expect(ARTICLE_ROUTES.length).toBeGreaterThan(0);
     expect(DOMAINS.length).toBe(7);
-    expect(ALL_ROUTES.length).toBe(ARTICLE_ROUTES.length + 7 + 7);
+    expect(ALL_ROUTES.length).toBe(ARTICLE_ROUTES.length + 7 + 9);
     expect(new Set(ALL_ROUTES).size).toBe(ALL_ROUTES.length);
   });
 

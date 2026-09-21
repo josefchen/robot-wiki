@@ -3,6 +3,9 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { DOMAINS, modules, publishedModules } from '../../data/modules';
+import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '../../lib/identity';
+import { moduleLastReviewed } from '../../lib/module-source';
+import { articleStructuredImagePaths } from '../../lib/og-cards';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -28,19 +31,35 @@ const TOP_LEVEL_ROUTES = [
   '/search/',
   '/glossary/',
   '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
   '/a-z/',
 ] as const;
+
+const SITEMAP_TOP_LEVEL_ROUTES = TOP_LEVEL_ROUTES.filter(
+  (route) => route !== '/search/' && route !== '/privacy/',
+);
 
 function moduleRoute(m: { domain: string; slug: string }): string {
   return `/${m.domain}/${m.slug}/`;
 }
 
-/** Every route the export is expected to carry (mirrors app/sitemap.ts). */
+/** Every route the static export is expected to carry. */
 function expectedRoutes(): string[] {
   return [
     '/',
     ...DOMAINS.map((d) => `/${d}/`),
     ...TOP_LEVEL_ROUTES,
+    ...publishedModules().map(moduleRoute),
+  ];
+}
+
+/** Every canonical, indexable route app/sitemap.ts is expected to carry. */
+function sitemapRoutes(): string[] {
+  return [
+    '/',
+    ...DOMAINS.map((d) => `/${d}/`),
+    ...SITEMAP_TOP_LEVEL_ROUTES,
     ...publishedModules().map(moduleRoute),
   ];
 }
@@ -75,7 +94,8 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
 
   test('is well-formed urlset XML', () => {
     expect(xml.startsWith('<?xml')).toBe(true);
-    expect(xml).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+    expect(xml).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"');
+    expect(xml).toContain('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"');
     // Every <url> block carries a loc; open/close tags balance.
     expect(locs.length).toBeGreaterThan(0);
     expect(xml.match(/<url>/g)?.length).toBe(locs.length);
@@ -85,9 +105,9 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
     }
   });
 
-  test('contains exactly the published route set: every published module, every fixed route, nothing else (VAL-BUILD-003)', () => {
+  test('contains exactly the published indexable route set and nothing else (VAL-BUILD-003)', () => {
     const expected = new Set(
-      expectedRoutes().map((r) => `${SITE_ORIGIN}${r}`),
+      sitemapRoutes().map((r) => `${SITE_ORIGIN}${r}`),
     );
     const actual = new Set(locs);
     for (const url of expected) {
@@ -97,7 +117,25 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
       expect(expected, `sitemap carries unexpected entry ${url}`).toContain(url);
     }
     // Count matches the registry-derived total exactly.
-    expect(locs.length).toBe(expectedRoutes().length);
+    expect(locs.length).toBe(sitemapRoutes().length);
+  });
+
+  test('uses accurate article lastmod values and no ignored priority fields', () => {
+    expect(xml).not.toContain('<changefreq>');
+    expect(xml).not.toContain('<priority>');
+    const blocks = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
+      (match) => match[1],
+    );
+    for (const entry of publishedModules()) {
+      const url = `${SITE_ORIGIN}/${entry.domain}/${entry.slug}/`;
+      const block = blocks.find((candidate) =>
+        candidate.includes(`<loc>${url}</loc>`),
+      );
+      expect(block, `sitemap block for ${url}`).toBeDefined();
+      expect(block).toContain(
+        `<lastmod>${moduleLastReviewed(entry.domain, entry.slug)}</lastmod>`,
+      );
+    }
   });
 
   test('no draft module appears (VAL-BUILD-001 overlap)', () => {
@@ -120,6 +158,36 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
     expect(response.status()).toBe(200);
     expect(response.headers()['content-type']).toContain('xml');
     expect(await response.text()).toBe(xml);
+  });
+});
+
+test.describe('feed.xml', () => {
+  const feed = readFileSync(join(OUT, 'feed.xml'), 'utf8');
+
+  test('is a static RSS feed with one item per published article', () => {
+    expect(feed.startsWith('<?xml')).toBe(true);
+    expect(feed).toContain('<rss version="2.0"');
+    expect(feed).toContain(
+      `<atom:link href="${SITE_ORIGIN}/feed.xml" rel="self" type="application/rss+xml" />`,
+    );
+    expect(feed.match(/<item>/g)?.length).toBe(publishedModules().length);
+    for (const entry of publishedModules()) {
+      expect(feed).toContain(
+        `<link>${SITE_ORIGIN}/${entry.domain}/${entry.slug}/</link>`,
+      );
+    }
+  });
+
+  test('serves 200 as application RSS XML', async ({ request }) => {
+    const response = await request.get(`${BASE}/feed.xml`);
+    expect(response.status()).toBe(200);
+    // A bare filesystem server infers application/xml from the extension;
+    // Vercel applies the more specific application/rss+xml header declared
+    // in vercel.json. Both are XML media types and the body must be identical.
+    expect(response.headers()['content-type']).toMatch(
+      /application\/(?:rss\+xml|xml)/,
+    );
+    expect(await response.text()).toBe(feed);
   });
 });
 
@@ -202,6 +270,95 @@ test.describe('per-route metadata (VAL-BUILD-005, VAL-BUILD-006, VAL-A11Y-015)',
       expect(canonicalUrl.pathname, `${route} canonical is self-referential`).toBe(route);
       const ogUrl = extract(html, /<meta property="og:url" content="([^"]*)"/);
       expect(ogUrl, `${route} ships og:url`).toBe(canonical);
+    }
+  });
+
+  test('home declares a stable square favicon for search results', () => {
+    const html = htmlForRoute('/');
+    const href = extract(html, /<link rel="icon" href="([^"]+)"/);
+    expect(href).toMatch(/^\/icon\.svg(?:\?|$)/);
+    expect(existsSync(join(OUT, 'icon.svg'))).toBe(true);
+  });
+});
+
+type JsonLd = Record<string, unknown>;
+
+function jsonLdBlocks(html: string): JsonLd[] {
+  return [...html.matchAll(
+    /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g,
+  )].map((match) => JSON.parse(match[1]) as JsonLd);
+}
+
+test.describe('structured data', () => {
+  test('home declares the WebSite and author identity', () => {
+    const website = jsonLdBlocks(htmlForRoute('/')).find(
+      (block) => block['@type'] === 'WebSite',
+    );
+    expect(website).toMatchObject({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': `${SITE_ORIGIN}/#website`,
+      url: `${SITE_ORIGIN}/`,
+      name: 'robot-wiki',
+      creator: {
+        '@type': 'Person',
+        name: AUTHOR_NAME,
+        url: AUTHOR_PROFILE_URL,
+      },
+    });
+  });
+
+  test('every article declares one content-backed Article object', () => {
+    for (const entry of publishedModules()) {
+      const route = moduleRoute(entry);
+      const articles = jsonLdBlocks(htmlForRoute(route)).filter(
+        (block) => block['@type'] === 'Article',
+      );
+      expect(articles, `${route} has one Article object`).toHaveLength(1);
+      const article = articles[0];
+      expect(article).toMatchObject({
+        headline: entry.title,
+        description: entry.summary,
+        url: `${SITE_ORIGIN}${route}`,
+        dateModified: moduleLastReviewed(entry.domain, entry.slug),
+        author: {
+          '@type': 'Person',
+          name: AUTHOR_NAME,
+          url: AUTHOR_PROFILE_URL,
+        },
+      });
+      expect(article.image).toEqual(
+        articleStructuredImagePaths(entry.domain, entry.slug).map(
+          (path) => `${SITE_ORIGIN}${path}`,
+        ),
+      );
+      expect(article.wordCount).toEqual(expect.any(Number));
+      expect(article.timeRequired).toMatch(/^PT\d+M$/);
+      expect(article.citation).toEqual(expect.any(Array));
+    }
+  });
+
+  test('every domain declares a complete CollectionPage ItemList', () => {
+    for (const domain of DOMAINS) {
+      const route = `/${domain}/`;
+      const collection = jsonLdBlocks(htmlForRoute(route)).find(
+        (block) => block['@type'] === 'CollectionPage',
+      );
+      const expectedCount = publishedModules().filter(
+        (module) => module.domain === domain,
+      ).length;
+      expect(collection, `${route} has a CollectionPage`).toBeDefined();
+      expect(collection).toMatchObject({
+        url: `${SITE_ORIGIN}${route}`,
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: expectedCount,
+        },
+      });
+      const mainEntity = collection?.mainEntity as
+        | { itemListElement?: unknown[] }
+        | undefined;
+      expect(mainEntity?.itemListElement).toHaveLength(expectedCount);
     }
   });
 });

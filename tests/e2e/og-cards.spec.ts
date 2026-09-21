@@ -4,6 +4,10 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 import { modules, publishedModules } from '../../data/modules';
+import {
+  ARTICLE_IMAGE_VARIANTS,
+  articleCardPath,
+} from '../../lib/og-cards';
 import { SITE_URL } from '../../lib/site';
 import { startStaticExportServer } from './static-export-server';
 
@@ -30,6 +34,8 @@ const NON_ARTICLE_ROUTES = [
   '/playground/',
   '/glossary/',
   '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
   '/search/',
   ...DOMAIN_META_KEYS(),
 ] as const;
@@ -78,8 +84,8 @@ test.describe('OG card images', () => {
       ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
       ...NON_ARTICLE_ROUTES,
     ];
-    // 7 non-article standalone routes + 7 domain landings = 14.
-    expect(routes.length).toBe(publishedModules().length + 14);
+    // 9 non-article standalone routes + 7 domain landings = 16.
+    expect(routes.length).toBe(publishedModules().length + 16);
 
     const server = await startStaticExportServer('out');
     try {
@@ -170,13 +176,26 @@ test.describe('OG card images', () => {
     }
   });
 
-  test('the card set is derived from the registry: every published slug has a card file, and no draft does', async () => {
+  test('the image set is derived from the registry: every published slug has all three aspect ratios, and no draft does', async () => {
     for (const m of modules) {
-      const path = join('out', 'og', m.domain, `${m.slug}.png`);
-      if (m.status === 'published') {
-        expect(existsSync(path), `${m.slug} card exists`).toBe(true);
-      } else {
-        expect(existsSync(path), `${m.slug} (draft) has no card`).toBe(false);
+      for (const variant of ARTICLE_IMAGE_VARIANTS) {
+        const path = join(
+          'out',
+          articleCardPath(m.domain, m.slug, variant.id).replace(/^\//, ''),
+        );
+        if (m.status === 'published') {
+          expect(existsSync(path), `${m.slug} ${variant.id} image exists`).toBe(true);
+          const dimensions = pngDimensions(await readFile(path));
+          expect(dimensions).toEqual({
+            width: variant.width,
+            height: variant.height,
+          });
+        } else {
+          expect(
+            existsSync(path),
+            `${m.slug} (draft) has no ${variant.id} image`,
+          ).toBe(false);
+        }
       }
     }
     void SITE_URL;

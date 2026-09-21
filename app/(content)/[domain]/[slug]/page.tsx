@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ComponentType } from 'react';
 import { ArticleHeader } from '@/components/article/article-header';
+import { CorrectionLink } from '@/components/article/correction-link';
 import { LinkedFrom, SeeAlso } from '@/components/article/article-links';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
 import { References } from '@/components/article/references';
@@ -11,9 +12,11 @@ import { getCitation } from '@/data/citations';
 import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
+import { moduleSource } from '@/lib/module-source';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
 import { articleOpenGraph, articleTwitter } from '@/lib/og-cards';
 import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
+import { articleJsonLd, articleSeoTitle } from '@/lib/seo';
 
 // Fully static: only published modules get routes. Drafts (and everything
 // else) fall through to 404: drafts must never resolve.
@@ -51,13 +54,6 @@ async function loadModule(domain: string, slug: string): Promise<CompiledMdx | n
  * inline <Cite> ids the body uses) and the header's reading-time estimate
  * (the prose word count).
  */
-function moduleSource(domain: string, slug: string): string {
-  return readFileSync(
-    join(process.cwd(), 'content', domain, `${slug}.mdx`),
-    'utf8',
-  );
-}
-
 /**
  * Reading times measured at build time against each article's rendered
  * `.prose` region (scripts/measure-reading-times.ts) and written to
@@ -87,8 +83,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { domain, slug } = await params;
   const entry = getModule(domain, slug);
   if (!entry || entry.status !== 'published') return {};
+  const mod = await loadModule(domain, slug);
+  const publishedTime = mod?.frontmatter?.datePublished;
+  const modifiedTime = mod?.frontmatter?.lastReviewed;
   return {
-    title: entry.title,
+    title: articleSeoTitle(entry),
     description: entry.summary,
     // Articles are og:type article. A page-level
     // openGraph object replaces the layout's (no deep merge), so the
@@ -101,7 +100,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     // with this object for the same reason. og:description falls back to
     // this route's description (the module summary), so the og and
     // twitter pair share one value.
-    openGraph: articleOpenGraph(entry.domain, entry.slug, entry.title),
+    openGraph: {
+      ...articleOpenGraph(entry.domain, entry.slug, entry.title),
+      ...(publishedTime ? { publishedTime } : {}),
+      ...(modifiedTime ? { modifiedTime } : {}),
+    },
     twitter: articleTwitter(entry.domain, entry.slug, entry.title),
   };
 }
@@ -152,8 +155,9 @@ export default async function ModulePage({ params }: { params: Params }) {
   // estimate counted from the MDX source, which keeps dev and any pre-
   // measure artifact proportional to article length.
   const measured = readingTimes()[`${domain}/${slug}`];
+  const wordCount = measured?.words ?? countWordsInMdxSource(body);
   const readingTime =
-    measured?.minutes ?? readingTimeMinutes(countWordsInMdxSource(body));
+    measured?.minutes ?? readingTimeMinutes(wordCount);
 
   // One hairline separates the prose from the generated wiki apparatus
   // (See also / Linked from / References); the apparatus sections divide
@@ -193,6 +197,19 @@ export default async function ModulePage({ params }: { params: Params }) {
           __html: breadcrumbJsonLd(breadcrumbJsonLdItems),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: articleJsonLd({
+            entry,
+            datePublished: mod.frontmatter?.datePublished,
+            lastReviewed: mod.frontmatter?.lastReviewed,
+            readingTimeMinutes: readingTime,
+            wordCount,
+            citationUrls: references.map(({ citation }) => citation.url),
+          }),
+        }}
+      />
       <Breadcrumbs
         items={[...breadcrumbTrail, { label: entry.title }]}
       />
@@ -211,6 +228,7 @@ export default async function ModulePage({ params }: { params: Params }) {
       <SeeAlso entries={seeAlsoEntries} />
       <LinkedFrom entries={linkedFromEntries} />
       <References entries={references} />
+      <CorrectionLink articleTitle={entry.title} />
     </article>
   );
 }

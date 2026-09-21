@@ -1,6 +1,6 @@
 'use client';
 
-import { Environment, Grid, Lightformer, OrbitControls } from '@react-three/drei';
+import { Grid, OrbitControls } from '@react-three/drei';
 import { Canvas, useThree, type ThreeEvent } from '@react-three/fiber';
 import { useEffect } from 'react';
 import type { URDFRobot } from 'urdf-loader';
@@ -157,11 +157,6 @@ export default function RobotScene({
       <ApplyPose robot={robot?.robot ?? null} angles={angles} />
       {target ? <TargetGizmo target={target} state={targetState} /> : null}
       <ClickPlane onPlaceTarget={onPlaceTarget} />
-      {/* Lightformer-only environment: rendered locally, no network fetch. */}
-      <Environment resolution={64}>
-        <Lightformer intensity={2} position={[0, 1, 1]} scale={[2, 2, 1]} />
-        <Lightformer intensity={1} position={[-1, 0.5, -1]} scale={[2, 2, 1]} />
-      </Environment>
       <OrbitControls
         makeDefault
         target={[0.08, 0.1, 0]}

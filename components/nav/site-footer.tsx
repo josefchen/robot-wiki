@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
@@ -47,6 +48,14 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
         >
           Source on GitHub
         </a>
+        .{' '}
+        <Link href="/editorial-policy/" className={externalLink}>
+          Editorial policy
+        </Link>
+        .{' '}
+        <Link href="/privacy/" className={externalLink}>
+          Privacy
+        </Link>
         .
       </p>
     </footer>

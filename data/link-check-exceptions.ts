@@ -136,6 +136,91 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
   },
 
   /* ------------------------------------------------------------------ *
+   * Source-client and metadata exceptions re-verified 2026-08-24.
+   * ------------------------------------------------------------------ */
+  {
+    id: 'technology-org-deployed-2026',
+    covers: ['blocked'],
+    reason:
+      'technology.org serves a Cloudflare interstitial (HTTP 403) to node fetch, curl, and headless Chromium from this network. The article has no DOI, so Crossref cannot stand in for the fetch.',
+    verifiedBy:
+      'Independent text-extraction fetch through r.jina.ai returned the full exact-URL article with title "Humanoid Robots in 2026: What Is Actually Deployed - Technology Org", publication timestamp 2026-07-18, Alius Noreika byline, deployment table, and the Figure, Agility, and Unitree figures cited by Robot Wiki.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'hinterstoisser-2012',
+    covers: ['title-mismatch'],
+    reason:
+      'The Springer page title matches the registry exactly, but the audit records a mismatch because Crossref dates the 2013 LNCS proceedings volume while the registry follows the ACCV 2012 conference year by which the paper and dataset are conventionally cited.',
+    verifiedBy:
+      'Crossref and the TUM publication record both resolve DOI 10.1007/978-3-642-37331-2_42 to the seven-author paper and pages 548-562; the TUM record explicitly names "Computer Vision, ACCV 2012" and distinguishes the 2013 volume publication date.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'sentis-khatib-2005',
+    covers: ['blocked', 'error'],
+    reason:
+      'World Scientific consistently answers HTTP 403 for the DOI target. Crossref normally verifies the work, but its metadata request has intermittently failed during the 416-entry concurrent sweep, leaving the otherwise verified publisher wall unresolved on that run.',
+    verifiedBy:
+      'Immediate isolated rerun resolved DOI 10.1142/S0219843605000594 through Crossref and matched the registry title and 2005 year; the same match was recorded in prior full sweeps. The DOI target remains the intended World Scientific article.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'mev1-servicing-2025',
+    covers: ['error'],
+    reason:
+      'news.northropgrumman.com intermittently fails at the network layer during concurrent sweeps; the failure is transient rather than an HTTP dead-link response.',
+    verifiedBy:
+      'Immediate isolated audit after the failed full sweep returned HTTP 200 and matched the exact title "Northrop Grumman Achieves First-Ever Undocking Between Two Commercial Spacecraft in Geosynchronous Orbit"; the live release body records the 2020 docking, five-year extension, and 2025-04-09 undocking cited by Robot Wiki.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'a3-orders-2025',
+    covers: ['blocked'],
+    reason:
+      'automate.org serves a Cloudflare 403 to node fetch, curl, and headless Chromium from this network. The news release has no DOI.',
+    verifiedBy:
+      'Independent web-index fetch of the corrected exact URL rendered the full A3 release, title, Association for Advancing Automation byline, 2026-02-06 date, and the cited annual figures: 19.6% of units and 10.7% of revenue.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'symbotic-10k-2025',
+    covers: ['title-mismatch'],
+    reason:
+      'The SEC filing serves its accession filename, "sym-20250927", as the HTML title rather than a human-readable Form 10-K title, so the title checker cannot compare document identity from the <title> element.',
+    verifiedBy:
+      'Direct SEC filing read at the exact URL confirmed the fiscal year ended 2025-09-27, $22.5B backlog, Walmart agreement covering all 42 regional distribution centres, 48 operational systems under maintenance contracts, and the Symbotic filing identity.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'ros2-lyrical-2026',
+    covers: ['title-mismatch'],
+    reason:
+      'docs.ros.org serves its Anubis anti-bot document (generic titles "Making sure you\'re not a bot!" or "Oh noes!") to the automated audit instead of the requested documentation page.',
+    verifiedBy:
+      'Official ros2/ros2_documentation rolling source at source/Get-Started/Releases/Release-Lyrical-Luth.rst and the public web index both state the exact page title, twelfth-release status, LTS status, May 2026 release, and May 2031 support end.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'ros2-interfaces-2026',
+    covers: ['title-mismatch'],
+    reason:
+      'docs.ros.org serves its Anubis anti-bot document (generic titles "Making sure you\'re not a bot!" or "Oh noes!") to the automated audit instead of the requested documentation page.',
+    verifiedBy:
+      'Official ros2/ros2_documentation rolling source at source/ROS-Framework/Interfaces-Topics-Services-Actions.rst and the public web index both render the exact title and define topics, services, and actions with the distinctions cited by Robot Wiki.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'ros2-qos-2026',
+    covers: ['title-mismatch'],
+    reason:
+      'docs.ros.org serves its Anubis anti-bot document (generic titles "Making sure you\'re not a bot!" or "Oh noes!") to the automated audit instead of the requested documentation page.',
+    verifiedBy:
+      'Official ros2/ros2_documentation rolling source at source/ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings.rst and the public web index both render the exact title and document the reliability, durability, history, depth, deadline, lifespan, default, and sensor-data profiles cited by Robot Wiki.',
+    verifiedOn: '2026-08-24',
+  },
+
+  /* ------------------------------------------------------------------ *
    * The safety module's standards catalogue entries (2026-08-22).
    *
    * iso.org answers HTTP 403 to curl and node fetch regardless of headers

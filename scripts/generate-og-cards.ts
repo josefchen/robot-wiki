@@ -33,6 +33,7 @@ import { join } from 'node:path';
 import { DOMAIN_META, publishedModules } from '../data/modules.ts';
 import matter from 'gray-matter';
 import {
+  ARTICLE_IMAGE_VARIANTS,
   OG_CARD_HEIGHT,
   OG_CARD_WIDTH,
   SITE_CARD_PATH,
@@ -79,7 +80,11 @@ const FONT_PATHS = {
 // ImageResponse's bundled typings expect a ReactElement; the node build
 // accepts the same plain satori element trees our CardNode type
 // describes. Cast at the boundary rather than loosening CardNode.
-async function render(node: CardNode): Promise<Buffer> {
+async function render(
+  node: CardNode,
+  width = OG_CARD_WIDTH,
+  height = OG_CARD_HEIGHT,
+): Promise<Buffer> {
   const fonts = [
     { name: 'Geist', data: readFileSync(FONT_PATHS.sans), weight: 400, style: 'normal' },
     {
@@ -90,8 +95,8 @@ async function render(node: CardNode): Promise<Buffer> {
     },
   ] satisfies NonNullable<ImageResponseOptions['fonts']>;
   const response = new ImageResponse(node as never, {
-    width: OG_CARD_WIDTH,
-    height: OG_CARD_HEIGHT,
+    width,
+    height,
     fonts,
   });
   return Buffer.from(await response.arrayBuffer());
@@ -151,10 +156,13 @@ async function main(): Promise<void> {
       domainName: DOMAIN_META[entry.domain].name,
       ...facts,
     });
-    const buf = await render(node);
-    check(articleCardPath(entry.domain, entry.slug), buf);
-    emit(articleCardPath(entry.domain, entry.slug), buf);
-    count += 1;
+    for (const variant of ARTICLE_IMAGE_VARIANTS) {
+      const path = articleCardPath(entry.domain, entry.slug, variant.id);
+      const buf = await render(node, variant.width, variant.height);
+      check(path, buf);
+      emit(path, buf);
+      count += 1;
+    }
   }
 
   const siteBuf = await render(siteCardElement());
@@ -163,7 +171,7 @@ async function main(): Promise<void> {
 
   const seconds = ((Date.now() - t0) / 1000).toFixed(1);
   console.log(
-    `generate-og-cards: OK (${count} article cards + 1 site card, ${seen.size} distinct assets, ${seconds}s)`,
+    `generate-og-cards: OK (${count} article images + 1 site card, ${seen.size} distinct assets, ${seconds}s)`,
   );
 }
 

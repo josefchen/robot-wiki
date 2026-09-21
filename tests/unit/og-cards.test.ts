@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
 import {
+  ARTICLE_IMAGE_VARIANTS,
   OG_CARD_HEIGHT,
   OG_CARD_WIDTH,
   SITE_CARD_PATH,
   SITE_NAME,
   articleCardPath,
+  articleStructuredImagePaths,
   articleOgImages,
   articleOpenGraph,
   articleTwitter,
@@ -29,7 +31,7 @@ describe('og card vocabulary', () => {
   it('emits a card path per published article, each carrying its slug', () => {
     const published = publishedModules();
     // The registry is the single source of truth for the published count,
-    // so no literal total is pinned here (it drifted 42 -> 43 -> 47 across
+    // so no literal total is pinned here (it drifted 42 -> 43 -> 47 -> 57 across
     // publishes); the distinct-path checks below are the real guard.
     expect(published.length).toBeGreaterThan(0);
     const paths = published.map((m) => articleCardPath(m.domain, m.slug));
@@ -47,6 +49,22 @@ describe('og card vocabulary', () => {
     for (const m of publishedModules()) {
       expect(SITE_CARD_PATH).not.toBe(articleCardPath(m.domain, m.slug));
     }
+  });
+
+  it('provides landscape, four-three, and square image paths per article', () => {
+    expect(ARTICLE_IMAGE_VARIANTS.map((variant) => variant.id)).toEqual([
+      'landscape',
+      'four-three',
+      'square',
+    ]);
+    expect(articleStructuredImagePaths('classical', 'kinematics')).toEqual([
+      '/og/classical/kinematics.png',
+      '/og/classical/kinematics-4x3.png',
+      '/og/classical/kinematics-square.png',
+    ]);
+    expect(
+      new Set(articleStructuredImagePaths('classical', 'kinematics')).size,
+    ).toBe(3);
   });
 
   it('clamps long titles at a word boundary without injecting dashes', () => {

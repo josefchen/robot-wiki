@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { MarketMap } from '@/components/market-map/market-map';
 import { COMPANIES } from '@/data/companies';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { STANDALONE_SEO_TITLES } from '@/lib/seo';
 
 const title = 'Market Map';
 
 export const metadata: Metadata = {
-  title,
+  title: STANDALONE_SEO_TITLES.marketMap,
   description:
     'The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.',
   // Full card blocks restated: a route-level object replaces the

@@ -267,8 +267,11 @@ test.describe('playground inverse kinematics', () => {
     await page.getByTestId('ik-input-z').fill('0');
     await page.getByTestId('ik-solve').click();
 
+    // The solver's own wall-clock guard is 2.5s. Give a busy headless WebGL
+    // process enough scheduling slack to publish that terminal state; the
+    // residual and joint-limit assertions below still verify the result.
     await expect(page.getByTestId('hud-ik-status')).toHaveText('not reached', {
-      timeout: 5_000,
+      timeout: 10_000,
     });
     const residual = await hudResidualMm(page);
     expect(residual).toBeGreaterThan(100);

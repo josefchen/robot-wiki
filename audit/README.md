@@ -8,6 +8,12 @@ content they vouch for, like `/research`.
 
 ## What was audited
 
+The table below is a dated audit snapshot, not the live registry total. It
+records the 42-article, 307-citation corpus checked in the consolidation pass.
+The current repository contains 57 published articles and 416 citations; new
+ledger work is appended rather than retroactively changing the arithmetic of
+this snapshot.
+
 Every published article (all 42 across the seven domains), the four
 structured data files behind them (`data/methods.ts`,
 `data/hardware.ts`, `data/datasets.ts`, `data/teleop-rigs.ts`), the
@@ -175,8 +181,9 @@ existed; re-cited via Teslarati). The 2026-08-18 sweep found no others.
 ## How to re-run the checkers
 
 ```bash
-npm run validate:content    # content-pipeline validation; prints the live corpus
-                            # counts (42 modules, 307 citations, 111 companies)
+npm run validate:content    # content-pipeline validation; prints the current
+                            # live corpus counts (currently 57 modules,
+                            # 416 citations, 111 companies)
 npm run check:links             # liveness of every registry URL (bot-walls via Crossref)
 npm run check:citations         # identity: fetched title vs registry title, per entry
 npm run check:dataset-sources   # liveness of every market-map company source URL

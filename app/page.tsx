@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { IntentLink } from '@/components/ui/intent-link';
 import {
   DOMAINS,
   DOMAIN_META,
   modulesByDomain,
 } from '@/data/modules';
+import { learningPaths } from '@/lib/learning-paths';
+import { websiteJsonLd } from '@/lib/seo';
 
 /**
  * Home: hero premise, the seven-domain typographic index, the live featured
@@ -31,6 +34,7 @@ export default function Home() {
   const adjacentModules = (modulesByDomain().adjacent ?? []).filter(
     (m) => m.status === 'published',
   );
+  const paths = learningPaths();
 
   return (
     <>
@@ -47,6 +51,10 @@ export default function Home() {
         data-pagefind-body
         className={`${container} pt-12 lg:pt-16`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: websiteJsonLd() }}
+        />
         <h1 className="font-sans text-4xl font-semibold tracking-tight text-text md:text-5xl">
           robot-wiki
         </h1>
@@ -101,12 +109,12 @@ export default function Home() {
             return (
               <li key={domain}>
                 <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
-                  <Link
+                  <IntentLink
                     href={`/${domain}/`}
                     className="font-sans text-[15px] font-medium text-text transition-colors hover:text-accent"
                   >
                     {meta.name}
-                  </Link>
+                  </IntentLink>
                   {isAdjacent && adjacentModules.length > 0 ? (
                     <p className="text-sm leading-snug text-text-dim">
                       {adjacentModules.map((m, i) => (
@@ -116,12 +124,12 @@ export default function Home() {
                               ? ', and '
                               : ', '
                             : ''}
-                          <Link
+                          <IntentLink
                             href={`/adjacent/${m.slug}/`}
                             className="transition-colors hover:text-accent"
                           >
                             {m.title}
-                          </Link>
+                          </IntentLink>
                         </span>
                       ))}
                       .
@@ -350,6 +358,59 @@ export default function Home() {
               segments, filterable by approach, geography, stage, and funding.
             </p>
           </Link>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="learning-paths-heading"
+        data-pagefind-body
+        className={`${container} mt-14`}
+      >
+        <h2
+          id="learning-paths-heading"
+          className="font-sans text-xl font-semibold tracking-tight text-text"
+        >
+          Learning paths
+        </h2>
+        <p className="mt-3 max-w-[65ch] text-sm leading-relaxed text-text-dim">
+          Pick a sequence when you want a coherent route through the wiki.
+          Each path starts with the concepts later articles assume.
+        </p>
+        <div className="mt-6 grid gap-x-8 gap-y-8 md:grid-cols-3">
+          {paths.map((path) => (
+            <section
+              key={path.id}
+              aria-labelledby={`learning-path-${path.id}`}
+              className="border-t border-border pt-4"
+            >
+              <h3
+                id={`learning-path-${path.id}`}
+                className="font-sans text-base font-semibold tracking-tight text-text"
+              >
+                <IntentLink
+                  href={path.hub}
+                  className="transition-colors hover:text-accent"
+                >
+                  {path.title}
+                </IntentLink>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-text-dim">
+                {path.description}
+              </p>
+              <ol className="mt-4 list-decimal space-y-2 pl-5 font-sans text-sm text-text-dim marker:font-mono marker:text-[11px]">
+                {path.entries.map((entry) => (
+                  <li key={`${entry.domain}/${entry.slug}`}>
+                    <IntentLink
+                      href={`/${entry.domain}/${entry.slug}/`}
+                      className="text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
+                    >
+                      {entry.title}
+                    </IntentLink>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ))}
         </div>
       </section>
 

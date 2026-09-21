@@ -5,7 +5,7 @@ domain: world-models
 slug: jepa
 order: 4
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - vjepa-2024
   - vjepa2-2025
@@ -19,8 +19,9 @@ citations:
   - fast-wam-2026
 seeAlso:
   - "world-models/taxonomy"
-  - "world-models/generative-video"
   - "world-models/latent-dynamics"
+  - "world-models/model-based-robot-learning"
+  - "world-models/evaluation"
 ---
 
 import { JepaPlanning } from '@/components/interactive/jepa-planning';
@@ -76,3 +77,9 @@ The argument is no longer only a research position. LeCun left Meta and co-found
 ## What would settle it
 
 Two results would break the stalemate. The first is an interactive, inspectable, action-controllable JEPA environment: something a user can steer and probe the way Genie 3 can be steered today. Whether its absence is fundamental or an engineering gap is the crux of the debate. The second is a demonstrated JEPA advantage on contact-rich tasks, where the generative camp's best evidence and the JEPA camp's best evidence both currently run out. Until one of those lands, the honest summary is that the JEPA line has the cheapest demonstrated path from observation to zero-shot planning, and the [generative video](/world-models/generative-video) line has the only usable simulators.
+
+## A deployment rule for representation prediction
+
+Use a JEPA-style model when the downstream decision depends on task-relevant change and reconstructing pixels would consume capacity without adding evidence. Goal-conditioned planning is a natural fit: compare predicted future representations with a goal representation and replan after each observation. Synthetic video generation, visual debugging and simulator replacement are not natural fits because the decoder-free state does not expose what it omitted.
+
+Evaluation must therefore probe the representation. Test whether nearby embeddings correspond to equivalent control outcomes, whether different actions separate when their consequences matter, and whether the induced action ranking matches hardware. Add explicit out-of-distribution detectors or planner fallbacks because low embedding distance is not calibrated physical confidence. The [model-based robot-learning guide](/world-models/model-based-robot-learning) shows how the representation enters planning; the [evaluation guide](/world-models/evaluation) supplies action-sensitivity and policy-ranking tests that do not require a pixel decoder.
