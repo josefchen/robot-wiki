@@ -152,13 +152,15 @@ describe('generalization 2026-09-15 integration', () => {
     }
   });
 
-  it('leaves the held Goldberg row (G17) without an evidence-plan binding', () => {
+  it('completes the held Goldberg row (G17) with scalar evidence, still no plan', () => {
+    // 2026-09-17a single-leftovers: G17 completed as a scalar row bound to
+    // goldberg-data-gap-2025 (Crossref record + Berkeley News interview).
     const cells = cellsOf(rowLine(17));
-    expect(cells.length, 'G17 must keep its un-upgraded 5-column form').toBe(5);
-    expect(
-      cells[4],
-      'G17 must keep its original held note, not gain an evidence plan',
-    ).toContain('Good old-fashioned engineering');
+    expect(cells.length, 'G17 nine-column form with empty plan cell').toBe(9);
+    expect(cells[5]).toBe('goldberg-data-gap-2025');
+    expect(cells[6]).toBe('https://api.crossref.org/works/10.1126/scirobotics.aea7390');
+    expect(cells[8], 'G17 gains no evidence plan').toBe('');
+    expect(cells[4]).toContain('Good old-fashioned engineering');
     expect(
       plans.some((plan) => plan.articleSlug === 'generalization' && !APPLIED.some(({ planId }) => planId === plan.id)),
       'no generalization plan may exist beyond the 20 applied',

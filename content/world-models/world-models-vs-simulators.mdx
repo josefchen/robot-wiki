@@ -17,13 +17,19 @@ citations:
   - robocasa365-2026
   - simpler-2024
   - roboworld-2026
+  - llama-3-2024
+  - vjepa2-2025
+  - cosmos-predict-2025
+  - cosmos-predict2-perf-2025
+  - cosmos-1-diffusion-14b-card-2025
+  - 3dgs-2023
 seeAlso:
   - "world-models/model-based-robot-learning"
   - "world-models/generative-sim"
   - "rl-sim2real/sim2real-transfer"
   - "world-models/evaluation"
 ---
-import { SimVsModelTable } from '@/components/mdx/text-tables';
+import { SimVsModelTable, WorldModelCostTable } from '@/components/mdx/text-tables';
 
 A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned <Term id="world-model">world model</Term> predicts from data. Both are models of what happens under an action; neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate.
 
@@ -67,6 +73,22 @@ The current survey of world models for robot learning treats learned simulators 
 <SimVsModelTable className="my-6" />
 
 The table is not a winner. It identifies where each system makes uncertainty visible.
+
+## What each representation costs to run
+
+A world model's usefulness is bounded by what it costs to query. The table below compares four deployed forms of world knowledge on a single machine: a text LLM as a familiar decode reference, an action-conditioned latent world model, an autoregressive or diffusion video world model, and an explicit 3D scene. The figures come from the cited papers and vendor documentation; the FLOP row is a derived order-of-magnitude estimate, not a measurement.
+
+<WorldModelCostTable className="my-6" />
+
+The LLM column anchors the scale. An 8B dense decoder such as Llama 3 8B keeps about 16 GB of weights in fp16 and emits a token in tens of milliseconds on a consumer card; at that size, decode is bound by reading weights rather than compute <Cite id="llama-3-2024" />. Its KV cache adds about 128 KB per token under the model's grouped-query layout (8 KV heads across 32 layers in fp16), so memory grows linearly with context length.
+
+The latent column is where planning gets cheap enough to run on a robot. V-JEPA 2-AC pairs a frozen 1B-parameter ViT-g video encoder with a 300M-parameter block-causal predictor, so the whole planning stack fits in a few GB <Cite id="vjepa2-2025" />. Its planner runs the cross-entropy method with 800 samples over 10 refinement iterations and produces an action in about 16 seconds; the paper reports roughly a 15x speedup over a Cosmos video-generation planner at about 4 minutes per action <Cite id="vjepa2-2025" />. Rolling a compact latent forward also keeps horizon cost nearly flat: the state stays a vector, not a lengthening token history.
+
+The generative-video column is the expensive one. Cosmos Predict spans autoregressive models at 4B to 13B and diffusion models at 7B to 14B over continuous and discrete video tokenizers <Cite id="cosmos-predict-2025" />. NVIDIA's own measurements put Predict2's 14B Video2World variant at 56 GB of VRAM and roughly 85 seconds on a GB200 to over 30 minutes on a DGX Spark per clip at 480p and 16 fps, with 720p slower still <Cite id="cosmos-predict2-perf-2025" />; the Predict1 14B Video2World card lists more than 80 GB without offloading for a five-second 1280x704 clip <Cite id="cosmos-1-diffusion-14b-card-2025" />. These are offline generators rather than 24 fps runtimes, and a policy that calls one per action step inherits that latency.
+
+The explicit-3D column inverts the trade. 3D Gaussian Splatting stores the scene as rasterizable primitives, so a query is a raster pass: no weights, no tokens, and tens of milliseconds or better per frame on ordinary GPUs <Cite id="3dgs-2023" />. Memory moves to the asset itself, typically a few hundred MB to a few GB per captured scene, and hundred-million-splat scenes outgrow consumer cards until level-of-detail or offload steps in. The limitation is semantic rather than computational: a splat answers what a view looks like, not what an action does, which is why the real-to-sim-to-real pattern above attaches explicit physics.
+
+Two rows carry the design lesson. Batch behavior is the tell for robot use: LLM decode batches KV-bound streams, CEM planning is built to be batched, video diffusion usually runs one clip at a time, and rasterization makes extra cameras nearly free, which is why splats are attractive for evaluation and sensor simulation. The horizon row separates latent dynamics from token generation: a compact latent rolls far without growth, while token generators pay linearly in both KV and steps. For a training loop that asks the model for thousands of imagined rollouts, as in the [model-based RL guide](/world-models/model-based-robot-learning), those two rows decide what is affordable.
 
 ## Where physics remains difficult to replace
 

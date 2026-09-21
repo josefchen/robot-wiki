@@ -70532,6 +70532,1341 @@
     "evidenceDigest": "08488dad576385ec3023b522daa86e0d2dbe26253f7bf59c089afb8e6d8e1747"
    }
   ]
+ },
+ {
+  "id": "humanoid-wbc-20-frontmatter-sweep-20260917a",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "humanoid-wbc",
+  "rowOrdinal": 20,
+  "originalCellsDigest": "32dc3d6f639dcf12a1fce96b9256f6860302554ff66ec0958fb91a910b8b32d4",
+  "kind": "frontmatter-p1",
+  "parts": [
+   {
+    "id": "humanoid-wbc-20-phc2023-20260917a",
+    "text": "Identity check for frontmatter citation phc-2023: Registered URL https://arxiv.org/abs/2305.06456 fetched fresh this session: HTTP 200, final URL identical, 41726 bytes, 0.153215 s, 2026-09-16T22:19:15Z, body sha256 8df61bf305b15a2005a789e2bd6119921358ec6744ee6d975b988fbdf43c870b, retained sources/phc-2023.body. Abs page prints the exact registry title, the registry's 5 authors in name, spelling and order (citation_author metas, 'Luo, Zhengyi, Cao, Jinkun, Winkler, Alexander, ...'), and dateline '[Submitted on 10 May 2023 (v1), last revised 11 Sep 2023 (this version, v3)]' consistent with registry year 2023. Comments field prints 'ICCV 2023. Project page: this https URL' = registry venue 'ICCV 2023'.",
+    "requiredCitationIds": [
+     "phc-2023"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-h2o2024-20260917a",
+    "text": "Identity check for frontmatter citation h2o-2024: Registered URL https://arxiv.org/abs/2403.04436 fetched fresh this session: HTTP 200, final URL identical, 41358 bytes, 0.180547 s, 2026-09-16T22:19:16Z, body sha256 8267b1c03b046c109bffc9bd8b48bc09c4948e79ad985c62cd90cffd32a4c866, retained sources/h2o-2024.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'He, Tairan, Luo, Zhengyi, Xiao, Wenli, ...'), and dateline '[Submitted on 7 Mar 2024]' consistent with registry year 2024. VENUE DISCLOSURE: registry venue 'IROS 2024' is not printed by the abs page (Comments: 'Project website: this https URL'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed.",
+    "requiredCitationIds": [
+     "h2o-2024"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-omnih2o2024-20260917a",
+    "text": "Identity check for frontmatter citation omnih2o-2024: Registered URL https://arxiv.org/abs/2406.08858 fetched fresh this session: HTTP 200, final URL identical, 42875 bytes, 0.156154 s, 2026-09-16T22:19:16Z, body sha256 d0537229ab2ae156ebeca2e1292f65972b21010f9a4f06ca1613e5bd74f03fea, retained sources/omnih2o-2024.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'He, Tairan, Luo, Zhengyi, He, Xialin, ...'), and dateline '[Submitted on 13 Jun 2024]' consistent with registry year 2024. VENUE DISCLOSURE: registry venue 'CoRL 2024' is not printed by the abs page (Comments: 'Project page: this https URL'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed.",
+    "requiredCitationIds": [
+     "omnih2o-2024"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-humanplus2024-20260917a",
+    "text": "Identity check for frontmatter citation humanplus-2024: Registered URL https://arxiv.org/abs/2406.10454 fetched fresh this session: HTTP 200, final URL identical, 43242 bytes, 0.192765 s, 2026-09-16T22:19:17Z, body sha256 2710f34f270a14fd3e7e0537643c922e5621db9befd5338ad66883c77a374006, retained sources/humanplus-2024.body. Abs page prints the exact registry title, the registry's 5 authors in name, spelling and order (citation_author metas, 'Fu, Zipeng, Zhao, Qingqing, Wu, Qi, ...'), and dateline '[Submitted on 15 Jun 2024]' consistent with registry year 2024. Registry carries no venue; the page prints none - consistent.",
+    "requiredCitationIds": [
+     "humanplus-2024"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-exbody22024-20260917a",
+    "text": "Identity check for frontmatter citation exbody2-2024: Registered URL https://arxiv.org/abs/2412.13196 fetched fresh this session: HTTP 200, final URL identical, 41680 bytes, 0.16841 s, 2026-09-16T22:19:17Z, body sha256 b7b8768e536b50ca474b617ba1a8e7d4901e4d43a48d55893d534c080e7a42b4, retained sources/exbody2-2024.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'Ji, Mazeyu, Peng, Xuanbin, Liu, Fangchen, ...'), and dateline '[Submitted on 17 Dec 2024 (v1), last revised 12 Mar 2025 (this version, v2)]' consistent with registry year 2024. Registry carries no venue; the page prints none - consistent.",
+    "requiredCitationIds": [
+     "exbody2-2024"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-asap2025-20260917a",
+    "text": "Identity check for frontmatter citation asap-2025: Registered URL https://arxiv.org/abs/2502.01143 fetched fresh this session: HTTP 200, final URL identical, 46380 bytes, 0.185648 s, 2026-09-16T22:19:18Z, body sha256 3303f22d0c5a68bd8855c33aa1a14e73294d6d57ed383eb746bb8ad26bad65cc, retained sources/asap-2025.body. 18 authors confirm at the paper's own title-page byline: fresh PDF fetch this session (https://arxiv.org/pdf/2502.01143, HTTP 200, 36,214,501 bytes, 2.00 s, 2026-09-16T22:26:08Z, sha256 8ca60229d7e560769ceece6cb5571d8e6f528c6c485f631b7fd5162d503b7db0) prints the byline 'Tairan He, Jiawei Gao, Wenli Xiao, Yuanhang Zhang, Zi Wang, Jiashun Wang, Zhengyi Luo, Guanqi He, Nikhil Sobanbabu, Chaoyi Pan, Zeji Yi, Guannan Qu, Kris Kitani, Jessica Hodgins, Linxi \"Jim\" Fan, Yuke Zhu, Changliu Liu, Guanya Shi' - exactly the registry's 18 names in order, including 'Nikhil Sobanbabu' with the trailing u. SURFACE DISCLOSURE: the registered abs page's citation_author meta prints 'Sobanbab, Nikhil' (no trailing u) - a metadata-layer variant of the document's own byline spelling; registry unchanged, no edit proposed.",
+    "requiredCitationIds": [
+     "asap-2025"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-kungfubot2025-20260917a",
+    "text": "Identity check for frontmatter citation kungfubot-2025: Registered URL https://arxiv.org/abs/2506.12851 fetched fresh this session: HTTP 200, final URL identical, 43061 bytes, 0.175156 s, 2026-09-16T22:19:26Z, body sha256 85ad561527b4bbe91a54481ed39eb1020b974fd1402fabbfcb4010e97a74bf16, retained sources/kungfubot-2025.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'Xie, Weiji, Han, Jinrui, Zheng, Jiakun, ...'), and dateline '[Submitted on 15 Jun 2025 (v1), last revised 1 Jul 2026 (this version, v3)]' consistent with registry year 2025. Comments field prints 'NeurIPS 2025. Project Page: this https URL' = registry venue 'NeurIPS 2025'.",
+    "requiredCitationIds": [
+     "kungfubot-2025"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-gmt2025-20260917a",
+    "text": "Identity check for frontmatter citation gmt-2025: Registered URL https://arxiv.org/abs/2506.14770 fetched fresh this session: HTTP 200, final URL identical, 41413 bytes, 0.171952 s, 2026-09-16T22:19:26Z, body sha256 4091a7a67667b895d8736370cb60ca2fe6b69ec6fe5d4db57f71914dd94335d7, retained sources/gmt-2025.body. Abs page prints the exact registry title, the registry's 6 authors in name, spelling and order (citation_author metas, 'Chen, Zixuan, Ji, Mazeyu, Cheng, Xuxin, ...'), and dateline '[Submitted on 17 Jun 2025 (v1), last revised 4 Sep 2025 (this version, v2)]' consistent with registry year 2025. Registry carries no venue; the page prints none - consistent.",
+    "requiredCitationIds": [
+     "gmt-2025"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-robusttracking2026-20260917a",
+    "text": "Identity check for frontmatter citation robust-tracking-2026: Registered URL https://arxiv.org/abs/2601.23080 fetched fresh this session: HTTP 200, final URL identical, 41368 bytes, 0.243027 s, 2026-09-16T22:19:27Z, body sha256 82fdc71a231b1d1842aa69998fa3aae0d06a95037fc940cbe7ae4a1c6bcba92c, retained sources/robust-tracking-2026.body. Abs page prints the exact registry title, the registry's 10 authors in name, spelling and order (citation_author metas, 'Ma, Yubiao, Yu, Han, Xie, Jiayin, ...'), and dateline '[Submitted on 30 Jan 2026]' consistent with registry year 2026. Registry carries no venue; the page prints none - consistent.",
+    "requiredCitationIds": [
+     "robust-tracking-2026"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-leverb2025-20260917a",
+    "text": "Identity check for frontmatter citation leverb-2025: Registered URL https://arxiv.org/abs/2506.13751 fetched fresh this session: HTTP 200, final URL identical, 43373 bytes, 0.142366 s, 2026-09-16T22:19:27Z, body sha256 26a72e4c18f1911b96b7e597eba6550ae9afe690bd9cd05c34254712edadc64b, retained sources/leverb-2025.body. Abs page prints the exact registry title, the registry's 11 authors in name, spelling and order (citation_author metas, 'Xue, Haoru, Huang, Xiaoyu, Niu, Dantong, ...'), and dateline '[Submitted on 16 Jun 2025 (v1), last revised 25 Sep 2025 (this version, v3)]' consistent with registry year 2025. Registry carries no venue; the page prints none - consistent.",
+    "requiredCitationIds": [
+     "leverb-2025"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-wholebodyvla2025-20260917a",
+    "text": "Identity check for frontmatter citation wholebodyvla-2025: Registered URL https://arxiv.org/abs/2512.11047 fetched fresh this session: HTTP 200, final URL identical, 43912 bytes, 0.146468 s, 2026-09-16T22:19:28Z, body sha256 4d3cd6c25b46e73b71118d98e87ec040085f3174f71c0e95ce6bc215eb2aaec6, retained sources/wholebodyvla-2025.body. Abs page prints the exact registry title, the registry's 11 authors in name, spelling and order (citation_author metas, 'Jiang, Haoran, Chen, Jin, Bu, Qingwen, ...'), and dateline '[Submitted on 11 Dec 2025 (v1), last revised 15 Dec 2025 (this version, v2)]' consistent with registry year 2025. VENUE DISCLOSURE: registry venue 'ICLR 2026' is not printed by the abs page (Comments: 'none'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed.",
+    "requiredCitationIds": [
+     "wholebodyvla-2025"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-helix022026-20260917a",
+    "text": "Identity check for frontmatter citation helix-02-2026: Registered URL https://www.figure.ai/news/helix-02 fetched fresh this session: HTTP 200, final URL identical, 72616 bytes, 0.301653 s, 2026-09-16T22:19:28Z, body sha256 05559f08a6ffabd9f2689e0e7a2574bd375d0ff53c680c392d1d3f5b69805d3d, retained sources/helix-02-2026.body. figure.ai news page prints the exact registry title 'Introducing Helix 02: Full-Body Autonomy' (title tag and og:title), og:site_name 'FigureAI' (registry author 'Figure AI' - the publisher's own newsroom; the page carries no person byline, JSON-LD author null - publisher-byline class, disclosed) and the visible date 'January 27, 2026' (machine dateTime 2026-01-27T00:00:00.000Z) = registry year 2026.",
+    "requiredCitationIds": [
+     "helix-02-2026"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-isaacgr00trepo2026-20260917a",
+    "text": "Identity check for frontmatter citation isaac-gr00t-repo-2026: Registered URL https://github.com/NVIDIA/Isaac-GR00T fetched fresh this session: HTTP 200, final URL identical, 495210 bytes, 0.94632 s, 2026-09-16T22:19:36Z, body sha256 6f4c1308cde60fdc2dee836df7056c58cd2b727278de6991edb0d39188a39a5f, retained sources/isaac-gr00t-repo-2026.body. Registered URL resolves to the GitHub repo NVIDIA/Isaac-GR00T (HTTP 200, 495,210 bytes): page title 'NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots' - registry title 'NVIDIA Isaac GR00T' matches the repo's own name (the page appends the current release line 'N1.7'); registry author 'NVIDIA' = the repo's owning org. Repo pages print no publication year; registry year 2026 is consistent with the current N1.7 release line - year not confirmable from this surface, disclosed, registry unchanged.",
+    "requiredCitationIds": [
+     "isaac-gr00t-repo-2026"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-grootwbc2026-20260917a",
+    "text": "Identity check for frontmatter citation groot-wbc-2026: Registered URL https://github.com/NVlabs/GR00T-WholeBodyControl fetched fresh this session: HTTP 200, final URL identical, 455453 bytes, 0.796245 s, 2026-09-16T22:19:37Z, body sha256 bde44e39448b414d3b193db8790d8230e8064f240cf212ab1885b6dd1d5348dd, retained sources/groot-wbc-2026.body. Registered URL resolves to the GitHub repo NVlabs/GR00T-WholeBodyControl (HTTP 200, 455,453 bytes): the repo's own README heading prints 'Welcome to GR00T Whole-Body Control (WBC)! ... This includes: Decoupled WBC models used in NVIDIA Isaac-Gr00t, Gr00t N1.5 and N1.6 and GEAR-SONIC' - matching registry title 'GR00T-WholeBodyControl (GEAR-SONIC whole-body controller workflow)'. Registry author 'NVIDIA' vs the GitHub org 'NVlabs' (NVIDIA's research-lab org) - org-identity match, disclosed. Repo page prints no year; registry year 2026 not confirmable from this surface, disclosed.",
+    "requiredCitationIds": [
+     "groot-wbc-2026"
+    ]
+   },
+   {
+    "id": "humanoid-wbc-20-geminirobotics2202-20260917a",
+    "text": "Identity check for frontmatter citation gemini-robotics-2-2026: Registered URL https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/ fetched fresh this session: HTTP 200, final URL identical, 182159 bytes, 0.308005 s, 2026-09-16T22:19:38Z, body sha256 d6734f92baa53bd94d527551bf219dee49d570983db5ac21ada05186dc603782, retained sources/gemini-robotics-2-2026.body. Google DeepMind blog page prints the exact registry title 'Gemini Robotics 2 brings whole body intelligence to robots' (page title appends the site suffix ' — Google DeepMind'), the registry author twice - <meta name=author content=\"Carolina Parada\"> and the visible byline '<p class=\"cover__text--authors heading-9\">Carolina Parada</p>' - and 2026 date signals (2026-07-30) = registry year 2026.",
+    "requiredCitationIds": [
+     "gemini-robotics-2-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 4e7cf1e320628f58662cb33a2f966069552d812a26fac2b8c6e82211a7045015) at HEAD 30c1d71c: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, currentHeadIdentityValid true) and re-derived with the repo lib/audit-ledger.ts parser before application. All 15 identity parts were needle-verified by this integrator against the retained sha256-pinned fetch bodies in the source lane (287/287 needles, lane needle-verification.json, zero retrieval): every identity was fetched fresh at its EXACT registered URL by the preparer (fetch of record 2026-09-16T22:19:15Z-22:20:13Z plus the disclosed second surfaces: asap-2025 PDF byline 22:26:08Z, isaac-lab-2025 Appendix A 22:26:10Z, choi-2023/park-2017-bounding FetchUrl renders by 22:21:22Z with Crossref corroboration). Claim cell is the exact P1 batch form over the article's CURRENT frontmatter id set (15 ids) per the committed house convention (lib/audit-ledger.ts P1_BATCH + frontmatter-p1; precedent why-rl-locomotion-12, reward-design-mpc-original-23-20260916); the AG packet's BATCH-WORDING/claim-cell delegations are honoured, ids and order exactly as enumerated. kind frontmatter-p1: required set == declared batch == canonical article frontmatter (check-audit-coverage derives it from the MDX). No new registrations; every id reused read-only. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "b54efcb1fbe6c05dbc1ce29c32a5185fcd31dd99a96e96c537eccedc417f9338"
+  },
+  "evidence": [
+   {
+    "partId": "humanoid-wbc-20-phc2023-20260917a",
+    "citationId": "phc-2023",
+    "sourceUrl": "https://arxiv.org/abs/2305.06456",
+    "supportingPassage": "Identity check for frontmatter citation phc-2023: Registered URL https://arxiv.org/abs/2305.06456 fetched fresh this session: HTTP 200, final URL identical, 41726 bytes, 0.153215 s, 2026-09-16T22:19:15Z, body sha256 8df61bf305b15a2005a789e2bd6119921358ec6744ee6d975b988fbdf43c870b, retained sources/phc-2023.body. Abs page prints the exact registry title, the registry's 5 authors in name, spelling and order (citation_author metas, 'Luo, Zhengyi, Cao, Jinkun, Winkler, Alexander, ...'), and dateline '[Submitted on 10 May 2023 (v1), last revised 11 Sep 2023 (this version, v3)]' consistent with registry year 2023. Comments field prints 'ICCV 2023. Project page: this https URL' = registry venue 'ICCV 2023'."
+   },
+   {
+    "partId": "humanoid-wbc-20-h2o2024-20260917a",
+    "citationId": "h2o-2024",
+    "sourceUrl": "https://arxiv.org/abs/2403.04436",
+    "supportingPassage": "Identity check for frontmatter citation h2o-2024: Registered URL https://arxiv.org/abs/2403.04436 fetched fresh this session: HTTP 200, final URL identical, 41358 bytes, 0.180547 s, 2026-09-16T22:19:16Z, body sha256 8267b1c03b046c109bffc9bd8b48bc09c4948e79ad985c62cd90cffd32a4c866, retained sources/h2o-2024.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'He, Tairan, Luo, Zhengyi, Xiao, Wenli, ...'), and dateline '[Submitted on 7 Mar 2024]' consistent with registry year 2024. VENUE DISCLOSURE: registry venue 'IROS 2024' is not printed by the abs page (Comments: 'Project website: this https URL'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed."
+   },
+   {
+    "partId": "humanoid-wbc-20-omnih2o2024-20260917a",
+    "citationId": "omnih2o-2024",
+    "sourceUrl": "https://arxiv.org/abs/2406.08858",
+    "supportingPassage": "Identity check for frontmatter citation omnih2o-2024: Registered URL https://arxiv.org/abs/2406.08858 fetched fresh this session: HTTP 200, final URL identical, 42875 bytes, 0.156154 s, 2026-09-16T22:19:16Z, body sha256 d0537229ab2ae156ebeca2e1292f65972b21010f9a4f06ca1613e5bd74f03fea, retained sources/omnih2o-2024.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'He, Tairan, Luo, Zhengyi, He, Xialin, ...'), and dateline '[Submitted on 13 Jun 2024]' consistent with registry year 2024. VENUE DISCLOSURE: registry venue 'CoRL 2024' is not printed by the abs page (Comments: 'Project page: this https URL'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed."
+   },
+   {
+    "partId": "humanoid-wbc-20-humanplus2024-20260917a",
+    "citationId": "humanplus-2024",
+    "sourceUrl": "https://arxiv.org/abs/2406.10454",
+    "supportingPassage": "Identity check for frontmatter citation humanplus-2024: Registered URL https://arxiv.org/abs/2406.10454 fetched fresh this session: HTTP 200, final URL identical, 43242 bytes, 0.192765 s, 2026-09-16T22:19:17Z, body sha256 2710f34f270a14fd3e7e0537643c922e5621db9befd5338ad66883c77a374006, retained sources/humanplus-2024.body. Abs page prints the exact registry title, the registry's 5 authors in name, spelling and order (citation_author metas, 'Fu, Zipeng, Zhao, Qingqing, Wu, Qi, ...'), and dateline '[Submitted on 15 Jun 2024]' consistent with registry year 2024. Registry carries no venue; the page prints none - consistent."
+   },
+   {
+    "partId": "humanoid-wbc-20-exbody22024-20260917a",
+    "citationId": "exbody2-2024",
+    "sourceUrl": "https://arxiv.org/abs/2412.13196",
+    "supportingPassage": "Identity check for frontmatter citation exbody2-2024: Registered URL https://arxiv.org/abs/2412.13196 fetched fresh this session: HTTP 200, final URL identical, 41680 bytes, 0.16841 s, 2026-09-16T22:19:17Z, body sha256 b7b8768e536b50ca474b617ba1a8e7d4901e4d43a48d55893d534c080e7a42b4, retained sources/exbody2-2024.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'Ji, Mazeyu, Peng, Xuanbin, Liu, Fangchen, ...'), and dateline '[Submitted on 17 Dec 2024 (v1), last revised 12 Mar 2025 (this version, v2)]' consistent with registry year 2024. Registry carries no venue; the page prints none - consistent."
+   },
+   {
+    "partId": "humanoid-wbc-20-asap2025-20260917a",
+    "citationId": "asap-2025",
+    "sourceUrl": "https://arxiv.org/abs/2502.01143",
+    "supportingPassage": "Identity check for frontmatter citation asap-2025: Registered URL https://arxiv.org/abs/2502.01143 fetched fresh this session: HTTP 200, final URL identical, 46380 bytes, 0.185648 s, 2026-09-16T22:19:18Z, body sha256 3303f22d0c5a68bd8855c33aa1a14e73294d6d57ed383eb746bb8ad26bad65cc, retained sources/asap-2025.body. 18 authors confirm at the paper's own title-page byline: fresh PDF fetch this session (https://arxiv.org/pdf/2502.01143, HTTP 200, 36,214,501 bytes, 2.00 s, 2026-09-16T22:26:08Z, sha256 8ca60229d7e560769ceece6cb5571d8e6f528c6c485f631b7fd5162d503b7db0) prints the byline 'Tairan He, Jiawei Gao, Wenli Xiao, Yuanhang Zhang, Zi Wang, Jiashun Wang, Zhengyi Luo, Guanqi He, Nikhil Sobanbabu, Chaoyi Pan, Zeji Yi, Guannan Qu, Kris Kitani, Jessica Hodgins, Linxi \"Jim\" Fan, Yuke Zhu, Changliu Liu, Guanya Shi' - exactly the registry's 18 names in order, including 'Nikhil Sobanbabu' with the trailing u. SURFACE DISCLOSURE: the registered abs page's citation_author meta prints 'Sobanbab, Nikhil' (no trailing u) - a metadata-layer variant of the document's own byline spelling; registry unchanged, no edit proposed."
+   },
+   {
+    "partId": "humanoid-wbc-20-kungfubot2025-20260917a",
+    "citationId": "kungfubot-2025",
+    "sourceUrl": "https://arxiv.org/abs/2506.12851",
+    "supportingPassage": "Identity check for frontmatter citation kungfubot-2025: Registered URL https://arxiv.org/abs/2506.12851 fetched fresh this session: HTTP 200, final URL identical, 43061 bytes, 0.175156 s, 2026-09-16T22:19:26Z, body sha256 85ad561527b4bbe91a54481ed39eb1020b974fd1402fabbfcb4010e97a74bf16, retained sources/kungfubot-2025.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'Xie, Weiji, Han, Jinrui, Zheng, Jiakun, ...'), and dateline '[Submitted on 15 Jun 2025 (v1), last revised 1 Jul 2026 (this version, v3)]' consistent with registry year 2025. Comments field prints 'NeurIPS 2025. Project Page: this https URL' = registry venue 'NeurIPS 2025'."
+   },
+   {
+    "partId": "humanoid-wbc-20-gmt2025-20260917a",
+    "citationId": "gmt-2025",
+    "sourceUrl": "https://arxiv.org/abs/2506.14770",
+    "supportingPassage": "Identity check for frontmatter citation gmt-2025: Registered URL https://arxiv.org/abs/2506.14770 fetched fresh this session: HTTP 200, final URL identical, 41413 bytes, 0.171952 s, 2026-09-16T22:19:26Z, body sha256 4091a7a67667b895d8736370cb60ca2fe6b69ec6fe5d4db57f71914dd94335d7, retained sources/gmt-2025.body. Abs page prints the exact registry title, the registry's 6 authors in name, spelling and order (citation_author metas, 'Chen, Zixuan, Ji, Mazeyu, Cheng, Xuxin, ...'), and dateline '[Submitted on 17 Jun 2025 (v1), last revised 4 Sep 2025 (this version, v2)]' consistent with registry year 2025. Registry carries no venue; the page prints none - consistent."
+   },
+   {
+    "partId": "humanoid-wbc-20-robusttracking2026-20260917a",
+    "citationId": "robust-tracking-2026",
+    "sourceUrl": "https://arxiv.org/abs/2601.23080",
+    "supportingPassage": "Identity check for frontmatter citation robust-tracking-2026: Registered URL https://arxiv.org/abs/2601.23080 fetched fresh this session: HTTP 200, final URL identical, 41368 bytes, 0.243027 s, 2026-09-16T22:19:27Z, body sha256 82fdc71a231b1d1842aa69998fa3aae0d06a95037fc940cbe7ae4a1c6bcba92c, retained sources/robust-tracking-2026.body. Abs page prints the exact registry title, the registry's 10 authors in name, spelling and order (citation_author metas, 'Ma, Yubiao, Yu, Han, Xie, Jiayin, ...'), and dateline '[Submitted on 30 Jan 2026]' consistent with registry year 2026. Registry carries no venue; the page prints none - consistent."
+   },
+   {
+    "partId": "humanoid-wbc-20-leverb2025-20260917a",
+    "citationId": "leverb-2025",
+    "sourceUrl": "https://arxiv.org/abs/2506.13751",
+    "supportingPassage": "Identity check for frontmatter citation leverb-2025: Registered URL https://arxiv.org/abs/2506.13751 fetched fresh this session: HTTP 200, final URL identical, 43373 bytes, 0.142366 s, 2026-09-16T22:19:27Z, body sha256 26a72e4c18f1911b96b7e597eba6550ae9afe690bd9cd05c34254712edadc64b, retained sources/leverb-2025.body. Abs page prints the exact registry title, the registry's 11 authors in name, spelling and order (citation_author metas, 'Xue, Haoru, Huang, Xiaoyu, Niu, Dantong, ...'), and dateline '[Submitted on 16 Jun 2025 (v1), last revised 25 Sep 2025 (this version, v3)]' consistent with registry year 2025. Registry carries no venue; the page prints none - consistent."
+   },
+   {
+    "partId": "humanoid-wbc-20-wholebodyvla2025-20260917a",
+    "citationId": "wholebodyvla-2025",
+    "sourceUrl": "https://arxiv.org/abs/2512.11047",
+    "supportingPassage": "Identity check for frontmatter citation wholebodyvla-2025: Registered URL https://arxiv.org/abs/2512.11047 fetched fresh this session: HTTP 200, final URL identical, 43912 bytes, 0.146468 s, 2026-09-16T22:19:28Z, body sha256 4d3cd6c25b46e73b71118d98e87ec040085f3174f71c0e95ce6bc215eb2aaec6, retained sources/wholebodyvla-2025.body. Abs page prints the exact registry title, the registry's 11 authors in name, spelling and order (citation_author metas, 'Jiang, Haoran, Chen, Jin, Bu, Qingwen, ...'), and dateline '[Submitted on 11 Dec 2025 (v1), last revised 15 Dec 2025 (this version, v2)]' consistent with registry year 2025. VENUE DISCLOSURE: registry venue 'ICLR 2026' is not printed by the abs page (Comments: 'none'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed."
+   },
+   {
+    "partId": "humanoid-wbc-20-helix022026-20260917a",
+    "citationId": "helix-02-2026",
+    "sourceUrl": "https://www.figure.ai/news/helix-02",
+    "supportingPassage": "Identity check for frontmatter citation helix-02-2026: Registered URL https://www.figure.ai/news/helix-02 fetched fresh this session: HTTP 200, final URL identical, 72616 bytes, 0.301653 s, 2026-09-16T22:19:28Z, body sha256 05559f08a6ffabd9f2689e0e7a2574bd375d0ff53c680c392d1d3f5b69805d3d, retained sources/helix-02-2026.body. figure.ai news page prints the exact registry title 'Introducing Helix 02: Full-Body Autonomy' (title tag and og:title), og:site_name 'FigureAI' (registry author 'Figure AI' - the publisher's own newsroom; the page carries no person byline, JSON-LD author null - publisher-byline class, disclosed) and the visible date 'January 27, 2026' (machine dateTime 2026-01-27T00:00:00.000Z) = registry year 2026."
+   },
+   {
+    "partId": "humanoid-wbc-20-isaacgr00trepo2026-20260917a",
+    "citationId": "isaac-gr00t-repo-2026",
+    "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+    "supportingPassage": "Identity check for frontmatter citation isaac-gr00t-repo-2026: Registered URL https://github.com/NVIDIA/Isaac-GR00T fetched fresh this session: HTTP 200, final URL identical, 495210 bytes, 0.94632 s, 2026-09-16T22:19:36Z, body sha256 6f4c1308cde60fdc2dee836df7056c58cd2b727278de6991edb0d39188a39a5f, retained sources/isaac-gr00t-repo-2026.body. Registered URL resolves to the GitHub repo NVIDIA/Isaac-GR00T (HTTP 200, 495,210 bytes): page title 'NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots' - registry title 'NVIDIA Isaac GR00T' matches the repo's own name (the page appends the current release line 'N1.7'); registry author 'NVIDIA' = the repo's owning org. Repo pages print no publication year; registry year 2026 is consistent with the current N1.7 release line - year not confirmable from this surface, disclosed, registry unchanged."
+   },
+   {
+    "partId": "humanoid-wbc-20-grootwbc2026-20260917a",
+    "citationId": "groot-wbc-2026",
+    "sourceUrl": "https://github.com/NVlabs/GR00T-WholeBodyControl",
+    "supportingPassage": "Identity check for frontmatter citation groot-wbc-2026: Registered URL https://github.com/NVlabs/GR00T-WholeBodyControl fetched fresh this session: HTTP 200, final URL identical, 455453 bytes, 0.796245 s, 2026-09-16T22:19:37Z, body sha256 bde44e39448b414d3b193db8790d8230e8064f240cf212ab1885b6dd1d5348dd, retained sources/groot-wbc-2026.body. Registered URL resolves to the GitHub repo NVlabs/GR00T-WholeBodyControl (HTTP 200, 455,453 bytes): the repo's own README heading prints 'Welcome to GR00T Whole-Body Control (WBC)! ... This includes: Decoupled WBC models used in NVIDIA Isaac-Gr00t, Gr00t N1.5 and N1.6 and GEAR-SONIC' - matching registry title 'GR00T-WholeBodyControl (GEAR-SONIC whole-body controller workflow)'. Registry author 'NVIDIA' vs the GitHub org 'NVlabs' (NVIDIA's research-lab org) - org-identity match, disclosed. Repo page prints no year; registry year 2026 not confirmable from this surface, disclosed."
+   },
+   {
+    "partId": "humanoid-wbc-20-geminirobotics2202-20260917a",
+    "citationId": "gemini-robotics-2-2026",
+    "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "supportingPassage": "Identity check for frontmatter citation gemini-robotics-2-2026: Registered URL https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/ fetched fresh this session: HTTP 200, final URL identical, 182159 bytes, 0.308005 s, 2026-09-16T22:19:38Z, body sha256 d6734f92baa53bd94d527551bf219dee49d570983db5ac21ada05186dc603782, retained sources/gemini-robotics-2-2026.body. Google DeepMind blog page prints the exact registry title 'Gemini Robotics 2 brings whole body intelligence to robots' (page title appends the site suffix ' — Google DeepMind'), the registry author twice - <meta name=author content=\"Carolina Parada\"> and the visible byline '<p class=\"cover__text--authors heading-9\">Carolina Parada</p>' - and 2026 date signals (2026-07-30) = registry year 2026."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "humanoid-wbc-20-phc2023-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for phc-2023 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "e6ea66527c0545eba98ab1b8078af631455fda33d34b969433a37942b18e967a"
+   },
+   {
+    "partId": "humanoid-wbc-20-h2o2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for h2o-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "b530c070a6010f1cddcaf6e230d3d1d1e6311a71105c00092ef3960033fb862d"
+   },
+   {
+    "partId": "humanoid-wbc-20-omnih2o2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for omnih2o-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "0dd41c19db5dddcc138bc54c5c5688b81210af5930fb01b84a801191f0305b1a"
+   },
+   {
+    "partId": "humanoid-wbc-20-humanplus2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for humanplus-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "346a2db3db2ce70c01d27af817a37aef44526b7919c0325d2382256829d1a495"
+   },
+   {
+    "partId": "humanoid-wbc-20-exbody22024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for exbody2-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "48b20a0916032a05fb20b74be4d6290d5cac4348889a4e716b92c05b7badbb14"
+   },
+   {
+    "partId": "humanoid-wbc-20-asap2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for asap-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "8a0401c0991acfb64632b44469f0160b6b09198ca6b6e15549d5ee7b10ddc1ad"
+   },
+   {
+    "partId": "humanoid-wbc-20-kungfubot2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for kungfubot-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "24c6851d9460714edcf42a05701e6f78d83c92daed83f3c6d6701056f3dc845a"
+   },
+   {
+    "partId": "humanoid-wbc-20-gmt2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for gmt-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "8f563488cc7600b3d7c4565b57591ddff91d18baec0ec513fc07298f86fe193e"
+   },
+   {
+    "partId": "humanoid-wbc-20-robusttracking2026-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for robust-tracking-2026 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "b614cbcbd576e88f7e1058d77d6822a0ae867a488c0749823f3db88b58edee8b"
+   },
+   {
+    "partId": "humanoid-wbc-20-leverb2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for leverb-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "16eb11f911ed7bab583ee9686c7cc06c92c6da80ee6b96a5f7759a7823b775ec"
+   },
+   {
+    "partId": "humanoid-wbc-20-wholebodyvla2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for wholebodyvla-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "42fca7b8b7041e8e8f8ce0a0868e3dca76cada0e6c6d9d53d71db322ea0eac65"
+   },
+   {
+    "partId": "humanoid-wbc-20-helix022026-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for helix-02-2026 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "d56ea1eed823cde0f8e8d6837b36f488356a5452f536be1077bbb8dbcd240906"
+   },
+   {
+    "partId": "humanoid-wbc-20-isaacgr00trepo2026-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for isaac-gr00t-repo-2026 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "44a73869face73c3354fbc0e3032d15ad42f0e5ebb1eda907ca4e1524b1ad2cc"
+   },
+   {
+    "partId": "humanoid-wbc-20-grootwbc2026-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for groot-wbc-2026 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "36ec4f1489de098f3b2e58f51719bd9a89eefdc967f2c5f40ac23d16a87766fd"
+   },
+   {
+    "partId": "humanoid-wbc-20-geminirobotics2202-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for gemini-robotics-2-2026 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "2123b6b69225531723883a00ac794d8cc199a4df516e679b9e581b469b4af715"
+   }
+  ]
+ },
+ {
+  "id": "generative-sim-15-frontmatter-sweep-20260917a",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "generative-sim",
+  "rowOrdinal": 15,
+  "originalCellsDigest": "2b728842175138c134a45cd74a7d724e99643068b30ee80937ed559b069a2239",
+  "kind": "frontmatter-p1",
+  "parts": [
+   {
+    "id": "generative-sim-15-robogen2024-20260917a",
+    "text": "Identity check for frontmatter citation robogen-2024: Registered URL https://arxiv.org/abs/2311.01455 fetched fresh this session: HTTP 200, final URL identical, 43629 bytes, 0.150452 s, 2026-09-16T22:19:39Z, body sha256 954bee73c20b033d721f6264d48530377a475c6376f2dd940e00ee7bd7bfced4, retained sources/robogen-2024.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'Wang, Yufei, Xian, Zhou, Chen, Feng, ...'), and dateline '[Submitted on 2 Nov 2023 (v1), last revised 14 Jun 2024 (this version, v3)]' consistent with registry year 2024. Comments field prints 'ICML 2024' = registry venue 'ICML 2024'.",
+    "requiredCitationIds": [
+     "robogen-2024"
+    ]
+   },
+   {
+    "id": "generative-sim-15-holodeck2024-20260917a",
+    "text": "Identity check for frontmatter citation holodeck-2024: Registered URL https://arxiv.org/abs/2312.09067 fetched fresh this session: HTTP 200, final URL identical, 44369 bytes, 0.141114 s, 2026-09-16T22:19:39Z, body sha256 a518e2489fc1e53391adcd33c7ae881feb02ad83a2491e275a69395e5a6bc0d6, retained sources/holodeck-2024.body. Abs page prints the exact registry title, the registry's 14 authors in name, spelling and order (citation_author metas, 'Yang, Yue, Sun, Fan-Yun, Weihs, Luca, ...'), and dateline '[Submitted on 14 Dec 2023 (v1), last revised 22 Apr 2024 (this version, v2)]' consistent with registry year 2024. Comments field prints 'Published in CVPR 2024, 21 pages, 27 figures, 2 tables' = registry venue 'CVPR 2024'.",
+    "requiredCitationIds": [
+     "holodeck-2024"
+    ]
+   },
+   {
+    "id": "generative-sim-15-robocasa2024-20260917a",
+    "text": "Identity check for frontmatter citation robocasa-2024: Registered URL https://arxiv.org/abs/2406.02523 fetched fresh this session: HTTP 200, final URL identical, 42951 bytes, 0.181758 s, 2026-09-16T22:19:40Z, body sha256 17f3000c519309363f466c9bc9fa79862152653f5a144c79bcd9dc427e0bae6f, retained sources/robocasa-2024.body. Abs page prints the exact registry title, the registry's 8 authors in name, spelling and order (citation_author metas, 'Nasiriany, Soroush, Maddukuri, Abhiram, Zhang, Lance, ...'), and dateline '[Submitted on 4 Jun 2024]' consistent with registry year 2024. Comments field prints 'RSS 2024' = registry venue 'RSS 2024'.",
+    "requiredCitationIds": [
+     "robocasa-2024"
+    ]
+   },
+   {
+    "id": "generative-sim-15-robocasa3652026-20260917a",
+    "text": "Identity check for frontmatter citation robocasa365-2026: Registered URL https://robocasa.ai/assets/robocasa365_iclr26.pdf fetched fresh this session: HTTP 200, final URL identical, 43595464 bytes, 2.74362 s, 2026-09-16T22:19:45Z, body sha256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d, retained sources/robocasa365-2026.body. PDF body is byte-identical to the af-lane retained body (sha256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d, 43,595,464 bytes): first page prints 'Published as a conference paper at ICLR 2026', the small-caps title 'RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots' (glyph-normalized disclosure: pdftotext prints spaced small caps) and the exact 4-author byline in order. Registry venue ICLR 2026 / year 2026 both printed.",
+    "requiredCitationIds": [
+     "robocasa365-2026"
+    ]
+   },
+   {
+    "id": "generative-sim-15-grs2024-20260917a",
+    "text": "Identity check for frontmatter citation grs-2024: Registered URL https://arxiv.org/abs/2410.15536 fetched fresh this session: HTTP 200, final URL identical, 40476 bytes, 0.185059 s, 2026-09-16T22:19:48Z, body sha256 08f932d6c975748c6a3949d9fecfe2fc58ef5796ce9e7d18a5bbd76a80f9dd63, retained sources/grs-2024.body. Abs page prints the exact registry title, the registry's 6 authors in name, spelling and order (citation_author metas, 'Zook, Alex, Sun, Fan-Yun, Spjut, Josef, ...'), and dateline '[Submitted on 20 Oct 2024 (v1), last revised 28 Oct 2025 (this version, v3)]' consistent with registry year 2024. Registry carries no venue; the page prints none - consistent.",
+    "requiredCitationIds": [
+     "grs-2024"
+    ]
+   },
+   {
+    "id": "generative-sim-15-isaaclab2025-20260917a",
+    "text": "Identity check for frontmatter citation isaac-lab-2025: Registered URL https://arxiv.org/abs/2511.04831 fetched fresh this session: HTTP 200, final URL identical, 60556 bytes, 0.175292 s, 2026-09-16T22:19:49Z, body sha256 150ba4272631108afade4ca5c2b69cecf31a6dfc7efa2836d2a28025619d27a2, retained sources/isaac-lab-2025.body. Author list confirms at the paper's own Appendix A: fresh PDF fetch this session (https://arxiv.org/pdf/2511.04831, HTTP 200, 44,458,996 bytes, 2.85 s, 2026-09-16T22:26:10Z, sha256 f5b454fe245cdb1c485fe48c302494d689d335d375cd730fe0344113772bc8fa) - Appendix A 'Contributors and Acknowledgments' (Core Contributors + Contributors + Leadership + Core Leadership after the title-page collective byline 'NVIDIA') prints exactly the registry's 106-name sequence once the PDF's three repeated names (Yunrong Guo and David Hoeller, printed in both Core Contributors and Core Leadership; Ankur Handa, printed in both Contributors and Leadership) are deduplicated keep-first: mechanical folded-sequence comparison registry == PDF-dedup TRUE, 106 = 106, including 'Soowan Park (박수완)' WITH the Hangul and 'Linxi “Jim” Fan' with curly quotes, both of which the abs page's citation_author metas drop or fold. The abs page's differently-ordered 106-name set (Guo/Hoeller near the end) is a re-sorted metadata presentation of the same document byline, not a different author list; the registry faithfully renders the document's own contributor order. This resolves the af-lane (2026-09-16n) hold on this identity; no registry change proposed.",
+    "requiredCitationIds": [
+     "isaac-lab-2025"
+    ]
+   },
+   {
+    "id": "generative-sim-15-worldmodelsurvey20-20260917a",
+    "text": "Identity check for frontmatter citation world-model-survey-2026: Registered URL https://arxiv.org/abs/2605.00080 fetched fresh this session: HTTP 200, final URL identical, 44142 bytes, 0.184372 s, 2026-09-16T22:19:49Z, body sha256 33757e20c6212f3290be9b435937ac0baa1060a1b4857fe8616403952224466a, retained sources/world-model-survey-2026.body. Abs page prints the exact registry title, the registry's 18 authors in name, spelling and order (citation_author metas, 'Hou, Bohan, Li, Gen, Jia, Jindou, ...'), and dateline '[Submitted on 30 Apr 2026]' consistent with registry year 2026. Registry carries no venue; the page prints none - consistent.",
+    "requiredCitationIds": [
+     "world-model-survey-2026"
+    ]
+   },
+   {
+    "id": "generative-sim-15-eureka2024-20260917a",
+    "text": "Identity check for frontmatter citation eureka-2024: Registered URL https://arxiv.org/abs/2310.12931 fetched fresh this session: HTTP 200, final URL identical, 43838 bytes, 0.181916 s, 2026-09-16T22:19:50Z, body sha256 cc3f704c6386987987f0d983bc6ce6ef0d9ce997114843b2d6d662b610e566ca, retained sources/eureka-2024.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'Ma, Yecheng Jason, Liang, William, Wang, Guanzhi, ...'), and dateline '[Submitted on 19 Oct 2023 (v1), last revised 30 Apr 2024 (this version, v2)]' consistent with registry year 2024. Comments field prints 'ICLR 2024. Project website and open-source code: this https URL' = registry venue 'ICLR 2024'.",
+    "requiredCitationIds": [
+     "eureka-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 4e7cf1e320628f58662cb33a2f966069552d812a26fac2b8c6e82211a7045015) at HEAD 30c1d71c: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, currentHeadIdentityValid true) and re-derived with the repo lib/audit-ledger.ts parser before application. All 8 identity parts were needle-verified by this integrator against the retained sha256-pinned fetch bodies in the source lane (287/287 needles, lane needle-verification.json, zero retrieval): every identity was fetched fresh at its EXACT registered URL by the preparer (fetch of record 2026-09-16T22:19:15Z-22:20:13Z plus the disclosed second surfaces: asap-2025 PDF byline 22:26:08Z, isaac-lab-2025 Appendix A 22:26:10Z, choi-2023/park-2017-bounding FetchUrl renders by 22:21:22Z with Crossref corroboration). Claim cell is the exact P1 batch form over the article's CURRENT frontmatter id set (8 ids) per the committed house convention (lib/audit-ledger.ts P1_BATCH + frontmatter-p1; precedent why-rl-locomotion-12, reward-design-mpc-original-23-20260916); the AG packet's BATCH-WORDING/claim-cell delegations are honoured, ids and order exactly as enumerated. kind frontmatter-p1: required set == declared batch == canonical article frontmatter (check-audit-coverage derives it from the MDX). No new registrations; every id reused read-only. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "1f169524873467872ce5b7fd0b71db28a39e35e4fa63c8280f5da134a59eb41c"
+  },
+  "evidence": [
+   {
+    "partId": "generative-sim-15-robogen2024-20260917a",
+    "citationId": "robogen-2024",
+    "sourceUrl": "https://arxiv.org/abs/2311.01455",
+    "supportingPassage": "Identity check for frontmatter citation robogen-2024: Registered URL https://arxiv.org/abs/2311.01455 fetched fresh this session: HTTP 200, final URL identical, 43629 bytes, 0.150452 s, 2026-09-16T22:19:39Z, body sha256 954bee73c20b033d721f6264d48530377a475c6376f2dd940e00ee7bd7bfced4, retained sources/robogen-2024.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'Wang, Yufei, Xian, Zhou, Chen, Feng, ...'), and dateline '[Submitted on 2 Nov 2023 (v1), last revised 14 Jun 2024 (this version, v3)]' consistent with registry year 2024. Comments field prints 'ICML 2024' = registry venue 'ICML 2024'."
+   },
+   {
+    "partId": "generative-sim-15-holodeck2024-20260917a",
+    "citationId": "holodeck-2024",
+    "sourceUrl": "https://arxiv.org/abs/2312.09067",
+    "supportingPassage": "Identity check for frontmatter citation holodeck-2024: Registered URL https://arxiv.org/abs/2312.09067 fetched fresh this session: HTTP 200, final URL identical, 44369 bytes, 0.141114 s, 2026-09-16T22:19:39Z, body sha256 a518e2489fc1e53391adcd33c7ae881feb02ad83a2491e275a69395e5a6bc0d6, retained sources/holodeck-2024.body. Abs page prints the exact registry title, the registry's 14 authors in name, spelling and order (citation_author metas, 'Yang, Yue, Sun, Fan-Yun, Weihs, Luca, ...'), and dateline '[Submitted on 14 Dec 2023 (v1), last revised 22 Apr 2024 (this version, v2)]' consistent with registry year 2024. Comments field prints 'Published in CVPR 2024, 21 pages, 27 figures, 2 tables' = registry venue 'CVPR 2024'."
+   },
+   {
+    "partId": "generative-sim-15-robocasa2024-20260917a",
+    "citationId": "robocasa-2024",
+    "sourceUrl": "https://arxiv.org/abs/2406.02523",
+    "supportingPassage": "Identity check for frontmatter citation robocasa-2024: Registered URL https://arxiv.org/abs/2406.02523 fetched fresh this session: HTTP 200, final URL identical, 42951 bytes, 0.181758 s, 2026-09-16T22:19:40Z, body sha256 17f3000c519309363f466c9bc9fa79862152653f5a144c79bcd9dc427e0bae6f, retained sources/robocasa-2024.body. Abs page prints the exact registry title, the registry's 8 authors in name, spelling and order (citation_author metas, 'Nasiriany, Soroush, Maddukuri, Abhiram, Zhang, Lance, ...'), and dateline '[Submitted on 4 Jun 2024]' consistent with registry year 2024. Comments field prints 'RSS 2024' = registry venue 'RSS 2024'."
+   },
+   {
+    "partId": "generative-sim-15-robocasa3652026-20260917a",
+    "citationId": "robocasa365-2026",
+    "sourceUrl": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+    "supportingPassage": "Identity check for frontmatter citation robocasa365-2026: Registered URL https://robocasa.ai/assets/robocasa365_iclr26.pdf fetched fresh this session: HTTP 200, final URL identical, 43595464 bytes, 2.74362 s, 2026-09-16T22:19:45Z, body sha256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d, retained sources/robocasa365-2026.body. PDF body is byte-identical to the af-lane retained body (sha256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d, 43,595,464 bytes): first page prints 'Published as a conference paper at ICLR 2026', the small-caps title 'RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots' (glyph-normalized disclosure: pdftotext prints spaced small caps) and the exact 4-author byline in order. Registry venue ICLR 2026 / year 2026 both printed."
+   },
+   {
+    "partId": "generative-sim-15-grs2024-20260917a",
+    "citationId": "grs-2024",
+    "sourceUrl": "https://arxiv.org/abs/2410.15536",
+    "supportingPassage": "Identity check for frontmatter citation grs-2024: Registered URL https://arxiv.org/abs/2410.15536 fetched fresh this session: HTTP 200, final URL identical, 40476 bytes, 0.185059 s, 2026-09-16T22:19:48Z, body sha256 08f932d6c975748c6a3949d9fecfe2fc58ef5796ce9e7d18a5bbd76a80f9dd63, retained sources/grs-2024.body. Abs page prints the exact registry title, the registry's 6 authors in name, spelling and order (citation_author metas, 'Zook, Alex, Sun, Fan-Yun, Spjut, Josef, ...'), and dateline '[Submitted on 20 Oct 2024 (v1), last revised 28 Oct 2025 (this version, v3)]' consistent with registry year 2024. Registry carries no venue; the page prints none - consistent."
+   },
+   {
+    "partId": "generative-sim-15-isaaclab2025-20260917a",
+    "citationId": "isaac-lab-2025",
+    "sourceUrl": "https://arxiv.org/abs/2511.04831",
+    "supportingPassage": "Identity check for frontmatter citation isaac-lab-2025: Registered URL https://arxiv.org/abs/2511.04831 fetched fresh this session: HTTP 200, final URL identical, 60556 bytes, 0.175292 s, 2026-09-16T22:19:49Z, body sha256 150ba4272631108afade4ca5c2b69cecf31a6dfc7efa2836d2a28025619d27a2, retained sources/isaac-lab-2025.body. Author list confirms at the paper's own Appendix A: fresh PDF fetch this session (https://arxiv.org/pdf/2511.04831, HTTP 200, 44,458,996 bytes, 2.85 s, 2026-09-16T22:26:10Z, sha256 f5b454fe245cdb1c485fe48c302494d689d335d375cd730fe0344113772bc8fa) - Appendix A 'Contributors and Acknowledgments' (Core Contributors + Contributors + Leadership + Core Leadership after the title-page collective byline 'NVIDIA') prints exactly the registry's 106-name sequence once the PDF's three repeated names (Yunrong Guo and David Hoeller, printed in both Core Contributors and Core Leadership; Ankur Handa, printed in both Contributors and Leadership) are deduplicated keep-first: mechanical folded-sequence comparison registry == PDF-dedup TRUE, 106 = 106, including 'Soowan Park (박수완)' WITH the Hangul and 'Linxi “Jim” Fan' with curly quotes, both of which the abs page's citation_author metas drop or fold. The abs page's differently-ordered 106-name set (Guo/Hoeller near the end) is a re-sorted metadata presentation of the same document byline, not a different author list; the registry faithfully renders the document's own contributor order. This resolves the af-lane (2026-09-16n) hold on this identity; no registry change proposed."
+   },
+   {
+    "partId": "generative-sim-15-worldmodelsurvey20-20260917a",
+    "citationId": "world-model-survey-2026",
+    "sourceUrl": "https://arxiv.org/abs/2605.00080",
+    "supportingPassage": "Identity check for frontmatter citation world-model-survey-2026: Registered URL https://arxiv.org/abs/2605.00080 fetched fresh this session: HTTP 200, final URL identical, 44142 bytes, 0.184372 s, 2026-09-16T22:19:49Z, body sha256 33757e20c6212f3290be9b435937ac0baa1060a1b4857fe8616403952224466a, retained sources/world-model-survey-2026.body. Abs page prints the exact registry title, the registry's 18 authors in name, spelling and order (citation_author metas, 'Hou, Bohan, Li, Gen, Jia, Jindou, ...'), and dateline '[Submitted on 30 Apr 2026]' consistent with registry year 2026. Registry carries no venue; the page prints none - consistent."
+   },
+   {
+    "partId": "generative-sim-15-eureka2024-20260917a",
+    "citationId": "eureka-2024",
+    "sourceUrl": "https://arxiv.org/abs/2310.12931",
+    "supportingPassage": "Identity check for frontmatter citation eureka-2024: Registered URL https://arxiv.org/abs/2310.12931 fetched fresh this session: HTTP 200, final URL identical, 43838 bytes, 0.181916 s, 2026-09-16T22:19:50Z, body sha256 cc3f704c6386987987f0d983bc6ce6ef0d9ce997114843b2d6d662b610e566ca, retained sources/eureka-2024.body. Abs page prints the exact registry title, the registry's 9 authors in name, spelling and order (citation_author metas, 'Ma, Yecheng Jason, Liang, William, Wang, Guanzhi, ...'), and dateline '[Submitted on 19 Oct 2023 (v1), last revised 30 Apr 2024 (this version, v2)]' consistent with registry year 2024. Comments field prints 'ICLR 2024. Project website and open-source code: this https URL' = registry venue 'ICLR 2024'."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "generative-sim-15-robogen2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for robogen-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "64eddb4b4d958446253f36f637a15fb034a04a72df1dff3e83017ff25cf6067e"
+   },
+   {
+    "partId": "generative-sim-15-holodeck2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for holodeck-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "d3e031f35ada50bbe5784a93eddf3ea68953ac50164f20a611002d154cc1bfae"
+   },
+   {
+    "partId": "generative-sim-15-robocasa2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for robocasa-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "c28404d36b240653dafb50cb9c61957d7826286f997ca8e20f28b65f46918195"
+   },
+   {
+    "partId": "generative-sim-15-robocasa3652026-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for robocasa365-2026 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "e03727effcfe3bd01831c78889ad3a850a9a5df53f601c777779ceef9e22fff8"
+   },
+   {
+    "partId": "generative-sim-15-grs2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for grs-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "3b32c668d0d47ed4f70ec46f9776392468cb195404b9c0ab29dc59b69559dc49"
+   },
+   {
+    "partId": "generative-sim-15-isaaclab2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for isaac-lab-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "96a542c0f8b2f978061e25cbdf2db271fd588ff2e77f252656640166562fd950"
+   },
+   {
+    "partId": "generative-sim-15-worldmodelsurvey20-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for world-model-survey-2026 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "c087a89611600603ee4e77e3e813b84d7949b29c68cc0846d94f53330a273a4d"
+   },
+   {
+    "partId": "generative-sim-15-eureka2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for eureka-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "7902e3613c726c113e0281223cf8f40921a6935805c278d28929699046ea73fd"
+   }
+  ]
+ },
+ {
+  "id": "legged-locomotion-18-frontmatter-sweep-20260917a",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "legged-locomotion",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "b59271ee7ef47873dc129aab36db7b3af81ae51ae96dc719f1079ab1b0192548",
+  "kind": "frontmatter-p1",
+  "parts": [
+   {
+    "id": "legged-locomotion-18-hwangbo2019-20260917a",
+    "text": "Identity check for frontmatter citation hwangbo-2019: Registered URL https://arxiv.org/abs/1901.08652 fetched fresh this session: HTTP 200, final URL identical, 44880 bytes, 0.221625 s, 2026-09-16T22:19:50Z, body sha256 f084562fb394dfac9b3ea80af07af19a547ce2e842c23f6296758d1ee48a1286, retained sources/hwangbo-2019.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'Hwangbo, Jemin, Lee, Joonho, Dosovitskiy, Alexey, ...'), and dateline '[Submitted on 24 Jan 2019]' consistent with registry year 2019. Journal-ref field prints 'Science Robotics 4.26 (2019): eaau5872' = registry venue 'Science Robotics 4(26)'.",
+    "requiredCitationIds": [
+     "hwangbo-2019"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-lee2020-20260917a",
+    "text": "Identity check for frontmatter citation lee-2020: Registered URL https://arxiv.org/abs/2010.11251 fetched fresh this session: HTTP 200, final URL identical, 45357 bytes, 0.131954 s, 2026-09-16T22:19:55Z, body sha256 d32c3a3794318ff9cd73cf28334a926f1b509552c681e23452a94b5f3590062c, retained sources/lee-2020.body. Abs page prints the exact registry title, the registry's 5 authors in name, spelling and order (citation_author metas, 'Lee, Joonho, Hwangbo, Jemin, Wellhausen, Lorenz, ...'), and dateline '[Submitted on 21 Oct 2020]' consistent with registry year 2020. Journal-ref field prints 'Science Robotics 2020 Vol. 5, Issue 47, eabc5986' = registry venue 'Science Robotics 5(47)'.",
+    "requiredCitationIds": [
+     "lee-2020"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-miki2022-20260917a",
+    "text": "Identity check for frontmatter citation miki-2022: Registered URL https://arxiv.org/abs/2201.08117 fetched fresh this session: HTTP 200, final URL identical, 45595 bytes, 0.177983 s, 2026-09-16T22:19:55Z, body sha256 3b2169df61a74f82857bb5224aadebc3b9576e8d6379eab2c589462d812fb45e, retained sources/miki-2022.body. Abs page prints the exact registry title, the registry's 6 authors in name, spelling and order (citation_author metas, 'Miki, Takahiro, Lee, Joonho, Hwangbo, Jemin, ...'), and dateline '[Submitted on 20 Jan 2022]' consistent with registry year 2022. Journal-ref field prints 'Science Robotics, 19 Jan 2022, Vol 7, Issue 62' = registry venue 'Science Robotics 7(62)'.",
+    "requiredCitationIds": [
+     "miki-2022"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-rudin2021-20260917a",
+    "text": "Identity check for frontmatter citation rudin-2021: Registered URL https://arxiv.org/abs/2109.11978 fetched fresh this session: HTTP 200, final URL identical, 41929 bytes, 0.174826 s, 2026-09-16T22:19:56Z, body sha256 60460f5c4fa50b3d0b0547dd060b71ae52ef45f16668a144ff1f40a8f57205ae, retained sources/rudin-2021.body. Abs page prints the exact registry title, the registry's 4 authors in name, spelling and order (citation_author metas, 'Rudin, Nikita, Hoeller, David, Reist, Philipp, ...'), and dateline '[Submitted on 24 Sep 2021 (v1), last revised 19 Aug 2022 (this version, v3)]' consistent with registry year 2021. Comments field prints 'CoRL 2021 Project website: : this https URL Video: this https URL' = registry venue 'CoRL 2021'.",
+    "requiredCitationIds": [
+     "rudin-2021"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-leggedgymrepo2021-20260917a",
+    "text": "Identity check for frontmatter citation legged-gym-repo-2021: Registered URL https://github.com/leggedrobotics/legged_gym fetched fresh this session: HTTP 200, final URL identical, 292609 bytes, 0.679233 s, 2026-09-16T22:19:56Z, body sha256 2ebf3dd34f4bae8b606a03a6c7f2d013e3db4202d454b4bd3a35b832ba5929e8, retained sources/legged-gym-repo-2021.body. Registered URL resolves to the GitHub repo leggedrobotics/legged_gym (HTTP 200, 292,609 bytes): the page prints the exact registry title 'Isaac Gym Environments for Legged Robots' (repo description) and the registry author 'Nikita Rudin' printed on the repo page (2 occurrences). Repo pages print no publication year; registry year 2021 (the associated paper's year) is not confirmable from this surface - disclosed, registry unchanged.",
+    "requiredCitationIds": [
+     "legged-gym-repo-2021"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-choi2023-20260917a",
+    "text": "Identity check for frontmatter citation choi-2023: Registered URL https://www.science.org/doi/10.1126/scirobotics.ade2256 fetched fresh this session: HTTP 403, final URL identical, 5499 bytes, 0.14221 s, 2026-09-16T22:19:57Z, body sha256 ee71ad0b6524ac337efd3beec526d81b0d50ac984d4955746f3dd1609f52cfb4, retained sources/choi-2023.body. FETCH-ROUTE DISCLOSURE: plain uncredentialed curl GET at the registered URL answers 403 with a Cloudflare 'Just a moment...' challenge body (5,499 bytes, 2026-09-16T22:19:57Z) - that 403 is a bot-wall fact about the route, not evidence about the source; the same URL then answered HTTP 200 through the rendering fetcher FetchUrl (completed by 2026-09-16T22:21:22Z, first post-call UTC clock reading; FetchUrl logs no own timestamp), printing title 'Learning quadrupedal locomotion on deformable terrain' (registry title-cases it - case-only variance, disclosed), the cite-as 'Suyoung Choi et al., Learning quadrupedal locomotion on deformable terrain. Sci. Robot. 8, eade2256 (2023). DOI: 10.1126/scirobotics.ade2256', and the Authors section (Suyoung Choi, Gwanghyeon Ji, Jeongsoo Park, ...). Crossref corroboration this session (api.crossref.org/works/10.1126/scirobotics.ade2256, fetched 2026-09-16T22:21:22Z-22:26:08Z window) returns exactly the registry's 7 authors in order and Science Robotics 8(74), issued 2023-01-25 = registry venue/year.",
+    "requiredCitationIds": [
+     "choi-2023"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-park2017bounding-20260917a",
+    "text": "Identity check for frontmatter citation park-2017-bounding: Registered URL https://journals.sagepub.com/doi/10.1177/0278364917694244 fetched fresh this session: HTTP 403, final URL identical, 5516 bytes, 0.126609 s, 2026-09-16T22:19:58Z, body sha256 5663c3daa3b11284a1029dd6e8dc3e731cee3cb0bf3a563d031dcd4732f68229, retained sources/park-2017-bounding.body. FETCH-ROUTE DISCLOSURE: plain uncredentialed curl GET answers 403 Cloudflare 'Just a moment...' (5,516 bytes, 2026-09-16T22:19:58Z); the same URL answered HTTP 200 through FetchUrl (completed by 2026-09-16T22:21:22Z), printing title 'High-speed bounding with the MIT Cheetah 2: Control design and experiments' (registry title-cases - case-only variance) with byline 'Hae-Won Park, Patrick M Wensing, Sangbae Kim, 2017' in the page title and the Authors/Affiliations section (Hae-Won Park, UIUC; Patrick M Wensing, MIT; Sangbae Kim, MIT). Crossref corroboration this session returns the same 3 authors in order, The International Journal of Robotics Research 36(2) pp. 167-192, issued 2017-02 = registry venue/year. TYPOGRAPHIC DISCLOSURE: the page and Crossref print 'Patrick M Wensing' (no period after the initial); the registry prints 'Patrick M. Wensing' - initial punctuation only, name set/order/count identical, disclosed, no registry change proposed.",
+    "requiredCitationIds": [
+     "park-2017-bounding"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-h2o2024-20260917a",
+    "text": "Identity check for frontmatter citation h2o-2024: Registered URL https://arxiv.org/abs/2403.04436 fetched fresh this session: HTTP 200, final URL identical, 41358 bytes, 0.180547 s, 2026-09-16T22:19:16Z, body sha256 8267b1c03b046c109bffc9bd8b48bc09c4948e79ad985c62cd90cffd32a4c866, retained sources/h2o-2024.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'He, Tairan, Luo, Zhengyi, Xiao, Wenli, ...'), and dateline '[Submitted on 7 Mar 2024]' consistent with registry year 2024. VENUE DISCLOSURE: registry venue 'IROS 2024' is not printed by the abs page (Comments: 'Project website: this https URL'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed.",
+    "requiredCitationIds": [
+     "h2o-2024"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-asap2025-20260917a",
+    "text": "Identity check for frontmatter citation asap-2025: Registered URL https://arxiv.org/abs/2502.01143 fetched fresh this session: HTTP 200, final URL identical, 46380 bytes, 0.185648 s, 2026-09-16T22:19:18Z, body sha256 3303f22d0c5a68bd8855c33aa1a14e73294d6d57ed383eb746bb8ad26bad65cc, retained sources/asap-2025.body. 18 authors confirm at the paper's own title-page byline: fresh PDF fetch this session (https://arxiv.org/pdf/2502.01143, HTTP 200, 36,214,501 bytes, 2.00 s, 2026-09-16T22:26:08Z, sha256 8ca60229d7e560769ceece6cb5571d8e6f528c6c485f631b7fd5162d503b7db0) prints the byline 'Tairan He, Jiawei Gao, Wenli Xiao, Yuanhang Zhang, Zi Wang, Jiashun Wang, Zhengyi Luo, Guanqi He, Nikhil Sobanbabu, Chaoyi Pan, Zeji Yi, Guannan Qu, Kris Kitani, Jessica Hodgins, Linxi \"Jim\" Fan, Yuke Zhu, Changliu Liu, Guanya Shi' - exactly the registry's 18 names in order, including 'Nikhil Sobanbabu' with the trailing u. SURFACE DISCLOSURE: the registered abs page's citation_author meta prints 'Sobanbab, Nikhil' (no trailing u) - a metadata-layer variant of the document's own byline spelling; registry unchanged, no edit proposed.",
+    "requiredCitationIds": [
+     "asap-2025"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-mithumanoidrewards-20260917a",
+    "text": "Identity check for frontmatter citation mit-humanoid-rewards-2023: Registered URL https://arxiv.org/abs/2307.10142 fetched fresh this session: HTTP 200, final URL identical, 42945 bytes, 0.158192 s, 2026-09-16T22:20:10Z, body sha256 3c3955f0cd8e40c867d1eb637827f2e2828ab4e727bbf432bd432a3b74cc7d28, retained sources/mit-humanoid-rewards-2023.body. Abs page prints the exact registry title, the registry's 4 authors in name, spelling and order (citation_author metas, 'Jeon, Se Hwan, Heim, Steve, Khazoom, Charles, ...'), and dateline '[Submitted on 19 Jul 2023]' consistent with registry year 2023. Journal-ref field prints '2023 IEEE International Conference on Robotics and Automation (ICRA), London, United Kingdom, 2023, pp. 9204-9210' = registry venue 'ICRA 2023'.",
+    "requiredCitationIds": [
+     "mit-humanoid-rewards-2023"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-raiatlasrl2025-20260917a",
+    "text": "Identity check for frontmatter citation rai-atlas-rl-2025: Registered URL https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/ fetched fresh this session: HTTP 200, final URL identical, 56173 bytes, 0.637845 s, 2026-09-16T22:20:11Z, body sha256 147a369538938f1d0b1c1baa3744ae01607f94da82832df80a27d458ffbf5e68, retained sources/rai-atlas-rl-2025.body. RAI Institute resources page prints the exact registry title 'Reinforcement Learning Accelerates Humanoid Behavior Production' (page title appends ' | RAI Institute'), the registry author spelled out once in full as 'Robotics and AI Institute' (site brand 'RAI Institute' - full-name/abbreviation variance, disclosed) and JSON-LD datePublished 2025-03-19 = registry year 2025.",
+    "requiredCitationIds": [
+     "rai-atlas-rl-2025"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-bdspotrl2024-20260917a",
+    "text": "Identity check for frontmatter citation bd-spot-rl-2024: Registered URL https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/ fetched fresh this session: HTTP 200, final URL identical, 148097 bytes, 0.560482 s, 2026-09-16T22:20:12Z, body sha256 144070c4cab1e74121d1cf130b0d9c26349aeba571597149df6c860d339dfa02, retained sources/bd-spot-rl-2024.body. Boston Dynamics blog page prints the exact registry title 'Starting on the Right Foot with Reinforcement Learning' (page title appends ' | Boston Dynamics'), the publisher byline Boston Dynamics = registry author (company blog; publisher-byline class, disclosed) and JSON-LD datePublished 2024-03-19 = registry year 2024.",
+    "requiredCitationIds": [
+     "bd-spot-rl-2024"
+    ]
+   },
+   {
+    "id": "legged-locomotion-18-bdatlaslbm2025-20260917a",
+    "text": "Identity check for frontmatter citation bd-atlas-lbm-2025: Registered URL https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/ fetched fresh this session: HTTP 200, final URL identical, 167391 bytes, 0.303059 s, 2026-09-16T22:20:13Z, body sha256 deda5d774a7074858381cfade31fea10208d9b295b044f3e6405b7733618894e, retained sources/bd-atlas-lbm-2025.body. Boston Dynamics blog page prints the exact registry title 'Large Behavior Models and Atlas Find New Footing' (site suffix disclosed) and ALL FOUR registry authors printed on the page (Eric Cousineau, Scott Kuindersma, Lucas Manuelli, Pat Marion - byline and JSON-LD, 2 occurrences each) with JSON-LD datePublished 2025-08-20 = registry year 2025.",
+    "requiredCitationIds": [
+     "bd-atlas-lbm-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 4e7cf1e320628f58662cb33a2f966069552d812a26fac2b8c6e82211a7045015) at HEAD 30c1d71c: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, currentHeadIdentityValid true) and re-derived with the repo lib/audit-ledger.ts parser before application. All 13 identity parts were needle-verified by this integrator against the retained sha256-pinned fetch bodies in the source lane (287/287 needles, lane needle-verification.json, zero retrieval): every identity was fetched fresh at its EXACT registered URL by the preparer (fetch of record 2026-09-16T22:19:15Z-22:20:13Z plus the disclosed second surfaces: asap-2025 PDF byline 22:26:08Z, isaac-lab-2025 Appendix A 22:26:10Z, choi-2023/park-2017-bounding FetchUrl renders by 22:21:22Z with Crossref corroboration). Claim cell is the exact P1 batch form over the article's CURRENT frontmatter id set (13 ids) per the committed house convention (lib/audit-ledger.ts P1_BATCH + frontmatter-p1; precedent why-rl-locomotion-12, reward-design-mpc-original-23-20260916); the AG packet's BATCH-WORDING/claim-cell delegations are honoured, ids and order exactly as enumerated. kind frontmatter-p1: required set == declared batch == canonical article frontmatter (check-audit-coverage derives it from the MDX). No new registrations; every id reused read-only. Zero retrieval by this integrator. Source preparation is not acceptance.",
+   "planDigest": "de46cd9063a79dbab123680fed52728629ef21f1dc4287ad413c01e2c8d90fb7"
+  },
+  "evidence": [
+   {
+    "partId": "legged-locomotion-18-hwangbo2019-20260917a",
+    "citationId": "hwangbo-2019",
+    "sourceUrl": "https://arxiv.org/abs/1901.08652",
+    "supportingPassage": "Identity check for frontmatter citation hwangbo-2019: Registered URL https://arxiv.org/abs/1901.08652 fetched fresh this session: HTTP 200, final URL identical, 44880 bytes, 0.221625 s, 2026-09-16T22:19:50Z, body sha256 f084562fb394dfac9b3ea80af07af19a547ce2e842c23f6296758d1ee48a1286, retained sources/hwangbo-2019.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'Hwangbo, Jemin, Lee, Joonho, Dosovitskiy, Alexey, ...'), and dateline '[Submitted on 24 Jan 2019]' consistent with registry year 2019. Journal-ref field prints 'Science Robotics 4.26 (2019): eaau5872' = registry venue 'Science Robotics 4(26)'."
+   },
+   {
+    "partId": "legged-locomotion-18-lee2020-20260917a",
+    "citationId": "lee-2020",
+    "sourceUrl": "https://arxiv.org/abs/2010.11251",
+    "supportingPassage": "Identity check for frontmatter citation lee-2020: Registered URL https://arxiv.org/abs/2010.11251 fetched fresh this session: HTTP 200, final URL identical, 45357 bytes, 0.131954 s, 2026-09-16T22:19:55Z, body sha256 d32c3a3794318ff9cd73cf28334a926f1b509552c681e23452a94b5f3590062c, retained sources/lee-2020.body. Abs page prints the exact registry title, the registry's 5 authors in name, spelling and order (citation_author metas, 'Lee, Joonho, Hwangbo, Jemin, Wellhausen, Lorenz, ...'), and dateline '[Submitted on 21 Oct 2020]' consistent with registry year 2020. Journal-ref field prints 'Science Robotics 2020 Vol. 5, Issue 47, eabc5986' = registry venue 'Science Robotics 5(47)'."
+   },
+   {
+    "partId": "legged-locomotion-18-miki2022-20260917a",
+    "citationId": "miki-2022",
+    "sourceUrl": "https://arxiv.org/abs/2201.08117",
+    "supportingPassage": "Identity check for frontmatter citation miki-2022: Registered URL https://arxiv.org/abs/2201.08117 fetched fresh this session: HTTP 200, final URL identical, 45595 bytes, 0.177983 s, 2026-09-16T22:19:55Z, body sha256 3b2169df61a74f82857bb5224aadebc3b9576e8d6379eab2c589462d812fb45e, retained sources/miki-2022.body. Abs page prints the exact registry title, the registry's 6 authors in name, spelling and order (citation_author metas, 'Miki, Takahiro, Lee, Joonho, Hwangbo, Jemin, ...'), and dateline '[Submitted on 20 Jan 2022]' consistent with registry year 2022. Journal-ref field prints 'Science Robotics, 19 Jan 2022, Vol 7, Issue 62' = registry venue 'Science Robotics 7(62)'."
+   },
+   {
+    "partId": "legged-locomotion-18-rudin2021-20260917a",
+    "citationId": "rudin-2021",
+    "sourceUrl": "https://arxiv.org/abs/2109.11978",
+    "supportingPassage": "Identity check for frontmatter citation rudin-2021: Registered URL https://arxiv.org/abs/2109.11978 fetched fresh this session: HTTP 200, final URL identical, 41929 bytes, 0.174826 s, 2026-09-16T22:19:56Z, body sha256 60460f5c4fa50b3d0b0547dd060b71ae52ef45f16668a144ff1f40a8f57205ae, retained sources/rudin-2021.body. Abs page prints the exact registry title, the registry's 4 authors in name, spelling and order (citation_author metas, 'Rudin, Nikita, Hoeller, David, Reist, Philipp, ...'), and dateline '[Submitted on 24 Sep 2021 (v1), last revised 19 Aug 2022 (this version, v3)]' consistent with registry year 2021. Comments field prints 'CoRL 2021 Project website: : this https URL Video: this https URL' = registry venue 'CoRL 2021'."
+   },
+   {
+    "partId": "legged-locomotion-18-leggedgymrepo2021-20260917a",
+    "citationId": "legged-gym-repo-2021",
+    "sourceUrl": "https://github.com/leggedrobotics/legged_gym",
+    "supportingPassage": "Identity check for frontmatter citation legged-gym-repo-2021: Registered URL https://github.com/leggedrobotics/legged_gym fetched fresh this session: HTTP 200, final URL identical, 292609 bytes, 0.679233 s, 2026-09-16T22:19:56Z, body sha256 2ebf3dd34f4bae8b606a03a6c7f2d013e3db4202d454b4bd3a35b832ba5929e8, retained sources/legged-gym-repo-2021.body. Registered URL resolves to the GitHub repo leggedrobotics/legged_gym (HTTP 200, 292,609 bytes): the page prints the exact registry title 'Isaac Gym Environments for Legged Robots' (repo description) and the registry author 'Nikita Rudin' printed on the repo page (2 occurrences). Repo pages print no publication year; registry year 2021 (the associated paper's year) is not confirmable from this surface - disclosed, registry unchanged."
+   },
+   {
+    "partId": "legged-locomotion-18-choi2023-20260917a",
+    "citationId": "choi-2023",
+    "sourceUrl": "https://www.science.org/doi/10.1126/scirobotics.ade2256",
+    "supportingPassage": "Identity check for frontmatter citation choi-2023: Registered URL https://www.science.org/doi/10.1126/scirobotics.ade2256 fetched fresh this session: HTTP 403, final URL identical, 5499 bytes, 0.14221 s, 2026-09-16T22:19:57Z, body sha256 ee71ad0b6524ac337efd3beec526d81b0d50ac984d4955746f3dd1609f52cfb4, retained sources/choi-2023.body. FETCH-ROUTE DISCLOSURE: plain uncredentialed curl GET at the registered URL answers 403 with a Cloudflare 'Just a moment...' challenge body (5,499 bytes, 2026-09-16T22:19:57Z) - that 403 is a bot-wall fact about the route, not evidence about the source; the same URL then answered HTTP 200 through the rendering fetcher FetchUrl (completed by 2026-09-16T22:21:22Z, first post-call UTC clock reading; FetchUrl logs no own timestamp), printing title 'Learning quadrupedal locomotion on deformable terrain' (registry title-cases it - case-only variance, disclosed), the cite-as 'Suyoung Choi et al., Learning quadrupedal locomotion on deformable terrain. Sci. Robot. 8, eade2256 (2023). DOI: 10.1126/scirobotics.ade2256', and the Authors section (Suyoung Choi, Gwanghyeon Ji, Jeongsoo Park, ...). Crossref corroboration this session (api.crossref.org/works/10.1126/scirobotics.ade2256, fetched 2026-09-16T22:21:22Z-22:26:08Z window) returns exactly the registry's 7 authors in order and Science Robotics 8(74), issued 2023-01-25 = registry venue/year."
+   },
+   {
+    "partId": "legged-locomotion-18-park2017bounding-20260917a",
+    "citationId": "park-2017-bounding",
+    "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+    "supportingPassage": "Identity check for frontmatter citation park-2017-bounding: Registered URL https://journals.sagepub.com/doi/10.1177/0278364917694244 fetched fresh this session: HTTP 403, final URL identical, 5516 bytes, 0.126609 s, 2026-09-16T22:19:58Z, body sha256 5663c3daa3b11284a1029dd6e8dc3e731cee3cb0bf3a563d031dcd4732f68229, retained sources/park-2017-bounding.body. FETCH-ROUTE DISCLOSURE: plain uncredentialed curl GET answers 403 Cloudflare 'Just a moment...' (5,516 bytes, 2026-09-16T22:19:58Z); the same URL answered HTTP 200 through FetchUrl (completed by 2026-09-16T22:21:22Z), printing title 'High-speed bounding with the MIT Cheetah 2: Control design and experiments' (registry title-cases - case-only variance) with byline 'Hae-Won Park, Patrick M Wensing, Sangbae Kim, 2017' in the page title and the Authors/Affiliations section (Hae-Won Park, UIUC; Patrick M Wensing, MIT; Sangbae Kim, MIT). Crossref corroboration this session returns the same 3 authors in order, The International Journal of Robotics Research 36(2) pp. 167-192, issued 2017-02 = registry venue/year. TYPOGRAPHIC DISCLOSURE: the page and Crossref print 'Patrick M Wensing' (no period after the initial); the registry prints 'Patrick M. Wensing' - initial punctuation only, name set/order/count identical, disclosed, no registry change proposed."
+   },
+   {
+    "partId": "legged-locomotion-18-h2o2024-20260917a",
+    "citationId": "h2o-2024",
+    "sourceUrl": "https://arxiv.org/abs/2403.04436",
+    "supportingPassage": "Identity check for frontmatter citation h2o-2024: Registered URL https://arxiv.org/abs/2403.04436 fetched fresh this session: HTTP 200, final URL identical, 41358 bytes, 0.180547 s, 2026-09-16T22:19:16Z, body sha256 8267b1c03b046c109bffc9bd8b48bc09c4948e79ad985c62cd90cffd32a4c866, retained sources/h2o-2024.body. Abs page prints the exact registry title, the registry's 7 authors in name, spelling and order (citation_author metas, 'He, Tairan, Luo, Zhengyi, Xiao, Wenli, ...'), and dateline '[Submitted on 7 Mar 2024]' consistent with registry year 2024. VENUE DISCLOSURE: registry venue 'IROS 2024' is not printed by the abs page (Comments: 'Project website: this https URL'; journal-ref: 'none') - not confirmable on this surface, registry unchanged, disclosed."
+   },
+   {
+    "partId": "legged-locomotion-18-asap2025-20260917a",
+    "citationId": "asap-2025",
+    "sourceUrl": "https://arxiv.org/abs/2502.01143",
+    "supportingPassage": "Identity check for frontmatter citation asap-2025: Registered URL https://arxiv.org/abs/2502.01143 fetched fresh this session: HTTP 200, final URL identical, 46380 bytes, 0.185648 s, 2026-09-16T22:19:18Z, body sha256 3303f22d0c5a68bd8855c33aa1a14e73294d6d57ed383eb746bb8ad26bad65cc, retained sources/asap-2025.body. 18 authors confirm at the paper's own title-page byline: fresh PDF fetch this session (https://arxiv.org/pdf/2502.01143, HTTP 200, 36,214,501 bytes, 2.00 s, 2026-09-16T22:26:08Z, sha256 8ca60229d7e560769ceece6cb5571d8e6f528c6c485f631b7fd5162d503b7db0) prints the byline 'Tairan He, Jiawei Gao, Wenli Xiao, Yuanhang Zhang, Zi Wang, Jiashun Wang, Zhengyi Luo, Guanqi He, Nikhil Sobanbabu, Chaoyi Pan, Zeji Yi, Guannan Qu, Kris Kitani, Jessica Hodgins, Linxi \"Jim\" Fan, Yuke Zhu, Changliu Liu, Guanya Shi' - exactly the registry's 18 names in order, including 'Nikhil Sobanbabu' with the trailing u. SURFACE DISCLOSURE: the registered abs page's citation_author meta prints 'Sobanbab, Nikhil' (no trailing u) - a metadata-layer variant of the document's own byline spelling; registry unchanged, no edit proposed."
+   },
+   {
+    "partId": "legged-locomotion-18-mithumanoidrewards-20260917a",
+    "citationId": "mit-humanoid-rewards-2023",
+    "sourceUrl": "https://arxiv.org/abs/2307.10142",
+    "supportingPassage": "Identity check for frontmatter citation mit-humanoid-rewards-2023: Registered URL https://arxiv.org/abs/2307.10142 fetched fresh this session: HTTP 200, final URL identical, 42945 bytes, 0.158192 s, 2026-09-16T22:20:10Z, body sha256 3c3955f0cd8e40c867d1eb637827f2e2828ab4e727bbf432bd432a3b74cc7d28, retained sources/mit-humanoid-rewards-2023.body. Abs page prints the exact registry title, the registry's 4 authors in name, spelling and order (citation_author metas, 'Jeon, Se Hwan, Heim, Steve, Khazoom, Charles, ...'), and dateline '[Submitted on 19 Jul 2023]' consistent with registry year 2023. Journal-ref field prints '2023 IEEE International Conference on Robotics and Automation (ICRA), London, United Kingdom, 2023, pp. 9204-9210' = registry venue 'ICRA 2023'."
+   },
+   {
+    "partId": "legged-locomotion-18-raiatlasrl2025-20260917a",
+    "citationId": "rai-atlas-rl-2025",
+    "sourceUrl": "https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/",
+    "supportingPassage": "Identity check for frontmatter citation rai-atlas-rl-2025: Registered URL https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/ fetched fresh this session: HTTP 200, final URL identical, 56173 bytes, 0.637845 s, 2026-09-16T22:20:11Z, body sha256 147a369538938f1d0b1c1baa3744ae01607f94da82832df80a27d458ffbf5e68, retained sources/rai-atlas-rl-2025.body. RAI Institute resources page prints the exact registry title 'Reinforcement Learning Accelerates Humanoid Behavior Production' (page title appends ' | RAI Institute'), the registry author spelled out once in full as 'Robotics and AI Institute' (site brand 'RAI Institute' - full-name/abbreviation variance, disclosed) and JSON-LD datePublished 2025-03-19 = registry year 2025."
+   },
+   {
+    "partId": "legged-locomotion-18-bdspotrl2024-20260917a",
+    "citationId": "bd-spot-rl-2024",
+    "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+    "supportingPassage": "Identity check for frontmatter citation bd-spot-rl-2024: Registered URL https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/ fetched fresh this session: HTTP 200, final URL identical, 148097 bytes, 0.560482 s, 2026-09-16T22:20:12Z, body sha256 144070c4cab1e74121d1cf130b0d9c26349aeba571597149df6c860d339dfa02, retained sources/bd-spot-rl-2024.body. Boston Dynamics blog page prints the exact registry title 'Starting on the Right Foot with Reinforcement Learning' (page title appends ' | Boston Dynamics'), the publisher byline Boston Dynamics = registry author (company blog; publisher-byline class, disclosed) and JSON-LD datePublished 2024-03-19 = registry year 2024."
+   },
+   {
+    "partId": "legged-locomotion-18-bdatlaslbm2025-20260917a",
+    "citationId": "bd-atlas-lbm-2025",
+    "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+    "supportingPassage": "Identity check for frontmatter citation bd-atlas-lbm-2025: Registered URL https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/ fetched fresh this session: HTTP 200, final URL identical, 167391 bytes, 0.303059 s, 2026-09-16T22:20:13Z, body sha256 deda5d774a7074858381cfade31fea10208d9b295b044f3e6405b7733618894e, retained sources/bd-atlas-lbm-2025.body. Boston Dynamics blog page prints the exact registry title 'Large Behavior Models and Atlas Find New Footing' (site suffix disclosed) and ALL FOUR registry authors printed on the page (Eric Cousineau, Scott Kuindersma, Lucas Manuelli, Pat Marion - byline and JSON-LD, 2 occurrences each) with JSON-LD datePublished 2025-08-20 = registry year 2025."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "legged-locomotion-18-hwangbo2019-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for hwangbo-2019 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "5e423a53a732ace6a3c9c562fc3128f89d4b74e0e6961b78887b23a44f0c039b"
+   },
+   {
+    "partId": "legged-locomotion-18-lee2020-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for lee-2020 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "c60d7b19c0e1c746d7dd050e256cd3827834ab3ab4db3cc43843d262b30a1136"
+   },
+   {
+    "partId": "legged-locomotion-18-miki2022-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for miki-2022 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "85d0983b97028d00d84bdb443012827e47c79ec958b653489dac46170fff252f"
+   },
+   {
+    "partId": "legged-locomotion-18-rudin2021-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for rudin-2021 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "a70e2913ff4d81d4a630b879274a462e745f0ff171102a148f0b4059ae26a27e"
+   },
+   {
+    "partId": "legged-locomotion-18-leggedgymrepo2021-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for legged-gym-repo-2021 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "9ddb1cdac44eb1550f196738ed61baaa3576bc5ab6195801ef2b9d6ec06d7b5b"
+   },
+   {
+    "partId": "legged-locomotion-18-choi2023-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for choi-2023 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "9dee07cccc9a03de231763b3cb975921ffeda5544a81846607b34d874d28d079"
+   },
+   {
+    "partId": "legged-locomotion-18-park2017bounding-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for park-2017-bounding before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "4faf7375f9e6412872eb0b67e4a2b93aa6182e79423e3ebc8b5e3357f1850fed"
+   },
+   {
+    "partId": "legged-locomotion-18-h2o2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for h2o-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "2a5bf5ec5c9b5e239584181efdeb2ddc3c3b7b2ede9881f6b44c8e5a7e8b1760"
+   },
+   {
+    "partId": "legged-locomotion-18-asap2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for asap-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "506fe1bd539968dcc7bab3837c9497afd39c49a0fb2b243bae276a8755bd4d19"
+   },
+   {
+    "partId": "legged-locomotion-18-mithumanoidrewards-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for mit-humanoid-rewards-2023 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "e8c3e369554507314a5a078753bb9b976447e4445926b1d094dd3d3c3f288702"
+   },
+   {
+    "partId": "legged-locomotion-18-raiatlasrl2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for rai-atlas-rl-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "aba59a639df6bcbd903aa1ffece3953a7834c84075aeca40a14c4390bb9dc17d"
+   },
+   {
+    "partId": "legged-locomotion-18-bdspotrl2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for bd-spot-rl-2024 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "f506a17327059fcb9227e0dbf24017e874ba0a03d7a83fdd9f3efe6f2486c7d0"
+   },
+   {
+    "partId": "legged-locomotion-18-bdatlaslbm2025-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 19da0547-e3cf-4313-88c4-e75119ea7016; preserved-packet + retained-source needle re-verification 2026-09-17 (287/287 needles, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the retained sha256-pinned fetch body for bd-atlas-lbm-2025 before adjudication: the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline consistent with the registry year; venue disclosures as recorded in the part text and the row note. The identity supports this part exactly as the part text states; no registry change proposed.",
+    "evidenceDigest": "0d851b3c6b8c21eeb22b25f2146d3abb5cb2ca3a93450cefc119c013b2490eba"
+   }
+  ]
+ },
+ {
+  "id": "reliability-gap-r6-editorial-solvedbar-20260917a",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "reliability-gap",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "5ce34513303a36e6333ca8e71e30400124eff42c7bfb71867c6f091271053d6d",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "r6-yardstick-editorial",
+    "text": "Editorial-basis exception, recorded per the packet's missingDependencies: the \">1,000h documented MTBF\" solved bar is this wiki's own proposed yardstick (the corrected Stat label reads \"solved bar (this wiki's)\"), not an industry metric. No fetched surface in the technology.org deployment sweep, and no registered citation, states that a vendor-standard MTBF bar exists; uncertainty stays honest and nothing here claims one does. The part is bound to the sweep because the sweep is the article's recorded deployment basis, not because it states the bar.",
+    "requiredCitationIds": [
+     "technology-org-deployed-2026"
+    ]
+   },
+   {
+    "id": "r6-absence-in-sweep",
+    "text": "Scoped negative completed as absence-in-the-fetched-source (house pattern of reliability-gap-r12): the corrected Stat note scopes the negative to \"the deployed systems we surveyed\", and the survey of record is the technology.org deployment sweep. The retained 20260915-lane FetchUrl render of the sweep (sha256 f41facbc191b56a96674781c92c8581d03ebc36c66fe896db33d0dc02c23e1fc in that lane's retained-fetch-manifest.json; zero MTBF occurrences, re-needled by this integrator 2026-09-17, zero retrieval) prints the deployment record the negative is scoped to - Tesla 50,000 cumulative Optimus units, Figure AI 10,000+ deployments, Agility Digit 65,000+ operating hours across nine facilities - and prints no MTBF figure for any system. External evidence of a universal negative cannot exist in printable primaries; the completion is the rewording plus this recorded sweep basis.",
+    "requiredCitationIds": [
+     "technology-org-deployed-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+   "rationale": "packet 547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c record 1 (ready-source-correction): cells applied exactly as prepared; the packet records no fetch for this row and no citation proposal, and its missingDependencies state the scalar cells stay empty by design with the editorial-basis exception recorded in the integrator's evidence plan. This plan is that record: two parts bound read-only to the registered sweep citation technology-org-deployed-2026 (already registered; no new registration), evidence passages needle-verified against the sha256-recorded retained render from the 20260915 reliability-gap lane. Zero retrieval by this integrator.",
+   "planDigest": "0a1d9b6741d8c4ad1dcafff9fe5be56b341cd65245ae624c30baceb25361377a"
+  },
+  "evidence": [
+   {
+    "partId": "r6-yardstick-editorial",
+    "citationId": "technology-org-deployed-2026",
+    "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+    "supportingPassage": "Search for humanoid robot deployment figures and you will find confident numbers. Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments across partner warehouses."
+   },
+   {
+    "partId": "r6-absence-in-sweep",
+    "citationId": "technology-org-deployed-2026",
+    "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+    "supportingPassage": "Search for humanoid robot deployment figures and you will find confident numbers. Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments across partner warehouses."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "r6-yardstick-editorial",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Editorial yardstick rewording applied verbatim from the packet; the retained sweep render prints no MTBF-bar statement anywhere, so no source is over-claimed. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+    "evidenceDigest": "0f4499eded064a9095fffdcbfed47e7ab5afc0515958fefb86ebfa61e8d5dc30"
+   },
+   {
+    "partId": "r6-absence-in-sweep",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Absence-in-fetched-source re-needled this session: deployment-record passage verbatim in the retained render, zero MTBF occurrences file-wide. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+    "evidenceDigest": "6833fe772df8212256c4c60ab1bd4dd3eff61146ff73b552dd47fd1b39e391fe"
+   }
+  ]
+ },
+ {
+  "id": "scene-representation-1-identity-sweep-20260917a",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "scene-representation",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "47f10c77a49868f8571e20848ed3d0a94b63ba94bb13bdbaec39061ee3a3e79d",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "scene-rep-1-moravec-elfes-1985-20260917a",
+    "text": "Identity check for frontmatter citation moravec-elfes-1985 (fresh fetch this session): Crossref DOI 10.1109/ROBOT.1985.1087316 fresh 200 (2026-09-16T23:28:17Z, sources/crossref-moravec-elfes-1985.json): title \"High resolution maps from wide angle sonar\" = registry title; authors printed as \"H. Moravec / A. Elfes\" (initials only) and issued date empty (Crossref record carries no publication date). Year 1985 + venue \"Proceedings. 1985 IEEE International Conference on Robotics and Automation\" printed by the Semantic Scholar DOI record (200, 2026-09-16T23:30:05Z, sources/moravec-s2.json: \"Hans P. Moravec\"). FULL GIVEN NAMES printed by the paper itself: the ICRA 1985 PDF served by CMU (https://publications.ri.cmu.edu/storage/publications/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf, 200, 2026-09-16T23:34:32Z, 1,165,561 bytes, PDF v1.3, 6 pages, retained sources/moravec-icra-1985.pdf) opens \"Hans P. Moravec / Alberto Elfes\" (pdftotext renders the second given name as \"Albert0\", an OCR o-vs-0 artifact, disclosed); researchr.org (DBLP-family record, 200, sources/researchr-moravec.html) independently prints \"Hans P. Moravec, Alberto Elfes ... Proceedings of the 1985 IEEE International Conference on Robotics and Automation, St. Louis, Missouri, USA, March 25-28, 1985. pages 116-121, IEEE, 1985\"; CMU’s publications page (200, sources/cmupubs-moravec.html) prints \"Hans Moravec and A. E. Elfes\", pages \"116 - 121\". Registry \"Hans P. Moravec / Alberto Elfes\", year 1985, venue \"ICRA 1985\" all verified; channel mix disclosed.",
+    "requiredCitationIds": [
+     "moravec-elfes-1985"
+    ]
+   },
+   {
+    "id": "scene-rep-1-curless-levoy-1996-20260917a",
+    "text": "Identity check for frontmatter citation curless-levoy-1996 (fresh fetch this session): Crossref DOI 10.1145/237170.237269 fresh 200 (2026-09-16T23:28:23Z): title \"A volumetric method for building complex models from range images\" (case-insensitive match to registry), authors \"Brian Curless / Marc Levoy\", issued 1996, container \"Proceedings of the 23rd annual conference on Computer graphics and interactive techniques\" = registry venue \"SIGGRAPH 1996\". Full match.",
+    "requiredCitationIds": [
+     "curless-levoy-1996"
+    ]
+   },
+   {
+    "id": "scene-rep-1-kinectfusion-2011-20260917a",
+    "text": "Identity check for frontmatter citation kinectfusion-2011 (fresh fetch this session): Crossref DOI 10.1109/ISMAR.2011.6092378 fresh 200 (2026-09-16T23:28:25Z): title matches; year 2011; container \"2011 10th IEEE International Symposium on Mixed and Augmented Reality\" = registry venue \"ISMAR 2011\"; 10 authors. AUTHOR ORDER: Crossref lists Fitzgibbon 2nd and misspells \"Pushmeet Kohi\"; the registry order (Newcombe, Izadi, Hilliges, Molyneaux, Kim, Davison, Kohli, Shotton, Hodges, Fitzgibbon) is the order printed by the ISMAR ’11 proceedings list on the authors’ own lab page (ETH AIT project page https://ait.ethz.ch/kinectfusion, fresh 200, 2026-09-16T23:31:15Z, retained sources/eth-ait-kinectfusion.html: \"Richard Newcombe, Shahram Izadi, Otmar Hilliges, David Molyneaux, David Kim, Andrew Davison, Pushmeet Kohli, Jamie Shotton, Steve Hodges, Andrew Fitzgibbon — ISMAR ’11\"). Registry order verified against the project-page record; the Crossref ordering is recorded as an indexing quirk, not a registry defect.",
+    "requiredCitationIds": [
+     "kinectfusion-2011"
+    ]
+   },
+   {
+    "id": "scene-rep-1-orb-slam-2015-20260917a",
+    "text": "Identity check for frontmatter citation orb-slam-2015 (fresh fetch this session): Crossref DOI 10.1109/TRO.2015.2463671 fresh 200 (2026-09-16T23:28:21Z): title \"ORB-SLAM: A Versatile and Accurate Monocular SLAM System\", authors Mur-Artal / Montiel / Tardos (Crossref prints ASCII; registry prints accented \"Raúl Mur-Artal / J. M. M. Montiel / Juan D. Tardós\" — the registry is the more faithful rendering, accent normalization disclosed, not a mismatch), year 2015, container \"IEEE Transactions on Robotics\" = registry venue. Full match.",
+    "requiredCitationIds": [
+     "orb-slam-2015"
+    ]
+   },
+   {
+    "id": "scene-rep-1-orb-slam3-2021-20260917a",
+    "text": "Identity check for frontmatter citation orb-slam3-2021 (fresh fetch this session): Crossref DOI 10.1109/TRO.2021.3075644 fresh 200 (2026-09-16T23:28:19Z): title \"ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM\" = registry; authors Campos / Elvira / Gomez Rodriguez / Montiel / Tardos (registry carries the accented forms \"Gómez Rodríguez / José ... Tardós\", disclosed as above), year 2021, container IEEE Transactions on Robotics. Full match.",
+    "requiredCitationIds": [
+     "orb-slam3-2021"
+    ]
+   },
+   {
+    "id": "scene-rep-1-dso-2018-20260917a",
+    "text": "Identity check for frontmatter citation dso-2018 (fresh fetch this session): Crossref DOI 10.1109/TPAMI.2017.2658577 fresh 200 (2026-09-16T23:28:24Z): title \"Direct Sparse Odometry\", authors \"Jakob Engel / Vladlen Koltun / Daniel Cremers\", year 2018, container \"IEEE Transactions on Pattern Analysis and Machine Intelligence\" = registry venue \"IEEE TPAMI\". Full match.",
+    "requiredCitationIds": [
+     "dso-2018"
+    ]
+   },
+   {
+    "id": "scene-rep-1-lowry-2016-place-recognition-20260917a",
+    "text": "Identity check for frontmatter citation lowry-2016-place-recognition (fresh fetch this session): Crossref DOI 10.1109/TRO.2015.2496823 fresh 200 (2026-09-16T23:28:18Z): title \"Visual Place Recognition: A Survey\", authors \"Stephanie Lowry / Niko Sünderhauf / Paul Newman / John J. Leonard / David Cox / Peter Corke / Michael J. Milford\" (including Sünderhauf’s umlaut), year 2016, container IEEE Transactions on Robotics. Full match, 7/7 authors.",
+    "requiredCitationIds": [
+     "lowry-2016-place-recognition"
+    ]
+   },
+   {
+    "id": "scene-rep-1-dellaert-kaess-2006-20260917a",
+    "text": "Identity check for frontmatter citation dellaert-kaess-2006 (fresh fetch this session): Crossref DOI 10.1177/0278364906072768 fresh 200 (2026-09-16T23:28:17Z): title \"Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing\" (Crossref inserts stray whitespace; normalized match), authors \"Frank Dellaert / Michael Kaess\", year 2006, container \"The International Journal of Robotics Research\" = registry venue. Full match.",
+    "requiredCitationIds": [
+     "dellaert-kaess-2006"
+    ]
+   },
+   {
+    "id": "scene-rep-1-kaess-2012-20260917a",
+    "text": "Identity check for frontmatter citation kaess-2012 (fresh fetch this session): Crossref DOI 10.1177/0278364911430419 fresh 200 (2026-09-16T23:28:22Z): title \"iSAM2: Incremental smoothing and mapping using the Bayes tree\" (case-insensitive match), authors Kaess / Johannsson / Roberts / Ila / Leonard / Dellaert (registry adds one period in \"J. J. Leonard\", punctuation-normalized), container IJRR, volume 31(2) pages 216-235. YEAR: Crossref issued = 2011-12-20 (online-first) but published-print = 2012-02; registry year 2012 matches the print issue (Crossref’s own published-print field). Channel note recorded.",
+    "requiredCitationIds": [
+     "kaess-2012"
+    ]
+   },
+   {
+    "id": "scene-rep-1-layered-costmaps-2014-20260917a",
+    "text": "Identity check for frontmatter citation layered-costmaps-2014 (fresh fetch this session): Crossref DOI 10.1109/IROS.2014.6942636 fresh 200 (2026-09-16T23:28:20Z): title \"Layered costmaps for context-sensitive navigation\" (case-insensitive match), authors \"David V. Lu / Dave Hershberger / William D. Smart\", year 2014, container \"2014 IEEE/RSJ International Conference on Intelligent Robots and Systems\" = registry venue \"IROS 2014\". Full match.",
+    "requiredCitationIds": [
+     "layered-costmaps-2014"
+    ]
+   },
+   {
+    "id": "scene-rep-1-nav2-2020-20260917a",
+    "text": "Identity check for frontmatter citation nav2-2020 (fresh fetch this session): Crossref DOI 10.1109/IROS45743.2020.9341207 fresh 200 (2026-09-16T23:28:16Z): title \"The Marathon 2: A Navigation System\", authors \"Steve Macenski / Francisco Martin / Ruffin White / Jonatan Gines Clavero\", year 2020, container \"2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)\" = registry venue \"IROS 2020\". Full match.",
+    "requiredCitationIds": [
+     "nav2-2020"
+    ]
+   },
+   {
+    "id": "scene-rep-1-nerf-2020-20260917a",
+    "text": "Identity check for frontmatter citation nerf-2020 (fresh fetch this session): arXiv abs 2003.08934 fresh 200 (2026-09-16T23:28:50Z, sources/arxiv-nerf-2020.html): title = registry title; 6/6 authors in order (Mildenhall / Pratul P. Srinivasan / Tancik / Barron / Ramamoorthi / Ng); dateline \"[Submitted on 19 Mar 2020 ...]\" consistent with registry year 2020; Comments field prints \"ECCV 2020 (oral)\" = registry venue \"ECCV 2020\".",
+    "requiredCitationIds": [
+     "nerf-2020"
+    ]
+   },
+   {
+    "id": "scene-rep-1-instant-ngp-2022-20260917a",
+    "text": "Identity check for frontmatter citation instant-ngp-2022 (fresh fetch this session): arXiv abs 2201.05989 fresh 200 (2026-09-16T23:28:50Z): title = registry; 4/4 authors (Thomas Müller / Evans / Schied / Keller); dateline 2022; Comments \"To appear in ACM Transactions on Graphics (SIGGRAPH 2022)\" + journal-ref \"ACM Trans. Graph. 41, 4, Article 102 (July 2022)\" = registry venue \"ACM Trans. Graph. (SIGGRAPH 2022)\".",
+    "requiredCitationIds": [
+     "instant-ngp-2022"
+    ]
+   },
+   {
+    "id": "scene-rep-1-3dgs-2023-20260917a",
+    "text": "Identity check for frontmatter citation 3dgs-2023 (fresh fetch this session): arXiv abs 2308.04079 fresh 200 (2026-09-16T23:28:51Z): title = registry; 4/4 authors (Kerbl / Kopanas / Leimkühler / Drettakis); dateline 2023; journal-ref \"ACM Transactions on Graphics, volume 42(4), July 2023\" = registry venue \"ACM Trans. Graph. 42(4), author manuscript (2023)\".",
+    "requiredCitationIds": [
+     "3dgs-2023"
+    ]
+   },
+   {
+    "id": "scene-rep-1-dust3r-2024-20260917a",
+    "text": "Identity check for frontmatter citation dust3r-2024 (fresh fetch this session): arXiv abs 2312.14132 fresh 200 (2026-09-16T23:28:51Z): title = registry; 5/5 authors (Shuzhe Wang / Vincent Leroy / Yohann Cabon / Boris Chidlovskii / Jerome Revaud); dateline [2023, 2024] consistent with registry 2024 (v1 Dec 2023, revised 2024). VENUE: the abs page prints no venue, so registry venue \"CVPR 2024\" was verified against the CVF open-access proceedings page (fresh 200, 2026-09-16T23:36:07Z, sources/cvf-dust3r.html: \"CVPR 2024 Open Access Repository\" hosting \"DUSt3R: Geometric 3D Vision Made Easy\" by Wang et al.).",
+    "requiredCitationIds": [
+     "dust3r-2024"
+    ]
+   },
+   {
+    "id": "scene-rep-1-mast3r-2024-20260917a",
+    "text": "Identity check for frontmatter citation mast3r-2024 (fresh fetch this session): arXiv abs 2406.09756 fresh 200 (2026-09-16T23:28:52Z): title = registry; 3/3 authors (Vincent Leroy / Yohann Cabon / Jérôme Revaud); dateline 2024. VENUE: the abs page prints no venue, so registry venue \"ECCV 2024\" was verified against the Springer proceedings record via Crossref (bibliographic query fresh 200, 2026-09-16T23:36:34Z, sources/crossref-mast3r-search.json: DOI 10.1007/978-3-031-73220-1_5, title \"Grounding Image Matching in 3D with MASt3R\", container \"Lecture Notes in Computer Science\" / \"Computer Vision – ECCV 2024\", online 2024-11-03, authors Leroy / Cabon / Revaud, pages 71-91).",
+    "requiredCitationIds": [
+     "mast3r-2024"
+    ]
+   },
+   {
+    "id": "scene-rep-1-cadena-2016-20260917a",
+    "text": "Identity check for frontmatter citation cadena-2016 (fresh fetch this session): arXiv abs 1606.05830 fresh 200 (2026-09-16T23:28:52Z): title = registry; 8/8 authors (Cadena / Carlone / Carrillo / Latif / Scaramuzza / Neira / Reid / Leonard); dateline [2016, 2017] consistent with registry 2016 (v1 Jun 2016); journal-ref \"IEEE Transactions on Robotics 32 (6) pp 1309-1332, 2016\" = registry venue.",
+    "requiredCitationIds": [
+     "cadena-2016"
+    ]
+   },
+   {
+    "id": "scene-rep-1-pointnet-2017-20260917a",
+    "text": "Identity check for frontmatter citation pointnet-2017 (fresh fetch this session): arXiv abs 1612.00593 fresh 200 (2026-09-16T23:28:53Z): title = registry; 4/4 authors (Charles R. Qi / Hao Su / Kaichun Mo / Leonidas J. Guibas); dateline [2016, 2017] consistent with registry 2017 (v2 2017 = CVPR year); Comments prints \"CVPR 2017\" = registry venue.",
+    "requiredCitationIds": [
+     "pointnet-2017"
+    ]
+   },
+   {
+    "id": "scene-rep-1-imap-2021-20260917a",
+    "text": "Identity check for frontmatter citation imap-2021 (fresh fetch this session): arXiv abs 2103.12352 fresh 200 (2026-09-16T23:29:33Z): title = registry; 4/4 authors (Sucar / Liu / Ortiz / Davison); dateline 2021. VENUE: the abs page prints no venue, so registry venue \"ICCV 2021\" was verified against the CVF open-access proceedings page (fresh 200, 2026-09-16T23:36:07Z, sources/cvf-imap.html: \"ICCV 2021 Open Access Repository\" hosting \"iMAP: Implicit Mapping and Positioning in Real-Time\", author line \"Sucar, Edgar\").",
+    "requiredCitationIds": [
+     "imap-2021"
+    ]
+   },
+   {
+    "id": "scene-rep-1-nice-slam-2022-20260917a",
+    "text": "Identity check for frontmatter citation nice-slam-2022 (fresh fetch this session): arXiv abs 2112.12130 fresh 200 (2026-09-16T23:29:33Z): title = registry; 8/8 authors (Zhu / Peng / Larsson / Xu / Bao / Cui / Oswald / Pollefeys); dateline [2021, 2022] consistent with registry 2022; Comments prints \"CVPR 2022, first two authors contributed equally\" = registry venue.",
+    "requiredCitationIds": [
+     "nice-slam-2022"
+    ]
+   },
+   {
+    "id": "scene-rep-1-dex-nerf-2021-20260917a",
+    "text": "Identity check for frontmatter citation dex-nerf-2021 (fresh fetch this session): arXiv abs 2110.14217 fresh 200 (2026-09-16T23:29:34Z): title = registry; 4/4 authors (Ichnowski / Avigal / Kerr / Goldberg); dateline 2021; Comments prints \"to be published in the Conference on Robot Learning\" = registry venue \"CoRL 2021\".",
+    "requiredCitationIds": [
+     "dex-nerf-2021"
+    ]
+   },
+   {
+    "id": "scene-rep-1-splatsim-2024-20260917a",
+    "text": "Identity check for frontmatter citation splatsim-2024 (fresh fetch this session): arXiv abs 2409.10161 fresh 200 (2026-09-16T23:29:35Z): title = registry; 6/6 authors (Qureshi / Garg / Yandun / Held / Kantor / Silwal); dateline 2024; registry venue is null (nothing to verify).",
+    "requiredCitationIds": [
+     "splatsim-2024"
+    ]
+   },
+   {
+    "id": "scene-rep-1-robogsim-2024-20260917a",
+    "text": "Identity check for frontmatter citation robogsim-2024 (fresh fetch this session): arXiv abs 2411.11839 fresh 200 (2026-09-16T23:29:35Z): title = registry; 9/9 authors (Xinhai Li / Jialin Li / Zhang / Zhang / Jia / Wang / Fan / Tseng / Wang); dateline [2024, 2025] consistent with registry 2024 (v1 Nov 2024); registry venue null.",
+    "requiredCitationIds": [
+     "robogsim-2024"
+    ]
+   },
+   {
+    "id": "scene-rep-1-occworld-2023-20260917a",
+    "text": "Identity check for frontmatter citation occworld-2023 (fresh fetch this session): arXiv abs 2311.16038 fresh 200 (2026-09-16T23:29:36Z): title = registry; 6/6 authors (Zheng / Chen / Huang / Zhang / Duan / Lu); dateline 2023; registry venue null.",
+    "requiredCitationIds": [
+     "occworld-2023"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+   "rationale": "packet 547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c record 4 (ready-evidence-completion): 24 parts verbatim from the packet's nativePlan (one per cited registry identity; the packet's planReview was null by design and is attached here by the integrator). Count verified by this integrator: the article frontmatter at HEAD ad9e0743 lists exactly 24 citation ids and the packet's part set equals it; the prior claim cell said 23 and the corrected cell says 24 (ag-lane 12->13 count precedent). Per-entry passages needle-verified against the packet's retained fetch bodies (11 Crossref DOI records, 13 arXiv abs pages, closure surfaces: ETH AIT KinectFusion order, CVF dust3r/imap, Springer/Crossref MASt3R ECCV 2024, Moravec/Elfes channel mix incl. the paper PDF's disclosed OCR \"Albert0\" artifact); evidence sourceUrl per part is the registered URL of the fetched surface named at the head of the part text. Registered ids reused read-only; no new registration. Zero retrieval by this integrator.",
+   "planDigest": "1ba65ee547e5dd3ef7cdb78d42364abe5b0be4348e5b279e1e4127ccebb51c6a"
+  },
+  "evidence": [
+   {
+    "partId": "scene-rep-1-moravec-elfes-1985-20260917a",
+    "citationId": "moravec-elfes-1985",
+    "sourceUrl": "https://doi.org/10.1109/ROBOT.1985.1087316",
+    "supportingPassage": "Identity check for frontmatter citation moravec-elfes-1985 (fresh fetch this session): Crossref DOI 10.1109/ROBOT.1985.1087316 fresh 200 (2026-09-16T23:28:17Z, sources/crossref-moravec-elfes-1985.json): title \"High resolution maps from wide angle sonar\" = registry title; authors printed as \"H. Moravec / A. Elfes\" (initials only) and issued date empty (Crossref record carries no publication date). Year 1985 + venue \"Proceedings. 1985 IEEE International Conference on Robotics and Automation\" printed by the Semantic Scholar DOI record (200, 2026-09-16T23:30:05Z, sources/moravec-s2.json: \"Hans P. Moravec\"). FULL GIVEN NAMES printed by the paper itself: the ICRA 1985 PDF served by CMU (https://publications.ri.cmu.edu/storage/publications/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf, 200, 2026-09-16T23:34:32Z, 1,165,561 bytes, PDF v1.3, 6 pages, retained sources/moravec-icra-1985.pdf) opens \"Hans P. Moravec / Alberto Elfes\" (pdftotext renders the second given name as \"Albert0\", an OCR o-vs-0 artifact, disclosed); researchr.org (DBLP-family record, 200, sources/researchr-moravec.html) independently prints \"Hans P. Moravec, Alberto Elfes ... Proceedings of the 1985 IEEE International Conference on Robotics and Automation, St. Louis, Missouri, USA, March 25-28, 1985. pages 116-121, IEEE, 1985\"; CMU’s publications page (200, sources/cmupubs-moravec.html) prints \"Hans Moravec and A. E. Elfes\", pages \"116 - 121\". Registry \"Hans P. Moravec / Alberto Elfes\", year 1985, venue \"ICRA 1985\" all verified; channel mix disclosed."
+   },
+   {
+    "partId": "scene-rep-1-curless-levoy-1996-20260917a",
+    "citationId": "curless-levoy-1996",
+    "sourceUrl": "https://doi.org/10.1145/237170.237269",
+    "supportingPassage": "Identity check for frontmatter citation curless-levoy-1996 (fresh fetch this session): Crossref DOI 10.1145/237170.237269 fresh 200 (2026-09-16T23:28:23Z): title \"A volumetric method for building complex models from range images\" (case-insensitive match to registry), authors \"Brian Curless / Marc Levoy\", issued 1996, container \"Proceedings of the 23rd annual conference on Computer graphics and interactive techniques\" = registry venue \"SIGGRAPH 1996\". Full match."
+   },
+   {
+    "partId": "scene-rep-1-kinectfusion-2011-20260917a",
+    "citationId": "kinectfusion-2011",
+    "sourceUrl": "https://doi.org/10.1109/ISMAR.2011.6092378",
+    "supportingPassage": "Identity check for frontmatter citation kinectfusion-2011 (fresh fetch this session): Crossref DOI 10.1109/ISMAR.2011.6092378 fresh 200 (2026-09-16T23:28:25Z): title matches; year 2011; container \"2011 10th IEEE International Symposium on Mixed and Augmented Reality\" = registry venue \"ISMAR 2011\"; 10 authors. AUTHOR ORDER: Crossref lists Fitzgibbon 2nd and misspells \"Pushmeet Kohi\"; the registry order (Newcombe, Izadi, Hilliges, Molyneaux, Kim, Davison, Kohli, Shotton, Hodges, Fitzgibbon) is the order printed by the ISMAR ’11 proceedings list on the authors’ own lab page (ETH AIT project page https://ait.ethz.ch/kinectfusion, fresh 200, 2026-09-16T23:31:15Z, retained sources/eth-ait-kinectfusion.html: \"Richard Newcombe, Shahram Izadi, Otmar Hilliges, David Molyneaux, David Kim, Andrew Davison, Pushmeet Kohli, Jamie Shotton, Steve Hodges, Andrew Fitzgibbon — ISMAR ’11\"). Registry order verified against the project-page record; the Crossref ordering is recorded as an indexing quirk, not a registry defect."
+   },
+   {
+    "partId": "scene-rep-1-orb-slam-2015-20260917a",
+    "citationId": "orb-slam-2015",
+    "sourceUrl": "https://doi.org/10.1109/TRO.2015.2463671",
+    "supportingPassage": "Identity check for frontmatter citation orb-slam-2015 (fresh fetch this session): Crossref DOI 10.1109/TRO.2015.2463671 fresh 200 (2026-09-16T23:28:21Z): title \"ORB-SLAM: A Versatile and Accurate Monocular SLAM System\", authors Mur-Artal / Montiel / Tardos (Crossref prints ASCII; registry prints accented \"Raúl Mur-Artal / J. M. M. Montiel / Juan D. Tardós\" — the registry is the more faithful rendering, accent normalization disclosed, not a mismatch), year 2015, container \"IEEE Transactions on Robotics\" = registry venue. Full match."
+   },
+   {
+    "partId": "scene-rep-1-orb-slam3-2021-20260917a",
+    "citationId": "orb-slam3-2021",
+    "sourceUrl": "https://doi.org/10.1109/TRO.2021.3075644",
+    "supportingPassage": "Identity check for frontmatter citation orb-slam3-2021 (fresh fetch this session): Crossref DOI 10.1109/TRO.2021.3075644 fresh 200 (2026-09-16T23:28:19Z): title \"ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM\" = registry; authors Campos / Elvira / Gomez Rodriguez / Montiel / Tardos (registry carries the accented forms \"Gómez Rodríguez / José ... Tardós\", disclosed as above), year 2021, container IEEE Transactions on Robotics. Full match."
+   },
+   {
+    "partId": "scene-rep-1-dso-2018-20260917a",
+    "citationId": "dso-2018",
+    "sourceUrl": "https://doi.org/10.1109/TPAMI.2017.2658577",
+    "supportingPassage": "Identity check for frontmatter citation dso-2018 (fresh fetch this session): Crossref DOI 10.1109/TPAMI.2017.2658577 fresh 200 (2026-09-16T23:28:24Z): title \"Direct Sparse Odometry\", authors \"Jakob Engel / Vladlen Koltun / Daniel Cremers\", year 2018, container \"IEEE Transactions on Pattern Analysis and Machine Intelligence\" = registry venue \"IEEE TPAMI\". Full match."
+   },
+   {
+    "partId": "scene-rep-1-lowry-2016-place-recognition-20260917a",
+    "citationId": "lowry-2016-place-recognition",
+    "sourceUrl": "https://doi.org/10.1109/TRO.2015.2496823",
+    "supportingPassage": "Identity check for frontmatter citation lowry-2016-place-recognition (fresh fetch this session): Crossref DOI 10.1109/TRO.2015.2496823 fresh 200 (2026-09-16T23:28:18Z): title \"Visual Place Recognition: A Survey\", authors \"Stephanie Lowry / Niko Sünderhauf / Paul Newman / John J. Leonard / David Cox / Peter Corke / Michael J. Milford\" (including Sünderhauf’s umlaut), year 2016, container IEEE Transactions on Robotics. Full match, 7/7 authors."
+   },
+   {
+    "partId": "scene-rep-1-dellaert-kaess-2006-20260917a",
+    "citationId": "dellaert-kaess-2006",
+    "sourceUrl": "https://doi.org/10.1177/0278364906072768",
+    "supportingPassage": "Identity check for frontmatter citation dellaert-kaess-2006 (fresh fetch this session): Crossref DOI 10.1177/0278364906072768 fresh 200 (2026-09-16T23:28:17Z): title \"Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing\" (Crossref inserts stray whitespace; normalized match), authors \"Frank Dellaert / Michael Kaess\", year 2006, container \"The International Journal of Robotics Research\" = registry venue. Full match."
+   },
+   {
+    "partId": "scene-rep-1-kaess-2012-20260917a",
+    "citationId": "kaess-2012",
+    "sourceUrl": "https://doi.org/10.1177/0278364911430419",
+    "supportingPassage": "Identity check for frontmatter citation kaess-2012 (fresh fetch this session): Crossref DOI 10.1177/0278364911430419 fresh 200 (2026-09-16T23:28:22Z): title \"iSAM2: Incremental smoothing and mapping using the Bayes tree\" (case-insensitive match), authors Kaess / Johannsson / Roberts / Ila / Leonard / Dellaert (registry adds one period in \"J. J. Leonard\", punctuation-normalized), container IJRR, volume 31(2) pages 216-235. YEAR: Crossref issued = 2011-12-20 (online-first) but published-print = 2012-02; registry year 2012 matches the print issue (Crossref’s own published-print field). Channel note recorded."
+   },
+   {
+    "partId": "scene-rep-1-layered-costmaps-2014-20260917a",
+    "citationId": "layered-costmaps-2014",
+    "sourceUrl": "https://doi.org/10.1109/IROS.2014.6942636",
+    "supportingPassage": "Identity check for frontmatter citation layered-costmaps-2014 (fresh fetch this session): Crossref DOI 10.1109/IROS.2014.6942636 fresh 200 (2026-09-16T23:28:20Z): title \"Layered costmaps for context-sensitive navigation\" (case-insensitive match), authors \"David V. Lu / Dave Hershberger / William D. Smart\", year 2014, container \"2014 IEEE/RSJ International Conference on Intelligent Robots and Systems\" = registry venue \"IROS 2014\". Full match."
+   },
+   {
+    "partId": "scene-rep-1-nav2-2020-20260917a",
+    "citationId": "nav2-2020",
+    "sourceUrl": "https://doi.org/10.1109/IROS45743.2020.9341207",
+    "supportingPassage": "Identity check for frontmatter citation nav2-2020 (fresh fetch this session): Crossref DOI 10.1109/IROS45743.2020.9341207 fresh 200 (2026-09-16T23:28:16Z): title \"The Marathon 2: A Navigation System\", authors \"Steve Macenski / Francisco Martin / Ruffin White / Jonatan Gines Clavero\", year 2020, container \"2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)\" = registry venue \"IROS 2020\". Full match."
+   },
+   {
+    "partId": "scene-rep-1-nerf-2020-20260917a",
+    "citationId": "nerf-2020",
+    "sourceUrl": "https://arxiv.org/abs/2003.08934",
+    "supportingPassage": "Identity check for frontmatter citation nerf-2020 (fresh fetch this session): arXiv abs 2003.08934 fresh 200 (2026-09-16T23:28:50Z, sources/arxiv-nerf-2020.html): title = registry title; 6/6 authors in order (Mildenhall / Pratul P. Srinivasan / Tancik / Barron / Ramamoorthi / Ng); dateline \"[Submitted on 19 Mar 2020 ...]\" consistent with registry year 2020; Comments field prints \"ECCV 2020 (oral)\" = registry venue \"ECCV 2020\"."
+   },
+   {
+    "partId": "scene-rep-1-instant-ngp-2022-20260917a",
+    "citationId": "instant-ngp-2022",
+    "sourceUrl": "https://arxiv.org/abs/2201.05989",
+    "supportingPassage": "Identity check for frontmatter citation instant-ngp-2022 (fresh fetch this session): arXiv abs 2201.05989 fresh 200 (2026-09-16T23:28:50Z): title = registry; 4/4 authors (Thomas Müller / Evans / Schied / Keller); dateline 2022; Comments \"To appear in ACM Transactions on Graphics (SIGGRAPH 2022)\" + journal-ref \"ACM Trans. Graph. 41, 4, Article 102 (July 2022)\" = registry venue \"ACM Trans. Graph. (SIGGRAPH 2022)\"."
+   },
+   {
+    "partId": "scene-rep-1-3dgs-2023-20260917a",
+    "citationId": "3dgs-2023",
+    "sourceUrl": "https://arxiv.org/abs/2308.04079",
+    "supportingPassage": "Identity check for frontmatter citation 3dgs-2023 (fresh fetch this session): arXiv abs 2308.04079 fresh 200 (2026-09-16T23:28:51Z): title = registry; 4/4 authors (Kerbl / Kopanas / Leimkühler / Drettakis); dateline 2023; journal-ref \"ACM Transactions on Graphics, volume 42(4), July 2023\" = registry venue \"ACM Trans. Graph. 42(4), author manuscript (2023)\"."
+   },
+   {
+    "partId": "scene-rep-1-dust3r-2024-20260917a",
+    "citationId": "dust3r-2024",
+    "sourceUrl": "https://arxiv.org/abs/2312.14132",
+    "supportingPassage": "Identity check for frontmatter citation dust3r-2024 (fresh fetch this session): arXiv abs 2312.14132 fresh 200 (2026-09-16T23:28:51Z): title = registry; 5/5 authors (Shuzhe Wang / Vincent Leroy / Yohann Cabon / Boris Chidlovskii / Jerome Revaud); dateline [2023, 2024] consistent with registry 2024 (v1 Dec 2023, revised 2024). VENUE: the abs page prints no venue, so registry venue \"CVPR 2024\" was verified against the CVF open-access proceedings page (fresh 200, 2026-09-16T23:36:07Z, sources/cvf-dust3r.html: \"CVPR 2024 Open Access Repository\" hosting \"DUSt3R: Geometric 3D Vision Made Easy\" by Wang et al.)."
+   },
+   {
+    "partId": "scene-rep-1-mast3r-2024-20260917a",
+    "citationId": "mast3r-2024",
+    "sourceUrl": "https://arxiv.org/abs/2406.09756",
+    "supportingPassage": "Identity check for frontmatter citation mast3r-2024 (fresh fetch this session): arXiv abs 2406.09756 fresh 200 (2026-09-16T23:28:52Z): title = registry; 3/3 authors (Vincent Leroy / Yohann Cabon / Jérôme Revaud); dateline 2024. VENUE: the abs page prints no venue, so registry venue \"ECCV 2024\" was verified against the Springer proceedings record via Crossref (bibliographic query fresh 200, 2026-09-16T23:36:34Z, sources/crossref-mast3r-search.json: DOI 10.1007/978-3-031-73220-1_5, title \"Grounding Image Matching in 3D with MASt3R\", container \"Lecture Notes in Computer Science\" / \"Computer Vision – ECCV 2024\", online 2024-11-03, authors Leroy / Cabon / Revaud, pages 71-91)."
+   },
+   {
+    "partId": "scene-rep-1-cadena-2016-20260917a",
+    "citationId": "cadena-2016",
+    "sourceUrl": "https://arxiv.org/abs/1606.05830",
+    "supportingPassage": "Identity check for frontmatter citation cadena-2016 (fresh fetch this session): arXiv abs 1606.05830 fresh 200 (2026-09-16T23:28:52Z): title = registry; 8/8 authors (Cadena / Carlone / Carrillo / Latif / Scaramuzza / Neira / Reid / Leonard); dateline [2016, 2017] consistent with registry 2016 (v1 Jun 2016); journal-ref \"IEEE Transactions on Robotics 32 (6) pp 1309-1332, 2016\" = registry venue."
+   },
+   {
+    "partId": "scene-rep-1-pointnet-2017-20260917a",
+    "citationId": "pointnet-2017",
+    "sourceUrl": "https://arxiv.org/abs/1612.00593",
+    "supportingPassage": "Identity check for frontmatter citation pointnet-2017 (fresh fetch this session): arXiv abs 1612.00593 fresh 200 (2026-09-16T23:28:53Z): title = registry; 4/4 authors (Charles R. Qi / Hao Su / Kaichun Mo / Leonidas J. Guibas); dateline [2016, 2017] consistent with registry 2017 (v2 2017 = CVPR year); Comments prints \"CVPR 2017\" = registry venue."
+   },
+   {
+    "partId": "scene-rep-1-imap-2021-20260917a",
+    "citationId": "imap-2021",
+    "sourceUrl": "https://arxiv.org/abs/2103.12352",
+    "supportingPassage": "Identity check for frontmatter citation imap-2021 (fresh fetch this session): arXiv abs 2103.12352 fresh 200 (2026-09-16T23:29:33Z): title = registry; 4/4 authors (Sucar / Liu / Ortiz / Davison); dateline 2021. VENUE: the abs page prints no venue, so registry venue \"ICCV 2021\" was verified against the CVF open-access proceedings page (fresh 200, 2026-09-16T23:36:07Z, sources/cvf-imap.html: \"ICCV 2021 Open Access Repository\" hosting \"iMAP: Implicit Mapping and Positioning in Real-Time\", author line \"Sucar, Edgar\")."
+   },
+   {
+    "partId": "scene-rep-1-nice-slam-2022-20260917a",
+    "citationId": "nice-slam-2022",
+    "sourceUrl": "https://arxiv.org/abs/2112.12130",
+    "supportingPassage": "Identity check for frontmatter citation nice-slam-2022 (fresh fetch this session): arXiv abs 2112.12130 fresh 200 (2026-09-16T23:29:33Z): title = registry; 8/8 authors (Zhu / Peng / Larsson / Xu / Bao / Cui / Oswald / Pollefeys); dateline [2021, 2022] consistent with registry 2022; Comments prints \"CVPR 2022, first two authors contributed equally\" = registry venue."
+   },
+   {
+    "partId": "scene-rep-1-dex-nerf-2021-20260917a",
+    "citationId": "dex-nerf-2021",
+    "sourceUrl": "https://arxiv.org/abs/2110.14217",
+    "supportingPassage": "Identity check for frontmatter citation dex-nerf-2021 (fresh fetch this session): arXiv abs 2110.14217 fresh 200 (2026-09-16T23:29:34Z): title = registry; 4/4 authors (Ichnowski / Avigal / Kerr / Goldberg); dateline 2021; Comments prints \"to be published in the Conference on Robot Learning\" = registry venue \"CoRL 2021\"."
+   },
+   {
+    "partId": "scene-rep-1-splatsim-2024-20260917a",
+    "citationId": "splatsim-2024",
+    "sourceUrl": "https://arxiv.org/abs/2409.10161",
+    "supportingPassage": "Identity check for frontmatter citation splatsim-2024 (fresh fetch this session): arXiv abs 2409.10161 fresh 200 (2026-09-16T23:29:35Z): title = registry; 6/6 authors (Qureshi / Garg / Yandun / Held / Kantor / Silwal); dateline 2024; registry venue is null (nothing to verify)."
+   },
+   {
+    "partId": "scene-rep-1-robogsim-2024-20260917a",
+    "citationId": "robogsim-2024",
+    "sourceUrl": "https://arxiv.org/abs/2411.11839",
+    "supportingPassage": "Identity check for frontmatter citation robogsim-2024 (fresh fetch this session): arXiv abs 2411.11839 fresh 200 (2026-09-16T23:29:35Z): title = registry; 9/9 authors (Xinhai Li / Jialin Li / Zhang / Zhang / Jia / Wang / Fan / Tseng / Wang); dateline [2024, 2025] consistent with registry 2024 (v1 Nov 2024); registry venue null."
+   },
+   {
+    "partId": "scene-rep-1-occworld-2023-20260917a",
+    "citationId": "occworld-2023",
+    "sourceUrl": "https://arxiv.org/abs/2311.16038",
+    "supportingPassage": "Identity check for frontmatter citation occworld-2023 (fresh fetch this session): arXiv abs 2311.16038 fresh 200 (2026-09-16T23:29:36Z): title = registry; 6/6 authors (Zheng / Chen / Huang / Zhang / Duan / Lu); dateline 2023; registry venue null."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "scene-rep-1-moravec-elfes-1985-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/ROBOT.1985.1087316",
+    "evidenceDigest": "0f6bbee5ff73d35fd1a7aa64266345ff12d115f19b802bb8bf1a1b58009401bb"
+   },
+   {
+    "partId": "scene-rep-1-curless-levoy-1996-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1145/237170.237269",
+    "evidenceDigest": "ff8e5d0d37e3cc30cac1037eef8e193ecdf3e1dcf34b92aee5e1e592f131f55e"
+   },
+   {
+    "partId": "scene-rep-1-kinectfusion-2011-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/ISMAR.2011.6092378",
+    "evidenceDigest": "fa15efce803f004fe123729fecd757bee68f7df7ad5817d029efbcd9f4f06af2"
+   },
+   {
+    "partId": "scene-rep-1-orb-slam-2015-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/TRO.2015.2463671",
+    "evidenceDigest": "826629955afb6e003c5078cb7f371bf68e1c41e9209f6ae0f50f3a7aec8fc02f"
+   },
+   {
+    "partId": "scene-rep-1-orb-slam3-2021-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/TRO.2021.3075644",
+    "evidenceDigest": "bcfb2e7e99a59b08e4c50a81b6392e6223888ae80b8d9815e49609e97ea01b38"
+   },
+   {
+    "partId": "scene-rep-1-dso-2018-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/TPAMI.2017.2658577",
+    "evidenceDigest": "e29d68675b8123595f598b20f4f4c41e4327105859c0ee9fe7c1c4e93ac8e264"
+   },
+   {
+    "partId": "scene-rep-1-lowry-2016-place-recognition-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/TRO.2015.2496823",
+    "evidenceDigest": "8a49ff61e73e79cd7936b44b2ff8c817d355f19993940fea8a9b2573437d23e8"
+   },
+   {
+    "partId": "scene-rep-1-dellaert-kaess-2006-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1177/0278364906072768",
+    "evidenceDigest": "2cbe5ec7e2fba38e8a701a180c11af243b094c451f27efa3d3d51c283bbfe9aa"
+   },
+   {
+    "partId": "scene-rep-1-kaess-2012-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1177/0278364911430419",
+    "evidenceDigest": "f24d3fe5ca5872d9e9c02ddd32261326aa26ea460f58f708928f18f10401002e"
+   },
+   {
+    "partId": "scene-rep-1-layered-costmaps-2014-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/IROS.2014.6942636",
+    "evidenceDigest": "6883ae5d8b35bd2e28d956f6a51d13d39a172cc798d7c5ac75d87af069f10fe4"
+   },
+   {
+    "partId": "scene-rep-1-nav2-2020-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://doi.org/10.1109/IROS45743.2020.9341207",
+    "evidenceDigest": "8f430e870786a04808ffb3a83069054058bffd5663ea9ff2ba820efc7e9fe266"
+   },
+   {
+    "partId": "scene-rep-1-nerf-2020-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2003.08934",
+    "evidenceDigest": "5b8a4ed292c80b7bfdef1e1e63ea622c910aaba6bfb80f882347689de41c067a"
+   },
+   {
+    "partId": "scene-rep-1-instant-ngp-2022-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2201.05989",
+    "evidenceDigest": "aec070c488046be7b22352d19a8b23fce4642a855d45c0fd4d639d71794bdda7"
+   },
+   {
+    "partId": "scene-rep-1-3dgs-2023-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2308.04079",
+    "evidenceDigest": "185295081abe5f951c0c18612d690e714018ea3ed5123fc43415649044598b9f"
+   },
+   {
+    "partId": "scene-rep-1-dust3r-2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2312.14132",
+    "evidenceDigest": "82442d4fa095b729f516cf8eaa801a4ec4fe0473d1c0df8ac93ae8a96544f0f8"
+   },
+   {
+    "partId": "scene-rep-1-mast3r-2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2406.09756",
+    "evidenceDigest": "a46968ccd77089d09da6fac0b6f29c5310f658bb6e7d7ddb8d2fd2af74df1dbc"
+   },
+   {
+    "partId": "scene-rep-1-cadena-2016-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/1606.05830",
+    "evidenceDigest": "f1bfcc1fc48e0799fc8b1754b2a4d574a05883c7f72d24284559e49e01b96d83"
+   },
+   {
+    "partId": "scene-rep-1-pointnet-2017-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/1612.00593",
+    "evidenceDigest": "9888c7b1b50fe1fc095166183a8e7eea9854c4c45f6e5b170b6b3f9cfe70a814"
+   },
+   {
+    "partId": "scene-rep-1-imap-2021-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2103.12352",
+    "evidenceDigest": "d4f36747a1ae347bc3208fe00c7449e31f3f7913c0d24749ba4122b33a3cc486"
+   },
+   {
+    "partId": "scene-rep-1-nice-slam-2022-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2112.12130",
+    "evidenceDigest": "4e3cc880e63d6316965fd722c2e7794d0193fc35e41d08ee9cb23d33490c9db2"
+   },
+   {
+    "partId": "scene-rep-1-dex-nerf-2021-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2110.14217",
+    "evidenceDigest": "768c51062d748119f2098e2519f1675bdd901bf00652c62bc19d63a8c07d538e"
+   },
+   {
+    "partId": "scene-rep-1-splatsim-2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2409.10161",
+    "evidenceDigest": "8364fec11f63749930ddfa582dce5236dffd37a59cb2eea729a13b35d6e76195"
+   },
+   {
+    "partId": "scene-rep-1-robogsim-2024-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2411.11839",
+    "evidenceDigest": "58bde666724f2b73200c9209d6bf046f163ae842ae8f101ce3b5ef299dbef4c0"
+   },
+   {
+    "partId": "scene-rep-1-occworld-2023-20260917a",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "Identity needle-verified by this integrator against the retained fetch body recorded in the part text (zero retrieval): the fetched surface prints the registry title, the registry author list in name, spelling and order (or the disclosed second-surface equivalent), and a dateline/year consistent with the registry; venue and channel disclosures exactly as the part text states. Evidence: https://arxiv.org/abs/2311.16038",
+    "evidenceDigest": "27c4f479e026faf78973607e84c8a27c57162b131fb1b7771f8d91cd1411922f"
+   }
+  ]
  }
 
 ]

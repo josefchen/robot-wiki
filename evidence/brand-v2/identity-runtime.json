@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "f25ee03e3aa72e16042bc28ad016519a7b2710f6a9332f800fdab3349790b1c9",
+  "fingerprint": "c0ae498d873fe0bfdfa7baae87b35cde67744e63494f7d88865151ad76757715",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -9396,7 +9396,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12505,
+      "visibleTextLength": 18756,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "1440x900"
     },
@@ -18713,7 +18713,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12021,
+      "visibleTextLength": 18272,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "375x812"
     }
@@ -19034,25 +19034,25 @@
     },
     {
       "literal": "robot-wiki",
-      "fileCount": 303,
+      "fileCount": 299,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 6681
+      "occurrences": 6650
     },
     {
       "literal": "robot-wiki.com",
-      "fileCount": 302,
+      "fileCount": 298,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 6131
+      "occurrences": 6111
     }
   ]
 }

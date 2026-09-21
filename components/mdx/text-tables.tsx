@@ -220,6 +220,101 @@ export function SimVsModelTable({ className }: { className?: string }) {
   );
 }
 
+export function WorldModelCostTable({ className }: { className?: string }) {
+  return (
+    <TextTable
+      ariaLabel="Inference cost of four world representations compared on one machine"
+      columns={[
+        'Quantity',
+        '8B text LLM (decode)',
+        'Latent WM (V-JEPA 2-AC)',
+        'AR / diffusion WM (Cosmos Predict)',
+        'Explicit 3D world (3DGS)',
+      ]}
+      rows={[
+        [
+          'Weights resident',
+          '16 GB fp16, ~5 GB Q4',
+          '~2.6 GB fp16 (1B encoder + 0.3B predictor)',
+          '32 to 56 GB (Predict2); Predict1 14B tops 80 GB without offloading',
+          '0; the scene is an asset, not weights',
+        ],
+        [
+          'Runtime state per step',
+          'KV cache, ~128 KB per token',
+          'latent vectors only, no token buffer',
+          'latents plus KV, grows with clip length',
+          'splat set, 0.1 to 2.5 GB typical scene plus LoD pool',
+        ],
+        [
+          'Single-GPU fit',
+          '24 GB class, easy',
+          '24 GB class, easy',
+          'H100 80 GB for 14B with offloading; 2B fits far smaller cards',
+          'any rasterizer GPU; very large scenes need LoD or offload',
+        ],
+        [
+          'Unit of work',
+          '1 token',
+          '1 latent step',
+          '1 clip x N denoise steps',
+          '1 camera view',
+        ],
+        [
+          'Sequence tokens in that unit',
+          '1',
+          'thousands of patch tokens per state',
+          'tens of thousands of latent tokens per clip',
+          '0 transformer tokens',
+        ],
+        [
+          'Parallel multiplier',
+          'batching shares weights',
+          'CEM samples, 10^2 to 10^3 (the paper uses 800)',
+          '4 to 50 denoise steps',
+          '1 raster pass',
+        ],
+        [
+          'Latency to useful output',
+          '10 to 50 ms per token',
+          'about 16 s per planned action (800 samples x 10 refinements)',
+          '30 s to 5 min per 5 s clip, GPU-dependent',
+          'under 30 ms per frame',
+        ],
+        [
+          'Approx. FLOP per unit vs 8B token',
+          '1x',
+          '~10^2 to 10^3x per planned action',
+          '~10^5 to 10^6x per frame',
+          'near 0 transformer FLOP',
+        ],
+        [
+          'Bottleneck',
+          'weight bandwidth',
+          'batched predictor GEMMs',
+          'denoise FLOPs plus KV traffic',
+          'splat sorting and fill rate',
+        ],
+        [
+          'Scaling with horizon',
+          'KV grows linearly with context',
+          'near-flat while the latent stays compact',
+          'linear in tokens times steps',
+          'free; the asset already exists',
+        ],
+        [
+          'Scaling with batch',
+          'linear KV, then compute-bound',
+          'batched CEM is the intended mode',
+          'usually batch 1 per clip',
+          'extra cameras render nearly free',
+        ],
+      ]}
+      className={className}
+    />
+  );
+}
+
 export function EvalShiftTable({ className }: { className?: string }) {
   return (
     <TextTable

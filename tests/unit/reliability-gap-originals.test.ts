@@ -14,6 +14,7 @@ const PLAN_IDS = [
   'reliability-gap-r3-inverse-bar-20260915',
   'reliability-gap-r4-pistar06-recap-20260915',
   'reliability-gap-r5-pi07-coaching-20260915',
+  'reliability-gap-r6-editorial-solvedbar-20260917a',
   'reliability-gap-r7-asimov-triple-20260915',
   'reliability-gap-r8-er2-safest-20260915',
   'reliability-gap-r9-deployment-record-20260915',
@@ -51,10 +52,10 @@ describe('reliability-gap originals integration (packet 6be17fb6, 2026-09-15)', 
     expect(article).toMatch(/-\s+pi07-blog-2026\n/);
   });
 
-  it('all 14 evidence plans are registered and referenced by the ledger', () => {
+  it('all 15 evidence plans are registered and referenced by the ledger', () => {
     const ledger = readFileSync(LEDGER, 'utf8');
     const plans = JSON.parse(readFileSync(PLANS, 'utf8')) as Array<{ id: string; ledgerPath: string; articleSlug: string }>;
-    expect(plans.filter((p) => p.ledgerPath === 'audit/frontier.md' && p.articleSlug === 'reliability-gap')).toHaveLength(14);
+    expect(plans.filter((p) => p.ledgerPath === 'audit/frontier.md' && p.articleSlug === 'reliability-gap')).toHaveLength(15);
     for (const id of PLAN_IDS) {
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
@@ -64,11 +65,15 @@ describe('reliability-gap originals integration (packet 6be17fb6, 2026-09-15)', 
     expect(plans.slice(606, 620).map((p) => p.id)).toEqual(PLAN_IDS);
   });
 
-  it('held row 6 stays byte-untouched in the old five-cell form', () => {
+  it('row 6 carries the 2026-09-17a editorial correction and its plan binding', () => {
     const ledger = readFileSync(LEDGER, 'utf8');
-    expect(ledger).toContain(
-      '| R6 | ">1,000h documented MTBF; no system publishes one" | negative claim (editorial) | V | the article\'s own solved-bar definition; flagged as framing, not a sourced fact; no contradicting deployment record found in technology.org sweep |  |  |  |  |',
-    );
+    const line = ledger.split('\n').filter((l) => l.startsWith('| R6 |'));
+    expect(line).toHaveLength(1);
+    expect(line[0]).toContain('| C |');
+    expect(line[0]).toContain('this wiki’s proposal');
+    expect(line[0]).toContain('none of the deployed systems surveyed publishes one');
+    expect(line[0].endsWith('| ' + 'reliability-gap-r6-editorial-solvedbar-20260917a' + ' |')).toBe(true);
+    expect(ledger).not.toContain('no system publishes one" | negative claim (editorial)');
   });
 
   it('approved deltas carry the 14 new approval entries', () => {

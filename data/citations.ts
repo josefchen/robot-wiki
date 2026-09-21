@@ -3662,6 +3662,42 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
+    // The Cosmos Predict1 platform paper: transformer diffusion and
+    // autoregressive WFMs (4B-14B), continuous/discrete video tokenizers,
+    // post-training into camera-control, instruction-following and driving
+    // variants. Abstract page verified live (HTTP 200, 2026-09-16).
+    id: 'cosmos-predict-2025',
+    title: 'Cosmos World Foundation Model Platform for Physical AI',
+    authors: ['NVIDIA'],
+    year: 2025,
+    arxiv: '2501.03575',
+    url: 'https://arxiv.org/abs/2501.03575',
+    type: 'paper',
+  },
+  {
+    // NVIDIA's own inference-performance tables for Cosmos-Predict2:
+    // required VRAM per variant (2B-Video2World 32.54 GB, 14B-Video2World
+    // 56.38 GB) and measured generation times across GPU hardware at
+    // 480p/16fps and 720p. Docs page verified live (HTTP 200, 2026-09-16).
+    id: 'cosmos-predict2-perf-2025',
+    title: 'Cosmos-Predict2 Inference Performance and GPU Memory Requirements',
+    authors: ['NVIDIA'],
+    year: 2025,
+    url: 'https://github.com/nvidia-cosmos/cosmos-predict2/blob/main/documentations/performance.md',
+    type: 'docs',
+  },
+  {
+    // NGC model card for Cosmos-1.0-Diffusion-14B-Video2World: 121-frame
+    // output at 1280x704/24fps and the offload-strategy VRAM table
+    // (14B exceeds 80 GB without offloading). Page verified live (2026-09-16).
+    id: 'cosmos-1-diffusion-14b-card-2025',
+    title: 'Cosmos-1.0-Diffusion-14B-Video2World Model Card',
+    authors: ['NVIDIA'],
+    year: 2025,
+    url: 'https://catalog.ngc.nvidia.com/orgs/nvidia/cosmos/models/cosmos-1.0-diffusion-14b-video2world',
+    type: 'docs',
+  },
+  {
     // NVIDIA newsroom launch release for Cosmos 3, registered by the
     // generative-video integrator for the launch dateline only. Fetched
     // live by the frozen packet's source session (curl GET 200, 2026-09-16,
@@ -5417,15 +5453,16 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the author's paper archive (2026-08-11): Int. J.
-    // Robotics Research 20(5):378-400, May 2001. The journal treatment of
-    // RRTs, including kinodynamic planning with dynamics constraints.
+    // Identity-verified 2026-09-17: Crossref DOI 10.1177/02783640122067453
+    // (IJRR 20(5):378-400, May 2001) and title-page OCR of LavKuf01b.pdf.
+    // Prior url LavKuf01.pdf served the different paper 'Rapidly-Exploring
+    // Random Trees: Progress and Prospects' and was corrected.
     id: 'lavalle-kuffner-2001',
     title: 'Randomized Kinodynamic Planning',
     authors: ['Steven M. LaValle', 'James J. Kuffner'],
     year: 2001,
     venue: 'Int. J. Robotics Research',
-    url: 'https://lavalle.pl/papers/LavKuf01.pdf',
+    url: 'https://lavalle.pl/papers/LavKuf01b.pdf',
     type: 'paper',
   },
   {
