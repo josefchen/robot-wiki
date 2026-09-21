@@ -61973,11 +61973,7 @@
         ]
       }
     ],
-    "planReview": {
-      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Packet record safety-and-assurance:5 (ready-source-correction): Table 5 prints Normal + Multiple Separate Beams -> 850 mm (Single-Height Beam 1200 mm) and §VII prints \"must be at least 850 mm\"; integrator needle-verified both passages against the full retained PMC fetch and independently re-read the table cells; the article span now carries the source's own lower-bound qualifier (packet endpoint). Standing owner-question row: no authored-mapping dependency remains, nothing held. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
-      "planDigest": "173a4d29239b53eca7b222b0f5cd2dd2e8d364ccdb059fc49162980d3693012e"
-    },
+    "planReview": null,
     "evidence": [
       {
         "partId": "sa5-table5-850",
@@ -61992,23 +61988,8 @@
         "supportingPassage": "For example, if the integrator chooses to ensure safety by limiting the direction of approach to be normal to the machinery and protects the region by multiple laser-based sensors, the value of C must be at least 850 mm. If the operator also requires a two-handed control device, the value of C may be reduced to 250 mm."
       }
     ],
-    "adjudications": [
-      {
-        "partId": "sa5-table5-850",
-        "outcome": "supported",
-        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-        "rationale": "Integrator adjudication of packet part sa5-table5-850 (record audit/frontier.md:safety-and-assurance:5): supported. Packet record safety-and-assurance:5 (ready-source-correction): Table 5 prints Normal + Multiple Separate Beams -> 850 mm (Single-Height Beam 1200 mm) and §VII prints \"must be at least 850 mm\"; integrator needle-verified both passages against the full retained PMC fetch and independently re-read the table cells; the article span now carries the source's own lower-bound qualifier (packet endpoint). Standing owner-question row: no authored-mapping dependency remains, nothing held.",
-        "evidenceDigest": "da6c67654b803b8906b209a94ff079a9ac25d66be7e4d3b2ee7a854bb14f95ca"
-      },
-      {
-        "partId": "sa5-lower-bound-qualifier",
-        "outcome": "supported",
-        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-        "rationale": "Integrator adjudication of packet part sa5-lower-bound-qualifier (record audit/frontier.md:safety-and-assurance:5): supported. Packet record safety-and-assurance:5 (ready-source-correction): Table 5 prints Normal + Multiple Separate Beams -> 850 mm (Single-Height Beam 1200 mm) and §VII prints \"must be at least 850 mm\"; integrator needle-verified both passages against the full retained PMC fetch and independently re-read the table cells; the article span now carries the source's own lower-bound qualifier (packet endpoint). Standing owner-question row: no authored-mapping dependency remains, nothing held.",
-        "evidenceDigest": "06c31dd0c6db262f302d38969eb1ccd8953607cdfaae68e4077b324f7fe5e4f5"
-      }
-    ],
-    "originalCellsDigest": "55b4336db6d3c9828d07b4d3b3d1a324a520f90be0232779e90fb3ce61b6fd87"
+    "adjudications": [],
+    "originalCellsDigest": "0b6acd21bfdfc99a3bf45f77b99ec0cbd74a728735e009ea7d61a5e11c388623"
   },
   {
     "id": "safety-remainder-20260916-safety-and-assurance-6",
@@ -62032,11 +62013,7 @@
         ]
       }
     ],
-    "planReview": {
-      "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Packet record safety-and-assurance:6 (ready-evidence-completion): §III prints the 1600 mm/s worst-case framing and the measured-directly provision verbatim; the contradicting Discussion passage (prudent 2000 mm/s) is preserved; verdict stays S (source-internal inconsistency recorded). Integrator re-read both contradicting passages in the retained fetch per the both-passages rule. Standing owner-question row: both margins/speeds are printed by the source; nothing held. Integrator review: packet plan reviewed in full; every fetched-quote fragment of the published supporting passage and of every evidence item was needle-verified by this integrator against the retained source-session corpus (two full FetchUrl artifact logs, six retained FetchUrl bodies, four retained pdftotext outputs, retained Crossref output, repo git-show at the frozen and current HEAD) with zero network retrieval; every cited id confirmed registered in data/citations.ts; fold adjudications and the two disclosed integrator repairs are recorded in the lane needle-verification.json and needle-adjudication.json.",
-      "planDigest": "d25d96f5a3a0048a1e060797dbaf4fbbdeda295b54101f73e05f093305f0954e"
-    },
+    "planReview": null,
     "evidence": [
       {
         "partId": "sa6-1600-worst-case",
@@ -62051,23 +62028,8 @@
         "supportingPassage": "For instance, regarding the assumed value of the operator velocity, vH, even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the worst-case assumption of 2000 mm/s from ISO 13855 to accommodate instantaneous rapid motions and the uncertainties associated with operator detection. Although this worst-case assumption is not necessarily accurate at all times, it is clearly safer to assume than the special case"
       }
     ],
-    "adjudications": [
-      {
-        "partId": "sa6-1600-worst-case",
-        "outcome": "supported",
-        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-        "rationale": "Integrator adjudication of packet part sa6-1600-worst-case (record audit/frontier.md:safety-and-assurance:6): supported. Packet record safety-and-assurance:6 (ready-evidence-completion): §III prints the 1600 mm/s worst-case framing and the measured-directly provision verbatim; the contradicting Discussion passage (prudent 2000 mm/s) is preserved; verdict stays S (source-internal inconsistency recorded). Integrator re-read both contradicting passages in the retained fetch per the both-passages rule. Standing owner-question row: both margins/speeds are printed by the source; nothing held.",
-        "evidenceDigest": "a7d823f1c8583a2f7bc3373b592a830e200cda8f6b4b46d052d890766120dd21"
-      },
-      {
-        "partId": "sa6-recorded-2000-inconsistency",
-        "outcome": "supported",
-        "reviewedBy": "safety-remainder-integrator-20260916 (session 3637c8d9-7175-4fd0-9288-a8d618cf0f3b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-        "rationale": "Integrator adjudication of packet part sa6-recorded-2000-inconsistency (record audit/frontier.md:safety-and-assurance:6): supported. Packet record safety-and-assurance:6 (ready-evidence-completion): §III prints the 1600 mm/s worst-case framing and the measured-directly provision verbatim; the contradicting Discussion passage (prudent 2000 mm/s) is preserved; verdict stays S (source-internal inconsistency recorded). Integrator re-read both contradicting passages in the retained fetch per the both-passages rule. Standing owner-question row: both margins/speeds are printed by the source; nothing held.",
-        "evidenceDigest": "5e8191e37389dec8e1d7735d26cfeffd6ab33051eb00a7fbdb4c9aa00905c32f"
-      }
-    ],
-    "originalCellsDigest": "a0b6b670f57a2b1afb510811fdea1200e585ce19c66784b0ec5358302aa15ba6"
+    "adjudications": [],
+    "originalCellsDigest": "0058b5e1457cd54661ab95097a1eaef1040b34d7e041d42841df1c4ab661cf89"
   },
   {
     "id": "safety-remainder-20260916-safety-and-assurance-7",
@@ -62843,7 +62805,7 @@
     "ledgerPath": "audit/rl-sim2real.md",
     "articleSlug": "reward-design-mpc",
     "rowOrdinal": 4,
-    "originalCellsDigest": "4dc019817ebed19709a17b36b9d1f51ea8e10383a3f184d1d753ac7a04423807",
+    "originalCellsDigest": "44c8769365d7eb2a93a5367ce8baab5eb04af8840b141d83c7023ee280fc94e2",
     "kind": "explicit-parts",
     "parts": [
       {
@@ -62862,27 +62824,15 @@
         "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/reward-shaping.ts header prints 'This local teaching model uses twelve illustrative terms and weights, not the paper reward or a runnable pinned legged_gym configuration.' and 'maps weights to illustrative failure attractors (freeze, prance, chatter)'; the TERMS array holds exactly twelve entries (velTrack, yawTrack, torque, jointAccel, actionRate, jointLimit, collision, baseHeight, orientation, airTime, stumble, termination). components/interactive/reward-shaping.tsx maps TERMS to one range slider per entry (line 418) and prints a live 'Terms: <span>{TERMS.length}</span>' readout (line 246). content/rl-sim2real/reward-design-mpc.mdx prints 'Twelve weighted terms sit on the illustrative behavior preview below. Its weights, per-term magnitudes and freeze/prance/chatter categories are teaching choices, not the paper's nine-term objective or a runnable `legged_gym` configuration.'"
       }
     ],
-    "planReview": {
-      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Packet record reward-design-mpc:4 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at application-time HEAD (see lane local-proof.json); the row is repo-internal, so the anchor citation legged-gym-repo-2021 carries the passage cell with the repo-only disclosure per the safety-remainder SA9/SA32 convention; no fetch was made or needed for this row.",
-      "planDigest": "0e859ca68cebbf51a3b109964cad912fe43579c1f0bb53f44c97f54057e4601b"
-    },
-    "adjudications": [
-      {
-        "partId": "r4-local",
-        "outcome": "supported",
-        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-        "rationale": "Integrator adjudication of part r4-local (record audit/rl-sim2real.md:reward-design-mpc:4): supported as a repo-internal conjunct re-proved by this integrator at application-time HEAD (lane local-proof.json); the anchor citation carries the repo-only disclosure passage; no fetch applies.",
-        "evidenceDigest": "e9dae15d21127a46bee6e92f515e1e83885f387f49c01d22b3fde3fe5321c3b8"
-      }
-    ]
+    "planReview": null,
+    "adjudications": []
   },
   {
     "id": "reward-design-mpc-original-5-20260916",
     "ledgerPath": "audit/rl-sim2real.md",
     "articleSlug": "reward-design-mpc",
     "rowOrdinal": 5,
-    "originalCellsDigest": "3c8db752a64be1f2d3a7ee547338a104494cb3756600d0c3ae5b245f1bddf842",
+    "originalCellsDigest": "213f3f6c6ab625c0d916ca532c473239bda95be515d92441786c4dc10bf6d91c",
     "kind": "explicit-parts",
     "parts": [
       {
@@ -62901,27 +62851,15 @@
         "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): content/rl-sim2real/reward-design-mpc.mdx prints 'The preview maps weight settings to three illustrative categories: freeze, prance, and chatter. Those classifications and the displayed motion are outputs of this local teaching model, not policies trained in the cited simulator. Rudin and colleagues report different observed artifacts, including a dragging leg and unusually high or low base height, and describe tuning reward weights before transferring their policy to hardware <Cite id=\"rudin-2021\" />.' lib/reward-shaping.ts header prints 'maps weights to illustrative failure attractors (freeze, prance, chatter)' and 'an illustrative teaching model, not measured simulator output'."
       }
     ],
-    "planReview": {
-      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Packet record reward-design-mpc:5 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at application-time HEAD (see lane local-proof.json); the row is repo-internal, so the anchor citation rudin-2021 carries the passage cell with the repo-only disclosure per the safety-remainder SA9/SA32 convention; no fetch was made or needed for this row.",
-      "planDigest": "3e927ce65dc8095a7a6aba42a4a85bf74527e59f315d7aa3efbbe8cfad7a0ea8"
-    },
-    "adjudications": [
-      {
-        "partId": "r5-local",
-        "outcome": "supported",
-        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-        "rationale": "Integrator adjudication of part r5-local (record audit/rl-sim2real.md:reward-design-mpc:5): supported as a repo-internal conjunct re-proved by this integrator at application-time HEAD (lane local-proof.json); the anchor citation carries the repo-only disclosure passage; no fetch applies.",
-        "evidenceDigest": "f285fb2e2503606f3ada81f839bdcdd6b7c699b611de3441aa623147f7b07309"
-      }
-    ]
+    "planReview": null,
+    "adjudications": []
   },
   {
     "id": "reward-design-mpc-original-11-20260916",
     "ledgerPath": "audit/rl-sim2real.md",
     "articleSlug": "reward-design-mpc",
     "rowOrdinal": 11,
-    "originalCellsDigest": "da15c80d90a840bd40ff65f0eea90065fb9ef6d3f3bb55bd106da9254d90bef2",
+    "originalCellsDigest": "3826f5284c7776b629bc1e16c3517c077cf36a0c6339459ddcd3c7d9b6e672d7",
     "kind": "explicit-parts",
     "parts": [
       {
@@ -62940,20 +62878,8 @@
         "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): components/interactive/eureka-loop.tsx prints at line 215 'Scripted replay of the Eureka loop (propose reward code, train, select on fitness, reflect on reward statistics, mutate). The code, statistics, and reflections are an illustration of the mechanism, not a recording of a real run.' and its doc comment at lines 21-22 prints 'The generations are a scripted illustration of the mechanism, labeled as such, not a recording of a real Eureka run.' The generations come from EUREKA_GENERATIONS in lib/eureka.ts."
       }
     ],
-    "planReview": {
-      "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Packet record reward-design-mpc:11 (ready-source-correction-with-local-AND): local conjunct re-verified by this integrator at application-time HEAD (see lane local-proof.json); the row is repo-internal, so the anchor citation eureka-2024 carries the passage cell with the repo-only disclosure per the safety-remainder SA9/SA32 convention; no fetch was made or needed for this row.",
-      "planDigest": "c2d0ccb97d5b4715af68e23ce6b8cf1590d62df034e98f15888d80e6157a7b6d"
-    },
-    "adjudications": [
-      {
-        "partId": "r11-local",
-        "outcome": "supported",
-        "reviewedBy": "reward-design-mpc-integrator-20260916 (session 2fb516a5-c645-472c-bf4d-13c12984eb68, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-        "rationale": "Integrator adjudication of part r11-local (record audit/rl-sim2real.md:reward-design-mpc:11): supported as a repo-internal conjunct re-proved by this integrator at application-time HEAD (lane local-proof.json); the anchor citation carries the repo-only disclosure passage; no fetch applies.",
-        "evidenceDigest": "326a2c08152113f6ce28f203e755dcb32ab211cc6a745a9eccb3bdbe1c08ed87"
-      }
-    ]
+    "planReview": null,
+    "adjudications": []
   },
   {
     "id": "reward-design-mpc-original-14-20260916",
@@ -68970,7 +68896,7 @@
   "ledgerPath": "audit/rl-sim2real.md",
   "articleSlug": "legged-locomotion",
   "rowOrdinal": 8,
-  "originalCellsDigest": "100f787b1aa8c18b7b9e21c822c4868c3a9888b38737b3d235ef6bcb3bf9025f",
+  "originalCellsDigest": "cf0bf31e7172bcba2ff8d509efa7724ac0ceb2954e9c4aa054b25c4734a216d0",
   "kind": "explicit-parts",
   "parts": [
    {
@@ -68988,11 +68914,7 @@
     ]
    }
   ],
-  "planReview": {
-   "reviewedBy": "GLM-5.3/max integrator 1da30453-1006-48e0-8a96-1a4bb8f54184; retained row-7 re-confirmation + packet needle verification + local-AND proof 2026-09-16",
-   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 d80e6e2cf65a50321968b408ec66ece06d165a492331d2ae9cdd763c76871f37) at HEAD cc09291a: row binding (audit/rl-sim2real.md:legged-locomotion:8), ordinal and currentTupleDigest 8de21bc7399f995bfc18fabc2e0fa4ad9f7d79f112f7e3b5ac81ba5f8601f8a8 re-derived with the repo lib/audit-ledger.ts parser and matched against the live ledger row immediately before application (parent row-dispatch preflight exit 0, mode current-head-identity-check). Classical conjunct: the retained, applied row-7 plan locomotion-park7-20260915-legged-locomotion-7 was re-confirmed read-only at this apply HEAD in audit/compound-evidence.json (Sec. 4.3 title \"Duty cycle modulation via vertical impulse scaling\", T_st = L/v_d with fixed swing duration, the 3 m/s stride-length schedule bound; same citation id park-2017-bounding and same registered URL), and the packet passage l8-park-classical-instance was needle-verified against that record; the live URL answered 403 to the preparer re-probe (2026-09-16T14:29:07Z, sha256 5b5e17bd…, saved body byte-verified), so the retained material is preserved provenance, not a fresh fetch. Local conjunct: re-executed by this integrator at apply time — lib/gait.ts GAITS authored constants (walk 0.75 lh 0/lf 0.25/rh 0.5/rf 0.75; trot 0.5 lf+rh 0, rf+lh 0.5; bound 0.45 front 0/hind 0.5; pronk 0.35 all 0), GAIT_ORDER walk/trot/bound/pronk, DEFAULT_GAIT walk, the module-header canonical-pattern framing, gait-diagram.tsx duty-readout rendering GAITS[].dutyFactor, and the article mount (line 35) plus the disclaimer sentence (line 64) carrying <Cite id=\"park-2017-bounding\" /> on the span. Citation park-2017-bounding verified registered in data/citations.ts and reused read-only; no new registrations. Rows 1, 6, 17 and 18 stay honestly HELD (paywalled Choi primaries x2; authored-toy schema family; stale frontmatter-P1 claim cell). Zero retrieval by this integrator. Source preparation is not acceptance.",
-   "planDigest": "6761fb1c5b36db30f6f1ddd9173c18b681d0edbd934c0df1d4c73dab0a51f333"
-  },
+  "planReview": null,
   "evidence": [
    {
     "partId": "l8-classical-instance",
@@ -69007,22 +68929,7 @@
     "supportingPassage": "Park-side instance as above (retained). The authored duty factors and phase offsets are LOCAL facts read at HEAD cc09291a: lib/gait.ts GAITS (walk 0.75 / trot 0.5 / bound 0.45 / pronk 0.35), consumed by components/interactive/gait-diagram.tsx; article mount line 35, disclaimer sentence line 64 with <Cite id=\"park-2017-bounding\" /> on the span."
    }
   ],
-  "adjudications": [
-   {
-    "partId": "l8-classical-instance",
-    "outcome": "supported",
-    "reviewedBy": "GLM-5.3/max integrator 1da30453-1006-48e0-8a96-1a4bb8f54184; retained row-7 re-confirmation + packet needle verification + local-AND proof 2026-09-16",
-    "rationale": "Needle-verified against the packet passage l8-park-classical-instance and re-confirmed read-only against the retained applied row-7 plan at this apply HEAD before adjudication: Park Sec. 4.3 is literally titled \"Duty cycle modulation via vertical impulse scaling\", stance time T_st = L/v_d scales inversely with speed with fixed swing duration, and the Sec. 7 experimental schedule uses speed-dependent stride length below 3 m/s — ONE classical controller's schedule, so the corrected note keeps Park to the single-controller instance and the universal \"classical and learned alike\" clause of the audited sentence is recorded as the article's framing, not a Park attribution.",
-    "evidenceDigest": "3ee676c6190a5f185e74e375b406f656326ee1003c6d0e1340b2548e7801222c"
-   },
-   {
-    "partId": "l8-authored-values-local-AND",
-    "outcome": "supported",
-    "reviewedBy": "GLM-5.3/max integrator 1da30453-1006-48e0-8a96-1a4bb8f54184; retained row-7 re-confirmation + packet needle verification + local-AND proof 2026-09-16",
-    "rationale": "Local proof re-executed by this integrator at apply time (read-only, no network evidence exists or is claimed for the authored constants): lib/gait.ts GAITS defines the four duty factors and phase offsets exactly as the part states (walk 0.75 lh 0/lf 0.25/rh 0.5/rf 0.75; trot 0.5 diagonal pairs; bound 0.45 front/hind pairs; pronk 0.35 all-zero offsets) with GAIT_ORDER walk/trot/bound/pronk and DEFAULT_GAIT walk; components/interactive/gait-diagram.tsx renders GAITS[].dutyFactor as the duty-readout; the article mounts the diagram at line 35 and the audited disclaimer sentence at line 64 carries <Cite id=\"park-2017-bounding\" /> on the span, which is the citation the part reuses. The corrected verdict scopes \"canonical nominal values\" to these authored repo constants per the legacy packet's adjudicated proposal (record 3, 2026-09-08), re-verified locally here.",
-    "evidenceDigest": "2c589fd6d8ea9195a12aac2139d8665c157f84b38f630dcead1e2c59de139bad"
-   }
-  ]
+  "adjudications": []
  },
  {
   "id": "motion-planning-1-cspace-reformulation-20260916j",
@@ -69825,13 +69732,9 @@
   "ledgerPath": "audit/rl-sim2real.md",
   "articleSlug": "parallel-sim-rl",
   "rowOrdinal": 18,
-  "originalCellsDigest": "c48d84728c0ef1633848263913732949a7713b5efea7cd27e2f13c4c712f4948",
+  "originalCellsDigest": "f17a3fd555b9708f82c3bed9711c059c50804e989722b4563ab62914e8f7cdc0",
   "kind": "explicit-parts",
-  "planReview": {
-   "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
-   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) at HEAD a2e74eab1b693ad76f27a81d54b17972b8ca9cf1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, ledgerSha256 audit/rl-sim2real.md 3cab6082...) before application, and re-derived with the repo lib/audit-ledger.ts parser. Every evidence passage was independently needle-verified by this integrator before adjudication against the packet sha256-verified retained bodies (fetchLog of record 2026-09-16T16:50:48Z-16:55:21Z; sources/ under convergence-source-y-parallel-sim-rl-20260916k) and, for the Rudin ar5iv surface (rows 3 and 18), against the registered row-2 plan rudin-protocol-writer-parallel-sim-rl-2-20260909 retained passages in audit/compound-evidence.json read-only; the Brax title-page affiliations were re-derived by pdftotext from the sha256-verified PDF. Negative needles hold on the retained bodies: the Isaac Gym abstract and full text print no primacy claim (\"first\" 0 abstract hits, 2 procedural full-text hits, \"first demonstration\" 0 anywhere; the paper itself acknowledges concurrent work), and the MuJoCo Playground abstract prints no \"unified\", \"built on MJX\", \"locomotion\" or \"manipulation\". Row 18 local-AND obligations re-executed read-only at apply HEAD (Callout illustrative labeling with the registered rudin-2021 citation on the bounds sentence; lib/parallel-sim.ts fixed-transitions three-bucket header; RUDIN_MARKERS flat 4,096/4 min and uneven 4,096/20 min; no measured-curve presentation anywhere). The packet preparation is not acceptance. Zero retrieval by this integrator; the packet apply-time re-fetch suggestions are superseded by the dispatch binding no-fetch rule (same resolution as the verified perception checkpoint).",
-   "planDigest": "8eedf7d5a8fb0593d1ff8beeac63e696070b716a619e81f62a8b6c58b36f2a67"
-  },
+  "planReview": null,
   "parts": [
    {
     "id": "y18-rudin-diamond-anchors",
@@ -69849,15 +69752,7 @@
     "supportingPassage": "The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. ... For our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes [footnote as printed: Trained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material.]"
    }
   ],
-  "adjudications": [
-   {
-    "partId": "y18-rudin-diamond-anchors",
-    "outcome": "supported",
-    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
-    "rationale": "the measured-anchor conjunct is printed verbatim on the retained registered surface (reused read-only per the compound-evidence reuse rule; integrator re-fetches at apply time); the illustrative-model conjunct discharges via the integrator's in-repo local proof, enumerated in missingDependencies Needle-verified verbatim by this integrator before adjudication: the Rudin-surface items against the registered row-2 plan retained passages read-only, the README items against the sha256-verified retained master README and repo landing page.",
-    "evidenceDigest": "08a087fb75f768293f05a66946682da356a1d18c5e1b127750da313e75245024"
-   }
-  ]
+  "adjudications": []
  },
  {
   "id": "rl-for-robotics-49-droid-oxe-corpora-20260916k",

@@ -1,3 +1,30 @@
+## Current checkpoint: seven named authored-evidence holds restored (2026-09-21)
+
+Current native accounting: **952 complete / 42 incomplete / 994 originals**, across 47 articles. Exactly seven previously credited originals were restored to their named holds; this is a truthful withdrawal of completion, not seven positive completions. Zero unattempted selected originals. Structural counts are not source-truth certification, whole-article completion or independent acceptance. All earlier checkpoints below are historical snapshots.
+
+Restored originals: audit/rl-sim2real.md:parallel-sim-rl:18; audit/rl-sim2real.md:legged-locomotion:8; audit/rl-sim2real.md:reward-design-mpc:4; audit/rl-sim2real.md:reward-design-mpc:5; audit/rl-sim2real.md:reward-design-mpc:11; audit/frontier.md:safety-and-assurance:5; audit/frontier.md:safety-and-assurance:6. Keep the existing plan bindings: only their planReview fields are null and adjudications arrays empty, with exact former reviews and all four former cells archived verbatim after the two ledgers' original tables. The current claims, source-checked cells and verdicts are unchanged; notes state the concrete gaps and retain the former notes as history. No source/evidence part is deleted or invented.
+
+Genuine work remains: the safety5 at-least-850 correction; safety6 S and its 1600/2000/measured-versus-assumed countercontext; RL source facts and authored-example disclosures. Unchanged sim23/24 and industrial52 remain held. Hierarchy14 and the separately approved six-part/seven-pair hierarchy15 correction remain complete; only three stale hierarchy14 test expectations now acknowledge both exact approved prose steps, retaining all historical source/citation and negative approval controls. No article, component, library, registry, approval entry or audit criterion changed.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 220 | 5 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 113 | 15 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 952 | 42 |
+
+Native parseLedger uses canonical frontmatter citation context for every article. All 994 original identities/order, 987 unselected full records (including line coordinates), 952 unaffected prior completions, 850 unselected plans and all 999 approvals are preserved. Total plans remain 857. External owner checkpoint b0e1701bc74d14e195bfa99f273b856b2c81406b and PRODUCT_QUALITY.md, qa/findings.json and next-env.d.ts are preserved.
+
+No new source/network request, browser, build, full test suite, model/criteria change or publication. Retained source provenance and concrete authority gaps are in the consumed source-authority review /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-named-local-holds-review-20260921/review.json, SHA-256 ce862d987fa3114e6b2b7366f88f10ac6082661bbaa195015175cb47b647caf2, and the new held notes/history. Source numbers do not establish authored calculator choices; repository disclosures do not create an authorized fetched-passage evidence type. The owner decision about local evidence remains pending.
+
+Verification: red-first scoped seven-file run exited 1 with 13 failed / 118 passed / 131. Twelve failures corresponded to held-row/context expectations (including the unchanged industrial-cost safety guard); one new reward-disclosure check was corrected for an existing JSDoc line wrap without changing product text. All eight current hierarchy14 checks and all 77 audit-ledger checks passed. After restoration, the same seven-file scoped run passes **131/131 tests**, including the unchanged industrial-cost safety5/6 hold assertion and all eight hierarchy14 tests. Normal prelint and five-test-file ESLint pass. The isolated strict five-file typecheck passes with existing Node declarations and no emit; the first two standalone invocations required explicit --ignoreConfig and --types node, with their actual failures retained in lint.log. Full native preservation and all seven domain-summary comparisons pass. The single final offline coverage run exited **1 with 49 full findings**, **952/42/994**, 47/47 articles and zero native summary mismatches. There are 42 incomplete original records, four additional unresolved-verdict findings and three aggregate evidence-field findings; the full 49 failure objects remain unmodified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-seven-named-holds-restoration-rebound-20260921/coverage.json (10018376 bytes, SHA-256 82a533e3c51d6626643683c0713323374480375e0d64fe1bcbabe2cc68c147ab), with empty stderr. Saved gate section objects exactly match the native preservation snapshot. The previous hierarchy15 run had 43 findings including its subsequently fixed summary mismatch; 49 is the honest current gate result, not a rerun of that old receipt. Focused tests are green but the content gate remains red: no publication or independent acceptance.
+
+---
+
 ## Current checkpoint: hierarchy15 bounded synthesis corrected (2026-09-21)
 
 Current native accounting: **959 complete / 35 incomplete / 994 originals**, across 47 articles. One selected original was completed: audit/manipulation.md:hierarchical:15; zero held and zero unattempted in this slice. This is structural evidence completeness, not historical-truth certification, whole-article completion or independent acceptance. All checkpoints below this section are historical snapshots.
