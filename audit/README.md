@@ -1,3 +1,34 @@
+## Current checkpoint: hierarchy15 bounded synthesis corrected (2026-09-21)
+
+Current native accounting: **959 complete / 35 incomplete / 994 originals**, across 47 articles. One selected original was completed: audit/manipulation.md:hierarchical:15; zero held and zero unattempted in this slice. This is structural evidence completeness, not historical-truth certification, whole-article completion or independent acceptance. All checkpoints below this section are historical snapshots.
+
+Four exact prose endpoints now compare five named mechanisms (π0.5, π0.6-MEM, π0.7, Gemini Robotics 1.5, GO-2). The historical supersession AND keypoint-migration claim and all old cells remain intact; the verdict is C and unsupported universals are explicitly withdrawn. The native plan requires six AND parts/seven citation-source pairs, genuinely reviewed from retained primary text by Astra/max at 2026-09-21T21:11:26.600Z. Same-model inference, separate models/policies and vendor modules remain distinct, as do training, capabilities and deployed control. Prior hierarchy14 is byte-identical; industrial52 and every other owner hold remain unchanged.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 220 | 5 |
+| rl-sim2real | 167 | 164 | 3 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 113 | 15 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 147 | 0 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 959 | 35 |
+
+Counting method: native parseLedger over AUDIT_LEDGERS with canonical frontmatter citation context and the unchanged schema; incomplete means evidenceFailures.length > 0. All 994 IDs/order, 993 unselected records and 958 prior complete IDs are preserved. All 856 prior plans and 998 prior approvals, including their exact serialized prefixes, survive; one plan and one exact permanent native prose approval are appended (857 plans / 999 approvals). No frontmatter, citation registry, source URL registry, article review date, component, figure, route, owner file or gate criterion changed.
+
+Zero new source requests. Five retained source documents and their original receipts were hash-checked; twelve literal excerpts support the six reviewed parts/seven pairs. π0.5 v1 response: 2026-09-07T16:08:29.437Z, historical tool-reported 200. MEM: 2026-09-07T20:40:03.665518+00:00; π0.7: 2026-09-07T16:28:13.008052+00:00; GO-2: 2026-09-07T22:55:23.618405+00:00, all historical transport receipts. GR1.5 v3 response time is unavailable; tool-reported 200 and capture/save times are not new fetch observations. Complete URLs, source/receipt/raw hashes and limitations are retained in the row note and compound evidence.
+
+Focused verification: new red-first tests 15 failed / 1 passed; post-correction focused run **98 passed / 3 failed / 101 tests**. New hierarchy15 tests 16/16 and audit-ledger 77/77 pass. The unchanged hierarchy14 test fails at lines 59, 105 and 137: old whole-article hash, expectation that original15 remain incomplete, and isolated old-only approval comparison. These exact out-of-scope expectations need parent-scoped repair; no test was weakened. Normal prelint and narrow ESLint pass. Article-only MDX/citation/currency/no-slop checks pass, with 1791 source words and triad density 3.3500837520938025 below 22. Native exact prose-approval positive/negative controls pass in the new suite. Manual review covered all four replacements; no rendered evidence is claimed.
+
+The fixed authorization excludes the existing frontmatter description and opening/section framing outside the four endpoints; those still make broader hierarchy claims and require parent follow-up. Current affected-reader/full-corpus rendering, reading-time regeneration, existing named local-proof repairs, independent scrutiny/user testing and formal release gates remain owed. No full suite, build, browser, type generation, capture or publication in this slice. No lastReviewed bump: this was not a whole-article audit.
+
+Final offline coverage (one invocation): `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json`, exit 1, **43 full findings**, 47/47 articles, **959/35/994**. Complete stdout: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy15-integration-20260921/coverage.json (9997211 bytes, SHA-256 74d4b58df3f3f8f321100f5394523defc37a0112d06c1beb73220c02cbd72093); stderr empty. All full failure objects are preserved, not flattened or waived. The post-correction unit aggregate remains red for the three named out-of-scope hierarchy14 expectations.
+
+Post-gate scoped correction: the single full gate exposed one new manipulation ledger-summary mismatch. The application helper had supplied canonical citation context for hierarchical only when regenerating the domain summary, producing 217 complete / 8 incomplete instead of 220 / 5. Regeneration with all twelve manipulation articles' canonical frontmatter fixes the summary without changing any row tuple or evidence. A native parseLedger check observed one summary failure before and zero after, with all 225 four-cell digests identical. The full 43-finding coverage.json is retained verbatim; it was not rerun, and is not claimed as a post-summary-fix full-gate result. All other full failure objects and the three hierarchy14 test failures remain reported.
+
+---
+
 ## Current checkpoint: industrial52 hold restored; hierarchy14 corrected (2026-09-21)
 
 Current native accounting is **958 complete / 36 incomplete / 994 originals**, across 47 articles. These are structural evidence counts, not source-truth certification or independent acceptance. All dated checkpoints below are historical snapshots; in particular, the September 16 **873/121** figures are not current accounting.

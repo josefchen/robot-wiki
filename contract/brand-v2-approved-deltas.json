@@ -18137,5 +18137,24 @@
       ],
       "disposition": "permanent"
     }
+  ,
+    {
+      "id": "hierarchy15-bounded-synthesis-correction-20260921",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+      "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c",
+      "reason": "Correct original15 by replacing universal supersession and runtime-keypoint claims with six fully sourced parts covering the five explicitly named document-bounded examples and the geometry scope distinction; preserve original14 exactly and retain historical conjunctions as corrected history.",
+      "ownerApproval": "Standing Josef finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy15-integration-20260921/authorization.json, bound to HEAD 79807c70bf339a47eb19c581eb0ae5bf3a2c6115 and source packet SHA-256 2054bd45ec7aecec89421dcf9600941a8fdb1d003d20bb6024cdc398c00304e4. Only the four specified endpoints are authorized; not a new human signature, human source certification, local-proof exception or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
   ]
 }

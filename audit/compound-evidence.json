@@ -73913,4 +73913,151 @@
   ]
 }
 
+,
+  {
+    "id": "hierarchy15-bounded-five-system-20260921",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "hierarchical",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "71a2e055c5e32f543c8c3b01dcfbb07238fc89a52f734050b027fffe3cbb7edf",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "pi05",
+        "text": "π0.5 uses the same model for high-level semantic subtask inference and low-level actions conditioned on the subtask.",
+        "requiredCitationIds": [
+          "pi05-2025"
+        ]
+      },
+      {
+        "id": "mem",
+        "text": "The bounded π0.6-MEM variant has high-level subtask and language-memory prediction and low-level short-history action conditioning; no generic π0.6-wide or shared-weight assertion.",
+        "requiredCitationIds": [
+          "mem-2026"
+        ]
+      },
+      {
+        "id": "pi07",
+        "text": "π0.7 optionally uses subgoal images from a BAGEL-initialized world model; its subtask and visual-subgoal generation run asynchronously in separate threads.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "gr15",
+        "text": "Gemini Robotics 1.5 thinking-enabled VLA appends natural-language traces to context before actions; its agentic architecture retains a separate GR-ER 1.5 orchestrator and action model.",
+        "requiredCitationIds": [
+          "gemini-robotics-15-2025"
+        ]
+      },
+      {
+        "id": "go2",
+        "text": "AgiBot vendor reporting describes lower-frequency Semantic Planning and higher-frequency Action Following modules; no shared-weight, numerical-rate or independently validated performance assertion.",
+        "requiredCitationIds": [
+          "agibot-go2-2026"
+        ]
+      },
+      {
+        "id": "geometry",
+        "text": "π0.5 documents bounding-box training, while GR-ER 1.5 documents point-based reasoning and trajectory/path representation. These differently scoped facts do not establish the disappearance of runtime geometry or any particular deployed keypoint loop.",
+        "requiredCitationIds": [
+          "pi05-2025",
+          "gemini-robotics-15-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "cabba322-3087-4e1a-a633-ae4022af946c; custom:droidproxy:gpt-6-astra; reasoningEffort=max; reviewed 2026-09-21T21:11:26.600Z; actual assistant event 6ac6fdf9-5e6d-421f-b836-e4d578d3acb7",
+      "rationale": "Reviewed the exact four corrected endpoints and every six-part/seven-pair obligation against retained primary text at the new tuple. The population is explicitly π0.5, π0.6-MEM, π0.7, Gemini Robotics 1.5 and GO-2; the geometry part requires both positive source scopes. The comparison is labelled wiki synthesis, not an exhaustive inventory. Historical universals are withdrawn, not certified. Same-model inference, separate policies/models and vendor modules remain distinct, as do training, capabilities and deployed control. No part was dropped, no local-proof criterion waived, and no independent acceptance claimed.",
+      "planDigest": "2533f92d7150c0cb9a9a3620a16ef1848caf013ef7e6497af050e2d565726c53"
+    },
+    "evidence": [
+      {
+        "partId": "pi05",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+        "supportingPassage": "Our method also uses a two-stage inference procedure, where we first infer a high-level semantic subtask (e.g., “pick up the plate”), and then predict the action based on this subtask. Many prior methods have employed two separate models for this purpose, with a VLM predicting semantic steps and a separate low-level policy executing those steps \\[ [2](https://arxiv.org/html/2504.16054v1#bib.bib2 \"\"), [71](https://arxiv.org/html/2504.16054v1#bib.bib71 \"\"), [13](https://arxiv.org/html/2504.16054v1#bib.bib13 \"\"), [24](https://arxiv.org/html/2504.16054v1#bib.bib24 \"\"), [70](https://arxiv.org/html/2504.16054v1#bib.bib70 \"\"), [72](https://arxiv.org/html/2504.16054v1#bib.bib72 \"\"), [47](https://arxiv.org/html/2504.16054v1#bib.bib47 \"\")\\]. Our method uses the same exact model for both high-level and low-level inference, in a recipe that more closely resembles chain-of-thought \\[ [82](https://arxiv.org/html/2504.16054v1#bib.bib82 \"\")\\] or test-time compute \\[ [39](https://arxiv.org/html/2504.16054v1#bib.bib39 \"\")\\] methods, though unlike embodied chain-of-thought methods \\[ [88](https://arxiv.org/html/2504.16054v1#bib.bib88 \"\"), [46](https://arxiv.org/html/2504.16054v1#bib.bib46 \"\"), [61](https://arxiv.org/html/2504.16054v1#bib.bib61 \"\")\\], the high-level inference process still runs at a lower frequency than low-level action inference."
+      },
+      {
+        "partId": "mem",
+        "citationId": "mem-2026",
+        "sourceUrl": "https://www.pi.website/download/Mem.pdf",
+        "supportingPassage": "For our experimental evaluation, we equip the π0.6 VLA [36]\nwith MEM memory by adapting its architecture to support the\nvideo encoder from Section III-C.\n\n[… separate literal excerpt from the same retained document …]\n\nwhere we separated the probability of actions into a low-level\npolicy πLL and high-level policy πHL. The low-level policy\nmodels sequences of actions conditioned on the task goal g,\na shorter sequence of observations (K ≪ T) and a subtask\ninstruction lt+1. The subtask instruction, in turn, is generated\nby the high-level policy, which is not only conditioned on the\ntask goal, but also a summarization mt of previous semantic\nevents in natural language. We call this summarization the\nlanguage memory in the following. It allows us to significantly\nreduce the number K ≪ T of dense observations that are\ninput to the model, without sacrificing the ability to capture\nmemory on the order of many minutes. While previous work\nhas employed a similar split into high- and low-level policies\nwith subtask instructions as the interface, the key novelty here\nis that πHL additionally predicts the updated language memory\nmt+1 based on its own previous prediction mt."
+      },
+      {
+        "partId": "pi07",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "Fig. 2: Architecture overview. The π0.7 model is a 5B-parameter VLA consisting of a 4B VLM backbone, a MEM-style video history encoder and a 860M\nparameter action expert. The model’s context includes multiple distinct modalities, including language commands, episode metadata that describes the data\nquality and strategy, and multimodal inputs such as subgoal images. At runtime, the language commands are produced by a high-level semantic policy based\non the same architecture, and the subgoal images are produced by a lightweight world model based on the BAGEL image generation model [105].\n\n[… separate literal excerpt from the same retained document …]\n\nFollowing SuSIE [93], our world model is initialized using\nan off-the-shelf image generation and editing model with\nweb-scale pre-training. We initialize from BAGEL [105], a\n14B mixture-of-transformers model capable of image under-\nstanding, editing, and generation. By augmenting our world\nmodel training with web data, non-robot data sources such\nas egocentric human videos, and other video data, we can\nacquire semantic and physical concepts from these other data\nsources and then transfer them into π0.7 via subgoal images.\nImplementation details are in Appendix C.\n\n[… separate literal excerpt from the same retained document …]\n\nThe subtask instruction ℓ̂t is provided either by a learned high-\nlevel language policy or by a human supervisor for coaching\n(see Sec. V-A). When the subgoal images are used, we refresh\nthe subgoal images whenever the semantic intent changes (i.e.,\nnew ℓ̂t), or after ∆ = 4 seconds have elapsed since the last\nsubgoal image was produced, whichever happens first. See\nAlgorithm 1 for the full workflow. We apply asynchronous in-\nference: the visual subgoal and subtask instruction generation\nhappens in separate threads and the VLA inference always\nuses the latest ones available."
+      },
+      {
+        "partId": "gr15",
+        "citationId": "gemini-robotics-15-2025",
+        "sourceUrl": "https://arxiv.org/html/2510.03342",
+        "supportingPassage": "The orchestrator processes user input and environmental feedback and controls the overall task flow. It breaks complex tasks into simpler steps that can be executed by the VLA, and it performs success detection to decide when to switch to the next step. To accomplish a user-specified task, it can leverage digital tools to access external information or perform additional reasoning steps. We use GR-ER 1.5 as the orchestrator.\n\n[… separate literal excerpt from the same retained document …]\n\nAction model: The action model translates instructions issued by the orchestrator into low-level robot actions. It is made available to the orchestrator as a specialized tool and receives instructions via open-vocabulary natural language. The action model is implemented by the GR 1.5 model.\n\n[… separate literal excerpt from the same retained document …]\n\nEmbodied thinking. A core innovation of Gemini Robotics 1.5 is Embodied Thinking: the ability to reason—or “think”—before taking action ( [Lee et al., 2025](https://arxiv.org/html/2510.03342#bib.bib30 \"\"); [Lin et al., 2025](https://arxiv.org/html/2510.03342#bib.bib40 \"\"); [Huang et al., 2025](https://arxiv.org/html/2510.03342#bib.bib41 \"\"); [Zawalski et al., 2024](https://arxiv.org/html/2510.03342#bib.bib34 \"\")), which operates across both the VLM and the VLA models. The GR-ER 1.5 model combines Gemini’s thinking and tool-use with an enhanced physical world understanding, enabling it to function within the agentic system for high-level planning. This includes breaking complex tasks into coarse-grained plans, adaptively updating those plans based on execution, or calling external tools like web search. We also introduce an analogous thinking capability to the VLA, creating the Thinking VLA, or GR 1.5 (Thinking on) in our plots and results. Our Thinking VLA explicitly reasons about the instruction and its perception, generates thinking traces in natural language ( [Smith et al., 2025](https://arxiv.org/html/2510.03342#bib.bib28 \"\"); [Belkhale et al., 2024](https://arxiv.org/html/2510.03342#bib.bib29 \"\")), and appends them to the context window before emitting an action. This process simplifies complex instructions into sequences of primitive skills, increases the transparency in human-robot interactions, and offers a new paradigm for scaling VLA capabilities."
+      },
+      {
+        "partId": "go2",
+        "citationId": "agibot-go2-2026",
+        "sourceUrl": "https://www.agibot.com/article/231/detail/56.html",
+        "supportingPassage": "2. Asynchronous Dual-System - Low-Frequency Planning, High-Frequency Following\nHigh-level reasoning alone cannot guarantee stable execution in real-world environments filled with noise and disturbances. To solve this, GO-2 introduces an Asynchronous Dual-System architecture to translate high-level reasoning into precise robotic movements.\n● Semantic Planning Module (System 2): Operates at a lower frequency. Acting as a \"General Commander,\" it generates structured high-level action sequences. These are presented through Progressive Refinement, ensuring that the reasoning itself is inherently \"executable,\" providing stable geometric anchors for control.\n● Action Following Module (System 1): Operates at a higher frequency. Acting as an \"Agile Executor,\" it continuously receives high-level intents and combines them with real-time observations to generate specific control signals, performing Residual Refinement to compensate for environmental noise.\nCrucially, these two systems are deeply aligned. To ensure execution strictly adheres to reasoning, GO-2 utilizes a Teacher Forcing mechanism during training, teaching the model to perform robustly even under \"approximately correct but imperfect\" reasoning conditions.\nThis asynchronous architecture has been accepted by ACL 2026."
+      },
+      {
+        "partId": "geometry",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+        "supportingPassage": "We also label relevant bounding boxes shown in the current observation and train π0.5\\\\pi\\_{0.5} to predict them before predicting the subtask."
+      },
+      {
+        "partId": "geometry",
+        "citationId": "gemini-robotics-15-2025",
+        "sourceUrl": "https://arxiv.org/html/2510.03342",
+        "supportingPassage": "Complex Pointing:\nA point is a flexible and lightweight representation that grounds a model’s semantic understanding onto visual inputs. Using very few tokens, a point can precisely locate an abstract concept, such as where to click or the most appropriate object part to grasp. By extending this ability to predict a set of points, a model can generate more complex outputs like motion trajectories and paths, providing precise action guidance for robots.\nPoints can also serve as intermediate reasoning tools for other downstream tasks, such as counting. We define the generalization of this capability, which combines pointing with reasoning, as complex pointing."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "pi05",
+        "outcome": "supported",
+        "reviewedBy": "cabba322-3087-4e1a-a633-ae4022af946c; custom:droidproxy:gpt-6-astra; reasoningEffort=max; reviewed 2026-09-21T21:11:26.600Z; actual assistant event 6ac6fdf9-5e6d-421f-b836-e4d578d3acb7",
+        "rationale": "Read the retained v1 Section II robot-reasoning paragraph and IV-C context. The text contrasts prior two-model arrangements with the same exact model for high- and low-level inference, predicting a semantic subtask then actions based on it. This supports the named π0.5 mechanism, not field-wide supersession or shared weights in other models.",
+        "evidenceDigest": "acecaf753e6a22eb1264de47fbf656cbc67a2d310da710518cf2d0a4d10b2f6a"
+      },
+      {
+        "partId": "mem",
+        "outcome": "supported",
+        "reviewedBy": "cabba322-3087-4e1a-a633-ae4022af946c; custom:droidproxy:gpt-6-astra; reasoningEffort=max; reviewed 2026-09-21T21:11:26.600Z; actual assistant event 6ac6fdf9-5e6d-421f-b836-e4d578d3acb7",
+        "rationale": "Read retained MEM Section III factorization and III-D variant identity. Low-level actions condition on a subtask and shorter observation sequence; the high-level policy predicts the subtask and updated language memory using prior memory, observations and task. III-D equips π0.6 with MEM. This supports π0.6-MEM only, without generic π0.6 or shared-weight assertions.",
+        "evidenceDigest": "e14d4896cb2070d1127b75d789117d369632ea5facb512462fa8a86a902bf44e"
+      },
+      {
+        "partId": "pi07",
+        "outcome": "supported",
+        "reviewedBy": "cabba322-3087-4e1a-a633-ae4022af946c; custom:droidproxy:gpt-6-astra; reasoningEffort=max; reviewed 2026-09-21T21:11:26.600Z; actual assistant event 6ac6fdf9-5e6d-421f-b836-e4d578d3acb7",
+        "rationale": "Read retained π0.7 Figure 2 caption, world-model initialization and runtime paragraphs. The text identifies BAGEL initialization, qualifies when subgoal images are used, and places visual-subgoal and subtask generation in separate asynchronous threads while VLA inference uses the latest outputs. Optional image prompting is not shared weights or a universal architecture.",
+        "evidenceDigest": "168112da08013f1c875b8b3969585042c148b83b3adaa791d73d66e93673ba09"
+      },
+      {
+        "partId": "gr15",
+        "outcome": "supported",
+        "reviewedBy": "cabba322-3087-4e1a-a633-ae4022af946c; custom:droidproxy:gpt-6-astra; reasoningEffort=max; reviewed 2026-09-21T21:11:26.600Z; actual assistant event 6ac6fdf9-5e6d-421f-b836-e4d578d3acb7",
+        "rationale": "Read retained GR1.5 Section 2 orchestrator, action-model and embodied-thinking paragraphs. GR-ER1.5 orchestrates while GR1.5 is the action model. Thinking-enabled VLA appends natural-language reasoning to its context before actions. Both mechanisms remain explicit, so internal thinking does not erase the external orchestrator or apply unconditionally to all configurations.",
+        "evidenceDigest": "0a253c940488c07f96258f7271aeae7e41aaf2a85aaef5f7584875a8278de544"
+      },
+      {
+        "partId": "go2",
+        "outcome": "supported",
+        "reviewedBy": "cabba322-3087-4e1a-a633-ae4022af946c; custom:droidproxy:gpt-6-astra; reasoningEffort=max; reviewed 2026-09-21T21:11:26.600Z; actual assistant event 6ac6fdf9-5e6d-421f-b836-e4d578d3acb7",
+        "rationale": "Read the retained AgiBot asynchronous dual-system section with its receipt and raw-HTML hash. System 2 Semantic Planning operates at lower frequency; System 1 Action Following operates at higher frequency with intents and observations. This is attributed vendor module reporting, not shared weights, numerical rates, or independent deployment/performance validation.",
+        "evidenceDigest": "2adda58b755cb85dd4ab482cdc1ddea4e013bce305288008c2674d4c54e880ab"
+      },
+      {
+        "partId": "geometry",
+        "outcome": "supported",
+        "reviewedBy": "cabba322-3087-4e1a-a633-ae4022af946c; custom:droidproxy:gpt-6-astra; reasoningEffort=max; reviewed 2026-09-21T21:11:26.600Z; actual assistant event 6ac6fdf9-5e6d-421f-b836-e4d578d3acb7",
+        "rationale": "Read retained π0.5 IV-C bounding-box-before-subtask training and GR-ER1.5 Complex Pointing. The first documents training supervision; the second documents point sets representing trajectories/paths and points as reasoning tools. Both pairs are required. Neither establishes a particular deployed keypoint loop, universal runtime absence or field-wide migration.",
+        "evidenceDigest": "d3d12e6c6fe4de9656020904a4921e416622f4806952d390e1ac35c0d1eafb5d"
+      }
+    ]
+  }
 ]
