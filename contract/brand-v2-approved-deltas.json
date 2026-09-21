@@ -18119,6 +18119,23 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "hierarchy14-box-web-correction-20260921",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+      "newHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+      "reason": "Correct only the pi0.5 sentence: the retained v1 paper supports predicting relevant boxes before subtask labels and additional box-annotated indoor/household web data, not the removed keypoint objective or direct MOKA/RoboPoint inheritance attribution.",
+      "ownerApproval": "Standing Josef 'finish it all' routine source-backed correction authority in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/astra-mission-brief.md and the exact parent dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial52-hierarchy14-truth-repair-20260921/authorization.json. This is not a new human signature or independent acceptance; it grants no P2, VAL-AUDIT-009, source-criteria or local-proof exception.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
