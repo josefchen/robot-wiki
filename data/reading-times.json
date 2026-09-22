@@ -52,7 +52,7 @@
     "minutes": 6
   },
   "manipulation/action-spaces": {
-    "words": 1176,
+    "words": 1205,
     "minutes": 6
   },
   "manipulation/foundation-models": {
@@ -120,8 +120,8 @@
     "minutes": 6
   },
   "world-models/world-models-vs-simulators": {
-    "words": 2022,
-    "minutes": 10
+    "words": 2146,
+    "minutes": 11
   },
   "data-hardware/data-bottleneck": {
     "words": 1707,
@@ -180,7 +180,7 @@
     "minutes": 17
   },
   "classical/calibration": {
-    "words": 1225,
+    "words": 1247,
     "minutes": 6
   },
   "classical/ros2-for-ml-engineers": {
