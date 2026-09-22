@@ -74705,5 +74705,158 @@
         "evidenceDigest": "67f6d532aa983418ccc584a3648d83daba3fe860ecbf24e35f2f186c01f68668"
       }
     ]
+  },
+  {
+    "id": "data-bottleneck-3-scale-correction-draft-20260922",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "bddd9e19f468d2a2bb4adec1d55b1aa5bc04d19ebe855a29c92ea43afa4ca3f7",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "trajectory-bound",
+        "text": "The named OXE release is reported as 1M+ real-robot trajectories; do not convert the lower bound into an exact one-million count.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      },
+      {
+        "id": "embodiments",
+        "text": "The reported repository spans 22 robot embodiments; this is not the smaller model-training embodiment subset.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      },
+      {
+        "id": "total-hours-and-plotting",
+        "text": "The current 10,000-hour plotted OXE value and hour-ranking lack an established primary-source total; the proposed removal must reach every numeric representation, not only the introductory sentence.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      },
+      {
+        "id": "unknown-and-teaching-cut",
+        "text": "Mandatory inherited whole-record obligation: establish compliant evidence/correction for the current 10,000-hour OXE target, 1,000,000-hour 100x-OXE target and every teaching/readout consequence. Relabelling as illustrative does not waive P2 or VAL-AUDIT-009. No qualifying source passage has been recovered.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [
+      {
+        "partId": "trajectory-bound",
+        "citationId": "open-x-embodiment-2023",
+        "sourceUrl": "https://arxiv.org/html/2310.08864v9",
+        "supportingPassage": "The Open X-Embodiment Dataset contains 1M+ real robot trajectories spanning 22 robot embodiments, from single robot arms to bi-manual robots and quadrupeds. The dataset was constructed by pooling 60 existing robot datasets from 34 robotic research labs around the world and converting them into a consistent data format for easy download and usage. We use the RLDS data format [119], which saves data in serialized tfrecord files and accommodates the various action spaces and input modalities of different robot setups, such as differing numbers of RGB cameras, depth cameras and point clouds. It also supports efficient, parallelized data loading in all major deep learning frameworks. For more details about the data storage format and a breakdown of all 60 datasets, see robotics-transformer-x.github.io."
+      },
+      {
+        "partId": "embodiments",
+        "citationId": "open-x-embodiment-2023",
+        "sourceUrl": "https://robotics-transformer-x.github.io/",
+        "supportingPassage": "**It contains 1M+ real robot trajectories spanning 22 robot embodiments,**\n**from single robot arms to bi-manual robots and quadrupeds.**"
+      }
+    ],
+    "adjudications": []
+  },
+  {
+    "id": "data-bottleneck-5-scale-correction-draft-20260922",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "341059b74bafbed760981b99d72978575c478c20c3dab832398b911e1a5c3568",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "headline-trajectories-and-hours",
+        "text": "DROID reports 76k demonstration trajectories or 350 hours of interaction data; retain that dataset scope.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "success-filter",
+        "text": "The 76k headline counts successful episodes; roughly 16k unsuccessful trajectories are included in the release but excluded from that headline count.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "collectors",
+        "text": "The cohort has 50 data collectors, not 50 rigs.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "robots",
+        "text": "Section III reports 18 robots.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "institutions",
+        "text": "Section III reports 13 institutions; the introduction separately says 18 research labs, a distinct unit.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "elapsed-collection-duration",
+        "text": "Data collection took place over 12 months; this does not establish year-long individual labor or robot utilization.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "derived-not-measured-rate",
+        "text": "Mandatory inherited whole-record obligation: source-backed correction for the 7 h/rig-year mapping from 350 hours/50 collectors, resulting 70 h/year/approximately 143 years, and comparison with 1,000 h/rig-year from 4 h/day × 250 days. Published cohort operands do not establish these authored rates or target projections.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [
+      {
+        "partId": "headline-trajectories-and-hours",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "The creation of large, diverse, high-quality robot manipulation datasets is an important stepping stone on the path toward more capable and robust robotic manipulation policies. However, creating such datasets is challenging: collecting robot manipulation data in diverse environments poses logistical and safety challenges and requires substantial investments in hardware and human labour. As a result, even the most general robot manipulation policies today are mostly trained on data collected in a small number of environments with limited scene and task diversity. In this work, we introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 86 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months. We demonstrate that training with DROID leads to policies with higher performance and improved generalization ability. We open source the full dataset, policy learning code, and a detailed guide for reproducing our robot hardware setup."
+      },
+      {
+        "partId": "success-filter",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "Every data collection session starts with moving the robot to a new scene. Data collectors were encouraged to choose scenes that include multiple interesting tasks, numerous interaction objects, and a healthy amount of clutter (see example scenes in Fig. 10). After setting up the robot in the new scene, the data collector chooses views for the 3rd person cameras that can capture a wide range of interesting behaviors in the scene. Then they perform extrinsic camera calibration using a checkerboard and the OpenCV calibration algorithm. Next, the data collector will enter all potential tasks for the current scene into a data collection GUI on the laptop attached to the robot, either by selecting from a list of task options or by typing in free-from task instructions (see Fig. 9 for screenshots of the GUI). During data collection the GUI will prompt the data collector with a randomly sampled task from this list for each new episode. This way we ensure that there is high coverage of diverse tasks and collection is not biased to easier tasks or closer objects. Additionally, the GUI periodically prompts the data collector to perform randomly sampled “scene augmentations” like nudges to the mobile base, moving and re-calibrating the 3rd person cameras, changing the room lighting, and adding or removing items within the scene. For each trajectory, we record the output of all RGB cameras, relevant low level state information from the robot, equivalent robot control commands from various popular action spaces, a data collector ID, and the metadata entered in the GUI (see Appendix B for a detailed list of all features we record). The data collector also marks whether the collected sequence was a success, which we log as part of the metadata. DROID consists of 76k successful episodes; roughly 16k trajectories in our data collection were labeled as “not successful”, which we include in our dataset release but do not count towards the size of DROID. A data collector will typically collect up to 100 trajectories or about 20 minutes of interaction data per scene before moving on to a new scene."
+      },
+      {
+        "partId": "collectors",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      },
+      {
+        "partId": "robots",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      },
+      {
+        "partId": "institutions",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      },
+      {
+        "partId": "elapsed-collection-duration",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      }
+    ],
+    "adjudications": []
   }
 ]

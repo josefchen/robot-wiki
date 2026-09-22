@@ -7,6 +7,7 @@ import {
   MAX_RIGS,
   MIN_RIGS,
   OXE_SCALE_HOURS,
+  OXE_DURATION,
   ROBOT_POINTS,
   formatDuration,
   formatHours,
@@ -29,8 +30,7 @@ describe('teleop-farm projection model', () => {
     expect(rateById('dedicated').hoursPerRigYear).toBe(1000);
   });
 
-  it('DROID-measured rate reproduces the published collection throughput', () => {
-    // DROID: 350 hours from 50 collectors over 12 months (arXiv 2403.12945).
+  it('retains the authored low-rate arithmetic without empirical attribution', () => {
     expect(hoursPerYear(50, 'droid-measured')).toBe(350);
   });
 
@@ -43,7 +43,7 @@ describe('teleop-farm projection model', () => {
     }
   });
 
-  it('default scenario: 15 dedicated rigs reach OXE scale in eight months', () => {
+  it('default scenario: 15 hypothetical dedicated rigs reach the 10,000-hour target in eight months', () => {
     expect(DEFAULT_RIGS).toBe(15);
     expect(hoursPerYear(DEFAULT_RIGS, 'dedicated')).toBe(15_000);
     expect(
@@ -54,7 +54,7 @@ describe('teleop-farm projection model', () => {
     ).toBe('66.7 yr');
   });
 
-  it('DROID-rate scenario takes centuries to reach OXE scale', () => {
+  it('low-rate hypothetical scenario takes centuries to reach 10,000 hours', () => {
     const years = yearsToTarget(10, 'droid-measured', OXE_SCALE_HOURS);
     expect(years).toBeGreaterThan(100);
     expect(formatDuration(years)).toBe('143 yr');
@@ -81,7 +81,7 @@ describe('chart data anchors match published numbers', () => {
     // dataset's own figure.
     expect(byId.get('agibot')?.magnitude).toBe(2976);
     expect(byId.get('ego4d')?.magnitude).toBe(3670);
-    expect(byId.get('oxe')?.magnitude).toBe(10_000);
+    expect(byId.has('oxe')).toBe(false);
     expect(byId.get('egoscale')?.magnitude).toBe(20_854);
   });
 
@@ -91,7 +91,6 @@ describe('chart data anchors match published numbers', () => {
     expect(byId.get('egodex')?.estimated).toBe(false);
     expect(byId.get('egoscale')?.estimated).toBe(false);
     expect(byId.get('agibot')?.estimated).toBe(false);
-    expect(byId.get('oxe')?.estimated).toBe(true);
     expect(byId.get('tri-lbm')?.estimated).toBe(true);
   });
 
@@ -140,5 +139,24 @@ describe('formatters', () => {
   it('formats token counts', () => {
     expect(formatTokens(3e11)).toBe('300B');
     expect(formatTokens(1.5e13)).toBe('15T');
+  });
+});
+
+
+describe('source-scoped unknown duration and authored scenarios', () => {
+  it('keeps OXE discoverable without a numeric magnitude or zero fallback', () => {
+    expect(OXE_DURATION).toMatchObject({ id: 'oxe', status: 'unknown', cite: 'open-x-embodiment-2023' });
+    expect(OXE_DURATION).not.toHaveProperty('magnitude');
+    expect(OXE_DURATION.value).toMatch(/unknown.*inspected sources/i);
+    expect(OXE_DURATION.sourceUrl).toBe('https://arxiv.org/html/2310.08864v9');
+  });
+  it('labels both retained rates as authored hypothetical inputs', () => {
+    for (const rate of COLLECTION_RATES) {
+      expect(rate.label).toMatch(/hypothetical/i);
+      expect(rate.note).toMatch(/authored hypothetical/i);
+      expect(rate.label).not.toMatch(/DROID|measured/);
+    }
+    expect(OXE_SCALE_HOURS).toBe(10_000);
+    expect(FRONTIER_HOURS).toBe(1_000_000);
   });
 });

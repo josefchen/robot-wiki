@@ -8,11 +8,11 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 128
-- Recorded verified: 60
+- Recorded verified: 58
 - Recorded corrected: 65
 - Recorded cut: 2
 - Recorded source inconsistencies: 1
-- Unresolved or unrecognised verdicts: 0
+- Unresolved or unrecognised verdicts: 2
 - Complete evidence records: 115
 - Incomplete evidence records: 13
 
@@ -237,9 +237,9 @@ Int = checked against repo code/data rather than an external source.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | GPT-3 consumed 300B tokens (2020) | gpt3-2020 paper HTML v4, https://arxiv.org/html/2005.14165v4; curl GET 200 on 2026-09-15T19:57:17Z (1,220,894 bytes, saved sources/gpt3-html); registered citation URL https://arxiv.org/abs/2005.14165 also fetched (FetchUrl 200) and its abstract prints no token count | V | Verified against the HTML v4 body fetched 2026-09-15T19:57:17Z: "All models were trained for a total of 300 billion tokens." (Table 2.1 caption; the paper trains all eight GPT-3 models on 300B tokens). The abs page supports 175B parameters but not the token figure, so the evidence fields point at the full-paper HTML. Claim unchanged. |  |  |  |  data-bottleneck-db1-gpt3-300b-20260915 |
 | Llama 3 consumed over 15T tokens (2024); FineWeb replicates that scale from 96 Common Crawl snapshots | Meta Llama 3 blog https://ai.meta.com/blog/meta-llama-3/, FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:57:54Z); FineWeb abs https://arxiv.org/abs/2406.17557, FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:59:13Z); both re-confirmed by uncredentialed curl GET 200 this session (sources/llama-blog, sources/fineweb-abs) | V | Both elements verified verbatim this session: blog "Llama 3 is pretrained on over 15T tokens that were all collected from publicly available sources."; FineWeb abstract "we introduce FineWeb, a 15-trillion token dataset derived from 96 Common Crawl snapshots". Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db2-llama-fineweb-20260915 |
-| OXE holds over a million trajectories across 22 robot embodiments; ~10,000 h is an estimate, flagged as such | open-x-embodiment-2023 (arXiv 2310.08864 HTML: "1M+ robot trajectories from 22 robot embodiments"; no hour count published anywhere in the paper, so the ~10k h figure stays flagged `estimated` in lib/data-scaling.ts) | V |  |  |  |  |  |
+| OXE reports 1M+ real-robot trajectories across 22 embodiments. Total duration is unknown in inspected sources and OXE is not numerically plotted. The retained 10,000/1,000,000-hour targets are authored hypothetical inputs; the original teaching-model obligation remains unresolved. | open-x-embodiment-2023: retained arXiv HTML 2310.08864v9, historical retrieval 2026-09-16T04:09:18Z; official project-page markdown retrieved 2026-09-22T20:50:35.723Z. No fresh origin HTTP status was exposed. | UNRESOLVED (source-backed count correction only; unknown-and-teaching-cut remains held) | Zero-credit coupled truth repair: unsupported OXE hour estimate and ranking removed from article, numeric data and chart; source-linked unknown duration retained. Neither unknown duration nor hypothetical targets certify an OXE total. Inspected paper/project text is not an exhaustive absence proof: embedded images and linked spreadsheet were not inspected. The original unknown-and-teaching-cut obligation remains mandatory under unchanged P2 and VAL-AUDIT-009. Exact original four cells and V verdict preserved in non-counted history below. No whole-record completion. |  |  |  | data-bottleneck-3-scale-correction-draft-20260922 |
 | AgiBot World holds 1,001,552 trajectories and publishes an hour count: 2,976 h, about 11 s per trajectory | AgiBot World Colosseo v4 HTML, https://arxiv.org/html/2503.06669v4; curl GET 200 on 2026-09-15T19:57:17Z (139,251 bytes, saved sources/agibot-html); abs page https://arxiv.org/abs/2503.06669 also fetched via FetchUrl 200 (before clock read 2026-09-15T19:59:13Z) | C | Confirmed against the v4 HTML fetched 2026-09-15T19:57:17Z: "The latest version contains 1,001,552 trajectories, with a total duration of 2976.4 hours, covering 217 specific tasks, 87 skills, and 106 scenes." Per-trajectory duration is a flagged derivation: 2976.4 x 3600 / 1,001,552 = 10.70 s ("about 11 seconds"). The applied C verdict stands; evidence fields completed. |  |  |  |  data-bottleneck-db4-agibot-counts-20260915 |
-| DROID: 76,000 trajectories, 350 hours, 50 operators, 13 institutions, a full year | droid-2024 (arXiv 2403.12945 abs + HTML) | V |  |  |  |  |  |
+| DROID reports 76k successful trajectories / 350 interaction hours, collected by 50 data collectors using 18 robots across 13 institutions over 12 months; roughly 16k unsuccessful trajectories are additionally released but excluded from the headline count. The retained 7 h/rig-year scenario is authored hypothetical, not measured DROID productivity; the original model obligation remains unresolved. | droid-2024: retained arXiv HTML 2403.12945v2, abstract, Sections I, III and III-B; historical retrieval 2026-09-16T04:09:18Z. Source text and file hash checked during this preparation; no new DROID retrieval. | UNRESOLVED (source-backed cohort correction only; derived-not-measured-rate remains held) | Zero-credit coupled truth repair: article cohort and count context corrected; controls, defaults and arithmetic preserved with explicit authored-hypothetical rate and target labels throughout chart, accessible table, live summary and prediction feedback. Fifty counts collectors, not rigs; 12 months is elapsed collection time, not exposure for every collector or robot. Neither 350/50 nor 350/18 establishes annual rig productivity. The introduction reports 18 research labs whereas Section III reports 13 institutions; these units remain distinct. Abstract-page 84 tasks versus v2 body 86 tasks is not resolved or claimed here. The original derived-not-measured-rate obligation remains mandatory under unchanged P2 and VAL-AUDIT-009. Exact original four cells and V verdict preserved in non-counted history below. No whole-record completion. |  |  |  | data-bottleneck-5-scale-correction-draft-20260922 |
 | TRI LBM trained on about 1,700 hours total across bimanual, sim, UMI, and OXE | TRI LBM paper HTML, https://arxiv.org/html/2507.05331; curl GET 200 on 2026-09-15T19:57:17Z (500,709 bytes, saved sources/tri-html) | V | Verified verbatim against the HTML fetched 2026-09-15T19:57:17Z: abstract "approximately 1,700 hours of robot demonstrations"; Sec. 4.4 "totaling ∼1695 hours ... (∼545 hours; TRI-Ramen) combined with curated external robot data (∼1150 hours; OXE-Ramen) ... TRI-Ramen-Real - 468 hours ... TRI-Ramen-Sim - 45 hours ... TRI-Ramen-UMI (32 hours, 129 tasks, 10851 demonstrations) collected with the Universal Manipulation Interface". Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db6-tri-ramen-20260915 |
 | EgoScale: 20,854 h of action-labeled egocentric human video, log-linear scaling law, +54% success | EgoScale HTML, https://arxiv.org/html/2602.16710; curl GET 200 on 2026-09-15T19:57:17Z (198,251 bytes, saved sources/egoscale-html); passages identical to those already bound in audit/compound-evidence.json plan generalization-g12-egoscale-figures-20260915 | V | Live page confirmed to print, verbatim: "We train a Vision–Language–Action (VLA) model on over 20,854 hours of action-labeled egocentric human video—more than 20× larger than prior efforts—and uncover a log-linear scaling law between human data scale and validation loss."; "This validation loss strongly correlates with downstream real-robot performance, establishing large-scale human data as a predictable supervision source." (auto-extracted sentence); "Our final policy improves average success rate by 54% over a no-pretraining baseline using a 22-DoF dexterous robotic hand, and transfers effectively to robots with lower-DoF hands...". Claim unchanged; evidence fields completed; same registered citation and passages as the integrated generalization packet. |  |  |  |  data-bottleneck-db7-egoscale-20260915 |
 | Ego4D: 3,670 h from 931 wearers across 74 locations | Ego4D abs, https://arxiv.org/abs/2110.07058; FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:59:13Z); re-confirmed by uncredentialed curl GET 200 (sources/ego4d-abs) | V | Verified verbatim this session: "It offers 3,670 hours of daily-life activity video spanning hundreds of scenarios (household, outdoor, workplace, leisure, etc.) captured by 931 unique camera wearers from 74 worldwide locations and 9 different countries." Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db8-ego4d-20260915 |
@@ -1812,3 +1812,197 @@ Exact former compound plan:
 - After strengthening the new test's exact part IDs, deed limitations and publisher-version source controls, its final focused run passes **13/13**, exit 0; final narrow ESLint and isolated no-emit typecheck also exit 0. These test-only checks did not rerun the offline coverage gate.
 - Exactly one final `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json`: exit **1**, **954 complete / 40 incomplete / 994 originals**, 47/47 articles, zero summary mismatches. **45 ledger findings** remain (40 incomplete originals, three aggregate evidence-field failures, two unresolved outcomes), plus **one new uncovered-citation finding**: `cc-by-4-0-deed` has no row in `audit/citations.md` (429 covered / 430 registered). That file and global URL validation are outside this dispatch. This is 46 combined findings, not a green content gate. The two selected original failures disappear, three aggregate messages update from 952 to 954, and all 42 other ledger failure objects are unchanged.
 - Full coverage stdout went directly to `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-license-pair-integration-20260921/coverage.json` (10023562 bytes; SHA-256 210f33d1fc74975a8650cb09228968b98d46f968a1c7efd7742c074418373ff4); stderr is empty. No rerun, network request, full suite, baseline gate, build, browser, type generation or publication occurred. Current readers, reading-time regeneration, broader article/source truth, RoboMIND licensing, global citation validation and independent scrutiny/user testing remain owed. The article review date and formal 307/331 remain unchanged; not acceptance.
+
+## Data-bottleneck zero-credit truth repair, 2026-09-22
+
+<!-- data-bottleneck-zero-credit-truth-repair-20260922 -->
+
+Non-counted exact history for originals 3 and 5. Two rows repaired, zero completed. Count passages do not discharge authored-model obligations. Native compound plans remain deliberately incomplete, with null plan review and no adjudications. No new retrieval in this integration; preparation retrieval provenance is retained below. Article lastReviewed is unchanged because this bounded repair does not accept the whole article. Humanizer skill was unavailable; manual prose review and narrow source no-slop checks are recorded in the integration handoff. Browser, rendered, reading-time, generated and independent acceptance evidence remain deferred.
+
+```json
+[
+  {
+    "originalId": "audit/data-hardware.md:data-bottleneck:3",
+    "rowOrdinal": 3,
+    "beforeCommit": "89cda670f72443e321f3282b256974b4376da0f1",
+    "beforeCells": {
+      "claim": "OXE holds over a million trajectories across 22 robot embodiments; ~10,000 h is an estimate, flagged as such",
+      "sourceChecked": "open-x-embodiment-2023 (arXiv 2310.08864 HTML: \"1M+ robot trajectories from 22 robot embodiments\"; no hour count published anywhere in the paper, so the ~10k h figure stays flagged `estimated` in lib/data-scaling.ts)",
+      "verdict": "V",
+      "note": ""
+    },
+    "beforeLedgerLine": "| OXE holds over a million trajectories across 22 robot embodiments; ~10,000 h is an estimate, flagged as such | open-x-embodiment-2023 (arXiv 2310.08864 HTML: \"1M+ robot trajectories from 22 robot embodiments\"; no hour count published anywhere in the paper, so the ~10k h figure stays flagged `estimated` in lib/data-scaling.ts) | V |  |  |  |  |  |",
+    "beforeTupleDigest": "358421f161ca94df1ae8b8c62a926894fb409aeb79bf2e9479b74e5f61ec7647",
+    "afterCells": {
+      "claim": "OXE reports 1M+ real-robot trajectories across 22 embodiments. Total duration is unknown in inspected sources and OXE is not numerically plotted. The retained 10,000/1,000,000-hour targets are authored hypothetical inputs; the original teaching-model obligation remains unresolved.",
+      "sourceChecked": "open-x-embodiment-2023: retained arXiv HTML 2310.08864v9, historical retrieval 2026-09-16T04:09:18Z; official project-page markdown retrieved 2026-09-22T20:50:35.723Z. No fresh origin HTTP status was exposed.",
+      "verdict": "UNRESOLVED (source-backed count correction only; unknown-and-teaching-cut remains held)",
+      "note": "Zero-credit coupled truth repair: unsupported OXE hour estimate and ranking removed from article, numeric data and chart; source-linked unknown duration retained. Neither unknown duration nor hypothetical targets certify an OXE total. Inspected paper/project text is not an exhaustive absence proof: embedded images and linked spreadsheet were not inspected. The original unknown-and-teaching-cut obligation remains mandatory under unchanged P2 and VAL-AUDIT-009. Exact original four cells and V verdict preserved in non-counted history below. No whole-record completion."
+    },
+    "afterTupleDigest": "bddd9e19f468d2a2bb4adec1d55b1aa5bc04d19ebe855a29c92ea43afa4ca3f7",
+    "originalPlan": null,
+    "planId": "data-bottleneck-3-scale-correction-draft-20260922",
+    "completed": false,
+    "retainedHold": "unknown-and-teaching-cut",
+    "sourceEvidence": [
+      {
+        "citationId": "open-x-embodiment-2023",
+        "url": "https://arxiv.org/html/2310.08864v9",
+        "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/oxe-html-v9.html",
+        "sha256": "5af2c0b4c263b1734a3651e7b46e3ba855d62c5ba1b89e380e1d71a5ef8ea90a",
+        "supportingPassage": "The Open X-Embodiment Dataset contains 1M+ real robot trajectories spanning 22 robot embodiments, from single robot arms to bi-manual robots and quadrupeds. The dataset was constructed by pooling 60 existing robot datasets from 34 robotic research labs around the world and converting them into a consistent data format for easy download and usage. We use the RLDS data format [119], which saves data in serialized tfrecord files and accommodates the various action spaces and input modalities of different robot setups, such as differing numbers of RGB cameras, depth cameras and point clouds. It also supports efficient, parallelized data loading in all major deep learning frameworks. For more details about the data storage format and a breakdown of all 60 datasets, see robotics-transformer-x.github.io.",
+        "locator": "S3.SS1.p1.1",
+        "provenance": {
+          "observedAt": "2026-09-16T04:09:18Z",
+          "status": 200,
+          "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
+          "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+          "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
+          "reviewedAt": "2026-09-22T20:57:02.215322Z",
+          "bytes": 221753,
+          "representation": "Literal visible HTML text: decoded entities, omitted non-rendered MathML annotation/script/style, whitespace normalized; raw source bytes preserved unchanged."
+        }
+      },
+      {
+        "citationId": "open-x-embodiment-2023",
+        "url": "https://robotics-transformer-x.github.io/",
+        "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/source-2.txt",
+        "sha256": "18180d2b27ed6c24142087f7047437ac7addae14ec8db0384bb338288416a143",
+        "supportingPassage": "**It contains 1M+ real robot trajectories spanning 22 robot embodiments,**\n**from single robot arms to bi-manual robots and quadrupeds.**",
+        "locator": "Dataset Overview",
+        "provenance": {
+          "observedAt": "2026-09-22T20:50:35.723Z",
+          "status": null,
+          "basis": "Actual rune___web_scrape tool response; no origin HTTP status exposed. Tool-reported complete markdown, not raw origin HTML or image inspection.",
+          "tool": "rune___web_scrape",
+          "requestEventId": "4ea27e19-7b46-4b3e-90d3-313612e6200a",
+          "responseEventId": "140a866a-e036-4123-8516-724d6cc6390a",
+          "requestedAt": "2026-09-22T20:50:33.504Z",
+          "finalUrl": "https://robotics-transformer-x.github.io/",
+          "truncated": false,
+          "returnedMarkdownCharacters": 12282,
+          "representation": "Unmodified full tool-result string, including the returned markdown JSON field; no newline added.",
+          "reviewedAt": "2026-09-22T20:57:02.215322Z"
+        }
+      }
+    ],
+    "authority": "Parent-authorized zero-credit UI truth repair. P2 and VAL-AUDIT-009 unchanged; no source certification or independent acceptance.",
+    "integrationRecordedAt": "2026-09-22T21:49:15.276Z"
+  },
+  {
+    "originalId": "audit/data-hardware.md:data-bottleneck:5",
+    "rowOrdinal": 5,
+    "beforeCommit": "89cda670f72443e321f3282b256974b4376da0f1",
+    "beforeCells": {
+      "claim": "DROID: 76,000 trajectories, 350 hours, 50 operators, 13 institutions, a full year",
+      "sourceChecked": "droid-2024 (arXiv 2403.12945 abs + HTML)",
+      "verdict": "V",
+      "note": ""
+    },
+    "beforeLedgerLine": "| DROID: 76,000 trajectories, 350 hours, 50 operators, 13 institutions, a full year | droid-2024 (arXiv 2403.12945 abs + HTML) | V |  |  |  |  |  |",
+    "beforeTupleDigest": "20650ba68698303275a092afd6efb029284517d375afca1727b0e5740a857527",
+    "afterCells": {
+      "claim": "DROID reports 76k successful trajectories / 350 interaction hours, collected by 50 data collectors using 18 robots across 13 institutions over 12 months; roughly 16k unsuccessful trajectories are additionally released but excluded from the headline count. The retained 7 h/rig-year scenario is authored hypothetical, not measured DROID productivity; the original model obligation remains unresolved.",
+      "sourceChecked": "droid-2024: retained arXiv HTML 2403.12945v2, abstract, Sections I, III and III-B; historical retrieval 2026-09-16T04:09:18Z. Source text and file hash checked during this preparation; no new DROID retrieval.",
+      "verdict": "UNRESOLVED (source-backed cohort correction only; derived-not-measured-rate remains held)",
+      "note": "Zero-credit coupled truth repair: article cohort and count context corrected; controls, defaults and arithmetic preserved with explicit authored-hypothetical rate and target labels throughout chart, accessible table, live summary and prediction feedback. Fifty counts collectors, not rigs; 12 months is elapsed collection time, not exposure for every collector or robot. Neither 350/50 nor 350/18 establishes annual rig productivity. The introduction reports 18 research labs whereas Section III reports 13 institutions; these units remain distinct. Abstract-page 84 tasks versus v2 body 86 tasks is not resolved or claimed here. The original derived-not-measured-rate obligation remains mandatory under unchanged P2 and VAL-AUDIT-009. Exact original four cells and V verdict preserved in non-counted history below. No whole-record completion."
+    },
+    "afterTupleDigest": "341059b74bafbed760981b99d72978575c478c20c3dab832398b911e1a5c3568",
+    "originalPlan": null,
+    "planId": "data-bottleneck-5-scale-correction-draft-20260922",
+    "completed": false,
+    "retainedHold": "derived-not-measured-rate",
+    "sourceEvidence": [
+      {
+        "citationId": "droid-2024",
+        "url": "https://arxiv.org/html/2403.12945v2",
+        "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+        "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
+        "supportingPassage": "The creation of large, diverse, high-quality robot manipulation datasets is an important stepping stone on the path toward more capable and robust robotic manipulation policies. However, creating such datasets is challenging: collecting robot manipulation data in diverse environments poses logistical and safety challenges and requires substantial investments in hardware and human labour. As a result, even the most general robot manipulation policies today are mostly trained on data collected in a small number of environments with limited scene and task diversity. In this work, we introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 86 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months. We demonstrate that training with DROID leads to policies with higher performance and improved generalization ability. We open source the full dataset, policy learning code, and a detailed guide for reproducing our robot hardware setup.",
+        "locator": "abstract1.1",
+        "provenance": {
+          "observedAt": "2026-09-16T04:09:18Z",
+          "status": 200,
+          "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
+          "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+          "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
+          "reviewedAt": "2026-09-22T20:57:02.215322Z",
+          "bytes": 258370,
+          "representation": "Literal visible HTML text: decoded entities, omitted non-rendered MathML annotation/script/style, whitespace normalized; raw source bytes preserved unchanged."
+        }
+      },
+      {
+        "citationId": "droid-2024",
+        "url": "https://arxiv.org/html/2403.12945v2",
+        "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+        "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform.",
+        "locator": "S3.p1.1",
+        "provenance": {
+          "observedAt": "2026-09-16T04:09:18Z",
+          "status": 200,
+          "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
+          "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+          "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
+          "reviewedAt": "2026-09-22T20:57:02.215322Z",
+          "bytes": 258370,
+          "representation": "Literal visible HTML text: decoded entities, omitted non-rendered MathML annotation/script/style, whitespace normalized; raw source bytes preserved unchanged."
+        }
+      },
+      {
+        "citationId": "droid-2024",
+        "url": "https://arxiv.org/html/2403.12945v2",
+        "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+        "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
+        "supportingPassage": "Every data collection session starts with moving the robot to a new scene. Data collectors were encouraged to choose scenes that include multiple interesting tasks, numerous interaction objects, and a healthy amount of clutter (see example scenes in Fig. 10). After setting up the robot in the new scene, the data collector chooses views for the 3rd person cameras that can capture a wide range of interesting behaviors in the scene. Then they perform extrinsic camera calibration using a checkerboard and the OpenCV calibration algorithm. Next, the data collector will enter all potential tasks for the current scene into a data collection GUI on the laptop attached to the robot, either by selecting from a list of task options or by typing in free-from task instructions (see Fig. 9 for screenshots of the GUI). During data collection the GUI will prompt the data collector with a randomly sampled task from this list for each new episode. This way we ensure that there is high coverage of diverse tasks and collection is not biased to easier tasks or closer objects. Additionally, the GUI periodically prompts the data collector to perform randomly sampled “scene augmentations” like nudges to the mobile base, moving and re-calibrating the 3rd person cameras, changing the room lighting, and adding or removing items within the scene. For each trajectory, we record the output of all RGB cameras, relevant low level state information from the robot, equivalent robot control commands from various popular action spaces, a data collector ID, and the metadata entered in the GUI (see Appendix B for a detailed list of all features we record). The data collector also marks whether the collected sequence was a success, which we log as part of the metadata. DROID consists of 76k successful episodes; roughly 16k trajectories in our data collection were labeled as “not successful”, which we include in our dataset release but do not count towards the size of DROID. A data collector will typically collect up to 100 trajectories or about 20 minutes of interaction data per scene before moving on to a new scene.",
+        "locator": "S3.SS2.p2.1",
+        "provenance": {
+          "observedAt": "2026-09-16T04:09:18Z",
+          "status": 200,
+          "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
+          "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+          "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
+          "reviewedAt": "2026-09-22T20:57:02.215322Z",
+          "bytes": 258370,
+          "representation": "Literal visible HTML text: decoded entities, omitted non-rendered MathML annotation/script/style, whitespace normalized; raw source bytes preserved unchanged."
+        }
+      },
+      {
+        "citationId": "droid-2024",
+        "url": "https://arxiv.org/html/2403.12945v2",
+        "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+        "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), a robot manipulation dataset of unprecedented diversity (see ). DROID consist of 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes, 52 buildings and 86 tasks. DROID was collected by 18 research labs in North America, Asia, and Europe over the course of 12 months. To streamline distributed data collection and ensure applicability of the final dataset to a wide range of research settings, all data is collected on the same robot hardware stack based on the popular Franka Panda robot arm. Each episode contains three camera views, depth information, camera calibration, and language annotations.",
+        "locator": "S1.p3.1",
+        "provenance": {
+          "observedAt": "2026-09-16T04:09:18Z",
+          "status": 200,
+          "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
+          "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+          "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
+          "reviewedAt": "2026-09-22T20:57:02.215322Z",
+          "bytes": 258370,
+          "representation": "Literal visible HTML text: decoded entities, omitted non-rendered MathML annotation/script/style, whitespace normalized; raw source bytes preserved unchanged."
+        }
+      }
+    ],
+    "authority": "Parent-authorized zero-credit UI truth repair. P2 and VAL-AUDIT-009 unchanged; no source certification or independent acceptance.",
+    "integrationRecordedAt": "2026-09-22T21:49:15.277Z"
+  }
+]
+```
+
+### Bounded integration checks actually run, 2026-09-22
+
+| Check | Observed result |
+| --- | --- |
+| Focused red-first regressions | Model/chart: 9 failed, 18 passed. Ledger/history: 2 failed, 5 passed, before the corresponding repairs. |
+| Focused Vitest after repair | 34 passed in 3 files: data-scaling (16), data-scale-chart (11), data-bottleneck-originals (7). |
+| Required prelint and focused ESLint | Passed for the six changed TypeScript/TSX code and test files. |
+| Narrow pinned TypeScript 7.0.2 | Passed with seven explicit roots and Node/React ambient types; no typegen, build or emit. Initial API/stdin-config attempts failed and remain in typecheck.log. |
+| Article-only source checks | MDX compile and frontmatter schema passed; 13 declared and used citation IDs, 14 inline occurrences; no no-slop findings. Manual prose review performed; no humanizer invocation claimed. |
+| Full offline audit coverage, one invocation | RED, exit 1: 958 complete / 36 incomplete / 994 originals; 42 summary findings, 0 citation findings. Two additional unresolved-verdict findings expose the selected holds; no completion credit. |
+| Preservation | 992 unselected records, 860 prior compound plans and the 1,010-entry approval prefix unchanged. Five exact native member deltas appended. data-bottleneck:12 unchanged. |
+| Deferred acceptance | Browser/rendered accessibility and layout, reading-time, build/export, generated artifacts and independent acceptance were not run in this lane. Publication remains blocked. |
+
+Logs and the exact before/after native tuples are in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-truth-repair-20260922/`. Every invoked check used `NODE_DISABLE_COMPILE_CACHE=1`. No new source retrieval, licensing change or citation-registry edit was made.

@@ -18342,6 +18342,79 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+      "newHash": "432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f",
+      "reason": "Correct OXE source-scoped unknown duration and DROID successful/unsuccessful counts, collectors, robots and elapsed duration. Retain prediction/reveal with authored hypothetical rates and targets, not source measurements; both selected audit rows stay unresolved.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/data-scale-chart.tsx:aria-label:2",
+      "oldHash": "462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d",
+      "newHash": "903172b89cc49201bb0262ec552fb6d7ee1ca3783807a0e8025a8dd6c4c85699",
+      "reason": "The existing dynamic chart accessible name now explicitly calls the preserved farm projection hypothetical; rig count, controls and numeric behavior are unchanged.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-3",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Remove only the unsupported numeric OXE marker; retain a source-linked unknown-duration entry. Label retained rates/targets and every coupled summary/accessibility/readout as hypothetical, preserving controls, IDs, default values and arithmetic.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-4",
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Keep OXE duration a source-scoped unknown, never zero or n/a. Its token column remains genuinely inapplicable, as for the other robot datasets; numeric plot and scenario behavior are preserved except the unsupported OXE marker.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-5",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/data-scale-chart.tsx:not-applicable:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "82f1cb562f662def75c5bf9104fca5f4e1699ba316f49325e30754c1146d360c",
+      "reason": "Keep OXE duration a source-scoped unknown, never zero or n/a. Its token column remains genuinely inapplicable, as for the other robot datasets; numeric plot and scenario behavior are preserved except the unsupported OXE marker.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
