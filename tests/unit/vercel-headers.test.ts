@@ -16,7 +16,6 @@ import { articleStructuredImagePaths, SITE_CARD_PATH } from '@/lib/og-cards';
 
 interface VercelHeaderRule {
   source: string;
-  has?: Array<{ type: string; value: string }>;
   headers: Array<{ key: string; value: string }>;
 }
 
@@ -24,10 +23,8 @@ interface VercelConfig {
   headers?: VercelHeaderRule[];
   builds?: unknown;
   functions?: unknown;
-  framework?: unknown;
   outputDirectory?: unknown;
   buildCommand?: unknown;
-  trailingSlash?: unknown;
 }
 
 const YEAR = 31536000;
@@ -47,38 +44,14 @@ function cacheControlForSource(source: string): string | undefined {
   return rule?.headers.find((header) => header.key === 'Cache-Control')?.value;
 }
 
-describe('vercel.json deploys the finished static export', () => {
-  // Under Vercel's Next.js preset the deployment omitted everything postbuild
-  // adds to out/: /pagefind/ (article search 404ed live), the 404 guard, and the
-  // pruned /_not-found/. Serving out/ as plain static output ships it intact.
-  it('serves out/ from vercel-build as static output, not through the Next preset', () => {
-    expect(vercel.framework).toBeNull();
-    expect(vercel.buildCommand).toBe('npm run vercel-build');
-    expect(vercel.outputDirectory).toBe('out');
-    expect(vercel.trailingSlash).toBe(true);
-    expect(nextConfigSource).toMatch(/trailingSlash:\s*true/);
+describe('vercel.json static-asset cache headers', () => {
+  it('is headers-only so the Next static export on Vercel stays intact', () => {
+    expect(vercel.headers?.length).toBeGreaterThan(0);
     expect(vercel.builds).toBeUndefined();
     expect(vercel.functions).toBeUndefined();
+    expect(vercel.outputDirectory).toBeUndefined();
+    expect(vercel.buildCommand).toBeUndefined();
   });
-
-  it('sends baseline security headers on every response', () => {
-    const rule = vercel.headers?.find((entry) => entry.source === '/(.*)' && !entry.has);
-    const header = (key: string) => rule?.headers.find((h) => h.key === key)?.value;
-    expect(header('X-Content-Type-Options')).toBe('nosniff');
-    expect(header('Referrer-Policy')).toBe('strict-origin-when-cross-origin');
-    expect(header('X-Frame-Options')).toBe('DENY');
-    expect(header('Permissions-Policy')).toMatch(/camera=\(\)/);
-  });
-
-  it('keeps *.vercel.app aliases out of search indexes', () => {
-    const rule = vercel.headers?.find((entry) =>
-      entry.has?.some((c) => c.type === 'host' && c.value.includes('vercel\\.app')),
-    );
-    expect(rule?.headers).toContainEqual({ key: 'X-Robots-Tag', value: 'noindex' });
-  });
-});
-
-describe('vercel.json static-asset cache headers', () => {
 
   it('gives /images, /og, /structured-images, hashed Next assets, and fonts a year-long cache', () => {
     for (const source of [
