@@ -1,0 +1,66 @@
+/**
+ * Article mount registry: the module every article's client-component
+ * imports resolve to at build time. lib/recma-lazy-mounts.mjs rewrites
+ * `@/components/interactive/*` (and the two client MDX tables) here, so the
+ * MDX source keeps naming the real component module.
+ *
+ * This is a Server Component module. Each widget is re-exported from the
+ * `next/dynamic` wrappers in ./lazy-mounts, so each loads as its own chunk
+ * on the pages that render it.
+ */
+export {
+  ActionConditioning,
+  ActionTokenization,
+  AdvantageScrubber,
+  AppearancePhysicsPush,
+  ChunkSizeCurve,
+  CollaborativeOperationModes,
+  ComparisonMatrix,
+  CompoundingError,
+  ContactGeometry,
+  ControlLoopBudget,
+  CrossEmbodimentStrategies,
+  DataScaleChart,
+  DatasetTable,
+  DenoisingLoop,
+  DeploymentDashboard,
+  DeploymentEconomics,
+  EgoScaleScaling,
+  EurekaLoop,
+  ExecutionModes,
+  FlowMatchingTrajectory,
+  FrictionTransfer,
+  GaitDiagram,
+  GeneralistReleaseTimeline,
+  GraspWrenchLab,
+  HandComparison,
+  HardwareGuide,
+  HierarchyTimescales,
+  ImpedanceContactLab,
+  JepaPlanning,
+  KalmanTracker,
+  LatencyComparison,
+  LatentImagination,
+  MilestonesWatchlist,
+  MotInsulation,
+  MpcVsRl,
+  PendulumController,
+  PerceptionErrorBudget,
+  PerceptionLatency,
+  PiGenerationTimeline,
+  PlanarFkArm,
+  RecedingHorizon,
+  ReliabilityCompounding,
+  RewardShaping,
+  RrtExplorer,
+  SampleEfficiencyLedger,
+  SceneRepresentationLadder,
+  TeacherStudent,
+  TeleopRigMatrix,
+  ThesisExplorer,
+  TrainingTimeChart,
+  WbcDecomposition,
+  WmDisambiguator,
+  PolicyChunkingTable,
+  RlMethodsTable,
+} from './lazy-mounts';

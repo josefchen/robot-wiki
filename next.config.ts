@@ -68,6 +68,13 @@ const withMDX = createMDX({
       // from rehype-katex above.
       path.join(process.cwd(), 'lib/rehype-scroll-regions.mjs'),
     ],
+    recmaPlugins: [
+      // Re-points each article's client-component imports at the lazy
+      // mount registry (components/mdx/article-mounts.tsx), so an article
+      // downloads only the widgets it renders rather than every widget
+      // imported anywhere under content/. See the plugin header.
+      path.join(process.cwd(), 'lib/recma-lazy-mounts.mjs'),
+    ],
   },
 });
 
