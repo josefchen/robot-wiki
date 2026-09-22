@@ -74006,5 +74006,443 @@
         "evidenceDigest": "d3d12e6c6fe4de9656020904a4921e416622f4806952d390e1ac35c0d1eafb5d"
       }
     ]
+  },
+  {
+    "id": "generalist-attribution-p1-15-20260921",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "generalist-policies",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "b36e5d623e4b8591c42c29bbcf224dba921c1f63431fbd98b67411d0d4dbfe0d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "report-date",
+        "text": "March 2025 is the report submission month, not proof of checkpoint release.",
+        "requiredCitationIds": [
+          "agibot-world-2025"
+        ]
+      },
+      {
+        "id": "villa-attribution",
+        "text": "Inspect v4 ViLLA name and GO-2 retrospective attribution; do not retain historical unqualified paper-name-absence note.",
+        "requiredCitationIds": [
+          "agibot-world-2025",
+          "agibot-go2-2026"
+        ]
+      },
+      {
+        "id": "latent-mechanism",
+        "text": "Latent action model, VLM-conditioned latent planner and action expert; plural latent action tokens and source-scoped human-video/robot-data training.",
+        "requiredCitationIds": [
+          "agibot-world-2025"
+        ]
+      },
+      {
+        "id": "release-scope",
+        "text": "Preserve platform open-source description but remove unsupported same-time model/data release implication; retain Figure 1 versus prospective release language and repository chronology.",
+        "requiredCitationIds": [
+          "agibot-world-2025",
+          "agibot-world-repo-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:38:38.480Z",
+      "rationale": "Reviewed all four obligations against retained AgiBot abstract, explicit v4 methods/Figure 1/prospective release text, GO-2 retrospective attribution and official README chronology. The unseen old PDF edition is not certified; March report timing and checkpoint release remain distinct.",
+      "planDigest": "2497bd54b288592166926ea5fe20cf8d80f060f9544091d1ac4d03a07dfee823"
+    },
+    "evidence": [
+      {
+        "partId": "report-date",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/abs/2503.06669",
+        "supportingPassage": "[Submitted on 9 Mar 2025 ( v1 ), last revised 4 Aug 2025 (this version, v4)] Title: AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable"
+      },
+      {
+        "partId": "villa-attribution",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+        "supportingPassage": "IV AgiBot World: Model To effectively utilize our high-quality AgiBot World dataset and enhance the policy’s generalizability, we propose a hierarchical Vi sion- L anguage- L atent- A ction (ViLLA) framework with three training stages, as depicted in Fig. 4 . Compared to Vision-Language-Action (VLA) model where action is vision-language conditioned, the ViLLA model predicts latent action tokens, conditioned on the generation of subsequent robot control actions. In Stage 1, we project consecutive images into a latent action space by training an encoder-decoder latent action model (LAM) on internet-scale heterogeneous data. This allows the latent action to serve as an intermediate representation, bridging the gap between general image-text inputs and robotic actions. In Stage 2, these latent actions act as pseudo-labels for the latent planner, facilitating embodiment-agnostic long-horizon planning and leveraging the generalizability of the pre-trained VLM. Finally, in Stage 3, we introduce the action expert and jointly train it with the latent planner to support the learning of dexterous manipulation. IV-A Latent Action Model Despite considerable advancements in gathering diverse robot demonstrations, the volume of action-labeled robot data remains limited relative to web-scale datasets. To broaden the data pool by incorporating internet-scale human videos lacking action labels and cross-embodiment robot data, we employ latent actions [ 30 ] in Stage 1 to model the inverse dynamics of consecutive frames. This approach enables the transfer of real-world dynamics from heterogeneous data sources into universal manipulation knowledge. To extract latent actions from video frames { I t , I t + H } \\{I_{t},I_{t+H}\\} , the latent action model is constructed around an inverse dynamics model-based encoder 𝐈 ⁡ ( z t | I t , I t + H ) \\mathbf{I}(z_{t}|I_{t},I_{t+H}) and a forward dynamics model-based decoder 𝐅 ⁡ ( I t + H | I t , z t ) \\mathbf{F}(I_{t+H}|I_{t},z_{t}) . The encoder employs a spatial-temporal transformer [ 31 ] with casual temporal masks following Bruce et al. [ 30 ] , while the decoder is a spatial transformer that takes the initial frame and discretized latent action tokens z t = [ z t 0 , … , z t k − 1 ] z_{t}=[z_{t}^{0},...,z_{t}^{k-1}] as input, with k k set to 4. The latent action tokens are quantized using a VQ-VAE objective [ 32 ] , with a codebook of size | C | |C| . IV-B Latent Planner With the aim of establishing a solid foundation for scene and object understanding and general reasoning ability, the ViLLA model harnesses a VLM pre-trained on web-scale vision-language data and incorporates a latent planner for embodiment-agnostic planning within the latent action space. We use InternVL2.5-2B [ 33 ] as the VLM backbone due to its strong transfer learning capabilities. The two-billion parameter scale has proven effective for robotic tasks in our preliminary experiments, as well as in prior studies [ 10 , 26 ] . Multiview image observations are first encoded using InternViT before being projected into the language space. The latent planner consists of 24 transformer layers, which enable layer-by-layer conditioning from the VLM backbone with full bidirectional attention. Specifically, given multiview input images ( I t h , I t l , I t r ) \\left(I_{t}^{h},I_{t}^{l},I_{t}^{r}\\right) (typically from the head, left wrist, and right wrist) at timestep t t , along with a language instruction l l describing the ongoing task, the latent planner predicts latent action tokens: 𝐏 ⁡ ( z t | I t h , I t l , I t r , l ) \\mathbf{P}\\left(z_{t}|I_{t}^{h},I_{t}^{l},I_{t}^{r},l\\right) , with supervision produced by the LAM encoder based on the head view: z t := 𝐈 ⁡ ( I t h , I t + H h ) z_{t}:=\\mathbf{I}(I_{t}^{h},I_{t+H}^{h}) . Since the latent action space is orders of magnitude smaller than the discretized low-level actions used in OpenVLA [ 4 ] , this approach also facilitates the efficient adaptation of general-purpose VLMs into robot policies. IV-C Action Expert To achieve high-frequency and dexterous manipulation, Stage 3 integrates an action expert that utilizes a diffusion objective to model the continuous distribution of low-level actions [ 34 ] . Although the action expert shares the same architectural framework as the latent planner, their objectives diverge: the latent planner generates discretized latent action tokens through masked language modeling, while the action expert regresses low-level actions via an iterative denoising process. Both expert modules are conditioned hierarchically on preceding modules, including the action expert itself, ensuring coherent integration and information flow within the dual-expert system. The action expert decodes low-level action chunks, denoted by A t = [ a t , a t + 1 , … , a t + H ] {A}_{t}=[{a}_{t},{a}_{t+1},...,{a}_{t+H}] with H = 30 H=30 , using proprioceptive state p t p_{t} over an interval of H H timesteps: 𝐀 ⁡ ( A t | I t h , I t l , I t r , p t , l ) \\mathbf{A}\\left(A_{t}|I_{t}^{h},I_{t}^{l},I_{t}^{r},p_{t},l\\right) . During inference, the VLM, latent planner, and action expert are synergistically combined within the generalist policy GO-1, which initially predicts k k latent action tokens and subsequently conditions the denoising process to produce the final control signals."
+      },
+      {
+        "partId": "villa-attribution",
+        "citationId": "agibot-go2-2026",
+        "sourceUrl": "https://www.agibot.com/article/231/detail/56.html",
+        "supportingPassage": "A year ago, AGIBOT released the Genie Operator-1 (GO-1) foundation model. Featuring the innovative ViLLA architecture, it achieved the first unified modeling of Vision, Language, and Action. It was a landmark breakthrough—GO-1 received the Best Paper Nomination at IROS, was accepted by the top robotics journal TRO, and won the SAIL Star at the World Artificial Intelligence Conference (WAIC). Today, it is integrated into our one-stop embodied development platform, Genie Studio, empowering users to deploy models and validate them in large-scale real-world applications."
+      },
+      {
+        "partId": "latent-mechanism",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+        "supportingPassage": "IV AgiBot World: Model To effectively utilize our high-quality AgiBot World dataset and enhance the policy’s generalizability, we propose a hierarchical Vi sion- L anguage- L atent- A ction (ViLLA) framework with three training stages, as depicted in Fig. 4 . Compared to Vision-Language-Action (VLA) model where action is vision-language conditioned, the ViLLA model predicts latent action tokens, conditioned on the generation of subsequent robot control actions. In Stage 1, we project consecutive images into a latent action space by training an encoder-decoder latent action model (LAM) on internet-scale heterogeneous data. This allows the latent action to serve as an intermediate representation, bridging the gap between general image-text inputs and robotic actions. In Stage 2, these latent actions act as pseudo-labels for the latent planner, facilitating embodiment-agnostic long-horizon planning and leveraging the generalizability of the pre-trained VLM. Finally, in Stage 3, we introduce the action expert and jointly train it with the latent planner to support the learning of dexterous manipulation. IV-A Latent Action Model Despite considerable advancements in gathering diverse robot demonstrations, the volume of action-labeled robot data remains limited relative to web-scale datasets. To broaden the data pool by incorporating internet-scale human videos lacking action labels and cross-embodiment robot data, we employ latent actions [ 30 ] in Stage 1 to model the inverse dynamics of consecutive frames. This approach enables the transfer of real-world dynamics from heterogeneous data sources into universal manipulation knowledge. To extract latent actions from video frames { I t , I t + H } \\{I_{t},I_{t+H}\\} , the latent action model is constructed around an inverse dynamics model-based encoder 𝐈 ⁡ ( z t | I t , I t + H ) \\mathbf{I}(z_{t}|I_{t},I_{t+H}) and a forward dynamics model-based decoder 𝐅 ⁡ ( I t + H | I t , z t ) \\mathbf{F}(I_{t+H}|I_{t},z_{t}) . The encoder employs a spatial-temporal transformer [ 31 ] with casual temporal masks following Bruce et al. [ 30 ] , while the decoder is a spatial transformer that takes the initial frame and discretized latent action tokens z t = [ z t 0 , … , z t k − 1 ] z_{t}=[z_{t}^{0},...,z_{t}^{k-1}] as input, with k k set to 4. The latent action tokens are quantized using a VQ-VAE objective [ 32 ] , with a codebook of size | C | |C| . IV-B Latent Planner With the aim of establishing a solid foundation for scene and object understanding and general reasoning ability, the ViLLA model harnesses a VLM pre-trained on web-scale vision-language data and incorporates a latent planner for embodiment-agnostic planning within the latent action space. We use InternVL2.5-2B [ 33 ] as the VLM backbone due to its strong transfer learning capabilities. The two-billion parameter scale has proven effective for robotic tasks in our preliminary experiments, as well as in prior studies [ 10 , 26 ] . Multiview image observations are first encoded using InternViT before being projected into the language space. The latent planner consists of 24 transformer layers, which enable layer-by-layer conditioning from the VLM backbone with full bidirectional attention. Specifically, given multiview input images ( I t h , I t l , I t r ) \\left(I_{t}^{h},I_{t}^{l},I_{t}^{r}\\right) (typically from the head, left wrist, and right wrist) at timestep t t , along with a language instruction l l describing the ongoing task, the latent planner predicts latent action tokens: 𝐏 ⁡ ( z t | I t h , I t l , I t r , l ) \\mathbf{P}\\left(z_{t}|I_{t}^{h},I_{t}^{l},I_{t}^{r},l\\right) , with supervision produced by the LAM encoder based on the head view: z t := 𝐈 ⁡ ( I t h , I t + H h ) z_{t}:=\\mathbf{I}(I_{t}^{h},I_{t+H}^{h}) . Since the latent action space is orders of magnitude smaller than the discretized low-level actions used in OpenVLA [ 4 ] , this approach also facilitates the efficient adaptation of general-purpose VLMs into robot policies. IV-C Action Expert To achieve high-frequency and dexterous manipulation, Stage 3 integrates an action expert that utilizes a diffusion objective to model the continuous distribution of low-level actions [ 34 ] . Although the action expert shares the same architectural framework as the latent planner, their objectives diverge: the latent planner generates discretized latent action tokens through masked language modeling, while the action expert regresses low-level actions via an iterative denoising process. Both expert modules are conditioned hierarchically on preceding modules, including the action expert itself, ensuring coherent integration and information flow within the dual-expert system. The action expert decodes low-level action chunks, denoted by A t = [ a t , a t + 1 , … , a t + H ] {A}_{t}=[{a}_{t},{a}_{t+1},...,{a}_{t+H}] with H = 30 H=30 , using proprioceptive state p t p_{t} over an interval of H H timesteps: 𝐀 ⁡ ( A t | I t h , I t l , I t r , p t , l ) \\mathbf{A}\\left(A_{t}|I_{t}^{h},I_{t}^{l},I_{t}^{r},p_{t},l\\right) . During inference, the VLM, latent planner, and action expert are synergistically combined within the generalist policy GO-1, which initially predicts k k latent action tokens and subsequently conditions the denoising process to produce the final control signals."
+      },
+      {
+        "partId": "release-scope",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+        "supportingPassage": "Fig. 1 : Introducing AgiBot World Colosseo , an open-sourced large-scale manipulation platform comprising data, models, benchmarks and ecosystem. AgiBot World stands out for its unparalleled scale and diversity compared to prior counterparts. A suite of 100 dual-arm humanoid robots is deployed. We further propose a generalist policy (GO-1) with the latent action planner. It is trained across diverse data corpus with a scalable performance of 32% gain compared to prior arts.\n\n[Separate literal excerpt from the same retained source]\n\nWe plan to release all resources to enable the community build upon AgiBot World. The dataset is available under the CC BY-NC-SA 4.0 license , along with the model checkpoints and code. III-A Hardware: A Versatile Humanoid Robot The hardware platform is the co"
+      },
+      {
+        "partId": "release-scope",
+        "citationId": "agibot-world-repo-2026",
+        "sourceUrl": "https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md",
+        "supportingPassage": "- **`[2025/09/19]`** 🚀 **Our robotic foundation model GO-1 open-sourced.**\n- **`[2025/03/10]`** 📄 <a href=\"https://opendrivelab.com/blog/agibot-world/\" target=\"_blank\">Research Blog</a> and <a href=\"https://arxiv.org/abs/2503.06669\" target=\"_blank\">Technical Report</a> released.\n- **`[2025/03/01]`** Agibot World Beta released.\n- **`[2025/01/03]`** <span style=\"color: #B91C1C; font-weight: bold;\">Agibot World Alpha Sample Dataset released.</span>\n- **`[2024/12/30]`** 🤖 Agibot World Alpha released."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "report-date",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:38:38.480Z",
+        "rationale": "March 2025 is the report submission month, not proof of checkpoint release. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "b17ab0bfdf667aa4c82e9e3a485cf4b6011c90065e3c15fe81e2766505ad049e"
+      },
+      {
+        "partId": "villa-attribution",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:38:38.480Z",
+        "rationale": "Inspect v4 ViLLA name and GO-2 retrospective attribution; do not retain historical unqualified paper-name-absence note. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "c23242ad2b1fe296a8d184b7044fd44103124b5cd7ec2edb763bb9323299599c"
+      },
+      {
+        "partId": "latent-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:38:38.480Z",
+        "rationale": "Latent action model, VLM-conditioned latent planner and action expert; plural latent action tokens and source-scoped human-video/robot-data training. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "64aa9f976531d1690200f36c46034796ae2abf32fcbcc2aaab9155d497029a4e"
+      },
+      {
+        "partId": "release-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:38:38.480Z",
+        "rationale": "Preserve platform open-source description but remove unsupported same-time model/data release implication; retain Figure 1 versus prospective release language and repository chronology. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "02a2e46c08870f9a110bbe7962e1d6ce205024d775897b4a5e26a53180359ff8"
+      }
+    ]
+  },
+  {
+    "id": "generalist-attribution-p1-21-20260921",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "generalist-policies",
+    "rowOrdinal": 21,
+    "originalCellsDigest": "c5df33f63cf77e859324d3daea67a737a9544ad142792b5c37defb775f01ba74",
+    "kind": "frontmatter-p1",
+    "parts": [
+      {
+        "id": "identity-gemini-robotics-2025",
+        "text": "Canonical v1 title/date and Authors block: collective Gemini Robotics Team plus 117 named authors. Google DeepMind is affiliation, not a replacement author. Abstract truncation is not used as full-list proof.",
+        "requiredCitationIds": [
+          "gemini-robotics-2025"
+        ]
+      },
+      {
+        "id": "identity-gemini-robotics-15-2025",
+        "text": "Retained response visibly identifies v3 dated November 28, 2025, despite unversioned requested URL; team plus 172 named people. Full body includes Robert Baruch; do not narrow to abstract metadata. Hiu Hong (Eddie) Yu and body punctuation/order retained.",
+        "requiredCitationIds": [
+          "gemini-robotics-15-2025"
+        ]
+      },
+      {
+        "id": "identity-gemini-robotics-2-2026",
+        "text": "Visible July 30, 2026 date and Carolina Parada byline; vendor publication, not independent replication.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "identity-gr00t-n1-2025",
+        "text": "arXiv abstract title, year and complete NVIDIA plus 41 named credits; inspected body edition in existing evidence is v2. No affiliation substituted as author.",
+        "requiredCitationIds": [
+          "gr00t-n1-2025"
+        ]
+      },
+      {
+        "id": "identity-isaac-gr00t-repo-2026",
+        "text": "NVIDIA-owned Isaac-GR00T repository snapshot, N1.7 release listing April 18, 2026. Registry year identifies this cited 2026 documentation state, not repository creation. Captured main is not immutable release source; no new license conclusion.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "identity-helix-2025",
+        "text": "Visible title and February 20, 2025 date on Figure official publication; Figure AI institutional publisher attribution, no invented personal author.",
+        "requiredCitationIds": [
+          "helix-2025"
+        ]
+      },
+      {
+        "id": "identity-helix-02-2026",
+        "text": "Visible title and January 27, 2026 date on Figure official publication; Figure AI institutional publisher attribution.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "identity-agibot-world-2025",
+        "text": "Title/year/arXiv ID match; the corrected registry uses the arXiv collective credit and 51 named authors in displayed order, replacing the former AgiBot Research credit. v4 title block Team AgiBot-World and contributions section are preserved as edition context, not silently substituted for the metadata author list.",
+        "requiredCitationIds": [
+          "agibot-world-2025"
+        ]
+      },
+      {
+        "id": "identity-agibot-go2-2026",
+        "text": "Exact full body headline and AGIBOT official corporate attribution. Year 2026 is supported by adjacent commented CMS publication timestamp and 2026 conference references, not a visible release date. Preserve that hidden/visible distinction; no exact GO-2 release day is established.",
+        "requiredCitationIds": [
+          "agibot-go2-2026"
+        ]
+      },
+      {
+        "id": "identity-skild-series-c-2026",
+        "text": "Visible Announcing Series C, Skild AI Team byline and January 14, 2026 date; institutional result claims remain attributed.",
+        "requiredCitationIds": [
+          "skild-series-c-2026"
+        ]
+      },
+      {
+        "id": "identity-pi05-2025",
+        "text": "Explicit arXiv v1 April 22, 2025, exact title and 36 credits including Physical Intelligence; rendering Affiliation labels do not replace authors. Do not substitute a later version.",
+        "requiredCitationIds": [
+          "pi05-2025"
+        ]
+      },
+      {
+        "id": "identity-pi06-model-card-2025",
+        "text": "Official PDF title block: π0.6 Model Card, Physical Intelligence, November 17, 2025. Binary and derived text retained separately; not the separate π*0.6 paper.",
+        "requiredCitationIds": [
+          "pi06-model-card-2025"
+        ]
+      },
+      {
+        "id": "identity-pi07-2026",
+        "text": "Official unversioned PDF title and 87 named authors exactly match; Physical Intelligence heading is retained as institution, and the same 87-person official blog byline corroborates it. April 16, 2026 comes from the dated official blog explicitly linking this PDF, not PDF creation time or retrieval time. PDF layout conversion warnings are retained.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "identity-pi-human-to-robot-2025",
+        "text": "Use visible article title Emergence of Human to Robot Transfer in VLAs, not a longer page-title variant. December 16, 2025 and all eight named authors match in order.",
+        "requiredCitationIds": [
+          "pi-human-to-robot-2025"
+        ]
+      },
+      {
+        "id": "identity-egoscale-2026",
+        "text": "The inspected arXiv v1 body marker reads February 18, 2026; this is the body edition date, not a new retrieval or release date. Full title and 15 named authors match; NVIDIA/Berkeley/Maryland are affiliations, not extra authors.",
+        "requiredCitationIds": [
+          "egoscale-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+      "rationale": "Reviewed the exact fifteen current frontmatter identities, full ordered bylines and institutional credits, years and editions. Eight ordered author lists were checked exactly against retained primary text/metadata; all vendor items remain first-party. π0.5 v1, π0.6 card versus π*0.6, π0.7 PDF/blog date and hidden GO-2 CMS date distinctions are preserved. EgoScale body date and actual GR00T release context corrected during application review.",
+      "planDigest": "741fd033a219d7c3d105ecf0b78bde36e57e0cd67a698805b4b227c66ce6f36a"
+    },
+    "evidence": [
+      {
+        "partId": "identity-gemini-robotics-2025",
+        "citationId": "gemini-robotics-2025",
+        "sourceUrl": "https://arxiv.org/html/2503.20020v1",
+        "supportingPassage": "arXiv:2503.20020v1 [cs.RO] 25 Mar 2025 \\reportnumber Gemini Robotics: Bringing AI into the Physical World Gemini Robotics Team, Google DeepMind Note: See Contributions and Acknowledgments section for full author list. Please send correspondence to gemini-robotics-report@google.com. Abstract Recent advancements in large multimodal models have led to the emergence of remarkable generalist capabilities in digital domain\n\n[Separate literal excerpt from the same retained source]\n\nSaminda Abeyruwan Joshua Ainslie Jean-Baptiste Alayrac Montserrat Gonzalez Arenas Travis Armstrong Ashwin Balakrishna Robert Baruch Maria Bauza Michiel Blokzijl Steven Bohez Konstantinos Bousmalis Anthony Brohan Thomas Buschmann Arunkumar Byravan Serkan Cabi Ken Caluwaerts Federico Casarini Oscar Chang Jose Enrique Chen Xi Chen Hao-Tien Lewis Chiang Krzysztof Choromanski David D’Ambrosio Sudeep Dasari Todor Davchev Coline Devin Norman Di Palo Tianli Ding Adil Dostmohamed Danny Driess Yilun Du Debidatta Dwibedi Michael Elabd Claudio Fantacci Cody Fong Erik Frey Chuyuan Fu Marissa Giustina Keerthana Gopalakrishnan Laura Graesser Leonard Hasenclever Nicolas Heess Brandon Hernaez Alexander Herzog R. Alex Hofer Jan Humplik Authors Atil Iscen Mithun George Jacob Deepali Jain Ryan Julian Dmitry Kalashnikov M. Emre Karagozler Stefani Karp Chase Kew Jerad Kirkland Sean Kirmani Yuheng Kuang Thomas Lampe Antoine Laurens Isabel Leal Alex X. Lee Tsang-Wei Edward Lee Jacky Liang Yixin Lin Sharath Maddineni Anirudha Majumdar Assaf Hurwitz Michaely Robert Moreno Michael Neunert Francesco Nori Carolina Parada Emilio Parisotto Peter Pastor Acorn Pooley Kanishka Rao Krista Reymann Dorsa Sadigh Stefano Saliceti Pannag Sanketi Pierre Sermanet Dhruv Shah Mohit Sharma Kathryn Shea Charles Shu Vikas Sindhwani Sumeet Singh Radu Soricut Jost Tobias Springenberg Rachel Sterneck Razvan Surdulescu Jie Tan Jonathan Tompson Authors Vincent Vanhoucke Jake Varley Grace Vesom Giulia Vezzani Oriol Vinyals Ayzaan Wahid Stefan Welker Paul Wohlhart Fei Xia Ted Xiao Annie Xie Jinyu Xie Peng Xu Authors Sichun Xu Ying Xu Zhuo Xu Yuxiang Yang Rui Yao Sergey Yaroshenko Wenhao Yu Wentao Yuan Jingwei Zhang Tingnan Zhang Allan Zhou Yuxiang Zhou"
+      },
+      {
+        "partId": "identity-gemini-robotics-15-2025",
+        "citationId": "gemini-robotics-15-2025",
+        "sourceUrl": "https://arxiv.org/html/2510.03342",
+        "supportingPassage": "arXiv:2510.03342v3 \\[cs.RO\\] 28 Nov 2025 \\\\reportnumber # Gemini Robotics 1.5: Pushing the Frontier of Generalist Robots with Advanced Embodied Reasoning, Thinking, and Motion Transfer Gemini Robotics Team, Google DeepMind Note: See Contributions and Acknowledgments section for full author list. Please send correspondence to [gemini-robotics-report@google.com](mailto:gemini-robotics-report@google.com \"\"). ###### Abstract General-purpose robots need a deep\n\n[Separate literal excerpt from the same retained source]\n\nAbbas Abdolmaleki Saminda Abeyruwan Joshua Ainslie Jean-Baptiste Alayrac Montserrat Gonzalez Arenas Ashwin Balakrishna Robert Baruch Nathan Batchelor Alex Bewley Jeff Bingham Michael Bloesch Konstantinos Bousmalis Philemon Brakel Anthony Brohan Thomas Buschmann Arunkumar Byravan Serkan Cabi Ken Caluwaerts Federico Casarini Christine Chan Oscar Chang London Chappellet-Volpini Jose Enrique Chen Xi Chen Hao-Tien Lewis Chiang Krzysztof Choromanski Adrian Collister David B. D’Ambrosio Sudeep Dasari Todor Davchev Meet Kirankumar Dave Coline Devin Norman Di Palo Tianli Ding Carl Doersch Adil Dostmohamed Yilun Du Debidatta Dwibedi Sathish Thoppay Egambaram Michael Elabd Tom Erez Xiaolin Fang Claudio Fantacci Cody Fong Erik Frey Chuyuan Fu Ruiqi Gao Marissa Giustina Keerthana Gopalakrishnan Laura Graesser Oliver Groth Agrim Gupta Roland Hafner Steven Hansen Leonard Hasenclever Sam Haves Nicolas Heess Brandon Hernaez Alex Hofer Jasmine Hsu Lu Huang Sandy H. Huang Atil Iscen Mithun George Jacob Deepali Jain Sally Jesmonth Abhishek Jindal Ryan Julian Dmitry Kalashnikov M. Emre Karagozler Stefani Karp Matija Kecman J. Chase Kew Donnie Kim Frank Kim Junkyung Kim Thomas Kipf Sean Kirmani Ksenia Konyushkova Li Yang Ku Yuheng Kuang Thomas Lampe Antoine Laurens Tuan Anh Le Isabel Leal Alex X. Lee Tsang-Wei Edward Lee Guy Lever Jacky Liang Li-Heng Lin Fangchen Liu Shangbang Long Caden Lu Sharath Maddineni Anirudha Majumdar Kevis-Kokitsi Maninis Andrew Marmon Sergio Martinez Assaf Hurwitz Michaely Niko Milonopoulos Joss Moore Robert Moreno Michael Neunert Francesco Nori Joy Ortiz Kenneth Oslund Carolina Parada Emilio Parisotto Amaris Paryag Acorn Pooley Thomas Power Alessio Quaglino Haroon Qureshi Rajkumar Vasudeva Raju Helen Ran Dushyant Rao Kanishka Rao Isaac Reid David Rendleman Krista Reymann Miguel Rivas Francesco Romano Yulia Rubanova Peter Pastor Sampedro Pannag R Sanketi Dhruv Shah Mohit Sharma Kathryn Shea Mohit Shridhar Charles Shu Vikas Sindhwani Sumeet Singh Radu Soricut Rachel Sterneck Ian Storz Razvan Surdulescu Jie Tan Jonathan Tompson Saran Tunyasuvunakool Jake Varley Grace Vesom Giulia Vezzani Maria Bauza Villalonga Oriol Vinyals René Wagner Ayzaan Wahid Stefan Welker Paul Wohlhart Chengda Wu Markus Wulfmeier Fei Xia Ted Xiao Annie Xie Jinyu Xie Peng Xu Sichun Xu Ying Xu Zhuo Xu Jimmy Yan Sherry Yang Skye Yang Yuxiang Yang Hiu Hong (Eddie) Yu Wenhao Yu Wentao Yuan Yuan Yuan Jingwei Zhang Tingnan Zhang Zhiyuan Zhang Allan Zhou Guangyao Zhou Yuxiang Zhou"
+      },
+      {
+        "partId": "identity-gemini-robotics-2-2026",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "July 30, 2026 Models Gemini Robotics 2 brings whole body intelligence to robots Carolina Parada Share Your browser does not support the video tag. From fee"
+      },
+      {
+        "partId": "identity-gr00t-n1-2025",
+        "citationId": "gr00t-n1-2025",
+        "sourceUrl": "https://arxiv.org/abs/2503.14734",
+        "supportingPassage": "[Submitted on 18 Mar 2025 ( [v1](https://arxiv.org/abs/2503.14734v1)), last revised 27 Mar 2025 (this version, v2)\\] # Title:GR00T N1: An Open Foundation Model for Generalist Humanoid Robots Authors: [NVIDIA](https://arxiv.org/search/cs?searchtype=author&query\n\n[Separate literal excerpt from the same retained source]\n\nTitle: [2503.14734] GR00T N1: An Open Foundation Model for Generalist Humanoid Robots Status: 200 Markdown content: [Skip to main content](https://arxiv.org/abs/2503.14734#content) Search arXiv Press Enter to search · [Advanced search](https://arxiv.org/search/advanced) # Computer Science > Robotics **arXiv:2503.14734** (cs) \\[Submitted on 18 Mar 2025 ( [v1](https://arxiv.org/abs/2503.14734v1)), last revised 27 Mar 2025 (this version, v2)\\] # Title:GR00T N1: An Open Foundation Model for Generalist Humanoid Robots Authors: [NVIDIA](https://arxiv.org/search/cs?searchtype=author&query=NVIDIA): [Johan Bjorck](https://arxiv.org/search/cs?searchtype=author&query=Bjorck,+J), [Fernando Castañeda](https://arxiv.org/search/cs?searchtype=author&query=Casta%C3%B1eda,+F), [Nikita Cherniadev](https://arxiv.org/search/cs?searchtype=author&query=Cherniadev,+N), [Xingye Da](https://arxiv.org/search/cs?searchtype=author&query=Da,+X), [Runyu Ding](https://arxiv.org/search/cs?searchtype=author&query=Ding,+R), [Linxi \"Jim\" Fan](https://arxiv.org/search/cs?searchtype=author&query=Fan,+L+%22), [Yu Fang](https://arxiv.org/search/cs?searchtype=author&query=Fang,+Y), [Dieter Fox](https://arxiv.org/search/cs?searchtype=author&query=Fox,+D), [Fengyuan Hu](https://arxiv.org/search/cs?searchtype=author&query=Hu,+F), [Spencer Huang](https://arxiv.org/search/cs?searchtype=author&query=Huang,+S), [Joel Jang](https://arxiv.org/search/cs?searchtype=author&query=Jang,+J), [Zhenyu Jiang](https://arxiv.org/search/cs?searchtype=author&query=Jiang,+Z), [Jan Kautz](https://arxiv.org/search/cs?searchtype=author&query=Kautz,+J), [Kaushil Kundalia](https://arxiv.org/search/cs?searchtype=author&query=Kundalia,+K), [Lawrence Lao](https://arxiv.org/search/cs?searchtype=author&query=Lao,+L), [Zhiqi Li](https://arxiv.org/search/cs?searchtype=author&query=Li,+Z), [Zongyu Lin](https://arxiv.org/search/cs?searchtype=author&query=Lin,+Z), [Kevin Lin](https://arxiv.org/search/cs?searchtype=author&query=Lin,+K), [Guilin Liu](https://arxiv.org/search/cs?searchtype=author&query=Liu,+G), [Edith Llontop](https://arxiv.org/search/cs?searchtype=author&query=Llontop,+E), [Loic Magne](https://arxiv.org/search/cs?searchtype=author&query=Magne,+L), [Ajay Mandlekar](https://arxiv.org/search/cs?searchtype=author&query=Mandlekar,+A), [Avnish Narayan](https://arxiv.org/search/cs?searchtype=author&query=Narayan,+A), [Soroush Nasiriany](https://arxiv.org/search/cs?searchtype=author&query=Nasiriany,+S), [Scott Reed](https://arxiv.org/search/cs?searchtype=author&query=Reed,+S), [You Liang Tan](https://arxiv.org/search/cs?searchtype=author&query=Tan,+Y+L), [Guanzhi Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+G), [Zu Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+Z), [Jing Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+J), [Qi Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+Q), [Jiannan Xiang](https://arxiv.org/search/cs?searchtype=author&query=Xiang,+J), [Yuqi Xie](https://arxiv.org/search/cs?searchtype=author&query=Xie,+Y), [Yinzhen Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Y), [Zhenjia Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Z), [Seonghyeon Ye](https://arxiv.org/search/cs?searchtype=author&query=Ye,+S), [Zhiding Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+Z), [Ao Zhang](https://arxiv.org/search/cs?searchtype=author&query=Zhang,+A), [Hao Zhang](https://arxiv.org/search/cs?searchtype=author&query=Zhang,+H), [Yizhou Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+Y), [Ruijie Zheng](https://arxiv.org/search/cs?searchtype=author&query=Zheng,+R), [Yuke Zhu](https://arxiv.org/search/cs?searchtype=author&query=Zhu,+Y)"
+      },
+      {
+        "partId": "identity-isaac-gr00t-repo-2026",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "URL Content from: \"https://github.com/NVIDIA/Isaac-GR00T\" Title: GitHub - NVIDIA/Isaac-GR00T: NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. · GitHub Status: 200 Markdown con\n\n[Separate literal excerpt from the same retained source]\n\n[n1.7 releaseLatest\\\\\n\\\\\n5 months agoApr 18, 2026](https://github.com/NVIDIA/Isaac-GR00T/releases/tag/n1.7-release)"
+      },
+      {
+        "partId": "identity-helix-2025",
+        "citationId": "helix-2025",
+        "sourceUrl": "https://www.figure.ai/news/helix",
+        "supportingPassage": "Helix: A Vision-Language-Action Model for Generalist Humanoid Control FIGURE 03 HELIX INDEX NEWS CAREERS COMPANY Helix: A Vision-Language-Action Model for Generalist Humanoid Control February 20, 2025 Introducing Helix We're introducing Helix, a generalist Vision-Language-Action (VLA) model that uni"
+      },
+      {
+        "partId": "identity-helix-02-2026",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "URL Content from: \"https://www.figure.ai/news/helix-02\" Title: Introducing Helix 02: Full-Body Autonomy Status: 200 Markdown content: # Introducing Helix 02: Full-Body Autonomy January 27, 2026 ## **Introducing Helix 02** Last year, [Helix](https://www.figure.ai/news/helix) showed that a single neural network could control a humanoid’s upper body f"
+      },
+      {
+        "partId": "identity-agibot-world-2025",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/abs/2503.06669",
+        "supportingPassage": "[Submitted on 9 Mar 2025 ( v1 ), last revised 4 Aug 2025 (this version, v4)] Title: AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems Authors: AgiBot-World-Contributors , Qingwen Bu , Jisong Cai , Li Chen , Xiuqi Cui , Yan Ding , Siyuan Feng , Shenyuan Gao , Xindong He , Xuan Hu , Xu Huang , Shu Jiang , Yuxin Jiang , Cheng Jing , Hongyang Li , Jialu Li , Chiming Liu , Yi Liu , Yuxiang Lu , Jianlan Luo , Ping Luo , Yao Mu , Yuehan Niu , Yixuan Pan , Jiangmiao Pang , Yu Qiao , Guanghui Ren , Cheng Ruan , Jiaqi Shan , Yongjian Shen , Chengshi Shi , Mingkang Shi , Modi Shi , Chonghao Sima , Jianheng Song , Huijie Wang , Wenhao Wang , Dafeng Wei , Chengen Xie , Guo Xu , Junchi Yan , Cunbiao Yang , Lei Yang , Shukai Yang , Maoqing Yao , Jia Zeng , Chi Zhang , Qinglin Zhang , Bin Zhao , Chengyue Zhao , Jiaqi Zhao , Jianchao Zhu View a PDF of the paper titled AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems, by AgiBot-World-Contributors and 51 other authors View PDF HTML (experimental)"
+      },
+      {
+        "partId": "identity-agibot-go2-2026",
+        "citationId": "agibot-go2-2026",
+        "sourceUrl": "https://www.agibot.com/article/231/detail/56.html",
+        "supportingPassage": "The Unity of Reasoning and Action: AGIBOT Unveils Genie Operator-2 (GO-2) Next-Gen Embodied Foundation Model AGIBOT today intoduced GO-2, its next-generation foundation model for embodied AI. For the first time, GO-2 bridges the \"last mile\" from logical reasoning to precise execution within a unified architecture. Leveraging tens of thousands of hours of interaction data, GO-2 has set new SOTA (State-of-the-Art) records across multiple robotic benchmarks, marking a transition from \"black-box exploration\" to true \"Unity of Reasoning and Action.\" GO-2 introduces a unified architecture that integrates logical reasoning and action execution within a single system, enabling robots not only to pla\n\n[Separate literal excerpt from the same retained source]\n\n<!--<span>发布时间：2026-04-09 09:16:14</span>-->"
+      },
+      {
+        "partId": "identity-skild-series-c-2026",
+        "citationId": "skild-series-c-2026",
+        "sourceUrl": "https://www.skild.ai/blogs/series-c",
+        "supportingPassage": "URL Content from: \"https://www.skild.ai/blogs/series-c\" Title: Announcing Series C | Skild AI Status: 200 Markdown content: [← All posts](https://www.skild.ai/blogs) # Announcing Series C By Skild AI Team · Jan 14, 2026 ![Announcing Series C](https:/"
+      },
+      {
+        "partId": "identity-pi05-2025",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+        "supportingPassage": "arXiv:2504.16054v1 \\[cs.LG\\] 22 Apr 2025 # π0.5\\\\pi\\_{0.5}: a Vision-Language-Action Model with Open-World Generalization Physical IntelligenceAffiliation: Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi,Affiliation: Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman, Brian Ichter,Affiliation: Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri,Affiliation: Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle StachowiczAffiliation: James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, Ury ZhilinskyAffiliation: [https://pi.website/blog/pi05](https://pi.website/blog/pi05 \"\")"
+      },
+      {
+        "partId": "identity-pi06-model-card-2025",
+        "citationId": "pi06-model-card-2025",
+        "sourceUrl": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+        "supportingPassage": "π0.6 Model Card Physical Intelligence November 17, 2025 1 Introduction We introduce π0.6 , our newes"
+      },
+      {
+        "partId": "identity-pi07-2026",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities Physical Intelligence Bo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier, Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess, Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb, Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones, Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine, Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush, Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne, Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams, Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky"
+      },
+      {
+        "partId": "identity-pi07-2026",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/blog/pi07",
+        "supportingPassage": "URL Content from: \"https://www.pi.website/blog/pi07\" Title: A Steerable Model with Emergent Capabilities Status: 200 Markdown content: # π0.7: a Steerable Model with Emergent Capabilities Published April 16, 2026 Email research@physicalintelligence.companyBo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier, Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess, Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb, Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones, Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine, Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush, Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne, Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams, Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky Paper [π0.7.pdf](https://www.pi.website/download/pi07.pdf)"
+      },
+      {
+        "partId": "identity-pi-human-to-robot-2025",
+        "citationId": "pi-human-to-robot-2025",
+        "sourceUrl": "https://www.pi.website/research/human_to_robot",
+        "supportingPassage": "URL Content from: \"https://www.pi.website/research/human_to_robot\" Title: Emergence of Human to Robot Transfer in Vision-Language-Action Models Status: 200 Markdown content: # Emergence of Human to Robot Transfer in VLAs Published December 16, 2025 Email research@physicalintelligence.companySimar Kareer, Karl Pertsch, James Darpinian, Judy Hoffman, Danfei Xu, Sergey Levine, Chelsea Finn, Suraj Nair Paper [human\\_to\\_robot.pdf](https://www.pi.website/download/human_to_robot.pdf)"
+      },
+      {
+        "partId": "identity-egoscale-2026",
+        "citationId": "egoscale-2026",
+        "sourceUrl": "https://arxiv.org/html/2602.16710v1",
+        "supportingPassage": "arXiv:2602.16710v1 [cs.RO] 18 Feb 2026 EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data Ruijie Zheng, Dantong Niu, Yuqi Xie, Jing Wang, Mengda Xu, Yunfan Jiang, Fernando Castañeda, Fengyuan Hu, You Liang Tan, Letian Fu, Trevor Darrell, Furong Huang, Yuke Zhu, Danfei Xu, Linxi Fan NVIDIA University of California, Berkeley University of Maryland *Equal Contribution †Project Lead https://research.nvidia.com/labs/gear/egoscale/"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity-gemini-robotics-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Canonical v1 title/date and Authors block: collective Gemini Robotics Team plus 117 named authors. Google DeepMind is affiliation, not a replacement author. Abstract truncation is not used as full-list proof. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "b4de7057f7b20dc2064bce832f5cec89d3a234984375fb9c66e389fe5b8d42c1"
+      },
+      {
+        "partId": "identity-gemini-robotics-15-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Retained response visibly identifies v3 dated November 28, 2025, despite unversioned requested URL; team plus 172 named people. Full body includes Robert Baruch; do not narrow to abstract metadata. Hiu Hong (Eddie) Yu and body punctuation/order retained. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "4639ebf3a142c2083933c664e07870521cee6a92f00842a497e3dac0cf44d73a"
+      },
+      {
+        "partId": "identity-gemini-robotics-2-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Visible July 30, 2026 date and Carolina Parada byline; vendor publication, not independent replication. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "79f7db894d93ea8e6f997d2f23b2231e1c8b81f749bf01bbbfb1f173fbb3f067"
+      },
+      {
+        "partId": "identity-gr00t-n1-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "arXiv abstract title, year and complete NVIDIA plus 41 named credits; inspected body edition in existing evidence is v2. No affiliation substituted as author. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "eef94448b752382bcd591a2482296bc74f87adaafe74ac171aa6ad8e3312288f"
+      },
+      {
+        "partId": "identity-isaac-gr00t-repo-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "NVIDIA-owned Isaac-GR00T repository snapshot, N1.7 release listing April 18, 2026. Registry year identifies this cited 2026 documentation state, not repository creation. Captured main is not immutable release source; no new license conclusion. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "28c3f8091663b2c430fa11a93da3ba2be41e2082b172cc00fad1e8d766711e2f"
+      },
+      {
+        "partId": "identity-helix-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Visible title and February 20, 2025 date on Figure official publication; Figure AI institutional publisher attribution, no invented personal author. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "da225bc760f19defa1291c98c5d870a46165e502e2804008e999a0fa61e36423"
+      },
+      {
+        "partId": "identity-helix-02-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Visible title and January 27, 2026 date on Figure official publication; Figure AI institutional publisher attribution. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "e21b1e0c412ae53cbf1190355e000f98b387952555295b8a2f978abf75775387"
+      },
+      {
+        "partId": "identity-agibot-world-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Title/year/arXiv ID match; the corrected registry uses the arXiv collective credit and 51 named authors in displayed order, replacing the former AgiBot Research credit. v4 title block Team AgiBot-World and contributions section are preserved as edition context, not silently substituted for the metadata author list. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "34c8d2f3ea4c1ef8372399b3d21db851abc7a1cd3f712143d547feecf474a4aa"
+      },
+      {
+        "partId": "identity-agibot-go2-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Exact full body headline and AGIBOT official corporate attribution. Year 2026 is supported by adjacent commented CMS publication timestamp and 2026 conference references, not a visible release date. Preserve that hidden/visible distinction; no exact GO-2 release day is established. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "d6bdd7d8aad08a1c88d6238089a2a1deca5a814e74262d0fe55e18ed9ed8cbb5"
+      },
+      {
+        "partId": "identity-skild-series-c-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Visible Announcing Series C, Skild AI Team byline and January 14, 2026 date; institutional result claims remain attributed. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "b25625c9df1fc7f2100da9843a36d28f3e46afd108b66897a1f1122a8e57e0db"
+      },
+      {
+        "partId": "identity-pi05-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Explicit arXiv v1 April 22, 2025, exact title and 36 credits including Physical Intelligence; rendering Affiliation labels do not replace authors. Do not substitute a later version. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "63ce8490096f9c48c7710cdda137faa0242c28eb9acf761ebf6b8e596105d326"
+      },
+      {
+        "partId": "identity-pi06-model-card-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Official PDF title block: π0.6 Model Card, Physical Intelligence, November 17, 2025. Binary and derived text retained separately; not the separate π*0.6 paper. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "5acfe3dd99a0c99ab946924820d73e65f30766dbd6f4ce5b88415432edb9d69e"
+      },
+      {
+        "partId": "identity-pi07-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Official unversioned PDF title and 87 named authors exactly match; Physical Intelligence heading is retained as institution, and the same 87-person official blog byline corroborates it. April 16, 2026 comes from the dated official blog explicitly linking this PDF, not PDF creation time or retrieval time. PDF layout conversion warnings are retained. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "ac5d187ccce9fe292b7507c31483b43f42a52b2fba9b37797ea6ddd4718d338a"
+      },
+      {
+        "partId": "identity-pi-human-to-robot-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "Use visible article title Emergence of Human to Robot Transfer in VLAs, not a longer page-title variant. December 16, 2025 and all eight named authors match in order. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "1ad9954a78e06f935ae7f68c967d93fb6c525d04e8789acaebd5a12859444a08"
+      },
+      {
+        "partId": "identity-egoscale-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:48:38.010Z",
+        "rationale": "The inspected arXiv v1 body marker reads February 18, 2026; this is the body edition date, not a new retrieval or release date. Full title and 15 named authors match; NVIDIA/Berkeley/Maryland are affiliations, not extra authors. Application review found the bound literal passages support this corrected scope, not the superseded historical claim. Historical retrieval provenance is retained; no new network observation.",
+        "evidenceDigest": "842ffa6100fbcca37b100828acc38c743838715f5a359202f302dcc6ab209385"
+      }
+    ]
   }
 ]

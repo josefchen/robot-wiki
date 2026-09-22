@@ -18240,6 +18240,74 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+      "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "175d565634723d9122f43bbf7a82f17a310b7fce5c85f36fdbc44620b25c0613",
+      "newHash": "785ab5aee7ea2c1cafabb9e2ea3c1420c7d3564bad6527769bda1f6ab00b94e6",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-3",
+      "manifest": "article-metadata",
+      "memberId": "citation:agibot-world-2025",
+      "oldHash": "68d060d391d0cca49c824f96d2bc226add599dd915d28d8a9410b159ec6cb425",
+      "newHash": "3a8411c2d1287ed2e89b8ab0ac7fcdb3f3830b1d0b3981afdd1109c330dab1c2",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-4",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+      "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -1,3 +1,24 @@
+## Current checkpoint: generalist originals 15 and 21 corrected (2026-09-22)
+
+Exactly **2 applied / 0 held / 0 unattempted** selected originals: audit/manipulation.md:generalist-policies:15 and :21. Native accounting is **956 complete / 38 incomplete / 994 originals**, across 47 articles. Counts mean structural evidence completeness, not source truth, whole-article completion or independent acceptance. All older checkpoints below are historical.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 222 | 3 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 115 | 13 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 956 | 38 |
+
+Counting method: native parseLedger over AUDIT_LEDGERS with every article's canonical frontmatter; incomplete means evidenceFailures.length > 0. Exactly two new plans bring the catalog from 857 to 859 (four and fifteen reviewed parts); four exact current-HEAD member approvals extend the unchanged 1004-entry prefix to 1008. All 994 identities, 992 unselected records and 954 prior complete records are preserved. The selected former four-cell tuples remain non-counted history; corrected outcomes do not verify the old claims.
+
+One offline `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json` returned exit 1: **956/38/994**, **43 ledger findings**, **0 uncovered-citation findings**, **0 summary mismatches**, 47/47 articles. Full JSON and empty stderr are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/coverage.json and coverage-stderr.log. The 43 findings are 38 incomplete originals, three aggregate evidence failures and two unresolved outcomes. Generalist19 and all other existing holds remain unchanged. Source/app/rendered/reading-time/global generated evidence and independent Sol/high scrutiny/user testing remain owed. Formal 307/331 is unchanged, not acceptance; no publication.
+
+---
+
 ## Current checkpoint: DROID and BridgeData license pair corrected (2026-09-21)
 
 Exactly **2 applied / 0 held / 0 unattempted** selected originals: audit/data-hardware.md:datasets:5 and :6. Native accounting is **954 complete / 40 incomplete / 994 originals**, across 47 articles. Counts mean structural evidence completeness, not source truth, whole-article completion or independent acceptance. Older checkpoints below are historical.

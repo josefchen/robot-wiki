@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 12
 - Claim rows: 225
-- Recorded verified: 44
-- Recorded corrected: 172
+- Recorded verified: 42
+- Recorded corrected: 174
 - Recorded cut: 4
 - Recorded source inconsistencies: 4
 - Unresolved or unrecognised verdicts: 1
-- Complete evidence records: 220
-- Incomplete evidence records: 5
+- Complete evidence records: 222
+- Incomplete evidence records: 3
 
 <!-- audit-summary:end -->
 
@@ -302,13 +302,13 @@ being kept.
 | Figure’s February 20, 2025 Helix post describes S2 VLM latent task representations and S1 latent-conditioned visuomotor control from images and robot state. Vendor-reported rates are 7–9 Hz and 200 Hz. Outputs include wrist poses, finger flexion/abduction, torso/head orientation and synthetic completion. Open-weight S2 backbone is distinct from full-policy release. | helix-2025: https://www.figure.ai/news/helix | corrected | VLA-GENERALIST-CLOSEOUT-generalist-policies-12. Original Helix uses S2 latent task representation plus S1 image/state inputs at7–9/200Hz. Wrist/finger/torso/head outputs and synthetic task-completion differ from all-joint targets. Open pretrained backbone is not full-policy release; preserve prior Helix02 staging and already-correct title. Retained-source review 2026-09-08T03:08:28.428Z; zero new retrievals. Rebound to actual9764820. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | vla-generalist-closeout-generalist-policies-12-20260908 |
 | Figure’s January 27, 2026 Helix 02 announcement describes a three-layer hierarchy, not three numerically specified rates. S2 interprets scenes and language and sequences latent goals. S1 maps head and palm cameras, fingertip tactile sensing, and full-body proprioception to full-body joint targets at a reported 200 Hz. S0 is a 10M-parameter whole-body controller that outputs joint-level actuator commands at a reported 1 kHz. Figure says S0 uses over 1,000 hours of joint-level retargeted human motion and is trained entirely in simulation across more than 200,000 parallel environments with domain randomization; the announcement also describes sim-to-real reinforcement learning. Figure says this learned controller replaces 109,504 lines of hand-engineered C++. S2 does not plan low-level footsteps: S1 interprets its semantic latents into motor commands and S0 executes them. The post describes its dishwasher demonstration as a continuous four-minute autonomous task with 61 loco-manipulation actions, implicit error recovery, no resets, and no human intervention. Those are Figure’s descriptions of the demonstration, not an independently timed trial or an aggregate success-rate estimate . | helix-02-2026: https://www.figure.ai/news/helix-02 | corrected | GO-HELIX-CROSS-TRANSFER-generalist-policies-13. January27,2026 is the Helix02 announcement. S2 semantic goals, S1 joint targets at200Hz and S0 actuator commands at1kHz are distinct; no numerical S2 rate is supplied. S0 is10M parameters trained with over1000hours and more than200000simulation environments. Four-minute/61-action dishwasher video and109504 replaced C++ lines are vendor reports, not repeated-trial success or independent measurement. Retained-source review 2026-09-08T01:58:37.539Z; zero new retrievals. Rebound to actual950c190. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | go-helix-cross-transfer-generalist-policies-13-20260908 |
 | These are Figure’s own architecture descriptions and demonstrations, not independent replications. The two linked announcement texts do not provide repeated-trial success-rate tables or release terms for the trained Helix policies. The 2025 post identifies an open-weight VLM backbone; that is not a release of the complete trained Helix policy. Read the videos as demonstrations, not success-rate estimates . | helix-02-2026: https://www.figure.ai/news/helix-02; helix-2025: https://www.figure.ai/news/helix | corrected | GO-HELIX-CROSS-TRANSFER-generalist-policies-14. Original February20,2025 Helix reports S2 at7–9Hz and S1 at200Hz with wrist/finger/torso/head outputs; Helix02 instead discloses full-body joint targets. An open-weight VLM backbone does not establish release of the complete trained policy. Both vendor announcements bound the evaluation and release unknowns; no global no-paper or closed-license assertion. Retained-source review 2026-09-08T01:58:37.577Z; zero new retrievals. Rebound to actual950c190. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | go-helix-cross-transfer-generalist-policies-14-20260908 |
-| GO-1 (March 2025): ViLLA; latent action token between VLM and action head lets unlabeled human/robot video enter training; open-sourced alongside AgiBot World Colosseo | AgiBot World paper, arXiv 2503.06669 PDF + GO-2 announcement | verified | Paper: "GO-1, a robot foundation policy using latent action representations to unlock web-scale pre-training on web data"; "an open-sourced large-scale manipulation platform comprising data, models, benchmarks and ecosystem"; ablation "GO-1 w/o Latent Planner". Note: the ViLLA name itself appears in the GO-2 announcement ("Featuring the innovative ViLLA architecture"), not in the AgiBot World paper; the mechanism claims are the paper's. |
+| GO-1 is introduced in the AgiBot World report first submitted in March 2025; inspected v4 explicitly names ViLLA and describes latent action modeling, a VLM-conditioned latent planner, and an action expert using human video without action labels and robot data. The paper and later GO-2 announcement supply distinct attributions. Colosseo platform openness does not prove simultaneous GO-1 checkpoint/data release. | agibot-world-2025: https://arxiv.org/abs/2503.06669 and https://arxiv.org/html/2503.06669v4; agibot-go2-2026: https://www.agibot.com/article/231/detail/56.html; correction-context agibot-world-repo-2026: https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md | C (source-backed correction) | Exact previous verified tuple retained in non-counted correction history. Inspected v4 explicitly uses ViLLA, unlike the old note's unqualified absence assertion; the old PDF edition was not pinned, so no claim is made about that unseen edition. The report was submitted March 9, 2025; the retained official README separately labels GO-1 open-sourced September 19, 2025 and lists March data/report milestones. The simultaneous-release implication is removed, not verified. Scientific mechanism evidence is the primary paper; the vendor announcement is only its own retrospective attribution. No weight-license conclusion or source truth inferred from a ledger label. GENERALIST-ATTRIBUTION-P1-20260922: actual retained-text review 2026-09-22T00:38:38.480Z; zero new retrievals. Source identities, exact original retrieval observations and representation hashes are preserved in the non-counted history below. No current origin status, whole-article audit, independent acceptance or old-truth verification is implied. |  |  |  | generalist-attribution-p1-15-20260921 |
 | AgiBot presents GO-2 as a response to what it calls the “Semantic-Actuation Gap” between reasoning signals and motor commands. Its Action Chain-of-Thought generates a high-level sequence of action intents as a macro-plan. In the asynchronous dual system, the lower-frequency Semantic Planning Module (System 2), called the “General Commander,” generates structured action sequences through Progressive Refinement. The higher-frequency Action Following Module (System 1), called the “Agile Executor,” combines those intents with real-time observations and uses Residual Refinement to compensate for noise. Teacher forcing is described as a training mechanism for following approximately correct but imperfect reasoning, not an extra inference-time controller. The announcement gives relative frequencies for the two modules, not numerical planner, follower, or robot-control rates . | agibot-go2-2026: https://www.agibot.com/article/231/detail/56.html | corrected | GO-HELIX-CROSS-TRANSFER-generalist-policies-16. GO2 describes two asynchronous runtime modules: lower-frequency S2 semantic planning with Progressive Refinement and higher-frequency S1 Action Following with real-time observations and Residual Refinement. Teacher Forcing is training, not a third runtime controller. Reasoning/action unity is an attributed vendor aim, not independent validation. Retained-source review 2026-09-08T01:58:37.609Z; zero new retrievals. Rebound to actual950c190. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | go-helix-cross-transfer-generalist-policies-16-20260908 |
 | AgiBot’s announcement reports an average success rate of 98.5% across LIBERO Spatial, Object, Goal, and Long; 86.6% zero-shot success in LIBERO-Plus environments with disturbances; and, under its Genie Sim 3.0 sim-to-real heading, 82.9% real-world success for a model trained solely on simulation data. It claims superiority over π0.5 and NVIDIA GR00T, but the announcement text does not give the trial denominators, uncertainty estimates, disturbance protocol, or comparator versions needed to reconstruct a matched comparison. These are vendor-reported summaries, not interchangeable measures of frontier capability . AgiBot also says the action-reasoning contribution was accepted at CVPR 2026 and the asynchronous architecture at ACL 2026. That is the vendor’s acceptance claim, not a conference-record verification. This announcement does not establish trained GO-2 weight availability; no universal “no paper” or “closed weights” conclusion follows . | agibot-go2-2026: https://www.agibot.com/article/231/detail/56.html | corrected | GO-HELIX-CROSS-TRANSFER-generalist-policies-17. Vendor populations stay separate:98.5% LIBERO,86.6% disturbed LIBERO-Plus and82.9% real-world sim-to-real under Genie Sim3.0. Missing counts, uncertainty, disturbance protocol and comparator versions preclude a reconstructed matched comparison. CVPR/ACL acceptance is vendor attribution. The commented HTML timestamp is not a visible release date; source-scoped unknown weight availability is not closed licensing. Retained-source review 2026-09-08T01:58:37.641Z; zero new retrievals. Rebound to actual950c190. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | go-helix-cross-transfer-generalist-policies-17-20260908 |
 | Skild AI Team reports a January 14, 2026 Series C raise of $1.4 billion at over $14 billion valuation; omni-bodied capability is attributed to the company, not universally demonstrated. The announcement describes four training-data sources but not runtime architecture/control/horizon or reproducible benchmark and weight-release terms. | skild-series-c-2026: https://www.skild.ai/blogs/series-c | corrected | OFT-GEMINI-OXE-generalist-policies-18. Skild January14announcement reports1.4B raised and valuation OVER14B, attributed omni-bodied claim and four data categories. Torque sequences describe teleop data, not runtime head architecture. Remove global nothing-technical inference; market-map exact14B oracles remain separate debt. Retained-source review 2026-09-08T00:52:36.658Z; zero new retrievals. Rebound to actuald469f1d. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | oft-gemini-oxe-generalist-policies-18-20260908 |
 | Stats block: 13 releases Feb 2025-Jul 2026; 4 open weights (GR00T N1 and N1.7, GO-1, π0.5); 5 arXiv papers; 7 vendor-only; callout's "seven of the thirteen" enumeration | lib/generalist-policies.ts GENERALIST_RELEASES + release dates verified above | verified | 13 entries; openWeights true for exactly gr00t-n1, agibot-go1, pi05-context, gr00t-n17; paper tier for GR1, GR1.5, GR00T N1, AgiBot World (GO-1), π0.5; blog/press tier for both Helix generations, π0.6, π0.7, GR2, GO-2, Skild = 7. Every release month verified against a primary source. |
 | Kareer and colleagues report PI human/robot co-fine-tuning with 3D hand-position actions and no special transfer-learning mechanism, with transfer improving as robot pretraining quantity/diversity grows. Zheng and colleagues’ EgoScale combines relative wrist/retargeted hand supervision and aligned human–robot mid-training, with scale and alignment complementary in their evaluated setting. Neither proves a universal scale-alone versus hard-alignment dichotomy. | egoscale-2026: https://arxiv.org/html/2602.16710v1; pi-human-to-robot-2025: https://www.pi.website/research/human_to_robot | corrected | VLA-GENERALIST-CLOSEOUT-generalist-policies-20. Name Simar Kareer/PI human-and-relevant-robot co-finetuning and Ruijie Zheng/EgoScale explicit motion supervision/aligned mid-training. Distinct recipes and evaluations are not a universal scale-alone versus mandatory-alignment fork. Preserve all prior human-transfer facts and metadata. Retained-source review 2026-09-08T03:08:28.463Z; zero new retrievals. Rebound to actual9764820. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | vla-generalist-closeout-generalist-policies-20-20260908 |
-| Frontmatter citations resolve to the intended documents (14 ids incl. pi-human-to-robot-2025, isaac-gr00t-repo-2026) | Each fetched during this audit | verified | Titles, years and URLs match the live documents; the removed agibot-go2-robotreport-2026 is a press repeater and no article cites it now. Correction of record (2026-08-18 reconciliation sweep): this row originally asserted that keeping an unused entry in the registry "is not allowed by validate:content". That is not what the gate does — validate:content checks citations used by articles, not registry entries that nothing cites, and it passes green with the orphan present (the entry still exists, unused, at data/citations.ts:1250, and check:links verifies it live). The entry was removed from this article's frontmatter only. Registry-hygiene note for a future pass: whether unused entries should be pruned is a policy decision the tooling does not currently enforce either way. |
+| Frontmatter citations resolve to the intended documents (gemini-robotics-2025, gemini-robotics-15-2025, gemini-robotics-2-2026, gr00t-n1-2025, isaac-gr00t-repo-2026, helix-2025, helix-02-2026, agibot-world-2025, agibot-go2-2026, skild-series-c-2026, pi05-2025, pi06-model-card-2025, pi07-2026, pi-human-to-robot-2025, egoscale-2026) | gemini-robotics-2025: https://arxiv.org/abs/2503.20020; gemini-robotics-15-2025: https://arxiv.org/abs/2510.03342; gemini-robotics-2-2026: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; gr00t-n1-2025: https://arxiv.org/abs/2503.14734; isaac-gr00t-repo-2026: https://github.com/NVIDIA/Isaac-GR00T; helix-2025: https://www.figure.ai/news/helix; helix-02-2026: https://www.figure.ai/news/helix-02; agibot-world-2025: https://arxiv.org/abs/2503.06669; agibot-go2-2026: https://www.agibot.com/article/231/detail/56.html; skild-series-c-2026: https://www.skild.ai/blogs/series-c; pi05-2025: https://arxiv.org/html/2504.16054v1; pi06-model-card-2025: https://website.pi-asset.com/pi06star/PI06_model_card.pdf; pi07-2026: https://www.pi.website/download/pi07.pdf; pi-human-to-robot-2025: https://www.pi.website/research/human_to_robot; egoscale-2026: https://arxiv.org/abs/2602.16710 | C (source-backed correction) | The 15 current frontmatter citations resolve to their intended documents with source-backed titles, complete ordered author or institutional credits, years, and explicit edition/date qualifications. Correct stale 14-id scope to the exact 15-id current frontmatter union and AgiBot World authors from AgiBot Research to the arXiv collective credit plus 51 named people. Retained retrieval timestamps/statuses are historical, not a new liveness probe. Preserve Gemini v1 and 1.5 v3 full body author lists, π0.5 v1, source-scoped documentation years, GO-2 commented versus visible date, and π0.7 official-blog date/PDF identity. Preserve the former unused-entry/gate assertion and reconciliation as history only; historical green claims are not current validation. GENERALIST-ATTRIBUTION-P1-20260922: actual retained-text review 2026-09-22T00:38:38.480Z; zero new retrievals. Source identities, exact original retrieval observations and representation hashes are preserved in the non-counted history below. No current origin status, whole-article audit, independent acceptance or old-truth verification is implied. |  |  |  | generalist-attribution-p1-21-20260921 |
 
 ## Registry (data/citations.ts) checks in this part
 
@@ -4720,3 +4720,671 @@ One selected original, audit/manipulation.md:hierarchical:15, is structurally co
 The fixed four-endpoint correction does not cover the frontmatter description, opening paragraph or earlier “hierarchy moved inside the network” framing, which still makes broader architecture claims. The parent must scope that follow-up; their preservation here is not endorsement. Existing authored/local-proof holds, including industrial52 and the parent's queued repairs, remain intact; no P2/VAL-AUDIT-009 exception is authorized.
 
 Post-gate scoped correction: the single full gate exposed one new manipulation ledger-summary mismatch. The application helper had supplied canonical citation context for hierarchical only when regenerating the domain summary, producing 217 complete / 8 incomplete instead of 220 / 5. Regeneration with all twelve manipulation articles' canonical frontmatter fixes the summary without changing any row tuple or evidence. A native parseLedger check observed one summary failure before and zero after, with all 225 four-cell digests identical. The full 43-finding coverage.json is retained verbatim; it was not rerun, and is not claimed as a post-summary-fix full-gate result. All other full failure objects and the three hierarchy14 test failures remain reported.
+
+
+## Historical: generalist attribution and P1 correction 2026-09-22
+
+Non-counted correction history. Exact previous four-cell tuples and corrected replacements below are not additional claim rows or verification of former claims. Current P1 covers fifteen identities only; generalist19 and all other held originals are untouched. Source review is reuse, not retrieval. Raw transport observations and tool-reported statuses retain their different meanings.
+
+```json
+{
+  "reviewedAt": "2026-09-22T00:38:38.480Z",
+  "reviewedBy": "Astra/max integrator/source-auditor 43c1134d-d536-47b9-9e71-dcb03dff8271 at 2026-09-22T00:38:38.480Z",
+  "sourcePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/../convergence-generalist-attribution-p1-recovery-20260921/rows.json",
+  "sourcePacketSha256": "ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02",
+  "records": [
+    {
+      "originalId": "audit/manipulation.md:generalist-policies:15",
+      "rowOrdinal": 15,
+      "previousTupleDigest": "5bfe7b87fba113546cee7ca1f03c852dc75c45842922d34db02b2fbba89fc3ef",
+      "previousCells": {
+        "claim": "GO-1 (March 2025): ViLLA; latent action token between VLM and action head lets unlabeled human/robot video enter training; open-sourced alongside AgiBot World Colosseo",
+        "sourceChecked": "AgiBot World paper, arXiv 2503.06669 PDF + GO-2 announcement",
+        "verdict": "verified",
+        "note": "Paper: \"GO-1, a robot foundation policy using latent action representations to unlock web-scale pre-training on web data\"; \"an open-sourced large-scale manipulation platform comprising data, models, benchmarks and ecosystem\"; ablation \"GO-1 w/o Latent Planner\". Note: the ViLLA name itself appears in the GO-2 announcement (\"Featuring the innovative ViLLA architecture\"), not in the AgiBot World paper; the mechanism claims are the paper's."
+      },
+      "currentTupleDigest": "b36e5d623e4b8591c42c29bbcf224dba921c1f63431fbd98b67411d0d4dbfe0d",
+      "currentCells": {
+        "claim": "GO-1 is introduced in the AgiBot World report first submitted in March 2025; inspected v4 explicitly names ViLLA and describes latent action modeling, a VLM-conditioned latent planner, and an action expert using human video without action labels and robot data. The paper and later GO-2 announcement supply distinct attributions. Colosseo platform openness does not prove simultaneous GO-1 checkpoint/data release.",
+        "sourceChecked": "agibot-world-2025: https://arxiv.org/abs/2503.06669 and https://arxiv.org/html/2503.06669v4; agibot-go2-2026: https://www.agibot.com/article/231/detail/56.html; correction-context agibot-world-repo-2026: https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md",
+        "verdict": "C (source-backed correction)",
+        "note": "Exact previous verified tuple retained in non-counted correction history. Inspected v4 explicitly uses ViLLA, unlike the old note's unqualified absence assertion; the old PDF edition was not pinned, so no claim is made about that unseen edition. The report was submitted March 9, 2025; the retained official README separately labels GO-1 open-sourced September 19, 2025 and lists March data/report milestones. The simultaneous-release implication is removed, not verified. Scientific mechanism evidence is the primary paper; the vendor announcement is only its own retrospective attribution. No weight-license conclusion or source truth inferred from a ledger label. GENERALIST-ATTRIBUTION-P1-20260922: actual retained-text review 2026-09-22T00:38:38.480Z; zero new retrievals. Source identities, exact original retrieval observations and representation hashes are preserved in the non-counted history below. No current origin status, whole-article audit, independent acceptance or old-truth verification is implied."
+      },
+      "correction": "Old verified outcome is historical only, not newly verified truth."
+    },
+    {
+      "originalId": "audit/manipulation.md:generalist-policies:21",
+      "rowOrdinal": 21,
+      "previousTupleDigest": "51681d6ca13dc3492777fca070483443627966754c8e64259b47c0125cae7872",
+      "previousCells": {
+        "claim": "Frontmatter citations resolve to the intended documents (14 ids incl. pi-human-to-robot-2025, isaac-gr00t-repo-2026)",
+        "sourceChecked": "Each fetched during this audit",
+        "verdict": "verified",
+        "note": "Titles, years and URLs match the live documents; the removed agibot-go2-robotreport-2026 is a press repeater and no article cites it now. Correction of record (2026-08-18 reconciliation sweep): this row originally asserted that keeping an unused entry in the registry \"is not allowed by validate:content\". That is not what the gate does — validate:content checks citations used by articles, not registry entries that nothing cites, and it passes green with the orphan present (the entry still exists, unused, at data/citations.ts:1250, and check:links verifies it live). The entry was removed from this article's frontmatter only. Registry-hygiene note for a future pass: whether unused entries should be pruned is a policy decision the tooling does not currently enforce either way."
+      },
+      "currentTupleDigest": "c5df33f63cf77e859324d3daea67a737a9544ad142792b5c37defb775f01ba74",
+      "currentCells": {
+        "claim": "Frontmatter citations resolve to the intended documents (gemini-robotics-2025, gemini-robotics-15-2025, gemini-robotics-2-2026, gr00t-n1-2025, isaac-gr00t-repo-2026, helix-2025, helix-02-2026, agibot-world-2025, agibot-go2-2026, skild-series-c-2026, pi05-2025, pi06-model-card-2025, pi07-2026, pi-human-to-robot-2025, egoscale-2026)",
+        "sourceChecked": "gemini-robotics-2025: https://arxiv.org/abs/2503.20020; gemini-robotics-15-2025: https://arxiv.org/abs/2510.03342; gemini-robotics-2-2026: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; gr00t-n1-2025: https://arxiv.org/abs/2503.14734; isaac-gr00t-repo-2026: https://github.com/NVIDIA/Isaac-GR00T; helix-2025: https://www.figure.ai/news/helix; helix-02-2026: https://www.figure.ai/news/helix-02; agibot-world-2025: https://arxiv.org/abs/2503.06669; agibot-go2-2026: https://www.agibot.com/article/231/detail/56.html; skild-series-c-2026: https://www.skild.ai/blogs/series-c; pi05-2025: https://arxiv.org/html/2504.16054v1; pi06-model-card-2025: https://website.pi-asset.com/pi06star/PI06_model_card.pdf; pi07-2026: https://www.pi.website/download/pi07.pdf; pi-human-to-robot-2025: https://www.pi.website/research/human_to_robot; egoscale-2026: https://arxiv.org/abs/2602.16710",
+        "verdict": "C (source-backed correction)",
+        "note": "The 15 current frontmatter citations resolve to their intended documents with source-backed titles, complete ordered author or institutional credits, years, and explicit edition/date qualifications. Correct stale 14-id scope to the exact 15-id current frontmatter union and AgiBot World authors from AgiBot Research to the arXiv collective credit plus 51 named people. Retained retrieval timestamps/statuses are historical, not a new liveness probe. Preserve Gemini v1 and 1.5 v3 full body author lists, π0.5 v1, source-scoped documentation years, GO-2 commented versus visible date, and π0.7 official-blog date/PDF identity. Preserve the former unused-entry/gate assertion and reconciliation as history only; historical green claims are not current validation. GENERALIST-ATTRIBUTION-P1-20260922: actual retained-text review 2026-09-22T00:38:38.480Z; zero new retrievals. Source identities, exact original retrieval observations and representation hashes are preserved in the non-counted history below. No current origin status, whole-article audit, independent acceptance or old-truth verification is implied."
+      },
+      "correction": "Old verified outcome is historical only, not newly verified truth."
+    }
+  ],
+  "sourceProvenance": [
+    {
+      "key": "gemini-v1",
+      "citationId": "gemini-robotics-2025",
+      "url": "https://arxiv.org/html/2503.20020v1",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/gemini-v1.txt",
+      "sha256": "ffe7fdb3c647fb38ec8573685cd953edb3b26c0203e14ef14c76770700dac17f",
+      "bytes": 145053,
+      "representation": "retained primary HTML-derived text",
+      "retrieval": {
+        "id": "gemini-v1",
+        "requestedUrl": "https://arxiv.org/html/2503.20020v1",
+        "startedAt": "2026-09-08T01:28:23.374474+00:00",
+        "requestLimitBytes": 20971520,
+        "timeoutSeconds": 60,
+        "redirectPolicy": "no redirects followed",
+        "originStatus": 200,
+        "finalUrl": "https://arxiv.org/html/2503.20020v1",
+        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/gemini-v1.html",
+        "bodyBytes": 504640,
+        "bodySha256": "7ae850a8f661bfbb5096db9b485dfdc6dd2c42c7c1768febb5d9743d9305fdb3",
+        "textPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/gemini-v1.txt",
+        "textBytes": 145053,
+        "textSha256": "ffe7fdb3c647fb38ec8573685cd953edb3b26c0203e14ef14c76770700dac17f",
+        "derivation": "Python standard-library HTMLParser visible text projection; raw canonical versioned HTML separately retained; not PDF",
+        "finishedAt": "2026-09-08T01:28:23.761087+00:00",
+        "wallSeconds": 0.38660889118909836,
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources.json",
+        "recordSha256": "1376606fa0e979b961dab6decb5de67c88b4724ce6655be743b8b1dc300f0521",
+        "recordPointer": "/0/retrieval"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "rawArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/gemini-v1.html",
+        "sha256": "7ae850a8f661bfbb5096db9b485dfdc6dd2c42c7c1768febb5d9743d9305fdb3",
+        "bytes": 504640
+      }
+    },
+    {
+      "key": "gr00t-abs",
+      "citationId": "gr00t-n1-2025",
+      "url": "https://arxiv.org/abs/2503.14734",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/gr00t-abs.txt",
+      "sha256": "d0eb4ac0748e20299df8c6975275fe5790ffd76b73ed027cb8ad5bccda8ccb6d",
+      "bytes": 10660,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "id": "gr00t-abs",
+        "sourceUrl": "https://arxiv.org/abs/2503.14734",
+        "textPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/gr00t-abs.txt",
+        "bytes": 10660,
+        "sha256": "d0eb4ac0748e20299df8c6975275fe5790ffd76b73ed027cb8ad5bccda8ccb6d",
+        "requestTime": "2026-09-08T01:27:20.530Z",
+        "responseTime": "2026-09-08T01:27:24.471Z",
+        "originalSession": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/44b89cd0-9e80-451a-a30d-58f3831ad873.jsonl",
+        "requestLine": 20,
+        "responseLine": 21,
+        "requestRecordSha256": "41ee50a5927cdb3b0aaae23b141310ab2b9c4d2c5082f2dc61e00653347a8309",
+        "responseRecordSha256": "0321b23c16c83c059c907166d785bc555cfe444685e15ebeb499d8f9af3843f6",
+        "toolReportedStatus": 200,
+        "originStatus": null,
+        "tier": "Abstract-page metadata only; not the full paper.",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources.json",
+        "recordSha256": "1376606fa0e979b961dab6decb5de67c88b4724ce6655be743b8b1dc300f0521",
+        "recordPointer": "/10/retrieval"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false
+    },
+    {
+      "key": "gr00t-readme",
+      "citationId": "isaac-gr00t-repo-2026",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/gr00t-readme.txt",
+      "sha256": "c3233efa5ad9f57efd52c0a6941499dfae337f221146a4ba4760bdaa34225a73",
+      "bytes": 78425,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "id": "gr00t-readme",
+        "requestTime": "2026-09-07T16:06:58.990Z",
+        "responseTime": "2026-09-07T16:07:28.926Z",
+        "requestRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/gr00t-readme-request.jsonl",
+        "responseRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/gr00t-readme-response.jsonl",
+        "fullBodyEqualsOriginalToolText": false,
+        "fullBodyEqualsEventReferencedCapture": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_CFzmATfRk55gM3qZVzKHMY3d-97224090.log",
+        "toolReportedStatus": 200,
+        "originStatus": null,
+        "statusScope": "Tool-rendered status only; no independent origin headers.",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources.json",
+        "recordSha256": "1376606fa0e979b961dab6decb5de67c88b4724ce6655be743b8b1dc300f0521",
+        "recordPointer": "/2/retrieval",
+        "matchingRequestTools": [
+          {
+            "id": "call_CFzmATfRk55gM3qZVzKHMY3d",
+            "name": "FetchUrl",
+            "input": {
+              "url": "https://github.com/NVIDIA/Isaac-GR00T"
+            }
+          }
+        ]
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "originalCaptureBinding": {
+        "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_CFzmATfRk55gM3qZVzKHMY3d-97224090.log",
+        "sha256": "c3233efa5ad9f57efd52c0a6941499dfae337f221146a4ba4760bdaa34225a73",
+        "equalsRetainedBytes": true
+      }
+    },
+    {
+      "key": "helix2025",
+      "citationId": "helix-2025",
+      "url": "https://www.figure.ai/news/helix",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/helix2025.txt",
+      "sha256": "21f65abe2316c4d25da85fdf96b337ffb31c21124b1260e6a25e975d6afe74d7",
+      "bytes": 15781,
+      "representation": "retained primary HTML-derived text",
+      "retrieval": {
+        "originalReceiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/helix2025-event.json",
+        "requestTime": "2026-09-07T22:55:23.626776+00:00",
+        "responseTime": "2026-09-07T22:55:23.934962+00:00",
+        "originalRawAndDerivedHashesMatch": true,
+        "originStatus": 200,
+        "derivation": "Python stdlib HTMLParser; omit script/style; emit block delimiters; strip blank lines; preserve textual characters; no OCR, translation or code execution.",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources.json",
+        "recordSha256": "1376606fa0e979b961dab6decb5de67c88b4724ce6655be743b8b1dc300f0521",
+        "recordPointer": "/3/retrieval"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "rawArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/helix2025.html",
+        "sha256": "574dd099c5c77d44fe43e00f395e5dc631ed00ae83faca28c9b4e0915a2962af",
+        "bytes": 90615
+      }
+    },
+    {
+      "key": "pi05",
+      "citationId": "pi05-2025",
+      "url": "https://arxiv.org/html/2504.16054v1",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/pi05.txt",
+      "sha256": "eea20e6c28d9d0d28e671e7046009e5bd7a07475e63264b4f6c867b19e8fd778",
+      "bytes": 121789,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/161a99e0-b60d-4e26-8179-d79ffeaba98c.jsonl",
+        "requestLine": 38,
+        "responseLine": 39,
+        "requestTime": "2026-09-07T16:08:24.021Z",
+        "responseTime": "2026-09-07T16:08:29.437Z",
+        "requestRecordSha256": "1f711cb17c5fd2e0eea60cf1049106d9dbe469f3efee8d105a4e58089968dfe3",
+        "responseRecordSha256": "08907cef0603588bb1230fe60bd632499eb5a355250d2d89d29b6cd9d22aa735",
+        "capturePath": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_76MgfbHi5wISCjAomO6qw3D6-97309434.log",
+        "fullBodyEqualsEventReferencedCapture": true,
+        "toolReportedStatus": 200,
+        "originStatus": null,
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources.json",
+        "recordSha256": "1376606fa0e979b961dab6decb5de67c88b4724ce6655be743b8b1dc300f0521",
+        "recordPointer": "/4/retrieval",
+        "matchingRequestTools": [
+          {
+            "id": "call_76MgfbHi5wISCjAomO6qw3D6",
+            "name": "FetchUrl",
+            "input": {
+              "url": "https://arxiv.org/html/2504.16054v1"
+            }
+          }
+        ]
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "originalCaptureBinding": {
+        "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_76MgfbHi5wISCjAomO6qw3D6-97309434.log",
+        "sha256": "eea20e6c28d9d0d28e671e7046009e5bd7a07475e63264b4f6c867b19e8fd778",
+        "equalsRetainedBytes": true
+      }
+    },
+    {
+      "key": "pi-human",
+      "citationId": "pi-human-to-robot-2025",
+      "url": "https://www.pi.website/research/human_to_robot",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/pi-human.txt",
+      "sha256": "30e4a8a91fe1c1dda1220c529bc5dead7b075812cb4cc1e9b91baf1c7ea785da",
+      "bytes": 9815,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "id": "pi-human",
+        "requestTime": "2026-09-08T00:09:18.920Z",
+        "responseTime": "2026-09-08T00:09:22.863Z",
+        "requestRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/pi-human-request.jsonl",
+        "responseRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/pi-human-response.jsonl",
+        "fullBodyEqualsOriginalToolText": true,
+        "fullBodyEqualsEventReferencedCapture": null,
+        "toolReportedStatus": 200,
+        "originStatus": null,
+        "statusScope": "Tool-rendered status only; no independent origin headers.",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources.json",
+        "recordSha256": "1376606fa0e979b961dab6decb5de67c88b4724ce6655be743b8b1dc300f0521",
+        "recordPointer": "/7/retrieval",
+        "matchingRequestTools": [
+          {
+            "id": "call_f8kHubwkfry8JPiLm37xMBva",
+            "name": "FetchUrl",
+            "input": {
+              "url": "https://www.pi.website/research/human_to_robot"
+            }
+          }
+        ]
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "originalResponseTextRechecked": true
+    },
+    {
+      "key": "egoscale",
+      "citationId": "egoscale-2026",
+      "url": "https://arxiv.org/html/2602.16710v1",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources/egoscale.txt",
+      "sha256": "9fd4e36fd51082f3fdff4058eb75c35578f9b1e6d7a68b8b02321bf12c105262",
+      "bytes": 66755,
+      "representation": "retained primary HTML-derived text",
+      "retrieval": {
+        "originalReceiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/egoscale-event.json",
+        "requestTime": "2026-09-08T00:11:49.790852+00:00",
+        "responseTime": "2026-09-08T00:11:50.084757+00:00",
+        "originalRawAndDerivedHashesMatch": true,
+        "originStatus": 200,
+        "derivation": "Python standard-library HTMLParser text projection; raw HTML retained separately; not PDF text or PDF binary",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/sources.json",
+        "recordSha256": "1376606fa0e979b961dab6decb5de67c88b4724ce6655be743b8b1dc300f0521",
+        "recordPointer": "/8/retrieval"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "rawArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-generalist-hierarchy-closeouts-20260908/provenance/egoscale.html",
+        "sha256": "e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906",
+        "bytes": 198251
+      }
+    },
+    {
+      "key": "gr15-v3",
+      "citationId": "gemini-robotics-15-2025",
+      "url": "https://arxiv.org/html/2510.03342",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-oft-gemini15-20260907/sources/gr15-html-tool-response.txt",
+      "sha256": "65040caa6db757d97858429961f24353543260a2081977e5b9e64ff3809f7e85",
+      "bytes": 190770,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "citationId": "gemini-robotics-15-2025",
+        "requestedUrl": "https://arxiv.org/html/2510.03342",
+        "reportedUrl": "https://arxiv.org/html/2510.03342",
+        "tool": "FetchUrl",
+        "toolCallId": "call_0MWEIlJV4I95lU9pfF0xgoN0",
+        "toolReportedStatus": 200,
+        "originHttpStatus": null,
+        "redirects": null,
+        "capturePath": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_0MWEIlJV4I95lU9pfF0xgoN0-17080868.log",
+        "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-oft-gemini15-20260907/sources/gr15-html-tool-response.txt",
+        "bytes": 190770,
+        "sha256": "65040caa6db757d97858429961f24353543260a2081977e5b9e64ff3809f7e85",
+        "captureFilesystemMtimeUtc": "2026-09-07T21:38:00.867622+00:00",
+        "savedEvidenceAt": "2026-09-07T21:38:46.723536+00:00",
+        "requestAndResponseTimestamps": "Not separately instrumented; actual session tool event retained by call ID. Filesystem mtime is capture time.",
+        "displayedTruncated": true,
+        "retainedHasTruncationMarker": false,
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/source-proof.json",
+        "recordSha256": "fa48fede91f7ac619757cf9d78d6c0c3e22138b135ca1602838f5fd13ff04182",
+        "recordPointer": "/sources/2/retrieval"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "originalCaptureBinding": {
+        "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_0MWEIlJV4I95lU9pfF0xgoN0-17080868.log",
+        "sha256": "65040caa6db757d97858429961f24353543260a2081977e5b9e64ff3809f7e85",
+        "equalsRetainedBytes": true
+      }
+    },
+    {
+      "key": "gr2-announcement",
+      "citationId": "gemini-robotics-2-2026",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-gr2-skild-20260908/sources/gr2-main-text.txt",
+      "sha256": "19558fed1c2305a936f8443b6f6445259e6ff564512a309a12c2385e78f6239c",
+      "bytes": 14049,
+      "representation": "retained primary HTML-derived text",
+      "retrieval": {
+        "tool": "Execute / bounded public unauthenticated canonical GET",
+        "requestedUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "startUtc": "2026-09-07T22:19:55.589710+00:00",
+        "endUtc": "2026-09-07T22:19:55.896278+00:00",
+        "exitCode": 0,
+        "maxBytes": 20971520,
+        "maxSeconds": 60,
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/source-proof.json",
+        "recordSha256": "fa48fede91f7ac619757cf9d78d6c0c3e22138b135ca1602838f5fd13ff04182",
+        "recordPointer": "/sources/4/retrieval",
+        "originHttpStatus": 200,
+        "redirectCount": 0
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "rawArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-gr2-skild-20260908/sources/gr2.html",
+        "sha256": "941079bde34ad345f2ce1b00321ebff152793354ece110c55647c51514e223d8",
+        "bytes": 179578
+      }
+    },
+    {
+      "key": "skild-series-c",
+      "citationId": "skild-series-c-2026",
+      "url": "https://www.skild.ai/blogs/series-c",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-gr2-skild-20260908/sources/skild-tool-response.txt",
+      "sha256": "976b0e86189b3845eb366b207be4e0278031df5cf75a0d1f032c28b996578e6c",
+      "bytes": 4076,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "requestLine": 22,
+        "timestamp": "2026-09-07T22:19:07.497Z",
+        "toolUse": {
+          "type": "tool_use",
+          "id": "call_wW8T0cmIpgktKjrFSjN7aQLT",
+          "name": "FetchUrl",
+          "input": {
+            "url": "https://www.skild.ai/blogs/series-c"
+          }
+        },
+        "responseLine": 23,
+        "responseTimestamp": "2026-09-07T22:19:11.265Z",
+        "session": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/3e2c5d3a-16e2-47a6-bfb0-f541c867b101.jsonl",
+        "sourceUrl": "https://www.skild.ai/blogs/series-c",
+        "toolReportedStatus": 200,
+        "originHttpStatus": null,
+        "redirects": null,
+        "savedUtc": "2026-09-07T22:21:21.875143+00:00",
+        "responseBytes": 4076,
+        "responseSha256": "976b0e86189b3845eb366b207be4e0278031df5cf75a0d1f032c28b996578e6c",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/source-proof.json",
+        "recordSha256": "fa48fede91f7ac619757cf9d78d6c0c3e22138b135ca1602838f5fd13ff04182",
+        "recordPointer": "/sources/5/retrieval"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false
+    },
+    {
+      "key": "helix02",
+      "citationId": "helix-02-2026",
+      "url": "https://www.figure.ai/news/helix-02",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-go2-helix-comparison-20260908/sources/helix02.retained.txt",
+      "sha256": "9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021",
+      "bytes": 12101,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "tool": "FetchUrl",
+        "input": {
+          "url": "https://www.figure.ai/news/helix-02"
+        },
+        "requestLine": 24,
+        "requestBlock": 4,
+        "requestRecordedAt": "2026-09-07T16:06:58.990Z",
+        "requestRecordSha256": "67a7b7ce2d60e3537c25b7f196a3b3bdd2a8a6a6a44a044eda839b2cd1d1bb66",
+        "responseLine": 25,
+        "responseBlock": 3,
+        "responseRecordedAt": "2026-09-07T16:07:28.926Z",
+        "responseRecordSha256": "1842fb45303947e2e6ab872ab3e3943f103ea5325f109ee08c4232f0705ea1a6",
+        "toolIsError": false,
+        "id": "request-4",
+        "toolUseId": "call_fi8cLQjmMF4p4NIg0nfDA35N",
+        "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/cd77393d-fb99-4b56-9e32-6ba4fee2f589.jsonl",
+        "responseTextSha256": "9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021",
+        "responseTextBytes": 12101,
+        "timestampMeaning": "Session request/response recording events, not origin-server fetch timestamps.",
+        "tier": "fetched-primary-page-text",
+        "reportedHttpStatus": 200,
+        "statusProvenance": "FetchUrl reports this document status; no response-header capture or redirect chain is exposed.",
+        "errorOrigin": null,
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-go2-helix-comparison-20260908/helix02-retained-map.json",
+        "recordSha256": "eafbb353caf42bc33cb268d2f7466b5cb7e5e6788d3f895604ee8c59a1537158"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false
+    },
+    {
+      "key": "pi06",
+      "citationId": "pi06-model-card-2025",
+      "url": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/pi06.txt",
+      "sha256": "93843785a274634febff56ededb93e69367bf89ccfa2b729cb57ab97e3e1afa9",
+      "bytes": 9078,
+      "representation": "retained PDF-derived UTF-8 text",
+      "retrieval": {
+        "tool": "historical bounded canonical curl GET + pdftotext",
+        "requestStartedAt": "2026-09-07T16:28:10.810822+00:00",
+        "requestEndedAt": "2026-09-07T16:28:11.808908+00:00",
+        "originHttpStatus": 200,
+        "redirectCount": 0,
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/retrieval.json",
+        "recordSha256": "e51e594eb320df6445695845db2b7afff1e1703014177145a09148e19c607099",
+        "recordPointer": "/0",
+        "conversionExit": 0,
+        "conversionWarnings": "",
+        "edition": "unversioned official PDF; exact binary hash bound"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "rawArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/pi06.pdf",
+        "sha256": "39b67dafdd0e96576f7cb68bd6208bb92965f4b1c1bcf31c17f6121866a43ce5",
+        "bytes": 1219570
+      }
+    },
+    {
+      "key": "pi07",
+      "citationId": "pi07-2026",
+      "url": "https://www.pi.website/download/pi07.pdf",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/pi07-reading.txt",
+      "sha256": "83073d702216c463f6f8a29f74cda60f99866e4ec582ad5c533d6e255e2452d2",
+      "bytes": 126722,
+      "representation": "retained PDF-derived UTF-8 text",
+      "retrieval": {
+        "tool": "historical bounded canonical curl GET + pdftotext",
+        "requestStartedAt": "2026-09-07T16:28:11.862371+00:00",
+        "requestEndedAt": "2026-09-07T16:28:13.008052+00:00",
+        "originHttpStatus": 200,
+        "redirectCount": 0,
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/retrieval.json",
+        "recordSha256": "e51e594eb320df6445695845db2b7afff1e1703014177145a09148e19c607099",
+        "recordPointer": "/1",
+        "conversionExit": 0,
+        "conversionWarnings": "Syntax Error (547840): No current point in closepath\nSyntax Error (556615): No current point in closepath\nSyntax Error (565302): No current point in closepath\nSyntax Error (572557): No current point in closepath\nSyntax Error (581222): No current point in closepath\nSyntax Error (594574): No current point in closepath\nSyntax Error (602541): No current point in closepath\nSyntax Error (616305): No current point in closepath\nSyntax Error (625086): No current point in closepath\nSyntax Error (639405): No current point in closepath\nSyntax Error (649462): No current point in closepath\nSyntax Error (656884): No current point in closepath\nSyntax Error (664091): No current point in closepath\nSyntax Error (668178): No current point in closepath\nSyntax Error (672197): No current point in closepath\nSyntax Error (677918): No current point in closepath\nSyntax Error (682106): No current point in closepath\nSyntax Error (686084): No current point in closepath\nSyntax Error (691458): No current point in closepath\nSyntax Error (709930): No current point in closepath\nSyntax Error (2379294): Incorrect number of arguments in 'scn' command\nSyntax Error (2379326): Incorrect number of arguments in 'scn' command\nSyntax Error (2379451): Incorrect number of arguments in 'scn' command\nSyntax Error (2379455): No current point in closepath\nSyntax Error (2376032): No current point in closepath\nSyntax Error (718671): No current point in closepath\nSyntax Error (2372867): No current point in closepath\nSyntax Error (2369765): No current point in closepath\nSyntax Error (721540): No current point in closepath\nSyntax Error (2366635): No current point in closepath\nSyntax Error (2363515): No current point in closepath\nSyntax Error (724071): No current point in closepath\nSyntax Error (726892): No current point in closepath\nSyntax Error (2360318): No current point in closepath\nSyntax Error (2357088): No current point in closepath\nSyntax Error (732932): No current point in closepath\nSyntax Error (2353675): No current point in closepath\nSyntax Error (2350230): No current point in closepath\nSyntax Error (735561): No current point in closepath\nSyntax Error (2346813): No current point in closepath\nSyntax Error (2343358): No current point in closepath\nSyntax Error (738394): No current point in closepath\nSyntax Error (741770): No current point in closepath\nSyntax Error (748770): No current point in closepath\nSyntax Error (800953): No current point in closepath\nSyntax Error (813105): No current point in closepath\nSyntax Error (829038): No current point in closepath\nSyntax Error (830265): No current point in closepath\nSyntax Error (907580): No current point in closepath\nSyntax Error (913682): No current point in closepath\nSyntax Error (915801): No current point in closepath\nSyntax Error (918685): No current point in closepath\nSyntax Error (924038): No current point in closepath\nSyntax Error (929794): No current point in closepath\nSyntax Error (935208): No current point in closepath\nSyntax Error (941338): No current point in closepath\nSyntax Error (944837): No current point in closepath\nSyntax Error (950438): No current point in closepath\nSyntax Error (955958): No current point in closepath\nSyntax Error (963456): No current point in closepath\nSyntax Error (970902): No current point in closepath\nSyntax Error (978382): No current point in closepath\nSyntax Error (984204): No current point in closepath\nSyntax Error (989901): No current point in closepath\nSyntax Error (996005): No current point in closepath\nSyntax Error (1002416): No current point in closepath\nSyntax Error (1008285): No current point in closepath\nSyntax Error (1014253): No current point in closepath\nSyntax Error (1017435): No current point in closepath\nSyntax Error (1021579): No current point in closepath\nSyntax Error (1031186): No current point in closepath\nSyntax Error (1037150): No current point in closepath\nSyntax Error (1041167): No current point in closepath\nSyntax Error (1045205): No current point in closepath\nSyntax Error (1050150): No current point in closepath\nSyntax Error (1055151): No current point in closepath\nSyntax Error (1060931): No current point in closepath\nSyntax Error (1066904): No current point in closepath\nSyntax Error (1070093): No current point in closepath\nSyntax Error (1075241): No current point in closepath\n",
+        "edition": "unversioned official PDF; exact binary hash bound",
+        "readingOrderConversionRecord": {
+          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/reading-order-conversion.json",
+          "sha256": "74a158ab37cbaa4afa999f771ed5bf821dcf1501cc51795ad7e2a76248735f12"
+        }
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "rawArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/pi07.pdf",
+        "sha256": "d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b",
+        "bytes": 5357105
+      }
+    },
+    {
+      "key": "pi07-blog",
+      "citationId": "pi07-2026",
+      "url": "https://www.pi.website/blog/pi07",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-pi06-pi07-primary-text/retained-pi07-blog.txt",
+      "sha256": "e262e2389c875f874a20ddd631a4dc6b344e77d6c12965907eeb888ee53e1084",
+      "bytes": 22579,
+      "representation": "retained tool-rendered primary text",
+      "retrieval": {
+        "tool": "FetchUrl",
+        "input": {
+          "url": "https://www.pi.website/blog/pi07"
+        },
+        "requestLine": 26,
+        "requestBlock": 3,
+        "requestRecordedAt": "2026-09-07T16:07:40.836Z",
+        "requestRecordSha256": "e1beee778890f383ca83271072ade66d7122346566d46f2901673e99c0e08017",
+        "responseLine": 27,
+        "responseBlock": 2,
+        "responseRecordedAt": "2026-09-07T16:07:46.166Z",
+        "responseRecordSha256": "0f775b5ef89b19968b7e74cde2b5f71379198f2b4ca66a4de16cf3db9af9b6ef",
+        "toolIsError": false,
+        "id": "request-6",
+        "toolUseId": "call_oZBPMXhDEoOcbEe6DotgY8Rn",
+        "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/cd77393d-fb99-4b56-9e32-6ba4fee2f589.jsonl",
+        "responseTextSha256": "e262e2389c875f874a20ddd631a4dc6b344e77d6c12965907eeb888ee53e1084",
+        "responseTextBytes": 22579,
+        "timestampMeaning": "Session request/response recording events, not origin-server fetch timestamps.",
+        "tier": "fetched-primary-page-text",
+        "reportedHttpStatus": 200,
+        "statusProvenance": "FetchUrl reports this document status; no response-header capture or redirect chain is exposed.",
+        "errorOrigin": null,
+        "originalRawRecordHashesVerifiedNow": true,
+        "rawRecordHashBasis": "Including terminal LF"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false
+    },
+    {
+      "key": "go2",
+      "citationId": "agibot-go2-2026",
+      "url": "https://www.agibot.com/article/231/detail/56.html",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-go2-helix-comparison-20260908/sources/go2.derived.txt",
+      "sha256": "8324f58774d4e89b31edac36cb7fac4a03f8f0a8b9936283c42e22452f64ab0d",
+      "bytes": 9688,
+      "representation": "retained primary HTML-derived text",
+      "retrieval": {
+        "sourceId": "go2",
+        "url": "https://www.agibot.com/article/231/detail/56.html",
+        "requestStartedAt": "2026-09-07T22:55:21.467635+00:00",
+        "responseFinishedAt": "2026-09-07T22:55:23.618405+00:00",
+        "tool": "authorized bounded canonical unauthenticated GET via curl",
+        "exitCode": 0,
+        "originHttpStatus": 200,
+        "reportedToolHttpStatus": null,
+        "stderr": "",
+        "redirectsFollowed": false,
+        "fallbackOrdinal": 1,
+        "rawBytes": 128442,
+        "rawSha256": "10ae0243561b3aecc3d8fe3e2a7082ad57c6c28d361861b94384be501c9d6e0b",
+        "derivedBytes": 9688,
+        "derivedSha256": "8324f58774d4e89b31edac36cb7fac4a03f8f0a8b9936283c42e22452f64ab0d",
+        "derivation": "Python stdlib HTMLParser; omit script/style; emit block delimiters; strip blank lines; preserve textual characters; no OCR, translation or code execution.",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json",
+        "recordSha256": "a83fe8d31d1ea828e2284a9f6b1457a9c0f0c56d9f663eddbdb0c1086d07aa04"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false,
+      "rawArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-go2-helix-comparison-20260908/sources/go2.raw.html",
+        "sha256": "10ae0243561b3aecc3d8fe3e2a7082ad57c6c28d361861b94384be501c9d6e0b",
+        "bytes": 128442
+      }
+    },
+    {
+      "key": "agibot-abs",
+      "citationId": "agibot-world-2025",
+      "url": "https://arxiv.org/abs/2503.06669",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-data-bottleneck-20260915/sources/agibot-abs",
+      "sha256": "4902eee77e3f3358ea152032dc1701fe0de466c8c70517783e0ad6d06b1ebb77",
+      "bytes": 51017,
+      "representation": "retained raw HTML; HTMLParser visible-text projection",
+      "retrieval": {
+        "tool": "historical curl GET verification copy after separate FetchUrl",
+        "observedAt": "2026-09-15T20:05:50Z",
+        "originHttpStatus": 200,
+        "finalUrl": "https://arxiv.org/abs/2503.06669",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-data-bottleneck-20260915/sources/fetch-log.jsonl",
+        "recordSha256": "1b6b4926b646ff309c903651d682ace6c30fbf96dca72b08e1d960b25310df19",
+        "literalRecord": "2026-09-15T20:05:50Z | agibot-abs | 200 | https://arxiv.org/abs/2503.06669 | 51017 | https://arxiv.org/abs/2503.06669 | verification-copy-after-FetchUrl",
+        "notTheEarlierFetchUrlResponse": true
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false
+    },
+    {
+      "key": "agibot-v4",
+      "citationId": "agibot-world-2025",
+      "url": "https://arxiv.org/html/2503.06669v4",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/agibot-html-v4.html",
+      "sha256": "0f5f22a172d141db2469e85b4d04bb32d6ba8b7877a117f5cc322ba94f067e36",
+      "bytes": 139251,
+      "representation": "retained raw HTML; HTMLParser visible-text projection",
+      "retrieval": {
+        "url": "https://arxiv.org/html/2503.06669v4",
+        "method": "curl",
+        "status": 200,
+        "retainedFile": "sources/agibot-html-v4.html",
+        "completedUtc": "2026-09-16T04:09:19Z",
+        "bytesOrNote": "139,251; sha256-identical to retained db4 source",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+        "recordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
+        "edition": "explicit arXiv v4, August 4 2025"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false
+    },
+    {
+      "key": "agibot-repo",
+      "citationId": "agibot-world-repo-2026",
+      "url": "https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/agibot-github-readme.md",
+      "sha256": "4ee72fc2161e3c66d93638f99ece0479c90bda996abe54f7070e4e08208b1acc",
+      "bytes": 19254,
+      "representation": "retained primary README text",
+      "retrieval": {
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md",
+        "method": "curl",
+        "status": 200,
+        "retainedFile": "sources/agibot-github-readme.md",
+        "completedUtc": "2026-09-16T04:09:19Z",
+        "bytesOrNote": "19,254",
+        "recordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+        "recordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
+        "edition": "unversioned main README snapshot"
+      },
+      "reviewedAt": "2026-09-21T23:20:51.172480+00:00",
+      "newRetrieval": false,
+      "retrievalDateIsReviewDate": false
+    }
+  ]
+}
+```
+
+### Bounded verification of generalist originals 15/21 (2026-09-22)
+
+- New red-first test: `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/generalist-attribution-p1-evidence.test.ts --no-file-parallelism` exited 1, 12 failed / 1 passed.
+- Affected run: `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/generalist-attribution-p1-evidence.test.ts tests/unit/generalist-policies.test.ts tests/component/generalist-release-timeline.test.tsx tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/citations.test.ts --no-file-parallelism` exited 1, 148 passed / 1 failed. The failure was this worker's history assertion expecting a nested JSON object at root indentation; exact parsed previous-cell and before/after digest equality replaced that formatting assumption. Only the failed new suite was rerun: exit 0, 13/13. The unchanged five suites remain 136/136; 149 distinct affected tests now pass. Negative controls still reject missing evidence/review, stale tuples, reduced P1 population and missing/mutated exact approvals.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint`, then `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/eslint data/citations.ts lib/generalist-policies.ts tests/unit/generalist-attribution-p1-evidence.test.ts`: exit 0 each.
+- `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/tsc --ignoreConfig --noEmit --strict --allowImportingTsExtensions --module esnext --moduleResolution bundler --target es2022 --skipLibCheck --esModuleInterop --types node tests/unit/generalist-attribution-p1-evidence.test.ts lib/generalist-policies.ts data/citations.ts`: exit 0; no type generation or emitted file.
+- Article-only inline Node check: MDX compilation without emit, canonical frontmatter/registered citation and mounted timeline union, currency/display-math/year checks, native no-slop functions: exit 0; 28 inline Cite occurrences, 13 timeline sources, 15 declared IDs, 2228 masked prose words, triad density 8.07899461400359 below 22, zero banned/dash/placeholder findings. First attempt incorrectly required every declared citation inline and failed before compilation; the corrected check includes the actual mounted timeline, retaining exact declared/used equality. Both outputs remain in article-check.log.
+- Exactly one `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json`: exit 1, 956 complete / 38 incomplete / 994 originals, 43 ledger findings, zero uncovered citations and zero summary mismatches. Full stdout (10059837 bytes) and empty stderr: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/coverage.json and coverage-stderr.log. This is a red content gate, not acceptance.
+
+The native P1 guard initially rejected the packet's prose-only proposed claim, so the final claim uses the unchanged parser's exact fifteen-ID batch syntax; no parser alias or gate change. Manual source-aware prose review checked attribution and release scope independently of the no-slop checker. Humanizer skill was unavailable; no skill run is claimed. No lastReviewed bump because this was not a complete article audit. No fresh retrieval, full suite, browser, build/export, generated evidence, publication or independent validation ran. Those release obligations remain owed.
