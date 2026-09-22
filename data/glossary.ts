@@ -784,8 +784,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'mean-time-between-failures',
     term: 'mean time between failures',
     definition:
-      'The average elapsed operating time between one failure of a repairable system and the next, total operating time divided by the number of failures in that window. Together with mean time to repair it composes availability: MTBF over the sum of MTBF and MTTR. It is a maintenance-economics figure rather than a policy figure, but a cell whose robot fails weekly will bury any per-pick success rate the policy reports.',
-    citations: ['ohno-tps-1988'],
+      'Mean time between failures (MTBF) is a reliability parameter for repairable systems. NASA uses it with mean time to repair (MTTR) when estimating inherent availability. That measure excludes administrative and logistics delays and preventive maintenance; operational availability includes those times.',
+    citations: ['nasa-availability-prediction-analysis'],
   },
   {
     id: 'systems-integrator',

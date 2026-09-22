@@ -18466,6 +18466,142 @@
         "VAL-B2-ART-010"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+      "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+      "reason": "Replace only NASA-supported availability wording and the misleading running-cost calculator description; retain cycle/takt and unproved whole-record obligations.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-2",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7",
+      "newHash": "468bb19a3886e8617014f7a2d1a3eb2fa718c05dcab78d5a988c5ce2276e70dc",
+      "reason": "Disclose the authored RSS model and explicit ray-plane geometry, keeping formula and examples but withdrawing independence, error-bound and measured-calibration assertions.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-3",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "20cc0ecaf854f0873eddf7d1072e12b413c162208cac5c794fe236ede4507244",
+      "newHash": "2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5",
+      "reason": "Add only the NASA citation occurrence for the repaired availability text; existing term and internal-link relationships remain.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-4",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/industrial-deployment",
+      "oldHash": "b35a32a495a8ed85111c3823139f481b56d55f6b9a700e631589018c78723e80",
+      "newHash": "280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50",
+      "reason": "Add only the NASA lesson ID to industrial frontmatter; retain all existing IDs and lastReviewed.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:nasa-availability-prediction-analysis",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a40ca9a668d043680c86a2a05303fd0ff9b50b077b3e79fb35da36f4b718c624",
+      "reason": "Register NASA LLIS Lesson841 with the exact1994-12-01 lesson date and jsc organization; no inferred memorandum year or unread equation proof.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-6",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+      "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+      "reason": "Extend the derived citation-label/metadata population by the NASA lesson only; all430 previous records and resolved renderings remain unchanged.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-7",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc",
+      "newHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
+      "reason": "Correct only the MTBF definition and source to NASA textual inherent/operational availability distinctions; no formula guarantee.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-8",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "02dfd4f4becd247d248f8c3383cae4163d456b593a4b23f5fca6a732b3ed4886",
+      "newHash": "471442b2b5300ad670b5da991b057d5e030f2378610abef0a010057cb12f9d35",
+      "reason": "Replace only the explanatory perception copy with authored RSS/standard-deviation/independence/bound disclosures; preserve controls, geometry, defaults and calculations.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

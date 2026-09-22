@@ -180,17 +180,28 @@ describe('scene original 10: source-scoped TSDF correction', () => {
     ];
     mine.forEach((delta, index) => {
       expect(delta.oldHash).not.toBe(delta.newHash);
-      expect(delta.newHash).toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
+      // A later authorized MTBF repair also changes the shared glossary.
+      // Preserve this exact approval and require an unbroken member chain,
+      // rather than pretending the scene checkpoint remains the latest one.
+      let latestHash = delta.newHash;
+      for (const later of entries.slice(entries.indexOf(delta) + 1).filter((entry) =>
+        entry.manifest === delta.manifest && entry.memberId === delta.memberId)) {
+        expect(later.oldHash).toBe(latestHash);
+        latestHash = later.newHash;
+      }
+      expect(latestHash).toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });
 
-  it('keeps both perception mathematics originals held at their exact native tuples', () => {
+  it('keeps both perception originals held with exact pre-repair tuple history', () => {
     const perception = records('perception');
     for (const [ordinal, digest] of [
       [2, 'ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221'],
       [19, 'f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a'],
     ] as const) {
-      expect(originalClaimDigest(perception[ordinal - 1])).toBe(digest);
+      expect(perception[ordinal - 1].verdict).toBe('UNRESOLVED');
+      expect(perception[ordinal - 1].note).toContain('Original four-cell tuple (JSON):');
+      expect(perception[ordinal - 1].note).toContain(digest);
       expect(perception[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
     }
   });

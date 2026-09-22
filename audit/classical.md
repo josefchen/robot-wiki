@@ -8,11 +8,11 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 187
-- Recorded verified: 90
+- Recorded verified: 88
 - Recorded corrected: 97
 - Recorded cut: 0
 - Recorded source inconsistencies: 0
-- Unresolved or unrecognised verdicts: 0
+- Unresolved or unrecognised verdicts: 2
 - Complete evidence records: 177
 - Incomplete evidence records: 10
 
@@ -280,7 +280,7 @@ this ledger's conventions.
 | Claim | Source checked | Verdict | Citation ID | Source URL fetched | Supporting passage | Note | Evidence plan |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Three stages contribute a positioning error at the gripper (hand-eye, depth, pose); two of them are fixed offsets | lib/perception-error.ts `composeBudget`, `depthErrorMm` range-independent, `poseMm` direct (internal) | V |
-| The three errors are independent and compose in quadrature rather than adding | lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal) | V |
+| The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established. | lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage. | UNRESOLVED |  |  |  | Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {"claim":"The three errors are independent and compose in quadrature rather than adding","sourceChecked":"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)","verdict":"V","note":""}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance. |  |
 | The clearance band is a parallel-jaw gripper's lateral slack | lib/perception-error.ts `CLEARANCE_MM = 15` (90 mm opening around a 60 mm part) (internal) | V |
 | "even a well-calibrated pipeline sits close to it" | local: read-only npx tsx import of lib/perception-error.ts at HEAD 56b825f1f7200efe9e8bde6b453f36de6346ca81, preparer run 2026-09-15T14:31:05Z; integrator re-ran the read-only module import at application time (observed values in this lane's local-proof.json); source half: RealSense D400 Series Datasheet (Rev 023, Mar 2026, 337029-017), https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf; curl GET 200 on 2026-09-15T14:33:59Z; pdftotext extraction read this session | V |  |  |  | Local-AND row: DEFAULT_PARAMS composes 4.3634 (hand-eye) + 10.0000 (depth at the published 2% spec) + 3.0000 (pose) = 11.3155 mm quadrature total against the 15 mm clearance band, verdict 'within'. The 2% depth term is PUBLISHED_DEPTH_SPEC_PCT, tied by the module to D400 Table 4-15 (±2% Z-accuracy), verified in the fetched datasheet. Integrator re-ran the local basis at application time (local-proof.json) and applied it together with the Table 4-15 evidence. | perception-p4-default-close-local-20260915 |
 | Assembly results in this literature are reported at 0.5 mm clearance | Play2Perfect arXiv abs page, https://arxiv.org/abs/2606.26428; curl GET 200 on 2026-09-15T14:32:15Z (43,105 bytes; sha256 2b4b56cbeef468692e034e6948d5d5d902db2f2063bac7f5c80da32d83324bf9); abstract text layer read this session | V |  |  |  | Verified verbatim against the abs page fetched 2026-09-15T14:32:15Z: "achieving 60% success on tight insertions with only 0.5 mm contact clearance". Claim unchanged; evidence fields completed. FetchUrl was non-functional this session (Factory API error on every call); curl GET logged identically per lane instruction. | perception-p5-play2perfect-clearance-20260915 |
@@ -297,7 +297,7 @@ this ledger's conventions.
 | Tsai and Lenz "posed it in 1989 in the form still used" (AX = XB) | Horaud & Dornaika, Hand-Eye Calibration, IJRR 14(3) 1995, author PDF https://inria.hal.science/inria-00590039/document; curl GET 200 on 2026-09-15T14:35:56Z (424,977 bytes; sha256 4fd19eebe669d353b4e8580a9cd2838683b1b627894fcc9cc074cf2902517251); pdftotext extraction read this session. Crossref API https://api.crossref.org/works/10.1109/70.34770 (tsai-lenz-1989 P1 metadata) fetched 200 on 2026-09-15T14:36:30Z. IEEE Xplore abstract NOT fetchable this session (202 with zero-byte body, plain and browser-UA GETs). | C |  |  |  | Prepared correction, evidence-completing the existing C verdict: the shared-form listing in Section 3 prints four groups (Shiu & Ahmad SA89], Tsai & Lenz TL89], Chou & Kamel CK91], Wang Wan92]); Chen Che91] appears separately where he "showed that the hand-eye geometry can be conveniently described using a screw motion". Horaud & Dornaika twice call Tsai & Lenz "the classical linear method developed by Tsai & Lenz". The current source cell's five-name parenthetical (including Chen 1991 inside the shared-form list) is corrected to the four names as printed. Registered citation horaud-dornaika-1995 was genuinely unregistered and was registered by this pass exactly as the packet proposed (data/citations.ts plus audit/citations.md coverage row, retained-fetch dated); tsai-lenz-1989 stays on the article span with its P1 fields Crossref-verified but its abstract unfetched this session. | perception-p16-shared-form-horaud-20260915 |
 | Hand-eye protocol: robot moves through known motions while the camera watches a static target | tsai-lenz-1989, IEEE Xplore public abstract page via registered DOI https://doi.org/10.1109/70.34770 (302 -> https://ieeexplore.ieee.org/document/34770/); FetchUrl 200, fetch of record 2026-09-16T11:48:21.322Z-11:48:35.090Z; abstract prints "The robot makes a series of automatically planned movements with a camera rigidly mounted at the gripper. At the end of each move, it takes a total of 90 ms to grab an image, extract image feature coordinates, and perform camera extrinsic calibration." | V |  |  |  | Protocol mechanics verified against the abstract's own words: automatically planned movements, camera rigidly mounted at the gripper, per-move 90 ms image grab + feature extraction + camera extrinsic calibration. The abstract does not print 'static target' or 'AX = XB'; the article's shared-form sentence attributes that framing to the 1989 papers collectively and the tsai-lenz-1989 citation sits on the following closed-form sentence (row 18's scope), so no unsupported attribution. Abstract page proves only what the abstract prints; full text remains paywalled. | perception-17-tsai-protocol-20260916g |
 | Solve rotation first, then translation, from the accumulated constraints | Horaud & Dornaika, Hand-Eye Calibration, IJRR 14(3) 1995 sec. 3, author PDF https://inria.hal.science/inria-00590039/document; curl GET 200 on 2026-09-15T14:35:56Z; pdftotext extraction read this session | V |  |  |  | Verified against the author PDF fetched 2026-09-15T14:35:56Z: "solving for AX = XB is equivalent to solving for eq. (18) and for eq. (16)"; Tsai & Lenz "suggested to represent RX by its unit eigenvector nX and an angle", casting eq. (18) into the rank-deficient rotation equation, then translation from eq. (16); "the classical linear method developed by Tsai & Lenz". The cited Tsai-Lenz full text remains paywalled; the mechanism is confirmed from this fetched peer-reviewed account. Registered citation horaud-dornaika-1995 was genuinely unregistered and was registered by this pass exactly as the packet proposed. | perception-p18-rotation-first-horaud-20260915 |
-| Hand-eye rotation costs $e_\theta(d) = d \tan \theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m | Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal) | V |
+| The instrument uses the illustrative ray-to-plane model $e_\theta(d) = d \tan \theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements. | lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples. | UNRESOLVED |  |  |  | The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {"claim":"Hand-eye rotation costs $e_\\theta(d) = d \\tan \\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m","sourceChecked":"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)","verdict":"V","note":""}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance. |  |
 | D400 Table 4-15 lists +/-2% Z-accuracy for D410/D415 and D43x at <=2 m, 80% ROI and HD, with <=4 m for D450/D455/D455f/D456 and <=0.5 m for D401/D405. Accuracy compares valid pixels against ground truth. Typical factory KPIs have model-specific target, illumination and exposure conditions; they are not a material-class guarantee. | realsense-d400-datasheet-2026; D400 Revision 023, Mar 2026, 337029-017; original fetch 2026-09-13T08:25:28.547454+00:00–08:25:29.954227+00:00, observed HTTP200/no redirects. Zero new retrievals. | C |  |  |  | Reviewed Revision 023, Mar 2026, 337029-017 cover, Section 4.7 and Table 4-15 with notes. D410/D415 and D43x use <=2 m, 80% ROI and HD; other columns differ. Depth accuracy uses valid pixels against ground truth. Typical factory KPIs can vary with environment. D405 uses a textured target at approximately 250 lux; other models use a texture-less white target, default 150 mW laser power and auto exposure. No opaque-material guarantee follows. Original four cells preserved in depth-specification correction history below. Exact source identity, literal supporting text and all mandatory parts remain in the plan. Provenance and current review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-specifications-integration-20260913/source-proof.json. Whole P1 and independent acceptance remain open; article lastReviewed unchanged. No credit for held 33/34. | perception-depth-specifications-20-source-20260913 |
 | RealSense's D415/D435 tuning checklist describes D400 depth error as quadratic in distance and advises moving closer without entering MinZ; resolution/range trade-offs, focus and differing stereo views limit near-range use. | realsense-tuning-2026; RealSense retained official webpage; original request 2026-09-06T01:13:22.323Z, result 01:13:24.183Z; zero new retrievals. | C |  |  |  | D415/D435 checklist and D400 range guidance, not a universal depth-camera law. Resolution trades depth precision; disparity shift sacrifices far range. Focus and differing left/right near views can still prevent matching. The same page gives D435 848x480 MinZ as both 16.8 cm and 19.5 cm: neither conflicting value is published in this correction. Original four cells and verdict retained in the 2026-09-13 perception-depth correction history below. Supporting passages and canonical URLs are in the bound evidence plan; literal raw/extracted/event proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-integration-20260913/source-proof.json. Original HTTP status, redirects and contemporaneous full-body hash were not recorded. RealSense named-page authors and canonical WebPage datePublished 2026-02-02 do not date Revision 2.0. Azure update dates/tesych do not establish publication/full byline; whole P1 remains open. Review date is not retrieval or article acceptance. | perception-depth-21-20260913 |
 | A pattern projector is the standard mitigation, painting texture onto surfaces that have none | Intel RealSense Stereoscopic Depth Cameras, arXiv 1705.05548 PDF, https://arxiv.org/pdf/1705.05548; curl GET 200 on 2026-09-15T14:33:58Z (5,436,997 bytes; sha256 b553d113ffbf7be9c3ca2ea60043320aa23d6df1aaa323e4f4c09b160eeebb53); pdftotext extraction read this session; registered citation URL https://doi.org/10.1109/CVPRW.2017.167 not separately fetched | V |  |  |  | Verified verbatim in the PDF fetched 2026-09-15T14:33:58Z: "Classical stereoscopic depth systems struggle with resolving depth on texture-less surfaces"; "In the Intel RGBD depth cameras, there is instead an active texture projector available on the module"; sec. 3.3.2 Projector: "Each R200 also includes an infrared texture projector with a fixed pattern ... high-contrast, random dot pattern". The paper presents the projector as the technique these cameras use, going back to 1984 unstructured light; "standard mitigation" stays scoped to that presentation. Claim unchanged; evidence fields completed. | perception-p22-keselman-projector-20260915 |
@@ -2734,4 +2734,128 @@ Exactly original 10 is corrected; all previous claims and evidence remain histor
   "reviewedAt": "2026-09-22T22:38:08.796Z",
   "notAcceptance": true
 }
+```
+
+## Industrial/perception zero-credit correction history, 2026-09-22
+
+The records below retain their original AND obligations and remain unresolved and incomplete. Exact old tuples and applied spans are non-counted history. No new native plan, local-proof waiver or source claim for calculator arithmetic is created.
+
+```json
+[
+  {
+    "originalId": "audit/classical.md:perception:2",
+    "rowOrdinal": 2,
+    "previousTupleDigest": "ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221",
+    "previousCells": {
+      "claim": "The three errors are independent and compose in quadrature rather than adding",
+      "sourceChecked": "lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "c4f336b0d0b5a3b3afaaa479411784bd88a49c44b4ae2125a6262746bbcc1a6b",
+    "currentCells": {
+      "claim": "The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established.",
+      "sourceChecked": "lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage.",
+      "verdict": "UNRESOLVED",
+      "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+    },
+    "previousPlan": null,
+    "currentPlan": null,
+    "remainingGaps": [
+      "No fetched primary manual passage supporting the conditional uncertainty rule in its full context. NIST discovery is snippet-only.",
+      "No evidence establishing independence, covariance, standard-deviation inputs, RMS meaning or the physical/statistical measurement model of the three terms.",
+      "The local authored calculation cannot satisfy the existing external-passage requirement by itself."
+    ],
+    "appliedCorrections": [
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/classical/perception.mdx",
+        "fileSha256": "995b16ccbaeb0c5d957142d99cedc6db28ab3412346b86916e955b909a15fb3c",
+        "old": "Every stage adds error, and the errors are independent, so they compose in quadrature rather than adding.",
+        "new": "The instrument below combines three adjustable error magnitudes by root-sum-of-squares as an illustrative modelling choice. It does not establish that calibration, depth and pose errors are statistically independent, or that its output bounds the positioning error of a real pipeline.",
+        "oldStartLine": 48,
+        "oldEndLine": 48,
+        "reason": "Withdraw asserted physical independence; keep the instrument and arithmetic unchanged.",
+        "applied": true
+      },
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts",
+        "fileSha256": "507921fc3dba73c60fbc2632ef5c2b7a043279360345771d3c263e589d6ca28f",
+        "old": "Three sources, composed in quadrature because they are independent and\n * zero-mean:",
+        "new": "Three illustrative input magnitudes, combined by an authored root-sum-of-\n * squares rule. This implementation does not establish their distributions,\n * statistical independence, zero means, or a deterministic error bound:",
+        "oldStartLine": 7,
+        "oldEndLine": 8,
+        "reason": "Do not make a code comment certify unmeasured statistical assumptions.",
+        "applied": true
+      },
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/perception-error-budget.tsx",
+        "fileSha256": "f80245399a8015a30a7946f2c304541e97edbc84de6f67dfff7fd8787b3977c7",
+        "old": "because the point of this instrument is that independent error\n        sources compose into one budget, and the hand-eye rotation is the\n        term whose distance dependence carries that lesson. A second\n        distance-dependent term would swamp it.",
+        "new": "to isolate how the hand-eye term changes with working distance.\n        Root-sum-of-squares is an authored rule here: these slider values\n        are not established standard deviations, and the instrument does\n        not establish independence or a real-system error bound.",
+        "oldStartLine": 435,
+        "oldEndLine": 438,
+        "reason": "Replace the repeated statistical claim in visible explanatory copy, not any control or calculation.",
+        "applied": true
+      }
+    ],
+    "sourcePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-math-recovery-20260922/rows.json",
+    "sourcePacketSha256": "fa6e40704b4d5620380c305d126269623385a460c25ede61ca67b3302e338ced",
+    "reviewedAt": "2026-09-22T23:08:51.584Z",
+    "completedOriginals": [],
+    "notAcceptance": true
+  },
+  {
+    "originalId": "audit/classical.md:perception:19",
+    "rowOrdinal": 19,
+    "previousTupleDigest": "f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a",
+    "previousCells": {
+      "claim": "Hand-eye rotation costs $e_\\theta(d) = d \\tan \\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m",
+      "sourceChecked": "Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "8b42597183269304a7e94dd2b3d42417cd522fcf173bc7e5c540ccb57f21ee75",
+    "currentCells": {
+      "claim": "The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements.",
+      "sourceChecked": "lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples.",
+      "verdict": "UNRESOLVED",
+      "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+    },
+    "previousPlan": null,
+    "currentPlan": null,
+    "remainingGaps": [
+      "No source passage establishes a general hand-eye error formula d tan(theta) with the current distance meaning.",
+      "Neither the 1-degree/10-cm example nor the 1-degree/1-m example is stated by an inspected primary source at the displayed precision.",
+      "The changed local-example wording does not remove P2 or VAL-AUDIT-009; full AND support remains missing."
+    ],
+    "appliedCorrections": [
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/classical/perception.mdx",
+        "fileSha256": "995b16ccbaeb0c5d957142d99cedc6db28ab3412346b86916e955b909a15fb3c",
+        "old": "The residual of that solve is where a great deal of practical grief lives. Write the transform's error as a small translation plus a small rotation. The translation error is a constant: it shifts every reported point by the same few millimetres regardless of where the object is. The rotation error is an *angle*, and an angle costs\n\n$$\ne_\\theta(d) = d \\, \\tan \\theta\n$$\n\nmillimetres of lateral offset at a working distance $d$. So a residual of one degree costs about 1.7 mm at a 10 cm standoff, which is nothing, and about 17 mm at 1 m, which is a missed grasp. That asymmetry is what the instrument above is built around.",
+        "new": "The instrument uses an illustrative ray-to-plane model, not a full three-dimensional hand-eye error model. Here $d$ is the separation along the normal to a target plane, and $\\theta$ is the inclination of a ray relative to that normal. The lateral intersection offset used by the instrument is\n\n$$\ne_\\theta(d) = d \\, \\tan \\theta\n$$\n\nWith $d$ expressed in millimetres, the local example at one degree gives about 1.7 mm at 10 cm and 17 mm at 1 m. These are evaluations of the authored formula, not measurements reported by the calibration paper or predictions that a grasp will succeed or fail. The formula is not a general norm of a rigid-transform error; nor is an exact tangent construction the same claim as a small-angle approximation.",
+        "oldStartLine": 83,
+        "oldEndLine": 89,
+        "reason": "Retain formula and examples, disclose the geometry and local arithmetic, and withdraw the unsupported grasp-outcome and universal hand-eye-error assertions.",
+        "applied": true
+      },
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts",
+        "fileSha256": "507921fc3dba73c60fbc2632ef5c2b7a043279360345771d3c263e589d6ca28f",
+        "old": " *    how far away the target is: a target at range d suffers a lateral\n *    offset d * tan(theta). This is the one term that grows with working\n *    distance, and it is the module's teaching point, so it is modelled\n *    exactly. Tsai and Lenz posed the calibration that estimates theta;\n *    Zhang's planar-target method supplies the intrinsics it rides on.",
+        "new": " *    how the authored geometry is chosen. This instrument uses a ray-to-plane\n *    proxy d * tan(theta), with d the axial separation from the plane.\n *    It is not a full 3D rigid-transform error norm or a result attributed\n *    to Tsai and Lenz. The formula is retained to illustrate distance\n *    dependence; local examples evaluate the formula, not measured calibration results.",
+        "oldStartLine": 14,
+        "oldEndLine": 18,
+        "reason": "Remove the incorrect claim that the instrument models arbitrary hand-eye error exactly; retain its function unchanged.",
+        "applied": true,
+        "integrationAdjustment": "Plain formula-versus-measurement wording replaces P2 jargon; a minimal how insertion makes the approved replacement grammatical after depends on. Comments only; no behavior change."
+      }
+    ],
+    "sourcePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-math-recovery-20260922/rows.json",
+    "sourcePacketSha256": "fa6e40704b4d5620380c305d126269623385a460c25ede61ca67b3302e338ced",
+    "reviewedAt": "2026-09-22T23:08:51.584Z",
+    "completedOriginals": [],
+    "notAcceptance": true
+  }
+]
 ```

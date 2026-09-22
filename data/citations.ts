@@ -8870,6 +8870,19 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
+    // NASA LLIS Lesson 841 has Lesson Date 1994-12-01; submitting organization jsc.
+    // Retained primary markdown supports the availability distinctions, not the
+    // equation images or linked text alternatives, which were not retrieved.
+    // The lesson date is not an inferred date for NASA TM4628 or the scrape.
+    id: 'nasa-availability-prediction-analysis',
+    title: 'Availability Prediction and Analysis',
+    authors: ['NASA'],
+    year: 1994,
+    venue: 'NASA Lessons Learned Information System, Lesson 841, 1994-12-01; submitting organization: jsc',
+    url: 'https://llis.nasa.gov/lesson/841',
+    type: 'docs',
+  },
+  {
     id: 'ohno-tps-1988',
     title: 'Toyota Production System: Beyond Large-Scale Production',
     authors: ['Taiichi Ohno'],

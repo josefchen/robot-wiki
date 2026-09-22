@@ -45,7 +45,7 @@ import { PerceptionErrorBudget } from '@/components/interactive/perception-error
 
 [Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.
 
-Six stages, in a fixed order, each consuming what the last one produced. Calibrate the camera so a pixel means a direction. Calibrate it against the robot so that direction means something in the robot's frame. Measure depth so the direction becomes a point. Detect and segment so points become an object. Estimate pose so the object becomes a graspable rigid body. Every stage adds error, and the errors are independent, so they compose in quadrature rather than adding.
+Six stages, in a fixed order, each consuming what the last one produced. Calibrate the camera so a pixel means a direction. Calibrate it against the robot so that direction means something in the robot's frame. Measure depth so the direction becomes a point. Detect and segment so points become an object. Estimate pose so the object becomes a graspable rigid body. The instrument below combines three adjustable error magnitudes by root-sum-of-squares as an illustrative modelling choice. It does not establish that calibration, depth and pose errors are statistically independent, or that its output bounds the positioning error of a real pipeline.
 
 ## The budget the pipeline has to fit inside
 
@@ -80,13 +80,13 @@ A perfectly calibrated camera reporting perfectly accurate 3D points in the *cam
 
 The 1989 papers on it share one form: move the robot through a set of known motions while the camera watches a static target, and each motion pair gives you an equation of the form $AX = XB$, where $A$ is the robot's motion, $B$ is the camera's observed motion, and $X$ is the unknown transform. Tsai and Lenz gave the efficient closed-form technique still used, solving rotation first and then translation from the accumulated constraints <Cite id="tsai-lenz-1989" />.
 
-The residual of that solve is where a great deal of practical grief lives. Write the transform's error as a small translation plus a small rotation. The translation error is a constant: it shifts every reported point by the same few millimetres regardless of where the object is. The rotation error is an *angle*, and an angle costs
+The instrument uses an illustrative ray-to-plane model, not a full three-dimensional hand-eye error model. Here $d$ is the separation along the normal to a target plane, and $\theta$ is the inclination of a ray relative to that normal. The lateral intersection offset used by the instrument is
 
 $$
 e_\theta(d) = d \, \tan \theta
 $$
 
-millimetres of lateral offset at a working distance $d$. So a residual of one degree costs about 1.7 mm at a 10 cm standoff, which is nothing, and about 17 mm at 1 m, which is a missed grasp. That asymmetry is what the instrument above is built around.
+With $d$ expressed in millimetres, the local example at one degree gives about 1.7 mm at 10 cm and 17 mm at 1 m. These are evaluations of the authored formula, not measurements reported by the calibration paper or predictions that a grasp will succeed or fail. The formula is not a general norm of a rigid-transform error; nor is an exact tangent construction the same claim as a small-angle approximation.
 
 ## Depth sensing: what fails, and on what
 

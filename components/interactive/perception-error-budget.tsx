@@ -432,10 +432,10 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         converts to the same millimetres at every working distance. A real
         stereo camera is worse than that, because its ranging error grows
         roughly with the square of distance. The simplification is here
-        because the point of this instrument is that independent error
-        sources compose into one budget, and the hand-eye rotation is the
-        term whose distance dependence carries that lesson. A second
-        distance-dependent term would swamp it.
+        to isolate how the hand-eye term changes with working distance.
+        Root-sum-of-squares is an authored rule here: these slider values
+        are not established standard deviations, and the instrument does
+        not establish independence or a real-system error bound.
       </p>
 
       <ChartDescription

@@ -8,11 +8,11 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 128
-- Recorded verified: 58
+- Recorded verified: 57
 - Recorded corrected: 65
 - Recorded cut: 2
 - Recorded source inconsistencies: 1
-- Unresolved or unrecognised verdicts: 2
+- Unresolved or unrecognised verdicts: 3
 - Complete evidence records: 115
 - Incomplete evidence records: 13
 
@@ -369,7 +369,7 @@ this ledger's conventions.
 | EVST's guide estimates 12 to 24 months for multi-shift palletising cells and says single-shift or lower-throughput operations typically stretch closer to 24 to 36 months; its payback formula divides total system capital cost by monthly labour, reduced-damage and throughput value. | evst-cell-cost-2026 states "12–24 months in multi-shift operations" and "24–36 months" for single-shift/lower-throughput; it says nothing about buyers rejecting long paybacks | C (RETAINED-CROSS-industrial-deployment-29-20260907; source-backed current wording) |  |  |  | RETAINED-CROSS-industrial-deployment-29-20260907: original claim "Payback "typically one to two years for multi-shift cells, with paybacks past that horizon rejected as bad fits rather than bad robots""; previous verdict "C (figures made exact — "12 to 24 months for multi-shift cells and 24 to 36 for single-shift ones" — and the citation moved to sit before the editorial clause it does not support)". Preserve vendor attribution, bounds and operating settings; remove the unsupported buyer-rejection rule rather than moving the citation before it. September 7 source-backed implementation under Josef's actual "fix it all!" instruction; no personal source certification. Verified retained passages E10, E11, E12; original events bc6898a8:18:1. Review is not a new fetch or whole-article/P1 acceptance. | retained-cross-industrial-deployment-29-20260907 |
 | In its April 16, 2026 investor outlook, Bessemer predicts that near-term value will accrue to full-stack, vertically integrated players rather than pure-play foundation-model companies. The authors say deployment requires domain-specific data collection, target-environment fine-tuning, hardware integration and operational infrastructure. They also stress expensive data collection and foundation models that are not yet general enough to work out of the box. | Bessemer investor essay, full FetchUrl-rendered primary body returned September 13, 2026; exact seven-author byline/date and Predictions 2 and 4 checked. | C |  |  |  | Current retained-text integration review 2026-09-13T02:13:58.815Z by agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator. The complete retained investor essay names all seven authors and April16,2026. Its investment activity language and portfolio disclaimer establish an investor outlook, not independent experimental validation. Prediction4 states domain-specific data collection AND target-environment fine-tuning AND hardware integration AND operational infrastructure. The corrected sentence retains every requirement, without inferring a sole binding constraint. The six-prediction overview and Prediction4 frame vertically integrated near-term value as the authors forecast. Corrected prose says predicts, not demonstrated superiority or settled accrual. Prediction2 stresses expensive data and capital; Prediction4 explicitly says foundation models are not yet general enough out of the box. Both contexts are retained, rather than claiming model quality does not matter. Two complete retained substantive text bodies and full current article read; tool-rendered Markdown is not raw-origin HTML or current liveness. Primary FetchUrl request/result September13 00:13:15.389/00:13:23.491UTC; PubMed September6 00:57:22.197/00:57:24.364UTC, no emitted HTTP status. Bessemer substantive chart images/GIF/video and linked Goldberg comparison materials were not inspected; no whole-source visual/P1, whole-article or independent acceptance. Original cells and current endpoints preserved in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-engineering-integration-20260913/row-history.json. | industrial-engineering-position-30-20260913 |
 | Takt time, from Ohno's Toyota Production System, is available time divided by required units | ohno-tps-1988 (English translation full text located and read): "Cycle time is computed by dividing operating hours by the quantity required per day"; and "eliminating waste from the tact time which is calculated from the required number". Terminology note, not a wiki error: Ohno's English text calls this quantity "cycle time" and uses "tact time" once; the article's separate, uncited definition of cycle time is the modern per-repetition sense | V | | | |
-| Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions | Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached | V | | | |
+| Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions | NASA LLIS Lesson841 retained primary markdown, observed 2026-09-22T22:28:18.417Z via rune___web_scrape; LessonDate1994-12-01. Text distinguishes inherent/operational availability and operable uptime. Equations/images were not retrieved. lib/deployment-economics.ts is a local implementation lead, not external proof. LEI cycle/year and row31 remain untouched. | UNRESOLVED |  |  |  | Applied only the NASA textual availability/MTBF and capital-only calculator disclosures, plus the dated NASA citation. Original cycle-time, exact MTBF/(MTBF+MTTR), failure-count estimator, general costing and local-model obligations remain unresolved; unseen equation images are not proof. LEI year is not invented and cycle/takt spans are not changed. Original four-cell tuple (JSON): {"claim":"Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions","sourceChecked":"Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached","verdict":"V","note":""}. Original tuple SHA256: 5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance. |  |
 | 99% success with ten-second clearing costs a tenth of a second per pick | Int: 0.01 x 10 s = 0.1 s per pick, matching jamOverheadPerPick in lib/deployment-economics.ts | V | | | |
 | Ken Goldberg proposes combining model-based engineering with model-free learning so robots can perform useful work, collect real-world data, and use those data to improve performance and learn adjacent skills. This is a proposed way to bootstrap data collection, not a claim that engineering removes the need for learning. He also expects model-free AI eventually to enable fully general-purpose robots. The old 100,000-year prose gloss is removed; its source basis is preserved as a rough comparison, not a measured duration. | Goldberg’s exact DOI journal article, full FetchUrl-rendered body returned September 13, 2026; bootstrap argument, eventual model-free view and numerical thought-experiment assumptions checked. | C |  |  |  | Current retained-text integration review 2026-09-13T02:13:58.815Z by agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator. The model-based/model-free paragraph and conclusion propose useful real work AND data generation AND performance improvement AND adjacent-skill learning. This is Goldberg proposed bootstrap mechanism, not measured intervention-cost evidence. Goldberg explicitly agrees with the eventual model-free general-purpose direction. The correction preserves learning and data requirements rather than describing engineering as an alternative that removes them. The deleted gloss is not an observed duration. Goldberg converts text/image tokens into rough human reading/viewing time and extrapolates current robot-data collection rates. Reference2 itself calls its comparison a very silly, shallow thought experiment; those external slides/conversion metrics were not independently read or recomputed. The assumptions remain as source context in this record, not a new measured claim. Two complete retained substantive text bodies and full current article read; tool-rendered Markdown is not raw-origin HTML or current liveness. Primary FetchUrl request/result September13 00:13:15.389/00:13:23.491UTC; PubMed September6 00:57:22.197/00:57:24.364UTC, no emitted HTTP status. Bessemer substantive chart images/GIF/video and linked Goldberg comparison materials were not inspected; no whole-source visual/P1, whole-article or independent acceptance. Original cells and current endpoints preserved in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-engineering-integration-20260913/row-history.json. | industrial-engineering-position-34-20260913 |
 | Morgan Stanley's 2026 "PR problem" note is the same observation about the hype cycle from the capital side | morgan-stanley-pr-problem-2026 (CNBC, fetched live: "investors have become harder to impress with polished videos and one-off demonstrations alone and are increasingly looking for tangible evidence of real-world return on investment"; "The industry's social license to deploy may matter just as much as technical performance") | V |  |  |  | Current integration review 2026-09-17T14:32:46Z by agent:fd137388-f254-4d11-97b1-548904d2cad2-as0917a/integrator. CNBC page fetched live in the source window (tool-reported 200, no redirect); both quotations glyph-verified. The row's framing — that this is the same hype-cycle observation made from the capital side — is editorial synthesis over the two quoted passages; no additional claim is certified. No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {"claim":"Morgan Stanley's 2026 \"PR problem\" note is the same observation about the hype cycle from the capital side","sourceChecked":"morgan-stanley-pr-problem-2026 (CNBC, fetched live: \"investors have become harder to impress with polished videos and one-off demonstrations alone and are increasingly looking for tangible evidence of real-world return on investment\"; \"The industry's social license to deploy may matter just as much as technical performance\")","verdict":"V","note":""} | industrial-morgan-stanley-20260917a |
@@ -2006,3 +2006,70 @@ Non-counted exact history for originals 3 and 5. Two rows repaired, zero complet
 | Deferred acceptance | Browser/rendered accessibility and layout, reading-time, build/export, generated artifacts and independent acceptance were not run in this lane. Publication remains blocked. |
 
 Logs and the exact before/after native tuples are in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-truth-repair-20260922/`. Every invoked check used `NODE_DISABLE_COMPILE_CACHE=1`. No new source retrieval, licensing change or citation-registry edit was made.
+
+## Industrial/perception zero-credit correction history, 2026-09-22
+
+The records below retain their original AND obligations and remain unresolved and incomplete. Exact old tuples and applied spans are non-counted history. No new native plan, local-proof waiver or source claim for calculator arithmetic is created.
+
+```json
+[
+  {
+    "originalId": "audit/data-hardware.md:industrial-deployment:32",
+    "rowOrdinal": 32,
+    "previousTupleDigest": "5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4",
+    "previousCells": {
+      "claim": "Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions",
+      "sourceChecked": "Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "c7ff40093828585412ec5f30f5f615f3d3e349d56fc456919761ee1c53d91bd4",
+    "currentCells": {
+      "claim": "Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions",
+      "sourceChecked": "NASA LLIS Lesson841 retained primary markdown, observed 2026-09-22T22:28:18.417Z via rune___web_scrape; LessonDate1994-12-01. Text distinguishes inherent/operational availability and operable uptime. Equations/images were not retrieved. lib/deployment-economics.ts is a local implementation lead, not external proof. LEI cycle/year and row31 remain untouched.",
+      "verdict": "UNRESOLVED",
+      "note": "Applied only the NASA textual availability/MTBF and capital-only calculator disclosures, plus the dated NASA citation. Original cycle-time, exact MTBF/(MTBF+MTTR), failure-count estimator, general costing and local-model obligations remain unresolved; unseen equation images are not proof. LEI year is not invented and cycle/takt spans are not changed. Original four-cell tuple (JSON): {\"claim\":\"Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions\",\"sourceChecked\":\"Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: 5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+    },
+    "previousPlan": null,
+    "currentPlan": null,
+    "remainingGaps": [
+      "LEI cycle-page publication/update/edition year remains absent, so a supported mandatory registry year is unavailable.",
+      "NASA equation bodies were returned only as image/text-description links, not the formula text. Exact MTBF/(MTBF+MTTR), operational ratio and the glossary failure-count estimator are not proved by the available markdown.",
+      "No requested page establishes the exact general lifetime-cost-per-good-pick convention, and none can certify local calculator implementation. The capital-only correction remains zero-credit.",
+      "No local-proof/P2/VAL-AUDIT-009 exception or new acceptance rule is authorized. Preserve all existing owner/local-proof holds and the original row obligations."
+    ],
+    "appliedCorrections": [
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "old": "Uptime, or availability, is the share of scheduled time the cell actually runs; it composes from <Term id=\"mean-time-between-failures\">mean time between failures</Term> and its repair counterpart, MTBF over MTBF plus MTTR, and a cell that fails weekly buries any per-pick success rate the policy reports.",
+        "new": "NASA distinguishes inherent availability, which uses <Term id=\"mean-time-between-failures\">mean time between failures</Term> and mean time to repair, from operational availability. The inherent measure excludes administrative and logistics delays and preventive maintenance; the operational measure includes corrective and preventive maintenance, administrative delays and logistics support time. Here, uptime means time in an operable state, not necessarily time spent producing <Cite id=\"nasa-availability-prediction-analysis\" />.",
+        "readiness": "source-backed partial correction ready for zero-completion integration",
+        "scope": "Narrow to NASA textual distinctions; omit unread equation and unproved weekly-failure universal; preserve original missing obligations in row history.",
+        "applied": true
+      },
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "old": "Cost per pick is the cell's amortized capital plus running cost over its lifetime of good picks, the number the calculator above prints.",
+        "new": "The calculator above reports capital cost per modeled pick: robot price times the integration multiple, divided by its modeled lifetime pick count over a fixed amortization period. It does not include running costs. This is a local worked-example calculation, not a measured deployment result.",
+        "readiness": "exact prior local correction retained, zero completion credit",
+        "scope": "Keep all controls/defaults/arithmetic; label actual capital-only modeled output.",
+        "applied": true
+      },
+      {
+        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/glossary.ts",
+        "entryId": "mean-time-between-failures",
+        "field": "definition",
+        "old": "The average elapsed operating time between one failure of a repairable system and the next, total operating time divided by the number of failures in that window. Together with mean time to repair it composes availability: MTBF over the sum of MTBF and MTTR. It is a maintenance-economics figure rather than a policy figure, but a cell whose robot fails weekly will bury any per-pick success rate the policy reports.",
+        "new": "Mean time between failures (MTBF) is a reliability parameter for repairable systems. NASA uses it with mean time to repair (MTTR) when estimating inherent availability. That measure excludes administrative and logistics delays and preventive maintenance; operational availability includes those times.",
+        "readiness": "source-backed narrow correction; original estimator/formula/history stay unresolved",
+        "applied": true
+      }
+    ],
+    "sourcePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/rows.json",
+    "sourcePacketSha256": "c912ffe8efe1109523f0e6a835194798714931ea6d6143c8a8a8139c677bd9ea",
+    "reviewedAt": "2026-09-22T23:08:51.584Z",
+    "completedOriginals": [],
+    "notAcceptance": true
+  }
+]
+```
