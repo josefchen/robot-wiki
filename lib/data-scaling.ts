@@ -10,9 +10,9 @@
  * so none is drawn.
  *
  * Anchors (all verified against primary sources, cited in the module):
- * - DROID: 76k trajectories, 350 hours, 564 scenes, 50 collectors over 12
- *   months (arXiv 2403.12945). The 12-month, 50-collector figure calibrates
- *   the "DROID-measured" teleop rate: 350 / 50 = 7 hours per collector-year.
+ * - DROID: 76k successful trajectories, 350 interaction hours, 50 collectors,
+ *   18 robots across 13 institutions over 12 elapsed months (arXiv 2403.12945).
+ *   These counts do not establish annual exposure or productivity per rig.
  * - TRI LBM: ~1,700 hours total training corpus (468 h internal bimanual,
  *   45 h simulation, 32 h UMI, ~1,150 h OXE) (arXiv 2507.05331).
  * - Ego4D: 3,670 hours of egocentric video (arXiv 2110.07058).
@@ -20,8 +20,8 @@
  *   (arXiv 2505.11709).
  * - EgoScale: 20,854 hours of action-labeled egocentric human video
  *   (arXiv 2602.16710).
- * - Open X-Embodiment: 1M+ trajectories across 22 embodiments; hours are an
- *   estimate (~10k), flagged as such (arXiv 2310.08864).
+ * - Open X-Embodiment: 1M+ trajectories across 22 embodiments. Total duration
+ *   is unknown in the inspected paper/project text, so there is no hour marker.
  * - AgiBot World (Beta): 1,001,552 trajectories totaling 2,976.4 hours, both
  *   published in the paper and on the dataset card (arXiv 2503.06669).
  * - GPT-3: 300B training tokens (arXiv 2005.14165).
@@ -95,15 +95,6 @@ export const ROBOT_POINTS: DataScalePoint[] = [
     cite: 'ego4d-2022',
   },
   {
-    id: 'oxe',
-    label: 'OXE',
-    magnitude: 10_000,
-    value: '~10k h',
-    kind: 'robot',
-    estimated: true,
-    cite: 'open-x-embodiment-2023',
-  },
-  {
     id: 'egoscale',
     label: 'EgoScale',
     magnitude: 20_854,
@@ -113,6 +104,16 @@ export const ROBOT_POINTS: DataScalePoint[] = [
     cite: 'egoscale-2026',
   },
 ];
+
+/** Source-scoped unknown, deliberately outside numeric plotting/ranking. */
+export const OXE_DURATION = {
+  id: 'oxe',
+  label: 'OXE',
+  status: 'unknown',
+  value: 'Unknown in inspected sources',
+  cite: 'open-x-embodiment-2023',
+  sourceUrl: 'https://arxiv.org/html/2310.08864v9',
+} as const;
 
 /** Language pretraining corpora, in tokens. */
 export const LLM_POINTS: DataScalePoint[] = [
@@ -142,15 +143,16 @@ export const MIN_RIGS = 1;
 export const MAX_RIGS = 500;
 /**
  * Default fleet: 15 rigs puts the projection marker at 15,000 h/yr, clear of
- * every dataset marker on the chart (OXE sits at 10k, EgoScale at ~21k).
+ * every dataset marker on the chart (EgoScale sits at ~21k).
  */
 export const DEFAULT_RIGS = 15;
 
-/** "OXE scale": the order of magnitude of the largest aggregated corpus. */
+/** Authored hypothetical 10,000-hour target, not OXE duration. Legacy export name. */
 export const OXE_SCALE_HOURS = 10_000;
-/** "Frontier target": 100x OXE scale, the ambition the scaling laws imply. */
+/** Authored hypothetical 1,000,000-hour target, not a sourced frontier threshold. */
 export const FRONTIER_HOURS = 1_000_000;
 
+/** Stable internal IDs retained for existing mounts; not empirical labels. */
 export type CollectionRateId = 'dedicated' | 'droid-measured';
 
 export interface CollectionRate {
@@ -165,15 +167,15 @@ export interface CollectionRate {
 export const COLLECTION_RATES: CollectionRate[] = [
   {
     id: 'dedicated',
-    label: 'Dedicated farm',
+    label: 'Dedicated farm hypothetical',
     hoursPerRigYear: 1000,
-    note: 'Assumption: about 4 productive teleop hours per rig per day. A modeling choice, not a measurement; flip to the DROID rate to see measured distributed throughput.',
+    note: 'Authored hypothetical: 1,000 productive hours per rig-year. For example, 4 hours on each of 250 working days. This is a teaching input, not measured farm productivity.',
   },
   {
     id: 'droid-measured',
-    label: 'DROID-measured',
+    label: 'Low-rate hypothetical',
     hoursPerRigYear: 7,
-    note: 'Measured: DROID collected 350 hours with 50 collectors in 12 months, about 7 hours per collector-year. Part-time distributed collection is far slower than a dedicated farm.',
+    note: 'Authored hypothetical: 7 productive hours per rig-year, not a measured DROID productivity rate. DROID reports collectors and elapsed collection time, not annual exposure for each rig.',
   },
 ];
 

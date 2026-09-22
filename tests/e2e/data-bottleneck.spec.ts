@@ -27,7 +27,7 @@ test.describe('data-hardware data-bottleneck module', () => {
     // Strand 1: robot-hours versus LLM tokens.
     for (const name of [
       /GPT-3 consumed 300 billion tokens/,
-      /holds 76,000 trajectories totaling 350 hours/,
+      /reports 76,000 successful trajectories totaling 350 interaction hours/,
       /two data universes, nine orders of magnitude apart/i,
     ]) {
       await expect(
@@ -102,6 +102,8 @@ test.describe('data-hardware data-bottleneck module', () => {
     await expect(yTicks).toHaveCount(6);
     await expect(yTicks.first()).toHaveText('10⁹');
     await expect(yTicks.last()).toHaveText('10¹⁴');
+    await expect(chart(page).getByTestId('robot-marker-oxe')).toHaveCount(0);
+    await expect(chart(page).getByTestId('oxe-duration-note')).toContainText('unknown in inspected sources');
     await expect(chart(page).getByTestId('robot-marker-droid')).toBeVisible();
     await expect(chart(page).getByTestId('robot-marker-agibot')).toBeVisible();
     await expect(chart(page).getByTestId('llm-marker-llama3')).toBeVisible();
@@ -134,8 +136,8 @@ test.describe('data-hardware data-bottleneck module', () => {
     await expect(hours).toHaveText('1,000 h/yr');
     await expect(oxe).toHaveText('10.0 yr');
 
-    // Rate toggle switches to the measured DROID throughput.
-    await chart(page).getByRole('button', { name: /droid-measured/i }).click();
+    // Rate toggle switches to the authored low-rate hypothetical.
+    await chart(page).getByRole('button', { name: /low-rate hypothetical/i }).click();
     await expect(hours).toHaveText('7 h/yr');
 
     // Reset restores the default fleet and rate.

@@ -18155,6 +18155,266 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "dataset-license-pair-20260921-1",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/datasets",
+      "oldHash": "fac69ffb34f419e71205fe3f92eab53e6627c308ba7dd1efe4dbac89820f4b22",
+      "newHash": "f4b418309136e069230adb7d911b178158bae6d6ae5dd0fb83c37c578ff26c6f",
+      "reason": "Exactly five approved DROID/BridgeData prose corrections, CC BY 4.0 deed frontmatter and registry addition, and their native citation relationship/rendering consequences. License-version year 2013 is publisher-supported; no dataset year change, blanket legal guarantee or RoboMIND completion.",
+      "ownerApproval": "Standing Josef finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-license-pair-integration-20260921/authorization.json, bound to HEAD e687718cd3c2d1c35d3f63b6e296712a5892a9f0 and source packet SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Only the five specified endpoints and one deed registration/frontmatter addition are authorized; not a new human signature, human source certification, legal permission or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dataset-license-pair-20260921-2",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+      "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+      "reason": "Exactly five approved DROID/BridgeData prose corrections, CC BY 4.0 deed frontmatter and registry addition, and their native citation relationship/rendering consequences. License-version year 2013 is publisher-supported; no dataset year change, blanket legal guarantee or RoboMIND completion.",
+      "ownerApproval": "Standing Josef finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-license-pair-integration-20260921/authorization.json, bound to HEAD e687718cd3c2d1c35d3f63b6e296712a5892a9f0 and source packet SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Only the five specified endpoints and one deed registration/frontmatter addition are authorized; not a new human signature, human source certification, legal permission or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dataset-license-pair-20260921-3",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "newHash": "4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95",
+      "reason": "Exactly five approved DROID/BridgeData prose corrections, CC BY 4.0 deed frontmatter and registry addition, and their native citation relationship/rendering consequences. License-version year 2013 is publisher-supported; no dataset year change, blanket legal guarantee or RoboMIND completion.",
+      "ownerApproval": "Standing Josef finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-license-pair-integration-20260921/authorization.json, bound to HEAD e687718cd3c2d1c35d3f63b6e296712a5892a9f0 and source packet SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Only the five specified endpoints and one deed registration/frontmatter addition are authorized; not a new human signature, human source certification, legal permission or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dataset-license-pair-20260921-4",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8",
+      "newHash": "40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39",
+      "reason": "Exactly five approved DROID/BridgeData prose corrections, CC BY 4.0 deed frontmatter and registry addition, and their native citation relationship/rendering consequences. License-version year 2013 is publisher-supported; no dataset year change, blanket legal guarantee or RoboMIND completion.",
+      "ownerApproval": "Standing Josef finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-license-pair-integration-20260921/authorization.json, bound to HEAD e687718cd3c2d1c35d3f63b6e296712a5892a9f0 and source packet SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Only the five specified endpoints and one deed registration/frontmatter addition are authorized; not a new human signature, human source certification, legal permission or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dataset-license-pair-20260921-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:cc-by-4-0-deed",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bdac2ba5eb354dcceb217bb602285834a67cd19476cbeda58c2f6268ca4f0cdf",
+      "reason": "Exactly five approved DROID/BridgeData prose corrections, CC BY 4.0 deed frontmatter and registry addition, and their native citation relationship/rendering consequences. License-version year 2013 is publisher-supported; no dataset year change, blanket legal guarantee or RoboMIND completion.",
+      "ownerApproval": "Standing Josef finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-license-pair-integration-20260921/authorization.json, bound to HEAD e687718cd3c2d1c35d3f63b6e296712a5892a9f0 and source packet SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Only the five specified endpoints and one deed registration/frontmatter addition are authorized; not a new human signature, human source certification, legal permission or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+      "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "175d565634723d9122f43bbf7a82f17a310b7fce5c85f36fdbc44620b25c0613",
+      "newHash": "785ab5aee7ea2c1cafabb9e2ea3c1420c7d3564bad6527769bda1f6ab00b94e6",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-3",
+      "manifest": "article-metadata",
+      "memberId": "citation:agibot-world-2025",
+      "oldHash": "68d060d391d0cca49c824f96d2bc226add599dd915d28d8a9410b159ec6cb425",
+      "newHash": "3a8411c2d1287ed2e89b8ab0ac7fcdb3f3830b1d0b3981afdd1109c330dab1c2",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "generalist-attribution-p1-20260922-4",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+      "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+      "reason": "Exact authorized GO-1 paragraph correction and its added GO-2 attribution marker, plus AgiBot World collective and 51 ordered authors and their current-HEAD citation-rendering consequences. March report date is not checkpoint release; no unrelated content or licensing approval.",
+      "ownerApproval": "Josef standing finish-it-all routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/authorization.json, base 9ea4a171131e45deacfbd1b54921940162f3afbf, source packet ae2b01c90b1153bb11341cf9a5a6faaa8be45e594b9e2865265ed8297a77ac02. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-comparison-p1-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "fa7b5f5bce9692dbfa6ada8526a7d3930b6dc43e43de8c83c9157e7e9d434178",
+      "newHash": "3b7b31cce1983c1b1cbc47f35aa60cd6664dcacb914058e6280e3796a1eda6d5",
+      "reason": "Exact authorized replacement of the two comparison introduction paragraphs with setup-qualified RT-2 v1 serving rates and OpenVLA v3 inference settings and their inline citation consequences. No registry, VLA article, method data, old table/filter proof or unrelated content approval.",
+      "ownerApproval": "Josef standing routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-integration-20260922/authorization.json, base afeeb058097ed5720ca11b03e41d3d2167573f5d, source packet 171990a73fcf3baf892464b30548ef7205bfb6155a6250e5d747f6dc93d541c5. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-comparison-p1-20260922-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "179a093b41ad6ac10221f56590165292c7d160665b1b9bc17b49bd7e8a7565fa",
+      "newHash": "f7fe84dfaf83a59a297b0a83a9ec2e9fadcd842185ec191af19b1d89a844da47",
+      "reason": "Exact authorized replacement of the two comparison introduction paragraphs with setup-qualified RT-2 v1 serving rates and OpenVLA v3 inference settings and their inline citation consequences. No registry, VLA article, method data, old table/filter proof or unrelated content approval.",
+      "ownerApproval": "Josef standing routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-integration-20260922/authorization.json, base afeeb058097ed5720ca11b03e41d3d2167573f5d, source packet 171990a73fcf3baf892464b30548ef7205bfb6155a6250e5d747f6dc93d541c5. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+      "newHash": "432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f",
+      "reason": "Correct OXE source-scoped unknown duration and DROID successful/unsuccessful counts, collectors, robots and elapsed duration. Retain prediction/reveal with authored hypothetical rates and targets, not source measurements; both selected audit rows stay unresolved.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/data-scale-chart.tsx:aria-label:2",
+      "oldHash": "462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d",
+      "newHash": "903172b89cc49201bb0262ec552fb6d7ee1ca3783807a0e8025a8dd6c4c85699",
+      "reason": "The existing dynamic chart accessible name now explicitly calls the preserved farm projection hypothetical; rig count, controls and numeric behavior are unchanged.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-3",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Remove only the unsupported numeric OXE marker; retain a source-linked unknown-duration entry. Label retained rates/targets and every coupled summary/accessibility/readout as hypothetical, preserving controls, IDs, default values and arithmetic.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-4",
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Keep OXE duration a source-scoped unknown, never zero or n/a. Its token column remains genuinely inapplicable, as for the other robot datasets; numeric plot and scenario behavior are preserved except the unsupported OXE marker.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-5",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/data-scale-chart.tsx:not-applicable:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "82f1cb562f662def75c5bf9104fca5f4e1699ba316f49325e30754c1146d360c",
+      "reason": "Keep OXE duration a source-scoped unknown, never zero or n/a. Its token column remains genuinely inapplicable, as for the other robot datasets; numeric plot and scenario behavior are preserved except the unsupported OXE marker.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

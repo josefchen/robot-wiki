@@ -84,11 +84,11 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'AgiBot GO-1',
     org: 'AgiBot',
     released: '2025-03',
-    dateLabel: 'Mar 2025',
+    dateLabel: 'Mar 2025 report',
     openWeights: true,
     provenance: 'paper',
     capability:
-      'ViLLA: latent action tokens inferred from unlabeled video let human and robot video supervise control.',
+      'March 2025 is the report date, not a checkpoint release date. The inspected v4 paper describes a ViLLA latent action model, VLM-conditioned latent planner, and low-level action expert, trained using human video without action labels and robot data.',
     citationId: 'agibot-world-2025',
   },
   {

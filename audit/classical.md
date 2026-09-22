@@ -9,10 +9,10 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 - Articles with records: 7
 - Claim rows: 187
 - Recorded verified: 91
-- Recorded corrected: 94
+- Recorded corrected: 96
 - Recorded cut: 0
 - Recorded source inconsistencies: 0
-- Unresolved or unrecognised verdicts: 2
+- Unresolved or unrecognised verdicts: 0
 - Complete evidence records: 176
 - Incomplete evidence records: 11
 
@@ -195,7 +195,7 @@ boxes and demo prose describe.
 | C = C_obs u C_free definitions | lavalle-2006 @ https://lavalle.pl/planning/ch4.pdf Sec. 4.3.1 (free chapter PDF, curl GET 200, 2026-09-16T15:28Z): Cobs = {q ∈ C \| A(q) ∩ O ≠ ∅} (Eq. 4.34), Cfree = C \ Cobs, C = Cfree ∪ Cobs; concept origin lozano-perez-1983 abstract @ https://doi.org/10.1109/TC.1983.1676196 (FetchUrl 200): 'configuration space obstacles' | V |  |  |  | Definitions printed verbatim by the registered textbook's free ch.4 (Eq. 4.34 + free-space definition + C = Cfree ∪ Cobs figure text); the 1983 primary's abstract names the configuration-space-obstacle concept; 'standard' removed as a non-fetch basis. | motion-planning-2-cspace-definitions-20260916j |
 | Explicit collision-space construction is difficult, not impossible beyond a fixed dimensional cutoff. LaValle gives constructive translational cases and automated semi-algebraic chain/tree representations. PSPACE-hardness concerns the basic semi-algebraic mover problem with unbounded dimension, not every seven-joint arm. Sampling probes collision geometry and must validate local paths; closed-chain constraints can also impede sampling. | lavalle-2006 chapters4/5 retained author-hosted PDFs | C |  |  |  | Current retained-source review 2026-09-13T19:44:45.241883+00:00; zero retrieval. Original cells preserved: {"claim":"Explicit C_free construction hopeless beyond a few dimensions","sourceChecked":"lavalle-2006","verdict":"V","note":""}. Chapter4 GET2026-09-13T12:35:48.794821–12:35:49.838839Z; chapter5 GET11:30:32.413106–11:30:33.587043Z; original report GET11:30:33.601118–11:30:34.593909Z; Karaman v1 GET09:41:15.701905–09:41:16.175297Z. Times name original retrievals, not new fetches. Only this row's named sources carry its evidence. Four report page images and Karaman pages11/17 inspected; selected book/preprint contexts reviewed, not whole-book/whole-P1 certification. Legacy draft excerpts that stopped before density/query/steering/counterexample support were rebound to the actual retained body. Unassigned originals, equation, calculators and article date preserved; independent acceptance remains open. | motion-three-3-20260913 |
 | PRM (Kavraki, Svestka, Latombe, Overmars): uniform milestones, local-planner edges, graph-search queries, multi-query | kavraki-1996 @ https://doi.org/10.1109/70.508439 (IEEE page, FetchUrl 200, abstract printed in full; curl GET bot-walled 202/0 bytes, logged); lavalle-2006 @ https://lavalle.pl/planning/ch5.pdf Sec. 5.6/5.6.1 (free chapter PDF, curl GET 200, 2026-09-16T15:28Z): 'mainly introduced in [90] under the name probabilistic roadmaps (PRMs)' - chapter-local numbering [90]=Kavraki et al. 1996; the fetched chapter prints [90], not the book-global [516] | V |  |  |  | 1996 abstract: roadmap 'stored as a graph whose nodes correspond to collision-free configurations and whose edges correspond to feasible paths'; 'These paths are computed using a simple and fast local planner'; query phase 'the roadmap is then searched for a path joining these two nodes'; two learning/query phases; applied to 'planar articulated robots with many degrees of freedom'. Uniform-sampling conjunct from ch5 Sec. 5.6.1 ('a uniform, dense sequence α'). P1 exact: T-RA 12(4):566-580; IEEE page prints August 1996, chapter bibliography June 1996 (disclosed). 'Milestones' is the article's word for the abstract's collision-free-configuration nodes. | motion-planning-4-prm-20260916j |
-| RRT report identity/date (Iowa State Computer Science TR 98-11, October 1998, dated by LaValle’s textbook bibliography); bounded-state sampling, nearest vertex under the chosen metric, fixed-time control integration and entire-edge feasibility; approximate Euler update distinguished from the 2006 step-size-free obstacle-free nearest-swath construction; configuration/velocity state glossary qualification. | lavalle-1998; https://lavalle.pl/papers/Lav98c.pdf; report pages 1-2; original GET 2026-09-13T11:30:33.601118–11:30:34.593909Z, HTTP 200/no redirects. lavalle-2006; https://lavalle.pl/planning/ch5.pdf; section 5.5/footnote 14/Figure 5.18 and bibliography [103]; original GET 2026-09-13T11:30:32.413106–11:30:33.587043Z, HTTP 200/no redirects. | unresolved |  |  |  | The original fixed-geometric-step equation is not an adequate statement of LaValle's general 1998 report. The report's title and section 2 support authorship, state/control integration, whole-edge feasibility and an explicitly approximate Euler update; bibliography [103] in the author-hosted 2006 chapter supplies the October 1998 TR 98-11 date. Section 5.5/footnote 14 and Figure 5.18 describe a distinct step-size-free, initially obstacle-free nearest-swath construction. The state/configuration distinction requires the coupled glossary correction. All three reader endpoints are atomic. The old Kalos/Whitlock date passage is rejected, and neither the toy implementation nor adjacent originals or article review date is being certified or changed. Independent retained-source review 2026-09-14T04:15:44.315327+00:00; zero new retrieval. Original retrieval times/representations remain in Source checked and /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/continuation-0403/source-proof.json. Exact protected/prior/current cells remain in non-counted correction history. No perception-original replay, whole P1/article/review-date, independent or release acceptance. | rrt-hierarchy-20260914-motion-5 |
+| RRT report identity/date (Iowa State Computer Science TR 98-11, October 1998, dated by LaValle’s textbook bibliography); bounded-state sampling, nearest vertex under the chosen metric, fixed-time control integration and entire-edge feasibility; approximate Euler update distinguished from the 2006 step-size-free obstacle-free nearest-swath construction; configuration/velocity state glossary qualification. | lavalle-1998; https://lavalle.pl/papers/Lav98c.pdf; report pages 1-2; original GET 2026-09-13T11:30:33.601118–11:30:34.593909Z, HTTP 200/no redirects. lavalle-2006; https://lavalle.pl/planning/ch5.pdf; section 5.5/footnote 14/Figure 5.18 and bibliography [103]; original GET 2026-09-13T11:30:32.413106–11:30:33.587043Z, HTTP 200/no redirects. | C |  |  |  | The original fixed-geometric-step equation is not an adequate statement of LaValle's general 1998 report. The report's title and section 2 support authorship, state/control integration, whole-edge feasibility and an explicitly approximate Euler update; bibliography [103] in the author-hosted 2006 chapter supplies the October 1998 TR 98-11 date. Section 5.5/footnote 14 and Figure 5.18 describe a distinct step-size-free, initially obstacle-free nearest-swath construction. The state/configuration distinction requires the coupled glossary correction. All three reader endpoints are atomic. The old Kalos/Whitlock date passage is rejected, and neither the toy implementation nor adjacent originals or article review date is being certified or changed. Independent retained-source review 2026-09-14T04:15:44.315327+00:00; zero new retrieval. Original retrieval times/representations remain in Source checked and /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/continuation-0403/source-proof.json. Exact protected/prior/current cells remain in non-counted correction history. No perception-original replay, whole P1/article/review-date, independent or release acceptance. Verdict reconciliation: retained report pages 1-2 and chapter pages 24/39 support all seven mandatory parts of the current corrected claim. The corrected RRT prose, 1998 Stat and configuration-space glossary are already present from bda5ef239875c5a438c524fdab71ab6b6de074d2. C records that implemented correction, not verification of the superseded fixed-geometric-step equation. The report/book formulation distinction and rejection of the unrelated Kalos/Whitlock date passage remain explicit. | rrt-hierarchy-20260914-motion-5 |
 | In LaValle's planar holonomic RRT example, nearest-neighbor selection favors vertices with larger Voronoi regions. The book's distinct step-size-free dense-tree construction requires a dense sequence, almost surely dense for random sampling; obstacles truncate extensions. Neither this exploration property nor the original report's open convergence-rate analysis gives universal fast coverage or solves a planning query by itself. | lavalle-1998 retained report images; lavalle-2006 chapter5 | C |  |  |  | Current retained-source review 2026-09-13T19:44:45.241883+00:00; zero retrieval. Original cells preserved: {"claim":"Voronoi bias: frontier nodes own large Voronoi regions, so uniform samples pull the tree outward; dense in the limit with probability one","sourceChecked":"lavalle-2006 sec. 5.5","verdict":"V","note":""}. Chapter4 GET2026-09-13T12:35:48.794821–12:35:49.838839Z; chapter5 GET11:30:32.413106–11:30:33.587043Z; original report GET11:30:33.601118–11:30:34.593909Z; Karaman v1 GET09:41:15.701905–09:41:16.175297Z. Times name original retrievals, not new fetches. Only this row's named sources carry its evidence. Four report page images and Karaman pages11/17 inspected; selected book/preprint contexts reviewed, not whole-book/whole-P1 certification. Legacy draft excerpts that stopped before density/query/steering/counterexample support were rebound to the actual retained body. Unassigned originals, equation, calculators and article date preserved; independent acceptance remains open. | motion-three-6-20260913 |
 | Kinodynamic version steers with controls (LaValle-Kuffner) | lavalle-kuffner-2001 @ https://lavalle.pl/papers/LavKuf01b.pdf (corrected URL; live uncredentialed curl GET 200, 2026-09-16T22:35:17Z, 906,176 bytes, sha256 c8dee51d...02b092, 37-page author manuscript; OCR title page = 'Randomized Kinodynamic Planning', LaValle (Iowa State) + Kuffner, Jr. (U. Tokyo); IJRR identity via Crossref DOI 10.1177/02783640122067453 = IJRR 20(5):378-400, 2001-05) | V | lavalle-kuffner-2001 | https://lavalle.pl/papers/LavKuf01b.pdf | Title page (PDF p.1): "Randomized Kinodynamic Planning" / "Steven M. LaValle   James J. Kuffner, Jr." Abstract (PDF p.1): "This paper presents the first randomized approach to kinodynamic planning (also known as trajectory planning, or trajectory design). The task is to determine control inputs to drive a robot from an initial configuration and velocity to a goal configuration and velocity while obeying physically-based dynamical models and avoiding obstacles in the robot's environment. ... The basis for this approach is the construction of Rapidly-exploring Random Trees (RRTs)". EXTEND (PDF p.13): "The function NEW_STATE makes a motion toward x by applying an input u in U for some time increment dt". | Abstract (PDF p.1): "This paper presents the first randomized approach to kinodynamic planning ... The task is to determine control inputs to drive a robot from an initial configuration and velocity to a goal configuration and velocity while obeying physically-based dynamical models and avoiding obstacles in the robot's environment"; construction (PDF p.13): "The function NEW_STATE makes a motion toward x by applying an input u in U for some time increment dt". Term 'kinodynamic planning' itself introduced in [20] (PDF p.2), not by LaValle-Kuffner; the article attributes the kinodynamic RRT version, which is what the paper claims. [OCR channel: Type 3 text layer garbled; quotes from pdftoppm+tesseract; set symbol and subscripts normalized, disclosed in packet.] |  |
 | Karaman–Frazzoli's geometric sPRM/RRT completeness statements require X=(0,1)^d with d>=2, an open goal, robust feasibility with strong positive clearance, independent uniform free-space sampling, fixed positive-radius sPRM connections, capped positive-distance RRT steering and whole-segment collision tests. The limiting solution probability is one under this setup, not for arbitrary existing paths or every PRM heuristic; 1-nearest sPRM is a counterexample. LaValle's roadmap discussion preserves clearance/local-planner and problem-dependent performance limits. | karaman-frazzoli-2011 retained v1; lavalle-2006 chapter5 | C |  |  |  | Current retained-source review 2026-09-13T19:44:45.241883+00:00; zero retrieval. Original cells preserved: {"claim":"PRM and RRT are probabilistically complete","sourceChecked":"lavalle-2006 (definition: probability of finding an existing solution converges to one)","verdict":"V","note":""}. Chapter4 GET2026-09-13T12:35:48.794821–12:35:49.838839Z; chapter5 GET11:30:32.413106–11:30:33.587043Z; original report GET11:30:33.601118–11:30:34.593909Z; Karaman v1 GET09:41:15.701905–09:41:16.175297Z. Times name original retrievals, not new fetches. Only this row's named sources carry its evidence. Four report page images and Karaman pages11/17 inspected; selected book/preprint contexts reviewed, not whole-book/whole-P1 certification. Legacy draft excerpts that stopped before density/query/steering/counterexample support were rebound to the actual retained body. Unassigned originals, equation, calculators and article date preserved; independent acceptance remains open. | motion-three-8-20260913 |
@@ -302,7 +302,7 @@ this ledger's conventions.
 | RealSense's D415/D435 tuning checklist describes D400 depth error as quadratic in distance and advises moving closer without entering MinZ; resolution/range trade-offs, focus and differing stereo views limit near-range use. | realsense-tuning-2026; RealSense retained official webpage; original request 2026-09-06T01:13:22.323Z, result 01:13:24.183Z; zero new retrievals. | C |  |  |  | D415/D435 checklist and D400 range guidance, not a universal depth-camera law. Resolution trades depth precision; disparity shift sacrifices far range. Focus and differing left/right near views can still prevent matching. The same page gives D435 848x480 MinZ as both 16.8 cm and 19.5 cm: neither conflicting value is published in this correction. Original four cells and verdict retained in the 2026-09-13 perception-depth correction history below. Supporting passages and canonical URLs are in the bound evidence plan; literal raw/extracted/event proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-integration-20260913/source-proof.json. Original HTTP status, redirects and contemporaneous full-body hash were not recorded. RealSense named-page authors and canonical WebPage datePublished 2026-02-02 do not date Revision 2.0. Azure update dates/tesych do not establish publication/full byline; whole P1 remains open. Review date is not retrieval or article acceptance. | perception-depth-21-20260913 |
 | A pattern projector is the standard mitigation, painting texture onto surfaces that have none | Intel RealSense Stereoscopic Depth Cameras, arXiv 1705.05548 PDF, https://arxiv.org/pdf/1705.05548; curl GET 200 on 2026-09-15T14:33:58Z (5,436,997 bytes; sha256 b553d113ffbf7be9c3ca2ea60043320aa23d6df1aaa323e4f4c09b160eeebb53); pdftotext extraction read this session; registered citation URL https://doi.org/10.1109/CVPRW.2017.167 not separately fetched | V |  |  |  | Verified verbatim in the PDF fetched 2026-09-15T14:33:58Z: "Classical stereoscopic depth systems struggle with resolving depth on texture-less surfaces"; "In the Intel RGBD depth cameras, there is instead an active texture projector available on the module"; sec. 3.3.2 Projector: "Each R200 also includes an infrared texture projector with a fixed pattern ... high-contrast, random dot pattern". The paper presents the projector as the technique these cameras use, going back to 1984 unstructured light; "standard mitigation" stays scoped to that presentation. Claim unchanged; evidence fields completed. | perception-p22-keselman-projector-20260915 |
 | PhoXi 3D Scanner L separately lists calibration accuracy 0.200 mm (1 sigma), temporal noise 0.190 mm (1 sigma), scanning range 870–2150 mm and scanning time 250–2750 ms. These separate fields do not establish uniform-range accuracy, a sensing-family ranking or robot control frequency. | photoneo-phoxi-l-2026; PhoXi original FetchUrl 2026-09-13T08:24:25.481Z–08:24:30.976Z; tool-reported HTTP200 only; raw transport/redirects and publication year unknown. Zero new retrievals. | C |  |  |  | Reviewed exact retained PhoXi 3D Scanner L product-page response. Calibration accuracy 0.200 mm (1 sigma) and temporal noise 0.190 mm (1 sigma) are separate fields; scanning range 870–2150 mm and scanning time 250–2750 ms are separate fields. No uniform-range accuracy, material guarantee, family ranking or control-frequency inference is accepted. No specification transfer to another model. Original four cells preserved in depth-specification correction history below. Exact source identity, literal supporting text and all mandatory parts remain in the plan. Provenance and current review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-specifications-integration-20260913/source-proof.json. Whole P1 and independent acceptance remain open; article lastReviewed unchanged. No credit for held 33/34. | perception-depth-specifications-23-source-20260913 |
-| Cut the structured-light principle/family attribution from the PhoXi product-page paragraph. Retain the named industrial 3D scanner and its actual specification fields. The evidence-limited cut does not assert the family claim is false. | photoneo-phoxi-l-2026; PhoXi original FetchUrl 2026-09-13T08:24:25.481Z–08:24:30.976Z; tool-reported HTTP200 only; raw transport/redirects and publication year unknown. Zero new retrievals. | X |  |  |  | The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false. Original four cells preserved in depth-specification correction history below. Exact source identity, literal supporting text and all mandatory parts remain in the plan. Provenance and current review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-specifications-integration-20260913/source-proof.json. Whole P1 and independent acceptance remain open; article lastReviewed unchanged. No credit for held 33/34. | perception-depth-specifications-24-source-20260913 |
+| Cut the structured-light principle/family attribution from the PhoXi product-page paragraph. Retain the named industrial 3D scanner and its actual specification fields. The evidence-limited cut does not assert the family claim is false. | photoneo-phoxi-l-2026; PhoXi original FetchUrl 2026-09-13T08:24:25.481Z–08:24:30.976Z; tool-reported HTTP200 only; raw transport/redirects and publication year unknown. Zero new retrievals. | C (evidence-limited cut) |  |  |  | The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false. Original four cells preserved in depth-specification correction history below. Exact source identity, literal supporting text and all mandatory parts remain in the plan. Provenance and current review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-specifications-integration-20260913/source-proof.json. Whole P1 and independent acceptance remain open; article lastReviewed unchanged. No credit for held 33/34. Verdict reconciliation: C records the evidence-limited editorial cut already implemented in a08b59c8cb393377bf6f932ca11cb281f7281646, not verification or refutation of the removed structured-light family claim. The current named-model paragraph retains the four separate specification fields and their limitations; the shared Three families introduction and the product-page principle attribution are absent. The retained product-page response does not establish that principle, and historical wiki/manual assertions remain unverified leads rather than replacement proof. | perception-depth-specifications-24-source-20260913 |
 | Azure Kinect DK documentation indicates invalid pixels by depth0 and lists outside active IR illumination mask, saturated IR, low IR, filter outlier and multi-path interference as reasons;0 is the invalid-data indicator, not a measured surface distance. | azure-kinect-depth-docs-2026; Azure Kinect DK retained official webpage; original request 2026-09-06T01:12:47.805Z, result 01:12:49.373Z; zero new retrievals. | C |  |  |  | All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity. Original four cells and verdict retained in the 2026-09-13 perception-depth correction history below. Supporting passages and canonical URLs are in the bound evidence plan; literal raw/extracted/event proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-integration-20260913/source-proof.json. Original HTTP status, redirects and contemporaneous full-body hash were not recorded. RealSense named-page authors and canonical WebPage datePublished 2026-02-02 do not date Revision 2.0. Azure update dates/tesych do not establish publication/full byline; whole P1 remains open. Review date is not retrieval or article acceptance. | perception-depth-25-20260913 |
 | Azure Kinect DK documentation describes corner multi-path ambiguity from wall-to-wall reflection and mixed foreground/background signals around object edges; fast motion can add edge invalidation because of the raw-depth exposure interval. | azure-kinect-depth-docs-2026; Azure Kinect DK retained official webpage; original request 2026-09-06T01:12:47.805Z, result 01:12:49.373Z; zero new retrievals. | C |  |  |  | Azure corner reflections and foreground/background edge mixtures are described as multipath ambiguity. Fast motion may increase invalidation because of raw-depth exposure, not every edge always failing. Review used actual text and captions, not unseen figure pixels. Original four cells and verdict retained in the 2026-09-13 perception-depth correction history below. Supporting passages and canonical URLs are in the bound evidence plan; literal raw/extracted/event proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-integration-20260913/source-proof.json. Original HTTP status, redirects and contemporaneous full-body hash were not recorded. RealSense named-page authors and canonical WebPage datePublished 2026-02-02 do not date Revision 2.0. Azure update dates/tesych do not establish publication/full byline; whole P1 remains open. Review date is not retrieval or article acceptance. | perception-depth-26-20260913 |
 | Transparent objects "often appear as noisy or distorted approximations of the surfaces that lie behind them" | cleargrasp-2020 (arXiv 1910.02550 abs, verbatim) | V | cleargrasp-2020 | https://doi.org/10.1109/ICRA40945.2020.9197518 | Transparent objects are a common part of everyday life, yet they possess unique visual properties that make them incredibly difficult for standard 3D sensors to produce accurate depth estimates for. In many cases, they often appear as noisy or distorted approximations of the surfaces that lie behind them. To address these challenges, we present ClearGrasp - a deep learning approach for estimating accurate 3D geometry of transparent objects from a single RGB-D image for robotic manipulation. Given a single RGB-D image of transparent objects, ClearGrasp uses deep convolutional networks to infer surface normals, masks of transparent surfaces, and occlusion boundaries. It then uses these outputs to refine the initial depth estimates for all transparent surfaces in the scene. |
@@ -2293,3 +2293,267 @@ Integrator pass over the frozen packet `convergence-source-aj-single-leftovers-2
 Original four-cell tuple before this pass:
 
 - audit/classical.md:scene-representation:1 (plan scene-representation-1-identity-sweep-20260917a, ready-evidence-completion) original tuple SHA-256 `ea193bc92ab122606a968b22990ef723e831cf99387092987be51f2ffa92dca0`: {"claim":"Bibliographic fidelity of all 23 cited registry entries: title, author list, year, venue","sourceChecked":"Crossref for the 11 DOI-backed entries (Moravec-Elfes, Curless-Levoy, KinectFusion, ORB-SLAM, ORB-SLAM3, DSO, Lowry, Sq-Root SAM, iSAM2, layered costmaps, Nav2); live arXiv abs pages for the 12 arXiv entries (1612.00593, 2003.08934, 2201.05989, 2308.04079, 2312.14132, 2406.09756, 1606.05830, 2110.14217, 2103.12352, 2112.12130, 2409.10161, 2411.11839, 2311.16038)","verdict":"V","note":""}
+
+## 2026-09-21 verdict-pair reconciliation history
+
+Two authorized verdict/note corrections only; zero new structural completions. The claim and source-checked cells, exact prior note prefix, all original histories, plan IDs, required parts and eight paired source items are unchanged. These are non-counted historical records, not extra audited rows. Old native plan reviews/adjudications below retain their original identities; the two active plans carry the actual fresh current-role 7+1 reviews. The RRT correction is already implemented, and the PhoXi evidence-limited cut does not assert the removed family claim false. No source fetch, product prose/registry/approval change or independent acceptance.
+
+```json
+{
+  "schema": "robot-wiki-verdict-pair-history-v1",
+  "baseCommit": "789ac21ea6a9754175b973650d6ee10972d1e19e",
+  "sourcePacketSha256": "68957629ff8b68659a00cfd77650a9357972dad088b8632f3347317b37e89951",
+  "authorization": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/authorization.json",
+  "records": [
+    {
+      "originalId": "audit/classical.md:motion-planning:5",
+      "rowOrdinal": 5,
+      "oldTupleDigest": "d1f55e47a299ad6bf08d4ca63f6c4705d79b4004263450d12455015ef5bd99c7",
+      "oldCells": {
+        "claim": "RRT report identity/date (Iowa State Computer Science TR 98-11, October 1998, dated by LaValle’s textbook bibliography); bounded-state sampling, nearest vertex under the chosen metric, fixed-time control integration and entire-edge feasibility; approximate Euler update distinguished from the 2006 step-size-free obstacle-free nearest-swath construction; configuration/velocity state glossary qualification.",
+        "sourceChecked": "lavalle-1998; https://lavalle.pl/papers/Lav98c.pdf; report pages 1-2; original GET 2026-09-13T11:30:33.601118–11:30:34.593909Z, HTTP 200/no redirects. lavalle-2006; https://lavalle.pl/planning/ch5.pdf; section 5.5/footnote 14/Figure 5.18 and bibliography [103]; original GET 2026-09-13T11:30:32.413106–11:30:33.587043Z, HTTP 200/no redirects.",
+        "verdict": "unresolved",
+        "note": "The original fixed-geometric-step equation is not an adequate statement of LaValle's general 1998 report. The report's title and section 2 support authorship, state/control integration, whole-edge feasibility and an explicitly approximate Euler update; bibliography [103] in the author-hosted 2006 chapter supplies the October 1998 TR 98-11 date. Section 5.5/footnote 14 and Figure 5.18 describe a distinct step-size-free, initially obstacle-free nearest-swath construction. The state/configuration distinction requires the coupled glossary correction. All three reader endpoints are atomic. The old Kalos/Whitlock date passage is rejected, and neither the toy implementation nor adjacent originals or article review date is being certified or changed. Independent retained-source review 2026-09-14T04:15:44.315327+00:00; zero new retrieval. Original retrieval times/representations remain in Source checked and /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/continuation-0403/source-proof.json. Exact protected/prior/current cells remain in non-counted correction history. No perception-original replay, whole P1/article/review-date, independent or release acceptance."
+      },
+      "newTupleDigest": "d0d18e630d22c05c29d6775ba12dbb3d5147bde93e9a5d0c555375e80844d22c",
+      "newCells": {
+        "claim": "RRT report identity/date (Iowa State Computer Science TR 98-11, October 1998, dated by LaValle’s textbook bibliography); bounded-state sampling, nearest vertex under the chosen metric, fixed-time control integration and entire-edge feasibility; approximate Euler update distinguished from the 2006 step-size-free obstacle-free nearest-swath construction; configuration/velocity state glossary qualification.",
+        "sourceChecked": "lavalle-1998; https://lavalle.pl/papers/Lav98c.pdf; report pages 1-2; original GET 2026-09-13T11:30:33.601118–11:30:34.593909Z, HTTP 200/no redirects. lavalle-2006; https://lavalle.pl/planning/ch5.pdf; section 5.5/footnote 14/Figure 5.18 and bibliography [103]; original GET 2026-09-13T11:30:32.413106–11:30:33.587043Z, HTTP 200/no redirects.",
+        "verdict": "C",
+        "note": "The original fixed-geometric-step equation is not an adequate statement of LaValle's general 1998 report. The report's title and section 2 support authorship, state/control integration, whole-edge feasibility and an explicitly approximate Euler update; bibliography [103] in the author-hosted 2006 chapter supplies the October 1998 TR 98-11 date. Section 5.5/footnote 14 and Figure 5.18 describe a distinct step-size-free, initially obstacle-free nearest-swath construction. The state/configuration distinction requires the coupled glossary correction. All three reader endpoints are atomic. The old Kalos/Whitlock date passage is rejected, and neither the toy implementation nor adjacent originals or article review date is being certified or changed. Independent retained-source review 2026-09-14T04:15:44.315327+00:00; zero new retrieval. Original retrieval times/representations remain in Source checked and /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/continuation-0403/source-proof.json. Exact protected/prior/current cells remain in non-counted correction history. No perception-original replay, whole P1/article/review-date, independent or release acceptance. Verdict reconciliation: retained report pages 1-2 and chapter pages 24/39 support all seven mandatory parts of the current corrected claim. The corrected RRT prose, 1998 Stat and configuration-space glossary are already present from bda5ef239875c5a438c524fdab71ab6b6de074d2. C records that implemented correction, not verification of the superseded fixed-geometric-step equation. The report/book formulation distinction and rejection of the unrelated Kalos/Whitlock date passage remain explicit."
+      },
+      "priorPlan": {
+        "id": "rrt-hierarchy-20260914-motion-5",
+        "ledgerPath": "audit/classical.md",
+        "articleSlug": "motion-planning",
+        "rowOrdinal": 5,
+        "originalCellsDigest": "d1f55e47a299ad6bf08d4ca63f6c4705d79b4004263450d12455015ef5bd99c7",
+        "kind": "explicit-parts",
+        "parts": [
+          {
+            "id": "report-identity",
+            "text": "LaValle authored the original RRT report at Iowa State University.",
+            "requiredCitationIds": [
+              "lavalle-1998"
+            ]
+          },
+          {
+            "id": "report-date",
+            "text": "The author textbook identifies Iowa State Computer Science Technical Report 98-11, October 1998.",
+            "requiredCitationIds": [
+              "lavalle-2006"
+            ]
+          },
+          {
+            "id": "sample-nearest-control",
+            "text": "The report samples in a bounded state space, finds the nearest vertex, selects an input and integrates for a fixed time interval.",
+            "requiredCitationIds": [
+              "lavalle-1998"
+            ]
+          },
+          {
+            "id": "local-feasibility",
+            "text": "Vertices and entire edge paths remain in free state space, not just collision-free endpoints.",
+            "requiredCitationIds": [
+              "lavalle-1998"
+            ]
+          },
+          {
+            "id": "equation-correction",
+            "text": "Replace the uncapped normalized geometric extension equation with the report’s explicitly approximate Euler update. Fixed integration time is not fixed geometric distance for every dynamics model.",
+            "requiredCitationIds": [
+              "lavalle-1998"
+            ]
+          },
+          {
+            "id": "book-formulation-difference",
+            "text": "Preserve mandatory 2006 section 5.5: it removes the original step-size parameter and uses a nearest point on the tree swath.",
+            "requiredCitationIds": [
+              "lavalle-2006"
+            ]
+          },
+          {
+            "id": "state-glossary-coupling",
+            "text": "A kinodynamic state can include configuration and velocity; do not imply all planners search only configurations.",
+            "requiredCitationIds": [
+              "lavalle-1998"
+            ]
+          }
+        ],
+        "planReview": {
+          "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+          "rationale": "The original fixed-geometric-step equation is not an adequate statement of LaValle's general 1998 report. The report's title and section 2 support authorship, state/control integration, whole-edge feasibility and an explicitly approximate Euler update; bibliography [103] in the author-hosted 2006 chapter supplies the October 1998 TR 98-11 date. Section 5.5/footnote 14 and Figure 5.18 describe a distinct step-size-free, initially obstacle-free nearest-swath construction. The state/configuration distinction requires the coupled glossary correction. All three reader endpoints are atomic. The old Kalos/Whitlock date passage is rejected, and neither the toy implementation nor adjacent originals or article review date is being certified or changed.",
+          "planDigest": "6c23440f997dd6c9fdedc0614885c634e6e8eed31c13068beac73a592f801df5"
+        },
+        "evidence": [
+          {
+            "partId": "report-identity",
+            "citationId": "lavalle-1998",
+            "sourceUrl": "https://lavalle.pl/papers/Lav98c.pdf",
+            "supportingPassage": "title and author block:\nRapidly-Exploring Random Trees: A New Tool for Path Planning\nSteven M. LaValle\nDepartment of Computer Science\nIowa State University"
+          },
+          {
+            "partId": "report-date",
+            "citationId": "lavalle-2006",
+            "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+            "supportingPassage": "Bibliography printed page xi, entry [103], left page:\n[103] S. M. LaValle. Rapidly-exploring random trees: A new tool for path plan-\nning. Technical Report 98-11, Computer Science Dept., Iowa State Univer-\nsity, Oct. 1998."
+          },
+          {
+            "partId": "sample-nearest-control",
+            "citationId": "lavalle-1998",
+            "sourceUrl": "https://lavalle.pl/papers/Lav98c.pdf",
+            "supportingPassage": "right column, paragraph under GENERATE_RRT:\nIn each iteration, a random state, x_rand, is selected from X (it is assumed that X is bounded). Step 4 finds the closest vertex to x_rand in terms of ρ. Step 5 selects an input, u, that minimizes the distance from x_near to x_rand, and ensures that the state remains in X_free.\n\n[…]\n\nleft column, Section 2, state-transition paragraph:\nBy integrating f over a fixed time interval, Δt, the next state, x_new, can be determined for a given initial state, x, and input u ∈ U. Using Euler integration, x_new ≈ x + f(x,u)Δt; however, it is usually preferable to use a higher-order integration technique, such as Runge-Kutta."
+          },
+          {
+            "partId": "local-feasibility",
+            "citationId": "lavalle-1998",
+            "sourceUrl": "https://lavalle.pl/papers/Lav98c.pdf",
+            "supportingPassage": "left column, Section 2, obstacle paragraph:\nA Rapidly-exploring Random Tree (RRT) will be constructed so that all of its vertices are states in X_free, the complement of X_obs. Furthermore, each edge of the RRT will correspond to a path that lies entirely in X_free."
+          },
+          {
+            "partId": "equation-correction",
+            "citationId": "lavalle-1998",
+            "sourceUrl": "https://lavalle.pl/papers/Lav98c.pdf",
+            "supportingPassage": "left column, Section 2, state-transition paragraph:\nBy integrating f over a fixed time interval, Δt, the next state, x_new, can be determined for a given initial state, x, and input u ∈ U. Using Euler integration, x_new ≈ x + f(x,u)Δt; however, it is usually preferable to use a higher-order integration technique, such as Runge-Kutta.\n\n[…]\n\nSection 2, final left-column paragraph continued at top of right column:\nFor holonomic planning, one can define f(x,u) = u, and ∥u∥ ≤ 1, which implies that any bounded velocity can be achieved. After integrating f over Δt, a new state can be obtained that moves the system in any direction relative to x. For a nonholonomic problem, the next state is constrained due to the choice of f."
+          },
+          {
+            "partId": "book-formulation-difference",
+            "citationId": "lavalle-2006",
+            "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+            "supportingPassage": "book-step-parameter-history:\nThe idea\nis to incrementally construct a search tree that gradually improves the resolution\nbut does not need to explicitly set any resolution parameters. In the limit, the tree\ndensely covers the space. Thus, it has properties similar to space filling curves\n\n[…]\n\nbook-no-obstacles:\n1 G.init(q0);\n2 for i = 1 to k do\n3 G.add vertex(α(i));\n4 qn ← nearest(S(G), α(i));\n5 G.add edge(qn, α(i));\nFigure 5.16: The basic algorithm for constructing RDTs (which includes RRTs\nas a special case) when there are no obstacles. It requires the availability of a\ndense sequence, α, and iteratively connects from α(i) to the nearest point among\nall those reached by G.\nq0\nqn\nα(i)\nq0\n(a) (b)\nFigure 5.17: (a) Suppose inductively that this tree has been constructed so far\nusing the algorithm in Figure 5.16. (b) A new edge is added that connects from\nthe sample α(i) to the nearest point in S, which is the vertex qn.\nswath, S, of the graph, which is defined as\nS =\n[\ne∈E\ne([0, 1]). (5.40)\nIn (5.40), e([0, 1]) ⊆ Cfree is the image of the path e.\n\n[…]\n\nPrinted page 229, footnote 14:\nThe original RRT [103] was introduced with a step size parameter, but this is eliminated in\nthe current presentation. For implementation purposes, one might still want to revert to this\nolder way of formulating the algorithm because the implementation is a little easier. This will\nbe discussed shortly.\n\n[…]\n\nPrinted page 230, text beneath swath definition:\nThe exploration algorithm is first explained in Figure 5.16 without any obsta-\ncles or boundary obstructions. It is assumed that C is a metric space. Initially, a\nvertex is made at q0. For k iterations, a tree is iteratively grown by connecting\nα(i) to its nearest point in the swath, S. The connection is usually made along\n\n[…]\n\nPrinted page 230, Figure 5.18 caption:\nFigure 5.18: If the nearest point in S lies in an edge, then the edge is split into\ntwo, and a new vertex is inserted into G."
+          },
+          {
+            "partId": "state-glossary-coupling",
+            "citationId": "lavalle-1998",
+            "sourceUrl": "https://lavalle.pl/papers/Lav98c.pdf",
+            "supportingPassage": "left column, Section 2, first paragraph:\nFor a kinodynamic planning problem, X = T(C), which is the tangent bundle of the configuration space [7] (a state encodes both configuration and velocity).\n\n[…]\n\nSection 2, first paragraph in left column:\nFor a standard problem, X = C, which is the configuration space of a rigid body or system of bodies in a 2D or 3D world [5]. For a kinodynamic planning problem, X = T(C), which is the tangent bundle of the configuration space [7] (a state encodes both configuration and velocity). Many other interpretations of X are possible."
+          }
+        ],
+        "adjudications": [
+          {
+            "partId": "report-identity",
+            "outcome": "supported",
+            "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+            "rationale": "The inspected report title/byline identifies Steven M. LaValle and Iowa State University. This establishes the original report identity; its date is separately supported by the textbook bibliography rather than inferred from a file name or an unrelated bibliography entry.",
+            "evidenceDigest": "5198c1c4cb503b4fd418aa520c7a02ad42829649944cabec30e619934d1d1573"
+          },
+          {
+            "partId": "report-date",
+            "outcome": "supported",
+            "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+            "rationale": "The inspected chapter-5 bibliography entry [103] names the RRT report, Iowa State Computer Science Technical Report 98-11 and October 1998. That exact dated entry supports retaining the Stat's 1998 value with explicit bibliography attribution. The Kalos/Whitlock 1986 passage supplies none of this and remains rejected.",
+            "evidenceDigest": "7c756263baa35026c91644246134186f16f11ed18213ffcedd8577163c1d104f"
+          },
+          {
+            "partId": "sample-nearest-control",
+            "outcome": "supported",
+            "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+            "rationale": "Section 2 selects a random state in bounded state space, finds the nearest tree vertex under the metric, selects an input and integrates it for a fixed time interval. These steps are more general than a normalized fixed-distance geometric step and support the corrected state/control description.",
+            "evidenceDigest": "8c5cd2cd57089d461ca58a33e9915f6238b8321d50941f18468fe44c25eca41b"
+          },
+          {
+            "partId": "local-feasibility",
+            "outcome": "supported",
+            "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+            "rationale": "The report requires the vertices and every state along the paths represented by tree edges to remain in free state space. An endpoint-only collision test is insufficient. The corrected paragraph therefore explicitly preserves entire local-path feasibility.",
+            "evidenceDigest": "a3342eb7caa2f2b31b813d4de96fce4afc27978842063c3e1665226a2dab51ea"
+          },
+          {
+            "partId": "equation-correction",
+            "outcome": "supported",
+            "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+            "rationale": "The inspected integration passage gives Euler's approximate update x_new approximately x + f(x,u) Delta t and recommends higher-order integration such as Runge-Kutta in general. The approximation sign and fixed-time interpretation are essential: arbitrary dynamics do not imply fixed geometric distance. The planar holonomic special case does not justify the old universal equation.",
+            "evidenceDigest": "ccffb8056ebfa5ed54523f6d0ac30e2b13403d5c5866405799d1ee48ff584e9d"
+          },
+          {
+            "partId": "book-formulation-difference",
+            "outcome": "supported",
+            "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+            "rationale": "The 2006 section expressly removes the original step-size parameter. In its initial obstacle-free construction, the nearest point is taken over the swath of edge paths; Figure 5.18 allows an interior edge point and splits the edge. This is a different construction, not a retrospective description of the report's fixed-time integration.",
+            "evidenceDigest": "627a64e0e53b428a9dcd23e381e59d40e01d97b086818e0d8b9f8f2af32efb3e"
+          },
+          {
+            "partId": "state-glossary-coupling",
+            "outcome": "supported",
+            "reviewedBy": "Droid source auditor, session 452d23cd-9c2e-48a5-a869-9276e6d23cbc, emitted custom:droidproxy:gpt-6-astra/max",
+            "rationale": "The report distinguishes configuration-based geometric problems from kinodynamic states that include configuration and velocity. The glossary's universal 'all search this space' ending is overbroad. Replace that ending and add lavalle-1998 while preserving, but not independently certifying, the earlier definition clauses and citations.",
+            "evidenceDigest": "077083bfe4d2df1dea6c33ba60cb59d2b40497f8113e2f57586e1b77ff366327"
+          }
+        ]
+      },
+      "reviewedAt": "2026-09-21T22:38:37.908Z"
+    },
+    {
+      "originalId": "audit/classical.md:perception:24",
+      "rowOrdinal": 24,
+      "oldTupleDigest": "869cdf2bc65ce9b28d5f7e9f16d17ea264ca7da3592834b79f924c8043366fba",
+      "oldCells": {
+        "claim": "Cut the structured-light principle/family attribution from the PhoXi product-page paragraph. Retain the named industrial 3D scanner and its actual specification fields. The evidence-limited cut does not assert the family claim is false.",
+        "sourceChecked": "photoneo-phoxi-l-2026; PhoXi original FetchUrl 2026-09-13T08:24:25.481Z–08:24:30.976Z; tool-reported HTTP200 only; raw transport/redirects and publication year unknown. Zero new retrievals.",
+        "verdict": "X",
+        "note": "The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false. Original four cells preserved in depth-specification correction history below. Exact source identity, literal supporting text and all mandatory parts remain in the plan. Provenance and current review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-specifications-integration-20260913/source-proof.json. Whole P1 and independent acceptance remain open; article lastReviewed unchanged. No credit for held 33/34."
+      },
+      "newTupleDigest": "083c80a17ff5c846245ac61e1aa9e0071abfec69555b9dab6be7aa684d6c63e2",
+      "newCells": {
+        "claim": "Cut the structured-light principle/family attribution from the PhoXi product-page paragraph. Retain the named industrial 3D scanner and its actual specification fields. The evidence-limited cut does not assert the family claim is false.",
+        "sourceChecked": "photoneo-phoxi-l-2026; PhoXi original FetchUrl 2026-09-13T08:24:25.481Z–08:24:30.976Z; tool-reported HTTP200 only; raw transport/redirects and publication year unknown. Zero new retrievals.",
+        "verdict": "C (evidence-limited cut)",
+        "note": "The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false. Original four cells preserved in depth-specification correction history below. Exact source identity, literal supporting text and all mandatory parts remain in the plan. Provenance and current review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-depth-specifications-integration-20260913/source-proof.json. Whole P1 and independent acceptance remain open; article lastReviewed unchanged. No credit for held 33/34. Verdict reconciliation: C records the evidence-limited editorial cut already implemented in a08b59c8cb393377bf6f932ca11cb281f7281646, not verification or refutation of the removed structured-light family claim. The current named-model paragraph retains the four separate specification fields and their limitations; the shared Three families introduction and the product-page principle attribution are absent. The retained product-page response does not establish that principle, and historical wiki/manual assertions remain unverified leads rather than replacement proof."
+      },
+      "priorPlan": {
+        "id": "perception-depth-specifications-24-source-20260913",
+        "ledgerPath": "audit/classical.md",
+        "articleSlug": "perception",
+        "rowOrdinal": 24,
+        "originalCellsDigest": "869cdf2bc65ce9b28d5f7e9f16d17ea264ca7da3592834b79f924c8043366fba",
+        "kind": "explicit-parts",
+        "parts": [
+          {
+            "id": "cut-unsupported-page-attribution",
+            "text": "Cut the structured-light principle/family claim attached to this product page. Retain only the page's actual named industrial3D-scanner model and specifications; this cut does not assert the family claim is false.",
+            "requiredCitationIds": [
+              "photoneo-phoxi-l-2026"
+            ]
+          }
+        ],
+        "planReview": {
+          "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+          "rationale": "The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false. Reviewed all mandatory parts and coupled endpoints; this is not independent acceptance.",
+          "planDigest": "488df2eedb8d0fa7959f6506d0dd2e4cf120613b9b474b4de2a1fd2d6920e1fc"
+        },
+        "evidence": [
+          {
+            "partId": "cut-unsupported-page-attribution",
+            "citationId": "photoneo-phoxi-l-2026",
+            "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+            "supportingPassage": "# PhoXi 3D Scanner L\n\n![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20700'%3E%3C/svg%3E)\n\nScanner with high range especially useful for scanning of objects and bins of with a size of euro pallet. It found its use in vision-guided robotics projects especially in automotive. However\nthanks to its versatility it was used in a variety of industrial sectors, ranging from medical, logistics, agriculture, or heavy industries.\n\n## Datasheet\n\n| **Parameter** | **Value** |\n| --- | --- |\n| Resolution (3D Points) | Up to 3.2 M |\n| Scanning range | 870 – 2150 mm |\n| Optimal scanning distance | 1239 mm |\n| Scanning area at sweet spot | 1082 x 772 mm |\n| Point to point distance | 0.524 mm |\n| Calibration accuracy (1 σ) | 0.200 mm |\n| Temporal noise (1 σ) | 0.190 mm |\n| Scanning time | 250 – 2750 ms |\n| Dimensions | 86 x 68 x 616 mm |\n| Baseline | 550 mm |\n| Weight | 1100 g |\n| 3D points throughput | 16 Million points per second |\n| GPU | NVIDIA PascalTM Architecture GPU with 256 CUDA cores |"
+          }
+        ],
+        "adjudications": [
+          {
+            "partId": "cut-unsupported-page-attribution",
+            "outcome": "supported",
+            "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+            "rationale": "Supported editorial cut, not support for the deleted claim: Cut the structured-light principle/family claim attached to this product page. Retain only the page's actual named industrial3D-scanner model and specifications; this cut does not assert the family claim is false. The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false.",
+            "evidenceDigest": "51b83ef8a3b4a8c11cd574a738d9b52fdd05747b4ee714b8341e47b3969aadee"
+          }
+        ]
+      },
+      "reviewedAt": "2026-09-21T22:38:37.908Z"
+    }
+  ]
+}
+```
+
+### Verdict-pair verification, 2026-09-21
+
+This is the transcript of this two-row integration, not historical gates or independent acceptance.
+
+- `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/verdict-pair-reconciliation.test.ts --no-file-parallelism` — exit **1**. Expected red-first: 8 failed / 8 passed / 16; exact old verdicts, missing current history/reviews and old outcome accounting. Resolved by the authorized corrections. Full log: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/unit-red.log`.
+- `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/verdict-pair-reconciliation.test.ts tests/unit/audit-ledger.test.ts tests/unit/rrt-hierarchy-corrections.test.ts tests/unit/perception-depth-specifications.test.ts --no-file-parallelism` — exit **0**. Pass: 112/112, four files; new verdict tests 16, audit-ledger 77, RRT/hierarchy 15, perception-depth 4. Full log: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/unit-green.log`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint` — exit **0**. Pass: normal prelint, exit 0. Full log: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/lint.log`.
+- `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/eslint tests/unit/verdict-pair-reconciliation.test.ts` — exit **0**. Pass: narrow ESLint, exit 0. Full log: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/lint.log`.
+- `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/tsc --ignoreConfig --noEmit --strict --target ES2022 --module ESNext --moduleResolution bundler --skipLibCheck --allowImportingTsExtensions --types node tests/unit/verdict-pair-reconciliation.test.ts` — exit **0**. Pass: isolated strict no-emit typecheck of the new test and its imports; no typegen. Full log: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/lint.log`.
+- `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json` — exit **1**. Expected-red offline coverage: exit 1, 47 complete failure objects, 952 complete / 42 incomplete / 994 originals, zero summary mismatches. Exactly the two assigned outcome findings removed; all other failure objects unchanged. Full log: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/coverage.json`.
+
+Preservation: 994 original identities/order, 992 unselected full native records including line coordinates, all 952 previously complete IDs, 855 unselected plans (857 total) and all 999 approval entries are unchanged. The unselected serialized catalog bytes, 1290 unscoped tracked files, PRODUCT_QUALITY.md, qa/findings.json and next-env.d.ts match the prechange hashes. Existing commits d282a83, 2cf7d6b, b0e1701 and 1e14d69 remain ancestors. Only the two active verdict/note cells and their actual review bindings changed, plus non-counted history/accounting and the new regression test. No new source request, full suite, baseline gate, build, browser, type generation, article review-date change, model change or publication. The content gate remains red.

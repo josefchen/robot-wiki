@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { parseLedger, parseCompoundPlans, originalClaimDigest } from '@/lib/audit-ledger';
+import { CITATIONS } from '@/data/citations';
 
 const ROOT = join(__dirname, '..', '..');
 const ARTICLE = join(ROOT, 'content', 'data-hardware', 'data-bottleneck.mdx');
@@ -30,18 +32,40 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
   it('all 12 evidence plans are registered and referenced by the ledger', () => {
     const ledger = readFileSync(LEDGER, 'utf8');
     const plans = JSON.parse(readFileSync(PLANS, 'utf8')) as Array<{ id: string; ledgerPath: string; articleSlug: string }>;
-    expect(plans.filter((p) => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'data-bottleneck')).toHaveLength(12);
+    expect(plans.filter((p) => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'data-bottleneck')).toHaveLength(14);
     for (const id of PLAN_IDS) {
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
     }
-    expect(plans).toHaveLength(684);
+    expect(new Set(plans.map((plan) => plan.id)).size).toBe(plans.length);
   });
 
-  it('held rows 3 (OXE) and 5 (DROID) stay byte-untouched in the evidence-column shape', () => {
+  it('keeps both corrected rows unresolved and preserves their exact original tuples', () => {
     const ledger = readFileSync(LEDGER, 'utf8');
-    expect(ledger).toContain(HELD_ROW_3);
-    expect(ledger).toContain(HELD_ROW_5);
+    const plans = parseCompoundPlans(JSON.parse(readFileSync(PLANS, 'utf8')));
+    const section = parseLedger('audit/data-hardware.md', ledger, new Set(CITATIONS.map((c) => c.id)), { compoundPlans: plans })
+      .find((entry) => entry.slug === 'data-bottleneck')!;
+    expect(section.claimRecords).toHaveLength(14);
+    for (const ordinal of [3, 5]) {
+      const record = section.claimRecords[ordinal - 1];
+      expect(record.verdict).toMatch(/^UNRESOLVED/);
+      expect(record.outcome).toBe('unresolved');
+      expect(record.compound?.adjudicationFailures.length).toBeGreaterThan(0);
+      const plan = plans.find((p) => p.id === record.compound?.planId)!;
+      expect(plan.planReview).toBeNull();
+      expect(plan.adjudications).toEqual([]);
+      expect(plan.originalCellsDigest).toBe(originalClaimDigest(record));
+    }
+    const historyBody = ledger.split('<!-- data-bottleneck-zero-credit-truth-repair-20260922 -->')[1];
+    const history = JSON.parse(historyBody.match(/```json\n([\s\S]*?)\n```/)![1]) as Array<{
+      originalId: string; beforeLedgerLine: string; beforeTupleDigest: string; completed: boolean;
+    }>;
+    expect(history.map((h) => h.beforeLedgerLine)).toEqual([HELD_ROW_3, HELD_ROW_5]);
+    expect(history.map((h) => h.beforeTupleDigest)).toEqual([
+      '358421f161ca94df1ae8b8c62a926894fb409aeb79bf2e9479b74e5f61ec7647',
+      '20650ba68698303275a092afd6efb029284517d375afca1727b0e5740a857527',
+    ]);
+    expect(history.every((h) => h.completed === false)).toBe(true);
   });
 
   it('the 12 bound plans carry integrator plan review and all-supported per-part adjudications', () => {
@@ -61,9 +85,22 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
 
   it('approved deltas carry the 12 new approval entries against the unchanged prose hash', () => {
     const deltas = JSON.parse(readFileSync(DELTAS, 'utf8')) as { entries: Array<{ id: string; oldHash: string; newHash: string }> };
-    expect(deltas.entries).toHaveLength(758);
+    expect(new Set(deltas.entries.map((entry) => entry.id)).size).toBe(deltas.entries.length);
     const mine = deltas.entries.filter((e) => /^db-r\d+-20260915-1$/.test(e.id));
     expect(mine).toHaveLength(12);
     for (const e of mine) expect(e.oldHash).toBe(e.newHash);
   });
+});
+
+
+it('keeps the prediction exercise while separating source facts from assumptions', () => {
+  const article = readFileSync(ARTICLE, 'utf8');
+  expect(article).toContain('<PredictThenReveal');
+  expect(article).toContain('answer="century-plus"');
+  expect(article).toContain('defaultRigs={10} defaultRate="droid-measured"');
+  expect(article).toContain('76,000 successful trajectories totaling 350 interaction hours');
+  expect(article).toContain('Fifty data collectors used 18 robots across 13 institutions over 12 months');
+  expect(article).toContain('roughly 16,000 unsuccessful trajectories');
+  expect(article).toContain('authored hypothetical');
+  expect(article).not.toMatch(/measured DROID rate|OXE-scale readout|Open X-Embodiment at an estimated 10,000/);
 });
