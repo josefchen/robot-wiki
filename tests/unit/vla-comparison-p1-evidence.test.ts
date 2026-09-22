@@ -1,0 +1,151 @@
+import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { resolve } from 'node:path';
+import matter from 'gray-matter';
+import { describe, expect, it } from 'vitest';
+import { CITATIONS } from '../../data/citations';
+import { METHODS } from '../../data/methods';
+import { publishedModules } from '../../data/modules';
+import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
+import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+
+const root = resolve(import.meta.dirname, '../..');
+const base = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
+const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
+const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
+const articlePath = 'content/manipulation/comparison-matrix.mdx';
+const article = read(articlePath);
+const ledger = read('audit/manipulation.md');
+const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
+const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
+const ids = new Set(CITATIONS.map(c => c.id));
+const declared = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations as string[]]));
+const selected = [['vla-models', 21, 9], ['comparison-matrix', 1, 23]] as const;
+const parse = (catalog = plans, md = ledger, citations = declared) => parseLedger('audit/manipulation.md', md, ids, { compoundPlans: catalog, articleCitations: citations });
+const row = (slug: string, ordinal: number, catalog = plans, md = ledger, citations = declared) => parse(catalog, md, citations).find(s => s.slug === slug)!.claimRecords[ordinal - 1];
+const plan = (slug: string, ordinal: number, catalog = plans) => catalog.find(p => p.articleSlug === slug && p.rowOrdinal === ordinal && p.ledgerPath === 'audit/manipulation.md')!;
+const intro = 'RT-2’s reported rates depend on the model and serving setup. Its 55B PaLI-X variant runs at 1 to 3 Hz, while the 5B variant runs at around 5 Hz, using a multi-TPU cloud service queried over the network. <Cite id="rt2-2023" />\n\nOpenVLA v3 reports approximately 6 Hz inference on one NVIDIA RTX 4090 in bfloat16, without compilation, speculative decoding, or other inference speed-up tricks. <Cite id="openvla-2024" />';
+const oldIntro = before(articlePath).split("import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';\n\n")[1].split('\n\n<ComparisonMatrix')[0];
+
+describe('VLA21 and comparison1 current identity and scoped introduction', () => {
+  it('changes only the authorized introduction, leaving VLA, registry and metadata unchanged', () => {
+    expect(article).toBe(before(articlePath).replace(oldIntro, intro));
+    expect(matter(article).data).toEqual(matter(before(articlePath)).data);
+    expect(read('content/manipulation/vla-models.mdx')).toBe(before('content/manipulation/vla-models.mdx'));
+    expect(read('data/citations.ts')).toBe(before('data/citations.ts'));
+  });
+
+  it.each(selected)('requires a current C review for %s original %i', (slug, ordinal, count) => {
+    const r = row(slug, ordinal);
+    const p = plan(slug, ordinal);
+    expect(r.verdict).toBe('C');
+    expect(r.evidenceFailures).toEqual([]);
+    expect(p.parts).toHaveLength(count);
+    expect(p.originalCellsDigest).toBe(originalClaimDigest(r));
+    expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
+    expect(p.planReview?.reviewedBy).toContain('1b2baeef-e246-4b4c-a86e-76ff0aa00bf2');
+    expect(p.adjudications).toHaveLength(count);
+    for (const part of p.parts) {
+      const review = p.adjudications.find(a => a.partId === part.id)!;
+      expect(review.outcome).toBe('supported');
+      expect(review.evidenceDigest).toBe(compoundPartDigest(p, part.id));
+    }
+  });
+
+  it('requires the VLA nine-source population rather than another article’s references', () => {
+    const p = plan('vla-models', 21);
+    expect(p.kind).toBe('frontmatter-p1');
+    expect(p.parts.flatMap(p => p.requiredCitationIds).sort()).toEqual([...declared['vla-models']].sort());
+    expect(p.parts).toHaveLength(9);
+    expect(row('vla-models', 21).sourceChecked).toContain('no new retrieval');
+    expect(row('vla-models', 21).note).toContain('294');
+    const fewer = { ...declared, 'vla-models': declared['vla-models'].slice(0, -1) };
+    expect(row('vla-models', 21, plans, ledger, fewer).evidenceFailures.length).toBeGreaterThan(0);
+  });
+
+  it('requires all 21 comparison identities independently of both scientific parts', () => {
+    const p = plan('comparison-matrix', 1);
+    const actual = new Set([...METHODS.flatMap(m => m.sources), ...[...article.matchAll(/<Cite\s+id="([^"]+)"/g)].map(m => m[1])]);
+    expect(actual.size).toBe(21);
+    expect(actual).toEqual(new Set(declared['comparison-matrix']));
+    expect(new Set(p.parts.filter(p => p.id.startsWith('identity-')).flatMap(p => p.requiredCitationIds))).toEqual(actual);
+    expect(p.parts.filter(p => p.id.startsWith('identity-'))).toHaveLength(21);
+    expect(p.parts.filter(p => p.id.startsWith('intro-')).map(p => p.id)).toEqual(['intro-rt2-serving', 'intro-openvla-inference']);
+    expect(p.parts.some(p => p.id === 'intro-scopes')).toBe(false);
+  });
+
+  it('keeps rate, model, precision, hardware and serving qualifications together', () => {
+    const p = plan('comparison-matrix', 1);
+    const rt = p.evidence.find(e => e.partId === 'intro-rt2-serving')!;
+    const ov = p.evidence.find(e => e.partId === 'intro-openvla-inference')!;
+    for (const text of ['55B', '5B', '1-3 Hz', 'around 5 Hz', 'multi-TPU cloud service', 'over the network']) expect(rt.supportingPassage).toContain(text);
+    for (const text of ['bfloat16', 'approximately 6Hz', '4090', 'without compilation, speculative decoding']) expect(ov.supportingPassage).toContain(text);
+    expect(rt.sourceUrl).toBe('https://arxiv.org/html/2307.15818v1');
+    expect(ov.sourceUrl).toBe('https://arxiv.org/html/2406.09246v3');
+    expect(article).toContain(intro);
+  });
+
+  it.each(selected)('fails on every missing part, absent review or changed tuple for %s', (slug, ordinal) => {
+    const p = plan(slug, ordinal);
+    expect(p).toBeDefined();
+    for (const part of p.parts) {
+      const changed = structuredClone(plans);
+      plan(slug, ordinal, changed).evidence = p.evidence.filter(e => e.partId !== part.id);
+      expect(row(slug, ordinal, changed).evidenceFailures.length).toBeGreaterThan(0);
+    }
+    const unreviewed = structuredClone(plans);
+    plan(slug, ordinal, unreviewed).planReview = null;
+    expect(row(slug, ordinal, unreviewed).evidenceFailures.length).toBeGreaterThan(0);
+    const changed = ledger.replace(`| ${row(slug, ordinal).claim} |`, `| ${row(slug, ordinal).claim} UNIVERSAL |`);
+    expect(row(slug, ordinal, plans, changed).evidenceFailures.length).toBeGreaterThan(0);
+  });
+
+  it('does not certify the old local table/filter claim with the new evidence', () => {
+    expect(article).not.toContain(oldIntro);
+    const old = row('comparison-matrix', 1, oldPlans, before('audit/manipulation.md'));
+    expect(old.verdict).toBe('unresolved');
+    const restored = ledger.replace(`| ${row('comparison-matrix', 1).claim} |`, `| ${old.claim} |`);
+    expect(row('comparison-matrix', 1, plans, restored).evidenceFailures).toContain('compound original-cell digest is stale');
+  });
+
+  it('preserves unselected rows/plans and archives the exact old selected objects', () => {
+    const chosen = (p: CompoundPlan) => selected.some(([slug, n]) => p.articleSlug === slug && p.rowOrdinal === n && p.ledgerPath === 'audit/manipulation.md');
+    expect(plans.filter(p => !chosen(p))).toEqual(oldPlans.filter(p => !chosen(p)));
+    expect(plans).toHaveLength(oldPlans.length + 1);
+    const old = parse(oldPlans, before('audit/manipulation.md'));
+    const current = parse();
+    for (const section of old) section.claimRecords.forEach((record, i) => {
+      if (!selected.some(([slug, n]) => slug === section.slug && n === i + 1)) expect(current.find(s => s.slug === section.slug)!.claimRecords[i]).toEqual(record);
+    });
+    const history = JSON.parse(ledger.split('## Historical: VLA and comparison P1 correction 2026-09-22')[1].split('```json\n')[1].split('\n```')[0]) as {
+      records: Array<{ rowOrdinal: number; articleSlug: string; previousCells: Record<string, string>; previousPlan: CompoundPlan | null }>;
+    };
+    for (const [slug, n] of selected) {
+      const h = history.records.find(r => r.articleSlug === slug && r.rowOrdinal === n)!;
+      const oldRow = row(slug, n, oldPlans, before('audit/manipulation.md'));
+      expect(h.previousCells).toEqual(Object.fromEntries(['claim', 'sourceChecked', 'verdict', 'note'].map(k => [k, oldRow[k as keyof typeof oldRow]])));
+      expect(h.previousPlan).toEqual(plan(slug, n, oldPlans) ?? null);
+    }
+  });
+
+  it('appends exactly the changed native article members, retaining the approval prefix', () => {
+    const prior = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
+    const current = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
+    expect(prior).toHaveLength(1008);
+    expect(current.slice(0, prior.length)).toEqual(prior);
+    const added = current.slice(prior.length) as Array<{ manifest: string; memberId: string; oldHash: string; newHash: string; ownerApproval: string }>;
+    const expected = [
+      ['prose', 'article:manipulation/comparison-matrix', 'fa7b5f5bce9692dbfa6ada8526a7d3930b6dc43e43de8c83c9157e7e9d434178'],
+      ['relationships', 'article:manipulation/comparison-matrix', '179a093b41ad6ac10221f56590165292c7d160665b1b9bc17b49bd7e8a7565fa'],
+    ];
+    expect(added).toHaveLength(expected.length);
+    const truth = collectArticleTruthManifests();
+    expect(Object.values(truth).find(m => m.kind === 'article-metadata')?.members.find(m => m.id === 'citation-rendering:label-and-meta')?.hash).toBe('40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef');
+    for (const [manifest, memberId, oldHash] of expected) {
+      const a = added.find(a => a.manifest === manifest && a.memberId === memberId)!;
+      expect(a.oldHash).toBe(oldHash);
+      expect(a.newHash).toBe(Object.values(truth).find(m => m.kind === manifest)?.members.find(m => m.id === memberId)?.hash);
+      expect(a.ownerApproval).toContain('convergence-vla-comparison-p1-integration-20260922/authorization.json');
+    }
+  });
+});

@@ -1,3 +1,28 @@
+## Current checkpoint: VLA21 and comparison1 corrected (2026-09-22)
+
+Exactly **2 applied / 0 held / 0 unattempted**: audit/manipulation.md:vla-models:21 and audit/manipulation.md:comparison-matrix:1. Native accounting: **958 complete / 36 incomplete / 994 originals**, 47 articles. These are structural evidence counts, not source truth or acceptance. All older checkpoints below are historical.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 224 | 1 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 115 | 13 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 958 | 36 |
+
+VLA retains its canonical nine-ID P1 claim and native full-frontmatter gate, correcting false present-audit/live-fetch provenance. Comparison replaces exactly two introductory paragraphs with RT-2 55B PaLI-X 1–3 Hz / 5B around 5 Hz over a networked multi-TPU service and OpenVLA v3 approximately 6 Hz on one RTX 4090 in bfloat16 without speed-up tricks. No registry, VLA article, method data, lastReviewed, held row or gate change. Old unsupported table/filter claims and the complete prior plan remain non-counted history.
+
+Native catalog: 860 plans (859 before; one added, one selected replacement), 32 reviewed parts (30 identity and two scientific) / 34 paired source items. Two actual native member changes—comparison prose and inline citation relationships—extend the unchanged 1008-entry approval prefix to 1010. Citation-rendering metadata is unchanged and has no new approval. All 994 identities, 992 unselected records and 956 prior complete records are preserved.
+
+Retained primary evidence: 37 literal excerpts across 28 representations, 23 unique identities, zero new requests. Full author/collective credits and edition/year qualifications are retained; fetch/tool timestamps are historical observations, not current liveness or model release dates. Source packet and integration receipts: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-recovery-20260922/rows.json and /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-integration-20260922/handoff.json.
+
+Focused verification: 140 affected unit cases now pass across the original run and a failure-only/changed-fixture retry (137 passed / 3 failed initially; 4 passed / 10 skipped on retry). The stale comparison fixture now preserves actual base readiness and adds only original1; unselected record expectations are not reclassified. Required prelint/focused ESLint, narrow TypeScript7 no-emit/nonincremental checks and article-only MDX/citation/no-slop checks pass. The single offline coverage invocation exited1: **958/36/994**, **40 ledger findings** (36 incomplete originals, three aggregate evidence failures, one unresolved outcome), **0 uncovered-citation findings**, **0 summary mismatches**, 47/47 articles; raw JSON and empty stderr retained in the integration directory. Initial unit timeouts and narrow-type harness errors remain in raw logs; no full tests/types/build/browser/export/census or network run. Rendered readers, reading-time/global generated proof, current liveness and independent Sol/high scrutiny/user testing remain owed. Formal307/331 is unchanged, not acceptance. Content gate remains red; no publication.
+
+---
+
 ## Current checkpoint: generalist originals 15 and 21 corrected (2026-09-22)
 
 Exactly **2 applied / 0 held / 0 unattempted** selected originals: audit/manipulation.md:generalist-policies:15 and :21. Native accounting is **956 complete / 38 incomplete / 994 originals**, across 47 articles. Counts mean structural evidence completeness, not source truth, whole-article completion or independent acceptance. All older checkpoints below are historical.

@@ -18308,6 +18308,40 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "vla-comparison-p1-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "fa7b5f5bce9692dbfa6ada8526a7d3930b6dc43e43de8c83c9157e7e9d434178",
+      "newHash": "3b7b31cce1983c1b1cbc47f35aa60cd6664dcacb914058e6280e3796a1eda6d5",
+      "reason": "Exact authorized replacement of the two comparison introduction paragraphs with setup-qualified RT-2 v1 serving rates and OpenVLA v3 inference settings and their inline citation consequences. No registry, VLA article, method data, old table/filter proof or unrelated content approval.",
+      "ownerApproval": "Josef standing routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-integration-20260922/authorization.json, base afeeb058097ed5720ca11b03e41d3d2167573f5d, source packet 171990a73fcf3baf892464b30548ef7205bfb6155a6250e5d747f6dc93d541c5. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-comparison-p1-20260922-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "179a093b41ad6ac10221f56590165292c7d160665b1b9bc17b49bd7e8a7565fa",
+      "newHash": "f7fe84dfaf83a59a297b0a83a9ec2e9fadcd842185ec191af19b1d89a844da47",
+      "reason": "Exact authorized replacement of the two comparison introduction paragraphs with setup-qualified RT-2 v1 serving rates and OpenVLA v3 inference settings and their inline citation consequences. No registry, VLA article, method data, old table/filter proof or unrelated content approval.",
+      "ownerApproval": "Josef standing routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-integration-20260922/authorization.json, base afeeb058097ed5720ca11b03e41d3d2167573f5d, source packet 171990a73fcf3baf892464b30548ef7205bfb6155a6250e5d747f6dc93d541c5. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
