@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useId, useRef, useState } from 'react';
-import { CiteRef } from '@/components/mdx/cite-ref';
+import { CiteRef } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
 import {
   DEFAULT_THESIS_ID,

@@ -20,7 +20,7 @@ import {
   type SourceId,
 } from '@/lib/sample-efficiency';
 import { ChartDescription } from '@/components/ui';
-import { CiteRef } from '@/components/mdx/cite-ref';
+import { CiteRef } from '@/components/article/citation-records';
 import { cx } from '@/lib/utils';
 
 /**

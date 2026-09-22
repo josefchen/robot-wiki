@@ -18,7 +18,7 @@ import {
 } from '@/lib/perception-error';
 import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { ChartDescription } from '@/components/ui';
-import { CiteRef } from '@/components/mdx/cite-ref';
+import { CiteRef } from '@/components/article/citation-records';
 import { cx } from '@/lib/utils';
 
 /**

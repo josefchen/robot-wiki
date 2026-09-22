@@ -1,8 +1,8 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { Badge, TableScroll } from '@/components/ui';
-import { getCitation } from '@/data/citations';
 import {
   DEPLOYMENT_ROWS,
   filterDeployments,
@@ -43,6 +43,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
   const [filter, setFilter] = useState<DeploymentFilter>('all');
   const rows = filterDeployments(DEPLOYMENT_ROWS, filter);
   const captionId = useId();
+  const citationFor = useCitationLookup();
 
   return (
     <div
@@ -121,7 +122,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
           </thead>
           <tbody>
             {rows.map((row) => {
-              const citation = getCitation(row.sourceId);
+              const citation = citationFor(row.sourceId);
               return (
                 <tr
                   key={row.id}

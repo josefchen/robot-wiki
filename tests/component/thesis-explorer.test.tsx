@@ -1,8 +1,11 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ThesisExplorer } from '@/components/interactive/thesis-explorer';
 import { DEFAULT_THESIS_ID, THESES } from '@/lib/competing-theses';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ThesisExplorer');
 
 function thesisById(id: string) {
   const thesis = THESES.find((t) => t.id === id);

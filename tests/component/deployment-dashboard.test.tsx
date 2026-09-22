@@ -1,8 +1,11 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
 import { DEPLOYMENT_ROWS } from '@/lib/deployment-reality';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('DeploymentDashboard');
 
 const VERIFIED_COUNT = DEPLOYMENT_ROWS.filter((r) => r.status === 'verified').length;
 const CLAIMED_COUNT = DEPLOYMENT_ROWS.filter((r) => r.status === 'claimed').length;

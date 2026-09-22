@@ -22,6 +22,13 @@
  * training-step ratio, which the UI labels separately.
  */
 
+/**
+ * The Knowledge Insulation paper, the widget's one primary source. Named
+ * here rather than inline in the component so the server can resolve the
+ * record the widget renders (lib/widget-citations.ts).
+ */
+export const KNOWLEDGE_INSULATION_CITATION_ID = 'knowledge-insulation-paper-2025';
+
 /** Layers drawn per stack. The real models use more; 8 keeps the diagram legible. */
 export const LAYER_COUNT = 8;
 

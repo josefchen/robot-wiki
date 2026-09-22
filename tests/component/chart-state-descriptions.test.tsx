@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ActionTokenization } from '@/components/interactive/action-tokenization';
 import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
@@ -25,6 +25,9 @@ import { PendulumController } from '@/components/interactive/pendulum-controller
 import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
 import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 import { RrtExplorer } from '@/components/interactive/rrt-explorer';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('CrossEmbodimentStrategies', 'GeneralistReleaseTimeline', 'PiGenerationTimeline', 'HierarchyTimescales', 'MotInsulation');
 
 function mockReducedMotion(matches = false) {
   window.matchMedia = vi.fn().mockImplementation((query: string) => ({

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
@@ -10,6 +10,9 @@ import {
   slowestPeriodicLane,
   updateRatePhrase,
 } from '@/lib/hierarchy-timescales';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('HierarchyTimescales');
 
 /** Escape a literal string for embedding in a RegExp. */
 function escapeRegExp(s: string): string {

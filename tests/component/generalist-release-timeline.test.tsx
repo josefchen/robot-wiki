@@ -1,8 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
 import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('GeneralistReleaseTimeline');
 
 describe('GeneralistReleaseTimeline', () => {
   it('renders a selectable node for every release', () => {

@@ -1,8 +1,11 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 import { METHODS } from '@/data/methods';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ComparisonMatrix');
 
 function bodyRows(): HTMLElement[] {
   const table = screen.getByRole('table');
