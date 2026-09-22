@@ -396,7 +396,7 @@ export function RrtExplorer({ className }: { className?: string }) {
       />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         One accepted extension per iteration from a fixed seed, so the growth
-        is identical on every load. Each step samples a random point (2% of
+        is identical on every load. Each step samples a random point (1.5% of
         the time the goal itself), finds the nearest tree node, and extends a
         fixed length toward it, keeping the branch only when the segment
         stays clear of the obstacles. The bias toward unexplored space is why

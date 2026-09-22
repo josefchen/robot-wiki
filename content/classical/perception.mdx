@@ -49,7 +49,7 @@ Six stages, in a fixed order, each consuming what the last one produced. Calibra
 
 ## The budget the pipeline has to fit inside
 
-Start at the end, with the number the whole chain is judged on. Three of the stages contribute a positioning error at the gripper: the hand-eye transform, the depth measurement, and the pose estimate. Two of those are fixed offsets. The hand-eye residual is an *angle*, so it costs lateral millimetres in proportion to how far away the object is. Set the hand-eye slider to half a degree and drag the working distance out, and a term that was invisible at 15 cm becomes the one that jams the grasp.
+Start at the end, with the number the whole chain is judged on. Three of the stages contribute a positioning error at the gripper: the hand-eye transform, the depth measurement, and the pose estimate. Two of those are fixed offsets. The hand-eye residual is an *angle*, so it costs lateral millimetres in proportion to how far away the object is. With the default opaque target and depth and pose settings, set the hand-eye slider to half a degree and drag the working distance out: a small contribution at 15 cm becomes the largest modeled contribution, while the far-end verdict is marginal, not will jam.
 
 <PerceptionErrorBudget className="my-6" />
 

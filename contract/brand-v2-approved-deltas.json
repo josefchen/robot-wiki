@@ -18602,6 +18602,74 @@
         "VAL-B2-ART-010"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+      "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+      "reason": "Clarify exactly the local timeline statistics and seven-source callout: report/announcement dates, downloadable markers and selected source formats, not licenses or independent replication.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-2",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+      "newHash": "057071ea25be70e5d17cfc20aacabeac7337660fb3d9abc5f65fcfec6aa21468",
+      "reason": "Replace only the no-goal-knowledge sentence with mostly uniform sampling and a small bias toward the known goal; retain the local RRT scene, seed and algorithm.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-3",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "468bb19a3886e8617014f7a2d1a3eb2fa718c05dcab78d5a988c5ce2276e70dc",
+      "newHash": "316e1c240bc2e0cfa8b2f4a0b0dc8cabfe37680c4617ad8ba83c0af68ccbf4df",
+      "reason": "Replace only the half-degree walkthrough sentence with its default-target conditions and actual marginal far-end verdict; preserve the preceding perception2/19 repairs, formula and thresholds.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-4",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/rrt-explorer.tsx",
+      "oldHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8",
+      "newHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27",
+      "reason": "Correct only the visible RRT goal-sampling percentage from 2% to 1.5%; preserve all controls, numerical data, geometry and behavior.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
