@@ -23954,6 +23954,246 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-accessible-names-citation-records-title",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/article/citation-records.tsx:title:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac",
+      "reason": "Performance change (release/perf-articles): components/article/citation-records.tsx adds the record-backed CiteRef that client widgets render instead of importing the citation registry. It passes the citation title to the Cite primitive exactly as components/mdx/cite-ref.tsx does (title={citation.title}), from the same registry entry resolved on the server, so every chip keeps the accessible name and tooltip title it had.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-comparison-matrix",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/comparison-matrix.tsx",
+      "oldHash": "658da6f23aafee71593cb972f717fdda7260a09d8f0724841fde6920c6fa4100",
+      "newHash": "56b06688e4d36d1bb43898f65b2a8c91da31496cde226d15e5ad10f4a7bd4c04",
+      "reason": "Performance change (release/perf-articles): components/interactive/comparison-matrix.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-cross-embodiment-strategies",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/cross-embodiment-strategies.tsx",
+      "oldHash": "efdcc1035afd9c57e9d3ff1fae19a8914d9892c1d0934ba5ce6ccff83e62a62f",
+      "newHash": "c23a36308d69dc94ba210f0e3f380b07c4e8078a74c5eeada565ae5c120412c5",
+      "reason": "Performance change (release/perf-articles): components/interactive/cross-embodiment-strategies.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-deployment-dashboard",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/deployment-dashboard.tsx",
+      "oldHash": "75f759f22730279a42b05dcea2155c5f98de7b9d0aaca5d25f1a5c1e0aa83b29",
+      "newHash": "1b78c10237c881e75b4bc53e4b2df37b0a4a59f4ccc40e1f7fb76d8c0be6a815",
+      "reason": "Performance change (release/perf-articles): components/interactive/deployment-dashboard.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-generalist-release-timeline",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/generalist-release-timeline.tsx",
+      "oldHash": "5753471326707e4dda81897658ac199d9164b0971e77fa77be1889da0807f1b5",
+      "newHash": "b94d8cb744d732245094f452d3fd7b86dbd019903756ec547caf96bbc0929b67",
+      "reason": "Performance change (release/perf-articles): components/interactive/generalist-release-timeline.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-hand-comparison",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hand-comparison.tsx",
+      "oldHash": "fe6caac14a04456d99eaa9facfd8bb172eabf0f2e6cc94b6c5f2d77f76210eb6",
+      "newHash": "244f617582ffce7d2c25325c6180437b7125e877e76ebd3c2ec18ecc20e92739",
+      "reason": "Performance change (release/perf-articles): components/interactive/hand-comparison.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-hierarchy-timescales",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hierarchy-timescales.tsx",
+      "oldHash": "1aabbc7e07aa690365b7bd3cfd0c2df1ff2d096638c4977910417bf16888d135",
+      "newHash": "7384a1c6011888f0e46e7cae32853cb456234eba6f5209349ebe3e760457c91f",
+      "reason": "Performance change (release/perf-articles): components/interactive/hierarchy-timescales.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-impedance-contact-lab",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-contact-lab.tsx",
+      "oldHash": "0b3ce54f16fed8c35af86bb578806d3f9dcf8b54edb1e675e5d771dcbf2ccdc9",
+      "newHash": "42bb1b8641f1952894c993d18034a2297ec2b79f930bb52f707a82f3a98cf108",
+      "reason": "Performance change (release/perf-articles): components/interactive/impedance-contact-lab.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-milestones-watchlist",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/milestones-watchlist.tsx",
+      "oldHash": "65321c958cfe378ca5f11b155e89534ab5d96ebea6c05b9c99ac6bb86bc043bc",
+      "newHash": "6326cbb37344968d5d7f411cd60caabf6ebc68731b0a7cbdb579922741d8ce4d",
+      "reason": "Performance change (release/perf-articles): components/interactive/milestones-watchlist.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-mot-insulation",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/mot-insulation.tsx",
+      "oldHash": "ffb4a018a29feae7eea473c37be0880bc424b80ea79d6ed4d80185eae801f8ad",
+      "newHash": "95fac05adf4451e3221a3760c7d9b0b805188746b9966a09a3d39a3c88d5a1ba",
+      "reason": "Performance change (release/perf-articles): components/interactive/mot-insulation.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-perception-error-budget",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "c68e8f345412c4c56b538292cedfc12ba834df2ef85767a58d3d19a318c41b9b",
+      "newHash": "3bccca3f605ad9e207c7f4aceea9efbcd7e56a9407d45760442a0e2ba42f5893",
+      "reason": "Performance change (release/perf-articles): components/interactive/perception-error-budget.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-pi-generation-timeline",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pi-generation-timeline.tsx",
+      "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+      "newHash": "42e4dba93af50d7c614ae6188985c4d283cdac083f5cc3d2d46f0316d597137b",
+      "reason": "Performance change (release/perf-articles): components/interactive/pi-generation-timeline.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-sample-efficiency-ledger",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/sample-efficiency-ledger.tsx",
+      "oldHash": "eddd7049da0ec062f54dfe030fbf1daa1a937d3a1f49f8d24c91ac17334dcfd7",
+      "newHash": "b793b86e86b624fe03dec3726e67bfee5cbd92029c94347df8d76bee09f02d1a",
+      "reason": "Performance change (release/perf-articles): components/interactive/sample-efficiency-ledger.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-scene-representation-ladder",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scene-representation-ladder.tsx",
+      "oldHash": "9bbb5cbe5096b2223b6203c1f2a8f48ddee0ea959c87ebdea6ac88ad2b103891",
+      "newHash": "1390b6d9db7dab6502a792f12a06b57a6599402e6549792d5b378f6154087275",
+      "reason": "Performance change (release/perf-articles): components/interactive/scene-representation-ladder.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-src-thesis-explorer",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/thesis-explorer.tsx",
+      "oldHash": "ac766da8159315ecd1c0497c547f8b2b2cec41509ebf78a30bd416eed8f20213",
+      "newHash": "9d6870bfaf2d3740f8853b0f9ef1ea978627626575aae1b6fb2da9be5ee27051",
+      "reason": "Performance change (release/perf-articles): components/interactive/thesis-explorer.tsx no longer imports the citation registry (data/citations.ts, directly or through components/mdx/cite-ref.tsx) into the browser bundle. It reads the records the server resolves for it (lib/widget-citations.ts) through useCitationLookup or the record-backed CiteRef in components/article/citation-records.tsx. Links, labels, titles, chip ids and markup are unchanged: tests/unit/widget-citations.test.tsx pins chip markup parity with the MDX resolver, the component suite renders the widget with exactly the production records, and full-page export screenshots match the previous build.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perf-articles-20260923-article-metadata-root-layout-fonts",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:app/layout.tsx",
+      "oldHash": "539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4",
+      "newHash": "44addfb9bb51b2ab6ba3ceed83a61aede0337aaa3e1797a9760536d5f4810856",
+      "reason": "Performance change (release/perf-articles), font loading only: IBM Plex Mono is declared as two next/font calls of the same family and CSS variable so weight 400 (above the fold) stays preloaded and weight 500 (never above the fold) is not. No metadata field, title template, description, canonical, Open Graph, author or robots value changed, and the data role resolves to the same stack.",
+      "ownerApproval": "Owner delegation of 2026-09-23: the performance task on release/perf-articles (Lighthouse findings P0/P1 for article bundles, KaTeX CSS and font preloads) was delegated to the implementing agent with all decisions delegated, on the condition that rendering stays visually identical.",
+      "responsibleMilestone": "perf-articles, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

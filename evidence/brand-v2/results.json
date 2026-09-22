@@ -74493,6 +74493,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/article/citation-records.tsx:title:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/article/citation-records.tsx:title:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/article/citation-records.tsx:title:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/article/citation-records.tsx:title:1 moved from null to 72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac exactly as approved delta perf-articles-20260923-accessible-names-citation-records-title permits: Performance change (release/perf-articles): components/article/citation-records.tsx adds the record-backed CiteRef that client widgets render instead of importing the citation registry. It passes the citation title to the Cite primitive exactly as components/mdx/cite-ref.tsx does (title={citation.title}), from the same registry entry resolved on the server, so every chip keeps the accessible name and tooltip title it had.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/article/citation-records.tsx:title:1",
+          "baselineHash": null,
+          "currentHash": "72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac",
+          "status": "approved-addition",
+          "approvedDelta": "perf-articles-20260923-accessible-names-citation-records-title"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/article/commit-to-reveal.tsx:aria-labelledby:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/article/commit-to-reveal.tsx:aria-labelledby:1",
@@ -87185,7 +87213,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member canonical-metadata-source:app/layout.tsx moved from 539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4 to 8fe5e6df0b9ffdf448e3d45fe275f95cec2a1e75b2b39b15fd97edc8315b6c7f exactly as approved delta seo-merge-20260916-article-metadata-139 permits: The SEO growth merge changed canonical-metadata-source:app/layout.tsx: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "article-metadata member canonical-metadata-source:app/layout.tsx moved from 539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4 to 44addfb9bb51b2ab6ba3ceed83a61aede0337aaa3e1797a9760536d5f4810856 exactly as approved delta perf-articles-20260923-article-metadata-root-layout-fonts permits: Performance change (release/perf-articles), font loading only: IBM Plex Mono is declared as two next/font calls of the same family and CSS variable so weight 400 (above the fold) stays preloaded and weight 500 (never above the fold) is not. No metadata field, title template, description, canonical, Open Graph, author or robots value changed, and the data role resolves to the same stack.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87197,9 +87225,9 @@
           "manifest": "article-metadata",
           "member": "canonical-metadata-source:app/layout.tsx",
           "baselineHash": "539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4",
-          "currentHash": "8fe5e6df0b9ffdf448e3d45fe275f95cec2a1e75b2b39b15fd97edc8315b6c7f",
+          "currentHash": "44addfb9bb51b2ab6ba3ceed83a61aede0337aaa3e1797a9760536d5f4810856",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-article-metadata-139"
+          "approvedDelta": "perf-articles-20260923-article-metadata-root-layout-fonts"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -117462,6 +117490,53 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-COMP-012:semantic-use:components/article/citation-records.tsx#error",
+      "assertionId": "VAL-B2-COMP-012",
+      "populationMemberId": "semantic-use:components/article/citation-records.tsx#error",
+      "coveredPopulationMemberIds": [
+        "semantic-use:components/article/citation-records.tsx#error"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
+      "actual": "components/article/citation-records.tsx uses error through border-err, text-err on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 73 swept public routes",
+      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "semantic-use:components/article/citation-records.tsx#error",
+          "token": "error",
+          "module": "components/article/citation-records.tsx",
+          "forms": [
+            "border-err",
+            "text-err"
+          ],
+          "references": 2,
+          "viaAlias": "err",
+          "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/article/citation-records.tsx#99:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
+          "routesResolved": 73,
+          "evidence": [
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ]
+        }
+      }
+    },
+    {
       "resultId": "result:VAL-B2-COMP-012:semantic-use:components/article/commit-to-reveal.tsx#ok",
       "assertionId": "VAL-B2-COMP-012",
       "populationMemberId": "semantic-use:components/article/commit-to-reveal.tsx#ok",
@@ -118197,7 +118272,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/cross-embodiment-strategies.tsx#226:span:ok",
+              "id": "components/interactive/cross-embodiment-strategies.tsx#229:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -118242,7 +118317,7 @@
           "authored": "#8A5A00",
           "marks": [
             {
-              "id": "components/interactive/cross-embodiment-strategies.tsx#226:span:warn",
+              "id": "components/interactive/cross-embodiment-strategies.tsx#229:span:warn",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -118251,7 +118326,7 @@
               ]
             },
             {
-              "id": "components/interactive/cross-embodiment-strategies.tsx#291:p:warn",
+              "id": "components/interactive/cross-embodiment-strategies.tsx#294:p:warn",
               "element": "p",
               "binding": "inline",
               "via": null,
@@ -118969,7 +119044,7 @@
           "authored": "#8A5A00",
           "marks": [
             {
-              "id": "components/interactive/hierarchy-timescales.tsx#191:text:warn",
+              "id": "components/interactive/hierarchy-timescales.tsx#192:text:warn",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -118978,7 +119053,7 @@
               ]
             },
             {
-              "id": "components/interactive/hierarchy-timescales.tsx#298:span:warn",
+              "id": "components/interactive/hierarchy-timescales.tsx#299:span:warn",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119452,7 +119527,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/mot-insulation.tsx#173:button:error",
+              "id": "components/interactive/mot-insulation.tsx#175:button:error",
               "element": "button",
               "binding": "inline",
               "via": null,
@@ -119463,7 +119538,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#233:path:error",
+              "id": "components/interactive/mot-insulation.tsx#235:path:error",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119472,7 +119547,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#310:line:error",
+              "id": "components/interactive/mot-insulation.tsx#312:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119481,7 +119556,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#376:rect:error",
+              "id": "components/interactive/mot-insulation.tsx#378:rect:error",
               "element": "rect",
               "binding": "inline",
               "via": null,
@@ -119490,7 +119565,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#414:line:error",
+              "id": "components/interactive/mot-insulation.tsx#416:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119499,7 +119574,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#454:line:error",
+              "id": "components/interactive/mot-insulation.tsx#456:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119508,7 +119583,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#500:span:error",
+              "id": "components/interactive/mot-insulation.tsx#502:span:error",
               "element": "span",
               "binding": "class-constant",
               "via": "meterColor",
@@ -119517,7 +119592,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#532:line:error",
+              "id": "components/interactive/mot-insulation.tsx#534:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119526,7 +119601,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#594:span:error",
+              "id": "components/interactive/mot-insulation.tsx#596:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119573,7 +119648,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/mot-insulation.tsx#173:button:ok",
+              "id": "components/interactive/mot-insulation.tsx#175:button:ok",
               "element": "button",
               "binding": "inline",
               "via": null,
@@ -119584,7 +119659,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#250:path:ok",
+              "id": "components/interactive/mot-insulation.tsx#252:path:ok",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119593,7 +119668,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#310:line:ok",
+              "id": "components/interactive/mot-insulation.tsx#312:line:ok",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119602,7 +119677,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#321:text:ok",
+              "id": "components/interactive/mot-insulation.tsx#323:text:ok",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119611,7 +119686,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#348:line:ok",
+              "id": "components/interactive/mot-insulation.tsx#350:line:ok",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119620,7 +119695,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#357:text:ok",
+              "id": "components/interactive/mot-insulation.tsx#359:text:ok",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119629,7 +119704,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#598:span:ok",
+              "id": "components/interactive/mot-insulation.tsx#600:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -189149,7 +189224,7 @@
               "sha256": "a29d4e6345cdb7e2b6daabf4961a6dcafcbc7ed1eac26186ca4a004cd32d64d8"
             },
             {
-              "url": "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2",
+              "url": "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2",
               "origin": "same",
               "resourceTypes": [
                 "font"
@@ -189392,7 +189467,7 @@
               "sha256": "a29d4e6345cdb7e2b6daabf4961a6dcafcbc7ed1eac26186ca4a004cd32d64d8"
             },
             {
-              "url": "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2",
+              "url": "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2",
               "origin": "same",
               "resourceTypes": [
                 "font"
@@ -228957,7 +229032,7 @@
             "/_next/static/media/KaTeX_Size4-Regular.2sgotkdv3dcyv.woff2",
             "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
             "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
-            "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+            "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2"
           ],
           "routeStatesSwept": 296,
           "evidence": [

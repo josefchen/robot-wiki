@@ -7544,7 +7544,7 @@
     {
       "family": "\"IBM Plex Mono\"",
       "sources": [
-        "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+        "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2"
       ]
     },
     {
@@ -7794,7 +7794,7 @@
       "/_next/static/media/KaTeX_Size4-Regular.2sgotkdv3dcyv.woff2",
       "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
       "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
-      "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+      "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2"
     ],
     "foreignOrigin": [],
     "observationsWithFontRequest": 296,
@@ -7873,7 +7873,7 @@
         "sha256": "a29d4e6345cdb7e2b6daabf4961a6dcafcbc7ed1eac26186ca4a004cd32d64d8"
       },
       {
-        "url": "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2",
+        "url": "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2",
         "origin": "same",
         "resourceTypes": [
           "font"
