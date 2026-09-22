@@ -18,6 +18,7 @@ citations:
   - simpler-2024
   - roboworld-2026
   - llama-3-2024
+  - llama-3-herd-2024
   - vjepa2-2025
   - cosmos-predict-2025
   - cosmos-predict2-perf-2025
@@ -80,7 +81,7 @@ A world model's usefulness is bounded by what it costs to query. The table below
 
 <WorldModelCostTable className="my-6" />
 
-The LLM column anchors the scale. An 8B dense decoder such as Llama 3 8B keeps about 16 GB of weights in fp16 and emits a token in tens of milliseconds on a consumer card; at that size, decode is bound by reading weights rather than compute <Cite id="llama-3-2024" />. Its KV cache adds about 128 KB per token under the model's grouped-query layout (8 KV heads across 32 layers in fp16), so memory grows linearly with context length.
+The LLM column anchors the scale. An 8B dense decoder such as Llama 3 8B keeps about 16 GB of weights in fp16 and emits a token in tens of milliseconds on a consumer card; at that size, decode is bound by reading weights rather than compute <Cite id="llama-3-2024" />. The Llama 3 paper gives the 8B model 32 layers and 8 key-value heads under grouped-query attention <Cite id="llama-3-herd-2024" />. In fp16 that works out to a KV cache of about 128 KB per token, so memory grows linearly with context length.
 
 The latent column is where planning gets cheap enough to run on a robot. V-JEPA 2-AC pairs a frozen 1B-parameter ViT-g video encoder with a 300M-parameter block-causal predictor, so the whole planning stack fits in a few GB <Cite id="vjepa2-2025" />. Its planner runs the cross-entropy method with 800 samples over 10 refinement iterations and produces an action in about 16 seconds, while a Cosmos video-generation planner took about 4 minutes per action with only 80 samples. The paper reports the two times, not a ratio; they work out to roughly 15x <Cite id="vjepa2-2025" />. Cheap per step does not mean flat in horizon. The predictor is block-causal: each patch feature attends to the patch features, actions and end-effector states of the current and earlier steps, so a longer rollout carries a longer context, though of 16 x 16 latent patch maps rather than pixels. Both planners in that comparison looked one step ahead <Cite id="vjepa2-2025" />.
 

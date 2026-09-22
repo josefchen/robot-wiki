@@ -4581,6 +4581,19 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
+    // Verified against the arXiv abs page and Atom API (2026-09-23): 561
+    // authors; first three listed. The v3 PDF byline reads "Llama Team,
+    // AI @ Meta". Table 3 gives the 8B model 32 layers, model dimension
+    // 4,096, 32 attention heads and 8 key/value heads (GQA).
+    id: 'llama-3-herd-2024',
+    title: 'The Llama 3 Herd of Models',
+    authors: ['Aaron Grattafiori', 'Abhimanyu Dubey', 'Abhinav Jauhri'],
+    year: 2024,
+    arxiv: '2407.21783',
+    url: 'https://arxiv.org/abs/2407.21783',
+    type: 'paper',
+  },
+  {
     // Verified against the arXiv abs page (2026-08-08): 8 authors.
     id: 'fineweb-2024',
     title:
