@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b5452ec91ee1bb324f80ce0ce837074b14d0405c062ac0e33b8c76af4a9d2c52",
+  "fingerprint": "763411d8213d11832147414d27f4cd42a6b7259234677ba1ecafd3614af2dd7f",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -1268,7 +1268,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11950,
+      "visibleTextLength": 12279,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -4951,7 +4951,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12359,
+      "visibleTextLength": 12960,
       "route": "/manipulation/action-spaces/",
       "viewport": "1440x900"
     },
@@ -9396,7 +9396,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18757,
+      "visibleTextLength": 19571,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "1440x900"
     },
@@ -10585,7 +10585,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11529,
+      "visibleTextLength": 11858,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -14268,7 +14268,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11732,
+      "visibleTextLength": 12333,
       "route": "/manipulation/action-spaces/",
       "viewport": "375x812"
     },
@@ -18713,7 +18713,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18273,
+      "visibleTextLength": 19087,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "375x812"
     }

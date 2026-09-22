@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "caa9e6cab71c2fbe8acc322a461e830eec784814877c69dfb1e5b92d99755182",
+  "fingerprint": "8cfdfa2c5e553012c4d8354dadb7aca9308b8897277cd8a760dabb59c284224b",
   "source": "out/ static export",
   "routes": [
     {
@@ -91,8 +91,8 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundAnchors": 19,
-      "distinctHrefs": 11,
+      "outboundAnchors": 21,
+      "distinctHrefs": 12,
       "shapes": [
         "citation-chip",
         "footer",
@@ -399,8 +399,8 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "outboundAnchors": 22,
-      "distinctHrefs": 12,
+      "outboundAnchors": 26,
+      "distinctHrefs": 14,
       "shapes": [
         "citation-chip",
         "footer",
@@ -770,8 +770,8 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "outboundAnchors": 34,
-      "distinctHrefs": 18,
+      "outboundAnchors": 37,
+      "distinctHrefs": 19,
       "shapes": [
         "citation-chip",
         "footer",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3098,
-  "distinctOutboundHrefs": 850,
+  "outboundAnchors": 3107,
+  "distinctOutboundHrefs": 852,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1361,
-    "reference-entry": 740,
+    "citation-chip": 1366,
+    "reference-entry": 744,
     "other": 603
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2561,
+  "anchorsWithNoreferrer": 2570,
   "keyboard": [
     {
       "route": "/",
@@ -867,11 +867,11 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundInDom": 19,
-      "reachedByTab": 19,
+      "outboundInDom": 21,
+      "reachedByTab": 21,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 91
+      "tabStops": 94
     },
     {
       "route": "/classical/control/",
@@ -1099,11 +1099,11 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "outboundInDom": 22,
-      "reachedByTab": 22,
+      "outboundInDom": 26,
+      "reachedByTab": 26,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 101
+      "tabStops": 108
     },
     {
       "route": "/manipulation/bc-foundations/",
@@ -1379,11 +1379,11 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "outboundInDom": 34,
-      "reachedByTab": 34,
+      "outboundInDom": 37,
+      "reachedByTab": 37,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 125
+      "tabStops": 130
     }
   ]
 }

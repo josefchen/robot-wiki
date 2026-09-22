@@ -11506,6 +11506,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:llama-3-herd-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lowry-2016-place-recognition",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12302,6 +12307,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:shadow-hand-cost-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:shiu-ahmad-1989",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13181,7 +13191,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1016,
+        "populationSize": 1018,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13873,6 +13883,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:lin-data-scaling-laws-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:lin-humanoid-sim2real-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:llama-3-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:llama-3-herd-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:lowry-2016-place-recognition",
           "result:VAL-B2-BASE-002:article-metadata:citation:lozano-perez-1983",
           "result:VAL-B2-BASE-002:article-metadata:citation:macefield-touch-2022",
@@ -14033,6 +14044,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:sentis-khatib-2005",
           "result:VAL-B2-BASE-002:article-metadata:citation:shadow-dexterous-hand-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:shadow-hand-cost-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:shiu-ahmad-1989",
           "result:VAL-B2-BASE-002:article-metadata:citation:simpler-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:sinha-anomaly-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:skild-series-c-2026",

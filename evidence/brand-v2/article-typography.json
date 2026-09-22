@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d9d2973aebe879a4c9dfecc0168c63e5815555c81b5d36febfdf604bd71454e2",
+  "fingerprint": "e050308e927fda96834cab27d7c7aea7327c3210e92db1f72861a080392b7ba1",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3894,7 +3894,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 11529,
+      "visibleTextLength": 11858,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3962,13 +3962,14 @@
         ],
         "lastReviewed": "2026-08-24",
         "readingMinutes": 6,
-        "citationCount": 8,
+        "citationCount": 9,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
         "readingTimeText": "6 min",
-        "citationCountText": "8",
+        "citationCountText": "9",
         "bibliographyIds": [
           "zhang-2000-calibration",
+          "shiu-ahmad-1989",
           "tsai-lenz-1989",
           "modern-robotics-2017",
           "realsense-d400-datasheet-2026",
@@ -4444,7 +4445,7 @@
         },
         {
           "kind": "reference",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -4454,7 +4455,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -4466,7 +4467,7 @@
         },
         {
           "kind": "citation",
-          "count": 16,
+          "count": 18,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -4476,7 +4477,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 16,
+              "count": 18,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -24894,7 +24895,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11732,
+      "visibleTextLength": 12333,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24962,15 +24963,17 @@
         ],
         "lastReviewed": "2026-08-24",
         "readingMinutes": 6,
-        "citationCount": 9,
+        "citationCount": 11,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
         "readingTimeText": "6 min",
-        "citationCountText": "9",
+        "citationCountText": "11",
         "bibliographyIds": [
           "modern-robotics-2017",
           "act-aloha-2023",
           "diffusion-policy-2023",
+          "real-time-chunking-2025",
+          "rt2-2023",
           "openvla-2024",
           "martin-martin-2019",
           "khatib-1987",
@@ -25190,7 +25193,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 and OpenVLA mapped continuous action dimensions into di"
+          "text": "RT-2 Brohan 2023↓RT-2: Vision-Language-Action Models Transfe"
         },
         {
           "familyHead": "newsreader",
@@ -25382,7 +25385,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -25392,7 +25395,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -25404,7 +25407,7 @@
         },
         {
           "kind": "citation",
-          "count": 20,
+          "count": 24,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -25414,7 +25417,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 20,
+              "count": 24,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -25578,6 +25581,14 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 54 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
@@ -51782,7 +51793,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18273,
+      "visibleTextLength": 19087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51849,12 +51860,12 @@
           "World Models vs Physics Simulators"
         ],
         "lastReviewed": "2026-08-24",
-        "readingMinutes": 10,
-        "citationCount": 15,
+        "readingMinutes": 11,
+        "citationCount": 16,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
-        "readingTimeText": "10 min",
-        "citationCountText": "15",
+        "readingTimeText": "11 min",
+        "citationCountText": "16",
         "bibliographyIds": [
           "mujoco-2012",
           "isaac-lab-2025",
@@ -51866,6 +51877,7 @@
           "simpler-2024",
           "roboworld-2026",
           "llama-3-2024",
+          "llama-3-herd-2024",
           "vjepa2-2025",
           "cosmos-predict-2025",
           "cosmos-predict2-perf-2025",
@@ -52393,7 +52405,7 @@
         },
         {
           "kind": "reference",
-          "count": 15,
+          "count": 16,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -52403,7 +52415,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 15,
+              "count": 16,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52415,7 +52427,7 @@
         },
         {
           "kind": "citation",
-          "count": 32,
+          "count": 36,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -52425,7 +52437,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 32,
+              "count": 36,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -56403,7 +56415,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 11950,
+      "visibleTextLength": 12279,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56471,13 +56483,14 @@
         ],
         "lastReviewed": "2026-08-24",
         "readingMinutes": 6,
-        "citationCount": 8,
+        "citationCount": 9,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
         "readingTimeText": "6 min",
-        "citationCountText": "8",
+        "citationCountText": "9",
         "bibliographyIds": [
           "zhang-2000-calibration",
+          "shiu-ahmad-1989",
           "tsai-lenz-1989",
           "modern-robotics-2017",
           "realsense-d400-datasheet-2026",
@@ -56953,7 +56966,7 @@
         },
         {
           "kind": "reference",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -56963,7 +56976,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -56975,7 +56988,7 @@
         },
         {
           "kind": "citation",
-          "count": 16,
+          "count": 18,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -56985,7 +56998,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 16,
+              "count": 18,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77403,7 +77416,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12359,
+      "visibleTextLength": 12960,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77471,15 +77484,17 @@
         ],
         "lastReviewed": "2026-08-24",
         "readingMinutes": 6,
-        "citationCount": 9,
+        "citationCount": 11,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
         "readingTimeText": "6 min",
-        "citationCountText": "9",
+        "citationCountText": "11",
         "bibliographyIds": [
           "modern-robotics-2017",
           "act-aloha-2023",
           "diffusion-policy-2023",
+          "real-time-chunking-2025",
+          "rt2-2023",
           "openvla-2024",
           "martin-martin-2019",
           "khatib-1987",
@@ -77699,7 +77714,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 and OpenVLA mapped continuous action dimensions into di"
+          "text": "RT-2 Brohan 2023↓RT-2: Vision-Language-Action Models Transfe"
         },
         {
           "familyHead": "newsreader",
@@ -77891,7 +77906,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77901,7 +77916,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77913,7 +77928,7 @@
         },
         {
           "kind": "citation",
-          "count": 20,
+          "count": 24,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77923,7 +77938,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 20,
+              "count": 24,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78087,6 +78102,14 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 54 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
@@ -104291,7 +104314,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18757,
+      "visibleTextLength": 19571,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104358,12 +104381,12 @@
           "World Models vs Physics Simulators"
         ],
         "lastReviewed": "2026-08-24",
-        "readingMinutes": 10,
-        "citationCount": 15,
+        "readingMinutes": 11,
+        "citationCount": 16,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
-        "readingTimeText": "10 min",
-        "citationCountText": "15",
+        "readingTimeText": "11 min",
+        "citationCountText": "16",
         "bibliographyIds": [
           "mujoco-2012",
           "isaac-lab-2025",
@@ -104375,6 +104398,7 @@
           "simpler-2024",
           "roboworld-2026",
           "llama-3-2024",
+          "llama-3-herd-2024",
           "vjepa2-2025",
           "cosmos-predict-2025",
           "cosmos-predict2-perf-2025",
@@ -104902,7 +104926,7 @@
         },
         {
           "kind": "reference",
-          "count": 15,
+          "count": 16,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104912,7 +104936,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 15,
+              "count": 16,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104924,7 +104948,7 @@
         },
         {
           "kind": "citation",
-          "count": 32,
+          "count": 36,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104934,7 +104958,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 32,
+              "count": 36,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

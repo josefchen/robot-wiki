@@ -1693,13 +1693,14 @@
                 ],
                 "lastReviewed": "2026-08-24",
                 "readingMinutes": 6,
-                "citationCount": 8,
+                "citationCount": 9,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
                 "readingTimeText": "6 min",
-                "citationCountText": "8",
+                "citationCountText": "9",
                 "bibliographyIds": [
                   "zhang-2000-calibration",
+                  "shiu-ahmad-1989",
                   "tsai-lenz-1989",
                   "modern-robotics-2017",
                   "realsense-d400-datasheet-2026",
@@ -3358,15 +3359,17 @@
                 ],
                 "lastReviewed": "2026-08-24",
                 "readingMinutes": 6,
-                "citationCount": 9,
+                "citationCount": 11,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
                 "readingTimeText": "6 min",
-                "citationCountText": "9",
+                "citationCountText": "11",
                 "bibliographyIds": [
                   "modern-robotics-2017",
                   "act-aloha-2023",
                   "diffusion-policy-2023",
+                  "real-time-chunking-2025",
+                  "rt2-2023",
                   "openvla-2024",
                   "martin-martin-2019",
                   "khatib-1987",
@@ -5330,12 +5333,12 @@
                   "World Models vs Physics Simulators"
                 ],
                 "lastReviewed": "2026-08-24",
-                "readingMinutes": 10,
-                "citationCount": 15,
+                "readingMinutes": 11,
+                "citationCount": 16,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
-                "readingTimeText": "10 min",
-                "citationCountText": "15",
+                "readingTimeText": "11 min",
+                "citationCountText": "16",
                 "bibliographyIds": [
                   "mujoco-2012",
                   "isaac-lab-2025",
@@ -5347,6 +5350,7 @@
                   "simpler-2024",
                   "roboworld-2026",
                   "llama-3-2024",
+                  "llama-3-herd-2024",
                   "vjepa2-2025",
                   "cosmos-predict-2025",
                   "cosmos-predict2-perf-2025",
@@ -8297,7 +8301,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 8,
+                  "count": 9,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -8307,7 +8311,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 8,
+                      "count": 9,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -8319,7 +8323,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 16,
+                  "count": 18,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -8329,7 +8333,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 16,
+                      "count": 18,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11257,7 +11261,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 9,
+                  "count": 11,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -11267,7 +11271,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 9,
+                      "count": 11,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11279,7 +11283,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 20,
+                  "count": 24,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -11289,7 +11293,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 20,
+                      "count": 24,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -14971,7 +14975,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 15,
+                  "count": 16,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -14981,7 +14985,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 15,
+                      "count": 16,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -14993,7 +14997,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 32,
+                  "count": 36,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -15003,7 +15007,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 32,
+                      "count": 36,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -65387,10 +65391,10 @@
                   "role": "region",
                   "accessibleName": "Inference cost of four world representations compared on one machine",
                   "clientWidth": 333,
-                  "scrollWidth": 522,
+                  "scrollWidth": 536,
                   "scrolledBy": 40
                 },
-                "tableWidth": 522,
+                "tableWidth": 536,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -65718,13 +65722,14 @@
                 ],
                 "lastReviewed": "2026-08-24",
                 "readingMinutes": 6,
-                "citationCount": 8,
+                "citationCount": 9,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
                 "readingTimeText": "6 min",
-                "citationCountText": "8",
+                "citationCountText": "9",
                 "bibliographyIds": [
                   "zhang-2000-calibration",
+                  "shiu-ahmad-1989",
                   "tsai-lenz-1989",
                   "modern-robotics-2017",
                   "realsense-d400-datasheet-2026",
@@ -67383,15 +67388,17 @@
                 ],
                 "lastReviewed": "2026-08-24",
                 "readingMinutes": 6,
-                "citationCount": 9,
+                "citationCount": 11,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
                 "readingTimeText": "6 min",
-                "citationCountText": "9",
+                "citationCountText": "11",
                 "bibliographyIds": [
                   "modern-robotics-2017",
                   "act-aloha-2023",
                   "diffusion-policy-2023",
+                  "real-time-chunking-2025",
+                  "rt2-2023",
                   "openvla-2024",
                   "martin-martin-2019",
                   "khatib-1987",
@@ -69355,12 +69362,12 @@
                   "World Models vs Physics Simulators"
                 ],
                 "lastReviewed": "2026-08-24",
-                "readingMinutes": 10,
-                "citationCount": 15,
+                "readingMinutes": 11,
+                "citationCount": 16,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
-                "readingTimeText": "10 min",
-                "citationCountText": "15",
+                "readingTimeText": "11 min",
+                "citationCountText": "16",
                 "bibliographyIds": [
                   "mujoco-2012",
                   "isaac-lab-2025",
@@ -69372,6 +69379,7 @@
                   "simpler-2024",
                   "roboworld-2026",
                   "llama-3-2024",
+                  "llama-3-herd-2024",
                   "vjepa2-2025",
                   "cosmos-predict-2025",
                   "cosmos-predict2-perf-2025",
@@ -69772,6 +69780,7 @@
               "observed": {
                 "references": [
                   "zhang-2000-calibration",
+                  "shiu-ahmad-1989",
                   "tsai-lenz-1989",
                   "modern-robotics-2017",
                   "realsense-d400-datasheet-2026",
@@ -69785,6 +69794,7 @@
                   "zhang-2000-calibration",
                   "realsense-tuning-2026",
                   "realsense-d400-datasheet-2026",
+                  "shiu-ahmad-1989",
                   "tsai-lenz-1989",
                   "modern-robotics-2017",
                   "hwangbo-2019",
@@ -71905,6 +71915,8 @@
                   "modern-robotics-2017",
                   "act-aloha-2023",
                   "diffusion-policy-2023",
+                  "real-time-chunking-2025",
+                  "rt2-2023",
                   "openvla-2024",
                   "martin-martin-2019",
                   "khatib-1987",
@@ -71921,6 +71933,8 @@
                   "martin-martin-2019",
                   "act-aloha-2023",
                   "diffusion-policy-2023",
+                  "real-time-chunking-2025",
+                  "rt2-2023",
                   "openvla-2024",
                   "pi0-fast-2025"
                 ],
@@ -74326,6 +74340,7 @@
                   "simpler-2024",
                   "roboworld-2026",
                   "llama-3-2024",
+                  "llama-3-herd-2024",
                   "vjepa2-2025",
                   "cosmos-predict-2025",
                   "cosmos-predict2-perf-2025",
@@ -74337,6 +74352,8 @@
                   "isaac-lab-2025",
                   "world-model-survey-2026",
                   "llama-3-2024",
+                  "llama-3-herd-2024",
+                  "vjepa2-2025",
                   "vjepa2-2025",
                   "vjepa2-2025",
                   "cosmos-predict-2025",
@@ -84105,7 +84122,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:classical/calibration moved from null to 0cc4c8d7ca07fe9966e1b9e9318f072ec04f23740aff25b25778d50560b80b92 exactly as approved delta seo-merge-20260916-article-metadata-115 permits: The SEO growth merge adds classical/calibration as a new published article; this member (article-fact-frontmatter:classical/calibration) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "article-metadata member article-fact-frontmatter:classical/calibration moved from null to a8ba60d05e95a64237cbbc02e8fa9fab7f8057e95ce5d41dc2582019a567924b exactly as approved delta content-integration-20260923-calibration-frontmatter permits: Frontmatter citations list of classical/calibration gains shiu-ahmad-1989 after zhang-2000-calibration; title, description, dates, lastReviewed and every other frontmatter field are unchanged. Supersedes seo-merge-20260916-article-metadata-115 (newHash 0cc4c8d7ca07..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84117,9 +84134,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:classical/calibration",
           "baselineHash": null,
-          "currentHash": "0cc4c8d7ca07fe9966e1b9e9318f072ec04f23740aff25b25778d50560b80b92",
+          "currentHash": "a8ba60d05e95a64237cbbc02e8fa9fab7f8057e95ce5d41dc2582019a567924b",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-article-metadata-115"
+          "approvedDelta": "content-integration-20260923-calibration-frontmatter"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84749,7 +84766,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:manipulation/action-spaces moved from null to 7435f52e857ca7478dee40c9896a1ea7daeefc86dc9b7b9bbf39546a836b4c34 exactly as approved delta seo-merge-20260916-article-metadata-120 permits: The SEO growth merge adds manipulation/action-spaces as a new published article; this member (article-fact-frontmatter:manipulation/action-spaces) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "article-metadata member article-fact-frontmatter:manipulation/action-spaces moved from null to 35db543c3bcdb04d3e902e02a7da6d20a2401ea4f2ae831d60d730b0e2bb5ed7 exactly as approved delta content-integration-20260923-action-spaces-frontmatter permits: Frontmatter citations list of manipulation/action-spaces gains real-time-chunking-2025 and rt2-2023 after diffusion-policy-2023; title, description, dates, lastReviewed and every other frontmatter field are unchanged. Supersedes seo-merge-20260916-article-metadata-120 (newHash 7435f52e857c..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84761,9 +84778,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:manipulation/action-spaces",
           "baselineHash": null,
-          "currentHash": "7435f52e857ca7478dee40c9896a1ea7daeefc86dc9b7b9bbf39546a836b4c34",
+          "currentHash": "35db543c3bcdb04d3e902e02a7da6d20a2401ea4f2ae831d60d730b0e2bb5ed7",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-article-metadata-120"
+          "approvedDelta": "content-integration-20260923-action-spaces-frontmatter"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -85561,7 +85578,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:world-models/world-models-vs-simulators moved from null to 4965d12b7655dac033cd1fabcd54e26a5c2ab8990d1fe8d5e5bfdf22d0a9eddf exactly as approved delta wm-cost-frontmatter-20260917-1 permits: Frontmatter citations list extended with the six ids used by the new section; no other frontmatter field changed.",
+      "actual": "article-metadata member article-fact-frontmatter:world-models/world-models-vs-simulators moved from null to cba866c3d51b068de49735d67fa767862d6f95d9a4af8d4c7b882491b7d73d88 exactly as approved delta content-integration-20260923-world-models-vs-simulators-frontmatter permits: Frontmatter citations list of world-models/world-models-vs-simulators gains llama-3-herd-2024 after llama-3-2024; title, description, dates, lastReviewed and every other frontmatter field are unchanged. Supersedes wm-cost-frontmatter-20260917-1 (newHash 4965d12b7655..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -85573,9 +85590,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "4965d12b7655dac033cd1fabcd54e26a5c2ab8990d1fe8d5e5bfdf22d0a9eddf",
+          "currentHash": "cba866c3d51b068de49735d67fa767862d6f95d9a4af8d4c7b882491b7d73d88",
           "status": "approved-addition",
-          "approvedDelta": "wm-cost-frontmatter-20260917-1"
+          "approvedDelta": "content-integration-20260923-world-models-vs-simulators-frontmatter"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87409,7 +87426,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb exactly as approved delta continuation-merge-20260922-article-metadata-label-and-meta permits: Integration of josef/droid-wiki-continuation afeeb05 into main (true merge base 9212034): the merged article-metadata member citation-rendering:label-and-meta combines main-line approvals seo-merge-20260916-article-metadata-143, seo-merge-20260916-b3-article-metadata-4, seo-merge-20260916-metadata-label-and-meta, wm-cost-labelmeta-20260917-1 with continuation approvals round5-closeout-citation-rendering-digest, aq0917a-citation-rendering-digest, dataset-license-pair-20260921-2, generalist-attribution-p1-20260922-4. Each lane approval brackets only its own lane endpoint (continuation lane approvals chain from lane-local hashes), so none reproduces the merged value; this entry re-anchors the combined, already-approved change to the sealed baseline value and records the merged-tree hash. No wording beyond the two lanes' approved edits was introduced by the merge.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb exactly as approved delta content-integration-20260923-label-and-meta permits: The registry-wide citation label/meta digest moves because the content fixes register two citations, llama-3-herd-2024 (label 'Grattafiori 2024') and shiu-ahmad-1989 (label 'Shiu 1989'). A per-ID comparison of citationLabel and citationMeta over all 437 citations at 754ae58 against the 439 at this tree found no existing label or meta string changed. This entry re-anchors the member from the seal to the new registry state and supersedes continuation-merge-20260922-article-metadata-label-and-meta (newHash 5f3bad00fb7f..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as the record of the 2026-09-22 merged value.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87421,9 +87438,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb",
+          "currentHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb",
           "status": "approved-addition",
-          "approvedDelta": "continuation-merge-20260922-article-metadata-label-and-meta"
+          "approvedDelta": "content-integration-20260923-label-and-meta"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -93533,6 +93550,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:llama-3-herd-2024",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:llama-3-herd-2024",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:llama-3-herd-2024"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:llama-3-herd-2024 moved from null to c06fd63892a5e43059e4dce9c932a2bb27c064374466af3ebac4e19d9c29f877 exactly as approved delta content-integration-20260923-citation-llama-3-herd-2024 permits: New registry member: llama-3-herd-2024, 'The Llama 3 Herd of Models' (arXiv 2407.21783, 2024; first three of 561 authors listed, with the convention recorded in data/crossref-author-exceptions.ts), registered as the source for the Llama 3 8B layer and key-value-head figures in world-models/world-models-vs-simulators.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:llama-3-herd-2024",
+          "baselineHash": null,
+          "currentHash": "c06fd63892a5e43059e4dce9c932a2bb27c064374466af3ebac4e19d9c29f877",
+          "status": "approved-addition",
+          "approvedDelta": "content-integration-20260923-citation-llama-3-herd-2024"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:lowry-2016-place-recognition",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:lowry-2016-place-recognition",
@@ -98013,6 +98058,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:shiu-ahmad-1989",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:shiu-ahmad-1989",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:shiu-ahmad-1989"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:shiu-ahmad-1989 moved from null to 9c1abf1a9ba5ee4d9e93dd08cc144e7539024393ede6d78d80bf30d5ce93fabb exactly as approved delta content-integration-20260923-citation-shiu-ahmad-1989 permits: New registry member: shiu-ahmad-1989, 'Calibration of wrist-mounted robotic sensors by solving homogeneous transform equations of the form AX=XB', Y. C. Shiu and S. Ahmad, IEEE Trans. Robotics and Automation, 1989, doi:10.1109/70.88014, registered for the AX = XB attribution in classical/calibration.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:shiu-ahmad-1989",
+          "baselineHash": null,
+          "currentHash": "9c1abf1a9ba5ee4d9e93dd08cc144e7539024393ede6d78d80bf30d5ce93fabb",
+          "status": "approved-addition",
+          "approvedDelta": "content-integration-20260923-citation-shiu-ahmad-1989"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:simpler-2024",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:simpler-2024",
@@ -99785,7 +99858,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/calibration moved from null to 9cd9630824fcef398835bd348d06dc48c77afe2e428d5ca6567ae6d54f178b3d exactly as approved delta seo-merge-20260916-prose-1 permits: The SEO growth merge adds classical/calibration as a new published article; this member (article:classical/calibration) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "prose member article:classical/calibration moved from null to bbf847ca93492826b8d9a38a3ec0c9bab0339a9f6743216eae8378feab05ea8f exactly as approved delta content-integration-20260923-calibration-prose permits: Content fix from release/seo-content-fixes 94afc26 on classical/calibration: the hand-eye paragraph now credits Shiu and Ahmad (1989) with writing the problem as the homogeneous transform equation AX = XB and solving it in closed form, citing the newly registered shiu-ahmad-1989, and credits Tsai and Lenz (1989) with the classic efficient solution, replacing the claim that Tsai and Lenz formulated AX = XB. No other prose changed. Supersedes seo-merge-20260916-prose-1 (newHash 9cd9630824fc..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99797,9 +99870,9 @@
           "manifest": "prose",
           "member": "article:classical/calibration",
           "baselineHash": null,
-          "currentHash": "9cd9630824fcef398835bd348d06dc48c77afe2e428d5ca6567ae6d54f178b3d",
+          "currentHash": "bbf847ca93492826b8d9a38a3ec0c9bab0339a9f6743216eae8378feab05ea8f",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-prose-1"
+          "approvedDelta": "content-integration-20260923-calibration-prose"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100429,7 +100502,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/action-spaces moved from null to b6de62e12a66b8145cb328f1daec763dcf384c12da4472536451899470ce3522 exactly as approved delta seo-merge-20260916-prose-16 permits: The SEO growth merge adds manipulation/action-spaces as a new published article; this member (article:manipulation/action-spaces) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "prose member article:manipulation/action-spaces moved from null to 0999f35e2288d868231bf1a9209801386b8712eb0bdfc32c62e3c66fe9098f98 exactly as approved delta content-integration-20260923-action-spaces-prose permits: Content fix from release/seo-content-fixes 57ace72 on manipulation/action-spaces: the chunking paragraph replaces 'ACT showed that this temporal abstraction can matter more than the choice of probabilistic head' with what ACT's ablations report (chunking improved ACT and the two baselines the authors retrofitted with it; removing the CVAE objective cut success on the two simulated human-data tasks from 35.3% to 2%), and adds Cite markers for the already registered real-time-chunking-2025 (real-time chunk replacement) and rt2-2023 (RT-2 action tokens). No other prose changed. Supersedes seo-merge-20260916-prose-16 (newHash b6de62e12a66..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100441,9 +100514,9 @@
           "manifest": "prose",
           "member": "article:manipulation/action-spaces",
           "baselineHash": null,
-          "currentHash": "b6de62e12a66b8145cb328f1daec763dcf384c12da4472536451899470ce3522",
+          "currentHash": "0999f35e2288d868231bf1a9209801386b8712eb0bdfc32c62e3c66fe9098f98",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-prose-16"
+          "approvedDelta": "content-integration-20260923-action-spaces-prose"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101185,7 +101258,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/model-based-robot-learning moved from null to 56b3d2141a5f6749dd208bc2f230e12f5c8783d33498519d1e183cd7b45baf65 exactly as approved delta seo-merge-20260916-prose-32 permits: The SEO growth merge adds world-models/model-based-robot-learning as a new published article; this member (article:world-models/model-based-robot-learning) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "prose member article:world-models/model-based-robot-learning moved from null to ad9fd12b41ca91bcd07d338b4eba66b76e179fababbe1d7299f2eaeb4a9a4d0c exactly as approved delta content-integration-20260923-model-based-robot-learning-prose permits: Spelling-only fix from release/seo-content-fixes 32f6b94 on world-models/model-based-robot-learning: 'two-millimetre' becomes 'two-millimeter', the site's American spelling. No claim, number, citation or other wording changed. Supersedes seo-merge-20260916-prose-32 (newHash 56b3d2141a5f..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101197,9 +101270,9 @@
           "manifest": "prose",
           "member": "article:world-models/model-based-robot-learning",
           "baselineHash": null,
-          "currentHash": "56b3d2141a5f6749dd208bc2f230e12f5c8783d33498519d1e183cd7b45baf65",
+          "currentHash": "ad9fd12b41ca91bcd07d338b4eba66b76e179fababbe1d7299f2eaeb4a9a4d0c",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-prose-32"
+          "approvedDelta": "content-integration-20260923-model-based-robot-learning-prose"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101241,7 +101314,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to c2fe304dccabdd4ac69a1802b091cc3cae8c59046172026574103a0ce532c5c3 exactly as approved delta wm-cost-prose-20260917-1 permits: Adds the inference-economics section (WorldModelCostTable plus six paragraphs) to world-models/world-models-vs-simulators per owner request for deep world-model systems coverage; every figure is cited to vjepa2-2025, cosmos-predict-2025, cosmos-predict2-perf-2025, cosmos-1-diffusion-14b-card-2025, 3dgs-2023 or llama-3-2024.",
+      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to e44a8b784487c1b90d320c0c9fe8e816922ba9f72a8c3ea18c72b97f1f4882fd exactly as approved delta content-integration-20260923-world-models-vs-simulators-prose permits: Content fix from release/seo-content-fixes c100a54 and 2aaadc0 on world-models/world-models-vs-simulators: the LLM paragraph cites the Llama 3 paper (new llama-3-herd-2024) for the 8B model's 32 layers and 8 key-value heads before deriving the ~128 KB per token fp16 KV cache; the V-JEPA 2-AC paragraph reports the paper's two planning times (16 s with 800 samples; Cosmos about 4 min with 80 samples) instead of attributing a 15x ratio to the paper, and replaces the 'horizon cost nearly flat' claim with the block-causal context growth the paper describes; 'the real-to-sim-to-real pattern above' becomes 'below' (the section follows); the horizon-row sentence is aligned with that correction. The WorldModelCostTable cells live in components/mdx/text-tables.tsx, outside this member. Supersedes wm-cost-prose-20260917-1 (newHash c2fe304dccab..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101253,9 +101326,9 @@
           "manifest": "prose",
           "member": "article:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "c2fe304dccabdd4ac69a1802b091cc3cae8c59046172026574103a0ce532c5c3",
+          "currentHash": "e44a8b784487c1b90d320c0c9fe8e816922ba9f72a8c3ea18c72b97f1f4882fd",
           "status": "approved-addition",
-          "approvedDelta": "wm-cost-prose-20260917-1"
+          "approvedDelta": "content-integration-20260923-world-models-vs-simulators-prose"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101381,7 +101454,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:classical/calibration moved from null to 911d32b9d705de40f6666a0ed8756dc155459c5954494f28e7ddc53d78ea5ca1 exactly as approved delta seo-merge-20260916-relationships-38 permits: The SEO growth merge adds classical/calibration as a new published article; this member (article:classical/calibration) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "relationships member article:classical/calibration moved from null to 887673416916159c3e8cbdeff8b9d99fb64129b48cd90f594e1762c1a26dbf9c exactly as approved delta content-integration-20260923-calibration-relationships permits: The calibration correction adds one shiu-ahmad-1989 Cite marker and frontmatter citation to classical/calibration, changing its References relationships; the tsai-lenz-1989 citation and all See also and Linked from links are unchanged. Supersedes seo-merge-20260916-relationships-38 (newHash 911d32b9d705..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101393,9 +101466,9 @@
           "manifest": "relationships",
           "member": "article:classical/calibration",
           "baselineHash": null,
-          "currentHash": "911d32b9d705de40f6666a0ed8756dc155459c5954494f28e7ddc53d78ea5ca1",
+          "currentHash": "887673416916159c3e8cbdeff8b9d99fb64129b48cd90f594e1762c1a26dbf9c",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-relationships-38"
+          "approvedDelta": "content-integration-20260923-calibration-relationships"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102025,7 +102098,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:manipulation/action-spaces moved from null to 3bf532f1f8c4f91b0eb96c136094b6def130fbbde7ed8754ed60a9919ed9807c exactly as approved delta seo-merge-20260916-relationships-47 permits: The SEO growth merge adds manipulation/action-spaces as a new published article; this member (article:manipulation/action-spaces) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "relationships member article:manipulation/action-spaces moved from null to 6025ba773e946a19f5590ac6b484cf8dfdfcced5f093f170a0513aac6016fde0 exactly as approved delta content-integration-20260923-action-spaces-relationships permits: The action-spaces correction adds Cite markers and frontmatter citations for the already registered real-time-chunking-2025 and rt2-2023 to manipulation/action-spaces, changing its References relationships; no citation was removed and See also and Linked from links are unchanged. Supersedes seo-merge-20260916-relationships-47 (newHash 3bf532f1f8c4..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102037,9 +102110,9 @@
           "manifest": "relationships",
           "member": "article:manipulation/action-spaces",
           "baselineHash": null,
-          "currentHash": "3bf532f1f8c4f91b0eb96c136094b6def130fbbde7ed8754ed60a9919ed9807c",
+          "currentHash": "6025ba773e946a19f5590ac6b484cf8dfdfcced5f093f170a0513aac6016fde0",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-relationships-47"
+          "approvedDelta": "content-integration-20260923-action-spaces-relationships"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102837,7 +102910,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/world-models-vs-simulators moved from null to 7b889bd353f68e0117b4999ffae8e59f4121638da6be4327a7ffb535d7da2412 exactly as approved delta wm-cost-rel-20260917-1 permits: The same section adds six Cite markers to the article, changing its relationships member; the citations are the newly registered Cosmos Predict sources plus existing vjepa2-2025, 3dgs-2023 and llama-3-2024.",
+      "actual": "relationships member article:world-models/world-models-vs-simulators moved from null to f85a661206c2e7514b77f5bbb8a62986168e670ee60458efff9d04001d61ea73 exactly as approved delta content-integration-20260923-world-models-vs-simulators-relationships permits: The world-models-vs-simulators correction adds one llama-3-herd-2024 Cite marker and frontmatter citation, changing the article's References relationships; the llama-3-2024 blog citation and all other relationships are unchanged. Supersedes wm-cost-rel-20260917-1 (newHash 7b889bd353f6..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102849,9 +102922,9 @@
           "manifest": "relationships",
           "member": "article:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "7b889bd353f68e0117b4999ffae8e59f4121638da6be4327a7ffb535d7da2412",
+          "currentHash": "f85a661206c2e7514b77f5bbb8a62986168e670ee60458efff9d04001d61ea73",
           "status": "approved-addition",
-          "approvedDelta": "wm-cost-rel-20260917-1"
+          "approvedDelta": "content-integration-20260923-world-models-vs-simulators-relationships"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -103308,7 +103381,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/calibration/ ships 19 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 19 outbound anchor occurrences on it with a visible focus ring in 91 stops",
+      "actual": "/classical/calibration/ ships 21 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 21 outbound anchor occurrences on it with a visible focus ring in 94 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103316,8 +103389,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/calibration/",
-          "outboundAnchors": 19,
-          "distinctHrefs": 11,
+          "outboundAnchors": 21,
+          "distinctHrefs": 12,
           "shapes": [
             "citation-chip",
             "footer",
@@ -103325,9 +103398,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 16,
-          "reachedByTab": 19,
-          "tabStops": 91,
+          "anchorsWithNoreferrer": 18,
+          "reachedByTab": 21,
+          "tabStops": 94,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104370,7 +104443,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/action-spaces/ ships 22 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 22 outbound anchor occurrences on it with a visible focus ring in 101 stops",
+      "actual": "/manipulation/action-spaces/ ships 26 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 26 outbound anchor occurrences on it with a visible focus ring in 108 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104378,8 +104451,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/manipulation/action-spaces/",
-          "outboundAnchors": 22,
-          "distinctHrefs": 12,
+          "outboundAnchors": 26,
+          "distinctHrefs": 14,
           "shapes": [
             "citation-chip",
             "footer",
@@ -104387,9 +104460,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 19,
-          "reachedByTab": 22,
-          "tabStops": 101,
+          "anchorsWithNoreferrer": 23,
+          "reachedByTab": 26,
+          "tabStops": 108,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105651,7 +105724,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/world-models-vs-simulators/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 125 stops",
+      "actual": "/world-models/world-models-vs-simulators/ ships 37 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 130 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105659,8 +105732,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/world-models-vs-simulators/",
-          "outboundAnchors": 34,
-          "distinctHrefs": 18,
+          "outboundAnchors": 37,
+          "distinctHrefs": 19,
           "shapes": [
             "citation-chip",
             "footer",
@@ -105668,9 +105741,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 31,
-          "reachedByTab": 34,
-          "tabStops": 125,
+          "anchorsWithNoreferrer": 34,
+          "reachedByTab": 37,
+          "tabStops": 130,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -130207,7 +130280,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 23479 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 24137 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131570,7 +131643,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/action-spaces/ rendered no v1 identity spelling and no v1 descriptor in 24091 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/action-spaces/ rendered no v1 identity spelling and no v1 descriptor in 25293 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133215,7 +133288,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 37030 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 38658 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -199628,7 +199701,7 @@
               "id": "/manipulation/action-spaces/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 11,
+                "interfaceControlCount": 12,
                 "controlsInProse": 1,
                 "registrationLabelCount": 4
               }

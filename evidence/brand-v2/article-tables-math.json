@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "93e984fbadf7f7bea14051eb3fbc747e053411ff08d50a661e94e618c1b5d80f",
+  "fingerprint": "0230ba8c460660ce036818b8c6897cf43f5a1914fdf2f11aa2615701ec0320d6",
   "viewports": [
     "375x812",
     "1440x900"
@@ -276,7 +276,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11529,
+      "visibleTextLength": 11858,
       "tables": [],
       "equations": [
         {
@@ -5140,7 +5140,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11732,
+      "visibleTextLength": 12333,
       "tables": [
         {
           "index": 0,
@@ -7538,7 +7538,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18273,
+      "visibleTextLength": 19087,
       "tables": [
         {
           "index": 0,
@@ -7581,10 +7581,10 @@
             "role": "region",
             "accessibleName": "Inference cost of four world representations compared on one machine",
             "clientWidth": 333,
-            "scrollWidth": 522,
+            "scrollWidth": 536,
             "scrolledBy": 40
           },
-          "tableWidth": 522,
+          "tableWidth": 536,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -7610,7 +7610,7 @@
           "accessibleName": "Inference cost of four world representations compared on one machine",
           "tabIndex": 0,
           "clientWidth": 333,
-          "scrollWidth": 522,
+          "scrollWidth": 536,
           "scrolledBy": 40
         }
       ],
@@ -7828,7 +7828,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11950,
+      "visibleTextLength": 12279,
       "tables": [],
       "equations": [
         {
@@ -12692,7 +12692,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12359,
+      "visibleTextLength": 12960,
       "tables": [
         {
           "index": 0,
@@ -15090,7 +15090,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18757,
+      "visibleTextLength": 19571,
       "tables": [
         {
           "index": 0,
