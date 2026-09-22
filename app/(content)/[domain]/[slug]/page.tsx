@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import type { ComponentType } from 'react';
 import { ArticleHeader } from '@/components/article/article-header';
 import { CorrectionLink } from '@/components/article/correction-link';
+import { MathStylesheet } from '@/components/article/math-stylesheet';
 import { LinkedFrom, SeeAlso } from '@/components/article/article-links';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
 import { References } from '@/components/article/references';
@@ -36,6 +37,8 @@ type Params = Promise<{ domain: string; slug: string }>;
 type CompiledMdx = {
   default: ComponentType;
   frontmatter?: ModuleFrontmatter;
+  /** Exported by lib/rehype-math-flag.mjs when the body typesets math. */
+  usesMath?: boolean;
 };
 
 /**
@@ -254,6 +257,9 @@ export default async function ModulePage({ params }: { params: Params }) {
       <LinkedFrom entries={linkedFromEntries} />
       <References entries={references} />
       <CorrectionLink articleTitle={entry.title} />
+      {/* KaTeX's stylesheet, on the pages that typeset math only. It renders
+          no markup: its stylesheet link is hoisted into the head. */}
+      {mod.usesMath ? <MathStylesheet /> : null}
     </article>
   );
 }

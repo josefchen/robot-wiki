@@ -1,0 +1,30 @@
+/*
+ * Math typesetting styles, loaded only on routes that render KaTeX.
+ *
+ * This used to be imported by app/globals.css, which put about 27 KB of
+ * KaTeX rules into the one render-blocking stylesheet every page downloads,
+ * while only the articles with equations use them. The article template
+ * now mounts components/article/math-stylesheet.tsx when the compiled MDX
+ * reports math (lib/rehype-math-flag.mjs), and the bundler emits this file
+ * as that component's own stylesheet.
+ *
+ * Order is load-bearing. KaTeX's rules are unlayered, so they still win
+ * over every Tailwind layer exactly as before; the site overrides below
+ * must come after them, because `.katex { font-size }` ties KaTeX's own
+ * `.katex { font: ... 1.21em ... }` on specificity and wins only on source
+ * order. They moved here with the import so that order is fixed within one
+ * file, whatever order the two stylesheets reach the document in.
+ */
+@import 'katex/dist/katex.min.css';
+
+/* KaTeX on the dark theme */
+.katex {
+  color: var(--color-text);
+  font-size: 1.02em;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
