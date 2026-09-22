@@ -281,10 +281,19 @@ export function WorldModelCostTable({ className }: { className?: string }) {
           'Predict2: about 26 s (2B, GB200) to over 30 min (14B, DGX Spark) per 480p, 16 fps clip; Predict1 14B: about 10 min per 5 s clip on one H100',
           'under 30 ms per frame',
         ],
+        // Derived order-of-magnitude estimate (see the article's lead-in), not a
+        // measurement. 8B decode token: 2 x 8e9 = ~1.6e10 FLOP. V-JEPA 2-AC
+        // (vjepa2-2025, Sec. 3.1 and App. B.2): a ~300M, 24-layer, 1024-wide
+        // predictor reads one step of 256 patch tokens (16 x 16 feature map)
+        // plus an action and a pose token, so a pass is 2 x 3e8 x 258 = ~1.6e11
+        // FLOP (attention and I/O projections add ~5%), about 10x a token. CEM
+        // at planning horizon 1 runs 800 samples x 10 refinements = 8,000
+        // passes, ~1.3e15 FLOP per planned action, ~8e4 = ~10^5x a token. At
+        // 16 s on one RTX 4090 that is ~80 TFLOP/s sustained, which is plausible.
         [
           'Approx. FLOP per unit vs 8B token',
           '1x',
-          '~10^2 to 10^3x per planned action',
+          '~10x per latent step; ~10^5x per planned action (800 samples x 10 refinements)',
           '~10^5 to 10^6x per frame',
           'near 0 transformer FLOP',
         ],
