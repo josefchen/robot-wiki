@@ -23956,6 +23956,213 @@
       "disposition": "permanent"
     },
     {
+      "id": "content-integration-20260923-calibration-prose",
+      "manifest": "prose",
+      "memberId": "article:classical/calibration",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bbf847ca93492826b8d9a38a3ec0c9bab0339a9f6743216eae8378feab05ea8f",
+      "reason": "Content fix from release/seo-content-fixes 94afc26 on classical/calibration: the hand-eye paragraph now credits Shiu and Ahmad (1989) with writing the problem as the homogeneous transform equation AX = XB and solving it in closed form, citing the newly registered shiu-ahmad-1989, and credits Tsai and Lenz (1989) with the classic efficient solution, replacing the claim that Tsai and Lenz formulated AX = XB. No other prose changed. Supersedes seo-merge-20260916-prose-1 (newHash 9cd9630824fc..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the AX = XB attribution against the Shiu and Ahmad record (IEEE T-RA 5(1):16-29, 1989, doi:10.1109/70.88014; Crossref title 'Calibration of wrist-mounted robotic sensors by solving homogeneous transform equations of the form AX=XB') and the Tsai and Lenz record (doi:10.1109/70.34770).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-action-spaces-prose",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0999f35e2288d868231bf1a9209801386b8712eb0bdfc32c62e3c66fe9098f98",
+      "reason": "Content fix from release/seo-content-fixes 57ace72 on manipulation/action-spaces: the chunking paragraph replaces 'ACT showed that this temporal abstraction can matter more than the choice of probabilistic head' with what ACT's ablations report (chunking improved ACT and the two baselines the authors retrofitted with it; removing the CVAE objective cut success on the two simulated human-data tasks from 35.3% to 2%), and adds Cite markers for the already registered real-time-chunking-2025 (real-time chunk replacement) and rt2-2023 (RT-2 action tokens). No other prose changed. Supersedes seo-merge-20260916-prose-16 (newHash b6de62e12a66..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the ACT ablations in Zhao et al., arXiv 2304.13705, Fig. 8(a) and 8(c) and the accompanying text ('there is a significant drop from 35.3% to 2%').",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-model-based-robot-learning-prose",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ad9fd12b41ca91bcd07d338b4eba66b76e179fababbe1d7299f2eaeb4a9a4d0c",
+      "reason": "Spelling-only fix from release/seo-content-fixes 32f6b94 on world-models/model-based-robot-learning: 'two-millimetre' becomes 'two-millimeter', the site's American spelling. No claim, number, citation or other wording changed. Supersedes seo-merge-20260916-prose-32 (newHash 56b3d2141a5f..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the single changed token against the site's American-spelling convention (no source claim is affected).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-world-models-vs-simulators-prose",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e44a8b784487c1b90d320c0c9fe8e816922ba9f72a8c3ea18c72b97f1f4882fd",
+      "reason": "Content fix from release/seo-content-fixes c100a54 and 2aaadc0 on world-models/world-models-vs-simulators: the LLM paragraph cites the Llama 3 paper (new llama-3-herd-2024) for the 8B model's 32 layers and 8 key-value heads before deriving the ~128 KB per token fp16 KV cache; the V-JEPA 2-AC paragraph reports the paper's two planning times (16 s with 800 samples; Cosmos about 4 min with 80 samples) instead of attributing a 15x ratio to the paper, and replaces the 'horizon cost nearly flat' claim with the block-causal context growth the paper describes; 'the real-to-sim-to-real pattern above' becomes 'below' (the section follows); the horizon-row sentence is aligned with that correction. The WorldModelCostTable cells live in components/mdx/text-tables.tsx, outside this member. Supersedes wm-cost-prose-20260917-1 (newHash c2fe304dccab..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the Llama 3 Herd paper (arXiv 2407.21783v3, Table 3 and Sec. 3.2: 32 layers, 8 key/value heads for 8B) and the V-JEPA 2 paper (arXiv 2506.09985, Sec. 3.1 block-causal predictor over 16 x 16 feature maps, Table 3 and App. B.2: 800 samples, 10 refinement steps, horizon 1, 16 s per action versus Cosmos 80 samples, 4 min).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-calibration-relationships",
+      "manifest": "relationships",
+      "memberId": "article:classical/calibration",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "887673416916159c3e8cbdeff8b9d99fb64129b48cd90f594e1762c1a26dbf9c",
+      "reason": "The calibration correction adds one shiu-ahmad-1989 Cite marker and frontmatter citation to classical/calibration, changing its References relationships; the tsai-lenz-1989 citation and all See also and Linked from links are unchanged. Supersedes seo-merge-20260916-relationships-38 (newHash 911d32b9d705..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the shiu-ahmad-1989 registration against Crossref doi:10.1109/70.88014 (authors Y.C. Shiu, S. Ahmad; 1989).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-action-spaces-relationships",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6025ba773e946a19f5590ac6b484cf8dfdfcced5f093f170a0513aac6016fde0",
+      "reason": "The action-spaces correction adds Cite markers and frontmatter citations for the already registered real-time-chunking-2025 and rt2-2023 to manipulation/action-spaces, changing its References relationships; no citation was removed and See also and Linked from links are unchanged. Supersedes seo-merge-20260916-relationships-47 (newHash 3bf532f1f8c4..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the RTC and RT-2 citations at the two claims they now support (real-time chunk replacement; RT-2 discretizing actions into vocabulary tokens).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-world-models-vs-simulators-relationships",
+      "manifest": "relationships",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f85a661206c2e7514b77f5bbb8a62986168e670ee60458efff9d04001d61ea73",
+      "reason": "The world-models-vs-simulators correction adds one llama-3-herd-2024 Cite marker and frontmatter citation, changing the article's References relationships; the llama-3-2024 blog citation and all other relationships are unchanged. Supersedes wm-cost-rel-20260917-1 (newHash 7b889bd353f6..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the llama-3-herd-2024 registration against arXiv 2407.21783 (title 'The Llama 3 Herd of Models', 561 authors, 2024).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-calibration-frontmatter",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/calibration",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a8ba60d05e95a64237cbbc02e8fa9fab7f8057e95ce5d41dc2582019a567924b",
+      "reason": "Frontmatter citations list of classical/calibration gains shiu-ahmad-1989 after zhang-2000-calibration; title, description, dates, lastReviewed and every other frontmatter field are unchanged. Supersedes seo-merge-20260916-article-metadata-115 (newHash 0cc4c8d7ca07..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the shiu-ahmad-1989 record (Crossref doi:10.1109/70.88014).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-action-spaces-frontmatter",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/action-spaces",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "35db543c3bcdb04d3e902e02a7da6d20a2401ea4f2ae831d60d730b0e2bb5ed7",
+      "reason": "Frontmatter citations list of manipulation/action-spaces gains real-time-chunking-2025 and rt2-2023 after diffusion-policy-2023; title, description, dates, lastReviewed and every other frontmatter field are unchanged. Supersedes seo-merge-20260916-article-metadata-120 (newHash 7435f52e857c..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the two added citation IDs, both already registered and each matched to the claim it supports.",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-world-models-vs-simulators-frontmatter",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "cba866c3d51b068de49735d67fa767862d6f95d9a4af8d4c7b882491b7d73d88",
+      "reason": "Frontmatter citations list of world-models/world-models-vs-simulators gains llama-3-herd-2024 after llama-3-2024; title, description, dates, lastReviewed and every other frontmatter field are unchanged. Supersedes wm-cost-frontmatter-20260917-1 (newHash 4965d12b7655..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as history.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the llama-3-herd-2024 record (arXiv 2407.21783).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-label-and-meta",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb",
+      "reason": "The registry-wide citation label/meta digest moves because the content fixes register two citations, llama-3-herd-2024 (label 'Grattafiori 2024') and shiu-ahmad-1989 (label 'Shiu 1989'). A per-ID comparison of citationLabel and citationMeta over all 437 citations at 754ae58 against the 439 at this tree found no existing label or meta string changed. This entry re-anchors the member from the seal to the new registry state and supersedes continuation-merge-20260922-article-metadata-label-and-meta (newHash 5f3bad00fb7f..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as the record of the 2026-09-22 merged value.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of both new registry entries: arXiv 2407.21783 (title, first three of 561 authors, 2024) and Crossref doi:10.1109/70.88014 (title, Y.C. Shiu and S. Ahmad, IEEE T-RA 5(1):16-29, 1989).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-citation-llama-3-herd-2024",
+      "manifest": "article-metadata",
+      "memberId": "citation:llama-3-herd-2024",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c06fd63892a5e43059e4dce9c932a2bb27c064374466af3ebac4e19d9c29f877",
+      "reason": "New registry member: llama-3-herd-2024, 'The Llama 3 Herd of Models' (arXiv 2407.21783, 2024; first three of 561 authors listed, with the convention recorded in data/crossref-author-exceptions.ts), registered as the source for the Llama 3 8B layer and key-value-head figures in world-models/world-models-vs-simulators.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the arXiv abs page (citation_title 'The Llama 3 Herd of Models', 561 citation_author entries starting Grattafiori, Dubey, Jauhri; date 2024/07/31) and v3 PDF Table 3 (8B: 32 layers, model dimension 4,096, 8 key/value heads).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-integration-20260923-citation-shiu-ahmad-1989",
+      "manifest": "article-metadata",
+      "memberId": "citation:shiu-ahmad-1989",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9c1abf1a9ba5ee4d9e93dd08cc144e7539024393ede6d78d80bf30d5ce93fabb",
+      "reason": "New registry member: shiu-ahmad-1989, 'Calibration of wrist-mounted robotic sensors by solving homogeneous transform equations of the form AX=XB', Y. C. Shiu and S. Ahmad, IEEE Trans. Robotics and Automation, 1989, doi:10.1109/70.88014, registered for the AX = XB attribution in classical/calibration.",
+      "ownerApproval": "Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22/23 ('you think and decide all'); approved after primary-source verification of the Crossref record for doi:10.1109/70.88014 (exact title, authors Y.C. Shiu and S. Ahmad, volume 5 issue 1 pages 16-29, 1989).",
+      "responsibleMilestone": "content integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
       "id": "perf-articles-20260923-accessible-names-citation-records-title",
       "manifest": "accessible-names",
       "memberId": "expression:components/article/citation-records.tsx:title:1",

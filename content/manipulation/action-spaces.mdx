@@ -11,6 +11,8 @@ citations:
   - modern-robotics-2017
   - act-aloha-2023
   - diffusion-policy-2023
+  - real-time-chunking-2025
+  - rt2-2023
   - openvla-2024
   - martin-martin-2019
   - khatib-1987
@@ -95,15 +97,15 @@ This split is often the engineering sweet spot: the learner decides how the robo
 
 ## Chunks change the time axis
 
-An <Term id="action-chunking">action chunk</Term> predicts several future steps per inference. ACT showed that this temporal abstraction can matter more than the choice of probabilistic head <Cite id="act-aloha-2023" />. Diffusion Policy also predicts a horizon and executes only the first portion before replanning <Cite id="diffusion-policy-2023" />.
+An <Term id="action-chunking">action chunk</Term> predicts several future steps per inference. In ACT's ablations, chunking improved ACT and the two baselines the authors retrofitted with it, and the CVAE objective proved essential on human demonstrations: removing it cut success on the two simulated human-data tasks from 35.3% to 2% <Cite id="act-aloha-2023" />. Diffusion Policy also predicts a horizon and executes only the first portion before replanning <Cite id="diffusion-policy-2023" />.
 
-Chunks reduce inference pressure and model temporally coordinated motion. They also create a stale-plan problem. If contact makes the world diverge after the first few steps, the remaining chunk reflects an observation that is no longer current. Receding-horizon execution, temporal ensembling and real-time chunk replacement are different answers to that problem.
+Chunks reduce inference pressure and model temporally coordinated motion. They also create a stale-plan problem. If contact makes the world diverge after the first few steps, the remaining chunk reflects an observation that is no longer current. Receding-horizon execution, temporal ensembling and real-time chunk replacement <Cite id="real-time-chunking-2025" /> are different answers to that problem.
 
 Report the chunk horizon and the executed horizon separately. “Predicts 16 actions” does not tell a reader whether all 16 are sent open loop or whether the policy replans after four.
 
 ## Tokens change the output geometry
 
-RT-2 and OpenVLA mapped continuous action dimensions into discrete vocabulary tokens so robot control could use language-model training machinery. OpenVLA discretizes seven action dimensions into 256 bins and emits the tokens autoregressively <Cite id="openvla-2024" />. This makes cross-entropy training easy and adds quantization error plus sequential decoding latency.
+RT-2 <Cite id="rt2-2023" /> and OpenVLA mapped continuous action dimensions into discrete vocabulary tokens so robot control could use language-model training machinery. OpenVLA discretizes seven action dimensions into 256 bins and emits the tokens autoregressively <Cite id="openvla-2024" />. This makes cross-entropy training easy and adds quantization error plus sequential decoding latency.
 
 FAST takes the opposite route: transform an action chunk into frequency coefficients, quantize the sparse coefficients, then apply byte-pair encoding. Its universal FAST+ tokenizer was trained across one million robot trajectories <Cite id="pi0-fast-2025" />. The tokenizer compresses smooth trajectories better than independent uniform bins, but the decoded result is still meaningful only under the action convention used before tokenization.
 

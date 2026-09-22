@@ -15,6 +15,10 @@ import { sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind } fr
  *   delta from its sealed baseline hash to the merged hash, because each
  *   lane's own approval only brackets that lane's endpoint.
  *
+ * A member moved again after the integration keeps that re-anchor as the
+ * record of the merged value and gains a later re-anchor from the same sealed
+ * hash to the new HEAD value (see LATER_REANCHOR_PREFIXES).
+ *
  * These helpers only read history and committed files; the assertions stay
  * in the tests that own them.
  */
@@ -74,6 +78,58 @@ export function reanchorFor(
   return approvals.find(
     (entry) =>
       entry.id.startsWith(REANCHOR_PREFIX) &&
+      entry.manifest === kind &&
+      entry.memberId === memberId,
+  );
+}
+
+/**
+ * The 2026-09-22 integration commit. The brand-v2 evidence committed with it
+ * observed each re-anchored member's merged value on the integrated tree.
+ */
+export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
+
+/**
+ * Later integrations that move a member the 2026-09-22 integration
+ * re-anchored. Each appends its own re-anchor after the ledger it found, from
+ * the same sealed hash to its own HEAD value, and leaves the continuation
+ * re-anchor in place as the record of the merged value.
+ *
+ * - `content-integration-20260923-`: release/seo-content-fixes onto 754ae58
+ *   registered llama-3-herd-2024 and shiu-ahmad-1989, which moved
+ *   `citation-rendering:label-and-meta`.
+ */
+export const LATER_REANCHOR_PREFIXES = ['content-integration-20260923-'] as const;
+
+let integratedObservations: Map<string, string | undefined> | undefined;
+
+/**
+ * A member's merged value at the integration commit, as that commit's own
+ * committed evidence observed it (not as the ledger claims it).
+ */
+export function integratedHash(kind: BaselineKind, memberId: string): string | undefined {
+  integratedObservations ??= new Map(
+    (
+      JSON.parse(showAt(INTEGRATION_COMMIT, 'evidence/brand-v2/results.json')) as {
+        results: Array<{ resultId: string; payload?: { observed?: { currentHash?: string } } }>;
+      }
+    ).results.map((row) => [row.resultId, row.payload?.observed?.currentHash]),
+  );
+  return integratedObservations.get(`result:VAL-B2-BASE-002:${kind}:${memberId}`);
+}
+
+/**
+ * The re-anchor that brackets a re-anchored member at HEAD: the last
+ * continuation or later-integration re-anchor for it, in ledger order.
+ */
+export function headReanchorFor(
+  approvals: readonly ApprovedDelta[],
+  kind: BaselineKind,
+  memberId: string,
+): ApprovedDelta | undefined {
+  return approvals.findLast(
+    (entry) =>
+      [REANCHOR_PREFIX, ...LATER_REANCHOR_PREFIXES].some((prefix) => entry.id.startsWith(prefix)) &&
       entry.manifest === kind &&
       entry.memberId === memberId,
   );

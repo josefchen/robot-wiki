@@ -16,6 +16,7 @@ import { articleStructuredImagePaths, SITE_CARD_PATH } from '@/lib/og-cards';
 
 interface VercelHeaderRule {
   source: string;
+  has?: Array<{ type: string; value: string }>;
   headers: Array<{ key: string; value: string }>;
 }
 
@@ -100,6 +101,24 @@ describe('vercel.json static-asset cache headers', () => {
         `${rule.source} must not long-cache HTML`,
       ).toBe(false);
     }
+  });
+});
+
+describe('vercel.json security and alias headers', () => {
+  it('sends baseline security headers on every response', () => {
+    const rule = vercel.headers?.find((entry) => entry.source === '/(.*)' && !entry.has);
+    const header = (key: string) => rule?.headers.find((h) => h.key === key)?.value;
+    expect(header('X-Content-Type-Options')).toBe('nosniff');
+    expect(header('Referrer-Policy')).toBe('strict-origin-when-cross-origin');
+    expect(header('X-Frame-Options')).toBe('DENY');
+    expect(header('Permissions-Policy')).toMatch(/camera=\(\)/);
+  });
+
+  it('keeps *.vercel.app aliases out of search indexes', () => {
+    const rule = vercel.headers?.find((entry) =>
+      entry.has?.some((c) => c.type === 'host' && c.value.includes('vercel\\.app')),
+    );
+    expect(rule?.headers).toContainEqual({ key: 'X-Robots-Tag', value: 'noindex' });
   });
 });
 

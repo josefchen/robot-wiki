@@ -8,12 +8,18 @@
  * data files. Wired as the `postbuild` npm script so `npm run build`
  * always produces a searchable export.
  *
+ * The Pagefind bundle is also mirrored into public/pagefind/ (gitignored).
+ * Vercel's Next.js preset deploys public/ as collected after the build
+ * command, not the finished out/, so without the mirror /pagefind/pagefind.js
+ * 404s in production and article search silently falls back to entity-only
+ * results (public/search-index.json ships the same way).
+ *
  * Index scoping for Pagefind is done in markup: module articles carry
  * `data-pagefind-body`; nav chrome, the 404 page, and the search page
  * itself carry `data-pagefind-ignore`.
  */
 import { spawnSync } from 'node:child_process';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
   assertStructuredIndexMatchesData,
@@ -68,7 +74,11 @@ if (!structuredOnly) {
     process.exit(1);
   }
 
-  console.log('build:search: OK (out/pagefind/ ready)');
+  const publicPagefind = join(root, 'public', 'pagefind');
+  rmSync(publicPagefind, { recursive: true, force: true });
+  cpSync(join(outDir, 'pagefind'), publicPagefind, { recursive: true });
+
+  console.log('build:search: OK (out/pagefind/ ready, mirrored to public/pagefind/)');
 }
 
 try {
