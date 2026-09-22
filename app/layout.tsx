@@ -49,11 +49,29 @@ const newsreader = Newsreader({
   display: 'swap',
 });
 
+// IBM Plex Mono is loaded as two faces of one family so each weight can
+// carry its own preload decision. Measured on a 412px viewport, weight 400
+// sets a label or two above the fold on every route (about 55 characters)
+// and weight 500 sets nothing there, so only 400 is preloaded: a late
+// discovered 400 cost home a simulated round trip before first paint, while
+// preloading 500 only spent early bandwidth the LCP font needed (Newsreader
+// on articles, Plex Sans on home). Both calls declare the same
+// `--font-plex-mono` stack for the same family name, so the data role
+// resolves exactly as before; 500 loads as soon as a page uses it, and
+// `swap` with the size-adjusted fallback keeps that text in place meanwhile.
 const plexMono = IBM_Plex_Mono({
   variable: '--font-plex-mono',
-  weight: ['400', '500'],
+  weight: ['400'],
   subsets: ['latin'],
   display: 'swap',
+});
+
+const plexMonoMedium = IBM_Plex_Mono({
+  variable: '--font-plex-mono',
+  weight: ['500'],
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -119,7 +137,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
+      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable} ${plexMonoMedium.variable}`}
     >
       <body>
         {/* The skip link is the shell's first tab stop and the shell has to
