@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "719c5ed3977dab21979c4e3cea0c75b8c781efdd8867efd766810ef94a67cf92",
+  "fingerprint": "caa9e6cab71c2fbe8acc322a461e830eec784814877c69dfb1e5b92d99755182",
   "source": "out/ static export",
   "routes": [
     {
@@ -39,8 +39,8 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "outboundAnchors": 61,
-      "distinctHrefs": 22,
+      "outboundAnchors": 63,
+      "distinctHrefs": 23,
       "shapes": [
         "citation-chip",
         "footer",
@@ -124,7 +124,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "outboundAnchors": 26,
+      "outboundAnchors": 27,
       "distinctHrefs": 14,
       "shapes": [
         "citation-chip",
@@ -220,8 +220,8 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundAnchors": 41,
-      "distinctHrefs": 16,
+      "outboundAnchors": 47,
+      "distinctHrefs": 17,
       "shapes": [
         "citation-chip",
         "footer",
@@ -466,7 +466,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "outboundAnchors": 46,
+      "outboundAnchors": 47,
       "distinctHrefs": 18,
       "shapes": [
         "citation-chip",
@@ -477,7 +477,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "outboundAnchors": 44,
+      "outboundAnchors": 46,
       "distinctHrefs": 16,
       "shapes": [
         "citation-chip",
@@ -633,7 +633,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "outboundAnchors": 46,
+      "outboundAnchors": 47,
       "distinctHrefs": 20,
       "shapes": [
         "citation-chip",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3085,
-  "distinctOutboundHrefs": 848,
+  "outboundAnchors": 3098,
+  "distinctOutboundHrefs": 850,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1350,
-    "reference-entry": 738,
+    "citation-chip": 1361,
+    "reference-entry": 740,
     "other": 603
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2548,
+  "anchorsWithNoreferrer": 2561,
   "keyboard": [
     {
       "route": "/",
@@ -827,11 +827,11 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "outboundInDom": 61,
-      "reachedByTab": 61,
+      "outboundInDom": 63,
+      "reachedByTab": 63,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 176
+      "tabStops": 179
     },
     {
       "route": "/adjacent/drones/",
@@ -891,11 +891,11 @@
     },
     {
       "route": "/classical/kinematics/",
-      "outboundInDom": 26,
-      "reachedByTab": 26,
+      "outboundInDom": 27,
+      "reachedByTab": 27,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 122
+      "tabStops": 124
     },
     {
       "route": "/classical/motion-planning/",
@@ -959,15 +959,15 @@
       "reachedByTab": 30,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 113
+      "tabStops": 114
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundInDom": 41,
-      "reachedByTab": 41,
+      "outboundInDom": 47,
+      "reachedByTab": 47,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 154
+      "tabStops": 166
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
@@ -983,7 +983,7 @@
       "reachedByTab": 114,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 243
+      "tabStops": 244
     },
     {
       "route": "/data-hardware/industrial-deployment/",
@@ -1127,7 +1127,7 @@
       "reachedByTab": 35,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 121
+      "tabStops": 126
     },
     {
       "route": "/manipulation/diffusion-policy/",
@@ -1147,19 +1147,19 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
+      "outboundInDom": 47,
+      "reachedByTab": 47,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 163
+    },
+    {
+      "route": "/manipulation/hierarchical/",
       "outboundInDom": 46,
       "reachedByTab": 46,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 160
-    },
-    {
-      "route": "/manipulation/hierarchical/",
-      "outboundInDom": 44,
-      "reachedByTab": 44,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 143
+      "tabStops": 147
     },
     {
       "route": "/manipulation/knowledge-insulation/",
@@ -1275,11 +1275,11 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "outboundInDom": 46,
-      "reachedByTab": 46,
+      "outboundInDom": 47,
+      "reachedByTab": 47,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 162
+      "tabStops": 164
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",

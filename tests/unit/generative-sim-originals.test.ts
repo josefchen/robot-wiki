@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import matter from 'gray-matter';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
@@ -130,14 +131,26 @@ describe('generative-sim originals integration (2026-09-16n evidence completions
     expect(byId.get('splatsim-2024')?.authors).toHaveLength(6);
   });
 
-  it('keeps the held frontmatter-sweep row unbound and evidence-incomplete', () => {
-    const { section } = parseSection();
+  it('leaves the formerly held frontmatter-sweep row to its own 20260917a sweep plan', () => {
+    // This packet held row 15 unbound; the 20260917a frontmatter sweep later
+    // bound it to its own plan, so the honest current assertion is that the
+    // row carries that sweep's plan (not one of this packet's) and is complete.
+    const { section, compoundPlans } = parseSection();
     const record = section.claimRecords[HELD_ORDINAL - 1];
-    expect(record.compound?.planId ?? '').toBe('');
-    expect(record.evidenceFailures.length).toBeGreaterThan(0);
-    expect(record.evidenceFailures).toContain(
-      'compound Evidence plan is missing; scalar evidence cannot certify this batch',
-    );
+    expect(record.compound?.planId).toBe('generative-sim-15-frontmatter-sweep-20260917a');
+    expect(Object.values(EXPECTED_20260916N)).not.toContain(record.compound?.planId);
+    // A frontmatter-P1 sweep row is only decidable against the article's
+    // canonical frontmatter; with that context it carries no failures.
+    const frontmatter = matter(
+      readFileSync(join(ROOT, 'content/world-models/generative-sim.mdx'), 'utf8'),
+    ).data.citations as string[];
+    const withContext = parseLedger(
+      'audit/world-models.md',
+      readFileSync(join(ROOT, 'audit/world-models.md'), 'utf8'),
+      new Set(CITATIONS.map(({ id }) => id)),
+      { compoundPlans, articleCitations: { 'generative-sim': frontmatter } },
+    ).find((s) => s.slug === 'generative-sim')!.claimRecords[HELD_ORDINAL - 1];
+    expect(withContext.evidenceFailures).toEqual([]);
   });
 
   it('records integrator plan review on every 20260916n generative-sim plan', () => {

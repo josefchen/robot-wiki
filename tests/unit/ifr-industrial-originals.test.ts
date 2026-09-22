@@ -139,8 +139,13 @@ describe('five IFR and OSHA industrial originals', () => {
     expect(citation.venue).not.toContain('2025-09-25');
   });
 
-  it('preserves the mixed Stat and authored holds, peer pair and old article review date', () => {
-    for (const n of [8, 52]) expect(parse().claimRecords[n - 1].evidenceFailures.length).toBeGreaterThan(0);
+  it('preserves the peer pair, completed original 8, held original 52 and old review date', () => {
+    // Row 8 stays complete. EVST cannot resolve row 52's named authored-proof
+    // hold; the genuine component correction is not source completion.
+    expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
+    expect(parse().claimRecords[51].evidenceFailures).toContain(
+      'Supporting passage must contain the passage actually read, not a locator or placeholder',
+    );
     for (const n of [27, 28]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
     expect(article).toContain('lastReviewed: "2026-08-22"');
     expect(article).toContain('value="~5,500" note="Unitree, its own figure"');

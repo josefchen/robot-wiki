@@ -94,8 +94,11 @@ describe('classical SLAM source corrections', () => {
       expect(records()[ordinal - 1].evidenceFailures, `original ${ordinal}`).toEqual([]);
     }
     // Later scene-representation packets completed the formerly excluded
-    // 18/24/45/49; only originals 1 and 10 remain held incomplete.
-    for (const ordinal of [1, 10]) {
+    // 18/24/45/49, and the 20260917a identity sweep bound original 1
+    // (scene-representation-1-identity-sweep-20260917a); only original 10 remains incomplete.
+    expect(records()[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
+    expect(records()[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
+    for (const ordinal of [10]) {
       expect(records()[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
     }
   });

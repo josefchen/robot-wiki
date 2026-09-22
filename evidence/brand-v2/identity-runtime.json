@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c0ae498d873fe0bfdfa7baae87b35cde67744e63494f7d88865151ad76757715",
+  "fingerprint": "b5452ec91ee1bb324f80ce0ce837074b14d0405c062ac0e33b8c76af4a9d2c52",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -252,7 +252,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 5638,
+      "visibleTextLength": 5627,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -633,7 +633,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28975,
+      "visibleTextLength": 29400,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "1440x900"
     },
@@ -1395,7 +1395,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26075,
+      "visibleTextLength": 26114,
       "route": "/classical/control/",
       "viewport": "1440x900"
     },
@@ -1522,7 +1522,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17458,
+      "visibleTextLength": 17449,
       "route": "/classical/grasp-planning/",
       "viewport": "1440x900"
     },
@@ -1649,7 +1649,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17492,
+      "visibleTextLength": 17566,
       "route": "/classical/kinematics/",
       "viewport": "1440x900"
     },
@@ -2665,7 +2665,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15077,
+      "visibleTextLength": 15221,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -2792,7 +2792,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15456,
+      "visibleTextLength": 15880,
       "route": "/data-hardware/datasets/",
       "viewport": "1440x900"
     },
@@ -3046,7 +3046,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26787,
+      "visibleTextLength": 26921,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "1440x900"
     },
@@ -3173,7 +3173,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22501,
+      "visibleTextLength": 22583,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -5713,7 +5713,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21864,
+      "visibleTextLength": 22433,
       "route": "/manipulation/generalist-policies/",
       "viewport": "1440x900"
     },
@@ -5840,7 +5840,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19428,
+      "visibleTextLength": 19724,
       "route": "/manipulation/hierarchical/",
       "viewport": "1440x900"
     },
@@ -7745,7 +7745,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27601,
+      "visibleTextLength": 27738,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -9569,7 +9569,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 5416,
+      "visibleTextLength": 5405,
       "route": "/",
       "viewport": "375x812"
     },
@@ -9950,7 +9950,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28657,
+      "visibleTextLength": 29082,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "375x812"
     },
@@ -10712,7 +10712,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25654,
+      "visibleTextLength": 25693,
       "route": "/classical/control/",
       "viewport": "375x812"
     },
@@ -10839,7 +10839,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17037,
+      "visibleTextLength": 17028,
       "route": "/classical/grasp-planning/",
       "viewport": "375x812"
     },
@@ -10966,7 +10966,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17071,
+      "visibleTextLength": 17145,
       "route": "/classical/kinematics/",
       "viewport": "375x812"
     },
@@ -11982,7 +11982,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14698,
+      "visibleTextLength": 14842,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -12109,7 +12109,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15077,
+      "visibleTextLength": 15501,
       "route": "/data-hardware/datasets/",
       "viewport": "375x812"
     },
@@ -12363,7 +12363,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26408,
+      "visibleTextLength": 26542,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "375x812"
     },
@@ -12490,7 +12490,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22122,
+      "visibleTextLength": 22204,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -15030,7 +15030,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21237,
+      "visibleTextLength": 21806,
       "route": "/manipulation/generalist-policies/",
       "viewport": "375x812"
     },
@@ -15157,7 +15157,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18801,
+      "visibleTextLength": 19097,
       "route": "/manipulation/hierarchical/",
       "viewport": "375x812"
     },
@@ -17062,7 +17062,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27126,
+      "visibleTextLength": 27263,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },

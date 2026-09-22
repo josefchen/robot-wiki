@@ -284,7 +284,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | isaac-gr00t-repo-2026 | https://github.com/NVIDIA/Isaac-GR00T | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:07:28.926Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
 | helix-2025 | https://www.figure.ai/news/helix | ok | match | none (verified as cited) |  |
 | helix-02-2026 | https://www.figure.ai/news/helix-02 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:07:28.926Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
-| agibot-world-2025 | https://arxiv.org/abs/2503.06669 | ok | match | none (verified as cited) |  |
+| agibot-world-2025 | https://arxiv.org/abs/2503.06669 | ok | match | 2026-09-22: author metadata corrected from AgiBot Research to AgiBot-World-Contributors plus all 51 named authors in source order | Retained arXiv abstract verification copy observed 2026-09-15T20:05:50Z; complete source identity, hash and original transport record in the non-counted generalist15/21 history in audit/manipulation.md. No new reachability request or current HTTP status. |
 | agibot-go2-2026 | https://www.agibot.com/article/231/detail/56.html | ok (exception) | unavailable | none (verified as cited) | www.agibot.com answers HTTP 500 to node fetch on every probe (7 of 7, HEAD and GET, 2026-08-11) while curl and Chromium get HTTP 200: a client-fingerprint wall, not link rot. The page has no DOI, so Crossref cannot stand in for the fetch. Verified 2026-08-11: curl GET with the sweep's browser user agent: HTTP 200, 135,961 bytes; headless Chromium (Playwright): HTTP 200, page title "The Unity of Reasoning and Action: AGIBOT Unveils Genie Operator" (the GO-2 announcement). |
 | agibot-go2-robotreport-2026 | https://www.therobotreport.com/agibot-releases-go-2-foundation-model-embodied-ai/ | ok | match | none (verified as cited) |  |
 | skild-series-c-2026 | https://www.skild.ai/blogs/series-c | ok | match | none (verified as cited) |  |
@@ -400,6 +400,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | gpt3-2020 | https://arxiv.org/abs/2005.14165 | ok | match | none (verified as cited) |  |
 | llama-3-2024 | https://ai.meta.com/blog/meta-llama-3/ | ok (exception) | unavailable | none (verified as cited) | ai.meta.com answers HTTP 400 to every non-browser client (curl and node fetch, regardless of headers): a TLS-fingerprint bot-wall, not link rot. The post has no DOI, so Crossref cannot stand in for the fetch. Verified 2026-08-11: Headless Chromium (Playwright) on a real browser fingerprint: HTTP 200, page title "Introducing Meta Llama 3: The most capable openly available LLM to date" matches the registry entry. |
 | fineweb-2024 | https://arxiv.org/abs/2406.17557 | ok | match | none (verified as cited) |  |
+| cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | retained primary identity; no fresh reachability probe | match: Attribution 4.0 International; publisher Creative Commons | Omitted citation-ledger entry added 2026-09-22; registry unchanged. Year 2013 identifies publication of license version 4.0, NOT publication or update of the undated deed webpage, and not DROID's 2024 release. | Deed heading: "Attribution 4.0 International CC BY 4.0 Deed"; canonical URL matches this row. Retained HTML /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/ccby4-deed.html, SHA-256 231a5dac65bbf135ba27145969a63cd289faadc172f1512c4810a6c60ba91036 (32,178 bytes); original preparation-report.json in that packet records curl HTTP 200 completed 2026-09-16T04:09:19Z, not a new observation. Publisher https://wiki.creativecommons.org/wiki/License_Versions states version 4.0 was "published November 2013"; its License Versioning History table gives "2013 Nov 25". Retained response /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-licenses-recovery-20260921/source-4.txt, SHA-256 cf68cbd7b01e758c0398c2632783f048dea6eff05c04eb95b4cfbc5bc44ebb10 (30,676 bytes), retrieved via rune___web_scrape at 2026-09-21T22:59:00.538Z; requested/final URL both License_Versions, 30,000-character truncated body, origin HTTP status not exposed. Source paths, passages and provenance are bound by that packet's rows.json, SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Both retained bodies/hashes checked for this addition; zero retrieval. The deed says "No warranties are given" and warns that other rights may limit an intended use; it is a summary, not the legal code or legal advice. This entry grants no legal permission, current liveness or whole-gate acceptance. No article prose or lastReviewed changed; humanizer not applicable to this citation-ledger/test repair. |
 | droid-2024 | https://arxiv.org/abs/2403.12945 | ok | match | none (verified as cited) |  |
 | bridgedata-v2-2023 | https://arxiv.org/abs/2308.12952 | ok | match | none (verified as cited) |  |
 | robomind-2024 | https://arxiv.org/abs/2412.13877 | ok | match | none (verified as cited) |  |
@@ -827,3 +828,28 @@ tests/unit/motion-planning-originals.test.ts is updated in this same change
 (url pin + held-row wording); the historical 2026-09-16 integration-history
 narratives stay as written. Registered-entry comment refreshed to record the
 identity verification.
+
+
+## No Hands Across America registration — 2026-09-17
+
+`no-hands-across-america-1995` registered by the convergence-aq integrator (lane
+convergence-aq-books-industrial-integration-20260917a) from the frozen AO packet
+`convergence-ao-av2-plus-bookretry-20260917a` (rows.json sha256
+ca1245a0c832c4f103779536c07cac10316eaf369c06351090ecb334cfb66da6, binding
+autonomous-vehicles:2). This removes the 2026-09-15 registration hold recorded in the
+adjacent ledger: the hold existed only because the tour site appeared to serve over plain
+http while the locked registry schema (data/schemas/citation.ts) admits https URLs and
+dated web.archive.org captures alone. The preparer re-verified all three tour URLs fresh
+on 2026-09-17 over https with no redirect (index 5,933 B; nhaa_home_page.html 1,444 B,
+sha256 9c27fb4132fdbfbe4aabe06fe9ce78b3b16a1de96265fdbcb4dbe592f6473878; ralph.html
+20,895 B), so the live https URL registers directly and no capture identity was
+constructed. Absence verified before registering (zero occurrences in data/citations.ts
+and this ledger). The article's demonstration-tour span now carries the new citation
+(the P3 defect the hold named); `alvinn-1988` remains the architecture citation for the
+1988 network. Authors from the page's own contact line (tjochem@ri.cmu.edu,
+pomerlea@cs.cmu.edu) and the RALPH/ALVINN program record. No fresh fetch by this
+integrator; every passage needle-verified against the retained sha256-pinned bytes.
+
+| ID | URL | Verdict | Identity | Correction | Note |
+|---|---|---|---|---|---|
+| no-hands-across-america-1995 | https://www.cs.cmu.edu/~tjochem/nhaa/nhaa_home_page.html | ok (retained) | match (retained) | registered 2026-09-17 from the frozen AO packet (convergence-ao-av2-plus-bookretry-20260917a, binding autonomous-vehicles:2); https no-redirect re-verified fresh by the preparer 2026-09-17; integrator needle-verified the retained bytes; no fresh fetch |  |

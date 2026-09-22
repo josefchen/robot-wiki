@@ -133,8 +133,11 @@ describe('source-scoped neural SLAM prose', () => {
       expect(current[ordinal - 1].evidenceFailures, `original ${ordinal}`).toEqual([]);
     }
     // Later scene-representation packets completed the formerly excluded
-    // 18/24/26/27/31/33/45/49; only originals 1 and 10 remain incomplete.
-    for (const ordinal of [1, 10]) {
+    // 18/24/26/27/31/33/45/49, and the 20260917a identity sweep bound original 1
+    // (scene-representation-1-identity-sweep-20260917a); only original 10 remains incomplete.
+    expect(current[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
+    expect(current[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
+    for (const ordinal of [10]) {
       expect(current[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
     }
     expect(source).toContain('<span className="block">Source: <Cite id="layered-costmaps-2014" /></span>');

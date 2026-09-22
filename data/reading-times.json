@@ -20,7 +20,7 @@
     "minutes": 16
   },
   "manipulation/generalist-policies": {
-    "words": 2524,
+    "words": 2579,
     "minutes": 13
   },
   "manipulation/comparison-matrix": {
@@ -28,7 +28,7 @@
     "minutes": 17
   },
   "manipulation/hierarchical": {
-    "words": 2148,
+    "words": 2175,
     "minutes": 11
   },
   "manipulation/rl-finetuning": {
@@ -40,7 +40,7 @@
     "minutes": 12
   },
   "manipulation/cross-embodiment": {
-    "words": 1695,
+    "words": 1696,
     "minutes": 8
   },
   "manipulation/knowledge-insulation": {
@@ -84,7 +84,7 @@
     "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 3279,
+    "words": 3297,
     "minutes": 16
   },
   "rl-sim2real/offline-rl": {
@@ -124,15 +124,15 @@
     "minutes": 10
   },
   "data-hardware/data-bottleneck": {
-    "words": 1709,
+    "words": 1707,
     "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 1823,
+    "words": 1849,
     "minutes": 9
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3514,
+    "words": 3513,
     "minutes": 18
   },
   "data-hardware/teleop-rigs": {
@@ -144,7 +144,7 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2571,
+    "words": 2585,
     "minutes": 13
   },
   "data-hardware/robot-learning-stack": {
@@ -152,7 +152,7 @@
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 2530,
+    "words": 2541,
     "minutes": 13
   },
   "classical/motion-planning": {
@@ -160,7 +160,7 @@
     "minutes": 20
   },
   "classical/control": {
-    "words": 3411,
+    "words": 3413,
     "minutes": 17
   },
   "classical/state-estimation": {
@@ -168,7 +168,7 @@
     "minutes": 14
   },
   "classical/grasp-planning": {
-    "words": 2425,
+    "words": 2424,
     "minutes": 12
   },
   "classical/perception": {
@@ -212,7 +212,7 @@
     "minutes": 14
   },
   "adjacent/autonomous-vehicles": {
-    "words": 3591,
+    "words": 3630,
     "minutes": 18
   },
   "adjacent/drones": {

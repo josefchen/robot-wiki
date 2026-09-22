@@ -60,9 +60,12 @@ describe('reliability-gap originals integration (packet 6be17fb6, 2026-09-15)', 
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
     }
-    // The merged ledger keeps appending later packets; this packet's block
-    // keeps its append slot at 606..619, so pin the slot, not a moving total.
-    expect(plans.slice(606, 620).map((p) => p.id)).toEqual(PLAN_IDS);
+    // The merged ledger keeps appending later packets; this packet's fourteen
+    // 20260915 plans keep their append slot at 606..619, so pin the slot, not
+    // a moving total. Row 6's 20260917a editorial plan replaced the packet's
+    // row-6 binding and is appended after that slot.
+    expect(plans.slice(606, 620).map((p) => p.id)).toEqual(PLAN_IDS.filter((id) => id.endsWith('-20260915')));
+    expect(plans.findIndex((p) => p.id === 'reliability-gap-r6-editorial-solvedbar-20260917a')).toBeGreaterThanOrEqual(620);
   });
 
   it('row 6 carries the 2026-09-17a editorial correction and its plan binding', () => {

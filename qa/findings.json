@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "project": "robot-wiki",
+  "updatedAt": "2026-08-23",
+  "observedAgainst": "main plus the active uncommitted Droid worktree",
+  "policy": {
+    "contract": "PRODUCT_QUALITY.md",
+    "implementer": "droid",
+    "reviewer": "codex",
+    "selfApprovalAllowed": false,
+    "llmScoresAreAdvisoryOnly": true
+  },
+  "currentBatch": {
+    "id": "RW-BATCH-001",
+    "title": "Market map credibility baseline",
+    "status": "ready_for_droid",
+    "objective": "Remove undefined authority signals and false taxonomy structure from the public market map.",
+    "scope": [
+      "RW-QA-002",
+      "RW-QA-001"
+    ],
+    "constraints": [
+      "Do not change route slugs, primary navigation, the locked wordmark, the engineering grid, typography, palette, or social cards.",
+      "Do not edit data/companies.ts by hand. Change the research source of truth and regenerate when company data must change.",
+      "Preserve every source link, as-of date, unknown value, keyboard path, and working deep link unless an acceptance criterion explicitly changes it.",
+      "Do not add a replacement score, progress meter, card treatment, marketing copy, feature, or general refactor.",
+      "Do not begin backlog findings outside this batch."
+    ],
+    "requiredHandoff": [
+      "Exact commit or diff",
+      "Changed files and routes",
+      "Before and after filter cardinality",
+      "1440x900 and 375x812 screenshots of /market-map/",
+      "Exact tests run and results",
+      "Unresolved decisions and known collateral changes"
+    ],
+    "stopConditions": [
+      "A required change would alter the six top-level market segments or the /market-map/ route.",
+      "A rewrite would require a factual claim that is not supported by an existing source.",
+      "Another writer is editing the same files.",
+      "The batch cannot preserve existing source links or honest unknown values."
+    ]
+  },
+  "findings": [
+    {
+      "id": "RW-QA-002",
+      "severity": "P0",
+      "status": "ready_for_droid",
+      "category": "trust",
+      "title": "Public confidence badges imply a methodology the product does not expose",
+      "route": "/market-map/",
+      "files": [
+        "data/schemas/shared.ts",
+        "data/schemas/company.ts",
+        "components/market-map/filter-bar.tsx",
+        "components/market-map/company-card.tsx",
+        "lib/market-map.ts"
+      ],
+      "evidence": [
+        "The public route labels 47 companies high confidence, 48 medium, and 16 low.",
+        "The source schema records only URL, title, and as-of date. It does not encode source class, claim coverage, verification method, or a reason for the row-level confidence label.",
+        "The UI turns the three labels into green, amber, and red badges and offers Confidence as a filter without explaining what is being scored."
+      ],
+      "acceptanceCriteria": [
+        "Remove the public Confidence filter and high, medium, and low badges from /market-map/ for this release.",
+        "Keep the internal confidence field unchanged so this batch does not trigger an unsupported 111-row data migration.",
+        "Drop legacy confidence query parameters safely while preserving all valid sibling filters.",
+        "Keep company source links and as-of dates visible.",
+        "State once, in plain language, that source links and dates are shown per company and unknown figures remain not disclosed.",
+        "Update focused component, unit, and deep-link tests to match the public behaviour."
+      ],
+      "mustNot": [
+        "Do not replace confidence with another score, stars, verification percentage, traffic light, or vague provenance badge.",
+        "Do not recolour the badges and call the problem fixed.",
+        "Do not remove or weaken source links, as-of dates, or honest unknown values."
+      ],
+      "verification": {
+        "owner": "codex",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "RW-QA-001",
+      "severity": "P1",
+      "status": "ready_for_droid",
+      "category": "taxonomy",
+      "title": "The approach filter exposes generated descriptors as if they were a usable taxonomy",
+      "route": "/market-map/",
+      "files": [
+        "research/04-market-map-companies.json",
+        "data/schemas/company.ts",
+        "scripts/generate-companies.ts",
+        "lib/market-map.ts",
+        "components/market-map/filter-bar.tsx"
+      ],
+      "evidence": [
+        "111 companies contain 238 approach assignments and 191 unique approach values.",
+        "168 of the 191 approach values occur on exactly one company.",
+        "lib/market-map.ts creates the public filter directly from every raw approach value, so the control is a list of descriptors rather than a navigable classification."
+      ],
+      "acceptanceCriteria": [
+        "Expose no more than 30 reviewed categories in the public Approach filter.",
+        "Every public filter category maps to at least two companies.",
+        "Preserve useful company-specific approach descriptors as row metadata without automatically promoting each descriptor into a filter option.",
+        "Keep valid existing deep links working where the old value has a clear canonical category; safely drop values that have no honest mapping.",
+        "Add a focused deterministic test that reports company count, assignment count, public category count, and singleton public category count.",
+        "The public category singleton count must be zero."
+      ],
+      "mustNot": [
+        "Do not solve this by hiding the select while leaving the same public taxonomy elsewhere.",
+        "Do not merge technically distinct concepts solely to hit the count.",
+        "Do not invent company capabilities or rewrite sourced facts."
+      ],
+      "verification": {
+        "owner": "codex",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "RW-QA-003",
+      "severity": "P1",
+      "status": "queued",
+      "category": "copy",
+      "title": "Company descriptions read like one generated template",
+      "route": "/market-map/",
+      "files": [
+        "research/04-market-map-companies.json"
+      ],
+      "evidence": [
+        "78 of 111 company descriptions begin with the word Builds.",
+        "The repetition makes independently sourced records sound batch-generated even when the facts are sound."
+      ],
+      "acceptanceCriteria": [
+        "No single opening word is used by more than 25 percent of company descriptions.",
+        "Each edited description remains one concise factual sentence.",
+        "Every factual change is supported by an existing row source; unsupported variation is prohibited.",
+        "Add a corpus-level repetition test that prints the dominant opening and its share."
+      ],
+      "mustNot": [
+        "Do not use a thesaurus to rotate Builds into Develops, Creates, and Makes while preserving the same sentence template.",
+        "Do not add slogans, adjectives, valuations, or deployment claims for variety."
+      ],
+      "verification": {
+        "owner": "codex",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "RW-QA-004",
+      "severity": "P0",
+      "status": "queued",
+      "category": "trust",
+      "title": "The homepage makes an absolute citation claim that current validation cannot prove",
+      "route": "/",
+      "files": [
+        "app/page.tsx",
+        "library/design-system.md",
+        "scripts/validate-content.ts"
+      ],
+      "evidence": [
+        "The homepage says every claim is cited to a primary source.",
+        "Current validation resolves citation IDs, registry metadata, links, references, and selected route-specific claims, but it does not classify every sentence-level claim or prove that every source is primary."
+      ],
+      "acceptanceCriteria": [
+        "Either narrow the public claim to the policy the repository actually enforces, or add a claim-level audit that can substantiate the absolute wording.",
+        "Distinguish primary, first-party, independent secondary, aggregator, and snippet-grade evidence where those classes affect public certainty.",
+        "The final wording must remain concrete and must not imply universal verification from citation presence alone."
+      ],
+      "mustNot": [
+        "Do not add another trust slogan or verification percentage.",
+        "Do not treat a resolving URL as proof that the linked source supports the surrounding claim."
+      ],
+      "verification": {
+        "owner": "codex",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "RW-QA-005",
+      "severity": "P1",
+      "status": "queued",
+      "category": "copy",
+      "title": "Article cross-reference prose repeats the same generated frame",
+      "route": "article corpus",
+      "files": [
+        "content/"
+      ],
+      "evidence": [
+        "27 of 47 MDX articles contain the exact phrase at the top of this module.",
+        "The phrase is structural filler and often describes layout position instead of the mechanism being taught."
+      ],
+      "acceptanceCriteria": [
+        "No stock cross-reference phrase appears in more than 20 percent of articles.",
+        "Edited sentences name the specific diagram, timeline, table, or interaction and state what it demonstrates.",
+        "Rewrites preserve the technical claim and existing citations.",
+        "Add a corpus-level exact-phrase and repeated-n-gram report."
+      ],
+      "mustNot": [
+        "Do not rotate among near-synonyms such as figure above, chart above, and graphic above solely to pass a string test.",
+        "Do not move figures or rewrite technical conclusions in this batch."
+      ],
+      "verification": {
+        "owner": "codex",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "RW-QA-006",
+      "severity": "P0",
+      "status": "queued",
+      "category": "semantic-drift",
+      "title": "Some article copy names green marks after the shared interaction colour moved to signal blue",
+      "route": "multiple interactive articles",
+      "files": [
+        "content/manipulation/generalist-policies.mdx",
+        "content/world-models/jepa.mdx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/jepa-planning.tsx"
+      ],
+      "evidence": [
+        "The generalist-policies article says green nodes are downloadable while the current component and chart description use signal blue for open weights.",
+        "The JEPA article calls the current latent marker green while the interaction now uses the accent token for active state."
+      ],
+      "acceptanceCriteria": [
+        "Every visible legend, article sentence, accessible description, and rendered mark agrees on the semantic state and colour.",
+        "Prefer state names such as open weights or current latent over colour names when colour is not the concept.",
+        "Run the locked VAL-BRAND-008 and chart-description checks across every interactive route, not only the two examples."
+      ],
+      "mustNot": [
+        "Do not restore green merely to preserve stale prose if the mark represents selection rather than success.",
+        "Do not fix visible text while leaving ARIA or ChartDescription copy stale."
+      ],
+      "verification": {
+        "owner": "codex",
+        "status": "pending",
+        "evidence": []
+      }
+    }
+  ]
+}

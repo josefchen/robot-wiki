@@ -277,11 +277,13 @@ describe('drones originals: approved deltas and protected neighbors', () => {
     const surgicalSection = lines.slice(surgical, space).join('\n');
     expect(surgicalSection).toContain('11,106 da Vinci systems');
     // The surgical originals integration (2026-09-16) applied rows
-    // 1,2,3,4,6,7,8 with compound plans; the held Maestro row 5 keeps the
-    // original 3-column shape with no evidence plan binding.
+    // 1,2,3,4,6,7,8 with compound plans and held Maestro row 5; the later
+    // 20260917a surgical packet completed row 5 with its own plan. No drones
+    // plan is bound anywhere in the surgical section.
     expect(surgicalSection).toContain('Evidence plan');
     expect(surgicalSection).toContain('| Maestro: first 510(k) December 2022');
-    expect(surgicalSection).not.toContain('surgical-5-');
+    expect(surgicalSection.match(/surgical-5-[a-z0-9-]+/g)).toEqual(['surgical-5-maestro-510k-scopilot-20260917a']);
+    expect(surgicalSection).not.toMatch(/\bdrones-/);
   });
 
   it('keeps the prior plan order stable in the append-only compound file', () => {

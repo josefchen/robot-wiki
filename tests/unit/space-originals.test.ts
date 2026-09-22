@@ -217,8 +217,15 @@ describe('space originals: protected neighbors', () => {
     expect(section).toContain('| Claim | Source checked | Verdict |');
   });
 
-  it('keeps the held autonomous-vehicles row honestly held', () => {
-    expect(ledger).toContain('HELD 2026-09-15 (integrator, record 2 of 19)');
+  it('leaves the formerly held autonomous-vehicles row to its own completion', () => {
+    // AV original 2 was held on 2026-09-15 for a registration blocker; the
+    // 20260917a books/industrial integration removed that blocker and bound
+    // it to av-2-nhaa-tour-20260917a. No space plan touches it.
+    const avRow = ledger.split('\n').find((line) => line.startsWith('| ALVINN "drove it across America in a demonstration tour" |'));
+    expect(avRow).toBeDefined();
+    expect(avRow).toContain('the registration blocker named by the 2026-09-15 hold is removed');
+    expect(avRow).toContain('av-2-nhaa-tour-20260917a');
+    expect(avRow).not.toMatch(/\bspace-/);
   });
 
   it('keeps every drones plan bound and reviewed', () => {

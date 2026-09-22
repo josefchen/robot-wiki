@@ -498,6 +498,27 @@ export function expectedApparatusGraph(
           });
           continue;
         }
+        // Two JSX sites can spell the SAME expression inside one component
+        // because a conditional picks between two renderings of one list
+        // (`thesis-explorer.tsx` wraps two of its ids in a block-level
+        // span and renders the rest bare). Both spellings draw from the
+        // same data rows, and `mappedCitationOccurrences` is keyed only by
+        // (sourcePath, expression), so recording one site per spelling
+        // would count every data occurrence once per branch and demand
+        // twice the chips the page renders. The population is the data
+        // source, not the spelling count: sites sharing a mount and an
+        // expression collapse to one occurrence population. A component
+        // that genuinely rendered the same list twice then fails the exact
+        // equality below (`renders N ... expand to M`), so this can only
+        // under-expect, never overlook a disappearance.
+        if (
+          dynamicCitationSites.some(
+            (site) =>
+              site.mountId === mount.id && site.expression === expression,
+          )
+        ) {
+          continue;
+        }
         dynamicCitationSites.push({
           mountId: mount.id,
           sourcePath: mount.sourcePath,

@@ -163,8 +163,11 @@ describe('source-scoped calibration and TSDF corrections', () => {
       expect(current[ordinal - 1].evidenceFailures, `prior original ${ordinal}`).toEqual([]);
     }
     // Later scene-representation packets completed the formerly excluded
-    // 26/27/31/33/45; only originals 1 and 10 remain incomplete.
-    for (const ordinal of [1, 10]) {
+    // 26/27/31/33/45, and the 20260917a identity sweep bound original 1
+    // (scene-representation-1-identity-sweep-20260917a); only original 10 remains incomplete.
+    expect(current[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
+    expect(current[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
+    for (const ordinal of [10]) {
       expect(current[ordinal - 1].evidenceFailures.length, `excluded original ${ordinal}`).toBeGreaterThan(0);
     }
     expect(scene).toContain('does not perform loop closure');

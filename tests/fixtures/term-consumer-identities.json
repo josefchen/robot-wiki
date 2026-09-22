@@ -13,7 +13,20 @@
     "removalCommit": "6af0bdd73375f8c121a8830df20e247ce5dd2c67",
     "removedIdentity": "/frontier/competing-theses/#imitation-learning:1",
     "removalReason": "PI/Helix source-backed paragraph replacement removed the fifth authored trigger; teleoperation occurrence 1 moves from ordinal 6 to 5.",
-    "mergeUpdate": "2026-09-16 seo-merge: ten new published articles joined the term-consumer population (47 -> 57); inventory regenerated over the merged tree."
+    "mergeUpdate": "2026-09-16 seo-merge: ten new published articles joined the term-consumer population (47 -> 57); inventory regenerated over the merged tree.",
+    "crossEmbodimentCommit": "a7c35d37fe919b7ecf9a95ee5f6cb0dd2a023c6b",
+    "crossEmbodimentIdentities": [
+      "/manipulation/cross-embodiment/#retargeting:1",
+      "/manipulation/cross-embodiment/#cross-embodiment:1",
+      "/manipulation/cross-embodiment/#open-x-embodiment:1",
+      "/manipulation/cross-embodiment/#end-effector:1",
+      "/manipulation/cross-embodiment/#vision-language-action-model:1",
+      "/manipulation/cross-embodiment/#proprioception:1"
+    ],
+    "crossEmbodimentReason": "ART-003 sanctioned six genuine glossary markers on a previously unmarked article; rawOpeningTags 0 to 6.",
+    "dexterityRemovalCommit": "f061812",
+    "dexterityRemovedIdentity": "/frontier/dexterity/#proprioception:1",
+    "dexterityRemovalReason": "Holson originals integration replaced the marked sentence with source-backed prose; rawOpeningTags 7 to 6."
   },
   "articles": [
     {
@@ -344,9 +357,14 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "rawOpeningTags": 1,
+      "rawOpeningTags": 6,
       "termIds": [
-        "cross-embodiment"
+        "retargeting",
+        "cross-embodiment",
+        "open-x-embodiment",
+        "end-effector",
+        "vision-language-action-model",
+        "proprioception"
       ]
     },
     {

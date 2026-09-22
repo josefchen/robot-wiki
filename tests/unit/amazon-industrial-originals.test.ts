@@ -110,9 +110,14 @@ describe('five Amazon industrial originals', () => {
     expect(article).toContain('by up to 25 percent <Cite id="amazon-sequoia-digit-2023" />');
   });
 
-  it('preserves prior peers, held originals, the exact citation union and review date', () => {
+  it('preserves completed peers and original 8, the original 52 hold, citation union and review date', () => {
     for (const n of [1, 2, 3, 4, 13, 14, 19, 20, 21, 27, 28, 39, 40, 50]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
-    for (const n of [8, 52]) expect(parse().claimRecords[n - 1].evidenceFailures.length).toBeGreaterThan(0);
+    // Row 8 stays complete. EVST is only partial proof for row 52's authored
+    // component correction; the named hold was not resolved by September 17.
+    expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
+    expect(parse().claimRecords[51].evidenceFailures).toContain(
+      'Supporting passage must contain the passage actually read, not a locator or placeholder',
+    );
     expect(article).toContain('lastReviewed: "2026-08-22"');
     expect(article.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
   });

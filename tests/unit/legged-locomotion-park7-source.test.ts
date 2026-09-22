@@ -85,8 +85,10 @@ describe('legged locomotion Park bounding original 7', () => {
 
   it('leaves the protected neighbor 6 and applied rows 2-5 untouched', () => {
     const records = parse().claimRecords;
-    expect(records[5].compound?.planId).toBeUndefined();
-    expect(records[5].evidenceFailures.length).toBeGreaterThan(0);
+    // Neighbour 6 was unbound when this pin was written; the 20260917a packet
+    // later bound it to its own Choi abstract plan, never to this park7 plan.
+    expect(records[5].compound?.planId).toBe('legged-locomotion-6-choi-abstract-20260917a');
+    expect(records[5].evidenceFailures).toEqual([]);
     // Row 8 was this lane's protected neighbor; the 2026-09-16i integrator
     // pass lawfully bound it (plan legged-locomotion-8-duty-factor-
     // disclaimer-20260916i) with this park7 plan's retained material reused

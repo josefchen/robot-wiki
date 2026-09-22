@@ -1,3 +1,174 @@
+## Current checkpoint: generalist originals 15 and 21 corrected (2026-09-22)
+
+Exactly **2 applied / 0 held / 0 unattempted** selected originals: audit/manipulation.md:generalist-policies:15 and :21. Native accounting is **956 complete / 38 incomplete / 994 originals**, across 47 articles. Counts mean structural evidence completeness, not source truth, whole-article completion or independent acceptance. All older checkpoints below are historical.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 222 | 3 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 115 | 13 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 956 | 38 |
+
+Counting method: native parseLedger over AUDIT_LEDGERS with every article's canonical frontmatter; incomplete means evidenceFailures.length > 0. Exactly two new plans bring the catalog from 857 to 859 (four and fifteen reviewed parts); four exact current-HEAD member approvals extend the unchanged 1004-entry prefix to 1008. All 994 identities, 992 unselected records and 954 prior complete records are preserved. The selected former four-cell tuples remain non-counted history; corrected outcomes do not verify the old claims.
+
+One offline `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json` returned exit 1: **956/38/994**, **43 ledger findings**, **0 uncovered-citation findings**, **0 summary mismatches**, 47/47 articles. Full JSON and empty stderr are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalist-attribution-p1-integration-20260922/coverage.json and coverage-stderr.log. The 43 findings are 38 incomplete originals, three aggregate evidence failures and two unresolved outcomes. Generalist19 and all other existing holds remain unchanged. Source/app/rendered/reading-time/global generated evidence and independent Sol/high scrutiny/user testing remain owed. Formal 307/331 is unchanged, not acceptance; no publication.
+
+---
+
+## Current checkpoint: DROID and BridgeData license pair corrected (2026-09-21)
+
+Exactly **2 applied / 0 held / 0 unattempted** selected originals: audit/data-hardware.md:datasets:5 and :6. Native accounting is **954 complete / 40 incomplete / 994 originals**, across 47 articles. Counts mean structural evidence completeness, not source truth, whole-article completion or independent acceptance. Older checkpoints below are historical.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 220 | 5 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 115 | 13 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 954 | 40 |
+
+DROID wording now states the actual deed freedoms, terms and limitations, not blanket commercial-training permission. The sole new citation cc-by-4-0-deed uses 2013 as the publisher-supported license-version year, not an undated webpage year; DROID remains 2024. BridgeData uses the existing official rail-berkeley endpoint for 38 timesteps, 5 Hz and all-data CC BY 4.0, withdrawing the wrong-host offline conclusion and derived seconds gloss. Exactly five authorized prose spans and one frontmatter addition changed; lastReviewed, dataset registry and RoboMIND original10/plan remain unchanged and held.
+
+Fresh Astra/max retained-source review at 2026-09-21T23:42:41.663Z covers seven parts and nine distinct paired source items. Five retained primary documents were hash-checked; 13 preparation evidence entries were literal-checked. The BridgeData setup draft contained only a heading and was replaced with the actual retained v3 setup paragraph. Same-source fragments are combined without dropping terms. All 857 plan identities/order remain; the two replaced plan objects and exact prior cells are archived in non-counted data-hardware history. All 999 prior approvals survive unchanged; five necessary exact native members are appended (1004 total).
+
+Zero new source requests in this integration. Historical DROID/deed/BridgeData paper retrievals remain September 16; preparation BridgeData page and CC version-history retrievals remain September 21. The new scrape tool exposed no origin HTTP status; no fresh HTTP 200, legal grant, whole-corpus URL freshness or global citation-gate pass is inferred. Native per-domain parsing uses canonical frontmatter citations for every article. Actual bounded verification is recorded below;  full source truth, current rendered readers, reading-time regeneration, global citation validation and independent scrutiny/user testing remain owed. Formal 307/331 is unchanged, not acceptance. The content gate remains red; no publication.
+
+### Bounded verification, September 21, 2026
+
+- Red-first new suite: two pre-application runs both exited 1 with **9 failed / 4 passed / 13 tests**. The first exposed two new-fixture assumptions (native verdict class is passing, not corrected; buildManifest rejects empty inputs); these were corrected before the second genuine red run. Post-application test expectations were also corrected to the actual unchanged native population of 11 dataset rows and the prepared three DROID/four BridgeData parts, not guessed counts.
+- `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/dataset-license-pair-evidence.test.ts tests/unit/audit-ledger.test.ts tests/unit/datasets-originals.test.ts --no-file-parallelism`: exit **1**, **106 passed / 7 failed / 113 tests**. The new license-pair suite passes 13/13 and audit-ledger 77/77. The unchanged datasets-originals suite passes 16/23; failures at lines **147, 153, 192, 206, 241, 273, 306** assert old holds, totals, binding, adjudication or offline prose. Repair of `/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/datasets-originals.test.ts` needs separate scope; no failure was weakened or concealed.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint`: exit 0. `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/eslint data/citations.ts tests/unit/dataset-license-pair-evidence.test.ts`: exit 0. `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/tsc --ignoreConfig --noEmit --strict --allowImportingTsExtensions --module esnext --moduleResolution bundler --target es2022 --skipLibCheck --esModuleInterop --types node tests/unit/dataset-license-pair-evidence.test.ts`: exit 0, no emit or type generation.
+- Article-only MDX compilation without emit, canonical citation checks and native no-slop functions: exit 0; 1348 source words, triad density 3.7091988130563798 below 22, zero banned vocabulary/dash/placeholder findings, 29 Cite occurrences and 9 declared sources. Manual read covered the exact five spans; this is not rendered-corpus evidence or a whole-article claim.
+- Native preservation: all **994 identities/order**, **992 unselected full records**, **952 prior complete IDs**, **855 unselected plans** and exact history of the two selected old plans remain. The 857 plan IDs/order and 999-entry approval prefix survive; five exact native approvals bring the catalog to 1004. Owner files and all unscoped tracked bytes are unchanged; d282a83 and 2cf7d6b remain ancestors. All nine applied source items match hash-checked retained primary bodies, including the corrected full setup passage.
+- After strengthening the new test's exact part IDs, deed limitations and publisher-version source controls, its final focused run passes **13/13**, exit 0; final narrow ESLint and isolated no-emit typecheck also exit 0. These test-only checks did not rerun the offline coverage gate.
+- Exactly one final `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json`: exit **1**, **954 complete / 40 incomplete / 994 originals**, 47/47 articles, zero summary mismatches. **45 ledger findings** remain (40 incomplete originals, three aggregate evidence-field failures, two unresolved outcomes), plus **one new uncovered-citation finding**: `cc-by-4-0-deed` has no row in `audit/citations.md` (429 covered / 430 registered). That file and global URL validation are outside this dispatch. This is 46 combined findings, not a green content gate. The two selected original failures disappear, three aggregate messages update from 952 to 954, and all 42 other ledger failure objects are unchanged.
+- Full coverage stdout went directly to `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-license-pair-integration-20260921/coverage.json` (10023562 bytes; SHA-256 210f33d1fc74975a8650cb09228968b98d46f968a1c7efd7742c074418373ff4); stderr is empty. No rerun, network request, full suite, baseline gate, build, browser, type generation or publication occurred. Current readers, reading-time regeneration, broader article/source truth, RoboMIND licensing, global citation validation and independent scrutiny/user testing remain owed. The article review date and formal 307/331 remain unchanged; not acceptance.
+
+---
+
+## Current checkpoint: two corrected verdict outcomes reconciled (2026-09-21)
+
+Exactly two authorized verdict/note corrections, **zero new structural completions**: audit/classical.md:motion-planning:5 is C for the already-applied seven-part RRT correction; audit/classical.md:perception:24 is C (evidence-limited cut) for the already-applied product-page attribution cut. The removed family claim is not asserted false. Both records were structurally complete before this slice. Counts remain **952 complete / 42 incomplete / 994 originals**, across 47 articles. Structural completeness is not source truth, article completion or independent acceptance. Older checkpoints below are historical.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 220 | 5 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 113 | 15 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 952 | 42 |
+
+Counting method: native parseLedger over AUDIT_LEDGERS with every article's canonical frontmatter citations; incomplete means evidenceFailures.length > 0. Claim/source cells and old note prefixes are unchanged; exact former cells and selected former plans/reviews are preserved in non-counted classical history. Same plan IDs, all seven RRT parts plus one PhoXi part, and all eight paired evidence items survive. Fresh actual Astra/max integrator/source-auditor reviews at 2026-09-21T22:38:37.908Z bind the new native tuple/plan/part digests; old review stamps are not copied. The original date-source rejection and the PhoXi wiki/manual evidence limit remain explicit.
+
+Current-role source review reused 15 retained excerpt entries from four source documents and inspected report images 1-2 and chapter images 24/39. The report's fixed-time approximate Euler rule, whole-edge feasibility and configuration/velocity scope remain distinct from the textbook's step-size-free obstacle-free nearest-swath construction. Bibliography [103] supports October 1998 TR 98-11. The complete PhoXi product response supports the named model and separate specification fields, not the removed principle claim. Original source retrieval times and status limitations are unchanged; zero new retrieval. No MDX, glossary, component, registry, approval catalog, parser, criterion, article review date or protected owner work changed.
+
+Verification so far: focused red-first verdict suite exited 1 with **8 failed / 8 passed / 16 tests**, exposing the exact old outcomes, missing reconciliation history/reviews and accounting. Post-application focused tests pass **112/112 across four files** (new verdict suite 16, audit-ledger 77, RRT/hierarchy 15, perception depth 4). Normal prelint, narrow ESLint and the isolated strict no-emit typecheck pass. Native preservation confirms all 994 identities/order, 992 unselected full records, all 952 prior complete IDs, 855 unselected plans and 999 approvals unchanged; owner files and unscoped tracked bytes match. The single final offline coverage run exited **1 with 47 full findings**, **952/42/994**, zero summary mismatches and empty stderr. Exactly the two assigned unresolved-verdict findings disappear; all remaining failure objects are unchanged and no finding is added. The 47 findings comprise 42 incomplete originals, three aggregate evidence-field failures and two other unresolved outcomes. Full JSON: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/coverage.json (10017118 bytes; SHA-256 40792164c9ba0316d637b006d2d340a092daaa4a09e3a6580173215d63b4046f). This is outcome closure, not extra structural completion or a green content gate. No full suite, build, browser, type generation, source request or publication. The content gate remains red; independent Sol/high scrutiny and user testing remain owed.
+
+---
+
+## Current checkpoint: seven named authored-evidence holds restored (2026-09-21)
+
+Current native accounting: **952 complete / 42 incomplete / 994 originals**, across 47 articles. Exactly seven previously credited originals were restored to their named holds; this is a truthful withdrawal of completion, not seven positive completions. Zero unattempted selected originals. Structural counts are not source-truth certification, whole-article completion or independent acceptance. All earlier checkpoints below are historical snapshots.
+
+Restored originals: audit/rl-sim2real.md:parallel-sim-rl:18; audit/rl-sim2real.md:legged-locomotion:8; audit/rl-sim2real.md:reward-design-mpc:4; audit/rl-sim2real.md:reward-design-mpc:5; audit/rl-sim2real.md:reward-design-mpc:11; audit/frontier.md:safety-and-assurance:5; audit/frontier.md:safety-and-assurance:6. Keep the existing plan bindings: only their planReview fields are null and adjudications arrays empty, with exact former reviews and all four former cells archived verbatim after the two ledgers' original tables. The current claims, source-checked cells and verdicts are unchanged; notes state the concrete gaps and retain the former notes as history. No source/evidence part is deleted or invented.
+
+Genuine work remains: the safety5 at-least-850 correction; safety6 S and its 1600/2000/measured-versus-assumed countercontext; RL source facts and authored-example disclosures. Unchanged sim23/24 and industrial52 remain held. Hierarchy14 and the separately approved six-part/seven-pair hierarchy15 correction remain complete; only three stale hierarchy14 test expectations now acknowledge both exact approved prose steps, retaining all historical source/citation and negative approval controls. No article, component, library, registry, approval entry or audit criterion changed.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 220 | 5 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 113 | 15 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 952 | 42 |
+
+Native parseLedger uses canonical frontmatter citation context for every article. All 994 original identities/order, 987 unselected full records (including line coordinates), 952 unaffected prior completions, 850 unselected plans and all 999 approvals are preserved. Total plans remain 857. External owner checkpoint b0e1701bc74d14e195bfa99f273b856b2c81406b and PRODUCT_QUALITY.md, qa/findings.json and next-env.d.ts are preserved.
+
+No new source/network request, browser, build, full test suite, model/criteria change or publication. Retained source provenance and concrete authority gaps are in the consumed source-authority review /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-named-local-holds-review-20260921/review.json, SHA-256 ce862d987fa3114e6b2b7366f88f10ac6082661bbaa195015175cb47b647caf2, and the new held notes/history. Source numbers do not establish authored calculator choices; repository disclosures do not create an authorized fetched-passage evidence type. The owner decision about local evidence remains pending.
+
+Verification: red-first scoped seven-file run exited 1 with 13 failed / 118 passed / 131. Twelve failures corresponded to held-row/context expectations (including the unchanged industrial-cost safety guard); one new reward-disclosure check was corrected for an existing JSDoc line wrap without changing product text. All eight current hierarchy14 checks and all 77 audit-ledger checks passed. After restoration, the same seven-file scoped run passes **131/131 tests**, including the unchanged industrial-cost safety5/6 hold assertion and all eight hierarchy14 tests. Normal prelint and five-test-file ESLint pass. The isolated strict five-file typecheck passes with existing Node declarations and no emit; the first two standalone invocations required explicit --ignoreConfig and --types node, with their actual failures retained in lint.log. Full native preservation and all seven domain-summary comparisons pass. The single final offline coverage run exited **1 with 49 full findings**, **952/42/994**, 47/47 articles and zero native summary mismatches. There are 42 incomplete original records, four additional unresolved-verdict findings and three aggregate evidence-field findings; the full 49 failure objects remain unmodified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-seven-named-holds-restoration-rebound-20260921/coverage.json (10018376 bytes, SHA-256 82a533e3c51d6626643683c0713323374480375e0d64fe1bcbabe2cc68c147ab), with empty stderr. Saved gate section objects exactly match the native preservation snapshot. The previous hierarchy15 run had 43 findings including its subsequently fixed summary mismatch; 49 is the honest current gate result, not a rerun of that old receipt. Focused tests are green but the content gate remains red: no publication or independent acceptance.
+
+---
+
+## Current checkpoint: hierarchy15 bounded synthesis corrected (2026-09-21)
+
+Current native accounting: **959 complete / 35 incomplete / 994 originals**, across 47 articles. One selected original was completed: audit/manipulation.md:hierarchical:15; zero held and zero unattempted in this slice. This is structural evidence completeness, not historical-truth certification, whole-article completion or independent acceptance. All checkpoints below this section are historical snapshots.
+
+Four exact prose endpoints now compare five named mechanisms (π0.5, π0.6-MEM, π0.7, Gemini Robotics 1.5, GO-2). The historical supersession AND keypoint-migration claim and all old cells remain intact; the verdict is C and unsupported universals are explicitly withdrawn. The native plan requires six AND parts/seven citation-source pairs, genuinely reviewed from retained primary text by Astra/max at 2026-09-21T21:11:26.600Z. Same-model inference, separate models/policies and vendor modules remain distinct, as do training, capabilities and deployed control. Prior hierarchy14 is byte-identical; industrial52 and every other owner hold remain unchanged.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 220 | 5 |
+| rl-sim2real | 167 | 164 | 3 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 113 | 15 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 147 | 0 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 959 | 35 |
+
+Counting method: native parseLedger over AUDIT_LEDGERS with canonical frontmatter citation context and the unchanged schema; incomplete means evidenceFailures.length > 0. All 994 IDs/order, 993 unselected records and 958 prior complete IDs are preserved. All 856 prior plans and 998 prior approvals, including their exact serialized prefixes, survive; one plan and one exact permanent native prose approval are appended (857 plans / 999 approvals). No frontmatter, citation registry, source URL registry, article review date, component, figure, route, owner file or gate criterion changed.
+
+Zero new source requests. Five retained source documents and their original receipts were hash-checked; twelve literal excerpts support the six reviewed parts/seven pairs. π0.5 v1 response: 2026-09-07T16:08:29.437Z, historical tool-reported 200. MEM: 2026-09-07T20:40:03.665518+00:00; π0.7: 2026-09-07T16:28:13.008052+00:00; GO-2: 2026-09-07T22:55:23.618405+00:00, all historical transport receipts. GR1.5 v3 response time is unavailable; tool-reported 200 and capture/save times are not new fetch observations. Complete URLs, source/receipt/raw hashes and limitations are retained in the row note and compound evidence.
+
+Focused verification: new red-first tests 15 failed / 1 passed; post-correction focused run **98 passed / 3 failed / 101 tests**. New hierarchy15 tests 16/16 and audit-ledger 77/77 pass. The unchanged hierarchy14 test fails at lines 59, 105 and 137: old whole-article hash, expectation that original15 remain incomplete, and isolated old-only approval comparison. These exact out-of-scope expectations need parent-scoped repair; no test was weakened. Normal prelint and narrow ESLint pass. Article-only MDX/citation/currency/no-slop checks pass, with 1791 source words and triad density 3.3500837520938025 below 22. Native exact prose-approval positive/negative controls pass in the new suite. Manual review covered all four replacements; no rendered evidence is claimed.
+
+The fixed authorization excludes the existing frontmatter description and opening/section framing outside the four endpoints; those still make broader hierarchy claims and require parent follow-up. Current affected-reader/full-corpus rendering, reading-time regeneration, existing named local-proof repairs, independent scrutiny/user testing and formal release gates remain owed. No full suite, build, browser, type generation, capture or publication in this slice. No lastReviewed bump: this was not a whole-article audit.
+
+Final offline coverage (one invocation): `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json`, exit 1, **43 full findings**, 47/47 articles, **959/35/994**. Complete stdout: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy15-integration-20260921/coverage.json (9997211 bytes, SHA-256 74d4b58df3f3f8f321100f5394523defc37a0112d06c1beb73220c02cbd72093); stderr empty. All full failure objects are preserved, not flattened or waived. The post-correction unit aggregate remains red for the three named out-of-scope hierarchy14 expectations.
+
+Post-gate scoped correction: the single full gate exposed one new manipulation ledger-summary mismatch. The application helper had supplied canonical citation context for hierarchical only when regenerating the domain summary, producing 217 complete / 8 incomplete instead of 220 / 5. Regeneration with all twelve manipulation articles' canonical frontmatter fixes the summary without changing any row tuple or evidence. A native parseLedger check observed one summary failure before and zero after, with all 225 four-cell digests identical. The full 43-finding coverage.json is retained verbatim; it was not rerun, and is not claimed as a post-summary-fix full-gate result. All other full failure objects and the three hierarchy14 test failures remain reported.
+
+---
+
+## Current checkpoint: industrial52 hold restored; hierarchy14 corrected (2026-09-21)
+
+Current native accounting is **958 complete / 36 incomplete / 994 originals**, across 47 articles. These are structural evidence counts, not source-truth certification or independent acceptance. All dated checkpoints below are historical snapshots; in particular, the September 16 **873/121** figures are not current accounting.
+
+This bounded repair restores **one hold** (audit/data-hardware.md:industrial-deployment:52) and applies **one source-backed correction** (audit/manipulation.md:hierarchical:14), with **zero unattempted selected originals**. Industrial52 was repaired first: 958/36 → 957/37, then hierarchy14's corrected claim brought the corpus to 958/36. The other 957 previously complete originals are unchanged.
+
+Industrial52 retains its genuine C component correction and exact original claim/source/history. Its EVST passage is explicitly partial proof in the note, with the required Supporting passage empty: the named authored-evidence hold remains unresolved. The accepted source-authority diagnosis rejects the September 17 scalar completion; it does not approve a local-proof exception or rewrite historical GLM attribution. Hierarchy14 retains the original boxes AND keypoints claim as history, records the exact C correction, and separately quotes the v1 paper's HL and WD passages supporting the corrected sentence. The unsupported keypoint/direct-MOKA-RoboPoint attribution is removed, not verified; adjacent hierarchy15 remains incomplete and excluded.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 219 | 6 |
+| rl-sim2real | 167 | 164 | 3 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 113 | 15 |
+| classical | 187 | 176 | 11 |
+| frontier | 147 | 147 | 0 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 958 | 36 |
+
+Counting method: native parseLedger over AUDIT_LEDGERS, with the unchanged compound catalog and canonical frontmatter citation context; incomplete means evidenceFailures.length > 0. All 856 compound plans remain unchanged. The 997 prior approved deltas and their serialized prefix remain intact; one exact permanent hierarchy prose delta is appended (998 total). No article review date, citation registry, route, component, figure or owner file is changed.
+
+No new source retrieval. π0.5 v1 retained FetchUrl response: September 7, 2026 16:08:29.437Z, tool-reported 200, SHA-256 eea20e6c28d9d0d28e671e7046009e5bd7a07475e63264b4f6c867b19e8fd778. EVST provenance and the withdrawn scalar history remain self-contained in industrial52's note. Raw origin headers/redirects are not inferred. Full current-corpus rendering, reading-time regeneration and independent scrutiny remain owed; no publication while the content gate is red.
+
+### Bounded repair verification, September 21, 2026
+
+- Red proof: `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/audit-ledger.test.ts tests/unit/industrial-cost-evidence.test.ts tests/unit/amazon-industrial-originals.test.ts tests/unit/ifr-industrial-originals.test.ts tests/unit/symbotic-a3-originals.test.ts tests/unit/hierarchy14-evidence.test.ts --no-file-parallelism` before the two ledger/article repairs: exit 1, **11 failed / 116 passed / 127 tests**, six files. Every failure matched the selected industrial52 hold or hierarchy14 correction/approval obligations.
+- After repair: the same focused command, exit 1, **1 failed / 126 passed / 127 tests**, six files. Industrial52's hold at industrial-cost-evidence.test.ts:88 now passes; the unchanged test proceeds to safety5/6 at line 92 and fails. Both safety records already had empty evidenceFailures in the prechange snapshot, and their ledger/catalog plus the hold assertions remain untouched. This is an exposed pre-existing out-of-scope conflict, not a green run. All eight hierarchy14 tests and all three industrial peer suites pass.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint`: exit 0. `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/eslint tests/unit/amazon-industrial-originals.test.ts tests/unit/ifr-industrial-originals.test.ts tests/unit/symbotic-a3-originals.test.ts tests/unit/hierarchy14-evidence.test.ts`: exit 0.
+- Article-only source no-slop, native lib/no-slop.ts functions on matter-parsed content/manipulation/hierarchical.mdx: exit 0; zero banned-vocabulary, dash or placeholder findings; 1767 source words, triad density 3.395585738539898 per 1000, below native limit 22. This is not rendered-corpus proof. Manual read of the exact replacement confirmed both source-supported clauses and removal of unsupported inheritance/keypoint attribution; no broader synthesis was certified.
+- Native prose approval positive/negative controls passed within hierarchy14's suite: the exact old/new member hashes require the exact permanent approval, and missing/wrong-hash approvals fail. This isolated comparison is not the full baseline gate and does not certify older approvals.
+- `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json`, **one invocation only after repair**: exit 1, **958 complete / 36 incomplete / 994 originals**, 47 articles, **43 full coverage findings**. Complete JSON was written directly to the file descriptor: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial52-hierarchy14-truth-repair-20260921/coverage.json (9976606 bytes; SHA-256 7698615bb9d2915f363625292b32a3fdda869be3de8701f2f47286d66ad33a56); stderr empty. Counts are structural, not acceptance.
+- No new source requests, full suite, build, type generation, browser or rendered-corpus run. Current corpus rendering, reading-time regeneration, source-truth scrutiny and independent acceptance remain owed. No lastReviewed change: this was not a whole-article audit. No publication while the content gate is red.
+
+The historical checkpoints below are preserved unchanged; their commands and counts are not current repair results.
+
 ## Current checkpoint: control evidence-completion integrates 6 of 7 dispatched originals, 1 honestly held (2026-09-16)
 
 This continuation applied **6 originals complete / 1 held / 0 unattempted** of the frozen packet `convergence-source-o-control-20260916f/rows.json` (SHA-256 `7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3`, 59,045 bytes, zero network retrieval by this integrator): rows 1, 2 and 3 (Åström-Murray FBS2e v2.11b ch. 1 sec. 1.5, author-hosted Caltech PDF; the registered fbswiki URL was attempted first and timed out), row 11 (Qin-Badgwell 2003, CMU CEPAC-hosted full text), row 13 (Di Carlo 2018, MIT DSpace author manuscript, local-AND re-run on the committed article) and row 16 (Khatib 1987, image-only author-hosted Stanford scan, disclosed 500-dpi tesseract fragments). Row 4 (Ziegler-Nichols 1942) is honestly HELD: the packet's clean verbatim passage comes from the Driedger text-layer reproduction of the 1942 paper, the reproduction is not a registered citation in `data/citations.ts` (packet registryProposals empty), and the NTNU university-hosted original scan corroborates the rules only through garbled OCR — so a verbatim passage bound to the registered `ziegler-nichols-1942` citation cannot be lawfully certified from the preserved evidence; consistent with the row's 2026-09-15 paywalled hold. The packet's own held control:10 (garcia-1989) stays excluded per dispatch and untouched. One documented needle correction: row 11's packet passage printed "The largest number of applications is in refining" where the retained text prints "The largest single block of applications is in refining, which amounts to 67% of all classified applications" (fi ligatures as extracted); the applied passage quotes the source's own wording. All cited ids were already registered; no new registrations; `control.mdx` is byte-unchanged (sha256 `d23f94fa…`); `lastReviewed` not moved; no readers run (byte-unchanged article, 1438f67 precedent).
@@ -2186,12 +2357,16 @@ Exact source identities, original retrieval moments, final tuple reviews, comman
 
 
 <!-- rl-reader-current:start -->
-## Current: seo-merge audit checkpoint — 2026-09-16
+## Current: continuation integration audit checkpoint — 2026-09-22
+
+**956 complete / 38 incomplete / 994 original identities / 47 audited articles. 859 compound plans; 1,350 approval-ledger entries.** Counts are computed live from the integrated ledgers, not acceptance. This line merges josef/droid-wiki-continuation afeeb05 into the production line against the true merge base 9212034; the continuation's ledgers, plans and holds are carried unchanged, and the production line's approval ledger stays the exact prefix with continuation-only entries appended in lane order plus twelve `continuation-merge-20260922-*` sealed-to-merged re-anchors. The ten SEO-corpus articles (57 published) still have no audit section, so `check:audit-coverage` stays RED (53 findings; the production line reported 90). The production `vercel-build` skips only this known-red content-audit gate; every other gate runs.
+<!-- rl-reader-current:end -->
+
+## Historical: seo-merge audit checkpoint — 2026-09-16
 
 **905 complete / 89 incomplete / 994 original identities / 57 articles. 815 compound plans; 1,214 approval-ledger entries.** Counts are computed live from the merged ledgers, not acceptance. The audit lane remains open: nine citations stay unresolved with documented fetch failures or verified exceptions, and independent Sol/high scrutiny plus user testing remain pending with both skip flags false. Content remains RED until the content gate clears. Do not publish while the content gate is red.
 
-The seo-merge line carries the ten-article SEO corpus (57 published articles) alongside the audit workstream. Prior checkpoints are preserved below; this block tracks the live merged-tree counts and is refreshed as packets land.
-<!-- rl-reader-current:end -->
+The seo-merge line carries the ten-article SEO corpus (57 published articles) alongside the audit workstream. Prior checkpoints are preserved below; this block tracks the live merged-tree counts when it was current.
 
 ## Historical: six-method aggregate checkpoint — 2026-09-08
 

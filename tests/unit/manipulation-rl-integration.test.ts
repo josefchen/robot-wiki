@@ -69,10 +69,13 @@ describe('manipulation and RL retained-source integration', () => {
     for (const id of selectedIds) {
       const current = row(id);
       expect(current.compound, id).toBeDefined();
-      const mutated = structuredClone(plans);
-      const plan = mutated.find((p) => p.id === current.compound!.planId)!;
+      // Clone only the mutated plan: deep-cloning the whole growing catalog
+      // once per row pushed this loop past its timeout under the full suite.
+      const planId = current.compound!.planId;
+      const plan = structuredClone(plans.find((p) => p.id === planId)!);
       expect(plan.evidence.length, id).toBeGreaterThan(0);
       plan.evidence.pop();
+      const mutated = plans.map((p) => (p.id === planId ? plan : p));
       expect(row(id, mutated).evidenceFailures.length, id).toBeGreaterThan(0);
     }
   });

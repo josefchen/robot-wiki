@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e748639f6e4d453c437667aaf85c7d02300a0749c6b76710f1d3c9650057df4d",
+  "fingerprint": "cf87d5c8dec1761e0720ad1e6059c3659ca8d32187e599969cbb10a93df0fac4",
   "viewports": [
     "375x812",
     "1440x900"
@@ -18,7 +18,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 5416,
+      "visibleTextLength": 5405,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -69,7 +69,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17071,
+      "visibleTextLength": 17145,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -5077,7 +5077,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26408,
+      "visibleTextLength": 26542,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -5315,7 +5315,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 5638,
+      "visibleTextLength": 5627,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5366,7 +5366,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 17492,
+      "visibleTextLength": 17566,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -10374,7 +10374,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26787,
+      "visibleTextLength": 26921,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",

@@ -83,7 +83,11 @@ describe('Boston Dynamics control source corrections', () => {
     // assertion is that its record carries no evidence failures while
     // reward18 stays its own separate two-document conjunction.
     expect(sections().find(s => s.slug === 'reward-design-mpc')!.claimRecords[18].evidenceFailures).toEqual([]);
-    expect(sections().find(s => s.slug === 'legged-locomotion')!.claimRecords[0].evidenceFailures.length).toBeGreaterThan(0);
+    // Legged-locomotion original 1 (Stats) was held when this pin was written;
+    // the 20260917a packet bound it to legged-locomotion-1-stats-78min-20260917a.
+    const leggedStats = sections().find(s => s.slug === 'legged-locomotion')!.claimRecords[0];
+    expect(leggedStats.evidenceFailures).toEqual([]);
+    expect(leggedStats.compound?.planId).toBe('legged-locomotion-1-stats-78min-20260917a');
     expect(legged()).toContain('<Stat label="Alpine hike" value="78 min"');
     expect(legged()).toContain('reattach a shoe and swap batteries');
   });

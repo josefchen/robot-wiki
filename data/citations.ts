@@ -1914,7 +1914,60 @@ export const CITATIONS: Citation[] = [
     id: 'agibot-world-2025',
     title:
       'AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems',
-    authors: ['AgiBot Research'],
+    authors: [
+      "AgiBot-World-Contributors",
+      "Qingwen Bu",
+      "Jisong Cai",
+      "Li Chen",
+      "Xiuqi Cui",
+      "Yan Ding",
+      "Siyuan Feng",
+      "Shenyuan Gao",
+      "Xindong He",
+      "Xuan Hu",
+      "Xu Huang",
+      "Shu Jiang",
+      "Yuxin Jiang",
+      "Cheng Jing",
+      "Hongyang Li",
+      "Jialu Li",
+      "Chiming Liu",
+      "Yi Liu",
+      "Yuxiang Lu",
+      "Jianlan Luo",
+      "Ping Luo",
+      "Yao Mu",
+      "Yuehan Niu",
+      "Yixuan Pan",
+      "Jiangmiao Pang",
+      "Yu Qiao",
+      "Guanghui Ren",
+      "Cheng Ruan",
+      "Jiaqi Shan",
+      "Yongjian Shen",
+      "Chengshi Shi",
+      "Mingkang Shi",
+      "Modi Shi",
+      "Chonghao Sima",
+      "Jianheng Song",
+      "Huijie Wang",
+      "Wenhao Wang",
+      "Dafeng Wei",
+      "Chengen Xie",
+      "Guo Xu",
+      "Junchi Yan",
+      "Cunbiao Yang",
+      "Lei Yang",
+      "Shukai Yang",
+      "Maoqing Yao",
+      "Jia Zeng",
+      "Chi Zhang",
+      "Qinglin Zhang",
+      "Bin Zhao",
+      "Chengyue Zhao",
+      "Jiaqi Zhao",
+      "Jianchao Zhu",
+    ],
     year: 2025,
     arxiv: '2503.06669',
     url: 'https://arxiv.org/abs/2503.06669',
@@ -4547,6 +4600,17 @@ export const CITATIONS: Citation[] = [
     arxiv: '2406.17557',
     url: 'https://arxiv.org/abs/2406.17557',
     type: 'paper',
+  },
+  // CC BY 4.0: 2013 is the license-version publication year, not the undated deed webpage.
+  // Publisher License Versions table: 2013 Nov 25; retained retrieval 2026-09-21T22:59:00.538Z.
+  // https://wiki.creativecommons.org/wiki/License_Versions (no origin HTTP status exposed).
+  {
+    id: 'cc-by-4-0-deed',
+    title: 'Attribution 4.0 International',
+    authors: ['Creative Commons'],
+    year: 2013,
+    url: 'https://creativecommons.org/licenses/by/4.0/',
+    type: 'docs',
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 101 authors; first three listed.
@@ -8944,6 +9008,27 @@ export const CITATIONS: Citation[] = [
     year: 2026,
     venue: 'MoveIt 2 Documentation, as of 2026-08-24',
     url: 'https://moveit.picknik.ai/main/api/html/planning_scene_overview.html',
+    type: 'docs',
+  },
+  {
+    // Registered 2026-09-17 by the convergence-aq integrator from the frozen
+    // AO packet (convergence-ao-av2-plus-bookretry-20260917a, binding
+    // autonomous-vehicles:2), removing the 2026-09-15 registration hold: the
+    // tour pages serve over https with no redirect (re-verified fresh by the
+    // preparer 2026-09-17; index 5,933 B, home page 1,444 B, ralph.html
+    // 20,895 B, all sha256-pinned in the lane), so the locked registry schema
+    // (https URLs and dated web.archive.org captures alone) admits the live
+    // URL and no capture identity had to be constructed. The site is the
+    // project's own CMU Robotics Institute page set (tjochem@ri.cmu.edu,
+    // pomerlea@cs.cmu.edu); the tour's steering program RALPH and its ALVINN
+    // lineage are printed there. alvinn-1988 remains the architecture
+    // citation; this entry carries the 1995 demonstration-tour record.
+    id: 'no-hands-across-america-1995',
+    title: 'No Hands Across America (Navlab 5 USA tour)',
+    authors: ['Dean Pomerleau', 'Todd Jochem'],
+    year: 1995,
+    venue: 'Carnegie Mellon University Robotics Institute (project pages)',
+    url: 'https://www.cs.cmu.edu/~tjochem/nhaa/nhaa_home_page.html',
     type: 'docs',
   },
 ];

@@ -80,7 +80,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 5416,
+      "visibleTextLength": 5405,
       "header": {
         "present": true,
         "display": "flex",
@@ -569,7 +569,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 28657,
+      "visibleTextLength": 29082,
       "header": {
         "present": true,
         "display": "flex",
@@ -1547,7 +1547,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 25654,
+      "visibleTextLength": 25693,
       "header": {
         "present": true,
         "display": "flex",
@@ -1710,7 +1710,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 17037,
+      "visibleTextLength": 17028,
       "header": {
         "present": true,
         "display": "flex",
@@ -1873,7 +1873,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 17071,
+      "visibleTextLength": 17145,
       "header": {
         "present": true,
         "display": "flex",
@@ -3177,7 +3177,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 14698,
+      "visibleTextLength": 14842,
       "header": {
         "present": true,
         "display": "flex",
@@ -3340,7 +3340,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 15077,
+      "visibleTextLength": 15501,
       "header": {
         "present": true,
         "display": "flex",
@@ -3666,7 +3666,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26408,
+      "visibleTextLength": 26542,
       "header": {
         "present": true,
         "display": "flex",
@@ -3829,7 +3829,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 22122,
+      "visibleTextLength": 22204,
       "header": {
         "present": true,
         "display": "flex",
@@ -7081,7 +7081,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 21237,
+      "visibleTextLength": 21806,
       "header": {
         "present": true,
         "display": "flex",
@@ -7244,7 +7244,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 18801,
+      "visibleTextLength": 19097,
       "header": {
         "present": true,
         "display": "flex",
@@ -9681,7 +9681,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 27126,
+      "visibleTextLength": 27263,
       "header": {
         "present": true,
         "display": "flex",

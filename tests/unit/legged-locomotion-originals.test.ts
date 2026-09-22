@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import matter from 'gray-matter';
-import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
+import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { moduleFrontmatterSchema } from '../../data/schemas/module.ts';
 import { CITATIONS } from '../../data/citations.ts';
 import { GAITS, GAIT_ORDER, DEFAULT_GAIT } from '../../lib/gait.ts';
@@ -10,17 +11,18 @@ import { GAITS, GAIT_ORDER, DEFAULT_GAIT } from '../../lib/gait.ts';
 /**
  * Pins the 2026-09-16i legged-locomotion originals integration: the one
  * dispatched rl-sim2real/legged-locomotion row (original 8, the duty-factor
- * disclaimer sentence) must bind to its compound plan and parse complete
- * (no evidence failures) with supported adjudications for BOTH conjuncts of
+ * disclaimer sentence) retains its binding but is held, with withdrawn
+ * review/adjudications and uncredited historical material for BOTH conjuncts of
  * its local-AND (repo-authored gait constants + the retained Park 2017
  * classical-instance material reused read-only from the applied row-7 plan),
  * from the committed ledger and catalog exactly as check-audit-coverage
- * reads them. The held rows 1 and 6 (paywalled Choi Science Robotics), 17
- * (authored-toy schema family) and 18 (stale frontmatter-P1 claim cell) stay
- * incomplete, and every other row keeps its pre-existing evidence state.
+ * reads them. The held row 17 (authored-toy schema family) stays incomplete,
+ * and every other row keeps its pre-existing evidence state. Rows 1 and 6
+ * completed in this tree's 20260917a paywall pass (Choi abstract via the
+ * publicly printed render); row 18 had completed earlier in the same-day
+ * frontmatter-sweep integration.
  */
 const ROOT = join(import.meta.dirname, '../..');
-const PACKET_SHA = 'd80e6e2cf65a50321968b408ec66ece06d165a492331d2ae9cdd763c76871f37';
 const PLAN_ID = 'legged-locomotion-8-duty-factor-disclaimer-20260916i';
 const PARK_URL = 'https://journals.sagepub.com/doi/10.1177/0278364917694244';
 const EXPECTED_20260916I: Readonly<Record<number, string>> = {
@@ -66,7 +68,7 @@ const loadSection = () => {
 };
 
 describe('legged-locomotion originals integration (2026-09-16i row-8 correction)', () => {
-  it('binds the applied row to complete compound evidence', () => {
+  it('preserves the held row binding, partial evidence and truthful summary', () => {
     const { sections, compoundPlans } = loadSection();
     const article = sections.find((section) => section.slug === 'legged-locomotion');
     expect(article).toBeDefined();
@@ -74,12 +76,10 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
       const record = article!.claimRecords[Number(ordinal) - 1];
       expect(record.compound?.planId ?? '').toBe(planId);
       expect(record.compound?.structuralFailures ?? ['missing']).toEqual([]);
-      expect(record.compound?.adjudicationFailures ?? ['missing']).toEqual([]);
-      expect(record.evidenceFailures).toEqual([]);
+      expect(record.evidenceFailures.length).toBeGreaterThan(0);
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.adjudications.map((a) => a.outcome)).toEqual(
-        plan.parts.map(() => 'supported'),
-      );
+      expect(plan.planReview).toBeNull();
+      expect(plan.adjudications).toEqual([]);
       // compound rows must not mix scalar evidence cells with paired items
       for (const item of plan.evidence) {
         expect(item.citationId).not.toBe('');
@@ -100,20 +100,77 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
       expect(record.compound?.planId ?? '').toBe(planId);
       expect(record.evidenceFailures).toEqual([]);
     }
-    // rows 1, 6, 17, 18 stay honestly HELD per the dispatch:
-    // 1 and 6 need the paywalled Choi Science Robotics primary (x2);
-    // 17 is the authored-toy schema family (compoundPlanSchema
-    // requiredCitationIds min(1) on an internal interactive row);
-    // 18's frontmatter-P1 claim cell is stale (lists 12 ids; article
-    // frontmatter now carries 13), so the prepared batch cannot bind.
-    for (const ordinal of [1, 6, 17, 18]) {
-      const record = article.claimRecords[ordinal - 1];
-      expect(record.compound?.planId ?? '').toBe('');
-      expect(record.evidenceFailures.length).toBeGreaterThan(0);
-    }
+    // row 18 completed by the 20260917a frontmatter-sweep integration before
+    // this pass (stale pin repaired: it is no longer held)
+    const r18 = article.claimRecords[17];
+    expect(r18.compound?.planId ?? '').toBe('legged-locomotion-18-frontmatter-sweep-20260917a');
+    expect(r18.evidenceFailures).toEqual([]);
+    // row 17 stays honestly HELD: the authored-toy schema family
+    // (compoundPlanSchema requiredCitationIds min(1) on an internal
+    // interactive row)
+    const r17 = article.claimRecords[16];
+    expect(r17.compound?.planId ?? '').toBe('');
+    expect(r17.evidenceFailures.length).toBeGreaterThan(0);
   });
 
-  it('corrects the verdict with the retained Park instance and the local AND recorded', () => {
+  it('binds the two 20260917a paywall rows (1 and 6) to complete compound evidence', () => {
+    const { sections, compoundPlans } = loadSection();
+    const article = sections.find((section) => section.slug === 'legged-locomotion')!;
+    const expected: Readonly<Record<number, string>> = {
+      1: 'legged-locomotion-1-stats-78min-20260917a',
+      6: 'legged-locomotion-6-choi-abstract-20260917a',
+    };
+    for (const [ordinal, planId] of Object.entries(expected)) {
+      const record = article.claimRecords[Number(ordinal) - 1];
+      expect(record.compound?.planId ?? '').toBe(planId);
+      expect(record.compound?.structuralFailures ?? ['missing']).toEqual([]);
+      expect(record.compound?.adjudicationFailures ?? ['missing']).toEqual([]);
+      expect(record.evidenceFailures).toEqual([]);
+      const plan = compoundPlans.find((p) => p.id === planId)!;
+      expect(plan.planReview?.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+      expect(plan.planReview?.rationale).toContain('af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d');
+      for (const review of plan.adjudications) expect(review.outcome).toBe('supported');
+    }
+    // the stats claim cell now carries the applied 78-min stat, not the stale 1 h
+    const r1 = article.claimRecords[0];
+    expect(r1.claim).toContain('"78 min" Etzel hike (2.2 km, 120 m; planner 76 min)');
+    expect(r1.claim).not.toContain('"1 h"');
+    // row 6 discloses the abstract-equivalent scope of the training-loop clause
+    const r6 = article.claimRecords[5];
+    expect(r6.note).toContain('ABSTRACT SCOPE');
+    expect(r6.note).toContain("'inside the training loop' is the abstract-equivalent of 'for reinforcement learning'");
+  });
+
+  it('locks the needle-verified passages behind the paywall rows', () => {
+    const { compoundPlans } = loadSection();
+    const r1 = compoundPlans.find((p) => p.id === 'legged-locomotion-1-stats-78min-20260917a')!;
+    const rudin = r1.evidence.find((e) => e.partId === 'leg1-rudin-minutes-workstation-gpu')!;
+    expect(rudin.citationId).toBe('rudin-2021');
+    expect(rudin.sourceUrl).toBe('https://arxiv.org/abs/2109.11978');
+    expect(rudin.supportingPassage).toContain(
+      'training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain',
+    );
+    expect(rudin.supportingPassage).toContain('massive parallelism on a single workstation GPU');
+    const miki = r1.evidence.find((e) => e.partId === 'leg1-miki-78min-etzel-hike')!;
+    expect(miki.sourceUrl).toBe('https://ar5iv.labs.arxiv.org/html/2201.08117');
+    expect(miki.supportingPassage).toContain('The hiking route was 2.2 km long, with an elevation gain of 120 m.');
+    expect(miki.supportingPassage).toContain(
+      'finished the entire path in 78 minutes – virtually the same duration suggested by a hiking planner (76 minutes)',
+    );
+    const choiStat = r1.evidence.find((e) => e.partId === 'leg1-choi-3.03-sand-running')!;
+    expect(choiStat.citationId).toBe('choi-2023');
+    expect(choiStat.sourceUrl).toBe('https://www.science.org/doi/10.1126/scirobotics.ade2256');
+    expect(choiStat.supportingPassage).toContain('run on soft beach sand at 3.03 meters per second');
+    const r6 = compoundPlans.find((p) => p.id === 'legged-locomotion-6-choi-abstract-20260917a')!;
+    for (const item of r6.evidence) {
+      expect(item.citationId).toBe('choi-2023');
+      expect(item.sourceUrl).toBe('https://www.science.org/doi/10.1126/scirobotics.ade2256');
+    }
+    expect(r6.evidence.find((e) => e.partId === 'leg6-choi-cheap-granular-model')!
+      .supportingPassage).toContain('computationally efficient granular media model for reinforcement learning');
+  });
+
+  it('preserves the corrected verdict and uncredited Park/local-AND history', () => {
     const { sections, compoundPlans } = loadSection();
     const article = sections.find((section) => section.slug === 'legged-locomotion')!;
     const r8 = article.claimRecords[7];
@@ -150,9 +207,7 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     expect(localAnd.supportingPassage).toContain('line 35');
     expect(localAnd.supportingPassage).toContain('line 64');
     expect(localAnd.supportingPassage).toContain('<Cite id="park-2017-bounding" />');
-    expect(plan.adjudications.map((a) => a.partId)).toEqual([
-      'l8-classical-instance', 'l8-authored-values-local-AND',
-    ]);
+    expect(plan.adjudications).toEqual([]);
   });
 
   it('pins the local-AND facts at the repo surface the row scopes', () => {
@@ -190,10 +245,47 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     expect(park.year).toBe(2017);
   });
 
-  it('records integrator plan review on the 20260916i plan', () => {
-    const { compoundPlans } = loadSection();
-    const plan = compoundPlans.find((p) => p.id === PLAN_ID)!;
-    expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
-    expect(plan.planReview?.rationale).toContain(PACKET_SHA);
+
+  it.each([
+    {
+        "originalId": "audit/rl-sim2real.md:legged-locomotion:8",
+        "ordinal": 8,
+        "planId": "legged-locomotion-8-duty-factor-disclaimer-20260916i",
+        "oldTuple": "100f787b1aa8c18b7b9e21c822c4868c3a9888b38737b3d235ef6bcb3bf9025f",
+        "withdrawnReviewDigest": "f4946f4ac52e6887639272648c1e729d6fc174f217c6d74bf1cda6784c534644"
+    }
+])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const { sections, compoundPlans, markdown } = loadSection();
+    const article = sections.find(s => s.slug === 'legged-locomotion')!;
+    const record = article.claimRecords[ordinal - 1];
+    const plan = compoundPlans.find(p => p.id === planId)!;
+    expect(record.compound?.planId).toBe(planId);
+    expect(record.compound?.structuralFailures).toEqual([]);
+    expect(plan.planReview).toBeNull();
+    expect(plan.adjudications).toEqual([]);
+    expect(record.evidenceFailures).toEqual([
+      'compound plan review is missing or stale; changed/reduced plans need source-auditor review',
+      'compound source adjudication coverage must equal every part without duplicates or extras',
+    ]);
+    expect(record.note).toContain('HELD: restored named authored-evidence hold');
+    expect(plan.originalCellsDigest).toBe(originalClaimDigest(record));
+    expect(plan.originalCellsDigest).not.toBe(oldTuple);
+    // This archive is withdrawn history, never a fixture granting product credit.
+    const marker = `<!-- named-hold-archive:start ${originalId} -->\n` + '```json\n';
+    expect(markdown.split(marker)).toHaveLength(2);
+    const archived = JSON.parse(markdown.split(marker)[1].split('\n```\n<!-- named-hold-archive:end -->')[0]);
+    expect(archived.originalId).toBe(originalId);
+    expect(archived.planId).toBe(planId);
+    expect(originalClaimDigest(archived.originalCells)).toBe(oldTuple);
+    expect(record.claim).toBe(archived.originalCells.claim);
+    expect(record.sourceChecked).toBe(archived.originalCells.sourceChecked);
+    expect(record.verdict).toBe(archived.originalCells.verdict);
+    expect(record.note).toContain(archived.originalCells.note);
+    expect(createHash('sha256').update(JSON.stringify([
+      archived.planReview, archived.adjudications,
+    ])).digest('hex')).toBe(withdrawnReviewDigest);
+    expect(archived.planReview).not.toBeNull();
+    expect(archived.adjudications).toHaveLength(plan.parts.length);
   });
+
 });

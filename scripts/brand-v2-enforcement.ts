@@ -162,7 +162,6 @@ import {
   readMaterialPaints,
   originalSvgSemanticVerdicts,
   provenanceRecordVerdicts,
-  sealedSvgBaselineMembers,
   reusableContentVerdicts,
   type AssetRow,
   type MaterialRow,
@@ -1048,12 +1047,11 @@ const FIGURE_EVIDENCE = readFigureRuntimeEvidence({
 const ASSET_ROWS = REGISTRY.assets as unknown as AssetRow[];
 const MATERIAL_ROWS = (REGISTRY as unknown as { materials: MaterialRow[] })
   .materials;
-const SEALED_SVG_MEMBERS = sealedSvgBaselineMembers(
+const SEALED_SVG_MEMBERS = (
   readJson(join(ROOT, 'evidence', 'brand-v2', 'baseline', 'assets-svg.json')) as {
     members: Array<{ id: string; hash: string }>;
-  },
-  APPROVED_DELTAS,
-);
+  }
+).members;
 
 /**
  * `VAL-B2-ART-006` and `VAL-B2-IMG-003` are two sentences about the same
@@ -1077,6 +1075,7 @@ const FIGURE_VERDICTS = {
     ASSET_ROWS,
     ROOT,
     SEALED_SVG_MEMBERS,
+    APPROVED_DELTAS,
   ),
 } as const satisfies Record<
   string,

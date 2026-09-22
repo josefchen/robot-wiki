@@ -10646,6 +10646,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cc-by-4-0-deed",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:chauffeurnet-2018",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -11697,6 +11702,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:nice-slam-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:no-hands-across-america-1995",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13171,7 +13181,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1014,
+        "populationSize": 1016,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13691,6 +13701,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:bunny-visionpro-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:cadena-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:canadarm2-csa-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:cc-by-4-0-deed",
           "result:VAL-B2-BASE-002:article-metadata:citation:chauffeurnet-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:chaumette-hutchinson-2006",
           "result:VAL-B2-BASE-002:article-metadata:citation:chaumette-hutchinson-2007",
@@ -13902,6 +13913,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:ng-reward-shaping-1999",
           "result:VAL-B2-BASE-002:article-metadata:citation:nguyen-1988",
           "result:VAL-B2-BASE-002:article-metadata:citation:nice-slam-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:no-hands-across-america-1995",
           "result:VAL-B2-BASE-002:article-metadata:citation:ntsb-uber-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:nucleus-supervised-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-cosmos-3-launch-2026",

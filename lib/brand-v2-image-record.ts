@@ -2,11 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, attributionText, figureKind, legalBasis, preservationPolicy } from '../data/images.ts';
 import type { SiteImage } from '../data/schemas/image.ts';
-import {
-  sha256,
-  stableJson,
-  type ApprovedDelta,
-} from './brand-v2-baseline.ts';
+import { sha256, stableJson, validateApprovedDeltas, type ApprovedDelta } from './brand-v2-baseline.ts';
 import { contrastRatio } from './brand-v2-mobile-shell-evidence.ts';
 import type { Verdict } from './brand-v2-figure-evidence.ts';
 import { REUSABLE_CONTENT_BASES } from './brand-v2-figure-evidence.ts';
@@ -844,58 +840,30 @@ export function materialHonestyVerdicts(
  * `evidence/brand-v2/baseline/assets-svg.json`, which was sealed before the
  * rollout and is never rewritten.
  *
- * An approved drawing change does not edit that seal; it arrives as an
- * `assets-svg` entry in `contract/brand-v2-approved-deltas.json`, exactly
- * the way `navigationBaselineMembers` in `lib/shell-populations.ts`
- * resolves the sealed navigation taxonomy. The expected hash is the sealed
- * one unless a delta names the member and claims its sealed hash, in which
- * case it is that delta's new hash: an unapproved move still fails, and the
- * approval stays a reviewable entry rather than a hole in the assertion.
- * New drawings enter through an approved addition — a delta whose memberId
- * was never sealed and whose oldHash is the missing-member sentinel
- * `sha256("missing")` — so an addition nobody approved still reports no
- * sealed member.
+ * The seal is immutable, but the contract's own lawfulness channel for
+ * post-seal movement is the approved-delta allowlist (`VAL-B2-BASE-010`):
+ * a member whose semantic hash moved to the exact endpoint a schema-valid
+ * `assets-svg` delta brackets is sanctioned, and anything else still
+ * fails. Without this the verdict is stricter than the governance it
+ * enforces and rejects owner-approved corrections the baseline lane
+ * recorded.
  */
-export function sealedSvgBaselineMembers(
-  sealed: { members?: Array<{ id: string; hash: string }> },
-  approvedDeltas: readonly ApprovedDelta[],
-): Array<{ id: string; hash: string }> {
-  const members = sealed.members ?? [];
-  if (members.length === 0) {
-    throw new Error(
-      'the immutable baseline records no first-party SVG members: VAL-B2-VIZ-014 would quantify over an empty population',
-    );
-  }
-  const approved = new Map(
-    approvedDeltas
-      .filter(({ manifest }) => manifest === 'assets-svg')
-      .map((entry) => [entry.memberId, entry]),
-  );
-  const resolved = members.map(({ id, hash }) => {
-    const delta = approved.get(id);
-    if (delta && delta.oldHash !== hash) {
-      throw new Error(
-        `the approved delta ${delta.id} claims to move ${id} from a hash the SVG baseline does not record`,
-      );
-    }
-    return { id, hash: delta?.newHash ?? hash };
-  });
-  const sealedIds = new Set(resolved.map(({ id }) => id));
-  const missingHash = sha256('missing');
-  for (const delta of approved.values()) {
-    if (!sealedIds.has(delta.memberId) && delta.oldHash === missingHash) {
-      resolved.push({ id: delta.memberId, hash: delta.newHash });
-    }
-  }
-  return resolved;
-}
-
 export function originalSvgSemanticVerdicts(
   assets: readonly AssetRow[],
   root: string,
   baselineMembers: ReadonlyArray<{ id: string; hash: string }>,
+  deltas: readonly ApprovedDelta[] = [],
 ): Map<string, Verdict<Record<string, unknown>>> {
   const baseline = new Map(baselineMembers.map(({ id, hash }) => [id, hash]));
+  const svgDeltas = new Map(
+    deltas
+      .filter(
+        (delta) =>
+          delta.manifest === 'assets-svg' &&
+          validateApprovedDeltas([delta]).length === 0,
+      )
+      .map((delta) => [delta.memberId, delta]),
+  );
   const verdicts = new Map<string, Verdict<Record<string, unknown>>>();
   for (const id of firstPartySvgMembers(assets)) {
     const asset = assets.find((row) => row.id === id) as AssetRow;
@@ -904,18 +872,27 @@ export function originalSvgSemanticVerdicts(
     const semanticHash = sha256(normalizeSvgSemantics(svg));
     const memberId = `public-svg:${asset.path}`;
     const sealed = baseline.get(memberId);
+    const recomputed = sha256(stableJson({ path: asset.path, semanticHash }));
+    const delta = svgDeltas.get(memberId);
+    const bracketsSeal =
+      delta !== undefined &&
+      delta.oldHash === (sealed ?? sha256('missing')) &&
+      delta.newHash === recomputed;
+    let coveredByDelta = false;
     if (!sealed) {
-      failures.push(`${id} has no sealed baseline member at ${memberId}`);
-    } else {
-      const recomputed = sha256(
-        stableJson({ path: asset.path, semanticHash }),
-      );
-      if (recomputed !== sealed) {
-        failures.push(
-          `${id} normalizes to semantic hash ${semanticHash.slice(0, 12)}, which does not reproduce the sealed baseline member: a node, a label, a coordinate or a textual alternative moved outside the style allowlist`,
-        );
+      if (!bracketsSeal) {
+        failures.push(`${id} has no sealed baseline member at ${memberId}`);
+      } else {
+        coveredByDelta = true;
       }
+    } else if (recomputed !== sealed && !bracketsSeal) {
+      failures.push(
+        `${id} normalizes to semantic hash ${semanticHash.slice(0, 12)}, which does not reproduce the sealed baseline member and no approved delta brackets the movement: a node, a label, a coordinate or a textual alternative moved outside the style allowlist`,
+      );
+    } else if (recomputed !== sealed) {
+      coveredByDelta = true;
     }
+
     // The hash proves equality with the seal, but a seal taken over an empty
     // drawing would be reproduced by an empty drawing. These assert the
     // drawing is still a drawing with a textual alternative and labels.
@@ -934,6 +911,7 @@ export function originalSvgSemanticVerdicts(
         path: asset.path,
         semanticHash,
         sealedMember: memberId,
+        coveredByApprovedDelta: coveredByDelta,
         labelCount: labels.length,
       },
       failures,

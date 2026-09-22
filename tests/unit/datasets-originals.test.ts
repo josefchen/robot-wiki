@@ -3,13 +3,12 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 /**
- * Red-first proof for the datasets originals integration (frozen packet
- * convergence-source-i-datasets-20260916c, rows 1-11). Every applied-state
- * assertion here failed before application and must pass after it. The
- * regression guards (article span stability, registry order, frontmatter)
- * passed before and must stay green. Rows 5, 6 and 10 intentionally keep
- * unresolved parts (deed registration blocked on an unprintable year; dead
- * project site; unreachable license primary) and must NOT read as complete.
+ * Regression proof for the datasets originals integration (frozen packet
+ * convergence-source-i-datasets-20260916c, rows 1-11). The approved September
+ * 21 license-pair correction completes rows 5/6 with deed limitations,
+ * publisher-supported license-version dating and the actual BridgeData site.
+ * Original plan identities and approval history remain fixed. Row 10 alone
+ * retains its unresolved license part; these checks must not promote it.
  */
 const article = readFileSync('content/data-hardware/datasets.mdx', 'utf8');
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');
@@ -100,6 +99,56 @@ const planIdByRow: Record<number, string> = {
   11: 'datasets-11-diversity-20260916c',
 };
 const newDeltaIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((n) => `ds-r${n}-20260916-1`);
+const licensePairReviewer =
+  'Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z';
+const licensePairDigests: Record<number, string> = {
+  5: 'e0779c98df20ce631b4d08787ade3534238462a658ec36de276198a5132dd4c3',
+  6: '2bbe336fb9f56948c69c7fc74bd83ef02b1c394b02db58cdd650ce9696daa51c',
+};
+const licensePairParts: Record<number, string[]> = {
+  5: ['ds5-paper-license', 'ds5-deed-commercial-attribution', 'ds5-license-version-date'],
+  6: ['ds6-total-and-robot', 'ds6-split-and-rate', 'ds6-project-average', 'ds6-project-data-license'],
+};
+
+function assertReviewer(reviewer: string, ordinal: number) {
+  if (ordinal === 5 || ordinal === 6) expect(reviewer).toBe(licensePairReviewer);
+  else expect(reviewer).toContain('datasets-integrator-20260916');
+}
+
+function assertDeedEvidence(plan: PlanRecord) {
+  expect(plan.parts.map((part) => part.id)).toEqual(licensePairParts[5]);
+  const terms = plan.evidence.find((item) => item.partId === 'ds5-deed-commercial-attribution');
+  expect(terms?.citationId).toBe('cc-by-4-0-deed');
+  expect(terms?.sourceUrl).toBe('https://creativecommons.org/licenses/by/4.0/');
+  for (const text of [
+    'for any purpose, even commercially',
+    'provide a link to the license',
+    'indicate if changes were made',
+    'No additional restrictions',
+    'No warranties are given.',
+    'The license may not give you all of the permissions necessary for your intended use.',
+    'publicity, privacy, or moral rights',
+    'It is not a license and has no legal value.',
+  ]) expect(terms?.supportingPassage).toContain(text);
+  const version = plan.evidence.find((item) => item.partId === 'ds5-license-version-date');
+  expect(version?.citationId).toBe('cc-by-4-0-deed');
+  expect(version?.sourceUrl).toBe('https://wiki.creativecommons.org/wiki/License_Versions');
+  expect(version?.supportingPassage).toContain('published November 2013');
+  expect(version?.supportingPassage).toContain('2013 Nov 25');
+}
+
+function assertLicensePairProse(text: string) {
+  expect(text).toContain('The paper releases the full dataset under CC BY 4.0 <Cite id="droid-2024" />.');
+  expect(text).toContain('subject to attribution, a license link, change notices and the other license terms');
+  expect(text).toContain('The deed also warns that other rights may limit a particular use <Cite id="cc-by-4-0-deed" />.');
+  expect(text).toContain('not a guarantee of every permission needed for a use <Cite id="cc-by-4-0-deed" />');
+  expect(text).toContain('The official project page reports an average trajectory length of 38 timesteps and a control frequency of 5 Hz <Cite id="bridgedata-v2-2023" />.');
+  expect(text).toContain('The official project page states that all data is provided under CC BY 4.0 <Cite id="bridgedata-v2-2023" />.');
+  expect(text).toContain("BridgeData V2's official project page states CC BY 4.0");
+  expect(text).not.toContain('permits commercial training');
+  expect(text).not.toContain('offline as of September 2026');
+  expect(text).not.toContain('about eight seconds');
+}
 
 describe('datasets originals: ledger rows', () => {
   it('binds every dispatched row 1-11 to its exact compound plan', () => {
@@ -143,16 +192,35 @@ describe('datasets originals: ledger rows', () => {
     expect(row(4)[3]).toContain('abs prints 84 tasks where the full text prints 86 twice');
   });
 
-  it('leaves row 5 honestly incomplete: the deed part is unregistered (no printable year)', () => {
-    expect(row(5)[3]).toContain('Deed citation is a PROPOSED registration');
-    expect(row(5)[3]).toContain('HELD');
-    expect(registeredIds.has('cc-by-4-0-deed')).toBe(false);
+  it('completes row 5 with deed limitations and license-version dating, not blanket permission', () => {
+    expect(row(5)[2]).toBe('C (preserves the earlier CC BY-NC to CC BY correction; narrows blanket training permission to the deed terms and limitations)');
+    expect(row(5)[0]).toContain('a license link, change notices and its other terms');
+    expect(row(5)[0]).toContain('does not guarantee every permission needed for a particular use');
+    expect(row(5)[3]).toContain('2013 is registered solely as the identified license-version publication year');
+    expect(row(5)[3]).toContain('The deed webpage itself is undated');
+    expect(row(5)[3]).toContain('The deed is a summary, not the legal code or legal advice');
+    expect(registeredIds.has('cc-by-4-0-deed')).toBe(true);
+    assertDeedEvidence(plans.find((plan) => plan.id === planIdByRow[5])!);
   });
 
-  it('leaves row 6 honestly incomplete: 38-timesteps and license elements held on the dead site', () => {
-    expect(row(6)[2]).toContain('V (six elements re-verified live');
-    expect(row(6)[3]).toContain('project site 404 (both paths)');
-    expect(row(6)[3]).toContain('last live print 2026-08-18');
+  it('completes row 6 on the actual official endpoint without inventing HTTP status or seconds', () => {
+    expect(row(6)[2]).toBe('C (corrects the wrong-host offline conclusion using the actual official endpoint; removes derived seconds)');
+    expect(row(6)[1]).toContain('https://rail-berkeley.github.io/bridgedata/');
+    expect(row(6)[1]).toContain('2026-09-21T22:58:34.582Z');
+    expect(row(6)[1]).toContain('no origin HTTP status exposed');
+    expect(row(6)[0]).toContain('38-timestep average');
+    expect(row(6)[0]).toContain('all data provided under CC BY 4.0');
+    expect(row(6)[0]).not.toContain('~8 s');
+    const plan = plans.find((plan) => plan.id === planIdByRow[6])!;
+    expect(plan.parts.map((part) => part.id)).toEqual(licensePairParts[6]);
+    for (const [partId, passage] of [
+      ['ds6-project-average', '38 timesteps'],
+      ['ds6-project-data-license', 'All data is provided under'],
+    ]) {
+      const item = plan.evidence.find((item) => item.partId === partId)!;
+      expect(item.sourceUrl).toBe('https://rail-berkeley.github.io/bridgedata/');
+      expect(item.supportingPassage).toContain(passage);
+    }
   });
 
   it('completes row 7 with the repo registration and the stale GO-1 VRAM cell dropped', () => {
@@ -201,12 +269,15 @@ describe('datasets originals: compound plans', () => {
       expect(plan.originalCellsDigest).toBe(
         digest([row(plan.rowOrdinal)[0], row(plan.rowOrdinal)[1], row(plan.rowOrdinal)[2], row(plan.rowOrdinal)[3]]),
       );
+      if (plan.rowOrdinal === 5 || plan.rowOrdinal === 6) {
+        expect(plan.originalCellsDigest).toBe(licensePairDigests[plan.rowOrdinal]);
+      }
       expect(plan.planReview.planDigest).toBe(planDigestOf(plan));
-      expect(plan.planReview.reviewedBy).toContain('datasets-integrator-20260916');
+      assertReviewer(plan.planReview.reviewedBy, plan.rowOrdinal);
     }
   });
 
-  it('covers every required (part, citation) pair exactly, with registered ids except the held deed part', () => {
+  it('covers every required (part, citation) pair exactly, including the registered deed', () => {
     for (const plan of plans.slice(718, 729)) {
       const required = plan.parts.flatMap((part) =>
         part.requiredCitationIds.map((id) => JSON.stringify([part.id, id])));
@@ -215,7 +286,6 @@ describe('datasets originals: compound plans', () => {
       const triples = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId, item.sourceUrl]));
       expect(triples.length).toBe(new Set(triples).size);
       for (const item of plan.evidence) {
-        if (item.citationId === 'cc-by-4-0-deed') continue; // held part: registration lawfully blocked
         expect(registeredIds.has(item.citationId)).toBe(true);
         expect(item.sourceUrl).toMatch(/^https:\/\//);
         // 'Total file size: 13.6 TB' is the card's own verbatim sidebar line
@@ -226,20 +296,35 @@ describe('datasets originals: compound plans', () => {
   });
 
   it('adjudicates the supported parts supported and the held parts unresolved, with fresh digests', () => {
-    const held = new Set([
-      'ds5-deed-commercial-attribution',
-      'ds6-held-38timesteps-license',
-      'ds10-license-held',
-    ]);
+    const held = new Set(['ds10-license-held']);
     for (const plan of plans.slice(718, 729)) {
+      if (plan.rowOrdinal === 5 || plan.rowOrdinal === 6) {
+        expect(plan.parts.map((part) => part.id)).toEqual(licensePairParts[plan.rowOrdinal]);
+      }
       expect(plan.adjudications.map((review) => review.partId).sort())
         .toEqual(plan.parts.map((part) => part.id).sort());
       for (const review of plan.adjudications) {
         expect(review.outcome).toBe(held.has(review.partId) ? 'unresolved' : 'supported');
         expect(review.evidenceDigest).toBe(partDigestOf(plan, review.partId));
-        expect(review.reviewedBy).toContain('datasets-integrator-20260916');
+        assertReviewer(review.reviewedBy, plan.rowOrdinal);
       }
     }
+  });
+
+  it.each(['limitations', 'terms evidence', 'version evidence'])('rejects removed deed %s', (removed) => {
+    const plan = structuredClone(plans.find((plan) => plan.id === planIdByRow[5])!);
+    assertDeedEvidence(plan);
+    if (removed === 'limitations') {
+      const terms = plan.evidence.find((item) => item.partId === 'ds5-deed-commercial-attribution')!;
+      terms.supportingPassage = terms.supportingPassage.replace(
+        'The license may not give you all of the permissions necessary for your intended use.', '',
+      );
+    } else {
+      const partId = removed === 'terms evidence'
+        ? 'ds5-deed-commercial-attribution' : 'ds5-license-version-date';
+      plan.evidence = plan.evidence.filter((item) => item.partId !== partId);
+    }
+    expect(() => assertDeedEvidence(plan)).toThrow();
   });
 
   it('carries the verbatim needle-checked passages in the external plans', () => {
@@ -289,7 +374,7 @@ describe('datasets originals: approved deltas', () => {
   });
 });
 
-describe('datasets originals: regression guards (green before and after)', () => {
+describe('datasets originals: regression guards', () => {
   it('keeps the unaffected article spans byte-identical', () => {
     expect(article).toContain('OXE pooled 60 existing datasets from 34 labs into one standardized RLDS format');
     expect(article).toContain('76,000 trajectories totaling 350 hours, across 564 scenes and 86 tasks');
@@ -297,18 +382,36 @@ describe('datasets originals: regression guards (green before and after)', () =>
     expect(article).toContain('107,000 trajectories across 479 tasks and 96 object classes');
   });
 
-  it('applies the three lawful article changes and no others', () => {
+  it('retains the earlier size correction and the approved license-pair prose without clearing RoboMIND', () => {
     expect(article).toContain('13.6 TB');
     expect(article).not.toContain('13.7 TB');
     expect(article).toContain('publishes a 13.6 TB total file size and nothing else as of September 2026');
-    expect(article).toContain('offline as of September 2026');
+    assertLicensePairProse(article);
     expect(article).toContain('no currently reachable primary page prints it');
+    expect(article).toContain("RoboMIND's previously recorded non-commercial terms remain unverified");
   });
 
-  it('keeps every bound citation id registered and the frontmatter unchanged', () => {
+  it.each([
+    'The license is CC BY 4.0, which permits commercial training runs with attribution.',
+    'The site is offline as of September 2026.',
+  ])('rejects revived unsupported wording: %s', (unsupported) => {
+    assertLicensePairProse(article);
+    expect(() => assertLicensePairProse(`${article}\n${unsupported}`)).toThrow();
+  });
+
+  it('rejects removal of the deed limitation from the article', () => {
+    assertLicensePairProse(article);
+    const removed = article.replace(
+      'The deed also warns that other rights may limit a particular use <Cite id="cc-by-4-0-deed" />.', '',
+    );
+    expect(() => assertLicensePairProse(removed)).toThrow();
+  });
+
+  it('keeps every bound citation registered, including the approved deed frontmatter addition', () => {
     for (const id of [
       'open-x-embodiment-2023',
       'droid-2024',
+      'cc-by-4-0-deed',
       'bridgedata-v2-2023',
       'agibot-world-2025',
       'agibot-world-2026',

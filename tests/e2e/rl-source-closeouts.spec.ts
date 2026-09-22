@@ -6,8 +6,8 @@ import { expectedApparatusGraph } from '../../lib/brand-v2-apparatus-evidence';
 import { getCitation } from '../../data/citations';
 import { ANCHORS, BUDGET_SPEC, FLEET_SPEC } from '../../lib/sample-efficiency';
 import { missingOccurrences } from './source-reader-requirements';
-import { forEachInOwnContext } from './helpers/per-route-context';
 import { setSlider } from './slider';
+import { forEachInOwnContext } from './helpers/per-route-context';
 
 const graph = expectedApparatusGraph(process.cwd());
 const changed = ['levine-hand-eye-2016', 'her-2017', 'q-transformer-2023'];
@@ -16,6 +16,14 @@ const affected = [...graph].filter(([, value]) =>
     ...value.componentCitationSites.map((site) => site.id)]
     .some((id) => changed.includes(id)),
 );
+// The RL reader owns the widget and Term checks; every other route that
+// renders a changed citation (the production line's offline-RL article cites
+// q-transformer-2023) gets the same citation, reference and page checks.
+const RL_READER = '/rl-sim2real/rl-for-robotics/';
+const AFFECTED_TITLES: Record<string, string> = {
+  [RL_READER]: 'RL for Robotics',
+  '/rl-sim2real/offline-rl/': 'Offline Reinforcement Learning for Robotics',
+};
 
 /** Real viewport slices, retaining original bytes and document coordinates.
  * The useful coverage band avoids both the sticky header and the dev badge;
@@ -61,41 +69,45 @@ for (const width of [1440, 375]) {
     mkdirSync(directory, { recursive: true });
     const errors: string[] = [];
     const requests: string[] = [];
-    expect(affected.map(([route]) => route)).toEqual(['/rl-sim2real/rl-for-robotics/']);
+    expect(affected.map(([route]) => route).sort()).toEqual(Object.keys(AFFECTED_TITLES).sort());
     await forEachInOwnContext(browser, affected, async (page, [route, required]) => {
-        page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
-        page.on('pageerror', (error) => errors.push(error.message));
-        page.on('request', (request) => requests.push(request.url()));
-        expect((await page.goto(`http://127.0.0.1:3200${route}`))?.ok()).toBe(true);
-        await expect(page.getByRole('heading', { name: 'RL for Robotics', exact: true, level: 1 })).toBeVisible();
-        const observed = await page.locator('[data-cite-id]').evaluateAll((nodes) =>
-          nodes.map((node) => node.getAttribute('data-cite-id') ?? ''),
-        );
-        expect(missingOccurrences([
-          ...required.citationMarkers,
-          ...required.componentCitationSites.map((site) => site.id),
-        ], observed)).toEqual([]);
-        expect(await page.locator('ol [data-reference-id]').evaluateAll((nodes) =>
-          nodes.map((node) => node.getAttribute('data-reference-id')),
-        )).toEqual(required.references);
-        for (const id of changed) {
-          const citation = getCitation(id)!;
-          const reference = page.locator(`ol [data-reference-id="${id}"]`);
-          await reference.scrollIntoViewIfNeeded();
-          const expand = reference.getByRole('button', { name: /authors/i });
-          if (await expand.count()) {
-            await expand.focus();
-            await expect(expand).toBeFocused();
-            await expand.click();
-          }
-          await expect(reference).toContainText(citation.authors.join(', '));
-          const link = reference.locator(`a[href="${citation.url}"]`).first();
-          await expect(link).toHaveAttribute('target', '_blank');
-          await expect(link).toHaveAttribute('rel', /noopener/);
-          await expect(link).toHaveAttribute('rel', /noreferrer/);
-          await captureSlices(page, reference, `${width}-${id}`, directory);
-          if (await expand.count()) await expand.click();
+      page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
+      page.on('pageerror', (error) => errors.push(error.message));
+      page.on('request', (request) => requests.push(request.url()));
+      expect((await page.goto(`http://127.0.0.1:3200${route}`))?.ok()).toBe(true);
+      await expect(page.getByRole('heading', { name: AFFECTED_TITLES[route], exact: true, level: 1 })).toBeVisible();
+      const capturePrefix = route === RL_READER ? `${width}` : `${width}-${route.split('/').filter(Boolean).join('-')}`;
+      const observed = await page.locator('[data-cite-id]').evaluateAll((nodes) =>
+        nodes.map((node) => node.getAttribute('data-cite-id') ?? ''),
+      );
+      expect(missingOccurrences([
+        ...required.citationMarkers,
+        ...required.componentCitationSites.map((site) => site.id),
+      ], observed)).toEqual([]);
+      expect(await page.locator('ol [data-reference-id]').evaluateAll((nodes) =>
+        nodes.map((node) => node.getAttribute('data-reference-id')),
+      )).toEqual(required.references);
+      const rendered = changed.filter((id) => required.references.includes(id));
+      expect(rendered.length).toBeGreaterThan(0);
+      for (const id of rendered) {
+        const citation = getCitation(id)!;
+        const reference = page.locator(`ol [data-reference-id="${id}"]`);
+        await reference.scrollIntoViewIfNeeded();
+        const expand = reference.getByRole('button', { name: /authors/i });
+        if (await expand.count()) {
+          await expand.focus();
+          await expect(expand).toBeFocused();
+          await expand.click();
         }
+        await expect(reference).toContainText(citation.authors.join(', '));
+        const link = reference.locator(`a[href="${citation.url}"]`).first();
+        await expect(link).toHaveAttribute('target', '_blank');
+        await expect(link).toHaveAttribute('rel', /noopener/);
+        await expect(link).toHaveAttribute('rel', /noreferrer/);
+        await captureSlices(page, reference, `${capturePrefix}-${id}`, directory);
+        if (await expand.count()) await expand.click();
+      }
+      if (route === RL_READER) {
         for (const id of ['sample-efficiency', 'offline-reinforcement-learning', 'hindsight-experience-replay']) {
           const term = page.locator(`.prose [data-term-id="${id}"]`).first();
           const trigger = term.locator('a,button').first();
@@ -139,9 +151,10 @@ for (const width of [1440, 375]) {
           await details.locator('summary').click();
         }
         await expect(widget.getByRole('table')).toBeVisible();
-        const axe = await new AxeBuilder({ page }).analyze();
-        expect(axe.violations).toEqual([]);
-        expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
+      }
+      const axe = await new AxeBuilder({ page }).analyze();
+      expect(axe.violations).toEqual([]);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
     }, { viewport: { width, height: 1000 } });
     writeFileSync(join(directory, `${width}-reader-checks.json`), JSON.stringify({
       affectedRoutes: affected.map(([route]) => route), errors, requests,

@@ -28,6 +28,7 @@ import {
   currentArticleFactFrontmatterMembers,
   currentRelationshipMembers,
 } from '@/lib/relationship-manifest';
+import { DEFAULT_THESIS_ID, THESES } from '@/lib/competing-theses';
 import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
 
 /**
@@ -532,6 +533,36 @@ describe('the apparatus verdict families', () => {
     ).toBeGreaterThan(0);
   });
 
+  it('expands one occurrence population per data source, not one per JSX spelling of the same expression', () => {
+    const graph = expectedApparatusGraph(ROOT);
+    const route = '/frontier/competing-theses/';
+    const expected = graph.get(route)!;
+    // thesis-explorer.tsx spells <CiteRef id={id}/> twice inside one
+    // .map() callback: a block-level branch for two specific source ids
+    // and the bare rendering for every other row. Both spellings draw from
+    // the same data rows, so the mount owes each default-state occurrence
+    // exactly once, not once per branch.
+    const perMount = new Map<string, number>();
+    for (const site of expected.dynamicCitationSites) {
+      perMount.set(
+        site.mountId,
+        (perMount.get(site.mountId) ?? 0) + site.occurrences.length,
+      );
+    }
+    const selected = THESES.find(({ id }) => id === DEFAULT_THESIS_ID)!;
+    const dataRows = (
+      ['evidenceFor', 'evidenceAgainst'] as const
+    ).flatMap((side) => selected[side].flatMap((row) => row.citationIds));
+    expect(dataRows.length).toBeGreaterThan(0);
+    expect(perMount.size).toBeGreaterThan(0);
+    for (const [mountId, expanded] of perMount) {
+      expect(
+        expanded,
+        `${mountId} expanded its mapped occurrences once per JSX spelling of the same expression`,
+      ).toBe(dataRows.length);
+    }
+  });
+
   it('binds the References the frontmatter declares to the sealed frontmatter', () => {
     const sealed = readSealedFrontmatterFactMembers(ROOT);
     const current = currentArticleFactFrontmatterMembers(ROOT);
@@ -551,7 +582,12 @@ describe('the apparatus verdict families', () => {
         !sealedIds.has(memberId) &&
         oldHash === missingHash,
     );
-    expect(current.length).toBe(sealed.length + approvedAdditions.length);
+    // A member may be re-approved (world-models-vs-simulators was added by
+    // the SEO merge and re-approved by the inference-economics section), so
+    // the population grows by distinct added members, not by entries.
+    expect(current.length).toBe(
+      sealed.length + new Set(approvedAdditions.map(({ memberId }) => memberId)).size,
+    );
     // One collector, two gates: the sealed `article-metadata` manifest and
     // this row have to hash the frontmatter facts the same way.
     expect(
@@ -575,8 +611,14 @@ describe('the apparatus verdict families', () => {
     // rendered References list and the derived expectation together, so the
     // rendered comparison stays green. Only the sealed side can see it. The
     // mutated member has to be a sealed one: a member that exists only as an
-    // approved addition has no sealed hash to move from.
-    const sealedIndex = current.findIndex(({ id }) => sealedIds.has(id));
+    // approved addition has no sealed hash to move from. It also has to be
+    // one no approved delta names yet, or the drift reads as a stale delta.
+    const sealedIndex = current.findIndex(
+      ({ id }) =>
+        sealedIds.has(id) &&
+        !articleMetadataDeltas.some(({ memberId }) => memberId === id),
+    );
+    expect(sealedIndex).toBeGreaterThanOrEqual(0);
     const moved = current.map((member, index) =>
       index === sealedIndex ? { ...member, hash: '0'.repeat(64) } : member,
     );
@@ -640,8 +682,15 @@ describe('the apparatus verdict families', () => {
     // The rollout edits an article's seeAlso list or drops a <Cite> from a
     // body. The derived expectation moves with it and the rendered
     // comparison stays green; only the sealed manifest can see it.
+    // Plant the move on a member no approved relationships delta names, so
+    // the only thing that can see it is the sealed manifest.
+    const target = current.findIndex(
+      (member) =>
+        !readRelationshipDeltas(ROOT).some(({ memberId }) => memberId === member.id),
+    );
+    expect(target).toBeGreaterThanOrEqual(0);
     const moved = current.map((member, index) =>
-      index === 0 ? { ...member, hash: '0'.repeat(64) } : member,
+      index === target ? { ...member, hash: '0'.repeat(64) } : member,
     );
     const drift = relationshipBaselineDrift({
       sealed,
@@ -653,7 +702,7 @@ describe('the apparatus verdict families', () => {
     );
 
     // An approved delta closes it, and only for the change it names.
-    const memberId = current[0].id;
+    const memberId = current[target].id;
     const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
     expect(
       [
