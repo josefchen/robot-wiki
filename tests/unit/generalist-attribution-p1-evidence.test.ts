@@ -9,7 +9,7 @@ import { GENERALIST_RELEASES } from '../../lib/generalist-policies';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
-import { laneWindow, reanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
+import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
@@ -40,7 +40,8 @@ const currentHash = (kind: BaselineKind, memberId: string) => Object.values(trut
 // The production line also changed the citation label/meta digest (its own
 // citation additions). On the integrated line the lane endpoint is no longer
 // HEAD for that member; it carries the integration re-anchor from its sealed
-// hash to the merged hash instead.
+// hash to the merged hash instead, and, once later registry additions move the
+// digest again, a later re-anchor from the same seal to HEAD.
 const productionTouched = new Set(['article-metadata|citation-rendering:label-and-meta']);
 const touched = ([kind, id]: [BaselineKind, string, string]) => productionTouched.has(`${kind}|${id}`);
 function bundle(old: boolean, selected: Array<[BaselineKind, string, string]> = oldHashes): BaselineBundle {
@@ -173,7 +174,14 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
       const reanchor = reanchorFor(approvals, manifest, memberId);
       if (touched(entry)) {
         expect(a?.newHash).not.toBe(currentHash(manifest, memberId));
-        expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        // The integration re-anchor keeps the merged value that the
+        // integration commit's own evidence observed; HEAD is bracketed from
+        // the same seal by the latest re-anchor, which never precedes it.
+        expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
+        expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
+        const head = headReanchorFor(approvals, manifest, memberId)!;
+        expect(head).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {
         expect(a?.newHash).toBe(currentHash(manifest, memberId));
         // A lane-only member needs no integration re-anchor; if one exists it must be exact.
@@ -191,9 +199,9 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
       expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
       expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
     }
-    // Members the production line also changed: seal -> HEAD through the integration re-anchors.
+    // Members the production line also changed: seal -> HEAD through the latest integration re-anchors.
     const mergedMembers = oldHashes.filter(touched).map(([k, id]) => [k, id, sealedHash(k, id)] as [BaselineKind, string, string]);
-    const reanchors = mergedMembers.map(([k, id]) => reanchorFor(approvals, k, id)!);
+    const reanchors = mergedMembers.map(([k, id]) => headReanchorFor(approvals, k, id)!);
     expect(reanchors).toHaveLength(productionTouched.size);
     expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), reanchors).ok).toBe(true);
     for (const approval of reanchors) {

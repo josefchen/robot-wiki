@@ -8,7 +8,7 @@ import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
-import { PRODUCTION_BASE, TRUE_MERGE_BASE, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
+import { PRODUCTION_BASE, TRUE_MERGE_BASE, headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'e687718cd3c2d1c35d3f63b6e296712a5892a9f0';
@@ -60,7 +60,9 @@ const currentHash = (kind: BaselineKind, memberId: string) => Object.values(trut
 // Members the production line also changed (SEO training-contract section,
 // related links, and its own citation additions). On the integrated line the
 // lane endpoint is no longer HEAD for these; each carries the integration
-// re-anchor from its sealed hash to the merged hash instead.
+// re-anchor from its sealed hash to the merged hash instead. A member moved
+// again after the integration (the label/meta digest, by later registry
+// additions) also carries a later re-anchor from the same seal to HEAD.
 const productionTouched = new Set([
   'prose|article:data-hardware/datasets',
   'relationships|article:data-hardware/datasets',
@@ -196,7 +198,14 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
       const reanchor = reanchorFor(approvals, manifest, memberId);
       if (touched(entry)) {
         expect(a?.newHash).not.toBe(currentHash(manifest, memberId));
-        expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        // The integration re-anchor keeps the merged value that the
+        // integration commit's own evidence observed; HEAD is bracketed from
+        // the same seal by the latest re-anchor, which never precedes it.
+        expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
+        expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
+        const head = headReanchorFor(approvals, manifest, memberId)!;
+        expect(head).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {
         expect(a?.newHash).toBe(currentHash(manifest, memberId));
         // A lane-only member needs no integration re-anchor; if one exists it must be exact.
@@ -214,9 +223,9 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
       expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
       expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
     }
-    // Members the production line also changed: seal -> HEAD through the integration re-anchors.
+    // Members the production line also changed: seal -> HEAD through the latest integration re-anchors.
     const mergedMembers = oldHashes.filter(touched).map(([k, id]) => [k, id, sealedHash(k, id)] as [BaselineKind, string, string]);
-    const reanchors = mergedMembers.map(([k, id]) => reanchorFor(approvals, k, id)!);
+    const reanchors = mergedMembers.map(([k, id]) => headReanchorFor(approvals, k, id)!);
     expect(reanchors).toHaveLength(productionTouched.size);
     expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), reanchors).ok).toBe(true);
     for (const approval of reanchors) {
