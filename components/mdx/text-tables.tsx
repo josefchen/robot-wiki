@@ -233,16 +233,16 @@ export function WorldModelCostTable({ className }: { className?: string }) {
       ]}
       rows={[
         [
-          'Weights resident',
+          'Model memory',
           '16 GB fp16, ~5 GB Q4',
           '~2.6 GB fp16 (1B encoder + 0.3B predictor)',
-          '32 to 56 GB (Predict2); Predict1 14B tops 80 GB without offloading',
+          '32.5 to 56.4 GB required VRAM (Predict2 Video2World, 2B to 14B); Predict1 14B tops 80 GB without offloading',
           '0; the scene is an asset, not weights',
         ],
         [
           'Runtime state per step',
           'KV cache, ~128 KB per token',
-          'latent vectors only, no token buffer',
+          'block-causal context: patch features, actions and poses of the current and earlier steps',
           'latents plus KV, grows with clip length',
           'splat set, 0.1 to 2.5 GB typical scene plus LoD pool',
         ],
@@ -263,7 +263,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
         [
           'Sequence tokens in that unit',
           '1',
-          'thousands of patch tokens per state',
+          '256 patch tokens per frame (16 x 16 map) plus action and pose tokens',
           'tens of thousands of latent tokens per clip',
           '0 transformer tokens',
         ],
@@ -278,7 +278,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
           'Latency to useful output',
           '10 to 50 ms per token',
           'about 16 s per planned action (800 samples x 10 refinements)',
-          '30 s to 5 min per 5 s clip, GPU-dependent',
+          'Predict2: about 26 s (2B, GB200) to over 30 min (14B, DGX Spark) per 480p, 16 fps clip; Predict1 14B: about 10 min per 5 s clip on one H100',
           'under 30 ms per frame',
         ],
         [
@@ -298,7 +298,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
         [
           'Scaling with horizon',
           'KV grows linearly with context',
-          'near-flat while the latent stays compact',
+          'context grows with each predicted step; the paper plans one step ahead',
           'linear in tokens times steps',
           'free; the asset already exists',
         ],
