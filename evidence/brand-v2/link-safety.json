@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "cdbb81f467e653bf66095f4c4d10149be45774ebc771827f3b204212e186bbe0",
+  "fingerprint": "719c5ed3977dab21979c4e3cea0c75b8c781efdd8867efd766810ef94a67cf92",
   "source": "out/ static export",
   "routes": [
     {
