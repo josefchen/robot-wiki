@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "1dc95ac72c2e75af1ba2b4b7d2a34e99401e56ba577afdfdc95a4f97a9e6a355",
+  "fingerprint": "c75fb6e3b7d666f29db3aa13c9f1bf0854ff304d6c5c62ec3e5854943b4ff886",
   "viewports": [
     "375x812",
     "1440x900"
@@ -7238,7 +7238,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27415,
+      "visibleTextLength": 27416,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21767,7 +21767,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14561,
+      "visibleTextLength": 14630,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51752,7 +51752,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12021,
+      "visibleTextLength": 18273,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51819,12 +51819,12 @@
           "World Models vs Physics Simulators"
         ],
         "lastReviewed": "2026-08-24",
-        "readingMinutes": 6,
-        "citationCount": 9,
+        "readingMinutes": 10,
+        "citationCount": 15,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
-        "readingTimeText": "6 min",
-        "citationCountText": "9",
+        "readingTimeText": "10 min",
+        "citationCountText": "15",
         "bibliographyIds": [
           "mujoco-2012",
           "isaac-lab-2025",
@@ -51834,7 +51834,13 @@
           "robocasa-2024",
           "robocasa365-2026",
           "simpler-2024",
-          "roboworld-2026"
+          "roboworld-2026",
+          "llama-3-2024",
+          "vjepa2-2025",
+          "cosmos-predict-2025",
+          "cosmos-predict2-perf-2025",
+          "cosmos-1-diffusion-14b-card-2025",
+          "3dgs-2023"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -51932,6 +51938,60 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The table is not a winner. It identifies where each system m"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A world model's usefulness is bounded by what it costs to qu"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The LLM column anchors the scale. An 8B dense decoder such a"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The latent column is where planning gets cheap enough to run"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The generative-video column is the expensive one. Cosmos Pre"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The explicit-3D column inverts the trade. 3D Gaussian Splatt"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Two rows carry the design lesson. Batch behavior is the tell"
         },
         {
           "familyHead": "newsreader",
@@ -52116,6 +52176,24 @@
           }
         },
         {
+          "headingId": "what-each-representation-costs-to-run",
+          "headingTag": "h2",
+          "linked": true,
+          "colour": "rgb(11, 11, 12)",
+          "decorationLine": "underline",
+          "decorationColour": "rgb(36, 95, 255)",
+          "decorationThicknessPx": 2,
+          "keyboardFocusable": true,
+          "affordance": {
+            "tag": "button",
+            "accessibleName": "Copy link to this section, What each representation costs to run",
+            "widthPx": 15,
+            "heightPx": 15,
+            "opacity": 1,
+            "visibility": "visible"
+          }
+        },
+        {
           "headingId": "where-physics-remains-difficult-to-replace",
           "headingTag": "h2",
           "linked": true,
@@ -52263,7 +52341,7 @@
       "linkTreatments": [
         {
           "kind": "section",
-          "count": 10,
+          "count": 11,
           "colour": "rgb(11, 11, 12)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -52273,7 +52351,7 @@
           "variants": [
             {
               "signature": "rgb(11, 11, 12)|underline|solid|rgb(36, 95, 255)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 11,
               "colour": "rgb(11, 11, 12)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52285,7 +52363,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -52295,7 +52373,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52307,7 +52385,7 @@
         },
         {
           "kind": "citation",
-          "count": 18,
+          "count": 32,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -52317,7 +52395,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 18,
+              "count": 32,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52362,7 +52440,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -52372,7 +52450,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52510,6 +52588,14 @@
         {
           "tag": "button",
           "text": "Show all 16 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 29 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -59631,7 +59717,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27836,
+      "visibleTextLength": 27837,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74160,7 +74246,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14896,
+      "visibleTextLength": 14965,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104145,7 +104231,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12505,
+      "visibleTextLength": 18757,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104212,12 +104298,12 @@
           "World Models vs Physics Simulators"
         ],
         "lastReviewed": "2026-08-24",
-        "readingMinutes": 6,
-        "citationCount": 9,
+        "readingMinutes": 10,
+        "citationCount": 15,
         "reviewDateText": "24 August 2026",
         "reviewDateTime": "2026-08-24",
-        "readingTimeText": "6 min",
-        "citationCountText": "9",
+        "readingTimeText": "10 min",
+        "citationCountText": "15",
         "bibliographyIds": [
           "mujoco-2012",
           "isaac-lab-2025",
@@ -104227,7 +104313,13 @@
           "robocasa-2024",
           "robocasa365-2026",
           "simpler-2024",
-          "roboworld-2026"
+          "roboworld-2026",
+          "llama-3-2024",
+          "vjepa2-2025",
+          "cosmos-predict-2025",
+          "cosmos-predict2-perf-2025",
+          "cosmos-1-diffusion-14b-card-2025",
+          "3dgs-2023"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -104325,6 +104417,60 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The table is not a winner. It identifies where each system m"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A world model's usefulness is bounded by what it costs to qu"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The LLM column anchors the scale. An 8B dense decoder such a"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The latent column is where planning gets cheap enough to run"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The generative-video column is the expensive one. Cosmos Pre"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The explicit-3D column inverts the trade. 3D Gaussian Splatt"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Two rows carry the design lesson. Batch behavior is the tell"
         },
         {
           "familyHead": "newsreader",
@@ -104509,6 +104655,24 @@
           }
         },
         {
+          "headingId": "what-each-representation-costs-to-run",
+          "headingTag": "h2",
+          "linked": true,
+          "colour": "rgb(11, 11, 12)",
+          "decorationLine": "underline",
+          "decorationColour": "rgb(36, 95, 255)",
+          "decorationThicknessPx": 2,
+          "keyboardFocusable": true,
+          "affordance": {
+            "tag": "button",
+            "accessibleName": "Copy link to this section, What each representation costs to run",
+            "widthPx": 15,
+            "heightPx": 15,
+            "opacity": 1,
+            "visibility": "visible"
+          }
+        },
+        {
           "headingId": "where-physics-remains-difficult-to-replace",
           "headingTag": "h2",
           "linked": true,
@@ -104656,7 +104820,7 @@
       "linkTreatments": [
         {
           "kind": "section",
-          "count": 10,
+          "count": 11,
           "colour": "rgb(11, 11, 12)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104666,7 +104830,7 @@
           "variants": [
             {
               "signature": "rgb(11, 11, 12)|underline|solid|rgb(36, 95, 255)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 11,
               "colour": "rgb(11, 11, 12)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104678,7 +104842,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104688,7 +104852,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104700,7 +104864,7 @@
         },
         {
           "kind": "citation",
-          "count": 18,
+          "count": 32,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104710,7 +104874,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 18,
+              "count": 32,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104755,7 +104919,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104765,7 +104929,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104903,6 +105067,14 @@
         {
           "tag": "button",
           "text": "Show all 16 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 29 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,

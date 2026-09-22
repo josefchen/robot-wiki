@@ -5328,12 +5328,12 @@
                   "World Models vs Physics Simulators"
                 ],
                 "lastReviewed": "2026-08-24",
-                "readingMinutes": 6,
-                "citationCount": 9,
+                "readingMinutes": 10,
+                "citationCount": 15,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
-                "readingTimeText": "6 min",
-                "citationCountText": "9",
+                "readingTimeText": "10 min",
+                "citationCountText": "15",
                 "bibliographyIds": [
                   "mujoco-2012",
                   "isaac-lab-2025",
@@ -5343,7 +5343,13 @@
                   "robocasa-2024",
                   "robocasa365-2026",
                   "simpler-2024",
-                  "roboworld-2026"
+                  "roboworld-2026",
+                  "llama-3-2024",
+                  "vjepa2-2025",
+                  "cosmos-predict-2025",
+                  "cosmos-predict2-perf-2025",
+                  "cosmos-1-diffusion-14b-card-2025",
+                  "3dgs-2023"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -14941,7 +14947,7 @@
               "observed": [
                 {
                   "kind": "section",
-                  "count": 10,
+                  "count": 11,
                   "colour": "rgb(11, 11, 12)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -14951,7 +14957,7 @@
                   "variants": [
                     {
                       "signature": "rgb(11, 11, 12)|underline|solid|rgb(36, 95, 255)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 10,
+                      "count": 11,
                       "colour": "rgb(11, 11, 12)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -14963,7 +14969,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 9,
+                  "count": 15,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -14973,7 +14979,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 9,
+                      "count": 15,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -14985,7 +14991,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 18,
+                  "count": 32,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -14995,7 +15001,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 18,
+                      "count": 32,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -65231,6 +65237,62 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|1440x900|table#1",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/world-models/world-models-vs-simulators/|1440x900|table#1",
+      "coveredPopulationMemberIds": [
+        "/world-models/world-models-vs-simulators/|1440x900|table#1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/world-models/world-models-vs-simulators/|1440x900|table#1 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/world-models/world-models-vs-simulators/|1440x900|table#1",
+          "measured": [
+            {
+              "id": "/world-models/world-models-vs-simulators/|1440x900|table#1",
+              "observed": {
+                "index": 1,
+                "accessibleName": "Inference cost of four world representations compared on one machine",
+                "captionText": "",
+                "columnHeaders": 5,
+                "rowHeaders": 11,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "Inference cost of four world representations compared on one machine",
+                  "clientWidth": 713,
+                  "scrollWidth": 713,
+                  "scrolledBy": 0
+                },
+                "tableWidth": 713,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 71.5
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
       "resultId": "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|375x812|table#0",
       "assertionId": "VAL-B2-ART-008",
       "populationMemberId": "/world-models/world-models-vs-simulators/|375x812|table#0",
@@ -65271,6 +65333,62 @@
                   "scrolledBy": 40
                 },
                 "tableWidth": 520,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 33.5
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|375x812|table#1",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/world-models/world-models-vs-simulators/|375x812|table#1",
+      "coveredPopulationMemberIds": [
+        "/world-models/world-models-vs-simulators/|375x812|table#1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/world-models/world-models-vs-simulators/|375x812|table#1 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/world-models/world-models-vs-simulators/|375x812|table#1",
+          "measured": [
+            {
+              "id": "/world-models/world-models-vs-simulators/|375x812|table#1",
+              "observed": {
+                "index": 1,
+                "accessibleName": "Inference cost of four world representations compared on one machine",
+                "captionText": "",
+                "columnHeaders": 5,
+                "rowHeaders": 11,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "Inference cost of four world representations compared on one machine",
+                  "clientWidth": 333,
+                  "scrollWidth": 522,
+                  "scrolledBy": 40
+                },
+                "tableWidth": 522,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -69233,12 +69351,12 @@
                   "World Models vs Physics Simulators"
                 ],
                 "lastReviewed": "2026-08-24",
-                "readingMinutes": 6,
-                "citationCount": 9,
+                "readingMinutes": 10,
+                "citationCount": 15,
                 "reviewDateText": "24 August 2026",
                 "reviewDateTime": "2026-08-24",
-                "readingTimeText": "6 min",
-                "citationCountText": "9",
+                "readingTimeText": "10 min",
+                "citationCountText": "15",
                 "bibliographyIds": [
                   "mujoco-2012",
                   "isaac-lab-2025",
@@ -69248,7 +69366,13 @@
                   "robocasa-2024",
                   "robocasa365-2026",
                   "simpler-2024",
-                  "roboworld-2026"
+                  "roboworld-2026",
+                  "llama-3-2024",
+                  "vjepa2-2025",
+                  "cosmos-predict-2025",
+                  "cosmos-predict2-perf-2025",
+                  "cosmos-1-diffusion-14b-card-2025",
+                  "3dgs-2023"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -74183,12 +74307,25 @@
                   "robocasa-2024",
                   "robocasa365-2026",
                   "simpler-2024",
-                  "roboworld-2026"
+                  "roboworld-2026",
+                  "llama-3-2024",
+                  "vjepa2-2025",
+                  "cosmos-predict-2025",
+                  "cosmos-predict2-perf-2025",
+                  "cosmos-1-diffusion-14b-card-2025",
+                  "3dgs-2023"
                 ],
                 "citationMarkers": [
                   "mujoco-2012",
                   "isaac-lab-2025",
                   "world-model-survey-2026",
+                  "llama-3-2024",
+                  "vjepa2-2025",
+                  "vjepa2-2025",
+                  "cosmos-predict-2025",
+                  "cosmos-predict2-perf-2025",
+                  "cosmos-1-diffusion-14b-card-2025",
+                  "3dgs-2023",
                   "robotic-world-model-2025",
                   "roboworld-2026",
                   "robogsim-2024",
@@ -85407,7 +85544,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:world-models/world-models-vs-simulators moved from null to 072bdeede5961a981fa0ef4650f3da1c6ca642cefcee9e3989a5eea68252c5d9 exactly as approved delta seo-merge-20260916-article-metadata-128 permits: The SEO growth merge adds world-models/world-models-vs-simulators as a new published article; this member (article-fact-frontmatter:world-models/world-models-vs-simulators) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "article-metadata member article-fact-frontmatter:world-models/world-models-vs-simulators moved from null to 4965d12b7655dac033cd1fabcd54e26a5c2ab8990d1fe8d5e5bfdf22d0a9eddf exactly as approved delta wm-cost-frontmatter-20260917-1 permits: Frontmatter citations list extended with the six ids used by the new section; no other frontmatter field changed.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -85419,9 +85556,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "072bdeede5961a981fa0ef4650f3da1c6ca642cefcee9e3989a5eea68252c5d9",
+          "currentHash": "4965d12b7655dac033cd1fabcd54e26a5c2ab8990d1fe8d5e5bfdf22d0a9eddf",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-article-metadata-128"
+          "approvedDelta": "wm-cost-frontmatter-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87255,7 +87392,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1 exactly as approved delta seo-merge-20260916-metadata-label-and-meta permits: The citation-rendering:label-and-meta member is a post-seal addition recording the rendered citation chip label/meta census (432 chips); this member is created by the merged audit-lane state and is recorded against the sealed baseline as an approved new member.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5 exactly as approved delta wm-cost-labelmeta-20260917-1 permits: Citation label-and-meta rendering member changed because the registry gained three new Cosmos Predict citations; rendering shape and existing labels unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87267,9 +87404,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1",
+          "currentHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-metadata-label-and-meta"
+          "approvedDelta": "wm-cost-labelmeta-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -88843,6 +88980,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-1-diffusion-14b-card-2025",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:cosmos-1-diffusion-14b-card-2025",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:cosmos-1-diffusion-14b-card-2025"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:cosmos-1-diffusion-14b-card-2025 moved from null to 0606d8b06a2e101c3637fbcf9686d017e61f15e663a27d712d0b022adb9efc31 exactly as approved delta wm-cost-cit-cosmos-14b-20260917-1 permits: New registry entry for the Cosmos-1.0-Diffusion-14B-Video2World NGC model card (121 frames at 1280x704/24fps, over 80 GB without offloading), fetched live 2026-09-17 and recorded in audit/citations.md.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:cosmos-1-diffusion-14b-card-2025",
+          "baselineHash": null,
+          "currentHash": "0606d8b06a2e101c3637fbcf9686d017e61f15e663a27d712d0b022adb9efc31",
+          "status": "approved-addition",
+          "approvedDelta": "wm-cost-cit-cosmos-14b-20260917-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-3-2026",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:cosmos-3-2026",
@@ -88894,6 +89059,62 @@
           "currentHash": "451cc193e84bdae3b84ecf1d13d8db1bf88ee11928af58545bd3520791fc2621",
           "status": "identical",
           "approvedDelta": null
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict-2025",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:cosmos-predict-2025",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:cosmos-predict-2025"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:cosmos-predict-2025 moved from null to 4342a59ed2af662abb0aa6379e50b9dbcdfff3fe4102d365a137b7576f585190 exactly as approved delta wm-cost-cit-cosmos-predict-20260917-1 permits: New registry entry for the Cosmos Predict1 platform paper (arXiv 2501.03575), fetched live 2026-09-17 and recorded in audit/citations.md.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:cosmos-predict-2025",
+          "baselineHash": null,
+          "currentHash": "4342a59ed2af662abb0aa6379e50b9dbcdfff3fe4102d365a137b7576f585190",
+          "status": "approved-addition",
+          "approvedDelta": "wm-cost-cit-cosmos-predict-20260917-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-perf-2025",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:cosmos-predict2-perf-2025",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:cosmos-predict2-perf-2025"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:cosmos-predict2-perf-2025 moved from null to 4647c6e35ca80eb5b7d194c527aa995d4d73049637c1de92689ec248d297a6ce exactly as approved delta wm-cost-cit-cosmos-p2perf-20260917-1 permits: New registry entry for the Cosmos-Predict2 inference-performance documentation (VRAM and per-GPU generation-time tables), fetched live 2026-09-17 and recorded in audit/citations.md.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:cosmos-predict2-perf-2025",
+          "baselineHash": null,
+          "currentHash": "4647c6e35ca80eb5b7d194c527aa995d4d73049637c1de92689ec248d297a6ce",
+          "status": "approved-addition",
+          "approvedDelta": "wm-cost-cit-cosmos-p2perf-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -92827,7 +93048,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation:lavalle-kuffner-2001 hashes to a7921c1dd42d04cc7a1a78ad8dab9cae72dcf44ea88e48c294b9c7ae06252476 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "article-metadata member citation:lavalle-kuffner-2001 moved from a7921c1dd42d04cc7a1a78ad8dab9cae72dcf44ea88e48c294b9c7ae06252476 to 9e547e0405b6f7849f9fe067baefbda567852d865c513b41555400e23fe381ee exactly as approved delta merge-20260920-lavalle-url-1 permits: ah-lane registry correction integrated in daemon commit ad9e074: lavalle-kuffner-2001 url changed from LavKuf01.pdf to LavKuf01b.pdf because the prior URL served \"Rapidly-Exploring Random Trees: Progress and Prospects\" instead of the 2001 RRT paper; title, authors, year, venue and type unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -92839,9 +93060,9 @@
           "manifest": "article-metadata",
           "member": "citation:lavalle-kuffner-2001",
           "baselineHash": "a7921c1dd42d04cc7a1a78ad8dab9cae72dcf44ea88e48c294b9c7ae06252476",
-          "currentHash": "a7921c1dd42d04cc7a1a78ad8dab9cae72dcf44ea88e48c294b9c7ae06252476",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "9e547e0405b6f7849f9fe067baefbda567852d865c513b41555400e23fe381ee",
+          "status": "approved-delta",
+          "approvedDelta": "merge-20260920-lavalle-url-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99603,7 +99824,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 6feb3014b71ef94eca6e63e31cfce55f4d0edca1fd0af19c9160db8c689b54e7 exactly as approved delta seo-merge-20260916-prose-3 permits: Mission continuation work changed article:classical/motion-planning after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 6feb3014b71ef94eca6e63e31cfce55f4d0edca1fd0af19c9160db8c689b54e7 exactly as approved delta sweeps-registry-mp7-20260917-1 permits: Exactly classical/motion-planning original 7 (kinodynamic row): scalar evidence completion against the corrected lavalle-kuffner-2001 registration (url LavKuf01.pdf -> LavKuf01b.pdf, fields-only, per the ah-lane 13-consumer survey), quoting only what the packet's retained LavKuf01b.pdf fetch prints, page-anchored (title page + abstract p.1, EXTEND/NEW_STATE p.13), with the p.2 [20]-terminology contradiction sweep recorded in the note. Registry edit: data/citations.ts lavalle-kuffner-2001 url + comment only; audit/citations.md link-check row, honest-gaps note and a dated correction section updated in the same change. Passages needle-verified by this integrator against the retained OCR pages under the packet-disclosed normalizations; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed (motion-planning.mdx untouched; the cited sentence's support changed underneath it, not the sentence); lastReviewed deliberately not moved per the registry-only carve-out.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99617,7 +99838,7 @@
           "baselineHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
           "currentHash": "6feb3014b71ef94eca6e63e31cfce55f4d0edca1fd0af19c9160db8c689b54e7",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-3"
+          "approvedDelta": "sweeps-registry-mp7-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99687,7 +99908,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to 7b348076b2ea7c8e226094c02db4c637f32d4fed15dcb9bbdc193b0a680bee3c exactly as approved delta sr-r48-20260916-1 permits: Exactly classical/scene-representation original 48: internal evidence completion with local AND: vacuous P4 absence semantics re-verified read-only by scans over the article (zero not-disclosed/n/a surfaces, 24 registered citations). Zero network retrieval by this integrator (all passages needle-verified against the frozen packet's retained fetch corpus before adjudication); no article change.",
+      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to 7b348076b2ea7c8e226094c02db4c637f32d4fed15dcb9bbdc193b0a680bee3c exactly as approved delta single-leftovers-sr1-20260917-1 permits: Exactly classical/scene-representation original 1 (bibliographic fidelity batch): claim cell corrected 23 -> 24 cited registry entries (the frontmatter at HEAD lists 24; the prior sweep's own count was 15 of 24) and the row bound to the fresh 24-identity compound plan (Crossref DOI records for the 11 DOI-backed ids, live arXiv abs pages for the 13 arXiv ids, channel closures for the Moravec names, KinectFusion author order and the three venues their abs pages do not print, all disclosed per part). No-op hash record: article and frontmatter byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99701,7 +99922,7 @@
           "baselineHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
           "currentHash": "7b348076b2ea7c8e226094c02db4c637f32d4fed15dcb9bbdc193b0a680bee3c",
           "status": "approved-delta",
-          "approvedDelta": "sr-r48-20260916-1"
+          "approvedDelta": "single-leftovers-sr1-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99939,7 +100160,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc exactly as approved delta seo-merge-20260916-prose-12 permits: Mission continuation work changed article:frontier/bear-case after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc exactly as approved delta single-leftovers-b12-20260917-1 permits: Exactly frontier/bear-case original 12 (Goldberg premise ranking): scalar evidence completion to the registered citation goldberg-data-gap-2025; the premise conjunct is source-supported and the ranking phrase stays the wiki's own editorial judgment over its named-skeptic record (P5: named proponent with own citation). No-op hash record: article byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99953,7 +100174,7 @@
           "baselineHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
           "currentHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-12"
+          "approvedDelta": "single-leftovers-b12-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100023,7 +100244,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592 exactly as approved delta generalization-g21-20260915-1 permits: Exactly generalization original 21: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592 exactly as approved delta single-leftovers-g17-20260917-1 permits: Exactly frontier/generalization original 17 (Goldberg 100,000-year data gap attribution): scalar evidence completion to the registered citation goldberg-data-gap-2025 at the Crossref DOI record, with the Berkeley News interview surface and the durable techxplore mirror 403 disclosed in the row; quoted phrases needle-verified against both retained bodies. No-op hash record: the article span and frontmatter are byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100037,7 +100258,7 @@
           "baselineHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
           "currentHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
           "status": "approved-delta",
-          "approvedDelta": "generalization-g21-20260915-1"
+          "approvedDelta": "single-leftovers-g17-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100051,7 +100272,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4 exactly as approved delta seo-merge-20260916-prose-14 permits: Mission continuation work changed article:frontier/reliability-gap after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc exactly as approved delta single-leftovers-rg6-20260917-1 permits: Exactly frontier/reliability-gap original 6 (negative-editorial solved bar): the Stat reword marks the \">1,000h documented MTBF\" bar as this wiki's own proposed yardstick (\"solved bar (this wiki’s)\") and scopes the negative to the deployed systems the article's recorded technology.org sweep surveyed; ledger row completed with verdict C and the 2-part editorial-basis compound plan bound read-only to technology-org-deployed-2026. Prose member hash records the Stat reword (label and note; value unchanged). Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. Merge-lane note: oldHash re-anchored to the sealed baseline member hash on the merged ledger (the packet-era lane hash 6ec59fcc... does not resolve here); newHash unchanged and verified against the merged tree.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100063,9 +100284,9 @@
           "manifest": "prose",
           "member": "article:frontier/reliability-gap",
           "baselineHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
-          "currentHash": "6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4",
+          "currentHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-14"
+          "approvedDelta": "single-leftovers-rg6-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100527,7 +100748,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/humanoid-wbc moved from 1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0 to 7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5 exactly as approved delta seo-merge-20260916-prose-23 permits: Mission continuation work changed article:rl-sim2real/humanoid-wbc after the baseline seal without a recorded delta; the malformed perception-r-20260915 entries made every baseline check exit during delta validation, so the drift was never surfaced. This entry records the current committed state as the approved member value.",
+      "actual": "prose member article:rl-sim2real/humanoid-wbc moved from 1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0 to 7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5 exactly as approved delta sweeps-registry-hwbc20-20260917-1 permits: Exactly rl-sim2real/humanoid-wbc original 20 (frontmatter P1 sweep): corrected the stale claim cell (16 -> 15 ids, gr00t-n1-2025 no longer in the article frontmatter) to the exact P1 batch form and bound the fresh 15-identity compound evidence per the frozen AG packet. Every identity needle-verified by this integrator against the retained sha256-pinned fetch bodies; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger/plan evidence only); lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100541,7 +100762,7 @@
           "baselineHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
           "currentHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-23"
+          "approvedDelta": "sweeps-registry-hwbc20-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100555,7 +100776,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858 exactly as approved delta legged-locomotion-r8-20260916-1 permits: Exactly rl-sim2real/legged-locomotion original 8 (duty-factor disclaimer row: standing verified verdict corrected to corrected, with the source cell scoped to the registered park-2017-bounding URL and the retained row-7 classical-instance facts plus the local-AND lib/gait.ts authored constants) per the frozen packet convergence-source-u-legged-locomotion-20260916i. The packet passage and the retained row-7 Park material were needle-verified by this integrator against the sha256-verified records before adjudication, and the local proof (GAITS constants, duty-readout wiring, article mount and disclaimer span) was re-executed at apply HEAD (checks enumerated in the lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-legged-locomotion-integration-20260916i. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row correction only); lastReviewed deliberately not moved.",
+      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858 exactly as approved delta sweeps-registry-legged18-20260917-1 permits: Exactly rl-sim2real/legged-locomotion original 18 (frontmatter P1 sweep): corrected the stale claim cell (12 -> 13 ids) to the exact P1 batch form naming the CURRENT 13-id set and bound the fresh 13-identity compound evidence (choi-2023/park-2017-bounding via FetchUrl renders with Crossref corroboration, disclosed) per the frozen AG packet. Every identity needle-verified by this integrator against the retained sha256-pinned fetch bodies; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed; lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100569,7 +100790,7 @@
           "baselineHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
           "currentHash": "cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858",
           "status": "approved-delta",
-          "approvedDelta": "legged-locomotion-r8-20260916-1"
+          "approvedDelta": "sweeps-registry-legged18-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100779,7 +101000,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541 exactly as approved delta generative-sim-r14-20260916-1 permits: Exactly world-models/generative-sim original 14 (Push test: appearance is not physics (3DGS twin supplies app...): evidence completion per the frozen packet convergence-source-af-generative-sim-20260916n (abstract-scope 3dgs-2023 + splatsim-2024 evidence, exactly the packet-prepared wording). All retained evidence passages needle-verified by this zero-retrieval integrator against the packet's sha-verified saved bodies before adjudication; the article span is byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260916/convergence-generative-sim-integration-20260916n. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541 exactly as approved delta sweeps-registry-gensim15-20260917-1 permits: Exactly world-models/generative-sim original 15 (frontmatter P1 sweep): narrowed the domain-wide batch wording to generative-sim's own 8 identities in the exact P1 batch form and bound the fresh 8-identity compound evidence, resolving the af-lane isaac-lab-2025 hold via the PDF Appendix A contributor-sequence surface (registry 106-name list == PDF sequence with three repeated names deduplicated keep-first), per the frozen AG packet. Every identity needle-verified by this integrator against the retained sha256-pinned fetch bodies; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed; lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100793,7 +101014,7 @@
           "baselineHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
           "currentHash": "aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541",
           "status": "approved-delta",
-          "approvedDelta": "generative-sim-r14-20260916-1"
+          "approvedDelta": "sweeps-registry-gensim15-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100947,7 +101168,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to a107ec7b777c971055fef8e24936c6a8a13ecdf170e1a6b16200aeaa188c98aa exactly as approved delta seo-merge-20260916-prose-34 permits: The SEO growth merge adds world-models/world-models-vs-simulators as a new published article; this member (article:world-models/world-models-vs-simulators) is created by that addition and is recorded against the sealed baseline as an approved new member. Its comparison table was then moved into the registered components/mdx table component pattern (scroll region, scoped headers) as part of the merge cleanup.",
+      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to c2fe304dccabdd4ac69a1802b091cc3cae8c59046172026574103a0ce532c5c3 exactly as approved delta wm-cost-prose-20260917-1 permits: Adds the inference-economics section (WorldModelCostTable plus six paragraphs) to world-models/world-models-vs-simulators per owner request for deep world-model systems coverage; every figure is cited to vjepa2-2025, cosmos-predict-2025, cosmos-predict2-perf-2025, cosmos-1-diffusion-14b-card-2025, 3dgs-2023 or llama-3-2024.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100959,9 +101180,9 @@
           "manifest": "prose",
           "member": "article:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "a107ec7b777c971055fef8e24936c6a8a13ecdf170e1a6b16200aeaa188c98aa",
+          "currentHash": "c2fe304dccabdd4ac69a1802b091cc3cae8c59046172026574103a0ce532c5c3",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-prose-34"
+          "approvedDelta": "wm-cost-prose-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102543,7 +102764,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/world-models-vs-simulators moved from null to fe68249454612df6ab360fb8c432e2f94ddea70dd0cc6e1866eb0e4af339332a exactly as approved delta seo-merge-20260916-relationships-63 permits: The SEO growth merge adds world-models/world-models-vs-simulators as a new published article; this member (article:world-models/world-models-vs-simulators) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "relationships member article:world-models/world-models-vs-simulators moved from null to 7b889bd353f68e0117b4999ffae8e59f4121638da6be4327a7ffb535d7da2412 exactly as approved delta wm-cost-rel-20260917-1 permits: The same section adds six Cite markers to the article, changing its relationships member; the citations are the newly registered Cosmos Predict sources plus existing vjepa2-2025, 3dgs-2023 and llama-3-2024.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102555,9 +102776,9 @@
           "manifest": "relationships",
           "member": "article:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "fe68249454612df6ab360fb8c432e2f94ddea70dd0cc6e1866eb0e4af339332a",
+          "currentHash": "7b889bd353f68e0117b4999ffae8e59f4121638da6be4327a7ffb535d7da2412",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-relationships-63"
+          "approvedDelta": "wm-cost-rel-20260917-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -105357,7 +105578,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/world-models-vs-simulators/ ships 21 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 21 outbound anchor occurrences on it with a visible focus ring in 100 stops",
+      "actual": "/world-models/world-models-vs-simulators/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 125 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105365,8 +105586,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/world-models-vs-simulators/",
-          "outboundAnchors": 21,
-          "distinctHrefs": 12,
+          "outboundAnchors": 34,
+          "distinctHrefs": 18,
           "shapes": [
             "citation-chip",
             "footer",
@@ -105374,9 +105595,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 18,
-          "reachedByTab": 21,
-          "tabStops": 100,
+          "anchorsWithNoreferrer": 31,
+          "reachedByTab": 34,
+          "tabStops": 125,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -130101,7 +130322,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 55251 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 55253 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131041,7 +131262,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 29457 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 29595 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132921,7 +133142,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 24526 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 37030 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133004,7 +133225,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 11 comment-free use(s) across 9 first-party runtime file(s) and 6681 use(s) across 303 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 11 comment-free use(s) across 9 first-party runtime file(s) and 6650 use(s) across 299 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133157,14 +133378,14 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 303,
+          "exportFileCount": 299,
           "exportFileKinds": [
             ".html",
             ".js",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 6681,
+          "exportOccurrences": 6650,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -133181,7 +133402,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki.com` still resolves 5 comment-free use(s) across 5 first-party runtime file(s) and 6131 use(s) across 302 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki.com` still resolves 5 comment-free use(s) across 5 first-party runtime file(s) and 6111 use(s) across 298 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133330,14 +133551,14 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 302,
+          "exportFileCount": 298,
           "exportFileKinds": [
             ".html",
             ".js",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 6131,
+          "exportOccurrences": 6111,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -197886,7 +198107,7 @@
             {
               "id": "/world-models/world-models-vs-simulators/",
               "observed": {
-                "paragraphCount": 23,
+                "paragraphCount": 29,
                 "familyHeads": [
                   "newsreader"
                 ],
@@ -200664,7 +200885,7 @@
               "id": "/world-models/world-models-vs-simulators/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 13,
+                "interfaceControlCount": 14,
                 "controlsInProse": 1,
                 "registrationLabelCount": 4
               }
@@ -204977,7 +205198,7 @@
             {
               "id": "/world-models/world-models-vs-simulators/",
               "observed": {
-                "paragraphCount": 46,
+                "paragraphCount": 58,
                 "registeredFrameParagraphCount": 4,
                 "offendingFamilies": []
               }
@@ -225475,6 +225696,56 @@
                 "affordance": {
                   "tag": "button",
                   "accessibleName": "Copy link to this section, Three hybrid patterns",
+                  "widthPx": 15,
+                  "heightPx": 15,
+                  "opacity": 1,
+                  "visibility": "visible"
+                }
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-typography.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
+      "assertionId": "VAL-B2-TYPE-009",
+      "populationMemberId": "/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
+      "coveredPopulationMemberIds": [
+        "/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
+      "actual": "/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run was measured at 375x812 and 1440x900 and every clause of VAL-B2-TYPE-009 held against the reading",
+      "selectorOrRegistryId": "evidence/brand-v2/article-typography.json#sectionHeadings",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
+          "measured": [
+            {
+              "id": "/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
+              "observed": {
+                "headingId": "what-each-representation-costs-to-run",
+                "headingTag": "h2",
+                "linked": true,
+                "colour": "rgb(11, 11, 12)",
+                "decorationLine": "underline",
+                "decorationColour": "rgb(36, 95, 255)",
+                "decorationThicknessPx": 2,
+                "keyboardFocusable": true,
+                "affordance": {
+                  "tag": "button",
+                  "accessibleName": "Copy link to this section, What each representation costs to run",
                   "widthPx": 15,
                   "heightPx": 15,
                   "opacity": 1,

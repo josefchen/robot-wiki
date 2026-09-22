@@ -7148,7 +7148,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|1440x900|table#1",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|375x812|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|375x812|table#1",
           "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
         },
         {
@@ -7169,7 +7179,7 @@
         "statement": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 106,
+        "populationSize": 108,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -7283,7 +7293,9 @@
           "result:VAL-B2-ART-008:/world-models/taxonomy/|1440x900|table#0",
           "result:VAL-B2-ART-008:/world-models/taxonomy/|375x812|table#0",
           "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|1440x900|table#0",
-          "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|375x812|table#0"
+          "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|1440x900|table#1",
+          "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|375x812|table#0",
+          "result:VAL-B2-ART-008:/world-models/world-models-vs-simulators/|375x812|table#1"
         ]
       }
     },
@@ -10684,12 +10696,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-1-diffusion-14b-card-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-3-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-policy-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-perf-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13144,7 +13171,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1011,
+        "populationSize": 1014,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13674,8 +13701,11 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:computex-collapse-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:conrft-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:consistency-policy-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-1-diffusion-14b-card-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-3-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-policy-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-perf-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:cql-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:crunchbase-robotics-funding-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:curless-levoy-1996",
@@ -33823,6 +33853,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#where-learning-has-the-advantage",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
@@ -33849,7 +33884,7 @@
         "statement": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
         "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 412,
+        "populationSize": 413,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -34268,6 +34303,7 @@
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#learn-residual-dynamics",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#they-solve-different-specification-problems",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#three-hybrid-patterns",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#where-learning-has-the-advantage",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#where-physics-remains-difficult-to-replace"
         ]

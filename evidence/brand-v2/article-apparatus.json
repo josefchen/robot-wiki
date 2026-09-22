@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "99b556a8bb3b18c2a11e99e72da81ca7b34f1f011b221056c4ee6e3cea0e92a9",
+  "fingerprint": "924904dd93f10f70ee05d15d4cb5fd80cabb57126949cef7b752a75a90cc6708",
   "viewports": [
     "375x812",
     "1440x900"
@@ -6082,7 +6082,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 27415,
+      "visibleTextLength": 27416,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -6171,7 +6171,7 @@
           {
             "id": "lavalle-kuffner-2001",
             "index": 3,
-            "sourceHref": "https://lavalle.pl/papers/LavKuf01.pdf",
+            "sourceHref": "https://lavalle.pl/papers/LavKuf01b.pdf",
             "title": "Randomized Kinodynamic Planning",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
@@ -6438,7 +6438,7 @@
         {
           "id": "lavalle-kuffner-2001",
           "label": "LaValle 2001",
-          "href": "https://lavalle.pl/papers/LavKuf01.pdf",
+          "href": "https://lavalle.pl/papers/LavKuf01b.pdf",
           "opensExternally": true,
           "tooltipText": "Randomized Kinodynamic PlanningSteven M. LaValle, James J. Kuffner, Int. J. Robotics Research, 2001",
           "describedByResolves": true,
@@ -6879,7 +6879,7 @@
         },
         {
           "section": "references",
-          "href": "https://lavalle.pl/papers/LavKuf01.pdf",
+          "href": "https://lavalle.pl/papers/LavKuf01b.pdf",
           "text": "Randomized Kinodynamic Planning",
           "documentOrder": 140,
           "tabStop": 141,
@@ -20485,7 +20485,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14561,
+      "visibleTextLength": 14630,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -43744,7 +43744,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 18272,
+      "visibleTextLength": 18273,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -50490,7 +50490,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 27836,
+      "visibleTextLength": 27837,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -50579,7 +50579,7 @@
           {
             "id": "lavalle-kuffner-2001",
             "index": 3,
-            "sourceHref": "https://lavalle.pl/papers/LavKuf01.pdf",
+            "sourceHref": "https://lavalle.pl/papers/LavKuf01b.pdf",
             "title": "Randomized Kinodynamic Planning",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
@@ -50846,7 +50846,7 @@
         {
           "id": "lavalle-kuffner-2001",
           "label": "LaValle 2001",
-          "href": "https://lavalle.pl/papers/LavKuf01.pdf",
+          "href": "https://lavalle.pl/papers/LavKuf01b.pdf",
           "opensExternally": true,
           "tooltipText": "Randomized Kinodynamic PlanningSteven M. LaValle, James J. Kuffner, Int. J. Robotics Research, 2001",
           "describedByResolves": true,
@@ -51287,7 +51287,7 @@
         },
         {
           "section": "references",
-          "href": "https://lavalle.pl/papers/LavKuf01.pdf",
+          "href": "https://lavalle.pl/papers/LavKuf01b.pdf",
           "text": "Randomized Kinodynamic Planning",
           "documentOrder": 163,
           "tabStop": 163,
@@ -64893,7 +64893,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 14896,
+      "visibleTextLength": 14965,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -88152,7 +88152,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18756,
+      "visibleTextLength": 18757,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
