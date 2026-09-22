@@ -12,7 +12,7 @@ function dedicatedToggle() {
 }
 
 function droidToggle() {
-  return screen.getByRole('button', { name: /droid-measured/i });
+  return screen.getByRole('button', { name: /low-rate hypothetical/i });
 }
 
 function hoursReadout() {
@@ -43,7 +43,6 @@ describe('DataScaleChart', () => {
       'egodex',
       'tri-lbm',
       'ego4d',
-      'oxe',
       'egoscale',
       'agibot',
     ]) {
@@ -67,7 +66,7 @@ describe('DataScaleChart', () => {
     expect(yTicks).toEqual(['10⁹', '10¹⁰', '10¹¹', '10¹²', '10¹³', '10¹⁴']);
   });
 
-  it('defaults to 15 dedicated rigs: 15,000 h/yr, OXE scale in 8 mo', () => {
+  it('defaults to 15 dedicated rigs: 15,000 h/yr, 10,000-hour target in 8 mo', () => {
     render(<DataScaleChart />);
     expect(hoursReadout()).toBe('15,000 h/yr');
     expect(oxeReadout()).toBe('8 mo');
@@ -87,7 +86,7 @@ describe('DataScaleChart', () => {
     expect(frontierReadout()).toBe('1,000 yr');
   });
 
-  it('DROID-measured rate drops throughput to the published 7 h per collector-year', async () => {
+  it('authored low-rate scenario uses 7 h per rig-year', async () => {
     const user = userEvent.setup();
     render(<DataScaleChart />);
     await user.click(droidToggle());
@@ -96,10 +95,10 @@ describe('DataScaleChart', () => {
     expect(hoursReadout()).toBe('105 h/yr');
     expect(oxeReadout()).toBe('95.2 yr');
     expect(frontierReadout()).toBe('9,524 yr');
-    expect(screen.getByTestId('rate-explanation')).toHaveTextContent(/DROID/);
+    expect(screen.getByTestId('rate-explanation')).toHaveTextContent(/not a measured DROID productivity rate/);
   });
 
-  it('slider and toggle compose: 50 DROID-rate collectors reproduce 350 h/yr', async () => {
+  it('slider and toggle compose: 50 hypothetical low-rate rigs project 350 h/yr', async () => {
     const user = userEvent.setup();
     render(<DataScaleChart />);
     await user.click(droidToggle());
@@ -127,5 +126,39 @@ describe('DataScaleChart', () => {
     fireEvent.change(slider(), { target: { value: '100' } });
     expect(summary).toHaveTextContent(/100 rigs/);
     expect(summary).toHaveTextContent(/100,000 h\/yr/);
+  });
+});
+
+
+describe('honest unknown and hypothetical chart states', () => {
+  it('does not plot OXE and explains unknown duration with a source link', () => {
+    const { container } = render(<DataScaleChart />);
+    expect(screen.queryByTestId('robot-marker-oxe')).not.toBeInTheDocument();
+    expect(screen.getByTestId('robot-marker-droid')).toHaveTextContent('350 h');
+    const unknown = screen.getByTestId('oxe-duration-note');
+    expect(unknown).toHaveTextContent(/unknown in inspected sources/i);
+    expect(unknown.querySelector('a')).toHaveAttribute('href', 'https://arxiv.org/html/2310.08864v9');
+    const row = screen.getByRole('row', { name: /OXE.*unknown in inspected sources/i });
+    expect(row.querySelectorAll('td')[0]).toHaveTextContent(/unknown/i);
+    expect(row.querySelectorAll('td')[0]).not.toHaveTextContent(/0 h|n\/a/);
+    expect(container.querySelector('svg')?.outerHTML).not.toMatch(/NaN|Infinity/);
+  });
+  it('keeps empirical attribution out of readouts, summary and accessible description', () => {
+    render(<DataScaleChart />);
+    expect(screen.getByTestId('projection-summary')).toHaveTextContent(/hypothetical.*10,000 h.*1,000,000 h/i);
+    expect(screen.getByTestId('rate-explanation')).toHaveTextContent(/targets.*authored hypothetical/i);
+    expect(document.body.textContent).not.toMatch(/to OXE scale|100x OXE|DROID-measured|everything else is a published count/);
+  });
+  it('preserves prediction mount defaults and reset', async () => {
+    const user = userEvent.setup();
+    render(<DataScaleChart defaultRigs={10} defaultRate="droid-measured" />);
+    expect(hoursReadout()).toBe('70 h/yr');
+    expect(oxeReadout()).toBe('143 yr');
+    await user.click(dedicatedToggle());
+    expect(hoursReadout()).toBe('10,000 h/yr');
+    expect(oxeReadout()).toBe('1.0 yr');
+    await user.click(screen.getByRole('button', { name: /reset/i }));
+    expect(hoursReadout()).toBe('70 h/yr');
+    expect(oxeReadout()).toBe('143 yr');
   });
 });
