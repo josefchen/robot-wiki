@@ -74858,5 +74858,104 @@
       }
     ],
     "adjudications": []
+  },
+  {
+    "id": "classical-scene-representation-10-kinectfusion-correction-20260922",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "187e660896a7d550561ace8d5c694fb8cce70c78de281542e8eb900222d63e2d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "projective-distance",
+        "text": "KinectFusion distinguishes projective TSDF measurements from true discrete SDFs, states exactness only at the surface or for an isolated point, and describes fusion as a pseudo-Euclidean approximation.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "interface-normal",
+        "text": "Near the zero level set, KinectFusion assumes gradient orthogonality and computes normals numerically, including derivative scaling for voxel dimensions.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "ray-marching",
+        "text": "KinectFusion surface prediction marches rays until a visible zero crossing, back face, or exit from the working volume.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "interpolated-intersection",
+        "text": "KinectFusion uses an approximate intersection based on trilinearly interpolated SDF values rather than its more expensive full ray/trilinear-cell solution.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+      "rationale": "All four required scientific obligations cover the corrected claim, not the withdrawn universal guarantee. Section 3.3 explicitly chooses a projective TSDF over a true discrete SDF and qualifies its pseudo-Euclidean convergence. Section 3.4 limits numerical normals to the near-interface orthogonality assumption, stops ray marching at visible crossings/back faces/volume exit, and uses approximate interpolation instead of a full cubic cell-intersection solve. Retained full literal passages were checked against the source text and PDF hashes; extraction page/column order is retained, not silently rewritten. Curless–Levoy gives only a directional line-of-sight derivative. Shared copy is corrected atomically; historical HTTP observations are not current fetches. No collision, planner, source-liveness or independent-acceptance guarantee.",
+      "planDigest": "758c8fc1d174cb21d02aea1ea124525a9731c472d5722bbf7630916c37102e08"
+    },
+    "evidence": [
+      {
+        "partId": "projective-distance",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "Although efficient algorithms exist for computing the true discrete SDF for a given set of point measurements (complexity is\nlinear in the the number of voxels) [22], sophisticated implementations are required to achieve top performance on GPU hardware,\nwithout which real-time computation is not possible for a reasonable size volume. Instead, we use a projective truncated signed\ndistance function that is readily computed and trivially parallelisable. For a raw depth map Rk with a known pose Tg,k , its global\nframe projective TSDF [FRk , WRk ] at a point p in the global frame\ng is computed as,\n\u0010\n\u0011\nFRk (p) = Ψ λ −1 k(tg,k − pk2 − Rk (x) ,\n(6)\nλ\n\n=\n\nx\n\n=\n\nΨ(η)\n\n=\n\n−1\n\nkK ẋk2 ,\nj \u0010\n\u0011k\nπ KT−1\n,\ng,k p\n(\n\u0010\n\u0011\nmin 1, ηµ sgn(η)\nnull\n\n(7)\n(8)\niff η ≥ −µ\notherwise\n\n(9)\n\nWe use a nearest neighbour lookup b.c instead of interpolating\nthe depth value, to prevent smearing of measurements at depth discontinuities. 1/λ converts the ray distance to p to a depth (we found\nno considerable difference in using SDF values computed using distances along the ray or along the optical axis). Ψ performs the SDF\ntruncation. The truncation function is scaled to ensure that a surface measurement (zero crossing in the SDF) is represented by at\nleast one non truncated voxel value in the discretised volume either side of the surface. Also, the support is increased linearly with\ndistance from the sensor center to support correct representation\nof noisier measurements. The associated weight WRk (p) is proportional to cos(θ )/Rk (x), where θ is the angle between the associated\npixel ray direction and the surface normal measurement in the local\nframe.\nThe projective TSDF measurement is only correct exactly at the\nsurface FRk (p) = 0 or if there is only a single point measurement\nin isolation. When a surface is present the closest point along a\nray could be another surface point not on the ray associated with\nthe pixel in Equation 8. It has been shown that for points close\nto the surface, a correction can be applied by scaling the SDF by\ncos(θ ) [11]. However, we have found that approximation within\nthe truncation region for 100s or more fused TSDFs from multiple\nviewpoints (as performed here) converges towards an SDF with a\npseudo-Euclidean metric that does not hinder mapping and tracking\nperformance."
+      },
+      {
+        "partId": "interface-normal",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "For points on or very close to the surface interface Fk (p) = 0 it\nis assumed that the gradient of the TSDF at p is orthogonal to the\nzero level set, and so the surface normal for the associated pixel u\n\n\fparameter t∗ at which the intersection occurs more precisely:\nt∗ = t −\n\nFigure 5: Reconstructed of a scene showing raycasting of the TSDF\n(left) without and (middle and right) with interpolation of the TSDF at\nthe surface interface using eqn. 15.\n\nFigure 6: Demonstration of the space skipping ray casting. (Left)\npixel iteration count are shown where for each pixel the ray is traversed in steps of at most one voxel (white equals 480 increments\nand black 60). (middle) ray marching steps are drastically reduced\nby skipping empty space according to the minimum truncation µ\n(white equals 70 iterations and black 10 ≈ 6× speedup). Marching\nsteps can be seen to increase around the surface interface where\nthe signed distance function has not been truncated. (Right) Normal\nmap at resulting surface intersection.\n\nalong which p was found can be computed directly from Fk using a\nnumerical derivative of the SDF:\n\u0014\n\u0015\n\u0002\n\u0003\n∂F ∂F ∂F >\ng\nRg,k N̂k = N̂k (u) = ν ∇F(p) , ∇F =\n,\n,\n(14)\n∂x ∂y ∂z\nFurther, this derivative is scaled in each dimension to ensure correct isotropy given potentially arbitrary voxel resolutions and reconstruction dimensions."
+      },
+      {
+        "partId": "ray-marching",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "As we have a dense surface reconstruction in the form of a global\nSDF, a per pixel raycast can be performed [21]. Each pixel’s corresponding ray, Tg,k K−1 u̇, is marched starting from the minimum\ndepth for the pixel and stopping when a zero crossing (+ve to\n−ve for a visible surface) is found indicating the surface interface.\nMarching also stops if a −ve to +ve back face is found, or ultimately when exiting the working volume, both resulting in non surface measurement at the pixel u."
+      },
+      {
+        "partId": "interpolated-intersection",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "Higher quality intersections can be obtained by solving a ray/trilinear cell intersection [21] that requires solving a cubic polynomial. As this is expensive we use a simple approximation. Given\n+\na ray has been found to intersect the SDF where F+\nt and Ft+∆t are\ntrilinearly interpolated SDF values either side of the zero crossing\nat points along the ray t and t + ∆t from its starting point, we find\n\n∆tF+\nt\n.\n+\nFt+∆t − F+\nt\n\n(15)\n\nThe predicted vertex and normal maps are computed at the interpolated location in the global frame. Figure 5 shows a typical reconstruction, the interpolation scheme described achieves high quality\nocclusion boundaries at a fraction of the cost of full interpolation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "projective-distance",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.3 explicitly contrasts a true discrete SDF with the implemented projective TSDF. It says the measurement is correct at the surface or for an isolated point and describes approximate pseudo-Euclidean convergence after multi-view fusion within the truncation region. The corrected claim keeps approximation, not an exact nearest-surface/collision metric.",
+        "evidenceDigest": "6c3ccab83808b284328f48345af14a445315aa76e8c3b7e990111196e66651e8"
+      },
+      {
+        "partId": "interface-normal",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.4 explicitly assumes TSDF-gradient orthogonality on or very close to the zero interface and computes normals numerically with dimension scaling. The retained passage spans extraction columns/page material verbatim; it is not a global unit-gradient theorem or a collision-margin assertion.",
+        "evidenceDigest": "83b89ee40ebc6be25043c537743f6517e3555b11bcdf5fe39a5afca906357ac3"
+      },
+      {
+        "partId": "ray-marching",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.4 describes marching each pixel ray from minimum depth until the visible positive-to-negative crossing; back-face crossings and working-volume exit yield no surface measurement. This supports surface prediction by marching, not a universal lookup-only collision query.",
+        "evidenceDigest": "558c90dee5fc3fed5ff09d643f805a5d79d3e890ae183f3b57231bdce410d960"
+      },
+      {
+        "partId": "interpolated-intersection",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.4 and Equation 15 explicitly choose a simple approximation instead of the expensive cubic ray/trilinear-cell solution, using trilinearly interpolated values across a crossing and computing vertex/normal maps at the interpolated location. No exact collision guarantee or unquoted performance value is inferred.",
+        "evidenceDigest": "9d111d7d1c2697e195f518cef2adf3fc5f0e8a0ccef217bb8b975a7fc185784a"
+      }
+    ]
   }
 ]

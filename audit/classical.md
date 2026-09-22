@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 187
-- Recorded verified: 91
-- Recorded corrected: 96
+- Recorded verified: 90
+- Recorded corrected: 97
 - Recorded cut: 0
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 176
-- Incomplete evidence records: 11
+- Complete evidence records: 177
+- Incomplete evidence records: 10
 
 <!-- audit-summary:end -->
 
@@ -356,7 +356,7 @@ this ledger's conventions.
 | KinectFusion's convention is positive toward visible free space and negative on the non-visible side. Curless and Levoy's hole-filling construction instead encodes empty space with negative Dmin and unseen space with positive Dmax, both at zero weight; these are source-specific conventions. | kinectfusion-2011 retained author-hosted PDF section 3.3 plus direct author publication metadata; curless-levoy-1996 retained Stanford PDF sections 3–4. Both conventions are stated, not silently interchanged. | corrected |  |  |  | Original four-cell tuple (JSON): {"claim":"The signed distance is \"negative behind the surface and positive in front of it\", attributed to Curless-Levoy","sourceChecked":"curless-levoy-1996 sec. 4 and Fig. 6b: the empty region in front of the surface carries D(x) = Dmin (negative), the unseen region behind carries D(x) = Dmax (positive), with \"Dmin and Dmax must be negative and positive, respectively\"; the article's polarity is the KinectFusion convention, not Curless-Levoy's","verdict":"C (sign clause removed from the Curless-Levoy sentence and restated on kinectfusion-2011, which does say \"positive and increasing values moving from the visible surface into free space, and negative and decreasing values on the non-visible side\")","note":""}. Source-auditor review 2026-09-08T22:14:48.460Z: Retained author-hosted PDF Section3.3 explicitly gives positive visible/free-space and negative non-visible-side values. The additional author-page item establishes work association through all ten ordered authors, explicit DOI and the identical full 190-word abstract; that page alone does not state the sign convention. Curless–Levoy Section3 specifies negative Dmin/positive Dmax; Section4 assigns empty Dmin and unseen Dmax with W=0, with space carving back toward the sensor. This is specifically the hole-filling construction, not a universal SDF sign law. Retained source retrievals were on September 6 and the Microsoft author page on September 8 at 11:05:25.449991–11:05:26.365036 UTC; this review made zero requests. Josef's September7 correction authority is not personal source certification. No journal/report or full-rendition byte equivalence, whole P1, article date bump or release acceptance. | calibration-tsdf-scene-representation-7-20260908 |
 | KinectFusion's author-hosted paper describes a Kinect 11-bit 640×480 depth stream at 30 Hz, coarse-to-fine ICP against the fused global model, and commodity-GPU tracking and mapping at the sensor frame rate. A large planar scene filling most of the field of view can cause tracking drift or failure. | kinectfusion-2011 retained author-hosted PDF abstract, introduction, sections 1.1/3.3/4.3; direct Microsoft author publication metadata and identical full abstract establish the work association. | corrected |  |  |  | Original four-cell tuple (JSON): {"claim":"KinectFusion made TSDF fusion real-time on a commodity depth camera","sourceChecked":"kinectfusion-2011 (ISMAR PDF abstract: \"using only a moving low-cost depth camera and commodity graphics hardware\"; sec. 3.3)","verdict":"V","note":""}. Source-auditor review 2026-09-08T22:14:48.460Z: Section1.1 explicitly states structured light, an on-board ASIC, 11-bit 640×480 depth maps and 30Hz. The corrected prose uses the disclosed depth-frame rate, not a robot action rate. The retained full abstract explicitly tracks the live depth frame against the global model using coarse-to-fine ICP. It does not establish adoption on live robots. The introduction explicitly gives 30Hz tracking and GPGPU tracking/mapping at the Kinect sensor frame rate; Section3.3 names the 640×480/30fps input denominator. The author-page item supplies identity and commodity-GPU context, not independent numerical-rate proof. No GPU SKU, whole-building rate or robot-control frequency is inferred. Section4.3 states a large planar scene filling most of the field of view leaves three of six motion degrees unconstrained and can produce tracking drift/failure. Section6 limits scope to medium room volumes and warns of memory and loop drift for buildings. Retained source retrievals were on September 6 and the Microsoft author page on September 8 at 11:05:25.449991–11:05:26.365036 UTC; this review made zero requests. Josef's September7 correction authority is not personal source certification. No journal/report or full-rendition byte equivalence, whole P1, article date bump or release acceptance. | calibration-tsdf-scene-representation-8-20260908 |
 | Curless and Levoy truncate distance ramps and weights near observed range points. KinectFusion uses a projective TSDF, caps visible-space values beyond μ at μ, and does not measure non-visible points farther than μ from the surface. | curless-levoy-1996 retained Stanford PDF Figure 3 truncation context; kinectfusion-2011 retained author-hosted PDF section 3.3 projective TSDF and unknown-space constraints. | corrected |  |  |  | Original four-cell tuple (JSON): {"claim":"The truncated variant is the one robotics uses","sourceChecked":"curless-levoy-1996 (\"we truncate the distance ramps and weights to the vicinity of the range points\"); kinectfusion-2011 sec. 3.3 (TSDF)","verdict":"V","note":""}. Source-auditor review 2026-09-08T22:14:48.460Z: The Figure3 caption explicitly truncates distance ramps and weights to the vicinity of range points. This supports only this method, not universal robotics adoption. Section3.3 distinguishes true distance from its implemented projective TSDF, caps visible-space values beyond μ and leaves non-visible points farther than μ unmeasured. This does not establish the unselected collision-margin/gradient/lookup paragraph. Retained source retrievals were on September 6 and the Microsoft author page on September 8 at 11:05:25.449991–11:05:26.365036 UTC; this review made zero requests. Josef's September7 correction authority is not personal source certification. No journal/report or full-rendition byte equivalence, whole P1, article date bump or release acceptance. | calibration-tsdf-scene-representation-9-20260908 |
-| Stored distance is the collision margin, field gradient is the surface normal, so a collision query is a lookup rather than a search | unit-gradient property of a signed distance function, checked symbolically; lib/scene-representation.ts tsdf capability notes (internal); consistent with schulman-2013's hinge loss on signed distance | V |
+| KinectFusion uses a projective TSDF rather than a true discrete SDF; fusion approximates a pseudo-Euclidean distance metric. It estimates surface normals by numerical derivatives near the zero level set under an orthogonality assumption, ray-marches to a zero crossing, and approximates the intersection using trilinearly interpolated field values. | kinectfusion-2011, author-hosted ISMAR paper, Sections 3.3–3.4 and Equations 14–15; historical 2026-09-06 GET at https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf, retained PDF/text identity and literal passages rechecked. curless-levoy-1996 Appendix A establishes only a directional derivative along the sensor line of sight, not the old universal collision claim. | C |  |  |  | Original four-cell tuple (JSON): {"claim":"Stored distance is the collision margin, field gradient is the surface normal, so a collision query is a lookup rather than a search","sourceChecked":"unit-gradient property of a signed distance function, checked symbolically; lib/scene-representation.ts tsdf capability notes (internal); consistent with schulman-2013's hinge loss on signed distance","verdict":"V","note":""}. Original tuple SHA256: 833a900270e11b09e5503e395d53c3365d1edfdb42f4fb33736077c8bcdf2f90. Corrected the unsupported universal collision-margin/gradient/lookup claim and planner conclusion with the four recorded article/glossary/interactive-copy spans. No ideal-SDF unit-gradient or exact voxel-collision guarantee is retained; controls, geometry, capability grades and calculations are unchanged. Source-auditor review 2026-09-22T22:38:08.796Z: KinectFusion Sections 3.3–3.4 distinguish a projective approximation from a true discrete SDF, assume gradient orthogonality near the interface, march rays and approximate the intersection using trilinear values. Curless–Levoy Appendix A describes a sensor-line directional derivative, not the former guarantee. Historical GET observation 2026-09-06T01:11:50.461Z–2026-09-06T01:12:06.713Z, HTTP 200 then; current retained PDF/text hashes and literal passages rechecked without network. Exact prior cells, all four old/new spans and source provenance remain in non-counted Scene TSDF correction history below. Parent authorization in convergence-scene-tsdf-integration-20260922 applies only this correction; no whole-article/date advancement, P2 waiver, source-truth certification by the native gate, or acceptance. | classical-scene-representation-10-kinectfusion-correction-20260922 |
 | A mesh costs a hole wherever nothing was observed, and filling it invents geometry | curless-levoy-1996 sec. 4 ("Unseen portions of the surface will appear as holes in the reconstruction"; hole fillers "offer a plausible way to plug these holes") | V | curless-levoy-1996 | https://graphics.stanford.edu/papers/volrange/volrange.pdf | The algorithm described in the previous section is designed to reconstruct the observed portions of the surface. Unseen portions of the surface will appear as holes in the reconstruction. While this result is an accurate representation of the known surface, the holes are esthetically unsatisfying and can present a stumbling block to followon algorithms that expect continuous meshes. In [17], for example, Figure 6 illustrates the method for a single range image, and provides a diagram for the three-state classification scheme. The hole filler isosurfaces are “false” in that they are not representative of the observed surface, but they do derive from observed data. In particular, they correspond to a boundary that confines where the surface could plausibly exist. In practice, we find that many of these hole filler surfaces are generated in crevices that are hard for the sensor to reach. |
 | NeRF fits a separate MLP-based radiance field to a static scene: density depends on position, color also on view direction, and differentiable volume rendering supports image-error optimization from RGB images with camera poses, intrinsics and scene bounds. Differentiability enables optimization; it is not a guarantee of correct geometry. | nerf-2020 (arXiv:2003.08934 abs, verbatim: "a single continuous 5D coordinate... volume density and view-dependent emitted radiance", "classic volume rendering techniques", "the only input required... is a set of images with known camera poses") | corrected |  |  |  | Original four-cell tuple (JSON): ["NeRF stores a scene as a network mapping position and viewing direction to density and view-dependent colour, rendered by classical volume rendering along camera rays; differentiability means posed photographs alone suffice","nerf-2020 (arXiv:2003.08934 abs, verbatim: \"a single continuous 5D coordinate... volume density and view-dependent emitted radiance\", \"classic volume rendering techniques\", \"the only input required... is a set of images with known camera poses\")","V",""]. Original tuple SHA256: 8147255cf324130f6b23af28c70e40bccbb10712b60498c985033306fe202f81. Historical source label retained; the paired evidence names the actual inspected PDF editions. Source-auditor review 2026-09-08T16:38:37.788Z, session b37551e3-1260-4a87-9b95-4ef0d1de7079, against the final corrected tuple and all required pairs; not a new fetch. All five AND obligations jointly cover the final static-scene, asymmetric density/color, ray rendering, calibrated-input and optimization-limit tuple. The abstract is qualified by section 5.3, not used to erase its requirements. Josef's September 7 'fix it all!' authorizes this correction, not personal source certification, whole-article P1, date advancement or release acceptance. Retained proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-neural-scene-integration-20260908/source-proof.json. | neural-scene-12-20260908 |
 | Instant NGP combines a multiresolution trainable hash encoding, smaller MLPs and a fully fused CUDA implementation; its NeRF model is still optimized through a differentiable ray marcher from RGB images with known camera poses. The speedup is not attributable to the encoding alone. | instant-ngp-2022 (abs "in a matter of seconds"; sec. 5.4 "NeRF, mip-NeRF, and NSVF, which all require on the order of hours to train... competitive with NeRF and NSVF after just 15 s of training") | corrected |  |  |  | Original four-cell tuple (JSON): ["Instant NGP's multiresolution hash encoding collapsed training from hours to seconds","instant-ngp-2022 (abs \"in a matter of seconds\"; sec. 5.4 \"NeRF, mip-NeRF, and NSVF, which all require on the order of hours to train... competitive with NeRF and NSVF after just 15 s of training\")","V",""]. Original tuple SHA256: 6cdf181dabe57621ab09cc10d54c58adb7417be7017c510a6eefd3463762d5b4. Historical source label retained; the paired evidence names the actual inspected PDF editions. Source-auditor review 2026-09-08T16:38:37.788Z, session b37551e3-1260-4a87-9b95-4ef0d1de7079, against the final corrected tuple and all required pairs; not a new fetch. All three obligations cover the final combined implementation/encoding mechanism and posed NeRF training. The original broad timing promise is corrected, not certified by a favorable benchmark subset. Josef's September 7 'fix it all!' authorizes this correction, not personal source certification, whole-article P1, date advancement or release acceptance. Retained proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-neural-scene-integration-20260908/source-proof.json. | neural-scene-13-20260908 |
@@ -2557,3 +2557,181 @@ This is the transcript of this two-row integration, not historical gates or inde
 - `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json` — exit **1**. Expected-red offline coverage: exit 1, 47 complete failure objects, 952 complete / 42 incomplete / 994 originals, zero summary mismatches. Exactly the two assigned outcome findings removed; all other failure objects unchanged. Full log: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-verdict-pair-integration-20260921/coverage.json`.
 
 Preservation: 994 original identities/order, 992 unselected full native records including line coordinates, all 952 previously complete IDs, 855 unselected plans (857 total) and all 999 approval entries are unchanged. The unselected serialized catalog bytes, 1290 unscoped tracked files, PRODUCT_QUALITY.md, qa/findings.json and next-env.d.ts match the prechange hashes. Existing commits d282a83, 2cf7d6b, b0e1701 and 1e14d69 remain ancestors. Only the two active verdict/note cells and their actual review bindings changed, plus non-counted history/accounting and the new regression test. No new source request, full suite, baseline gate, build, browser, type generation, article review-date change, model change or publication. The content gate remains red.
+
+## Scene TSDF correction history, 2026-09-22
+
+Exactly original 10 is corrected; all previous claims and evidence remain historical, not silently verified. One reviewed four-part plan; zero new source requests. This appendix is not another counted claim.
+
+```json
+{
+  "originalId": "audit/classical.md:scene-representation:10",
+  "rowOrdinal": 10,
+  "previousTupleDigest": "833a900270e11b09e5503e395d53c3365d1edfdb42f4fb33736077c8bcdf2f90",
+  "previousCells": {
+    "claim": "Stored distance is the collision margin, field gradient is the surface normal, so a collision query is a lookup rather than a search",
+    "sourceChecked": "unit-gradient property of a signed distance function, checked symbolically; lib/scene-representation.ts tsdf capability notes (internal); consistent with schulman-2013's hinge loss on signed distance",
+    "verdict": "V",
+    "note": ""
+  },
+  "correctedTupleDigest": "187e660896a7d550561ace8d5c694fb8cce70c78de281542e8eb900222d63e2d",
+  "correctedCells": {
+    "claim": "KinectFusion uses a projective TSDF rather than a true discrete SDF; fusion approximates a pseudo-Euclidean distance metric. It estimates surface normals by numerical derivatives near the zero level set under an orthogonality assumption, ray-marches to a zero crossing, and approximates the intersection using trilinearly interpolated field values.",
+    "sourceChecked": "kinectfusion-2011, author-hosted ISMAR paper, Sections 3.3–3.4 and Equations 14–15; historical 2026-09-06 GET at https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf, retained PDF/text identity and literal passages rechecked. curless-levoy-1996 Appendix A establishes only a directional derivative along the sensor line of sight, not the old universal collision claim.",
+    "verdict": "C",
+    "note": "Original four-cell tuple (JSON): {\"claim\":\"Stored distance is the collision margin, field gradient is the surface normal, so a collision query is a lookup rather than a search\",\"sourceChecked\":\"unit-gradient property of a signed distance function, checked symbolically; lib/scene-representation.ts tsdf capability notes (internal); consistent with schulman-2013's hinge loss on signed distance\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: 833a900270e11b09e5503e395d53c3365d1edfdb42f4fb33736077c8bcdf2f90. Corrected the unsupported universal collision-margin/gradient/lookup claim and planner conclusion with the four recorded article/glossary/interactive-copy spans. No ideal-SDF unit-gradient or exact voxel-collision guarantee is retained; controls, geometry, capability grades and calculations are unchanged. Source-auditor review 2026-09-22T22:38:08.796Z: KinectFusion Sections 3.3–3.4 distinguish a projective approximation from a true discrete SDF, assume gradient orthogonality near the interface, march rays and approximate the intersection using trilinear values. Curless–Levoy Appendix A describes a sensor-line directional derivative, not the former guarantee. Historical GET observation 2026-09-06T01:11:50.461Z–2026-09-06T01:12:06.713Z, HTTP 200 then; current retained PDF/text hashes and literal passages rechecked without network. Exact prior cells, all four old/new spans and source provenance remain in non-counted Scene TSDF correction history below. Parent authorization in convergence-scene-tsdf-integration-20260922 applies only this correction; no whole-article/date advancement, P2 waiver, source-truth certification by the native gate, or acceptance."
+  },
+  "previousPlan": null,
+  "spans": [
+    {
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/classical/scene-representation.mdx",
+      "previousFileSha256": "7266605c541103889de64ea05e2157bf88bae32e5bd2da4552c4276b13c278da",
+      "old": "The stored distance *is* the collision margin, and the gradient of the field *is* the surface normal, so a collision query is a lookup rather than a search. That is why the trajectory optimisers in [motion planning](/classical/motion-planning) consume a distance field rather than a mesh: the quantity their cost function needs is already sitting in the voxel.",
+      "new": "KinectFusion distinguishes its projective TSDF from a true discrete signed-distance field. Its projective measurement is correct exactly at the surface or for an isolated point measurement; fusion produces an approximate pseudo-Euclidean distance metric. Near the zero level set, the method assumes the field gradient is orthogonal to the surface and estimates normals using numerical derivatives. Surface prediction marches along each ray to a zero crossing, then approximates the intersection using trilinearly interpolated field values <Cite id=\"kinectfusion-2011\" />."
+    },
+    {
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/glossary.ts",
+      "previousFileSha256": "270795d1637d5536f74184aac48dacd24f159bf154fcc864d69215d28b0492fd",
+      "old": "A volumetric map that stores, per voxel, the distance to the nearest surface, signed so the value is negative behind the surface and positive in front of it. Curless and Levoy introduced the cumulative weighted form for fusing range images, where the surface is recovered as the zero crossing. Two properties earn it its place in a robot stack: the gradient of the field is the surface normal, and the distance value is itself the collision margin, which is why a truncated variant is what collision checkers and GPU trajectory optimisers consume. KinectFusion is where the representation became a real-time product of a commodity depth camera.",
+      "new": "A scalar field whose zero crossing represents a surface. Curless and Levoy fuse weighted signed distances measured along sensor lines of sight. KinectFusion uses a projective truncated field rather than a true discrete signed-distance field; fusion approximates a pseudo-Euclidean distance metric. Near the surface, it estimates normals from numerical field derivatives under an orthogonality assumption. It predicts the surface by ray marching and approximate interpolation, not by treating every stored value as an exact collision margin."
+    },
+    {
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/scene-representation.ts",
+      "previousFileSha256": "327adc4bd8e96fb552c4fc86ed9f47013f2e3efde66b068e5e625dd09943194d",
+      "old": "Signed distance to the nearest surface plus a fusion weight, kept in a narrow band around the surface.",
+      "new": "A truncated projective signed-distance estimate plus a fusion weight, used to reconstruct the observed surface."
+    },
+    {
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/scene-representation.ts",
+      "previousFileSha256": "327adc4bd8e96fb552c4fc86ed9f47013f2e3efde66b068e5e625dd09943194d",
+      "old": "the gradient of the field is the surface normal, which is what a collision query wants",
+      "new": "KinectFusion estimates a normal from numerical field derivatives near the surface, under an orthogonality assumption"
+    }
+  ],
+  "packetPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-math-recovery-20260922/rows.json",
+  "packetSha256": "fa6e40704b4d5620380c305d126269623385a460c25ede61ca67b3302e338ced",
+  "sourceProvenance": [
+    {
+      "evidenceId": "kf-projective-versus-euclidean",
+      "citationId": "kinectfusion-2011",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.txt",
+      "sha256": "97290dc708a510b2e2afcfa651f6c329c205422b5396af6a910caf942245c8df",
+      "passageSha256": "1325b27f1ead5c04b38123d9744e93af890fa27659874d7d9a24ea4ce1e069f0",
+      "provenance": {
+        "observedAt": "2026-09-06T01:12:06.713Z",
+        "status": 200,
+        "basis": "Historical batch GET result, not a new fetch or present liveness claim. Original call/result event bytes match the retained receipt. Current mission PDF/text bytes exactly match the historical PDF/text hashes; pdftotext-to-stdout was byte-equal to the retained text. The September 16 text is content-identical to the September 6 fetched body; no new per-file retrieval timestamp is inferred.",
+        "originalCallAt": "2026-09-06T01:11:50.461Z",
+        "originalResultAt": "2026-09-06T01:12:06.713Z",
+        "originalSessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/e4f16890-4ed3-4f47-8fd0-7c12109da734.jsonl",
+        "originalCallEventId": "9e6b9857-1363-4d59-ae11-6b97dbafd5c5",
+        "originalResultEventId": "b5c13cd5-463a-4ce9-8284-7ba7b9d02010",
+        "originalCallEventSha256": "b389f8c29a612ccf898b3135ea735f675a7d4eeeb347ba39a4a52e88dd591f4b",
+        "originalResultEventSha256": "e41b209746ee96692f25f355b5b63a24bcdc4b2df1b4e5784a5f71384c0cae77",
+        "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-calibration-tsdf-20260908/source-provenance.json",
+        "pdfPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.pdf",
+        "pdfSha256": "19ebf6d57456eb5321ebde55bd324451ea65ad7348e5f70fc26b1ffff113d1b0",
+        "freshFetch": false
+      }
+    },
+    {
+      "evidenceId": "kf-interface-normal",
+      "citationId": "kinectfusion-2011",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.txt",
+      "sha256": "97290dc708a510b2e2afcfa651f6c329c205422b5396af6a910caf942245c8df",
+      "passageSha256": "135925cbb148b02e1282137d55616d3efc85bc92b68791ffaa16c970d263ab96",
+      "provenance": {
+        "observedAt": "2026-09-06T01:12:06.713Z",
+        "status": 200,
+        "basis": "Historical batch GET result, not a new fetch or present liveness claim. Original call/result event bytes match the retained receipt. Current mission PDF/text bytes exactly match the historical PDF/text hashes; pdftotext-to-stdout was byte-equal to the retained text. The September 16 text is content-identical to the September 6 fetched body; no new per-file retrieval timestamp is inferred.",
+        "originalCallAt": "2026-09-06T01:11:50.461Z",
+        "originalResultAt": "2026-09-06T01:12:06.713Z",
+        "originalSessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/e4f16890-4ed3-4f47-8fd0-7c12109da734.jsonl",
+        "originalCallEventId": "9e6b9857-1363-4d59-ae11-6b97dbafd5c5",
+        "originalResultEventId": "b5c13cd5-463a-4ce9-8284-7ba7b9d02010",
+        "originalCallEventSha256": "b389f8c29a612ccf898b3135ea735f675a7d4eeeb347ba39a4a52e88dd591f4b",
+        "originalResultEventSha256": "e41b209746ee96692f25f355b5b63a24bcdc4b2df1b4e5784a5f71384c0cae77",
+        "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-calibration-tsdf-20260908/source-provenance.json",
+        "pdfPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.pdf",
+        "pdfSha256": "19ebf6d57456eb5321ebde55bd324451ea65ad7348e5f70fc26b1ffff113d1b0",
+        "freshFetch": false
+      }
+    },
+    {
+      "evidenceId": "kf-ray-marching",
+      "citationId": "kinectfusion-2011",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.txt",
+      "sha256": "97290dc708a510b2e2afcfa651f6c329c205422b5396af6a910caf942245c8df",
+      "passageSha256": "5aa60c67a4df9b13b4dc89966af8c0c026555ae2bce02c22242c2e9e3b4f01e8",
+      "provenance": {
+        "observedAt": "2026-09-06T01:12:06.713Z",
+        "status": 200,
+        "basis": "Historical batch GET result, not a new fetch or present liveness claim. Original call/result event bytes match the retained receipt. Current mission PDF/text bytes exactly match the historical PDF/text hashes; pdftotext-to-stdout was byte-equal to the retained text. The September 16 text is content-identical to the September 6 fetched body; no new per-file retrieval timestamp is inferred.",
+        "originalCallAt": "2026-09-06T01:11:50.461Z",
+        "originalResultAt": "2026-09-06T01:12:06.713Z",
+        "originalSessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/e4f16890-4ed3-4f47-8fd0-7c12109da734.jsonl",
+        "originalCallEventId": "9e6b9857-1363-4d59-ae11-6b97dbafd5c5",
+        "originalResultEventId": "b5c13cd5-463a-4ce9-8284-7ba7b9d02010",
+        "originalCallEventSha256": "b389f8c29a612ccf898b3135ea735f675a7d4eeeb347ba39a4a52e88dd591f4b",
+        "originalResultEventSha256": "e41b209746ee96692f25f355b5b63a24bcdc4b2df1b4e5784a5f71384c0cae77",
+        "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-calibration-tsdf-20260908/source-provenance.json",
+        "pdfPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.pdf",
+        "pdfSha256": "19ebf6d57456eb5321ebde55bd324451ea65ad7348e5f70fc26b1ffff113d1b0",
+        "freshFetch": false
+      }
+    },
+    {
+      "evidenceId": "kf-interpolation",
+      "citationId": "kinectfusion-2011",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.txt",
+      "sha256": "97290dc708a510b2e2afcfa651f6c329c205422b5396af6a910caf942245c8df",
+      "passageSha256": "e95fb3cc4fd0c79e51a6e431aeb22c8cb987e8a5c5eabc29f74d06ff41f3b249",
+      "provenance": {
+        "observedAt": "2026-09-06T01:12:06.713Z",
+        "status": 200,
+        "basis": "Historical batch GET result, not a new fetch or present liveness claim. Original call/result event bytes match the retained receipt. Current mission PDF/text bytes exactly match the historical PDF/text hashes; pdftotext-to-stdout was byte-equal to the retained text. The September 16 text is content-identical to the September 6 fetched body; no new per-file retrieval timestamp is inferred.",
+        "originalCallAt": "2026-09-06T01:11:50.461Z",
+        "originalResultAt": "2026-09-06T01:12:06.713Z",
+        "originalSessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/e4f16890-4ed3-4f47-8fd0-7c12109da734.jsonl",
+        "originalCallEventId": "9e6b9857-1363-4d59-ae11-6b97dbafd5c5",
+        "originalResultEventId": "b5c13cd5-463a-4ce9-8284-7ba7b9d02010",
+        "originalCallEventSha256": "b389f8c29a612ccf898b3135ea735f675a7d4eeeb347ba39a4a52e88dd591f4b",
+        "originalResultEventSha256": "e41b209746ee96692f25f355b5b63a24bcdc4b2df1b4e5784a5f71384c0cae77",
+        "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-calibration-tsdf-20260908/source-provenance.json",
+        "pdfPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/kinectfusion-2011.pdf",
+        "pdfSha256": "19ebf6d57456eb5321ebde55bd324451ea65ad7348e5f70fc26b1ffff113d1b0",
+        "freshFetch": false
+      }
+    },
+    {
+      "evidenceId": "cl-line-of-sight-derivative",
+      "citationId": "curless-levoy-1996",
+      "url": "https://graphics.stanford.edu/papers/volrange/volrange.pdf",
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/curless-levoy-1996.txt",
+      "sha256": "2771bdc6d41ccee9fe50620235a3f724a96e11f47a6d62ba89a755543a22ddb2",
+      "passageSha256": "08ac10ae25ba191bd9077814b5d5586ab3d0d9f9625148f770ff6c0c14e677c8",
+      "provenance": {
+        "observedAt": "2026-09-06T01:12:06.713Z",
+        "status": 200,
+        "basis": "Historical batch GET result, not a new fetch or present liveness claim. Original call/result event bytes match the retained receipt. Current mission PDF/text bytes exactly match the historical PDF/text hashes; pdftotext-to-stdout was byte-equal to the retained text. The September 16 text is content-identical to the September 6 fetched body; no new per-file retrieval timestamp is inferred.",
+        "originalCallAt": "2026-09-06T01:11:50.461Z",
+        "originalResultAt": "2026-09-06T01:12:06.713Z",
+        "originalSessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/e4f16890-4ed3-4f47-8fd0-7c12109da734.jsonl",
+        "originalCallEventId": "9e6b9857-1363-4d59-ae11-6b97dbafd5c5",
+        "originalResultEventId": "b5c13cd5-463a-4ce9-8284-7ba7b9d02010",
+        "originalCallEventSha256": "b389f8c29a612ccf898b3135ea735f675a7d4eeeb347ba39a4a52e88dd591f4b",
+        "originalResultEventSha256": "e41b209746ee96692f25f355b5b63a24bcdc4b2df1b4e5784a5f71384c0cae77",
+        "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-calibration-tsdf-20260908/source-provenance.json",
+        "pdfPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-k-scene-representation-20260916d/sources/curless-levoy-1996.pdf",
+        "pdfSha256": "83057f6e11e809297d5d24c5bef0745cd06ece7eac3531f635b907c6f7ef0d02",
+        "freshFetch": false
+      }
+    }
+  ],
+  "reviewedAt": "2026-09-22T22:38:08.796Z",
+  "notAcceptance": true
+}
+```

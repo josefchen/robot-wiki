@@ -18415,6 +18415,57 @@
         "VAL-B2-BASE-013"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "scene-tsdf-10-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+      "newHash": "e503d1d3fb46ca601bb1747d5763ca37242cea7430f72ac71a1ec2015977e20a",
+      "reason": "Replace only the unsupported TSDF collision-margin/lookup and universal planner conclusion with the four source-qualified KinectFusion operations.",
+      "ownerApproval": "Standing routine source-backed truth-correction authority, bounded by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/authorization.json and successful parent preflight; four exact prepared spans only. Not personal source certification, a local-proof waiver or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "scene-tsdf-10-20260922-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "9a65c31a6059f709e48179a0dc92ae2be7f63a63acbbab34073d1efec3fd0ff9",
+      "newHash": "6153ac3b89547680bee0f7d3d5437bc202cb847709fc62ae96f77e47352f52aa",
+      "reason": "Add the KinectFusion citation for the replacement paragraph and remove only the motion-planning link carried by the withdrawn universal planner conclusion; all frontmatter relationships stay unchanged.",
+      "ownerApproval": "Standing routine source-backed truth-correction authority, bounded by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/authorization.json and successful parent preflight; four exact prepared spans only. Not personal source certification, a local-proof waiver or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "scene-tsdf-10-20260922-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c",
+      "newHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc",
+      "reason": "Replace only the repeated signed-distance-field glossary definition with projective, approximate and near-interface-qualified source semantics; keep its citation IDs and every other glossary entry.",
+      "ownerApproval": "Standing routine source-backed truth-correction authority, bounded by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/authorization.json and successful parent preflight; four exact prepared spans only. Not personal source certification, a local-proof waiver or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

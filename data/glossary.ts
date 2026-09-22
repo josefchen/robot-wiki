@@ -595,7 +595,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'signed-distance-field',
     term: 'signed-distance field',
     definition:
-      'A volumetric map that stores, per voxel, the distance to the nearest surface, signed so the value is negative behind the surface and positive in front of it. Curless and Levoy introduced the cumulative weighted form for fusing range images, where the surface is recovered as the zero crossing. Two properties earn it its place in a robot stack: the gradient of the field is the surface normal, and the distance value is itself the collision margin, which is why a truncated variant is what collision checkers and GPU trajectory optimisers consume. KinectFusion is where the representation became a real-time product of a commodity depth camera.',
+      'A scalar field whose zero crossing represents a surface. Curless and Levoy fuse weighted signed distances measured along sensor lines of sight. KinectFusion uses a projective truncated field rather than a true discrete signed-distance field; fusion approximates a pseudo-Euclidean distance metric. Near the surface, it estimates normals from numerical field derivatives under an orthogonality assumption. It predicts the surface by ray marching and approximate interpolation, not by treating every stored value as an exact collision margin.',
     citations: ['curless-levoy-1996', 'kinectfusion-2011'],
   },
   {

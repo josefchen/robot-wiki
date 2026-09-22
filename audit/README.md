@@ -1,3 +1,28 @@
+## Current checkpoint: scene TSDF original 10 corrected (2026-09-22)
+
+Exactly **1 applied / 0 held / 0 unattempted** in this integration: audit/classical.md:scene-representation:10. Native accounting: **959 complete / 35 incomplete / 994 originals**, 47 articles. These are structural evidence counts, not source truth or acceptance. All older checkpoints below are historical.
+
+| Domain | Original rows | Complete records | Incomplete records |
+| --- | --- | --- | --- |
+| manipulation | 225 | 224 | 1 |
+| rl-sim2real | 167 | 159 | 8 |
+| world-models | 92 | 91 | 1 |
+| data-hardware | 128 | 115 | 13 |
+| classical | 187 | 177 | 10 |
+| frontier | 147 | 145 | 2 |
+| adjacent | 48 | 48 | 0 |
+| Total | 994 | 959 | 35 |
+
+The exact four prepared spans replace the universal collision guarantee with KinectFusion's projective approximation, near-interface numerical normals under an orthogonality assumption, ray marching and approximate interpolation. Article, shared glossary and two interactive strings change together; controls, geometry, grades and calculations do not. The old exact tuple and four old/new spans remain non-counted classical history; C does not certify the former claim. One four-part/four-pair reviewed plan appends to the 862-plan prefix (863 total). Three actual native member approvals append to 1015 prior approvals (1018 total): scene prose, scene citation/link relationships, and the glossary metadata source. No synthetic library member is invented.
+
+Retained KinectFusion and Curless–Levoy PDF/text hashes and literal passages were rechecked; HTTP 200 observations remain historical September 6 retrievals, not new fetches or present liveness. Zero source requests. Perception originals 2/19 and all other 993 records remain outside this integration. Source packet: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-math-recovery-20260922/rows.json. Bounded verification and preservation receipts: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/handoff.json. Red-first new tests failed 11/12 before application; the sole passing test preserved the two held perception tuples. Final checks are recorded in the handoff, not inferred from this correction. Browser/rendered reader proof, reading-time/generated outputs and independent acceptance remain owed. No full suite/typecheck, build/export, browser, census or publication. The content gate remains red; formal 307/331 is unchanged, not acceptance.
+
+Focused verification: **194 distinct unit cases pass** across the initial nine-file run (190 passed / 4 failed) and the changed-fixture retry (4 passed / 25 skipped); a subsequent one-case retry verified the typed approval fixture without adding a distinct test. The four initial failures were expired global totals, the old row-10 hold, and excluded-from-the-old-batch assumptions. Tests now bind the exact historical batch positions and actual unchanged pre-integration tuples, not newly credited unselected records. Prelint and focused ESLint pass. Narrow no-emit TypeScript initially found an inferred optional-undefined fixture type; an explicit native ManifestInput[] annotation fixed it and the retry passes. Article-only compilation with the configured plugins, citation checks and native no-slop checks pass: 24 declared IDs, 37 Cite occurrences, zero compiler messages or marker findings, and triad density 2.761477390403866 below 22 over 2897 source words. This is not rendered or generated reading-time proof.
+
+The single offline coverage invocation exited **1**: **959/35/994**, **41 ledger findings** (35 incomplete originals, three aggregate evidence-field failures and three unresolved outcomes), zero citation-coverage findings, zero summary mismatches and 47/47 articles. Full raw JSON is 10184371 bytes, SHA-256 d07f3b12d8633b12278287051aecea5371f09173f1e55da419281518bd3949ea; stderr is empty. All 994 identities/order, 993 unselected full records including line coordinates, 958 prior completions, 862 prior plans, 1015 prior approvals and 1288 unscoped tracked files are preserved. Protected owner files and d282a83/2cf7d6b remain intact. All failures and retries remain in the integration logs; no gate was weakened or repeated.
+
+---
+
 ## Current checkpoint: VLA21 and comparison1 corrected (2026-09-22)
 
 Exactly **2 applied / 0 held / 0 unattempted**: audit/manipulation.md:vla-models:21 and audit/manipulation.md:comparison-matrix:1. Native accounting: **958 complete / 36 incomplete / 994 originals**, 47 articles. These are structural evidence counts, not source truth or acceptance. All older checkpoints below are historical.
