@@ -1,15 +1,17 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { publishedModules } from '@/data/modules';
+import { articleStructuredImagePaths, SITE_CARD_PATH } from '@/lib/og-cards';
 
 /**
  * Live robot-wiki.com serves public JPEGs and OG cards with
  * `Cache-Control: public, max-age=0, must-revalidate` (Vercel's default for
  * Next `public/` files). That forces a revalidation on every page load.
  * `headers()` in next.config is unsupported with `output: 'export'`, so the
- * year-long Cache-Control for `/images/*`, `/og/*`, `/_next/static/*`, and
- * font files has to live in vercel.json. HTML must keep must-revalidate so
- * a deploy is visible immediately.
+ * year-long Cache-Control for `/images/*`, `/og/*`, `/structured-images/*`,
+ * `/_next/static/*`, and font files has to live in vercel.json. HTML must
+ * keep must-revalidate so a deploy is visible immediately.
  */
 
 interface VercelHeaderRule {
@@ -51,16 +53,37 @@ describe('vercel.json static-asset cache headers', () => {
     expect(vercel.buildCommand).toBeUndefined();
   });
 
-  it('gives /images, /og, hashed Next assets, and fonts a year-long cache', () => {
+  it('gives /images, /og, /structured-images, hashed Next assets, and fonts a year-long cache', () => {
     for (const source of [
       '/images/:path*',
       '/og/:path*',
+      '/structured-images/:path*',
       '/_next/static/:path*',
       '/:path*.woff2',
       '/:path*.woff',
       '/:path*.ttf',
       '/:path*.otf',
     ]) {
+      expect(cacheControlForSource(source), source).toBe(LONG_CACHE);
+    }
+  });
+
+  it('long-caches every image directory the SEO layer publishes', () => {
+    // Article JSON-LD `image` and the image sitemap list one OG/X card plus
+    // the 4:3 and square structured-data variants per published article.
+    // Derive the top-level directories from those paths so a future move of
+    // a variant cannot silently fall back to Vercel's must-revalidate default.
+    const imagePaths = [
+      SITE_CARD_PATH,
+      ...publishedModules().flatMap((m) =>
+        articleStructuredImagePaths(m.domain, m.slug),
+      ),
+    ];
+    const directories = new Set(
+      imagePaths.map((path) => `/${path.split('/')[1]}/:path*`),
+    );
+    expect(directories.size).toBeGreaterThanOrEqual(2);
+    for (const source of directories) {
       expect(cacheControlForSource(source), source).toBe(LONG_CACHE);
     }
   });
