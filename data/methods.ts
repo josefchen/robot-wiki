@@ -12,12 +12,16 @@
  *   - Ranges and dual-rate stacks that a single number cannot carry live in
  *     the note fields, next to the number or in place of it.
  *
- * The array is Zod-validated at import time, so a malformed row fails the
- * build, the dev server, and the test suite immediately. The runtime import
- * keeps its explicit .ts extension so plain node can load this file too.
+ * The rows are typed against the Zod schema's inferred type, and the schema
+ * itself parses them at build time on the server (lib/registry-validation.ts,
+ * run while the article routes prerender) and in the unit suite, so a
+ * malformed row still fails the build. The parse is deliberately not done
+ * here: the comparison matrix, the policy-chunking table and structured
+ * search all render in the browser, and a module-scope parse would bundle
+ * zod into every page that mounts them. The type-only import keeps its
+ * explicit .ts extension so plain node can load this file too.
  */
-import { z } from 'zod';
-import { methodSchema, type Method } from './schemas/method.ts';
+import type { Method } from './schemas/method.ts';
 
 export type { Method } from './schemas/method.ts';
 
@@ -381,5 +385,5 @@ const ROWS: Method[] = [
   },
 ];
 
-/** Zod-validated rows; an invalid entry throws at import time. */
-export const METHODS: Method[] = z.array(methodSchema).parse(ROWS);
+/** Schema-validated at build time by lib/registry-validation.ts. */
+export const METHODS: Method[] = ROWS;

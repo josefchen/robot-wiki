@@ -8,40 +8,17 @@
  * source, and so the unit suite can assert that every citation id resolves
  * in the registry.
  *
- * The Zod schema is the completeness gate: every thesis
- * must carry non-empty proponents, evidenceFor, evidenceAgainst, and
- * falsification. The array is parsed at module scope, so an incomplete row
- * throws during static generation and fails `next build`.
+ * The Zod schema (lib/competing-theses-schema.ts) is the completeness gate:
+ * every thesis must carry non-empty proponents, evidenceFor,
+ * evidenceAgainst, and falsification. The explorer renders in the browser,
+ * so this module keeps zod out of its import graph: the rows are typed
+ * against the schema's inferred type here, and the schema parses them at
+ * build time on the server (lib/registry-validation.ts, run while the
+ * article routes prerender), so an incomplete row still fails `next build`.
  */
-import { z } from 'zod';
+import type { Thesis } from './competing-theses-schema.ts';
 
-/** One piece of evidence, with the registry ids that back it. */
-export const evidenceSchema = z.object({
-  text: z.string().min(1),
-  citationIds: z.array(z.string().min(1)).min(1),
-});
-
-export const thesisSchema = z.object({
-  /** Stable row id, used for test selectors. */
-  id: z.string().min(1),
-  /** Short thesis name, e.g. "End-to-end VLA scaling". */
-  name: z.string().min(1),
-  /** The core claim in one sentence. */
-  claim: z.string().min(1),
-  /** Named proponents (people or organizations), at least one. */
-  proponents: z.array(z.string().min(1)).min(1),
-  /** The strongest published evidence for the thesis. */
-  evidenceFor: z.array(evidenceSchema).min(1),
-  /** The strongest published evidence or argument against it. */
-  evidenceAgainst: z.array(evidenceSchema).min(1),
-  /** The falsification criterion: the observation that would kill it. */
-  falsification: z.string().min(1),
-  /** Compressed falsification signal for the table row. */
-  falsificationSignal: z.string().min(1),
-});
-
-export type Thesis = z.infer<typeof thesisSchema>;
-export type ThesisEvidence = z.infer<typeof evidenceSchema>;
+export type { Thesis, ThesisEvidence } from './competing-theses-schema.ts';
 
 const ROWS: Thesis[] = [
   {
@@ -270,11 +247,11 @@ const ROWS: Thesis[] = [
 ];
 
 /**
- * The six theses, schema-validated at module load. An incomplete row throws
- * here, which fails `next build` during static generation of the module
- * page.
+ * The six theses. lib/registry-validation.ts parses them against
+ * thesesSchema at build time; an incomplete row fails `next build` during
+ * static generation of the article routes.
  */
-export const THESES: Thesis[] = z.array(thesisSchema).length(6).parse(ROWS);
+export const THESES: Thesis[] = ROWS;
 
 /** The explorer opens on the scaling thesis: it is the debate's center. */
 export const DEFAULT_THESIS_ID = 'end-to-end-vla';

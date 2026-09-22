@@ -16,6 +16,7 @@ import { moduleSource } from '@/lib/module-source';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
 import { articleOpenGraph, articleTwitter } from '@/lib/og-cards';
 import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
+import { validateClientRegistries } from '@/lib/registry-validation';
 import { articleJsonLd, articleSeoTitle } from '@/lib/seo';
 
 // Fully static: only published modules get routes. Drafts (and everything
@@ -23,6 +24,10 @@ import { articleJsonLd, articleSeoTitle } from '@/lib/seo';
 export const dynamicParams = false;
 
 export function generateStaticParams(): Array<{ domain: string; slug: string }> {
+  // The data registries client widgets render are plain typed rows (a
+  // module-scope zod parse would ship zod to the browser); their schemas
+  // run here, on the server, so a malformed row still fails the build.
+  validateClientRegistries();
   return publishedModules().map((m) => ({ domain: m.domain, slug: m.slug }));
 }
 

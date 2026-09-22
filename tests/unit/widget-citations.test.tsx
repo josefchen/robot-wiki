@@ -20,8 +20,8 @@ import {
  * the records lib/widget-citations.ts resolves for them. These tests pin
  * the three ways that can drift: a widget that looks sources up but is not
  * mounted with records, a chip id written into a widget's JSX that its
- * entry does not supply, and a client module that imports the registry
- * back into the browser.
+ * entry does not supply, and a client module that imports the registry (or
+ * zod) back into the browser.
  */
 
 const ROOT = process.cwd();
@@ -205,6 +205,8 @@ describe('client bundle boundary', () => {
     ['the citation registry', 'data/citations.ts'],
     ['the server-side citation resolver', 'lib/widget-citations.ts'],
     ['the MDX citation resolver', 'components/mdx/cite-ref.tsx'],
+    ['the registry validation', 'lib/registry-validation.ts'],
+    ['zod', 'package:zod'],
   ])('keeps %s out of every client module graph', (_label, forbidden) => {
     const offenders = [...reach]
       .filter(([, reached]) => reached.includes(forbidden))

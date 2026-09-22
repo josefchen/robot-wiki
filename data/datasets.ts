@@ -19,12 +19,15 @@
  *     larger 1,003,672 trajectory count on the GitHub README is the
  *     post-release total, and the two are labeled as such.
  *
- * The array is Zod-validated at import time, so a malformed row fails the
- * build, the dev server, and the test suite immediately. The runtime import
- * keeps its explicit .ts extension so plain node can load this file too.
+ * The rows are typed against the Zod schema's inferred type, and the schema
+ * itself parses them at build time on the server (lib/registry-validation.ts,
+ * run while the article routes prerender) and in the unit suite, so a
+ * malformed row still fails the build. The parse is deliberately not done
+ * here: the dataset table renders in the browser, and a module-scope parse would
+ * bundle zod into every page that mounts it. The type-only import keeps its
+ * explicit .ts extension so plain node can load this file too.
  */
-import { z } from 'zod';
-import { datasetSchema, type Dataset } from './schemas/dataset.ts';
+import type { Dataset } from './schemas/dataset.ts';
 
 export type { Dataset } from './schemas/dataset.ts';
 
@@ -148,5 +151,5 @@ const ROWS: Dataset[] = [
   },
 ];
 
-/** Zod-validated rows; an invalid entry throws at import time. */
-export const DATASETS: Dataset[] = z.array(datasetSchema).parse(ROWS);
+/** Schema-validated at build time by lib/registry-validation.ts. */
+export const DATASETS: Dataset[] = ROWS;

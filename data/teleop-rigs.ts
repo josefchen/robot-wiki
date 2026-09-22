@@ -13,12 +13,15 @@
  *   - Ratings are ordered low < medium < high; each note states what the
  *     rating means for that dimension and row.
  *
- * The array is Zod-validated at import time, so a malformed row fails the
- * build, the dev server, and the test suite immediately. The runtime import
- * keeps its explicit .ts extension so plain node can load this file too.
+ * The rows are typed against the Zod schema's inferred type, and the schema
+ * itself parses them at build time on the server (lib/registry-validation.ts,
+ * run while the article routes prerender) and in the unit suite, so a
+ * malformed row still fails the build. The parse is deliberately not done
+ * here: the teleop-rig matrix renders in the browser, and a module-scope parse would
+ * bundle zod into every page that mounts it. The type-only import keeps its
+ * explicit .ts extension so plain node can load this file too.
  */
-import { z } from 'zod';
-import { teleopRigSchema, type TeleopRig } from './schemas/teleop-rig.ts';
+import type { TeleopRig } from './schemas/teleop-rig.ts';
 
 export type { RigRating, TeleopRig } from './schemas/teleop-rig.ts';
 
@@ -163,5 +166,5 @@ const ROWS: TeleopRig[] = [
   },
 ];
 
-/** Zod-validated rows; an invalid entry throws at import time. */
-export const TELEOP_RIGS: TeleopRig[] = z.array(teleopRigSchema).parse(ROWS);
+/** Schema-validated at build time by lib/registry-validation.ts. */
+export const TELEOP_RIGS: TeleopRig[] = ROWS;

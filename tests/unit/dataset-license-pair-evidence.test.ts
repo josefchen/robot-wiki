@@ -100,7 +100,14 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
     expect(CITATIONS.find(c => c.id === 'cc-by-4-0-deed')).toEqual({ id: 'cc-by-4-0-deed', title: 'Attribution 4.0 International', authors: ['Creative Commons'], year: 2013, url: 'https://creativecommons.org/licenses/by/4.0/', type: 'docs' });
     expect(CITATIONS.find(c => c.id === 'droid-2024')?.year).toBe(2024);
     expect(read('data/citations.ts')).toContain('license-version publication year, not the undated deed webpage');
-    expect(read('data/datasets.ts')).toBe(before('data/datasets.ts'));
+    // The license fix left the dataset rows alone. Compared as the ROWS
+    // literal, not the whole file: the module's validation wiring later
+    // moved to lib/registry-validation.ts (zod out of client bundles)
+    // without touching a row.
+    const rows = (source: string) =>
+      source.slice(source.indexOf('const ROWS: Dataset[] = ['), source.indexOf('\n];\n') + 4);
+    expect(rows(read('data/datasets.ts'))).toBe(rows(before('data/datasets.ts')));
+    expect(rows(read('data/datasets.ts'))).toContain("sources: ['robomind-2024']");
   });
   it('narrows commercial permission to published terms and limitations', () => {
     expect(row(5).claim).toContain('a license link, change notices');

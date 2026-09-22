@@ -9,42 +9,26 @@
  * one source, and so the unit suite can assert that every citation id
  * resolves in the registry.
  *
- * The Zod schema is the completeness gate: every milestone must carry
- * non-empty whyItMatters, statusDetail, and howWeKnow, plus at least one
- * citation for the status call. The array is parsed at module scope, so an
- * incomplete row throws during static generation and fails `next build`.
+ * The Zod schema (lib/bear-case-schema.ts) is the completeness gate: every
+ * milestone must carry non-empty whyItMatters, statusDetail, and howWeKnow,
+ * plus at least one citation for the status call. The watchlist renders in
+ * the browser, so this module keeps zod out of its import graph: the rows
+ * are typed against the schema's inferred type here, and the schema parses
+ * them at build time on the server (lib/registry-validation.ts, run while
+ * the article routes prerender), so an incomplete row still fails
+ * `next build`.
  *
  * Status calls are evidence, not vibes: each statusDetail cites the
  * published record it summarizes. As of writing no milestone is met; the
  * "met" filter in the watchlist deliberately renders an empty state.
  */
-import { z } from 'zod';
+import type { Milestone, MilestoneStatus } from './bear-case-schema.ts';
+
+export type { Milestone, MilestoneStatus } from './bear-case-schema.ts';
 
 export const MILESTONE_STATUSES = ['not-met', 'partial', 'met'] as const;
 
-export const milestoneStatusSchema = z.enum(MILESTONE_STATUSES);
-
-export type MilestoneStatus = z.infer<typeof milestoneStatusSchema>;
-
 export type MilestoneFilter = 'all' | MilestoneStatus;
-
-export const milestoneSchema = z.object({
-  /** Stable row id, used for test selectors. */
-  id: z.string().min(1),
-  /** Short milestone name for the table row. */
-  name: z.string().min(1),
-  /** The question the milestone settles. */
-  whyItMatters: z.string().min(1),
-  status: milestoneStatusSchema,
-  /** The published evidence behind the status call. */
-  statusDetail: z.string().min(1),
-  /** The observation that would flip the status to met. */
-  howWeKnow: z.string().min(1),
-  /** Citation registry ids backing the status detail. */
-  citationIds: z.array(z.string().min(1)).min(1),
-});
-
-export type Milestone = z.infer<typeof milestoneSchema>;
 
 const ROWS: Milestone[] = [
   {
@@ -146,14 +130,11 @@ const ROWS: Milestone[] = [
 ];
 
 /**
- * The eight milestones, schema-validated at module load. An incomplete row
- * throws here, which fails `next build` during static generation of the
- * module page.
+ * The eight milestones. lib/registry-validation.ts parses them against
+ * milestonesSchema at build time; an incomplete row fails `next build`
+ * during static generation of the article routes.
  */
-export const MILESTONES: Milestone[] = z
-  .array(milestoneSchema)
-  .length(8)
-  .parse(ROWS);
+export const MILESTONES: Milestone[] = ROWS;
 
 /** Filter milestones by status; "all" returns the full set. */
 export function filterMilestones(
