@@ -7990,6 +7990,21 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Crossref 10.1109/70.88014 read 2026-09-23: IEEE T-RA 5(1), 16-29,
+    // 1989. Crossref prints "Y.C. Shiu" and "S. Ahmad"; initials kept. The
+    // abstract (OpenAlex transcription of the IEEE record) states that moving
+    // the robot and observing the sensor "yields a homogeneous transform
+    // equation of the form AX=XB" and develops a closed-form solution.
+    id: 'shiu-ahmad-1989',
+    title:
+      'Calibration of wrist-mounted robotic sensors by solving homogeneous transform equations of the form AX=XB',
+    authors: ['Y. C. Shiu', 'S. Ahmad'],
+    year: 1989,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.88014',
+    type: 'paper',
+  },
+  {
     // Crossref 10.1109/70.34770 read 2026-08-22: IEEE T-RA 5(3), 345-358.
     // Crossref prints "R.Y. Tsai" and "R.K. Lenz"; initials kept.
     id: 'tsai-lenz-1989',

@@ -9,6 +9,7 @@ datePublished: "2026-08-24"
 lastReviewed: "2026-08-24"
 citations:
   - zhang-2000-calibration
+  - shiu-ahmad-1989
   - tsai-lenz-1989
   - modern-robotics-2017
   - realsense-d400-datasheet-2026
@@ -82,7 +83,7 @@ Calibrate depth scale against known distances across the operating range. Plot r
 
 ## Hand-eye calibration
 
-Hand-eye calibration solves the rigid relationship between camera motion and robot motion. For a wrist camera, the unknown is usually the transform from gripper to camera; for a fixed camera, it is base to camera. Tsai and Lenz formulated the classic $AX = XB$ problem from paired robot and camera motions <Cite id="tsai-lenz-1989" />.
+Hand-eye calibration solves the rigid relationship between camera motion and robot motion. For a wrist camera, the unknown is usually the transform from gripper to camera; for a fixed camera, it is base to camera. Shiu and Ahmad wrote the problem as the homogeneous transform equation $AX = XB$ over paired robot and camera motions and solved it in closed form <Cite id="shiu-ahmad-1989" />; Tsai and Lenz gave the classic efficient solution <Cite id="tsai-lenz-1989" />.
 
 The dataset needs rotational diversity. Motions around nearly one axis leave parts of the transform weakly constrained. Use many poses across the workspace, reject target detections with poor geometry, and reserve some poses for validation rather than solving on every sample.
 
