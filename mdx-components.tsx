@@ -16,6 +16,14 @@ import { ImageRef } from '@/components/mdx/image-ref';
 import { ProseH2, ProseH3 } from '@/components/mdx/prose-heading';
 import { TermRef } from '@/components/mdx/term-ref';
 
+function ProseLink({ href, rel, ...props }: ComponentPropsWithoutRef<'a'>) {
+  const outbound = /^(?:https?:)?\/\//i.test(href ?? '');
+  const relationship = outbound
+    ? [...new Set([...(rel?.split(/\s+/).filter(token => token && token !== 'opener') ?? []), 'noopener', 'noreferrer'])].join(' ')
+    : rel;
+  return <a data-brand-control-id="control:link-focus" {...props} href={href} rel={relationship} />;
+}
+
 /** Keep authored Markdown tables inside the prose column on narrow screens. */
 function ProseTable({ className, ...props }: ComponentPropsWithoutRef<'table'>) {
   return (
@@ -62,9 +70,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // rehype-autolink-headings inserts. Annotating the shared override
     // rather than each authored link is what keeps the registered
     // population equal to the rendered one.
-    a: (props: ComponentPropsWithoutRef<'a'>) => (
-      <a data-brand-control-id="control:link-focus" {...props} />
-    ),
+    a: ProseLink,
     // rehype-pretty-code emits the highlighted block's title bar and its
     // bordered <pre>; both are painted planes the surface registry governs,
     // and neither passes through a first-party component where the
