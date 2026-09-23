@@ -21,8 +21,12 @@ import { headReanchorFor, sealedHash } from './helpers/continuation-merge-ledger
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '1e07db26e614dd24e9f1c0c79a651df26cdec88b';
+const disclosureCommit = '8f7508bf39961ed00f5fd027bbf491b7a84bb0f6';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
+  cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
+});
+const atDisclosure = (path: string) => execFileSync('git', ['show', `${disclosureCommit}:${path}`], {
   cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
 });
 const articlePath = 'content/data-hardware/datasets.mdx';
@@ -52,19 +56,35 @@ const oldApprovals: ApprovedDelta[] = JSON.parse(before('contract/brand-v2-appro
 const ownApprovals = approvals.filter(a => a.id.startsWith('robomind-disclosure-20260923-'));
 const truth = collectArticleTruthManifests();
 const releaseBase = 'f1d03a919f70a336326e1c044e1cc338a8cb6abe';
-const disclosureCommit = '8f7508bf39961ed00f5fd027bbf491b7a84bb0f6';
-const historicalArticle = matter(committedSource(disclosureCommit, articlePath));
+// These endpoints describe the licensing transaction, not later hours corrections.
+// Hash actual committed article bytes independently of the approval objects.
+const historicalArticle = matter(atDisclosure(articlePath));
 const historicalBody = historicalArticle.content.trim();
 const matches = (pattern: RegExp) => [...historicalBody.matchAll(pattern)].map(m => m[1]).sort();
 const historicalTruth = [
-  buildManifest('prose', [{ id: 'article:data-hardware/datasets', value: { path: articlePath, body: historicalBody } }]),
-  buildManifest('relationships', [{ id: 'article:data-hardware/datasets', value: {
-    seeAlso: historicalArticle.data.seeAlso,
-    citations: matches(/<Cite\s+id=["']([^"']+)["']/g),
-    terms: matches(/<Term\s+id=["']([^"']+)["']/g),
-    internalLinks: matches(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g),
-  } }]),
+  buildManifest('prose', [{
+    id: 'article:data-hardware/datasets', value: { path: articlePath, body: historicalBody },
+  }]),
+  buildManifest('relationships', [{
+    id: 'article:data-hardware/datasets',
+    value: {
+      seeAlso: historicalArticle.data.seeAlso,
+      citations: matches(/<Cite\s+id=["']([^"']+)["']/g),
+      terms: matches(/<Term\s+id=["']([^"']+)["']/g),
+      internalLinks: matches(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g),
+    },
+  }]),
 ];
+
+function assertCurrentHours(dataset: Dataset) {
+  expect(dataset.hours).toBe(305.5);
+  expect(dataset.hoursNote).toContain('real + simulated');
+  expect(dataset.hoursNote).toContain('real-only and failure-set durations not separately reported');
+  expect(dataset.episodesNote).toContain('107k successful, real + simulated');
+  expect(dataset.episodesNote).toContain('5k additional real-world failures');
+  expect(dataset.episodesNote).not.toContain('incl. 5k');
+  expect(dataset.license).toBeNull();
+}
 
 function assertDisclosure(text: string, dataset: Dataset) {
   expect(dataset.license).toBeNull();
@@ -214,7 +234,7 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
 
   it('does not silently change hours, other datasets, catalog kind or prior approvals', () => {
     const robot = DATASETS.find(d => d.id === 'robomind')!;
-    expect(robot.hours).toBeNull();
+    assertCurrentHours(robot);
     expect(robot.episodes).toBe(107000);
     expect(robot.tasks).toBe(479);
     expect(robot.embodimentCount).toBe(4);
@@ -225,6 +245,15 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
     preservedApprovalPacket(disclosureCommit);
     const productionApprovals: ApprovedDelta[] = JSON.parse(committedSource(releaseBase, 'contract/brand-v2-approved-deltas.json')).entries;
     expect(approvals.slice(0, productionApprovals.length)).toEqual(productionApprovals);
+  });
+
+  it('distinguishes historical null hours from the current successful mixed cohort', () => {
+    // Inspect a single literal row in immutable TypeScript text; never execute it.
+    const historicalRows = atDisclosure('data/datasets.ts')
+      .match(/    id: 'robomind',[\s\S]*?\n  \},/g);
+    expect(historicalRows).toHaveLength(1);
+    expect(historicalRows![0]).toMatch(/^    hours: null,$/m);
+    assertCurrentHours(DATASETS.find(d => d.id === 'robomind')!);
   });
 
   it('binds exact native member approvals and rejects missing or mutated approvals', () => {

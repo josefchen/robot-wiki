@@ -25,6 +25,12 @@ describe('bear-case originals integration (2026-09-15)', () => {
     // remaining' at its Jun 2, 2026 publication, never 'first five months'.
     expect(article).not.toContain('in the first five months of 2026');
     expect(article).toContain('by early June 2026 by PitchBook');
+    expect(article).toContain(
+      '<Stat label="raised by early June 2026" value=">$23B" note="PitchBook tally, by early June" accent />',
+    );
+    expect(article).not.toContain('label="raised in H1 2026"');
+    expect(article.match(/<Cite id="robotics-funding-23b-2026" \/>/g)).toHaveLength(1);
+    expect(article).toContain('  - robotics-funding-23b-2026');
   });
 
   it("B16: the closing line agrees with the corrected scoping", () => {

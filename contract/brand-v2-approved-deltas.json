@@ -25431,6 +25431,570 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "robomind-hours-20260923-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f",
+      "newHash": "50ad873040d9937b43cd27cc5b15cadc2fd5d58c23c678547970881d0f17c6a8",
+      "reason": "Six bounded RoboMIND-hours corrections: paper-v3 305.5-hour successful real+simulated cohort and additional 5k real-world failures; remove false exclusive/most-hours wording and qualify the adjacent physical-machine sentence. Preserve release-specific license uncertainty, citations/frontmatter, chart and unrelated data. Removal of one not-disclosed prose occurrence retires only its actual render-site member. Zero completion credit.",
+      "ownerApproval": "Parent sole-writer assignment at session 82c643e8-34d1-49b7-9c6d-90c2cd721412 line 44; exact native current-HEAD binding in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-hours-integration-20260923/preflight.json at 358f5050333386606f041505613e4a65d90dc703; immutable prepared packet SHA256 267255462d39c2aaed2daceabd351a1ff56a655296c6d1a02d4f6c82daa80870. Application recheck recorded in preservation.json; not licensing permission or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "robomind-hours-20260923-2",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "5a1230749a17bbf0ece78558d70f3edc0d4ef319efdc8ea159771894d4bdacf6",
+      "newHash": "22f2b1027690414c9279556029ce4a5e4a041f4c36f83e6d2cd26a849ee10f7c",
+      "reason": "Six bounded RoboMIND-hours corrections: paper-v3 305.5-hour successful real+simulated cohort and additional 5k real-world failures; remove false exclusive/most-hours wording and qualify the adjacent physical-machine sentence. Preserve release-specific license uncertainty, citations/frontmatter, chart and unrelated data. Removal of one not-disclosed prose occurrence retires only its actual render-site member. Zero completion credit.",
+      "ownerApproval": "Parent sole-writer assignment at session 82c643e8-34d1-49b7-9c6d-90c2cd721412 line 44; exact native current-HEAD binding in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-hours-integration-20260923/preflight.json at 358f5050333386606f041505613e4a65d90dc703; immutable prepared packet SHA256 267255462d39c2aaed2daceabd351a1ff56a655296c6d1a02d4f6c82daa80870. Application recheck recorded in preservation.json; not licensing permission or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "robomind-hours-20260923-3",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "8ea748667d9ecc23e4d178a9a1f9dcf5ec22aedf104d3bc16b4f4f4cccddbcaf",
+      "newHash": "ddd24d1d3acfccdf961591a125baa2619bb2a8e82762291f64f5688ed7c9cb60",
+      "reason": "Six bounded RoboMIND-hours corrections: paper-v3 305.5-hour successful real+simulated cohort and additional 5k real-world failures; remove false exclusive/most-hours wording and qualify the adjacent physical-machine sentence. Preserve release-specific license uncertainty, citations/frontmatter, chart and unrelated data. Removal of one not-disclosed prose occurrence retires only its actual render-site member. Zero completion credit.",
+      "ownerApproval": "Parent sole-writer assignment at session 82c643e8-34d1-49b7-9c6d-90c2cd721412 line 44; exact native current-HEAD binding in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-hours-integration-20260923/preflight.json at 358f5050333386606f041505613e4a65d90dc703; immutable prepared packet SHA256 267255462d39c2aaed2daceabd351a1ff56a655296c6d1a02d4f6c82daa80870. Application recheck recorded in preservation.json; not licensing permission or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "robomind-hours-20260923-4",
+      "manifest": "value-states",
+      "memberId": "state-site:content/data-hardware/datasets.mdx:not-disclosed:6",
+      "oldHash": "b968a22d24734d899622a6b9b4eb848ef084ffefd853cb6df81829ca8ed0e5f9",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Six bounded RoboMIND-hours corrections: paper-v3 305.5-hour successful real+simulated cohort and additional 5k real-world failures; remove false exclusive/most-hours wording and qualify the adjacent physical-machine sentence. Preserve release-specific license uncertainty, citations/frontmatter, chart and unrelated data. Removal of one not-disclosed prose occurrence retires only its actual render-site member. Zero completion credit.",
+      "ownerApproval": "Parent sole-writer assignment at session 82c643e8-34d1-49b7-9c6d-90c2cd721412 line 44; exact native current-HEAD binding in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-hours-integration-20260923/preflight.json at 358f5050333386606f041505613e4a65d90dc703; immutable prepared packet SHA256 267255462d39c2aaed2daceabd351a1ff56a655296c6d1a02d4f6c82daa80870. Application recheck recorded in preservation.json; not licensing permission or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-dreamer-20260923-1",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "2a1692435f01f148345f3c0e3d9e8e7a52e0463372cd9300f9633f72b65f5473",
+      "newHash": "8dbdbbdf649e90127a24af576468304034acdb4845ce9ff58ff8b1e26616d5ec",
+      "reason": "F06 and F18 Dreamer pair: reader-only wording at article:world-models/latent-dynamics; preserve source-labelled horizons, conflicting reward-loss descriptions, all quantities and citations. Detailed internals remain in latent-dynamics; taxonomy keeps a concise locally cited summary. Zero original row mutations or completions; lastReviewed unchanged.",
+      "ownerApproval": "Direct owner-authorized sole-writer dispatch on 2026-09-23 for F06 and the F18 Dreamer pair in Mission mis_2b1673fa, over Josef fix-it-all authority; reader-only same-claim repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-dreamer-20260923-2",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1",
+      "newHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93",
+      "reason": "F06 and F18 Dreamer pair: reader-only wording at article:world-models/taxonomy; preserve source-labelled horizons, conflicting reward-loss descriptions, all quantities and citations. Detailed internals remain in latent-dynamics; taxonomy keeps a concise locally cited summary. Zero original row mutations or completions; lastReviewed unchanged.",
+      "ownerApproval": "Direct owner-authorized sole-writer dispatch on 2026-09-23 for F06 and the F18 Dreamer pair in Mission mis_2b1673fa, over Josef fix-it-all authority; reader-only same-claim repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-dreamer-20260923-3",
+      "manifest": "relationships",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "0d596970aab63d64eaea4a41ea74bd9f47cc01227f81b24f758f341d891b6279",
+      "newHash": "e1be06d6ce2a4468c81a49c1e8b67312ee6ea5196e2cce0d31ce8b617e8761c2",
+      "reason": "F18 Dreamer pair: add the taxonomy summary link to the detailed latent-dynamics explanation with a trailing slash; retain every citation occurrence, term and See also relationship.",
+      "ownerApproval": "Direct owner-authorized sole-writer dispatch on 2026-09-23 for F06 and the F18 Dreamer pair in Mission mis_2b1673fa, over Josef fix-it-all authority; reader-only same-claim repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-rl-prose-20260923-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+      "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6",
+      "reason": "Partial F07, the remaining three F18 duplicate pairs, and Play2Perfect-only F20: bounded reader-only repair at article:manipulation/rl-finetuning. Restore inline citations without forced Source breaks; keep the local task, comparator and source qualifications while linking to unchanged full explanations; merge the Play2Perfect result with its adjacent per-task explanation. No factual extension, original row mutation or completion credit; lastReviewed unchanged.",
+      "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-rl-prose-20260923-2",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+      "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e",
+      "reason": "Partial F07, the remaining three F18 duplicate pairs, and Play2Perfect-only F20: bounded reader-only repair at article:rl-sim2real/why-rl-locomotion. Restore inline citations without forced Source breaks; keep the local task, comparator and source qualifications while linking to unchanged full explanations; merge the Play2Perfect result with its adjacent per-task explanation. No factual extension, original row mutation or completion credit; lastReviewed unchanged.",
+      "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-rl-prose-20260923-3",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886",
+      "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a",
+      "reason": "F18 remaining Recap and DextrAH duplicate pairs: add concise-summary links with trailing slashes to the unchanged detailed destination articles; retain every citation occurrence, term and See also relationship.",
+      "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-rl-prose-20260923-4",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "b5decbf9df603d6658018f76d4e04e46da69ee69ab78470c693da0d8466e2333",
+      "newHash": "18adecaa3485b392547c5011706b5db6946afbf06e6c914cbd495b2475479437",
+      "reason": "F18 remaining Recap and DextrAH duplicate pairs: add concise-summary links with trailing slashes to the unchanged detailed destination articles; retain every citation occurrence, term and See also relationship.",
+      "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-f20-dates-20260923-1",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/hardware-taxonomy",
+      "oldHash": "f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01",
+      "newHash": "7a2505538715b08e772608601254107f142790eeb91b344ac37db8e11d43455b",
+      "reason": "F20 reader date precision: add the source-stated July 9, 2026 announcement year and the existing registered 1x-world-model-lab-2026 citation plus declaration. Retained official related-post date, not a product-page date; no shipping or like-for-like joint-count claim. Existing citations and lastReviewed preserved.",
+      "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-f20-dates-20260923-2",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+      "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af",
+      "reason": "F20 reader date precision: add the source-stated July 9, 2026 announcement year and the existing registered 1x-world-model-lab-2026 citation plus declaration. Retained official related-post date, not a product-page date; no shipping or like-for-like joint-count claim. Existing citations and lastReviewed preserved.",
+      "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-f20-dates-20260923-3",
+      "manifest": "prose",
+      "memberId": "article:frontier/bear-case",
+      "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+      "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f",
+      "reason": "F20 reader tally precision: relabel the existing greater-than $23B Stat as raised by early June 2026, matching its unchanged note and cited body. Preserve amount, lower bound and attribution; no final H1 total or new source certification.",
+      "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-f20-dates-20260923-4",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b",
+      "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598",
+      "reason": "F20 reader date precision: add the source-stated July 9, 2026 announcement year and the existing registered 1x-world-model-lab-2026 citation plus declaration. Retained official related-post date, not a product-page date; no shipping or like-for-like joint-count claim. Existing citations and lastReviewed preserved.",
+      "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-source-flow-20260923-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "e503d1d3fb46ca601bb1747d5763ca37242cea7430f72ac71a1ec2015977e20a",
+      "newHash": "7bab62d263608b99701443a2ee730e0134871cb7b2567b89640e0b9f63a80b69",
+      "reason": "F07 reader-only source flow at article:classical/scene-representation: integrate the exact Source-only block or forced-break citation separators into their existing claim sentences, retaining scientific text, qualifications, values, citation occurrence order, links, equations and frontmatter dates. Zero original row mutations or completion credit.",
+      "ownerApproval": "Direct owner-authorized sole-writer F07 reader-source-flow dispatch on 2026-09-23 in Mission mis_2b1673fa, under Josef fix-it-all authority; same-claim presentation repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-source-flow-20260923-2",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "newHash": "3beb28b06968eea42b64c7f1015a80ade71413b3aa50b90475cff0390610a86a",
+      "reason": "F07 reader-only source flow at article:world-models/generative-sim: integrate the exact Source-only block or forced-break citation separators into their existing claim sentences, retaining scientific text, qualifications, values, citation occurrence order, links, equations and frontmatter dates. Zero original row mutations or completion credit.",
+      "ownerApproval": "Direct owner-authorized sole-writer F07 reader-source-flow dispatch on 2026-09-23 in Mission mis_2b1673fa, under Josef fix-it-all authority; same-claim presentation repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-source-flow-20260923-3",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "newHash": "1b0e081eded74fea386998a61419413bb948d56cfa9fdd63f70f188259360320",
+      "reason": "F07 reader-only source flow at article:rl-sim2real/rl-for-robotics: integrate the exact Source-only block or forced-break citation separators into their existing claim sentences, retaining scientific text, qualifications, values, citation occurrence order, links, equations and frontmatter dates. Zero original row mutations or completion credit.",
+      "ownerApproval": "Direct owner-authorized sole-writer F07 reader-source-flow dispatch on 2026-09-23 in Mission mis_2b1673fa, under Josef fix-it-all authority; same-claim presentation repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-classical-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "98e2f850f69583eff158eb31f745487bc44df874178297b24a9a30cfe4f2ec01",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+      "newHash": "50ad873040d9937b43cd27cc5b15cadc2fd5d58c23c678547970881d0f17c6a8",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-datasets",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "4d00882f8e7295cf2d2e76ef78a40360aefa639d4ece86e5f7e1b4c503b0a59c",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-frontier-bear-case",
+      "manifest": "prose",
+      "memberId": "article:frontier/bear-case",
+      "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+      "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-rl-for-robotics",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
+      "newHash": "0ad5e5747b16d5911e293affa4f0b374009f40a47775991589f43b4447d00bb9",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-why-rl-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+      "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-world-models-generative-sim",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
+      "newHash": "f679ebe844f5ba56bc718abfa9e6b2821bf6eabc0cae8867f63e8797d9a838cb",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-world-models-latent-dynamics",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
+      "newHash": "b1eed4329763e68f974e4e1eaf43bd68880330f563b512df04bb81a762aeca6b",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-relationships-article-data-hardware-datasets",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8",
+      "newHash": "bf3e5c72c3f239fbc538827cf16cadf824551ac12e2e467506ffe10459cbadf7",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-relationships-article-data-hardware-hardware-taxonomy",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+      "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-relationships-article-manipulation-rl-finetuning",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-relationships-article-rl-sim2real-why-rl-locomotion",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2",
+      "newHash": "18adecaa3485b392547c5011706b5db6946afbf06e6c914cbd495b2475479437",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1745-relationships-article-world-models-taxonomy",
+      "manifest": "relationships",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081",
+      "newHash": "daa373c349ea0504da365bdfea8ff5e87a7dbe1b8658f8aa8cc98c64ae466748",
+      "reason": "Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: mission editorial authority plus preserved main-only additions. Exact merged member, not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
