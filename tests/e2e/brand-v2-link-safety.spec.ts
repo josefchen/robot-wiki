@@ -182,10 +182,22 @@ test.describe('outbound links are safe and citation links are keyboard reachable
           occurrence: string | null;
           href: string;
           visible: boolean;
+          opensOutboundDisclosure?: boolean;
         } = await page.evaluate(() => {
           const el = document.activeElement as HTMLElement | null;
           const blank = { occurrence: null, href: '', visible: false };
           if (!el || el === document.body) return { wrapped: true, ...blank };
+          if (el.tagName === 'SUMMARY') {
+            const details = el.parentElement;
+            return {
+              wrapped: false,
+              ...blank,
+              opensOutboundDisclosure:
+                details?.tagName === 'DETAILS' &&
+                !(details as HTMLDetailsElement).open &&
+                details.querySelector('a[data-link-occurrence]') !== null,
+            };
+          }
           if (el.tagName !== 'A') return { wrapped: false, ...blank };
           const style = getComputedStyle(el);
           const outlinePx = Number.parseFloat(style.outlineWidth || '0');
@@ -198,6 +210,15 @@ test.describe('outbound links are safe and citation links are keyboard reachable
               style.boxShadow !== 'none',
           };
         });
+        if (focused.opensOutboundDisclosure) {
+          // Preserve native commit-before-reveal behavior. Reach every
+          // withheld anchor through its real keyboard-operated summary,
+          // rather than excluding it or forcing the DOM open with script.
+          await page.keyboard.press('Enter');
+          await expect(page.locator('summary:focus').locator('..')).toHaveJSProperty(
+            'open', true,
+          );
+        }
         if (focused.occurrence !== null) {
           reached.add(focused.occurrence);
           if (!focused.visible) {
@@ -243,6 +264,18 @@ test.describe('outbound links are safe and citation links are keyboard reachable
       expect(failures, `${route}: keyboard reachability failures`).toEqual([]);
     });
   }
+
+  test('a closed disclosure exposes its outbound link through the native keyboard path', async ({ page }) => {
+    await page.setContent('<details><summary>Read the reasoning</summary><a href="https://example.com" rel="noopener">Source</a></details>');
+    const link = page.getByRole('link', { name: 'Source' });
+    await expect(link).toBeHidden();
+    await page.keyboard.press('Tab');
+    await expect(page.getByText('Read the reasoning')).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(link).toBeVisible();
+    await page.keyboard.press('Tab');
+    await expect(link).toBeFocused();
+  });
 
   test('the keyboard sweep covers every route the export ships an outbound link on', () => {
     // The population is the census, not a list. The generator refuses a

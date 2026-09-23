@@ -138,6 +138,8 @@ describe('honest unknown and hypothetical chart states', () => {
     const unknown = screen.getByTestId('oxe-duration-note');
     expect(unknown).toHaveTextContent(/unknown in inspected sources/i);
     expect(unknown.querySelector('a')).toHaveAttribute('href', 'https://arxiv.org/html/2310.08864v9');
+    expect(unknown.querySelector('a')).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(unknown.querySelector('a')).toHaveAttribute('data-brand-control-id', 'control:link-focus');
     const row = screen.getByRole('row', { name: /OXE.*unknown in inspected sources/i });
     expect(row.querySelectorAll('td')[0]).toHaveTextContent(/unknown/i);
     expect(row.querySelectorAll('td')[0]).not.toHaveTextContent(/0 h|n\/a/);

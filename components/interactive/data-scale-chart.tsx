@@ -520,7 +520,12 @@ export function DataScaleChart({
         data-testid="oxe-duration-note"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
-        <a href={OXE_DURATION.sourceUrl} className="text-link underline">OXE</a>:
+        <a
+          data-brand-control-id="control:link-focus"
+          href={OXE_DURATION.sourceUrl}
+          rel="noopener noreferrer"
+          className="text-link underline"
+        >OXE</a>:
         {' '}1M+ trajectories across 22 robot embodiments. Total duration is
         unknown in inspected sources; not plotted on the hours axis.
       </p>

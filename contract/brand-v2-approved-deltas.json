@@ -25003,6 +25003,40 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "release-oxe-link-safety-20260923-interactive-sources-mounts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+      "newHash": "bd38089d9dd5363fec01c98a3aa402e5725db47f6ccc5966892f87195a7713d4",
+      "reason": "Register the existing OXE source anchor as control:link-focus and add noopener noreferrer. Preserve its exact destination, same-tab behavior, text, unknown-duration disclosure, all chart geometry, authored values and controls.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: fix real browser release-gate failures without weakening gates. No source-truth credit, permission grant or scientific claim change.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-007",
+        "VAL-B2-BASE-010",
+        "VAL-B2-COMP-013",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "release-oxe-link-safety-20260923-value-states",
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+      "newHash": "bd38089d9dd5363fec01c98a3aa402e5725db47f6ccc5966892f87195a7713d4",
+      "reason": "Register the existing OXE source anchor as control:link-focus and add noopener noreferrer. Preserve its exact destination, same-tab behavior, text, unknown-duration disclosure, all chart geometry, authored values and controls.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: fix real browser release-gate failures without weakening gates. No source-truth credit, permission grant or scientific claim change.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-007",
+        "VAL-B2-BASE-010",
+        "VAL-B2-COMP-013",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
