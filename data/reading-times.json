@@ -68,12 +68,12 @@
     "minutes": 7
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1788,
+    "words": 1857,
     "minutes": 9
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2818,
-    "minutes": 14
+    "words": 2921,
+    "minutes": 15
   },
   "rl-sim2real/legged-locomotion": {
     "words": 2222,
@@ -84,8 +84,8 @@
     "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 3297,
-    "minutes": 16
+    "words": 3342,
+    "minutes": 17
   },
   "rl-sim2real/offline-rl": {
     "words": 1598,
