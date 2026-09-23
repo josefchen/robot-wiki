@@ -9,7 +9,6 @@ import { frictionCases, frictionOracle, teacherOracle } from '../../audit/eviden
 import { cases, dependencies, artifact, save, UNIT } from '../../audit/evidence/sim2real-local-20260923/typed-support';
 import { loadLocalBasisContext, recomputeLocalDerivation, validateLocalBasisPlan } from '@/lib/audit-local-basis';
 import { CITATIONS } from '@/data/citations';
-import { publishedModules } from '../../data/modules';
 
 const articlePath = 'content/rl-sim2real/sim2real-transfer.mdx';
 const article = readFileSync(articlePath, 'utf8');
@@ -95,8 +94,9 @@ describe('sim2real authored evidence', () => {
 
 describe('strict sim2real local evidence', () => {
   const registryIds = new Set(CITATIONS.map(c => c.id));
-  const context = () => loadLocalBasisContext(process.cwd(),
-    publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
+  const context = () => loadLocalBasisContext(process.cwd(), [
+    '/rl-sim2real/reward-design-mpc/', '/rl-sim2real/sim2real-transfer/',
+  ]);
   for (const [ordinal, partCount] of [[23, 9], [24, 7]]) {
     it(`completes original ${ordinal} with its full strict AND inventory`, () => {
       const ctx = context();

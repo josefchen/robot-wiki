@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -222,14 +223,13 @@ describe('grasp-planning originals: ledger rows complete', () => {
 
 describe('grasp-planning originals: compound plans', () => {
   it('appends exactly five new plans and preserves the prior 713 in order', () => {
-    // The merged ledger keeps appending later packets; pin this packet's
-    // append slot (713..717) rather than a moving total.
-    expect(plans[712].id).toBe('state-estimation-17-20260916');
-    expect(plans.slice(713, 718).map((plan) => plan.id)).toEqual(newPlanIds);
+    // Preserve the exact packet and its surviving predecessor by identity.
+    expect(plans[plans.findIndex(p => p.id === newPlanIds[0]) - 1].id).toBe('state-estimation-17-20260916');
+    expect(planPacket(plans, newPlanIds).map((plan) => plan.id)).toEqual(newPlanIds);
   });
 
   it('binds every plan to the classical grasp-planning ledger with fresh digests', () => {
-    for (const plan of plans.slice(713, 718)) {
+    for (const plan of planPacket(plans, newPlanIds)) {
       expect(plan.ledgerPath).toBe('audit/classical.md');
       expect(plan.articleSlug).toBe('grasp-planning');
       expect(plan.kind).toBe('explicit-parts');
@@ -242,7 +242,7 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('covers every required (part, citation) pair exactly with registered ids and real passages', () => {
-    for (const plan of plans.slice(713, 718)) {
+    for (const plan of planPacket(plans, newPlanIds)) {
       const required = plan.parts.flatMap((part) =>
         part.requiredCitationIds.map((id) => JSON.stringify([part.id, id])));
       const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
@@ -257,7 +257,7 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('adjudicates every part supported with fresh evidence digests', () => {
-    for (const plan of plans.slice(713, 718)) {
+    for (const plan of planPacket(plans, newPlanIds)) {
       expect(plan.adjudications.map((review) => review.partId).sort())
         .toEqual(plan.parts.map((part) => part.id).sort());
       for (const review of plan.adjudications) {
@@ -301,8 +301,8 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('appends the four 20260917a paywall plans after the whole prior catalog', () => {
-    expect(plans.slice(826, 830).map((plan) => plan.id)).toEqual(paywallPlanIds);
-    for (const plan of plans.slice(826, 830)) {
+    expect(planPacket(plans, paywallPlanIds).map((plan) => plan.id)).toEqual(paywallPlanIds);
+    for (const plan of planPacket(plans, paywallPlanIds)) {
       expect(plan.ledgerPath).toBe('audit/classical.md');
       expect(plan.articleSlug).toBe('grasp-planning');
       expect(plan.kind).toBe('explicit-parts');

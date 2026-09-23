@@ -345,55 +345,6 @@ export function createLocalArtifactReader(root: string): (ref: LocalArtifact) =>
     return bytes;
   };
 }
-
-// These inert snapshots describe actual past runs, not replacement executions.
-// Only the checker and three reviewed assertion-only test edits are compatible.
-// Models, imports, disclosures, captures, receipts and all other files stay live.
-const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
-  bytes: number; sha256: string; snapshot: string; currentTestHash?: string;
-}>> = {
-  'lib/audit-local-basis.ts': {
-    bytes: 40817, sha256: '99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8',
-    snapshot: 'audit-local-basis.pre-portability.ts.txt',
-  },
-  'tests/unit/reward-local-evidence.test.ts': {
-    bytes: 7995, sha256: 'adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05',
-    snapshot: 'reward-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: '5a3c6d529e0fc3ec006aad3a075ac02540ec3476e3f391193b998b89d78b8488',
-  },
-  'tests/unit/sim2real-local-evidence.test.ts': {
-    bytes: 9706, sha256: 'c3678122420b6d6ef1f4bc3becc363fe8b46a4f9577f2342d4fd3324f77a078b',
-    snapshot: 'sim2real-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: 'fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c',
-  },
-  'tests/unit/parallel-local-evidence.test.ts': {
-    bytes: 5364, sha256: '959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb',
-    snapshot: 'parallel-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: '3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef',
-  },
-};
-function readVerificationInput(ref: LocalArtifact, root: string, read: (a: LocalArtifact) => Buffer): Buffer {
-  const history = HISTORICAL_VERIFICATION_INPUTS[ref.path];
-  if (!history || ref.bytes !== history.bytes || ref.sha256 !== history.sha256) return read(ref);
-  const current = readBoundedLocalFile(root, ref.path);
-  if (current.length === ref.bytes && sha256(current) === ref.sha256) return read(ref);
-  const retained = read({ ...ref, path: `audit/evidence/local-proof-compat-20260923/${history.snapshot}` });
-  if (ref.path === 'lib/audit-local-basis.ts') {
-    const boundary = ['/** Reject every symlink and bound reads,', ' including catalogs without known hashes. */'].join('');
-    const prefix = (bytes: Buffer) => {
-      const offset = bytes.indexOf(boundary);
-      requireThat(offset > 0 && bytes.indexOf(boundary, offset + 1) === -1, 'ambiguous computation boundary');
-      return bytes.subarray(0, offset);
-    };
-    requireThat(prefix(current).equals(prefix(retained)), 'historical computation prefix drift');
-    requireThat(current.equals(readFileSync(join(import.meta.dirname, 'audit-local-basis.ts'))),
-      'context checker differs from running implementation');
-  } else {
-    // Exact reviewed live version only; a later producer/oracle edit needs new proof.
-    requireThat(sha256(current) === history.currentTestHash, 'unreviewed historical test compatibility');
-  }
-  return retained;
-}
 type Registry = {
   sources: { id: string; sourcePath: string; fingerprint: string; cases: { id: string; kind: string }[] }[];
   mounts: { id: string; sourceId: string; route: string; fingerprint: string; cases: { id: string; kind: string }[] }[];
@@ -494,12 +445,8 @@ function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisConte
     requireThat(paths.includes(path), `missing mandatory dependency ${path}`);
   }
   for (const ref of proof.artifacts) {
-    readMember(ref, a => readVerificationInput(a, context.root, read));
-    if (ref.file.path === 'lib/audit-local-basis.ts') {
-      requireThat(readBoundedLocalFile(context.root, ref.file.path).equals(
-        readFileSync(join(import.meta.dirname, 'audit-local-basis.ts'))),
-      'context checker differs from running implementation');
-    } else if (LOCAL_RECIPE_DEPENDENCIES[target.recipe].includes(ref.file.path)) {
+    readMember(ref, read);
+    if ([...LOCAL_RECIPE_DEPENDENCIES[target.recipe], 'lib/audit-local-basis.ts'].includes(ref.file.path)) {
       requireThat(sha256(readFileSync(join(import.meta.dirname, '..', ref.file.path))) === ref.file.sha256, 'pinned calculation differs from running implementation');
     }
     const expectedMemberId = ref.file.path === articlePath ? `article:${articlePath.slice(8, -4)}`
@@ -518,11 +465,9 @@ function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisConte
   requireThat(same(input, proof.recipe) && same(output, proof.expected), 'input/output artifact content');
   requireThat(same(recomputeLocalDerivation(proof.recipe), proof.expected), 'wrong recomputed values/units/precision/formula');
   const run = proof.provenance;
-  // cwd is immutable execution provenance, never a path to read or execute.
-  requireThat(run.cwd.startsWith('/') && !run.cwd.includes('\0') && resolve(run.cwd) === run.cwd &&
-    run.exitCode === 0 && Date.parse(run.startedAt) <= Date.parse(run.endedAt) &&
+  requireThat(run.cwd === context.root && run.exitCode === 0 && Date.parse(run.startedAt) <= Date.parse(run.endedAt) &&
     Date.parse(run.endedAt) <= Date.now() && run.command.includes(run.test.path), 'failed/missing real execution provenance');
-  readVerificationInput(run.test, context.root, read);
+  read(run.test);
   const { receipt: _receipt, ...runFields } = run; void _receipt;
   const observations = proof.kind === 'observed-behavior' ? proof.observations : [];
   const receipt = JSON.parse(read(run.receipt).toString('utf8'));

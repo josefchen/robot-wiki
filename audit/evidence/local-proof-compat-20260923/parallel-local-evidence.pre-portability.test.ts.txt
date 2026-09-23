@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest';
 import * as model from '../../lib/parallel-sim';
 import { loadLocalBasisContext, recomputeLocalDerivation, validateLocalBasisPlan } from '../../lib/audit-local-basis';
 import { CITATIONS } from '../../data/citations';
-import { publishedModules } from '../../data/modules';
 import { ARTICLE, UNIT, artifact, cases, dependencies, oracle, save } from '../../audit/evidence/parallel-local-20260923/support';
 
 describe('parallel18 independent authored evidence', () => {
@@ -28,7 +27,7 @@ describe('parallel18 independent authored evidence', () => {
     });
   }
   it('requires the full typed plan and rejects missing proof, part, basis, mount and review', () => {
-    const ctx = loadLocalBasisContext(process.cwd(), publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
+    const ctx = loadLocalBasisContext(process.cwd(), ['/rl-sim2real/parallel-sim-rl/', '/rl-sim2real/reward-design-mpc/', '/rl-sim2real/sim2real-transfer/']);
     const plan = ctx.catalog.plans.find(p => p.originalId === 'audit/rl-sim2real.md:parallel-sim-rl:18');
     expect(plan).toBeDefined();
     if (!plan) return;

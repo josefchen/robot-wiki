@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 
 /**
@@ -166,10 +167,9 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
   const lanePlans = plans.filter((plan) => /^state-estimation-\d+-20260916$/.test(plan.id));
 
   it('adds exactly seven reviewed, fully adjudicated plans', () => {
-    // The merged ledger keeps appending later packets; this lane's block
-    // keeps its append slot at 706..712, so pin the slot, not a moving total.
+    // Identify the original seven plans independently of unrelated migrations.
     expect(
-      plans.slice(706, 713).map((plan) => plan.rowOrdinal),
+      planPacket(plans, [8, 9, 10, 12, 14, 15, 17].map(n => `state-estimation-${n}-20260916`)).map((plan) => plan.rowOrdinal),
     ).toEqual([8, 9, 10, 12, 14, 15, 17]);
     expect(lanePlans.map((plan) => plan.rowOrdinal).sort((a, b) => a - b)).toEqual([
       8, 9, 10, 12, 14, 15, 17,
@@ -191,7 +191,7 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
   });
 
   it('keeps every prior plan object and its order intact', () => {
-    expect(plans[705].id).toBe('reward-design-mpc-original-23-20260916');
+    expect(plans[plans.findIndex(p => p.id === 'state-estimation-8-20260916') - 1].id).toBe('reward-design-mpc-original-23-20260916');
     // Append-only ledger: uniqueness holds globally; the total keeps growing.
     expect(new Set(plans.map((plan) => plan.id)).size).toBe(plans.length);
   });

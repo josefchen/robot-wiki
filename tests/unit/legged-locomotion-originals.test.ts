@@ -7,6 +7,8 @@ import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/
 import { moduleFrontmatterSchema } from '../../data/schemas/module.ts';
 import { CITATIONS } from '../../data/citations.ts';
 import { GAITS, GAIT_ORDER, DEFAULT_GAIT } from '../../lib/gait.ts';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { publishedModules } from '../../data/modules';
 
 /**
  * Pins the 2026-09-16i legged-locomotion originals integration: the one
@@ -63,6 +65,7 @@ const loadSection = () => {
   const sections = parseLedger('audit/rl-sim2real.md', markdown, registryIds, {
     compoundPlans,
     articleCitations,
+    localBasis: loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`)),
   });
   return { sections, compoundPlans, registryIds, markdown };
 };

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -86,10 +87,9 @@ const mine = gvPlans.filter((plan) => GV_PLAN_IDS.includes(plan.id));
 
 describe('generative-video originals: ledger rows and compound plans', () => {
   it('keeps all 759 prior plans first and appends exactly the 9 dispatched plans', () => {
-    // The merged ledger keeps appending later packets; this packet's block
-    // keeps its append slot at 759..767, so pin the slot, not a moving total.
-    expect(plans.slice(759, 768).map((plan) => plan.id)).toEqual(GV_PLAN_IDS);
-    expect(plans.slice(0, 759).every((plan) => !plan.id.startsWith('generative-video-6-'))).toBe(true);
+    // Preserve the selected packet and preceding survivors by identity.
+    expect(planPacket(plans, GV_PLAN_IDS).map((plan) => plan.id)).toEqual(GV_PLAN_IDS);
+    expect(plans.slice(0, plans.findIndex(p => p.id === GV_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('generative-video-6-'))).toBe(true);
     expect(mine.map((plan) => plan.id)).toEqual(GV_PLAN_IDS);
     expect(mine.map((plan) => plan.rowOrdinal)).toEqual([6, 11, 12, 15, 16, 17, 20, 21, 22]);
     // The 13 prior generative-video closeout plans survive unchanged.

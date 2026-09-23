@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, symlinkSync } from 'node:fs';
+import { cpSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import type { Weights } from '../../lib/reward-shaping.ts';
 import { dirname, join } from 'node:path';
@@ -148,6 +148,17 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
 }
 
 describe('authored-local-basis-v1 immutable synthetic fixtures (never real evidence)', () => {
+  it('validates a relocated checkout without accessing or relabeling the execution directory', () => {
+    const f = fixture(true);
+    const destination = mkdtempSync(join(tmpdir(), 'audit-local-relocated-'));
+    roots.push(destination);
+    cpSync(f.root, destination, { recursive: true });
+    const originalProof = JSON.stringify(f.proof);
+    rmSync(f.root, { recursive: true });
+    f.context.root = destination;
+    expect(f.validate().failures).toEqual([]);
+    expect(JSON.stringify(f.proof)).toBe(originalProof);
+  });
   it.each([false, true])('accepts complete synthetic local/mixed proof, mixed=%s', mixed => {
     const f = fixture(mixed);
     expect(parseLocalBasisCatalog(f.context.catalog)).toEqual(f.context.catalog);
@@ -422,6 +433,73 @@ function withAuthoredCase(recipe: LocalProof['recipe'], pointers: Record<string,
 }
 
 describe('authored-local-basis-v1 compatibility cases', () => {
+  function historicalFixture(testName?: 'reward' | 'sim2real' | 'parallel') {
+    const f = fixture(true);
+    const bind = (path: string, snapshot: string) => {
+      const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;
+      f.put(retained, readFileSync(join(project, retained)));
+      const old = { ...f.full(retained), id: `file:${path}`, file: { ...f.ref(retained), path } };
+      const index = f.proof.artifacts.findIndex(a => a.file.path === path);
+      if (index >= 0) f.proof.artifacts[index] = old;
+      else f.proof.artifacts.push(old);
+      return old.file;
+    };
+    bind('lib/audit-local-basis.ts', 'audit-local-basis.pre-portability.ts.txt');
+    if (testName) {
+      const path = `tests/unit/${testName}-local-evidence.test.ts`;
+      f.put(path, readFileSync(join(project, path)));
+      f.proof.artifacts = f.proof.artifacts.filter(a => a.file.path !== f.proof.provenance.test.path);
+      f.proof.provenance.test = bind(path, `${testName}-local-evidence.pre-portability.test.ts.txt`);
+      f.proof.provenance.command = `SYNTHETIC ONLY vitest ${path}`;
+    }
+    f.sealRun(f.proof); f.sealReviews();
+    return f;
+  }
+  it.each([undefined, 'reward', 'sim2real', 'parallel'] as const)(
+    'retains the exact historical checker and reviewed test version: %s', testName => {
+      const f = historicalFixture(testName);
+      const before = JSON.stringify(f.context.catalog);
+      expect(f.validate().failures).toEqual([]);
+      expect(JSON.stringify(f.context.catalog)).toBe(before);
+      // Generic artifact reads never silently select a historical snapshot.
+      const checker = f.proof.artifacts.find(a => a.file.path === 'lib/audit-local-basis.ts')!;
+      expect(() => createLocalArtifactReader(f.root)(checker.file)).toThrow(/bytes\/hash/);
+    },
+  );
+  it.each(['missing', 'corrupt', 'symlink', 'directory', 'unknown-hash', 'computation', 'context-checker', 'live-model'])(
+    'fails closed on historical dependency drift: %s', change => {
+      const f = historicalFixture();
+      const snapshot = 'audit/evidence/local-proof-compat-20260923/audit-local-basis.pre-portability.ts.txt';
+      if (['missing', 'symlink', 'directory'].includes(change)) rmSync(join(f.root, snapshot));
+      if (change === 'corrupt') f.put(snapshot, 'corrupt retained checker');
+      if (change === 'symlink') symlinkSync(join(project, snapshot), join(f.root, snapshot));
+      if (change === 'directory') mkdirSync(join(f.root, snapshot));
+      if (change === 'unknown-hash') f.proof.artifacts.find(a => a.file.path === 'lib/audit-local-basis.ts')!.file.sha256 = '0'.repeat(64);
+      if (change === 'computation') f.put('lib/audit-local-basis.ts',
+        readFileSync(join(project, 'lib/audit-local-basis.ts'), 'utf8').replace('const finite =', 'const finite /* drift */ ='));
+      if (change === 'context-checker') f.put('lib/audit-local-basis.ts',
+        readFileSync(join(project, 'lib/audit-local-basis.ts'), 'utf8') + '\n// different verifier\n');
+      if (change === 'live-model') f.put('lib/gait.ts', 'changed live computation');
+      f.sealRun(f.proof); f.sealReviews();
+      expect(f.validate().failures.length).toBeGreaterThan(0);
+    },
+  );
+  it.each(['reward', 'sim2real', 'parallel'] as const)('rejects later %s test changes and corrupt test snapshots', testName => {
+    const f = historicalFixture(testName);
+    const path = f.proof.provenance.test.path;
+    const current = readFileSync(join(f.root, path));
+    f.put(path, Buffer.concat([current, Buffer.from('\n// unreviewed test edit\n')]));
+    expect(f.validate().failures.join(' ')).toContain('unreviewed historical test compatibility');
+    f.put(path, current);
+    f.put(`audit/evidence/local-proof-compat-20260923/${testName}-local-evidence.pre-portability.test.ts.txt`, 'corrupt');
+    expect(f.validate().failures.join(' ')).toMatch(/bytes\/hash/);
+  });
+  it.each(['relative/path', '/absolute/../noncanonical', '/nul\0path'])('rejects invalid historical cwd %s even with a matching synthetic receipt', cwd => {
+    const f = fixture();
+    f.proof.provenance.cwd = cwd;
+    f.sealRun(f.proof); f.sealReviews();
+    expect(f.validate().failures.join(' ')).toContain('failed/missing real execution provenance');
+  });
   it.each([
     ['freeze', { torque: 4 }, 'frozen'],
     ['prance', { airTime: 4 }, 'prancing'],

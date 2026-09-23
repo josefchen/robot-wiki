@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
+import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { GENERALIST_RELEASES } from '../../lib/generalist-policies';
@@ -208,9 +209,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     // Later corrections elsewhere do not authorize changing generalist plans.
     expect(attributionPlans.slice(0, oldPlans.length)).toEqual(oldPlans);
     const changedPlanIds = new Set(['comparison-current-1-20260907', 'datasets-10-robomind-20260916c']);
-    const priorIds = new Set(oldPlans.map(p => p.id));
-    expect(plans.filter(p => priorIds.has(p.id) && !changedPlanIds.has(p.id)))
-      .toEqual(oldPlans.filter(p => !changedPlanIds.has(p.id)));
+    preservedLegacySurvivors(oldPlans.filter(p => !changedPlanIds.has(p.id)), plans);
     const checkpointPlans: CompoundPlan[] = JSON.parse(committedSource('2aaf058', 'audit/compound-evidence.json'));
     for (const id of changedPlanIds) {
       expect(plans.find(p => p.id === id)).toEqual(checkpointPlans.find(p => p.id === id));

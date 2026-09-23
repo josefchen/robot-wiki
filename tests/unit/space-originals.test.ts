@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -81,10 +82,9 @@ const spacePlans = plans.filter((plan) => plan.ledgerPath === 'audit/adjacent.md
 
 describe('space originals: ledger rows and compound plans', () => {
   it('keeps all 749 prior plans first and appends exactly the 10 space plans', () => {
-    // The merged ledger keeps appending later packets; this packet's block
-    // keeps its append slot at 749..758, so pin the slot, not a moving total.
-    expect(plans.slice(749, 759).map((plan) => plan.id)).toEqual(SPACE_PLAN_IDS);
-    expect(plans.slice(0, 749).every((plan) => !plan.id.startsWith('space-'))).toBe(true);
+    // Preserve the selected packet and preceding survivors by identity.
+    expect(planPacket(plans, SPACE_PLAN_IDS).map((plan) => plan.id)).toEqual(SPACE_PLAN_IDS);
+    expect(plans.slice(0, plans.findIndex(p => p.id === SPACE_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('space-'))).toBe(true);
     expect(spacePlans.map((plan) => plan.id)).toEqual(SPACE_PLAN_IDS);
     expect(spacePlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });

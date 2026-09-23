@@ -1,6 +1,8 @@
 import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
+import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-history';
+import type { LocalPlan } from '../../lib/audit-local-basis';
 import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -179,12 +181,40 @@ describe('four bounded local truth repairs without completion credit', () => {
   }
 
   it('does not create synthetic local-code plans or modify the existing native catalog', () => {
-    expect(plans).toHaveLength(863);
+    expect(preservedCompoundPacket(CONTINUATION_CHECKPOINT)).toHaveLength(863);
     expect(hash(committedSource(CONTINUATION_CHECKPOINT, 'audit/compound-evidence.json')))
       .toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
-    preservedCompoundPacket(CONTINUATION_CHECKPOINT);
   });
 
+  it.each(['missing-survivor', 'changed-survivor', 'reordered-survivors', 'duplicate-survivor',
+    'restored-legacy', 'missing-successor', 'wrong-successor', 'duplicate-successor', 'corrupt-archive'])(
+    'rejects an unexplained migration/preservation defect: %s', mutation => {
+      const prior = preservedCompoundPacket(CONTINUATION_CHECKPOINT);
+      // RoboMIND has its own independently checked in-place successor.
+      const before = prior.map(p => p.id === 'datasets-10-robomind-20260916c' ? plans.find(q => q.id === p.id)! : p);
+      const current = structuredClone(plans);
+      const typed: LocalPlan[] = JSON.parse(read('audit/local-basis.json')).plans;
+      if (mutation === 'missing-survivor') current.shift();
+      if (mutation === 'changed-survivor') current[0].parts[0].text += ' drift';
+      if (mutation === 'reordered-survivors') [current[0], current[1]] = [current[1], current[0]];
+      if (mutation === 'duplicate-survivor') current.push(current[0]);
+      if (mutation === 'restored-legacy') current.push(prior.find(p => p.id === 'reward-design-mpc-original-4-20260916')!);
+      if (mutation === 'missing-successor') typed.shift();
+      if (mutation === 'wrong-successor') typed[0].originalId += '-wrong';
+      if (mutation === 'duplicate-successor') typed.push(typed[0]);
+      const archive = (path: string) => mutation === 'corrupt-archive'
+        ? Buffer.from(read(path) + ' ') : Buffer.from(read(path));
+      expect(() => preservedLegacySurvivors(before, current, typed, archive)).toThrow();
+    },
+  );
+  it('rejects missing, duplicated, reordered or noncontiguous selected packet identities', () => {
+    const packet = [{ id: 'one' }, { id: 'two' }];
+    expect(planPacket(packet, ['one', 'two'])).toEqual(packet);
+    for (const broken of [packet.slice(0, 1), [...packet, packet[0]], [...packet].reverse(),
+      [packet[0], { id: 'unrelated' }, packet[1]]]) {
+      expect(() => planPacket(broken, ['one', 'two'])).toThrow();
+    }
+  });
   it('adds exactly the four necessary native member approvals, not a gate waiver', () => {
     const entries = (JSON.parse(read('contract/brand-v2-approved-deltas.json')) as {
       entries: ApprovedDelta[];

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -69,13 +70,13 @@ const ROW_ORDINALS = [3, 18, 19, 24, 45, 46, 47, 48, 49] as const;
 const EXPECTED_PLAN_IDS = [
   'scene-representation-3-point-cloud-silence-20260916d',
   'scene-representation-18-mast3r-head-20260916d',
-  'scene-representation-19-taxonomy-crossref-20260916d',
   'scene-representation-24-occworld-20260916d',
+  'scene-representation-49-disagreement-20260916d',
+  'scene-representation-19-taxonomy-crossref-20260916d',
   'scene-representation-45-occluder-demo-20260916d',
   'scene-representation-46-slider-20260916d',
   'scene-representation-47-capability-table-20260916d',
   'scene-representation-48-absence-semantics-20260916d',
-  'scene-representation-49-disagreement-20260916d',
 ];
 const EXPECTED_PART_COUNTS: Record<string, number> = {
   'scene-representation-3-point-cloud-silence-20260916d': 2,
@@ -109,16 +110,15 @@ function rowCells(index: number): string[] {
 
 describe('scene-representation originals: compound plans appended lawfully', () => {
   it('carries exactly the 9 dispatched plans, append-only after the 740 prior plans', () => {
-    // The merged ledger keeps appending later packets; this packet's block
-    // keeps its append slot at 740..748, so pin the slot, not a moving total.
-    expect(plans.slice(740, 749).map((plan) => plan.id).sort()).toEqual(
+    // The same exact packet remains contiguous after archived migrations.
+    expect(planPacket(plans, EXPECTED_PLAN_IDS).map((plan) => plan.id).sort()).toEqual(
       [...EXPECTED_PLAN_IDS].sort(),
     );
     const mine = plans.filter((plan) => EXPECTED_PLAN_IDS.includes(plan.id));
     expect(mine.map((plan) => plan.id).sort()).toEqual([...EXPECTED_PLAN_IDS].sort());
     // Append-only: no prior plan id moved or disappeared. Two older
     // neural-slam plans (20260908) legitimately share the prefix.
-    expect(plans.slice(0, 740).every((plan) => !EXPECTED_PLAN_IDS.includes(plan.id))).toBe(true);
+    expect(plans.slice(0, plans.findIndex(p => p.id === EXPECTED_PLAN_IDS[0])).every((plan) => !EXPECTED_PLAN_IDS.includes(plan.id))).toBe(true);
   });
 
   it('binds every plan to audit/classical.md scene-representation with the exact packet part shape', () => {
@@ -271,7 +271,7 @@ describe('scene-representation originals: approved deltas and protected neighbor
     const lines = ledger.split('\n');
     const slam = lines.findIndex((line) => line.startsWith('### state-estimation.mdx'));
     expect(slam).toBeGreaterThan(0);
-    const priorLast = JSON.stringify(plans[739].id);
+    const priorLast = JSON.stringify(plans[plans.findIndex(p => p.id === EXPECTED_PLAN_IDS[0]) - 1].id);
     expect(priorLast).toContain('drones-11-assignment-layer-20260916');
   });
 

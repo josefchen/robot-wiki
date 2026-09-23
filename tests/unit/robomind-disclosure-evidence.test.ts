@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
+import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { DATASETS, type Dataset } from '../../data/datasets';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
@@ -192,8 +193,9 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
     expect(ledger).toContain(JSON.stringify(oldCells, null, 2));
     expect(ledger).toContain(JSON.stringify(selected(oldPlans), null, 2));
     expect(parse().find(s => s.slug === 'datasets')!.claimRecords).toHaveLength(11);
-    expect(plans.map(p => p.id)).toEqual(oldPlans.map(p => p.id));
-    expect(plans.filter(p => p.id !== planId)).toEqual(oldPlans.filter(p => p.id !== planId));
+    const historical: CompoundPlan[] = JSON.parse(committedSource(disclosureCommit, 'audit/compound-evidence.json'));
+    expect(historical.map(p => p.id)).toEqual(oldPlans.map(p => p.id));
+    preservedLegacySurvivors(oldPlans.filter(p => p.id !== planId), plans);
   });
 
   it('preserves every other native data-hardware record and completed license pair', () => {

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -87,11 +88,9 @@ const surgicalPlans = plans.filter(
 
 describe('surgical originals: ledger rows and compound plans', () => {
   it('keeps all 768 prior plans first and appends the surgical plans (20260916f + 20260917a)', () => {
-    // The merged ledger keeps appending later packets; the 20260916f surgical
-    // block keeps its append position, so pin the slot rather than a moving
-    // total. The 20260917a row-5 completion is appended after it.
-    expect(plans.slice(0, 768).every((plan) => !plan.id.startsWith('surgical-'))).toBe(true);
-    expect(plans.slice(768, 775).map((plan) => plan.id)).toEqual(SURGICAL_PLAN_IDS);
+    // The original packet stays contiguous; the later row-5 plan follows it.
+    expect(plans.slice(0, plans.findIndex(p => p.id === SURGICAL_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('surgical-'))).toBe(true);
+    expect(planPacket(plans, SURGICAL_PLAN_IDS).map((plan) => plan.id)).toEqual(SURGICAL_PLAN_IDS);
     expect(surgicalPlans.map((plan) => plan.id)).toEqual([...SURGICAL_PLAN_IDS, SURGICAL_20260917A_PLAN_ID]);
     expect(surgicalPlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 6, 7, 8, 5]);
   });

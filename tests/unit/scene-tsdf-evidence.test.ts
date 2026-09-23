@@ -159,7 +159,8 @@ describe('scene original 10: source-scoped TSDF correction', () => {
   it('appends after the exact 862-plan prefix without reapplying prior records', () => {
     expect(hash(JSON.stringify(parseCompoundPlans(preservedCompoundPacket('660ad53')).slice(0, 862))))
       .toBe('51695cf441132d5df905968ce26d654b0b537b3df96a61d1eff4aeccfc54c81e');
-    expect(plans[862]?.id).toBe(planId);
+    expect(preservedCompoundPacket('660ad53')[862]?.id).toBe(planId);
+    expect(plans.filter(p => p.id === planId)).toHaveLength(1);
   });
 
   it('approves only the three actually changed native members with the prior prefix intact', () => {

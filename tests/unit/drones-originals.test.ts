@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -112,12 +113,11 @@ function rowCells(index: number): string[] {
 
 describe('drones originals: compound plans appended lawfully', () => {
   it('carries exactly the 11 dispatched plans, append-only after the 729 prior plans', () => {
-    // The merged ledger keeps appending later packets; the drones block
-    // keeps its append slot at 729..739, so pin the slot, not a moving total.
-    expect(plans.slice(729, 740).map((plan) => plan.id)).toEqual(EXPECTED_PLAN_IDS);
+    // Select the exact packet by identity after the four archived migrations.
+    expect(planPacket(plans, EXPECTED_PLAN_IDS).map((plan) => plan.id)).toEqual(EXPECTED_PLAN_IDS);
     expect(dronePlans.map((plan) => plan.id)).toEqual(EXPECTED_PLAN_IDS);
     // Append-only: no prior plan id moved or disappeared.
-    expect(plans.slice(0, 729).every((plan) => !plan.id.startsWith('drones-'))).toBe(true);
+    expect(plans.slice(0, plans.findIndex(p => p.id === EXPECTED_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('drones-'))).toBe(true);
   });
 
   it('binds every plan to audit/adjacent.md drones with the exact packet part shape', () => {
