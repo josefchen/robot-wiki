@@ -19182,6 +19182,60 @@
      "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
-   }
+   },
+    {
+      "id": "reader-source-flow-20260923-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "e503d1d3fb46ca601bb1747d5763ca37242cea7430f72ac71a1ec2015977e20a",
+      "newHash": "7bab62d263608b99701443a2ee730e0134871cb7b2567b89640e0b9f63a80b69",
+      "reason": "F07 reader-only source flow at article:classical/scene-representation: integrate the exact Source-only block or forced-break citation separators into their existing claim sentences, retaining scientific text, qualifications, values, citation occurrence order, links, equations and frontmatter dates. Zero original row mutations or completion credit.",
+      "ownerApproval": "Direct owner-authorized sole-writer F07 reader-source-flow dispatch on 2026-09-23 in Mission mis_2b1673fa, under Josef fix-it-all authority; same-claim presentation repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-source-flow-20260923-2",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "newHash": "3beb28b06968eea42b64c7f1015a80ade71413b3aa50b90475cff0390610a86a",
+      "reason": "F07 reader-only source flow at article:world-models/generative-sim: integrate the exact Source-only block or forced-break citation separators into their existing claim sentences, retaining scientific text, qualifications, values, citation occurrence order, links, equations and frontmatter dates. Zero original row mutations or completion credit.",
+      "ownerApproval": "Direct owner-authorized sole-writer F07 reader-source-flow dispatch on 2026-09-23 in Mission mis_2b1673fa, under Josef fix-it-all authority; same-claim presentation repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-source-flow-20260923-3",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "newHash": "1b0e081eded74fea386998a61419413bb948d56cfa9fdd63f70f188259360320",
+      "reason": "F07 reader-only source flow at article:rl-sim2real/rl-for-robotics: integrate the exact Source-only block or forced-break citation separators into their existing claim sentences, retaining scientific text, qualifications, values, citation occurrence order, links, equations and frontmatter dates. Zero original row mutations or completion credit.",
+      "ownerApproval": "Direct owner-authorized sole-writer F07 reader-source-flow dispatch on 2026-09-23 in Mission mis_2b1673fa, under Josef fix-it-all authority; same-claim presentation repair, not source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
   ]
 }
