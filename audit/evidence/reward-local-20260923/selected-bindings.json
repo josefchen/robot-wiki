@@ -1,0 +1,705 @@
+[
+  {
+    "originalId": "audit/rl-sim2real.md:reward-design-mpc:4",
+    "rowOrdinal": 4,
+    "currentTupleDigest": "44c8769365d7eb2a93a5367ce8baab5eb04af8840b141d83c7023ee280fc94e2",
+    "currentCells": {
+      "claim": "\"The interactive below mounts the full term set on a behavior preview\"",
+      "sourceChecked": "repo (read-only at application HEAD by this integrator, 2026-09-16): lib/reward-shaping.ts (TermId union + TERMS: exactly 12 entries; header disclosure); components/interactive/reward-shaping.tsx (TERMS.map range sliders, live 'Terms: {TERMS.length}' readout); content/rl-sim2real/reward-design-mpc.mdx ('Twelve weighted terms sit on the illustrative behavior preview below')",
+      "verdict": "verified",
+      "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The twelve TERMS and TERMS.map sliders are genuine local implementation facts. The single r4-local paired supporting passage explicitly says REPO TEXT/no HTTP but is attached to legged-gym-repo-2021 and its external URL. No fetched external passage proves this authored term/control set. The later verified verdict and local-proof dispatch do not supply the September 8 typed-local evidence addendum; the genuine reader clarification is not lost, but the historical local-proof obligation remains.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:reward-design-mpc:4. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Internal claim re-verified read-only by this integrator at application time: the RewardShaping component exposes exactly twelve weight sliders from lib/reward-shaping TERMS (velTrack, yawTrack, torque, jointAccel, actionRate, jointLimit, collision, baseHeight, orientation, airTime, stumble, termination), matching the article's 'twelve' sentence and the applied stumble-rename correction. Illustrative-model disclosure present in the lib header, component blurbs and article prose. No external source is claimed for this internal enumeration; anchor citation legged-gym-repo-2021 is the configuration context the header explicitly disclaims being."
+    },
+    "originalBinding": {
+      "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14",
+      "snapshot": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-rl-sim2real.md",
+        "bytes": 47364,
+        "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+      },
+      "originalCells": {
+        "claim": "\"The interactive below mounts the full term set on a behavior preview\"",
+        "sourceChecked": "RewardShaping component (12 sliders)",
+        "verdict": "**corrected**",
+        "note": "Changed to \"mounts twelve of these terms\"; the interactive's \"Foot slip penalty\" slider was renamed \"Foot stumble penalty\" (blurb: \"Penalizes feet catching vertical surfaces mid-stride\") to match the corrected enumeration and the code. Tests updated accordingly."
+      },
+      "originalTupleDigest": "df17cc1405ba31ccbbd1f0549c9a5740c8db4b32c3467838b02593a013aeb13c"
+    },
+    "parts": [
+      {
+        "id": "r4-paper-boundary",
+        "kind": "external-source",
+        "text": "The current reader disclosure distinguishes twelve chosen teaching terms from Rudin Table 2's nine-term paper objective.",
+        "requiredEvidence": "rudin-2021: preserved Table 2 and surrounding definition. Nine is an external count; never use the local TERMS array as its proof."
+      },
+      {
+        "id": "r4-reference-code-boundary",
+        "kind": "external-source",
+        "text": "Preserve the original slip-to-stumble correction and distinguish the pinned reference implementation from the local twelve-term teaching model.",
+        "requiredEvidence": "legged-gym-repo-2021 at ae614c029977157123225f538ecdd3f873e54bd4: _reward_stumble definition and code context; no claim that this UI is its full active configuration."
+      },
+      {
+        "id": "r4-parameters",
+        "kind": "authored-parameter",
+        "text": "Exactly twelve authored term IDs, labels, signs, magnitudes and default weights; sliders 0\u20134 in 0.1 increments; Foot stumble penalty is the selected local label.",
+        "requiredEvidence": "recipe reward/parameters; complete TERMS/defaultWeights plus whole reward and gait dependencies and explicit article disclosure."
+      },
+      {
+        "id": "r4-total",
+        "kind": "derived-result",
+        "text": "The teaching preview displays the signed weighted sum with two-decimal cents rounding, not measured reward or policy quality.",
+        "requiredEvidence": "recipe reward/derive at defaultWeights and phase 0; independent sum of all twelve signed contributions, units dimensionless per step, formatTotal policy; actual input/output bytes."
+      },
+      {
+        "id": "r4-mounted-controls",
+        "kind": "observed-behavior",
+        "text": "The actual article mount renders all twelve labeled controls and the preview/readout; controls change local state and Reset restores the selected defaults.",
+        "requiredEvidence": "Real Playwright observation of the enumerated RewardShaping mount, default and reset cases, exact control population and default readout; changed-input proof must not fabricate a parameter basis."
+      }
+    ],
+    "existingSources": [
+      {
+        "citationId": "legged-gym-repo-2021",
+        "representation": {
+          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "bytes": 48368,
+          "sha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c"
+        },
+        "originalProvenanceMetadata": {
+          "/passages/30/retained/id": "code-activation",
+          "/passages/30/retained/sourceId": "code-functions",
+          "/passages/30/retained/sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "/passages/30/retained/sourceSha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c",
+          "/passages/30/retained/sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+          "/passages/30/retained/locator": "_prepare_reward_function removes zero scales, multiplies dt, resolves exact names",
+          "/passages/30/retained/lineStart": 544,
+          "/passages/30/retained/lineEnd": 567,
+          "/passages/30/retained/sha256": "7a80c3576909d600127129bc99ceb4a7b25cc420f2fb873bbd8649369684c4c5",
+          "/passages/30/bodyIdentity/path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "/passages/30/bodyIdentity/bytes": 48368,
+          "/passages/30/bodyIdentity/sha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c",
+          "/passages/31/retained/id": "code-functions",
+          "/passages/31/retained/sourceId": "code-functions",
+          "/passages/31/retained/sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "/passages/31/retained/sourceSha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c",
+          "/passages/31/retained/sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+          "/passages/31/retained/locator": "complete set of nineteen _reward_ definitions",
+          "/passages/31/retained/lineStart": 816,
+          "/passages/31/retained/lineEnd": 906,
+          "/passages/31/retained/sha256": "52f4479147755986fbbacc3fec95eee6c931da56580ec8ef40866929e410f906",
+          "/passages/31/bodyIdentity/path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "/passages/31/bodyIdentity/bytes": 48368,
+          "/passages/31/bodyIdentity/sha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c",
+          "/passages/32/retained/id": "code-air-stumble",
+          "/passages/32/retained/sourceId": "code-functions",
+          "/passages/32/retained/sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "/passages/32/retained/sourceSha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c",
+          "/passages/32/retained/sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+          "/passages/32/retained/locator": "first-contact air time, command gate, _reward_stumble vs dormant feet_stumble",
+          "/passages/32/retained/lineStart": 882,
+          "/passages/32/retained/lineEnd": 906,
+          "/passages/32/retained/sha256": "92c7d5473dd915a9d23a236a62da883cfd013d07cc5cef791b717d4cb7768637",
+          "/passages/32/bodyIdentity/path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "/passages/32/bodyIdentity/bytes": 48368,
+          "/passages/32/bodyIdentity/sha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c",
+          "/provenance/rudin/sources/code-functions/id": "code-functions",
+          "/provenance/rudin/sources/code-functions/path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+          "/provenance/rudin/sources/code-functions/sourceFile": "legged_gym/envs/base/legged_robot.py",
+          "/provenance/rudin/sources/code-functions/commit": "ae614c029977157123225f538ecdd3f873e54bd4",
+          "/provenance/rudin/sources/code-functions/gitBlobSha1": "b58c812b64d7c2cb8f969f498310bfd674c0c65c",
+          "/provenance/rudin/sources/code-functions/bytes": 48368,
+          "/provenance/rudin/sources/code-functions/sha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c",
+          "/provenance/rudin/sources/code-functions/reconstructedFrom": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-initial-commit.json",
+          "/provenance/rudin/sources/code-functions/locator": "files[filename=legged_gym/envs/base/legged_robot.py].patch",
+          "/provenance/rudin/sources/code-functions/completeAdditionVerifiedByGitBlob": true,
+          "/provenance/rudin/sources/code-functions/sourceUrl": "https://github.com/leggedrobotics/legged_gym/blob/ae614c029977157123225f538ecdd3f873e54bd4/legged_gym%2Fenvs%2Fbase%2Flegged_robot.py",
+          "/provenance/rudin/sources/code-functions/fetchedSourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+          "/provenance/rudin/sources/code-functions/derivedFrom": "code-api"
+        },
+        "retainedHashMatched": true,
+        "actualTextExcerpts": [
+          {
+            "needle": "def _reward_stumble",
+            "offset": 47664,
+            "length": 30,
+            "sha256": "60ac4e5954c9ed72eaee3bde0732a7abfc6d117d3d2d0484a923217c0d3c73e5",
+            "text": "    def _reward_stumble(self):"
+          },
+          {
+            "needle": "def _prepare_reward_function",
+            "offset": 28644,
+            "length": 39,
+            "sha256": "b3e854b8bf7ef5f2f0099a1ef30d1929aaa94ace7ad14e628b9306d0d234dc72",
+            "text": "    def _prepare_reward_function(self):"
+          }
+        ],
+        "use": "Retained primary representation identified and excerpt bytes inspected; reuse requires full named-part semantic review, not automatic adjudication. No request in this worker.",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "sourceCommit": "ae614c029977157123225f538ecdd3f873e54bd4",
+        "originalRetrievalWindow": [
+          "2026-09-08T06:36:02.098252+00:00",
+          "2026-09-08T06:36:03.153205+00:00"
+        ],
+        "provenancePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-get-receipt.json",
+        "provenanceLimit": "Text is a prior extraction of initial-addition patches from the retained commit API JSON, not the current repository. Keep upstream commit and extraction identity."
+      },
+      {
+        "citationId": "rudin-2021",
+        "representation": {
+          "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
+          "bytes": 56325,
+          "sha256": "17c5090b2284a387165623b05ba6745dea431a27e6217ea393f1bc500bc1586f"
+        },
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "originalRetrievalWindow": [
+          "2026-09-06T19:18:17.944Z",
+          "2026-09-06T19:18:21.832Z"
+        ],
+        "provenancePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/rudin-slice/source-provenance.json",
+        "status": "Exact retained reference only; full representation not opened/hash-verified by this worker because it is outside assigned Mission/product scope. Integrator must verify retained actual text before adopting its passages.",
+        "versionLimit": "Unversioned full text has no independent revision marker; landing latest v3 does not byte-pin the full body. No new request or fresh HTTP status."
+      },
+      {
+        "citationId": "rudin-2021",
+        "representation": {
+          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-ag-frontmatter-sweeps-20260917a/sources/rudin-2021.body",
+          "bytes": 41929,
+          "sha256": "60460f5c4fa50b3d0b0547dd060b71ae52ef45f16668a144ff1f40a8f57205ae"
+        },
+        "tier": "metadata/abstract only",
+        "status": "Inspected exact file; not a substitute for complete paper Table2, artifacts or rough-run protocol. Original retrieval provenance remains in the frontmatter packet."
+      }
+    ],
+    "requiredRealChecks": [
+      {
+        "stage": "future-only",
+        "type": "strict-plan-fields",
+        "kind": "explicit-parts-v2",
+        "planIdSuggestion": "local-v1-reward-design-mpc-4",
+        "ledgerPath": "audit/rl-sim2real.md",
+        "articleSlug": "reward-design-mpc",
+        "rowOrdinal": 4,
+        "mounts": [
+          {
+            "sourceId": "interactive:RewardShaping",
+            "sourceFingerprint": "80d52bbcc4462bed31d00fe96ba86c74ca4c8a82f56694d98c403948153412e1",
+            "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+            "mountFingerprint": "85b61c87055b332c1cec37c8c66344c5328df9a55b1598943ee1409d965107bd",
+            "route": "/rl-sim2real/reward-design-mpc/"
+          }
+        ],
+        "registeredCasesByMount": {
+          "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1": [
+            {
+              "id": "default",
+              "kind": "default"
+            },
+            {
+              "id": "focus-each-control",
+              "kind": "focus"
+            },
+            {
+              "id": "meaningful-hover",
+              "kind": "hover"
+            },
+            {
+              "id": "slider-boundaries-and-anchors",
+              "kind": "slider-boundaries"
+            },
+            {
+              "id": "reset",
+              "kind": "reset"
+            },
+            {
+              "id": "empty-witness",
+              "kind": "discrete-options"
+            }
+          ]
+        },
+        "rule": "Use each proposed external part with nonempty requiredCitationIds and real paired evidence; each local part gets unique requiredProofIds and matching kind/planId/partId. Observed parts additionally get exact requiredObservations. These suggestions are not a populated catalog."
+      },
+      {
+        "stage": "future-only",
+        "type": "immutable-dependencies",
+        "paths": [
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/reward-shaping.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/gait.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/reward-shaping.tsx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/reward-design-mpc.mdx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/audit-local-basis.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/reward-shaping.test.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/gait.test.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/reward-shaping.test.tsx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/reward-design.spec.ts"
+        ],
+        "additionalInputs": "Pin the actual receipt-producing test file and every imported calculation/data dependency, test fixture/input and run output; component disclosure helpers/mount container where the actual observation depends on them. Original snapshots and retained source copies live under audit/evidence, never public/export.",
+        "memberRules": {
+          "article": "article:rl-sim2real/reward-design-mpc",
+          "component": "source:components/interactive/reward-shaping.tsx",
+          "other": "file:<root-relative-path>",
+          "dependencySelection": "offset=0; length=file.bytes; member.sha256=file.sha256. Article additionally binds buildManifest prose hash; component binds interactive-sources-mounts source representation hash.",
+          "disclosureSelection": "Exact article UTF-8 byte slice/member, selected text and member hash plus article prose baseline hash. Component caption alone does not satisfy checkDisclosure."
+        }
+      },
+      {
+        "stage": "future-only",
+        "type": "fixed-recipe",
+        "parameters": {
+          "id": "reward",
+          "mode": "parameters",
+          "inputs": {}
+        },
+        "deriveInputsAndCases": "See each derived/observed part requiredEvidence. Use strict fields from lib/audit-local-basis.ts; actual run generates output values/units/precision/formula, never prefill them from this packet.",
+        "basesRule": "Every derive input needs a same-plan authored-parameter proof pointer with exactly equal value and exact INPUT_UNITS unit, or a genuinely external input part. No unrestricted arbitrary user-selected value can currently be declared by the parameter recipe.",
+        "provenanceRule": "Actual command must name tests/<file>, runner node/vitest/playwright, cwd actual root, NODE_DISABLE_COMPILE_CACHE=1, observed start/end and real exit. Retain input/output artifacts and hashes and a matching local-run-v1 receipt. No fabricated timestamps or test outcomes."
+      },
+      {
+        "stage": "future-only",
+        "type": "focused-unit-component",
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 node node_modules/vitest/vitest.mjs run tests/unit/reward-shaping.test.ts tests/unit/gait.test.ts tests/component/reward-shaping.test.tsx",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "scope": "Run only assigned group sequentially. Add focused independent arithmetic/state cases and typed-plan missing-part/wrong-result/hash-drift/unobserved negatives as applicable; existing synthetic fixtures are not production evidence."
+      },
+      {
+        "stage": "future-only",
+        "type": "real-mounted",
+        "spec": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/reward-design.spec.ts",
+        "requiredCases": "Use applicable existing cases plus the whole observed-part inventory above. Extend reward-design.spec.ts with actual Eureka transitions because its existing listed cases cover RewardShaping, not a complete Eureka run.",
+        "receiptRule": "runner=playwright; actual registered case ID, mountId, prestate/action/poststate, viewport, selector/readout strings and retained DOM/PNG. RequiredObservations must equal actual transitions in order, every expected.display string must be genuinely observed for that proof. Verify exact UI formatting, mode-specific visibility and reveal container; never construct a DOM to satisfy the checker.",
+        "releaseRule": "Reuse the existing affected-route lane; no redundant full corpus/build while red. Later real static-export and independent Sol/high validation remain required at their existing boundaries."
+      },
+      {
+        "stage": "future-only",
+        "type": "semantic-review-and-history",
+        "rule": "A real reviewer must inventory and review every ordered external/local part, exact corrected current claim/disclosure and actual proof. Record real local-review-event-v1 plan and part events only after review; localPlanDigest/localPartDigest bind the final identities and proofs. Preserve replaced legacy object/reviews in correction history, remove only the selected active legacy target, use one active v2 binding and empty scalar fields; no duplicate cross-catalog target. Update current cells/digest after authorized disclosure/history correction and re-preflight. Preserve first-original cells verbatim."
+      },
+      {
+        "stage": "packet-preparation-observed-not-product-test",
+        "type": "selected-native-identity-recheck",
+        "observedAt": "2026-09-23T03:09:59.464Z",
+        "beforeTupleDigest": "44c8769365d7eb2a93a5367ce8baab5eb04af8840b141d83c7023ee280fc94e2",
+        "afterTupleDigest": "44c8769365d7eb2a93a5367ce8baab5eb04af8840b141d83c7023ee280fc94e2",
+        "equal": true,
+        "rawSnapshotMatchesGitBlob": true,
+        "originalNativeTupleMatches": true,
+        "wholeOriginalSnapshotParserError": null,
+        "parentDispatchQualified": false
+      }
+    ],
+    "disclosuresNeeded": [
+      "Retain the current explicit twelve-term teaching-model paragraph; distinguish paper nine terms and pinned source implementation. Preserve original full-term/slip\u2192stumble correction history."
+    ],
+    "status": "ready-for-proof",
+    "unresolved": [
+      "No actual typed local run, mounted observation, plan review or per-part adjudication is supplied here; every row remains incomplete.",
+      "Parent current-HEAD dispatch preflight after the RoboMIND writer boundary and integrator application recheck remain required.",
+      "Legacy REPO TEXT attached to an external paper/repository URL is not fetched evidence and must not be recertified or copied as a source passage."
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
+    "rowOrdinal": 5,
+    "currentTupleDigest": "213f3f6c6ab625c0d916ca532c473239bda95be515d92441786c4dc10bf6d91c",
+    "currentCells": {
+      "claim": "The three failure attractors (freeze, prance, chatter)",
+      "sourceChecked": "repo (read-only at application HEAD by this integrator, 2026-09-16): content/rl-sim2real/reward-design-mpc.mdx (freeze/prance/chatter paragraph + Rudin-artifacts contrast with Cite rudin-2021); lib/reward-shaping.ts header ('illustrative failure attractors (freeze, prance, chatter) ... not measured simulator output')",
+      "verdict": "verified",
+      "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The freeze/prance/chatter taxonomy agrees with the local implementation and is honestly illustrative. The only r5-local paired evidence is explicitly REPO TEXT/no HTTP while naming rudin-2021 and an external URL. Rudin is context for locomotion reward design, not a fetched passage proving this authored taxonomy. No authorized narrower claim eliminates this local obligation, and ordinary local-proof dispatch is not the missing criteria addendum.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:reward-design-mpc:5. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Internal claim re-verified read-only by this integrator at application time: freeze/prance/chatter are declared an illustrative local taxonomy in both the article prose and the lib header, with the Rudin-observed-artifacts contrast separately cited to rudin-2021 (bound in the row-2 compound plan rudin-protocol-writer-reward-design-mpc-2-20260909). No external source is claimed for the taxonomy itself."
+    },
+    "originalBinding": {
+      "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14",
+      "snapshot": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-rl-sim2real.md",
+        "bytes": 47364,
+        "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+      },
+      "originalCells": {
+        "claim": "The three failure attractors (freeze, prance, chatter)",
+        "sourceChecked": "Article prose + lib/reward-shaping.ts header",
+        "verdict": "verified",
+        "note": "Explicitly labeled an illustrative classification; the attractors are described as literature/lab-lore patterns, not measured output."
+      },
+      "originalTupleDigest": "b6e8fa5b42640c2ff777427cec89ae0e669b5f0b26e0007f0a21e52631c1ed8a"
+    },
+    "parts": [
+      {
+        "id": "r5-rudin-contrast",
+        "kind": "external-source",
+        "text": "Current contrast attributes dragging-leg and unusually high/low-base-height artifacts, and pre-transfer weight tuning, to Rudin rather than attributing freeze/prance/chatter to the paper.",
+        "requiredEvidence": "rudin-2021 actual full-body artifact/tuning passage, not local prose or its legacy REPO TEXT pseudo-passage. Preserve original literature/lab-lore claim as corrected history."
+      },
+      {
+        "id": "r5-classifier-parameters",
+        "kind": "authored-parameter",
+        "text": "Freeze, prance and chatter are authored classification/preview choices: chatter actionRate <= 0.2 takes priority; otherwise torque >= 2.5 and >= 2*velTrack freezes; otherwise airTime >= 2.5 and >= 2*velTrack prances; otherwise balanced.",
+        "requiredEvidence": "Real extraction from lib/reward-shaping.ts, explicitly disclosed as chosen rules, including the currently unexported chatter threshold; no trained optimum, real frequency or damage claim."
+      },
+      {
+        "id": "r5-classifier-and-pose",
+        "kind": "derived-result",
+        "text": "Given fully bound weights and phase, the priority classifier and deterministic gait/pose geometry produce the named teaching category and weighted total.",
+        "requiredEvidence": "reward/derive with independently checked default, torque=4, airTime=4, actionRate=0, dominance counterexample velTrack=4/torque=4 and priority tie. Requires an honest authored basis for every nondefault weights object."
+      },
+      {
+        "id": "r5-mounted-preview",
+        "kind": "observed-behavior",
+        "text": "On the existing mount the actual changes produce freeze, prance and chatter previews and the reset returns balanced; no simulator training occurs.",
+        "requiredEvidence": "Real state/action/readout/pose captures for each named classification plus reset; use declared registry cases, real outputs, no expected screenshot or code-only substitute."
+      }
+    ],
+    "existingSources": [
+      {
+        "citationId": "rudin-2021",
+        "representation": {
+          "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
+          "bytes": 56325,
+          "sha256": "17c5090b2284a387165623b05ba6745dea431a27e6217ea393f1bc500bc1586f"
+        },
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "originalRetrievalWindow": [
+          "2026-09-06T19:18:17.944Z",
+          "2026-09-06T19:18:21.832Z"
+        ],
+        "provenancePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/rudin-slice/source-provenance.json",
+        "status": "Exact retained reference only; full representation not opened/hash-verified by this worker because it is outside assigned Mission/product scope. Integrator must verify retained actual text before adopting its passages.",
+        "versionLimit": "Unversioned full text has no independent revision marker; landing latest v3 does not byte-pin the full body. No new request or fresh HTTP status."
+      },
+      {
+        "citationId": "rudin-2021",
+        "representation": {
+          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-ag-frontmatter-sweeps-20260917a/sources/rudin-2021.body",
+          "bytes": 41929,
+          "sha256": "60460f5c4fa50b3d0b0547dd060b71ae52ef45f16668a144ff1f40a8f57205ae"
+        },
+        "tier": "metadata/abstract only",
+        "status": "Inspected exact file; not a substitute for complete paper Table2, artifacts or rough-run protocol. Original retrieval provenance remains in the frontmatter packet."
+      }
+    ],
+    "requiredRealChecks": [
+      {
+        "stage": "future-only",
+        "type": "strict-plan-fields",
+        "kind": "explicit-parts-v2",
+        "planIdSuggestion": "local-v1-reward-design-mpc-5",
+        "ledgerPath": "audit/rl-sim2real.md",
+        "articleSlug": "reward-design-mpc",
+        "rowOrdinal": 5,
+        "mounts": [
+          {
+            "sourceId": "interactive:RewardShaping",
+            "sourceFingerprint": "80d52bbcc4462bed31d00fe96ba86c74ca4c8a82f56694d98c403948153412e1",
+            "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+            "mountFingerprint": "85b61c87055b332c1cec37c8c66344c5328df9a55b1598943ee1409d965107bd",
+            "route": "/rl-sim2real/reward-design-mpc/"
+          }
+        ],
+        "registeredCasesByMount": {
+          "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1": [
+            {
+              "id": "default",
+              "kind": "default"
+            },
+            {
+              "id": "focus-each-control",
+              "kind": "focus"
+            },
+            {
+              "id": "meaningful-hover",
+              "kind": "hover"
+            },
+            {
+              "id": "slider-boundaries-and-anchors",
+              "kind": "slider-boundaries"
+            },
+            {
+              "id": "reset",
+              "kind": "reset"
+            },
+            {
+              "id": "empty-witness",
+              "kind": "discrete-options"
+            }
+          ]
+        },
+        "rule": "Use each proposed external part with nonempty requiredCitationIds and real paired evidence; each local part gets unique requiredProofIds and matching kind/planId/partId. Observed parts additionally get exact requiredObservations. These suggestions are not a populated catalog."
+      },
+      {
+        "stage": "future-only",
+        "type": "immutable-dependencies",
+        "paths": [
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/reward-shaping.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/gait.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/reward-shaping.tsx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/reward-design-mpc.mdx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/audit-local-basis.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/reward-shaping.test.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/gait.test.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/reward-shaping.test.tsx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/reward-design.spec.ts"
+        ],
+        "additionalInputs": "Pin the actual receipt-producing test file and every imported calculation/data dependency, test fixture/input and run output; component disclosure helpers/mount container where the actual observation depends on them. Original snapshots and retained source copies live under audit/evidence, never public/export.",
+        "memberRules": {
+          "article": "article:rl-sim2real/reward-design-mpc",
+          "component": "source:components/interactive/reward-shaping.tsx",
+          "other": "file:<root-relative-path>",
+          "dependencySelection": "offset=0; length=file.bytes; member.sha256=file.sha256. Article additionally binds buildManifest prose hash; component binds interactive-sources-mounts source representation hash.",
+          "disclosureSelection": "Exact article UTF-8 byte slice/member, selected text and member hash plus article prose baseline hash. Component caption alone does not satisfy checkDisclosure."
+        }
+      },
+      {
+        "stage": "future-only",
+        "type": "fixed-recipe",
+        "parameters": {
+          "id": "reward",
+          "mode": "parameters",
+          "inputs": {}
+        },
+        "deriveInputsAndCases": "See each derived/observed part requiredEvidence. Use strict fields from lib/audit-local-basis.ts; actual run generates output values/units/precision/formula, never prefill them from this packet.",
+        "basesRule": "Every derive input needs a same-plan authored-parameter proof pointer with exactly equal value and exact INPUT_UNITS unit, or a genuinely external input part. No unrestricted arbitrary user-selected value can currently be declared by the parameter recipe.",
+        "provenanceRule": "Actual command must name tests/<file>, runner node/vitest/playwright, cwd actual root, NODE_DISABLE_COMPILE_CACHE=1, observed start/end and real exit. Retain input/output artifacts and hashes and a matching local-run-v1 receipt. No fabricated timestamps or test outcomes."
+      },
+      {
+        "stage": "future-only",
+        "type": "focused-unit-component",
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 node node_modules/vitest/vitest.mjs run tests/unit/reward-shaping.test.ts tests/unit/gait.test.ts tests/component/reward-shaping.test.tsx",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "scope": "Run only assigned group sequentially. Add focused independent arithmetic/state cases and typed-plan missing-part/wrong-result/hash-drift/unobserved negatives as applicable; existing synthetic fixtures are not production evidence."
+      },
+      {
+        "stage": "future-only",
+        "type": "real-mounted",
+        "spec": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/reward-design.spec.ts",
+        "requiredCases": "Use applicable existing cases plus the whole observed-part inventory above. Extend reward-design.spec.ts with actual Eureka transitions because its existing listed cases cover RewardShaping, not a complete Eureka run.",
+        "receiptRule": "runner=playwright; actual registered case ID, mountId, prestate/action/poststate, viewport, selector/readout strings and retained DOM/PNG. RequiredObservations must equal actual transitions in order, every expected.display string must be genuinely observed for that proof. Verify exact UI formatting, mode-specific visibility and reveal container; never construct a DOM to satisfy the checker.",
+        "releaseRule": "Reuse the existing affected-route lane; no redundant full corpus/build while red. Later real static-export and independent Sol/high validation remain required at their existing boundaries."
+      },
+      {
+        "stage": "future-only",
+        "type": "semantic-review-and-history",
+        "rule": "A real reviewer must inventory and review every ordered external/local part, exact corrected current claim/disclosure and actual proof. Record real local-review-event-v1 plan and part events only after review; localPlanDigest/localPartDigest bind the final identities and proofs. Preserve replaced legacy object/reviews in correction history, remove only the selected active legacy target, use one active v2 binding and empty scalar fields; no duplicate cross-catalog target. Update current cells/digest after authorized disclosure/history correction and re-preflight. Preserve first-original cells verbatim."
+      },
+      {
+        "stage": "packet-preparation-observed-not-product-test",
+        "type": "selected-native-identity-recheck",
+        "observedAt": "2026-09-23T03:09:59.465Z",
+        "beforeTupleDigest": "213f3f6c6ab625c0d916ca532c473239bda95be515d92441786c4dc10bf6d91c",
+        "afterTupleDigest": "213f3f6c6ab625c0d916ca532c473239bda95be515d92441786c4dc10bf6d91c",
+        "equal": true,
+        "rawSnapshotMatchesGitBlob": true,
+        "originalNativeTupleMatches": true,
+        "wholeOriginalSnapshotParserError": null,
+        "parentDispatchQualified": false
+      }
+    ],
+    "disclosuresNeeded": [
+      "Retain the authored classification paragraph and name thresholds as chosen rules. Inspect attractorTakeaway: \u201cstanding still pays more\u201d/\u201crobot bounces\u201d must not turn the arbitrary classifier into a trained optimum or scientific consequence."
+    ],
+    "status": "held",
+    "unresolved": [
+      "Current strict reward input bases cannot bind any nondefault weights object: parameters outputs only defaultWeights; required freeze/prance/chatter interaction recipes change that object. Do not label chosen UI weights as external-source values or fake a matching pointer. Parent should separately bound a typed authored-case input adaptation before the full integration.",
+      "No actual typed local run, mounted observation, plan review or per-part adjudication is supplied here; every row remains incomplete.",
+      "Parent current-HEAD dispatch preflight after the RoboMIND writer boundary and integrator application recheck remain required.",
+      "Legacy REPO TEXT attached to an external paper/repository URL is not fetched evidence and must not be recertified or copied as a source passage."
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:reward-design-mpc:11",
+    "rowOrdinal": 11,
+    "currentTupleDigest": "3826f5284c7776b629bc1e16c3517c077cf36a0c6339459ddcd3c7d9b6e672d7",
+    "currentCells": {
+      "claim": "EurekaLoop panel (walking-task replay: sprint-and-fall, stand-still, then tracking)",
+      "sourceChecked": "repo (read-only at application HEAD by this integrator, 2026-09-16): components/interactive/eureka-loop.tsx (UI caption 'Scripted replay of the Eureka loop ...' at line 215; doc comment lines 21-22 'The generations are a scripted illustration of the mechanism, labeled as such, not a recording of a real Eureka run'); lib/eureka.ts (EUREKA_GENERATIONS); article prose framing the panel as replay",
+      "verdict": "verified",
+      "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. EUREKA_GENERATIONS really is a scripted illustration, with authored fitness/statistics/reflections and UI disclosure; it is not a recording of a real Eureka run. The r11-local supporting passage is REPO TEXT/no HTTP but paired with eureka-2024 and its external URL. An external methods paper cannot establish this repository's authored transcript. Genuine disclosure and local agreement do not authorize this evidence-type substitution or close the standing owner question.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:reward-design-mpc:11. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Internal claim re-verified read-only by this integrator at application time: the EurekaLoop panel is captioned 'Scripted replay of the Eureka loop' in the UI and its component doc discloses the dramatization; the article prose frames it as replay. No external source is claimed for the disclosure; anchor citation eureka-2024 is the mechanism the panel illustrates."
+    },
+    "originalBinding": {
+      "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14",
+      "snapshot": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-rl-sim2real.md",
+        "bytes": 47364,
+        "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+      },
+      "originalCells": {
+        "claim": "EurekaLoop panel (walking-task replay: sprint-and-fall, stand-still, then tracking)",
+        "sourceChecked": "components/interactive/eureka-loop.tsx caption",
+        "verdict": "verified",
+        "note": "Labeled \"Scripted replay of the Eureka loop\" in the UI; dramatization disclosed."
+      },
+      "originalTupleDigest": "aca9ab76e58fd71628f6fc1b478a445f55ae2a8199646288b263678523f65509"
+    },
+    "parts": [
+      {
+        "id": "r11-eureka-mechanism",
+        "kind": "external-source",
+        "text": "The replay illustrates Eureka's reward-code proposal, separate PPO policy training/task fitness, reward-statistic reflection and iterative mutation; it is not a recorded experiment.",
+        "requiredEvidence": "eureka-2024 retained v2 PDF-derived text for mechanism and fitness/reflection distinction. The source does not report these three local generations or their numbers."
+      },
+      {
+        "id": "r11-authored-transcript",
+        "kind": "authored-parameter",
+        "text": "The walking task 1.0 m/s, code, reflections, every displayed statistic and fitness values 0.31/0.58/0.86 are the three authored scripted fixtures: sprint/fall, stand still, then tracking.",
+        "requiredEvidence": "eureka/parameters actual EUREKA_TASK and complete EUREKA_GENERATIONS; explicit article and UI disclosure covering every number and claimed training statistic, not merely a component comment."
+      },
+      {
+        "id": "r11-diffs",
+        "kind": "derived-result",
+        "text": "The replay derives generation-to-generation line diffs and formats each selected fitness to two decimals.",
+        "requiredEvidence": "eureka/derive for previous/next 0\u21920, 0\u21921 and 1\u21922; independently verify inserted/deleted/shared lines; bases point to /generations/{i}/index in the authored parameter proof."
+      },
+      {
+        "id": "r11-mounted-replay",
+        "kind": "observed-behavior",
+        "text": "Run generation advances 0\u21921\u21922 with actual code/stat/reflection/readout changes, disables at the last generation, and Reset returns 0.",
+        "requiredEvidence": "Real Playwright generation/reset observations on EurekaLoop, with each proof containing its matching derive inputs, full visible scripted disclaimer, and registered cases."
+      }
+    ],
+    "existingSources": [
+      {
+        "citationId": "eureka-2024",
+        "representation": {
+          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/sources/eureka-retained-reading.txt",
+          "bytes": 144666,
+          "sha256": "91ff5f692c4285dcc538a5dd398b4a0e54b55f350f76fee8cd769885b31b231b"
+        },
+        "originalProvenanceMetadata": {},
+        "retainedHashMatched": true,
+        "actualTextExcerpts": [
+          {
+            "needle": "reward reflection",
+            "offset": 2756,
+            "length": 101,
+            "sha256": "27fa08bb3ea98da253b8f7fe5563a2dabb0dbd6934a888dd16d9a18a87452683",
+            "text": "GPU-accelerated reward evaluation, and reward reflection to progressively improve its reward outputs."
+          },
+          {
+            "needle": "fitness function",
+            "offset": 8767,
+            "length": 102,
+            "sha256": "d8e8ca8653756be3860fcb41167b92e9000e7c765a7e07bb67e4a1e02bc6efee",
+            "text": "Decision Process (MDP), (M, R); F : \u03a0 \u2192 R is the fitness function that produces a scalar evaluation"
+          }
+        ],
+        "use": "Retained primary representation identified and excerpt bytes inspected; reuse requires full named-part semantic review, not automatic adjudication. No request in this worker.",
+        "sourceUrl": "https://arxiv.org/pdf/2310.12931v2",
+        "originalRetrievalStartedAt": "2026-09-08T04:39:40.633359+00:00",
+        "originalRetrievalEndedAt": "2026-09-08T04:39:41.697167+00:00",
+        "provenancePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-eureka-replay-conjunction-20260908/source-provenance.json",
+        "provenanceLimit": "Retained PDF extraction; this worker did not fetch or convert it. Prior packet reports origin 200; not a new HTTP observation."
+      }
+    ],
+    "requiredRealChecks": [
+      {
+        "stage": "future-only",
+        "type": "strict-plan-fields",
+        "kind": "explicit-parts-v2",
+        "planIdSuggestion": "local-v1-reward-design-mpc-11",
+        "ledgerPath": "audit/rl-sim2real.md",
+        "articleSlug": "reward-design-mpc",
+        "rowOrdinal": 11,
+        "mounts": [
+          {
+            "sourceId": "interactive:EurekaLoop",
+            "sourceFingerprint": "b9dc9660af41b5f5433b3efc089c9358fd0561bdc31ebea703dc01d750dccb98",
+            "mountId": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+            "mountFingerprint": "29fbe7199c239853f671a5284bfbef313ce68bebc73f08bfd7220d416681d0b7",
+            "route": "/rl-sim2real/reward-design-mpc/"
+          }
+        ],
+        "registeredCasesByMount": {
+          "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1": [
+            {
+              "id": "default",
+              "kind": "default"
+            },
+            {
+              "id": "focus-each-control",
+              "kind": "focus"
+            },
+            {
+              "id": "meaningful-hover",
+              "kind": "hover"
+            },
+            {
+              "id": "reset",
+              "kind": "reset"
+            }
+          ]
+        },
+        "rule": "Use each proposed external part with nonempty requiredCitationIds and real paired evidence; each local part gets unique requiredProofIds and matching kind/planId/partId. Observed parts additionally get exact requiredObservations. These suggestions are not a populated catalog."
+      },
+      {
+        "stage": "future-only",
+        "type": "immutable-dependencies",
+        "paths": [
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/eureka.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/eureka-loop.tsx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/reward-design-mpc.mdx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/audit-local-basis.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/eureka.test.ts",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/eureka-loop.test.tsx",
+          "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/reward-design.spec.ts"
+        ],
+        "additionalInputs": "Pin the actual receipt-producing test file and every imported calculation/data dependency, test fixture/input and run output; component disclosure helpers/mount container where the actual observation depends on them. Original snapshots and retained source copies live under audit/evidence, never public/export.",
+        "memberRules": {
+          "article": "article:rl-sim2real/reward-design-mpc",
+          "component": "source:components/interactive/eureka-loop.tsx",
+          "other": "file:<root-relative-path>",
+          "dependencySelection": "offset=0; length=file.bytes; member.sha256=file.sha256. Article additionally binds buildManifest prose hash; component binds interactive-sources-mounts source representation hash.",
+          "disclosureSelection": "Exact article UTF-8 byte slice/member, selected text and member hash plus article prose baseline hash. Component caption alone does not satisfy checkDisclosure."
+        }
+      },
+      {
+        "stage": "future-only",
+        "type": "fixed-recipe",
+        "parameters": {
+          "id": "eureka",
+          "mode": "parameters",
+          "inputs": {}
+        },
+        "deriveInputsAndCases": "See each derived/observed part requiredEvidence. Use strict fields from lib/audit-local-basis.ts; actual run generates output values/units/precision/formula, never prefill them from this packet.",
+        "basesRule": "Every derive input needs a same-plan authored-parameter proof pointer with exactly equal value and exact INPUT_UNITS unit, or a genuinely external input part. No unrestricted arbitrary user-selected value can currently be declared by the parameter recipe.",
+        "provenanceRule": "Actual command must name tests/<file>, runner node/vitest/playwright, cwd actual root, NODE_DISABLE_COMPILE_CACHE=1, observed start/end and real exit. Retain input/output artifacts and hashes and a matching local-run-v1 receipt. No fabricated timestamps or test outcomes."
+      },
+      {
+        "stage": "future-only",
+        "type": "focused-unit-component",
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 node node_modules/vitest/vitest.mjs run tests/unit/eureka.test.ts tests/component/eureka-loop.test.tsx",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "scope": "Run only assigned group sequentially. Add focused independent arithmetic/state cases and typed-plan missing-part/wrong-result/hash-drift/unobserved negatives as applicable; existing synthetic fixtures are not production evidence."
+      },
+      {
+        "stage": "future-only",
+        "type": "real-mounted",
+        "spec": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/reward-design.spec.ts",
+        "requiredCases": "Use applicable existing cases plus the whole observed-part inventory above. Extend reward-design.spec.ts with actual Eureka transitions because its existing listed cases cover RewardShaping, not a complete Eureka run.",
+        "receiptRule": "runner=playwright; actual registered case ID, mountId, prestate/action/poststate, viewport, selector/readout strings and retained DOM/PNG. RequiredObservations must equal actual transitions in order, every expected.display string must be genuinely observed for that proof. Verify exact UI formatting, mode-specific visibility and reveal container; never construct a DOM to satisfy the checker.",
+        "releaseRule": "Reuse the existing affected-route lane; no redundant full corpus/build while red. Later real static-export and independent Sol/high validation remain required at their existing boundaries."
+      },
+      {
+        "stage": "future-only",
+        "type": "semantic-review-and-history",
+        "rule": "A real reviewer must inventory and review every ordered external/local part, exact corrected current claim/disclosure and actual proof. Record real local-review-event-v1 plan and part events only after review; localPlanDigest/localPartDigest bind the final identities and proofs. Preserve replaced legacy object/reviews in correction history, remove only the selected active legacy target, use one active v2 binding and empty scalar fields; no duplicate cross-catalog target. Update current cells/digest after authorized disclosure/history correction and re-preflight. Preserve first-original cells verbatim."
+      },
+      {
+        "stage": "packet-preparation-observed-not-product-test",
+        "type": "selected-native-identity-recheck",
+        "observedAt": "2026-09-23T03:09:59.465Z",
+        "beforeTupleDigest": "3826f5284c7776b629bc1e16c3517c077cf36a0c6339459ddcd3c7d9b6e672d7",
+        "afterTupleDigest": "3826f5284c7776b629bc1e16c3517c077cf36a0c6339459ddcd3c7d9b6e672d7",
+        "equal": true,
+        "rawSnapshotMatchesGitBlob": true,
+        "originalNativeTupleMatches": true,
+        "wholeOriginalSnapshotParserError": null,
+        "parentDispatchQualified": false
+      }
+    ],
+    "disclosuresNeeded": [
+      "Add an explicit article-local statement: these three generations, statistics, fitness scores and reflections are scripted teaching data, not a recorded Eureka or PPO run. Current paragraph \u201cwhat the training statistics showed\u201d is ambiguous despite UI Scripted replay caption."
+    ],
+    "status": "ready-for-proof",
+    "unresolved": [
+      "No actual typed local run, mounted observation, plan review or per-part adjudication is supplied here; every row remains incomplete.",
+      "Parent current-HEAD dispatch preflight after the RoboMIND writer boundary and integrator application recheck remain required.",
+      "Legacy REPO TEXT attached to an external paper/repository URL is not fetched evidence and must not be recertified or copied as a source passage."
+    ]
+  }
+]

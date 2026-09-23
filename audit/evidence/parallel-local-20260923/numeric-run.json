@@ -1,0 +1,1990 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/parallel-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T06:05:55.658Z",
+  "endedAt": "2026-09-23T06:05:55.714Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/parallel-local-evidence.test.ts",
+    "bytes": 5364,
+    "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+  },
+  "cases": [
+    {
+      "id": "p18-parameters",
+      "recipe": {
+        "id": "parallel",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "envs": 4096,
+          "cpuBound": false,
+          "samples": 49,
+          "authoredDomainBasis": "Illustrative model environment bounds and CPU toggle choices, not measured throughput.",
+          "authoredDomains": {
+            "envs": {
+              "min": 64,
+              "max": 16384
+            },
+            "cpuBound": {
+              "off": false,
+              "on": true
+            }
+          },
+          "transitions": 220000000,
+          "rollout": 24,
+          "costs": [
+            0.02,
+            0.000004,
+            0.04,
+            0.03,
+            0.000022
+          ],
+          "markerX": [
+            {
+              "id": "flat",
+              "envs": 4096
+            },
+            {
+              "id": "uneven",
+              "envs": 4096
+            }
+          ]
+        },
+        "units": "costs:s; envs:count; transitions:count",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "parallel:parameters:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+            "bytes": 12773,
+            "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+          },
+          "id": "article:rl-sim2real/parallel-sim-rl",
+          "offset": 0,
+          "length": 12773,
+          "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+          "baseline": {
+            "kind": "prose",
+            "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/training-time-chart.tsx",
+            "bytes": 18483,
+            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+          },
+          "id": "source:components/interactive/training-time-chart.tsx",
+          "offset": 0,
+          "length": 18483,
+          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/parallel-sim.ts",
+            "bytes": 6954,
+            "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+          },
+          "id": "file:lib/parallel-sim.ts",
+          "offset": 0,
+          "length": 6954,
+          "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/parallel-local-20260923/support.ts",
+            "bytes": 4769,
+            "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+          },
+          "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+          "offset": 0,
+          "length": 4769,
+          "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/parallel-local-evidence.test.ts",
+            "bytes": 5364,
+            "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+          },
+          "id": "file:tests/unit/parallel-local-evidence.test.ts",
+          "offset": 0,
+          "length": 5364,
+          "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        }
+      ]
+    },
+    {
+      "id": "p18-64-off",
+      "recipe": {
+        "id": "parallel",
+        "mode": "derive",
+        "inputs": {
+          "envs": 64,
+          "cpuBound": false,
+          "samples": 49
+        }
+      },
+      "expected": {
+        "values": {
+          "breakdown": {
+            "simSeconds": 0.020256,
+            "learnSeconds": 0.04,
+            "cpuSeconds": 0.03,
+            "totalSeconds": 0.090256
+          },
+          "iterations": 143229.16666666666,
+          "seconds": 12927.291666666666,
+          "fps": 17018.259173905335,
+          "crossover": 12500.000000000002,
+          "curve": [
+            {
+              "envs": 64,
+              "minutes": 215.45
+            },
+            {
+              "envs": 72,
+              "minutes": 191.58
+            },
+            {
+              "envs": 81,
+              "minutes": 170.36
+            },
+            {
+              "envs": 91,
+              "minutes": 151.71
+            },
+            {
+              "envs": 102,
+              "minutes": 135.42
+            },
+            {
+              "envs": 114,
+              "minutes": 121.23
+            },
+            {
+              "envs": 128,
+              "minutes": 108.03
+            },
+            {
+              "envs": 144,
+              "minutes": 96.1
+            },
+            {
+              "envs": 161,
+              "minutes": 86.01
+            },
+            {
+              "envs": 181,
+              "minutes": 76.58
+            },
+            {
+              "envs": 203,
+              "minutes": 68.35
+            },
+            {
+              "envs": 228,
+              "minutes": 60.92
+            },
+            {
+              "envs": 256,
+              "minutes": 54.32
+            },
+            {
+              "envs": 287,
+              "minutes": 48.52
+            },
+            {
+              "envs": 323,
+              "minutes": 43.18
+            },
+            {
+              "envs": 362,
+              "minutes": 38.59
+            },
+            {
+              "envs": 406,
+              "minutes": 34.48
+            },
+            {
+              "envs": 456,
+              "minutes": 30.76
+            },
+            {
+              "envs": 512,
+              "minutes": 27.47
+            },
+            {
+              "envs": 575,
+              "minutes": 24.52
+            },
+            {
+              "envs": 645,
+              "minutes": 21.93
+            },
+            {
+              "envs": 724,
+              "minutes": 19.6
+            },
+            {
+              "envs": 813,
+              "minutes": 17.52
+            },
+            {
+              "envs": 912,
+              "minutes": 15.69
+            },
+            {
+              "envs": 1024,
+              "minutes": 14.04
+            },
+            {
+              "envs": 1149,
+              "minutes": 12.58
+            },
+            {
+              "envs": 1290,
+              "minutes": 11.27
+            },
+            {
+              "envs": 1448,
+              "minutes": 10.11
+            },
+            {
+              "envs": 1625,
+              "minutes": 9.07
+            },
+            {
+              "envs": 1825,
+              "minutes": 8.15
+            },
+            {
+              "envs": 2048,
+              "minutes": 7.32
+            },
+            {
+              "envs": 2299,
+              "minutes": 6.59
+            },
+            {
+              "envs": 2580,
+              "minutes": 5.94
+            },
+            {
+              "envs": 2896,
+              "minutes": 5.36
+            },
+            {
+              "envs": 3251,
+              "minutes": 4.84
+            },
+            {
+              "envs": 3649,
+              "minutes": 4.38
+            },
+            {
+              "envs": 4096,
+              "minutes": 3.97
+            },
+            {
+              "envs": 4598,
+              "minutes": 3.6
+            },
+            {
+              "envs": 5161,
+              "minutes": 3.28
+            },
+            {
+              "envs": 5793,
+              "minutes": 2.98
+            },
+            {
+              "envs": 6502,
+              "minutes": 2.73
+            },
+            {
+              "envs": 7298,
+              "minutes": 2.5
+            },
+            {
+              "envs": 8192,
+              "minutes": 2.29
+            },
+            {
+              "envs": 9195,
+              "minutes": 2.11
+            },
+            {
+              "envs": 10321,
+              "minutes": 1.94
+            },
+            {
+              "envs": 11585,
+              "minutes": 1.8
+            },
+            {
+              "envs": 13004,
+              "minutes": 1.67
+            },
+            {
+              "envs": 14596,
+              "minutes": 1.55
+            },
+            {
+              "envs": 16384,
+              "minutes": 1.45
+            }
+          ],
+          "display": [
+            "64",
+            "3.6 h",
+            "17k FPS"
+          ]
+        },
+        "units": "seconds:s; fps:frames/s; curve:envs,minutes",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "parallel:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+            "bytes": 12773,
+            "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+          },
+          "id": "article:rl-sim2real/parallel-sim-rl",
+          "offset": 0,
+          "length": 12773,
+          "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+          "baseline": {
+            "kind": "prose",
+            "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/training-time-chart.tsx",
+            "bytes": 18483,
+            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+          },
+          "id": "source:components/interactive/training-time-chart.tsx",
+          "offset": 0,
+          "length": 18483,
+          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/parallel-sim.ts",
+            "bytes": 6954,
+            "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+          },
+          "id": "file:lib/parallel-sim.ts",
+          "offset": 0,
+          "length": 6954,
+          "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/parallel-local-20260923/support.ts",
+            "bytes": 4769,
+            "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+          },
+          "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+          "offset": 0,
+          "length": 4769,
+          "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/parallel-local-evidence.test.ts",
+            "bytes": 5364,
+            "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+          },
+          "id": "file:tests/unit/parallel-local-evidence.test.ts",
+          "offset": 0,
+          "length": 5364,
+          "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        }
+      ]
+    },
+    {
+      "id": "p18-64-on",
+      "recipe": {
+        "id": "parallel",
+        "mode": "derive",
+        "inputs": {
+          "envs": 64,
+          "cpuBound": true,
+          "samples": 49
+        }
+      },
+      "expected": {
+        "values": {
+          "breakdown": {
+            "simSeconds": 0.020256,
+            "learnSeconds": 0.04,
+            "cpuSeconds": 0.031408,
+            "totalSeconds": 0.091664
+          },
+          "iterations": 143229.16666666666,
+          "seconds": 13128.958333333332,
+          "fps": 16756.85110839588,
+          "crossover": null,
+          "curve": [
+            {
+              "envs": 64,
+              "minutes": 218.82
+            },
+            {
+              "envs": 72,
+              "minutes": 194.94
+            },
+            {
+              "envs": 81,
+              "minutes": 173.73
+            },
+            {
+              "envs": 91,
+              "minutes": 155.07
+            },
+            {
+              "envs": 102,
+              "minutes": 138.78
+            },
+            {
+              "envs": 114,
+              "minutes": 124.59
+            },
+            {
+              "envs": 128,
+              "minutes": 111.39
+            },
+            {
+              "envs": 144,
+              "minutes": 99.46
+            },
+            {
+              "envs": 161,
+              "minutes": 89.38
+            },
+            {
+              "envs": 181,
+              "minutes": 79.94
+            },
+            {
+              "envs": 203,
+              "minutes": 71.71
+            },
+            {
+              "envs": 228,
+              "minutes": 64.28
+            },
+            {
+              "envs": 256,
+              "minutes": 57.68
+            },
+            {
+              "envs": 287,
+              "minutes": 51.88
+            },
+            {
+              "envs": 323,
+              "minutes": 46.54
+            },
+            {
+              "envs": 362,
+              "minutes": 41.96
+            },
+            {
+              "envs": 406,
+              "minutes": 37.84
+            },
+            {
+              "envs": 456,
+              "minutes": 34.13
+            },
+            {
+              "envs": 512,
+              "minutes": 30.83
+            },
+            {
+              "envs": 575,
+              "minutes": 27.89
+            },
+            {
+              "envs": 645,
+              "minutes": 25.29
+            },
+            {
+              "envs": 724,
+              "minutes": 22.96
+            },
+            {
+              "envs": 813,
+              "minutes": 20.88
+            },
+            {
+              "envs": 912,
+              "minutes": 19.05
+            },
+            {
+              "envs": 1024,
+              "minutes": 17.4
+            },
+            {
+              "envs": 1149,
+              "minutes": 15.94
+            },
+            {
+              "envs": 1290,
+              "minutes": 14.63
+            },
+            {
+              "envs": 1448,
+              "minutes": 13.47
+            },
+            {
+              "envs": 1625,
+              "minutes": 12.43
+            },
+            {
+              "envs": 1825,
+              "minutes": 11.51
+            },
+            {
+              "envs": 2048,
+              "minutes": 10.69
+            },
+            {
+              "envs": 2299,
+              "minutes": 9.95
+            },
+            {
+              "envs": 2580,
+              "minutes": 9.3
+            },
+            {
+              "envs": 2896,
+              "minutes": 8.72
+            },
+            {
+              "envs": 3251,
+              "minutes": 8.2
+            },
+            {
+              "envs": 3649,
+              "minutes": 7.74
+            },
+            {
+              "envs": 4096,
+              "minutes": 7.33
+            },
+            {
+              "envs": 4598,
+              "minutes": 6.96
+            },
+            {
+              "envs": 5161,
+              "minutes": 6.64
+            },
+            {
+              "envs": 5793,
+              "minutes": 6.35
+            },
+            {
+              "envs": 6502,
+              "minutes": 6.09
+            },
+            {
+              "envs": 7298,
+              "minutes": 5.86
+            },
+            {
+              "envs": 8192,
+              "minutes": 5.65
+            },
+            {
+              "envs": 9195,
+              "minutes": 5.47
+            },
+            {
+              "envs": 10321,
+              "minutes": 5.3
+            },
+            {
+              "envs": 11585,
+              "minutes": 5.16
+            },
+            {
+              "envs": 13004,
+              "minutes": 5.03
+            },
+            {
+              "envs": 14596,
+              "minutes": 4.91
+            },
+            {
+              "envs": 16384,
+              "minutes": 4.81
+            }
+          ],
+          "display": [
+            "64",
+            "3.6 h",
+            "17k FPS"
+          ]
+        },
+        "units": "seconds:s; fps:frames/s; curve:envs,minutes",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "parallel:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+            "bytes": 12773,
+            "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+          },
+          "id": "article:rl-sim2real/parallel-sim-rl",
+          "offset": 0,
+          "length": 12773,
+          "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+          "baseline": {
+            "kind": "prose",
+            "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/training-time-chart.tsx",
+            "bytes": 18483,
+            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+          },
+          "id": "source:components/interactive/training-time-chart.tsx",
+          "offset": 0,
+          "length": 18483,
+          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/parallel-sim.ts",
+            "bytes": 6954,
+            "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+          },
+          "id": "file:lib/parallel-sim.ts",
+          "offset": 0,
+          "length": 6954,
+          "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/parallel-local-20260923/support.ts",
+            "bytes": 4769,
+            "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+          },
+          "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+          "offset": 0,
+          "length": 4769,
+          "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/parallel-local-evidence.test.ts",
+            "bytes": 5364,
+            "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+          },
+          "id": "file:tests/unit/parallel-local-evidence.test.ts",
+          "offset": 0,
+          "length": 5364,
+          "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        }
+      ]
+    },
+    {
+      "id": "p18-4096-off",
+      "recipe": {
+        "id": "parallel",
+        "mode": "derive",
+        "inputs": {
+          "envs": 4096,
+          "cpuBound": false,
+          "samples": 49
+        }
+      },
+      "expected": {
+        "values": {
+          "breakdown": {
+            "simSeconds": 0.036384,
+            "learnSeconds": 0.04,
+            "cpuSeconds": 0.03,
+            "totalSeconds": 0.106384
+          },
+          "iterations": 2237.9557291666665,
+          "seconds": 238.08268229166666,
+          "fps": 924048.7291322002,
+          "crossover": 12500.000000000002,
+          "curve": [
+            {
+              "envs": 64,
+              "minutes": 215.45
+            },
+            {
+              "envs": 72,
+              "minutes": 191.58
+            },
+            {
+              "envs": 81,
+              "minutes": 170.36
+            },
+            {
+              "envs": 91,
+              "minutes": 151.71
+            },
+            {
+              "envs": 102,
+              "minutes": 135.42
+            },
+            {
+              "envs": 114,
+              "minutes": 121.23
+            },
+            {
+              "envs": 128,
+              "minutes": 108.03
+            },
+            {
+              "envs": 144,
+              "minutes": 96.1
+            },
+            {
+              "envs": 161,
+              "minutes": 86.01
+            },
+            {
+              "envs": 181,
+              "minutes": 76.58
+            },
+            {
+              "envs": 203,
+              "minutes": 68.35
+            },
+            {
+              "envs": 228,
+              "minutes": 60.92
+            },
+            {
+              "envs": 256,
+              "minutes": 54.32
+            },
+            {
+              "envs": 287,
+              "minutes": 48.52
+            },
+            {
+              "envs": 323,
+              "minutes": 43.18
+            },
+            {
+              "envs": 362,
+              "minutes": 38.59
+            },
+            {
+              "envs": 406,
+              "minutes": 34.48
+            },
+            {
+              "envs": 456,
+              "minutes": 30.76
+            },
+            {
+              "envs": 512,
+              "minutes": 27.47
+            },
+            {
+              "envs": 575,
+              "minutes": 24.52
+            },
+            {
+              "envs": 645,
+              "minutes": 21.93
+            },
+            {
+              "envs": 724,
+              "minutes": 19.6
+            },
+            {
+              "envs": 813,
+              "minutes": 17.52
+            },
+            {
+              "envs": 912,
+              "minutes": 15.69
+            },
+            {
+              "envs": 1024,
+              "minutes": 14.04
+            },
+            {
+              "envs": 1149,
+              "minutes": 12.58
+            },
+            {
+              "envs": 1290,
+              "minutes": 11.27
+            },
+            {
+              "envs": 1448,
+              "minutes": 10.11
+            },
+            {
+              "envs": 1625,
+              "minutes": 9.07
+            },
+            {
+              "envs": 1825,
+              "minutes": 8.15
+            },
+            {
+              "envs": 2048,
+              "minutes": 7.32
+            },
+            {
+              "envs": 2299,
+              "minutes": 6.59
+            },
+            {
+              "envs": 2580,
+              "minutes": 5.94
+            },
+            {
+              "envs": 2896,
+              "minutes": 5.36
+            },
+            {
+              "envs": 3251,
+              "minutes": 4.84
+            },
+            {
+              "envs": 3649,
+              "minutes": 4.38
+            },
+            {
+              "envs": 4096,
+              "minutes": 3.97
+            },
+            {
+              "envs": 4598,
+              "minutes": 3.6
+            },
+            {
+              "envs": 5161,
+              "minutes": 3.28
+            },
+            {
+              "envs": 5793,
+              "minutes": 2.98
+            },
+            {
+              "envs": 6502,
+              "minutes": 2.73
+            },
+            {
+              "envs": 7298,
+              "minutes": 2.5
+            },
+            {
+              "envs": 8192,
+              "minutes": 2.29
+            },
+            {
+              "envs": 9195,
+              "minutes": 2.11
+            },
+            {
+              "envs": 10321,
+              "minutes": 1.94
+            },
+            {
+              "envs": 11585,
+              "minutes": 1.8
+            },
+            {
+              "envs": 13004,
+              "minutes": 1.67
+            },
+            {
+              "envs": 14596,
+              "minutes": 1.55
+            },
+            {
+              "envs": 16384,
+              "minutes": 1.45
+            }
+          ],
+          "display": [
+            "4,096",
+            "4.0 min",
+            "924k FPS"
+          ]
+        },
+        "units": "seconds:s; fps:frames/s; curve:envs,minutes",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "parallel:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+            "bytes": 12773,
+            "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+          },
+          "id": "article:rl-sim2real/parallel-sim-rl",
+          "offset": 0,
+          "length": 12773,
+          "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+          "baseline": {
+            "kind": "prose",
+            "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/training-time-chart.tsx",
+            "bytes": 18483,
+            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+          },
+          "id": "source:components/interactive/training-time-chart.tsx",
+          "offset": 0,
+          "length": 18483,
+          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/parallel-sim.ts",
+            "bytes": 6954,
+            "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+          },
+          "id": "file:lib/parallel-sim.ts",
+          "offset": 0,
+          "length": 6954,
+          "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/parallel-local-20260923/support.ts",
+            "bytes": 4769,
+            "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+          },
+          "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+          "offset": 0,
+          "length": 4769,
+          "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/parallel-local-evidence.test.ts",
+            "bytes": 5364,
+            "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+          },
+          "id": "file:tests/unit/parallel-local-evidence.test.ts",
+          "offset": 0,
+          "length": 5364,
+          "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        }
+      ]
+    },
+    {
+      "id": "p18-4096-on",
+      "recipe": {
+        "id": "parallel",
+        "mode": "derive",
+        "inputs": {
+          "envs": 4096,
+          "cpuBound": true,
+          "samples": 49
+        }
+      },
+      "expected": {
+        "values": {
+          "breakdown": {
+            "simSeconds": 0.036384,
+            "learnSeconds": 0.04,
+            "cpuSeconds": 0.120112,
+            "totalSeconds": 0.196496
+          },
+          "iterations": 2237.9557291666665,
+          "seconds": 439.7493489583333,
+          "fps": 500284.9930787395,
+          "crossover": null,
+          "curve": [
+            {
+              "envs": 64,
+              "minutes": 218.82
+            },
+            {
+              "envs": 72,
+              "minutes": 194.94
+            },
+            {
+              "envs": 81,
+              "minutes": 173.73
+            },
+            {
+              "envs": 91,
+              "minutes": 155.07
+            },
+            {
+              "envs": 102,
+              "minutes": 138.78
+            },
+            {
+              "envs": 114,
+              "minutes": 124.59
+            },
+            {
+              "envs": 128,
+              "minutes": 111.39
+            },
+            {
+              "envs": 144,
+              "minutes": 99.46
+            },
+            {
+              "envs": 161,
+              "minutes": 89.38
+            },
+            {
+              "envs": 181,
+              "minutes": 79.94
+            },
+            {
+              "envs": 203,
+              "minutes": 71.71
+            },
+            {
+              "envs": 228,
+              "minutes": 64.28
+            },
+            {
+              "envs": 256,
+              "minutes": 57.68
+            },
+            {
+              "envs": 287,
+              "minutes": 51.88
+            },
+            {
+              "envs": 323,
+              "minutes": 46.54
+            },
+            {
+              "envs": 362,
+              "minutes": 41.96
+            },
+            {
+              "envs": 406,
+              "minutes": 37.84
+            },
+            {
+              "envs": 456,
+              "minutes": 34.13
+            },
+            {
+              "envs": 512,
+              "minutes": 30.83
+            },
+            {
+              "envs": 575,
+              "minutes": 27.89
+            },
+            {
+              "envs": 645,
+              "minutes": 25.29
+            },
+            {
+              "envs": 724,
+              "minutes": 22.96
+            },
+            {
+              "envs": 813,
+              "minutes": 20.88
+            },
+            {
+              "envs": 912,
+              "minutes": 19.05
+            },
+            {
+              "envs": 1024,
+              "minutes": 17.4
+            },
+            {
+              "envs": 1149,
+              "minutes": 15.94
+            },
+            {
+              "envs": 1290,
+              "minutes": 14.63
+            },
+            {
+              "envs": 1448,
+              "minutes": 13.47
+            },
+            {
+              "envs": 1625,
+              "minutes": 12.43
+            },
+            {
+              "envs": 1825,
+              "minutes": 11.51
+            },
+            {
+              "envs": 2048,
+              "minutes": 10.69
+            },
+            {
+              "envs": 2299,
+              "minutes": 9.95
+            },
+            {
+              "envs": 2580,
+              "minutes": 9.3
+            },
+            {
+              "envs": 2896,
+              "minutes": 8.72
+            },
+            {
+              "envs": 3251,
+              "minutes": 8.2
+            },
+            {
+              "envs": 3649,
+              "minutes": 7.74
+            },
+            {
+              "envs": 4096,
+              "minutes": 7.33
+            },
+            {
+              "envs": 4598,
+              "minutes": 6.96
+            },
+            {
+              "envs": 5161,
+              "minutes": 6.64
+            },
+            {
+              "envs": 5793,
+              "minutes": 6.35
+            },
+            {
+              "envs": 6502,
+              "minutes": 6.09
+            },
+            {
+              "envs": 7298,
+              "minutes": 5.86
+            },
+            {
+              "envs": 8192,
+              "minutes": 5.65
+            },
+            {
+              "envs": 9195,
+              "minutes": 5.47
+            },
+            {
+              "envs": 10321,
+              "minutes": 5.3
+            },
+            {
+              "envs": 11585,
+              "minutes": 5.16
+            },
+            {
+              "envs": 13004,
+              "minutes": 5.03
+            },
+            {
+              "envs": 14596,
+              "minutes": 4.91
+            },
+            {
+              "envs": 16384,
+              "minutes": 4.81
+            }
+          ],
+          "display": [
+            "4,096",
+            "7.3 min",
+            "500k FPS"
+          ]
+        },
+        "units": "seconds:s; fps:frames/s; curve:envs,minutes",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "parallel:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+            "bytes": 12773,
+            "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+          },
+          "id": "article:rl-sim2real/parallel-sim-rl",
+          "offset": 0,
+          "length": 12773,
+          "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+          "baseline": {
+            "kind": "prose",
+            "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/training-time-chart.tsx",
+            "bytes": 18483,
+            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+          },
+          "id": "source:components/interactive/training-time-chart.tsx",
+          "offset": 0,
+          "length": 18483,
+          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/parallel-sim.ts",
+            "bytes": 6954,
+            "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+          },
+          "id": "file:lib/parallel-sim.ts",
+          "offset": 0,
+          "length": 6954,
+          "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/parallel-local-20260923/support.ts",
+            "bytes": 4769,
+            "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+          },
+          "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+          "offset": 0,
+          "length": 4769,
+          "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/parallel-local-evidence.test.ts",
+            "bytes": 5364,
+            "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+          },
+          "id": "file:tests/unit/parallel-local-evidence.test.ts",
+          "offset": 0,
+          "length": 5364,
+          "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        }
+      ]
+    },
+    {
+      "id": "p18-16384-off",
+      "recipe": {
+        "id": "parallel",
+        "mode": "derive",
+        "inputs": {
+          "envs": 16384,
+          "cpuBound": false,
+          "samples": 49
+        }
+      },
+      "expected": {
+        "values": {
+          "breakdown": {
+            "simSeconds": 0.085536,
+            "learnSeconds": 0.04,
+            "cpuSeconds": 0.03,
+            "totalSeconds": 0.155536
+          },
+          "iterations": 559.4889322916666,
+          "seconds": 87.02067057291667,
+          "fps": 2528134.9655385246,
+          "crossover": 12500.000000000002,
+          "curve": [
+            {
+              "envs": 64,
+              "minutes": 215.45
+            },
+            {
+              "envs": 72,
+              "minutes": 191.58
+            },
+            {
+              "envs": 81,
+              "minutes": 170.36
+            },
+            {
+              "envs": 91,
+              "minutes": 151.71
+            },
+            {
+              "envs": 102,
+              "minutes": 135.42
+            },
+            {
+              "envs": 114,
+              "minutes": 121.23
+            },
+            {
+              "envs": 128,
+              "minutes": 108.03
+            },
+            {
+              "envs": 144,
+              "minutes": 96.1
+            },
+            {
+              "envs": 161,
+              "minutes": 86.01
+            },
+            {
+              "envs": 181,
+              "minutes": 76.58
+            },
+            {
+              "envs": 203,
+              "minutes": 68.35
+            },
+            {
+              "envs": 228,
+              "minutes": 60.92
+            },
+            {
+              "envs": 256,
+              "minutes": 54.32
+            },
+            {
+              "envs": 287,
+              "minutes": 48.52
+            },
+            {
+              "envs": 323,
+              "minutes": 43.18
+            },
+            {
+              "envs": 362,
+              "minutes": 38.59
+            },
+            {
+              "envs": 406,
+              "minutes": 34.48
+            },
+            {
+              "envs": 456,
+              "minutes": 30.76
+            },
+            {
+              "envs": 512,
+              "minutes": 27.47
+            },
+            {
+              "envs": 575,
+              "minutes": 24.52
+            },
+            {
+              "envs": 645,
+              "minutes": 21.93
+            },
+            {
+              "envs": 724,
+              "minutes": 19.6
+            },
+            {
+              "envs": 813,
+              "minutes": 17.52
+            },
+            {
+              "envs": 912,
+              "minutes": 15.69
+            },
+            {
+              "envs": 1024,
+              "minutes": 14.04
+            },
+            {
+              "envs": 1149,
+              "minutes": 12.58
+            },
+            {
+              "envs": 1290,
+              "minutes": 11.27
+            },
+            {
+              "envs": 1448,
+              "minutes": 10.11
+            },
+            {
+              "envs": 1625,
+              "minutes": 9.07
+            },
+            {
+              "envs": 1825,
+              "minutes": 8.15
+            },
+            {
+              "envs": 2048,
+              "minutes": 7.32
+            },
+            {
+              "envs": 2299,
+              "minutes": 6.59
+            },
+            {
+              "envs": 2580,
+              "minutes": 5.94
+            },
+            {
+              "envs": 2896,
+              "minutes": 5.36
+            },
+            {
+              "envs": 3251,
+              "minutes": 4.84
+            },
+            {
+              "envs": 3649,
+              "minutes": 4.38
+            },
+            {
+              "envs": 4096,
+              "minutes": 3.97
+            },
+            {
+              "envs": 4598,
+              "minutes": 3.6
+            },
+            {
+              "envs": 5161,
+              "minutes": 3.28
+            },
+            {
+              "envs": 5793,
+              "minutes": 2.98
+            },
+            {
+              "envs": 6502,
+              "minutes": 2.73
+            },
+            {
+              "envs": 7298,
+              "minutes": 2.5
+            },
+            {
+              "envs": 8192,
+              "minutes": 2.29
+            },
+            {
+              "envs": 9195,
+              "minutes": 2.11
+            },
+            {
+              "envs": 10321,
+              "minutes": 1.94
+            },
+            {
+              "envs": 11585,
+              "minutes": 1.8
+            },
+            {
+              "envs": 13004,
+              "minutes": 1.67
+            },
+            {
+              "envs": 14596,
+              "minutes": 1.55
+            },
+            {
+              "envs": 16384,
+              "minutes": 1.45
+            }
+          ],
+          "display": [
+            "16,384",
+            "1.5 min",
+            "2.5M FPS"
+          ]
+        },
+        "units": "seconds:s; fps:frames/s; curve:envs,minutes",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "parallel:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+            "bytes": 12773,
+            "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+          },
+          "id": "article:rl-sim2real/parallel-sim-rl",
+          "offset": 0,
+          "length": 12773,
+          "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+          "baseline": {
+            "kind": "prose",
+            "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/training-time-chart.tsx",
+            "bytes": 18483,
+            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+          },
+          "id": "source:components/interactive/training-time-chart.tsx",
+          "offset": 0,
+          "length": 18483,
+          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/parallel-sim.ts",
+            "bytes": 6954,
+            "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+          },
+          "id": "file:lib/parallel-sim.ts",
+          "offset": 0,
+          "length": 6954,
+          "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/parallel-local-20260923/support.ts",
+            "bytes": 4769,
+            "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+          },
+          "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+          "offset": 0,
+          "length": 4769,
+          "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/parallel-local-evidence.test.ts",
+            "bytes": 5364,
+            "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+          },
+          "id": "file:tests/unit/parallel-local-evidence.test.ts",
+          "offset": 0,
+          "length": 5364,
+          "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        }
+      ]
+    },
+    {
+      "id": "p18-16384-on",
+      "recipe": {
+        "id": "parallel",
+        "mode": "derive",
+        "inputs": {
+          "envs": 16384,
+          "cpuBound": true,
+          "samples": 49
+        }
+      },
+      "expected": {
+        "values": {
+          "breakdown": {
+            "simSeconds": 0.085536,
+            "learnSeconds": 0.04,
+            "cpuSeconds": 0.390448,
+            "totalSeconds": 0.515984
+          },
+          "iterations": 559.4889322916666,
+          "seconds": 288.6873372395833,
+          "fps": 762070.1417098205,
+          "crossover": null,
+          "curve": [
+            {
+              "envs": 64,
+              "minutes": 218.82
+            },
+            {
+              "envs": 72,
+              "minutes": 194.94
+            },
+            {
+              "envs": 81,
+              "minutes": 173.73
+            },
+            {
+              "envs": 91,
+              "minutes": 155.07
+            },
+            {
+              "envs": 102,
+              "minutes": 138.78
+            },
+            {
+              "envs": 114,
+              "minutes": 124.59
+            },
+            {
+              "envs": 128,
+              "minutes": 111.39
+            },
+            {
+              "envs": 144,
+              "minutes": 99.46
+            },
+            {
+              "envs": 161,
+              "minutes": 89.38
+            },
+            {
+              "envs": 181,
+              "minutes": 79.94
+            },
+            {
+              "envs": 203,
+              "minutes": 71.71
+            },
+            {
+              "envs": 228,
+              "minutes": 64.28
+            },
+            {
+              "envs": 256,
+              "minutes": 57.68
+            },
+            {
+              "envs": 287,
+              "minutes": 51.88
+            },
+            {
+              "envs": 323,
+              "minutes": 46.54
+            },
+            {
+              "envs": 362,
+              "minutes": 41.96
+            },
+            {
+              "envs": 406,
+              "minutes": 37.84
+            },
+            {
+              "envs": 456,
+              "minutes": 34.13
+            },
+            {
+              "envs": 512,
+              "minutes": 30.83
+            },
+            {
+              "envs": 575,
+              "minutes": 27.89
+            },
+            {
+              "envs": 645,
+              "minutes": 25.29
+            },
+            {
+              "envs": 724,
+              "minutes": 22.96
+            },
+            {
+              "envs": 813,
+              "minutes": 20.88
+            },
+            {
+              "envs": 912,
+              "minutes": 19.05
+            },
+            {
+              "envs": 1024,
+              "minutes": 17.4
+            },
+            {
+              "envs": 1149,
+              "minutes": 15.94
+            },
+            {
+              "envs": 1290,
+              "minutes": 14.63
+            },
+            {
+              "envs": 1448,
+              "minutes": 13.47
+            },
+            {
+              "envs": 1625,
+              "minutes": 12.43
+            },
+            {
+              "envs": 1825,
+              "minutes": 11.51
+            },
+            {
+              "envs": 2048,
+              "minutes": 10.69
+            },
+            {
+              "envs": 2299,
+              "minutes": 9.95
+            },
+            {
+              "envs": 2580,
+              "minutes": 9.3
+            },
+            {
+              "envs": 2896,
+              "minutes": 8.72
+            },
+            {
+              "envs": 3251,
+              "minutes": 8.2
+            },
+            {
+              "envs": 3649,
+              "minutes": 7.74
+            },
+            {
+              "envs": 4096,
+              "minutes": 7.33
+            },
+            {
+              "envs": 4598,
+              "minutes": 6.96
+            },
+            {
+              "envs": 5161,
+              "minutes": 6.64
+            },
+            {
+              "envs": 5793,
+              "minutes": 6.35
+            },
+            {
+              "envs": 6502,
+              "minutes": 6.09
+            },
+            {
+              "envs": 7298,
+              "minutes": 5.86
+            },
+            {
+              "envs": 8192,
+              "minutes": 5.65
+            },
+            {
+              "envs": 9195,
+              "minutes": 5.47
+            },
+            {
+              "envs": 10321,
+              "minutes": 5.3
+            },
+            {
+              "envs": 11585,
+              "minutes": 5.16
+            },
+            {
+              "envs": 13004,
+              "minutes": 5.03
+            },
+            {
+              "envs": 14596,
+              "minutes": 4.91
+            },
+            {
+              "envs": 16384,
+              "minutes": 4.81
+            }
+          ],
+          "display": [
+            "16,384",
+            "4.8 min",
+            "762k FPS"
+          ]
+        },
+        "units": "seconds:s; fps:frames/s; curve:envs,minutes",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "parallel:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+            "bytes": 12773,
+            "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+          },
+          "id": "article:rl-sim2real/parallel-sim-rl",
+          "offset": 0,
+          "length": 12773,
+          "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+          "baseline": {
+            "kind": "prose",
+            "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/training-time-chart.tsx",
+            "bytes": 18483,
+            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+          },
+          "id": "source:components/interactive/training-time-chart.tsx",
+          "offset": 0,
+          "length": 18483,
+          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/parallel-sim.ts",
+            "bytes": 6954,
+            "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+          },
+          "id": "file:lib/parallel-sim.ts",
+          "offset": 0,
+          "length": 6954,
+          "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/parallel-local-20260923/support.ts",
+            "bytes": 4769,
+            "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+          },
+          "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+          "offset": 0,
+          "length": 4769,
+          "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/parallel-local-evidence.test.ts",
+            "bytes": 5364,
+            "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+          },
+          "id": "file:tests/unit/parallel-local-evidence.test.ts",
+          "offset": 0,
+          "length": 5364,
+          "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "role": "integrator",
+  "eventId": "reward-local-r5-20260923:r5-mounted-preview-freeze:2026-09-23T04:12:57.411Z",
+  "observedAt": "2026-09-23T04:12:57.411Z",
+  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "rationale": "Actual registered-mount Playwright transition for freeze: keyboard min/max input (or Reset) changed the named status, displayed total and actual SVG state. Retained DOM and PNG match the derivation. Reset restored the original pose. This is an observed toy UI state at phase zero, not a trained policy, measured vibration frequency or complete registry-state acceptance.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "r5-mounted-preview-freeze",
+  "inputDigest": "459cf860b0a88f64955278e82d784e95e063e8d513022e3f286f625e23c79e29",
+  "inventory": [
+    {
+      "id": "r5-rudin-contrast",
+      "text": "Current contrast attributes dragging-leg and unusually high/low-base-height artifacts, and pre-transfer weight tuning, to Rudin rather than attributing freeze/prance/chatter to the paper.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "rudin-2021"
+      ]
+    },
+    {
+      "id": "r5-classifier-parameters",
+      "text": "Freeze, prance and chatter are authored classification/preview choices: chatter actionRate <= 0.2 takes priority; otherwise torque >= 2.5 and >= 2*velTrack freezes; otherwise airTime >= 2.5 and >= 2*velTrack prances; otherwise balanced.",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "r5-parameters"
+      ]
+    },
+    {
+      "id": "r5-classifier-and-pose",
+      "text": "Given fully bound weights and phase, the priority classifier and deterministic gait/pose geometry produce the named teaching category and weighted total.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "r5-default",
+        "r5-freeze",
+        "r5-prance",
+        "r5-chatter",
+        "r5-dominanceCounterexample",
+        "r5-priorityTie"
+      ]
+    },
+    {
+      "id": "r5-mounted-preview-freeze",
+      "text": "On the existing mount the actual changes produce freeze, prance and chatter previews and the reset returns balanced; no simulator training occurs. This conjunct binds the freeze transition and its own output.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r5-observed-freeze"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Reset defaults, balanced, phase 0",
+          "action": "Focus Torque penalty weight; press End to set 4",
+          "poststate": "freeze, phase 0, total -8.72"
+        }
+      ]
+    },
+    {
+      "id": "r5-mounted-preview-prance",
+      "text": "On the existing mount the actual changes produce freeze, prance and chatter previews and the reset returns balanced; no simulator training occurs. This conjunct binds the prance transition and its own output.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r5-observed-prance"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Reset defaults, balanced, phase 0",
+          "action": "Focus Foot air time weight; press End to set 4",
+          "poststate": "prance, phase 0, total -3.48"
+        }
+      ]
+    },
+    {
+      "id": "r5-mounted-preview-chatter",
+      "text": "On the existing mount the actual changes produce freeze, prance and chatter previews and the reset returns balanced; no simulator training occurs. This conjunct binds the chatter transition and its own output.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r5-observed-chatter"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Reset defaults, balanced, phase 0",
+          "action": "Focus Action-rate penalty weight; press Home to set 0",
+          "poststate": "chatter, phase 0, total -4.72"
+        }
+      ]
+    },
+    {
+      "id": "r5-mounted-preview-reset",
+      "text": "On the existing mount the actual changes produce freeze, prance and chatter previews and the reset returns balanced; no simulator training occurs. This conjunct binds the reset transition and its own output.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r5-observed-reset"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "caseId": "reset",
+          "prestate": "Chatter at action-rate 0",
+          "action": "Activate RewardShaping Reset",
+          "poststate": "balanced, original phase-zero pose, total -5.52"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
+  "currentTupleDigest": "a63b8a9bf8fd0c562711af20c1a55d3dc089f3403783ab9a956b90c73f384db9"
+}

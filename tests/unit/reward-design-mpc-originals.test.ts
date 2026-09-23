@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger';
 
 const ROOT = join(__dirname, '..', '..');
@@ -39,13 +41,19 @@ function frontmatterCitations(): Record<string, readonly string[]> {
   };
 }
 
-function sectionRows() {
+const BEFORE_LOCAL = '2aaf0588f0b577fa5a8ea94f9139d0292d9ab433';
+function historicalFile(path: string): string {
+  return execFileSync('git', ['show', `${BEFORE_LOCAL}:${path}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+}
+
+function sectionRows(historical = false) {
   const parsed = parseLedger(
     'audit/rl-sim2real.md',
-    readFileSync(LEDGER, 'utf8'),
+    historical ? historicalFile('audit/rl-sim2real.md') : readFileSync(LEDGER, 'utf8'),
     registryIds(),
     {
-      compoundPlans: JSON.parse(readFileSync(PLANS, 'utf8') as unknown as string),
+      compoundPlans: JSON.parse(historical ? historicalFile('audit/compound-evidence.json') : readFileSync(PLANS, 'utf8')),
+      ...(!historical ? { localBasis: loadLocalBasisContext(ROOT, ['/rl-sim2real/reward-design-mpc/']) } : {}),
       articleCitations: frontmatterCitations(),
     },
   );
@@ -89,8 +97,8 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     }
   });
 
-  it('nine rows bind their exact compound plan; row 20 completes scalar evidence', () => {
-    const ordered = sectionRows().slice().sort((a, b) => a.line - b.line);
+  it('preserves the historical nine exact compound bindings and row 20 scalar evidence', () => {
+    const ordered = sectionRows(true).slice().sort((a, b) => a.line - b.line);
     for (const [ordinal, planId] of Object.entries(PLAN_BINDINGS)) {
       const row = ordered[Number(ordinal) - 1];
       expect(row.compound?.planId, `row ${ordinal} plan binding`).toBe(planId);
@@ -164,8 +172,8 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     expect(row23.evidenceFailures).toEqual([]);
   });
 
-  it('preserves evidence fields, including uncredited local-history items', () => {
-    const plans = JSON.parse(readFileSync(PLANS, 'utf8') as unknown as string) as Array<{
+  it('preserves historical evidence fields, including uncredited local-history items', () => {
+    const plans = JSON.parse(historicalFile('audit/compound-evidence.json')) as Array<{
       id: string;
       evidence: Array<{ citationId: string; sourceUrl: string; supportingPassage: string }>;
     }>;
@@ -202,10 +210,10 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
         "oldTuple": "da15c80d90a840bd40ff65f0eea90065fb9ef6d3f3bb55bd106da9254d90bef2",
         "withdrawnReviewDigest": "d0c00e345e5d5b43f948a306702d0eeb7def4f088fb8ce3a01fa8594a4072775"
     }
-])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
-    const article = { claimRecords: sectionRows() };
+])('preserves the historical hold for $originalId and its withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const article = { claimRecords: sectionRows(true) };
     const markdown = readFileSync(LEDGER, 'utf8');
-    const compoundPlans = parseCompoundPlans(JSON.parse(readFileSync(PLANS, 'utf8')));
+    const compoundPlans = parseCompoundPlans(JSON.parse(historicalFile('audit/compound-evidence.json')));
     const record = article.claimRecords[ordinal - 1];
     const plan = compoundPlans.find(p => p.id === planId)!;
     expect(record.compound?.planId).toBe(planId);

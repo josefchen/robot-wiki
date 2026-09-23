@@ -1,0 +1,156 @@
+import { expect, test, type Locator, type Page } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { frictionOracle, teacherOracle } from '../../audit/evidence/sim2real-local-20260923/proof-support';
+import { setSlider } from './slider';
+
+const directory = 'audit/evidence/sim2real-local-20260923';
+const producing = process.env.SIM2REAL_WRITE_EVIDENCE === '1';
+const finalCapture = process.env.SIM2REAL_FINAL_CAPTURE === '1';
+const captureDirectory = `${directory}/captures/${finalCapture ? 'typed-final' : 'attempt-2'}`;
+const sha256 = (value: Buffer | string) => createHash('sha256').update(value).digest('hex');
+
+async function capture(page: Page, panel: Locator, name: string) {
+  await panel.scrollIntoViewIfNeeded();
+  const html = await panel.evaluate(element => element.outerHTML);
+  if (!producing) return { name, domSha256: sha256(html) };
+  mkdirSync(captureDirectory, { recursive: true });
+  const png = `${captureDirectory}/${name}.png`;
+  const dom = `${captureDirectory}/${name}.html`;
+  expect(existsSync(png)).toBe(false);
+  expect(existsSync(dom)).toBe(false);
+  await panel.screenshot({ path: png });
+  writeFileSync(dom, html, { flag: 'wx' });
+  return { name, png, dom, pngSha256: sha256(readFileSync(png)), domSha256: sha256(html), url: page.url() };
+}
+
+test('sim2real raw mounted evidence covers both friction mounts and teacher transitions', async ({ page }) => {
+  test.setTimeout(120_000);
+  const startedAt = new Date().toISOString();
+  const errors: string[] = [];
+  const external: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', async route => {
+    const url = new URL(route.request().url());
+    if (!['127.0.0.1', 'localhost'].includes(url.hostname)) {
+      external.push(url.href);
+      await route.abort();
+    } else await route.continue();
+  });
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/rl-sim2real/sim2real-transfer/');
+  await page.evaluate(() => document.fonts.ready);
+  const panels = page.getByTestId('real-mu-readout')
+    .locator('xpath=ancestor::div[@data-brand-surface-id="surface:flat"][1]');
+  await expect(panels).toHaveCount(2);
+  const ordinary = panels.nth(0);
+  const reveal = panels.nth(1);
+  const observations: unknown[] = [];
+
+  async function frictionState(panel: Locator, name: string, mu: number, range: number) {
+    const expected = frictionOracle(mu, range);
+    await expect(panel.getByTestId('real-mu-readout')).toHaveText(mu.toFixed(2));
+    await expect(panel.getByTestId('point-readout')).toHaveText(expected.pointDisplay);
+    await expect(panel.getByTestId('dr-readout')).toHaveText(expected.drDisplay);
+    await expect(panel.getByRole('slider', { name: /randomization half-width/i })).toHaveValue(String(Math.round(range * 100)));
+    const line = await panel.getByTestId('real-line').locator('line').getAttribute('x1');
+    const curve = await panel.getByTestId('dr-curve').getAttribute('points');
+    expect(line).not.toBeNull();
+    expect(curve).not.toBeNull();
+    observations.push({
+      name, input: { mu, range }, expected, line, curve,
+      point: await panel.getByTestId('point-readout').innerText(),
+      dr: await panel.getByTestId('dr-readout').innerText(),
+      artifact: await capture(page, panel, name),
+    });
+    return { line, curve };
+  }
+
+  const initial = await frictionState(ordinary, 'friction-default', 0.8, 0.35);
+  await setSlider(ordinary.getByRole('slider', { name: /real robot friction/i }), 150);
+  const far = await frictionState(ordinary, 'friction-far', 1.5, 0.35);
+  expect(far.line).not.toEqual(initial.line);
+  await setSlider(ordinary.getByRole('slider', { name: /real robot friction/i }), 80);
+  await setSlider(ordinary.getByRole('slider', { name: /randomization half-width/i }), 65);
+  const wide = await frictionState(ordinary, 'friction-wide', 0.8, 0.65);
+  expect(wide.curve).not.toEqual(initial.curve);
+  await ordinary.getByRole('button', { name: 'Reset', exact: true }).click();
+  expect(await frictionState(ordinary, 'friction-reset', 0.8, 0.35)).toEqual(initial);
+
+  await expect(reveal).not.toBeVisible();
+  await page.locator('[data-predict]').getByRole('radio', {
+    name: 'The plateau widens and its peak falls because the formula makes it do so',
+  }).check();
+  await expect(page.locator('[data-predict] [data-reveal]')).toHaveAttribute('open', '');
+  const revealInitial = await frictionState(reveal, 'reveal-default', 0.8, 0.65);
+  await setSlider(reveal.getByRole('slider', { name: /real robot friction/i }), 150);
+  await setSlider(reveal.getByRole('slider', { name: /randomization half-width/i }), 35);
+  const revealChanged = await frictionState(reveal, 'reveal-changed', 1.5, 0.35);
+  expect(revealChanged.line).not.toEqual(revealInitial.line);
+  expect(revealChanged.curve).not.toEqual(revealInitial.curve);
+  await reveal.getByRole('button', { name: 'Reset', exact: true }).click();
+  expect(await frictionState(reveal, 'reveal-reset', 0.8, 0.65)).toEqual(revealInitial);
+  await expect(ordinary.getByRole('slider', { name: /randomization half-width/i })).toHaveValue('35');
+
+  const teacher = page.getByTestId('teacher-panel')
+    .locator('xpath=ancestor::div[@data-brand-surface-id="surface:flat"][1]');
+  const degradationSlider = teacher.getByRole('slider', { name: /proprioceptive degradation/i });
+  async function teacherState(name: string, degradation: number) {
+    const expected = teacherOracle(degradation);
+    await expect(degradationSlider).toHaveValue(String(degradation * 100));
+    await expect(teacher.getByTestId('mae-readout')).toHaveText(expected.maeDisplay);
+    await expect(teacher.getByTestId('divergence-readout')).toHaveText(expected.divergenceDisplay);
+    await expect(teacher.getByTestId('occluded-readout')).toHaveText(expected.occludedDisplay);
+    await expect(teacher.getByTestId('recon-panel').locator('rect')).toHaveCount(24);
+    await expect(teacher.getByTestId('student-panel').locator('g')).toHaveCount(expected.occluded.filter(Boolean).length);
+    const reconstruction = await teacher.getByTestId('recon-panel').innerHTML();
+    const input = await teacher.getByTestId('student-panel').innerHTML();
+    observations.push({ name, input: { degradation }, expected, reconstruction, inputMarkup: input, artifact: await capture(page, teacher, name) });
+    return { reconstruction, input };
+  }
+  const teacherInitial = await teacherState('teacher-default', 0.15);
+  await setSlider(degradationSlider, 100);
+  const teacherHigh = await teacherState('teacher-high', 1);
+  expect(teacherHigh.reconstruction).not.toEqual(teacherInitial.reconstruction);
+  expect(teacherHigh.input).not.toEqual(teacherInitial.input);
+  await setSlider(degradationSlider, 0);
+  await teacherState('teacher-zero', 0);
+  const teacherColors = await teacher.getByTestId('teacher-panel').locator('rect').evaluateAll(nodes => nodes.map(node => node.getAttribute('fill')));
+  const reconColors = await teacher.getByTestId('recon-panel').locator('rect').evaluateAll(nodes => nodes.map(node => node.getAttribute('fill')));
+  expect(reconColors).toEqual(teacherColors);
+  await teacher.getByRole('button', { name: 'Reset', exact: true }).click();
+  expect(await teacherState('teacher-reset', 0.15)).toEqual(teacherInitial);
+  await expect(teacher).toContainText('Darker cells are higher terrain');
+  const desktopAxe = await new AxeBuilder({ page }).include('#main-content').analyze();
+  expect(desktopAxe.violations).toEqual([]);
+  await expect(page.locator('div.prose[data-pagefind-body]')).toContainText('not inferred from the displayed input strip');
+  let mobileArtifact: Awaited<ReturnType<typeof capture>> | null = null;
+  let mobileAxeViolations: unknown[] | null = null;
+  if (!finalCapture) {
+    await page.setViewportSize({ width: 375, height: 812 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+    mobileArtifact = await capture(page, teacher, 'mobile-disclosure');
+    const mobileAxe = await new AxeBuilder({ page }).include('#main-content').analyze();
+    expect(mobileAxe.violations).toEqual([]);
+    mobileAxeViolations = mobileAxe.violations;
+  }
+  expect(errors).toEqual([]);
+  expect(external).toEqual([]);
+  if (producing) {
+    const dependencies = [
+      'content/rl-sim2real/sim2real-transfer.mdx', 'lib/sim2real.ts', 'lib/audit-local-basis.ts',
+      'components/interactive/friction-transfer.tsx', 'components/interactive/teacher-student.tsx',
+      'components/article/commit-to-reveal.tsx', 'tests/e2e/slider.ts',
+      'tests/e2e/sim2real-local-evidence.spec.ts',
+      'audit/evidence/sim2real-local-20260923/proof-support.ts',
+    ].map(path => ({ path, sha256: sha256(readFileSync(path)) }));
+    writeFileSync(`${directory}/${finalCapture ? 'browser-run-final.json' : 'browser-run.json'}`, JSON.stringify({
+      kind: 'raw-mounted-browser-run', auditCertification: false, startedAt,
+      completedAt: new Date().toISOString(), observations, mobileArtifact,
+      pageErrors: errors, blockedExternalRequests: external,
+      desktopAxeViolations: desktopAxe.violations, mobileAxeViolations,
+      dependencies,
+    }, null, 2) + '\n', { flag: 'wx' });
+  }
+});

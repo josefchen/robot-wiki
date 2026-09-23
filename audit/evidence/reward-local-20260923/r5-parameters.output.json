@@ -1,0 +1,244 @@
+{
+  "values": {
+    "terms": [
+      {
+        "id": "velTrack",
+        "label": "Linear velocity tracking",
+        "sign": 1,
+        "magnitude": 1,
+        "defaultWeight": 1,
+        "blurb": "Follow the commanded forward velocity. The task itself."
+      },
+      {
+        "id": "yawTrack",
+        "label": "Yaw rate tracking",
+        "sign": 1,
+        "magnitude": 0.5,
+        "defaultWeight": 0.5,
+        "blurb": "Follow the commanded turn rate."
+      },
+      {
+        "id": "torque",
+        "label": "Torque penalty",
+        "sign": -1,
+        "magnitude": 1,
+        "defaultWeight": 0.8,
+        "blurb": "Discourage large joint torques; saves the actuators."
+      },
+      {
+        "id": "jointAccel",
+        "label": "Joint acceleration penalty",
+        "sign": -1,
+        "magnitude": 0.5,
+        "defaultWeight": 0.5,
+        "blurb": "Smooths the motion by pricing jerky joints."
+      },
+      {
+        "id": "actionRate",
+        "label": "Action-rate penalty",
+        "sign": -1,
+        "magnitude": 1,
+        "defaultWeight": 0.8,
+        "blurb": "Penalizes step-to-step action changes; suppresses chatter."
+      },
+      {
+        "id": "jointLimit",
+        "label": "Joint limit penalty",
+        "sign": -1,
+        "magnitude": 1,
+        "defaultWeight": 1,
+        "blurb": "Keeps joints off their mechanical stops."
+      },
+      {
+        "id": "collision",
+        "label": "Collision penalty",
+        "sign": -1,
+        "magnitude": 1,
+        "defaultWeight": 1,
+        "blurb": "Penalizes contact on bodies that should never touch."
+      },
+      {
+        "id": "baseHeight",
+        "label": "Base height",
+        "sign": 1,
+        "magnitude": 0.5,
+        "defaultWeight": 0.5,
+        "blurb": "Holds the torso near a target height."
+      },
+      {
+        "id": "orientation",
+        "label": "Orientation penalty",
+        "sign": -1,
+        "magnitude": 0.8,
+        "defaultWeight": 0.8,
+        "blurb": "Penalizes roll and pitch away from level."
+      },
+      {
+        "id": "airTime",
+        "label": "Foot air time",
+        "sign": 1,
+        "magnitude": 0.6,
+        "defaultWeight": 0.6,
+        "blurb": "Illustrative air-time contribution; not the reference first-contact calculation."
+      },
+      {
+        "id": "stumble",
+        "label": "Foot stumble penalty",
+        "sign": -1,
+        "magnitude": 0.8,
+        "defaultWeight": 0.8,
+        "blurb": "Penalizes feet catching vertical surfaces mid-stride."
+      },
+      {
+        "id": "termination",
+        "label": "Termination penalty",
+        "sign": -1,
+        "magnitude": 1.5,
+        "defaultWeight": 1.5,
+        "blurb": "Falling over ends the episode at a cost."
+      }
+    ],
+    "weights": {
+      "velTrack": 1,
+      "yawTrack": 0.5,
+      "torque": 0.8,
+      "jointAccel": 0.5,
+      "actionRate": 0.8,
+      "jointLimit": 1,
+      "collision": 1,
+      "baseHeight": 0.5,
+      "orientation": 0.8,
+      "airTime": 0.6,
+      "stumble": 0.8,
+      "termination": 1.5
+    },
+    "phase": 0,
+    "phaseRange": [
+      0,
+      1
+    ],
+    "weightRange": [
+      0,
+      4,
+      0.1
+    ],
+    "behaviors": {
+      "balanced": {
+        "id": "balanced",
+        "name": "balanced trot",
+        "status": "balanced gait",
+        "tone": "ok",
+        "description": "This toy selects a balanced trot when none of its three failure-category rules fires. The motion is drawn from a fixed gait pattern, not an optimized policy."
+      },
+      "frozen": {
+        "id": "frozen",
+        "name": "freeze attractor",
+        "status": "failure attractor: freeze",
+        "tone": "err",
+        "description": "This toy selects freeze when the torque weight crosses its fixed absolute and relative thresholds. The stationary preview is a teaching choice, not a trained optimum."
+      },
+      "prancing": {
+        "id": "prancing",
+        "name": "prance attractor",
+        "status": "failure attractor: prance",
+        "tone": "err",
+        "description": "This toy selects prance when the air-time weight crosses its fixed absolute and relative thresholds. The bouncing preview is not the reference first-contact reward or a trained policy."
+      },
+      "chatter": {
+        "id": "chatter",
+        "name": "chatter attractor",
+        "status": "failure attractor: chatter",
+        "tone": "err",
+        "description": "This toy selects chatter when the action-rate weight is at or below its fixed threshold. The drawn vibration is not a measured control frequency or an actuator-damage prediction."
+      }
+    },
+    "threshold": 2.5,
+    "dominance": 2,
+    "authoredCaseBasis": "Fixed illustrative test inputs from model defaults and bounds, not measured or learned results.",
+    "authoredCases": {
+      "freeze": {
+        "weights": {
+          "velTrack": 1,
+          "yawTrack": 0.5,
+          "torque": 4,
+          "jointAccel": 0.5,
+          "actionRate": 0.8,
+          "jointLimit": 1,
+          "collision": 1,
+          "baseHeight": 0.5,
+          "orientation": 0.8,
+          "airTime": 0.6,
+          "stumble": 0.8,
+          "termination": 1.5
+        }
+      },
+      "prance": {
+        "weights": {
+          "velTrack": 1,
+          "yawTrack": 0.5,
+          "torque": 0.8,
+          "jointAccel": 0.5,
+          "actionRate": 0.8,
+          "jointLimit": 1,
+          "collision": 1,
+          "baseHeight": 0.5,
+          "orientation": 0.8,
+          "airTime": 4,
+          "stumble": 0.8,
+          "termination": 1.5
+        }
+      },
+      "chatter": {
+        "weights": {
+          "velTrack": 1,
+          "yawTrack": 0.5,
+          "torque": 0.8,
+          "jointAccel": 0.5,
+          "actionRate": 0,
+          "jointLimit": 1,
+          "collision": 1,
+          "baseHeight": 0.5,
+          "orientation": 0.8,
+          "airTime": 0.6,
+          "stumble": 0.8,
+          "termination": 1.5
+        }
+      },
+      "dominanceCounterexample": {
+        "weights": {
+          "velTrack": 4,
+          "yawTrack": 0.5,
+          "torque": 4,
+          "jointAccel": 0.5,
+          "actionRate": 0.8,
+          "jointLimit": 1,
+          "collision": 1,
+          "baseHeight": 0.5,
+          "orientation": 0.8,
+          "airTime": 0.6,
+          "stumble": 0.8,
+          "termination": 1.5
+        }
+      },
+      "priorityTie": {
+        "weights": {
+          "velTrack": 1,
+          "yawTrack": 0.5,
+          "torque": 4,
+          "jointAccel": 0.5,
+          "actionRate": 0.8,
+          "jointLimit": 1,
+          "collision": 1,
+          "baseHeight": 0.5,
+          "orientation": 0.8,
+          "airTime": 4,
+          "stumble": 0.8,
+          "termination": 1.5
+        }
+      }
+    }
+  },
+  "units": "dimensionless unless explicitly keyed",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "reward:parameters:v1"
+}
