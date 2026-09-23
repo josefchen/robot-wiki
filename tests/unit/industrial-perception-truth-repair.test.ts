@@ -295,12 +295,12 @@ describe('prior citation links: nine-obligation follow-up', () => {
   const rows = parseCitationLedgerRows(text);
   const outcomes = [
     ['ng-reward-shaping-1999', 'ok (HTTP 200; 2026-09-23)'],
-    ['seeed-so-arm101-pro-2026', 'FAIL (unresolved product identity; 2026-09-23)'],
+    ['seeed-so-arm101-pro-2026', 'ok (documented title-mismatch exception; HTTP 200; 2026-09-23)'],
     ['astrom-murray-2008', 'FAIL (unresolved transport; 2026-09-23)'],
     ['mcgee-schmidt-1985', 'ok (HTTP 200; 2026-09-23)'],
     ['technology-org-deployed-2026', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
     ['hinterstoisser-2012', 'ok (crossref; 2026-09-23)'],
-    ['gsn-standard-v3', 'FAIL (unresolved document identity; 2026-09-23)'],
+    ['gsn-standard-v3', 'ok (documented title-mismatch exception; HTTP 200; 2026-09-23)'],
     ['symbotic-10k-2025', 'ok (documented title-mismatch exception; HTTP 200; 2026-09-23)'],
     ['kroger-ocado-closures-2025', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
   ] as const;
@@ -346,9 +346,14 @@ describe('prior citation links: nine-obligation follow-up', () => {
       'b7f7f0a7cdbd4eacff3520b4ca7f25f91e64cf49f3fc0e1907727d93088cb32b',
       'origin headers/redirects were not exposed',
     ]) expect(exception?.verifiedBy).toContain(literal);
-    for (const id of ['seeed-so-arm101-pro-2026', 'astrom-murray-2008',
-      'technology-org-deployed-2026', 'gsn-standard-v3', 'kroger-ocado-closures-2025']) {
+    for (const id of ['astrom-murray-2008', 'technology-org-deployed-2026',
+      'kroger-ocado-closures-2025']) {
       expect(LINK_CHECK_EXCEPTIONS.some((item) => item.id === id)).toBe(false);
+    }
+    for (const id of ['seeed-so-arm101-pro-2026', 'gsn-standard-v3']) {
+      expect(LINK_CHECK_EXCEPTIONS.filter((item) => item.id === id)).toHaveLength(1);
+      expect(LINK_CHECK_EXCEPTIONS.find((item) => item.id === id)?.covers)
+        .toEqual(['title-mismatch']);
     }
   });
 
@@ -390,5 +395,128 @@ describe('prior citation links: nine-obligation follow-up', () => {
     expect(addendum).toContain('status 0 is absence of an observed HTTP response');
     expect(addendum).toContain('unverified candidate only');
     expect(addendum).toContain('no company claim or original row is completed');
+  });
+});
+
+
+describe('two identity exceptions integration', () => {
+  const targets = [
+    {
+      id: 'seeed-so-arm101-pro-2026',
+      url: 'https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html',
+      finalUrl: 'https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html',
+      fetchedTitle: 'SO-101 3D-Printed Robotic Arm Frame | Open-Source Robotics Kit for DIY Projects',
+      identity: ['SO-ARM101 Pro Assembled Kit', '100046482', 'pre-assembled with a camera'],
+      sourceDate: '2026-09-23T00:59:34.892Z',
+      sourceHash: '43677acd47565968adae07fedd8ae1f98cfea80bf0c5e9bc9a731e2e6ffdcfee',
+      sourceLimit: 'Scrape success is not origin HTTP 200',
+      hops: [301, 200],
+    },
+    {
+      id: 'gsn-standard-v3', url: 'https://scsc.uk/scsc-141c',
+      finalUrl: 'https://scsc.uk/index.php/publications/download?ref=1386',
+      fetchedTitle: 'Download',
+      identity: ['Community Standard Version 3', 'May 2021', 'SCSC ACWG'],
+      sourceDate: '2026-09-15T10:23:35.084Z',
+      sourceHash: '7b5acead31e173bc33448da216c2c84d9b4699a389ab48edbc4f42ecbb1b6210',
+      sourceLimit: 'tool-reported, not origin headers',
+      hops: [302, 302, 200],
+    },
+  ];
+  const observation = (target: typeof targets[number]): CitationAuditResult => ({
+    id: target.id, url: target.url, finalUrl: target.finalUrl,
+    verdict: 'live', status: 200,
+    chain: target.hops.map((status, index) => ({
+      status,
+      url: index === 0 ? target.url : index === target.hops.length - 1
+        ? target.finalUrl : 'https://scsc.uk/forward?scsc=141c',
+    })),
+    fetchedTitle: target.fetchedTitle, titleCheckedBy: 'html', titleComparison: 'mismatch',
+  });
+
+  it.each(targets)('documents the exact primary identity and source limits for $id', (target) => {
+    const matches = LINK_CHECK_EXCEPTIONS.filter(({ id }) => id === target.id);
+    expect(matches).toHaveLength(1);
+    expect(matches[0].covers).toEqual(['title-mismatch']);
+    expect(matches[0].verifiedOn).toBe('2026-09-23');
+    for (const literal of target.identity) expect(matches[0].reason).toContain(literal);
+    for (const literal of [target.sourceDate, target.sourceHash, target.sourceLimit]) {
+      expect(matches[0].verifiedBy).toContain(literal);
+    }
+  });
+
+  it.each(targets)('resolves only the documented title divergence for $id', (target) => {
+    const citation = CITATIONS.find(({ id }) => id === target.id)!;
+    expect(compareTitles(citation.title, target.fetchedTitle, citation.type)).toBe('mismatch');
+    const observed = observation(target);
+    expect(isAuditFailure(observed)).toBe(true);
+    const exception = LINK_CHECK_EXCEPTIONS.find(({ id }) => id === target.id);
+    const resolved = applyTitleMismatchException(applyException(observed, exception), exception);
+    expect(resolved.resolvedBy).toBe('exception');
+    expect(resolved.titleComparison).toBe('mismatch');
+    expect(resolved.fetchedTitle).toBe(target.fetchedTitle);
+    expect(resolved.chain.map(({ status }) => status)).toEqual(target.hops);
+    expect(isAuditFailure(resolved)).toBe(false);
+  });
+
+  it.each(targets.flatMap((target) => [0, 403, 404, 410, 500].map((status) => ({
+    ...target, status,
+  }))))('does not excuse response status $status for $id', (target) => {
+    const failed: CitationAuditResult = {
+      ...observation(target), status: target.status, verdict: classifyStatus(target.status),
+      chain: target.status ? [{ status: target.status, url: target.url }] : [],
+      titleComparison: 'unavailable', fetchedTitle: undefined, titleCheckedBy: undefined,
+    };
+    const exception = LINK_CHECK_EXCEPTIONS.find(({ id }) => id === target.id);
+    const resolved = applyTitleMismatchException(applyException(failed, exception), exception);
+    expect(resolved.resolvedBy).toBeUndefined();
+    expect(isAuditFailure(resolved)).toBe(true);
+  });
+
+  it.each(targets)('does not apply another document identity exception to $id', (target) => {
+    const other = targets.find(({ id }) => id !== target.id)!;
+    const exception = LINK_CHECK_EXCEPTIONS.find(({ id }) => id === other.id);
+    const observed = observation(target);
+    expect(applyTitleMismatchException(observed, exception)).toBe(observed);
+    expect(isAuditFailure(observed)).toBe(true);
+  });
+
+  it('retains both exact previous failures as history and reports exception-resolved observations', () => {
+    const addendum = read('audit/citations.md')
+      .split('## Seeed and GSN identity integration, 2026-09-23')[1];
+    const json = addendum.split('Exact pre-integration rows:')[1]
+      .split('```json\n')[1].split('\n```')[0];
+    const history = JSON.parse(json) as Array<{ id: string; originalRow: string }>;
+    expect(history.map(({ id }) => id)).toEqual(targets.map(({ id }) => id));
+    expect(history[0].originalRow).toContain('FAIL (unresolved product identity; 2026-09-23)');
+    expect(history[1].originalRow).toContain('FAIL (unresolved document identity; 2026-09-23)');
+    expect(addendum).toContain('2026-09-23T01:13:52.914633+00:00');
+    expect(addendum).toContain('2026-09-23T01:13:54.151910+00:00');
+    expect(addendum).toContain('excepted=1 and ok=0');
+    expect(addendum).toContain('Zero original claim completions');
+  });
+
+  it('keeps all three external failures unresolved and without exception coverage', () => {
+    const rows = parseCitationLedgerRows(read('audit/citations.md'));
+    for (const [id, verdict] of [
+      ['astrom-murray-2008', 'FAIL (unresolved transport; 2026-09-23)'],
+      ['technology-org-deployed-2026', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
+      ['kroger-ocado-closures-2025', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
+    ]) {
+      expect(rows.find((row) => row.id === id)?.verdict).toBe(verdict);
+      expect(LINK_CHECK_EXCEPTIONS.some((item) => item.id === id)).toBe(false);
+    }
+  });
+
+  it('preserves the two exact registry entries rather than replacing metadata to force a match', () => {
+    expect(CITATIONS.find(({ id }) => id === targets[0].id)).toEqual({
+      id: targets[0].id, title: 'SO-ARM101 Pro Kits', authors: ['Seeed Studio'],
+      year: 2026, url: targets[0].url, type: 'docs',
+    });
+    expect(CITATIONS.find(({ id }) => id === targets[1].id)).toEqual({
+      id: targets[1].id, title: 'Goal Structuring Notation Community Standard Version 3',
+      authors: ['SCSC Assurance Case Working Group'], year: 2021,
+      venue: 'Safety-Critical Systems Club', url: targets[1].url, type: 'docs',
+    });
   });
 });

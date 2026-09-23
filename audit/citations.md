@@ -413,7 +413,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | so-arm100-repo-2026 | https://github.com/TheRobotStudio/SO-ARM100 | ok | match | none (verified as cited) |  |
 | lerobot-docs-2026 | https://huggingface.co/docs/lerobot/index | ok | match | none (verified as cited) |  |
 | lerobot-pricing-2026 | https://github.com/alpibrusl/lex-robot/issues/3 | ok | match | none (verified as cited) |  |
-| seeed-so-arm101-pro-2026 | https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html | FAIL (unresolved product identity; 2026-09-23) | MISMATCH | Scoped observation only; registry unchanged; original row preserved below | The HTML title names a 3D-printed frame, not the registered Pro kit. The observed 301 target is https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; it is an observed redirect only, NOT a verified same-product replacement proposal. No registry edit or title exception; product identity remains unresolved. Observed 2026-09-23T00:35:38.208530+00:00; exit 1; chain: 301 https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html -> 200 https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; final URL: https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; fetched title: SO-101 3D-Printed Robotic Arm Frame &#124; Open-Source Robotics Kit for DIY Projects. |
+| seeed-so-arm101-pro-2026 | https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html | ok (documented title-mismatch exception; HTTP 200; 2026-09-23) | MISMATCH: SO-101 3D-Printed Robotic Arm Frame &#124; Open-Source Robotics Kit for DIY Projects (documented title divergence) | Scoped observation only; registry unchanged; exact prior row retained below | Primary body names SO-ARM101 Pro Assembled Kit, SKU 100046482; kit comparison and part list establish assembled arms and camera, not frames alone. Observed 2026-09-23T01:13:52.914633+00:00; one changed-input native check, exit 0; chain: 301 https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html -> 200 https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; final URL: https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; fetched title: SO-101 3D-Printed Robotic Arm Frame &#124; Open-Source Robotics Kit for DIY Projects; titleComparison=mismatch; resolvedBy=exception; summary excepted=1, ok=0. Current origin HTTP comes only from this native receipt. Retained source times and exact prior failure row are preserved in the identity-integration addendum. No original claim completion. |
 | trossen-ai-2026 | https://www.trossenrobotics.com/ai | ok | match | none (verified as cited) |  |
 | robozaps-humanoids-2026 | https://blog.robozaps.com/b/best-humanoid-robots | ok | match | none (verified as cited) |  |
 | unitree-g1-2026 | https://www.unitree.com/g1/ | ok | match | none (verified as cited) |  |
@@ -642,7 +642,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | ames-cbf-2019 | https://arxiv.org/abs/1903.11199 | ok | match | none (first audited 2026-09-06) |  |
 | wabersich-safety-filters-2023 | https://doi.org/10.1109/MCS.2023.3291885 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 202 https://ieeexplore.ieee.org/document/10266799/; final: https://ieeexplore.ieee.org/document/10266799/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/MCS.2023.3291885 matches the registry title and year |
 | ul-4600-2023 | https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600 | ok | match | none (first audited 2026-09-06) |  |
-| gsn-standard-v3 | https://scsc.uk/scsc-141c | FAIL (unresolved document identity; 2026-09-23) | MISMATCH: Download | Scoped observation only; registry unchanged; original row preserved below | Generic Download title alone does not prove the intended standard. Retained source-preparer summary points to GSN text but is not a preserved primary passage; its named session file was unavailable in the continuation session directory. No qualifying body/receipt was recovered, so no exception or retry; actual standard identity remains unverified for this link check. Observed 2026-09-23T00:36:40.269472+00:00; exit 1; chain: 302 https://scsc.uk/scsc-141c -> 302 https://scsc.uk/forward?scsc=141c -> 200 https://scsc.uk/index.php/publications/download?ref=1386; final URL: https://scsc.uk/index.php/publications/download?ref=1386; fetched title: Download. |
+| gsn-standard-v3 | https://scsc.uk/scsc-141c | ok (documented title-mismatch exception; HTTP 200; 2026-09-23) | MISMATCH: Download (documented title divergence) | Scoped observation only; registry unchanged; exact prior row retained below | Recovered published cover, document-history row and attribution establish Goal Structuring Notation Community Standard Version 3, May 2021, SCSC ACWG. Observed 2026-09-23T01:13:54.151910+00:00; one changed-input native check, exit 0; chain: 302 https://scsc.uk/scsc-141c -> 302 https://scsc.uk/forward?scsc=141c -> 200 https://scsc.uk/index.php/publications/download?ref=1386; final URL: https://scsc.uk/index.php/publications/download?ref=1386; fetched title: Download; titleComparison=mismatch; resolvedBy=exception; summary excepted=1, ok=0. Current origin HTTP comes only from this native receipt. Retained source times and exact prior failure row are preserved in the identity-integration addendum. No original claim completion. |
 | vovk-conformal-2022 | https://doi.org/10.1007/978-3-031-06649-8 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 200 https://link.springer.com/10.1007/978-3-031-06649-8; final: https://link.springer.com/10.1007/978-3-031-06649-8; no comparable title at HTTP 200; Crossref metadata for doi:10.1007/978-3-031-06649-8 matches the registry title and year |
 | angelopoulos-conformal-2021 | https://arxiv.org/abs/2107.07511 | ok | match | none (first audited 2026-09-06) |  |
 | knowno-2023 | https://arxiv.org/abs/2307.01928 | ok | match | none (first audited 2026-09-06) |  |
@@ -1065,3 +1065,132 @@ prose changed; lastReviewed is unchanged and humanizer does not apply.
 Zero original claim completions; the parent-reported 959 complete / 35 incomplete /
 994 originals is unchanged. The 48 saved findings are not a newly run gate result.
 This scoped checkpoint does not establish VAL-AUDIT-008 full-corpus acceptance.
+
+## Seeed and GSN identity integration, 2026-09-23
+
+Parent authorized only the two prepared ID-specific title-mismatch distinctions
+and then explicitly authorized routine repair of the three directly contradictory
+existing assertions. The initial no-edits stop is retained in the integration
+progress/handoff as resolved by that authorization. No owner-only decision,
+checker relaxation, registry URL/title/year/author change or generic exception.
+
+The completed two-entry current-registry comparison, packet/source hashes and
+eight literal passage checks at 2026-09-23T01:10:57.525297Z were reused after the
+same clean base was confirmed. Immutable packet:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-citation-identity-recovery-20260923/proposals.json
+SHA256 1c0d3d899c348ef88430c70d18c7c8c47ab602c9a7a1228e77acebf00a478b82.
+Registry blob d1da00857d5e5f5f2079a07cbe1e6ee384d4ca99; two current entries match
+that packet exactly. No original-row integration or completion credit.
+
+### Current native changed-input observations
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id seeed-so-arm101-pro-2026 --json`: 2026-09-23T01:13:49.609257+00:00 to 2026-09-23T01:13:52.914633+00:00, exit 0; {"chain": [{"status": 301, "url": "https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html"}, {"status": 200, "url": "https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html"}], "finalUrl": "https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html", "fetchedTitle": "SO-101 3D-Printed Robotic Arm Frame | Open-Source Robotics Kit for DIY Projects", "titleComparison": "mismatch", "resolvedBy": "exception", "summary": {"checked": 1, "ok": 0, "titleUnavailable": 0, "titleMismatch": 0, "crossrefVerified": 0, "excepted": 1, "dead": 0, "blocked": 0, "error": 0, "archival": 0}}.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id gsn-standard-v3 --json`: 2026-09-23T01:13:52.915218+00:00 to 2026-09-23T01:13:54.151910+00:00, exit 0; {"chain": [{"status": 302, "url": "https://scsc.uk/scsc-141c"}, {"status": 302, "url": "https://scsc.uk/forward?scsc=141c"}, {"status": 200, "url": "https://scsc.uk/index.php/publications/download?ref=1386"}], "finalUrl": "https://scsc.uk/index.php/publications/download?ref=1386", "fetchedTitle": "Download", "titleComparison": "mismatch", "resolvedBy": "exception", "summary": {"checked": 1, "ok": 0, "titleUnavailable": 0, "titleMismatch": 0, "crossrefVerified": 0, "excepted": 1, "dead": 0, "blocked": 0, "error": 0, "archival": 0}}.
+
+Both native results are exception-resolved, not automatic title matches. Each
+summary has excepted=1 and ok=0. These two invocations are the only native citation
+checks in this integration slice; no unchanged retry or other ID check occurred.
+
+### Seeed primary identity and date boundaries
+
+Retained public rune___web_scrape response from 2026-09-23T00:59:34.892Z
+(request 2026-09-23T00:59:27.686Z), exact requested/final URL
+https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-citation-identity-recovery-20260923/source-2.txt
+SHA256 43677acd47565968adae07fedd8ae1f98cfea80bf0c5e9bc9a731e2e6ffdcfee;
+30,428 raw-result bytes; 29,108 markdown characters; truncated=false. No origin
+HTTP status or redirect chain was exposed by that scraper; successful markdown
+is not origin HTTP 200. Current origin observations above are native-checker data.
+Literal retained product identity:
+
+> # SO-ARM101 Pro Assembled Kit – LeRobot Compatible 6DOF Robotic Arm
+>
+> **SKU**
+>
+> 100046482
+
+The visible comparison identifies the Pro kit as pre-assembled with a camera;
+its part list contains assembled leader/follower arms and USB camera. The packet
+preserves those literal tables. The misleading frame-only SEO title is the sole
+exception basis; a filename or search snippet alone was not used as body proof.
+No canonical-URL replacement or product publication date is asserted. Registry
+year 2026 is unchanged, not independently established as a publication date.
+
+### GSN published-body identity and edition date
+
+Recovered original FetchUrl request 2026-09-15T10:23:00.827Z and response
+2026-09-15T10:23:35.084Z at https://scsc.uk/scsc-141c; original request event
+dba50eb5-eeb4-4f9d-a37a-9bef2eb1e6de, response event
+eb14764b-e3de-4842-8993-39d61c7db024. The exact-filename session lookup recovered
+the transcript missed in the earlier continuation-directory attempt. Its truncated
+response pointed to the full saved result, preserved byte-for-byte at:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-citation-identity-recovery-20260923/source-1.txt
+SHA256 7b5acead31e173bc33448da216c2c84d9b4699a389ab48edbc4f42ecbb1b6210;
+234,185 bytes, 4,678 lines. The old Status: 200 is tool-reported, not origin headers.
+September 23 is recovery/review, not a new source-body retrieval. Identity sections
+were verified; no full scientific/claim audit or latest-edition assertion is made.
+Literal retained cover and edition evidence:
+
+> ## Goal Structuring Notation
+>
+> ## Community Standard Version 3
+>
+> The Assurance Case
+> Working Group (ACWG)
+>
+> SCSC-141C
+
+Published document-history row (literal):
+
+```text
+| 3 | User Community | May 2021 | For Use |
+```
+
+Literal publication attribution:
+
+> Responsibility for publication and maintenance of this standard
+> has now been transferred to the SCSC Assurance Case Working
+> Group (ACWG). See www.scsc.uk/gc for further details
+
+The body expands SCSC as Safety-Critical Systems Club, matching the registry venue.
+Version 3 / May 2021 is the edition basis for the existing year 2021. Only the
+Download HTML-title versus identified-standard-title divergence is covered.
+
+### Exact prior rows and failure receipts retained
+
+The prior two failed native JSON/stderr pairs in
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-prior-citation-links-20260923
+remain immutable. The earlier nine-ID addendum remains historical; this addendum
+supersedes only its two selected identity holds. Exact pre-integration rows:
+
+```json
+[
+  {
+    "id": "seeed-so-arm101-pro-2026",
+    "baseCommit": "f27df8e225dd4b2bede68fd19c021ed2f9b484e6",
+    "originalRow": "| seeed-so-arm101-pro-2026 | https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html | FAIL (unresolved product identity; 2026-09-23) | MISMATCH | Scoped observation only; registry unchanged; original row preserved below | The HTML title names a 3D-printed frame, not the registered Pro kit. The observed 301 target is https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; it is an observed redirect only, NOT a verified same-product replacement proposal. No registry edit or title exception; product identity remains unresolved. Observed 2026-09-23T00:35:38.208530+00:00; exit 1; chain: 301 https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html -> 200 https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; final URL: https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; fetched title: SO-101 3D-Printed Robotic Arm Frame &#124; Open-Source Robotics Kit for DIY Projects. |"
+  },
+  {
+    "id": "gsn-standard-v3",
+    "baseCommit": "f27df8e225dd4b2bede68fd19c021ed2f9b484e6",
+    "originalRow": "| gsn-standard-v3 | https://scsc.uk/scsc-141c | FAIL (unresolved document identity; 2026-09-23) | MISMATCH: Download | Scoped observation only; registry unchanged; original row preserved below | Generic Download title alone does not prove the intended standard. Retained source-preparer summary points to GSN text but is not a preserved primary passage; its named session file was unavailable in the continuation session directory. No qualifying body/receipt was recovered, so no exception or retry; actual standard identity remains unverified for this link check. Observed 2026-09-23T00:36:40.269472+00:00; exit 1; chain: 302 https://scsc.uk/scsc-141c -> 302 https://scsc.uk/forward?scsc=141c -> 200 https://scsc.uk/index.php/publications/download?ref=1386; final URL: https://scsc.uk/index.php/publications/download?ref=1386; fetched title: Download. |"
+  }
+]
+```
+
+Remaining external obligations are unchanged: astrom-murray-2008 (fetch failure,
+status 0 sentinel, no origin HTTP response), technology-org-deployed-2026 (HTTP
+403), kroger-ocado-closures-2025 (HTTP 403). None was retried or excepted. No HTTP
+error/blocked coverage was added. No full-corpus audit, independent acceptance,
+browser/build/export or publication. Zero original claim completions; parent
+accounting remains 959 complete / 35 incomplete / 994 originals, with 48 saved
+findings, not a newly run gate result. Content gate remains red.
+
+### Verification of the two identity integrations
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run test -- tests/unit/industrial-perception-truth-repair.test.ts -t 'two identity exceptions integration|records exactly one current disposition for (seeed-so-arm101-pro-2026|gsn-standard-v3)|documents only the exact Symbotic filename-title divergence'`: 22 passed: 19 new + 3 explicitly authorized affected cases; 41 unaffected cases skipped; exit 0; completed 2026-09-23T01:18:09.590551+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint`: prelint passed; exit 0; completed 2026-09-23T01:18:39.681363+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/eslint/bin/eslint.js data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts --max-warnings 0`: focused lint passed; exit 0; completed 2026-09-23T01:18:40.927750+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule --types node data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts`: narrow types passed; exit 0; completed 2026-09-23T01:18:41.096205+00:00.
+
+No unaffected prior green unit cases or citation IDs were rerun. The three external failure statuses and absent exceptions are explicitly retained; no broader suite or gate was run.
