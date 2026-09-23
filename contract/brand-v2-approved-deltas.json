@@ -19038,6 +19038,78 @@
      "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
+   },
+   {
+    "id": "reader-rl-prose-20260923-1",
+    "manifest": "prose",
+    "memberId": "article:manipulation/rl-finetuning",
+    "oldHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+    "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6",
+    "reason": "Partial F07, the remaining three F18 duplicate pairs, and Play2Perfect-only F20: bounded reader-only repair at article:manipulation/rl-finetuning. Restore inline citations without forced Source breaks; keep the local task, comparator and source qualifications while linking to unchanged full explanations; merge the Play2Perfect result with its adjacent per-task explanation. No factual extension, original row mutation or completion credit; lastReviewed unchanged.",
+    "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-003",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-rl-prose-20260923-2",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/why-rl-locomotion",
+    "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+    "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e",
+    "reason": "Partial F07, the remaining three F18 duplicate pairs, and Play2Perfect-only F20: bounded reader-only repair at article:rl-sim2real/why-rl-locomotion. Restore inline citations without forced Source breaks; keep the local task, comparator and source qualifications while linking to unchanged full explanations; merge the Play2Perfect result with its adjacent per-task explanation. No factual extension, original row mutation or completion credit; lastReviewed unchanged.",
+    "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-003",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-rl-prose-20260923-3",
+    "manifest": "relationships",
+    "memberId": "article:manipulation/rl-finetuning",
+    "oldHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886",
+    "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a",
+    "reason": "F18 remaining Recap and DextrAH duplicate pairs: add concise-summary links with trailing slashes to the unchanged detailed destination articles; retain every citation occurrence, term and See also relationship.",
+    "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-003",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-rl-prose-20260923-4",
+    "manifest": "relationships",
+    "memberId": "article:rl-sim2real/why-rl-locomotion",
+    "oldHash": "b5decbf9df603d6658018f76d4e04e46da69ee69ab78470c693da0d8466e2333",
+    "newHash": "18adecaa3485b392547c5011706b5db6946afbf06e6c914cbd495b2475479437",
+    "reason": "F18 remaining Recap and DextrAH duplicate pairs: add concise-summary links with trailing slashes to the unchanged detailed destination articles; retain every citation occurrence, term and See also relationship.",
+    "ownerApproval": "Direct owner-authorized sole-writer follow-up dispatch on 2026-09-23 for the two RL reader articles in Mission mis_2b1673fa, over Josef fix-it-all authority; same-claim reader repair, not source certification or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-003",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
    }
   ]
 }
