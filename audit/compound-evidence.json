@@ -64867,19 +64867,19 @@
   "ledgerPath": "audit/data-hardware.md",
   "articleSlug": "datasets",
   "rowOrdinal": 10,
-  "originalCellsDigest": "ff9aa17f614941b79f89d3e891450e886b7bd2d257bc64a579afc6157cc838b4",
+  "originalCellsDigest": "318ff44876cc4f093043a9c395013b46614e3d35169e1ffa8008fcd4676b4f76",
   "kind": "explicit-parts",
   "parts": [
     {
       "id": "ds10-counts-and-robots",
-      "text": "The inspected RoboMIND paper reports 107k demonstration trajectories across 479 tasks and 96 object classes, collected through a unified platform and standardized protocol across Franka Emika Panda, UR5e, AgileX dual-arm and a humanoid with dual dexterous hands; its v3 text names Tien Kung.",
+      "text": "The inspected RoboMIND paper v3 reports 107k successful trajectories totaling 305.5 interaction hours across 479 tasks and 96 object classes. This cohort mixes real-world and simulated demonstrations under a unified platform and standardized protocol across Franka Emika Panda, UR5e, AgileX dual-arm and Tien Kung humanoid with dual dexterous hands. Do not infer real-only, simulation-only, failure-set or exact per-release duration; the paper's 26,856/26,866 Franka disagreement is unresolved.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
     },
     {
       "id": "ds10-failures-and-twin",
-      "text": "The paper reports 5k real-world failure demonstrations with detailed causes and an Isaac Sim digital twin replicating real-world tasks and assets for additional collection and evaluation.",
+      "text": "In addition to the 107k successful trajectories, the paper reports 5k real-world failure demonstrations with detailed causes and an Isaac Sim digital twin replicating real-world tasks and assets for additional collection and evaluation. The failure set is not included in the 107k successful count, and its duration is not separately established.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
@@ -64907,9 +64907,9 @@
     }
   ],
   "planReview": {
-    "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
-    "rationale": "Reviewed all five parts and all nine paired external evidence items against the preserved document context from the source-preparation role, with exact source identities rechecked at application. Retains counts/robots/protocol and failures/Isaac Sim in full. The card supplies the combined v1.1/v1.2 scope, separately describes v1.0 and announces v2.0, displays Apache-2.0 and states access conditions. Neither badge nor paper license is a dataset/code/model grant. The complete returned card does not explicitly bind its badge to these data releases; that is a source-scoped review finding, not a fabricated quote or global absence. Owner September 23 authorizes a truthful disclosure, not settled permission. All scientific AND release/disclosure parts are required. Noncontiguous literal excerpts in a paired item are separated with [...]; retrieval dates remain historical. This is agent source review, not independent Sol/high or release acceptance.",
-    "planDigest": "4f094e368c8d603c73dc146f18f2603dd38a836400f061369bef716cbf38b1af"
+    "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+    "rationale": "Read retained paper v3 duration/composition/success/failure paragraphs and the complete public card; matched all nine prior paired excerpts to their retained primary representations before reuse. Reviewed all five AND parts and all ten unique source-paired items containing the sixteen preserved source excerpts. The 305.5 hours belongs to the mixed successful paper cohort, not to failures, a real-only total or any precise card release. Preserve the 26,856/26,866 disagreement and paper/card wording difference, every scientific obligation and all licensing uncertainty. Card badge and gated-access disclosure certify no data/code/model permission; no conditions accepted. Zero new fetches, completion credit or independent acceptance. Old tuple, plan and reviews remain immutable history.",
+    "planDigest": "cfbdde2ed0059cd000a9048d755da21854567744064694d516848a2aafb7ccf8"
   },
   "evidence": [
     {
@@ -64922,7 +64922,7 @@
       "partId": "ds10-counts-and-robots",
       "citationId": "robomind-2024",
       "sourceUrl": "https://arxiv.org/html/2412.13877",
-      "supportingPassage": "To ensure data consistency and reliability for imitation learning, RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the X-Humannoid Tien Kung humanoid robot with dual dexterous hands, the AgileX dual-arm robot, and the UR5e."
+      "supportingPassage": "To ensure data consistency and reliability for imitation learning, RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the X-Humannoid Tien Kung humanoid robot with dual dexterous hands, the AgileX dual-arm robot, and the UR5e.\n\n[...]\n\nOur dataset, called RoboMIND (Multi-embodiment Intelligence Normative Data for Robot manipulation), is an extensive dataset that encompasses a broad range of robotic interactions and experiences. RoboMIND features 107k demonstration trajectories amounting to 305.5 hours of interaction data of 4 kinds of robotic embodiments including Franka Emika Panda [34], a humanoid robot (i.e., X-Humanoid Tien Kung [12]), AgileX Cobot Magic V2.0 [87], and UR5e [88], as shown in Figure 1. Unlike the Open X-Embodiment dataset [77], which was compiled from various laboratories with differing data collection standards and diverse combinations of robotic platforms, RoboMIND is gathered within the same standardized setting, adhering to a standardized data collection protocol to ensure consistency and reliability. By maintaining uniform data collection standards, all data points are captured under similar conditions, reducing variability and noise, which is crucial for training models that can generalize well across different tasks and environments. The standardized procedures also enhance the reliability of the dataset, making it easier to validate and reproduce experimental results, thereby building trust in the trained models and ensuring their consistent performance in real-world applications.\n\n[...]\n\nMoreover, RoboMIND covers a wide range of robot environments and spans 479 diverse tasks involving 96 various object classes. Additionally, we provide a dataset from our real-world tasks simulated in the Nvidia Isaac Sim [76]. RoboMIND incorporates data from various robot types, including 26,856 motion trajectories from Franka Emika Panda single-arm robots, 15,187 from Tien Kung humanoid robots, 10,269 from AgileX Cobot Magic V2.0 dual-arm robots, 25,170 from UR5e single-arm robots, and 30,035 from simulation. All these trajectories are collected through a teleoperation system that captures natural human motion patterns and maps them onto robots to drive the same motion trajectories. These trajectories encompass RGB-D data from distinct viewpoints, detailed proprioceptive state information of the robot body, specific information regarding the robot’s end effector, and a linguistic description of the task at hand. Containing such comprehensive and detailed information, these data are valuable for training robotic models to perform complex manipulation tasks.\n\n[...]\n\nAt the same time, we not only publish the 107k successful trajectories but also document the 5k trajectories of real-world failure cases. The robot model can explore the causes of failures by learning from these failure case trajectories, thereby improving its performance through such learning experiences. This technique is representative of Reinforcement Learning from Human Feedback (RLHF) [18, 81], where human oversight and feedback direct the learning process of models, leading the models to produce more desirable and accurate outcomes. In addition, we annotate a total of 10k robot trajectories in RoboMIND with frame-level fine-grained language descriptions. These annotated trajectories encompass a wide range of robot tasks. To ensure accuracy and reliability, each annotation undergoes verification and correction by multiple reviewers. We believe that these additional failure cases and fine-grained linguistic annotations will further advance research in robot learning, particularly in areas such as failure recovery [66], task planning [60], visual question answering [25], among others.\n\n[...]\n\nTeleoperation is widely applied in the data collection processes for various types of robots [85, 114, 108, 40, 63, 106, 84, 16, 100]. Different types of robots also have specific teleoperation devices for data collection. For example, researchers typically use VR headsets and motion capture suits to collect humanoid robot motion data. They capture the state of human movements and map this motion onto the humanoid robot platform, enabling the robot to replicate these movements while simultaneously collecting a comprehensive dataset [16, 100]. RoboMIND contains teleoperation data in real-world and simulation environments from various types of robots, such as single-arm robots (Franka Emika Panda [34], UR5e [88]), dual-arm robots (AgileX Cobot Magic V2.0 [87]), and humanoid robots (X-Humanoid Tien Kung [12]).\n\n[...]\n\nHeterogeneous Embodiments. A manipulation dataset with different robotic embodiment types improves generalization to various actions and joint DoFs in downstream tasks. We select four mainstream hardware platforms, each paired with different actuators: the single-arm robots, Franka Emika Panda and UR5e with grippers; the dual-arm robot AgileX Cobot Magic V2.0 with grippers; and the humanoid robot Tien Kung equipped with dexterous hands. Figure 1(a) shows the distribution of trajectories across different embodiments in our dataset. Franka accounts for 49.2% of the total trajectories, with over 26,070 simulation-based trajectories from our digital twin environment and 26,866 real-world trajectories collected via human teleoperation. The remaining three embodiments consist solely of real-world demonstrations. Specifically, the dual-arm data enhances the dataset’s diversity and complexity, supporting the training of coordination skills and more long-horizon tasks. Additionally, the humanoid robot with dexterous hands, which constitutes 17.8% of the trajectories, can perform a series of complex, human-like manipulation skills. The heterogeneous set of embodiment data collected under a unified standard can provide pretraining data for policy models with different action spaces [65, 51], as well as experimental data for the cross-embodiment transfer research [110, 15]."
     },
     {
       "partId": "ds10-failures-and-twin",
@@ -64965,43 +64965,49 @@
       "citationId": "robomind-2024",
       "sourceUrl": "https://arxiv.org/html/2412.13877",
       "supportingPassage": "License: arXiv.org perpetual non-exclusive license arXiv:2412.13877v3 [cs.RO] 27 May 2025"
+    },
+    {
+      "partId": "ds10-failures-and-twin",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/html/2412.13877",
+      "supportingPassage": "At the same time, we not only publish the 107k successful trajectories but also document the 5k trajectories of real-world failure cases. The robot model can explore the causes of failures by learning from these failure case trajectories, thereby improving its performance through such learning experiences. This technique is representative of Reinforcement Learning from Human Feedback (RLHF) [18, 81], where human oversight and feedback direct the learning process of models, leading the models to produce more desirable and accurate outcomes. In addition, we annotate a total of 10k robot trajectories in RoboMIND with frame-level fine-grained language descriptions. These annotated trajectories encompass a wide range of robot tasks. To ensure accuracy and reliability, each annotation undergoes verification and correction by multiple reviewers. We believe that these additional failure cases and fine-grained linguistic annotations will further advance research in robot learning, particularly in areas such as failure recovery [66], task planning [60], visual question answering [25], among others.\n\n[...]\n\nFailure Case Demonstrations. We also release 5k trajectories of the robot task failure cases. The failure cases documented include scenarios where different types of humane operators failed to complete their assigned tasks, as well as instances where robots encountered failures during the execution of operational tasks. We present the visualization examples from the Franka and AgileX robots of these failure cases in Figure 9. For the FR-PlacePlateInPlateRack task performed by Franka, a successful execution shows the robotic arm accurately placing a plate into the plate rack. In the failure case, the arm fails to locate the correct slot position, causing the plate to slip out of the rack, likely due to visual occlusion or interference from the operator. For the AX-PutCarrot task performed by AgileX, successful execution demonstrates the robot’s collaborative manipulation to place a carrot onto the plate. In the failure case, the robot’s gripper unexpectedly opens, causing the carrot to drop prematurely and resulting in task failure-presumably due to accidental gripper activation by the operator. During the data quality inspection process, these failed trajectories are identified, categorized, and documented, further enhancing the overall quality of the dataset."
     }
   ],
   "adjudications": [
     {
       "partId": "ds10-counts-and-robots",
       "outcome": "supported",
-      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
-      "rationale": "Actual retained abstract supports every original count, embodiment and collection-protocol conjunct. Actual v3 HTML names Tien Kung. Keep 107k source precision and do not add the card's stronger all-real-world characterization to the whole current row. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
-      "evidenceDigest": "07df828971e754124420714d7c01800d494a2ec5940fcf79a1c3cf834a8e0a3f"
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "S1.p3.1 supplies 305.5 hours; S1.p4.1 and S3.SS1.p1.1 explicitly include simulation; S1.p5.1 identifies 107k successes. S4.SS1.p1.1 names all four embodiments and exposes the unreconciled 26,856/26,866 Franka difference. Abstract/protocol support retained and actually rechecked. This establishes the reported mixed aggregate, not a reconciled per-release or real-only duration.",
+      "evidenceDigest": "953f0d9cbaca9cd07fdeffd846b6a6d5c1480b8e408c5b5f77119c6f28a9c53a"
     },
     {
       "partId": "ds10-failures-and-twin",
       "outcome": "supported",
-      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
-      "rationale": "The two contiguous abstract sentences support all failure-data and Isaac Sim conjuncts. This does not certify the adjacent article's comparative claim that failure data is nearly absent elsewhere. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
-      "evidenceDigest": "73f53d27f36e54aac302460b6efdf4f48cfa96173eb5f7dc14d3743d6441629d"
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "S1.p5.1 explicitly says not only 107k successful trajectories but also 5k real-world failures; S4.SS2.p2.1 describes their causes and curation. The retained abstract supports detailed causes and Isaac Sim twin. Additional failures are not folded into successes; no failure duration or adjacent comparative rarity claim is certified. Incomplete Figure 9 excerpt (a) is unused.",
+      "evidenceDigest": "986cecb417010ee2a3b9603289ca2b8d94d503c025db0caa600499efe4f30be6"
     },
     {
       "partId": "ds10-release-scope",
       "outcome": "supported",
-      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
-      "rationale": "Read the card's actual combined version heading, its v1.2 addition description, initial v1.0 paragraph and separate v2.0 announcement. Preserve the combined scope rather than inventing one precise release/date. Read paper dates from the actual retained arXiv header. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
-      "evidenceDigest": "d80e42fed561f1e2e4b0cf95ea213e9ab438ca83f3b9e4247996464e699bfb38"
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "Re-read actual card Version 1.1 & 1.2, its one-real/nine-digital-twin task addition, initial 55K Version 1.0 and separate V2.0 announcement, plus retained abstract dates and project announcement. Paper dates are not release dates, and card headline real-world wording does not convert the paper mixed hours to a real-only or exact release duration.",
+      "evidenceDigest": "58e0c58baa78e5a3fa7011ebcb77724aa5f345ccb033a6fb957e622a6f2613ab"
     },
     {
       "partId": "ds10-published-badge-and-access",
       "outcome": "supported",
-      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
-      "rationale": "The actual returned card displays the Apache-2.0 badge and access banner. The older wrong-slug 401 does not describe this correct public card. No new request, acceptance of conditions, contact-data disclosure or credential action occurred. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
-      "evidenceDigest": "4f1f32fca3b7309686d14dc2428468d2ae0020d603e7f6cc3f0d88e1af61c438"
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "Re-read actual Apache-2.0 badge and contact-information/accept-conditions banner in the complete returned public card. Its 21 September retrieval is historical; no current liveness, gated file access or condition review is claimed.",
+      "evidenceDigest": "5812f1203d98622b6e7f3962a28016ca05567f387a3b9aa67a1b9082c6515957"
     },
     {
       "partId": "ds10-license-disclosure",
       "outcome": "supported",
-      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
-      "rationale": "The complete 10,768-character returned card provides a badge and version inventory but no explicit mapping of that badge to v1.1/v1.2 data files or separate code/model terms. Disclose precisely that limited source state and the uninspected conditions. The owner now allows this external-source disclosure to complete a corrected record; it does not turn the unknown permission into a fact. There is no literal negative-source quotation to invent. New native plan review/adjudication belongs to the application lane. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
-      "evidenceDigest": "678a47f38ca105e00579aa68f5fd290aa467488bc2d71c87c35c092d62a65609"
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "Reviewed the complete retained public card, not only the badge excerpt, for the release-specific assignment. It does not explicitly assign the badge to the 107k v1.1/v1.2 files or separately state code/model terms. The paper license notice applies to the paper. Applicable data-license remains null rendered not disclosed; no global absence, closed status or CC/Apache permission is inferred.",
+      "evidenceDigest": "489269bd0ee16ac8f2587c9ff1ab4e1e62d930e7bb07633c13aeeac33c3b2e60"
     }
   ]
 },

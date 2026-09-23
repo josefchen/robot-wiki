@@ -75,8 +75,9 @@ describe('DATASETS data', () => {
   it('keeps RoboMIND release-specific terms unknown rather than promoting a badge', () => {
     const row = DATASETS.find(d => d.id === 'robomind');
     expect(row?.license).toBeNull();
-    expect(row?.episodesNote).toBe('107k reported; card versions 1.1/1.2; incl. 5k failure demonstrations');
-    expect(row?.hours).toBeNull(); // Separate source/version follow-up, not this license correction.
+    expect(row?.episodesNote).toBe('107k successful, real + simulated (paper v3); card versions 1.1/1.2; 5k additional real-world failures');
+    expect(row?.hours).toBe(305.5);
+    expect(row?.hoursNote).toBe('Paper v3: real + simulated; real-only and failure-set durations not separately reported');
   });
 
   it('honors the source-verified anchor values', () => {
