@@ -27,6 +27,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
+import { parseCorrectedDispositions } from '../lib/audit-corrected-disposition.ts';
 import { loadLocalBasisContext } from '../lib/audit-local-basis.ts';
 import {
   AUDIT_LEDGERS,
@@ -74,6 +75,10 @@ for (const plan of compoundPlans) {
 
 const localBasis = loadLocalBasisContext(root, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
 
+const correctedDispositions = { root, records: parseCorrectedDispositions(JSON.parse(
+  readFileSync(join(root, 'audit/evidence/industrial-closure-20260923/corrections.json'), 'utf8'),
+)) };
+
 const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {
   const path = join(root, ledger.ledgerPath);
   let markdown = readFileSync(path, 'utf8');
@@ -87,7 +92,7 @@ const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {
     }
     articleCitations[plan.articleSlug] = frontmatter.citations;
   }
-  const context = { compoundPlans, articleCitations, localBasis };
+  const context = { compoundPlans, articleCitations, localBasis, correctedDispositions };
   if (writeSummaries) {
     const updated = withLedgerSummary(
       markdown, parseLedger(ledger.ledgerPath, markdown, registryIds, context),
@@ -152,7 +157,7 @@ if (asJson) {
         domain.auditedCount,
       ).padStart(2)}/${String(domain.publishedCount).padEnd(2)} audited, ${String(
         domain.claimRows,
-      ).padStart(3)} claim rows, ${(domain.evidenceKinds['citation-id'] ?? 0) + (domain.evidenceKinds['authored-local'] ?? 0) + (domain.evidenceKinds['mixed-local'] ?? 0)} complete evidence records  (${assertion})`,
+      ).padStart(3)} claim rows, ${(domain.evidenceKinds['citation-id'] ?? 0) + (domain.evidenceKinds['authored-local'] ?? 0) + (domain.evidenceKinds['mixed-local'] ?? 0) + (domain.evidenceKinds['corrected-disposition'] ?? 0)} complete evidence records  (${assertion})`,
     );
   }
   console.log(

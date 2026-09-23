@@ -1,0 +1,34 @@
+
+Running 1 test using 1 worker
+
+[1/1] [chromium] › tests/e2e/industrial-deployment.spec.ts:312:1 › industrial closure paired cases and complete reader surfaces
+  1) [chromium] › tests/e2e/industrial-deployment.spec.ts:312:1 › industrial closure paired cases and complete reader surfaces 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('div.prose > div.rounded-md:has([data-testid="payback-months"])').getByRole('slider').nth(1).locator('xpath=following-sibling::p')
+    Expected pattern: /assumption|sourced/
+    Received string:  "Assumption: 2.5x is chosen within EVST’s 2-3x complete-cell guidance, not a measured cell."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('div.prose > div.rounded-md:has([data-testid="payback-months"])').getByRole('slider').nth(1).locator('xpath=following-sibling::p')
+        14 × locator resolved to <p class="mt-1 text-[11px] leading-snug text-text-dim">Assumption: 2.5x is chosen within EVST’s 2-3x com…</p>
+           - unexpected value "Assumption: 2.5x is chosen within EVST’s 2-3x complete-cell guidance, not a measured cell."
+
+
+      388 |     }
+      389 |     const sliders = mount.getByRole('slider'); expect(await sliders.count()).toBe(7);
+    > 390 |     for (const slider of await sliders.all()) await expect(slider.locator('xpath=following-sibling::p')).toContainText(/assumption|sourced/);
+          |                                                                                                          ^
+      391 |     await expect(page.locator('#main-content')).toContainText('not a measured intervention rate');
+      392 |     await expect(page.locator('#main-content')).toContainText('no published success rate');
+      393 |     checkedText.push('not a measured intervention rate', 'no published success rate');
+        at /home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/industrial-deployment.spec.ts:390:106
+
+    Error Context: audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › tests/e2e/industrial-deployment.spec.ts:312:1 › industrial closure paired cases and complete reader surfaces 

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "role": "integrator",
+  "eventId": "industrial-10-plan",
+  "observedAt": "2026-09-23T18:49:40.396Z",
+  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "rationale": "Reviewed whole original/current inventory and exact corrected article. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. External parts, if present, remain separate AND obligations; no generic internal truth category.",
+  "outcome": "supported",
+  "scope": "plan",
+  "partId": null,
+  "inputDigest": "51a5e90b3ba4af6f01ffc0662027d8892bcfb32fdf3fa5c0c2e0c526ac7ada28",
+  "inventory": [
+    {
+      "id": "i10-parameters",
+      "kind": "authored-parameter",
+      "text": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values.",
+      "requiredProofIds": [
+        "i10-parameters"
+      ]
+    },
+    {
+      "id": "i10-derived",
+      "kind": "derived-result",
+      "text": "Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip.",
+      "requiredProofIds": [
+        "i10-derived-3",
+        "i10-derived-4"
+      ]
+    },
+    {
+      "id": "i10-observed-2",
+      "kind": "observed-behavior",
+      "text": "Actual existing mount at success99.9% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict.",
+      "requiredProofIds": [
+        "i10-observed-2"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "success=99; clearing=15",
+          "action": "Set clearing=300 seconds and success=99.9 percent",
+          "poststate": "Cell cost $200,000; 543 modeled picks per elapsed hour and 396,286 per 730-hour month; jam rate 0.10%.; 0.008; 12.1 months; Pays back inside 24 months"
+        }
+      ]
+    },
+    {
+      "id": "i10-observed-3",
+      "kind": "observed-behavior",
+      "text": "Actual existing mount at success99% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict.",
+      "requiredProofIds": [
+        "i10-observed-3"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "success=99.9; clearing=300",
+          "action": "Set clearing=300 seconds and success=99 percent",
+          "poststate": "Cell cost $200,000; 380 modeled picks per elapsed hour and 277,400 per 730-hour month; jam rate 1.00%.; 0.012; 17.3 months; Pays back inside 24 months"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/data-hardware.md:industrial-deployment:10",
+  "currentTupleDigest": "4e71ae73ad22d7228e458897cbeaa0567b72defa9cafa7d89d2829b9553a9aed"
+}

@@ -1,0 +1,5 @@
+
+Running 1 test using 1 worker
+
+[1/1] [chromium] › tests/e2e/industrial-deployment.spec.ts:312:1 › industrial closure paired cases and complete reader surfaces
+  1 passed (8.5s)

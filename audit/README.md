@@ -1,3 +1,15 @@
+## Current checkpoint: eight industrial residual originals closed (2026-09-23)
+
+**8 completed /0 held within dispatch;975 complete /19 incomplete /994 originals.** Industrial originals9,10,31,32,33,37,47,48 close truthfully; data-hardware125/3/128 and industrial52/0/52. Native gate remains **red:30ledger findings**, zero citation findings/summary mismatches;5citation verdicts remain unresolved. Older checkpoint headings below are historical counts.
+
+LEI definitions use n.d. plus actual2026-09-22 access, without invented years or Ohno attribution. Paired authored economics, hypothetical0.1-second overhead, verified dashboard-count removal, separate ledger-only certification withdrawal/current glossary checks, and full P4 external/local conjunction have actual evidence. Three retained primary bodies were hash/passage verified; zero new fetches or origin-status claims. Four new typed plans/14proofs and three finite correction records preserve all994identities,986unselected full records,967previous completions,859legacy plans,7previous plans/56proofs and1062prior approvals. Current totals11typed plans/70proofs and1069approvals.
+
+Actual checks:392distinct affected unit cases pass; one unchanged historical legacy-catalog-hash assertion remains red and one old producer case is skipped. Final types, scoped lint, configured MDX and source-no-slop pass. One affected browser case passes after a case-sensitive test assertion repair, covering four paired states and desktop/mobile Terms/references/P4; all failed attempts retained. Native coverage ran once, exit1. Full commands, exact source identity, current/original history and limitations are self-contained in the final industrial section of `audit/data-hardware.md` and indexed `audit/evidence/industrial-closure-20260923/`.
+
+No publication, full suite/browser/build/export, network source retrieval, cleanup, lastReviewed bump or independent acceptance. Owner files/commits and next-env bytes are preserved. Other19originals, pre-existing test/baseline drift, reading-time/export refresh, full reader/brand validation and independent Sol/high scrutiny remain owed. Do not publish while red.
+
+---
+
 ## Current checkpoint: RoboMIND hours/cohort correction (2026-09-23)
 
 **Six truth corrections / zero new completions / one already-complete original updated**: `audit/data-hardware.md:datasets:10`. Counts remain **967 complete / 27 incomplete / 994 originals**, data-hardware **117/11/128**. The single native coverage run remains **red: 40 ledger findings**, zero citation findings or summary mismatches. All older checkpoint headings below are historical totals, not additional credit.

@@ -22,6 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
+import { parseCorrectedDispositions, validateCorrectedDisposition, type CorrectionContext } from './audit-corrected-disposition.ts';
 import { LOCAL_BASIS_REQUIRED_TARGETS, parseLocalBasisCatalog, validateLocalBasisPlan,
   type LocalBasisContext, type LocalBasisResult } from './audit-local-basis.ts';
 
@@ -412,6 +413,7 @@ const compoundPlanSchema = z.object({
 export type CompoundPlan = z.infer<typeof compoundPlanSchema>;
 export type AuditEvidenceContext = {
   readonly localBasis?: LocalBasisContext;
+  readonly correctedDispositions?: CorrectionContext;
   readonly compoundPlans?: unknown;
   /** Canonical article frontmatter, never derived from available evidence. */
   readonly articleCitations?: Readonly<Record<string, readonly string[]>>;
@@ -472,6 +474,7 @@ export type ClaimRecord = ClaimEvidence & {
   readonly evidenceFailures: readonly string[];
   readonly compound?: CompoundResult;
   readonly localBasis?: LocalBasisResult;
+  readonly correctedDisposition?: { id: string; kind: string };
   /** A lead for recovery, never evidence or an exemption. */
   readonly legacyPointer: ReturnType<typeof legacyEvidencePointer>;
 };
@@ -639,6 +642,14 @@ export function parseLedger(
       throw new Error('duplicate cross-catalog plan ID or row target');
     }
   }
+  const corrections = context.correctedDispositions ? parseCorrectedDispositions(context.correctedDispositions.records) : [];
+  for (const correction of corrections) {
+    if ([...plans, ...typedPlans].some(p => p.id === correction.id ||
+      (p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'industrial-deployment' && p.rowOrdinal === correction.rowOrdinal))) {
+      throw new Error('duplicate correction/cross-catalog target');
+    }
+  }
+  const correctionBindings = new Map<number, string>();
   const localPlans = plans.filter((plan) => plan.ledgerPath === ledgerPath);
   const usedPlans = new Set<string>();
   const seenBindings = new Set<string>();
@@ -707,6 +718,9 @@ export function parseLedger(
     const binding = row[header.findIndex((name) => name.toLowerCase() === 'evidence plan')] ?? '';
     if (binding && seenBindings.has(binding)) throw new Error(`${ledgerPath}: duplicate evidence plan binding ${binding}`);
     if (binding) seenBindings.add(binding);
+    if (ledgerPath === 'audit/data-hardware.md' && slug === 'industrial-deployment' && [37, 47, 48].includes(rows.get(slug)!)) {
+      correctionBindings.set(rows.get(slug)!, binding);
+    }
     const plan = localPlans.find((candidate) =>
       candidate.articleSlug === slug && candidate.rowOrdinal === rows.get(slug));
     const typedPlan = typedPlans.find(p => p.ledgerPath === ledgerPath &&
@@ -733,6 +747,9 @@ export function parseLedger(
     if (!typedPlan && evidenceFailures.length === 0 &&
       Object.hasOwn(LOCAL_BASIS_REQUIRED_TARGETS, `${ledgerPath}:${slug}:${rows.get(slug)}`)) {
       evidenceFailures.push('typed local evidence required for this closed local obligation; scalar/legacy fallback forbidden');
+    }
+    if (ledgerPath === 'audit/data-hardware.md' && slug === 'industrial-deployment' && [37, 47, 48].includes(rows.get(slug)!) && evidenceFailures.length === 0) {
+      evidenceFailures.push('finite correction evidence required; scalar fallback forbidden');
     }
     if (claim === '') evidenceFailures.push('Claim text must not be empty');
     if (evidenceFailures.length > 0) {
@@ -770,6 +787,29 @@ export function parseLedger(
       default:
         unresolved.get(slug)?.push({ claim, verdict });
     }
+  }
+
+  if (ledgerPath === 'audit/data-hardware.md' && records.has('industrial-deployment') && context.correctedDispositions) {
+    const selected = records.get('industrial-deployment')!;
+    // Resolve removal and ledger withdrawal before evaluating the full P4 AND.
+    for (const ordinal of [37, 47, 48]) {
+      const correction = corrections.find(c => c.rowOrdinal === ordinal);
+      if (!correction) continue;
+      if (!selected[ordinal - 1]) throw Error('unbound correction record');
+      const failures = validateCorrectedDisposition(correction, selected[ordinal - 1],
+        correctionBindings.get(ordinal) ?? '', selected, context.correctedDispositions);
+      selected[ordinal - 1] = { ...selected[ordinal - 1], evidenceFailures: failures,
+        correctedDisposition: { id: correction.id, kind: correction.kind } };
+    }
+    unevidenced.set('industrial-deployment', selected.filter(r => r.evidenceFailures.length)
+      .map(r => ({ claim: r.claim, source: r.sourceChecked })));
+    const counts: Record<string, number> = {};
+    for (const r of selected.filter(r => !r.evidenceFailures.length)) {
+      for (const kind of r.correctedDisposition ? ['corrected-disposition'] : r.localBasis ? [r.localBasis.kind] : ['citation-id', 'locator', 'passage']) {
+        counts[kind] = (counts[kind] ?? 0) + 1;
+      }
+    }
+    evidenceKinds.set('industrial-deployment', counts);
   }
 
   for (const plan of [...localPlans, ...typedPlans.filter(p => p.ledgerPath === ledgerPath)]) {

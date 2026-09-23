@@ -19236,6 +19236,125 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "industrial-closure-20260923-1",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/industrial-deployment",
+      "oldHash": "280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50",
+      "newHash": "43b588e02c533e53082fdcb78957380eb03e071f7eb19abc87677fdc320a3ffc",
+      "reason": "Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer completing industrial dispatch in Mission mis_2b1673fa. Undated primary definitions use n.d. plus actual access; no independent acceptance or release waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-closure-20260923-2",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
+      "newHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9",
+      "reason": "Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer completing industrial dispatch in Mission mis_2b1673fa. Undated primary definitions use n.d. plus actual access; no independent acceptance or release waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-closure-20260923-3",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+      "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab",
+      "reason": "Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer completing industrial dispatch in Mission mis_2b1673fa. Undated primary definitions use n.d. plus actual access; no independent acceptance or release waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-closure-20260923-4",
+      "manifest": "article-metadata",
+      "memberId": "citation:lei-cycle-time-definition",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7ec9fb0f5b7afa37655b412daf26a776a79a5e9540bf92c99d21e612a1c2cf03",
+      "reason": "Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer completing industrial dispatch in Mission mis_2b1673fa. Undated primary definitions use n.d. plus actual access; no independent acceptance or release waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-closure-20260923-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:lei-takt-time-definition",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0b701b5fee8aa1b91094f1b9f8f78f6879760f5595dc642af6fdd5227069574f",
+      "reason": "Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer completing industrial dispatch in Mission mis_2b1673fa. Undated primary definitions use n.d. plus actual access; no independent acceptance or release waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-closure-20260923-6",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+      "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c",
+      "reason": "Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer completing industrial dispatch in Mission mis_2b1673fa. Undated primary definitions use n.d. plus actual access; no independent acceptance or release waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-closure-20260923-7",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5",
+      "newHash": "2b4666561cda11c2f6877fb8cb9e6afee5811a2f265b4066c6ad950a06d14dd2",
+      "reason": "Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer completing industrial dispatch in Mission mis_2b1673fa. Undated primary definitions use n.d. plus actual access; no independent acceptance or release waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

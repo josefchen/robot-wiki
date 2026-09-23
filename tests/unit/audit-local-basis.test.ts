@@ -18,7 +18,7 @@ describe('authored-local-basis-v1', () => {
     for (const bad of [null, [], {}, { ...empty, schemaVersion: 'v0' }, { ...empty, supported: true }]) {
       expect(() => parseLocalBasisCatalog(bad)).toThrow();
     }
-    expect(Object.keys(LOCAL_BASIS_REQUIRED_TARGETS)).toHaveLength(10);
+    expect(Object.keys(LOCAL_BASIS_REQUIRED_TARGETS)).toHaveLength(14);
   });
   it('recomputes a safety distance against independent arithmetic', () => {
     const result = recomputeLocalDerivation({

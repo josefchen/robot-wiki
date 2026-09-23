@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { publishedModules } from '../../data/modules';
 import { GLOSSARY } from '../../data/glossary';
 import { LINK_CHECK_EXCEPTIONS } from '../../data/link-check-exceptions';
 import { parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
@@ -24,7 +26,7 @@ const registryIds = new Set(CITATIONS.map(({ id }) => id));
 const nasaId = 'nasa-availability-prediction-analysis';
 const nasaUrl = 'https://llis.nasa.gov/lesson/841';
 const row = (ledgerPath: string, slug: string, ordinal: number) => parseLedger(
-  ledgerPath, read(ledgerPath), registryIds, { compoundPlans: plans },
+  ledgerPath, read(ledgerPath), registryIds, { compoundPlans: plans, localBasis: loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`)) },
 ).find((section) => section.slug === slug)!.claimRecords[ordinal - 1];
 const selected = [
   ['audit/data-hardware.md', 'industrial-deployment', 32,
@@ -56,7 +58,9 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     });
     const fm = matter(industrial).data;
     expect(fm.citations).toContain(nasaId);
-    expect(fm.citations).toContain('ohno-tps-1988');
+    expect(fm.citations).not.toContain('ohno-tps-1988');
+    expect(fm.citations).toContain('lei-takt-time-definition');
+    expect(fm.citations).toContain('lei-cycle-time-definition');
     expect(fm.lastReviewed).toBe('2026-08-22');
   });
 
@@ -87,14 +91,16 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     expect(hash(read('lib/deployment-economics.ts')))
       .toBe('ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e');
     expect(hash(read('components/interactive/deployment-economics.tsx')))
-      .toBe('0e982f1dde7f8be7fb5c1d70bda395dc80c403fbdda210b703a45d2870bf6756');
+      .toBe('af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f');
   });
 
-  it('does not register an invented LEI year or apply held cycle/takt changes', () => {
-    expect(CITATIONS.some(({ id }) => id.startsWith('lei-'))).toBe(false);
-    expect(industrial).toContain('Cycle time</Term> is the elapsed time of one complete repetition of the task');
-    expect(industrial).toContain("Takt time</Term>, from Ohno's Toyota Production System");
-    expect(GLOSSARY.find(({ id }) => id === 'cycle-time')?.citations).toEqual(['evst-cell-cost-2026']);
+  it('uses truthful undated LEI definitions under the controlling closure decision', () => {
+    for (const id of ['lei-cycle-time-definition', 'lei-takt-time-definition']) {
+      expect(CITATIONS.find(c => c.id === id)).toMatchObject({ year: 'n.d.', accessedOn: '2026-09-22' });
+    }
+    expect(industrial).toContain('Cycle time</Term> is the time required to produce a part or complete a process');
+    expect(industrial).not.toContain("Takt time</Term>, from Ohno's Toyota Production System");
+    expect(GLOSSARY.find(({ id }) => id === 'cycle-time')?.citations).toEqual(['lei-cycle-time-definition']);
   });
 
   it('withdraws the independence and real-system bound assertions in the approved article span', () => {
@@ -143,8 +149,16 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
   });
 
   for (const [ledgerPath, slug, ordinal, oldDigest] of selected) {
-    it(`keeps ${slug}:${ordinal} unresolved and incomplete with exact old-tuple history`, () => {
+    it(`preserves ${slug}:${ordinal} history and its current disposition`, () => {
       const record = row(ledgerPath, slug, ordinal);
+      if (slug === 'industrial-deployment') {
+        expect(record.outcome).toBe('passing');
+        expect(record.evidenceFailures).toEqual([]);
+        const history = read('audit/evidence/industrial-closure-20260923/row-history.json');
+        expect(history).toContain(oldDigest);
+        expect(history).toContain('zero completion credit');
+        return;
+      }
       expect(record.verdict).toMatch(/^UNRESOLVED\b/);
       expect(record.outcome).toBe('unresolved');
       expect(record.evidenceFailures).toHaveLength(3);
@@ -284,7 +298,7 @@ describe('two new citation links: scoped observations, not whole-corpus acceptan
     const other: CitationAuditResult = { ...observed, id: 'cc-by-4-0-deed' };
     expect(applyTitleMismatchException(other, exception)).toBe(other);
     expect(isAuditFailure(other)).toBe(true);
-    expect(row('audit/data-hardware.md', 'industrial-deployment', 32).outcome).toBe('unresolved');
+    expect(row('audit/data-hardware.md', 'industrial-deployment', 32).localBasis?.kind).toBe('mixed-local');
     expect(read('audit/citations.md')).toContain('do not establish VAL-AUDIT-008 full-corpus acceptance');
   });
 });

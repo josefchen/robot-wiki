@@ -1,0 +1,372 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m/home/remy-simpc4/Projects/robot-wiki-droid-continuation[39m
+
+ [31m❯[39m tests/unit/industrial-closure-evidence.test.ts [2m([22m[2m6 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 39[2mms[22m[39m
+[31m     [31m×[31m admits only the four selected economics originals[39m[32m 11[2mms[22m[39m
+[31m     [31m×[31m exposes honest interior authored bases without changing old parameters[39m[32m 13[2mms[22m[39m
+     [32m✓[39m independently verifies the paired paybacks at 15s[32m 1[2mms[22m[39m
+     [32m✓[39m independently verifies the paired paybacks at 300s[32m 0[2mms[22m[39m
+[31m     [31m×[31m exposes the ten-second hypothetical overhead with units[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m removes unsupported attribution, economic certainty and numbered dashboard wording[39m[32m 10[2mms[22m[39m
+ [31m❯[39m tests/unit/undated-citations.test.ts [2m([22m[2m13 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 10[2mms[22m[39m
+[31m     [31m×[31m accepts n.d. only with the actual access date[39m[32m 5[2mms[22m[39m
+     [32m✓[39m rejects missing or invalid access date undefined[32m 1[2mms[22m[39m
+     [32m✓[39m rejects missing or invalid access date [32m 0[2mms[22m[39m
+     [32m✓[39m rejects missing or invalid access date 2026-02-30[32m 0[2mms[22m[39m
+     [32m✓[39m rejects missing or invalid access date 2026-13-01[32m 0[2mms[22m[39m
+     [32m✓[39m rejects missing or invalid access date yesterday[32m 0[2mms[22m[39m
+     [32m✓[39m rejects ambiguous publication year undefined[32m 0[2mms[22m[39m
+     [32m✓[39m rejects ambiguous publication year null[32m 0[2mms[22m[39m
+     [32m✓[39m rejects ambiguous publication year 0[32m 0[2mms[22m[39m
+     [32m✓[39m rejects ambiguous publication year 2026[32m 0[2mms[22m[39m
+     [32m✓[39m rejects ambiguous publication year unknown[32m 0[2mms[22m[39m
+[31m     [31m×[31m never renders the access year as publication year[39m[32m 0[2mms[22m[39m
+     [32m✓[39m preserves dated citation metadata[32m 0[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 6 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/unit/industrial-closure-evidence.test.ts[2m > [22mindustrial residual finite economics[2m > [22madmits only the four selected economics originals
+[31m[1mAssertionError[22m: expected undefined to be defined[39m
+[36m [2m❯[22m tests/unit/industrial-closure-evidence.test.ts:[2m9:103[22m[39m
+    [90m  7|[39m   [34mit[39m([32m'admits only the four selected economics originals'[39m[33m,[39m () [33m=>[39m {
+    [90m  8|[39m     [35mfor[39m ([35mconst[39m ordinal [35mof[39m [[34m9[39m[33m,[39m [34m10[39m[33m,[39m [34m32[39m[33m,[39m [34m33[39m]) {
+    [90m  9|[39m       expect(LOCAL_BASIS_REQUIRED_TARGETS[`audit/data-hardware.md:indu…
+    [90m   |[39m                                                                                                       [31m^[39m
+    [90m 10|[39m     }
+    [90m 11|[39m     expect(LOCAL_BASIS_REQUIRED_TARGETS['audit/data-hardware.md:indust…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/industrial-closure-evidence.test.ts[2m > [22mindustrial residual finite economics[2m > [22mexposes honest interior authored bases without changing old parameters
+[31m[1mZodError[22m: [
+  {
+    "code": "invalid_union",
+    "unionErrors": [
+      {
+        "issues": [
+          {
+            "received": "economics-examples",
+            "code": "invalid_enum_value",
+            "options": [
+              "eureka",
+              "reward",
+              "friction",
+              "teacher",
+              "parallel",
+              "gait",
+              "economics",
+              "safety"
+            ],
+            "path": [
+              "id"
+            ],
+            "message": "Invalid enum value. Expected 'eureka' | 'reward' | 'friction' | 'teacher' | 'parallel' | 'gait' | 'economics' | 'safety', received 'economics-examples'"
+          }
+        ],
+        "name": "ZodError"
+      },
+      {
+        "issues": [
+          {
+            "code": "invalid_union_discriminator",
+            "options": [
+              "eureka",
+              "reward",
+              "friction",
+              "teacher",
+              "parallel",
+              "gait",
+              "economics",
+              "safety"
+            ],
+            "path": [
+              "id"
+            ],
+            "message": "Invalid discriminator value. Expected 'eureka' | 'reward' | 'friction' | 'teacher' | 'parallel' | 'gait' | 'economics' | 'safety'"
+          }
+        ],
+        "name": "ZodError"
+      }
+    ],
+    "path": [],
+    "message": "Invalid input"
+  }
+][39m
+[90m [2m❯[22m Object.get error [as error] node_modules/zod/v3/types.js:[2m39:31[22m[39m
+[90m [2m❯[22m ZodUnion.parse node_modules/zod/v3/types.js:[2m114:22[22m[39m
+[36m [2m❯[22m recomputeLocalDerivation lib/audit-local-basis.ts:[2m206:31[22m[39m
+    [90m204|[39m /** A finite typed dispatch, never a producer-supplied expression or i…
+    [90m205|[39m export function recomputeLocalDerivation(input: unknown): z.infer<type…
+    [90m206|[39m   [35mconst[39m recipe [33m=[39m recipeSchema[33m.[39m[34mparse[39m(input)[33m;[39m
+    [90m   |[39m                               [31m^[39m
+    [90m207|[39m   [35mlet[39m values[33m:[39m unknown[33m;[39m
+    [90m208|[39m   [35mlet[39m units [33m=[39m [32m'dimensionless unless explicitly keyed'[39m[33m;[39m
+[90m [2m❯[22m tests/unit/industrial-closure-evidence.test.ts:[2m16:22[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/industrial-closure-evidence.test.ts[2m > [22mindustrial residual finite economics[2m > [22mexposes the ten-second hypothetical overhead with units
+[31m[1mZodError[22m: [
+  {
+    "code": "invalid_union",
+    "unionErrors": [
+      {
+        "issues": [
+          {
+            "received": "economics-examples",
+            "code": "invalid_enum_value",
+            "options": [
+              "eureka",
+              "reward",
+              "friction",
+              "teacher",
+              "parallel",
+              "gait",
+              "economics",
+              "safety"
+            ],
+            "path": [
+              "id"
+            ],
+            "message": "Invalid enum value. Expected 'eureka' | 'reward' | 'friction' | 'teacher' | 'parallel' | 'gait' | 'economics' | 'safety', received 'economics-examples'"
+          },
+          {
+            "received": "derive",
+            "code": "invalid_literal",
+            "expected": "parameters",
+            "path": [
+              "mode"
+            ],
+            "message": "Invalid literal value, expected \"parameters\""
+          },
+          {
+            "code": "unrecognized_keys",
+            "keys": [
+              "robotCost",
+              "integrationMultiple",
+              "cycleTimeSeconds",
+              "uptimePercent",
+              "successRatePercent",
+              "jamClearSeconds",
+              "wageUsdPerHour"
+            ],
+            "path": [
+              "inputs"
+            ],
+            "message": "Unrecognized key(s) in object: 'robotCost', 'integrationMultiple', 'cycleTimeSeconds', 'uptimePercent', 'successRatePercent', 'jamClearSeconds', 'wageUsdPerHour'"
+          }
+        ],
+        "name": "ZodError"
+      },
+      {
+        "issues": [
+          {
+            "code": "invalid_union_discriminator",
+            "options": [
+              "eureka",
+              "reward",
+              "friction",
+              "teacher",
+              "parallel",
+              "gait",
+              "economics",
+              "safety"
+            ],
+            "path": [
+              "id"
+            ],
+            "message": "Invalid discriminator value. Expected 'eureka' | 'reward' | 'friction' | 'teacher' | 'parallel' | 'gait' | 'economics' | 'safety'"
+          }
+        ],
+        "name": "ZodError"
+      }
+    ],
+    "path": [],
+    "message": "Invalid input"
+  }
+][39m
+[90m [2m❯[22m Object.get error [as error] node_modules/zod/v3/types.js:[2m39:31[22m[39m
+[90m [2m❯[22m ZodUnion.parse node_modules/zod/v3/types.js:[2m114:22[22m[39m
+[36m [2m❯[22m recomputeLocalDerivation lib/audit-local-basis.ts:[2m206:31[22m[39m
+    [90m204|[39m /** A finite typed dispatch, never a producer-supplied expression or i…
+    [90m205|[39m export function recomputeLocalDerivation(input: unknown): z.infer<type…
+    [90m206|[39m   [35mconst[39m recipe [33m=[39m recipeSchema[33m.[39m[34mparse[39m(input)[33m;[39m
+    [90m   |[39m                               [31m^[39m
+    [90m207|[39m   [35mlet[39m values[33m:[39m unknown[33m;[39m
+    [90m208|[39m   [35mlet[39m units [33m=[39m [32m'dimensionless unless explicitly keyed'[39m[33m;[39m
+[90m [2m❯[22m tests/unit/industrial-closure-evidence.test.ts:[2m45:20[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/industrial-closure-evidence.test.ts[2m > [22mindustrial residual finite economics[2m > [22mremoves unsupported attribution, economic certainty and numbered dashboard wording
+[31m[1mAssertionError[22m: expected '---\ntitle: "Industrial Deployment"\n…' not to contain 'from Ohno\'s'[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- from Ohno's[39m
+[31m+ ---[39m
+[31m+ title: "Industrial Deployment"[39m
+[31m+ description: "The installed base the robot-learning field is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ever ships at all."[39m
+[31m+ domain: data-hardware[39m
+[31m+ slug: industrial-deployment[39m
+[31m+ order: 6[39m
+[31m+ status: published[39m
+[31m+ lastReviewed: "2026-08-22"[39m
+[31m+ citations:[39m
+[31m+   - ifr-world-robotics-2025[39m
+[31m+   - ifr-china-five-year-plan-2026[39m
+[31m+   - a3-orders-2025[39m
+[31m+   - symbotic-10k-2025[39m
+[31m+   - amazon-sequoia-digit-2023[39m
+[31m+   - amazon-robot-fleet-2026[39m
+[31m+   - amazon-vulcan-2026[39m
+[31m+   - acemoglu-restrepo-2020[39m
+[31m+   - mit-work-future-2020[39m
+[31m+   - ohno-tps-1988[39m
+[31m+   - nasa-availability-prediction-analysis[39m
+[31m+   - evst-cell-cost-2026[39m
+[31m+   - kroger-ocado-closures-2025[39m
+[31m+   - osha-otm-robots[39m
+[31m+   - ocado-oia-2026[39m
+[31m+   - technology-org-deployed-2026[39m
+[31m+   - robozaps-humanoids-2026[39m
+[31m+   - unitree-profit-2026[39m
+[31m+   - morgan-stanley-pr-problem-2026[39m
+[31m+   - figure-8hr-shift-2026[39m
+[31m+   - goldberg-data-gap-2025[39m
+[31m+   - bessemer-robotics-2026[39m
+[31m+ seeAlso:[39m
+[31m+   - "data-hardware/hardware-taxonomy"[39m
+[31m+   - "data-hardware/teleop-rigs"[39m
+[31m+   - "data-hardware/data-bottleneck"[39m
+[31m+ ---[39m
+[31m+[39m
+[31m+ import { DeploymentEconomics } from '@/components/interactive/deployment-economics';[39m
+[31m+[39m
+[31m+ IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id="ifr-world-robotics-2025" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="ifr-world-robotics-2025" /></span> <Cite id="ifr-china-five-year-plan-2026" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These are customer-industry categories, not application families. IFR says the customer industry was unspecified for 14 percent of installations <span className="max-sm:[&_[role=tooltip]]:-translate-x-4"><Cite id="ifr-world-robotics-2025" /></span>. The humanoid programmes this site follows count deployments in pilots and hundreds of hours: Unitree claims roughly 5,500 humanoid units shipped across 2025 <Cite id="technology-org-deployed-2026" />, a count Omdia puts nearer 4,200 while ranking AgiBot first <Cite id="robozaps-humanoids-2026" />. The industrial market installs a hundred times either figure every year. This page is that field.[39m
+[31m+[39m
+[31m+ <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">[39m
+[31m+   <Stat label="operational stock" value="4,663,698" note="industrial robots worldwide, 2024" accent />[39m
+[31m+   <Stat label="2024 installations" value="542,076" note="2021–2024 each above 500k" />[39m
+[31m+   <Stat label="China share" value="54%" note="of global installations in 2024" />[39m
+[31m+   <Stat label="humanoid units 2025" value="~5,500" note="Unitree, its own figure" />[39m
+[31m+ </div>[39m
+[31m+[39m
+[31m+ ## The economics you can drag[39m
+[31m+[39m
+[31m+ Before the survey, hold the economics in your hands: every section below argues about one ratio or another. Drag the **per-pick success** slider from 99.9 down to 99 percent and watch the payback readout barely move. Now drag **jam-clearing time** toward five minutes and do it again: the same 0.9 point drop adds five months to the payback and cuts the cell's hourly output by nearly a third. That asymmetry, not the success rate itself, decides deployment, and no paragraph teaches it as fast as the dial.[39m
+[31m+[39m
+[31m+ <DeploymentEconomics className="my-6" />[39m
+[31m+[39m
+[31m+ This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.[39m
+[31m+[39m
+[31m+ EVST supplies vendor context, not those exact inputs: its guide describes complete-cell budgets, explicitly does not publish fixed list prices, and places the robot at a third to half of total cost <Cite id="evst-cell-cost-2026" />. Its payback guidance is 12 to 24 months for multi-shift cells, extending toward 24 to 36 months for single-shift or lower-throughput operations <Cite id="evst-cell-cost-2026" />. The calculator's 2.5 multiple and 24-month threshold are selections within that context, not quoted measurements.[39m
+[31m+[39m
+[31m+ ## What is actually automated at scale[39m
+[31m+[39m
+[31m+ Strip the installed base down by task and one honest sentence covers most of it: repetitive motion in a fixed cell, with little or no perception worth the name. OSHA’s Technical Manual lists uses of industrial robot systems including arc and resistance welding, painting and spraying, machine-tool loading and unloading, assembly, materials handling and packaging <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="osha-otm-robots" /></span>. A spot-welding cell in a body shop repeats one trajectory against one fixture thousands of times a shift; the "perception" is the fixture guaranteeing the part is exactly where the program expects it. In A3's North American order data for 2025, collaborative robots accounted for 7,212 units valued at \$241 million: 19.6 percent of the 36,766 robots ordered and 10.7 percent of the \$2.25 billion in order value. A3 began reporting collaborative robots as a distinct category in Q1 2025 <Cite id="a3-orders-2025" />.[39m
+[31m+[39m
+[31m+ The genuinely learned frontier inside this base is logistics, and it is worth naming its subsystems because they are the machines a manipulation policy actually competes with. <Term id="automated-storage-and-retrieval">Automated storage and retrieval</Term> puts high-bay racking and shuttles where aisles and forklifts used to be. <Term id="autonomous-mobile-robot">Autonomous mobile robot</Term> fleets move cases and totes under a traffic manager. <Term id="goods-to-person">Goods-to-person</Term> stations bring the shelf to a stationary human, which is the arrangement that sets the productivity bar any automated picker must beat, and piece picking from mixed bins is the task at that bar's edge. In its October 18, 2023 Sequoia and Digit announcement, Amazon reported over 750,000 robots working collaboratively with employees. Sequoia was operating at one Houston fulfillment center; testing Digit for tote recycling was planned <span className="max-sm:[&_[role=tooltip]]:-translate-x-24"><Cite id="amazon-sequoia-digit-2023" /></span>. The company’s fleet overview, published October 9, 2024 and updated June 4, 2026, reports more than one million robots deployed across its operations network since 2012. It describes Sequoia inventory handling, Sparrow piece picking, Vulcan picking and stowing, and Proteus cart transport, while separately describing next-generation Proteus as a lab pilot awaiting deployment <span className="max-sm:[&_[role=tooltip]]:-translate-x-4"><Cite id="amazon-robot-fleet-2026" /></span>. In the 2023 announcement, Amazon said Sequoia could identify and store received inventory up to 75 percent faster than its then-current process, and reduce the time to process an order through a fulfillment center by up to 25 percent <Cite id="amazon-sequoia-digit-2023" />. Amazon’s Vulcan article, published May 7, 2025 and updated June 4, 2026, describes force-feedback picking and stowing of approximately 75 percent of the types of items stored at its fulfillment centers, at speeds comparable to front-line employees. It describes high and low inventory-pod work at Spokane and Hamburg, handoff to employees for items the system cannot move, and further European and US deployment as planned. The coverage figure describes item types, not pick success or independently validated reliability <Cite id="amazon-vulcan-2026" />. These are company-reported figures for different tasks and reporting scopes. The cumulative deployment total is not a simultaneous active-fleet count.[39m
+[31m+[39m
+[31m+ Symbotic's FY2025 Form 10-K distinguishes contracted work from revenue. It reports approximately \$22.5 billion of backlog as of September 27, 2025 and \$2.246922 billion of total revenue for the fiscal year ended that day. Backlog means unperformed obligations under existing contracts, not revenue already earned. The filing says the Walmart agreement, expanded in May 2022, covers implementation across all 42 regional distribution centres; that is contractual scope, not a count of operating sites <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="symbotic-10k-2025" /></span>. For the year ended September 27, 2025, Symbotic reports 50 systems in deployment and 48 operational systems under software maintenance and support contracts. It then expected approximately 12 percent of backlog to be recognized as revenue in fiscal 2026. That is a revenue-recognition forecast, not an order-to-running duration; remaining performance obligation estimates can change with terminations, contract scope and other adjustments <Cite id="symbotic-10k-2025" />. The unwind reads the same way: Kroger closed three of the eight automated sheds it built with Ocado, said it was monitoring the remaining five, and pays Ocado around £190 million in compensation for the privilege <Cite id="kroger-ocado-closures-2025" />. Scale can go both ways. Ocado's own automation division, Ocado Intelligent Automation, sells the same grid-robot warehouses outward from grocery into healthcare, third-party logistics and industrial parts <Cite id="ocado-oia-2026" />.[39m
+[31m+[39m
+[31m+ ## The integrator's multiple[39m
+[31m+[39m
+[31m+ A robot arm is a minority of what a robot cell costs. Integrator guidance for palletising cells quotes complete systems at two to three times the arm's price, with the robot body itself a third to half of total cell cost <Cite id="evst-cell-cost-2026" />.[39m
+[31m+[39m
+[31m+ EVST's July 15, 2026 commercial palletising-cell guide lists application-specific end-of-arm tooling; perimeter fencing, light curtains or area scanners, interlocked gates and safety-rated PLCs; mechanical and electrical installation, PLC/HMI integration with upstream conveyors or wrapping equipment, and on-site commissioning and testing; plus pattern programming, software licences and any vision-guided pick logic for mixed loads. The surrounding-line work depends on what is already installed<br />[39m
+[31m+ <Cite id="evst-cell-cost-2026" />.[39m
+[31m+[39m
+[31m+[39m
+[31m+[39m
+[31m+ OSHA's Technical Manual, discussing ANSI/RIA R15.06-2012, says the <Term id="systems-integrator">systems integrator</Term> is responsible for completing and documenting the robot application's risk assessment before commissioning and providing the results to the employer. Manufacturers or employers may also act as integrators. The employer retains responsibility for a safe workplace, and having a risk assessment alone does not establish that the application protects workers<br />[39m
+[31m+ <Cite id="osha-otm-robots" />.[39m
+[31m+[39m
+[31m+ The practical consequence for a policy: buy a robot and deploy a policy is wrong by an order of magnitude as a model of what shipping costs, and the buyer who signs the cheque is buying a line that must hit a rate, not a demo that must impress once. In its April 16, 2026 investor outlook, Bessemer predicts that near-term value will accrue to full-stack, vertically integrated players rather than pure-play foundation-model companies. The authors say deployment requires domain-specific data collection, target-environment fine-tuning, hardware integration and operational infrastructure. They also stress expensive data collection and foundation models that are not yet general enough to work out of the box <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="bessemer-robotics-2026" /></span>.[39m
+[31m+[39m
+[31m+ ## The metrics that decide a deployment[39m
+[31m+[39m
+[31m+ Five quantities decide whether a cell ships, and none of them is a benchmark score. <Term id="cycle-time">Cycle time</Term> is the elapsed time of one complete repetition of the task, start of one pick to start of the next, and it is the denominator of throughput. <Term id="takt-time">Takt time</Term>, from Ohno's Toyota Production System, is the demand rate the line must match, available time divided by required units; a cell slower than takt starves the line no matter how elegant its policy <Cite id="ohno-tps-1988" />. NASA distinguishes inherent availability, which uses <Term id="mean-time-between-failures">mean time between failures</Term> and mean time to repair, from operational availability. The inherent measure excludes administrative and logistics delays and preventive maintenance; the operational measure includes corrective and preventive maintenance, administrative delays and logistics support time. Here, uptime means time in an operable state, not necessarily time spent producing <Cite id="nasa-availability-prediction-analysis" />. The calculator above reports capital cost per modeled pick: robot price times the integration multiple, divided by its modeled lifetime pick count over a fixed amortization period. It does not include running costs. This is a local worked-example calculation, not a measured deployment result.[39m
+[31m+[39m
+[31m+ The <Term id="payback-period">payback period</Term> is total system capital cost divided by monthly labour, reduced-damage and throughput value. EVST's guide estimates 12 to 24 months for multi-shift palletising cells and says single-shift or lower-throughput operations typically stretch closer to 24 to 36 months <Cite id="evst-cell-cost-2026" />.[39m
+[31m+[39m
+[31m+ ## The jam rate is the lesson[39m
+[31m+[39m
+[31m+ The calculator exists for one argument. A picker that succeeds on 99 percent of picks fails on one pick in a hundred, and every failure needs a human to clear it. If clearing takes ten seconds, the failures cost a tenth of a second per pick of extra labour, and the cell is comfortably economic at a success rate a paper would call unusable. If clearing takes ten minutes, because the jam wedges a tote, drops an item into the track, or faults the fleet manager, the same 99 percent is ruinous. Ken Goldberg proposes combining model-based engineering with model-free learning so robots can perform useful work, collect real-world data, and use those data to improve performance and learn adjacent skills. This is a proposed way to bootstrap data collection, not a claim that engineering removes the need for learning. He also expects model-free AI eventually to enable fully general-purpose robots <Cite id="goldberg-data-gap-2025" />. The demo-to-production gap this site tracks at [The Reliability Gap](/frontier/reliability-gap) is reframed by this: what looks like an arithmetic problem in per-step success is very often an operations-design problem in intervention cost, and it is why the <Term id="intervention-rate">intervention rate</Term> and the cost of clearing each intervention, not the success rate alone, decide whether a cell ships. Morgan Stanley's 2026 note on the humanoid industry's "PR problem" is the same observation about the hype cycle from the capital side <Cite id="morgan-stanley-pr-problem-2026" />, and Figure's eight-hour autonomous sorting shift, impressive as it is, was one task at one site, on the company's own livestream, with no published success rate <Cite id="figure-8hr-shift-2026" />. The six-row deployment dashboard at [The Reliability Gap](/frontier/reliability-gap) tracks exactly those pilots; this page deliberately does not repeat it.[39m
+[31m+[39m
+[31m+ ## Brownfield versus greenfield[39m
+[31m+[39m
+[31m+ The same technology succeeds or fails on where it is installed. A greenfield site is designed around the automation: floor loading, ceiling height, power, network, and traffic lanes exist because the system needed them. A <Term id="brownfield-deployment">brownfield deployment</Term> must fit the automation into a building that already runs. OSHA's Technical Manual describes safeguards for non-collaborative robot applications during automatic operation: guards such as fences and barriers, interlocked guards, and presence-sensing devices. It also describes reduced-speed manual mode with an enabling device for workers teaching inside the safeguarded space, plus lockout/tagout procedures and training. Its maintenance guidance calls for control of hazardous energy under 29 CFR 1910.147 or 29 CFR 1910.333 <Cite id="osha-otm-robots" />. Separately, Symbotic, describing its own systems in its FY2025 Form 10-K, says it can install them in phases while the existing warehouse continues to operate; this is a company-reported capability, not a guarantee for every retrofit <Cite id="symbotic-10k-2025" />. The safety-and-assurance obligations of deployment have their own page at [Safety and Assurance](/frontier/safety-and-assurance).[39m
+[31m+[39m
+[31m+ ## The labour evidence, disagreement intact[39m
+[31m+[39m
+[31m+ What robots do to jobs is a live empirical fight, and this page takes no side. Daron Acemoglu and Pascual Restrepo, in the Journal of Political Economy, find that one additional robot per thousand workers reduces the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent, with the losses concentrated in commuting zones exposed to industrial automation <Cite id="acemoglu-restrepo-2020" />. The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, reported in 2020 that it found no compelling evidence of technological advances driving a jobless future. It describes automation displacing human labour from some tasks while creating new work, with the jobs available and the skills they demand shaped by economic incentives, policy choices and institutional forces <Cite id="mit-work-future-2020" />. Both positions are named and both are serious; the field has not converged. What neither side disputes is the scale mismatch in the current cycle: the industrial installed base grew over decades, and the humanoid fleet being pitched as the next one is, so far, a rounding error against it, with even the volume leader's revenue growth decelerating from 332 to 68 percent and its Q1 2026 adjusted net profit down 52.55 percent year on year <Cite id="unitree-profit-2026" />.[39m
+[31m+[39m
+[31m+ The boundary with the rest of this site is deliberate. This page is the operating field: the installed base, the integrator's invoice, and the arithmetic of keeping a cell running. [The Reliability Gap](/frontier/reliability-gap) is where the demo-to-production argument lives, and the [market map](/market-map) is the capital cycle that finances all of it.[39m
+[31m+[39m
+
+[36m [2m❯[22m tests/unit/industrial-closure-evidence.test.ts:[2m55:27[22m[39m
+    [90m 53|[39m     const article = readFileSync('content/data-hardware/industrial-dep…
+    [90m 54|[39m     for (const removed of ["from Ohno's", 'comfortably economic', 'is …
+    [90m 55|[39m       [34mexpect[39m(article)[33m.[39mnot[33m.[39m[34mtoContain[39m(removed)[33m;[39m
+    [90m   |[39m                           [31m^[39m
+    [90m 56|[39m     }
+    [90m 57|[39m     [34mexpect[39m(article)[33m.[39m[34mtoContain[39m([32m'<DeploymentEconomics'[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/undated-citations.test.ts[2m > [22mexplicit undated source dates[2m > [22maccepts n.d. only with the actual access date
+[31m[1mZodError[22m: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "year"
+    ],
+    "message": "Expected number, received string"
+  }
+][39m
+[90m [2m❯[22m Object.get error [as error] node_modules/zod/v3/types.js:[2m39:31[22m[39m
+[90m [2m❯[22m ZodObject.parse node_modules/zod/v3/types.js:[2m114:22[22m[39m
+[36m [2m❯[22m tests/unit/undated-citations.test.ts:[2m14:27[22m[39m
+    [90m 12|[39m [34mdescribe[39m([32m'explicit undated source dates'[39m[33m,[39m () [33m=>[39m {
+    [90m 13|[39m   [34mit[39m([32m'accepts n.d. only with the actual access date'[39m[33m,[39m () [33m=>[39m {
+    [90m 14|[39m     [34mexpect[39m(citationSchema[33m.[39m[34mparse[39m(entry))[33m.[39m[34mtoEqual[39m(entry)[33m;[39m
+    [90m   |[39m                           [31m^[39m
+    [90m 15|[39m   })[33m;[39m
+    [90m 16|[39m   for (const accessedOn of [undefined, '', '2026-02-30', '2026-13-01',…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/undated-citations.test.ts[2m > [22mexplicit undated source dates[2m > [22mnever renders the access year as publication year
+[31m[1mZodError[22m: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "year"
+    ],
+    "message": "Expected number, received string"
+  }
+][39m
+[90m [2m❯[22m Object.get error [as error] node_modules/zod/v3/types.js:[2m39:31[22m[39m
+[90m [2m❯[22m ZodObject.parse node_modules/zod/v3/types.js:[2m114:22[22m[39m
+[36m [2m❯[22m tests/unit/undated-citations.test.ts:[2m27:35[22m[39m
+    [90m 25|[39m   }
+    [90m 26|[39m   [34mit[39m([32m'never renders the access year as publication year'[39m[33m,[39m () [33m=>[39m {
+    [90m 27|[39m     [35mconst[39m parsed [33m=[39m citationSchema[33m.[39m[34mparse[39m(entry)[33m;[39m
+    [90m   |[39m                                   [31m^[39m
+    [90m 28|[39m     [34mexpect[39m([34mcitationLabel[39m(parsed))[33m.[39m[34mtoContain[39m([32m'n.d.'[39m)[33m;[39m
+    [90m 29|[39m     expect(citationMeta(parsed)).toContain('n.d.; accessed 2026-09-22'…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[31m6 failed[39m[22m[2m | [22m[1m[32m13 passed[39m[22m[90m (19)[39m
+[2m   Start at [22m 20:27:16
+[2m   Duration [22m 1.66s[2m (transform 202ms, setup 123ms, import 260ms, tests 49ms, environment 983ms)[22m
+

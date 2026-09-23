@@ -770,15 +770,15 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'takt-time',
     term: 'takt time',
     definition:
-      'The rate of production a line must hold to match customer demand: available production time divided by the quantity demanded in that time. Taiichi Ohno made it the pacing heartbeat of the Toyota Production System, borrowing the German word Takt for the beat a conductor holds. A cell whose cycle time is slower than takt starves the line; a cell faster than takt needs a buffer, because the point is the match, not the speed.',
-    citations: ['ohno-tps-1988'],
+      'Available production time divided by customer demand over the same period, expressed as time per unit. Its purpose is to match production with demand.',
+    citations: ['lei-takt-time-definition'],
   },
   {
     id: 'cycle-time',
     term: 'cycle time',
     definition:
-      'The elapsed time for one complete repetition of a automated task: from the start of one pick, weld, or load to the start of the next, including every move in between. It is the denominator of a cell\'s throughput and one of the two numbers an operations buyer asks for first; the other is takt time, which decides whether that cycle is fast enough. Vendor cycle times are quoted at the cell\'s designed pace with known parts, so an unmodelled failure mode lengthens the real one.',
-    citations: ['evst-cell-cost-2026'],
+      'The time required to produce a part or complete a process, as timed by actual measurement.',
+    citations: ['lei-cycle-time-definition'],
   },
   {
     id: 'mean-time-between-failures',
