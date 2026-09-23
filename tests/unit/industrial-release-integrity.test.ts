@@ -8,7 +8,7 @@ import {
   createLocalArtifactReader, loadLocalBasisContext, recomputeLocalDerivation,
   validateLocalBasisPlan, type LocalArtifact, type LocalCatalog,
 } from '../../lib/audit-local-basis';
-import { sha256 } from '../../lib/brand-v2-baseline';
+import { sha256, stableJson, type JsonValue } from '../../lib/brand-v2-baseline';
 import { committedSource } from '../helpers/continuation-integration';
 
 const reviewPath = 'audit/evidence/industrial-release-20260923/dependency-review.json';
@@ -34,7 +34,9 @@ describe('industrial release preserves both evidence histories', () => {
   it('recomputes every retained output and validates every original AND obligation', () => {
     const context = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
     for (const proof of catalog.proofs) {
-      expect(recomputeLocalDerivation(proof.recipe), proof.id).toEqual(proof.expected);
+      // Receipts are JSON, which represents IEEE-754 negative zero as zero.
+      expect(stableJson(recomputeLocalDerivation(proof.recipe) as JsonValue), proof.id)
+        .toBe(stableJson(proof.expected as JsonValue));
     }
     for (const plan of catalog.plans) {
       expect(validateLocalBasisPlan(plan, plan.currentCells, plan.id,

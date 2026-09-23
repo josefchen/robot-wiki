@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2767661342ebfad983dd2ae3e8732ee27070abfd0a2e8f4f0c1b19aec3f2105c",
+  "fingerprint": "f8fcd82393a8c3ae94bb987eebea6fc26e78560005c758b8acaeab500fe40b6c",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -3173,7 +3173,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24013,
+      "visibleTextLength": 24111,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -4570,7 +4570,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 84079,
+      "visibleTextLength": 83318,
       "route": "/glossary/",
       "viewport": "1440x900"
     },
@@ -12490,7 +12490,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23634,
+      "visibleTextLength": 23732,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -13887,7 +13887,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 83857,
+      "visibleTextLength": 83096,
       "route": "/glossary/",
       "viewport": "375x812"
     },

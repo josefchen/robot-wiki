@@ -2619,11 +2619,11 @@
                 ],
                 "lastReviewed": "2026-08-22",
                 "readingMinutes": 14,
-                "citationCount": 22,
+                "citationCount": 23,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
                 "readingTimeText": "14 min",
-                "citationCountText": "22",
+                "citationCountText": "23",
                 "bibliographyIds": [
                   "ifr-world-robotics-2025",
                   "ifr-china-five-year-plan-2026",
@@ -2634,7 +2634,8 @@
                   "amazon-vulcan-2026",
                   "acemoglu-restrepo-2020",
                   "mit-work-future-2020",
-                  "ohno-tps-1988",
+                  "lei-takt-time-definition",
+                  "lei-cycle-time-definition",
                   "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "kroger-ocado-closures-2025",
@@ -9987,7 +9988,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 22,
+                  "count": 23,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9997,7 +9998,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 22,
+                      "count": 23,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -10009,7 +10010,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 66,
+                  "count": 68,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -10019,7 +10020,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 66,
+                      "count": 68,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -66870,11 +66871,11 @@
                 ],
                 "lastReviewed": "2026-08-22",
                 "readingMinutes": 14,
-                "citationCount": 22,
+                "citationCount": 23,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
                 "readingTimeText": "14 min",
-                "citationCountText": "22",
+                "citationCountText": "23",
                 "bibliographyIds": [
                   "ifr-world-robotics-2025",
                   "ifr-china-five-year-plan-2026",
@@ -66885,7 +66886,8 @@
                   "amazon-vulcan-2026",
                   "acemoglu-restrepo-2020",
                   "mit-work-future-2020",
-                  "ohno-tps-1988",
+                  "lei-takt-time-definition",
+                  "lei-cycle-time-definition",
                   "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "kroger-ocado-closures-2025",
@@ -71214,7 +71216,8 @@
                   "amazon-vulcan-2026",
                   "acemoglu-restrepo-2020",
                   "mit-work-future-2020",
-                  "ohno-tps-1988",
+                  "lei-takt-time-definition",
+                  "lei-cycle-time-definition",
                   "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "kroger-ocado-closures-2025",
@@ -71251,7 +71254,8 @@
                   "evst-cell-cost-2026",
                   "osha-otm-robots",
                   "bessemer-robotics-2026",
-                  "ohno-tps-1988",
+                  "lei-cycle-time-definition",
+                  "lei-takt-time-definition",
                   "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "goldberg-data-gap-2025",
@@ -84748,7 +84752,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:data-hardware/industrial-deployment moved from e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4 to 280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50 exactly as approved delta continuation-merge-2026-09-23-article-metadata-article-fact-frontmatter-data-hardware-industrial-deployment permits: Preserve main metadata and add the mission NASA Lessons Learned citation.",
+      "actual": "article-metadata member article-fact-frontmatter:data-hardware/industrial-deployment moved from e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4 to 43b588e02c533e53082fdcb78957380eb03e071f7eb19abc87677fdc320a3ffc exactly as approved delta continuation-merge-2026-09-23-1940-article-metadata-article-fact-frontmatter-data-hardware-industrial-deployment permits: Integrate eight industrial audit corrections, undated LEI definitions, qualified authored economics and unsupported attribution/count removal. Preserve the main-only Stat year-range typography, existing routes, controls, scientific qualifications and sources.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84760,9 +84764,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:data-hardware/industrial-deployment",
           "baselineHash": "e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4",
-          "currentHash": "280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50",
+          "currentHash": "43b588e02c533e53082fdcb78957380eb03e071f7eb19abc87677fdc320a3ffc",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-article-metadata-article-fact-frontmatter-data-hardware-industrial-deployment"
+          "approvedDelta": "continuation-merge-2026-09-23-1940-article-metadata-article-fact-frontmatter-data-hardware-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87548,7 +87552,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to 73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096 exactly as approved delta continuation-merge-2026-09-23-article-metadata-canonical-metadata-source-data-glossary-ts permits: Combine main glossary additions with mission TSDF and MTBF corrections, preserving known uncertainty.",
+      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to 33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9 exactly as approved delta continuation-merge-2026-09-23-1940-article-metadata-canonical-metadata-source-data-glossary-ts permits: Integrate eight industrial audit corrections, undated LEI definitions, qualified authored economics and unsupported attribution/count removal. Preserve the main-only Stat year-range typography, existing routes, controls, scientific qualifications and sources.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87560,9 +87564,9 @@
           "manifest": "article-metadata",
           "member": "canonical-metadata-source:data/glossary.ts",
           "baselineHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
-          "currentHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
+          "currentHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-article-metadata-canonical-metadata-source-data-glossary-ts"
+          "approvedDelta": "continuation-merge-2026-09-23-1940-article-metadata-canonical-metadata-source-data-glossary-ts"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87688,7 +87692,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f exactly as approved delta continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta permits: Reconcile main citation rendering population with mission NASA 1994 lesson identity; no invented LEI date.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2 exactly as approved delta continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta permits: Integrate eight industrial audit corrections, undated LEI definitions, qualified authored economics and unsupported attribution/count removal. Preserve the main-only Stat year-range typography, existing routes, controls, scientific qualifications and sources.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87700,9 +87704,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f",
+          "currentHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2",
           "status": "approved-addition",
-          "approvedDelta": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta"
+          "approvedDelta": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -93499,6 +93503,62 @@
           "currentHash": "6422ac167d1624256e008dddcfa411266684e9f99c68f73896a108d4141c7116",
           "status": "approved-delta",
           "approvedDelta": "rudin-reader-url-20260909-8f4abfad9e1c035e03"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:lei-cycle-time-definition",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:lei-cycle-time-definition",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:lei-cycle-time-definition"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:lei-cycle-time-definition moved from null to 7ec9fb0f5b7afa37655b412daf26a776a79a5e9540bf92c99d21e612a1c2cf03 exactly as approved delta industrial-closure-20260923-4 permits: Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:lei-cycle-time-definition",
+          "baselineHash": null,
+          "currentHash": "7ec9fb0f5b7afa37655b412daf26a776a79a5e9540bf92c99d21e612a1c2cf03",
+          "status": "approved-addition",
+          "approvedDelta": "industrial-closure-20260923-4"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:lei-takt-time-definition",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:lei-takt-time-definition",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:lei-takt-time-definition"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:lei-takt-time-definition moved from null to 0b701b5fee8aa1b91094f1b9f8f78f6879760f5595dc642af6fdd5227069574f exactly as approved delta industrial-closure-20260923-5 permits: Finite industrial9/10/31/32/33/37/47/48 closure: source-backed undated LEI definitions, truthful authored economic comparisons, unsupported attribution/certainty/count removal and actual registry/render checks. Controls, model, routes and original history remain intact.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:lei-takt-time-definition",
+          "baselineHash": null,
+          "currentHash": "0b701b5fee8aa1b91094f1b9f8f78f6879760f5595dc642af6fdd5227069574f",
+          "status": "approved-addition",
+          "approvedDelta": "industrial-closure-20260923-5"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100512,7 +100572,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9 exactly as approved delta continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment permits: Integrate the committed mission industrial52 authored-assumption and elapsed-hour disclosures; preserve main-only editorial corrections, including the lint-compliant year-range hyphen. Model arithmetic, defaults, ranges, citations and interaction behavior remain unchanged.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to 1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc exactly as approved delta continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment permits: Integrate eight industrial audit corrections, undated LEI definitions, qualified authored economics and unsupported attribution/count removal. Preserve the main-only Stat year-range typography, existing routes, controls, scientific qualifications and sources.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100524,9 +100584,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9",
+          "currentHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment"
+          "approvedDelta": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102108,7 +102168,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/industrial-deployment moved from 964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d to 2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5 exactly as approved delta continuation-merge-2026-09-23-relationships-article-data-hardware-industrial-deployment permits: Combined main relationships and mission NASA availability reference; no existing references removed.",
+      "actual": "relationships member article:data-hardware/industrial-deployment moved from 964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d to 2b4666561cda11c2f6877fb8cb9e6afee5811a2f265b4066c6ad950a06d14dd2 exactly as approved delta continuation-merge-2026-09-23-1940-relationships-article-data-hardware-industrial-deployment permits: Integrate eight industrial audit corrections, undated LEI definitions, qualified authored economics and unsupported attribution/count removal. Preserve the main-only Stat year-range typography, existing routes, controls, scientific qualifications and sources.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102120,9 +102180,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
-          "currentHash": "2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5",
+          "currentHash": "2b4666561cda11c2f6877fb8cb9e6afee5811a2f265b4066c6ad950a06d14dd2",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-relationships-article-data-hardware-industrial-deployment"
+          "approvedDelta": "continuation-merge-2026-09-23-1940-relationships-article-data-hardware-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -104224,7 +104284,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/industrial-deployment/ ships 58 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 58 outbound anchor occurrences on it with a visible focus ring in 165 stops",
+      "actual": "/data-hardware/industrial-deployment/ ships 60 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 60 outbound anchor occurrences on it with a visible focus ring in 168 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104232,8 +104292,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/industrial-deployment/",
-          "outboundAnchors": 58,
-          "distinctHrefs": 25,
+          "outboundAnchors": 60,
+          "distinctHrefs": 26,
           "shapes": [
             "citation-chip",
             "footer",
@@ -104241,9 +104301,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 55,
-          "reachedByTab": 58,
-          "tabStops": 165,
+          "anchorsWithNoreferrer": 57,
+          "reachedByTab": 60,
+          "tabStops": 168,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104635,7 +104695,7 @@
         "computed": {
           "route": "/glossary/",
           "outboundAnchors": 194,
-          "distinctHrefs": 140,
+          "distinctHrefs": 141,
           "shapes": [
             "footer",
             "other"
@@ -131323,7 +131383,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 47647 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 47843 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131840,7 +131900,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/glossary/ rendered no v1 identity spelling and no v1 descriptor in 167936 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/glossary/ rendered no v1 identity spelling and no v1 descriptor in 166414 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

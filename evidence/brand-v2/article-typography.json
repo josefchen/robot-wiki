@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "cfa79ab7ece274ccbc6d874241339e341c1eb999f0533c7fa5c09136b2754ef4",
+  "fingerprint": "46467d9702874fa64fa79e8ef9f135c0554b608e61c7b26d72ff0157c9e5f51a",
   "viewports": [
     "375x812",
     "1440x900"
@@ -15666,7 +15666,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23634,
+      "visibleTextLength": 23732,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15734,11 +15734,11 @@
         ],
         "lastReviewed": "2026-08-22",
         "readingMinutes": 14,
-        "citationCount": 22,
+        "citationCount": 23,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
         "readingTimeText": "14 min",
-        "citationCountText": "22",
+        "citationCountText": "23",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -15749,7 +15749,8 @@
           "amazon-vulcan-2026",
           "acemoglu-restrepo-2020",
           "mit-work-future-2020",
-          "ohno-tps-1988",
+          "lei-takt-time-definition",
+          "lei-cycle-time-definition",
           "nasa-availability-prediction-analysis",
           "evst-cell-cost-2026",
           "kroger-ocado-closures-2025",
@@ -15795,7 +15796,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Before the survey, hold the economics in your hands: every s"
+          "text": "Use the sliders to compare two cases in this authored model."
         },
         {
           "familyHead": "newsreader",
@@ -16056,7 +16057,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The calculator exists for one argument. A picker that succee"
+          "text": "Here is a separate authored arithmetic example, not a measur"
         },
         {
           "familyHead": "newsreader",
@@ -16239,7 +16240,7 @@
         },
         {
           "kind": "reference",
-          "count": 22,
+          "count": 23,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16249,7 +16250,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 23,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16261,7 +16262,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 68,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16271,7 +16272,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 66,
+              "count": 68,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -23439,7 +23440,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 83857,
+      "visibleTextLength": 83096,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68245,7 +68246,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24013,
+      "visibleTextLength": 24111,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68313,11 +68314,11 @@
         ],
         "lastReviewed": "2026-08-22",
         "readingMinutes": 14,
-        "citationCount": 22,
+        "citationCount": 23,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
         "readingTimeText": "14 min",
-        "citationCountText": "22",
+        "citationCountText": "23",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -68328,7 +68329,8 @@
           "amazon-vulcan-2026",
           "acemoglu-restrepo-2020",
           "mit-work-future-2020",
-          "ohno-tps-1988",
+          "lei-takt-time-definition",
+          "lei-cycle-time-definition",
           "nasa-availability-prediction-analysis",
           "evst-cell-cost-2026",
           "kroger-ocado-closures-2025",
@@ -68374,7 +68376,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Before the survey, hold the economics in your hands: every s"
+          "text": "Use the sliders to compare two cases in this authored model."
         },
         {
           "familyHead": "newsreader",
@@ -68635,7 +68637,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The calculator exists for one argument. A picker that succee"
+          "text": "Here is a separate authored arithmetic example, not a measur"
         },
         {
           "familyHead": "newsreader",
@@ -68818,7 +68820,7 @@
         },
         {
           "kind": "reference",
-          "count": 22,
+          "count": 23,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -68828,7 +68830,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 23,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68840,7 +68842,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 68,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -68850,7 +68852,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 66,
+              "count": 68,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -76018,7 +76020,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 84079,
+      "visibleTextLength": 83318,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

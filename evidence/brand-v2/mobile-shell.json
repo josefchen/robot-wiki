@@ -3829,7 +3829,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 23634,
+      "visibleTextLength": 23732,
       "header": {
         "present": true,
         "display": "flex",
@@ -5614,7 +5614,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 83857,
+      "visibleTextLength": 83096,
       "header": {
         "present": true,
         "display": "flex",

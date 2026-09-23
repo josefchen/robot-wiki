@@ -222,7 +222,9 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
           expect(archived.currentCells).toEqual(Object.fromEntries(
             ['claim', 'sourceChecked', 'verdict', 'note'].map(key => [key, old.claimRecords[i][key as 'claim']]),
           ));
-          expect(record.verdict).toMatch(/^C\b/);
+          expect(record.verdict).toBe(i === 46
+            ? 'Cut (historical ledger certification withdrawn)'
+            : 'C');
         } else if (section.slug !== 'datasets' || i !== 9) expect(record).toEqual(old.claimRecords[i]);
       }
     }

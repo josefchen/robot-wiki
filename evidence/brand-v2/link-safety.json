@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "84bf92368c759f9c84b24b7d1dfa7dc3ff65c794901de161d21443034c387d8f",
+  "fingerprint": "abb8fee6d7bd32f40c0c2a991436b6a6d7acff0b310f80a4572a4589544a0365",
   "source": "out/ static export",
   "routes": [
     {
@@ -254,8 +254,8 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundAnchors": 58,
-      "distinctHrefs": 25,
+      "outboundAnchors": 60,
+      "distinctHrefs": 26,
       "shapes": [
         "citation-chip",
         "footer",
@@ -371,7 +371,7 @@
     {
       "route": "/glossary/",
       "outboundAnchors": 194,
-      "distinctHrefs": 140,
+      "distinctHrefs": 141,
       "shapes": [
         "footer",
         "other"
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3119,
-  "distinctOutboundHrefs": 855,
+  "outboundAnchors": 3121,
+  "distinctOutboundHrefs": 856,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1373,
-    "reference-entry": 746,
+    "citation-chip": 1374,
+    "reference-entry": 747,
     "other": 606
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2582,
+  "anchorsWithNoreferrer": 2584,
   "keyboard": [
     {
       "route": "/",
@@ -987,11 +987,11 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundInDom": 58,
-      "reachedByTab": 58,
+      "outboundInDom": 60,
+      "reachedByTab": 60,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 165
+      "tabStops": 168
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
