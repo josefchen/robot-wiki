@@ -18984,6 +18984,60 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
-    }
+    },
+   {
+    "id": "reader-dreamer-20260923-1",
+    "manifest": "prose",
+    "memberId": "article:world-models/latent-dynamics",
+    "oldHash": "2a1692435f01f148345f3c0e3d9e8e7a52e0463372cd9300f9633f72b65f5473",
+    "newHash": "8dbdbbdf649e90127a24af576468304034acdb4845ce9ff58ff8b1e26616d5ec",
+    "reason": "F06 and F18 Dreamer pair: reader-only wording at article:world-models/latent-dynamics; preserve source-labelled horizons, conflicting reward-loss descriptions, all quantities and citations. Detailed internals remain in latent-dynamics; taxonomy keeps a concise locally cited summary. Zero original row mutations or completions; lastReviewed unchanged.",
+    "ownerApproval": "Direct owner-authorized sole-writer dispatch on 2026-09-23 for F06 and the F18 Dreamer pair in Mission mis_2b1673fa, over Josef fix-it-all authority; reader-only same-claim repair, not source certification or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-003",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-dreamer-20260923-2",
+    "manifest": "prose",
+    "memberId": "article:world-models/taxonomy",
+    "oldHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1",
+    "newHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93",
+    "reason": "F06 and F18 Dreamer pair: reader-only wording at article:world-models/taxonomy; preserve source-labelled horizons, conflicting reward-loss descriptions, all quantities and citations. Detailed internals remain in latent-dynamics; taxonomy keeps a concise locally cited summary. Zero original row mutations or completions; lastReviewed unchanged.",
+    "ownerApproval": "Direct owner-authorized sole-writer dispatch on 2026-09-23 for F06 and the F18 Dreamer pair in Mission mis_2b1673fa, over Josef fix-it-all authority; reader-only same-claim repair, not source certification or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-003",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-dreamer-20260923-3",
+    "manifest": "relationships",
+    "memberId": "article:world-models/taxonomy",
+    "oldHash": "0d596970aab63d64eaea4a41ea74bd9f47cc01227f81b24f758f341d891b6279",
+    "newHash": "e1be06d6ce2a4468c81a49c1e8b67312ee6ea5196e2cce0d31ce8b617e8761c2",
+    "reason": "F18 Dreamer pair: add the taxonomy summary link to the detailed latent-dynamics explanation with a trailing slash; retain every citation occurrence, term and See also relationship.",
+    "ownerApproval": "Direct owner-authorized sole-writer dispatch on 2026-09-23 for F06 and the F18 Dreamer pair in Mission mis_2b1673fa, over Josef fix-it-all authority; reader-only same-claim repair, not source certification or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-003",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   }
   ]
 }
