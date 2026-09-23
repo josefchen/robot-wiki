@@ -359,14 +359,15 @@ describe('datasets originals: compound plans', () => {
 
 describe('datasets originals: approved deltas', () => {
   it('appends exactly eleven new entries and preserves the prior 793 in order', () => {
-    // The merged delta ledger keeps appending later packets; pin this
-    // packet's append slot (790..800) rather than a moving total.
-    expect(deltas.entries[789].id).toBe('gp-r12-20260916-1');
-    expect(deltas.entries.slice(790, 801).map((entry) => entry.id)).toEqual(newDeltaIds);
+    const start = deltas.entries.findIndex(entry => entry.id === newDeltaIds[0]);
+    expect(start).toBeGreaterThan(0);
+    expect(deltas.entries[start - 1].id).toBe('gp-r12-20260916-1');
+    expect(deltas.entries.slice(start, start + newDeltaIds.length).map(entry => entry.id)).toEqual(newDeltaIds);
+    expect(deltas.entries.filter(entry => newDeltaIds.includes(entry.id)).map(entry => entry.id)).toEqual(newDeltaIds);
   });
 
   it('records every entry against the datasets prose member with the true before/after hashes', () => {
-    for (const entry of deltas.entries.slice(790, 801)) {
+    for (const entry of deltas.entries.filter(entry => newDeltaIds.includes(entry.id))) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:data-hardware/datasets');
       expect(entry.oldHash).toBe(OLD_PROSE_HASH);

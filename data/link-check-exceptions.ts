@@ -166,15 +166,6 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
    * Source-client and metadata exceptions re-verified 2026-08-24.
    * ------------------------------------------------------------------ */
   {
-    id: 'technology-org-deployed-2026',
-    covers: ['blocked'],
-    reason:
-      'technology.org serves a Cloudflare interstitial (HTTP 403) to node fetch, curl, and headless Chromium from this network. The article has no DOI, so Crossref cannot stand in for the fetch.',
-    verifiedBy:
-      'Independent text-extraction fetch through r.jina.ai returned the full exact-URL article with title "Humanoid Robots in 2026: What Is Actually Deployed - Technology Org", publication timestamp 2026-07-18, Alius Noreika byline, deployment table, and the Figure, Agility, and Unitree figures cited by Robot Wiki.',
-    verifiedOn: '2026-08-24',
-  },
-  {
     id: 'hinterstoisser-2012',
     covers: ['title-mismatch'],
     reason:
@@ -208,15 +199,6 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
       'automate.org serves a Cloudflare 403 to node fetch, curl, and headless Chromium from this network. The news release has no DOI.',
     verifiedBy:
       'Independent web-index fetch of the corrected exact URL rendered the full A3 release, title, Association for Advancing Automation byline, 2026-02-06 date, and the cited annual figures: 19.6% of units and 10.7% of revenue.',
-    verifiedOn: '2026-08-24',
-  },
-  {
-    id: 'symbotic-10k-2025',
-    covers: ['title-mismatch'],
-    reason:
-      'The SEC filing serves its accession filename, "sym-20250927", as the HTML title rather than a human-readable Form 10-K title, so the title checker cannot compare document identity from the <title> element.',
-    verifiedBy:
-      'Direct SEC filing read at the exact URL confirmed the fiscal year ended 2025-09-27, $22.5B backlog, Walmart agreement covering all 42 regional distribution centres, 48 operational systems under maintenance contracts, and the Symbotic filing identity.',
     verifiedOn: '2026-08-24',
   },
   {

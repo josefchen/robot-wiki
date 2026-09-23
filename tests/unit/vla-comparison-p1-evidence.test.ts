@@ -8,7 +8,7 @@ import { METHODS } from '../../data/methods';
 import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
-import { committedSource, preservedApprovalPacket, RELEASE_BASE } from '../helpers/continuation-integration';
+import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -116,9 +116,7 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
 
   it('preserves unselected rows/plans and archives the exact old selected objects', () => {
     const chosen = (p: CompoundPlan) => selected.some(([slug, n]) => p.articleSlug === slug && p.rowOrdinal === n && p.ledgerPath === 'audit/manipulation.md');
-    const oldIds = new Set(oldPlans.map(p => p.id));
-    expect(plans.filter(p => oldIds.has(p.id) && !chosen(p))).toEqual(oldPlans.filter(p => !chosen(p)));
-    const packetPlans: CompoundPlan[] = JSON.parse(committedSource('89cda67', 'audit/compound-evidence.json'));
+    const packetPlans = preservedCompoundPacket('89cda67');
     expect(packetPlans).toHaveLength(oldPlans.length + 1);
     expect(packetPlans.filter(p => !chosen(p))).toEqual(oldPlans.filter(p => !chosen(p)));
     const laterIds = plans.filter(p => !packetPlans.some(old => old.id === p.id)).map(p => [p.articleSlug, p.rowOrdinal]);

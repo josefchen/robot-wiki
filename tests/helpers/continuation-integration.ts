@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { expect } from 'vitest';
 import type { ApprovedDelta } from '../../lib/brand-v2-baseline';
+import type { CompoundPlan } from '../../lib/audit-ledger';
 import { ledgerAt, showAt } from '../unit/helpers/continuation-merge-ledger';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -14,6 +15,26 @@ export function committedSource(ref: string, path: string): string {
 
 export function committedApprovals(ref: string): ApprovedDelta[] {
   return ledgerAt(ref);
+}
+
+// Historical catalog hashes belong to their original transaction. The sole
+// later in-place successor is the independently tested RoboMIND disclosure.
+// Compare every current packet member by identity, with that exact successor.
+export function preservedCompoundPacket(ref: string): CompoundPlan[] {
+  const path = 'audit/compound-evidence.json';
+  const prior: CompoundPlan[] = JSON.parse(committedSource(ref, path));
+  const current: CompoundPlan[] = JSON.parse(readFileSync(resolve(root, path), 'utf8'));
+  const successorId = 'datasets-10-robomind-20260916c';
+  const successor: CompoundPlan = JSON.parse(committedSource('8f7508b', path))
+    .find((plan: CompoundPlan) => plan.id === successorId);
+  expect(successor).toBeDefined();
+  const priorIds = new Set(prior.map(plan => plan.id));
+  expect(priorIds.size).toBe(prior.length);
+  expect(new Set(current.map(plan => plan.id)).size).toBe(current.length);
+  expect(current.filter(plan => priorIds.has(plan.id))).toEqual(
+    prior.map(plan => plan.id === successorId ? successor : plan),
+  );
+  return prior;
 }
 
 // The release train preserves main's order, then appends mission-only IDs.

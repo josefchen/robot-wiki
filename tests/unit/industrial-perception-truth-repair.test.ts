@@ -11,7 +11,7 @@ import { validateApprovedDeltas, type ApprovedDelta } from '../../lib/brand-v2-b
 import { applyTitleMismatchException, compareTitles, isAuditFailure, type CitationAuditResult } from '../../lib/citation-audit';
 import { applyException, classifyStatus } from '../../lib/citation-links';
 import { DEFAULT_PARAMS, SLIDER_SPECS, composeBudget, handEyeErrorMm } from '../../lib/perception-error';
-import { committedSource, preservedApprovalPacket, RELEASE_BASE } from '../helpers/continuation-integration';
+import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const hash = (text: string) => createHash('sha256').update(text).digest('hex');
@@ -165,7 +165,9 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
   }
 
   it('does not manufacture plans or alter the existing native catalog', () => {
-    expect(hash(planText)).toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+    expect(hash(committedSource('a4381e8', 'audit/compound-evidence.json')))
+      .toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+    preservedCompoundPacket('a4381e8');
     expect(plans.every((plan) => plan.parts.every((part) => part.requiredCitationIds.length > 0))).toBe(true);
   });
 
@@ -520,9 +522,13 @@ describe('two identity exceptions integration', () => {
       year: 2026, url: targets[0].url, type: 'docs',
     });
     expect(CITATIONS.find(({ id }) => id === targets[1].id)).toEqual({
-      id: targets[1].id, title: 'Goal Structuring Notation Community Standard Version 3',
+      id: targets[1].id, title: 'Goal Structuring Notation Community Standard (Version 3)',
       authors: ['SCSC Assurance Case Working Group'], year: 2021,
       venue: 'Safety-Critical Systems Club', url: targets[1].url, type: 'docs',
     });
+    expect(committedSource('c624fab', 'data/citations.ts'))
+      .toContain("title: 'Goal Structuring Notation Community Standard Version 3'");
+    expect(committedSource(RELEASE_BASE, 'data/citations.ts'))
+      .toContain("title: 'Goal Structuring Notation Community Standard (Version 3)'");
   });
 });

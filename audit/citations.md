@@ -1203,3 +1203,35 @@ findings, not a newly run gate result. Content gate remains red.
 - `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule --types node data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts`: narrow types passed; exit 0; completed 2026-09-23T01:18:41.096205+00:00.
 
 No unaffected prior green unit cases or citation IDs were rerun. The three external failure statuses and absent exceptions are explicitly retained; no broader suite or gate was run.
+
+
+## Release integration: superseded main exceptions (2026-09-23)
+
+The mission's September 23 observations take precedence over the two
+August 24 main-only exception records below. Symbotic retains only its
+newer, exact title-mismatch exception, avoiding duplicate active IDs.
+Technology Org remains unresolved after the observed HTTP 403; the
+older alternate-client observation does not waive that current failure.
+The former records are retained verbatim as history, not active coverage.
+No new request or source verification occurred in this reconciliation.
+
+```ts
+  {
+    id: 'symbotic-10k-2025',
+    covers: ['title-mismatch'],
+    reason:
+      'The SEC filing serves its accession filename, "sym-20250927", as the HTML title rather than a human-readable Form 10-K title, so the title checker cannot compare document identity from the <title> element.',
+    verifiedBy:
+      'Direct SEC filing read at the exact URL confirmed the fiscal year ended 2025-09-27, $22.5B backlog, Walmart agreement covering all 42 regional distribution centres, 48 operational systems under maintenance contracts, and the Symbotic filing identity.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'technology-org-deployed-2026',
+    covers: ['blocked'],
+    reason:
+      'technology.org serves a Cloudflare interstitial (HTTP 403) to node fetch, curl, and headless Chromium from this network. The article has no DOI, so Crossref cannot stand in for the fetch.',
+    verifiedBy:
+      'Independent text-extraction fetch through r.jina.ai returned the full exact-URL article with title "Humanoid Robots in 2026: What Is Actually Deployed - Technology Org", publication timestamp 2026-07-18, Alius Noreika byline, deployment table, and the Figure, Agility, and Unitree figures cited by Robot Wiki.',
+    verifiedOn: '2026-08-24',
+  },
+```

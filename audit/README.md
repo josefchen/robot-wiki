@@ -2447,9 +2447,11 @@ Exact source identities, original retrieval moments, final tuple reviews, comman
 
 
 <!-- rl-reader-current:start -->
+
 ## Current: continuation integration audit checkpoint — 2026-09-23
 
-**959 complete / 35 incomplete / 994 original identities / 47 audited articles. 863 compound plans; 1,419 approval-ledger entries.** Counts are computed from the integrated ledgers, not acceptance. This integration carries continuation d928b6b into main 86e3a9b. Main's 1,379 approval records remain an unchanged prefix, followed by 22 mission-only records in mission order, 16 exact combined-member approvals and two exact OXE link-safety approvals. Source-qualified VLA/comparison and TSDF corrections add three structurally complete originals; the authored-example holds and license uncertainty remain unresolved. The ten SEO-corpus articles (57 published) still have no audit section, so the content audit remains RED. The production `vercel-build` retains its existing content-audit skip; every other gate must pass.
+**960 complete / 34 incomplete / 994 original identities / 47 audited articles. 863 compound plans; 1,427 approval-ledger entries.** Counts are computed from the integrated ledgers, not acceptance. This integration carries continuation 2aaf058 into main f1d03a9. Main's 1,419 approval records remain an unchanged prefix, followed by six mission-only RoboMIND approvals and two exact combined-member approvals. The approved RoboMIND release-scoped disclosure adds one structurally complete original without granting licensing permission; the authored-example holds remain unresolved. The ten SEO-corpus articles (57 published) still have no audit section, so the content audit remains RED. The production `vercel-build` retains its existing content-audit skip; every other gate must pass. The preceding d928b6b integration had 959 complete / 35 incomplete records; that count remains historical, not the current total.
+
 <!-- rl-reader-current:end -->
 
 ## Historical: seo-merge audit checkpoint — 2026-09-16

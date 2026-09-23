@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
@@ -180,7 +180,9 @@ describe('four bounded local truth repairs without completion credit', () => {
 
   it('does not create synthetic local-code plans or modify the existing native catalog', () => {
     expect(plans).toHaveLength(863);
-    expect(hash(plansText)).toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+    expect(hash(committedSource(CONTINUATION_CHECKPOINT, 'audit/compound-evidence.json')))
+      .toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+    preservedCompoundPacket(CONTINUATION_CHECKPOINT);
   });
 
   it('adds exactly the four necessary native member approvals, not a gate waiver', () => {
