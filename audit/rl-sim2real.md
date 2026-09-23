@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 167
-- Recorded verified: 57
-- Recorded corrected: 108
+- Recorded verified: 56
+- Recorded corrected: 109
 - Recorded cut: 2
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 164
-- Incomplete evidence records: 3
+- Complete evidence records: 165
+- Incomplete evidence records: 2
 
 <!-- audit-summary:end -->
 
@@ -327,7 +327,7 @@ this ledger's conventions.
 | In its MuJoCo 3.5 (MJWarp) release summary, NVIDIA reports speedups over MJX of 252x for locomotion and 475x for manipulation on NVIDIA RTX PRO 6000 Blackwell Series hardware. The post does not specify benchmark task variants, environment counts, numeric precision, or the timing definition for those ratios. Do not read them as end-to-end policy-training-time or control-frequency measurements. Stat: MJWarp vs MJX, 252x / 475x; NVIDIA report: locomotion / manipulation; limits below. | newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored MuJoCo 3.5 (MJWarp) bullet gives 252x locomotion and 475x manipulation over MJX on RTX PRO 6000 Blackwell Series. The Stat now separates those ratios by workload. Reading the complete body did not establish task variants, environment counts, precision or a timing definition for those ratios; nearby code examples are not benchmark protocol. Removed dated no-independent-replication claim was unsupported. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-15 |
 | Isaac Lab v1 uses PhysX CPU APIs for physics parameter writes; most can change at runtime, while mesh scale/collider type are startup-only. Episode-reset-only causal assertion deleted. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["\"domain randomization still writes physics parameters (masses, frictions, contact offsets) through PhysX CPU APIs, which is why randomization happens on episode reset rather than continuously\"","Isaac Lab paper, Sec. 4 (domain randomization)","verified","Parameter writes go through the PhysX CPU API; mesh scale/collider type fixed before sim start."]. Immediate-before tuple (history, not proof): ["\"domain randomization still writes physics parameters (masses, frictions, contact offsets) through PhysX CPU APIs, which is why randomization happens on episode reset rather than continuously\"","Isaac Lab paper, Sec. 4 (domain randomization)","verified","Parameter writes go through the PhysX CPU API; mesh scale/collider type fixed before sim start."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal e977a4b4686ccc38c4c8eacb660e82964e36210c4b853fefa10f287a19f9e138 reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-parallel-sim-rl-16-20260908 |
 | Johnny Nuñez Cano and his NVIDIA coauthors call Drake the "gold standard" for contact-implicit trajectory optimisation and rigorous numerics rather than throughput. This is the overview authors' positioning, not a comparative benchmark. | state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The visible ordered six-author byline includes Johnny Nuñez Cano and lowercase lior ben horin; the other-engines paragraph calls Drake gold standard. Current wording names the authors and identifies the statement as positioning, not a quantitative benchmark or first-party Drake technical certification. The preceding unselected Newton policy-learning sentence remains uncredited. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-17 |
-| TrainingTimeChart economics (fixed vs scaling per-iteration cost; hours-to-minutes curve) | Measured anchors: rudin-2021 @ https://ar5iv.labs.arxiv.org/html/2109.11978 (retained surface of the registered citation, reused read-only from compound plan rudin-protocol-writer-parallel-sim-rl-2-20260909; NOT re-fetched this session per binding rule); chart-model conjunct: local proof against content/rl-sim2real/parallel-sim-rl.mdx Callout + lib/parallel-sim.ts header (integrator verifies at apply time) | verified | HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The retained Rudin response genuinely supports the under-four/20-minute bounds and the uneven-terrain 4096/98304/1500-update workstation protocol. It does not establish TARGET_TRANSITIONS=2.2e8, the three authored cost buckets, or the plotted illustrative curve/flat-diamond x. The current plan folds this local AND into one part but its only paired passage is Rudin; local agreement is asserted in the adjudication. The Callout/lib disclosures are genuine and remain intact, but row18 received no article-span correction at completion. The packet explicitly retained the pending owner caveat; the integrator called controller dispatch operative confirmation while leaving that caveat open. That dispatch is not a locked-rule addendum.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:parallel-sim-rl:18. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Callout + lib/parallel-sim.ts header label the curve an illustrative fixed-transitions model (three cost buckets: GPU sim, learning update, CPU-side work), not a benchmark. The two diamond anchors are printed by the Rudin paper: 'training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain' and 'a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes ... Trained on: i9-11900k CPU, NVIDIA RTX A6000 GPU'; the Callout's flat-marker x-coordinate is disclosed as illustrative. LOCAL-AND: integrator verifies the illustrative labeling in-repo before applying. Isaac Lab FPS figures (note only, not this plan's evidence) are rows 8/9 applied claims. |  |  |  | parallel-sim-rl-18-training-time-chart-20260916k |
+| TrainingTimeChart uses a chosen fixed budget, cost buckets and49-point log grid, not an empirical learning curve; actual environment/CPU controls, formatted readouts, bound markers and Reset are evidenced. | Retained Rudin full ar5iv response (September6) and Isaac Lab v1 body (September8), original retrieval provenance verified; actual September23 independent arithmetic and mounted observations. | C | The220-million-transition budget, cost constants, sample grid and flat-marker x are authored. Rudin flat under-four-minute and separate4096/98304/1500-update under20-minute workstation protocol remain external;24 rollout steps follows98304/4096 and is also a chosen toy input. Isaac Lab headless >900k/>1.6M environment-learning FPS, eight RTX PRO6000 GPUs/16384 envs and task-specific CPU/hardware comparison remain required external parts, not notes-only exemptions. Seven original obligations survive; observed subparts partition six input combinations with actual default/reset/mobile observations. Original cells and selected retired legacy plan remain unchanged in history. No empirical calibration validation, new retrieval, current liveness or independent acceptance. |  |  |  | parallel-local-p18-20260923 |
 
 ## sim2real-transfer.mdx
 
@@ -2558,3 +2558,135 @@ console.log(JSON.stringify({file,compilerMessages:compiled.messages.length,decla
 Exactly one round2 final offline coverage invocation after integration returned **exit1: 965 complete / 29 incomplete / 994 originals**, RL **164/3/167**; **42 ledger findings**, zero citation-coverage findings and zero summary mismatches. Counting method: flatten native sectionsByDomain claimRecords, complete iff evidenceFailures.length===0; count plan/proof/approval arrays, not grep markers. Full stdout was written directly to a regular file at `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/coverage-final.json` (10191778 bytes; SHA-256 `52bf5e8f435051ad942b42fc5bf7d23fef8b63af0e2016b2e834f76dff3a645c`); stderr is empty. The earlier partial/reward-identical coverage.json remains unchanged. This is not a green gate.
 
 Preservation comparison confirms all994 identities/order, all992 unselected full records including line positions, all963 prior completions, protected owner work/commits and restored next-env.d.ts. Prior JSON object serialization is preserved while appending only new records. Documentation appended after coverage is checked through native parser equality, not a second coverage run. No post-check producing-code changes. No new source request, full build/export, broad browser corpus, full brand/registered-state acceptance, publication or Mission-state change. Remaining29 records/42 findings, reading-time/export refresh, current full-reader/mobile coverage, independent Sol/high scrutiny and user testing remain owed; credit fallback remains inactive. Content gate remains red: do not publish.
+
+
+## Parallel18 typed-local original and correction history, 2026-09-23
+
+Non-counted exact history: the old four cells, original binding and selected retired legacy plan follow. All seven original obligations remain mandatory; only the one observed obligation is partitioned by six distinct input combinations. Failed unreviewed draft and original source bodies remain intact in audit/evidence/parallel-local-20260923/.
+
+```json
+{
+  "originalId": "audit/rl-sim2real.md:parallel-sim-rl:18",
+  "rowOrdinal": 18,
+  "beforeCells": {
+    "claim": "TrainingTimeChart economics (fixed vs scaling per-iteration cost; hours-to-minutes curve)",
+    "sourceChecked": "Measured anchors: rudin-2021 @ https://ar5iv.labs.arxiv.org/html/2109.11978 (retained surface of the registered citation, reused read-only from compound plan rudin-protocol-writer-parallel-sim-rl-2-20260909; NOT re-fetched this session per binding rule); chart-model conjunct: local proof against content/rl-sim2real/parallel-sim-rl.mdx Callout + lib/parallel-sim.ts header (integrator verifies at apply time)",
+    "verdict": "verified",
+    "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The retained Rudin response genuinely supports the under-four/20-minute bounds and the uneven-terrain 4096/98304/1500-update workstation protocol. It does not establish TARGET_TRANSITIONS=2.2e8, the three authored cost buckets, or the plotted illustrative curve/flat-diamond x. The current plan folds this local AND into one part but its only paired passage is Rudin; local agreement is asserted in the adjudication. The Callout/lib disclosures are genuine and remain intact, but row18 received no article-span correction at completion. The packet explicitly retained the pending owner caveat; the integrator called controller dispatch operative confirmation while leaving that caveat open. That dispatch is not a locked-rule addendum.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:parallel-sim-rl:18. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Callout + lib/parallel-sim.ts header label the curve an illustrative fixed-transitions model (three cost buckets: GPU sim, learning update, CPU-side work), not a benchmark. The two diamond anchors are printed by the Rudin paper: 'training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain' and 'a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes ... Trained on: i9-11900k CPU, NVIDIA RTX A6000 GPU'; the Callout's flat-marker x-coordinate is disclosed as illustrative. LOCAL-AND: integrator verifies the illustrative labeling in-repo before applying. Isaac Lab FPS figures (note only, not this plan's evidence) are rows 8/9 applied claims."
+  },
+  "beforeTupleDigest": "f17a3fd555b9708f82c3bed9711c059c50804e989722b4563ab62914e8f7cdc0",
+  "originalBinding": {
+    "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14",
+    "snapshot": {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-rl-sim2real.md",
+      "bytes": 47364,
+      "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+    },
+    "originalCells": {
+      "claim": "TrainingTimeChart economics (fixed vs scaling per-iteration cost; hours-to-minutes curve)",
+      "sourceChecked": "Callout in article; lib/parallel-sim.ts header",
+      "verdict": "verified",
+      "note": "Labeled illustrative fixed-transitions model; measured anchors are the Rudin diamonds and Isaac Lab FPS figures."
+    },
+    "originalTupleDigest": "5d81d99b117f93663d85946ee8a8b199b6eeda5254d033d27a1f77b7fbb0e290"
+  },
+  "retiredLegacyPlan": {
+    "id": "parallel-sim-rl-18-training-time-chart-20260916k",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 18,
+    "originalCellsDigest": "f17a3fd555b9708f82c3bed9711c059c50804e989722b4563ab62914e8f7cdc0",
+    "kind": "explicit-parts",
+    "planReview": null,
+    "parts": [
+      {
+        "id": "y18-rudin-diamond-anchors",
+        "text": "The chart's two measured anchors are printed by the registered Rudin paper on its retained surface: flat-terrain policies trained 'in under four minutes' and uneven-terrain 'in twenty minutes' via massive parallelism on a single workstation GPU, and the documented simulation-and-deployment protocol of 4,096 robots with batch size 98,304 trained for 1,500 policy updates 'in under 20 minutes' on an i9-11900k CPU and NVIDIA RTX A6000 GPU - the exact bounds and hardware the article Callout's diamonds carry. LOCAL-AND (integrator): the curve itself is an authored illustrative fixed-transitions model labeled as such in the Callout and lib/parallel-sim.ts header; the integrator must verify that labeling in-repo and that no surface presents the curve as measured, before applying.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "y18-rudin-diamond-anchors",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. ... For our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes [footnote as printed: Trained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material.]"
+      }
+    ],
+    "adjudications": []
+  }
+}
+```
+
+
+## Parallel18 typed-local final verification, 2026-09-23
+
+**1 applied / 0 held / 0 unattempted**, exactly `audit/rl-sim2real.md:parallel-sim-rl:18`, verdict C. Parent preflight at `9a7860420e316bdb9b721c2245a894df8902ad1e` and tuple `f17a3fd555b9708f82c3bed9711c059c50804e989722b4563ab62914e8f7cdc0` were rechecked at application. Original seven obligations survive as12 native AND parts:4 external,1 authored,1 derived and6 output-specific observed parts. One typed plan,13 actual proofs and13 actual review events were added. Integrator review time is `2026-09-23T06:12:45.812Z`, not a source retrieval timestamp. No independent acceptance or whole-article cleanliness is claimed.
+
+Two retained primary bodies were verified byte-for-byte against their original captures, with four paired external passages. Rudin's full unversioned ar5iv response (`https://ar5iv.labs.arxiv.org/html/2109.11978`) was retrieved by FetchUrl on2026-09-06T19:18:21.832Z:56325bytes, SHA-256 `17c5090b2284a387165623b05ba6745dea431a27e6217ea393f1bc500bc1586f`. Its body is not independently pinned to v3. The actual abstract supports flat training under4min, while the separate simulation/deployment paragraph and hardware footnote bind4096robots,98304batch,1500updates, under20min and i9-11900k/RTX A6000. The24steps figure is98304/4096, not a fabricated verbatim quotation or a flat-run configuration. The resulting147456000transition protocol is not the toy's220000000budget.
+
+Isaac Lab v1 (`https://arxiv.org/html/2511.04831v1`) retains its original2026-09-08T00:55:54.267675+00:00 GET provenance:508684bytes, SHA-256 `9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39`. The actual Section4.1/4.1.1 text, equation and Figure13 caption support headless DextrAH grasp/lift >900k and Franka cabinet >1.6M environment-learning FPS at8 RTX PRO6000 GPUs/16384envs; FPS is steps/(simulation+learning time). Dual EPYC9554 server hardware and the task-specific5090/9800X3D comparison remain in the proof. These are required external parts, not notes-only exemptions or credit borrowed from neighboring completed rows. Zero new source requests or fresh HTTP observations.
+
+The article now explicitly separates its authored220M-transition fixed-budget comparison from a measured training run. Its24rollout steps, cost seconds[0.02,0.000004,0.04,0.03,0.000022], default4096/CPUoff,64..16384domain,49log samples and flat-marker x are chosen values. No model formula, constant, control, component or geometry changed. The existing bound labels remain; flat x4096 is not a paper-established flat configuration. One exact article-prose native approval extends1041 unchanged entries to1042. No no-op component/library approval is invented. Deliberate manual reading removed the measured-run implication and preserved the actual external scopes; configured source no-slop also passes. lastReviewed stays2026-08-17 because only one original was audited.
+
+Independent oracle uses the closed form time=(220M/24)*(0.09/envs+marginal) and FPS=24/(0.09/envs+marginal), with marginal0.000004 or0.000026. Six min/default/max×CPUoff/on cases, all49 samples in both modes, cost buckets, crossover and formatting agree. The native parameter extractor supplies exact same-plan authoredDomains bases for64/16384 and both CPU booleans. A negative comparison rejects substituting the paper's147456000transition experience budget. Raw results:
+
+| Environments | CPU | Seconds | FPS | Iterations | Formatted wall time / throughput |
+| --- | --- | --- | --- | --- | --- |
+| 64 | False | 12927.291666666666 | 17018.259173905335 | 143229.16666666666 | 3.6 h / 17k FPS |
+| 64 | True | 13128.958333333332 | 16756.85110839588 | 143229.16666666666 | 3.6 h / 17k FPS |
+| 4096 | False | 238.08268229166666 | 924048.7291322002 | 2237.9557291666665 | 4.0 min / 924k FPS |
+| 4096 | True | 439.7493489583333 | 500284.9930787395 | 2237.9557291666665 | 7.3 min / 500k FPS |
+| 16384 | False | 87.02067057291667 | 2528134.9655385246 | 559.4889322916666 | 1.5 min / 2.5M FPS |
+| 16384 | True | 288.6873372395833 | 762070.1417098205 | 559.4889322916666 | 4.8 min / 762k FPS |
+
+Crossover is12500environments only CPUoff (native floating output12500.000000000002); CPUon has none. Actual mounted output checks cover all six combinations, default, Reset and375px resize:8 DOM/PNG pairs,7 desktop and1 mobile. Every state checks formatted env/time/FPS/iteration values, bucket shares/widths,49-point SVG coordinates, current marker, reference-curve presence and both separately labelled bound markers. The typed Reset witness clears CPUon at4096; the unchanged existing route test in the same run additionally changes to8192/CPUon and confirms Reset returns4096/CPUoff. Default, max-on and mobile-default images were manually inspected; remaining captures were checked programmatically, not claimed manually image-reviewed. Mobile controls/chart/readouts are visible and document overflow is zero; lower explanatory prose continues below the viewport, so this is not whole-page mobile visibility certification. Desktop/mobile main-content Axe, page errors and external requests are zero. Existing route-wide Axe also passes.
+
+### Sequential actual verification commands
+
+| Command | Exit | Actual result | Retained raw log |
+| --- | --- | --- | --- |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/parallel-local-evidence.test.ts --no-file-parallelism` | 1 | Expected red:2 failed/6 passed/1 skipped, missing disclosure and typed plan; all6 independent arithmetic cases already pass. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/red-first.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/parallel-local-evidence.test.ts -t "records final native outputs" --no-file-parallelism` | 0 | 1 opt-in producer passed/8 skipped;7 parameter/derived outputs. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/numeric.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/parallel-local-evidence.spec.ts tests/e2e/parallel-sim-rl.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/parallel-local-20260923/playwright` | 0 | 5 browser tests passed, one owned route/lane; ports3200/3201 initially vacant. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/browser.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/parallel-local-20260923/assemble.mjs` | 0 | Command completed but native draft rejected optional root config/lock artifact paths; not a pass. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/assembly.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/parallel-local-20260923/assemble.mjs` | 0 | All structural evidence checks reach only expected missing/stale semantic review. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/assembly-bound.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/parallel-local-20260923/integrate.mjs` | 0 | 1 applied/0 held; all6 typed plans validate;12 parts/13 proofs/13 reviews/4 external pairs. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/integration.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/parallel-local-evidence.test.ts tests/unit/parallel-sim.test.ts tests/component/training-time-chart.test.tsx tests/unit/audit-local-basis.test.ts tests/unit/audit-ledger.test.ts --no-file-parallelism` | 0 | 213 passed/1 producer-only skip/214,5 affected files. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/unit-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/tsc --noEmit --incremental false` | 0 | Pass, full noEmit/nonincremental after final code/test edits. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/types-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/eslint tests/unit/parallel-local-evidence.test.ts tests/e2e/parallel-local-evidence.spec.ts audit/evidence/parallel-local-20260923/support.ts audit/evidence/parallel-local-20260923/assemble.mjs audit/evidence/parallel-local-20260923/integrate.mjs` | 0 | Pass, final targeted files after final code/test edits. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/lint-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node --input-type=module -` | 0 | Pass,0 compiler messages,8 declared citations/20 Cite occurrences,0 banned/placeholders,density7.07395498392283<22. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/article-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json` | 1 | Exit1:966complete/28incomplete/994,41ledger findings,0citation findings/summary mismatches. | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/coverage.json` |
+
+The initial draft and all receipts remain unchanged. The raw browser run still records the two root runtime hashes; assembly verifies them unchanged and retains them as supplemental provenance. The closed native source-member schema includes every required model/article/component/test/helper input without pretending the root paths are allowed. No source, producer, evidence gate or scientific obligation was weakened. The corrected adopted files use the `bound-` prefix; the initial catalog draft is unreviewed history. No numeric/browser rerun was needed because the producing files and inputs were unchanged.
+
+The article-only configured compilation/citation/no-slop check executed this inline script (no build/export):
+
+```js
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import matter from 'gray-matter';
+import {compile} from '@mdx-js/mdx';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import {CITATIONS} from './data/citations.ts';
+import {findBannedVocabulary,findPlaceholderMarkers,ruleOfThreeDensity,RULE_OF_THREE_LIMIT} from './lib/no-slop.ts';
+const file='content/rl-sim2real/parallel-sim-rl.mdx';
+const {data,content}=matter(fs.readFileSync(file,'utf8'));
+const compiled=await compile(content,{remarkPlugins:[remarkGfm,remarkMath],rehypePlugins:[rehypeKatex]});
+assert.equal(compiled.messages.length,0);
+const ids=[...content.matchAll(/<Cite\s+id="([^"]+)"/g)].map(m=>m[1]);
+const registered=new Set(CITATIONS.map(c=>c.id));
+for(const id of ids){assert(registered.has(id));assert(data.citations.includes(id));}
+for(const id of data.citations)assert(ids.includes(id));
+const banned=findBannedVocabulary(content), placeholders=findPlaceholderMarkers(content), density=ruleOfThreeDensity(content);
+assert.deepEqual(banned,[]);assert.deepEqual(placeholders,[]);
+console.log(JSON.stringify({file,compilerMessages:compiled.messages.length,declaredCitations:data.citations.length,citeOccurrences:ids.length,banned,placeholders,density,limit:RULE_OF_THREE_LIMIT,lastReviewed:data.lastReviewed},null,2));
+```
+
+One final native offline coverage invocation wrote stdout directly to `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/coverage.json`:10187596bytes, SHA-256 `5c520a5e6444e0482555e3c7c38b428e5b6f898c319adb60533ff5b55ddfcd38`; stderr is empty. Native counting flattens sectionsByDomain.claimRecords and counts evidenceFailures.length===0: **966 complete / 28 incomplete / 994**, RL **165/2/167**. **41 ledger findings remain**; content gate is red and publication is forbidden. No duplicate coverage run.
+
+Preservation:994 identities/order,993 unselected full records including line positions,965 prior completions, all5 previous typed plans/36 proofs and485 reward/sim2real evidence files survive.859 unselected legacy plans and1041 prior approvals retain exact serialized entry bytes; the one retired legacy plan is archived above and in legacy-plan-original.json. Totals are859 legacy plans,6 typed plans/49 proofs and1042 approvals. Protected owner files/commits and next-env.d.ts are preserved; all1787 unscoped tracked files match startup hashes. Documentation appended after coverage is checked through native parser equality, not a gate rerun. No full corpus/browser/build/export/cards, cleanup, source request, feature-state change, deployment, publication, model switch or credit fallback. Remaining content debt, reading-time/export refresh, full registered-state/brand/accessibility coverage and independent Sol/high scrutiny/user testing remain owed.

@@ -1,0 +1,220 @@
+{
+  "values": {
+    "breakdown": {
+      "simSeconds": 0.036384,
+      "learnSeconds": 0.04,
+      "cpuSeconds": 0.03,
+      "totalSeconds": 0.106384
+    },
+    "iterations": 2237.9557291666665,
+    "seconds": 238.08268229166666,
+    "fps": 924048.7291322002,
+    "crossover": 12500.000000000002,
+    "curve": [
+      {
+        "envs": 64,
+        "minutes": 215.45
+      },
+      {
+        "envs": 72,
+        "minutes": 191.58
+      },
+      {
+        "envs": 81,
+        "minutes": 170.36
+      },
+      {
+        "envs": 91,
+        "minutes": 151.71
+      },
+      {
+        "envs": 102,
+        "minutes": 135.42
+      },
+      {
+        "envs": 114,
+        "minutes": 121.23
+      },
+      {
+        "envs": 128,
+        "minutes": 108.03
+      },
+      {
+        "envs": 144,
+        "minutes": 96.1
+      },
+      {
+        "envs": 161,
+        "minutes": 86.01
+      },
+      {
+        "envs": 181,
+        "minutes": 76.58
+      },
+      {
+        "envs": 203,
+        "minutes": 68.35
+      },
+      {
+        "envs": 228,
+        "minutes": 60.92
+      },
+      {
+        "envs": 256,
+        "minutes": 54.32
+      },
+      {
+        "envs": 287,
+        "minutes": 48.52
+      },
+      {
+        "envs": 323,
+        "minutes": 43.18
+      },
+      {
+        "envs": 362,
+        "minutes": 38.59
+      },
+      {
+        "envs": 406,
+        "minutes": 34.48
+      },
+      {
+        "envs": 456,
+        "minutes": 30.76
+      },
+      {
+        "envs": 512,
+        "minutes": 27.47
+      },
+      {
+        "envs": 575,
+        "minutes": 24.52
+      },
+      {
+        "envs": 645,
+        "minutes": 21.93
+      },
+      {
+        "envs": 724,
+        "minutes": 19.6
+      },
+      {
+        "envs": 813,
+        "minutes": 17.52
+      },
+      {
+        "envs": 912,
+        "minutes": 15.69
+      },
+      {
+        "envs": 1024,
+        "minutes": 14.04
+      },
+      {
+        "envs": 1149,
+        "minutes": 12.58
+      },
+      {
+        "envs": 1290,
+        "minutes": 11.27
+      },
+      {
+        "envs": 1448,
+        "minutes": 10.11
+      },
+      {
+        "envs": 1625,
+        "minutes": 9.07
+      },
+      {
+        "envs": 1825,
+        "minutes": 8.15
+      },
+      {
+        "envs": 2048,
+        "minutes": 7.32
+      },
+      {
+        "envs": 2299,
+        "minutes": 6.59
+      },
+      {
+        "envs": 2580,
+        "minutes": 5.94
+      },
+      {
+        "envs": 2896,
+        "minutes": 5.36
+      },
+      {
+        "envs": 3251,
+        "minutes": 4.84
+      },
+      {
+        "envs": 3649,
+        "minutes": 4.38
+      },
+      {
+        "envs": 4096,
+        "minutes": 3.97
+      },
+      {
+        "envs": 4598,
+        "minutes": 3.6
+      },
+      {
+        "envs": 5161,
+        "minutes": 3.28
+      },
+      {
+        "envs": 5793,
+        "minutes": 2.98
+      },
+      {
+        "envs": 6502,
+        "minutes": 2.73
+      },
+      {
+        "envs": 7298,
+        "minutes": 2.5
+      },
+      {
+        "envs": 8192,
+        "minutes": 2.29
+      },
+      {
+        "envs": 9195,
+        "minutes": 2.11
+      },
+      {
+        "envs": 10321,
+        "minutes": 1.94
+      },
+      {
+        "envs": 11585,
+        "minutes": 1.8
+      },
+      {
+        "envs": 13004,
+        "minutes": 1.67
+      },
+      {
+        "envs": 14596,
+        "minutes": 1.55
+      },
+      {
+        "envs": 16384,
+        "minutes": 1.45
+      }
+    ],
+    "display": [
+      "4,096",
+      "4.0 min",
+      "924k FPS"
+    ]
+  },
+  "units": "seconds:s; fps:frames/s; curve:envs,minutes",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "parallel:derive:v1"
+}

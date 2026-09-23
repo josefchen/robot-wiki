@@ -1,3 +1,15 @@
+## Current checkpoint: parallel18 typed-local integration (2026-09-23)
+
+**1 applied / 0 held / 0 unattempted**: `audit/rl-sim2real.md:parallel-sim-rl:18`, C. Native structural accounting: **966 complete / 28 incomplete / 994**, RL **165/2/167**. Single final coverage gate remains **red:41 ledger findings**, zero citation findings/summary mismatches. All earlier checkpoints below are historical, not current counts.
+
+All7 original obligations remain as12 native AND parts,13 genuine local proofs and13 actual integrator reviews. Four external source pairs preserve Rudin flat/rough protocol and Isaac Lab headless FPS/CPU/hardware context. Two retained primary bodies were byte-verified with original September6/8 provenance; zero new requests. Rudin's unversioned ar5iv body is not a revision pin. The220M fixed budget, cost constants,49-point grid and flat-marker x are explicitly authored, not benchmark measurements. No formula, constant, control or geometry changed.
+
+Final focused checks: **213 passed / 1 producer-only skip**, **5 browser tests passed** in one route/lane invocation; final types/lint/article compilation/citation/no-slop pass. Eight real DOM/PNG pairs cover default/endpoints, both CPU modes, Reset and375px; three images manually inspected. Failed native packaging is retained, not erased. Strict adopted receipts use the bound- prefix. Exact commands, numerical values, source identities and limitations are self-contained in the final parallel18 section of `audit/rl-sim2real.md`.
+
+Preserved:994 identities,993 unselected full records,965 prior completions,5 prior typed plans/36 proofs/485 prior reward+sim2real evidence files,859 unselected legacy plans and1041 prior approvals. Only the selected legacy plan moved to exact history; one true prose approval appends (1042 total). Current catalog859 legacy+6 typed plans/49 proofs. Evidence: `audit/evidence/parallel-local-20260923/`. No lastReviewed bump, publication or independent acceptance. Remaining28 records, full reader/brand/state coverage, reading-time/export refresh and independent Sol/high scrutiny/user testing remain owed. Do not publish while red.
+
+---
+
 ## Current checkpoint: sim2real typed-local integration complete (2026-09-23)
 
 **2 applied / 0 held / 0 unattempted**: sim2real-transfer originals23/24. Native structural accounting is **965 complete / 29 incomplete / 994**, RL **164/3/167**. The single final offline gate remains **red: 42 ledger findings**, zero citation findings/summary mismatches. All earlier checkpoints below are historical, including the first unfinished sim2real checkpoint.

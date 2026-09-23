@@ -1,0 +1,40 @@
+{
+  "values": {
+    "envs": 4096,
+    "cpuBound": false,
+    "samples": 49,
+    "authoredDomainBasis": "Illustrative model environment bounds and CPU toggle choices, not measured throughput.",
+    "authoredDomains": {
+      "envs": {
+        "min": 64,
+        "max": 16384
+      },
+      "cpuBound": {
+        "off": false,
+        "on": true
+      }
+    },
+    "transitions": 220000000,
+    "rollout": 24,
+    "costs": [
+      0.02,
+      0.000004,
+      0.04,
+      0.03,
+      0.000022
+    ],
+    "markerX": [
+      {
+        "id": "flat",
+        "envs": 4096
+      },
+      {
+        "id": "uneven",
+        "envs": 4096
+      }
+    ]
+  },
+  "units": "costs:s; envs:count; transitions:count",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "parallel:parameters:v1"
+}

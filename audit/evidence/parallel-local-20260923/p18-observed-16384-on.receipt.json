@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/parallel-local-evidence.spec.ts tests/e2e/parallel-sim-rl.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/parallel-local-20260923/playwright",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T06:05:59.699Z",
+  "endedAt": "2026-09-23T06:06:04.221Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/parallel-local-evidence.spec.ts",
+    "bytes": 7219,
+    "sha256": "d080ca0d000430471564550781396e48f139f088a2d566ad94651d9f25ac80be"
+  },
+  "inputDigest": "2a9b43b2e22a6d68d903464c8055ef743f1142d3d7cfb0316554869e3860de22",
+  "outputDigest": "bee065975f9d8190df69acb7f08d17e1b4dfebdde4abb0baf844a499da2cf89c",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 12773,
+        "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+      },
+      "id": "article:rl-sim2real/parallel-sim-rl",
+      "offset": 0,
+      "length": 12773,
+      "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045",
+      "baseline": {
+        "kind": "prose",
+        "hash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/training-time-chart.tsx",
+        "bytes": 18483,
+        "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+      },
+      "id": "source:components/interactive/training-time-chart.tsx",
+      "offset": 0,
+      "length": 18483,
+      "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/parallel-sim.ts",
+        "bytes": 6954,
+        "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+      },
+      "id": "file:lib/parallel-sim.ts",
+      "offset": 0,
+      "length": 6954,
+      "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 40817,
+      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/parallel-local-20260923/support.ts",
+        "bytes": 4769,
+        "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+      },
+      "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+      "offset": 0,
+      "length": 4769,
+      "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/parallel-local-evidence.spec.ts",
+        "bytes": 7219,
+        "sha256": "d080ca0d000430471564550781396e48f139f088a2d566ad94651d9f25ac80be"
+      },
+      "id": "file:tests/e2e/parallel-local-evidence.spec.ts",
+      "offset": 0,
+      "length": 7219,
+      "sha256": "d080ca0d000430471564550781396e48f139f088a2d566ad94651d9f25ac80be"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/slider.ts",
+        "bytes": 1130,
+        "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+      },
+      "id": "file:tests/e2e/slider.ts",
+      "offset": 0,
+      "length": 1130,
+      "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+    },
+    {
+      "file": {
+        "path": "playwright.config.ts",
+        "bytes": 1122,
+        "sha256": "34239f70eb0e250860ce5b0d808a8fdfd1dd455575214aab6eaaf7a3498c4733"
+      },
+      "id": "file:playwright.config.ts",
+      "offset": 0,
+      "length": 1122,
+      "sha256": "34239f70eb0e250860ce5b0d808a8fdfd1dd455575214aab6eaaf7a3498c4733"
+    },
+    {
+      "file": {
+        "path": "package-lock.json",
+        "bytes": 493718,
+        "sha256": "1d74b589c54d3c9894640c6062359542df216d85ae95645466d763349f6e5dfb"
+      },
+      "id": "file:package-lock.json",
+      "offset": 0,
+      "length": 493718,
+      "sha256": "1d74b589c54d3c9894640c6062359542df216d85ae95645466d763349f6e5dfb"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+      "caseId": "discrete-options",
+      "prestate": "16384 envs, CPU off",
+      "action": "Activate CPU bottleneck toggle",
+      "poststate": "16,384; 4.8 min; 762k FPS; 516 ms x 559 iters; CPU true; exact 49-point curve, position, breakdown and labelled bounds checked",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"envs-readout\"]",
+          "text": "16,384"
+        },
+        {
+          "selector": "[data-testid=\"wallclock-readout\"]",
+          "text": "4.8 min"
+        },
+        {
+          "selector": "[data-testid=\"fps-readout\"]",
+          "text": "762k FPS"
+        },
+        {
+          "selector": "[data-testid=\"iter-readout\"]",
+          "text": "516 ms x 559 iters"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/parallel-local-20260923/captures/max-on.dom.json",
+        "bytes": 113009,
+        "sha256": "a05dac0d726751a794246f83bdf81a59a5650eb2deee5370e2b42f017ff50530"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20260923/captures/max-on.png",
+        "bytes": 152705,
+        "sha256": "c006d39a42c6b71c99e4d54822432870202652be4d5a963ef8c641741a3f193b"
+      }
+    }
+  ]
+}
