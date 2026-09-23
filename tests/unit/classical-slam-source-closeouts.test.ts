@@ -31,8 +31,9 @@ describe('classical SLAM source corrections', () => {
       'associates observations with state variables',
       'back end that performs inference',
       'feed information back to support loop-closure detection and validation',
-      '<span className="block">Source: <Cite id="cadena-2016" /></span>',
+      '<Cite id="cadena-2016" />.',
     ]) expect(block).toContain(text);
+    expect(block).not.toMatch(/Source:|<br\b|className="block"/);
     expect(article).not.toContain('Nearly every design argument in SLAM');
     expect(article).toContain('lastReviewed: "2026-08-22"');
   });
