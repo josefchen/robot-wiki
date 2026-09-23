@@ -2618,11 +2618,11 @@
                 ],
                 "lastReviewed": "2026-08-22",
                 "readingMinutes": 13,
-                "citationCount": 21,
+                "citationCount": 22,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
                 "readingTimeText": "13 min",
-                "citationCountText": "21",
+                "citationCountText": "22",
                 "bibliographyIds": [
                   "ifr-world-robotics-2025",
                   "ifr-china-five-year-plan-2026",
@@ -2634,6 +2634,7 @@
                   "acemoglu-restrepo-2020",
                   "mit-work-future-2020",
                   "ohno-tps-1988",
+                  "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "kroger-ocado-closures-2025",
                   "osha-otm-robots",
@@ -3489,11 +3490,11 @@
                   "Comparison Matrix"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 17,
+                "readingMinutes": 16,
                 "citationCount": 21,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "17 min",
+                "readingTimeText": "16 min",
                 "citationCountText": "21",
                 "bibliographyIds": [
                   "rt1-2022",
@@ -9199,7 +9200,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 76,
+                  "count": 78,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9209,7 +9210,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 76,
+                      "count": 78,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9481,6 +9482,28 @@
                       "decorationStyle": "dotted",
                       "decorationColour": "rgb(36, 45, 51)",
                       "familyHead": "newsreader",
+                      "shape": "inline border:0px/solid radius:0px"
+                    }
+                  ]
+                },
+                {
+                  "kind": "external",
+                  "count": 2,
+                  "colour": "rgb(36, 95, 255)",
+                  "decorationLine": "underline",
+                  "decorationStyle": "solid",
+                  "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+                  "familyHead": "ibm plex sans",
+                  "shape": "inline border:0px/solid radius:0px",
+                  "variants": [
+                    {
+                      "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+                      "count": 2,
+                      "colour": "rgb(36, 95, 255)",
+                      "decorationLine": "underline",
+                      "decorationStyle": "solid",
+                      "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+                      "familyHead": "ibm plex sans",
                       "shape": "inline border:0px/solid radius:0px"
                     }
                   ]
@@ -9953,7 +9976,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 21,
+                  "count": 22,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9963,7 +9986,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 21,
+                      "count": 22,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9975,7 +9998,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 64,
+                  "count": 66,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9985,7 +10008,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 64,
+                      "count": 66,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11549,7 +11572,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 62,
+                  "count": 66,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -11559,7 +11582,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 62,
+                      "count": 66,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -46861,27 +46884,74 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#14",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#11",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|1440x900|display#14",
+      "populationMemberId": "/classical/perception/|1440x900|display#11",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|1440x900|display#14"
+        "/classical/perception/|1440x900|display#11"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|1440x900|display#14 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "actual": "/classical/perception/|1440x900|display#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|1440x900|display#14",
+          "member": "/classical/perception/|1440x900|display#11",
           "measured": [
             {
-              "id": "/classical/perception/|1440x900|display#14",
+              "id": "/classical/perception/|1440x900|display#11",
               "observed": {
-                "index": 14,
+                "index": 11,
+                "display": true,
+                "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+                "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 715,
+                "clientWidth": 715,
+                "tabIndex": 0,
+                "role": "region",
+                "accessibleName": "Display equation 2",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#16",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|1440x900|display#16",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|1440x900|display#16"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|1440x900|display#16 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|1440x900|display#16",
+          "measured": [
+            {
+              "id": "/classical/perception/|1440x900|display#16",
+              "observed": {
+                "index": 16,
                 "display": true,
                 "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
                 "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
@@ -46908,27 +46978,27 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#4",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#6",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|1440x900|display#4",
+      "populationMemberId": "/classical/perception/|1440x900|display#6",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|1440x900|display#4"
+        "/classical/perception/|1440x900|display#6"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|1440x900|display#4 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "actual": "/classical/perception/|1440x900|display#6 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|1440x900|display#4",
+          "member": "/classical/perception/|1440x900|display#6",
           "measured": [
             {
-              "id": "/classical/perception/|1440x900|display#4",
+              "id": "/classical/perception/|1440x900|display#6",
               "observed": {
-                "index": 4,
+                "index": 6,
                 "display": true,
                 "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
                 "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
@@ -46941,53 +47011,6 @@
                 "tabIndex": 0,
                 "role": "region",
                 "accessibleName": "Display equation 1",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#9",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|1440x900|display#9",
-      "coveredPopulationMemberIds": [
-        "/classical/perception/|1440x900|display#9"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|1440x900|display#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/classical/perception/|1440x900|display#9",
-          "measured": [
-            {
-              "id": "/classical/perception/|1440x900|display#9",
-              "observed": {
-                "index": 9,
-                "display": true,
-                "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-                "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 715,
-                "clientWidth": 715,
-                "tabIndex": 0,
-                "role": "region",
-                "accessibleName": "Display equation 2",
                 "viewportOverflowPx": 0
               }
             }
@@ -47118,58 +47141,11 @@
               "observed": {
                 "index": 10,
                 "display": false,
-                "mathmlText": "m≤kmdm \\leq k_m d",
-                "annotationTex": "m \\leq k_m d",
+                "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
+                "annotationTex": "(\\widetilde R,\\widetilde T)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "m≤km​d",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#11",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|1440x900|inline#11",
-      "coveredPopulationMemberIds": [
-        "/classical/perception/|1440x900|inline#11"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|1440x900|inline#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/classical/perception/|1440x900|inline#11",
-          "measured": [
-            {
-              "id": "/classical/perception/|1440x900|inline#11",
-              "observed": {
-                "index": 11,
-                "display": false,
-                "mathmlText": "dd",
-                "annotationTex": "d",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "d",
+                "renderedText": "(R,T)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47212,11 +47188,11 @@
               "observed": {
                 "index": 12,
                 "display": false,
-                "mathmlText": "kmk_m",
-                "annotationTex": "k_m",
+                "mathmlText": "m≤kmdm \\leq k_m d",
+                "annotationTex": "m \\leq k_m d",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "km​",
+                "renderedText": "m≤km​d",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47259,11 +47235,58 @@
               "observed": {
                 "index": 13,
                 "display": false,
-                "mathmlText": "km=0.1k_m=0.1",
-                "annotationTex": "k_m=0.1",
+                "mathmlText": "dd",
+                "annotationTex": "d",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "km​=0.1",
+                "renderedText": "d",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#14",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|1440x900|inline#14",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|1440x900|inline#14"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|1440x900|inline#14 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|1440x900|inline#14",
+          "measured": [
+            {
+              "id": "/classical/perception/|1440x900|inline#14",
+              "observed": {
+                "index": 14,
+                "display": false,
+                "mathmlText": "kmk_m",
+                "annotationTex": "k_m",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "km​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47306,58 +47329,11 @@
               "observed": {
                 "index": 15,
                 "display": false,
-                "mathmlText": "e<θee < \\theta_e",
-                "annotationTex": "e < \\theta_e",
+                "mathmlText": "km=0.1k_m=0.1",
+                "annotationTex": "k_m=0.1",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "e<θe​",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#16",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|1440x900|inline#16",
-      "coveredPopulationMemberIds": [
-        "/classical/perception/|1440x900|inline#16"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|1440x900|inline#16 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/classical/perception/|1440x900|inline#16",
-          "measured": [
-            {
-              "id": "/classical/perception/|1440x900|inline#16",
-              "observed": {
-                "index": 16,
-                "display": false,
-                "mathmlText": "ARCAR_C",
-                "annotationTex": "AR_C",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "ARC​",
+                "renderedText": "km​=0.1",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47400,11 +47376,11 @@
               "observed": {
                 "index": 17,
                 "display": false,
-                "mathmlText": "APCAP_C",
-                "annotationTex": "AP_C",
+                "mathmlText": "e<θee < \\theta_e",
+                "annotationTex": "e < \\theta_e",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "APC​",
+                "renderedText": "e<θe​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47494,11 +47470,11 @@
               "observed": {
                 "index": 19,
                 "display": false,
-                "mathmlText": "ARCAR_C",
-                "annotationTex": "AR_C",
+                "mathmlText": "APCAP_C",
+                "annotationTex": "AP_C",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ARC​",
+                "renderedText": "APC​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47588,11 +47564,11 @@
               "observed": {
                 "index": 20,
                 "display": false,
-                "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
-                "annotationTex": "\\dot{s} = L_s v_c",
+                "mathmlText": "ARCAR_C",
+                "annotationTex": "AR_C",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "s˙=Ls​vc​",
+                "renderedText": "ARC​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47634,6 +47610,100 @@
               "id": "/classical/perception/|1440x900|inline#21",
               "observed": {
                 "index": 21,
+                "display": false,
+                "mathmlText": "ARCAR_C",
+                "annotationTex": "AR_C",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "ARC​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#22",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|1440x900|inline#22",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|1440x900|inline#22"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|1440x900|inline#22 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|1440x900|inline#22",
+          "measured": [
+            {
+              "id": "/classical/perception/|1440x900|inline#22",
+              "observed": {
+                "index": 22,
+                "display": false,
+                "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
+                "annotationTex": "\\dot{s} = L_s v_c",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "s˙=Ls​vc​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#23",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|1440x900|inline#23",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|1440x900|inline#23"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|1440x900|inline#23 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|1440x900|inline#23",
+          "measured": [
+            {
+              "id": "/classical/perception/|1440x900|inline#23",
+              "observed": {
+                "index": 23,
                 "display": false,
                 "mathmlText": "vcv_c",
                 "annotationTex": "v_c",
@@ -47707,27 +47777,27 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#5",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#4",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|1440x900|inline#5",
+      "populationMemberId": "/classical/perception/|1440x900|inline#4",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|1440x900|inline#5"
+        "/classical/perception/|1440x900|inline#4"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|1440x900|inline#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "actual": "/classical/perception/|1440x900|inline#4 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|1440x900|inline#5",
+          "member": "/classical/perception/|1440x900|inline#4",
           "measured": [
             {
-              "id": "/classical/perception/|1440x900|inline#5",
+              "id": "/classical/perception/|1440x900|inline#4",
               "observed": {
-                "index": 5,
+                "index": 4,
                 "display": false,
                 "mathmlText": "dd",
                 "annotationTex": "d",
@@ -47754,33 +47824,33 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#6",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#5",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|1440x900|inline#6",
+      "populationMemberId": "/classical/perception/|1440x900|inline#5",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|1440x900|inline#6"
+        "/classical/perception/|1440x900|inline#5"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|1440x900|inline#6 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "actual": "/classical/perception/|1440x900|inline#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|1440x900|inline#6",
+          "member": "/classical/perception/|1440x900|inline#5",
           "measured": [
             {
-              "id": "/classical/perception/|1440x900|inline#6",
+              "id": "/classical/perception/|1440x900|inline#5",
               "observed": {
-                "index": 6,
+                "index": 5,
                 "display": false,
-                "mathmlText": "M\\mathcal M",
-                "annotationTex": "\\mathcal M",
+                "mathmlText": "θ\\theta",
+                "annotationTex": "\\theta",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "M",
+                "renderedText": "θ",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47823,11 +47893,11 @@
               "observed": {
                 "index": 7,
                 "display": false,
-                "mathmlText": "(R,T)(R,T)",
-                "annotationTex": "(R,T)",
+                "mathmlText": "dd",
+                "annotationTex": "d",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "(R,T)",
+                "renderedText": "d",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -47870,8 +47940,55 @@
               "observed": {
                 "index": 8,
                 "display": false,
-                "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
-                "annotationTex": "(\\widetilde R,\\widetilde T)",
+                "mathmlText": "M\\mathcal M",
+                "annotationTex": "\\mathcal M",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "M",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#9",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|1440x900|inline#9",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|1440x900|inline#9"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|1440x900|inline#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|1440x900|inline#9",
+          "measured": [
+            {
+              "id": "/classical/perception/|1440x900|inline#9",
+              "observed": {
+                "index": 9,
+                "display": false,
+                "mathmlText": "(R,T)(R,T)",
+                "annotationTex": "(R,T)",
                 "htmlLayerHidden": true,
                 "renderError": false,
                 "renderedText": "(R,T)",
@@ -47895,27 +48012,74 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#14",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#11",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|375x812|display#14",
+      "populationMemberId": "/classical/perception/|375x812|display#11",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|375x812|display#14"
+        "/classical/perception/|375x812|display#11"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|375x812|display#14 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "actual": "/classical/perception/|375x812|display#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|375x812|display#14",
+          "member": "/classical/perception/|375x812|display#11",
           "measured": [
             {
-              "id": "/classical/perception/|375x812|display#14",
+              "id": "/classical/perception/|375x812|display#11",
               "observed": {
-                "index": 14,
+                "index": 11,
+                "display": true,
+                "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+                "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 335,
+                "clientWidth": 335,
+                "tabIndex": 0,
+                "role": "region",
+                "accessibleName": "Display equation 2",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#16",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|375x812|display#16",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|375x812|display#16"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|375x812|display#16 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|375x812|display#16",
+          "measured": [
+            {
+              "id": "/classical/perception/|375x812|display#16",
+              "observed": {
+                "index": 16,
                 "display": true,
                 "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
                 "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
@@ -47942,27 +48106,27 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#4",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#6",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|375x812|display#4",
+      "populationMemberId": "/classical/perception/|375x812|display#6",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|375x812|display#4"
+        "/classical/perception/|375x812|display#6"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|375x812|display#4 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "actual": "/classical/perception/|375x812|display#6 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|375x812|display#4",
+          "member": "/classical/perception/|375x812|display#6",
           "measured": [
             {
-              "id": "/classical/perception/|375x812|display#4",
+              "id": "/classical/perception/|375x812|display#6",
               "observed": {
-                "index": 4,
+                "index": 6,
                 "display": true,
                 "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
                 "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
@@ -47975,53 +48139,6 @@
                 "tabIndex": 0,
                 "role": "region",
                 "accessibleName": "Display equation 1",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#9",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|375x812|display#9",
-      "coveredPopulationMemberIds": [
-        "/classical/perception/|375x812|display#9"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|375x812|display#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/classical/perception/|375x812|display#9",
-          "measured": [
-            {
-              "id": "/classical/perception/|375x812|display#9",
-              "observed": {
-                "index": 9,
-                "display": true,
-                "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-                "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 335,
-                "clientWidth": 335,
-                "tabIndex": 0,
-                "role": "region",
-                "accessibleName": "Display equation 2",
                 "viewportOverflowPx": 0
               }
             }
@@ -48152,58 +48269,11 @@
               "observed": {
                 "index": 10,
                 "display": false,
-                "mathmlText": "m≤kmdm \\leq k_m d",
-                "annotationTex": "m \\leq k_m d",
+                "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
+                "annotationTex": "(\\widetilde R,\\widetilde T)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "m≤km​d",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#11",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|375x812|inline#11",
-      "coveredPopulationMemberIds": [
-        "/classical/perception/|375x812|inline#11"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|375x812|inline#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/classical/perception/|375x812|inline#11",
-          "measured": [
-            {
-              "id": "/classical/perception/|375x812|inline#11",
-              "observed": {
-                "index": 11,
-                "display": false,
-                "mathmlText": "dd",
-                "annotationTex": "d",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "d",
+                "renderedText": "(R,T)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48246,11 +48316,11 @@
               "observed": {
                 "index": 12,
                 "display": false,
-                "mathmlText": "kmk_m",
-                "annotationTex": "k_m",
+                "mathmlText": "m≤kmdm \\leq k_m d",
+                "annotationTex": "m \\leq k_m d",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "km​",
+                "renderedText": "m≤km​d",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48293,11 +48363,58 @@
               "observed": {
                 "index": 13,
                 "display": false,
-                "mathmlText": "km=0.1k_m=0.1",
-                "annotationTex": "k_m=0.1",
+                "mathmlText": "dd",
+                "annotationTex": "d",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "km​=0.1",
+                "renderedText": "d",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#14",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|375x812|inline#14",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|375x812|inline#14"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|375x812|inline#14 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|375x812|inline#14",
+          "measured": [
+            {
+              "id": "/classical/perception/|375x812|inline#14",
+              "observed": {
+                "index": 14,
+                "display": false,
+                "mathmlText": "kmk_m",
+                "annotationTex": "k_m",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "km​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48340,58 +48457,11 @@
               "observed": {
                 "index": 15,
                 "display": false,
-                "mathmlText": "e<θee < \\theta_e",
-                "annotationTex": "e < \\theta_e",
+                "mathmlText": "km=0.1k_m=0.1",
+                "annotationTex": "k_m=0.1",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "e<θe​",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#16",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|375x812|inline#16",
-      "coveredPopulationMemberIds": [
-        "/classical/perception/|375x812|inline#16"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|375x812|inline#16 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/classical/perception/|375x812|inline#16",
-          "measured": [
-            {
-              "id": "/classical/perception/|375x812|inline#16",
-              "observed": {
-                "index": 16,
-                "display": false,
-                "mathmlText": "ARCAR_C",
-                "annotationTex": "AR_C",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "ARC​",
+                "renderedText": "km​=0.1",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48434,11 +48504,11 @@
               "observed": {
                 "index": 17,
                 "display": false,
-                "mathmlText": "APCAP_C",
-                "annotationTex": "AP_C",
+                "mathmlText": "e<θee < \\theta_e",
+                "annotationTex": "e < \\theta_e",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "APC​",
+                "renderedText": "e<θe​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48528,11 +48598,11 @@
               "observed": {
                 "index": 19,
                 "display": false,
-                "mathmlText": "ARCAR_C",
-                "annotationTex": "AR_C",
+                "mathmlText": "APCAP_C",
+                "annotationTex": "AP_C",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ARC​",
+                "renderedText": "APC​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48622,11 +48692,11 @@
               "observed": {
                 "index": 20,
                 "display": false,
-                "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
-                "annotationTex": "\\dot{s} = L_s v_c",
+                "mathmlText": "ARCAR_C",
+                "annotationTex": "AR_C",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "s˙=Ls​vc​",
+                "renderedText": "ARC​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48668,6 +48738,100 @@
               "id": "/classical/perception/|375x812|inline#21",
               "observed": {
                 "index": 21,
+                "display": false,
+                "mathmlText": "ARCAR_C",
+                "annotationTex": "AR_C",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "ARC​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#22",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|375x812|inline#22",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|375x812|inline#22"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|375x812|inline#22 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|375x812|inline#22",
+          "measured": [
+            {
+              "id": "/classical/perception/|375x812|inline#22",
+              "observed": {
+                "index": 22,
+                "display": false,
+                "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
+                "annotationTex": "\\dot{s} = L_s v_c",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "s˙=Ls​vc​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#23",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|375x812|inline#23",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|375x812|inline#23"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|375x812|inline#23 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|375x812|inline#23",
+          "measured": [
+            {
+              "id": "/classical/perception/|375x812|inline#23",
+              "observed": {
+                "index": 23,
                 "display": false,
                 "mathmlText": "vcv_c",
                 "annotationTex": "v_c",
@@ -48741,27 +48905,27 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#5",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#4",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|375x812|inline#5",
+      "populationMemberId": "/classical/perception/|375x812|inline#4",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|375x812|inline#5"
+        "/classical/perception/|375x812|inline#4"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|375x812|inline#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "actual": "/classical/perception/|375x812|inline#4 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|375x812|inline#5",
+          "member": "/classical/perception/|375x812|inline#4",
           "measured": [
             {
-              "id": "/classical/perception/|375x812|inline#5",
+              "id": "/classical/perception/|375x812|inline#4",
               "observed": {
-                "index": 5,
+                "index": 4,
                 "display": false,
                 "mathmlText": "dd",
                 "annotationTex": "d",
@@ -48788,33 +48952,33 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#6",
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#5",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/classical/perception/|375x812|inline#6",
+      "populationMemberId": "/classical/perception/|375x812|inline#5",
       "coveredPopulationMemberIds": [
-        "/classical/perception/|375x812|inline#6"
+        "/classical/perception/|375x812|inline#5"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/classical/perception/|375x812|inline#6 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "actual": "/classical/perception/|375x812|inline#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/classical/perception/|375x812|inline#6",
+          "member": "/classical/perception/|375x812|inline#5",
           "measured": [
             {
-              "id": "/classical/perception/|375x812|inline#6",
+              "id": "/classical/perception/|375x812|inline#5",
               "observed": {
-                "index": 6,
+                "index": 5,
                 "display": false,
-                "mathmlText": "M\\mathcal M",
-                "annotationTex": "\\mathcal M",
+                "mathmlText": "θ\\theta",
+                "annotationTex": "\\theta",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "M",
+                "renderedText": "θ",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48857,11 +49021,11 @@
               "observed": {
                 "index": 7,
                 "display": false,
-                "mathmlText": "(R,T)(R,T)",
-                "annotationTex": "(R,T)",
+                "mathmlText": "dd",
+                "annotationTex": "d",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "(R,T)",
+                "renderedText": "d",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -48904,8 +49068,55 @@
               "observed": {
                 "index": 8,
                 "display": false,
-                "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
-                "annotationTex": "(\\widetilde R,\\widetilde T)",
+                "mathmlText": "M\\mathcal M",
+                "annotationTex": "\\mathcal M",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "M",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#9",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/classical/perception/|375x812|inline#9",
+      "coveredPopulationMemberIds": [
+        "/classical/perception/|375x812|inline#9"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/classical/perception/|375x812|inline#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/perception/|375x812|inline#9",
+          "measured": [
+            {
+              "id": "/classical/perception/|375x812|inline#9",
+              "observed": {
+                "index": 9,
+                "display": false,
+                "mathmlText": "(R,T)(R,T)",
+                "annotationTex": "(R,T)",
                 "htmlLayerHidden": true,
                 "renderError": false,
                 "renderedText": "(R,T)",
@@ -66647,11 +66858,11 @@
                 ],
                 "lastReviewed": "2026-08-22",
                 "readingMinutes": 13,
-                "citationCount": 21,
+                "citationCount": 22,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
                 "readingTimeText": "13 min",
-                "citationCountText": "21",
+                "citationCountText": "22",
                 "bibliographyIds": [
                   "ifr-world-robotics-2025",
                   "ifr-china-five-year-plan-2026",
@@ -66663,6 +66874,7 @@
                   "acemoglu-restrepo-2020",
                   "mit-work-future-2020",
                   "ohno-tps-1988",
+                  "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "kroger-ocado-closures-2025",
                   "osha-otm-robots",
@@ -67518,11 +67730,11 @@
                   "Comparison Matrix"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 17,
+                "readingMinutes": 16,
                 "citationCount": 21,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "17 min",
+                "readingTimeText": "16 min",
                 "citationCountText": "21",
                 "bibliographyIds": [
                   "rt1-2022",
@@ -70447,6 +70659,7 @@
                   "kinectfusion-2011",
                   "curless-levoy-1996",
                   "kinectfusion-2011",
+                  "kinectfusion-2011",
                   "nerf-2020",
                   "instant-ngp-2022",
                   "3dgs-2023",
@@ -70986,6 +71199,7 @@
                   "acemoglu-restrepo-2020",
                   "mit-work-future-2020",
                   "ohno-tps-1988",
+                  "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "kroger-ocado-closures-2025",
                   "osha-otm-robots",
@@ -71022,6 +71236,7 @@
                   "osha-otm-robots",
                   "bessemer-robotics-2026",
                   "ohno-tps-1988",
+                  "nasa-availability-prediction-analysis",
                   "evst-cell-cost-2026",
                   "goldberg-data-gap-2025",
                   "morgan-stanley-pr-problem-2026",
@@ -72080,6 +72295,8 @@
                   "real-time-chunking-2025"
                 ],
                 "citationMarkers": [
+                  "rt2-2023",
+                  "openvla-2024",
                   "diffusion-policy-2023",
                   "pi07-2026",
                   "act-aloha-2023",
@@ -75358,7 +75575,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/data-scale-chart.tsx:aria-label:2 hashes to 462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/data-scale-chart.tsx:aria-label:2 moved from 462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d to 903172b89cc49201bb0262ec552fb6d7ee1ca3783807a0e8025a8dd6c4c85699 exactly as approved delta data-bottleneck-zero-credit-20260922-2 permits: The existing dynamic chart accessible name now explicitly calls the preserved farm projection hypothetical; rig count, controls and numeric behavior are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -75370,9 +75587,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/data-scale-chart.tsx:aria-label:2",
           "baselineHash": "462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d",
-          "currentHash": "462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "903172b89cc49201bb0262ec552fb6d7ee1ca3783807a0e8025a8dd6c4c85699",
+          "status": "approved-delta",
+          "approvedDelta": "data-bottleneck-zero-credit-20260922-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84514,7 +84731,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:data-hardware/industrial-deployment moved from e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4 to b35a32a495a8ed85111c3823139f481b56d55f6b9a700e631589018c78723e80 exactly as approved delta brand-v2-industrial-deployment-declared-source-added permits: One declared source added by the content audit. 20f32c0 audited /data-hardware/industrial-deployment/ against fetched primary sources and added robozaps-humanoids-2026 to the article's frontmatter citation list so the humanoid-count sentence names the source it rests on. The review date and the other declared sources are unchanged, and no source was dropped.",
+      "actual": "article-metadata member article-fact-frontmatter:data-hardware/industrial-deployment moved from e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4 to 280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50 exactly as approved delta continuation-merge-2026-09-23-article-metadata-article-fact-frontmatter-data-hardware-industrial-deployment permits: Preserve main metadata and add the mission NASA Lessons Learned citation.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84526,9 +84743,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:data-hardware/industrial-deployment",
           "baselineHash": "e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4",
-          "currentHash": "b35a32a495a8ed85111c3823139f481b56d55f6b9a700e631589018c78723e80",
+          "currentHash": "280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50",
           "status": "approved-delta",
-          "approvedDelta": "brand-v2-industrial-deployment-declared-source-added"
+          "approvedDelta": "continuation-merge-2026-09-23-article-metadata-article-fact-frontmatter-data-hardware-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87314,7 +87531,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c exactly as approved delta orb-scene-four-20260914-3 permits: Exact scene originals26/27 and31/33 retained-source correction: conditional ORB recovery/validation, source-specific drift distribution, non-universal outlier costs, two glossary definitions and IEEE publication title/byline/venue identity; preserve DOI URLs and article dates.",
+      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to 73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096 exactly as approved delta continuation-merge-2026-09-23-article-metadata-canonical-metadata-source-data-glossary-ts permits: Combine main glossary additions with mission TSDF and MTBF corrections, preserving known uncertainty.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87326,9 +87543,9 @@
           "manifest": "article-metadata",
           "member": "canonical-metadata-source:data/glossary.ts",
           "baselineHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
-          "currentHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c",
+          "currentHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
           "status": "approved-delta",
-          "approvedDelta": "orb-scene-four-20260914-3"
+          "approvedDelta": "continuation-merge-2026-09-23-article-metadata-canonical-metadata-source-data-glossary-ts"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87454,7 +87671,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb exactly as approved delta content-integration-20260923-label-and-meta permits: The registry-wide citation label/meta digest moves because the content fixes register two citations, llama-3-herd-2024 (label 'Grattafiori 2024') and shiu-ahmad-1989 (label 'Shiu 1989'). A per-ID comparison of citationLabel and citationMeta over all 437 citations at 754ae58 against the 439 at this tree found no existing label or meta string changed. This entry re-anchors the member from the seal to the new registry state and supersedes continuation-merge-20260922-article-metadata-label-and-meta (newHash 5f3bad00fb7f..., the approved value at release base 754ae58) as the entry that brackets this member from the seal; that entry stays as the record of the 2026-09-22 merged value.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f exactly as approved delta continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta permits: Reconcile main citation rendering population with mission NASA 1994 lesson identity; no invented LEI date.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87466,9 +87683,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb",
+          "currentHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f",
           "status": "approved-addition",
-          "approvedDelta": "content-integration-20260923-label-and-meta"
+          "approvedDelta": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -94558,6 +94775,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:nasa-availability-prediction-analysis",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:nasa-availability-prediction-analysis",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:nasa-availability-prediction-analysis"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:nasa-availability-prediction-analysis moved from null to a40ca9a668d043680c86a2a05303fd0ff9b50b077b3e79fb35da36f4b718c624 exactly as approved delta industrial-perception-zero-credit-20260922-5 permits: Register NASA LLIS Lesson841 with the exact1994-12-01 lesson date and jsc organization; no inferred memorandum year or unread equation proof.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:nasa-availability-prediction-analysis",
+          "baselineHash": null,
+          "currentHash": "a40ca9a668d043680c86a2a05303fd0ff9b50b077b3e79fb35da36f4b718c624",
+          "status": "approved-addition",
+          "approvedDelta": "industrial-perception-zero-credit-20260922-5"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:nav2-2020",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:nav2-2020",
@@ -99998,7 +100243,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 6feb3014b71ef94eca6e63e31cfce55f4d0edca1fd0af19c9160db8c689b54e7 exactly as approved delta sweeps-registry-mp7-20260917-1 permits: Exactly classical/motion-planning original 7 (kinodynamic row): scalar evidence completion against the corrected lavalle-kuffner-2001 registration (url LavKuf01.pdf -> LavKuf01b.pdf, fields-only, per the ah-lane 13-consumer survey), quoting only what the packet's retained LavKuf01b.pdf fetch prints, page-anchored (title page + abstract p.1, EXTEND/NEW_STATE p.13), with the p.2 [20]-terminology contradiction sweep recorded in the note. Registry edit: data/citations.ts lavalle-kuffner-2001 url + comment only; audit/citations.md link-check row, honest-gaps note and a dated correction section updated in the same change. Passages needle-verified by this integrator against the retained OCR pages under the packet-disclosed normalizations; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed (motion-planning.mdx untouched; the cited sentence's support changed underneath it, not the sentence); lastReviewed deliberately not moved per the registry-only carve-out.",
+      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 31916d31c0cc1dbbffa06cc6bdab6af6b6e4cd05784019d358403793931c19a4 exactly as approved delta continuation-merge-2026-09-23-prose-article-classical-motion-planning permits: Retain main-only editorial additions and correct the RRT known-goal/sampling explanation from d928b6b.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100010,9 +100255,9 @@
           "manifest": "prose",
           "member": "article:classical/motion-planning",
           "baselineHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
-          "currentHash": "6feb3014b71ef94eca6e63e31cfce55f4d0edca1fd0af19c9160db8c689b54e7",
+          "currentHash": "31916d31c0cc1dbbffa06cc6bdab6af6b6e4cd05784019d358403793931c19a4",
           "status": "approved-delta",
-          "approvedDelta": "sweeps-registry-mp7-20260917-1"
+          "approvedDelta": "continuation-merge-2026-09-23-prose-article-classical-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100026,7 +100271,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to 71ae08532ceb5cc764ab718f0aa8bcdc97f9d61eba83ce64b97acd9ca591e89c exactly as approved delta seo-merge-20260916-prose-4 permits: The SEO growth merge changed article:classical/perception: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to 091b3e915841c36b6ca2da6a33289e8af7d33eb12b5574a4fec999aeacac42d7 exactly as approved delta continuation-merge-2026-09-23-prose-article-classical-perception permits: Retain main-only editorial additions and the mission corrections distinguishing authored RSS/ray-plane assumptions and conditional marginal half-degree example from measured results.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100038,9 +100283,9 @@
           "manifest": "prose",
           "member": "article:classical/perception",
           "baselineHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
-          "currentHash": "71ae08532ceb5cc764ab718f0aa8bcdc97f9d61eba83ce64b97acd9ca591e89c",
+          "currentHash": "091b3e915841c36b6ca2da6a33289e8af7d33eb12b5574a4fec999aeacac42d7",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-4"
+          "approvedDelta": "continuation-merge-2026-09-23-prose-article-classical-perception"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100082,7 +100327,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to 7b348076b2ea7c8e226094c02db4c637f32d4fed15dcb9bbdc193b0a680bee3c exactly as approved delta single-leftovers-sr1-20260917-1 permits: Exactly classical/scene-representation original 1 (bibliographic fidelity batch): claim cell corrected 23 -> 24 cited registry entries (the frontmatter at HEAD lists 24; the prior sweep's own count was 15 of 24) and the row bound to the fresh 24-identity compound plan (Crossref DOI records for the 11 DOI-backed ids, live arXiv abs pages for the 13 arXiv ids, channel closures for the Moravec names, KinectFusion author order and the three venues their abs pages do not print, all disclosed per part). No-op hash record: article and frontmatter byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to 1d29d28886df613888360d80a3c7a8aa25071c7a4fdf845fb82593d373e488d2 exactly as approved delta continuation-merge-2026-09-23-prose-article-classical-scene-representation permits: Retain main-only editorial additions and integrate 660ad53 projective TSDF qualifications and primary citations.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100094,9 +100339,9 @@
           "manifest": "prose",
           "member": "article:classical/scene-representation",
           "baselineHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
-          "currentHash": "7b348076b2ea7c8e226094c02db4c637f32d4fed15dcb9bbdc193b0a680bee3c",
+          "currentHash": "1d29d28886df613888360d80a3c7a8aa25071c7a4fdf845fb82593d373e488d2",
           "status": "approved-delta",
-          "approvedDelta": "single-leftovers-sr1-20260917-1"
+          "approvedDelta": "continuation-merge-2026-09-23-prose-article-classical-scene-representation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100138,7 +100383,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck hashes to 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f exactly as approved delta data-bottleneck-zero-credit-20260922-1 permits: Correct OXE source-scoped unknown duration and DROID successful/unsuccessful counts, collectors, robots and elapsed duration. Retain prediction/reveal with authored hypothetical rates and targets, not source measurements; both selected audit rows stay unresolved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100150,9 +100395,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f",
+          "status": "approved-delta",
+          "approvedDelta": "data-bottleneck-zero-credit-20260922-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100250,7 +100495,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to 04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49 exactly as approved delta continuation-merge-20260922-prose-data-hardware-industrial-deployment permits: Integration of josef/droid-wiki-continuation afeeb05 into main (true merge base 9212034): the merged prose member article:data-hardware/industrial-deployment combines main-line approvals seo-20260824-prose-349c6badf01f, seo-merge-20260916-prose-9 with continuation approvals as0917a-industrial-ocado-scope, mit-industrial-43-prose-20260921. Each lane approval brackets only its own lane endpoint (continuation lane approvals chain from lane-local hashes), so none reproduces the merged value; this entry re-anchors the combined, already-approved change to the sealed baseline value and records the merged-tree hash. No wording beyond the two lanes' approved edits was introduced by the merge.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to 76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909 exactly as approved delta continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment permits: Retain main-only editorial additions and integrate NASA inherent/operational availability, capital-only calculator and 2.2 percent arithmetic corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100262,9 +100507,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49",
+          "currentHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-20260922-prose-data-hardware-industrial-deployment"
+          "approvedDelta": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100586,7 +100831,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/comparison-matrix moved from 6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322 to de25d8a2a38f8b058814d2407240701575996ae6c8523e404f4774a4fc6eda78 exactly as approved delta seo-merge-20260916-prose-17 permits: The SEO growth merge changed article:manipulation/comparison-matrix: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "prose member article:manipulation/comparison-matrix moved from 6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322 to 4363112923a1fcf389a833306995ced689789ca9aa88b072a2843fad55d2008d exactly as approved delta continuation-merge-2026-09-23-prose-article-manipulation-comparison-matrix permits: Retain main constraint-solver section and integrate 89cda67 setup-qualified RT-2/OpenVLA introduction.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100598,9 +100843,9 @@
           "manifest": "prose",
           "member": "article:manipulation/comparison-matrix",
           "baselineHash": "6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322",
-          "currentHash": "de25d8a2a38f8b058814d2407240701575996ae6c8523e404f4774a4fc6eda78",
+          "currentHash": "4363112923a1fcf389a833306995ced689789ca9aa88b072a2843fad55d2008d",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-17"
+          "approvedDelta": "continuation-merge-2026-09-23-prose-article-manipulation-comparison-matrix"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100698,7 +100943,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951 exactly as approved delta continuation-merge-20260922-prose-manipulation-generalist-policies permits: Integration of josef/droid-wiki-continuation afeeb05 into main (true merge base 9212034): the merged prose member article:manipulation/generalist-policies combines no main-line change with continuation approvals generalist-attribution-p1-20260922-1. Each lane approval brackets only its own lane endpoint (continuation lane approvals chain from lane-local hashes), so none reproduces the merged value; this entry re-anchors the combined, already-approved change to the sealed baseline value and records the merged-tree hash. No wording beyond the two lanes' approved edits was introduced by the merge.",
+      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4 exactly as approved delta continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies permits: Retain main-only editorial additions and integrate d928b6b timeline-entry, downloads-not-license and source-format qualifications.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100710,9 +100955,9 @@
           "manifest": "prose",
           "member": "article:manipulation/generalist-policies",
           "baselineHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
-          "currentHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+          "currentHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-20260922-prose-manipulation-generalist-policies"
+          "approvedDelta": "continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101678,7 +101923,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:classical/scene-representation moved from 7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31 to 4a5bbc38283fdd7876ebde2fd9ecc4d402d0447352a97aa54508149093b97bc2 exactly as approved delta seo-merge-20260916-relationships-42 permits: The SEO growth merge changed article:classical/scene-representation: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "relationships member article:classical/scene-representation moved from 7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31 to eae689da8cc82aba0f27f309117402020624902ca5e19698d9c363c9935fe0c7 exactly as approved delta continuation-merge-2026-09-23-relationships-article-classical-scene-representation permits: Combined main relationships and mission primary citations for qualified projective TSDF operations.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101690,9 +101935,9 @@
           "manifest": "relationships",
           "member": "article:classical/scene-representation",
           "baselineHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
-          "currentHash": "4a5bbc38283fdd7876ebde2fd9ecc4d402d0447352a97aa54508149093b97bc2",
+          "currentHash": "eae689da8cc82aba0f27f309117402020624902ca5e19698d9c363c9935fe0c7",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-relationships-42"
+          "approvedDelta": "continuation-merge-2026-09-23-relationships-article-classical-scene-representation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101846,7 +102091,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/industrial-deployment moved from 964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d to 20cc0ecaf854f0873eddf7d1072e12b413c162208cac5c794fe236ede4507244 exactly as approved delta symbotic-a3-industrial-originals-20260913-2 permits: Exactly industrial originals19/20/21,39/40,14/50: distinguish backlog and FY2025 revenue, Walmart contractual scope, deployment/support populations, dated recognition forecast, OSHA mode-specific safeguards versus Symbotic phased installation, and A3 North American 2025 unit/value shares and Q1 reporting start. Cut unsupported duration and learned-policy inferences. Immediate-before member hash 6ccb8498334d9444c795767c2cae1413c4c282e70b1a3ac8c14aa159ebba9feb. Composes previous exact endpoint approvals. First Symbotic mobile tooltip shifted left32px after measured right-edge399px overflow; no shared renderer, registry or citation-union change. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-symbotic-a3-integration-20260912. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "relationships member article:data-hardware/industrial-deployment moved from 964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d to 2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5 exactly as approved delta continuation-merge-2026-09-23-relationships-article-data-hardware-industrial-deployment permits: Combined main relationships and mission NASA availability reference; no existing references removed.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101858,9 +102103,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
-          "currentHash": "20cc0ecaf854f0873eddf7d1072e12b413c162208cac5c794fe236ede4507244",
+          "currentHash": "2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5",
           "status": "approved-delta",
-          "approvedDelta": "symbotic-a3-industrial-originals-20260913-2"
+          "approvedDelta": "continuation-merge-2026-09-23-relationships-article-data-hardware-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102182,7 +102427,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:manipulation/comparison-matrix moved from daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955 to 989ce2fbea3511bb2c87d9fd1e581aabc0cf81b77a7f06d82ac41937c7af40a0 exactly as approved delta seo-merge-20260916-relationships-48 permits: The SEO growth merge changed article:manipulation/comparison-matrix: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "relationships member article:manipulation/comparison-matrix moved from daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955 to 78d4ae457e0bbcddc2277b7bb4cbaf8ab01871a586d15efd5e1cb5ea6961e822 exactly as approved delta continuation-merge-2026-09-23-relationships-article-manipulation-comparison-matrix permits: Combined main links and corrected RT-2/OpenVLA inline citation relationships.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102194,9 +102439,9 @@
           "manifest": "relationships",
           "member": "article:manipulation/comparison-matrix",
           "baselineHash": "daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955",
-          "currentHash": "989ce2fbea3511bb2c87d9fd1e581aabc0cf81b77a7f06d82ac41937c7af40a0",
+          "currentHash": "78d4ae457e0bbcddc2277b7bb4cbaf8ab01871a586d15efd5e1cb5ea6961e822",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-relationships-48"
+          "approvedDelta": "continuation-merge-2026-09-23-relationships-article-manipulation-comparison-matrix"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -103669,7 +103914,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/scene-representation/ ships 65 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 65 outbound anchor occurrences on it with a visible focus ring in 185 stops",
+      "actual": "/classical/scene-representation/ ships 66 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 66 outbound anchor occurrences on it with a visible focus ring in 186 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103677,7 +103922,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/scene-representation/",
-          "outboundAnchors": 65,
+          "outboundAnchors": 66,
           "distinctHrefs": 27,
           "shapes": [
             "citation-chip",
@@ -103686,9 +103931,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 62,
-          "reachedByTab": 65,
-          "tabStops": 185,
+          "anchorsWithNoreferrer": 63,
+          "reachedByTab": 66,
+          "tabStops": 186,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -103813,7 +104058,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/data-bottleneck/ ships 30 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 30 outbound anchor occurrences on it with a visible focus ring in 114 stops",
+      "actual": "/data-hardware/data-bottleneck/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 121 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103821,8 +104066,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/data-bottleneck/",
-          "outboundAnchors": 30,
-          "distinctHrefs": 16,
+          "outboundAnchors": 32,
+          "distinctHrefs": 17,
           "shapes": [
             "citation-chip",
             "footer",
@@ -103830,9 +104075,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 27,
-          "reachedByTab": 30,
-          "tabStops": 114,
+          "anchorsWithNoreferrer": 29,
+          "reachedByTab": 32,
+          "tabStops": 121,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -103962,7 +104207,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/industrial-deployment/ ships 56 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 56 outbound anchor occurrences on it with a visible focus ring in 162 stops",
+      "actual": "/data-hardware/industrial-deployment/ ships 58 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 58 outbound anchor occurrences on it with a visible focus ring in 165 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103970,8 +104215,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/industrial-deployment/",
-          "outboundAnchors": 56,
-          "distinctHrefs": 24,
+          "outboundAnchors": 58,
+          "distinctHrefs": 25,
           "shapes": [
             "citation-chip",
             "footer",
@@ -103979,9 +104224,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 53,
-          "reachedByTab": 56,
-          "tabStops": 162,
+          "anchorsWithNoreferrer": 55,
+          "reachedByTab": 58,
+          "tabStops": 165,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104373,7 +104618,7 @@
         "computed": {
           "route": "/glossary/",
           "outboundAnchors": 194,
-          "distinctHrefs": 139,
+          "distinctHrefs": 140,
           "shapes": [
             "footer",
             "other"
@@ -104546,7 +104791,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/comparison-matrix/ ships 77 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 77 outbound anchor occurrences on it with a visible focus ring in 199 stops",
+      "actual": "/manipulation/comparison-matrix/ ships 79 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 79 outbound anchor occurrences on it with a visible focus ring in 203 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104554,7 +104799,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/manipulation/comparison-matrix/",
-          "outboundAnchors": 77,
+          "outboundAnchors": 79,
           "distinctHrefs": 24,
           "shapes": [
             "citation-chip",
@@ -104563,9 +104808,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 74,
-          "reachedByTab": 77,
-          "tabStops": 199,
+          "anchorsWithNoreferrer": 76,
+          "reachedByTab": 79,
+          "tabStops": 203,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -121856,6 +122101,7 @@
             "components/article/references.tsx",
             "components/interactive/comparison-matrix.tsx",
             "components/interactive/cross-embodiment-strategies.tsx",
+            "components/interactive/data-scale-chart.tsx",
             "components/interactive/dataset-table.tsx",
             "components/interactive/deployment-dashboard.tsx",
             "components/interactive/generalist-release-timeline.tsx",
@@ -130543,7 +130789,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 55253 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 55317 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130590,7 +130836,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 84560 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 85412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130684,7 +130930,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 56995 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 57457 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130872,7 +131118,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 30063 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 31057 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131060,7 +131306,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 44787 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 45835 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131577,7 +131823,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/glossary/ rendered no v1 identity spelling and no v1 descriptor in 168412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/glossary/ rendered no v1 identity spelling and no v1 descriptor in 167936 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131812,7 +132058,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 58099 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 57491 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132000,7 +132246,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 44239 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 44341 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -203829,7 +204075,7 @@
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 16,
+                "registeredFrameParagraphCount": 20,
                 "offendingFamilies": []
               }
             }

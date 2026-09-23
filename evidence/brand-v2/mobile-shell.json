@@ -2036,7 +2036,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 27416,
+      "visibleTextLength": 27448,
       "header": {
         "present": true,
         "display": "flex",
@@ -2199,7 +2199,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 42073,
+      "visibleTextLength": 42499,
       "header": {
         "present": true,
         "display": "flex",
@@ -2525,7 +2525,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28287,
+      "visibleTextLength": 28518,
       "header": {
         "present": true,
         "display": "flex",
@@ -3177,7 +3177,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 14842,
+      "visibleTextLength": 15339,
       "header": {
         "present": true,
         "display": "flex",
@@ -3829,7 +3829,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 22204,
+      "visibleTextLength": 22728,
       "header": {
         "present": true,
         "display": "flex",
@@ -5614,7 +5614,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 84095,
+      "visibleTextLength": 83857,
       "header": {
         "present": true,
         "display": "flex",
@@ -6429,7 +6429,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 28736,
+      "visibleTextLength": 28432,
       "header": {
         "present": true,
         "display": "flex",
@@ -7081,7 +7081,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 21806,
+      "visibleTextLength": 21857,
       "header": {
         "present": true,
         "display": "flex",

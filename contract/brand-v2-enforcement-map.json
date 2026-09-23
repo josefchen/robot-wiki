@@ -4733,17 +4733,17 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#14",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#4",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#16",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#9",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#6",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -4763,11 +4763,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#11",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#12",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
@@ -4778,12 +4773,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#15",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#14",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#16",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#15",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -4818,17 +4813,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#22",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#23",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#3",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#5",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#4",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#6",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#5",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -4843,17 +4848,22 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#14",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#9",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#4",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#9",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#16",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|display#6",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -4873,11 +4883,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#11",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#12",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
@@ -4888,12 +4893,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#15",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#14",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#16",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#15",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -4928,17 +4933,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#22",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#23",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#3",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#5",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#4",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#6",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#5",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -4949,6 +4964,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#8",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#9",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -6079,7 +6099,7 @@
         "statement": "Equations expose accessible text or an equivalent explanation.",
         "expected": "Equations expose accessible text or an equivalent explanation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 526,
+        "populationSize": 530,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -6348,50 +6368,54 @@
           "result:VAL-B2-ART-007:/classical/motion-planning/|375x812|inline#6",
           "result:VAL-B2-ART-007:/classical/motion-planning/|375x812|inline#7",
           "result:VAL-B2-ART-007:/classical/motion-planning/|375x812|inline#9",
-          "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#14",
-          "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#4",
-          "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#9",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#11",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#16",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|display#6",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#1",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#10",
-          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#11",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#12",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#13",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#14",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#15",
-          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#16",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#17",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#18",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#19",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#2",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#20",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#21",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#22",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#23",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#3",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#4",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#5",
-          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#6",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#7",
           "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#8",
-          "result:VAL-B2-ART-007:/classical/perception/|375x812|display#14",
-          "result:VAL-B2-ART-007:/classical/perception/|375x812|display#4",
-          "result:VAL-B2-ART-007:/classical/perception/|375x812|display#9",
+          "result:VAL-B2-ART-007:/classical/perception/|1440x900|inline#9",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|display#11",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|display#16",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|display#6",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#0",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#1",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#10",
-          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#11",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#12",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#13",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#14",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#15",
-          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#16",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#17",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#18",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#19",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#2",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#20",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#21",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#22",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#23",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#3",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#4",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#5",
-          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#6",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#7",
           "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#8",
+          "result:VAL-B2-ART-007:/classical/perception/|375x812|inline#9",
           "result:VAL-B2-ART-007:/classical/scene-representation/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/classical/scene-representation/|1440x900|inline#1",
           "result:VAL-B2-ART-007:/classical/scene-representation/|1440x900|inline#2",
@@ -11686,6 +11710,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:nasa-availability-prediction-analysis",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:nav2-2020",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13196,7 +13225,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1019,
+        "populationSize": 1020,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13924,6 +13953,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-ilqr-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-playground-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:murray-li-sastry-1994",
+          "result:VAL-B2-BASE-002:article-metadata:citation:nasa-availability-prediction-analysis",
           "result:VAL-B2-BASE-002:article-metadata:citation:nav2-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:nerf-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:newton-manipulation-blog-2026",

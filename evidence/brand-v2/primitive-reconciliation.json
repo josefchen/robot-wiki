@@ -270,7 +270,7 @@
     },
     "control:link-focus": {
       "kind": "controls",
-      "fingerprint": "985678d5382f649e87bee2db2294649510683a208c8a3c47b51ddf9abf77d9c2",
+      "fingerprint": "ef83deaa49dd94a5400caf2736154b9e15b24cee4e6f14255107b324d5e0c8ff",
       "mountState": "production",
       "definedIn": [
         "app/(content)/[domain]/page.tsx",
@@ -289,6 +289,7 @@
         "components/article/references.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
         "components/interactive/generalist-release-timeline.tsx",
@@ -330,6 +331,7 @@
         "components/article/references.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
         "components/interactive/generalist-release-timeline.tsx",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "8cfdfa2c5e553012c4d8354dadb7aca9308b8897277cd8a760dabb59c284224b",
+  "fingerprint": "6e41be8c4613b8ab1a8dabe0aadd9373f22836c30152dd57c42dbf189ed88915",
   "source": "out/ static export",
   "routes": [
     {
@@ -169,7 +169,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundAnchors": 65,
+      "outboundAnchors": 66,
       "distinctHrefs": 27,
       "shapes": [
         "citation-chip",
@@ -209,8 +209,8 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundAnchors": 30,
-      "distinctHrefs": 16,
+      "outboundAnchors": 32,
+      "distinctHrefs": 17,
       "shapes": [
         "citation-chip",
         "footer",
@@ -254,8 +254,8 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundAnchors": 56,
-      "distinctHrefs": 24,
+      "outboundAnchors": 58,
+      "distinctHrefs": 25,
       "shapes": [
         "citation-chip",
         "footer",
@@ -371,7 +371,7 @@
     {
       "route": "/glossary/",
       "outboundAnchors": 194,
-      "distinctHrefs": 139,
+      "distinctHrefs": 140,
       "shapes": [
         "footer",
         "other"
@@ -422,7 +422,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "outboundAnchors": 77,
+      "outboundAnchors": 79,
       "distinctHrefs": 24,
       "shapes": [
         "citation-chip",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3107,
-  "distinctOutboundHrefs": 852,
+  "outboundAnchors": 3114,
+  "distinctOutboundHrefs": 854,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1366,
-    "reference-entry": 744,
-    "other": 603
+    "citation-chip": 1370,
+    "reference-entry": 745,
+    "other": 605
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2570,
+  "anchorsWithNoreferrer": 2577,
   "keyboard": [
     {
       "route": "/",
@@ -923,11 +923,11 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundInDom": 65,
-      "reachedByTab": 65,
+      "outboundInDom": 66,
+      "reachedByTab": 66,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 185
+      "tabStops": 186
     },
     {
       "route": "/classical/state-estimation/",
@@ -955,11 +955,11 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundInDom": 30,
-      "reachedByTab": 30,
+      "outboundInDom": 32,
+      "reachedByTab": 32,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 114
+      "tabStops": 121
     },
     {
       "route": "/data-hardware/datasets/",
@@ -987,11 +987,11 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundInDom": 56,
-      "reachedByTab": 56,
+      "outboundInDom": 58,
+      "reachedByTab": 58,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 162
+      "tabStops": 165
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
@@ -1115,11 +1115,11 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "outboundInDom": 77,
-      "reachedByTab": 77,
+      "outboundInDom": 79,
+      "reachedByTab": 79,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 199
+      "tabStops": 203
     },
     {
       "route": "/manipulation/cross-embodiment/",

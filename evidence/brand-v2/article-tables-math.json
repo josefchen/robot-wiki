@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0d6de17d1b0dc59e2c4d0d523ebaffebcebe33a6680f5638a6d00a8a5ee160aa",
+  "fingerprint": "13d52549e813592b0a756fc3f24a730a1e38cd69632bf6b159047f9302ee996c",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2009,7 +2009,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27416,
+      "visibleTextLength": 27448,
       "tables": [
         {
           "index": 0,
@@ -2861,7 +2861,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 42073,
+      "visibleTextLength": 42499,
       "tables": [],
       "equations": [
         {
@@ -2930,6 +2930,38 @@
         },
         {
           "index": 4,
+          "display": false,
+          "mathmlText": "dd",
+          "annotationTex": "d",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "d",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 5,
+          "display": false,
+          "mathmlText": "θ\\theta",
+          "annotationTex": "\\theta",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "θ",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 6,
           "display": true,
           "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
           "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
@@ -2945,7 +2977,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 5,
+          "index": 7,
           "display": false,
           "mathmlText": "dd",
           "annotationTex": "d",
@@ -2961,7 +2993,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 6,
+          "index": 8,
           "display": false,
           "mathmlText": "M\\mathcal M",
           "annotationTex": "\\mathcal M",
@@ -2977,7 +3009,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 7,
+          "index": 9,
           "display": false,
           "mathmlText": "(R,T)(R,T)",
           "annotationTex": "(R,T)",
@@ -2993,7 +3025,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 8,
+          "index": 10,
           "display": false,
           "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
           "annotationTex": "(\\widetilde R,\\widetilde T)",
@@ -3009,7 +3041,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 9,
+          "index": 11,
           "display": true,
           "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
           "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
@@ -3025,7 +3057,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
+          "index": 12,
           "display": false,
           "mathmlText": "m≤kmdm \\leq k_m d",
           "annotationTex": "m \\leq k_m d",
@@ -3041,7 +3073,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 13,
           "display": false,
           "mathmlText": "dd",
           "annotationTex": "d",
@@ -3057,7 +3089,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 14,
           "display": false,
           "mathmlText": "kmk_m",
           "annotationTex": "k_m",
@@ -3073,7 +3105,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 15,
           "display": false,
           "mathmlText": "km=0.1k_m=0.1",
           "annotationTex": "k_m=0.1",
@@ -3089,7 +3121,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 16,
           "display": true,
           "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
           "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
@@ -3105,45 +3137,13 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 17,
           "display": false,
           "mathmlText": "e<θee < \\theta_e",
           "annotationTex": "e < \\theta_e",
           "htmlLayerHidden": true,
           "renderError": false,
           "renderedText": "e<θe​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 16,
-          "display": false,
-          "mathmlText": "ARCAR_C",
-          "annotationTex": "AR_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ARC​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 17,
-          "display": false,
-          "mathmlText": "APCAP_C",
-          "annotationTex": "AP_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "APC​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -3171,6 +3171,22 @@
         {
           "index": 19,
           "display": false,
+          "mathmlText": "APCAP_C",
+          "annotationTex": "AP_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "APC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 20,
+          "display": false,
           "mathmlText": "ARCAR_C",
           "annotationTex": "AR_C",
           "htmlLayerHidden": true,
@@ -3185,7 +3201,23 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 20,
+          "index": 21,
+          "display": false,
+          "mathmlText": "ARCAR_C",
+          "annotationTex": "AR_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ARC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 22,
           "display": false,
           "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
           "annotationTex": "\\dot{s} = L_s v_c",
@@ -3201,7 +3233,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 23,
           "display": false,
           "mathmlText": "vcv_c",
           "annotationTex": "v_c",
@@ -3276,7 +3308,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28287,
+      "visibleTextLength": 28518,
       "tables": [],
       "equations": [
         {
@@ -3970,7 +4002,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14842,
+      "visibleTextLength": 15339,
       "tables": [
         {
           "index": 0,
@@ -4279,7 +4311,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22204,
+      "visibleTextLength": 22728,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -5775,7 +5807,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28736,
+      "visibleTextLength": 28432,
       "tables": [
         {
           "index": 0,
@@ -6250,7 +6282,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21806,
+      "visibleTextLength": 21857,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -9561,7 +9593,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27837,
+      "visibleTextLength": 27869,
       "tables": [
         {
           "index": 0,
@@ -10413,7 +10445,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 42487,
+      "visibleTextLength": 42913,
       "tables": [],
       "equations": [
         {
@@ -10482,6 +10514,38 @@
         },
         {
           "index": 4,
+          "display": false,
+          "mathmlText": "dd",
+          "annotationTex": "d",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "d",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 5,
+          "display": false,
+          "mathmlText": "θ\\theta",
+          "annotationTex": "\\theta",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "θ",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 6,
           "display": true,
           "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
           "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
@@ -10497,7 +10561,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 5,
+          "index": 7,
           "display": false,
           "mathmlText": "dd",
           "annotationTex": "d",
@@ -10513,7 +10577,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 6,
+          "index": 8,
           "display": false,
           "mathmlText": "M\\mathcal M",
           "annotationTex": "\\mathcal M",
@@ -10529,7 +10593,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 7,
+          "index": 9,
           "display": false,
           "mathmlText": "(R,T)(R,T)",
           "annotationTex": "(R,T)",
@@ -10545,7 +10609,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 8,
+          "index": 10,
           "display": false,
           "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
           "annotationTex": "(\\widetilde R,\\widetilde T)",
@@ -10561,7 +10625,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 9,
+          "index": 11,
           "display": true,
           "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
           "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
@@ -10577,7 +10641,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
+          "index": 12,
           "display": false,
           "mathmlText": "m≤kmdm \\leq k_m d",
           "annotationTex": "m \\leq k_m d",
@@ -10593,7 +10657,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 13,
           "display": false,
           "mathmlText": "dd",
           "annotationTex": "d",
@@ -10609,7 +10673,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 14,
           "display": false,
           "mathmlText": "kmk_m",
           "annotationTex": "k_m",
@@ -10625,7 +10689,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 15,
           "display": false,
           "mathmlText": "km=0.1k_m=0.1",
           "annotationTex": "k_m=0.1",
@@ -10641,7 +10705,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 16,
           "display": true,
           "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
           "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
@@ -10657,45 +10721,13 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 17,
           "display": false,
           "mathmlText": "e<θee < \\theta_e",
           "annotationTex": "e < \\theta_e",
           "htmlLayerHidden": true,
           "renderError": false,
           "renderedText": "e<θe​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 16,
-          "display": false,
-          "mathmlText": "ARCAR_C",
-          "annotationTex": "AR_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ARC​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 17,
-          "display": false,
-          "mathmlText": "APCAP_C",
-          "annotationTex": "AP_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "APC​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -10723,6 +10755,22 @@
         {
           "index": 19,
           "display": false,
+          "mathmlText": "APCAP_C",
+          "annotationTex": "AP_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "APC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 20,
+          "display": false,
           "mathmlText": "ARCAR_C",
           "annotationTex": "AR_C",
           "htmlLayerHidden": true,
@@ -10737,7 +10785,23 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 20,
+          "index": 21,
+          "display": false,
+          "mathmlText": "ARCAR_C",
+          "annotationTex": "AR_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ARC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 22,
           "display": false,
           "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
           "annotationTex": "\\dot{s} = L_s v_c",
@@ -10753,7 +10817,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 23,
           "display": false,
           "mathmlText": "vcv_c",
           "annotationTex": "v_c",
@@ -10828,7 +10892,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28708,
+      "visibleTextLength": 28939,
       "tables": [],
       "equations": [
         {
@@ -11522,7 +11586,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15221,
+      "visibleTextLength": 15718,
       "tables": [
         {
           "index": 0,
@@ -11831,7 +11895,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22583,
+      "visibleTextLength": 23107,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13327,7 +13391,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29363,
+      "visibleTextLength": 29059,
       "tables": [
         {
           "index": 0,
@@ -13802,7 +13866,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22433,
+      "visibleTextLength": 22484,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

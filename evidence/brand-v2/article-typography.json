@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6c8b779fb9f8e50a6291bfa642154f814ca5140d6d841b59bd16236dfd4b0c3e",
+  "fingerprint": "0e4c21406c50578c72f041c398aab6e1346eb786b1d1dec865f172f7b3ae37c8",
   "viewports": [
     "375x812",
     "1440x900"
@@ -7240,7 +7240,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27416,
+      "visibleTextLength": 27448,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8186,7 +8186,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42073,
+      "visibleTextLength": 42499,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8456,7 +8456,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The residual of that solve is where a great deal of practica"
+          "text": "The instrument uses an illustrative ray-to-plane model, not "
         },
         {
           "familyHead": "newsreader",
@@ -8465,7 +8465,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "millimetres of lateral offset at a working distance ddd. So "
+          "text": "With ddd expressed in millimetres, the local example at one "
         },
         {
           "familyHead": "newsreader",
@@ -10189,7 +10189,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28287,
+      "visibleTextLength": 28518,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10867,7 +10867,7 @@
         },
         {
           "kind": "citation",
-          "count": 76,
+          "count": 78,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -10877,7 +10877,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 76,
+              "count": 78,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -10922,7 +10922,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -10932,7 +10932,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -12377,7 +12377,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 14842,
+      "visibleTextLength": 15339,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12497,7 +12497,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The gap is below, on one log-log plane. Drag the teleoperati"
+          "text": "The chart below separates dataset counts from a teaching pro"
         },
         {
           "familyHead": "ibm plex mono",
@@ -12506,7 +12506,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "15 rigs: 15,000 h/yr projected, OXE scale in 8 mo, 100x OXE "
+          "text": "15 rigs: 15,000 h/yr hypothetical, 10,000 h in 8 mo, 1,000,0"
         },
         {
           "familyHead": "ibm plex sans",
@@ -12515,7 +12515,16 @@
           "widthPx": 301,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Assumption: about 4 productive teleop hours per rig per day."
+          "text": "Authored hypothetical: 1,000 productive hours per rig-year. "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "OXE: 1M+ trajectories across 22 robot embodiments. Total dur"
         },
         {
           "familyHead": "ibm plex sans",
@@ -12560,7 +12569,7 @@
           "widthPx": 243,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "10 rigs: 70 h/yr projected, OXE scale in 143 yr, 100x OXE in"
+          "text": "10 rigs: 70 h/yr hypothetical, 10,000 h in 143 yr, 1,000,000"
         },
         {
           "familyHead": "ibm plex sans",
@@ -12569,7 +12578,16 @@
           "widthPx": 243,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Measured: DROID collected 350 hours with 50 collectors in 12"
+          "text": "Authored hypothetical: 7 productive hours per rig-year, not "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 243,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "OXE: 1M+ trajectories across 22 robot embodiments. Total dur"
         },
         {
           "familyHead": "ibm plex sans",
@@ -12587,7 +12605,7 @@
           "widthPx": 277,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "At the measured DROID rate, 10 rigs need about 143 years to "
+          "text": "For the same 10,000-hour hypothetical target, 10 rigs take a"
         },
         {
           "familyHead": "newsreader",
@@ -12845,35 +12863,36 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
-        },
-        {
-          "kind": "internal",
-          "count": 3,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
-              "count": 1,
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
-            },
+            }
+          ]
+        },
+        {
+          "kind": "internal",
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
               "count": 2,
@@ -12989,7 +13008,7 @@
         },
         {
           "tag": "button",
-          "text": "Dedicated farm ( 1,000 h/rig/yr)",
+          "text": "Dedicated farm hypothetical ( 1,",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -12997,7 +13016,7 @@
         },
         {
           "tag": "button",
-          "text": "DROID-measured ( 7 h/rig/yr)",
+          "text": "Low-rate hypothetical ( 7 h/rig/",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -13029,7 +13048,7 @@
         },
         {
           "tag": "button",
-          "text": "Dedicated farm ( 1,000 h/rig/yr)",
+          "text": "Dedicated farm hypothetical ( 1,",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -13037,7 +13056,7 @@
         },
         {
           "tag": "button",
-          "text": "DROID-measured ( 7 h/rig/yr)",
+          "text": "Low-rate hypothetical ( 7 h/rig/",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -15627,7 +15646,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22204,
+      "visibleTextLength": 22728,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15695,11 +15714,11 @@
         ],
         "lastReviewed": "2026-08-22",
         "readingMinutes": 13,
-        "citationCount": 21,
+        "citationCount": 22,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
         "readingTimeText": "13 min",
-        "citationCountText": "21",
+        "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -15711,6 +15730,7 @@
           "acemoglu-restrepo-2020",
           "mit-work-future-2020",
           "ohno-tps-1988",
+          "nasa-availability-prediction-analysis",
           "evst-cell-cost-2026",
           "kroger-ocado-closures-2025",
           "osha-otm-robots",
@@ -16190,7 +16210,7 @@
         },
         {
           "kind": "reference",
-          "count": 21,
+          "count": 22,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16200,7 +16220,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 21,
+              "count": 22,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16212,7 +16232,7 @@
         },
         {
           "kind": "citation",
-          "count": 64,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16222,7 +16242,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 64,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -23390,7 +23410,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 84095,
+      "visibleTextLength": 83857,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26484,7 +26504,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28736,
+      "visibleTextLength": 28432,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26551,11 +26571,11 @@
           "Comparison Matrix"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 17,
+        "readingMinutes": 16,
         "citationCount": 21,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "17 min",
+        "readingTimeText": "16 min",
         "citationCountText": "21",
         "bibliographyIds": [
           "rt1-2022",
@@ -26603,7 +26623,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The preceding modules followed one lineage at a time. This t"
+          "text": "RT-2’s reported rates depend on the model and serving setup."
         },
         {
           "familyHead": "newsreader",
@@ -26612,7 +26632,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Set the weights filter to Downloadable to select records wit"
+          "text": "OpenVLA v3 reports approximately 6 Hz inference on one NVIDI"
         },
         {
           "familyHead": "ibm plex mono",
@@ -26961,7 +26981,7 @@
         },
         {
           "kind": "citation",
-          "count": 62,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -26971,7 +26991,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 62,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -29646,7 +29666,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21806,
+      "visibleTextLength": 21857,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30020,7 +30040,7 @@
           "widthPx": 300,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Seven of the thirteen releases above rest on lab blogs or pr"
+          "text": "Seven of the thirteen timeline entries use a lab blog or pre"
         },
         {
           "familyHead": "newsreader",
@@ -59761,7 +59781,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27837,
+      "visibleTextLength": 27869,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60707,7 +60727,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42487,
+      "visibleTextLength": 42913,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60977,7 +60997,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The residual of that solve is where a great deal of practica"
+          "text": "The instrument uses an illustrative ray-to-plane model, not "
         },
         {
           "familyHead": "newsreader",
@@ -60986,7 +61006,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "millimetres of lateral offset at a working distance ddd. So "
+          "text": "With ddd expressed in millimetres, the local example at one "
         },
         {
           "familyHead": "newsreader",
@@ -62710,7 +62730,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28708,
+      "visibleTextLength": 28939,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63388,7 +63408,7 @@
         },
         {
           "kind": "citation",
-          "count": 76,
+          "count": 78,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -63398,7 +63418,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 76,
+              "count": 78,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -63443,7 +63463,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -63453,7 +63473,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -64898,7 +64918,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15221,
+      "visibleTextLength": 15718,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65018,7 +65038,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The gap is below, on one log-log plane. Drag the teleoperati"
+          "text": "The chart below separates dataset counts from a teaching pro"
         },
         {
           "familyHead": "ibm plex mono",
@@ -65027,7 +65047,7 @@
           "widthPx": 673,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "15 rigs: 15,000 h/yr projected, OXE scale in 8 mo, 100x OXE "
+          "text": "15 rigs: 15,000 h/yr hypothetical, 10,000 h in 8 mo, 1,000,0"
         },
         {
           "familyHead": "ibm plex sans",
@@ -65036,7 +65056,16 @@
           "widthPx": 673,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Assumption: about 4 productive teleop hours per rig per day."
+          "text": "Authored hypothetical: 1,000 productive hours per rig-year. "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 673,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "OXE: 1M+ trajectories across 22 robot embodiments. Total dur"
         },
         {
           "familyHead": "ibm plex sans",
@@ -65081,7 +65110,7 @@
           "widthPx": 607,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "10 rigs: 70 h/yr projected, OXE scale in 143 yr, 100x OXE in"
+          "text": "10 rigs: 70 h/yr hypothetical, 10,000 h in 143 yr, 1,000,000"
         },
         {
           "familyHead": "ibm plex sans",
@@ -65090,7 +65119,16 @@
           "widthPx": 607,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Measured: DROID collected 350 hours with 50 collectors in 12"
+          "text": "Authored hypothetical: 7 productive hours per rig-year, not "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 607,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "OXE: 1M+ trajectories across 22 robot embodiments. Total dur"
         },
         {
           "familyHead": "ibm plex sans",
@@ -65108,7 +65146,7 @@
           "widthPx": 649,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "At the measured DROID rate, 10 rigs need about 143 years to "
+          "text": "For the same 10,000-hour hypothetical target, 10 rigs take a"
         },
         {
           "familyHead": "newsreader",
@@ -65366,35 +65404,36 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
-        },
-        {
-          "kind": "internal",
-          "count": 3,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
-              "count": 1,
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
-            },
+            }
+          ]
+        },
+        {
+          "kind": "internal",
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
               "count": 2,
@@ -65510,7 +65549,7 @@
         },
         {
           "tag": "button",
-          "text": "Dedicated farm ( 1,000 h/rig/yr)",
+          "text": "Dedicated farm hypothetical ( 1,",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -65518,7 +65557,7 @@
         },
         {
           "tag": "button",
-          "text": "DROID-measured ( 7 h/rig/yr)",
+          "text": "Low-rate hypothetical ( 7 h/rig/",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -65550,7 +65589,7 @@
         },
         {
           "tag": "button",
-          "text": "Dedicated farm ( 1,000 h/rig/yr)",
+          "text": "Dedicated farm hypothetical ( 1,",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -65558,7 +65597,7 @@
         },
         {
           "tag": "button",
-          "text": "DROID-measured ( 7 h/rig/yr)",
+          "text": "Low-rate hypothetical ( 7 h/rig/",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "inProse": true,
@@ -68148,7 +68187,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22583,
+      "visibleTextLength": 23107,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68216,11 +68255,11 @@
         ],
         "lastReviewed": "2026-08-22",
         "readingMinutes": 13,
-        "citationCount": 21,
+        "citationCount": 22,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
         "readingTimeText": "13 min",
-        "citationCountText": "21",
+        "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -68232,6 +68271,7 @@
           "acemoglu-restrepo-2020",
           "mit-work-future-2020",
           "ohno-tps-1988",
+          "nasa-availability-prediction-analysis",
           "evst-cell-cost-2026",
           "kroger-ocado-closures-2025",
           "osha-otm-robots",
@@ -68711,7 +68751,7 @@
         },
         {
           "kind": "reference",
-          "count": 21,
+          "count": 22,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -68721,7 +68761,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 21,
+              "count": 22,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68733,7 +68773,7 @@
         },
         {
           "kind": "citation",
-          "count": 64,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -68743,7 +68783,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 64,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75911,7 +75951,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 84317,
+      "visibleTextLength": 84079,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79005,7 +79045,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29363,
+      "visibleTextLength": 29059,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79072,11 +79112,11 @@
           "Comparison Matrix"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 17,
+        "readingMinutes": 16,
         "citationCount": 21,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "17 min",
+        "readingTimeText": "16 min",
         "citationCountText": "21",
         "bibliographyIds": [
           "rt1-2022",
@@ -79124,7 +79164,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The preceding modules followed one lineage at a time. This t"
+          "text": "RT-2’s reported rates depend on the model and serving setup."
         },
         {
           "familyHead": "newsreader",
@@ -79133,7 +79173,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Set the weights filter to Downloadable to select records wit"
+          "text": "OpenVLA v3 reports approximately 6 Hz inference on one NVIDI"
         },
         {
           "familyHead": "ibm plex mono",
@@ -79482,7 +79522,7 @@
         },
         {
           "kind": "citation",
-          "count": 62,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -79492,7 +79532,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 62,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82167,7 +82207,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22433,
+      "visibleTextLength": 22484,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82541,7 +82581,7 @@
           "widthPx": 680,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Seven of the thirteen releases above rest on lab blogs or pr"
+          "text": "Seven of the thirteen timeline entries use a lab blog or pre"
         },
         {
           "familyHead": "newsreader",
