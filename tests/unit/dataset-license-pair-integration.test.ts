@@ -1,27 +1,30 @@
+import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
-import { createRequire } from 'node:module';
-import { runInNewContext } from 'node:vm';
-import ts from 'typescript6';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
+import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { PRODUCTION_BASE, TRUE_MERGE_BASE, headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'e687718cd3c2d1c35d3f63b6e296712a5892a9f0';
-// Recheck the real license-pair commit; later row10 corrections have their own suite.
-const snapshot = 'b546965037d9226678e2678b310e99dcb58ed971';
-const read = (path: string) => execFileSync('git', ['show', `${snapshot}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
 const articlePath = 'content/data-hardware/datasets.mdx';
-const article = read(articlePath);
-const ledger = read('audit/data-hardware.md');
-const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
+// Preserve the first production integration at its actual endpoint. The
+// RoboMIND successor suite checks current rows; re-anchor tests below still
+// compare the current merged article against the immutable baseline.
+const integrated = (path: string) => showAt('f1d03a919f70a336326e1c044e1cc338a8cb6abe', path);
+const article = integrated(articlePath);
+const ledger = integrated('audit/data-hardware.md');
+const plans: CompoundPlan[] = JSON.parse(integrated('audit/compound-evidence.json'));
 const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
 const ids = new Set(CITATIONS.map(c => c.id));
-const citations = { datasets: matter(article).data.citations };
+const citations = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations]));
 const parse = (catalog = plans, markdown = ledger, registry = ids) => parseLedger('audit/data-hardware.md', markdown, registry, { compoundPlans: catalog, articleCitations: citations }).find(s => s.slug === 'datasets')!.claimRecords;
 const row = (ordinal: number) => parse()[ordinal - 1];
 const plan = (ordinal: number, catalog = plans) => catalog.find(p => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'datasets' && p.rowOrdinal === ordinal)!;
@@ -56,40 +59,24 @@ const oldHashes: Array<[BaselineKind, string, string]> = [
 ];
 const approvals: ApprovedDelta[] = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
 const selectedApprovals = approvals.filter(a => a.id.startsWith('dataset-license-pair-20260921-'));
-// Execute only the trusted, fixed historical citation module against the unchanged
-// schema. This reconstructs its labels from its bytes, not from approval hashes.
-const historicalModule = { exports: {} };
-runInNewContext(ts.transpileModule(read('data/citations.ts'), {
-  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
-}).outputText, {
-  module: historicalModule, exports: historicalModule.exports,
-  require: createRequire(resolve(root, 'data/citations.ts')),
-});
-const historical = historicalModule.exports as typeof import('../../data/citations');
-const parsedArticle = matter(article);
-const body = parsedArticle.content.trim();
-const matches = (pattern: RegExp) => [...body.matchAll(pattern)].map(m => m[1]).sort();
-const rendered = historical.CITATIONS.map(c => `${c.id}\t${historical.citationLabel(c)}\t${historical.citationMeta(c)}`).sort();
-const truth = {
-  prose: buildManifest('prose', [{ id: 'article:data-hardware/datasets', value: { path: articlePath, body } }]),
-  relationships: buildManifest('relationships', [{ id: 'article:data-hardware/datasets', value: {
-    seeAlso: parsedArticle.data.seeAlso,
-    citations: matches(/<Cite\s+id=["']([^"']+)["']/g),
-    terms: matches(/<Term\s+id=["']([^"']+)["']/g),
-    internalLinks: matches(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g),
-  } }]),
-  metadata: buildManifest('article-metadata', [
-    { id: 'article-fact-frontmatter:data-hardware/datasets', value: {
-      path: articlePath, lastReviewed: String(parsedArticle.data.lastReviewed), citations: parsedArticle.data.citations,
-    } },
-    { id: 'citation:cc-by-4-0-deed', value: JSON.parse(JSON.stringify(historical.CITATIONS.find(c => c.id === 'cc-by-4-0-deed'))) },
-    { id: 'citation-rendering:label-and-meta', value: { count: rendered.length, digest: sha256(rendered.join('\n')) } },
-  ]),
-};
-function bundle(old: boolean): BaselineBundle {
+const truth = collectArticleTruthManifests();
+const currentHash = (kind: BaselineKind, memberId: string) => Object.values(truth).find(m => m.kind === kind)?.members.find(m => m.id === memberId)?.hash;
+// Members the production line also changed (SEO training-contract section,
+// related links, and its own citation additions). On the integrated line the
+// lane endpoint is no longer HEAD for these; each carries the integration
+// re-anchor from its sealed hash to the merged hash instead. A member moved
+// again after the integration (the label/meta digest, by later registry
+// additions) also carries a later re-anchor from the same seal to HEAD.
+const productionTouched = new Set([
+  'prose|article:data-hardware/datasets',
+  'relationships|article:data-hardware/datasets',
+  'article-metadata|citation-rendering:label-and-meta',
+]);
+const touched = ([kind, id]: [BaselineKind, string, string]) => productionTouched.has(`${kind}|${id}`);
+function bundle(old: boolean, selected: Array<[BaselineKind, string, string]> = oldHashes): BaselineBundle {
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const manifest = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
-    const members: ManifestMember[] = oldHashes.filter(([k]) => k === kind).flatMap(([, id, hash]) => {
+    const members: ManifestMember[] = selected.filter(([k]) => k === kind).flatMap(([, id, hash]) => {
       if (old) return hash === sha256('missing') ? [] : [{ id, hash }];
       return Object.values(truth).flatMap(m => m.kind === kind ? m.members.filter(v => v.id === id) : []);
     });
@@ -100,8 +87,14 @@ function bundle(old: boolean): BaselineBundle {
 
 describe('DROID and BridgeData license pair, exact bounded correction', () => {
   it('applies only the five approved prose replacements and one frontmatter citation', () => {
-    let expected = before(articlePath);
+    // The lane's pre-correction article is the true merge base's article, so
+    // the lane changed nothing else. The integrated article is the production
+    // line's article (SEO training-contract section and related links) with
+    // exactly these edits applied.
+    expect(before(articlePath)).toBe(showAt(TRUE_MERGE_BASE, articlePath));
+    let expected = showAt(PRODUCTION_BASE, articlePath);
     for (const edit of edits) {
+      expect(before(articlePath).split(edit.before)).toHaveLength(2);
       expect(expected.split(edit.before)).toHaveLength(2);
       expected = expected.replace(edit.before, edit.after);
     }
@@ -113,7 +106,14 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
     expect(CITATIONS.find(c => c.id === 'cc-by-4-0-deed')).toEqual({ id: 'cc-by-4-0-deed', title: 'Attribution 4.0 International', authors: ['Creative Commons'], year: 2013, url: 'https://creativecommons.org/licenses/by/4.0/', type: 'docs' });
     expect(CITATIONS.find(c => c.id === 'droid-2024')?.year).toBe(2024);
     expect(read('data/citations.ts')).toContain('license-version publication year, not the undated deed webpage');
-    expect(read('data/datasets.ts')).toBe(before('data/datasets.ts'));
+    // The license fix left the dataset rows alone. Compared as the ROWS
+    // literal, not the whole file: the module's validation wiring later
+    // moved to lib/registry-validation.ts (zod out of client bundles)
+    // without touching a row.
+    const rows = (source: string) =>
+      source.slice(source.indexOf('const ROWS: Dataset[] = ['), source.indexOf('\n];\n') + 4);
+    expect(rows(integrated('data/datasets.ts'))).toBe(rows(before('data/datasets.ts')));
+    expect(rows(read('data/datasets.ts'))).toContain("sources: ['robomind-2024']");
   });
   it('narrows commercial permission to published terms and limitations', () => {
     expect(row(5).claim).toContain('a license link, change notices');
@@ -181,27 +181,67 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
     expect(ledger).toContain('Historical: dataset license pair correction 2026-09-21');
     for (const ordinal of [5, 6]) expect(ledger).toContain(JSON.stringify(plan(ordinal, oldPlans), null, 2));
     expect(parse()).toHaveLength(11);
-    expect(plans).toHaveLength(857);
+    // The correction replaced the row 5/6 plans in place: the lane catalog's
+    // 857 identities keep their order, and later lanes append no datasets plan.
+    expect(oldPlans).toHaveLength(857);
+    expect(plans.slice(0, oldPlans.length).map(p => p.id)).toEqual(oldPlans.map(p => p.id));
+    expect(plans.slice(oldPlans.length).filter(p => p.articleSlug === 'datasets')).toEqual([]);
   });
   it('appends exactly five native member approvals with the complete old prefix intact', () => {
-    const old = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
+    const old: ApprovedDelta[] = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
     expect(old).toHaveLength(999);
-    expect(approvals.slice(0, old.length)).toEqual(old);
-    expect(approvals).toHaveLength(old.length + 5);
+    // Integrated line: the production ledger is an exact prefix, entries it
+    // shares with the lane keep their identity, and the lane-only block
+    // follows unchanged in lane order with these five appended right after it.
+    const { production, shared, laneOnly, start } = laneWindow(old);
+    expect(approvals.slice(0, production.length)).toEqual(production);
+    for (const entry of shared) {
+      expect(production.find(p => p.id === entry.id)).toMatchObject({ manifest: entry.manifest, memberId: entry.memberId });
+    }
+    expect(approvals.slice(production.length, start)).toEqual(laneOnly);
+    expect(approvals.slice(start, start + 5)).toEqual(selectedApprovals);
     expect(selectedApprovals).toHaveLength(5);
-    for (const [manifest, memberId, oldHash] of oldHashes) {
+    for (const entry of oldHashes) {
+      const [manifest, memberId, oldHash] = entry;
       const a = selectedApprovals.find(a => a.manifest === manifest && a.memberId === memberId)!;
       expect(a?.oldHash).toBe(oldHash);
-      expect(a?.newHash).toBe(Object.values(truth).find(m => m.kind === manifest)?.members.find(m => m.id === memberId)?.hash);
       expect(a?.disposition).toBe('permanent');
+      const reanchor = reanchorFor(approvals, manifest, memberId);
+      if (touched(entry)) {
+        expect(a?.newHash).not.toBe(currentHash(manifest, memberId));
+        // The integration re-anchor keeps the merged value that the
+        // integration commit's own evidence observed; HEAD is bracketed from
+        // the same seal by the latest re-anchor, which never precedes it.
+        expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
+        expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
+        const head = headReanchorFor(approvals, manifest, memberId)!;
+        expect(head).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
+      } else {
+        expect(a?.newHash).toBe(currentHash(manifest, memberId));
+        // A lane-only member needs no integration re-anchor; if one exists it must be exact.
+        if (reanchor) expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId) });
+      }
     }
   });
   it('native comparison accepts only the exact approvals, never missing or mutated hashes', () => {
-    expect(compareBaseline(bundle(true), bundle(false), selectedApprovals).ok).toBe(true);
-    for (const approval of selectedApprovals) {
-      expect(compareBaseline(bundle(true), bundle(false), selectedApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
-      expect(compareBaseline(bundle(true), bundle(false), selectedApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
+    // Members only the lane changed: lane start -> HEAD through the lane approvals.
+    const laneMembers = oldHashes.filter(entry => !touched(entry));
+    const laneApprovals = selectedApprovals.filter(a => laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
+    expect(laneApprovals.length).toBeGreaterThan(0);
+    expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals).ok).toBe(true);
+    for (const approval of laneApprovals) {
+      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
+      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
     }
-    expect(selectedApprovals.length).toBeGreaterThan(0);
+    // Members the production line also changed: seal -> HEAD through the latest integration re-anchors.
+    const mergedMembers = oldHashes.filter(touched).map(([k, id]) => [k, id, sealedHash(k, id)] as [BaselineKind, string, string]);
+    const reanchors = mergedMembers.map(([k, id]) => headReanchorFor(approvals, k, id)!);
+    expect(reanchors).toHaveLength(productionTouched.size);
+    expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), reanchors).ok).toBe(true);
+    for (const approval of reanchors) {
+      expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), reanchors.filter(a => a.id !== approval.id)).ok).toBe(false);
+      expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), reanchors.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
+    }
   });
 });

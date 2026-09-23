@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 128
-- Recorded verified: 56
-- Recorded corrected: 65
+- Recorded verified: 55
+- Recorded corrected: 66
 - Recorded cut: 2
 - Recorded source inconsistencies: 1
 - Unresolved or unrecognised verdicts: 4
-- Complete evidence records: 115
-- Incomplete evidence records: 13
+- Complete evidence records: 116
+- Incomplete evidence records: 12
 
 <!-- audit-summary:end -->
 
@@ -262,7 +262,7 @@ Int = checked against repo code/data rather than an external source.
 | AgiBot World Beta: 1,001,552 trajectories totaling 2,976 h on the AgiBot G1; repo count since grown to 1,003,672; 217 tasks in 5 deployment scenarios; 30% over OXE (vendor-reported); CC BY-NC-SA 4.0. GO-1 VRAM figures stay CUT (unsourceable, 2026-08-17 audit) | agibot-world-2025 paper v4 https://arxiv.org/html/2503.06669v4 (curl 200, 2026-09-16T04:09:19Z, bytes identical to the retained db4 source; counts/217-tasks/five-scenarios/30% passages verbatim, same registered citations as data-bottleneck-db4/db14) + AgiBot-World repo README https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md (curl 200, 2026-09-16T04:09:19Z; 1,003,672 (~43.8T), CC BY-NC-SA 4.0; registration proposed); HF card AgiBotWorld 401 this session | C (2026-08 corrections stand; this pass additionally removes the stale GO-1 VRAM figures from the claim cell — cut from the article 2026-08-17 as unsourceable at every reachable primary source including Wayback) | Corrected cells: counts/hours/G1/217-tasks/five-scenarios/30% verified live against the same v4 HTML already integrated for data-bottleneck:4/:14 (byte-identical fetch); repo count 1,003,672 (~43.8T) and the CC BY-NC-SA 4.0 data license printed by the licensor's own README (fetched live; proposed registration required). GO-1 ~7 GB / ~70 GB figures remain CUT per the 2026-08-17 audit finding; the claim cell is updated to stop carrying them. 30% remains vendor-reported (authors' own claim about their own dataset) with no independent replication. |  |  |  | datasets-7-agibot-beta-20260916c |
 | "2,976 hours across a million trajectories is about 11 seconds each... less interaction than Ego4D's passive video" | arXiv 2503.06669 v4 HTML (operands 2,976.4 h / 1,001,552, live-confirmed this session, identical bytes to the retained db4 source) + Ego4D abs https://arxiv.org/abs/2110.07058 (3,670 h, live-confirmed, same registered citation as db8); derivation 2976.4*3600/1001552 = 10.6984 s is integrator local proof, no fetch | V | Local-AND: per-trajectory duration 2976.4 x 3600 / 1,001,552 = 10.70 s, printed by the article as 'about 11 seconds'; comparison operand Ego4D = 3,670 published hours, so 2,976.4 h of interaction is less than Ego4D's 3,670 h of passive video. Same derivation class as the integrated data-bottleneck-db4 db4-derived-duration part; distinct from the held data-bottleneck:5 rig-year rate model (authored mapping, wrong denominator), which is not present in this row. Integrator must re-run the arithmetic locally before applying. Integrator local proof re-run at application time before applying (node, 2026-09-16: 2976.4*3600/1001552 = 10.698436027285652, rounding to 11; 2976.4 < 3670): integrator local proof, no fetch. |  |  |  | datasets-8-eleven-seconds-20260916c |
 | AgiBot World 2026: 13.6 TB (card-printed, September 2026; storage API 14,054,068,535,897 bytes), collected entirely in real-world scenes (100% real-world environments, AGIBOT G2), no episode/hour/task counts published as of 2026-09-16 | agibot-world-2026, HF card https://huggingface.co/datasets/agibot-world/AgiBotWorld2026 (FetchUrl 200, completed by 2026-09-16T04:11Z; 'Total file size: 13.6 TB', 'collected from 100% real-world environments', no counts) + HF API https://huggingface.co/api/datasets/agibot-world/AgiBotWorld2026 (curl 200, 2026-09-16T04:09:19Z; usedStorage 14054068535897 bytes, lastModified 2026-09-01) | C (moving figure corrected again: 13.2 TB claim cell and 13.7 TB article span both stale; live card prints 13.6 TB and the API reports 14,054,068,535,897 bytes at 2026-09-16) | Corrected to the live printed figure with its date, per the audit's moving-figure rule. Card prints 'Total file size: 13.6 TB', 'collected from 100% real-world environments' (the article's 'collected entirely in real-world scenes'), and no episode/hour/task counts (viewer broken, only coarse 1K<n<10K tag). API re-read recorded: 14,054,068,535,897 bytes = 14.05 TB decimal / 12.78 TiB binary, lastModified 2026-09-01. Card also names the AGIBOT G2 platform and a concurrent GenieSim digital twin (context, not in the claim). |  |  |  | datasets-9-agibot2026-size-20260916c |
-| RoboMIND: 107,000 trajectories, 479 tasks, 96 object classes, four robots (Franka Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands), one protocol; 5,000 failure demos with annotated causes; Isaac Sim digital twin; CC BY-NC-SA 4.0 | robomind-2024, https://arxiv.org/abs/2412.13877 (curl 200, 2026-09-16T04:09:19Z; all count/robot/protocol/failure/Isaac elements verbatim in the abstract) + full text https://arxiv.org/html/2412.13877 (curl 200, 2026-09-16T04:12:20Z; humanoid named Tien Kung) + project site https://x-humanoid-robomind.github.io/ (curl 200, 2026-09-16T04:13:58Z; no license text). License element HELD: no reachable primary prints it (see heldParts) | V (seven elements re-verified live against the abstract; the CC BY-NC-SA 4.0 license element is HELD — its stated abs basis does not reproduce, and no other reachable primary prints it) | Evidence completion for the paper-backed elements only. Abstract prints 107k trajectories / 479 tasks / 96 object classes / four embodiments (Franka Emika Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands) / unified platform + standardized protocol / 5k failure demonstrations with detailed causes / Isaac Sim digital twin replicating tasks and assets. HELD element: CC BY-NC-SA 4.0 — abs and full text print no data license, the project site prints none, HF is gated (401); stays on its 2026-08-09 prior verification, uncertified by this pass. (HELD element re-stated: the CC BY-NC-SA 4.0 license element is HELD pending a license-bearing primary.) |  |  |  | datasets-10-robomind-20260916c |
+| RoboMIND: reported 107k trajectories, 479 tasks, 96 object classes, four robots (Franka Emika Panda, UR5e, AgileX dual-arm, Tien Kung humanoid with dual dexterous hands), one platform and standardized protocol; 5k failure demonstrations with detailed causes; Isaac Sim digital twin. The inspected public card groups 107K/479/96 under versions 1.1/1.2 and displays an Apache-2.0 badge, but does not explicitly assign it to those data releases; release-specific data terms are not disclosed in that card and gated access conditions were not inspected. No CC BY-NC-SA, Apache data, code or model permission is certified. | robomind-2024: retained https://arxiv.org/abs/2412.13877 (original curl 200, 2026-09-16T04:09:19Z; retained page identifies v3) and https://arxiv.org/html/2412.13877 (explicit v3, 27 May 2025; original fetchLog completedUtc 2026-09-16T04:12:19Z, curl 200); retained official project https://x-humanoid-robomind.github.io/ (original curl 200, 2026-09-16T04:13:58Z); official public dataset card https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND (rune___web_scrape response observed 2026-09-21T22:59:14.750Z, complete returned 10,768-character markdown, no origin HTTP status exposed). Retained text reviewed for this disclosure; no new fetch or current liveness pass. | C (replaces the unsupported license assertion with source-backed release-scoped disclosure; no use permission certified) | Paper-backed counts, embodiments, standardized collection, failure causes and Isaac Sim remain supported by the retained paper passages. The official card groups the headline counts under Version 1.1 & 1.2, distinct from initial v1.0 and its separately announced v2.0; no v1.1/v1.2 release date is established. Paper dates are not data-release dates. The card displays Apache-2.0 but does not explicitly bind the badge to those data releases or separately state code/model terms. Its access banner requires accepting conditions and sharing contact information; conditions were not inspected or accepted. The data-license field is applicable; its release-specific terms are not disclosed in the inspected public card, so the proposed null is source-scoped and must render exactly not disclosed, never n/a. The historical CC BY-NC-SA label is not retained as a current permission. The arXiv license notice concerns the paper. Preserve the former four cells, plan, held adjudication and August 9 label as history; the old 401 was for x-humanoid-printing-robomind, not this correct public card. The September 23 owner permits truthful disclosure, not a license grant, a local-evidence substitution, global absence or independent acceptance. |  |  |  | datasets-10-robomind-20260916c |
 | "multi-embodiment pretraining may be optional when task diversity is high" | diversity-scaling-2025, https://arxiv.org/abs/2507.06219 (curl 200, 2026-09-16T04:09:19Z; finding (2) verbatim in the abstract; compression nuance in note) | V | Evidence completion only. Abstract prints finding (1) task diversity proves more critical than per-task demonstration quantity and finding (2) multi-embodiment pre-training data is optional for cross-embodiment transfer (high-quality single-embodiment data transfers across platforms and scales better in fine-tuning). The article's 'may be optional when task diversity is high' compresses the two parallel findings into one conditional; the abstract states optionality flatly and separately. Faithful in substance; nuance recorded. |  |  |  | datasets-11-diversity-20260916c |
 
 ### hardware-taxonomy.mdx
@@ -2073,3 +2073,170 @@ The records below retain their original AND obligations and remain unresolved an
   }
 ]
 ```
+
+## Historical: RoboMIND release licensing disclosure 2026-09-23
+
+The following exact former cells and held plan are non-counted history, not current source proof. The corrected current row completes disclosure only, never a license grant. All other original rows and prior history remain unchanged.
+
+### Former four cells
+
+```json
+{
+  "claim": "RoboMIND: 107,000 trajectories, 479 tasks, 96 object classes, four robots (Franka Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands), one protocol; 5,000 failure demos with annotated causes; Isaac Sim digital twin; CC BY-NC-SA 4.0",
+  "sourceChecked": "robomind-2024, https://arxiv.org/abs/2412.13877 (curl 200, 2026-09-16T04:09:19Z; all count/robot/protocol/failure/Isaac elements verbatim in the abstract) + full text https://arxiv.org/html/2412.13877 (curl 200, 2026-09-16T04:12:20Z; humanoid named Tien Kung) + project site https://x-humanoid-robomind.github.io/ (curl 200, 2026-09-16T04:13:58Z; no license text). License element HELD: no reachable primary prints it (see heldParts)",
+  "verdict": "V (seven elements re-verified live against the abstract; the CC BY-NC-SA 4.0 license element is HELD — its stated abs basis does not reproduce, and no other reachable primary prints it)",
+  "note": "Evidence completion for the paper-backed elements only. Abstract prints 107k trajectories / 479 tasks / 96 object classes / four embodiments (Franka Emika Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands) / unified platform + standardized protocol / 5k failure demonstrations with detailed causes / Isaac Sim digital twin replicating tasks and assets. HELD element: CC BY-NC-SA 4.0 — abs and full text print no data license, the project site prints none, HF is gated (401); stays on its 2026-08-09 prior verification, uncertified by this pass. (HELD element re-stated: the CC BY-NC-SA 4.0 license element is HELD pending a license-bearing primary.)"
+}
+```
+
+### Former held plan and reviews
+
+```json
+{
+  "id": "datasets-10-robomind-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "66ef45e82775c5a3fe0f5f87391a6d6bf4b450b8917a26859ee7251403f11c0e",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds10-counts-and-robots",
+      "text": "RoboMIND contains 107k demonstration trajectories across 479 diverse tasks involving 96 object classes, collected on a unified platform under a standardized protocol across four embodiments: Franka Emika Panda, UR5e, AgileX dual-arm robot, and a humanoid robot with dual dexterous hands (the v3 full text names it X-Humanoid Tien Kung).",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-failures-and-twin",
+      "text": "The dataset includes 5k real-world failure demonstrations each accompanied by detailed causes, and a digital twin of the tasks and assets was created in the Isaac Sim simulator for additional data collection and evaluation.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-license-held",
+      "text": "HELD PART (not evidenced this session): the CC BY-NC-SA 4.0 data license. The abs page (the row's stated basis) prints no data license today, the full text prints none, the official project site prints none, and the HF dataset page is gated. The element keeps its 2026-08-09 prior verification and is not certified here.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:10 (ready-evidence-completion with one held element) reviewed: the seven paper-backed elements needle-verified against sources/robomind-abs.html (all counts, the four-embodiment list, 5k failures, Isaac Sim twin). The license part stays unresolved: abs prints only arXiv boilerplate, the v3 full text prints the arXiv perpetual license, the official project site (fetched 200) prints no license, and the HF page is gated (401); the 2026-08-09 stated basis does not reproduce. Article span annotated, not certified.",
+    "planDigest": "89f762ea560c47b891cacb20e6ae932e8ff2b5129fea273be27d33316114a3c7"
+  },
+  "evidence": [
+    {
+      "partId": "ds10-counts-and-robots",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/abs/2412.13877",
+      "supportingPassage": "In this paper, we introduce RoboMIND (Multi-embodiment Intelligence Normative Data for Robot Manipulation), a dataset containing 107k demonstration trajectories across 479 diverse tasks involving 96 object classes. [...] RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the UR5e, the AgileX dual-arm robot, and a humanoid robot with dual dexterous hands."
+    },
+    {
+      "partId": "ds10-failures-and-twin",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/abs/2412.13877",
+      "supportingPassage": "Our dataset also includes 5k real-world failure demonstrations, each accompanied by detailed causes, enabling failure reflection and correction during policy learning. Additionally, we created a digital twin environment in the Isaac Sim simulator, replicating the real-world tasks and assets, which facilitates the low-cost collection of additional training data and enables efficient evaluation."
+    },
+    {
+      "partId": "ds10-license-held",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/abs/2412.13877",
+      "supportingPassage": "NO PASSAGE FETCHABLE THIS SESSION: the abs page prints only arXiv license boilerplate; the full text v3 prints 'License: arXiv.org perpetual non-exclusive license'; the project site (x-humanoid-robomind.github.io, fetched 200, 2026-09-16T04:13:58Z) prints no license; the HF dataset page returns 401 (gated). Held on the 2026-08-09 prior verification; not certified."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds10-counts-and-robots",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the abstract prints 107k trajectories / 479 tasks / 96 object classes and the four-embodiment list (Franka Emika Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands); the v3 full text names the humanoid Tien Kung.",
+      "evidenceDigest": "96d765e4711a5f62c7acfad8356d172cc6edb13b6e636cbca5ef03c602654a81"
+    },
+    {
+      "partId": "ds10-failures-and-twin",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the abstract prints the 5k real-world failure demonstrations with detailed causes and the Isaac Sim digital twin replicating real-world tasks and assets.",
+      "evidenceDigest": "67d0039099118c7def52f3e6243a4c7a0556cd58170cdf2b3a2baaea3dcfccbc"
+    },
+    {
+      "partId": "ds10-license-held",
+      "outcome": "unresolved",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "UNRESOLVED, held: the CC BY-NC-SA 4.0 element's stated basis (abs page) does not reproduce - abs prints only arXiv boilerplate, the v3 full text prints \"License: arXiv.org perpetual non-exclusive license\", the official project site (fetched 200, retained) prints no license, and the HF dataset page is gated (401). Held on the 2026-08-09 prior verification; the article span is annotated this pass, not certified; escalate for a license-bearing source (gated HF card or a future project-page print).",
+      "evidenceDigest": "a676f112e3eecdc791a380890903810fe84a65e5049166f96aea13e6d17e6048"
+    }
+  ]
+}
+```
+
+### Applied source review and retrieval provenance
+
+```json
+{
+  "originalId": "audit/data-hardware.md:datasets:10",
+  "rowOrdinal": 10,
+  "priorTupleDigest": "66ef45e82775c5a3fe0f5f87391a6d6bf4b450b8917a26859ee7251403f11c0e",
+  "reviewedAt": "2026-09-23T02:58:51.933Z",
+  "sourcePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-disclosure-20260923/rows.json",
+  "sourcePacketSha256": "ab0dacd5baf8bb7e36bf9ee3e7879ebabc3f3fc214f8e7fe78c0aa01264de38a",
+  "authority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-disclosure-integration-20260923/authorization.md",
+  "retrievals": [
+    {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/robomind-abs.html",
+      "bytes": 50555,
+      "sha256": "4dc175992d60a88114c97e96c3f6911b013087c4a077ad643ec37301f7b3d7f1",
+      "provenance": "Retained curl response. Original preparation-report.json fetchLog[16]: https://arxiv.org/abs/2412.13877, status 200, completedUtc 2026-09-16T04:09:19Z. The body, byte count and SHA-256 were inspected in this worker. This is not a new request or current liveness check.",
+      "versionScope": "Unversioned requested URL; retained page explicitly identifies this version as v3, revised 27 May 2025, with submission history beginning 18 December 2024."
+    },
+    {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/robomind-html.html",
+      "bytes": 300359,
+      "sha256": "307d1a4978408bd3a68d5a9000d5d7c7e982a658fc38ec320cf2a9d93e720a07",
+      "provenance": "Retained curl response. Original preparation-report.json fetchLog[17]: https://arxiv.org/html/2412.13877, status 200, completedUtc 2026-09-16T04:12:19Z, 300,359 bytes (v3). The native ledger and later summary say 04:12:20Z; retain that historical cell unchanged but use the original fetch record's 04:12:19Z in new provenance. Body excerpts, byte count and SHA-256 inspected in this worker; no new fetch.",
+      "versionScope": "Explicit paper v3, 27 May 2025. No assertion that a public dataset card's current files equal this paper snapshot."
+    },
+    {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/robomind-site2.html",
+      "bytes": 32374,
+      "sha256": "dcea492f77e1a176dc773beed805d61b482dc07ca207e5fd4aa2600efa2c841c",
+      "provenance": "Retained curl response. Original preparation-report.json fetchLog[20]: https://x-humanoid-robomind.github.io/, status 200, completedUtc 2026-09-16T04:13:58Z. Visible text, byte count and SHA-256 inspected in this worker. The separate typo-host 404 is not evidence about this endpoint.",
+      "versionScope": "Unversioned project snapshot at the original retrieval. No data-release license is stated in its inspected visible text; this does not establish absence on uninspected artifacts or at later dates."
+    },
+    {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-licenses-recovery-20260921/source-5.txt",
+      "bytes": 11520,
+      "sha256": "ed5095bd3b1a95033118281d3004b2d280c3e967d132fe13a43a074f409d2454",
+      "provenance": "Retained rune___web_scrape result for https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND. retrievals.json requests[4]: startedAt 2026-09-21T22:59:12.507Z, observedAt 2026-09-21T22:59:14.750Z, callId call_TlCneJnQznf7o44lvvYyVZWK, worker bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f response line 39. Actual result envelope reports the same final_url, truncated:false, chars:10768, content_type:text/html; charset=utf-8, external-web via Firecrawl. No origin HTTP status or redirect chain was exposed. Full returned markdown and its envelope were read in this worker. Bytes/hash above are the retained retrieval record's identities, not a claimed second hash computation in this worker.",
+      "versionScope": "Unversioned public card snapshot with combined Version 1.1 & 1.2 section, initial Version 1.0 section and separate v2.0 announcement. No pinned commit or release-specific badge assignment. Gated conditions, dataset files, code licenses and model licenses were not opened."
+    }
+  ],
+  "reviewScope": "Reviewed all five parts and all nine paired external evidence items against the preserved document context from the source-preparation role, with exact source identities rechecked at application. Retains counts/robots/protocol and failures/Isaac Sim in full. The card supplies the combined v1.1/v1.2 scope, separately describes v1.0 and announces v2.0, displays Apache-2.0 and states access conditions. Neither badge nor paper license is a dataset/code/model grant. The complete returned card does not explicitly bind its badge to these data releases; that is a source-scoped review finding, not a fabricated quote or global absence. Owner September 23 authorizes a truthful disclosure, not settled permission. All scientific AND release/disclosure parts are required. Noncontiguous literal excerpts in a paired item are separated with [...]; retrieval dates remain historical. This is agent source review, not independent Sol/high or release acceptance.",
+  "remaining": [
+    "Release-specific use permission, gated terms, code/model licenses and dataset v1.1/v1.2 dates remain unestablished.",
+    "305.5-hour table issue is deliberately unchanged; no browser/export or independent acceptance."
+  ]
+}
+```
+
+## Verification: RoboMIND disclosure integration, 2026-09-23
+
+Exactly one original, `audit/data-hardware.md:datasets:10`, is corrected to a truthful release-scoped disclosure. This is not a grant of data, code or model permission. Zero source requests; four retained source identities rechecked. Five external parts and nine paired items have actual agent review. All 993 other originals, the previously complete dataset rows and the prior held cells/plan remain preserved; full final preservation is recorded separately. No local-proof catalog entry or tooling change.
+
+| Check actually run | Command | Observed result |
+| --- | --- | --- |
+| Red-first | `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/robomind-disclosure-evidence.test.ts tests/component/dataset-table.test.tsx --no-file-parallelism` | exit 1; 9 failed / 21 passed / 30 cases before application |
+| Affected six files | `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/unit/robomind-disclosure-evidence.test.ts tests/unit/datasets-originals.test.ts tests/unit/dataset-license-pair-evidence.test.ts tests/unit/datasets.test.ts tests/component/dataset-table.test.tsx tests/unit/audit-ledger.test.ts --no-file-parallelism` | exit 1; 165 passed / 1 failed / 166 cases; the failure concatenated the numeric count with a digit-leading note |
+| Changed sorting fixture | `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/vitest run tests/component/dataset-table.test.tsx -t 'sorts episodes' --no-file-parallelism` | exit 0; 1 passed / 10 unaffected skipped; 166 distinct affected cases now pass across the two post-application runs |
+| Full TypeScript | `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/tsc --noEmit --incremental false` | exit 0; no typegen, no emit, next-env.d.ts preserved |
+| Targeted lint | `NODE_DISABLE_COMPILE_CACHE=1 ./node_modules/.bin/eslint data/datasets.ts tests/unit/robomind-disclosure-evidence.test.ts tests/unit/datasets-originals.test.ts tests/unit/dataset-license-pair-evidence.test.ts tests/unit/datasets.test.ts tests/component/dataset-table.test.tsx` | exit 0 |
+| Article-only compile/citations/no-slop | `NODE_DISABLE_COMPILE_CACHE=1 node --input-type=module` with the configured MDX plugins and native no-slop functions | exit 0; 0 compiler messages, 30 Cite occurrences, 9 declared sources, 0 marker findings; density 3.3467202141900936 per 1000 over 1494 source words, below 22; actual inline program retained in command-receipts.json |
+| Native offline coverage, one invocation | `NODE_DISABLE_COMPILE_CACHE=1 node scripts/check-audit-coverage.ts --json` with stdout directly to a regular file | exit 1; 960 complete / 34 incomplete / 994 originals; 47 ledger findings, 0 citation-coverage findings, 0 summary mismatches; complete 10,204,162-byte JSON and empty stderr retained |
+| Browser/build/export | not run in this bounded remediation | Affected rendered-route proof, reading-time/export refresh and independent Sol/high scrutiny/user testing remain owed; no acceptance or publication |
+
+Historical transaction tests are pinned to actual license-pair commit `b546965037d9226678e2678b310e99dcb58ed971`, with their negative controls intact. The separate current-state suite checks this disclosure, stale/missing evidence, exact history and approvals; the historical citation-rendering expectation is reconstructed from the actual committed module, not copied from an approval hash. Six actual native member deltas append to the unchanged 1030-entry approval prefix; the catalog still has 863 identities. Unknown release permission stays unknown. The unrelated 305.5-hour finding remains a separate follow-up and hours stays null. Manual reading checked the changed prose without certifying adjacent claims; `lastReviewed` stays 2026-08-17.
+
+Raw commands and receipts: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-disclosure-integration-20260923/`. Prior failures are retained, not relabelled as passes.

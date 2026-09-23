@@ -851,3 +851,51 @@ describe('compound evidence on one original claim (synthetic fixtures, never fet
     expect(parse(text, [review(plan)])[0].unevidencedRows).toHaveLength(1);
   });
 });
+
+
+describe('authored-local-basis-v1 native guard', () => {
+  it('still rejects malformed unrelated rows in a live whole ledger', () => {
+    const good = '## reward-design-mpc.mdx\n| Claim | Source checked | Verdict |\n| --- | --- | --- |\n| SYNTHETIC | source | V |\n';
+    const bad = '## unrelated.mdx\n| Claim | Source checked | Verdict |\n| --- | --- | --- |\n| SYNTHETIC | source | V | unheaded cell |\n';
+    for (const markdown of [good + bad, bad + good]) {
+      expect(() => parseLedger('audit/rl-sim2real.md', markdown)).toThrow(/extra.*cells/);
+    }
+  });
+  it('cannot certify the closed local obligation through scalar fallback', () => {
+    const md = `## reward-design-mpc.mdx
+| Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage |
+| --- | --- | --- | --- | --- | --- | --- |
+` + Array.from({ length: 4 }, () => '| SYNTHETIC authored terms | synthetic | V | illustrative | alvinn-1988 | https://source.example/paper | Synthetic external sentence, not fetched or factual. |').join('\n');
+    const rows = parseLedger('audit/rl-sim2real.md', md, new Set(['alvinn-1988']))[0].claimRecords;
+    expect(rows[0].evidenceFailures).toEqual([]);
+    expect(rows[3].evidenceFailures.join(' ')).toMatch(/local.*(?:required|obligation)/i);
+  });
+  it('counts complete local and mixed rows once without external fields', () => {
+    const result = summarise([{ domain: 'synthetic', assertionId: null,
+      ledgerPath: 'audit/synthetic.md', publishedCount: 1, auditedCount: 1,
+      claimRows: 2, evidenceKinds: { 'authored-local': 1, 'mixed-local': 1 }, failures: [] }]);
+    expect(result.ok).toBe(true);
+    expect(result.evidenceKinds['citation-id']).toBeUndefined();
+  });
+});
+
+
+describe('authored-local-basis-v1 legacy restoration guard', () => {
+  it('refuses restored legacy reviews for an eligible local target', async () => {
+    const { compoundPlanDigest, compoundPartDigest, originalClaimDigest } = await import('../../lib/audit-ledger.ts');
+    const cells = { claim: 'SYNTHETIC authored term set', sourceChecked: 'synthetic', verdict: 'V', note: 'SYNTHETIC fixture' };
+    const plan: CompoundPlan = { id: 'restored', kind: 'explicit-parts', ledgerPath: 'audit/rl-sim2real.md',
+      articleSlug: 'reward-design-mpc', rowOrdinal: 4, originalCellsDigest: originalClaimDigest(cells),
+      parts: [{ id: 'local', text: 'SYNTHETIC local disguised as external', requiredCitationIds: ['alvinn-1988'] }],
+      evidence: [{ partId: 'local', citationId: 'alvinn-1988', sourceUrl: 'https://source.example/paper', supportingPassage: 'SYNTHETIC passage, never fetched.' }],
+      planReview: null, adjudications: [] };
+    plan.planReview = { reviewedBy: 'SYNTHETIC', rationale: 'SYNTHETIC', planDigest: compoundPlanDigest(plan) };
+    plan.adjudications = [{ partId: 'local', outcome: 'supported', reviewedBy: 'SYNTHETIC', rationale: 'SYNTHETIC', evidenceDigest: compoundPartDigest(plan, 'local') }];
+    const header = '## reward-design-mpc.mdx\n| Claim | Source checked | Verdict | Note | Evidence plan |\n| --- | --- | --- | --- | --- |\n';
+    const md = header + Array.from({ length: 4 }, (_, i) => `| ${Object.values(cells).join(' | ')} | ${i === 3 ? 'restored' : ''} |`).join('\n');
+    const row = parseLedger(plan.ledgerPath, md, new Set(['alvinn-1988']), { compoundPlans: [plan] })[0].claimRecords[3];
+    expect(row.compound?.structuralFailures).toEqual([]);
+    expect(row.compound?.adjudicationFailures).toEqual([]);
+    expect(row.evidenceFailures.join(' ')).toMatch(/local.*required/);
+  });
+});

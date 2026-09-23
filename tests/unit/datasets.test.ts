@@ -72,6 +72,13 @@ describe('DATASETS data', () => {
     expect(DATASETS.find((d) => d.id === 'bridgedata-v2')?.hours).toBeNull();
   });
 
+  it('keeps RoboMIND release-specific terms unknown rather than promoting a badge', () => {
+    const row = DATASETS.find(d => d.id === 'robomind');
+    expect(row?.license).toBeNull();
+    expect(row?.episodesNote).toBe('107k reported; card versions 1.1/1.2; incl. 5k failure demonstrations');
+    expect(row?.hours).toBeNull(); // Separate source/version follow-up, not this license correction.
+  });
+
   it('honors the source-verified anchor values', () => {
     const oxe = DATASETS.find((d) => d.id === 'open-x-embodiment');
     expect(oxe?.episodes).toBe(1000000);

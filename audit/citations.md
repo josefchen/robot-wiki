@@ -318,7 +318,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | real-world-rl-ingredients-2020 | https://arxiv.org/abs/2004.12570 | ok | match | none (first audited 2026-09-06) |  |
 | offline-rl-vs-bc-2022 | https://arxiv.org/abs/2204.05618 | ok | match | none (first audited 2026-09-06) |  |
 | robomimic-2021 | https://arxiv.org/abs/2108.03298 | ok | match | none (first audited 2026-09-06) |  |
-| ng-reward-shaping-1999 | https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) | fetch failed |
+| ng-reward-shaping-1999 | https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf | ok (HTTP 200; 2026-09-23) | match (pdf) | Scoped observation only; registry unchanged; original row preserved below | The first-page extraction names the registered paper and Andrew Y. Ng, Daishi Harada, Stuart Russell. No exception; this is link/document identity, not a new claim audit. Observed 2026-09-23T00:35:35.194354+00:00; exit 0; chain: 200 https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf; final URL: https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf; fetched title: First-page extraction begins: Policy invariance under reward transformations: Theory and application to reward shaping Andrew Y. Ng, Daishi Harada, Stuart Russell. |
 | isaac-gym-2021 | https://arxiv.org/abs/2108.10470 | ok | match | none (verified as cited) |  |
 | brax-2021 | https://arxiv.org/abs/2106.13281 | ok | match | none (verified as cited) |  |
 | mujoco-playground-2025 | https://arxiv.org/abs/2502.08844 | ok | match | none (verified as cited) |  |
@@ -401,7 +401,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | llama-3-2024 | https://ai.meta.com/blog/meta-llama-3/ | ok (exception) | unavailable | none (verified as cited) | ai.meta.com answers HTTP 400 to every non-browser client (curl and node fetch, regardless of headers): a TLS-fingerprint bot-wall, not link rot. The post has no DOI, so Crossref cannot stand in for the fetch. Verified 2026-08-11: Headless Chromium (Playwright) on a real browser fingerprint: HTTP 200, page title "Introducing Meta Llama 3: The most capable openly available LLM to date" matches the registry entry. |
 | llama-3-herd-2024 | https://arxiv.org/abs/2407.21783 | ok | match | none (registered 2026-09-23 by the SEO content-fixes pass; fetched 2026-09-23) | Registered for the world-models-vs-simulators LLM column. `npm run check:citations -- --id llama-3-herd-2024` on 2026-09-23: ok, title match. The arXiv abs page (HTTP 200) titles "The Llama 3 Herd of Models" with 561 citation_author entries; the v3 PDF Table 3 prints, for the 8B model, Layers 32, Model Dimension 4,096, Attention Heads 32 and Key/Value Heads 8, and section 3.2 states "We use grouped query attention (GQA ...) with 8 key-value heads". |
 | fineweb-2024 | https://arxiv.org/abs/2406.17557 | ok | match | none (verified as cited) |  |
-| cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | retained primary identity; no fresh reachability probe | match: Attribution 4.0 International; publisher Creative Commons | Omitted citation-ledger entry added 2026-09-22; registry unchanged. Year 2013 identifies publication of license version 4.0, NOT publication or update of the undated deed webpage, and not DROID's 2024 release. | Deed heading: "Attribution 4.0 International CC BY 4.0 Deed"; canonical URL matches this row. Retained HTML /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/ccby4-deed.html, SHA-256 231a5dac65bbf135ba27145969a63cd289faadc172f1512c4810a6c60ba91036 (32,178 bytes); original preparation-report.json in that packet records curl HTTP 200 completed 2026-09-16T04:09:19Z, not a new observation. Publisher https://wiki.creativecommons.org/wiki/License_Versions states version 4.0 was "published November 2013"; its License Versioning History table gives "2013 Nov 25". Retained response /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-licenses-recovery-20260921/source-4.txt, SHA-256 cf68cbd7b01e758c0398c2632783f048dea6eff05c04eb95b4cfbc5bc44ebb10 (30,676 bytes), retrieved via rune___web_scrape at 2026-09-21T22:59:00.538Z; requested/final URL both License_Versions, 30,000-character truncated body, origin HTTP status not exposed. Source paths, passages and provenance are bound by that packet's rows.json, SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Both retained bodies/hashes checked for this addition; zero retrieval. The deed says "No warranties are given" and warns that other rights may limit an intended use; it is a summary, not the legal code or legal advice. This entry grants no legal permission, current liveness or whole-gate acceptance. No article prose or lastReviewed changed; humanizer not applicable to this citation-ledger/test repair. |
+| cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | ok (HTTP 200; 2026-09-23) | match: Deed - Attribution 4.0 International - Creative Commons (native HTML title check) | scoped liveness observation added; registry unchanged | Native check:citations --id cc-by-4-0-deed --json, completed 2026-09-23T00:17:28.727644Z, exit 0: checked 1, ok 1, every other summary count 0. GET HTTP 200, one-hop chain at the exact registry/final URL, no redirect or exception. Year 2013 remains the license-version publication year, not the undated deed webpage year. Full original row and retained-source history are preserved in the 2026-09-23 scoped-check addendum below. Link success supplies no new claim completion, legal permission or full-corpus acceptance. |
 | droid-2024 | https://arxiv.org/abs/2403.12945 | ok | match | none (verified as cited) |  |
 | bridgedata-v2-2023 | https://arxiv.org/abs/2308.12952 | ok | match | none (verified as cited) |  |
 | robomind-2024 | https://arxiv.org/abs/2412.13877 | ok | match | none (verified as cited) |  |
@@ -417,7 +417,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | so-arm100-repo-2026 | https://github.com/TheRobotStudio/SO-ARM100 | ok | match | none (verified as cited) |  |
 | lerobot-docs-2026 | https://huggingface.co/docs/lerobot/index | ok | match | none (verified as cited) |  |
 | lerobot-pricing-2026 | https://github.com/alpibrusl/lex-robot/issues/3 | ok | match | none (verified as cited) |  |
-| seeed-so-arm101-pro-2026 | https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html | FAIL | MISMATCH: "SO-101 3D-Printed Robotic Arm Frame \\ | UNRESOLVED (see the 2026-09-06 re-audit section) | Open-Source Robotics Kit for DIY Projects" |
+| seeed-so-arm101-pro-2026 | https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html | ok (documented title-mismatch exception; HTTP 200; 2026-09-23) | MISMATCH: SO-101 3D-Printed Robotic Arm Frame &#124; Open-Source Robotics Kit for DIY Projects (documented title divergence) | Scoped observation only; registry unchanged; exact prior row retained below | Primary body names SO-ARM101 Pro Assembled Kit, SKU 100046482; kit comparison and part list establish assembled arms and camera, not frames alone. Observed 2026-09-23T01:13:52.914633+00:00; one changed-input native check, exit 0; chain: 301 https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html -> 200 https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; final URL: https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; fetched title: SO-101 3D-Printed Robotic Arm Frame &#124; Open-Source Robotics Kit for DIY Projects; titleComparison=mismatch; resolvedBy=exception; summary excepted=1, ok=0. Current origin HTTP comes only from this native receipt. Retained source times and exact prior failure row are preserved in the identity-integration addendum. No original claim completion. |
 | trossen-ai-2026 | https://www.trossenrobotics.com/ai | ok | match | none (verified as cited) |  |
 | robozaps-humanoids-2026 | https://blog.robozaps.com/b/best-humanoid-robots | ok | match | none (verified as cited) |  |
 | unitree-g1-2026 | https://www.unitree.com/g1/ | ok | match | none (verified as cited) |  |
@@ -465,7 +465,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | schulman-2013 | https://www.roboticsproceedings.org/rss09/p31.pdf | ok | match (pdf) | none (verified as cited) |  |
 | lavalle-2006 | https://lavalle.pl/planning/ | ok | match | none (verified as cited) |  |
 | ompl-2012 | https://ompl.kavrakilab.org/ | ok | match | none (verified as cited) |  |
-| astrom-murray-2008 | https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) | fetch failed |
+| astrom-murray-2008 | https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers | FAIL (unresolved transport; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Native status 0 is a fetch-failure sentinel, NOT an origin HTTP response. Empty chain; error "fetch failed". No origin status or document identity established. No additional invocation, exception or replacement URL proposal. Observed 2026-09-23T00:36:01.035383+00:00; exit 1; chain: (empty); final URL: https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers; fetched title: (not available). |
 | ziegler-nichols-1942 | https://doi.org/10.1115/1.2899060 | ok (exception) | MISMATCH: "Optimum Settings for Automatic Controllers" | none (verified as cited) | chain: 302 -> 403 https://asmedigitalcollection.asme.org/dynamicsystems/article/115/2B/220/417448/Optimum-Settings-for-Automatic-Controllers; final: https://asmedigitalcollection.asme.org/dynamicsystems/article/115/2B/220/417448/Optimum-Settings-for-Automatic-Controllers; ASME bot-walls the sweep behind a Cloudflare interstitial (HTTP 403, even headless Chromium). The DOI is registered by ASME against the 1993 JDSMC reprint, so Crossref reports only 1993 and the year check can never corroborate the 1942 Trans. ASME original the registry cites; the divergence is documented on the registry entry itself. Verified 2026-08-11: Crossref content negotiation for doi:10.1115/1.2899060: title "Optimum Settings for Automatic Controllers" matches the registry exactly, and the doi.org redirect target is the ASME page for the paper. |
 | kalman-1960 | https://doi.org/10.1109/9780470544334.ch8 | ok (exception) | MISMATCH: "Contributions to the Theory of Optimal Control" | documented exception added (DOI is the 2009 Wiley reprint; 1960 original has no DOI) | chain: 302 -> 202 https://ieeexplore.ieee.org/document/5311913; final: https://ieeexplore.ieee.org/document/5311913; The cited DOI is the Wiley Online Books chapter republication (2009), so Crossref reports 2009 while the registry cites the original 1960 Bol. Soc. Mat. Mexicana paper. The title matches exactly; only the year diverges, for the same reprint-vs-original reason as ziegler-nichols-1942. The IEEE page the DOI resolves to is a JS shell whose served <title> is the chapter title without the original publication framing. Verified 2026-08-18: Crossref content negotiation for doi:10.1109/9780470544334.ch8: title "Contributions to the Theory of Optimal Control" matches the registry exactly; doi.org resolves to ieeexplore.ieee.org/document/5311913 (HTTP 202), the chapter record. Re-confirmed 2026-08-18. |
 | tedrake-underactuated | https://underactuated.mit.edu/ | ok | match | none (verified as cited) |  |
@@ -476,7 +476,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | khatib-1987 | https://doi.org/10.1109/JRA.1987.1087068 | ok (crossref) | match (crossref) | none (verified as cited) | chain: 302 -> 301 -> 202 https://ieeexplore.ieee.org/document/1087068/; final: https://ieeexplore.ieee.org/document/1087068/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/JRA.1987.1087068 matches the registry title and year |
 | sentis-khatib-2005 | https://doi.org/10.1142/S0219843605000594 | ok (crossref) | match (crossref) | none (verified as cited) | chain: 302 -> 403 https://www.worldscientific.com/doi/abs/10.1142/S0219843605000594; final: https://www.worldscientific.com/doi/abs/10.1142/S0219843605000594; publisher answered HTTP 403; Crossref metadata for doi:10.1142/S0219843605000594 matches the registry title and year |
 | kalman-1960-filter | https://doi.org/10.1115/1.3662552 | ok (crossref) | match (crossref) | none (verified as cited) | chain: 302 -> 403 https://asmedigitalcollection.asme.org/fluidsengineering/article/82/1/35/397706/A-New-Approach-to-Linear-Filtering-and-Prediction; final: https://asmedigitalcollection.asme.org/fluidsengineering/article/82/1/35/397706/A-New-Approach-to-Linear-Filtering-and-Prediction; publisher answered HTTP 403; Crossref metadata for doi:10.1115/1.3662552 matches the registry title and year |
-| mcgee-schmidt-1985 | https://ntrs.nasa.gov/citations/19860003843 | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) | This operation was aborted |
+| mcgee-schmidt-1985 | https://ntrs.nasa.gov/citations/19860003843 | ok (HTTP 200; 2026-09-23) | match (html) | Scoped observation only; registry unchanged; original row preserved below | The HTML title matches the registered NASA report. Direct native HTTP 200; no exception. The older outage history remains preserved. Observed 2026-09-23T00:36:20.711121+00:00; exit 0; chain: 200 https://ntrs.nasa.gov/citations/19860003843; final URL: https://ntrs.nasa.gov/citations/19860003843; fetched title: Discovery of the Kalman filter as a practical tool for aerospace and industry. |
 | thrun-2005 | https://mitpress.mit.edu/9780262201629/probabilistic-robotics/ | ok | match | none (verified as cited) |  |
 | smith-1990 | https://doi.org/10.1007/978-1-4613-8997-2_14 | ok (crossref) | match (crossref) | none (verified as cited) | chain: 302 -> 301 -> 200 https://link.springer.com/chapter/10.1007/978-1-4613-8997-2_14; final: https://link.springer.com/chapter/10.1007/978-1-4613-8997-2_14; no comparable title at HTTP 200; Crossref metadata for doi:10.1007/978-1-4613-8997-2_14 matches the registry title and year |
 | julier-uhlmann-1997 | https://doi.org/10.1117/12.280797 | ok (crossref) | match (crossref) | none (verified as cited) | chain: 302 -> 301 -> 301 -> 200 https://www.spiedigitallibrary.org/redirect/proceedings/proceeding?doi=10.1117/12.280797; final: https://www.spiedigitallibrary.org/redirect/proceedings/proceeding?doi=10.1117/12.280797; no comparable title at HTTP 200; Crossref metadata for doi:10.1117/12.280797 matches the registry title and year |
@@ -516,7 +516,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | dexnet-2-2017 | https://arxiv.org/abs/1703.09312 | ok | match | none (verified as cited) |  |
 | rl-100-2025 | https://arxiv.org/abs/2510.14830 | ok | match | none (verified as cited) |  |
 | bessemer-robotics-2026 | https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai | ok | match | none (verified as cited) |  |
-| technology-org-deployed-2026 | https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) |  |
+| technology-org-deployed-2026 | https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ | FAIL (unresolved access; HTTP 403; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Direct origin HTTP 403; native classification blocked, identity unavailable. No title exception, authorization/captcha/paywall bypass, alternative source search or retry. This is access-blocked, not demonstrated link death. Observed 2026-09-23T00:36:21.156565+00:00; exit 1; chain: 403 https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; final URL: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; fetched title: (not available). |
 | asimov-agentic-2026 | https://huggingface.co/datasets/google/asimov_agentic | ok | match | none (verified as cited) |  |
 | figure-8hr-shift-2026 | https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots | ok | match | none (verified as cited) | chain: 301 -> 200 https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots-complete-full-8-hour-autonomous-shifts-humanoid-race-intensifies.htm; final: https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots-complete-full-8-hour-autonomous-shifts-humanoid-race-intensifies.htm |
 | brooks-dexterity-2025 | https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/ | ok | match | none (verified as cited) |  |
@@ -624,7 +624,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | foundationpose-2024 | https://arxiv.org/abs/2312.08344 | ok | match | none (first audited 2026-09-06) |  |
 | megapose-2022 | https://arxiv.org/abs/2212.06870 | ok | match | none (first audited 2026-09-06) |  |
 | bop-challenge-2023 | https://arxiv.org/abs/2403.09799 | ok | match | none (first audited 2026-09-06) |  |
-| hinterstoisser-2012 | https://doi.org/10.1007/978-3-642-37331-2_42 | FAIL | MISMATCH: "Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes" | UNRESOLVED (see the 2026-09-06 re-audit section) | chain: 302 -> 301 -> 200 https://link.springer.com/chapter/10.1007/978-3-642-37331-2_42; final: https://link.springer.com/chapter/10.1007/978-3-642-37331-2_42; title matches Crossref for doi:10.1007/978-3-642-37331-2_42, but year mismatch: registry says 2012, Crossref reports 2013 |
+| hinterstoisser-2012 | https://doi.org/10.1007/978-3-642-37331-2_42 | ok (crossref; 2026-09-23) | match (crossref title and year) | Scoped observation only; registry unchanged; original row preserved below | The final HTML title is "Client Challenge", not the paper title. The existing native DOI/Crossref path matches the registry title and its already-corrected 2013 year. Direct publisher-body access remains challenged; no full paper read or generic HTTP-200 identity pass is claimed. Registry and checker unchanged. Observed 2026-09-23T00:36:22.663143+00:00; exit 0; chain: 302 https://doi.org/10.1007/978-3-642-37331-2_42 -> 301 http://link.springer.com/10.1007/978-3-642-37331-2_42 -> 200 https://link.springer.com/chapter/10.1007/978-3-642-37331-2_42; final URL: https://link.springer.com/chapter/10.1007/978-3-642-37331-2_42; fetched title: Client Challenge. |
 | cleargrasp-2020 | https://doi.org/10.1109/ICRA40945.2020.9197518 | ok | unavailable | none (first audited 2026-09-06) | chain: 302 -> 202 https://ieeexplore.ieee.org/document/9197518/; final: https://ieeexplore.ieee.org/document/9197518/ |
 | dense-object-nets-2018 | https://arxiv.org/abs/1806.08756 | ok | match | none (first audited 2026-09-06) |  |
 | keselman-2017-realsense | https://doi.org/10.1109/CVPRW.2017.167 | ok | unavailable | none (first audited 2026-09-06) | chain: 302 -> 301 -> 202 https://ieeexplore.ieee.org/document/8014901/; final: https://ieeexplore.ieee.org/document/8014901/ |
@@ -647,7 +647,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | ames-cbf-2019 | https://arxiv.org/abs/1903.11199 | ok | match | none (first audited 2026-09-06) |  |
 | wabersich-safety-filters-2023 | https://doi.org/10.1109/MCS.2023.3291885 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 202 https://ieeexplore.ieee.org/document/10266799/; final: https://ieeexplore.ieee.org/document/10266799/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/MCS.2023.3291885 matches the registry title and year |
 | ul-4600-2023 | https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600 | ok | match | none (first audited 2026-09-06) |  |
-| gsn-standard-v3 | https://scsc.uk/scsc-141c | FAIL | MISMATCH: "Download" | UNRESOLVED (see the 2026-09-06 re-audit section) | chain: 302 -> 302 -> 200 https://scsc.uk/index.php/publications/download?ref=1386; final: https://scsc.uk/index.php/publications/download?ref=1386 |
+| gsn-standard-v3 | https://scsc.uk/scsc-141c | ok (documented title-mismatch exception; HTTP 200; 2026-09-23) | MISMATCH: Download (documented title divergence) | Scoped observation only; registry unchanged; exact prior row retained below | Recovered published cover, document-history row and attribution establish Goal Structuring Notation Community Standard Version 3, May 2021, SCSC ACWG. Observed 2026-09-23T01:13:54.151910+00:00; one changed-input native check, exit 0; chain: 302 https://scsc.uk/scsc-141c -> 302 https://scsc.uk/forward?scsc=141c -> 200 https://scsc.uk/index.php/publications/download?ref=1386; final URL: https://scsc.uk/index.php/publications/download?ref=1386; fetched title: Download; titleComparison=mismatch; resolvedBy=exception; summary excepted=1, ok=0. Current origin HTTP comes only from this native receipt. Retained source times and exact prior failure row are preserved in the identity-integration addendum. No original claim completion. |
 | vovk-conformal-2022 | https://doi.org/10.1007/978-3-031-06649-8 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 200 https://link.springer.com/10.1007/978-3-031-06649-8; final: https://link.springer.com/10.1007/978-3-031-06649-8; no comparable title at HTTP 200; Crossref metadata for doi:10.1007/978-3-031-06649-8 matches the registry title and year |
 | angelopoulos-conformal-2021 | https://arxiv.org/abs/2107.07511 | ok | match | none (first audited 2026-09-06) |  |
 | knowno-2023 | https://arxiv.org/abs/2307.01928 | ok | match | none (first audited 2026-09-06) |  |
@@ -657,7 +657,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | ifr-world-robotics-2025 | https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf | ok | match (pdf) | none (first audited 2026-09-06) |  |
 | ifr-china-five-year-plan-2026 | https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy | ok | match | none (first audited 2026-09-06) |  |
 | a3-orders-2025 | https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption | OK | MATCH | Registry corrected 2026-09-06: the slug without "broader" returns HTTP 404; the corrected URL returns 200 and its H1 is "Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption", by-line "Association for Advancing Automation", dated 02/06/2026 | Registry title and venue date updated to match the fetched page |
-| symbotic-10k-2025 | https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm | FAIL | MISMATCH: "sym-20250927" | UNRESOLVED (see the 2026-09-06 re-audit section) |  |
+| symbotic-10k-2025 | https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm | ok (documented title-mismatch exception; HTTP 200; 2026-09-23) | MISMATCH: sym-20250927 (documented filename-title exception) | Scoped observation only; registry unchanged; original row preserved below | Exact retained filing cover identifies FORM 10-K, SYMBOTIC INC., fiscal year ended September 27, 2025. The initial direct HTTP 200 / filename-title mismatch exited 1. One exact title-mismatch-only exception then one targeted retry exited 0; titleComparison remains mismatch, resolvedBy exception. Full source identity, original observation and initial failure are retained in the scoped addendum below; no company-claim completion. Observed 2026-09-23T00:41:01.416797+00:00; exit 0; chain: 200 https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm; final URL: https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm; fetched title: sym-20250927. |
 | amazon-sequoia-digit-2023 | https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions | ok | match | none (first audited 2026-09-06) |  |
 | amazon-robot-fleet-2026 | https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center | ok | match | none (first audited 2026-09-06) |  |
 | amazon-vulcan-2026 | https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch | ok | match | none (first audited 2026-09-06) |  |
@@ -666,7 +666,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | ohno-tps-1988 | https://www.taylorfrancis.com/books/mono/10.4324/9780429273018/toyota-production-system-taiichi-ohno | ok | match | none (first audited 2026-09-06) |  |
 | evst-cell-cost-2026 | https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/ | ok | match | none (first audited 2026-09-06) |  |
 | ocado-oia-2026 | https://ocadointelligentautomation.com/ | ok | match | none (first audited 2026-09-06) |  |
-| kroger-ocado-closures-2025 | https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) |  |
+| kroger-ocado-closures-2025 | https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html | FAIL (unresolved access; HTTP 403; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Direct origin HTTP 403; native classification blocked, identity unavailable. No title exception, authorization/captcha/paywall bypass, alternative source search or retry. This is access-blocked, not demonstrated link death. Observed 2026-09-23T00:36:41.418303+00:00; exit 1; chain: 403 https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html; final URL: https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html; fetched title: (not available). |
 | moveit-planning-scene-2026 | https://moveit.picknik.ai/main/api/html/planning_scene_overview.html | ok | match | none (first audited 2026-09-16) | Fetched 200 during the SEO-merge integration; page title "moveit2: Planning Scene" contains the registered page name. |
 | ros2-lyrical-2026 | https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html | FAIL | match (alternate source) | UNRESOLVED fetch; identity verified 2026-08-24 per link-check exception | docs.ros.org serves an Anubis "Making sure you're not a bot!" challenge to non-browser fetches; title and cited content verified against official ros2_documentation source Release-Lyrical-Luth.rst (twelfth release, LTS, May 2026, support to May 2031) and the public web index (recorded in data/link-check-exceptions.ts). |
 | ros2-interfaces-2026 | https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html | FAIL | match (alternate source) | UNRESOLVED fetch; identity verified 2026-08-24 per link-check exception | docs.ros.org serves an Anubis "Making sure you're not a bot!" challenge to non-browser fetches; title and cited content verified against official ros2_documentation source Interfaces-Topics-Services-Actions.rst (topics/services/actions distinctions) and the public web index (recorded in data/link-check-exceptions.ts). |
@@ -879,4 +879,327 @@ Observed retrieval: 2026-09-22T22:28:18.417Z, rune___web_scrape / Firecrawl resp
 
 | ID | URL | Verdict | Identity | Correction | Note |
 | --- | --- | --- | --- | --- | --- |
-| nasa-availability-prediction-analysis | https://llis.nasa.gov/lesson/841 | unresolved (current liveness not checked) | retained Subject and Lesson Info match; NASA institutional publisher, lesson date 1994-12-01, organization jsc | registered from the hash-verified retained primary response; no fresh fetch | text distinctions only; equations unseen; industrial original32 remains incomplete |
+| nasa-availability-prediction-analysis | https://llis.nasa.gov/lesson/841 | ok (documented title-mismatch exception; HTTP 200; 2026-09-23) | retained official Subject Availability Prediction and Analysis; NASA institutional publisher; Lesson 841, date 1994-12-01, organization jsc; current HTML title Llis is not the Subject | one title-mismatch-only exception under the existing mechanism; registry unchanged | Initial native check completed 2026-09-23T00:17:45.540729Z: HTTP 200, no redirect, title mismatch Llis, exit 1. Retained source-3.txt and markdown hashes above were rechecked with the exact Subject and Lesson Info. After the precise exception, the sole targeted rerun completed 2026-09-23T00:21:38.319939Z: HTTP 200, same URL and HTML title, titleComparison remains mismatch, resolvedBy exception, exit 0; checked 1, excepted 1, every other summary count 0. Old retrieval exposed no origin HTTP status; these HTTP observations come from the native checker. Historical unresolved row preserved below. Text distinctions only; equations unseen; industrial original32 remains incomplete; zero original-record completion credit. |
+
+## Two scoped new-citation checks, 2026-09-23
+
+Only cc-by-4-0-deed and nasa-availability-prediction-analysis were checked.
+The existing services.yaml check-citations integration performed browser-UA GET,
+redirect-chain and real HTML-title checks. No global citation or author sweep,
+browser run, build, export, generation, article-date or original-claim edit occurred.
+No article prose changed; lastReviewed is unchanged and humanizer does not apply.
+The other nine previously unresolved citation obligations were not retried.
+These two observations do not establish VAL-AUDIT-008 full-corpus acceptance.
+
+Commands, run sequentially from the continuation worktree:
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id cc-by-4-0-deed --json`: 2026-09-23T00:17:28.312182Z–00:17:28.727644Z, exit 0. `checked=1, ok=1, titleUnavailable=0, titleMismatch=0, crossrefVerified=0, excepted=0, dead=0, blocked=0, error=0, archival=0`. Fetched HTML title "Deed - Attribution 4.0 International - Creative Commons"; direct HTTP 200. No rerun.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id nasa-availability-prediction-analysis --json`: 2026-09-23T00:17:44.443913Z–00:17:45.540729Z, exit 1. `checked=1, ok=0, titleUnavailable=0, titleMismatch=1, crossrefVerified=0, excepted=0, dead=0, blocked=0, error=0, archival=0`. Direct HTTP 200, fetched HTML title "Llis"; this initial mismatch failure is retained, not relabelled green.
+- Same NASA-only command after the exact documented title exception: 2026-09-23T00:21:37.217926Z–00:21:38.319939Z, exit 0. `checked=1, ok=0, titleUnavailable=0, titleMismatch=0, crossrefVerified=0, excepted=1, dead=0, blocked=0, error=0, archival=0`. Direct HTTP 200, fetched title "Llis", result `titleComparison=mismatch`, `resolvedBy=exception`. The summary categorizes it as excepted, NOT as a matched title.
+
+The new data/link-check-exceptions.ts entry covers only NASA's exact citation ID
+and title-mismatch mode. Its basis is the native current HTTP/title receipt plus
+literal identity review of the 15,358-byte retained primary response cited above:
+Subject "Availability Prediction and Analysis", Lesson 841/date 1994-12-01/jsc,
+response SHA256 40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6,
+markdown SHA256 27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae.
+That older body was retrieved 2026-09-22T22:28:18.417Z by rune___web_scrape /
+Firecrawl, with no origin HTTP status exposed. Review on September 23 is not a
+new body retrieval. No exception for blocked/error/dead responses, policy change,
+checker-code change, replacement title or inferred date was added.
+
+Historical rows, exactly as present before these two observations (not active
+rows and not new coverage or completion credit):
+
+```json
+[
+  {
+    "id": "cc-by-4-0-deed",
+    "originalRow": "| cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | retained primary identity; no fresh reachability probe | match: Attribution 4.0 International; publisher Creative Commons | Omitted citation-ledger entry added 2026-09-22; registry unchanged. Year 2013 identifies publication of license version 4.0, NOT publication or update of the undated deed webpage, and not DROID's 2024 release. | Deed heading: \"Attribution 4.0 International CC BY 4.0 Deed\"; canonical URL matches this row. Retained HTML /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/ccby4-deed.html, SHA-256 231a5dac65bbf135ba27145969a63cd289faadc172f1512c4810a6c60ba91036 (32,178 bytes); original preparation-report.json in that packet records curl HTTP 200 completed 2026-09-16T04:09:19Z, not a new observation. Publisher https://wiki.creativecommons.org/wiki/License_Versions states version 4.0 was \"published November 2013\"; its License Versioning History table gives \"2013 Nov 25\". Retained response /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-licenses-recovery-20260921/source-4.txt, SHA-256 cf68cbd7b01e758c0398c2632783f048dea6eff05c04eb95b4cfbc5bc44ebb10 (30,676 bytes), retrieved via rune___web_scrape at 2026-09-21T22:59:00.538Z; requested/final URL both License_Versions, 30,000-character truncated body, origin HTTP status not exposed. Source paths, passages and provenance are bound by that packet's rows.json, SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Both retained bodies/hashes checked for this addition; zero retrieval. The deed says \"No warranties are given\" and warns that other rights may limit an intended use; it is a summary, not the legal code or legal advice. This entry grants no legal permission, current liveness or whole-gate acceptance. No article prose or lastReviewed changed; humanizer not applicable to this citation-ledger/test repair. |"
+  },
+  {
+    "id": "nasa-availability-prediction-analysis",
+    "originalRow": "| nasa-availability-prediction-analysis | https://llis.nasa.gov/lesson/841 | unresolved (current liveness not checked) | retained Subject and Lesson Info match; NASA institutional publisher, lesson date 1994-12-01, organization jsc | registered from the hash-verified retained primary response; no fresh fetch | text distinctions only; equations unseen; industrial original32 remains incomplete |"
+  }
+]
+```
+
+### Verification of the two scoped observations
+
+| Check | Actual command | Result |
+| --- | --- | --- |
+| Citation/ledger unit checks | `NODE_DISABLE_COMPILE_CACHE=1 npm run test -- tests/unit/citation-audit.test.ts tests/unit/citation-links.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/industrial-perception-truth-repair.test.ts` | 2026-09-23, exit 0; 4 files / 112 tests passed (33 + 43 + 11 + 25). Nine new focused cases in the directly affected test file cover the two observations, exact NASA exception, unresolved original32 and non-covered failures. |
+| Scoped lint | `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/eslint/bin/eslint.js data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts --max-warnings 0` | 2026-09-23, exit 0; no diagnostics. |
+| Initial scoped types | `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts` | 2026-09-23, exit 1; four TS2591 diagnostics in three files: the explicit file-scoped invocation omitted Node type declarations. No code defect or source failure inferred. |
+| Corrected scoped types | `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule --types node data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts` | 2026-09-23, exit 0; no diagnostics after selecting the already-installed Node types. No configuration, dependency or protected-file change. |
+
+No original-coverage/full-suite/browser/build/export/generation run was repeated.
+Only two active citation rows changed; one exception was added. Zero original
+claim records were completed. The content gate remains red and this local
+checkpoint is not independent scrutiny, publication or release acceptance.
+
+## Nine prior citation-link obligations, 2026-09-23
+
+Finite assigned set: ng-reward-shaping-1999, seeed-so-arm101-pro-2026,
+astrom-murray-2008, mcgee-schmidt-1985, technology-org-deployed-2026,
+hinterstoisser-2012, gsn-standard-v3, symbotic-10k-2025,
+kroger-ocado-closures-2025. Nine initial native invocations, one per ID; only
+Symbotic was rerun after its evidence-backed title exception changed the input.
+No other ID, whole-registry, author sweep, browser or source-research run occurred.
+The earlier CC BY deed and NASA Lesson 841 passes were not repeated.
+
+Final scoped dispositions: four pass the native integration (Ng and McGee by
+fetched title, Hinterstoisser by the existing Crossref title/year path, Symbotic
+by documented title divergence); five remain unresolved (Seeed, Åström/Murray,
+Technology.org, GSN and Kroger/This is Money). Hinterstoisser's publisher HTML
+is still a Client Challenge; the native Crossref success is not a fetched paper
+body. No publisher access exception was added. No dead link was observed:
+HTTP 403 is blocked, and status 0 is absence of an observed HTTP response.
+
+Actual commands (each from the continuation worktree); summary fields are
+reported exactly as emitted, not recast as original-claim completions:
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id ng-reward-shaping-1999 --json`: 2026-09-23T00:35:32.621680+00:00 to 2026-09-23T00:35:35.194354+00:00, exit 0. Native summary: `{"checked":1,"ok":1,"titleUnavailable":0,"titleMismatch":0,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":0,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id seeed-so-arm101-pro-2026 --json`: 2026-09-23T00:35:35.194516+00:00 to 2026-09-23T00:35:38.208530+00:00, exit 1. Native summary: `{"checked":1,"ok":0,"titleUnavailable":0,"titleMismatch":1,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":0,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id astrom-murray-2008 --json`: 2026-09-23T00:35:38.208923+00:00 to 2026-09-23T00:36:01.035383+00:00, exit 1. Native summary: `{"checked":1,"ok":0,"titleUnavailable":0,"titleMismatch":0,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":0,"error":1,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id mcgee-schmidt-1985 --json`: 2026-09-23T00:36:19.036919+00:00 to 2026-09-23T00:36:20.711121+00:00, exit 0. Native summary: `{"checked":1,"ok":1,"titleUnavailable":0,"titleMismatch":0,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":0,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id technology-org-deployed-2026 --json`: 2026-09-23T00:36:20.711519+00:00 to 2026-09-23T00:36:21.156565+00:00, exit 1. Native summary: `{"checked":1,"ok":0,"titleUnavailable":0,"titleMismatch":0,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":1,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id hinterstoisser-2012 --json`: 2026-09-23T00:36:21.156716+00:00 to 2026-09-23T00:36:22.663143+00:00, exit 0. Native summary: `{"checked":1,"ok":1,"titleUnavailable":0,"titleMismatch":0,"crossrefVerified":1,"excepted":0,"dead":0,"blocked":0,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id gsn-standard-v3 --json`: 2026-09-23T00:36:39.062615+00:00 to 2026-09-23T00:36:40.269472+00:00, exit 1. Native summary: `{"checked":1,"ok":0,"titleUnavailable":0,"titleMismatch":1,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":0,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id symbotic-10k-2025 --json`: 2026-09-23T00:36:40.269678+00:00 to 2026-09-23T00:36:40.889288+00:00, exit 1. Native summary: `{"checked":1,"ok":0,"titleUnavailable":0,"titleMismatch":1,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":0,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id kroger-ocado-closures-2025 --json`: 2026-09-23T00:36:40.889613+00:00 to 2026-09-23T00:36:41.418303+00:00, exit 1. Native summary: `{"checked":1,"ok":0,"titleUnavailable":0,"titleMismatch":0,"crossrefVerified":0,"excepted":0,"dead":0,"blocked":1,"error":0,"archival":0}`.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id symbotic-10k-2025 --json`: 2026-09-23T00:41:00.748804+00:00 to 2026-09-23T00:41:01.416797+00:00, exit 0. Native summary: `{"checked":1,"ok":0,"titleUnavailable":0,"titleMismatch":0,"crossrefVerified":0,"excepted":1,"dead":0,"blocked":0,"error":0,"archival":0}`.
+
+### Symbotic exact exception: primary identity and provenance
+
+The technical HTML title is "sym-20250927" at the exact registered SEC accession.
+The current checker observed direct HTTP 200, no redirect, at
+2026-09-23T00:36:40.889288Z, with title mismatch and exit 1. The sole post-exception
+retry at 2026-09-23T00:41:01.416797Z again observed direct HTTP 200 and the same
+HTML title; result titleComparison remains mismatch, resolvedBy exception,
+summary excepted=1 and ok=0, exit 0. It is not an automatic title match.
+
+Separately rechecked the actual retained primary cover in
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-symbotic-industrial-20260912/symbotic-fetch-result.txt:
+579,888 bytes, SHA256 b7f7f0a7cdbd4eacff3520b4ca7f25f91e64cf49f3fc0e1907727d93088cb32b.
+Original retrieval record in that same packet's symbotic-request-result.json:
+FetchUrl request 2026-09-12T21:03:13.584Z, event
+45e12fcb-fbad-4295-af4b-d8d64bdc4182; response 2026-09-12T21:03:19.099Z,
+event f1f1a06e-43be-4162-ba53-2b277426ccdf. Requested URL was the exact registered
+SEC accession. That older response's 200 is tool-reported; origin headers and
+redirects were not exposed. Current HTTP facts come only from the native checker.
+The source identity was rechecked on September 23, not newly retrieved then.
+
+Literal retained cover text:
+
+> FORM 10-K
+>
+> For the fiscal year ended September 27, 2025
+>
+> SYMBOTIC INC.
+>
+> (Exact name of registrant as specified in its charter)
+
+The existing exception mechanism covers only this citation's filename-title
+mismatch. It covers no blocked/error/dead response. SEC hosting is not independent
+corroboration of company results; no company claim or original row is completed.
+
+### Remaining precise gaps
+
+- Seeed: the observed 301 leads to https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html, whose title is "SO-101 3D-Printed Robotic Arm Frame" plus a DIY-kit tagline. A live redirect does not establish the registered Pro-kit identity. No registry change is proposed as verified; the target is an unverified candidate only.
+- Åström/Murray: fetch failed, no origin HTTP response or redirect received. No exact replacement candidate established.
+- Technology.org and Kroger/This is Money: direct HTTP 403, document identity not inspected. No new exception or access workaround authorized.
+- GSN: 302 -> 302 -> 200 to https://scsc.uk/index.php/publications/download?ref=1386 with generic title "Download". A retained preparation summary is not a primary body; the named old worker session was absent at the inspected continuation-session path. No fetched standard identity could be verified within this slice, so no title exception or retry.
+
+All five remain failures/holds, not dead-link declarations or acceptance. No
+new owner-only safety, credential, spending or external-action approval is
+requested. Qualifying source identity/access is needed before these can close;
+this task creates no new source queue or permission to fetch beyond its bounds.
+
+Historical rows exactly as at this slice's base, not duplicate active coverage:
+
+```json
+[
+  {
+    "id": "ng-reward-shaping-1999",
+    "originalRow": "| ng-reward-shaping-1999 | https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) | fetch failed |"
+  },
+  {
+    "id": "seeed-so-arm101-pro-2026",
+    "originalRow": "| seeed-so-arm101-pro-2026 | https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html | FAIL | MISMATCH: \"SO-101 3D-Printed Robotic Arm Frame \\\\ | UNRESOLVED (see the 2026-09-06 re-audit section) | Open-Source Robotics Kit for DIY Projects\" |"
+  },
+  {
+    "id": "astrom-murray-2008",
+    "originalRow": "| astrom-murray-2008 | https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) | fetch failed |"
+  },
+  {
+    "id": "mcgee-schmidt-1985",
+    "originalRow": "| mcgee-schmidt-1985 | https://ntrs.nasa.gov/citations/19860003843 | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) | This operation was aborted |"
+  },
+  {
+    "id": "technology-org-deployed-2026",
+    "originalRow": "| technology-org-deployed-2026 | https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) |  |"
+  },
+  {
+    "id": "hinterstoisser-2012",
+    "originalRow": "| hinterstoisser-2012 | https://doi.org/10.1007/978-3-642-37331-2_42 | FAIL | MISMATCH: \"Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes\" | UNRESOLVED (see the 2026-09-06 re-audit section) | chain: 302 -> 301 -> 200 https://link.springer.com/chapter/10.1007/978-3-642-37331-2_42; final: https://link.springer.com/chapter/10.1007/978-3-642-37331-2_42; title matches Crossref for doi:10.1007/978-3-642-37331-2_42, but year mismatch: registry says 2012, Crossref reports 2013 |"
+  },
+  {
+    "id": "gsn-standard-v3",
+    "originalRow": "| gsn-standard-v3 | https://scsc.uk/scsc-141c | FAIL | MISMATCH: \"Download\" | UNRESOLVED (see the 2026-09-06 re-audit section) | chain: 302 -> 302 -> 200 https://scsc.uk/index.php/publications/download?ref=1386; final: https://scsc.uk/index.php/publications/download?ref=1386 |"
+  },
+  {
+    "id": "symbotic-10k-2025",
+    "originalRow": "| symbotic-10k-2025 | https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm | FAIL | MISMATCH: \"sym-20250927\" | UNRESOLVED (see the 2026-09-06 re-audit section) |  |"
+  },
+  {
+    "id": "kroger-ocado-closures-2025",
+    "originalRow": "| kroger-ocado-closures-2025 | https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html | FAIL | unavailable | UNRESOLVED (see the 2026-09-06 re-audit section) |  |"
+  }
+]
+```
+
+### Verification of the nine-obligation slice
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run test -- tests/unit/industrial-perception-truth-repair.test.ts -t 'prior citation links'`: Focused units: 19 passed, 25 prior cases excluded by -t, one file passed; exit 0; completed 2026-09-23T00:44:51.566886+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint`: Prelint: passed, existing bridge intact (no link/copy repair message); exit 0; completed 2026-09-23T00:45:17.312206+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/eslint/bin/eslint.js data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts --max-warnings 0`: Focused lint: passed, no diagnostics; exit 0; completed 2026-09-23T00:45:18.630702+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule --types node data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts`: Narrow types: passed, no diagnostics; exit 0; completed 2026-09-23T00:45:36.129303+00:00.
+
+The native source checker and existing error/title exception mechanism are
+unchanged. No prior green citation check or the prior 112-test group was rerun.
+No full audit coverage, global citation/author sweep, browser, build, export,
+generation, independent validation or publication was attempted. No article
+prose changed; lastReviewed is unchanged and humanizer does not apply.
+Zero original claim completions; the parent-reported 959 complete / 35 incomplete /
+994 originals is unchanged. The 48 saved findings are not a newly run gate result.
+This scoped checkpoint does not establish VAL-AUDIT-008 full-corpus acceptance.
+
+## Seeed and GSN identity integration, 2026-09-23
+
+Parent authorized only the two prepared ID-specific title-mismatch distinctions
+and then explicitly authorized routine repair of the three directly contradictory
+existing assertions. The initial no-edits stop is retained in the integration
+progress/handoff as resolved by that authorization. No owner-only decision,
+checker relaxation, registry URL/title/year/author change or generic exception.
+
+The completed two-entry current-registry comparison, packet/source hashes and
+eight literal passage checks at 2026-09-23T01:10:57.525297Z were reused after the
+same clean base was confirmed. Immutable packet:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-citation-identity-recovery-20260923/proposals.json
+SHA256 1c0d3d899c348ef88430c70d18c7c8c47ab602c9a7a1228e77acebf00a478b82.
+Registry blob d1da00857d5e5f5f2079a07cbe1e6ee384d4ca99; two current entries match
+that packet exactly. No original-row integration or completion credit.
+
+### Current native changed-input observations
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id seeed-so-arm101-pro-2026 --json`: 2026-09-23T01:13:49.609257+00:00 to 2026-09-23T01:13:52.914633+00:00, exit 0; {"chain": [{"status": 301, "url": "https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html"}, {"status": 200, "url": "https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html"}], "finalUrl": "https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html", "fetchedTitle": "SO-101 3D-Printed Robotic Arm Frame | Open-Source Robotics Kit for DIY Projects", "titleComparison": "mismatch", "resolvedBy": "exception", "summary": {"checked": 1, "ok": 0, "titleUnavailable": 0, "titleMismatch": 0, "crossrefVerified": 0, "excepted": 1, "dead": 0, "blocked": 0, "error": 0, "archival": 0}}.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id gsn-standard-v3 --json`: 2026-09-23T01:13:52.915218+00:00 to 2026-09-23T01:13:54.151910+00:00, exit 0; {"chain": [{"status": 302, "url": "https://scsc.uk/scsc-141c"}, {"status": 302, "url": "https://scsc.uk/forward?scsc=141c"}, {"status": 200, "url": "https://scsc.uk/index.php/publications/download?ref=1386"}], "finalUrl": "https://scsc.uk/index.php/publications/download?ref=1386", "fetchedTitle": "Download", "titleComparison": "mismatch", "resolvedBy": "exception", "summary": {"checked": 1, "ok": 0, "titleUnavailable": 0, "titleMismatch": 0, "crossrefVerified": 0, "excepted": 1, "dead": 0, "blocked": 0, "error": 0, "archival": 0}}.
+
+Both native results are exception-resolved, not automatic title matches. Each
+summary has excepted=1 and ok=0. These two invocations are the only native citation
+checks in this integration slice; no unchanged retry or other ID check occurred.
+
+### Seeed primary identity and date boundaries
+
+Retained public rune___web_scrape response from 2026-09-23T00:59:34.892Z
+(request 2026-09-23T00:59:27.686Z), exact requested/final URL
+https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-citation-identity-recovery-20260923/source-2.txt
+SHA256 43677acd47565968adae07fedd8ae1f98cfea80bf0c5e9bc9a731e2e6ffdcfee;
+30,428 raw-result bytes; 29,108 markdown characters; truncated=false. No origin
+HTTP status or redirect chain was exposed by that scraper; successful markdown
+is not origin HTTP 200. Current origin observations above are native-checker data.
+Literal retained product identity:
+
+> # SO-ARM101 Pro Assembled Kit – LeRobot Compatible 6DOF Robotic Arm
+>
+> **SKU**
+>
+> 100046482
+
+The visible comparison identifies the Pro kit as pre-assembled with a camera;
+its part list contains assembled leader/follower arms and USB camera. The packet
+preserves those literal tables. The misleading frame-only SEO title is the sole
+exception basis; a filename or search snippet alone was not used as body proof.
+No canonical-URL replacement or product publication date is asserted. Registry
+year 2026 is unchanged, not independently established as a publication date.
+
+### GSN published-body identity and edition date
+
+Recovered original FetchUrl request 2026-09-15T10:23:00.827Z and response
+2026-09-15T10:23:35.084Z at https://scsc.uk/scsc-141c; original request event
+dba50eb5-eeb4-4f9d-a37a-9bef2eb1e6de, response event
+eb14764b-e3de-4842-8993-39d61c7db024. The exact-filename session lookup recovered
+the transcript missed in the earlier continuation-directory attempt. Its truncated
+response pointed to the full saved result, preserved byte-for-byte at:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-citation-identity-recovery-20260923/source-1.txt
+SHA256 7b5acead31e173bc33448da216c2c84d9b4699a389ab48edbc4f42ecbb1b6210;
+234,185 bytes, 4,678 lines. The old Status: 200 is tool-reported, not origin headers.
+September 23 is recovery/review, not a new source-body retrieval. Identity sections
+were verified; no full scientific/claim audit or latest-edition assertion is made.
+Literal retained cover and edition evidence:
+
+> ## Goal Structuring Notation
+>
+> ## Community Standard Version 3
+>
+> The Assurance Case
+> Working Group (ACWG)
+>
+> SCSC-141C
+
+Published document-history row (literal):
+
+```text
+| 3 | User Community | May 2021 | For Use |
+```
+
+Literal publication attribution:
+
+> Responsibility for publication and maintenance of this standard
+> has now been transferred to the SCSC Assurance Case Working
+> Group (ACWG). See www.scsc.uk/gc for further details
+
+The body expands SCSC as Safety-Critical Systems Club, matching the registry venue.
+Version 3 / May 2021 is the edition basis for the existing year 2021. Only the
+Download HTML-title versus identified-standard-title divergence is covered.
+
+### Exact prior rows and failure receipts retained
+
+The prior two failed native JSON/stderr pairs in
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-prior-citation-links-20260923
+remain immutable. The earlier nine-ID addendum remains historical; this addendum
+supersedes only its two selected identity holds. Exact pre-integration rows:
+
+```json
+[
+  {
+    "id": "seeed-so-arm101-pro-2026",
+    "baseCommit": "f27df8e225dd4b2bede68fd19c021ed2f9b484e6",
+    "originalRow": "| seeed-so-arm101-pro-2026 | https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html | FAIL (unresolved product identity; 2026-09-23) | MISMATCH | Scoped observation only; registry unchanged; original row preserved below | The HTML title names a 3D-printed frame, not the registered Pro kit. The observed 301 target is https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; it is an observed redirect only, NOT a verified same-product replacement proposal. No registry edit or title exception; product identity remains unresolved. Observed 2026-09-23T00:35:38.208530+00:00; exit 1; chain: 301 https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html -> 200 https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; final URL: https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html; fetched title: SO-101 3D-Printed Robotic Arm Frame &#124; Open-Source Robotics Kit for DIY Projects. |"
+  },
+  {
+    "id": "gsn-standard-v3",
+    "baseCommit": "f27df8e225dd4b2bede68fd19c021ed2f9b484e6",
+    "originalRow": "| gsn-standard-v3 | https://scsc.uk/scsc-141c | FAIL (unresolved document identity; 2026-09-23) | MISMATCH: Download | Scoped observation only; registry unchanged; original row preserved below | Generic Download title alone does not prove the intended standard. Retained source-preparer summary points to GSN text but is not a preserved primary passage; its named session file was unavailable in the continuation session directory. No qualifying body/receipt was recovered, so no exception or retry; actual standard identity remains unverified for this link check. Observed 2026-09-23T00:36:40.269472+00:00; exit 1; chain: 302 https://scsc.uk/scsc-141c -> 302 https://scsc.uk/forward?scsc=141c -> 200 https://scsc.uk/index.php/publications/download?ref=1386; final URL: https://scsc.uk/index.php/publications/download?ref=1386; fetched title: Download. |"
+  }
+]
+```
+
+Remaining external obligations are unchanged: astrom-murray-2008 (fetch failure,
+status 0 sentinel, no origin HTTP response), technology-org-deployed-2026 (HTTP
+403), kroger-ocado-closures-2025 (HTTP 403). None was retried or excepted. No HTTP
+error/blocked coverage was added. No full-corpus audit, independent acceptance,
+browser/build/export or publication. Zero original claim completions; parent
+accounting remains 959 complete / 35 incomplete / 994 originals, with 48 saved
+findings, not a newly run gate result. Content gate remains red.
+
+### Verification of the two identity integrations
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run test -- tests/unit/industrial-perception-truth-repair.test.ts -t 'two identity exceptions integration|records exactly one current disposition for (seeed-so-arm101-pro-2026|gsn-standard-v3)|documents only the exact Symbotic filename-title divergence'`: 22 passed: 19 new + 3 explicitly authorized affected cases; 41 unaffected cases skipped; exit 0; completed 2026-09-23T01:18:09.590551+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint`: prelint passed; exit 0; completed 2026-09-23T01:18:39.681363+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/eslint/bin/eslint.js data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts --max-warnings 0`: focused lint passed; exit 0; completed 2026-09-23T01:18:40.927750+00:00.
+- `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule --types node data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts`: narrow types passed; exit 0; completed 2026-09-23T01:18:41.096205+00:00.
+
+No unaffected prior green unit cases or citation IDs were rerun. The three external failure statuses and absent exceptions are explicitly retained; no broader suite or gate was run.
