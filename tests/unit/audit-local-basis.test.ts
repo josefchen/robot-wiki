@@ -41,7 +41,7 @@ const roots: string[] = [];
 afterEach(() => { for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true }); });
 const project = process.cwd();
 const fixtureText = 'SYNTHETIC ONLY: authored illustrative assumptions, not scientific measurements.';
-function fixture(mixed = false) {
+function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
   const root = mkdtempSync(join(tmpdir(), 'audit-local-fixture-')); roots.push(root);
   const put = (path: string, value: string | Buffer) => {
     mkdirSync(dirname(join(root, path)), { recursive: true }); writeFileSync(join(root, path), value);
@@ -61,26 +61,30 @@ function fixture(mixed = false) {
         hash: buildManifest(prose ? 'prose' : 'interactive-sources-mounts', [{ id,
           value: prose ? { path, body: source.trim() } : { path, source } }]).members[0].hash } } : {}) };
   };
-  const article = 'content/rl-sim2real/reward-design-mpc.mdx';
-  const component = 'components/interactive/reward-shaping.tsx';
+  const slug = model === 'reward' ? 'reward-design-mpc' : 'parallel-sim-rl';
+  const ordinal = model === 'reward' ? 4 : 18;
+  const componentName = model === 'reward' ? 'RewardShaping' : 'TrainingTimeChart';
+  const article = `content/rl-sim2real/${slug}.mdx`;
+  const registry = JSON.parse(readFileSync(join(project, 'contract/brand-v2-registries.json'), 'utf8'));
+  const source = registry.interactive.sources.find((s: { id: string }) => s.id === `interactive:${componentName}`);
+  const mounted = registry.interactive.mounts.find((m: { id: string }) => m.id === `mount:/rl-sim2real/${slug}/:${componentName}:1`);
+  const component = source.sourcePath as string;
   const test = 'tests/unit/audit-local-basis.test.ts';
-  for (const path of ['lib/reward-shaping.ts', 'lib/gait.ts', 'lib/audit-local-basis.ts', component, test]) {
+  const dependencies = [...LOCAL_RECIPE_DEPENDENCIES[model], 'lib/audit-local-basis.ts', component, article, test];
+  for (const path of dependencies.filter(p => p !== article)) {
     put(path, readFileSync(join(project, path)));
   }
   put(article, fixtureText);
   const currentCells = { claim: 'SYNTHETIC authored reward term set', sourceChecked: 'synthetic local basis',
     verdict: 'V', note: 'SYNTHETIC not a real audit' };
   const row = (binding: string) => `| ${Object.values(currentCells).join(' | ')} | | | | ${binding} |`;
-  const header = `# Synthetic\n## reward-design-mpc.mdx\n| Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n`;
-  const markdown = header + [row(''), row(''), row(''), row('synthetic-local')].join('\n');
+  const header = `# Synthetic\n## ${slug}.mdx\n| Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n`;
+  const markdown = header + Array.from({ length: ordinal }, (_, i) => row(i === ordinal - 1 ? 'synthetic-local' : '')).join('\n');
   put('audit/fixtures/original.md', markdown);
-  const registry = JSON.parse(readFileSync(join(project, 'contract/brand-v2-registries.json'), 'utf8'));
-  const source = registry.interactive.sources.find((s: { id: string }) => s.id === 'interactive:RewardShaping');
-  const mounted = registry.interactive.mounts.find((m: { id: string }) => m.id === 'mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1');
   put('contract/brand-v2-registries.json', JSON.stringify(registry));
   const plan: LocalPlan = {
-    id: 'synthetic-local', kind: 'explicit-parts-v2', originalId: 'audit/rl-sim2real.md:reward-design-mpc:4',
-    ledgerPath: 'audit/rl-sim2real.md', articleSlug: 'reward-design-mpc', rowOrdinal: 4,
+    id: 'synthetic-local', kind: 'explicit-parts-v2', originalId: `audit/rl-sim2real.md:${slug}:${ordinal}`,
+    ledgerPath: 'audit/rl-sim2real.md', articleSlug: slug, rowOrdinal: ordinal,
     originalBinding: { originalCells: { ...currentCells }, originalTupleDigest: originalClaimDigest(currentCells),
       snapshot: ref('audit/fixtures/original.md'), sourceCommit: 'a'.repeat(40) },
     currentCells, currentTupleDigest: originalClaimDigest(currentCells),
@@ -90,7 +94,7 @@ function fixture(mixed = false) {
     parts: [{ id: 'local', kind: 'authored-parameter', text: fixtureText, requiredProofIds: ['parameters'] }],
     evidence: [], planReview: null, adjudications: [],
   };
-  const recipe = { id: 'reward' as const, mode: 'parameters' as const, inputs: {} };
+  const recipe = { id: model, mode: 'parameters' as const, inputs: {} };
   const expected = recomputeLocalDerivation(recipe);
   put('audit/fixtures/input.json', JSON.stringify(recipe));
   put('audit/fixtures/output.json', JSON.stringify(expected));
@@ -98,7 +102,7 @@ function fixture(mixed = false) {
     id: 'parameters', planId: plan.id, partId: 'local', kind: 'authored-parameter',
     originalId: plan.originalId, originalTupleDigest: plan.originalBinding.originalTupleDigest,
     currentTupleDigest: plan.currentTupleDigest,
-    artifacts: ['lib/reward-shaping.ts', 'lib/gait.ts', 'lib/audit-local-basis.ts', component, article, test].map(full),
+    artifacts: dependencies.map(full),
     disclosure: plan.disclosure, recipe, expected, bases: [],
     input: ref('audit/fixtures/input.json'), output: ref('audit/fixtures/output.json'),
     inputDigest: ref('audit/fixtures/input.json').sha256, outputDigest: ref('audit/fixtures/output.json').sha256,
@@ -390,5 +394,122 @@ describe('authored-local-basis-v1 derivation and offline observation receipts', 
     const f = fixture(); f.proof.artifacts[0].id = 'file:wrong-member';
     f.sealRun(f.proof); f.sealReviews();
     expect(f.validate().failures.join(' ')).toMatch(/member selector/);
+  });
+});
+
+const authoredDefaults: Weights = { velTrack: 1, yawTrack: .5, torque: .8, jointAccel: .5,
+  actionRate: .8, jointLimit: 1, collision: 1, baseHeight: .5, orientation: .8,
+  airTime: .6, stumble: .8, termination: 1.5 };
+function withAuthoredCase(recipe: LocalProof['recipe'], pointers: Record<string, string>) {
+  if (recipe.id !== 'reward' && recipe.id !== 'parallel') throw Error('synthetic case recipe');
+  const f = fixture(false, recipe.id);
+  const units: Record<string, string> = { weights: 'dimensionless', phase: 'cycle',
+    envs: 'count', cpuBound: 'boolean', samples: 'count' };
+  const proof: LocalProof = { ...f.proof, id: 'case', partId: 'case', kind: 'derived-result',
+    recipe, expected: recomputeLocalDerivation(recipe), provenance: { ...f.proof.provenance },
+    bases: Object.entries(pointers).map(([input, pointer]) =>
+      ({ input, pointer, unit: units[input], kind: 'authored-parameter', proofId: f.proof.id })) };
+  const seal = () => {
+    f.put('audit/fixtures/case-input.json', JSON.stringify(proof.recipe));
+    f.put('audit/fixtures/case-output.json', JSON.stringify(proof.expected));
+    proof.input = f.ref('audit/fixtures/case-input.json'); proof.inputDigest = proof.input.sha256;
+    proof.output = f.ref('audit/fixtures/case-output.json'); proof.outputDigest = proof.output.sha256;
+    f.sealRun(proof); f.sealReviews();
+  };
+  f.plan.parts.push({ id: 'case', kind: 'derived-result', text: fixtureText, requiredProofIds: [proof.id] });
+  f.context.catalog.proofs.push(proof); seal();
+  return { ...f, derived: proof, seal };
+}
+
+describe('authored-local-basis-v1 compatibility cases', () => {
+  it.each([
+    ['freeze', { torque: 4 }, 'frozen'],
+    ['prance', { airTime: 4 }, 'prancing'],
+    ['chatter', { actionRate: 0 }, 'chatter'],
+    ['dominanceCounterexample', { velTrack: 4, torque: 4 }, 'balanced'],
+    ['priorityTie', { torque: 4, airTime: 4 }, 'frozen'],
+  ] as const)('binds the entire independently chosen reward %s case', (name, delta, behavior) => {
+    const weights = { ...authoredDefaults, ...delta };
+    const f = withAuthoredCase({ id: 'reward', mode: 'derive', inputs: { weights, phase: 0 } },
+      { weights: `/authoredCases/${name}/weights`, phase: '/phase' });
+    expect(f.derived.expected.values).toMatchObject({ behavior });
+    expect(parseLocalBasisCatalog(f.context.catalog)).toEqual(f.context.catalog);
+    expect(f.validate().failures).toEqual([]);
+  });
+  it.each([
+    [64, false, '/authoredDomains/envs/min', '/cpuBound'],
+    [16384, false, '/authoredDomains/envs/max', '/cpuBound'],
+    [4096, true, '/envs', '/authoredDomains/cpuBound/on'],
+    [64, true, '/authoredDomains/envs/min', '/authoredDomains/cpuBound/on'],
+    [16384, true, '/authoredDomains/envs/max', '/authoredDomains/cpuBound/on'],
+  ] as const)('binds parallel envs=%s CPU=%s and preserves 49 samples', (envs, cpuBound, envPointer, cpuPointer) => {
+    const f = withAuthoredCase({ id: 'parallel', mode: 'derive', inputs: { envs, cpuBound, samples: 49 } },
+      { envs: envPointer, cpuBound: cpuPointer, samples: '/samples' });
+    const values = f.derived.expected.values as { seconds: number; curve: unknown[]; display: string[] };
+    // Independent cost arithmetic: only the CPU variant adds per-environment work.
+    const seconds = 220000000 / (envs * 24) * (.02 + envs * .000004 + .04 + .03 + (cpuBound ? envs * .000022 : 0));
+    expect(values.seconds).toBeCloseTo(seconds, 10);
+    expect(values.curve).toHaveLength(49);
+    expect(values.display[0]).toBe(envs.toLocaleString('en-US'));
+    expect(f.validate().failures).toEqual([]);
+  });
+  it.each(['default-pointer', 'partial-object', 'different-plan', 'tampered-parameter', 'changed-input'])('rejects reward case basis defect: %s', mutation => {
+    const f = withAuthoredCase({ id: 'reward', mode: 'derive', inputs: { weights: { ...authoredDefaults, torque: 4 }, phase: 0 } },
+      { weights: '/authoredCases/freeze/weights', phase: '/phase' });
+    const basis = f.derived.bases[0];
+    if (basis.kind !== 'authored-parameter') throw Error('synthetic basis');
+    if (mutation === 'default-pointer') basis.pointer = '/weights';
+    if (mutation === 'partial-object') basis.pointer += '/torque';
+    if (mutation === 'different-plan') f.proof.planId = 'another-plan';
+    if (mutation === 'changed-input' && f.derived.recipe.id === 'reward' && f.derived.recipe.mode === 'derive') {
+      f.derived.recipe.inputs.weights.yawTrack = 4;
+      f.derived.expected = recomputeLocalDerivation(f.derived.recipe);
+    }
+    if (mutation === 'tampered-parameter') {
+      f.proof.expected.values = { weights: authoredDefaults, phase: 0, authoredCases: { freeze: { weights: { ...authoredDefaults, torque: 4 } } } };
+      f.put('audit/fixtures/output.json', JSON.stringify(f.proof.expected));
+      f.proof.output = f.ref('audit/fixtures/output.json'); f.proof.outputDigest = f.proof.output.sha256; f.sealRun(f.proof);
+    }
+    f.seal();
+    expect(f.validate().failures.join(' ')).toMatch(/input basis|recomputed|missing or extra/);
+  });
+  it('does not treat the parallel false default as an authored true basis', () => {
+    const f = withAuthoredCase({ id: 'parallel', mode: 'derive', inputs: { envs: 64, cpuBound: true, samples: 49 } },
+      { envs: '/authoredDomains/envs/min', cpuBound: '/cpuBound', samples: '/samples' });
+    expect(f.validate().failures.join(' ')).toMatch(/basis mismatch/);
+  });
+  it.each(['envs', 'samples'] as const)('rejects changed parallel %s despite a rehashed correct derivation', input => {
+    const f = withAuthoredCase({ id: 'parallel', mode: 'derive', inputs: { envs: 64, cpuBound: true, samples: 49 } },
+      { envs: '/authoredDomains/envs/min', cpuBound: '/authoredDomains/cpuBound/on', samples: '/samples' });
+    if (f.derived.recipe.id !== 'parallel' || f.derived.recipe.mode !== 'derive') throw Error('synthetic recipe');
+    f.derived.recipe.inputs[input] = input === 'envs' ? 128 : 3;
+    f.derived.expected = recomputeLocalDerivation(f.derived.recipe); f.seal();
+    expect(f.validate().failures.join(' ')).toMatch(/authored input basis mismatch/);
+  });
+  const unrelated = '\n## unrelated.mdx\n| Claim | Source checked | Verdict |\n| --- | --- | --- |\n| SYNTHETIC | source | V | extra unheaded cell |\n';
+  it('selects only the unique original section after hashing the whole raw snapshot', () => {
+    const f = fixture();
+    const raw = '# Whole historical fixture\r\n' + unrelated + '\n' + f.markdown + unrelated.replace('unrelated.mdx', 'other.mdx');
+    expect(() => parseLedger(f.plan.ledgerPath, raw)).toThrow(/extra.*cells/);
+    f.put('audit/fixtures/original.md', raw);
+    f.plan.originalBinding.snapshot = f.ref('audit/fixtures/original.md'); f.sealReviews();
+    expect(f.validate().failures).toEqual([]);
+    // Drift outside the selected section must still invalidate the whole snapshot.
+    f.put('audit/fixtures/original.md', raw.replace('extra unheaded cell', 'changed unrelated cell'));
+    expect(f.validate().failures.join(' ')).toMatch(/artifact bytes\/hash/);
+  });
+  it.each(['absent', 'duplicate', 'continued', 'suffixed', 'ordinal', 'cells', 'malformed-selected'])('rejects original section defect: %s', mutation => {
+    const f = fixture();
+    let raw = f.markdown;
+    if (mutation === 'absent') raw = raw.replace('reward-design-mpc.mdx', 'absent.mdx');
+    if (mutation === 'duplicate') raw += '\n' + f.markdown.replaceAll('synthetic-local', '');
+    if (mutation === 'continued') raw += '\n' + f.markdown.replaceAll('synthetic-local', '').replace('reward-design-mpc.mdx', 'reward-design-mpc.mdx (continued)');
+    if (mutation === 'suffixed') raw += '\n' + f.markdown.replaceAll('synthetic-local', '').replace('reward-design-mpc.mdx', 'reward-design-mpc.mdx (historical copy)');
+    if (mutation === 'ordinal') raw = raw.slice(0, raw.lastIndexOf('\n'));
+    if (mutation === 'cells') raw = raw.replaceAll(f.currentCells.claim, 'SYNTHETIC different original');
+    if (mutation === 'malformed-selected') raw += ' extra unheaded cell |';
+    f.put('audit/fixtures/original.md', raw);
+    f.plan.originalBinding.snapshot = f.ref('audit/fixtures/original.md'); f.sealReviews();
+    expect(f.validate().failures.join(' ')).toMatch(/original.*(?:section|snapshot)|extra.*cells/);
   });
 });

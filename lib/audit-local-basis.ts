@@ -211,14 +211,27 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
   if (recipe.mode === 'parameters') {
     switch (recipe.id) {
       case 'eureka': values = { task: eureka.EUREKA_TASK, generations: eureka.EUREKA_GENERATIONS }; break;
-      case 'reward': values = { terms: reward.TERMS, weights: reward.defaultWeights(), phase: 0, phaseRange: [0, 1],
-        weightRange: [reward.WEIGHT_MIN, reward.WEIGHT_MAX, reward.WEIGHT_STEP],
-        behaviors: reward.BEHAVIORS, threshold: reward.ATTRACTOR_WEIGHT_MIN, dominance: reward.ATTRACTOR_DOMINANCE_RATIO }; break;
+      case 'reward': {
+        const defaults = reward.defaultWeights();
+        values = { terms: reward.TERMS, weights: defaults, phase: 0, phaseRange: [0, 1],
+          weightRange: [reward.WEIGHT_MIN, reward.WEIGHT_MAX, reward.WEIGHT_STEP],
+          behaviors: reward.BEHAVIORS, threshold: reward.ATTRACTOR_WEIGHT_MIN, dominance: reward.ATTRACTOR_DOMINANCE_RATIO,
+          authoredCaseBasis: 'Fixed illustrative test inputs from model defaults and bounds, not measured or learned results.',
+          authoredCases: {
+            freeze: { weights: { ...defaults, torque: reward.WEIGHT_MAX } },
+            prance: { weights: { ...defaults, airTime: reward.WEIGHT_MAX } },
+            chatter: { weights: { ...defaults, actionRate: reward.WEIGHT_MIN } },
+            dominanceCounterexample: { weights: { ...defaults, velTrack: reward.WEIGHT_MAX, torque: reward.WEIGHT_MAX } },
+            priorityTie: { weights: { ...defaults, torque: reward.WEIGHT_MAX, airTime: reward.WEIGHT_MAX } },
+          } }; break;
+      }
       case 'friction': values = { mu: sim.DEFAULT_REAL_MU, range: sim.DEFAULT_DR_RANGE,
         muRange: [sim.MU_MIN, sim.MU_MAX], drRange: [sim.DR_RANGE_MIN, sim.DR_RANGE_MAX],
         pointPeak: sim.POINT_PEAK, sigma: sim.POINT_SIGMA, edgeSigma: sim.EDGE_SIGMA }; break;
       case 'teacher': values = { degradation: sim.DEFAULT_DEGRADATION, range: [0, 1], terrain: sim.TERRAIN, cells: sim.TERRAIN_CELLS }; units = 'terrain:m; degradation:1'; break;
       case 'parallel': values = { envs: parallel.DEFAULT_ENVS, cpuBound: false, samples: 49,
+        authoredDomainBasis: 'Illustrative model environment bounds and CPU toggle choices, not measured throughput.',
+        authoredDomains: { envs: { min: parallel.MIN_ENVS, max: parallel.MAX_ENVS }, cpuBound: { off: false, on: true } },
         transitions: parallel.TARGET_TRANSITIONS, rollout: parallel.ROLLOUT_STEPS,
         costs: [parallel.SIM_FIXED_SECONDS, parallel.SIM_PER_ENV_SECONDS, parallel.LEARN_SECONDS, parallel.TRANSFER_SECONDS, parallel.CPU_PER_ENV_SECONDS],
         // Only authored x choices here; paper time bounds remain external.
@@ -502,6 +515,22 @@ function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisConte
     }
   }
 }
+/** Original snapshots only: the caller verifies the whole raw artifact first.
+ * Unrelated historical tables are not evidence for this row. The selected
+ * section still goes through the unchanged strict native ledger parser.
+ */
+export function parseOriginalLedgerSection(ledgerPath: string, articleSlug: string, snapshot: string) {
+  const headings = [...snapshot.matchAll(/^(#{1,6})[ \t]+([^\r\n]*?)[ \t]*\r?$/gm)];
+  const title = `${articleSlug}.mdx`;
+  // A suffixed/continued copy is ambiguous too, never a second original.
+  const candidates = headings.filter(h => h[2].startsWith(title));
+  requireThat(candidates.length === 1 && candidates[0][2] === title, 'original snapshot needs one exact unique article section');
+  const selected = candidates[0];
+  const next = headings.find(h => h.index > selected.index && h[1].length <= selected[1].length);
+  const sections = parseLedger(ledgerPath, snapshot.slice(selected.index, next?.index));
+  requireThat(sections.length === 1 && sections[0].slug === articleSlug, 'original snapshot section identity differs');
+  return sections[0];
+}
 export type LocalBasisResult = { planId: string; kind: 'authored-local' | 'mixed-local'; failures: string[] };
 export function validateLocalBasisPlan(plan: LocalPlan, current: CellTuple, binding: string, scalar: ClaimEvidence,
   registryIds: ReadonlySet<string>, context: LocalBasisContext): LocalBasisResult {
@@ -516,8 +545,8 @@ export function validateLocalBasisPlan(plan: LocalPlan, current: CellTuple, bind
     requireThat(target && plan.originalId === `${plan.ledgerPath}:${plan.articleSlug}:${plan.rowOrdinal}`, 'ineligible original identity');
     const original = plan.originalBinding;
     auditArtifact(original.snapshot);
-    const snapshot = parseLedger(plan.ledgerPath, read(original.snapshot).toString('utf8'))
-      .find(s => s.slug === plan.articleSlug)?.claimRecords[plan.rowOrdinal - 1];
+    const snapshot = parseOriginalLedgerSection(plan.ledgerPath, plan.articleSlug, read(original.snapshot).toString('utf8'))
+      .claimRecords[plan.rowOrdinal - 1];
     requireThat(snapshot && originalClaimDigest(snapshot) === original.originalTupleDigest &&
       originalClaimDigest(original.originalCells) === original.originalTupleDigest, 'immutable original snapshot/native cells differ');
     const expectedMounts = target.mounts.map(n => `mount:${routeFor(plan)}:${target.component}:${n}`);

@@ -854,6 +854,13 @@ describe('compound evidence on one original claim (synthetic fixtures, never fet
 
 
 describe('authored-local-basis-v1 native guard', () => {
+  it('still rejects malformed unrelated rows in a live whole ledger', () => {
+    const good = '## reward-design-mpc.mdx\n| Claim | Source checked | Verdict |\n| --- | --- | --- |\n| SYNTHETIC | source | V |\n';
+    const bad = '## unrelated.mdx\n| Claim | Source checked | Verdict |\n| --- | --- | --- |\n| SYNTHETIC | source | V | unheaded cell |\n';
+    for (const markdown of [good + bad, bad + good]) {
+      expect(() => parseLedger('audit/rl-sim2real.md', markdown)).toThrow(/extra.*cells/);
+    }
+  });
   it('cannot certify the closed local obligation through scalar fallback', () => {
     const md = `## reward-design-mpc.mdx
 | Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage |
