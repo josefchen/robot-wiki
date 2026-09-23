@@ -4,9 +4,12 @@ import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
+import { LINK_CHECK_EXCEPTIONS } from '../../data/link-check-exceptions';
 import { parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 import { parseCitationLedgerRows, reconcileCitationCoverage } from '../../lib/audit-citation-coverage';
 import { validateApprovedDeltas, type ApprovedDelta } from '../../lib/brand-v2-baseline';
+import { applyTitleMismatchException, compareTitles, isAuditFailure, type CitationAuditResult } from '../../lib/citation-audit';
+import { applyException, classifyStatus } from '../../lib/citation-links';
 import { DEFAULT_PARAMS, SLIDER_SPECS, composeBudget, handEyeErrorMm } from '../../lib/perception-error';
 
 const read = (path: string) => readFileSync(path, 'utf8');
@@ -160,13 +163,18 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     expect(plans.every((plan) => plan.parts.every((part) => part.requiredCitationIds.length > 0))).toBe(true);
   });
 
-  it('records retained NASA identity and missing liveness without creating an uncovered registry entry', () => {
+  it('records observed NASA liveness with its title exception and preserves the prior unresolved history', () => {
     const text = read('audit/citations.md');
     const rows = parseCitationLedgerRows(text);
     const nasa = rows.filter(({ id }) => id === nasaId);
     expect(nasa).toHaveLength(1);
     expect(nasa[0].url).toBe(nasaUrl);
-    expect(nasa[0].verdict).toMatch(/^unresolved/i);
+    expect(nasa[0].verdict).toBe('ok (documented title-mismatch exception; HTTP 200; 2026-09-23)');
+    expect(text).toContain('unresolved (current liveness not checked)');
+    expect(text).toContain('2026-09-23T00:17:45.540729Z');
+    expect(text).toContain('2026-09-23T00:21:38.319939Z');
+    expect(text).toContain('titleComparison=mismatch');
+    expect(text).toContain('resolvedBy=exception');
     expect(text).toContain('Lesson Number841Lesson Date1994-12-01Submitting Organizationjsc');
     expect(text).toContain('2026-09-22T22:28:18.417Z');
     expect(text).toContain('No origin HTTP status was exposed');
@@ -195,5 +203,88 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
       expect(delta.oldHash).not.toBe(delta.newHash);
       expect(delta.ownerApproval).toContain('zero completion credit');
     }
+  });
+});
+
+
+describe('two new citation links: scoped observations, not whole-corpus acceptance', () => {
+  const exception = LINK_CHECK_EXCEPTIONS.find(({ id }) => id === nasaId);
+  const observed: CitationAuditResult = {
+    id: nasaId,
+    url: nasaUrl,
+    verdict: 'live',
+    status: 200,
+    chain: [{ status: 200, url: nasaUrl }],
+    finalUrl: nasaUrl,
+    fetchedTitle: 'Llis',
+    titleCheckedBy: 'html',
+    titleComparison: 'mismatch',
+  };
+
+  it('keeps the deed observation separate from the undated page and license-version year', () => {
+    const text = read('audit/citations.md');
+    const deeds = parseCitationLedgerRows(text).filter(({ id }) => id === 'cc-by-4-0-deed');
+    expect(deeds).toHaveLength(1);
+    expect(deeds[0].url).toBe('https://creativecommons.org/licenses/by/4.0/');
+    expect(deeds[0].verdict).toBe('ok (HTTP 200; 2026-09-23)');
+    expect(text).toContain('Deed - Attribution 4.0 International - Creative Commons');
+    expect(text).toContain('2026-09-23T00:17:28.727644Z');
+    expect(text).toContain('retained primary identity; no fresh reachability probe');
+    expect(text).toContain('NOT publication or update of the undated deed webpage');
+    expect(CITATIONS.find(({ id }) => id === 'cc-by-4-0-deed')?.year).toBe(2013);
+    expect(LINK_CHECK_EXCEPTIONS.some(({ id }) => id === 'cc-by-4-0-deed')).toBe(false);
+  });
+
+  it('documents only the exact NASA title divergence, with distinct retrieval and observation dates', () => {
+    expect(LINK_CHECK_EXCEPTIONS.filter(({ id }) => id === nasaId)).toHaveLength(1);
+    expect(exception?.covers).toEqual(['title-mismatch']);
+    expect(exception?.reason).toContain(nasaUrl);
+    expect(exception?.reason).toContain('"Llis"');
+    expect(exception?.reason).toContain('"Availability Prediction and Analysis"');
+    expect(exception?.verifiedOn).toBe('2026-09-23');
+    for (const value of [
+      'HTTP 200 with no redirect',
+      '00:17:45.540729Z',
+      '2026-09-22T22:28:18.417Z',
+      'Lesson Number841Lesson Date1994-12-01Submitting Organizationjsc',
+      '40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6',
+      '27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae',
+      'no origin HTTP status',
+    ]) expect(exception?.verifiedBy).toContain(value);
+  });
+
+  it('resolves the documented divergence without claiming the HTML title matches', () => {
+    expect(compareTitles('Availability Prediction and Analysis', 'Llis', 'docs')).toBe('mismatch');
+    expect(isAuditFailure(observed)).toBe(true);
+    const resolved = applyTitleMismatchException(applyException(observed, exception), exception);
+    expect(resolved.titleComparison).toBe('mismatch');
+    expect(resolved.fetchedTitle).toBe('Llis');
+    expect(resolved.resolvedBy).toBe('exception');
+    expect(isAuditFailure(resolved)).toBe(false);
+  });
+
+  it.each([404, 410, 403, 500, 0])('does not excuse a NASA dead/blocked/error result with status %i', (status) => {
+    // The native checker reads titles only for live responses; no title is
+    // available from these failure paths. No failure-mode coverage is added.
+    const failed: CitationAuditResult = {
+      ...observed,
+      status,
+      verdict: classifyStatus(status),
+      chain: status ? [{ status, url: nasaUrl }] : [],
+      titleComparison: 'unavailable',
+      fetchedTitle: undefined,
+      titleCheckedBy: undefined,
+    };
+    const resolved = applyTitleMismatchException(applyException(failed, exception), exception);
+    expect(resolved.resolvedBy).toBeUndefined();
+    expect(isAuditFailure(resolved)).toBe(true);
+  });
+
+  it('does not excuse another citation or convert link success to a completed original claim', () => {
+    const other: CitationAuditResult = { ...observed, id: 'cc-by-4-0-deed' };
+    expect(applyTitleMismatchException(other, exception)).toBe(other);
+    expect(isAuditFailure(other)).toBe(true);
+    expect(row('audit/data-hardware.md', 'industrial-deployment', 32).outcome).toBe('unresolved');
+    expect(read('audit/citations.md')).toContain('do not establish VAL-AUDIT-008 full-corpus acceptance');
   });
 });

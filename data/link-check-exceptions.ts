@@ -27,6 +27,15 @@ import type { LinkCheckException } from '../lib/citation-links.ts';
 
 export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
   {
+    id: 'nasa-availability-prediction-analysis',
+    covers: ['title-mismatch'],
+    reason:
+      'The exact NASA LLIS Lesson 841 URL https://llis.nasa.gov/lesson/841 serves the generic HTML title "Llis", not its Subject "Availability Prediction and Analysis". This exception documents only that title-tag divergence, not a dead link, bot-wall or fetch error.',
+    verifiedBy:
+      'Native check:citations --id nasa-availability-prediction-analysis --json observed HTTP 200 with no redirect and HTML title "Llis" on 2026-09-23 at 00:17:45.540729Z. Identity was separately rechecked against the retained rune___web_scrape / Firecrawl response from 2026-09-22T22:28:18.417Z at the same requested/final URL: Subject "Availability Prediction and Analysis"; "Lesson Number841Lesson Date1994-12-01Submitting Organizationjsc"; NASA institutional publisher. Retained source-3.txt SHA256 40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6, markdown SHA256 27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae; exact path and provenance in audit/citations.md. The retained response exposed no origin HTTP status; current liveness comes only from the native checker, not that older tool response. No equation or whole-claim verification is inferred.',
+    verifiedOn: '2026-09-23',
+  },
+  {
     id: 'iso-ts-15066',
     covers: ['error', 'blocked'],
     reason:

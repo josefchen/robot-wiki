@@ -397,7 +397,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | gpt3-2020 | https://arxiv.org/abs/2005.14165 | ok | match | none (verified as cited) |  |
 | llama-3-2024 | https://ai.meta.com/blog/meta-llama-3/ | ok (exception) | unavailable | none (verified as cited) | ai.meta.com answers HTTP 400 to every non-browser client (curl and node fetch, regardless of headers): a TLS-fingerprint bot-wall, not link rot. The post has no DOI, so Crossref cannot stand in for the fetch. Verified 2026-08-11: Headless Chromium (Playwright) on a real browser fingerprint: HTTP 200, page title "Introducing Meta Llama 3: The most capable openly available LLM to date" matches the registry entry. |
 | fineweb-2024 | https://arxiv.org/abs/2406.17557 | ok | match | none (verified as cited) |  |
-| cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | retained primary identity; no fresh reachability probe | match: Attribution 4.0 International; publisher Creative Commons | Omitted citation-ledger entry added 2026-09-22; registry unchanged. Year 2013 identifies publication of license version 4.0, NOT publication or update of the undated deed webpage, and not DROID's 2024 release. | Deed heading: "Attribution 4.0 International CC BY 4.0 Deed"; canonical URL matches this row. Retained HTML /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/ccby4-deed.html, SHA-256 231a5dac65bbf135ba27145969a63cd289faadc172f1512c4810a6c60ba91036 (32,178 bytes); original preparation-report.json in that packet records curl HTTP 200 completed 2026-09-16T04:09:19Z, not a new observation. Publisher https://wiki.creativecommons.org/wiki/License_Versions states version 4.0 was "published November 2013"; its License Versioning History table gives "2013 Nov 25". Retained response /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-licenses-recovery-20260921/source-4.txt, SHA-256 cf68cbd7b01e758c0398c2632783f048dea6eff05c04eb95b4cfbc5bc44ebb10 (30,676 bytes), retrieved via rune___web_scrape at 2026-09-21T22:59:00.538Z; requested/final URL both License_Versions, 30,000-character truncated body, origin HTTP status not exposed. Source paths, passages and provenance are bound by that packet's rows.json, SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Both retained bodies/hashes checked for this addition; zero retrieval. The deed says "No warranties are given" and warns that other rights may limit an intended use; it is a summary, not the legal code or legal advice. This entry grants no legal permission, current liveness or whole-gate acceptance. No article prose or lastReviewed changed; humanizer not applicable to this citation-ledger/test repair. |
+| cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | ok (HTTP 200; 2026-09-23) | match: Deed - Attribution 4.0 International - Creative Commons (native HTML title check) | scoped liveness observation added; registry unchanged | Native check:citations --id cc-by-4-0-deed --json, completed 2026-09-23T00:17:28.727644Z, exit 0: checked 1, ok 1, every other summary count 0. GET HTTP 200, one-hop chain at the exact registry/final URL, no redirect or exception. Year 2013 remains the license-version publication year, not the undated deed webpage year. Full original row and retained-source history are preserved in the 2026-09-23 scoped-check addendum below. Link success supplies no new claim completion, legal permission or full-corpus acceptance. |
 | droid-2024 | https://arxiv.org/abs/2403.12945 | ok | match | none (verified as cited) |  |
 | bridgedata-v2-2023 | https://arxiv.org/abs/2308.12952 | ok | match | none (verified as cited) |  |
 | robomind-2024 | https://arxiv.org/abs/2412.13877 | ok | match | none (verified as cited) |  |
@@ -870,4 +870,61 @@ Observed retrieval: 2026-09-22T22:28:18.417Z, rune___web_scrape / Firecrawl resp
 
 | ID | URL | Verdict | Identity | Correction | Note |
 | --- | --- | --- | --- | --- | --- |
-| nasa-availability-prediction-analysis | https://llis.nasa.gov/lesson/841 | unresolved (current liveness not checked) | retained Subject and Lesson Info match; NASA institutional publisher, lesson date 1994-12-01, organization jsc | registered from the hash-verified retained primary response; no fresh fetch | text distinctions only; equations unseen; industrial original32 remains incomplete |
+| nasa-availability-prediction-analysis | https://llis.nasa.gov/lesson/841 | ok (documented title-mismatch exception; HTTP 200; 2026-09-23) | retained official Subject Availability Prediction and Analysis; NASA institutional publisher; Lesson 841, date 1994-12-01, organization jsc; current HTML title Llis is not the Subject | one title-mismatch-only exception under the existing mechanism; registry unchanged | Initial native check completed 2026-09-23T00:17:45.540729Z: HTTP 200, no redirect, title mismatch Llis, exit 1. Retained source-3.txt and markdown hashes above were rechecked with the exact Subject and Lesson Info. After the precise exception, the sole targeted rerun completed 2026-09-23T00:21:38.319939Z: HTTP 200, same URL and HTML title, titleComparison remains mismatch, resolvedBy exception, exit 0; checked 1, excepted 1, every other summary count 0. Old retrieval exposed no origin HTTP status; these HTTP observations come from the native checker. Historical unresolved row preserved below. Text distinctions only; equations unseen; industrial original32 remains incomplete; zero original-record completion credit. |
+
+## Two scoped new-citation checks, 2026-09-23
+
+Only cc-by-4-0-deed and nasa-availability-prediction-analysis were checked.
+The existing services.yaml check-citations integration performed browser-UA GET,
+redirect-chain and real HTML-title checks. No global citation or author sweep,
+browser run, build, export, generation, article-date or original-claim edit occurred.
+No article prose changed; lastReviewed is unchanged and humanizer does not apply.
+The other nine previously unresolved citation obligations were not retried.
+These two observations do not establish VAL-AUDIT-008 full-corpus acceptance.
+
+Commands, run sequentially from the continuation worktree:
+
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id cc-by-4-0-deed --json`: 2026-09-23T00:17:28.312182Z–00:17:28.727644Z, exit 0. `checked=1, ok=1, titleUnavailable=0, titleMismatch=0, crossrefVerified=0, excepted=0, dead=0, blocked=0, error=0, archival=0`. Fetched HTML title "Deed - Attribution 4.0 International - Creative Commons"; direct HTTP 200. No rerun.
+- `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id nasa-availability-prediction-analysis --json`: 2026-09-23T00:17:44.443913Z–00:17:45.540729Z, exit 1. `checked=1, ok=0, titleUnavailable=0, titleMismatch=1, crossrefVerified=0, excepted=0, dead=0, blocked=0, error=0, archival=0`. Direct HTTP 200, fetched HTML title "Llis"; this initial mismatch failure is retained, not relabelled green.
+- Same NASA-only command after the exact documented title exception: 2026-09-23T00:21:37.217926Z–00:21:38.319939Z, exit 0. `checked=1, ok=0, titleUnavailable=0, titleMismatch=0, crossrefVerified=0, excepted=1, dead=0, blocked=0, error=0, archival=0`. Direct HTTP 200, fetched title "Llis", result `titleComparison=mismatch`, `resolvedBy=exception`. The summary categorizes it as excepted, NOT as a matched title.
+
+The new data/link-check-exceptions.ts entry covers only NASA's exact citation ID
+and title-mismatch mode. Its basis is the native current HTTP/title receipt plus
+literal identity review of the 15,358-byte retained primary response cited above:
+Subject "Availability Prediction and Analysis", Lesson 841/date 1994-12-01/jsc,
+response SHA256 40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6,
+markdown SHA256 27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae.
+That older body was retrieved 2026-09-22T22:28:18.417Z by rune___web_scrape /
+Firecrawl, with no origin HTTP status exposed. Review on September 23 is not a
+new body retrieval. No exception for blocked/error/dead responses, policy change,
+checker-code change, replacement title or inferred date was added.
+
+Historical rows, exactly as present before these two observations (not active
+rows and not new coverage or completion credit):
+
+```json
+[
+  {
+    "id": "cc-by-4-0-deed",
+    "originalRow": "| cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | retained primary identity; no fresh reachability probe | match: Attribution 4.0 International; publisher Creative Commons | Omitted citation-ledger entry added 2026-09-22; registry unchanged. Year 2013 identifies publication of license version 4.0, NOT publication or update of the undated deed webpage, and not DROID's 2024 release. | Deed heading: \"Attribution 4.0 International CC BY 4.0 Deed\"; canonical URL matches this row. Retained HTML /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/ccby4-deed.html, SHA-256 231a5dac65bbf135ba27145969a63cd289faadc172f1512c4810a6c60ba91036 (32,178 bytes); original preparation-report.json in that packet records curl HTTP 200 completed 2026-09-16T04:09:19Z, not a new observation. Publisher https://wiki.creativecommons.org/wiki/License_Versions states version 4.0 was \"published November 2013\"; its License Versioning History table gives \"2013 Nov 25\". Retained response /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dataset-licenses-recovery-20260921/source-4.txt, SHA-256 cf68cbd7b01e758c0398c2632783f048dea6eff05c04eb95b4cfbc5bc44ebb10 (30,676 bytes), retrieved via rune___web_scrape at 2026-09-21T22:59:00.538Z; requested/final URL both License_Versions, 30,000-character truncated body, origin HTTP status not exposed. Source paths, passages and provenance are bound by that packet's rows.json, SHA-256 37477e74f7556866e0d05c6fb301ec3bc3452970b89a8f707f3ce88e5fd9f3c7. Both retained bodies/hashes checked for this addition; zero retrieval. The deed says \"No warranties are given\" and warns that other rights may limit an intended use; it is a summary, not the legal code or legal advice. This entry grants no legal permission, current liveness or whole-gate acceptance. No article prose or lastReviewed changed; humanizer not applicable to this citation-ledger/test repair. |"
+  },
+  {
+    "id": "nasa-availability-prediction-analysis",
+    "originalRow": "| nasa-availability-prediction-analysis | https://llis.nasa.gov/lesson/841 | unresolved (current liveness not checked) | retained Subject and Lesson Info match; NASA institutional publisher, lesson date 1994-12-01, organization jsc | registered from the hash-verified retained primary response; no fresh fetch | text distinctions only; equations unseen; industrial original32 remains incomplete |"
+  }
+]
+```
+
+### Verification of the two scoped observations
+
+| Check | Actual command | Result |
+| --- | --- | --- |
+| Citation/ledger unit checks | `NODE_DISABLE_COMPILE_CACHE=1 npm run test -- tests/unit/citation-audit.test.ts tests/unit/citation-links.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/industrial-perception-truth-repair.test.ts` | 2026-09-23, exit 0; 4 files / 112 tests passed (33 + 43 + 11 + 25). Nine new focused cases in the directly affected test file cover the two observations, exact NASA exception, unresolved original32 and non-covered failures. |
+| Scoped lint | `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/eslint/bin/eslint.js data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts --max-warnings 0` | 2026-09-23, exit 0; no diagnostics. |
+| Initial scoped types | `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts` | 2026-09-23, exit 1; four TS2591 diagnostics in three files: the explicit file-scoped invocation omitted Node type declarations. No code defect or source failure inferred. |
+| Corrected scoped types | `NODE_DISABLE_COMPILE_CACHE=1 node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --strict --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions --esModuleInterop --resolveJsonModule --types node data/link-check-exceptions.ts tests/unit/industrial-perception-truth-repair.test.ts` | 2026-09-23, exit 0; no diagnostics after selecting the already-installed Node types. No configuration, dependency or protected-file change. |
+
+No original-coverage/full-suite/browser/build/export/generation run was repeated.
+Only two active citation rows changed; one exception was added. Zero original
+claim records were completed. The content gate remains red and this local
+checkpoint is not independent scrutiny, publication or release acceptance.
