@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "48ed39747dad489f155fe51e0a5d95b6daef7f09f8eec6a775e8625bcafb5cd9",
+  "fingerprint": "cfa79ab7ece274ccbc6d874241339e341c1eb999f0533c7fa5c09136b2754ef4",
   "viewports": [
     "375x812",
     "1440x900"
@@ -10189,7 +10189,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28518,
+      "visibleTextLength": 28420,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12377,7 +12377,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15339,
+      "visibleTextLength": 15350,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13129,7 +13129,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16470,
+      "visibleTextLength": 17008,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13344,7 +13344,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two details set it apart. It includes 5,000 real-world failu"
+          "text": "Two details set it apart. In addition to the 107k successful"
         },
         {
           "familyHead": "newsreader",
@@ -13594,7 +13594,7 @@
         },
         {
           "kind": "citation",
-          "count": 60,
+          "count": 62,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13604,7 +13604,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 60,
+              "count": 62,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -14750,7 +14750,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26542,
+      "visibleTextLength": 26683,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14818,11 +14818,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 18,
-        "citationCount": 22,
+        "citationCount": 23,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "18 min",
-        "citationCountText": "22",
+        "citationCountText": "23",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -14837,6 +14837,7 @@
           "unitree-g1-2026",
           "unitree-h2-2026",
           "1x-neo-2026",
+          "1x-world-model-lab-2026",
           "bd-atlas-2026",
           "figure-03-2025",
           "leap-hand-2023",
@@ -15197,7 +15198,7 @@
         },
         {
           "kind": "reference",
-          "count": 22,
+          "count": 23,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -15207,7 +15208,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 23,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -15219,7 +15220,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 90,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -15229,7 +15230,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 88,
+              "count": 90,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -15665,7 +15666,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22728,
+      "visibleTextLength": 23634,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15732,11 +15733,11 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 22,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "13 min",
+        "readingTimeText": "14 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
@@ -15812,7 +15813,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Assumption: list price for a mid-range industrial arm; no ci"
+          "text": "Assumption: $80k is a chosen example, not a sourced arm-pric"
         },
         {
           "familyHead": "newsreader",
@@ -15821,7 +15822,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Sourced: EVST guides quote complete cells at 2-3x the arm pr"
+          "text": "Assumption: 2.5x is chosen within EVST’s 2-3x complete-cell "
         },
         {
           "familyHead": "newsreader",
@@ -15929,7 +15930,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Cell cost $200,000; 569 good picks per up-hour and 415,062 p"
+          "text": "Cell cost $200,000; 569 modeled picks per elapsed hour and 4"
         },
         {
           "familyHead": "newsreader",
@@ -15956,7 +15957,16 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every default in the calculator is labelled under its own sl"
+          "text": "This calculator is an authored worked example, not a measure"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "EVST supplies vendor context, not those exact inputs: its gu"
         },
         {
           "familyHead": "newsreader",
@@ -18429,7 +18439,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17569,
+      "visibleTextLength": 17577,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34333,7 +34343,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32104,
+      "visibleTextLength": 31438,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34400,11 +34410,11 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 21,
+        "readingMinutes": 20,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "21 min",
+        "readingTimeText": "20 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "dagger-2011",
@@ -34731,7 +34741,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The report evaluates a static bimanual setup with two 6-DoF "
+          "text": "Recap's on-robot experience more than doubles successful com"
         },
         {
           "familyHead": "newsreader",
@@ -34740,7 +34750,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Keep the report's qualifications with those results. Section"
+          "text": "The paper qualifies its reliability claims: Section VI-C des"
         },
         {
           "familyHead": "newsreader",
@@ -35126,7 +35136,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35136,7 +35146,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -43374,7 +43384,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30432,
+      "visibleTextLength": 30376,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45247,7 +45257,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12476,
+      "visibleTextLength": 12431,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45460,7 +45470,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In its DextrAH-RGB example, the Isaac Lab v1 paper reports a"
+          "text": "Isaac Lab v1 describes DextrAH-RGB's privileged-state RL tea"
         },
         {
           "familyHead": "newsreader",
@@ -45470,15 +45480,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Play2Perfect trains CAD-derived sparse-reward assembly tasks"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 335,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "What these results share is per-task engineering. The Rubik’"
         },
         {
           "familyHead": "newsreader",
@@ -45702,7 +45703,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -45712,7 +45713,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -47162,7 +47163,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17048,
+      "visibleTextLength": 17031,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49482,7 +49483,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15358,
+      "visibleTextLength": 15663,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50873,7 +50874,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19479,
+      "visibleTextLength": 19357,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51055,7 +51056,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DreamerV3 was evaluated on more than 150 tasks across eight "
+          "text": "DreamerV3 tested this approach across more than 150 tasks in"
         },
         {
           "familyHead": "newsreader",
@@ -51558,7 +51559,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -51568,7 +51569,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -62767,7 +62768,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28939,
+      "visibleTextLength": 28841,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64955,7 +64956,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15718,
+      "visibleTextLength": 15729,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65707,7 +65708,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16849,
+      "visibleTextLength": 17387,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65922,7 +65923,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two details set it apart. It includes 5,000 real-world failu"
+          "text": "Two details set it apart. In addition to the 107k successful"
         },
         {
           "familyHead": "newsreader",
@@ -66172,7 +66173,7 @@
         },
         {
           "kind": "citation",
-          "count": 60,
+          "count": 62,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -66182,7 +66183,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 60,
+              "count": 62,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67328,7 +67329,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26921,
+      "visibleTextLength": 27062,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67396,11 +67397,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 18,
-        "citationCount": 22,
+        "citationCount": 23,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "18 min",
-        "citationCountText": "22",
+        "citationCountText": "23",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -67415,6 +67416,7 @@
           "unitree-g1-2026",
           "unitree-h2-2026",
           "1x-neo-2026",
+          "1x-world-model-lab-2026",
           "bd-atlas-2026",
           "figure-03-2025",
           "leap-hand-2023",
@@ -67775,7 +67777,7 @@
         },
         {
           "kind": "reference",
-          "count": 22,
+          "count": 23,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67785,7 +67787,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 23,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67797,7 +67799,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 90,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67807,7 +67809,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 88,
+              "count": 90,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68243,7 +68245,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23107,
+      "visibleTextLength": 24013,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68310,11 +68312,11 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 22,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "13 min",
+        "readingTimeText": "14 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
@@ -68390,7 +68392,7 @@
           "widthPx": 324.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Assumption: list price for a mid-range industrial arm; no ci"
+          "text": "Assumption: $80k is a chosen example, not a sourced arm-pric"
         },
         {
           "familyHead": "newsreader",
@@ -68399,7 +68401,7 @@
           "widthPx": 324.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Sourced: EVST guides quote complete cells at 2-3x the arm pr"
+          "text": "Assumption: 2.5x is chosen within EVST’s 2-3x complete-cell "
         },
         {
           "familyHead": "newsreader",
@@ -68507,7 +68509,7 @@
           "widthPx": 672.98,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Cell cost $200,000; 569 good picks per up-hour and 415,062 p"
+          "text": "Cell cost $200,000; 569 modeled picks per elapsed hour and 4"
         },
         {
           "familyHead": "newsreader",
@@ -68534,7 +68536,16 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every default in the calculator is labelled under its own sl"
+          "text": "This calculator is an authored worked example, not a measure"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "EVST supplies vendor context, not those exact inputs: its gu"
         },
         {
           "familyHead": "newsreader",
@@ -71007,7 +71018,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17904,
+      "visibleTextLength": 17912,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86911,7 +86922,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32731,
+      "visibleTextLength": 32065,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86978,11 +86989,11 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 21,
+        "readingMinutes": 20,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "21 min",
+        "readingTimeText": "20 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "dagger-2011",
@@ -87309,7 +87320,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The report evaluates a static bimanual setup with two 6-DoF "
+          "text": "Recap's on-robot experience more than doubles successful com"
         },
         {
           "familyHead": "newsreader",
@@ -87318,7 +87329,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Keep the report's qualifications with those results. Section"
+          "text": "The paper qualifies its reliability claims: Section VI-C des"
         },
         {
           "familyHead": "newsreader",
@@ -87704,7 +87715,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87714,7 +87725,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -95952,7 +95963,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30907,
+      "visibleTextLength": 30851,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97825,7 +97836,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12951,
+      "visibleTextLength": 12906,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98038,7 +98049,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In its DextrAH-RGB example, the Isaac Lab v1 paper reports a"
+          "text": "Isaac Lab v1 describes DextrAH-RGB's privileged-state RL tea"
         },
         {
           "familyHead": "newsreader",
@@ -98048,15 +98059,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Play2Perfect trains CAD-derived sparse-reward assembly tasks"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 715,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "What these results share is per-task engineering. The Rubik’"
         },
         {
           "familyHead": "newsreader",
@@ -98280,7 +98282,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -98290,7 +98292,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -99740,7 +99742,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17532,
+      "visibleTextLength": 17515,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102060,7 +102062,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15842,
+      "visibleTextLength": 16147,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103451,7 +103453,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19963,
+      "visibleTextLength": 19841,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103633,7 +103635,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DreamerV3 was evaluated on more than 150 tasks across eight "
+          "text": "DreamerV3 tested this approach across more than 150 tasks in"
         },
         {
           "familyHead": "newsreader",
@@ -104136,7 +104138,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104146,7 +104148,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

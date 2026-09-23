@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "988c77060510e594e27905f7dac362de5b8c645aa295bfd31c44184bebf2f41a",
+  "fingerprint": "08096c29c11261de48394b355af705c244bc66ea5aa15c0398faded42051229a",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3308,7 +3308,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28518,
+      "visibleTextLength": 28420,
       "tables": [],
       "equations": [
         {
@@ -4002,7 +4002,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15339,
+      "visibleTextLength": 15350,
       "tables": [
         {
           "index": 0,
@@ -4123,7 +4123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16470,
+      "visibleTextLength": 17008,
       "tables": [
         {
           "index": 0,
@@ -4134,7 +4134,7 @@
           "unscopedHeaders": 0,
           "sortButtons": 7,
           "sortedColumns": 1,
-          "notDisclosedCells": 11,
+          "notDisclosedCells": 10,
           "notApplicableCells": 0,
           "scrollContainer": {
             "overflowX": "auto",
@@ -4142,10 +4142,10 @@
             "role": "region",
             "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
             "clientWidth": 299,
-            "scrollWidth": 909,
+            "scrollWidth": 893,
             "scrolledBy": 40
           },
-          "tableWidth": 909,
+          "tableWidth": 893,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4160,7 +4160,7 @@
           "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
           "tabIndex": 0,
           "clientWidth": 299,
-          "scrollWidth": 909,
+          "scrollWidth": 893,
           "scrolledBy": 40
         }
       ],
@@ -4260,7 +4260,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26542,
+      "visibleTextLength": 26683,
       "tables": [
         {
           "index": 0,
@@ -4311,7 +4311,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22728,
+      "visibleTextLength": 23634,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4390,7 +4390,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17569,
+      "visibleTextLength": 17577,
       "tables": [
         {
           "index": 0,
@@ -6637,7 +6637,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 32104,
+      "visibleTextLength": 31438,
       "tables": [
         {
           "index": 0,
@@ -7156,7 +7156,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 30432,
+      "visibleTextLength": 30376,
       "tables": [
         {
           "index": 0,
@@ -7293,7 +7293,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12476,
+      "visibleTextLength": 12431,
       "tables": [
         {
           "index": 0,
@@ -7395,7 +7395,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17048,
+      "visibleTextLength": 17031,
       "tables": [],
       "equations": [
         {
@@ -7454,7 +7454,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15358,
+      "visibleTextLength": 15663,
       "tables": [
         {
           "index": 0,
@@ -7519,7 +7519,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19479,
+      "visibleTextLength": 19357,
       "tables": [
         {
           "index": 0,
@@ -10892,7 +10892,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28939,
+      "visibleTextLength": 28841,
       "tables": [],
       "equations": [
         {
@@ -11586,7 +11586,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15718,
+      "visibleTextLength": 15729,
       "tables": [
         {
           "index": 0,
@@ -11707,7 +11707,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16849,
+      "visibleTextLength": 17387,
       "tables": [
         {
           "index": 0,
@@ -11718,7 +11718,7 @@
           "unscopedHeaders": 0,
           "sortButtons": 7,
           "sortedColumns": 1,
-          "notDisclosedCells": 11,
+          "notDisclosedCells": 10,
           "notApplicableCells": 0,
           "scrollContainer": {
             "overflowX": "auto",
@@ -11844,7 +11844,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26921,
+      "visibleTextLength": 27062,
       "tables": [
         {
           "index": 0,
@@ -11895,7 +11895,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23107,
+      "visibleTextLength": 24013,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11974,7 +11974,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17904,
+      "visibleTextLength": 17912,
       "tables": [
         {
           "index": 0,
@@ -14221,7 +14221,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 32731,
+      "visibleTextLength": 32065,
       "tables": [
         {
           "index": 0,
@@ -14740,7 +14740,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 30907,
+      "visibleTextLength": 30851,
       "tables": [
         {
           "index": 0,
@@ -14877,7 +14877,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12951,
+      "visibleTextLength": 12906,
       "tables": [
         {
           "index": 0,
@@ -14979,7 +14979,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17532,
+      "visibleTextLength": 17515,
       "tables": [],
       "equations": [
         {
@@ -15038,7 +15038,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15842,
+      "visibleTextLength": 16147,
       "tables": [
         {
           "index": 0,
@@ -15103,7 +15103,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19963,
+      "visibleTextLength": 19841,
       "tables": [
         {
           "index": 0,

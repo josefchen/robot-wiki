@@ -2539,11 +2539,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 18,
-                "citationCount": 22,
+                "citationCount": 23,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "18 min",
-                "citationCountText": "22",
+                "citationCountText": "23",
                 "bibliographyIds": [
                   "so-arm100-repo-2026",
                   "seeed-so-arm101-pro-2026",
@@ -2558,6 +2558,7 @@
                   "unitree-g1-2026",
                   "unitree-h2-2026",
                   "1x-neo-2026",
+                  "1x-world-model-lab-2026",
                   "bd-atlas-2026",
                   "figure-03-2025",
                   "leap-hand-2023",
@@ -2617,11 +2618,11 @@
                   "Industrial Deployment"
                 ],
                 "lastReviewed": "2026-08-22",
-                "readingMinutes": 13,
+                "readingMinutes": 14,
                 "citationCount": 22,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
-                "readingTimeText": "13 min",
+                "readingTimeText": "14 min",
                 "citationCountText": "22",
                 "bibliographyIds": [
                   "ifr-world-robotics-2025",
@@ -4105,11 +4106,11 @@
                   "RL Fine-Tuning of Policies"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 21,
+                "readingMinutes": 20,
                 "citationCount": 12,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "21 min",
+                "readingTimeText": "20 min",
                 "citationCountText": "12",
                 "bibliographyIds": [
                   "dagger-2011",
@@ -9588,7 +9589,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 60,
+                  "count": 62,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9598,7 +9599,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 60,
+                      "count": 62,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9842,7 +9843,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 22,
+                  "count": 23,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9852,7 +9853,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 22,
+                      "count": 23,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9864,7 +9865,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 88,
+                  "count": 90,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9874,7 +9875,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 88,
+                      "count": 90,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -60844,7 +60845,7 @@
                 "unscopedHeaders": 0,
                 "sortButtons": 7,
                 "sortedColumns": 1,
-                "notDisclosedCells": 11,
+                "notDisclosedCells": 10,
                 "notApplicableCells": 0,
                 "scrollContainer": {
                   "overflowX": "auto",
@@ -60900,7 +60901,7 @@
                 "unscopedHeaders": 0,
                 "sortButtons": 7,
                 "sortedColumns": 1,
-                "notDisclosedCells": 11,
+                "notDisclosedCells": 10,
                 "notApplicableCells": 0,
                 "scrollContainer": {
                   "overflowX": "auto",
@@ -60908,10 +60909,10 @@
                   "role": "region",
                   "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
                   "clientWidth": 299,
-                  "scrollWidth": 909,
+                  "scrollWidth": 893,
                   "scrolledBy": 40
                 },
-                "tableWidth": 909,
+                "tableWidth": 893,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -66789,11 +66790,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 18,
-                "citationCount": 22,
+                "citationCount": 23,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "18 min",
-                "citationCountText": "22",
+                "citationCountText": "23",
                 "bibliographyIds": [
                   "so-arm100-repo-2026",
                   "seeed-so-arm101-pro-2026",
@@ -66808,6 +66809,7 @@
                   "unitree-g1-2026",
                   "unitree-h2-2026",
                   "1x-neo-2026",
+                  "1x-world-model-lab-2026",
                   "bd-atlas-2026",
                   "figure-03-2025",
                   "leap-hand-2023",
@@ -66867,11 +66869,11 @@
                   "Industrial Deployment"
                 ],
                 "lastReviewed": "2026-08-22",
-                "readingMinutes": 13,
+                "readingMinutes": 14,
                 "citationCount": 22,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
-                "readingTimeText": "13 min",
+                "readingTimeText": "14 min",
                 "citationCountText": "22",
                 "bibliographyIds": [
                   "ifr-world-robotics-2025",
@@ -68355,11 +68357,11 @@
                   "RL Fine-Tuning of Policies"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 21,
+                "readingMinutes": 20,
                 "citationCount": 12,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "21 min",
+                "readingTimeText": "20 min",
                 "citationCountText": "12",
                 "bibliographyIds": [
                   "dagger-2011",
@@ -70921,6 +70923,7 @@
                   "bridgedata-v2-2023",
                   "agibot-world-2025",
                   "robomind-2024",
+                  "robomind-2024",
                   "agibot-world-2026",
                   "open-x-embodiment-2023",
                   "open-x-embodiment-2023",
@@ -71098,6 +71101,7 @@
                   "unitree-g1-2026",
                   "unitree-h2-2026",
                   "1x-neo-2026",
+                  "1x-world-model-lab-2026",
                   "bd-atlas-2026",
                   "figure-03-2025",
                   "leap-hand-2023",
@@ -71129,6 +71133,7 @@
                   "robozaps-humanoids-2026",
                   "unitree-h2-2026",
                   "1x-neo-2026",
+                  "1x-world-model-lab-2026",
                   "robozaps-humanoids-2026",
                   "bd-atlas-2026",
                   "figure-03-2025",
@@ -74368,6 +74373,7 @@
                   "world-models/jepa"
                 ],
                 "linkedFrom": [
+                  "world-models/taxonomy",
                   "world-models/jepa",
                   "world-models/model-based-robot-learning",
                   "classical/state-estimation"
@@ -84714,7 +84720,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:data-hardware/hardware-taxonomy hashes to f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "article-metadata member article-fact-frontmatter:data-hardware/hardware-taxonomy moved from f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01 to 7a2505538715b08e772608601254107f142790eeb91b344ac37db8e11d43455b exactly as approved delta reader-f20-dates-20260923-1 permits: F20 reader date precision: add the source-stated July 9, 2026 announcement year and the existing registered 1x-world-model-lab-2026 citation plus declaration. Retained official related-post date, not a product-page date; no shipping or like-for-like joint-count claim. Existing citations and lastReviewed preserved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84726,9 +84732,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:data-hardware/hardware-taxonomy",
           "baselineHash": "f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01",
-          "currentHash": "f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "7a2505538715b08e772608601254107f142790eeb91b344ac37db8e11d43455b",
+          "status": "approved-delta",
+          "approvedDelta": "reader-f20-dates-20260923-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100338,7 +100344,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to 1d29d28886df613888360d80a3c7a8aa25071c7a4fdf845fb82593d373e488d2 exactly as approved delta continuation-merge-2026-09-23-prose-article-classical-scene-representation permits: Retain main-only editorial additions and integrate 660ad53 projective TSDF qualifications and primary citations.",
+      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to 98e2f850f69583eff158eb31f745487bc44df874178297b24a9a30cfe4f2ec01 exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-classical-scene-representation permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100350,9 +100356,9 @@
           "manifest": "prose",
           "member": "article:classical/scene-representation",
           "baselineHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
-          "currentHash": "1d29d28886df613888360d80a3c7a8aa25071c7a4fdf845fb82593d373e488d2",
+          "currentHash": "98e2f850f69583eff158eb31f745487bc44df874178297b24a9a30cfe4f2ec01",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-prose-article-classical-scene-representation"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-classical-scene-representation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100394,7 +100400,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f exactly as approved delta data-bottleneck-zero-credit-20260922-1 permits: Correct OXE source-scoped unknown duration and DROID successful/unsuccessful counts, collectors, robots and elapsed duration. Retain prediction/reveal with authored hypothetical rates and targets, not source measurements; both selected audit rows stay unresolved.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 50ad873040d9937b43cd27cc5b15cadc2fd5d58c23c678547970881d0f17c6a8 exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-data-hardware-data-bottleneck permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100406,9 +100412,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f",
+          "currentHash": "50ad873040d9937b43cd27cc5b15cadc2fd5d58c23c678547970881d0f17c6a8",
           "status": "approved-delta",
-          "approvedDelta": "data-bottleneck-zero-credit-20260922-1"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100422,7 +100428,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/datasets moved from a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c to 6c44e285bfb380f855ffc2ab69dc783ea266fbdf6ec21fc894564bf2ab4b9adf exactly as approved delta continuation-merge-2026-09-23-0340-prose-datasets permits: Retain main-only training-contract and related-link additions while integrating the mission RoboMIND 107k v1.1/v1.2 licensing disclosure, public badge/access distinctions and truthful not-disclosed table value. No permission grant or audit acceptance.",
+      "actual": "prose member article:data-hardware/datasets moved from a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c to 4d00882f8e7295cf2d2e76ef78a40360aefa639d4ece86e5f7e1b4c503b0a59c exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-data-hardware-datasets permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100434,9 +100440,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/datasets",
           "baselineHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
-          "currentHash": "6c44e285bfb380f855ffc2ab69dc783ea266fbdf6ec21fc894564bf2ab4b9adf",
+          "currentHash": "4d00882f8e7295cf2d2e76ef78a40360aefa639d4ece86e5f7e1b4c503b0a59c",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-0340-prose-datasets"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-datasets"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100478,7 +100484,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af exactly as approved delta hardware-taxonomy-r25-20260915-1 permits: Exactly hardware-taxonomy original 25: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100490,9 +100496,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
-          "currentHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "currentHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af",
           "status": "approved-delta",
-          "approvedDelta": "hardware-taxonomy-r25-20260915-1"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100506,7 +100512,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to 76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909 exactly as approved delta continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment permits: Retain main-only editorial additions and integrate NASA inherent/operational availability, capital-only calculator and 2.2 percent arithmetic corrections.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9 exactly as approved delta continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment permits: Integrate the committed mission industrial52 authored-assumption and elapsed-hour disclosures; preserve main-only editorial corrections, including the lint-compliant year-range hyphen. Model arithmetic, defaults, ranges, citations and interaction behavior remain unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100518,9 +100524,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909",
+          "currentHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment"
+          "approvedDelta": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100590,7 +100596,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc exactly as approved delta round5-closeout-bear-case-prose permits: Audit-integration commit b082ad8 (frozen packet bear-case originals) applied its selected evidence-backed prose corrections to the bear-case article.",
+      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to 1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-frontier-bear-case permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100602,9 +100608,9 @@
           "manifest": "prose",
           "member": "article:frontier/bear-case",
           "baselineHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
-          "currentHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "currentHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f",
           "status": "approved-delta",
-          "approvedDelta": "round5-closeout-bear-case-prose"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-frontier-bear-case"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101094,7 +101100,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/rl-finetuning moved from 78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79 to 9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f exactly as approved delta rl-method-table-original-11-20260908-1 permits: Source-backed original 11: preserve all six method mechanisms and protocol qualifications, replace unsupported Recap closed status with source-scoped missingness, distinguish reported code from verified weights/licensing, and remove unsupported cross-paper rankings. Exact current member and original source bindings are retained in the bounded Mission packet.",
+      "actual": "prose member article:manipulation/rl-finetuning moved from 78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79 to 985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6 exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101106,9 +101112,9 @@
           "manifest": "prose",
           "member": "article:manipulation/rl-finetuning",
           "baselineHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
-          "currentHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+          "currentHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6",
           "status": "approved-delta",
-          "approvedDelta": "rl-method-table-original-11-20260908-1"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101318,7 +101324,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/rl-for-robotics moved from 18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c to 425dbce554865801bbe93a026bbf0faaad83eae4b25761045e4606c9927b8499 exactly as approved delta rl-for-robotics-r5-20260916-2 permits: Exactly rl-sim2real/rl-for-robotics original 5 (evidence completion of the standing V verdict on the Q-learning sentence, with the Eq. 6.8 evidence quotation corrected to the glyph-verified print (discount gamma between Rt+1 and max; pdftotext gamma-drop disclosed)) per the frozen packet convergence-source-ae-rl-equations-20260916m. All retained evidence passages needle-verified by this integrator against the packet's sha-verified saved bodies and glyph extracts before adjudication (63/63 checks, lane needle-verification.json), including independent read-only mutool re-traces of the retained RLbook2020.pdf; zero retrieval by this integrator; the article prints no equation and its spans are byte-unchanged (no-op hash record; lastReviewed deliberately not moved); lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-equations-integration-20260916m. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:rl-sim2real/rl-for-robotics moved from 18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c to 0ad5e5747b16d5911e293affa4f0b374009f40a47775991589f43b4447d00bb9 exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-rl-for-robotics permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101330,9 +101336,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/rl-for-robotics",
           "baselineHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
-          "currentHash": "425dbce554865801bbe93a026bbf0faaad83eae4b25761045e4606c9927b8499",
+          "currentHash": "0ad5e5747b16d5911e293affa4f0b374009f40a47775991589f43b4447d00bb9",
           "status": "approved-delta",
-          "approvedDelta": "rl-for-robotics-r5-20260916-2"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-rl-for-robotics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101374,7 +101380,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/why-rl-locomotion moved from 25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b to 2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670 exactly as approved delta why-rl-locomotion-r12-20260916-1 permits: Exactly rl-sim2real/why-rl-locomotion original 12 (fail-closed frontmatter P1 sweep with fresh fetch + passage for all 7 identities, Isaac name-list and Lin venue caveats recorded) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+      "actual": "prose member article:rl-sim2real/why-rl-locomotion moved from 25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b to a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-why-rl-locomotion permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101386,9 +101392,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/why-rl-locomotion",
           "baselineHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
-          "currentHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "currentHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e",
           "status": "approved-delta",
-          "approvedDelta": "why-rl-locomotion-r12-20260916-1"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-why-rl-locomotion"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101430,7 +101436,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541 exactly as approved delta sweeps-registry-gensim15-20260917-1 permits: Exactly world-models/generative-sim original 15 (frontmatter P1 sweep): narrowed the domain-wide batch wording to generative-sim's own 8 identities in the exact P1 batch form and bound the fresh 8-identity compound evidence, resolving the af-lane isaac-lab-2025 hold via the PDF Appendix A contributor-sequence surface (registry 106-name list == PDF sequence with three repeated names deduplicated keep-first), per the frozen AG packet. Every identity needle-verified by this integrator against the retained sha256-pinned fetch bodies; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sweeps-and-registry-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: no article prose changed; lastReviewed deliberately not moved.",
+      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to f679ebe844f5ba56bc718abfa9e6b2821bf6eabc0cae8867f63e8797d9a838cb exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-world-models-generative-sim permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101442,9 +101448,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-sim",
           "baselineHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
-          "currentHash": "aa308a44fecd7be38b91f4b22c8fdd288285fd455256ae4bed0954aec6bb6541",
+          "currentHash": "f679ebe844f5ba56bc718abfa9e6b2821bf6eabc0cae8867f63e8797d9a838cb",
           "status": "approved-delta",
-          "approvedDelta": "sweeps-registry-gensim15-20260917-1"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-world-models-generative-sim"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101514,7 +101520,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to b72585f5d944594def98a0e8ef8625d66fcf7f0c96ce05691cd44600ce41b2c4 exactly as approved delta seo-merge-20260916-prose-31 permits: The SEO growth merge changed article:world-models/latent-dynamics: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to b1eed4329763e68f974e4e1eaf43bd68880330f563b512df04bb81a762aeca6b exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-world-models-latent-dynamics permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101526,9 +101532,9 @@
           "manifest": "prose",
           "member": "article:world-models/latent-dynamics",
           "baselineHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
-          "currentHash": "b72585f5d944594def98a0e8ef8625d66fcf7f0c96ce05691cd44600ce41b2c4",
+          "currentHash": "b1eed4329763e68f974e4e1eaf43bd68880330f563b512df04bb81a762aeca6b",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-31"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-world-models-latent-dynamics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101570,7 +101576,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to ece9a1706b66aeabd122d24e620474492ca03380cbeb28276558e676c6d118c5 exactly as approved delta seo-merge-20260916-prose-33 permits: The SEO growth merge changed article:world-models/taxonomy: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101582,9 +101588,9 @@
           "manifest": "prose",
           "member": "article:world-models/taxonomy",
           "baselineHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
-          "currentHash": "ece9a1706b66aeabd122d24e620474492ca03380cbeb28276558e676c6d118c5",
+          "currentHash": "f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-33"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102018,7 +102024,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/datasets moved from 2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8 to a89b63a5e83d871c880facb9f85e6b0e8d91af227c530fb6ef81a661adbdc50f exactly as approved delta continuation-merge-2026-09-23-0340-relationships-datasets permits: Retain main-only training-contract and related-link additions while integrating the mission RoboMIND 107k v1.1/v1.2 licensing disclosure, public badge/access distinctions and truthful not-disclosed table value. No permission grant or audit acceptance.",
+      "actual": "relationships member article:data-hardware/datasets moved from 2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8 to bf3e5c72c3f239fbc538827cf16cadf824551ac12e2e467506ffe10459cbadf7 exactly as approved delta continuation-merge-2026-09-23-1745-relationships-article-data-hardware-datasets permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102030,9 +102036,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/datasets",
           "baselineHash": "2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8",
-          "currentHash": "a89b63a5e83d871c880facb9f85e6b0e8d91af227c530fb6ef81a661adbdc50f",
+          "currentHash": "bf3e5c72c3f239fbc538827cf16cadf824551ac12e2e467506ffe10459cbadf7",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-0340-relationships-datasets"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-relationships-article-data-hardware-datasets"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102074,7 +102080,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/hardware-taxonomy moved from 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9 to 6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b exactly as approved delta performance-worldmodels-20260908-7 permits: Source chips bind the analytical setup and qualified performance/pricing statements; retain the existing canonical citation identity union and route. Immediate-before hash 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "actual": "relationships member article:data-hardware/hardware-taxonomy moved from 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9 to 6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598 exactly as approved delta continuation-merge-2026-09-23-1745-relationships-article-data-hardware-hardware-taxonomy permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102086,9 +102092,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
-          "currentHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b",
+          "currentHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598",
           "status": "approved-delta",
-          "approvedDelta": "performance-worldmodels-20260908-7"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-relationships-article-data-hardware-hardware-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102690,7 +102696,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:manipulation/rl-finetuning moved from 0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0 to cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886 exactly as approved delta rl-method-table-original-11-20260908-2 permits: Source-backed original 11: preserve all six method mechanisms and protocol qualifications, replace unsupported Recap closed status with source-scoped missingness, distinguish reported code from verified weights/licensing, and remove unsupported cross-paper rankings. Exact current member and original source bindings are retained in the bounded Mission packet.",
+      "actual": "relationships member article:manipulation/rl-finetuning moved from 0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0 to 39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a exactly as approved delta continuation-merge-2026-09-23-1745-relationships-article-manipulation-rl-finetuning permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102702,9 +102708,9 @@
           "manifest": "relationships",
           "member": "article:manipulation/rl-finetuning",
           "baselineHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
-          "currentHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886",
+          "currentHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a",
           "status": "approved-delta",
-          "approvedDelta": "rl-method-table-original-11-20260908-2"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-relationships-article-manipulation-rl-finetuning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102970,7 +102976,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:rl-sim2real/why-rl-locomotion moved from b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2 to b5decbf9df603d6658018f76d4e04e46da69ee69ab78470c693da0d8466e2333 exactly as approved delta domain-randomization-source-4-20260909 permits: Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "actual": "relationships member article:rl-sim2real/why-rl-locomotion moved from b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2 to 18adecaa3485b392547c5011706b5db6946afbf06e6c914cbd495b2475479437 exactly as approved delta continuation-merge-2026-09-23-1745-relationships-article-rl-sim2real-why-rl-locomotion permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102982,9 +102988,9 @@
           "manifest": "relationships",
           "member": "article:rl-sim2real/why-rl-locomotion",
           "baselineHash": "b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2",
-          "currentHash": "b5decbf9df603d6658018f76d4e04e46da69ee69ab78470c693da0d8466e2333",
+          "currentHash": "18adecaa3485b392547c5011706b5db6946afbf06e6c914cbd495b2475479437",
           "status": "approved-delta",
-          "approvedDelta": "domain-randomization-source-4-20260909"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-relationships-article-rl-sim2real-why-rl-locomotion"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -103166,7 +103172,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/taxonomy moved from 3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081 to 5d68c841d00133dcc2ba096989222fbb42eba513b6211c6848d4ee9ad97281b4 exactly as approved delta seo-merge-20260916-relationships-62 permits: The SEO growth merge changed article:world-models/taxonomy: the union of the mission continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "relationships member article:world-models/taxonomy moved from 3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081 to daa373c349ea0504da365bdfea8ff5e87a7dbe1b8658f8aa8cc98c64ae466748 exactly as approved delta continuation-merge-2026-09-23-1745-relationships-article-world-models-taxonomy permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103178,9 +103184,9 @@
           "manifest": "relationships",
           "member": "article:world-models/taxonomy",
           "baselineHash": "3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081",
-          "currentHash": "5d68c841d00133dcc2ba096989222fbb42eba513b6211c6848d4ee9ad97281b4",
+          "currentHash": "daa373c349ea0504da365bdfea8ff5e87a7dbe1b8658f8aa8cc98c64ae466748",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-relationships-62"
+          "approvedDelta": "continuation-merge-2026-09-23-1745-relationships-article-world-models-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -104106,7 +104112,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/datasets/ ships 49 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 49 outbound anchor occurrences on it with a visible focus ring in 169 stops",
+      "actual": "/data-hardware/datasets/ ships 50 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 50 outbound anchor occurrences on it with a visible focus ring in 172 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104114,7 +104120,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/datasets/",
-          "outboundAnchors": 49,
+          "outboundAnchors": 50,
           "distinctHrefs": 18,
           "shapes": [
             "citation-chip",
@@ -104123,9 +104129,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 40,
-          "reachedByTab": 49,
-          "tabStops": 169,
+          "anchorsWithNoreferrer": 41,
+          "reachedByTab": 50,
+          "tabStops": 172,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104180,7 +104186,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/hardware-taxonomy/ ships 114 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 114 outbound anchor occurrences on it with a visible focus ring in 244 stops",
+      "actual": "/data-hardware/hardware-taxonomy/ ships 116 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 116 outbound anchor occurrences on it with a visible focus ring in 247 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104188,8 +104194,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/hardware-taxonomy/",
-          "outboundAnchors": 114,
-          "distinctHrefs": 37,
+          "outboundAnchors": 116,
+          "distinctHrefs": 38,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -104198,9 +104204,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 70,
-          "reachedByTab": 114,
-          "tabStops": 244,
+          "anchorsWithNoreferrer": 72,
+          "reachedByTab": 116,
+          "tabStops": 247,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105135,7 +105141,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/rl-finetuning/ ships 64 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 64 outbound anchor occurrences on it with a visible focus ring in 198 stops",
+      "actual": "/manipulation/rl-finetuning/ ships 64 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 64 outbound anchor occurrences on it with a visible focus ring in 200 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105154,7 +105160,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 61,
           "reachedByTab": 64,
-          "tabStops": 198,
+          "tabStops": 200,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105644,7 +105650,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/why-rl-locomotion/ ships 19 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 19 outbound anchor occurrences on it with a visible focus ring in 96 stops",
+      "actual": "/rl-sim2real/why-rl-locomotion/ ships 19 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 19 outbound anchor occurrences on it with a visible focus ring in 97 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105663,7 +105669,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 16,
           "reachedByTab": 19,
-          "tabStops": 96,
+          "tabStops": 97,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105897,7 +105903,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/latent-dynamics/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 114 stops",
+      "actual": "/world-models/latent-dynamics/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 115 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105916,7 +105922,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 28,
           "reachedByTab": 31,
-          "tabStops": 114,
+          "tabStops": 115,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105971,7 +105977,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/taxonomy/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 148 stops",
+      "actual": "/world-models/taxonomy/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 149 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105990,7 +105996,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 31,
           "reachedByTab": 34,
-          "tabStops": 148,
+          "tabStops": 149,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -130941,7 +130947,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 57457 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 57261 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131129,7 +131135,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 31057 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 31079 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131176,7 +131182,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/datasets/ rendered no v1 identity spelling and no v1 descriptor in 33319 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/datasets/ rendered no v1 identity spelling and no v1 descriptor in 34395 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131270,7 +131276,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 53463 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 53745 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131317,7 +131323,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 45835 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 47647 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131552,7 +131558,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 35473 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 35489 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132492,7 +132498,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/rl-finetuning/ rendered no v1 identity spelling and no v1 descriptor in 64835 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/rl-finetuning/ rendered no v1 identity spelling and no v1 descriptor in 63503 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133056,7 +133062,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/rl-for-robotics/ rendered no v1 identity spelling and no v1 descriptor in 61339 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/rl-for-robotics/ rendered no v1 identity spelling and no v1 descriptor in 61227 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133150,7 +133156,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/why-rl-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 25427 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/why-rl-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 25337 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133338,7 +133344,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 34580 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 34546 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133479,7 +133485,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 31200 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 31810 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133573,7 +133579,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39442 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39198 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -196986,7 +196992,7 @@
             {
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
-                "paragraphCount": 16,
+                "paragraphCount": 17,
                 "familyHeads": [
                   "newsreader"
                 ],
@@ -198257,7 +198263,7 @@
             {
               "id": "/rl-sim2real/why-rl-locomotion/",
               "observed": {
-                "paragraphCount": 13,
+                "paragraphCount": 12,
                 "familyHeads": [
                   "newsreader"
                 ],
@@ -204233,7 +204239,7 @@
             {
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
-                "paragraphCount": 32,
+                "paragraphCount": 34,
                 "registeredFrameParagraphCount": 34,
                 "offendingFamilies": []
               }
@@ -205380,7 +205386,7 @@
             {
               "id": "/rl-sim2real/why-rl-locomotion/",
               "observed": {
-                "paragraphCount": 26,
+                "paragraphCount": 24,
                 "registeredFrameParagraphCount": 10,
                 "offendingFamilies": []
               }

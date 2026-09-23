@@ -2525,7 +2525,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28518,
+      "visibleTextLength": 28420,
       "header": {
         "present": true,
         "display": "flex",
@@ -3177,7 +3177,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 15339,
+      "visibleTextLength": 15350,
       "header": {
         "present": true,
         "display": "flex",
@@ -3340,7 +3340,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 16470,
+      "visibleTextLength": 17008,
       "header": {
         "present": true,
         "display": "flex",
@@ -3666,7 +3666,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26542,
+      "visibleTextLength": 26683,
       "header": {
         "present": true,
         "display": "flex",
@@ -3829,7 +3829,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 22728,
+      "visibleTextLength": 23634,
       "header": {
         "present": true,
         "display": "flex",
@@ -4636,7 +4636,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 17569,
+      "visibleTextLength": 17577,
       "header": {
         "present": true,
         "display": "flex",
@@ -7896,7 +7896,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 32104,
+      "visibleTextLength": 31438,
       "header": {
         "present": true,
         "display": "flex",
@@ -9844,7 +9844,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 30432,
+      "visibleTextLength": 30376,
       "header": {
         "present": true,
         "display": "flex",
@@ -10170,7 +10170,7 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "visibleTextLength": 12476,
+      "visibleTextLength": 12431,
       "header": {
         "present": true,
         "display": "flex",
@@ -10814,7 +10814,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 17048,
+      "visibleTextLength": 17031,
       "header": {
         "present": true,
         "display": "flex",
@@ -11303,7 +11303,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 15358,
+      "visibleTextLength": 15663,
       "header": {
         "present": true,
         "display": "flex",
@@ -11629,7 +11629,7 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "visibleTextLength": 19479,
+      "visibleTextLength": 19357,
       "header": {
         "present": true,
         "display": "flex",

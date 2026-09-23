@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "faff65148c2a6e68d5838ef37970c34da75d553908e067c903fb7c15839fd2ab",
+  "fingerprint": "84bf92368c759f9c84b24b7d1dfa7dc3ff65c794901de161d21443034c387d8f",
   "source": "out/ static export",
   "routes": [
     {
@@ -220,7 +220,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundAnchors": 49,
+      "outboundAnchors": 50,
       "distinctHrefs": 18,
       "shapes": [
         "citation-chip",
@@ -242,8 +242,8 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "outboundAnchors": 114,
-      "distinctHrefs": 37,
+      "outboundAnchors": 116,
+      "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3116,
+  "outboundAnchors": 3119,
   "distinctOutboundHrefs": 855,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1371,
-    "reference-entry": 745,
+    "citation-chip": 1373,
+    "reference-entry": 746,
     "other": 606
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2579,
+  "anchorsWithNoreferrer": 2582,
   "keyboard": [
     {
       "route": "/",
@@ -963,11 +963,11 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundInDom": 49,
-      "reachedByTab": 49,
+      "outboundInDom": 50,
+      "reachedByTab": 50,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 169
+      "tabStops": 172
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
@@ -979,11 +979,11 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "outboundInDom": 114,
-      "reachedByTab": 114,
+      "outboundInDom": 116,
+      "reachedByTab": 116,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 244
+      "tabStops": 247
     },
     {
       "route": "/data-hardware/industrial-deployment/",
@@ -1191,7 +1191,7 @@
       "reachedByTab": 64,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 198
+      "tabStops": 200
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
@@ -1303,7 +1303,7 @@
       "reachedByTab": 19,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 96
+      "tabStops": 97
     },
     {
       "route": "/search/",
@@ -1359,7 +1359,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 114
+      "tabStops": 115
     },
     {
       "route": "/world-models/model-based-robot-learning/",
@@ -1375,7 +1375,7 @@
       "reachedByTab": 34,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 148
+      "tabStops": 149
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
