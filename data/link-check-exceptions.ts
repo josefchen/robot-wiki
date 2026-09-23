@@ -27,6 +27,15 @@ import type { LinkCheckException } from '../lib/citation-links.ts';
 
 export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
   {
+    id: 'symbotic-10k-2025',
+    covers: ['title-mismatch'],
+    reason:
+      'The exact SEC accession URL https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm uses its filename "sym-20250927" as the HTML title. The retained filing cover identifies Symbotic Inc. Form 10-K for the fiscal year ended September 27, 2025, matching the descriptive registry title. Only that filename-versus-document-title divergence is covered.',
+    verifiedBy:
+      'Native check:citations --id symbotic-10k-2025 --json observed direct HTTP 200 with HTML title "sym-20250927" on 2026-09-23T00:36:40.889288Z. Separately rechecked the actual retained FetchUrl response from 2026-09-12T21:03:19.099Z at that exact accession URL: cover "FORM 10-K", "For the fiscal year ended September 27, 2025", "SYMBOTIC INC.". Retained symbotic-fetch-result.txt: 579888 bytes, SHA256 b7f7f0a7cdbd4eacff3520b4ca7f25f91e64cf49f3fc0e1907727d93088cb32b; original response event f1f1a06e-43be-4162-ba53-2b277426ccdf, exact path in audit/citations.md. Its 200 is tool-reported; origin headers/redirects were not exposed. Current HTTP status comes from the native checker. This is document identity, not independent corroboration of company results or a new claim audit.',
+    verifiedOn: '2026-09-23',
+  },
+  {
     id: 'nasa-availability-prediction-analysis',
     covers: ['title-mismatch'],
     reason:

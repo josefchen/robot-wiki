@@ -288,3 +288,107 @@ describe('two new citation links: scoped observations, not whole-corpus acceptan
     expect(read('audit/citations.md')).toContain('do not establish VAL-AUDIT-008 full-corpus acceptance');
   });
 });
+
+
+describe('prior citation links: nine-obligation follow-up', () => {
+  const text = read('audit/citations.md');
+  const rows = parseCitationLedgerRows(text);
+  const outcomes = [
+    ['ng-reward-shaping-1999', 'ok (HTTP 200; 2026-09-23)'],
+    ['seeed-so-arm101-pro-2026', 'FAIL (unresolved product identity; 2026-09-23)'],
+    ['astrom-murray-2008', 'FAIL (unresolved transport; 2026-09-23)'],
+    ['mcgee-schmidt-1985', 'ok (HTTP 200; 2026-09-23)'],
+    ['technology-org-deployed-2026', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
+    ['hinterstoisser-2012', 'ok (crossref; 2026-09-23)'],
+    ['gsn-standard-v3', 'FAIL (unresolved document identity; 2026-09-23)'],
+    ['symbotic-10k-2025', 'ok (documented title-mismatch exception; HTTP 200; 2026-09-23)'],
+    ['kroger-ocado-closures-2025', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
+  ] as const;
+  const symId = 'symbotic-10k-2025';
+  const symUrl = 'https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm';
+  const exception = LINK_CHECK_EXCEPTIONS.find(({ id }) => id === symId);
+  const observed: CitationAuditResult = {
+    id: symId, url: symUrl, verdict: 'live', status: 200,
+    chain: [{ status: 200, url: symUrl }], finalUrl: symUrl,
+    fetchedTitle: 'sym-20250927', titleCheckedBy: 'html', titleComparison: 'mismatch',
+  };
+
+  it.each(outcomes)('records exactly one current disposition for %s', (id, verdict) => {
+    const selected = rows.filter((row) => row.id === id);
+    expect(selected).toHaveLength(1);
+    expect(selected[0].verdict).toBe(verdict);
+    expect(selected[0].url).toBe(CITATIONS.find((citation) => citation.id === id)?.url);
+  });
+
+  it('preserves all nine failed original rows as history, not active duplicate coverage', () => {
+    const addendum = text.split('## Nine prior citation-link obligations, 2026-09-23')[1];
+    const json = addendum.split('Historical rows exactly as at this slice')[1]
+      .split('```json\n')[1].split('\n```')[0];
+    const history = JSON.parse(json) as Array<{ id: string; originalRow: string }>;
+    expect(history.map(({ id }) => id)).toEqual(outcomes.map(([id]) => id));
+    for (const item of history) {
+      expect(item.originalRow).toContain(`| ${item.id} |`);
+      expect(item.originalRow).toContain('| FAIL |');
+    }
+    expect(addendum).toContain('four pass the native integration');
+    expect(addendum).toContain('five remain unresolved');
+  });
+
+  it('documents only the exact Symbotic filename-title divergence with preserved source identity', () => {
+    expect(LINK_CHECK_EXCEPTIONS.filter(({ id }) => id === symId)).toHaveLength(1);
+    expect(exception?.covers).toEqual(['title-mismatch']);
+    expect(exception?.reason).toContain(symUrl);
+    expect(exception?.reason).toContain('"sym-20250927"');
+    expect(exception?.verifiedOn).toBe('2026-09-23');
+    for (const literal of [
+      '2026-09-23T00:36:40.889288Z', '2026-09-12T21:03:19.099Z',
+      'FORM 10-K', 'For the fiscal year ended September 27, 2025', 'SYMBOTIC INC.',
+      'b7f7f0a7cdbd4eacff3520b4ca7f25f91e64cf49f3fc0e1907727d93088cb32b',
+      'origin headers/redirects were not exposed',
+    ]) expect(exception?.verifiedBy).toContain(literal);
+    for (const id of ['seeed-so-arm101-pro-2026', 'astrom-murray-2008',
+      'technology-org-deployed-2026', 'gsn-standard-v3', 'kroger-ocado-closures-2025']) {
+      expect(LINK_CHECK_EXCEPTIONS.some((item) => item.id === id)).toBe(false);
+    }
+  });
+
+  it('resolves only documented identity divergence without relabelling the fetched title as a match', () => {
+    const citation = CITATIONS.find(({ id }) => id === symId)!;
+    expect(compareTitles(citation.title, 'sym-20250927', citation.type)).toBe('mismatch');
+    expect(isAuditFailure(observed)).toBe(true);
+    const resolved = applyTitleMismatchException(applyException(observed, exception), exception);
+    expect(resolved.resolvedBy).toBe('exception');
+    expect(resolved.titleComparison).toBe('mismatch');
+    expect(resolved.fetchedTitle).toBe('sym-20250927');
+    expect(isAuditFailure(resolved)).toBe(false);
+  });
+
+  it.each([0, 403, 404, 410, 500])('leaves native failed-response status %i unresolved', (status) => {
+    const failed: CitationAuditResult = {
+      ...observed, status, verdict: classifyStatus(status),
+      chain: status ? [{ status, url: symUrl }] : [],
+      titleComparison: 'unavailable', fetchedTitle: undefined, titleCheckedBy: undefined,
+    };
+    const resolved = applyTitleMismatchException(applyException(failed, exception), exception);
+    expect(resolved.resolvedBy).toBeUndefined();
+    expect(isAuditFailure(resolved)).toBe(true);
+  });
+
+  it('does not reuse the Symbotic exception for another selected document', () => {
+    for (const [id] of outcomes.filter(([id]) => id !== symId)) {
+      const other = { ...observed, id };
+      expect(applyTitleMismatchException(other, exception)).toBe(other);
+      expect(isAuditFailure(other)).toBe(true);
+    }
+  });
+
+  it('keeps publisher challenges, missing HTTP and unverified redirects explicit', () => {
+    const addendum = text.split('## Nine prior citation-link obligations, 2026-09-23')[1];
+    expect(addendum).toContain('Client Challenge');
+    expect(addendum).toContain('native Crossref success is not a fetched paper');
+    expect(CITATIONS.find(({ id }) => id === 'hinterstoisser-2012')?.year).toBe(2013);
+    expect(addendum).toContain('status 0 is absence of an observed HTTP response');
+    expect(addendum).toContain('unverified candidate only');
+    expect(addendum).toContain('no company claim or original row is completed');
+  });
+});
