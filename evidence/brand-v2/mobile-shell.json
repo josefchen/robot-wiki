@@ -9518,7 +9518,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 15075,
+      "visibleTextLength": 15576,
       "header": {
         "present": true,
         "display": "flex",
@@ -9681,7 +9681,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 27263,
+      "visibleTextLength": 27643,
       "header": {
         "present": true,
         "display": "flex",
@@ -10007,7 +10007,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 23651,
+      "visibleTextLength": 24335,
       "header": {
         "present": true,
         "display": "flex",

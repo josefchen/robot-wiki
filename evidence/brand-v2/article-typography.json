@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "45b8f3809533a67a55f4bf73cb694b1133f4f06f1959bbe625e3eaec9e053d05",
+  "fingerprint": "48ed39747dad489f155fe51e0a5d95b6daef7f09f8eec6a775e8625bcafb5cd9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -41607,7 +41607,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15075,
+      "visibleTextLength": 15576,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41722,7 +41722,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The economics are worth seeing before the history. Drag the "
+          "text": "The chart below illustrates the cost arithmetic before the h"
         },
         {
           "familyHead": "ibm plex mono",
@@ -41794,7 +41794,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Here is the arithmetic behind the chart at the top of this m"
+          "text": "This authored fixed-transitions model is not a benchmark. We"
         },
         {
           "familyHead": "newsreader",
@@ -42324,7 +42324,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27263,
+      "visibleTextLength": 27643,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42391,11 +42391,11 @@
           "Reward Design and the MPC Debate"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min",
+        "readingTimeText": "17 min",
         "citationCountText": "17",
         "bibliographyIds": [
           "rudin-2021",
@@ -42451,6 +42451,15 @@
           "text": "Twelve weighted terms sit on the illustrative behavior previ"
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "This local teaching model uses twelve authored terms, weight"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -42475,7 +42484,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The 12 reward weights sum to a total of -5.52 per step, and "
+          "text": "The 12 weighted reward terms give an illustrative total of -"
         },
         {
           "familyHead": "newsreader",
@@ -42592,7 +42601,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The panel below replays the loop on a walking task. Watch th"
+          "text": "The panel below is a scripted teaching example of the Eureka"
         },
         {
           "familyHead": "ibm plex mono",
@@ -42619,7 +42628,7 @@
           "widthPx": 314,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Reward statistics from training"
+          "text": "Scripted reward statistics"
         },
         {
           "familyHead": "ibm plex mono",
@@ -42628,7 +42637,7 @@
           "widthPx": 314,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "LLM reflection on the statistics"
+          "text": "Scripted reflection on the statistics"
         },
         {
           "familyHead": "ibm plex sans",
@@ -44335,7 +44344,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23651,
+      "visibleTextLength": 24335,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44402,11 +44411,11 @@
           "Sim-to-Real Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "14 min",
+        "readingTimeText": "15 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "tobin-2017",
@@ -44637,6 +44646,15 @@
           "text": "The failure mode has a name. The Isaac Lab paper calls it an"
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The panel below is an authored toy, not measured robot data."
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -44661,7 +44679,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Brighter cells are higher terrain; the teacher sees them dir"
+          "text": "Darker cells are higher terrain. This deterministic toy draw"
         },
         {
           "familyHead": "newsreader",
@@ -44670,7 +44688,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Push the degradation slider up. The student's input strip lo"
+          "text": "Push the degradation slider up. The input strip loses channe"
         },
         {
           "familyHead": "newsreader",
@@ -94167,7 +94185,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15550,
+      "visibleTextLength": 16051,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94282,7 +94300,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The economics are worth seeing before the history. Drag the "
+          "text": "The chart below illustrates the cost arithmetic before the h"
         },
         {
           "familyHead": "ibm plex mono",
@@ -94354,7 +94372,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Here is the arithmetic behind the chart at the top of this m"
+          "text": "This authored fixed-transitions model is not a benchmark. We"
         },
         {
           "familyHead": "newsreader",
@@ -94884,7 +94902,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27738,
+      "visibleTextLength": 28118,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94951,11 +94969,11 @@
           "Reward Design and the MPC Debate"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min",
+        "readingTimeText": "17 min",
         "citationCountText": "17",
         "bibliographyIds": [
           "rudin-2021",
@@ -95011,6 +95029,15 @@
           "text": "Twelve weighted terms sit on the illustrative behavior previ"
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "This local teaching model uses twelve authored terms, weight"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -95035,7 +95062,7 @@
           "widthPx": 673,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The 12 reward weights sum to a total of -5.52 per step, and "
+          "text": "The 12 weighted reward terms give an illustrative total of -"
         },
         {
           "familyHead": "newsreader",
@@ -95152,7 +95179,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The panel below replays the loop on a walking task. Watch th"
+          "text": "The panel below is a scripted teaching example of the Eureka"
         },
         {
           "familyHead": "ibm plex mono",
@@ -95179,7 +95206,7 @@
           "widthPx": 255.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Reward statistics from training"
+          "text": "Scripted reward statistics"
         },
         {
           "familyHead": "ibm plex mono",
@@ -95188,7 +95215,7 @@
           "widthPx": 255.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "LLM reflection on the statistics"
+          "text": "Scripted reflection on the statistics"
         },
         {
           "familyHead": "ibm plex sans",
@@ -96895,7 +96922,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24126,
+      "visibleTextLength": 24810,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96962,11 +96989,11 @@
           "Sim-to-Real Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "14 min",
+        "readingTimeText": "15 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "tobin-2017",
@@ -97197,6 +97224,15 @@
           "text": "The failure mode has a name. The Isaac Lab paper calls it an"
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The panel below is an authored toy, not measured robot data."
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -97221,7 +97257,7 @@
           "widthPx": 673,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Brighter cells are higher terrain; the teacher sees them dir"
+          "text": "Darker cells are higher terrain. This deterministic toy draw"
         },
         {
           "familyHead": "newsreader",
@@ -97230,7 +97266,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Push the degradation slider up. The student's input strip lo"
+          "text": "Push the degradation slider up. The input strip loses channe"
         },
         {
           "familyHead": "newsreader",

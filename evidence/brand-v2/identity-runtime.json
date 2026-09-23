@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2ddf2f7705fa2f04f332a1164f32d0cc03c60b6af81437ec9ec5356086327512",
+  "fingerprint": "0310a6838727ca205b4be0752fef4fd3dda023f2e7a49a137325b8472a6f9023",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -7618,7 +7618,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15550,
+      "visibleTextLength": 16051,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -7745,7 +7745,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27738,
+      "visibleTextLength": 28118,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -7999,7 +7999,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24126,
+      "visibleTextLength": 24810,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "1440x900"
     },
@@ -16935,7 +16935,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15075,
+      "visibleTextLength": 15576,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -17062,7 +17062,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27263,
+      "visibleTextLength": 27643,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },
@@ -17316,7 +17316,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23651,
+      "visibleTextLength": 24335,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "375x812"
     },
