@@ -517,7 +517,14 @@ describe('the article-truth collectors over the real tree', () => {
       const record = value as unknown as Record<string, unknown>;
       expect(String(record.url), id).toMatch(/^https:\/\//);
       expect(String(record.title).length, id).toBeGreaterThan(0);
-      expect(typeof record.year, id).toBe('number');
+      if (record.year === 'n.d.') {
+        expect(record.accessedOn, id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        const accessedOn = record.accessedOn as string;
+        expect(new Date(`${accessedOn}T00:00:00Z`).toISOString().slice(0, 10), id)
+          .toBe(accessedOn);
+      } else {
+        expect(typeof record.year, id).toBe('number');
+      }
     }
     // The record, not the file: an entry comment is audit reasoning, and
     // hashing the file would make a re-worded note read as a fact change
@@ -527,6 +534,7 @@ describe('the article-truth collectors over the real tree', () => {
       'title',
       'authors',
       'year',
+      'accessedOn',
       'venue',
       'arxiv',
       'url',

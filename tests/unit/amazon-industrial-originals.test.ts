@@ -130,7 +130,11 @@ describe('five Amazon industrial originals', () => {
     expect(current.outcome).toBe('passing');
     expect(article).toContain('lastReviewed: "2026-08-22"');
     const citations = article.split('citations:\n')[1].split('seeAlso:')[0];
-    expect(citations.match(/^  - /gm)).toHaveLength(22);
+    const priorCitations = committedSource('ac65cf4', 'content/data-hardware/industrial-deployment.mdx')
+      .split('citations:\n')[1].split('seeAlso:')[0];
+    expect(priorCitations.match(/^  - /gm)).toHaveLength(22);
+    expect(citations).toBe(priorCitations.replace('  - ohno-tps-1988\n',
+      '  - lei-takt-time-definition\n  - lei-cycle-time-definition\n'));
     expect(citations).toContain('  - nasa-availability-prediction-analysis');
   });
 });

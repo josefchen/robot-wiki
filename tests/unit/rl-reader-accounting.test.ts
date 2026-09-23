@@ -2,6 +2,9 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { parseCorrectedDispositions } from '../../lib/audit-corrected-disposition';
 import {
   AUDIT_LEDGERS,
   parseCompoundPlans,
@@ -11,6 +14,13 @@ import {
 const read = (path: string) => readFileSync(path, 'utf8');
 const plans = parseCompoundPlans(JSON.parse(read('audit/compound-evidence.json')));
 const ids = new Set(CITATIONS.map(c => c.id));
+const localBasis = loadLocalBasisContext(process.cwd(),
+  publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
+const correctedDispositions = {
+  root: process.cwd(),
+  records: parseCorrectedDispositions(JSON.parse(
+    read('audit/evidence/industrial-release-20260923/corrections.json'))),
+};
 const ledgers = AUDIT_LEDGERS.map(ledger => {
   const articleCitations = Object.fromEntries(plans
     .filter(p => p.ledgerPath === ledger.ledgerPath && p.kind === 'frontmatter-p1')
@@ -19,7 +29,7 @@ const ledgers = AUDIT_LEDGERS.map(ledger => {
   return {
     ...ledger,
     sections: parseLedger(ledger.ledgerPath, read(ledger.ledgerPath), ids,
-      { compoundPlans: plans, articleCitations }),
+      { compoundPlans: plans, articleCitations, localBasis, correctedDispositions }),
   };
 });
 
