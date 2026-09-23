@@ -1,6 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { committedSource } from '../helpers/continuation-integration';
 import {
   compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan,
 } from '../../lib/audit-ledger';
@@ -11,8 +14,9 @@ const ledger = readFileSync('audit/data-hardware.md', 'utf8');
 const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
 const selected = ordinals.map(n => plans.find(p => p.ledgerPath === 'audit/data-hardware.md'
   && p.articleSlug === 'industrial-deployment' && p.rowOrdinal === n));
-const parse = (catalog = plans) => parseLedger('audit/data-hardware.md', ledger,
-  new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog })
+const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
+const parse = (catalog = plans, includeLocal = false) => parseLedger('audit/data-hardware.md', ledger,
+  new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog, ...(includeLocal ? { localBasis } : {}) })
   .find(s => s.slug === 'industrial-deployment')!;
 const expectedUrls: Record<string, string> = {
   'symbotic-10k-2025': 'https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm',
@@ -136,9 +140,15 @@ describe('seven Symbotic and A3 industrial originals', () => {
     // Row 8 stays complete. Row 52 retains its genuine correction but is held:
     // the September 17 scalar EVST passage did not prove the authored part.
     expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
-    expect(parse().claimRecords[51].evidenceFailures).toContain(
+    const historical = parseLedger('audit/data-hardware.md',
+      committedSource('9e4441e', 'audit/data-hardware.md'), new Set(CITATIONS.map(c => c.id)),
+      { compoundPlans: plans }).find(s => s.slug === 'industrial-deployment')!;
+    expect(historical.claimRecords[51].evidenceFailures).toContain(
       'Supporting passage must contain the passage actually read, not a locator or placeholder',
     );
+    const current = parse(plans, true).claimRecords[51];
+    expect(current.evidenceFailures).toEqual([]);
+    expect(current.outcome).toBe('passing');
     expect(article).toContain('lastReviewed: "2026-08-22"');
     const citations = article.split('citations:\n')[1].split('seeAlso:')[0];
     expect(citations.match(/^  - /gm)).toHaveLength(22);

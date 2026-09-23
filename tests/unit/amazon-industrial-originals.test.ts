@@ -1,6 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { committedSource } from '../helpers/continuation-integration';
 import { compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 
 const ordinals = [15, 16, 17, 18, 49];
@@ -8,7 +11,8 @@ const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.j
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');
 const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
 const selected = ordinals.map(n => plans.find(p => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'industrial-deployment' && p.rowOrdinal === n));
-const parse = (catalog = plans) => parseLedger('audit/data-hardware.md', ledger, new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog }).find(s => s.slug === 'industrial-deployment')!;
+const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
+const parse = (catalog = plans, includeLocal = false) => parseLedger('audit/data-hardware.md', ledger, new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog, ...(includeLocal ? { localBasis } : {}) }).find(s => s.slug === 'industrial-deployment')!;
 const urls: Record<string, string> = {
   'amazon-sequoia-digit-2023': 'https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions',
   'amazon-robot-fleet-2026': 'https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center',
@@ -115,9 +119,15 @@ describe('five Amazon industrial originals', () => {
     // Row 8 stays complete. EVST is only partial proof for row 52's authored
     // component correction; the named hold was not resolved by September 17.
     expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
-    expect(parse().claimRecords[51].evidenceFailures).toContain(
+    const historical = parseLedger('audit/data-hardware.md',
+      committedSource('9e4441e', 'audit/data-hardware.md'), new Set(CITATIONS.map(c => c.id)),
+      { compoundPlans: plans }).find(s => s.slug === 'industrial-deployment')!;
+    expect(historical.claimRecords[51].evidenceFailures).toContain(
       'Supporting passage must contain the passage actually read, not a locator or placeholder',
     );
+    const current = parse(plans, true).claimRecords[51];
+    expect(current.evidenceFailures).toEqual([]);
+    expect(current.outcome).toBe('passing');
     expect(article).toContain('lastReviewed: "2026-08-22"');
     const citations = article.split('citations:\n')[1].split('seeAlso:')[0];
     expect(citations.match(/^  - /gm)).toHaveLength(22);

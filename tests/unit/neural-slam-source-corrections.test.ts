@@ -141,7 +141,8 @@ describe('source-scoped neural SLAM prose', () => {
     expect(current[9].evidenceFailures).toEqual([]);
     expect(current[9].verdict).toBe('C');
     expect(current[9].compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
-    expect(source).toContain('<span className="block">Source: <Cite id="layered-costmaps-2014" /></span>');
+    expect(source).toContain('<Cite id="layered-costmaps-2014" />.');
+    expect(source).not.toContain('<span className="block">Source: <Cite id="layered-costmaps-2014" /></span>');
     expect(source).toContain('In Section II, Cadena and colleagues separate a sensor-dependent front end');
   });
 });

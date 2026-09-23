@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import {
   originalClaimDigest,
   parseCompoundPlans,
@@ -38,8 +40,9 @@ const articleCitations = Object.fromEntries(
         .data.citations as string[],
     ]),
 );
-const parse = (input = markdown) =>
-  parseLedger(ledgerPath, input, registryIds, { compoundPlans, articleCitations });
+const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
+const parse = (input = markdown, includeLocal = false) =>
+  parseLedger(ledgerPath, input, registryIds, { compoundPlans, articleCitations, ...(includeLocal ? { localBasis } : {}) });
 const industrial = (input = markdown) =>
   parse(input).find(({ slug }) => slug === 'industrial-deployment')!;
 const leadership = (input = markdown) => industrial(input).claimRecords[43];
@@ -132,7 +135,7 @@ describe('industrial deployment original 44: MIT leadership evidence', () => {
   });
 
   it('keeps the native domain summary reconciled without changing recorded verdicts', () => {
-    expect(parse().flatMap(({ summaryFailures }) => summaryFailures)).toEqual([]);
+    expect(parse(markdown, true).flatMap(({ summaryFailures }) => summaryFailures)).toEqual([]);
   });
 });
 

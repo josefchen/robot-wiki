@@ -9,10 +9,12 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '@/lib/brand-v2-baseline';
-import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '90c8a0f4c958c42750711082bfb54960cac7d5e8';
+const checkpoint = '280d8661a49feb16e45ef337e7cb46a794211004';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
   cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
@@ -45,7 +47,7 @@ function approvalBundle(old: boolean): BaselineBundle {
         internalLinks: matches(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g),
       },
     }]),
-  ] : Object.values(collectArticleTruthManifests());
+  ] : readerTruthAt(checkpoint, paths);
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const scaffold = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
     const selected = sources.find(m => m.kind === kind)?.members
@@ -112,14 +114,17 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
   it('preserves frontmatter, citation occurrences, source registry and untouched paragraphs', () => {
     for (const path of paths) {
       const previous = before(path);
-      expect(matter(read(path)).data).toEqual(matter(previous).data);
+      const historical = committedSource(checkpoint, path);
+      expect(matter(historical).data).toEqual(matter(previous).data);
+      expect(matter(read(path)).data).toEqual(matter(committedSource(READER_RELEASE_BASE, path)).data);
       expect(read(path).match(/<Cite\s+id="[^"]+"\s*\/>/g))
         .toEqual(previous.match(/<Cite\s+id="[^"]+"\s*\/>/g));
       const touched = path === paths[0] ? [28, 36, 47, 63] : [63];
       const omit = (text: string) => text.split('\n').filter((_line, i) => !touched.includes(i + 1));
-      expect(omit(read(path))).toEqual(omit(previous));
+      expect(omit(historical)).toEqual(omit(previous));
     }
-    expect(read('data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(read('data/citations.ts')).toBe(committedSource(READER_RELEASE_BASE, 'data/citations.ts'));
   });
 
   it('preserves native original four cells and every typed plan/proof dependency', () => {
@@ -131,7 +136,7 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     expect(current.map(s => s.claimRecords.map(originalClaimDigest)))
       .toEqual(prior.map(s => s.claimRecords.map(originalClaimDigest)));
     expect(read('audit/compound-evidence.json')).toBe(before('audit/compound-evidence.json'));
-    expect(read('audit/local-basis.json')).toBe(before('audit/local-basis.json'));
+    expect(committedSource(checkpoint, 'audit/local-basis.json')).toBe(before('audit/local-basis.json'));
     const catalog = JSON.parse(read('audit/local-basis.json'));
     expect(catalog.plans).toHaveLength(7);
     expect(catalog.proofs).toHaveLength(56);
@@ -140,7 +145,7 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
 
   it('appends only three exact native member approvals without resetting the baseline', () => {
     const path = 'contract/brand-v2-approved-deltas.json';
-    const current: ApprovedDelta[] = JSON.parse(read(path)).entries;
+    const current = preservedApprovalPacket(checkpoint);
     const prior: ApprovedDelta[] = JSON.parse(before(path)).entries;
     expect(current.slice(0, prior.length)).toEqual(prior);
     expect(current.slice(prior.length).map(a => [a.manifest, a.memberId])).toEqual(members);

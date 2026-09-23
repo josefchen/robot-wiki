@@ -220,7 +220,9 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
 
   it('preserves every other native data-hardware record and completed license pair', () => {
     const old = parse(oldPlans, before(ledgerPath));
-    for (const section of parse()) {
+    const historicalPlans: CompoundPlan[] = JSON.parse(atDisclosure('audit/compound-evidence.json'));
+    const historical = parse(historicalPlans, atDisclosure(ledgerPath));
+    for (const section of historical) {
       const previous = old.find(s => s.slug === section.slug)!;
       for (const [i, record] of section.claimRecords.entries()) {
         if (section.slug !== 'datasets' || i !== 9) expect(record).toEqual(previous.claimRecords[i]);

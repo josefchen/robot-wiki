@@ -107,8 +107,10 @@ describe('four bounded local truth repairs without completion credit', () => {
     expect(record.note).toContain('i.e. +2.3%');
     expect(hash(read('lib/deployment-economics.ts')))
       .toBe('ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e');
-    expect(hash(read('components/interactive/deployment-economics.tsx')))
+    expect(hash(committedSource('d928b6b', 'components/interactive/deployment-economics.tsx')))
       .toBe('0e982f1dde7f8be7fb5c1d70bda395dc80c403fbdda210b703a45d2870bf6756');
+    expect(read('components/interactive/deployment-economics.tsx'))
+      .toBe(committedSource('358f505', 'components/interactive/deployment-economics.tsx'));
   });
 
   it('acknowledges the known goal and states the actual sampling probability', () => {

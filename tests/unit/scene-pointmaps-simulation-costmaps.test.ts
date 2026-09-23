@@ -87,7 +87,8 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
       'Sensed obstacles may overwrite static-map costs if configured',
     ]) expect(definition.definition).toContain(text);
     for (const id of ['dust3r-2024', 'splatsim-2024', 'robogsim-2024', 'layered-costmaps-2014']) {
-      expect(article).toContain(`<span className="block">Source: <Cite id="${id}" /></span>`);
+      expect(article).toContain(`<Cite id="${id}" />.`);
+      expect(article).not.toContain(`<span className="block">Source: <Cite id="${id}" /></span>`);
     }
     expect(definition.definition).not.toContain('introduced the layered form now standard');
     expect(definition.citations).toEqual(['layered-costmaps-2014', 'nav2-2020']);

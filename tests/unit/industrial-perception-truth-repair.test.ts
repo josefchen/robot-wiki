@@ -87,8 +87,10 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     expect(industrial).not.toContain("capital plus running cost over its lifetime of good picks");
     expect(hash(read('lib/deployment-economics.ts')))
       .toBe('ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e');
-    expect(hash(read('components/interactive/deployment-economics.tsx')))
+    expect(hash(committedSource('a4381e8', 'components/interactive/deployment-economics.tsx')))
       .toBe('0e982f1dde7f8be7fb5c1d70bda395dc80c403fbdda210b703a45d2870bf6756');
+    expect(read('components/interactive/deployment-economics.tsx'))
+      .toBe(committedSource('358f505', 'components/interactive/deployment-economics.tsx'));
   });
 
   it('does not register an invented LEI year or apply held cycle/takt changes', () => {

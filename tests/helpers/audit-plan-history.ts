@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { expect } from 'vitest';
 import { sha256 } from '../../lib/brand-v2-baseline';
@@ -40,7 +41,21 @@ export function preservedLegacySurvivors(
   const priorIds = new Set(prior.map(p => p.id));
   expect(priorIds.size).toBe(prior.length);
   expect(new Set(current.map(p => p.id)).size).toBe(current.length);
-  expect(current.filter(p => priorIds.has(p.id))).toEqual(prior.filter(p => !migratedIds.has(p.id)));
+  const robomindId = 'datasets-10-robomind-20260916c';
+  const hoursCheckpoint: CompoundPlan[] = JSON.parse(execFileSync('git', [
+    'show', 'f2cae9e5983a2e4f686adec4f37c3b26e4b67e74:audit/compound-evidence.json',
+  ], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 }));
+  const hours = hoursCheckpoint.find(p => p.id === robomindId)!;
+  const history = JSON.parse(read('audit/data-hardware.md').toString()
+    .split('## RoboMIND hours correction: preserved prior complete state (2026-09-23)')[1]
+    .split('```json\n')[1].split('\n```')[0]);
+  const survivors = prior.filter(p => !migratedIds.has(p.id)).map(plan => {
+    if (plan.id !== robomindId || JSON.stringify(plan) === JSON.stringify(hours)) return plan;
+    expect(plan).toEqual(history.compoundPlan);
+    expect(current.find(p => p.id === robomindId)).toEqual(hours);
+    return hours;
+  });
+  expect(current.filter(p => priorIds.has(p.id))).toEqual(survivors);
 }
 
 export function planPacket<T extends { id: string }>(plans: T[], ids: readonly string[]): T[] {

@@ -13,10 +13,13 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, isRenderedValueStateTokenAt, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '../../lib/brand-v2-baseline';
-import { collectArticleTruthManifests, valueStateRenderSites } from '../../scripts/brand-v2-baseline';
+import { valueStateRenderSites } from '../../scripts/brand-v2-baseline';
+import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '358f5050333386606f041505613e4a65d90dc703';
+const checkpoint = 'f2cae9e5983a2e4f686adec4f37c3b26e4b67e74';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
   cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
@@ -79,12 +82,7 @@ function hoursApprovalBundle(old: boolean): BaselineBundle {
       },
     }]),
     buildManifest('value-states', historicalStates),
-  ] : [
-    ...Object.values(collectArticleTruthManifests()),
-    buildManifest('value-states', valueStateRenderSites().map(({ id, state, rendered }) => ({
-      id, value: { id, state, rendered },
-    }))),
-  ];
+  ] : readerTruthAt(checkpoint, [articlePath, adjacentPath]);
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const scaffold = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
     const members = sources.find(m => m.kind === kind)?.members.filter(m =>
@@ -152,18 +150,23 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
   });
 
   it('changes only the real-world qualifier in the adjacent article', () => {
-    expect(read(adjacentPath)).toBe(before(adjacentPath).replace(
+    expect(committedSource(checkpoint, adjacentPath)).toBe(before(adjacentPath).replace(
       'Robot data is different. Every hour of it',
       'Real-world robot data is different. Every hour of it',
     ));
-    expect(matter(article).data).toEqual(matter(before(articlePath)).data);
-    expect(read('data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(read(adjacentPath)).toBe(committedSource(READER_RELEASE_BASE, adjacentPath).replace(
+      'Robot data is different. Every hour of it',
+      'Real-world robot data is different. Every hour of it',
+    ));
+    expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
+    expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(read('data/citations.ts')).toBe(committedSource(READER_RELEASE_BASE, 'data/citations.ts'));
   });
 
   it('preserves the complete licensing disclosure and unknown durations elsewhere', () => {
     const licensing = 'The inspected public card displays an Apache-2.0 license badge';
     expect(article.slice(article.indexOf(licensing))).toBe(
-      before(articlePath).slice(before(articlePath).indexOf(licensing)),
+      committedSource(READER_RELEASE_BASE, articlePath).slice(committedSource(READER_RELEASE_BASE, articlePath).indexOf(licensing)),
     );
     for (const id of ['open-x-embodiment', 'bridgedata-v2', 'agibot-world-2026']) {
       expect(DATASETS.find(d => d.id === id)!.hours).toBeNull();
@@ -201,7 +204,7 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(saved.currentTupleDigest).toBe('ff9aa17f614941b79f89d3e891450e886b7bd2d257bc64a579afc6157cc838b4');
     expect(originalClaimDigest(saved.currentCells)).toBe(saved.currentTupleDigest);
     expect(plans.filter(p => p.id !== planId)).toEqual(oldPlans.filter(p => p.id !== planId));
-    expect(read('audit/local-basis.json')).toBe(before('audit/local-basis.json'));
+    expect(committedSource(checkpoint, 'audit/local-basis.json')).toBe(before('audit/local-basis.json'));
   });
 
   it('preserves all other data-hardware rows, including data-bottleneck holds 3/5 and row6', () => {
@@ -219,19 +222,19 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
 
   it('appends only four exact native member approvals to the unchanged prefix', () => {
     const path = 'contract/brand-v2-approved-deltas.json';
-    const approvals: ApprovedDelta[] = JSON.parse(read(path)).entries;
+    const approvals = preservedApprovalPacket(checkpoint);
     const prior: ApprovedDelta[] = JSON.parse(before(path)).entries;
     const added = approvals.slice(prior.length);
     expect(approvals.slice(0, prior.length)).toEqual(prior);
     expect(added).toHaveLength(4);
-    const truth = collectArticleTruthManifests();
+    const truth = readerTruthAt(checkpoint, [articlePath, adjacentPath]);
     const endpoints = [
       ['prose', 'article:data-hardware/data-bottleneck', '432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f'],
       ['prose', 'article:data-hardware/datasets', '5a1230749a17bbf0ece78558d70f3edc0d4ef319efdc8ea159771894d4bdacf6'],
       ['relationships', 'article:data-hardware/datasets', '8ea748667d9ecc23e4d178a9a1f9dcf5ec22aedf104d3bc16b4f4f4cccddbcaf'],
     ];
     for (const [kind, memberId, oldHash] of endpoints) {
-      const manifest = Object.values(truth).find(m => m.kind === kind)!;
+      const manifest = truth.find(m => m.kind === kind)!;
       expect(added.find(a => a.manifest === kind && a.memberId === memberId)).toMatchObject({
         oldHash, newHash: manifest.members.find(m => m.id === memberId)!.hash,
       });
