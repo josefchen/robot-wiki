@@ -9,7 +9,10 @@ import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger,
   type CompoundPlan,
 } from '../../lib/audit-ledger';
-import { sha256, type ApprovedDelta } from '../../lib/brand-v2-baseline';
+import {
+  BASELINE_KINDS, buildManifest, compareBaseline, isRenderedValueStateTokenAt, sha256,
+  type ApprovedDelta, type BaselineBundle,
+} from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests, valueStateRenderSites } from '../../scripts/brand-v2-baseline';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -30,6 +33,77 @@ const ids = new Set(CITATIONS.map(c => c.id));
 const row = (catalog = plans) => parseLedger(ledgerPath, read(ledgerPath), ids, {
   compoundPlans: catalog, articleCitations: { datasets: matter(article).data.citations },
 }).find(s => s.slug === 'datasets')!.claimRecords[9];
+const approvalMembers = [
+  ['prose', 'article:data-hardware/data-bottleneck'],
+  ['prose', 'article:data-hardware/datasets'],
+  ['relationships', 'article:data-hardware/datasets'],
+  ['value-states', 'state-site:content/data-hardware/datasets.mdx:not-disclosed:6'],
+] as const;
+
+// Reconstruct only this transaction's four members from real base Git bytes.
+// Historical TypeScript is never imported or executed.
+function hoursApprovalBundle(old: boolean): BaselineBundle {
+  const articles = [articlePath, adjacentPath].map(path => ({
+    path, parsed: matter(before(path)),
+  }));
+  const datasetArticle = articles.find(a => a.path === articlePath)!.parsed;
+  const matches = (pattern: RegExp) =>
+    [...datasetArticle.content.trim().matchAll(pattern)].map(m => m[1]).sort();
+  const historicalStates = [];
+  const source = before(articlePath);
+  const rendered = 'not disclosed';
+  let offset = 0;
+  let ordinal = 0;
+  while ((offset = source.indexOf(rendered, offset)) !== -1) {
+    ordinal += 1;
+    if (isRenderedValueStateTokenAt(source, rendered, offset)) {
+      const value = {
+        id: `state-site:${articlePath}:not-disclosed:${ordinal}`,
+        state: 'not-disclosed', rendered,
+      };
+      historicalStates.push({ id: value.id, value });
+    }
+    offset += rendered.length;
+  }
+  const sources = old ? [
+    buildManifest('prose', articles.map(({ path, parsed }) => ({
+      id: `article:${path.slice(8, -4)}`, value: { path, body: parsed.content.trim() },
+    }))),
+    buildManifest('relationships', [{
+      id: 'article:data-hardware/datasets',
+      value: {
+        seeAlso: datasetArticle.data.seeAlso,
+        citations: matches(/<Cite\s+id=["']([^"']+)["']/g),
+        terms: matches(/<Term\s+id=["']([^"']+)["']/g),
+        internalLinks: matches(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g),
+      },
+    }]),
+    buildManifest('value-states', historicalStates),
+  ] : [
+    ...Object.values(collectArticleTruthManifests()),
+    buildManifest('value-states', valueStateRenderSites().map(({ id, state, rendered }) => ({
+      id, value: { id, state, rendered },
+    }))),
+  ];
+  const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
+    const scaffold = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
+    const members = sources.find(m => m.kind === kind)?.members.filter(m =>
+      approvalMembers.some(([k, id]) => k === kind && id === m.id)) ?? [];
+    return [kind, { ...scaffold, members, memberCount: members.length }];
+  })) as BaselineBundle['manifests'];
+  return {
+    schemaVersion: 1, source: { commit: base, tree: '', trackedWorktreeClean: false },
+    tools: { node: '', npm: '', playwright: '', next: '', typescript: '', vitest: '', lockfileSha256: '' },
+    manifests,
+    manifestRoots: Object.fromEntries(BASELINE_KINDS.map(k => [k, manifests[k].rootHash])) as BaselineBundle['manifestRoots'],
+    rootHash: '',
+  };
+}
+
+const beforeApprovalBundle = hoursApprovalBundle(true);
+const currentApprovalBundle = hoursApprovalBundle(false);
+const hoursApprovals: ApprovedDelta[] = JSON.parse(read('contract/brand-v2-approved-deltas.json'))
+  .entries.filter((a: ApprovedDelta) => a.id.startsWith('robomind-hours-20260923-'));
 
 function assertScope(dataset: Dataset, text: string) {
   expect(dataset.hours).toBe(305.5);
@@ -169,6 +243,21 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
       oldHash: 'b968a22d24734d899622a6b9b4eb848ef084ffefd853cb6df81829ca8ed0e5f9',
       newHash: sha256('missing'),
     });
+    expect(compareBaseline(beforeApprovalBundle, currentApprovalBundle, hoursApprovals).ok).toBe(true);
+  });
+
+  it.each(approvalMembers)('rejects missing or mutated hours approval for %s / %s', (kind, memberId) => {
+    expect(compareBaseline(beforeApprovalBundle, currentApprovalBundle, hoursApprovals).ok).toBe(true);
+    const matching = hoursApprovals.filter(a => a.manifest === kind && a.memberId === memberId);
+    expect(matching).toHaveLength(1);
+    const approval = matching[0];
+    expect(compareBaseline(beforeApprovalBundle, currentApprovalBundle,
+      hoursApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
+    for (const endpoint of ['oldHash', 'newHash'] as const) {
+      const mutated = hoursApprovals.map(a => a.id === approval.id
+        ? { ...a, [endpoint]: sha256('wrong endpoint') } : a);
+      expect(compareBaseline(beforeApprovalBundle, currentApprovalBundle, mutated).ok).toBe(false);
+    }
   });
 
   it.each([
