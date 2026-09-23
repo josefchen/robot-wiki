@@ -10,13 +10,12 @@
  *    Tobin (1703.06907) and Peng (1710.06537) motivate visual and dynamics
  *    randomization, not these values, curve shapes or a universal cost.
  *
- * 2. Teacher-student privileged distillation. A deterministic terrain
- *    heightfield plays the role of the teacher's privileged observation; the
- *    student reconstructs it from a proprioceptive history that degrades
- *    under noise and occlusion. The reconstruction error and the resulting
- *    teacher-student action divergence are strictly increasing in the
- *    degradation control by construction, mirroring the information gap
- *    due to input mismatch named in the Isaac Lab paper (arXiv:2511.04831).
+ * 2. Teacher-student illustration: chosen terrain, seeded noise and dropout
+ *    thresholds. Reconstruction is computed directly from terrain plus an
+ *    authored error field, not inferred from the displayed input strip.
+ *    MAE and the 2.2*MAE normalized discrepancy increase by construction.
+ *    No policies are trained or compared. Isaac Lab (arXiv:2511.04831)
+ *    supplies input-mismatch context, not these constants or an error floor.
  *
  * Determinism: no Math.random anywhere; pseudo-random fields come from a
  * seeded LCG at module load, and all rendered values are rounded so SSR HTML
@@ -214,9 +213,8 @@ export function reconstructionMae(degradation: number): number {
 }
 
 /**
- * Teacher-student action divergence, in normalized action units. State
- * estimation error maps to action error: the student acts on a wrong belief
- * about what is under the feet. Strictly increasing in degradation.
+ * Authored discrepancy in normalized units: 2.2 times reconstruction MAE.
+ * Strictly increasing by construction, not a measured policy-action error.
  */
 export function actionDivergence(degradation: number): number {
   return reconstructionMae(degradation) * 2.2;

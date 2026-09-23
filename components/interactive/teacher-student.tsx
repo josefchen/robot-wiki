@@ -18,20 +18,11 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * TeacherStudent: the information gap due to input mismatch in privileged
- * distillation, made visible. Three stacked panels share one terrain:
- *
- * - teacher: the privileged heightfield under the feet (what the simulator
- *   tells the teacher policy),
- * - student input: a recent history of proprioceptive readings, which noise
- *   and occlusion degrade as the control rises,
- * - reconstruction: the student's estimate of the terrain built from that
- *   history, converging to the teacher's map at zero degradation and
- *   blurring apart as the input degrades.
- *
- * A numeric teacher-student action-divergence readout rises monotonically
- * with the degradation control, matching the Isaac Lab finding that the
- * student must reconstruct unobserved state and degrades under occlusion.
+ * TeacherStudent: an authored illustration motivated by input mismatch.
+ * Three panels draw chosen terrain, normalized terrain plus seeded noise,
+ * and terrain plus a constructed error field. Reconstruction does not
+ * infer terrain from the input bars. No teacher or student is trained;
+ * the discrepancy readout is 2.2*MAE, not a paper's empirical result.
  *
  * Interactive contract: deterministic initial render, native range input
  * (keyboard-accessible), visible monospace readouts, reset control, fixed
@@ -277,13 +268,13 @@ export function TeacherStudent({
         ]}
       />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Brighter cells are higher terrain; the teacher sees them directly. The
-        student sees only the bar strip: joint positions, velocities, and
-        contact events over a short history. At zero degradation its
-        reconstruction matches the teacher&apos;s map and the two policies
-        agree. As noise and occlusion rise, the reconstruction blurs, the
-        student&apos;s belief about what is under the feet drifts, and its
-        actions diverge from the privileged teacher&apos;s.
+        Darker cells are higher terrain. This deterministic toy draws chosen
+        terrain, normalized terrain readings with seeded noise, and a
+        reconstruction computed from terrain plus authored errors. The input
+        strip is not recorded robot sensing. At zero degradation the
+        reconstruction is exact; increasing degradation raises the errors by
+        construction. The action-divergence label denotes 2.2 times MAE, not
+        measured actions from trained policies.
       </p>
     </div>
   );

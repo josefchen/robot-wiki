@@ -1,3 +1,13 @@
+## Current checkpoint: sim2real raw evidence, both originals still held (2026-09-23)
+
+**0 completed / 2 held / 0 unattempted** for sim2real-transfer originals23/24. Counts remain **963 complete / 31 incomplete / 994**, RL162/5/167; 44 ledger findings, zero citation findings/summary mismatches. The native output is byte-identical to the reward checkpoint. All 994 records, 963 prior completions, 860 legacy plans, 3 typed reward plans and 1039 approvals survive. Earlier checkpoints below are historical.
+
+Teacher prose/caption now distinguish chosen terrain/noise and the 2.2*MAE discrepancy from learned reconstruction or an empirical distillation floor; darker cells are correctly described as higher terrain. Calculations, controls and geometry are unchanged. Five retained primary bodies and their original provenance were verified (zero new requests), six independent numerical cases checked, both friction mounts including distinct resets observed, and teacher default→1→0→reset observed. These are **raw preparation artifacts, not typed audit proofs or adjudication**. Both ledger rows remain held. Strict native packaging, whole-AND semantic reviews, exact approvals and row integration remain required.
+
+37 unit/component cases pass. The coupled market-map Eureka-heading assertion is repaired and its narrow browser test passes. One new-browser locator failure is retained; failure-only retry passes. Final types/lint and scoped MDX/citation/no-slop checks pass. 14 PNG/DOM pairs retained, four images manually inspected; desktop/mobile main-content Axe zero. Exact commands, outcomes, limitations, source provenance and follow-ups are recorded in the final sim2real checkpoint section of `audit/rl-sim2real.md`. Evidence: `audit/evidence/sim2real-local-20260923/`. Content gate remains red; no publication, independent acceptance or lastReviewed bump.
+
+---
+
 ## Current checkpoint: first three authored-local reward integrations (2026-09-23)
 
 Exactly **3 applied / 0 held / 0 unattempted**: reward-design-mpc originals **4, 5 and 11** in `audit/rl-sim2real.md`. Native structural accounting is **963 complete / 31 incomplete / 994 originals**, 47 articles; RL is **162 complete / 5 incomplete / 167 rows**. Earlier checkpoints below are historical. Structural completeness is not empirical certification, whole-article cleanliness or independent acceptance.
