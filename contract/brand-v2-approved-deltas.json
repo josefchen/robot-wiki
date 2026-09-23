@@ -19110,6 +19110,78 @@
      "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
+   },
+   {
+    "id": "reader-f20-dates-20260923-1",
+    "manifest": "article-metadata",
+    "memberId": "article-fact-frontmatter:data-hardware/hardware-taxonomy",
+    "oldHash": "f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01",
+    "newHash": "7a2505538715b08e772608601254107f142790eeb91b344ac37db8e11d43455b",
+    "reason": "F20 reader date precision: add the source-stated July 9, 2026 announcement year and the existing registered 1x-world-model-lab-2026 citation plus declaration. Retained official related-post date, not a product-page date; no shipping or like-for-like joint-count claim. Existing citations and lastReviewed preserved.",
+    "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-004",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-f20-dates-20260923-2",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/hardware-taxonomy",
+    "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+    "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af",
+    "reason": "F20 reader date precision: add the source-stated July 9, 2026 announcement year and the existing registered 1x-world-model-lab-2026 citation plus declaration. Retained official related-post date, not a product-page date; no shipping or like-for-like joint-count claim. Existing citations and lastReviewed preserved.",
+    "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-004",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-f20-dates-20260923-3",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+    "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f",
+    "reason": "F20 reader tally precision: relabel the existing greater-than $23B Stat as raised by early June 2026, matching its unchanged note and cited body. Preserve amount, lower bound and attribution; no final H1 total or new source certification.",
+    "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-006",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+   },
+   {
+    "id": "reader-f20-dates-20260923-4",
+    "manifest": "relationships",
+    "memberId": "article:data-hardware/hardware-taxonomy",
+    "oldHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b",
+    "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598",
+    "reason": "F20 reader date precision: add the source-stated July 9, 2026 announcement year and the existing registered 1x-world-model-lab-2026 citation plus declaration. Retained official related-post date, not a product-page date; no shipping or like-for-like joint-count claim. Existing citations and lastReviewed preserved.",
+    "ownerApproval": "Direct owner-authorized sole-writer F20 follow-up dispatch on 2026-09-23 in Mission mis_2b1673fa, over Josef fix-it-all authority; exact two prepared reader corrections and citation companion only, no ledger promotion or independent acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+     "VAL-B2-BASE-002",
+     "VAL-B2-BASE-010",
+     "VAL-B2-ART-010",
+     "VAL-AUDIT-004",
+     "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
    }
   ]
 }
