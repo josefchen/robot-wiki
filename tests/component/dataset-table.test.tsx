@@ -64,6 +64,15 @@ describe('DatasetTable', () => {
     expect(oxeCells.some((c) => c.textContent === 'not disclosed')).toBe(true);
   });
 
+  it('discloses RoboMIND release-specific license uncertainty without inventing permission', () => {
+    render(<DatasetTable />);
+    const row = rowNamed('RoboMIND') as HTMLElement;
+    const cells = within(row).getAllByRole('cell');
+    expect(cells[7].textContent).toBe('not disclosed');
+    expect(cells[2]).toHaveTextContent('card versions 1.1/1.2');
+    expect(cells[7]).not.toHaveTextContent(/CC BY|Apache|n\/a/);
+  });
+
   it('carries at least one external source link per row (VAL-DATA-010)', () => {
     render(<DatasetTable />);
     for (const row of bodyRows()) {
@@ -148,10 +157,13 @@ describe('DatasetTable', () => {
     let headerCell = screen.getByRole('columnheader', { name: /episodes/i });
     expect(headerCell).toHaveAttribute('aria-sort', 'descending');
     const episodes = () =>
-      bodyRows().map(
-        (row) => within(row).getAllByRole('cell')[2].textContent ?? '',
-      );
-    // Leading grouped count only; note text under the number carries digits.
+      bodyRows().map((row) => {
+        const cell = within(row).getAllByRole('cell')[2];
+        // Read the count's own text node, not the adjacent qualifier: a
+        // digit-leading release note must not become part of the number.
+        return cell.firstElementChild?.firstChild?.textContent ?? '';
+      });
+    // Leading grouped count only; the separate note can also start with digits.
     const known = () =>
       episodes()
         .map((text) => text.match(/^([\d,]+)/)?.[1])

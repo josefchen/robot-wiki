@@ -64948,42 +64948,62 @@
   "ledgerPath": "audit/data-hardware.md",
   "articleSlug": "datasets",
   "rowOrdinal": 10,
-  "originalCellsDigest": "66ef45e82775c5a3fe0f5f87391a6d6bf4b450b8917a26859ee7251403f11c0e",
+  "originalCellsDigest": "ff9aa17f614941b79f89d3e891450e886b7bd2d257bc64a579afc6157cc838b4",
   "kind": "explicit-parts",
   "parts": [
     {
       "id": "ds10-counts-and-robots",
-      "text": "RoboMIND contains 107k demonstration trajectories across 479 diverse tasks involving 96 object classes, collected on a unified platform under a standardized protocol across four embodiments: Franka Emika Panda, UR5e, AgileX dual-arm robot, and a humanoid robot with dual dexterous hands (the v3 full text names it X-Humanoid Tien Kung).",
+      "text": "The inspected RoboMIND paper reports 107k demonstration trajectories across 479 tasks and 96 object classes, collected through a unified platform and standardized protocol across Franka Emika Panda, UR5e, AgileX dual-arm and a humanoid with dual dexterous hands; its v3 text names Tien Kung.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
     },
     {
       "id": "ds10-failures-and-twin",
-      "text": "The dataset includes 5k real-world failure demonstrations each accompanied by detailed causes, and a digital twin of the tasks and assets was created in the Isaac Sim simulator for additional data collection and evaluation.",
+      "text": "The paper reports 5k real-world failure demonstrations with detailed causes and an Isaac Sim digital twin replicating real-world tasks and assets for additional collection and evaluation.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
     },
     {
-      "id": "ds10-license-held",
-      "text": "HELD PART (not evidenced this session): the CC BY-NC-SA 4.0 data license. The abs page (the row's stated basis) prints no data license today, the full text prints none, the official project site prints none, and the HF dataset page is gated. The element keeps its 2026-08-09 prior verification and is not certified here.",
+      "id": "ds10-release-scope",
+      "text": "The inspected public card groups 107K/479/96 under Version 1.1 & 1.2, separately describes initial v1.0 and announces v2.0. The paper's first-submission and v3 dates are paper dates, not established dataset release dates.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-published-badge-and-access",
+      "text": "The public card retrieved on 21 September 2026 displays an Apache-2.0 license badge and states that access requires acceptance of conditions and sharing contact information. Its visible text can be read without claiming that those conditions or gated files were inspected.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-license-disclosure",
+      "text": "For the 107k release grouped under v1.1/v1.2, release-specific data terms are not disclosed in the inspected public card; it does not explicitly bind the badge to those data releases or separately state code/model terms, and the gated conditions were not inspected. Report the visible badge and this exact scope of uncertainty, not a CC BY-NC-SA grant, an Apache data grant, global absence, closed status or legal conclusion.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
     }
   ],
   "planReview": {
-    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-    "rationale": "Packet record datasets:10 (ready-evidence-completion with one held element) reviewed: the seven paper-backed elements needle-verified against sources/robomind-abs.html (all counts, the four-embodiment list, 5k failures, Isaac Sim twin). The license part stays unresolved: abs prints only arXiv boilerplate, the v3 full text prints the arXiv perpetual license, the official project site (fetched 200) prints no license, and the HF page is gated (401); the 2026-08-09 stated basis does not reproduce. Article span annotated, not certified.",
-    "planDigest": "89f762ea560c47b891cacb20e6ae932e8ff2b5129fea273be27d33316114a3c7"
+    "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
+    "rationale": "Reviewed all five parts and all nine paired external evidence items against the preserved document context from the source-preparation role, with exact source identities rechecked at application. Retains counts/robots/protocol and failures/Isaac Sim in full. The card supplies the combined v1.1/v1.2 scope, separately describes v1.0 and announces v2.0, displays Apache-2.0 and states access conditions. Neither badge nor paper license is a dataset/code/model grant. The complete returned card does not explicitly bind its badge to these data releases; that is a source-scoped review finding, not a fabricated quote or global absence. Owner September 23 authorizes a truthful disclosure, not settled permission. All scientific AND release/disclosure parts are required. Noncontiguous literal excerpts in a paired item are separated with [...]; retrieval dates remain historical. This is agent source review, not independent Sol/high or release acceptance.",
+    "planDigest": "4f094e368c8d603c73dc146f18f2603dd38a836400f061369bef716cbf38b1af"
   },
   "evidence": [
     {
       "partId": "ds10-counts-and-robots",
       "citationId": "robomind-2024",
       "sourceUrl": "https://arxiv.org/abs/2412.13877",
-      "supportingPassage": "In this paper, we introduce RoboMIND (Multi-embodiment Intelligence Normative Data for Robot Manipulation), a dataset containing 107k demonstration trajectories across 479 diverse tasks involving 96 object classes. [...] RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the UR5e, the AgileX dual-arm robot, and a humanoid robot with dual dexterous hands."
+      "supportingPassage": "In this paper, we introduce RoboMIND (Multi-embodiment Intelligence Normative Data for Robot Manipulation), a dataset containing 107k demonstration trajectories across 479 diverse tasks involving 96 object classes. RoboMIND is collected through human teleoperation and encompasses comprehensive robotic-related information, including multi-view observations, proprioceptive robot state information, and linguistic task descriptions. To ensure data consistency and reliability for imitation learning, RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the UR5e, the AgileX dual-arm robot, and a humanoid robot with dual dexterous hands."
+    },
+    {
+      "partId": "ds10-counts-and-robots",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/html/2412.13877",
+      "supportingPassage": "To ensure data consistency and reliability for imitation learning, RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the X-Humannoid Tien Kung humanoid robot with dual dexterous hands, the AgileX dual-arm robot, and the UR5e."
     },
     {
       "partId": "ds10-failures-and-twin",
@@ -64992,33 +65012,77 @@
       "supportingPassage": "Our dataset also includes 5k real-world failure demonstrations, each accompanied by detailed causes, enabling failure reflection and correction during policy learning. Additionally, we created a digital twin environment in the Isaac Sim simulator, replicating the real-world tasks and assets, which facilitates the low-cost collection of additional training data and enables efficient evaluation."
     },
     {
-      "partId": "ds10-license-held",
+      "partId": "ds10-release-scope",
       "citationId": "robomind-2024",
       "sourceUrl": "https://arxiv.org/abs/2412.13877",
-      "supportingPassage": "NO PASSAGE FETCHABLE THIS SESSION: the abs page prints only arXiv license boilerplate; the full text v3 prints 'License: arXiv.org perpetual non-exclusive license'; the project site (x-humanoid-robomind.github.io, fetched 200, 2026-09-16T04:13:58Z) prints no license; the HF dataset page returns 401 (gated). Held on the 2026-08-09 prior verification; not certified."
+      "supportingPassage": "[Submitted on 18 Dec 2024 ( v1 ), last revised 27 May 2025 (this version, v3)]"
+    },
+    {
+      "partId": "ds10-release-scope",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND",
+      "supportingPassage": "### Version 1.1 & 1.2\n\nCompared to Version 1.0, we further expanded the dataset, which now includes 107K trajectories, 479 tasks, and covers 96 different object classes.\n\nIn version 1.2, we added 10 tasks of Upright\\_Cup data to Version 1.1, including 1 real-world task and 9 tasks from the digital twin environment. The goal of these 10 tasks is to flip a mug, but they involve different environmental settings, such as the range of mug placement, table textures, and mug appearances.\n\n[...]\n\n### Version 1.0\n\nThe initial version of RoboMIND contains 55K trajectories, and 279 tasks, and involves 69 different object classes.\n\n[...]\n\nWe're excited to announce the release of **RoboMIND V2.0**!"
+    },
+    {
+      "partId": "ds10-release-scope",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://x-humanoid-robomind.github.io/",
+      "supportingPassage": "We're excited to announce the release of RoboMIND V2.0. Access the complete RoboMIND V2.0 collection on ModelScope"
+    },
+    {
+      "partId": "ds10-published-badge-and-access",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND",
+      "supportingPassage": "[![License](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)[![Project Page](https://img.shields.io/badge/Project%20Page-RoboMIND-blue.svg)](https://x-humanoid-robomind.github.io/)[![Dataset](https://img.shields.io/badge/Dataset-flopsera-000000.svg)](https://www.beaicloud.com/datasets/datasetDetail?path=%2Fdata-detail%2F21181956226031626&type=open)[![Hugging Face](https://img.shields.io/badge/Hugging_Face-RoboMIND-000000.svg)](https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND)[![arXiv](https://img.shields.io/badge/arXiv-2412.13877-red.svg?style=flat-square)](https://arxiv.org/abs/2412.13877)\n\n[...]\n\n## You need to agree to share your contact information to access this dataset\n\nThis repository is publicly accessible, but you have to accept the conditions to access its files and content.\n\n[Log in](https://huggingface.co/login?next=/datasets/x-humanoid-robomind/RoboMIND) or [Sign Up](https://huggingface.co/join?next=/datasets/x-humanoid-robomind/RoboMIND) to review the conditions and access this dataset content."
+    },
+    {
+      "partId": "ds10-license-disclosure",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND",
+      "supportingPassage": "[![License](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)\n\n[...]\n\nThis repository is publicly accessible, but you have to accept the conditions to access its files and content."
+    },
+    {
+      "partId": "ds10-license-disclosure",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/html/2412.13877",
+      "supportingPassage": "License: arXiv.org perpetual non-exclusive license arXiv:2412.13877v3 [cs.RO] 27 May 2025"
     }
   ],
   "adjudications": [
     {
       "partId": "ds10-counts-and-robots",
       "outcome": "supported",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Supported: the abstract prints 107k trajectories / 479 tasks / 96 object classes and the four-embodiment list (Franka Emika Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands); the v3 full text names the humanoid Tien Kung.",
-      "evidenceDigest": "96d765e4711a5f62c7acfad8356d172cc6edb13b6e636cbca5ef03c602654a81"
+      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
+      "rationale": "Actual retained abstract supports every original count, embodiment and collection-protocol conjunct. Actual v3 HTML names Tien Kung. Keep 107k source precision and do not add the card's stronger all-real-world characterization to the whole current row. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
+      "evidenceDigest": "07df828971e754124420714d7c01800d494a2ec5940fcf79a1c3cf834a8e0a3f"
     },
     {
       "partId": "ds10-failures-and-twin",
       "outcome": "supported",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Supported: the abstract prints the 5k real-world failure demonstrations with detailed causes and the Isaac Sim digital twin replicating real-world tasks and assets.",
-      "evidenceDigest": "67d0039099118c7def52f3e6243a4c7a0556cd58170cdf2b3a2baaea3dcfccbc"
+      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
+      "rationale": "The two contiguous abstract sentences support all failure-data and Isaac Sim conjuncts. This does not certify the adjacent article's comparative claim that failure data is nearly absent elsewhere. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
+      "evidenceDigest": "73f53d27f36e54aac302460b6efdf4f48cfa96173eb5f7dc14d3743d6441629d"
     },
     {
-      "partId": "ds10-license-held",
-      "outcome": "unresolved",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "UNRESOLVED, held: the CC BY-NC-SA 4.0 element's stated basis (abs page) does not reproduce - abs prints only arXiv boilerplate, the v3 full text prints \"License: arXiv.org perpetual non-exclusive license\", the official project site (fetched 200, retained) prints no license, and the HF dataset page is gated (401). Held on the 2026-08-09 prior verification; the article span is annotated this pass, not certified; escalate for a license-bearing source (gated HF card or a future project-page print).",
-      "evidenceDigest": "a676f112e3eecdc791a380890903810fe84a65e5049166f96aea13e6d17e6048"
+      "partId": "ds10-release-scope",
+      "outcome": "supported",
+      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
+      "rationale": "Read the card's actual combined version heading, its v1.2 addition description, initial v1.0 paragraph and separate v2.0 announcement. Preserve the combined scope rather than inventing one precise release/date. Read paper dates from the actual retained arXiv header. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
+      "evidenceDigest": "d80e42fed561f1e2e4b0cf95ea213e9ab438ca83f3b9e4247996464e699bfb38"
+    },
+    {
+      "partId": "ds10-published-badge-and-access",
+      "outcome": "supported",
+      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
+      "rationale": "The actual returned card displays the Apache-2.0 badge and access banner. The older wrong-slug 401 does not describe this correct public card. No new request, acceptance of conditions, contact-data disclosure or credential action occurred. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
+      "evidenceDigest": "4f1f32fca3b7309686d14dc2428468d2ae0020d603e7f6cc3f0d88e1af61c438"
+    },
+    {
+      "partId": "ds10-license-disclosure",
+      "outcome": "supported",
+      "reviewedBy": "Droid content-auditor/integrator c92f45de-e027-432f-bf25-e576ffaf724b, custom:droidproxy:gpt-6-astra/max, 2026-09-23T02:58:51.933Z",
+      "rationale": "The complete 10,768-character returned card provides a badge and version inventory but no explicit mapping of that badge to v1.1/v1.2 data files or separate code/model terms. Disclose precisely that limited source state and the uninspected conditions. The owner now allows this external-source disclosure to complete a corrected record; it does not turn the unknown permission into a fact. There is no literal negative-source quotation to invent. New native plan review/adjudication belongs to the application lane. Application review: the exact authorized article and table now disclose this scope; original license uncertainty remains unknown, not silently certified. All evidence items for this part were reviewed as the named external artifact, not merely digest-checked.",
+      "evidenceDigest": "678a47f38ca105e00579aa68f5fd290aa467488bc2d71c87c35c092d62a65609"
     }
   ]
 },
