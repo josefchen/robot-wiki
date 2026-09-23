@@ -1,6 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { committedSource } from '../helpers/continuation-integration';
 import {
   compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan,
 } from '../../lib/audit-ledger';
@@ -11,8 +14,9 @@ const ledger = readFileSync('audit/data-hardware.md', 'utf8');
 const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
 const selected = plans.filter(p => p.ledgerPath === 'audit/data-hardware.md'
   && p.articleSlug === 'industrial-deployment' && ordinals.includes(p.rowOrdinal));
-const parse = (catalog = plans) => parseLedger('audit/data-hardware.md', ledger,
-  new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog })
+const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
+const parse = (catalog = plans, includeLocal = false) => parseLedger('audit/data-hardware.md', ledger,
+  new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog, ...(includeLocal ? { localBasis } : {}) })
   .find(s => s.slug === 'industrial-deployment')!;
 const opening = article.split('\n## The economics')[0];
 const uses = article.split('## What is actually automated at scale')[1].split('\n\n')[1];
@@ -140,12 +144,18 @@ describe('five IFR and OSHA industrial originals', () => {
   });
 
   it('preserves the peer pair, completed original 8, held original 52 and old review date', () => {
-    // Row 8 stays complete. EVST cannot resolve row 52's named authored-proof
-    // hold; the genuine component correction is not source completion.
+    // EVST alone did not resolve the historical hold. The later authored-proof
+    // completion must independently validate against the merged checkout.
     expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
-    expect(parse().claimRecords[51].evidenceFailures).toContain(
+    const historical = parseLedger('audit/data-hardware.md',
+      committedSource('9e4441e', 'audit/data-hardware.md'), new Set(CITATIONS.map(c => c.id)),
+      { compoundPlans: plans }).find(s => s.slug === 'industrial-deployment')!;
+    expect(historical.claimRecords[51].evidenceFailures).toContain(
       'Supporting passage must contain the passage actually read, not a locator or placeholder',
     );
+    const current = parse(plans, true).claimRecords[51];
+    expect(current.evidenceFailures).toEqual([]);
+    expect(current.outcome).toBe('passing');
     for (const n of [27, 28]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
     expect(article).toContain('lastReviewed: "2026-08-22"');
     expect(article).toContain('value="~5,500" note="Unitree, its own figure"');
