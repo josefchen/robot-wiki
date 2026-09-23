@@ -1,0 +1,15 @@
+{
+  "values": {
+    "point": 7.090944263988716e-14,
+    "dr": 0.0016132746996598806,
+    "peak": 0.7375,
+    "display": [
+      "1.50",
+      "0%",
+      "0%"
+    ]
+  },
+  "units": "mu:1; success:fraction",
+  "precision": "mu:toFixed(2); success:Math.round(100*x)%",
+  "formula": "friction:derive:v1"
+}

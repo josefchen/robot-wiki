@@ -1,3 +1,15 @@
+## Current checkpoint: sim2real typed-local integration complete (2026-09-23)
+
+**2 applied / 0 held / 0 unattempted**: sim2real-transfer originals23/24. Native structural accounting is **965 complete / 29 incomplete / 994**, RL **164/3/167**. The single final offline gate remains **red: 42 ledger findings**, zero citation findings/summary mismatches. All earlier checkpoints below are historical, including the first unfinished sim2real checkpoint.
+
+The original7/5 obligations remain intact as9/7 native AND parts (observations partitioned by output, not dropped): 2 plans, 14 local proofs, 6 external source pairs and18 actual integrator review events. Both friction mounts, distinct0.35/0.65 resets and all11 transitions are covered. Five retained primary documents were verified with original September8 retrieval provenance; zero new requests. Lee is an unversioned ar5iv body, not a pinned v1. Authored terrain/noise/reconstruction and2.2-times unrounded MAE are expressly not measured or learned-policy outcomes; no formulas, constants, controls or geometry changed.
+
+Final affected tests **223 passed / 2 skipped**, full no-emit types, targeted lint and configured article-only compilation/citation/no-slop checks pass. Native browser proof retains11 actual DOM/1440×1000 PNG pairs, four final images manually inspected, desktop Axe/errors/external requests zero. Earlier mobile and market-map heading checks remain historical partial-checkpoint evidence, not repeated final proof. Failed strict drafts and all raw attempts remain intact. Exact commands, source provenance, arithmetic, limitations and results are self-contained in the final sim2real section of `audit/rl-sim2real.md`.
+
+Preserved:994 identities,992 unselected full records,963 prior completions,860 legacy plans,3 reward plans/22 proofs/121 evidence files,45 partial sim2real evidence files and1039 prior approvals. Two exact append-only native approvals bring the total to1041. Evidence: `audit/evidence/sim2real-local-20260923/`. No lastReviewed bump, build/export, publication or independent acceptance; full reader/brand/mobile coverage, remaining content debt and independent Sol/high scrutiny/user testing remain owed. Do not publish while red.
+
+---
+
 ## Current checkpoint: sim2real raw evidence, both originals still held (2026-09-23)
 
 **0 completed / 2 held / 0 unattempted** for sim2real-transfer originals23/24. Counts remain **963 complete / 31 incomplete / 994**, RL162/5/167; 44 ledger findings, zero citation findings/summary mismatches. The native output is byte-identical to the reward checkpoint. All 994 records, 963 prior completions, 860 legacy plans, 3 typed reward plans and 1039 approvals survive. Earlier checkpoints below are historical.

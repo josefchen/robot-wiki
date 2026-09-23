@@ -97,7 +97,7 @@ In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained
 
 The failure mode has a name. The Isaac Lab paper calls it an information gap due to input mismatch: the teacher observes privileged state information while the student sees only partial observations, so the student must reconstruct the unobserved states from images, a challenge that becomes particularly pronounced under high camera occlusion <Cite id="isaac-lab-2025" />.
 
-The panel below uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.
+The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.
 
 <TeacherStudent className="my-6" />
 

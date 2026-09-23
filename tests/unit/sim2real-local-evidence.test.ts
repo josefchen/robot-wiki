@@ -6,6 +6,9 @@ import {
   reconstruction, reconstructionMae, TERRAIN,
 } from '@/lib/sim2real';
 import { frictionCases, frictionOracle, teacherOracle } from '../../audit/evidence/sim2real-local-20260923/proof-support';
+import { cases, dependencies, artifact, save, UNIT } from '../../audit/evidence/sim2real-local-20260923/typed-support';
+import { loadLocalBasisContext, recomputeLocalDerivation, validateLocalBasisPlan } from '@/lib/audit-local-basis';
+import { CITATIONS } from '@/data/citations';
 
 const articlePath = 'content/rl-sim2real/sim2real-transfer.mdx';
 const article = readFileSync(articlePath, 'utf8');
@@ -86,5 +89,75 @@ describe('sim2real authored evidence', () => {
       startedAt, completedAt: new Date().toISOString(), friction, teacher, dependencies,
       command: 'NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts tests/unit/sim2real.test.ts tests/component/friction-transfer.test.tsx tests/component/teacher-student.test.tsx',
     }, null, 2) + '\n', { flag: 'wx' });
+  });
+});
+
+describe('strict sim2real local evidence', () => {
+  const registryIds = new Set(CITATIONS.map(c => c.id));
+  const context = () => loadLocalBasisContext(process.cwd(), [
+    '/rl-sim2real/reward-design-mpc/', '/rl-sim2real/sim2real-transfer/',
+  ]);
+  for (const [ordinal, partCount] of [[23, 9], [24, 7]]) {
+    it(`completes original ${ordinal} with its full strict AND inventory`, () => {
+      const ctx = context();
+      const plan = ctx.catalog.plans.find(p => p.originalId === `audit/rl-sim2real.md:sim2real-transfer:${ordinal}`);
+      expect(plan).toBeDefined();
+      if (!plan) return;
+      expect(plan.parts).toHaveLength(partCount);
+      expect(plan.parts.filter(p => p.kind === 'observed-behavior')).toHaveLength(3);
+      expect(plan.parts.filter(p => p.kind === 'observed-behavior').flatMap(p => p.requiredObservations)).toHaveLength(ordinal === 23 ? 7 : 4);
+      expect(plan.parts.filter(p => p.kind === 'external-source')).toHaveLength(ordinal === 23 ? 4 : 2);
+      expect(validateLocalBasisPlan(plan, plan.currentCells, plan.id,
+        { citationId: '', sourceUrl: '', supportingPassage: '' }, registryIds, ctx).failures).toEqual([]);
+      for (const mutation of ['missing-part', 'missing-proof', 'bad-input-basis', 'missing-mount', 'stale-review']) {
+        const broken = structuredClone(ctx);
+        const selected = broken.catalog.plans.find(p => p.id === plan.id)!;
+        if (mutation === 'missing-part') selected.parts.pop();
+        if (mutation === 'missing-proof') broken.catalog.proofs = broken.catalog.proofs.filter(p => p.planId !== plan.id || p.kind !== 'authored-parameter');
+        if (mutation === 'bad-input-basis') {
+          const proof = broken.catalog.proofs.find(p => p.planId === plan.id && p.kind === 'derived-result')!;
+          proof.bases = [];
+        }
+        if (mutation === 'missing-mount') selected.mounts.pop();
+        if (mutation === 'stale-review') selected.currentCells.note += ' unsupported drift';
+        expect(validateLocalBasisPlan(selected, selected.currentCells, selected.id,
+          { citationId: '', sourceUrl: '', supportingPassage: '' }, registryIds, broken).failures.length, mutation).toBeGreaterThan(0);
+      }
+    });
+  }
+
+  it.runIf(process.env.SIM2REAL_TYPED_CAPTURE === '1')('refreshes exact native numeric outputs with independent arithmetic', () => {
+    const startedAt = new Date().toISOString();
+    const results = cases.map(c => {
+      const expected = recomputeLocalDerivation(c.recipe);
+      const v = expected.values as Record<string, unknown>;
+      if (c.recipe.mode === 'parameters') {
+        if (c.family === 'friction') {
+          expect(v).toEqual({ mu: 0.8, range: 0.35, muRange: [0.2, 1.5], drRange: [0.1, 0.65], pointPeak: 0.97, sigma: 0.09, edgeSigma: 0.1 });
+        } else {
+          expect(v).toEqual({ degradation: 0.15, range: [0, 1], terrain: teacherOracle(0).terrain, cells: 24 });
+        }
+      } else if (c.family === 'friction') {
+        const o = frictionOracle(c.recipe.inputs.mu, c.recipe.inputs.range);
+        expect(v.point).toBeCloseTo(o.point, 14);
+        expect(v.dr).toBeCloseTo(o.dr, 14);
+        expect(v.peak).toBeCloseTo(o.peak, 14);
+        expect(v.display).toEqual([c.recipe.inputs.mu.toFixed(2), o.pointDisplay, o.drDisplay]);
+      } else {
+        const o = teacherOracle(c.recipe.inputs.degradation);
+        expect(v.reconstruction).toEqual(o.reconstruction);
+        expect(v.occluded).toEqual(o.occluded);
+        expect(v.proprio).toEqual(o.readings);
+        expect(v.mae).toBeCloseTo(o.mae, 14);
+        expect(v.divergence).toBeCloseTo(o.divergence, 14);
+        expect(v.display).toEqual([o.maeDisplay, o.divergenceDisplay]);
+      }
+      return { id: c.id, recipe: c.recipe, expected, dependencies: dependencies(c.family) };
+    });
+    save('numeric-run-sealed.json', {
+      command: 'NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t "refreshes exact native numeric" --no-file-parallelism',
+      runner: 'vitest', cwd: process.cwd(), environment: { NODE_DISABLE_COMPILE_CACHE: '1' },
+      startedAt, endedAt: new Date().toISOString(), exitCode: 0, test: artifact(UNIT), cases: results,
+    });
   });
 });

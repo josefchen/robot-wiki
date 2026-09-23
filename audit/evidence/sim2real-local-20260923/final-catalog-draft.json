@@ -1,0 +1,3999 @@
+{
+  "schemaVersion": "authored-local-basis-v1",
+  "plans": [
+    {
+      "id": "sim2real-local-s23-20260923",
+      "kind": "explicit-parts-v2",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "ledgerPath": "audit/rl-sim2real.md",
+      "articleSlug": "sim2real-transfer",
+      "rowOrdinal": 23,
+      "originalBinding": {
+        "originalCells": {
+          "claim": "FrictionTransfer interactive (specialist spike vs generalist plateau)",
+          "sourceChecked": "Callout in article; lib/sim2real.ts header",
+          "verdict": "verified",
+          "note": "Labeled illustrative; sourced anchors are the Tobin/Peng framing, ADR, and the CPU-API constraint."
+        },
+        "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+        "snapshot": {
+          "path": "audit/evidence/sim2real-local-20260923/original-rl-sim2real.md",
+          "bytes": 47364,
+          "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+        },
+        "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14"
+      },
+      "currentCells": {
+        "claim": "FrictionTransfer uses authored Gaussian/plateau curves and rounded local arithmetic, with observed ordinary and prediction mounts that reset to half-widths 0.35 and 0.65 respectively.",
+        "sourceChecked": "Retained Tobin v1, Peng v3, Rubik ADR v1 and Isaac Lab v1 full bodies with original September 8 retrieval provenance; actual September 23 independent numeric and both-mount browser observations.",
+        "verdict": "C",
+        "note": "Corrected to explicit typed external AND local support, not empirical specialist/generalist measurements. Visual/dynamics framing, performance-threshold ADR and CPU parameter writes with runtime/mesh exceptions remain separate external obligations. All plotted values and ranges are chosen; Gaussian tails and percentage rounding are recomputed. Both actual mounts, reveal and distinct Reset defaults are retained. Original cells and source snapshot are archived unchanged. Historical retrieval is not current liveness; not independent acceptance."
+      },
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "mounts": [
+        {
+          "sourceId": "interactive:FrictionTransfer",
+          "sourceFingerprint": "cf01ba795ce3304dcd13b3d7fb1f79a3a282ee0c07f6c1996f8ac6dbe49b8049",
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "mountFingerprint": "53fde30dfdf3df5cd8ec248953a47ab553cd137c238be88f2076a4c41faf5346",
+          "route": "/rl-sim2real/sim2real-transfer/"
+        },
+        {
+          "sourceId": "interactive:FrictionTransfer",
+          "sourceFingerprint": "cf01ba795ce3304dcd13b3d7fb1f79a3a282ee0c07f6c1996f8ac6dbe49b8049",
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+          "mountFingerprint": "d4857020441db6a9a5c8bf477e298ed39ec90968a1d4a1ce49cc5a18ac4b6e46",
+          "route": "/rl-sim2real/sim2real-transfer/"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "parts": [
+        {
+          "id": "s23-tobin-framing",
+          "text": "Tobin supplies visual-randomization framing, not a friction/success curve or these constants.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "tobin-2017"
+          ]
+        },
+        {
+          "id": "s23-peng-framing",
+          "text": "Peng supplies dynamics-randomization and expected-return framing, not a universal peak-versus-width law.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "peng-2018"
+          ]
+        },
+        {
+          "id": "s23-adr",
+          "text": "Original note's ADR anchor remains external: adaptive randomization expands bounds based on performance thresholds.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "openai-rubiks-cube-2019"
+          ]
+        },
+        {
+          "id": "s23-isaac-plumbing",
+          "text": "Original note's CPU-API constraint is the Isaac Lab v1 distinction between GPU state/control and CPU parameter modification, with runtime exceptions preserved.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "isaac-lab-2025"
+          ]
+        },
+        {
+          "id": "s23-curves-and-mount-defaults",
+          "text": "Both curves, constants, ranges, assumed uniform band and per-mount initial values are authored: mu 0.80, point peak 0.97/sigma 0.09, DR peak 0.93−0.55*range and tails sigma 0.10; ordinary range 0.35, reveal range 0.65.",
+          "kind": "authored-parameter",
+          "requiredProofIds": [
+            "s23-parameters"
+          ]
+        },
+        {
+          "id": "s23-arithmetic",
+          "text": "Gaussian/plateau/tail arithmetic and percentage rounding produce readouts at chosen friction and half-width.",
+          "kind": "derived-result",
+          "requiredProofIds": [
+            "s23-default",
+            "s23-wide",
+            "s23-tail"
+          ]
+        },
+        {
+          "id": "s23-both-mounted-panels",
+          "text": "Both registered mounts sample/redraw the local formulas; the revealed second mount starts and resets to range 0.65 rather than 0.35.",
+          "kind": "observed-behavior",
+          "requiredProofIds": [
+            "s23-observed-default",
+            "s23-observed-wide",
+            "s23-observed-tail"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+              "caseId": "default",
+              "prestate": "Article not loaded",
+              "action": "Navigate to the article",
+              "poststate": "mu 0.80, range 0.35; point 97%, DR 74%"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "mu 0.80, range 0.35",
+              "action": "Set real friction slider to 1.50",
+              "poststate": "Line moves to 1.50; point 0%, DR 0%"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "mu 1.50, range 0.35",
+              "action": "Set friction 0.80 then half-width 0.65",
+              "poststate": "DR curve redraws; point 97%, DR 57%"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+              "caseId": "reset",
+              "prestate": "mu 0.80, range 0.65",
+              "action": "Activate ordinary Reset",
+              "poststate": "mu 0.80, range 0.35; point 97%, DR 74%; original SVG"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+              "caseId": "default",
+              "prestate": "Prediction details closed",
+              "action": "Choose the authored plateau-falls prediction radio",
+              "poststate": "Prediction mount visible at mu 0.80, range 0.65; point 97%, DR 57%"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "Prediction mu 0.80, range 0.65",
+              "action": "Set prediction friction 1.50 then half-width 0.35",
+              "poststate": "Prediction line and curve change; point 0%, DR 0%"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+              "caseId": "reset",
+              "prestate": "Prediction mu 1.50, range 0.35",
+              "action": "Activate prediction Reset",
+              "poststate": "Prediction restores mu 0.80, range 0.65 and 57% DR; ordinary half-width remains 0.35"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "partId": "s23-tobin-framing",
+          "citationId": "tobin-2017",
+          "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+          "supportingPassage": "Bridging the ‘reality gap’ that separates simulated robotics from experiments on hardware could accelerate robotic research through improved data availability. This paper explores _domain randomization_,\na simple technique for training models on simulated images that transfer to real images by randomizing rendering in the simulator. With enough variability in the simulator, the real world may appear to the model as just another variation. We focus on the task of object localization, which is a stepping stone to general robotic manipulation skills. We find that it is possible to train a real-world object detector that is accurate to 1.5cm1.5\\\\text{\\\\,}\\\\mathrm{cm} and robust to distractors and partial occlusions using only data from a simulator with non-realistic random textures.",
+          "provenance": {
+            "retrievedAt": "2026-09-08T07:26:18.853Z",
+            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "response": {
+              "path": "audit/evidence/sim2real-local-20260923/tobin-body.txt",
+              "bytes": 48985,
+              "sha256": "45f2dd8321436db3726ec2826c19945e1fbd18ba48af0a85744778f06d8715f4"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/sim2real-local-20260923/tobin-body.txt",
+                "bytes": 48985,
+                "sha256": "45f2dd8321436db3726ec2826c19945e1fbd18ba48af0a85744778f06d8715f4"
+              },
+              "id": "file:audit/evidence/sim2real-local-20260923/tobin-body.txt",
+              "offset": 946,
+              "length": 793,
+              "sha256": "2d5c2b8cf8ca065fb68aa9b76988c9b396d3f7701dc071d66ef870a2e86e6d7f"
+            }
+          }
+        },
+        {
+          "partId": "s23-peng-framing",
+          "citationId": "peng-2018",
+          "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+          "supportingPassage": "## IV METHOD\n\nOur objective is to train policies that can perform a task under the dynamics of the real world p∗​(st+1\\|st,at)p^{\\*}(s\\_{t+1}\\|s\\_{t},a\\_{t}). Since sampling from the real world dynamics can be prohibitive, we instead train a policy using an approximate dynamics model p^​(st+1\\|st,at)≈p∗​(st+1\\|st,at)\\\\hat{p}(s\\_{t+1}\\|s\\_{t},a\\_{t})\\\\approx p^{\\*}(s\\_{t+1}\\|s\\_{t},a\\_{t}) that is easier to sample from. For all of our experiments, p^\\\\hat{p} assumes the form of a physics simulation. Due to modeling and other forms of calibration error, behaviours that successfully accomplish a task in simulation may not be successful once deployed in the real world. Furthermore, it has been observed that DeepRL policies are prone to exploiting idiosyncrasies of the simulator to realize behaviours that are infeasible in the real world \\[ [2](https://arxiv.org/html/1710.06537v3#bib.bib2 \"\"), [7](https://arxiv.org/html/1710.06537v3#bib.bib7 \"\")\\]. Therefore, instead of training a policy under one particular dynamics model, we train a policy that can perform a task under a variety of different dynamics models. First we introduce a set of dynamics parameters μ\\\\mu that parameterizes the dynamics of the simulation p^​(st+1\\|st,at,μ)\\\\hat{p}(s\\_{t+1}\\|s\\_{t},a\\_{t},\\\\mu). The objective is then modified to maximize the expected return across a distribution of dynamics models ρμ\\\\rho\\_{\\\\mu},\n\n|     |     |     |\n| --- | --- | --- |\n|  | 𝔼μ∼ρμ\\[𝔼τ∼p⁡(τ\\|π,μ)​\\[∑t=0T−1r⁡(st,at)\\]\\]\\\\mathop{\\\\mathbb{E}}\\_{\\\\mu\\\\sim\\\\rho\\_{\\\\mu}}\\\\left\\[\\\\mathbb{E}\\_{\\\\tau\\\\sim p(\\\\tau\\|\\\\pi,\\\\mu)}\\\\left\\[\\\\sum\\_{t=0}^{T-1}r(s\\_{t},a\\_{t})\\\\right\\]\\\\right\\] |  |\n\nBy training policies to adapt to variability in the dynamics of the environment, the resulting policy might then better generalize to the dynamics of real world.\n\n### IV-ATasks\n\nOur experiments are conducted on a puck pushing task using a 7-DOF Fetch Robotics arm. Images of the real robot and simulated model is available in Figure [2](https://arxiv.org/html/1710.06537v3#S4.F2 \"Fig. 2 ‣ IV-A Tasks ‣ IV METHOD ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\"). The goal gg for each episode specifies a random target position on the table that the puck should be moved to. The reward is binary with rt=0r\\_{t}=0 if the puck is within a given distance of the target, and rt=−1r\\_{t}=-1 otherwise. At the start of each episode, the arm is initialized to a default pose and the initial location of the puck is randomly placed within a fixed bound on the table.\n\n![Refer to caption](https://arxiv.org/html/1710.06537v3/figures/fetch_real.png)\n\n![Refer to caption](https://arxiv.org/html/1710.06537v3/figures/fetch_sim.png)\n\nFig. 2: Our experiments are conducted on a 7-DOF Fetch Robotics arm. Left: Real robot. Right: Simulated MuJoCo model.\n\n### IV-BState and Action\n\nThe state is represented using the joint positions and velocities of the arm, the position of the gripper, as well as the puck’s position, orientation, linear and angular velocities. The combined features result in a 52D state space. Actions from the policy specify target joint angles for a position controller. Target angles are specified as relative offsets from the current joint rotations. This yields a 7D action space.\n\n### IV-CDynamics Randomization\n\nDuring training, rollouts are organized into episodes of a fixed length. At the start of each episode, a random set of dynamics parameters μ\\\\mu are sampled according to ρμ\\\\rho\\_{\\\\mu} and held fixed for the duration of the episode. The parameters which we randomize include:\n\n- •\n\n\nMass of each link in the robot’s body\n\n- •\n\n\nDamping of each joint\n\n- •\n\n\nMass, friction, and damping of the puck\n\n- •\n\n\nHeight of the table\n\n- •\n\n\nGains for the position controller\n\n- •\n\n\nTimestep between actions\n\n- •\n\n\nObservation noise\n\n\nwhich results in a total of 95 randomized parameters. The timestep between actions specifies the amount of time an action is applied before the policy is queried again to sample a new action. This serves as a simple model of the latency exhibited by the physical controller. The observation noise models uncertainty in the sensors and is implemented as independent Gaussian noise applied to each state feature. While parameters such as mass and damping are constant over the course of an episode, the action timestep and the observation noise varies randomly each timestep.",
+          "provenance": {
+            "retrievedAt": "2026-09-08T07:26:42.941Z",
+            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "response": {
+              "path": "audit/evidence/sim2real-local-20260923/peng-body.txt",
+              "bytes": 56618,
+              "sha256": "3b26bb1aca407fdbe980ba90e67653a3634a85521cb16054530214bb9795add3"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/sim2real-local-20260923/peng-body.txt",
+                "bytes": 56618,
+                "sha256": "3b26bb1aca407fdbe980ba90e67653a3634a85521cb16054530214bb9795add3"
+              },
+              "id": "file:audit/evidence/sim2real-local-20260923/peng-body.txt",
+              "offset": 19762,
+              "length": 4481,
+              "sha256": "6ec9edda7ffc4c9bf70504857b2f64443a9eccd19fe64b9918711a219cd5ba3e"
+            }
+          }
+        },
+        {
+          "partId": "s23-adr",
+          "citationId": "openai-rubiks-cube-2019",
+          "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+          "supportingPassage": "Acceptable performance is defined by _performance thresholds_. For policy training, they are configured as the lower and upper bounds on the number of successes in an episode. For vision training, we first configure target performance thresholds for each output (e.g. position, orientation). During evaluation, we then compute the percentage of samples which achieve these targets for all outputs; if the resulting percentage is above the upper threshold or below the lower threshold, the distribution is adjusted accordingly.\n\n### 5.2 Algorithm\n\nEach environment eλe\\_{\\\\lambda} is parameterized by λ∈ℝd\\\\lambda\\\\in\\\\mathbb{R}^{d}, where dd is the number of parameters we can randomize in simulation. In domain randomization (DR), the environment parameter λ\\\\lambda comes from a _fixed_ distribution PϕP\\_{\\\\phi} parameterized by ϕ∈ℝd′\\\\phi\\\\in\\\\mathbb{R}^{d^{\\\\prime}}. However, in automatic domain randomization (ADR), ϕ\\\\phi is _changing_ dynamically with training progress. The sampling process in [Figure 10](https://arxiv.org/html/1910.07113v1#S5.F10 \"Figure 10 ‣ 5.1 ADR Overview ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\") works out as λ∼Pϕ\\\\lambda\\\\sim P\\_{\\\\phi}, resulting in one randomized environment instance eλe\\_{\\\\lambda}.\n\nTo quantify the amount of ADR expansion, we define _ADR entropy_ as ℋ(Pϕ)=−1d∫Pϕ(λ)logPϕ(λ)dλ\\\\mathcal{H}(P\\_{\\\\phi})=-\\\\frac{1}{d}\\\\int P\\_{\\\\phi}(\\\\lambda)\\\\log P\\_{\\\\phi}(\\\\lambda)d\\\\lambda\nin units of nats/dimension. The higher the ADR entropy, the broader the randomization sampling distribution. The normalization allows us to compare between different environment parameterizations.\n\nIn this work, we use a factorized distribution parameterized by d′=2​dd^{\\\\prime}=2d parameters. To simplify notation, let ϕL,ϕH∈ℝd\\\\phi^{L},\\\\phi^{H}\\\\in\\\\mathbb{R}^{d} be a certain partition of ϕ\\\\phi. For the ii-th ADR parameter λi\\\\lambda\\_{i}, i=1,…,di=1,\\\\dots,d, the pair (ϕiL,ϕiH)(\\\\phi^{L}\\_{i},\\\\,\\\\phi^{H}\\_{i}) is used to describe a uniform distribution for sampling λi\\\\lambda\\_{i} such that λi∼U⁡(ϕiL,ϕiH)\\\\lambda\\_{i}\\\\sim U(\\\\phi^{L}\\_{i},\\\\,\\\\phi^{H}\\_{i}). Note that the boundary values are inclusive. The overall distribution is given by\n\n|     |     |     |\n| --- | --- | --- |\n|  | Pϕ​(λ)=∏i=1dU⁡(ϕiL,ϕiH)P\\_{\\\\phi}(\\\\lambda)=\\\\prod\\_{i=1}^{d}U(\\\\phi^{L}\\_{i},\\\\,\\\\phi^{H}\\_{i}) |  |\n\nwith ADR entropy\n\n|     |     |     |\n| --- | --- | --- |\n|  | ℋ⁡(Pϕ)=1d​∑i=1dlog⁡(ϕiH−ϕiL).\\\\mathcal{H}(P\\_{\\\\phi})=\\\\frac{1}{d}\\\\sum\\_{i=1}^{d}\\\\log(\\\\phi^{H}\\_{i}-\\\\phi^{L}\\_{i}). |  |\n\nThe ADR algorithm is listed in Algorithm [1](https://arxiv.org/html/1910.07113v1#alg1 \"Algorithm 1 ‣ 5.2 Algorithm ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\"). For the factorized distribution, Algorithm [1](https://arxiv.org/html/1910.07113v1#alg1 \"Algorithm 1 ‣ 5.2 Algorithm ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\") is applied to ϕL\\\\phi^{L} and ϕH\\\\phi^{H} separately.\n\nAt each iteration, the ADR algorithm randomly selects a dimension of the environment λi\\\\lambda\\_{i} to fix to a boundary value ϕiL\\\\phi^{L}\\_{i} or ϕiH\\\\phi^{H}\\_{i} (we call this “boundary sampling”), while the other parameters are sampled as per PϕP\\_{\\\\phi}. Model performance for the sampled environment is then evaluated and appended to the buffer associated with the selected boundary of the selected parameter. Once enough performance data is collected, it is averaged and compared to thresholds. If the average model performance is better than the high threshold tHt\\_{H}, the parameter for the chosen dimension is increased. It is decreased if the average model performance is worse than the low threshold tLt\\_{L}.",
+          "provenance": {
+            "retrievedAt": "2026-09-08T07:27:07.993Z",
+            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "response": {
+              "path": "audit/evidence/sim2real-local-20260923/adr-body.txt",
+              "bytes": 211058,
+              "sha256": "5604048be46fd257b18fa81c2afad3ce36a096e082337962163a77800d523778"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/sim2real-local-20260923/adr-body.txt",
+                "bytes": 211058,
+                "sha256": "5604048be46fd257b18fa81c2afad3ce36a096e082337962163a77800d523778"
+              },
+              "id": "file:audit/evidence/sim2real-local-20260923/adr-body.txt",
+              "offset": 37775,
+              "length": 3848,
+              "sha256": "425bce453480bf3217d2f924ac6c1fcbcf04a44ecd8ad78b278be0353b0614f0"
+            }
+          }
+        },
+        {
+          "partId": "s23-isaac-plumbing",
+          "citationId": "isaac-lab-2025",
+          "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+          "supportingPassage": "<p id=\"S5.SS3.p2.1\" class=\"ltx_p\">Isaac Lab supports randomization of both physics and rendering parameters. Mesh-related attributes, such as scale and collider type, can only be randomized before the simulation begins playing (<a href=\"#alg1\" title=\"In 2.2 Physics Simulation ‣ 2 Core Simulation Infrastructure ‣ Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning\" class=\"ltx_ref\"><span class=\"ltx_text ltx_ref_tag\">Algorithm</span> <span class=\"ltx_text ltx_ref_tag\">1</span></a>). Most other physics parameters can be randomized at runtime. As discussed in <a href=\"#S2.SS2\" title=\"2.2 Physics Simulation ‣ 2 Core Simulation Infrastructure ‣ Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning\" class=\"ltx_ref\"><span class=\"ltx_text ltx_ref_tag\">Section</span> <span class=\"ltx_text ltx_ref_tag\">2.2</span></a>, due to current PhysX design limitations, only simulation state is accessible directly on the GPU, while simulation parameters (<span id=\"S5.SS3.p2.1.1\" class=\"ltx_ERROR undefined\">\\eg</span>masses, friction, contact offsets, and joint armature) must be modified through the CPU API.\nRendering parameters such as visual materials, lighting intensities, light source locations, and background textures can also be randomized at runtime, though they currently rely on CPU-based USD APIs. <a href=\"#S5.F21\" title=\"In 5.3 Domain Randomization ‣ 5 Learning Techniques and Workflows ‣ Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning\" class=\"ltx_ref\"><span class=\"ltx_text ltx_ref_tag\">Figure</span> <span class=\"ltx_text ltx_ref_tag\">21</span></a> illustrates RGB renderings in Isaac Lab with randomized textures and lighting, alongside standard computer vision augmentation techniques.</p>\n</div>\n<figure id=\"S5.F21\" class=\"ltx_figure\">\n<div class=\"ltx_flex_figure\">\n<div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/clean_sim_1.png\" id=\"S5.F21.g1\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/clean_sim_2.png\" id=\"S5.F21.g2\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/clean_sim_5.png\" id=\"S5.F21.g3\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/clean_sim_3.png\" id=\"S5.F21.g4\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/clean_sim_6.png\" id=\"S5.F21.g5\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/clean_sim_4.png\" id=\"S5.F21.g6\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/clean_sim_7.png\" id=\"S5.F21.g7\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/aug_sim_1.png\" id=\"S5.F21.g8\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/aug_sim_2.png\" id=\"S5.F21.g9\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_break\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/aug_sim_5.png\" id=\"S5.F21.g10\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/aug_sim_3.png\" id=\"S5.F21.g11\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/aug_sim_6.png\" id=\"S5.F21.g12\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/aug_sim_4.png\" id=\"S5.F21.g13\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div><div class=\"ltx_flex_cell ltx_flex_size_many\"><img src=\"2511.04831v1/assets/general/visual-dr/aug_sim_7.png\" id=\"S5.F21.g14\" class=\"ltx_graphics ltx_centering ltx_figure_panel ltx_img_portrait\" style=\"aspect-ratio:68/91;\" width=\"68\" height=\"91\" alt=\"Refer to caption\"></div></div>\n<figcaption class=\"ltx_caption ltx_centering\"><span class=\"ltx_tag ltx_tag_figure\"><span id=\"S5.F21.3\" class=\"ltx_text\" style=\"font-size:90%;\">Figure 21</span>: </span><span id=\"S5.F21.4\" class=\"ltx_text\" style=\"font-size:90%;\">Top: Camera renderings from different environment instances in simulation, adapted from <cite class=\"ltx_cite ltx_citemacro_cite\"><a href=\"#bib.bib74\" title=\"\" class=\"ltx_ref\">Singh et al. (2024)</a></cite>. Bottom: Examples of data augmentations (such as modifying brightness, contrast and saturation) applied to these renderings before passing them to the learning agent.</span></figcaption>\n</figure>\n<div id=\"S5.SS3.p3\" class=\"ltx_para ltx_noindent\">\n<p id=\"S5.SS3.p3.1\" class=\"ltx_p\">Furthermore, Isaac Lab supports <span id=\"S5.SS3.p3.1.1\" class=\"ltx_text ltx_font_bold\">Automatic Domain Randomization (ADR)</span> <cite class=\"ltx_cite ltx_citemacro_citep\">(<a href=\"#bib.bib113\" title=\"\" class=\"ltx_ref\">OpenAI et al., 2019</a>)</cite> through a configurable curriculum framework that adaptively adjusts the difficulty of the environment based on the performance of the agent. The <span id=\"S5.SS3.p3.1.2\" class=\"ltx_text ltx_font_typewriter\">dexsuite</span> examples in Isaac Lab provide reference ADR configurations for RL training.\nThe framework automatically manages difficulty progression, continuously challenging the learning agent without overwhelming it, thereby promoting more robust and generalizable policies.</p>",
+          "provenance": {
+            "retrievedAt": "2026-09-08T00:55:54.267675+00:00",
+            "tool": "Retained original versioned GET body/receipt/headers, hash verified; no new request",
+            "response": {
+              "path": "audit/evidence/sim2real-local-20260923/isaac-body.html",
+              "bytes": 508684,
+              "sha256": "9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/sim2real-local-20260923/isaac-body.html",
+                "bytes": 508684,
+                "sha256": "9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39"
+              },
+              "id": "file:audit/evidence/sim2real-local-20260923/isaac-body.html",
+              "offset": 218002,
+              "length": 7226,
+              "sha256": "536972ab14c93754bd07eecccdffaed373ea229cbd9feea0359f5b4d3e326236"
+            }
+          }
+        }
+      ],
+      "planReview": null,
+      "adjudications": []
+    },
+    {
+      "id": "sim2real-local-s24-20260923",
+      "kind": "explicit-parts-v2",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "ledgerPath": "audit/rl-sim2real.md",
+      "articleSlug": "sim2real-transfer",
+      "rowOrdinal": 24,
+      "originalBinding": {
+        "originalCells": {
+          "claim": "TeacherStudent interactive (degradation slider, reconstruction blur, action divergence)",
+          "sourceChecked": "lib/sim2real.ts header (updated)",
+          "verdict": "verified",
+          "note": "Deterministic illustrative model; comment now names the paper's actual term."
+        },
+        "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+        "snapshot": {
+          "path": "audit/evidence/sim2real-local-20260923/original-rl-sim2real.md",
+          "bytes": 47364,
+          "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+        },
+        "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14"
+      },
+      "currentCells": {
+        "claim": "TeacherStudent draws authored terrain/noise and a directly constructed reconstruction; normalized discrepancy is 2.2 times unrounded MAE, with observed degradation 0.15-to-1-to-0 and Reset.",
+        "sourceChecked": "Retained Lee unversioned ar5iv body and Isaac Lab v1 body with original September 8 retrieval events; actual September 23 independent per-cell calculations and mounted teacher observations.",
+        "verdict": "C",
+        "note": "The empirical cost-of-distillation and universal training-budget-floor interpretation is corrected, not verified. Lee supports privileged versus deployable proprioceptive inputs; Isaac Lab supports input-mismatch/occlusion context, not these coefficients. Terrain, seeds, blur, noise/dropout and 2.2 scaling are authored. Reconstruction is computed from the map plus errors, not inferred from the bars; darker cells are higher. Original four cells remain in history. All external AND local obligations remain; no policy training, new retrieval or independent acceptance."
+      },
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "mounts": [
+        {
+          "sourceId": "interactive:TeacherStudent",
+          "sourceFingerprint": "ff466a9b88a31025825df803ceab21d108c9fb8bf618802137eb5627d8908c82",
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "mountFingerprint": "9ed667385cf9b21016faecab2c40cd2322001625e502f3f1dc9207f165df851a",
+          "route": "/rl-sim2real/sim2real-transfer/"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "parts": [
+        {
+          "id": "s24-privileged-context",
+          "text": "The neighboring teacher/student explanation distinguishes privileged simulator state from deployable proprioceptive/history inputs.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "lee-2020"
+          ]
+        },
+        {
+          "id": "s24-input-mismatch",
+          "text": "Isaac Lab calls the teacher/student difference an information gap due to input mismatch and discusses reconstruction under camera occlusion.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "isaac-lab-2025"
+          ]
+        },
+        {
+          "id": "s24-authored-terrain-noise",
+          "text": "The 24-cell terrain, LCG seeds 123456789 and 987654321, sigma-3 blur, noise/occlusion coefficients, degradation range 0–1 and default 0.15 are authored construction.",
+          "kind": "authored-parameter",
+          "requiredProofIds": [
+            "s24-parameters"
+          ]
+        },
+        {
+          "id": "s24-reconstruction",
+          "text": "The specified local reconstruction, MAE, occlusion and 2.2*MAE normalized action divergence are derived from degradation, increasing by construction rather than reported distillation results.",
+          "kind": "derived-result",
+          "requiredProofIds": [
+            "s24-zero",
+            "s24-default",
+            "s24-high"
+          ]
+        },
+        {
+          "id": "s24-mounted-degradation",
+          "text": "The mounted control changes input channels, terrain reconstruction and the two numeric readouts; Reset returns 0.15.",
+          "kind": "observed-behavior",
+          "requiredProofIds": [
+            "s24-observed-default",
+            "s24-observed-zero",
+            "s24-observed-high"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+              "caseId": "default",
+              "prestate": "Article loaded; teacher unchanged",
+              "action": "Read initial teacher mount",
+              "poststate": "Degradation 0.15; MAE 0.01 m; discrepancy 0.02; 3/24 occluded"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "Degradation 0.15",
+              "action": "Set degradation to 1",
+              "poststate": "MAE 0.17 m; discrepancy 0.38; 24/24 occluded; input and reconstruction change"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "Degradation 1",
+              "action": "Set degradation to 0",
+              "poststate": "MAE 0.00 m; discrepancy 0.00; no occlusion; reconstructed colors equal teacher"
+            },
+            {
+              "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+              "caseId": "reset",
+              "prestate": "Degradation 0",
+              "action": "Activate teacher Reset",
+              "poststate": "Degradation 0.15, original input/reconstruction markup; MAE 0.01 m and discrepancy 0.02"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "partId": "s24-privileged-context",
+          "citationId": "lee-2020",
+          "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2010.11251",
+          "supportingPassage": "### 4.1 Overview\n\nThe main objective of the presented controller is to locomote over rough terrain following a command.\nThe command is given either by a human operator or by a higher-level navigation controller.\nIn our formulation, unlike many existing works \\[ [12](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib12 \"\"), [16](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib16 \"\"), [14](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib14 \"\")\\] that focus on tracking the target velocity of the base (vTI​BB{}^{B}\\_{IB}v\\_{T}), only the direction (v^TI​BB{}^{B}\\_{IB}\\\\hat{v}\\_{T}) is given to the controller.\nThe reason is that the feasible range of target speeds is often unclear on challenging terrain. For example, the robot can walk faster downhill than uphill.\n\nThe command vector is defined as ⟨(I​BBv^T)x​y,(ω^T)z⟩\\\\langle(^{B}\\_{IB}\\\\hat{v}\\_{T})\\_{xy},(\\\\hat{\\\\omega}\\_{T})\\_{z}\\\\rangle.\nThe first part is the target horizontal direction in base frame (I​BBv^T)x​y≔⟨cos(ψT),sin(ψT)⟩(^{B}\\_{IB}\\\\hat{v}\\_{T})\\_{xy}\\\\coloneqq\\\\langle\\\\cos(\\\\psi\\_{T}),\\\\sin(\\\\psi\\_{T})\\\\rangle, where ψT\\\\psi\\_{T} is the yaw angle to command direction in the base frame. The stop command is defined as ⟨0.0,0.0⟩\\\\langle 0.0,0.0\\\\rangle. The second part is the turning direction (ω^T)z∈{−1,0,1}(\\\\hat{\\\\omega}\\_{T})\\_{z}\\\\in\\\\{-1,0,1\\\\}. 1 refers to counter-clockwise rotation along the base zz-axis.\n\nAn overview of our method is given in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\").\nWe use a privileged learning strategy inspired by “learning by cheating” \\[ [23](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib23 \"\")\\] (Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") A).\nWe first train a teacher policy that has access to privileged information concerning the terrain. This teacher policy is then distilled into a proprioceptive student policy that does not rely on privileged information. The privileged teacher policy is confined to simulation, but the student policy is deployed on physical machines. One difference of our methodology from that of Chen et al. \\[ [23](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib23 \"\")\\] is that we do not rely on expert demonstrations to train the privileged policy; rather, the teacher policy is trained via reinforcement learning.\n\nThe privileged teacher model is based on multi-layer perceptrons (MLPs) that receive information on the current state of the robot, properties of the terrain, and the robot’s contact with the terrain. The model computes a latent embedding l¯t\\\\bar{l}\\_{t} that represents the current state, and an action a¯t\\\\bar{a}\\_{t}.\nThe training objective rewards locomotion in prescribed directions.\n\nAfter the teacher policy is trained, it is used to supervise a proprioceptive student policy. The student model is a temporal convolutional network (TCN) \\[ [22](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib22 \"\")\\] that receives a sequence of NN proprioceptive observations as input. The student policy is trained by imitation. The vectors l¯t\\\\bar{l}\\_{t} and a¯t\\\\bar{a}\\_{t} computed by the teacher policy are used to supervise the student. This is illustrated in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") A.\n\nTraining is conducted on procedurally generated terrains in simulation. The terrains are synthesized adaptively, to facilitate learning according to the skill level of the trained policies at any given time. We define a traversability measure for terrain and develop a sampling-based method to select terrains with the appropriate difficulty during the course of training. We use particle filtering to maintain an appropriate distribution of terrain parameters. This is illustrated in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") B.\nThe terrain curriculum is applied during both teacher and student training.\n\nOur control architecture is shown in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") C.\nWe employ the Policies Modulating Trajectory Generators (PMTG) architecture \\[ [34](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib34 \"\")\\] to provide priors on motion generation.\nThe neural network policy modulates leg phases and motion primitives by synthesizing residual position commands.\n\nThe simulation uses a learned dynamics model of the robot’s joint PD controller \\[ [12](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib12 \"\")\\]. This facilitates the transfer of policies from simulation to reality. After training in simulation, the proprioceptive controller is deployed directly on physical legged machines, with no fine-tuning.",
+          "provenance": {
+            "retrievedAt": "2026-09-08T08:14:45.521Z",
+            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "response": {
+              "path": "audit/evidence/sim2real-local-20260923/lee-body.txt",
+              "bytes": 115542,
+              "sha256": "9df31f8f4078237baa690d9ea9a8492efe6ebc14c18bbe433b45361ce1e8be01"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/sim2real-local-20260923/lee-body.txt",
+                "bytes": 115542,
+                "sha256": "9df31f8f4078237baa690d9ea9a8492efe6ebc14c18bbe433b45361ce1e8be01"
+              },
+              "id": "file:audit/evidence/sim2real-local-20260923/lee-body.txt",
+              "offset": 35492,
+              "length": 5176,
+              "sha256": "9cce891a3c9873dacad4eef81a95f8c263454c73a125f2e37d1b8da16969e3fc"
+            }
+          }
+        },
+        {
+          "partId": "s24-input-mismatch",
+          "citationId": "isaac-lab-2025",
+          "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+          "supportingPassage": "<p id=\"S5.SS1.SSS2.p1.1\" class=\"ltx_p\">While distillation enables training an RGB-driven student policy by imitating a state-based teacher, there are compelling reasons to also train policies end-to-end directly from images. First, end-to-end training can exploit rich spatial and shape cues that low-dimensional state vectors cannot capture. Second, imitation-based distillation introduces an information gap due to input mismatch: the teacher observes privileged state information, while the student sees only partial observations. This can lead to a performance drop, as the student must reconstruct unobserved states from images, a challenge that becomes particularly pronounced under high camera occlusions.</p>",
+          "provenance": {
+            "retrievedAt": "2026-09-08T00:55:54.267675+00:00",
+            "tool": "Retained original versioned GET body/receipt/headers, hash verified; no new request",
+            "response": {
+              "path": "audit/evidence/sim2real-local-20260923/isaac-body.html",
+              "bytes": 508684,
+              "sha256": "9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/sim2real-local-20260923/isaac-body.html",
+                "bytes": 508684,
+                "sha256": "9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39"
+              },
+              "id": "file:audit/evidence/sim2real-local-20260923/isaac-body.html",
+              "offset": 209573,
+              "length": 716,
+              "sha256": "36a73670d0d2d01cc51535f249b6391a796fad1c086f2491955a6f8a67a295a2"
+            }
+          }
+        }
+      ],
+      "planReview": null,
+      "adjudications": []
+    }
+  ],
+  "proofs": [
+    {
+      "id": "s23-parameters",
+      "planId": "sim2real-local-s23-20260923",
+      "partId": "s23-curves-and-mount-defaults",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "source:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "recipe": {
+        "id": "friction",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "mu": 0.8,
+          "range": 0.35,
+          "muRange": [
+            0.2,
+            1.5
+          ],
+          "drRange": [
+            0.1,
+            0.65
+          ],
+          "pointPeak": 0.97,
+          "sigma": 0.09,
+          "edgeSigma": 0.1
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "friction:parameters:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-parameters.input.json",
+        "bytes": 63,
+        "sha256": "a62b219b40eead642812647d407531b02e380cb1a30db19595ddc54b7d490a07"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-parameters.output.json",
+        "bytes": 358,
+        "sha256": "829b45e84cc8a0b12b30af47e345d5c63d56d71c39ae639d3e4fa5201f106844"
+      },
+      "inputDigest": "a62b219b40eead642812647d407531b02e380cb1a30db19595ddc54b7d490a07",
+      "outputDigest": "829b45e84cc8a0b12b30af47e345d5c63d56d71c39ae639d3e4fa5201f106844",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s23-parameters.receipt.json",
+          "bytes": 3909,
+          "sha256": "fb99aabe1708ce38ad28b33ffeb795b905fb47a502805208cd0807dac548fea7"
+        }
+      },
+      "bases": [],
+      "kind": "authored-parameter"
+    },
+    {
+      "id": "s23-default",
+      "planId": "sim2real-local-s23-20260923",
+      "partId": "s23-arithmetic",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "source:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "recipe": {
+        "id": "friction",
+        "mode": "derive",
+        "inputs": {
+          "mu": 0.8,
+          "range": 0.35
+        }
+      },
+      "expected": {
+        "values": {
+          "point": 0.97,
+          "dr": 0.7375,
+          "peak": 0.7375,
+          "display": [
+            "0.80",
+            "97%",
+            "74%"
+          ]
+        },
+        "units": "mu:1; success:fraction",
+        "precision": "mu:toFixed(2); success:Math.round(100*x)%",
+        "formula": "friction:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-default.input.json",
+        "bytes": 95,
+        "sha256": "9c78198116c7b5a4b2881a32cfa48d7b2bc77c8f540357467c26df341b9d27fd"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-default.output.json",
+        "bytes": 273,
+        "sha256": "e796352f146a2915e7adf299531f419bf902e5fc094799165237dff3d4a04222"
+      },
+      "inputDigest": "9c78198116c7b5a4b2881a32cfa48d7b2bc77c8f540357467c26df341b9d27fd",
+      "outputDigest": "e796352f146a2915e7adf299531f419bf902e5fc094799165237dff3d4a04222",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s23-default.receipt.json",
+          "bytes": 3909,
+          "sha256": "d09314cd47d6163b88ec0b860178b80113f43897af5cf16bbf17c97298e793fb"
+        }
+      },
+      "bases": [
+        {
+          "input": "mu",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/mu",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "range",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/range",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "s23-wide",
+      "planId": "sim2real-local-s23-20260923",
+      "partId": "s23-arithmetic",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "source:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "recipe": {
+        "id": "friction",
+        "mode": "derive",
+        "inputs": {
+          "mu": 0.8,
+          "range": 0.65
+        }
+      },
+      "expected": {
+        "values": {
+          "point": 0.97,
+          "dr": 0.5725,
+          "peak": 0.5725,
+          "display": [
+            "0.80",
+            "97%",
+            "57%"
+          ]
+        },
+        "units": "mu:1; success:fraction",
+        "precision": "mu:toFixed(2); success:Math.round(100*x)%",
+        "formula": "friction:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-wide.input.json",
+        "bytes": 95,
+        "sha256": "43fdf78a5033197e80623a50bb72d9218ee05b3414555057b8e818c37517513b"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-wide.output.json",
+        "bytes": 273,
+        "sha256": "3e146bbe5e5e77204ef7ed709da0c449f1675fff63dbe143aeb281a624d6c05a"
+      },
+      "inputDigest": "43fdf78a5033197e80623a50bb72d9218ee05b3414555057b8e818c37517513b",
+      "outputDigest": "3e146bbe5e5e77204ef7ed709da0c449f1675fff63dbe143aeb281a624d6c05a",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s23-wide.receipt.json",
+          "bytes": 3909,
+          "sha256": "91cea094d9ebd294e42df82ff24264f7b70b5a8b6c84d6a6264ab705ddcfd14b"
+        }
+      },
+      "bases": [
+        {
+          "input": "mu",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/mu",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "range",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/drRange/1",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "s23-tail",
+      "planId": "sim2real-local-s23-20260923",
+      "partId": "s23-arithmetic",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "source:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "recipe": {
+        "id": "friction",
+        "mode": "derive",
+        "inputs": {
+          "mu": 1.5,
+          "range": 0.35
+        }
+      },
+      "expected": {
+        "values": {
+          "point": 7.090944263988716e-14,
+          "dr": 0.0016132746996598806,
+          "peak": 0.7375,
+          "display": [
+            "1.50",
+            "0%",
+            "0%"
+          ]
+        },
+        "units": "mu:1; success:fraction",
+        "precision": "mu:toFixed(2); success:Math.round(100*x)%",
+        "formula": "friction:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-tail.input.json",
+        "bytes": 95,
+        "sha256": "7f2fe48cf713a052490938548eb3336be4060e7d3f8fb27e6643b2f69bd12f2e"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-tail.output.json",
+        "bytes": 303,
+        "sha256": "edeead6e9db62d769e2714b541a1c58114f220b6e591d138056364a632fe0306"
+      },
+      "inputDigest": "7f2fe48cf713a052490938548eb3336be4060e7d3f8fb27e6643b2f69bd12f2e",
+      "outputDigest": "edeead6e9db62d769e2714b541a1c58114f220b6e591d138056364a632fe0306",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s23-tail.receipt.json",
+          "bytes": 3909,
+          "sha256": "cc490390ebfaf1aa5f7f33319744d0e377bf1d1a2b3425d32f3a45193bec6909"
+        }
+      },
+      "bases": [
+        {
+          "input": "mu",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/muRange/1",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "range",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/range",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "s23-observed-default",
+      "planId": "sim2real-local-s23-20260923",
+      "partId": "s23-both-mounted-panels",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "source:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "file:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+        },
+        {
+          "file": {
+            "path": "components/article/commit-to-reveal.tsx",
+            "bytes": 12571,
+            "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+          },
+          "id": "file:components/article/commit-to-reveal.tsx",
+          "offset": 0,
+          "length": 12571,
+          "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+            "bytes": 9354,
+            "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+          },
+          "id": "file:tests/e2e/sim2real-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "recipe": {
+        "id": "friction",
+        "mode": "derive",
+        "inputs": {
+          "mu": 0.8,
+          "range": 0.35
+        }
+      },
+      "expected": {
+        "values": {
+          "point": 0.97,
+          "dr": 0.7375,
+          "peak": 0.7375,
+          "display": [
+            "0.80",
+            "97%",
+            "74%"
+          ]
+        },
+        "units": "mu:1; success:fraction",
+        "precision": "mu:toFixed(2); success:Math.round(100*x)%",
+        "formula": "friction:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-default.input.json",
+        "bytes": 95,
+        "sha256": "9c78198116c7b5a4b2881a32cfa48d7b2bc77c8f540357467c26df341b9d27fd"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-default.output.json",
+        "bytes": 273,
+        "sha256": "e796352f146a2915e7adf299531f419bf902e5fc094799165237dff3d4a04222"
+      },
+      "inputDigest": "9c78198116c7b5a4b2881a32cfa48d7b2bc77c8f540357467c26df341b9d27fd",
+      "outputDigest": "e796352f146a2915e7adf299531f419bf902e5fc094799165237dff3d4a04222",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:26.635Z",
+        "endedAt": "2026-09-23T05:20:32.394Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+          "bytes": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-default.receipt.json",
+          "bytes": 6992,
+          "sha256": "26b672c763066fa3116a7193aa23b21657f269fd337a98a70bacb093dce5a16e"
+        }
+      },
+      "bases": [
+        {
+          "input": "mu",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/mu",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "range",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/range",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "default",
+          "prestate": "Article not loaded",
+          "action": "Navigate to the article",
+          "poststate": "mu 0.80, range 0.35; point 97%, DR 74%",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"real-mu-readout\"]",
+              "text": "0.80"
+            },
+            {
+              "selector": "[data-testid=\"point-readout\"]",
+              "text": "97%"
+            },
+            {
+              "selector": "[data-testid=\"dr-readout\"]",
+              "text": "74%"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-default.html",
+            "bytes": 13285,
+            "sha256": "17858452a621f812bc7c7d687e2216a8c61158df3fe2acaf18f0ca7f1e53e4ce"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-default.png",
+            "bytes": 78653,
+            "sha256": "709f5dc7c00a777a278c4bc3fd26ff6bf742bcb111395577b89b7a3c4f413ac1"
+          }
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "reset",
+          "prestate": "mu 0.80, range 0.65",
+          "action": "Activate ordinary Reset",
+          "poststate": "mu 0.80, range 0.35; point 97%, DR 74%; original SVG",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"real-mu-readout\"]",
+              "text": "0.80"
+            },
+            {
+              "selector": "[data-testid=\"point-readout\"]",
+              "text": "97%"
+            },
+            {
+              "selector": "[data-testid=\"dr-readout\"]",
+              "text": "74%"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-reset.html",
+            "bytes": 13303,
+            "sha256": "d93b0794d68bba026f0dc3a8c50cba8df3513876a59fbf8a85381ec158c2f51c"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-reset.png",
+            "bytes": 78662,
+            "sha256": "a8a3bf3e88488d782a4948ce96441c1a0d2f1660bad2941c23559a4c36629ca4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s23-observed-wide",
+      "planId": "sim2real-local-s23-20260923",
+      "partId": "s23-both-mounted-panels",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "source:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "file:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+        },
+        {
+          "file": {
+            "path": "components/article/commit-to-reveal.tsx",
+            "bytes": 12571,
+            "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+          },
+          "id": "file:components/article/commit-to-reveal.tsx",
+          "offset": 0,
+          "length": 12571,
+          "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+            "bytes": 9354,
+            "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+          },
+          "id": "file:tests/e2e/sim2real-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "recipe": {
+        "id": "friction",
+        "mode": "derive",
+        "inputs": {
+          "mu": 0.8,
+          "range": 0.65
+        }
+      },
+      "expected": {
+        "values": {
+          "point": 0.97,
+          "dr": 0.5725,
+          "peak": 0.5725,
+          "display": [
+            "0.80",
+            "97%",
+            "57%"
+          ]
+        },
+        "units": "mu:1; success:fraction",
+        "precision": "mu:toFixed(2); success:Math.round(100*x)%",
+        "formula": "friction:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-wide.input.json",
+        "bytes": 95,
+        "sha256": "43fdf78a5033197e80623a50bb72d9218ee05b3414555057b8e818c37517513b"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-wide.output.json",
+        "bytes": 273,
+        "sha256": "3e146bbe5e5e77204ef7ed709da0c449f1675fff63dbe143aeb281a624d6c05a"
+      },
+      "inputDigest": "43fdf78a5033197e80623a50bb72d9218ee05b3414555057b8e818c37517513b",
+      "outputDigest": "3e146bbe5e5e77204ef7ed709da0c449f1675fff63dbe143aeb281a624d6c05a",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:26.635Z",
+        "endedAt": "2026-09-23T05:20:32.394Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+          "bytes": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-wide.receipt.json",
+          "bytes": 8260,
+          "sha256": "e608ca593760fbb54a0bfb44836c34f3d7e6a46f2e66553baa4f4580d22c123f"
+        }
+      },
+      "bases": [
+        {
+          "input": "mu",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/mu",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "range",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/drRange/1",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "mu 1.50, range 0.35",
+          "action": "Set friction 0.80 then half-width 0.65",
+          "poststate": "DR curve redraws; point 97%, DR 57%",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"real-mu-readout\"]",
+              "text": "0.80"
+            },
+            {
+              "selector": "[data-testid=\"point-readout\"]",
+              "text": "97%"
+            },
+            {
+              "selector": "[data-testid=\"dr-readout\"]",
+              "text": "57%"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-wide.html",
+            "bytes": 13342,
+            "sha256": "b67eca889489165e7bdf7a879b5f9cd1d49526d23733c4ed74db462e1e45b2ae"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-wide.png",
+            "bytes": 73941,
+            "sha256": "090b2baeedc739c2825c8d8063950fc5bd552b67f27b587dc9fbe6aff0c7dda5"
+          }
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+          "caseId": "default",
+          "prestate": "Prediction details closed",
+          "action": "Choose the authored plateau-falls prediction radio",
+          "poststate": "Prediction mount visible at mu 0.80, range 0.65; point 97%, DR 57%",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"real-mu-readout\"]",
+              "text": "0.80"
+            },
+            {
+              "selector": "[data-testid=\"point-readout\"]",
+              "text": "97%"
+            },
+            {
+              "selector": "[data-testid=\"dr-readout\"]",
+              "text": "57%"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/reveal-default.html",
+            "bytes": 13366,
+            "sha256": "e5c54c529e7956c87cf9c61c496c52731517e3c21e8357f52edd8a8f4d5a8a5d"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/reveal-default.png",
+            "bytes": 72747,
+            "sha256": "9b9d5cdf0eea55b38adbb5a978b8674277be58c8a776b1f9bc5f1ad63794da5f"
+          }
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+          "caseId": "reset",
+          "prestate": "Prediction mu 1.50, range 0.35",
+          "action": "Activate prediction Reset",
+          "poststate": "Prediction restores mu 0.80, range 0.65 and 57% DR; ordinary half-width remains 0.35",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"real-mu-readout\"]",
+              "text": "0.80"
+            },
+            {
+              "selector": "[data-testid=\"point-readout\"]",
+              "text": "97%"
+            },
+            {
+              "selector": "[data-testid=\"dr-readout\"]",
+              "text": "57%"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/reveal-reset.html",
+            "bytes": 13366,
+            "sha256": "e5c54c529e7956c87cf9c61c496c52731517e3c21e8357f52edd8a8f4d5a8a5d"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/reveal-reset.png",
+            "bytes": 72768,
+            "sha256": "e0caf8a915f5f3793a1e5d45d563af8ba235844805224237a91119ad9ff6d989"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s23-observed-tail",
+      "planId": "sim2real-local-s23-20260923",
+      "partId": "s23-both-mounted-panels",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+      "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "source:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "file:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+        },
+        {
+          "file": {
+            "path": "components/article/commit-to-reveal.tsx",
+            "bytes": 12571,
+            "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+          },
+          "id": "file:components/article/commit-to-reveal.tsx",
+          "offset": 0,
+          "length": 12571,
+          "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+            "bytes": 9354,
+            "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+          },
+          "id": "file:tests/e2e/sim2real-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 6466,
+          "length": 570,
+          "sha256": "7372b069be93e3745efae28a5aed5d3e6c00aacc2cdd942a0d8a8d90a7f99277",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula."
+      },
+      "recipe": {
+        "id": "friction",
+        "mode": "derive",
+        "inputs": {
+          "mu": 1.5,
+          "range": 0.35
+        }
+      },
+      "expected": {
+        "values": {
+          "point": 7.090944263988716e-14,
+          "dr": 0.0016132746996598806,
+          "peak": 0.7375,
+          "display": [
+            "1.50",
+            "0%",
+            "0%"
+          ]
+        },
+        "units": "mu:1; success:fraction",
+        "precision": "mu:toFixed(2); success:Math.round(100*x)%",
+        "formula": "friction:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-tail.input.json",
+        "bytes": 95,
+        "sha256": "7f2fe48cf713a052490938548eb3336be4060e7d3f8fb27e6643b2f69bd12f2e"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-tail.output.json",
+        "bytes": 303,
+        "sha256": "edeead6e9db62d769e2714b541a1c58114f220b6e591d138056364a632fe0306"
+      },
+      "inputDigest": "7f2fe48cf713a052490938548eb3336be4060e7d3f8fb27e6643b2f69bd12f2e",
+      "outputDigest": "edeead6e9db62d769e2714b541a1c58114f220b6e591d138056364a632fe0306",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:26.635Z",
+        "endedAt": "2026-09-23T05:20:32.394Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+          "bytes": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-tail.receipt.json",
+          "bytes": 7067,
+          "sha256": "47d1d2dd93cd582a3e53d566b620e92929398e2df4f93955d04f4a6de753ed35"
+        }
+      },
+      "bases": [
+        {
+          "input": "mu",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/muRange/1",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "range",
+          "kind": "authored-parameter",
+          "proofId": "s23-parameters",
+          "pointer": "/range",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "mu 0.80, range 0.35",
+          "action": "Set real friction slider to 1.50",
+          "poststate": "Line moves to 1.50; point 0%, DR 0%",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"real-mu-readout\"]",
+              "text": "1.50"
+            },
+            {
+              "selector": "[data-testid=\"point-readout\"]",
+              "text": "0%"
+            },
+            {
+              "selector": "[data-testid=\"dr-readout\"]",
+              "text": "0%"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-far.html",
+            "bytes": 13254,
+            "sha256": "12279a42cff0c088bf7584774d4476985d48ee561f06392245b9a162217121f6"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/friction-far.png",
+            "bytes": 77359,
+            "sha256": "7dc1114af181aad502782df10a91456c401118a2a94010d2acb7e89b46d45f1b"
+          }
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Prediction mu 0.80, range 0.65",
+          "action": "Set prediction friction 1.50 then half-width 0.35",
+          "poststate": "Prediction line and curve change; point 0%, DR 0%",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"real-mu-readout\"]",
+              "text": "1.50"
+            },
+            {
+              "selector": "[data-testid=\"point-readout\"]",
+              "text": "0%"
+            },
+            {
+              "selector": "[data-testid=\"dr-readout\"]",
+              "text": "0%"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/reveal-changed.html",
+            "bytes": 13278,
+            "sha256": "08cdc63d9a38456250897c1343fc3afef52bf3fd58cff421c03ea04109dfce9f"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/reveal-changed.png",
+            "bytes": 75208,
+            "sha256": "d8ca68da1264bfdba15fb7e565e1400013106f47f7041a28440d751c46aed8c3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s24-parameters",
+      "planId": "sim2real-local-s24-20260923",
+      "partId": "s24-authored-terrain-noise",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "source:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "recipe": {
+        "id": "teacher",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "degradation": 0.15,
+          "range": [
+            0,
+            1
+          ],
+          "terrain": [
+            0.0323,
+            0.0779,
+            0.0584,
+            0.035,
+            0.0551,
+            0.0422,
+            0.0093,
+            -0.0799,
+            -0.1455,
+            -0.0931,
+            -0.0405,
+            -0.0202,
+            -0.037,
+            -0.0278,
+            0.0906,
+            0.1629,
+            0.1636,
+            0.0964,
+            0.0382,
+            0.0349,
+            0.0459,
+            0.012,
+            -0.0502,
+            -0.0644
+          ],
+          "cells": 24
+        },
+        "units": "terrain:m; degradation:1",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "teacher:parameters:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-parameters.input.json",
+        "bytes": 62,
+        "sha256": "2ca80c06f5b6d48522b858acd6e4381926d69bafa7d251f69e9b87ba5dbbc973"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-parameters.output.json",
+        "bytes": 601,
+        "sha256": "bcb3b726b600ec80beb5ac5c082032a8872208900becfff20f1cc44edfc53a94"
+      },
+      "inputDigest": "2ca80c06f5b6d48522b858acd6e4381926d69bafa7d251f69e9b87ba5dbbc973",
+      "outputDigest": "bcb3b726b600ec80beb5ac5c082032a8872208900becfff20f1cc44edfc53a94",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s24-parameters.receipt.json",
+          "bytes": 3905,
+          "sha256": "6e027662921a9090c8d6309a9932a11ef9b0bb9103512e4278acb174f7b381d2"
+        }
+      },
+      "bases": [],
+      "kind": "authored-parameter"
+    },
+    {
+      "id": "s24-zero",
+      "planId": "sim2real-local-s24-20260923",
+      "partId": "s24-reconstruction",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "source:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "recipe": {
+        "id": "teacher",
+        "mode": "derive",
+        "inputs": {
+          "degradation": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "reconstruction": [
+            0.0323,
+            0.0779,
+            0.0584,
+            0.035,
+            0.0551,
+            0.0422,
+            0.0093,
+            -0.0799,
+            -0.1455,
+            -0.0931,
+            -0.0405,
+            -0.0202,
+            -0.037,
+            -0.0278,
+            0.0906,
+            0.1629,
+            0.1636,
+            0.0964,
+            0.0382,
+            0.0349,
+            0.0459,
+            0.012,
+            -0.0502,
+            -0.0644
+          ],
+          "mae": 0,
+          "divergence": 0,
+          "occluded": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "proprio": [
+            0.5752,
+            0.7227,
+            0.6597,
+            0.584,
+            0.649,
+            0.6072,
+            0.5008,
+            0.2122,
+            0,
+            0.1695,
+            0.3397,
+            0.4054,
+            0.351,
+            0.3808,
+            0.7638,
+            0.9977,
+            1,
+            0.7826,
+            0.5943,
+            0.5836,
+            0.6192,
+            0.5095,
+            0.3083,
+            0.2624
+          ],
+          "display": [
+            "0.00 m",
+            "0.00"
+          ]
+        },
+        "units": "terrain,mae:m; divergence:normalized action",
+        "precision": "terrain:toFixed(4); readouts:toFixed(2)",
+        "formula": "teacher:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-zero.input.json",
+        "bytes": 82,
+        "sha256": "042a9ecb54e7f6c0d8c3755f4f46f479f6530928d05bf4ec816e5bc5b350df81"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-zero.output.json",
+        "bytes": 1313,
+        "sha256": "1d19e0c11bf9b5ed6e8a7755f530f8d7ff06b83374b7156e36a7d324c2047361"
+      },
+      "inputDigest": "042a9ecb54e7f6c0d8c3755f4f46f479f6530928d05bf4ec816e5bc5b350df81",
+      "outputDigest": "1d19e0c11bf9b5ed6e8a7755f530f8d7ff06b83374b7156e36a7d324c2047361",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s24-zero.receipt.json",
+          "bytes": 3905,
+          "sha256": "b63bfc333b01624eb8dd7bc628eb71840991764b5dcfce85a0890319d96828a3"
+        }
+      },
+      "bases": [
+        {
+          "input": "degradation",
+          "kind": "authored-parameter",
+          "proofId": "s24-parameters",
+          "pointer": "/range/0",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "s24-default",
+      "planId": "sim2real-local-s24-20260923",
+      "partId": "s24-reconstruction",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "source:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "recipe": {
+        "id": "teacher",
+        "mode": "derive",
+        "inputs": {
+          "degradation": 0.15
+        }
+      },
+      "expected": {
+        "values": {
+          "reconstruction": [
+            0.027,
+            0.0665,
+            0.0771,
+            0.0304,
+            0.0556,
+            0.0294,
+            0.0085,
+            -0.0707,
+            -0.1208,
+            -0.079,
+            -0.0464,
+            -0.0443,
+            -0.0311,
+            -0.0201,
+            0.0867,
+            0.1506,
+            0.1526,
+            0.0842,
+            0.065,
+            0.0293,
+            0.0411,
+            0.0062,
+            -0.0415,
+            -0.0648
+          ],
+          "mae": 0.009894210242181204,
+          "divergence": 0.02176726253279865,
+          "occluded": [
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "proprio": [
+            0.515,
+            0.6731,
+            0.6879,
+            0.5575,
+            0.6975,
+            0.5581,
+            0.523,
+            0.2258,
+            0.0668,
+            0.2164,
+            0.2865,
+            0.3565,
+            0.3512,
+            0.3796,
+            0.7843,
+            1.0185,
+            1.0233,
+            0.7242,
+            0.6365,
+            0.5275,
+            0.5969,
+            0.4586,
+            0.3127,
+            0.1967
+          ],
+          "display": [
+            "0.01 m",
+            "0.02"
+          ]
+        },
+        "units": "terrain,mae:m; divergence:normalized action",
+        "precision": "terrain:toFixed(4); readouts:toFixed(2)",
+        "formula": "teacher:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-default.input.json",
+        "bytes": 85,
+        "sha256": "85e5aafe7999307a1c8e077b315ed9928c09f0d317860e22676aa95829d68f92"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-default.output.json",
+        "bytes": 1358,
+        "sha256": "2361d9a211cc06754d2ee80c193a6a90004f9b37bbd34b9ca0879a30a821539f"
+      },
+      "inputDigest": "85e5aafe7999307a1c8e077b315ed9928c09f0d317860e22676aa95829d68f92",
+      "outputDigest": "2361d9a211cc06754d2ee80c193a6a90004f9b37bbd34b9ca0879a30a821539f",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s24-default.receipt.json",
+          "bytes": 3905,
+          "sha256": "6bf03cf2e4e734cf839cc6aba4e83b89e65392cede6497dd3c00dd8c3e640db6"
+        }
+      },
+      "bases": [
+        {
+          "input": "degradation",
+          "kind": "authored-parameter",
+          "proofId": "s24-parameters",
+          "pointer": "/degradation",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "s24-high",
+      "planId": "sim2real-local-s24-20260923",
+      "partId": "s24-reconstruction",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "source:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/sim2real-local-evidence.test.ts",
+            "bytes": 9475,
+            "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+          },
+          "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+          "offset": 0,
+          "length": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+            "bytes": 3292,
+            "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+          "offset": 0,
+          "length": 3292,
+          "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "recipe": {
+        "id": "teacher",
+        "mode": "derive",
+        "inputs": {
+          "degradation": 1
+        }
+      },
+      "expected": {
+        "values": {
+          "reconstruction": [
+            -0.1233,
+            -0.1182,
+            0.1833,
+            -0.1155,
+            0.1784,
+            -0.1632,
+            -0.1157,
+            0.1016,
+            0.1394,
+            0.121,
+            -0.1998,
+            -0.181,
+            0.1226,
+            0.1436,
+            -0.0556,
+            -0.0391,
+            -0.03,
+            -0.1049,
+            0.2168,
+            -0.1223,
+            -0.106,
+            -0.1466,
+            0.1278,
+            -0.1874
+          ],
+          "mae": 0.1709614016145414,
+          "divergence": 0.37611508355199114,
+          "occluded": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "proprio": [
+            0.1736,
+            0.3916,
+            0.848,
+            0.4075,
+            0.9724,
+            0.2795,
+            0.6487,
+            0.3028,
+            0.4453,
+            0.4821,
+            -0.0149,
+            0.0793,
+            0.352,
+            0.3728,
+            0.9005,
+            1.1362,
+            1.1551,
+            0.3933,
+            0.8754,
+            0.2094,
+            0.4705,
+            0.17,
+            0.3375,
+            -0.1753
+          ],
+          "display": [
+            "0.17 m",
+            "0.38"
+          ]
+        },
+        "units": "terrain,mae:m; divergence:normalized action",
+        "precision": "terrain:toFixed(4); readouts:toFixed(2)",
+        "formula": "teacher:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-high.input.json",
+        "bytes": 82,
+        "sha256": "9f11705456c637d90b79f6b03add917d38cd8b3472ddb2233b26210556520416"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-high.output.json",
+        "bytes": 1339,
+        "sha256": "3e8b50d3536feae5e35760a0b24f4591d30acad3b874dbdfbe25f9a3806a27d8"
+      },
+      "inputDigest": "9f11705456c637d90b79f6b03add917d38cd8b3472ddb2233b26210556520416",
+      "outputDigest": "3e8b50d3536feae5e35760a0b24f4591d30acad3b874dbdfbe25f9a3806a27d8",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:22.645Z",
+        "endedAt": "2026-09-23T05:20:22.674Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/sim2real-local-evidence.test.ts",
+          "bytes": 9475,
+          "sha256": "f94f4a04f90498ceedd2a9e1f03bc78df0c84a1bf8c5d991fbfab4db758821b2"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s24-high.receipt.json",
+          "bytes": 3905,
+          "sha256": "c7359a1889979a78aa4d1a9e32d54df90a3bc39dae4ae38dc54df471d1db4805"
+        }
+      },
+      "bases": [
+        {
+          "input": "degradation",
+          "kind": "authored-parameter",
+          "proofId": "s24-parameters",
+          "pointer": "/range/1",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "s24-observed-default",
+      "planId": "sim2real-local-s24-20260923",
+      "partId": "s24-mounted-degradation",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "file:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "source:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+          }
+        },
+        {
+          "file": {
+            "path": "components/article/commit-to-reveal.tsx",
+            "bytes": 12571,
+            "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+          },
+          "id": "file:components/article/commit-to-reveal.tsx",
+          "offset": 0,
+          "length": 12571,
+          "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+            "bytes": 9354,
+            "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+          },
+          "id": "file:tests/e2e/sim2real-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "recipe": {
+        "id": "teacher",
+        "mode": "derive",
+        "inputs": {
+          "degradation": 0.15
+        }
+      },
+      "expected": {
+        "values": {
+          "reconstruction": [
+            0.027,
+            0.0665,
+            0.0771,
+            0.0304,
+            0.0556,
+            0.0294,
+            0.0085,
+            -0.0707,
+            -0.1208,
+            -0.079,
+            -0.0464,
+            -0.0443,
+            -0.0311,
+            -0.0201,
+            0.0867,
+            0.1506,
+            0.1526,
+            0.0842,
+            0.065,
+            0.0293,
+            0.0411,
+            0.0062,
+            -0.0415,
+            -0.0648
+          ],
+          "mae": 0.009894210242181204,
+          "divergence": 0.02176726253279865,
+          "occluded": [
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "proprio": [
+            0.515,
+            0.6731,
+            0.6879,
+            0.5575,
+            0.6975,
+            0.5581,
+            0.523,
+            0.2258,
+            0.0668,
+            0.2164,
+            0.2865,
+            0.3565,
+            0.3512,
+            0.3796,
+            0.7843,
+            1.0185,
+            1.0233,
+            0.7242,
+            0.6365,
+            0.5275,
+            0.5969,
+            0.4586,
+            0.3127,
+            0.1967
+          ],
+          "display": [
+            "0.01 m",
+            "0.02"
+          ]
+        },
+        "units": "terrain,mae:m; divergence:normalized action",
+        "precision": "terrain:toFixed(4); readouts:toFixed(2)",
+        "formula": "teacher:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-default.input.json",
+        "bytes": 85,
+        "sha256": "85e5aafe7999307a1c8e077b315ed9928c09f0d317860e22676aa95829d68f92"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-default.output.json",
+        "bytes": 1358,
+        "sha256": "2361d9a211cc06754d2ee80c193a6a90004f9b37bbd34b9ca0879a30a821539f"
+      },
+      "inputDigest": "85e5aafe7999307a1c8e077b315ed9928c09f0d317860e22676aa95829d68f92",
+      "outputDigest": "2361d9a211cc06754d2ee80c193a6a90004f9b37bbd34b9ca0879a30a821539f",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:26.635Z",
+        "endedAt": "2026-09-23T05:20:32.394Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+          "bytes": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-default.receipt.json",
+          "bytes": 6863,
+          "sha256": "42fbba08967603c823783c125754de899e075120853d06a2da7d13844cdcd613"
+        }
+      },
+      "bases": [
+        {
+          "input": "degradation",
+          "kind": "authored-parameter",
+          "proofId": "s24-parameters",
+          "pointer": "/degradation",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "default",
+          "prestate": "Article loaded; teacher unchanged",
+          "action": "Read initial teacher mount",
+          "poststate": "Degradation 0.15; MAE 0.01 m; discrepancy 0.02; 3/24 occluded",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"mae-readout\"]",
+              "text": "0.01 m"
+            },
+            {
+              "selector": "[data-testid=\"divergence-readout\"]",
+              "text": "0.02"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-default.html",
+            "bytes": 12366,
+            "sha256": "a3414deac19b888afb93379c041b6a96d6055cad2fea6524cfb7a4dffecfb545"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-default.png",
+            "bytes": 52450,
+            "sha256": "8e2b9b04ab1f0bbca56e61458dc1c3c1de87ddbc5891aa71776db64df11d28bc"
+          }
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "reset",
+          "prestate": "Degradation 0",
+          "action": "Activate teacher Reset",
+          "poststate": "Degradation 0.15, original input/reconstruction markup; MAE 0.01 m and discrepancy 0.02",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"mae-readout\"]",
+              "text": "0.01 m"
+            },
+            {
+              "selector": "[data-testid=\"divergence-readout\"]",
+              "text": "0.02"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-reset.html",
+            "bytes": 12366,
+            "sha256": "a3414deac19b888afb93379c041b6a96d6055cad2fea6524cfb7a4dffecfb545"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-reset.png",
+            "bytes": 52456,
+            "sha256": "794c9378d4826efee76270f3a7ef8e2ef7152c7e29cdf26bac62de31606fe8cc"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s24-observed-zero",
+      "planId": "sim2real-local-s24-20260923",
+      "partId": "s24-mounted-degradation",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "file:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "source:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+          }
+        },
+        {
+          "file": {
+            "path": "components/article/commit-to-reveal.tsx",
+            "bytes": 12571,
+            "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+          },
+          "id": "file:components/article/commit-to-reveal.tsx",
+          "offset": 0,
+          "length": 12571,
+          "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+            "bytes": 9354,
+            "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+          },
+          "id": "file:tests/e2e/sim2real-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "recipe": {
+        "id": "teacher",
+        "mode": "derive",
+        "inputs": {
+          "degradation": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "reconstruction": [
+            0.0323,
+            0.0779,
+            0.0584,
+            0.035,
+            0.0551,
+            0.0422,
+            0.0093,
+            -0.0799,
+            -0.1455,
+            -0.0931,
+            -0.0405,
+            -0.0202,
+            -0.037,
+            -0.0278,
+            0.0906,
+            0.1629,
+            0.1636,
+            0.0964,
+            0.0382,
+            0.0349,
+            0.0459,
+            0.012,
+            -0.0502,
+            -0.0644
+          ],
+          "mae": 0,
+          "divergence": 0,
+          "occluded": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "proprio": [
+            0.5752,
+            0.7227,
+            0.6597,
+            0.584,
+            0.649,
+            0.6072,
+            0.5008,
+            0.2122,
+            0,
+            0.1695,
+            0.3397,
+            0.4054,
+            0.351,
+            0.3808,
+            0.7638,
+            0.9977,
+            1,
+            0.7826,
+            0.5943,
+            0.5836,
+            0.6192,
+            0.5095,
+            0.3083,
+            0.2624
+          ],
+          "display": [
+            "0.00 m",
+            "0.00"
+          ]
+        },
+        "units": "terrain,mae:m; divergence:normalized action",
+        "precision": "terrain:toFixed(4); readouts:toFixed(2)",
+        "formula": "teacher:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-zero.input.json",
+        "bytes": 82,
+        "sha256": "042a9ecb54e7f6c0d8c3755f4f46f479f6530928d05bf4ec816e5bc5b350df81"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-zero.output.json",
+        "bytes": 1313,
+        "sha256": "1d19e0c11bf9b5ed6e8a7755f530f8d7ff06b83374b7156e36a7d324c2047361"
+      },
+      "inputDigest": "042a9ecb54e7f6c0d8c3755f4f46f479f6530928d05bf4ec816e5bc5b350df81",
+      "outputDigest": "1d19e0c11bf9b5ed6e8a7755f530f8d7ff06b83374b7156e36a7d324c2047361",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:26.635Z",
+        "endedAt": "2026-09-23T05:20:32.394Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+          "bytes": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-zero.receipt.json",
+          "bytes": 5792,
+          "sha256": "6236c7195a24556c064a97774e9c0ec099555584bf63c986522e01cfff619b30"
+        }
+      },
+      "bases": [
+        {
+          "input": "degradation",
+          "kind": "authored-parameter",
+          "proofId": "s24-parameters",
+          "pointer": "/range/0",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Degradation 1",
+          "action": "Set degradation to 0",
+          "poststate": "MAE 0.00 m; discrepancy 0.00; no occlusion; reconstructed colors equal teacher",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"mae-readout\"]",
+              "text": "0.00 m"
+            },
+            {
+              "selector": "[data-testid=\"divergence-readout\"]",
+              "text": "0.00"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-zero.html",
+            "bytes": 11742,
+            "sha256": "660f025a16e511230afc4c41b48309728156d3ccb1ff6768b64e184606edd8f2"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-zero.png",
+            "bytes": 47273,
+            "sha256": "4904a3352a9d13a5a8b994367e0257a71e12fedf07ee92e1caeda7c737bf56dc"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s24-observed-high",
+      "planId": "sim2real-local-s24-20260923",
+      "partId": "s24-mounted-degradation",
+      "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+      "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 0,
+          "length": 21963,
+          "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/sim2real.ts",
+            "bytes": 9575,
+            "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+          },
+          "id": "file:lib/sim2real.ts",
+          "offset": 0,
+          "length": 9575,
+          "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "components/interactive/friction-transfer.tsx",
+            "bytes": 16495,
+            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          },
+          "id": "file:components/interactive/friction-transfer.tsx",
+          "offset": 0,
+          "length": 16495,
+          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+        },
+        {
+          "file": {
+            "path": "components/interactive/teacher-student.tsx",
+            "bytes": 10601,
+            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          },
+          "id": "source:components/interactive/teacher-student.tsx",
+          "offset": 0,
+          "length": 10601,
+          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+          }
+        },
+        {
+          "file": {
+            "path": "components/article/commit-to-reveal.tsx",
+            "bytes": 12571,
+            "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+          },
+          "id": "file:components/article/commit-to-reveal.tsx",
+          "offset": 0,
+          "length": 12571,
+          "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+            "bytes": 9354,
+            "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+          },
+          "id": "file:tests/e2e/sim2real-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+            "bytes": 2972,
+            "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+          },
+          "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 2972,
+          "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
+            "bytes": 21963,
+            "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+          },
+          "id": "article:rl-sim2real/sim2real-transfer",
+          "offset": 11538,
+          "length": 1252,
+          "sha256": "106164269a5d5db3d1f5780b72fa0bf7370b6436ba1d9cd71d97d7a883bec300",
+          "baseline": {
+            "kind": "prose",
+            "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+          }
+        },
+        "text": "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.\n\n<TeacherStudent className=\"my-6\" />\n\nPush the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training."
+      },
+      "recipe": {
+        "id": "teacher",
+        "mode": "derive",
+        "inputs": {
+          "degradation": 1
+        }
+      },
+      "expected": {
+        "values": {
+          "reconstruction": [
+            -0.1233,
+            -0.1182,
+            0.1833,
+            -0.1155,
+            0.1784,
+            -0.1632,
+            -0.1157,
+            0.1016,
+            0.1394,
+            0.121,
+            -0.1998,
+            -0.181,
+            0.1226,
+            0.1436,
+            -0.0556,
+            -0.0391,
+            -0.03,
+            -0.1049,
+            0.2168,
+            -0.1223,
+            -0.106,
+            -0.1466,
+            0.1278,
+            -0.1874
+          ],
+          "mae": 0.1709614016145414,
+          "divergence": 0.37611508355199114,
+          "occluded": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "proprio": [
+            0.1736,
+            0.3916,
+            0.848,
+            0.4075,
+            0.9724,
+            0.2795,
+            0.6487,
+            0.3028,
+            0.4453,
+            0.4821,
+            -0.0149,
+            0.0793,
+            0.352,
+            0.3728,
+            0.9005,
+            1.1362,
+            1.1551,
+            0.3933,
+            0.8754,
+            0.2094,
+            0.4705,
+            0.17,
+            0.3375,
+            -0.1753
+          ],
+          "display": [
+            "0.17 m",
+            "0.38"
+          ]
+        },
+        "units": "terrain,mae:m; divergence:normalized action",
+        "precision": "terrain:toFixed(4); readouts:toFixed(2)",
+        "formula": "teacher:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-high.input.json",
+        "bytes": 82,
+        "sha256": "9f11705456c637d90b79f6b03add917d38cd8b3472ddb2233b26210556520416"
+      },
+      "output": {
+        "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-high.output.json",
+        "bytes": 1339,
+        "sha256": "3e8b50d3536feae5e35760a0b24f4591d30acad3b874dbdfbe25f9a3806a27d8"
+      },
+      "inputDigest": "9f11705456c637d90b79f6b03add917d38cd8b3472ddb2233b26210556520416",
+      "outputDigest": "3e8b50d3536feae5e35760a0b24f4591d30acad3b874dbdfbe25f9a3806a27d8",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T05:20:26.635Z",
+        "endedAt": "2026-09-23T05:20:32.394Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+          "bytes": 9354,
+          "sha256": "e12c4b2cd40fd1c41d6c977f5ffbd3f0a34238137e7b13701688b246db5e8b71"
+        },
+        "receipt": {
+          "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-high.receipt.json",
+          "bytes": 5794,
+          "sha256": "7245e60d38b93d3037220871939c5e98a9ddb3334cb7decfb511a4cacbf5f040"
+        }
+      },
+      "bases": [
+        {
+          "input": "degradation",
+          "kind": "authored-parameter",
+          "proofId": "s24-parameters",
+          "pointer": "/range/1",
+          "unit": "dimensionless"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Degradation 0.15",
+          "action": "Set degradation to 1",
+          "poststate": "MAE 0.17 m; discrepancy 0.38; 24/24 occluded; input and reconstruction change",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"mae-readout\"]",
+              "text": "0.17 m"
+            },
+            {
+              "selector": "[data-testid=\"divergence-readout\"]",
+              "text": "0.38"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-high.html",
+            "bytes": 16781,
+            "sha256": "cf1a3049c388c8a49382bc77c8cd4316b029dae0afc58d5f7fc801475274a455"
+          },
+          "capture": {
+            "path": "audit/evidence/sim2real-local-20260923/captures/typed-final/teacher-high.png",
+            "bytes": 71165,
+            "sha256": "39816c2fd9383d982ba61668f706e97090e172accf7e477d65d7096ea87b7390"
+          }
+        }
+      ]
+    }
+  ]
+}

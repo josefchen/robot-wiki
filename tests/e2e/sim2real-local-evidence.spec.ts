@@ -7,20 +7,23 @@ import { setSlider } from './slider';
 
 const directory = 'audit/evidence/sim2real-local-20260923';
 const producing = process.env.SIM2REAL_WRITE_EVIDENCE === '1';
+const finalCapture = process.env.SIM2REAL_FINAL_CAPTURE === '1';
+const captureDirectory = `${directory}/captures/${finalCapture ? 'native' : 'attempt-2'}`;
 const sha256 = (value: Buffer | string) => createHash('sha256').update(value).digest('hex');
 
 async function capture(page: Page, panel: Locator, name: string) {
   await panel.scrollIntoViewIfNeeded();
   const html = await panel.evaluate(element => element.outerHTML);
   if (!producing) return { name, domSha256: sha256(html) };
-  mkdirSync(`${directory}/captures/attempt-2`, { recursive: true });
-  const png = `${directory}/captures/attempt-2/${name}.png`;
-  const dom = `${directory}/captures/attempt-2/${name}.html`;
+  mkdirSync(captureDirectory, { recursive: true });
+  const png = `${captureDirectory}/${name}.png`;
+  const dom = `${captureDirectory}/${name}.dom.json`;
   expect(existsSync(png)).toBe(false);
   expect(existsSync(dom)).toBe(false);
-  await panel.screenshot({ path: png });
-  writeFileSync(dom, html, { flag: 'wx' });
-  return { name, png, dom, pngSha256: sha256(readFileSync(png)), domSha256: sha256(html), url: page.url() };
+  await page.screenshot({ path: png });
+  const record = { url: page.url(), viewport: page.viewportSize(), text: await page.locator('body').innerText(), html: await page.locator('#main-content').innerHTML(), preview: html };
+  writeFileSync(dom, JSON.stringify(record, null, 2) + '\n', { flag: 'wx' });
+  return { name, png, dom, pngSha256: sha256(readFileSync(png)), domSha256: sha256(readFileSync(dom)), url: page.url() };
 }
 
 test('sim2real raw mounted evidence covers both friction mounts and teacher transitions', async ({ page }) => {
@@ -122,12 +125,17 @@ test('sim2real raw mounted evidence covers both friction mounts and teacher tran
   await expect(teacher).toContainText('Darker cells are higher terrain');
   const desktopAxe = await new AxeBuilder({ page }).include('#main-content').analyze();
   expect(desktopAxe.violations).toEqual([]);
-  await page.setViewportSize({ width: 375, height: 812 });
   await expect(page.locator('div.prose[data-pagefind-body]')).toContainText('not inferred from the displayed input strip');
-  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
-  const mobileArtifact = await capture(page, teacher, 'mobile-disclosure');
-  const mobileAxe = await new AxeBuilder({ page }).include('#main-content').analyze();
-  expect(mobileAxe.violations).toEqual([]);
+  let mobileArtifact: Awaited<ReturnType<typeof capture>> | null = null;
+  let mobileAxeViolations: unknown[] | null = null;
+  if (!finalCapture) {
+    await page.setViewportSize({ width: 375, height: 812 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+    mobileArtifact = await capture(page, teacher, 'mobile-disclosure');
+    const mobileAxe = await new AxeBuilder({ page }).include('#main-content').analyze();
+    expect(mobileAxe.violations).toEqual([]);
+    mobileAxeViolations = mobileAxe.violations;
+  }
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
   if (producing) {
@@ -138,11 +146,11 @@ test('sim2real raw mounted evidence covers both friction mounts and teacher tran
       'tests/e2e/sim2real-local-evidence.spec.ts',
       'audit/evidence/sim2real-local-20260923/proof-support.ts',
     ].map(path => ({ path, sha256: sha256(readFileSync(path)) }));
-    writeFileSync(`${directory}/browser-run.json`, JSON.stringify({
+    writeFileSync(`${directory}/${finalCapture ? 'browser-run-native.json' : 'browser-run.json'}`, JSON.stringify({
       kind: 'raw-mounted-browser-run', auditCertification: false, startedAt,
       completedAt: new Date().toISOString(), observations, mobileArtifact,
       pageErrors: errors, blockedExternalRequests: external,
-      desktopAxeViolations: desktopAxe.violations, mobileAxeViolations: mobileAxe.violations,
+      desktopAxeViolations: desktopAxe.violations, mobileAxeViolations,
       dependencies,
     }, null, 2) + '\n', { flag: 'wx' });
   }

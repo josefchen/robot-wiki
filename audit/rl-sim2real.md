@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 167
-- Recorded verified: 59
-- Recorded corrected: 106
+- Recorded verified: 57
+- Recorded corrected: 108
 - Recorded cut: 2
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 162
-- Incomplete evidence records: 5
+- Complete evidence records: 164
+- Incomplete evidence records: 3
 
 <!-- audit-summary:end -->
 
@@ -355,8 +355,8 @@ this ledger's conventions.
 | The Newton 1.0 release post describes a Warp-based tiled camera sensor whose ray-tracing backend supports both triangle meshes and Gaussian splats. | newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored tiled-sensor bullet explicitly states Warp-based sensing, ray-tracing rendering and triangle-mesh/Gaussian-splat representations. Current transfer prose removes the productized-SplatSim inference and leaves all adjacent SplatSim/RoboGSim/ASAP/Lee content and wrappers unchanged. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-sim2real-transfer-20 |
 | "the splat supplies appearance, and a conventional physics engine still supplies dynamics ... it reconstructs a static scene" | splatsim-2024, https://arxiv.org/html/2409.10161 (serves v3, 07 Oct 2024 — the same edition as the retained 2026-09-08 body behind rows 4/18/19; curl GET 200, 2026-09-16T13:15:55Z, 154,239 bytes, sha256 8d2a0c1f750ff61033c79c47d9e10e18ec806b263fbc6232df3c34edc3ec2e5e; identity via https://arxiv.org/abs/2409.10161) + robogsim-2024, https://arxiv.org/html/2411.11839 (serves v2, 03 Aug 2025 — same edition as retained row 19; curl GET 200, 165,173 bytes, sha256 ea7fc9f55f3aee9b9cdd7dd4c8cdfb287c3a9c199765c77c5958591670f29bf5; identity via https://arxiv.org/abs/2411.11839) | verified | SplatSim: splats replace 'traditional mesh representation in the rendering pipeline of the simulator' while 'the simulator as a physics backend' (PyBullet) supplies dynamics; 'relies solely on an initial video of the static scene'. RoboGSim: 'powered by 3D Gaussian Splatting and the physics engine'; 'We employ the 3DGS method to reconstruct static scenes'. The article span is the section's uncited synthesis sentence; the surrounding paragraphs cite both papers. |  |  |  | sim2real-transfer-21-splat-division-20260916h |
 | "The survey calls the abstraction choice one of the highest-leverage and least-discussed levers in the field" | reality-gap-survey-2026, https://arxiv.org/html/2510.20808 (HTML v1, curl GET 200, 2026-09-16T13:15:54Z, 347,792 bytes, sha256 05d3d5b5956688b10dbb843896047f31e003f8f0ac42f6bd74bb5c28982c406c), Sec. 4.1 'Reducing the Gap', State/Action Representations bullet block (body-position measured: heading 4.1 at 41434 < sentence at 48169 < heading 4.2 at 52302; the earlier 'Sec. 4.2' locator mislabeled the section) | **corrected** | Survey says "The action space plays a crucial role in reducing the sim-to-real gap as demonstrated across robotics domains including navigation, locomotion, and manipulation" — no "highest-leverage" or "least-discussed" characterization anywhere (0 hits for all four hyphenated/unhyphenated variants in the fetched body). Rewritten to the survey's own emphasis. Locator correction 2026-09-16: the sentence prints in Sec. 4.1 (State and Action Representations bullets), not Sec. 4.2; confirmed live with the article's corrected span unchanged at HEAD ff0fcdd. |  |  |  | sim2real-transfer-22-action-space-20260916h |
-| FrictionTransfer interactive (specialist spike vs generalist plateau) | Callout in article; lib/sim2real.ts header | verified | Labeled illustrative; sourced anchors are the Tobin/Peng framing, ADR, and the CPU-API constraint. |
-| TeacherStudent interactive (degradation slider, reconstruction blur, action divergence) | lib/sim2real.ts header (updated) | verified | Deterministic illustrative model; comment now names the paper's actual term. |
+| FrictionTransfer uses authored Gaussian/plateau curves and rounded local arithmetic, with observed ordinary and prediction mounts that reset to half-widths 0.35 and 0.65 respectively. | Retained Tobin v1, Peng v3, Rubik ADR v1 and Isaac Lab v1 full bodies with original September 8 retrieval provenance; actual September 23 independent numeric and both-mount browser observations. | C | Corrected to explicit typed external AND local support, not empirical specialist/generalist measurements. Visual/dynamics framing, performance-threshold ADR and CPU parameter writes with runtime/mesh exceptions remain separate external obligations. All plotted values and ranges are chosen; Gaussian tails and percentage rounding are recomputed. Both actual mounts, reveal and distinct Reset defaults are retained. Original cells and source snapshot are archived unchanged. Historical retrieval is not current liveness; not independent acceptance. |  |  |  | sim2real-local-s23-20260923 |
+| TeacherStudent draws authored terrain/noise and a directly constructed reconstruction; normalized discrepancy is 2.2 times unrounded MAE, with observed degradation 0.15-to-1-to-0 and Reset. | Retained Lee unversioned ar5iv body and Isaac Lab v1 body with original September 8 retrieval events; actual September 23 independent per-cell calculations and mounted teacher observations. | C | The empirical cost-of-distillation and universal training-budget-floor interpretation is corrected, not verified. Lee supports privileged versus deployable proprioceptive inputs; Isaac Lab supports input-mismatch/occlusion context, not these coefficients. Terrain, seeds, blur, noise/dropout and 2.2 scaling are authored. Reconstruction is computed from the map plus errors, not inferred from the bars; darker cells are higher. Original four cells remain in history. All external AND local obligations remain; no policy training, new retrieval or independent acceptance. |  |  |  | sim2real-local-s24-20260923 |
 
 ## legged-locomotion.mdx
 
@@ -2428,3 +2428,133 @@ Red-first: 2 failed / 6 passed / 1 skipped. Focused four-file numerical/unit/com
 The single native offline coverage output is 10192670 bytes, SHA-256 `e4564283028555a8653d028a9a2b98c1d4c12a9b701a7f52a5d0ef368e87f5dd`, byte-identical to the reward checkpoint's coverage output. No second coverage run. Both selected native tuple digests were rechecked using `originalClaimDigest`: original23 `a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d`; original24 `cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a`.
 
 Outstanding: assemble strict native authored/derived/observed records, same-plan input bases, final run receipts and source-member bindings; complete the 7-part friction and 5-part teacher AND inventories; perform actual whole-plan/per-part reviews and then update selected ledger tuples and exact native approvals. At this bounded checkpoint that integration remains unfinished; no toolkit defect, source exhaustion or owner blocker is claimed. Existing 1039 approvals are unchanged. No build/export, full browser/brand corpus, reading-time refresh, independent acceptance, feature mutation or publication. next-env.d.ts was restored exactly after each owned server run; no foreign process was adopted or killed. Earlier reward evidence, owner work, PRODUCT_QUALITY.md, qa/, d282a83 and 2cf7d6b remain intact.
+
+
+## Sim2real typed-local original and correction history, 2026-09-23
+
+The following exact pre-application tuples and immutable original bindings are non-counted history. Original7/5-part inventories remain in `audit/evidence/sim2real-local-20260923/selected-bindings.json`; all source bodies, raw runs and rejected unreviewed drafts remain untouched. Final9/7-part plans partition each observed obligation into three output-specific groups while retaining every original external AND local obligation.
+
+```json
+[
+  {
+    "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+    "rowOrdinal": 23,
+    "currentCells": {
+      "claim": "FrictionTransfer interactive (specialist spike vs generalist plateau)",
+      "sourceChecked": "Callout in article; lib/sim2real.ts header",
+      "verdict": "verified",
+      "note": "Labeled illustrative; sourced anchors are the Tobin/Peng framing, ADR, and the CPU-API constraint."
+    },
+    "currentTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d",
+    "originalBinding": {
+      "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14",
+      "snapshot": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-rl-sim2real.md",
+        "bytes": 47364,
+        "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+      },
+      "originalCells": {
+        "claim": "FrictionTransfer interactive (specialist spike vs generalist plateau)",
+        "sourceChecked": "Callout in article; lib/sim2real.ts header",
+        "verdict": "verified",
+        "note": "Labeled illustrative; sourced anchors are the Tobin/Peng framing, ADR, and the CPU-API constraint."
+      },
+      "originalTupleDigest": "a05b52fd85e25155ff3d9835c4d0ac6508a6689ea0bbecd4de1dd532028dc29d"
+    }
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+    "rowOrdinal": 24,
+    "currentCells": {
+      "claim": "TeacherStudent interactive (degradation slider, reconstruction blur, action divergence)",
+      "sourceChecked": "lib/sim2real.ts header (updated)",
+      "verdict": "verified",
+      "note": "Deterministic illustrative model; comment now names the paper's actual term."
+    },
+    "currentTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a",
+    "originalBinding": {
+      "sourceCommit": "01e7ab1d9a22c9733884f6d973700bf8587fdf14",
+      "snapshot": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-rl-sim2real.md",
+        "bytes": 47364,
+        "sha256": "8f4708b5b64cdce245973c38f583bb47615976b9eb62a9e123b1f419f8123b3e"
+      },
+      "originalCells": {
+        "claim": "TeacherStudent interactive (degradation slider, reconstruction blur, action divergence)",
+        "sourceChecked": "lib/sim2real.ts header (updated)",
+        "verdict": "verified",
+        "note": "Deterministic illustrative model; comment now names the paper's actual term."
+      },
+      "originalTupleDigest": "cb0c5f7bdb4306229570ca8f22ae64a91f4a1c6bf50af00e88ee2ed8c328334a"
+    }
+  }
+]
+```
+
+
+## Sim2real typed-local final verification, 2026-09-23
+
+This finishes the same two-original assignment after partial checkpoint `3a2903eff31e7ece7eb713cf6cd3f7b856e3a779`, not a new audit of reward or other records. **2 applied / 0 held / 0 unattempted**, originals `audit/rl-sim2real.md:sim2real-transfer:23` and `:24`, both C. The original 7/5 obligations survive as 9/7 native AND parts: 6 external, 2 authored, 2 derived and 6 observed. Each former observed obligation is partitioned by actual output into three required sibling parts. All 11 transitions, both friction mounts and their distinct reset defaults survive. Two plans, 14 local proofs, 6 external source pairs and 18 actual integrator review events were added; whole-plan and per-part review occurred at `2026-09-23T05:29:54.001Z`, not at the original fetch times. This is not independent acceptance or empirical certification.
+
+Strict artifacts use the `native-` input/output/receipt prefix, `numeric-run-sealed.json`, `browser-run-native.json`, actual `.review.json` records and `captures/native/` under `audit/evidence/sim2real-local-20260923/`. Earlier drafts are retained unreviewed history, not alternate approvals. The preparation binding and original Git snapshot preserve immutable source identity and both exact four-cell tuples. Application rechecked the fresh parent round2 preflight at 3a2903e; no completed reward record was reapplied. Native validation passed all five typed plans. Prior 3 reward plans/22 proofs, all 121 reward evidence files and all 45 partial sim2real evidence files are byte-preserved. All 860 legacy plans remain unchanged. Exactly two genuine native approvals (article prose and teacher component source) extend the unchanged 1039-entry prefix to 1041; their old endpoints precede the unapproved partial checkpoint at e50e884. No invented library-member approval.
+
+Five previously retained primary documents were hash-verified and their actual supporting text read; zero new requests. Tobin v1 (`https://arxiv.org/html/1703.06907v1`, September8 07:26:18.853Z) supports visual randomization framing; Peng v3 (`https://arxiv.org/html/1710.06537v3`, 07:26:42.941Z) supports the dynamics distribution and concrete randomized parameters; OpenAI v1 (`https://arxiv.org/html/1910.07113v1`, 07:27:07.993Z) supports performance thresholds and ADR boundary sampling. Isaac Lab v1 (`https://arxiv.org/html/2511.04831v1`, 00:55:54.267675+00:00) supports CPU-API/runtime/mesh distinctions, ADR curriculum and information mismatch under occlusion. Lee (`https://ar5iv.labs.arxiv.org/html/2010.11251`, 08:14:45.521Z) is an **unversioned ar5iv body, not a pinned v1**; its Section4.1 supports privileged teacher/proprioceptive-history student framing. All times are September8 original retrievals, not new HTTP observations. Exact source bytes, hashes, original response provenance and passages remain in source-provenance.json/source-passages.json and the typed records.
+
+The authored disclosure now explicitly says toy/not measured robot data. Formulas, constants, controls and geometry remain unchanged. Independent parameter extraction plus six derivations establish friction (mu, half-width)=(0.8,0.35), (0.8,0.65), (1.5,0.35), and teacher degradation0/0.15/1. Friction peaks0.7375/0.5725 display74%/57%; the second revealed mount resets to0.65, not the ordinary0.35. Teacher MAE uses unrounded errors; rounded-first MAE is a negative control. Default/high MAE0.009894210242181204/0.1709614016145414 and 2.2-times discrepancy0.02176726253279865/0.37611508355199114 display0.01/0.17m and0.02/0.38. These are chosen deterministic models, not experimental policy results or a training-budget error floor. Changed prose received a manual attribution/overstatement read; lastReviewed remains2026-08-17 because this was not a whole-article audit.
+
+Final native browser capture actually executed ordinary default/far/wide/reset, prediction reveal/change/reset and teacher0.15→1→0→reset. It retained 11 full-document rendered DOM JSON/true1440×1000 PNG pairs with disclosure and readout text. Four final images were manually inspected: friction-wide, reveal-reset, teacher-high, teacher-reset; the others were programmatically checked and captured, not claimed manually reviewed. Desktop main-content Axe, page errors and external requests were all zero. Earlier 375px mobile capture/inspection and the corrected market-map heading test remain evidence from the partial checkpoint only: they were not rerun or rebound as final-mobile proof. The earlier mobile sticky-header overlap remains a visibility limitation.
+
+### Sequential command transcript
+
+All producing/check commands below used NODE_DISABLE_COMPILE_CACHE=1. The table records actual commands/exits; compiler/no-slop script follows for reproducibility. Raw logs retain every failed attempt. The first strict test was red (2 failed/8 passed/2 skipped). Each numeric refresh passed its one opt-in producer (11 skipped), with the final producer covering eight cases. Each round2 browser run passed one scoped desktop test; fresh runs were needed after the disclosure/input change, true-viewport capture repair and full-document DOM repair, not to repeat mobile or the heading test. Draft assembly initially rejected the non-target dependency selector and missing explicit disclosure; subsequent failures exposed whole-part transition coverage, cropped-PNG viewport mismatch and missing disclosure in panel-only DOM. Final unreviewed draft failed only for missing semantic reviews; actual review/integration resolved it. No toolkit gate was weakened.
+
+| Command actually run | Exit | Retained raw log |
+| --- | --- | --- |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts --no-file-parallelism` | 1 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/red-strict.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t "refreshes exact native numeric" --no-file-parallelism` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/numeric-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/sim2real-local-20260923/prepare-typed.mjs` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/prepare-typed.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t "refreshes exact native numeric" --no-file-parallelism` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/numeric-bound.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/browser-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t "refreshes exact native numeric" --no-file-parallelism` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/numeric-sealed.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/sim2real-local-20260923/prepare-typed.mjs` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/prepare-bound.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-viewport` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/browser-viewport.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/sim2real-local-20260923/prepare-typed.mjs` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/prepare-viewport.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-native` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/browser-native.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/sim2real-local-20260923/prepare-typed.mjs` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/prepare-native.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/sim2real-local-20260923/integrate-typed.mjs` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/integration-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts tests/unit/sim2real.test.ts tests/component/friction-transfer.test.tsx tests/component/teacher-student.test.tsx tests/unit/audit-local-basis.test.ts tests/unit/audit-ledger.test.ts --no-file-parallelism` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/unit-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/tsc --noEmit --incremental false` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/types-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/eslint tests/unit/sim2real-local-evidence.test.ts tests/e2e/sim2real-local-evidence.spec.ts audit/evidence/sim2real-local-20260923/typed-support.ts audit/evidence/sim2real-local-20260923/prepare-typed.mjs audit/evidence/sim2real-local-20260923/integrate-typed.mjs` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/lint-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node --input-type=module -` | 0 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/article-final.log` |
+| `NODE_DISABLE_COMPILE_CACHE=1 node --experimental-strip-types scripts/check-audit-coverage.ts --json` | 1 | `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/coverage-final.json` |
+
+Final affected six-file unit/component result: **223 passed / 2 skipped / 225**, including audit-local-basis104, audit-ledger81, sim2real15, friction8, teacher5 and10 active local-evidence tests. The two opt-in production cases are intentionally skipped in this non-writing run; actual producer execution is recorded above. No historical fixture failed in this final run and none was silently relaxed. Final full no-emit/nonincremental TypeScript and targeted ESLint both exit0 after the final code/test changes.
+
+Configured article-only MDX/citation/no-slop check: exit0, zero compiler messages, 12 declared citation IDs, 25 Cite occurrences, zero banned/placeholder findings, triad density3.9855072463768115 below22. The actual inline check was:
+
+```js
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import matter from 'gray-matter';
+import {compile} from '@mdx-js/mdx';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import {CITATIONS} from './data/citations.ts';
+import {findBannedVocabulary,findPlaceholderMarkers,ruleOfThreeDensity,RULE_OF_THREE_LIMIT} from './lib/no-slop.ts';
+const file='content/rl-sim2real/sim2real-transfer.mdx';
+const {data,content}=matter(fs.readFileSync(file,'utf8'));
+const compiled=await compile(content,{remarkPlugins:[remarkGfm,remarkMath],rehypePlugins:[rehypeKatex]});
+assert.equal(compiled.messages.length,0);
+const ids=[...content.matchAll(/<Cite\s+id="([^"]+)"/g)].map(m=>m[1]);
+const registered=new Set(CITATIONS.map(c=>c.id));
+for(const id of ids){assert(registered.has(id));assert(data.citations.includes(id));}
+for(const id of data.citations)assert(ids.includes(id));
+const banned=findBannedVocabulary(content), placeholders=findPlaceholderMarkers(content), density=ruleOfThreeDensity(content);
+assert.deepEqual(banned,[]);assert.deepEqual(placeholders,[]);
+console.log(JSON.stringify({file,compilerMessages:compiled.messages.length,declaredCitations:data.citations.length,citeOccurrences:ids.length,banned,placeholders,density,limit:RULE_OF_THREE_LIMIT,lastReviewed:data.lastReviewed},null,2));
+```
+
+Exactly one round2 final offline coverage invocation after integration returned **exit1: 965 complete / 29 incomplete / 994 originals**, RL **164/3/167**; **42 ledger findings**, zero citation-coverage findings and zero summary mismatches. Counting method: flatten native sectionsByDomain claimRecords, complete iff evidenceFailures.length===0; count plan/proof/approval arrays, not grep markers. Full stdout was written directly to a regular file at `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/coverage-final.json` (10191778 bytes; SHA-256 `52bf5e8f435051ad942b42fc5bf7d23fef8b63af0e2016b2e834f76dff3a645c`); stderr is empty. The earlier partial/reward-identical coverage.json remains unchanged. This is not a green gate.
+
+Preservation comparison confirms all994 identities/order, all992 unselected full records including line positions, all963 prior completions, protected owner work/commits and restored next-env.d.ts. Prior JSON object serialization is preserved while appending only new records. Documentation appended after coverage is checked through native parser equality, not a second coverage run. No post-check producing-code changes. No new source request, full build/export, broad browser corpus, full brand/registered-state acceptance, publication or Mission-state change. Remaining29 records/42 findings, reading-time/export refresh, current full-reader/mobile coverage, independent Sol/high scrutiny and user testing remain owed; credit fallback remains inactive. Content gate remains red: do not publish.
