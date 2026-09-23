@@ -33,6 +33,7 @@ describe('classical SLAM source corrections', () => {
       'feed information back to support loop-closure detection and validation',
       '<Cite id="cadena-2016" />.',
     ]) expect(block).toContain(text);
+    expect(block).not.toMatch(/Source:|<br\b|className="block"/);
     expect(article).not.toContain('Nearly every design argument in SLAM');
     expect(article).toContain('lastReviewed: "2026-08-22"');
   });
