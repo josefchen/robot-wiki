@@ -59,6 +59,22 @@ describe('industrial release preserves both evidence histories', () => {
       .toBe(committedSource('ac65cf4', 'lib/deployment-economics.ts'));
   });
 
+  it('preserves the three old correction records and binds fresh merged reader execution', () => {
+    const path = 'audit/evidence/industrial-closure-20260923/corrections.json';
+    expect(readFileSync(path, 'utf8')).toBe(committedSource('0a45942', path));
+    const old = JSON.parse(readFileSync(path, 'utf8'));
+    const current = JSON.parse(readFileSync('audit/evidence/industrial-release-20260923/corrections.json', 'utf8'));
+    expect(current.map((r: { rowOrdinal: number }) => r.rowOrdinal)).toEqual([37, 47, 48]);
+    for (const [index, record] of current.entries()) {
+      for (const key of ['id', 'originalId', 'rowOrdinal', 'kind', 'originalCells',
+        'originalTupleDigest', 'snapshot', 'currentCells', 'currentTupleDigest',
+        'requiredPresent', 'requiredAbsent']) expect(record[key]).toEqual(old[index][key]);
+      expect(record.execution.path).toBe('audit/evidence/industrial-release-20260923/browser-run.json');
+      expect(Date.parse(record.review.observedAt)).toBeGreaterThan(Date.parse(old[index].review.observedAt));
+    }
+    expect(current[2].children).toHaveLength(51);
+  });
+
   it.each(['current', 'snapshot', 'review', 'unknown-hash'] as const)(
     'rejects each reviewed dependency after %s drift', mutation => {
       for (const binding of review.bindings) {
