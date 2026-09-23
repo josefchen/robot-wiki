@@ -168,7 +168,7 @@ export function EurekaLoop({ className }: { className?: string }) {
 
         <div>
           <p className="font-mono text-[11px] text-text-dim">
-            Reward statistics from training
+            Scripted reward statistics
           </p>
           <dl
             data-testid="eureka-stats"
@@ -200,7 +200,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </dl>
 
           <p className="mt-3 font-mono text-[11px] text-text-dim">
-            LLM reflection on the statistics
+            Scripted reflection on the statistics
           </p>
           <blockquote
             data-testid="eureka-reflection"
@@ -215,7 +215,7 @@ export function EurekaLoop({ className }: { className?: string }) {
       <p className="mt-4 font-sans text-xs leading-relaxed text-text-dim">
         Scripted replay of the Eureka loop (propose reward code, train,
         select on fitness, reflect on reward statistics, mutate). The code,
-        statistics, and reflections are an illustration of the mechanism,
+        statistics, fitness scores, and reflections are authored teaching data,
         not a recording of a real run.
       </p>
     </div>

@@ -7,10 +7,11 @@
  * dated lab blogs, press announcements). Where only a month is verifiable,
  * `released` stays month-precision; no invented days.
  *
- * Provenance tiers record how much independent scrutiny a release carries:
- *   paper: a public arXiv report with methods and experiments
- *   docs:  repository release notes (code and weights exist, prose is thin)
- *   blog:  a detailed lab blog, vendor-reported, no external replication
+ * Provenance tiers record the source format selected for each timeline entry,
+ * not a measure of independent scrutiny or an inventory of all available work:
+ *   paper: a public arXiv report
+ *   docs:  repository release notes
+ *   blog:  a lab blog
  *   press: company announcement; technical disclosure varies by source
  */
 

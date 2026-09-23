@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "role": "integrator",
+  "eventId": "parallel-local-p18-20260923:p18-mounted-64-off:2026-09-23T06:12:45.812Z",
+  "observedAt": "2026-09-23T06:12:45.812Z",
+  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "rationale": "I reviewed this exact output-specific group: The actual mounted chart at64 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "p18-mounted-64-off",
+  "inputDigest": "dab386f28d6b1fa63b8e5657770501ae9b4aa22f68d8020ea978371e08d2dad7",
+  "inventory": [
+    {
+      "id": "p18-rudin-flat-bound",
+      "text": "The flat marker labels a reported under-four-minute result, not an equality or a measured x=4096 configuration.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "rudin-2021"
+      ]
+    },
+    {
+      "id": "p18-rudin-rough-protocol",
+      "text": "The separate documented simulation/deployment run binds 4096 robots, 24 steps, 98304 transitions/batch, 1500 updates, under twenty minutes and i9-11900k/RTX A6000 hardware.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "rudin-2021"
+      ]
+    },
+    {
+      "id": "p18-isaac-measured-anchors",
+      "text": "The original note names Isaac Lab FPS anchors; preserve >900k DextrAH and >1.6M Franka environment-learning FPS at eight RTX PRO 6000 GPUs/16384 envs, distinct from toy throughput.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "isaac-lab-2025"
+      ]
+    },
+    {
+      "id": "p18-isaac-cpu-context",
+      "text": "The CPU toggle is motivated by the specific RTX5090/AMD9800X3D versus two-RTX-PRO-6000/EPYC comparison, not a measured universal toy curve.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "isaac-lab-2025"
+      ]
+    },
+    {
+      "id": "p18-authored-cost-model",
+      "text": "The target 2.2e8 transitions, 24 rollout steps as a chosen model input, cost seconds [0.02,4e-6,0.04,0.03,2.2e-5], fixed-budget assumption, sample grid and flat-marker x are authored.",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "p18-parameters"
+      ]
+    },
+    {
+      "id": "p18-cost-arithmetic",
+      "text": "Iterations=target/(envs*24); wall time=iterations*(sim+learn+CPU); FPS and crossover follow the fixed formula with units/formatting, not an empirical learning curve.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "p18-64-off",
+        "p18-64-on",
+        "p18-4096-off",
+        "p18-4096-on",
+        "p18-16384-off",
+        "p18-16384-on"
+      ]
+    },
+    {
+      "id": "p18-mounted-64-off",
+      "text": "The actual mounted chart at64 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-observed-64-off"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "4096 envs, CPU off",
+          "action": "Set environment slider to minimum log2=6",
+          "poststate": "64; 3.6 h; 17k FPS; 90 ms x 143,229 iters; CPU false; exact 49-point curve, position, breakdown and labelled bounds checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-64-on",
+      "text": "The actual mounted chart at64 environments with CPUon displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-observed-64-on"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "16384 envs, CPU on",
+          "action": "Set environment slider to minimum log2=6",
+          "poststate": "64; 3.6 h; 17k FPS; 92 ms x 143,229 iters; CPU true; exact 49-point curve, position, breakdown and labelled bounds checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-4096-off",
+      "text": "The actual mounted chart at4096 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. Default, Reset and375px viewport retain default4096/CPU-off state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-observed-4096-off"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "default",
+          "prestate": "Article not loaded",
+          "action": "Navigate to existing article",
+          "poststate": "4,096; 4.0 min; 924k FPS; 106 ms x 2,238 iters; CPU false; exact 49-point curve, position, breakdown and labelled bounds checked"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "reset",
+          "prestate": "4096 envs, CPU on",
+          "action": "Activate Reset",
+          "poststate": "4,096; 4.0 min; 924k FPS; 106 ms x 2,238 iters; CPU false; exact 49-point curve, position, breakdown and labelled bounds checked"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "default",
+          "prestate": "Desktop reset state",
+          "action": "Resize existing mounted chart to375px",
+          "poststate": "4,096; 4.0 min; 924k FPS; 106 ms x 2,238 iters; CPU false; exact 49-point curve, position, breakdown and labelled bounds checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-4096-on",
+      "text": "The actual mounted chart at4096 environments with CPUon displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-observed-4096-on"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "64 envs, CPU on",
+          "action": "Set environment slider to default log2=12",
+          "poststate": "4,096; 7.3 min; 500k FPS; 196 ms x 2,238 iters; CPU true; exact 49-point curve, position, breakdown and labelled bounds checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-16384-off",
+      "text": "The actual mounted chart at16384 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-observed-16384-off"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "64 envs, CPU off",
+          "action": "Set environment slider to maximum log2=14",
+          "poststate": "16,384; 1.5 min; 2.5M FPS; 156 ms x 559 iters; CPU false; exact 49-point curve, position, breakdown and labelled bounds checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-16384-on",
+      "text": "The actual mounted chart at16384 environments with CPUon displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-observed-16384-on"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+          "caseId": "discrete-options",
+          "prestate": "16384 envs, CPU off",
+          "action": "Activate CPU bottleneck toggle",
+          "poststate": "16,384; 4.8 min; 762k FPS; 516 ms x 559 iters; CPU true; exact 49-point curve, position, breakdown and labelled bounds checked"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/rl-sim2real.md:parallel-sim-rl:18",
+  "currentTupleDigest": "76525c0cb451fdb2fb63e480f401058e14127344c331505056f87e190da8cc1c"
+}

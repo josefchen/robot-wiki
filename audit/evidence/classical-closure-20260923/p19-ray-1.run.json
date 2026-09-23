@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_NUMERIC=1 npx vitest run tests/unit/classical-closure-evidence.test.ts -t 'classical closure recipes'",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T19:50:25.323356+00:00",
+  "endedAt": "2026-09-23T19:50:26.785976+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/classical-closure-evidence.test.ts",
+    "bytes": 12839,
+    "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+  },
+  "inputDigest": "147fab758b2bca38aa6ff0ef00d254e9c3560ac19c647812f6111308930b1b91",
+  "outputDigest": "8bdb902f3ec0c898c0b75028369853b28eaec0b65ac7147839a65d927c248913",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/perception-error.ts",
+        "bytes": 8220,
+        "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+      },
+      "id": "file:lib/perception-error.ts",
+      "offset": 0,
+      "length": 8220,
+      "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+    },
+    {
+      "file": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 34910,
+        "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e"
+      },
+      "id": "article:classical/perception",
+      "offset": 0,
+      "length": 34910,
+      "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e",
+      "baseline": {
+        "kind": "prose",
+        "hash": "65b2ea0fb13360b38a70f82d9074be7b3aa8adeefa8a187118776753e37fb571"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 52190,
+      "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+    },
+    {
+      "file": {
+        "path": "tests/unit/classical-closure-evidence.test.ts",
+        "bytes": 12839,
+        "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+      },
+      "id": "file:tests/unit/classical-closure-evidence.test.ts",
+      "offset": 0,
+      "length": 12839,
+      "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+    }
+  ],
+  "observations": []
+}

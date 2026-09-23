@@ -1,0 +1,22 @@
+{
+  "startedAt": "2026-09-23T20:01:28.562Z",
+  "endedAt": "2026-09-23T20:01:28.778Z",
+  "mechanism": "Existing generator canonical ogCardCorpus + renderCorpusCard boundary, selected existing card only; no corpus sweep or independent card tree.",
+  "cardCount": 48,
+  "unchangedOtherPublicCards": 47,
+  "writes": [
+    {
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/public/og/classical/kinematics.png",
+      "beforeSha256": "f43f31032a455181cf32e96c06178eea6ee748bb75481dba1b9081a9a91bb9c4",
+      "bytes": 29865,
+      "sha256": "b7e0b3283cbebebb071715273ce4ede89669961619337af1764cb748ba71fd8e"
+    },
+    {
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/out/og/classical/kinematics.png",
+      "beforeSha256": "f43f31032a455181cf32e96c06178eea6ee748bb75481dba1b9081a9a91bb9c4",
+      "bytes": 29865,
+      "sha256": "b7e0b3283cbebebb071715273ce4ede89669961619337af1764cb748ba71fd8e"
+    }
+  ],
+  "factChange": "Declared references 9 -> 6; review year remains 2026; no full export or build."
+}

@@ -127,11 +127,15 @@ const ROWS: Dataset[] = [
     name: 'RoboMIND',
     // The MIND expansion carried in the paper's title (arXiv:2412.13877).
     aka: ['Multi-embodiment Intelligence Normative Data'],
+    // Paper first-submission year, not an established dataset v1.1/v1.2 release date.
     year: 2024,
     episodes: 107000,
-    episodesNote: 'incl. 5k failure demonstrations',
-    // No hour count is published; the ~5,000 h figure is an estimate.
-    hours: null,
+    episodesNote: '107k successful, real + simulated (paper v3); card versions 1.1/1.2; 5k additional real-world failures',
+    // Paper v3 reports 305.5 interaction hours for its 107k-trajectory
+    // cohort, which mixes real-world and simulation data. This is not a
+    // real-world-only duration or a duration verified for each card release.
+    hours: 305.5,
+    hoursNote: 'Paper v3: real + simulated; real-only and failure-set durations not separately reported',
     tasks: 479,
     tasksNote: '96 object classes',
     scenes: null,
@@ -142,7 +146,11 @@ const ROWS: Dataset[] = [
       'AgileX dual-arm',
       'humanoid, dual dexterous hands',
     ],
-    license: 'CC BY-NC-SA 4.0',
+    // Applicable data-license field: release-specific terms for the 107k
+    // dataset (card versions 1.1/1.2) are not disclosed in the inspected public card.
+    // It displays Apache-2.0 without explicitly assigning that badge to these
+    // data releases. Access conditions were not reviewed; infer no code/model terms.
+    license: null,
     url: 'https://x-humanoid-robomind.github.io/',
     sources: ['robomind-2024'],
   },

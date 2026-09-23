@@ -1,0 +1,75 @@
+{
+  "values": {
+    "scene": {
+      "width": 100,
+      "height": 64,
+      "start": {
+        "x": 7,
+        "y": 32
+      },
+      "goal": {
+        "x": 93,
+        "y": 32
+      },
+      "goalRadius": 3,
+      "obstacles": [
+        {
+          "kind": "circle",
+          "x": 26,
+          "y": 15,
+          "r": 7
+        },
+        {
+          "kind": "circle",
+          "x": 30,
+          "y": 47,
+          "r": 5
+        },
+        {
+          "kind": "rect",
+          "x": 47,
+          "y": 20,
+          "w": 6,
+          "h": 44
+        },
+        {
+          "kind": "circle",
+          "x": 71,
+          "y": 12,
+          "r": 6
+        },
+        {
+          "kind": "circle",
+          "x": 74,
+          "y": 48,
+          "r": 8
+        }
+      ]
+    },
+    "defaults": {
+      "seed": 19981001,
+      "stepSize": 2,
+      "goalBias": 0.015,
+      "maxIterations": 900
+    },
+    "iterations": {
+      "opening": 0,
+      "step": 1,
+      "playback": 3,
+      "scrub": 100
+    },
+    "cadence": {
+      "normal": {
+        "tickMs": 50,
+        "nodesPerTick": 3
+      },
+      "reduced": {
+        "tickMs": 340,
+        "nodesPerTick": 25
+      }
+    }
+  },
+  "units": "abstract world units; accepted extensions:count; probability:1",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "rrt:parameters:v1"
+}

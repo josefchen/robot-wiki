@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "crossdomain-checkpoint-v1",
+  "observedAt": "2026-09-23T21:03:30.625961+00:00",
+  "total": 994,
+  "complete": 987,
+  "incomplete": 7,
+  "gateOk": false,
+  "ledgerFindings": 12,
+  "citationFindings": 0,
+  "summaryMismatches": 0,
+  "evidenceKinds": {
+    "citation-id": 962,
+    "locator": 962,
+    "passage": 962,
+    "authored-local": 8,
+    "mixed-local": 12,
+    "corrected-disposition": 5
+  },
+  "aggregateMessages": [
+    "987/994 rows carry complete citation-id or fully adjudicated typed-local/corrected-disposition evidence",
+    "987/994 rows carry complete locator or fully adjudicated typed-local/corrected-disposition evidence",
+    "987/994 rows carry complete passage or fully adjudicated typed-local/corrected-disposition evidence"
+  ],
+  "remainingOriginals": [
+    {
+      "originalId": "audit/rl-sim2real.md:legged-locomotion:8",
+      "failures": [
+        "compound plan review is missing or stale; changed/reduced plans need source-auditor review",
+        "compound source adjudication coverage must equal every part without duplicates or extras"
+      ]
+    },
+    {
+      "originalId": "audit/rl-sim2real.md:legged-locomotion:17",
+      "failures": [
+        "Citation ID must name exactly one registered source",
+        "Source URL fetched must be a complete HTTP(S) URL",
+        "Supporting passage must contain the passage actually read, not a locator or placeholder"
+      ]
+    },
+    {
+      "originalId": "audit/data-hardware.md:data-bottleneck:3",
+      "failures": [
+        "compound item coverage must equal every required (part, citation) pair; duplicate source items and extras fail",
+        "compound plan review is missing or stale; changed/reduced plans need source-auditor review",
+        "compound source adjudication coverage must equal every part without duplicates or extras"
+      ]
+    },
+    {
+      "originalId": "audit/data-hardware.md:data-bottleneck:5",
+      "failures": [
+        "compound item coverage must equal every required (part, citation) pair; duplicate source items and extras fail",
+        "compound plan review is missing or stale; changed/reduced plans need source-auditor review",
+        "compound source adjudication coverage must equal every part without duplicates or extras"
+      ]
+    },
+    {
+      "originalId": "audit/data-hardware.md:evaluation-crisis:1",
+      "failures": [
+        "Citation ID must name exactly one registered source",
+        "Source URL fetched must be a complete HTTP(S) URL",
+        "Supporting passage must contain the passage actually read, not a locator or placeholder"
+      ]
+    },
+    {
+      "originalId": "audit/frontier.md:safety-and-assurance:5",
+      "failures": [
+        "compound plan review is missing or stale; changed/reduced plans need source-auditor review",
+        "compound source adjudication coverage must equal every part without duplicates or extras"
+      ]
+    },
+    {
+      "originalId": "audit/frontier.md:safety-and-assurance:6",
+      "failures": [
+        "compound plan review is missing or stale; changed/reduced plans need source-auditor review",
+        "compound source adjudication coverage must equal every part without duplicates or extras"
+      ]
+    }
+  ],
+  "coverageOutput": {
+    "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923/013-command.log",
+    "bytes": 10165413,
+    "sha256": "4dc9b734c3440e4277c25a01f77c9cf36f1a1303706b1ceafb78c7a683f343f4"
+  },
+  "sourceProvenance": "Zero external retrievals. Actual local finite selected-ID extraction/counts only; no retained external passage used as proof for these two closures. Prepared external packets for seven unimplemented originals remain leads, not completion credit."
+}

@@ -97,9 +97,11 @@ In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained
 
 The failure mode has a name. The Isaac Lab paper calls it an information gap due to input mismatch: the teacher observes privileged state information while the student sees only partial observations, so the student must reconstruct the unobserved states from images, a challenge that becomes particularly pronounced under high camera occlusion <Cite id="isaac-lab-2025" />.
 
+The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.
+
 <TeacherStudent className="my-6" />
 
-Push the degradation slider up. The student's input strip loses channels and gains noise, its reconstructed terrain blurs away from the teacher's map, and the action-divergence readout climbs. That divergence is the cost of distillation, and its floor is set by partial observability rather than by training budget: when the privileged variable genuinely cannot be inferred from the history (heavy occlusion, friction that leaves no proprioceptive signature), no amount of imitation closes the gap.
+Push the degradation slider up. The input strip loses channels and gains noise, the constructed reconstruction changes, and both error readouts rise by design. The action-divergence value is 2.2 times the unrounded reconstruction MAE, displayed in normalized units; it is not a comparison of learned actions or a measured cost of distillation. At zero degradation the local reconstruction is exact. Reset restores 0.15. The cited input-mismatch discussion motivates the illustration, but does not establish these coefficients or a universal error floor independent of training.
 
 ## System identification: measure the gap instead
 
@@ -127,7 +129,7 @@ The survey adds two cross-cutting options that rarely get headline systems. Sim-
 
 ## Where each family breaks
 
-Each family's failure mode is worth holding onto. The friction chart's conservatism cost is an authored assumption, not an empirical result of the cited papers. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. ASAP shows some held-out motion transfer, but broader coverage and affordable real-robot data collection remain open <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="asap-2025" /></span>. Real-to-sim twins freeze the scene they captured.
+Each family's failure mode is worth holding onto. The friction chart's conservatism cost is an authored assumption, not an empirical result of the cited papers. The teacher-student panel likewise constructs its error rather than measuring a distillation limit. ASAP shows some held-out motion transfer, but broader coverage and affordable real-robot data collection remain open <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="asap-2025" /></span>. Real-to-sim twins freeze the scene they captured.
 
 <SelfCheck
   prompt="Which RMA component estimates behavior-relevant latent extrinsics from recent state-action history, while the deployed base policy uses the latest estimate?"

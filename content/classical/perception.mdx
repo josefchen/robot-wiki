@@ -45,15 +45,15 @@ import { PerceptionErrorBudget } from '@/components/interactive/perception-error
 
 [Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.
 
-Six stages, in a fixed order, each consuming what the last one produced. Calibrate the camera so a pixel means a direction. Calibrate it against the robot so that direction means something in the robot's frame. Measure depth so the direction becomes a point. Detect and segment so points become an object. Estimate pose so the object becomes a graspable rigid body. Every stage adds error, and the errors are independent, so they compose in quadrature rather than adding.
+This article groups an explicit perception pipeline into six stages for explanation; that organization is not a universal architecture or a required fixed execution order. Calibrate the camera so a pixel means a direction. Calibrate it against the robot so that direction means something in the robot's frame. Measure depth so the direction becomes a point. Detect and segment so points become an object. Estimate pose so the object becomes a graspable rigid body. The instrument below combines three adjustable error magnitudes by root-sum-of-squares as an illustrative modelling choice. It does not establish that calibration, depth and pose errors are statistically independent, or that its output bounds the positioning error of a real pipeline.
 
-## The budget the pipeline has to fit inside
+## An illustrative positioning budget
 
-Start at the end, with the number the whole chain is judged on. Three of the stages contribute a positioning error at the gripper: the hand-eye transform, the depth measurement, and the pose estimate. Two of those are fixed offsets. The hand-eye residual is an *angle*, so it costs lateral millimetres in proportion to how far away the object is. Set the hand-eye slider to half a degree and drag the working distance out, and a term that was invisible at 15 cm becomes the one that jams the grasp.
+The instrument combines three authored input magnitudes labelled hand-eye, depth and pose. In this model only, depth is evaluated at a fixed 0.5 m nominal distance and the pose input is held constant during a distance sweep. The hand-eye proxy uses the ray-to-plane geometry defined below; it is not the full error of a rigid transform. With the default opaque-target, depth and pose settings and a half-degree angle, the hand-eye contribution is small at 15 cm and largest at 1.5 m. The far-end readout falls in the marginal model band; it is not a prediction that a real grasp will succeed or jam.
 
 <PerceptionErrorBudget className="my-6" />
 
-Compare the composed number against the tolerance real tasks hold. The clearance band above is a parallel-jaw gripper's lateral slack, and even a well-calibrated pipeline sits close to it. Precision insertion is a different world: assembly results in this literature are reported at 0.5 mm clearance <Cite id="play2perfect-2026" />, an order of magnitude below what a vision chain delivers alone. That is not a sensor defect. It is why precise assembly closes on force and contact rather than on vision, and why grasp planning treats the pose it is handed as an input rather than a certainty.
+The model's 15 mm band comes from an authored geometry: a 90 mm opening centred around a 60 mm part leaves $(90-60)/2=15$ mm on each side. Its bands at 15 mm and 30 mm are teaching thresholds, not measured grasp tolerances or success/failure limits. A separate assembly example reports 0.5 mm clearance <Cite id="play2perfect-2026" />; that reported setting does not validate this calculator or establish a general limit for vision-based positioning.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Zhang calibration" value="2000" note="planar target; motion need not be known" />
@@ -62,7 +62,7 @@ Compare the composed number against the tolerance real tasks hold. The clearance
   <Stat label="promptable masks" value="2023" note="SAM; SA-1B: 1.1 billion masks on 11 million images" />
 </div>
 
-The rest of the module is the six stages, in order, and what each one contributes to that budget.
+The next sections use those six chosen stages to organize the discussion; the calculator is a separate illustrative model.
 
 ## Calibration: what a pixel means
 
@@ -80,13 +80,13 @@ A perfectly calibrated camera reporting perfectly accurate 3D points in the *cam
 
 The 1989 papers on it share one form: move the robot through a set of known motions while the camera watches a static target, and each motion pair gives you an equation of the form $AX = XB$, where $A$ is the robot's motion, $B$ is the camera's observed motion, and $X$ is the unknown transform. Tsai and Lenz gave the efficient closed-form technique still used, solving rotation first and then translation from the accumulated constraints <Cite id="tsai-lenz-1989" />.
 
-The residual of that solve is where a great deal of practical grief lives. Write the transform's error as a small translation plus a small rotation. The translation error is a constant: it shifts every reported point by the same few millimetres regardless of where the object is. The rotation error is an *angle*, and an angle costs
+The instrument uses an illustrative ray-to-plane model, not a full three-dimensional hand-eye error model. Here $d$ is the separation along the normal to a target plane, and $\theta$ is the inclination of a ray relative to that normal. The lateral intersection offset used by the instrument is
 
 $$
 e_\theta(d) = d \, \tan \theta
 $$
 
-millimetres of lateral offset at a working distance $d$. So a residual of one degree costs about 1.7 mm at a 10 cm standoff, which is nothing, and about 17 mm at 1 m, which is a missed grasp. That asymmetry is what the instrument above is built around.
+With $d$ expressed in millimetres, the local example at one degree gives about 1.7 mm at 10 cm and 17 mm at 1 m. These are evaluations of the authored formula, not measurements reported by the calibration paper or predictions that a grasp will succeed or fail. The formula is not a general norm of a rigid-transform error; nor is an exact tangent construction the same claim as a small-angle approximation.
 
 ## Depth sensing: what fails, and on what
 
@@ -197,8 +197,8 @@ Visibility requirements depend on the chosen measurements. The tutorial’s ster
 
 ## What the end-to-end models replaced
 
-This is the argument the module exists to make. Every stage above is a place where a real system carries an interface, a calibration file, a failure mode and an engineer who owns it. Calibration residuals, depth invalidation on the wrong surface, a detector's class list, a pose estimate's symmetry handling: six subsystems you can debug one at a time, composing into one error budget you can write down.
+This is the argument the module exists to make. Every stage above is a place where a real system carries an interface, a calibration file, a failure mode and an engineer who owns it. The six stages chosen here name different interfaces: camera calibration, hand-eye calibration, depth, detection, segmentation and pose estimation. That authored grouping is an editorial guide, not an exhaustive subsystem count or proof that their errors form one statistical budget.
 
 The explicit pipeline is exactly what end-to-end vision-language-action policies replaced. A policy trained on images and actions does not compute a pose, because nothing in its objective asks it to, and the geometric reasoning that calibration and pose estimation made explicit gets absorbed into weights where it is no longer a stage you can inspect or calibrate. That trade runs in both directions. What you buy is a stack that no longer breaks when an object arrives that no detector was trained on and no CAD model exists for. What you sell is the error budget: when an end-to-end policy misses a grasp by 8 mm, there is no hand-eye residual to re-solve, because there is no hand-eye transform.
 
-The [keypoint interfaces](/manipulation/hierarchical) sat in the honest middle of that trade, and what happened to them is worth noting. They kept geometry as an explicit intermediate representation while letting a learned model produce it, and by the time frontier systems arrived the geometry had moved out of the runtime pipeline and into the training mixture as an auxiliary objective. Naming this pipeline is what makes that history legible instead of mystical. "End to end" is a claim about which of these six stages stopped being a stage, and you cannot evaluate the claim without knowing what the six were.
+The [keypoint interfaces](/manipulation/hierarchical) sat in the honest middle of that trade, and what happened to them is worth noting. They kept geometry as an explicit intermediate representation while letting a learned model produce it, and by the time frontier systems arrived the geometry had moved out of the runtime pipeline and into the training mixture as an auxiliary objective. Naming this pipeline is what makes that history legible instead of mystical. When comparing an end-to-end policy with an explicit pipeline, ask which interfaces remain explicit. The six-stage grouping here is one way to organize that question, not a required decomposition of every policy.

@@ -1,0 +1,223 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m/home/remy-simpc4/Projects/robot-wiki-droid-continuation[39m
+
+ [31m❯[39m tests/unit/audit-local-basis.test.ts [2m([22m[2m104 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 1320[2mms[22m[39m
+[31m     [31m×[31m accepts only the exact versioned empty envelope[39m[32m 10[2mms[22m[39m
+     [32m✓[39m recomputes a safety distance against independent arithmetic[32m 3[2mms[22m[39m
+     [32m✓[39m rejects arbitrary recipes, missing inputs, units and executable expressions[32m 1[2mms[22m[39m
+     [32m✓[39m accepts complete synthetic local/mixed proof, mixed=false[32m 47[2mms[22m[39m
+     [32m✓[39m accepts complete synthetic local/mixed proof, mixed=true[32m 36[2mms[22m[39m
+     [32m✓[39m rejects current native cell drift: claim[32m 11[2mms[22m[39m
+     [32m✓[39m rejects current native cell drift: sourceChecked[32m 8[2mms[22m[39m
+     [32m✓[39m rejects current native cell drift: verdict[32m 8[2mms[22m[39m
+     [32m✓[39m rejects current native cell drift: note[32m 8[2mms[22m[39m
+     [32m✓[39m rejects invented original cells: claim[32m 8[2mms[22m[39m
+     [32m✓[39m rejects invented original cells: sourceChecked[32m 9[2mms[22m[39m
+     [32m✓[39m rejects invented original cells: verdict[32m 10[2mms[22m[39m
+     [32m✓[39m rejects invented original cells: note[32m 10[2mms[22m[39m
+     [32m✓[39m rejects wrong identity: originalId[32m 13[2mms[22m[39m
+     [32m✓[39m rejects wrong identity: ledgerPath[32m 13[2mms[22m[39m
+     [32m✓[39m rejects wrong identity: articleSlug[32m 13[2mms[22m[39m
+     [32m✓[39m rejects wrong identity: rowOrdinal[32m 10[2mms[22m[39m
+     [32m✓[39m rejects forbidden category empirical-result[32m 7[2mms[22m[39m
+     [32m✓[39m rejects forbidden category bibliographic-p1[32m 7[2mms[22m[39m
+     [32m✓[39m rejects forbidden category registry-absence[32m 7[2mms[22m[39m
+     [32m✓[39m rejects forbidden category disagreement[32m 7[2mms[22m[39m
+     [32m✓[39m rejects forbidden category glossary-resolution[32m 7[2mms[22m[39m
+     [32m✓[39m rejects external fields on local proof: citationId[32m 10[2mms[22m[39m
+     [32m✓[39m rejects external fields on local proof: sourceUrl[32m 10[2mms[22m[39m
+     [32m✓[39m rejects external fields on local proof: supportingPassage[32m 12[2mms[22m[39m
+     [32m✓[39m rejects external fields on local proof: fetchedAt[32m 10[2mms[22m[39m
+     [32m✓[39m requires the catalog, exact proof inventory and published target[32m 21[2mms[22m[39m
+     [32m✓[39m requires complete dependency lib/gait.ts[32m 8[2mms[22m[39m
+     [32m✓[39m requires complete dependency lib/reward-shaping.ts[32m 8[2mms[22m[39m
+     [32m✓[39m requires complete dependency lib/audit-local-basis.ts[32m 8[2mms[22m[39m
+     [32m✓[39m pins the safety imported force data and reward gait data[32m 0[2mms[22m[39m
+     [32m✓[39m rejects drift: bytes[32m 9[2mms[22m[39m
+     [32m✓[39m rejects drift: hash[32m 9[2mms[22m[39m
+     [32m✓[39m rejects drift: member[32m 11[2mms[22m[39m
+     [32m✓[39m rejects drift: missing[32m 9[2mms[22m[39m
+     [32m✓[39m rejects drift: source[32m 8[2mms[22m[39m
+     [32m✓[39m rejects escaped paths, symlinks, directories and overlarge files[32m 8[2mms[22m[39m
+     [32m✓[39m rejects rehashed wrong output, units and precision rather than trusting hashes[32m 48[2mms[22m[39m
+     [32m✓[39m requires actual bound review event: absent[32m 14[2mms[22m[39m
+     [32m✓[39m requires actual bound review event: name-only[32m 13[2mms[22m[39m
+     [32m✓[39m requires actual bound review event: wrong-input[32m 12[2mms[22m[39m
+     [32m✓[39m requires actual bound review event: copied-part[32m 13[2mms[22m[39m
+     [32m✓[39m requires actual bound review event: unresolved[32m 12[2mms[22m[39m
+     [32m✓[39m requires actual bound review event: contradicted[32m 12[2mms[22m[39m
+     [32m✓[39m requires actual bound review event: duplicate[32m 12[2mms[22m[39m
+     [32m✓[39m cannot shrink or retype the inventory by recomputing producer review hashes[32m 14[2mms[22m[39m
+     [32m✓[39m enforces full typed external/local AND: missing-external[32m 13[2mms[22m[39m
+     [32m✓[39m enforces full typed external/local AND: missing-local[32m 8[2mms[22m[39m
+     [32m✓[39m enforces full typed external/local AND: self-url[32m 8[2mms[22m[39m
+     [32m✓[39m enforces full typed external/local AND: repo-text[32m 8[2mms[22m[39m
+     [32m✓[39m enforces full typed external/local AND: invented-citation[32m 13[2mms[22m[39m
+     [32m✓[39m enforces full typed external/local AND: extra-item[32m 13[2mms[22m[39m
+     [32m✓[39m rejects execution provenance defect: failed[32m 12[2mms[22m[39m
+     [32m✓[39m rejects execution provenance defect: future[32m 13[2mms[22m[39m
+     [32m✓[39m rejects execution provenance defect: wrong-cwd[32m 12[2mms[22m[39m
+     [32m✓[39m rejects execution provenance defect: stale-receipt[32m 12[2mms[22m[39m
+     [32m✓[39m cannot use an old legacy plan alongside the typed target or remove its binding[32m 13[2mms[22m[39m
+     [32m✓[39m keeps authored reward cents and priority classification[32m 2[2mms[22m[39m
+     [32m✓[39m checks friction Gaussian and plateau independently[32m 0[2mms[22m[39m
+     [32m✓[39m checks teacher zero-degradation and gait wrap/stance states[32m 2[2mms[22m[39m
+     [32m✓[39m checks parallel iteration costs without importing its oracle[32m 6[2mms[22m[39m
+     [32m✓[39m checks economics arithmetic and Eureka identity diff[32m 2[2mms[22m[39m
+     [32m✓[39m accepts fully bound synthetic derivation/observation, observed=false[32m 20[2mms[22m[39m
+     [32m✓[39m accepts fully bound synthetic derivation/observation, observed=true[32m 22[2mms[22m[39m
+     [32m✓[39m rejects input basis defect missing-basis[32m 17[2mms[22m[39m
+     [32m✓[39m rejects input basis defect wrong-unit[32m 17[2mms[22m[39m
+     [32m✓[39m rejects input basis defect wrong-pointer[32m 16[2mms[22m[39m
+     [32m✓[39m rejects input basis defect external-substitution[32m 18[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior static-code[32m 17[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior missing-transition[32m 16[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior wrong-mount[32m 17[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior wrong-case[32m 17[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior wrong-readout[32m 18[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior wrong-viewport[32m 17[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior stale-dom[32m 17[2mms[22m[39m
+     [32m✓[39m fails unobserved/mismatched behavior stale-run[32m 19[2mms[22m[39m
+     [32m✓[39m preserves a failing legacy row diagnostic with an empty local catalog[32m 8[2mms[22m[39m
+     [32m✓[39m rejects a wrong file member identity even with unchanged bytes[32m 9[2mms[22m[39m
+     [32m✓[39m binds the entire independently chosen reward freeze case[32m 27[2mms[22m[39m
+     [32m✓[39m binds the entire independently chosen reward prance case[32m 20[2mms[22m[39m
+     [32m✓[39m binds the entire independently chosen reward chatter case[32m 20[2mms[22m[39m
+     [32m✓[39m binds the entire independently chosen reward dominanceCounterexample case[32m 20[2mms[22m[39m
+     [32m✓[39m binds the entire independently chosen reward priorityTie case[32m 21[2mms[22m[39m
+     [32m✓[39m binds parallel envs=64 CPU=false and preserves 49 samples[32m 15[2mms[22m[39m
+     [32m✓[39m binds parallel envs=16384 CPU=false and preserves 49 samples[32m 15[2mms[22m[39m
+     [32m✓[39m binds parallel envs=4096 CPU=true and preserves 49 samples[32m 15[2mms[22m[39m
+     [32m✓[39m binds parallel envs=64 CPU=true and preserves 49 samples[32m 15[2mms[22m[39m
+     [32m✓[39m binds parallel envs=16384 CPU=true and preserves 49 samples[32m 16[2mms[22m[39m
+     [32m✓[39m rejects reward case basis defect: default-pointer[32m 16[2mms[22m[39m
+     [32m✓[39m rejects reward case basis defect: partial-object[32m 16[2mms[22m[39m
+     [32m✓[39m rejects reward case basis defect: different-plan[32m 9[2mms[22m[39m
+     [32m✓[39m rejects reward case basis defect: tampered-parameter[32m 14[2mms[22m[39m
+     [32m✓[39m rejects reward case basis defect: changed-input[32m 17[2mms[22m[39m
+     [32m✓[39m does not treat the parallel false default as an authored true basis[32m 16[2mms[22m[39m
+     [32m✓[39m rejects changed parallel envs despite a rehashed correct derivation[32m 17[2mms[22m[39m
+     [32m✓[39m rejects changed parallel samples despite a rehashed correct derivation[32m 13[2mms[22m[39m
+     [32m✓[39m selects only the unique original section after hashing the whole raw snapshot[32m 13[2mms[22m[39m
+     [32m✓[39m rejects original section defect: absent[32m 8[2mms[22m[39m
+     [32m✓[39m rejects original section defect: duplicate[32m 7[2mms[22m[39m
+     [32m✓[39m rejects original section defect: continued[32m 7[2mms[22m[39m
+     [32m✓[39m rejects original section defect: suffixed[32m 8[2mms[22m[39m
+     [32m✓[39m rejects original section defect: ordinal[32m 8[2mms[22m[39m
+     [32m✓[39m rejects original section defect: cells[32m 9[2mms[22m[39m
+     [32m✓[39m rejects original section defect: malformed-selected[32m 8[2mms[22m[39m
+ [32m✓[39m tests/unit/economics-local-evidence.test.ts [2m([22m[2m8 tests[22m[2m | [22m[33m1 skipped[39m[2m)[22m[33m 329[2mms[22m[39m
+     [33m[2m✓[22m[39m requires every external and local part, binding and observation [33m 302[2mms[22m[39m
+ [32m✓[39m tests/unit/audit-ledger.test.ts [2m([22m[2m81 tests[22m[2m)[22m[32m 59[2mms[22m[39m
+ [32m✓[39m tests/unit/citations.test.ts [2m([22m[2m29 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32m✓[39m tests/unit/crossref-authors.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [31m❯[39m tests/unit/industrial-perception-truth-repair.test.ts [2m([22m[2m63 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 1245[2mms[22m[39m
+     [32m✓[39m registers the NASA lesson date, not the scrape date or an inferred memorandum date[32m 5[2mms[22m[39m
+     [32m✓[39m distinguishes inherent from operational availability without claiming unread equations[32m 0[2mms[22m[39m
+     [32m✓[39m corrects only the MTBF definition and source, retaining its limitations[32m 0[2mms[22m[39m
+     [32m✓[39m labels the calculator capital-only without changing either implementation file[32m 1[2mms[22m[39m
+     [32m✓[39m uses truthful undated LEI definitions under the controlling closure decision[32m 1[2mms[22m[39m
+     [32m✓[39m withdraws the independence and real-system bound assertions in the approved article span[32m 0[2mms[22m[39m
+     [32m✓[39m states the ray-plane geometry while retaining formula and numerical examples as local evaluations[32m 0[2mms[22m[39m
+     [32m✓[39m changes exactly the explanatory component copy, not controls or chart geometry[32m 0[2mms[22m[39m
+     [32m✓[39m changes library comments only and uses plain formula-versus-measurement language[32m 0[2mms[22m[39m
+     [32m✓[39m preserves formula evaluations, default inputs and slider ranges[32m 1[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves industrial-deployment:32 history and its current disposition [33m 390[2mms[22m[39m
+     [32m✓[39m preserves perception:2 history and its current disposition[32m 232[2mms[22m[39m
+     [32m✓[39m preserves perception:19 history and its current disposition[32m 206[2mms[22m[39m
+[31m     [31m×[31m does not manufacture plans or alter the existing native catalog[39m[32m 42[2mms[22m[39m
+     [32m✓[39m records observed NASA liveness with its title exception and preserves the prior unresolved history[32m 2[2mms[22m[39m
+     [32m✓[39m appends exactly eight necessary member approvals after the unchanged prefix[32m 25[2mms[22m[39m
+     [32m✓[39m keeps the deed observation separate from the undated page and license-version year[32m 1[2mms[22m[39m
+     [32m✓[39m documents only the exact NASA title divergence, with distinct retrieval and observation dates[32m 0[2mms[22m[39m
+     [32m✓[39m resolves the documented divergence without claiming the HTML title matches[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse a NASA dead/blocked/error result with status 404[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse a NASA dead/blocked/error result with status 410[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse a NASA dead/blocked/error result with status 403[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse a NASA dead/blocked/error result with status 500[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse a NASA dead/blocked/error result with status 0[32m 0[2mms[22m[39m
+     [33m[2m✓[22m[39m does not excuse another citation or convert link success to a completed original claim [33m 327[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for ng-reward-shaping-1999[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for seeed-so-arm101-pro-2026[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for astrom-murray-2008[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for mcgee-schmidt-1985[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for technology-org-deployed-2026[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for hinterstoisser-2012[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for gsn-standard-v3[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for symbotic-10k-2025[32m 0[2mms[22m[39m
+     [32m✓[39m records exactly one current disposition for kroger-ocado-closures-2025[32m 0[2mms[22m[39m
+     [32m✓[39m preserves all nine failed original rows as history, not active duplicate coverage[32m 1[2mms[22m[39m
+     [32m✓[39m documents only the exact Symbotic filename-title divergence with preserved source identity[32m 1[2mms[22m[39m
+     [32m✓[39m resolves only documented identity divergence without relabelling the fetched title as a match[32m 0[2mms[22m[39m
+     [32m✓[39m leaves native failed-response status 0 unresolved[32m 0[2mms[22m[39m
+     [32m✓[39m leaves native failed-response status 403 unresolved[32m 0[2mms[22m[39m
+     [32m✓[39m leaves native failed-response status 404 unresolved[32m 0[2mms[22m[39m
+     [32m✓[39m leaves native failed-response status 410 unresolved[32m 0[2mms[22m[39m
+     [32m✓[39m leaves native failed-response status 500 unresolved[32m 0[2mms[22m[39m
+     [32m✓[39m does not reuse the Symbotic exception for another selected document[32m 0[2mms[22m[39m
+     [32m✓[39m keeps publisher challenges, missing HTTP and unverified redirects explicit[32m 0[2mms[22m[39m
+     [32m✓[39m documents the exact primary identity and source limits for 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m documents the exact primary identity and source limits for 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m resolves only the documented title divergence for 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m resolves only the documented title divergence for 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status +0 for 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 403 for 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 404 for 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 410 for 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 500 for 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status +0 for 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 403 for 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 404 for 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 410 for 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m does not excuse response status 500 for 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m does not apply another document identity exception to 'seeed-so-arm101-pro-2026'[32m 0[2mms[22m[39m
+     [32m✓[39m does not apply another document identity exception to 'gsn-standard-v3'[32m 0[2mms[22m[39m
+     [32m✓[39m retains both exact previous failures as history and reports exception-resolved observations[32m 1[2mms[22m[39m
+     [32m✓[39m keeps all three external failures unresolved and without exception coverage[32m 1[2mms[22m[39m
+     [32m✓[39m preserves the two exact registry entries rather than replacing metadata to force a match[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/citation-links.test.ts [2m([22m[2m43 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m tests/unit/audit-corrected-disposition.test.ts [2m([22m[2m19 tests[22m[2m)[22m[33m 490[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/unit/audit-local-basis.test.ts[2m > [22mauthored-local-basis-v1[2m > [22maccepts only the exact versioned empty envelope
+[31m[1mAssertionError[22m: expected [ …(14) ] to have a length of 10 but got 14[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 10[39m
+[31m+ 14[39m
+
+[36m [2m❯[22m tests/unit/audit-local-basis.test.ts:[2m21:55[22m[39m
+    [90m 19|[39m       [34mexpect[39m(() [33m=>[39m [34mparseLocalBasisCatalog[39m(bad))[33m.[39m[34mtoThrow[39m()[33m;[39m
+    [90m 20|[39m     }
+    [90m 21|[39m     [34mexpect[39m([33mObject[39m[33m.[39m[34mkeys[39m([33mLOCAL_BASIS_REQUIRED_TARGETS[39m))[33m.[39m[34mtoHaveLength[39m([34m10[39m)[33m;[39m
+    [90m   |[39m                                                       [31m^[39m
+    [90m 22|[39m   })[33m;[39m
+    [90m 23|[39m   it('recomputes a safety distance against independent arithmetic', ()…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/industrial-perception-truth-repair.test.ts[2m > [22mindustrial32 and perception2/19: zero-completion truth repairs[2m > [22mdoes not manufacture plans or alter the existing native catalog
+[31m[1mAssertionError[22m: expected 'eea12d51f9348fcd1965f019e05886495960e…' to be 'fdb5956ab68cfdd003b205134112f197131bc…' // Object.is equality[39m
+
+Expected: [32m"fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49"[39m
+Received: [31m"eea12d51f9348fcd1965f019e05886495960e87afce21eb1954558dd72f7bd82"[39m
+
+[36m [2m❯[22m tests/unit/industrial-perception-truth-repair.test.ts:[2m176:28[22m[39m
+    [90m174|[39m
+    [90m175|[39m   it('does not manufacture plans or alter the existing native catalog'…
+    [90m176|[39m     expect(hash(planText)).toBe('fdb5956ab68cfdd003b205134112f197131bc…
+    [90m   |[39m                            [31m^[39m
+    [90m177|[39m     expect(plans.every((plan) => plan.parts.every((part) => part.requi…
+    [90m178|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m6 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m370 passed[39m[22m[2m | [22m[33m1 skipped[39m[90m (373)[39m
+[2m   Start at [22m 20:54:21
+[2m   Duration [22m 9.62s[2m (transform 373ms, setup 446ms, import 1.18s, tests 3.50s, environment 3.70s)[22m
+

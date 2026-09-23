@@ -17,11 +17,11 @@ describe('PerceptionErrorBudget', () => {
   it('labels the named-model reference without guaranteeing opaque-target accuracy', () => {
     render(<PerceptionErrorBudget />);
     expect(screen.getByTestId('perception-target-note')).toHaveTextContent(
-      'not a material-specific accuracy guarantee',
+      'not a measured property of that material',
     );
     const budget = screen.getByTestId('perception-budget');
     for (const text of ['D410/D415 and D43x', 'up to 2 m', '80% ROI',
-      'HD resolution', 'not a measurement of opaque objects']) {
+      'HD resolution', 'not an opaque-object measurement or a standard deviation', '150 mW', 'auto exposure']) {
       expect(budget).toHaveTextContent(text);
     }
     expect(budget).not.toHaveTextContent('sensor meets its published spec');
@@ -46,8 +46,10 @@ describe('PerceptionErrorBudget', () => {
     render(<PerceptionErrorBudget />);
     const label = screen.getByTestId('perception-simplification-label');
     expect(label).toHaveTextContent(/range-independent/i);
-    expect(label).toHaveTextContent(/square of distance/i);
-    expect(label).toHaveTextContent(/compose/i);
+    expect(label).toHaveTextContent(/chosen ray-to-plane term/i);
+    expect(label).toHaveTextContent(/Root-sum-of-squares is an authored rule/i);
+    expect(label).toHaveTextContent(/not established standard deviations/i);
+    expect(label).toHaveTextContent(/does not establish independence or a real-system error bound/i);
   });
 
   it('increases the composed error as the working distance grows', () => {
@@ -93,7 +95,7 @@ describe('PerceptionErrorBudget', () => {
     ).not.toBe(verdictBefore);
   });
 
-  it('names the target surface and its failure mode as visible text', async () => {
+  it('names the target case and discloses the authored floor as visible text', async () => {
     const user = userEvent.setup();
     render(<PerceptionErrorBudget />);
     expect(screen.getByTestId('perception-target-note')).toHaveTextContent(
@@ -104,8 +106,10 @@ describe('PerceptionErrorBudget', () => {
       /specular metal part/i,
     );
     expect(screen.getByTestId('perception-target-note')).toHaveTextContent(
-      /saturates/i,
+      /authored depth floor of 6%/i,
     );
+    expect(screen.getByTestId('perception-target-note')).not.toHaveTextContent(/saturates/i);
+    expect(screen.getByTestId('perception-verdict-readout')).toHaveTextContent('above model band');
   });
 
   it('exposes native range inputs whose bounds match the shared specs', () => {

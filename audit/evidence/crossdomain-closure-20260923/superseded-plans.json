@@ -1,0 +1,55 @@
+[
+  {
+    "id": "performance-worldmodels-taxonomy-4-20260908",
+    "ledgerPath": "audit/world-models.md",
+    "articleSlug": "taxonomy",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "7f676ac79371fa09824d1694a4770f4423ff4be0776d717961bafa3e76f229e6",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "editorial-vs-source-taxonomy",
+        "text": "The survey provides a broad functional definition and an organization different from the article selected six-group inventory.",
+        "requiredCitationIds": [
+          "world-model-survey-2026"
+        ]
+      },
+      {
+        "id": "local-example-count-not-in-primary",
+        "text": "The exact count of six local examples is not stated by the cited primary survey; this source-based conjunct remains unresolved.",
+        "requiredCitationIds": [
+          "world-model-survey-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "editorial-vs-source-taxonomy",
+        "citationId": "world-model-survey-2026",
+        "sourceUrl": "https://arxiv.org/html/2605.00080",
+        "supportingPassage": "Overview of the organization of this survey.\nSection 3 reviews how world models are coupled with robot policies from an architectural perspective.\nSection 4 examines world models as simulators from an application perspective.\nSection 5 focuses on robotic video world models and organizes the literature by world-modeling capability.\n\n[\u2026 noncontiguous retained passage \u2026]\n\nUnder this formulation, we use _world model_ in a functional sense to refer to predictive models whose outputs support policy-related computation, including control, planning, simulation, evaluation, and data generation. Its defining property is not merely to predict a plausible future, but to predict how the future changes under robot-relevant actions in a way that supports embodied decision making. This definition is therefore narrower than generic future prediction in computer vision: a model does not qualify as a world model in our sense simply because it generates plausible future images or videos. Rather, it must capture environment evolution in a form relevant to robot interaction and useful for downstream policy-related computation. In embodied control, the most important subclass is the action-conditioned world model, since visually plausible but action-inconsistent futures offer limited value for closed-loop decision making. Depending on the method, the modeled variable xtx\\_{t} may be a visual observation, latent state, structured physical state, or even an abstract symbolic state used for planning\u00a0( [Liang et\u00a0al., 2026](https://arxiv.org/html/2605.00080#bib.bib107 \"\"); [Liang et\u00a0al., 2025c](https://arxiv.org/html/2605.00080#bib.bib106 \"\"); [Athalye et\u00a0al., 2026](https://arxiv.org/html/2605.00080#bib.bib5 \"\"); [Liang et\u00a0al., 2026](https://arxiv.org/html/2605.00080#bib.bib107 \"\")), covering both classical latent dynamics models and newer generative predictive models for robot learning. In the symbolic case, the world model predicts transitions over predicates, object relations, affordances, or causal processes rather than over pixels\u00a0( [Liang et\u00a0al., 2025c](https://arxiv.org/html/2605.00080#bib.bib106 \"\"); [Athalye et\u00a0al., 2026](https://arxiv.org/html/2605.00080#bib.bib5 \"\"); [Liang et\u00a0al., 2026](https://arxiv.org/html/2605.00080#bib.bib107 \"\"))."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid delegated integrator2b3cad62-4739-4a04-9354-304f191b77b3; actual emitted custom:droidproxy:gpt-6-astra/max; not independent acceptance",
+      "rationale": "The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception.",
+      "planDigest": "79ac71fc3418ff621e6a815f82c96c4a86c33e089fbb8423262d19e13df71897"
+    },
+    "adjudications": [
+      {
+        "partId": "editorial-vs-source-taxonomy",
+        "outcome": "supported",
+        "reviewedBy": "Droid delegated integrator2b3cad62-4739-4a04-9354-304f191b77b3; actual emitted custom:droidproxy:gpt-6-astra/max; not independent acceptance",
+        "rationale": "The survey provides a broad functional definition and an organization different from the article selected six-group inventory. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception.",
+        "evidenceDigest": "68c9f570ed759090f82bbe8d01effb7f439f05bbb610d67be9232bb7b3f1015b"
+      },
+      {
+        "partId": "local-example-count-not-in-primary",
+        "outcome": "unresolved",
+        "reviewedBy": "Droid delegated integrator2b3cad62-4739-4a04-9354-304f191b77b3; actual emitted custom:droidproxy:gpt-6-astra/max; not independent acceptance",
+        "rationale": "The exact count of six local examples is not stated by the cited primary survey; this source-based conjunct remains unresolved. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception.",
+        "evidenceDigest": "5514be3e4fed6fe06c20327fdeb4546d8403f7c8a13cf39111cfc3d90e1da344"
+      }
+    ]
+  }
+]

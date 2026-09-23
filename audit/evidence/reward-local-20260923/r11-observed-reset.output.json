@@ -1,0 +1,89 @@
+{
+  "values": {
+    "previous": {
+      "index": 0,
+      "code": [
+        "def reward(obs, act):",
+        "    # task: walk forward at 1.0 m/s",
+        "    return obs.base_lin_vel_x"
+      ],
+      "fitness": 0.31,
+      "stats": [
+        {
+          "label": "episode length",
+          "value": "0.4 s",
+          "tone": "err"
+        },
+        {
+          "label": "base_vel_x (mean)",
+          "value": "2.8 m/s",
+          "tone": "warn"
+        },
+        {
+          "label": "episodes ending in a fall",
+          "value": "100%",
+          "tone": "err"
+        },
+        {
+          "label": "time at target speed",
+          "value": "3%",
+          "tone": "err"
+        }
+      ],
+      "reflection": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly three times the command, then every episode terminates in under half a second. The reward pays for speed and never for survival, so sprinting into a fall is the optimal policy. Next generation: add a survival bonus and make falls expensive."
+    },
+    "next": {
+      "index": 0,
+      "code": [
+        "def reward(obs, act):",
+        "    # task: walk forward at 1.0 m/s",
+        "    return obs.base_lin_vel_x"
+      ],
+      "fitness": 0.31,
+      "stats": [
+        {
+          "label": "episode length",
+          "value": "0.4 s",
+          "tone": "err"
+        },
+        {
+          "label": "base_vel_x (mean)",
+          "value": "2.8 m/s",
+          "tone": "warn"
+        },
+        {
+          "label": "episodes ending in a fall",
+          "value": "100%",
+          "tone": "err"
+        },
+        {
+          "label": "time at target speed",
+          "value": "3%",
+          "tone": "err"
+        }
+      ],
+      "reflection": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly three times the command, then every episode terminates in under half a second. The reward pays for speed and never for survival, so sprinting into a fall is the optimal policy. Next generation: add a survival bonus and make falls expensive."
+    },
+    "display": [
+      "Generation 0 of 2",
+      "0.31"
+    ],
+    "diff": [
+      {
+        "type": "same",
+        "text": "def reward(obs, act):"
+      },
+      {
+        "type": "same",
+        "text": "    # task: walk forward at 1.0 m/s"
+      },
+      {
+        "type": "same",
+        "text": "    return obs.base_lin_vel_x"
+      }
+    ]
+  },
+  "units": "dimensionless unless explicitly keyed",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "eureka:derive:v1"
+}

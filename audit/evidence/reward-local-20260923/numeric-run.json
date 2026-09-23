@@ -1,0 +1,2885 @@
+{
+  "startedAt": "2026-09-23T04:04:45.493Z",
+  "endedAt": "2026-09-23T04:04:45.557Z",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "runner": "vitest",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "test": {
+    "path": "tests/unit/reward-local-evidence.test.ts",
+    "bytes": 7995,
+    "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+  },
+  "cases": [
+    {
+      "id": "r4-parameters",
+      "recipe": {
+        "id": "reward",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "terms": [
+            {
+              "id": "velTrack",
+              "label": "Linear velocity tracking",
+              "sign": 1,
+              "magnitude": 1,
+              "defaultWeight": 1,
+              "blurb": "Follow the commanded forward velocity. The task itself."
+            },
+            {
+              "id": "yawTrack",
+              "label": "Yaw rate tracking",
+              "sign": 1,
+              "magnitude": 0.5,
+              "defaultWeight": 0.5,
+              "blurb": "Follow the commanded turn rate."
+            },
+            {
+              "id": "torque",
+              "label": "Torque penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 0.8,
+              "blurb": "Discourage large joint torques; saves the actuators."
+            },
+            {
+              "id": "jointAccel",
+              "label": "Joint acceleration penalty",
+              "sign": -1,
+              "magnitude": 0.5,
+              "defaultWeight": 0.5,
+              "blurb": "Smooths the motion by pricing jerky joints."
+            },
+            {
+              "id": "actionRate",
+              "label": "Action-rate penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 0.8,
+              "blurb": "Penalizes step-to-step action changes; suppresses chatter."
+            },
+            {
+              "id": "jointLimit",
+              "label": "Joint limit penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 1,
+              "blurb": "Keeps joints off their mechanical stops."
+            },
+            {
+              "id": "collision",
+              "label": "Collision penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 1,
+              "blurb": "Penalizes contact on bodies that should never touch."
+            },
+            {
+              "id": "baseHeight",
+              "label": "Base height",
+              "sign": 1,
+              "magnitude": 0.5,
+              "defaultWeight": 0.5,
+              "blurb": "Holds the torso near a target height."
+            },
+            {
+              "id": "orientation",
+              "label": "Orientation penalty",
+              "sign": -1,
+              "magnitude": 0.8,
+              "defaultWeight": 0.8,
+              "blurb": "Penalizes roll and pitch away from level."
+            },
+            {
+              "id": "airTime",
+              "label": "Foot air time",
+              "sign": 1,
+              "magnitude": 0.6,
+              "defaultWeight": 0.6,
+              "blurb": "Illustrative air-time contribution; not the reference first-contact calculation."
+            },
+            {
+              "id": "stumble",
+              "label": "Foot stumble penalty",
+              "sign": -1,
+              "magnitude": 0.8,
+              "defaultWeight": 0.8,
+              "blurb": "Penalizes feet catching vertical surfaces mid-stride."
+            },
+            {
+              "id": "termination",
+              "label": "Termination penalty",
+              "sign": -1,
+              "magnitude": 1.5,
+              "defaultWeight": 1.5,
+              "blurb": "Falling over ends the episode at a cost."
+            }
+          ],
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 0.8,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 0.6,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0,
+          "phaseRange": [
+            0,
+            1
+          ],
+          "weightRange": [
+            0,
+            4,
+            0.1
+          ],
+          "behaviors": {
+            "balanced": {
+              "id": "balanced",
+              "name": "balanced trot",
+              "status": "balanced gait",
+              "tone": "ok",
+              "description": "This toy selects a balanced trot when none of its three failure-category rules fires. The motion is drawn from a fixed gait pattern, not an optimized policy."
+            },
+            "frozen": {
+              "id": "frozen",
+              "name": "freeze attractor",
+              "status": "failure attractor: freeze",
+              "tone": "err",
+              "description": "This toy selects freeze when the torque weight crosses its fixed absolute and relative thresholds. The stationary preview is a teaching choice, not a trained optimum."
+            },
+            "prancing": {
+              "id": "prancing",
+              "name": "prance attractor",
+              "status": "failure attractor: prance",
+              "tone": "err",
+              "description": "This toy selects prance when the air-time weight crosses its fixed absolute and relative thresholds. The bouncing preview is not the reference first-contact reward or a trained policy."
+            },
+            "chatter": {
+              "id": "chatter",
+              "name": "chatter attractor",
+              "status": "failure attractor: chatter",
+              "tone": "err",
+              "description": "This toy selects chatter when the action-rate weight is at or below its fixed threshold. The drawn vibration is not a measured control frequency or an actuator-damage prediction."
+            }
+          },
+          "threshold": 2.5,
+          "dominance": 2,
+          "authoredCaseBasis": "Fixed illustrative test inputs from model defaults and bounds, not measured or learned results.",
+          "authoredCases": {
+            "freeze": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 4,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 0.6,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "prance": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 0.8,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 4,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "chatter": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 0.8,
+                "jointAccel": 0.5,
+                "actionRate": 0,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 0.6,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "dominanceCounterexample": {
+              "weights": {
+                "velTrack": 4,
+                "yawTrack": 0.5,
+                "torque": 4,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 0.6,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "priorityTie": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 4,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 4,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            }
+          }
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "reward:parameters:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r5-parameters",
+      "recipe": {
+        "id": "reward",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "terms": [
+            {
+              "id": "velTrack",
+              "label": "Linear velocity tracking",
+              "sign": 1,
+              "magnitude": 1,
+              "defaultWeight": 1,
+              "blurb": "Follow the commanded forward velocity. The task itself."
+            },
+            {
+              "id": "yawTrack",
+              "label": "Yaw rate tracking",
+              "sign": 1,
+              "magnitude": 0.5,
+              "defaultWeight": 0.5,
+              "blurb": "Follow the commanded turn rate."
+            },
+            {
+              "id": "torque",
+              "label": "Torque penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 0.8,
+              "blurb": "Discourage large joint torques; saves the actuators."
+            },
+            {
+              "id": "jointAccel",
+              "label": "Joint acceleration penalty",
+              "sign": -1,
+              "magnitude": 0.5,
+              "defaultWeight": 0.5,
+              "blurb": "Smooths the motion by pricing jerky joints."
+            },
+            {
+              "id": "actionRate",
+              "label": "Action-rate penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 0.8,
+              "blurb": "Penalizes step-to-step action changes; suppresses chatter."
+            },
+            {
+              "id": "jointLimit",
+              "label": "Joint limit penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 1,
+              "blurb": "Keeps joints off their mechanical stops."
+            },
+            {
+              "id": "collision",
+              "label": "Collision penalty",
+              "sign": -1,
+              "magnitude": 1,
+              "defaultWeight": 1,
+              "blurb": "Penalizes contact on bodies that should never touch."
+            },
+            {
+              "id": "baseHeight",
+              "label": "Base height",
+              "sign": 1,
+              "magnitude": 0.5,
+              "defaultWeight": 0.5,
+              "blurb": "Holds the torso near a target height."
+            },
+            {
+              "id": "orientation",
+              "label": "Orientation penalty",
+              "sign": -1,
+              "magnitude": 0.8,
+              "defaultWeight": 0.8,
+              "blurb": "Penalizes roll and pitch away from level."
+            },
+            {
+              "id": "airTime",
+              "label": "Foot air time",
+              "sign": 1,
+              "magnitude": 0.6,
+              "defaultWeight": 0.6,
+              "blurb": "Illustrative air-time contribution; not the reference first-contact calculation."
+            },
+            {
+              "id": "stumble",
+              "label": "Foot stumble penalty",
+              "sign": -1,
+              "magnitude": 0.8,
+              "defaultWeight": 0.8,
+              "blurb": "Penalizes feet catching vertical surfaces mid-stride."
+            },
+            {
+              "id": "termination",
+              "label": "Termination penalty",
+              "sign": -1,
+              "magnitude": 1.5,
+              "defaultWeight": 1.5,
+              "blurb": "Falling over ends the episode at a cost."
+            }
+          ],
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 0.8,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 0.6,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0,
+          "phaseRange": [
+            0,
+            1
+          ],
+          "weightRange": [
+            0,
+            4,
+            0.1
+          ],
+          "behaviors": {
+            "balanced": {
+              "id": "balanced",
+              "name": "balanced trot",
+              "status": "balanced gait",
+              "tone": "ok",
+              "description": "This toy selects a balanced trot when none of its three failure-category rules fires. The motion is drawn from a fixed gait pattern, not an optimized policy."
+            },
+            "frozen": {
+              "id": "frozen",
+              "name": "freeze attractor",
+              "status": "failure attractor: freeze",
+              "tone": "err",
+              "description": "This toy selects freeze when the torque weight crosses its fixed absolute and relative thresholds. The stationary preview is a teaching choice, not a trained optimum."
+            },
+            "prancing": {
+              "id": "prancing",
+              "name": "prance attractor",
+              "status": "failure attractor: prance",
+              "tone": "err",
+              "description": "This toy selects prance when the air-time weight crosses its fixed absolute and relative thresholds. The bouncing preview is not the reference first-contact reward or a trained policy."
+            },
+            "chatter": {
+              "id": "chatter",
+              "name": "chatter attractor",
+              "status": "failure attractor: chatter",
+              "tone": "err",
+              "description": "This toy selects chatter when the action-rate weight is at or below its fixed threshold. The drawn vibration is not a measured control frequency or an actuator-damage prediction."
+            }
+          },
+          "threshold": 2.5,
+          "dominance": 2,
+          "authoredCaseBasis": "Fixed illustrative test inputs from model defaults and bounds, not measured or learned results.",
+          "authoredCases": {
+            "freeze": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 4,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 0.6,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "prance": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 0.8,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 4,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "chatter": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 0.8,
+                "jointAccel": 0.5,
+                "actionRate": 0,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 0.6,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "dominanceCounterexample": {
+              "weights": {
+                "velTrack": 4,
+                "yawTrack": 0.5,
+                "torque": 4,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 0.6,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            },
+            "priorityTie": {
+              "weights": {
+                "velTrack": 1,
+                "yawTrack": 0.5,
+                "torque": 4,
+                "jointAccel": 0.5,
+                "actionRate": 0.8,
+                "jointLimit": 1,
+                "collision": 1,
+                "baseHeight": 0.5,
+                "orientation": 0.8,
+                "airTime": 4,
+                "stumble": 0.8,
+                "termination": 1.5
+              }
+            }
+          }
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "reward:parameters:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r5-default",
+      "recipe": {
+        "id": "reward",
+        "mode": "derive",
+        "inputs": {
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 0.8,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 0.6,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "contributions": [
+            {
+              "id": "velTrack",
+              "value": 1
+            },
+            {
+              "id": "yawTrack",
+              "value": 0.25
+            },
+            {
+              "id": "torque",
+              "value": -0.8
+            },
+            {
+              "id": "jointAccel",
+              "value": -0.25
+            },
+            {
+              "id": "actionRate",
+              "value": -0.8
+            },
+            {
+              "id": "jointLimit",
+              "value": -1
+            },
+            {
+              "id": "collision",
+              "value": -1
+            },
+            {
+              "id": "baseHeight",
+              "value": 0.25
+            },
+            {
+              "id": "orientation",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "airTime",
+              "value": 0.36
+            },
+            {
+              "id": "stumble",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "termination",
+              "value": -2.25
+            }
+          ],
+          "total": -5.52,
+          "behavior": "balanced",
+          "pose": {
+            "bodyY": 0,
+            "legs": {
+              "lf": {
+                "footDx": 13,
+                "footDy": 0
+              },
+              "rf": {
+                "footDx": -13,
+                "footDy": 0
+              },
+              "lh": {
+                "footDx": -13,
+                "footDy": 0
+              },
+              "rh": {
+                "footDx": 13,
+                "footDy": 0
+              }
+            },
+            "groundOffset": 0
+          },
+          "display": [
+            "-5.52"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "total:toFixed(2); pose:existing model rounding",
+        "formula": "reward:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r5-freeze",
+      "recipe": {
+        "id": "reward",
+        "mode": "derive",
+        "inputs": {
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 4,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 0.6,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "contributions": [
+            {
+              "id": "velTrack",
+              "value": 1
+            },
+            {
+              "id": "yawTrack",
+              "value": 0.25
+            },
+            {
+              "id": "torque",
+              "value": -4
+            },
+            {
+              "id": "jointAccel",
+              "value": -0.25
+            },
+            {
+              "id": "actionRate",
+              "value": -0.8
+            },
+            {
+              "id": "jointLimit",
+              "value": -1
+            },
+            {
+              "id": "collision",
+              "value": -1
+            },
+            {
+              "id": "baseHeight",
+              "value": 0.25
+            },
+            {
+              "id": "orientation",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "airTime",
+              "value": 0.36
+            },
+            {
+              "id": "stumble",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "termination",
+              "value": -2.25
+            }
+          ],
+          "total": -8.72,
+          "behavior": "frozen",
+          "pose": {
+            "bodyY": 0,
+            "legs": {
+              "lf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "lh": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rh": {
+                "footDx": 0,
+                "footDy": 0
+              }
+            },
+            "groundOffset": 0
+          },
+          "display": [
+            "-8.72"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "total:toFixed(2); pose:existing model rounding",
+        "formula": "reward:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r5-prance",
+      "recipe": {
+        "id": "reward",
+        "mode": "derive",
+        "inputs": {
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 0.8,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 4,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "contributions": [
+            {
+              "id": "velTrack",
+              "value": 1
+            },
+            {
+              "id": "yawTrack",
+              "value": 0.25
+            },
+            {
+              "id": "torque",
+              "value": -0.8
+            },
+            {
+              "id": "jointAccel",
+              "value": -0.25
+            },
+            {
+              "id": "actionRate",
+              "value": -0.8
+            },
+            {
+              "id": "jointLimit",
+              "value": -1
+            },
+            {
+              "id": "collision",
+              "value": -1
+            },
+            {
+              "id": "baseHeight",
+              "value": 0.25
+            },
+            {
+              "id": "orientation",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "airTime",
+              "value": 2.4
+            },
+            {
+              "id": "stumble",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "termination",
+              "value": -2.25
+            }
+          ],
+          "total": -3.48,
+          "behavior": "prancing",
+          "pose": {
+            "bodyY": 0,
+            "legs": {
+              "lf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "lh": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rh": {
+                "footDx": 0,
+                "footDy": 0
+              }
+            },
+            "groundOffset": 0
+          },
+          "display": [
+            "-3.48"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "total:toFixed(2); pose:existing model rounding",
+        "formula": "reward:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r5-chatter",
+      "recipe": {
+        "id": "reward",
+        "mode": "derive",
+        "inputs": {
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 0.8,
+            "jointAccel": 0.5,
+            "actionRate": 0,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 0.6,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "contributions": [
+            {
+              "id": "velTrack",
+              "value": 1
+            },
+            {
+              "id": "yawTrack",
+              "value": 0.25
+            },
+            {
+              "id": "torque",
+              "value": -0.8
+            },
+            {
+              "id": "jointAccel",
+              "value": -0.25
+            },
+            {
+              "id": "actionRate",
+              "value": 0
+            },
+            {
+              "id": "jointLimit",
+              "value": -1
+            },
+            {
+              "id": "collision",
+              "value": -1
+            },
+            {
+              "id": "baseHeight",
+              "value": 0.25
+            },
+            {
+              "id": "orientation",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "airTime",
+              "value": 0.36
+            },
+            {
+              "id": "stumble",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "termination",
+              "value": -2.25
+            }
+          ],
+          "total": -4.72,
+          "behavior": "chatter",
+          "pose": {
+            "bodyY": 0,
+            "legs": {
+              "lf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "lh": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rh": {
+                "footDx": 0,
+                "footDy": 0
+              }
+            },
+            "groundOffset": 0
+          },
+          "display": [
+            "-4.72"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "total:toFixed(2); pose:existing model rounding",
+        "formula": "reward:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r5-dominanceCounterexample",
+      "recipe": {
+        "id": "reward",
+        "mode": "derive",
+        "inputs": {
+          "weights": {
+            "velTrack": 4,
+            "yawTrack": 0.5,
+            "torque": 4,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 0.6,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "contributions": [
+            {
+              "id": "velTrack",
+              "value": 4
+            },
+            {
+              "id": "yawTrack",
+              "value": 0.25
+            },
+            {
+              "id": "torque",
+              "value": -4
+            },
+            {
+              "id": "jointAccel",
+              "value": -0.25
+            },
+            {
+              "id": "actionRate",
+              "value": -0.8
+            },
+            {
+              "id": "jointLimit",
+              "value": -1
+            },
+            {
+              "id": "collision",
+              "value": -1
+            },
+            {
+              "id": "baseHeight",
+              "value": 0.25
+            },
+            {
+              "id": "orientation",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "airTime",
+              "value": 0.36
+            },
+            {
+              "id": "stumble",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "termination",
+              "value": -2.25
+            }
+          ],
+          "total": -5.72,
+          "behavior": "balanced",
+          "pose": {
+            "bodyY": 0,
+            "legs": {
+              "lf": {
+                "footDx": 13,
+                "footDy": 0
+              },
+              "rf": {
+                "footDx": -13,
+                "footDy": 0
+              },
+              "lh": {
+                "footDx": -13,
+                "footDy": 0
+              },
+              "rh": {
+                "footDx": 13,
+                "footDy": 0
+              }
+            },
+            "groundOffset": 0
+          },
+          "display": [
+            "-5.72"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "total:toFixed(2); pose:existing model rounding",
+        "formula": "reward:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r5-priorityTie",
+      "recipe": {
+        "id": "reward",
+        "mode": "derive",
+        "inputs": {
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 4,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 4,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "contributions": [
+            {
+              "id": "velTrack",
+              "value": 1
+            },
+            {
+              "id": "yawTrack",
+              "value": 0.25
+            },
+            {
+              "id": "torque",
+              "value": -4
+            },
+            {
+              "id": "jointAccel",
+              "value": -0.25
+            },
+            {
+              "id": "actionRate",
+              "value": -0.8
+            },
+            {
+              "id": "jointLimit",
+              "value": -1
+            },
+            {
+              "id": "collision",
+              "value": -1
+            },
+            {
+              "id": "baseHeight",
+              "value": 0.25
+            },
+            {
+              "id": "orientation",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "airTime",
+              "value": 2.4
+            },
+            {
+              "id": "stumble",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "termination",
+              "value": -2.25
+            }
+          ],
+          "total": -6.68,
+          "behavior": "frozen",
+          "pose": {
+            "bodyY": 0,
+            "legs": {
+              "lf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rf": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "lh": {
+                "footDx": 0,
+                "footDy": 0
+              },
+              "rh": {
+                "footDx": 0,
+                "footDy": 0
+              }
+            },
+            "groundOffset": 0
+          },
+          "display": [
+            "-6.68"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "total:toFixed(2); pose:existing model rounding",
+        "formula": "reward:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r4-default",
+      "recipe": {
+        "id": "reward",
+        "mode": "derive",
+        "inputs": {
+          "weights": {
+            "velTrack": 1,
+            "yawTrack": 0.5,
+            "torque": 0.8,
+            "jointAccel": 0.5,
+            "actionRate": 0.8,
+            "jointLimit": 1,
+            "collision": 1,
+            "baseHeight": 0.5,
+            "orientation": 0.8,
+            "airTime": 0.6,
+            "stumble": 0.8,
+            "termination": 1.5
+          },
+          "phase": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "contributions": [
+            {
+              "id": "velTrack",
+              "value": 1
+            },
+            {
+              "id": "yawTrack",
+              "value": 0.25
+            },
+            {
+              "id": "torque",
+              "value": -0.8
+            },
+            {
+              "id": "jointAccel",
+              "value": -0.25
+            },
+            {
+              "id": "actionRate",
+              "value": -0.8
+            },
+            {
+              "id": "jointLimit",
+              "value": -1
+            },
+            {
+              "id": "collision",
+              "value": -1
+            },
+            {
+              "id": "baseHeight",
+              "value": 0.25
+            },
+            {
+              "id": "orientation",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "airTime",
+              "value": 0.36
+            },
+            {
+              "id": "stumble",
+              "value": -0.6400000000000001
+            },
+            {
+              "id": "termination",
+              "value": -2.25
+            }
+          ],
+          "total": -5.52,
+          "behavior": "balanced",
+          "pose": {
+            "bodyY": 0,
+            "legs": {
+              "lf": {
+                "footDx": 13,
+                "footDy": 0
+              },
+              "rf": {
+                "footDx": -13,
+                "footDy": 0
+              },
+              "lh": {
+                "footDx": -13,
+                "footDy": 0
+              },
+              "rh": {
+                "footDx": 13,
+                "footDy": 0
+              }
+            },
+            "groundOffset": 0
+          },
+          "display": [
+            "-5.52"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "total:toFixed(2); pose:existing model rounding",
+        "formula": "reward:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/reward-shaping.tsx",
+            "bytes": 16272,
+            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+          },
+          "id": "source:components/interactive/reward-shaping.tsx",
+          "offset": 0,
+          "length": 16272,
+          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/reward-shaping.ts",
+            "bytes": 11534,
+            "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+          },
+          "id": "file:lib/reward-shaping.ts",
+          "offset": 0,
+          "length": 11534,
+          "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+        },
+        {
+          "file": {
+            "path": "lib/gait.ts",
+            "bytes": 5631,
+            "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+          },
+          "id": "file:lib/gait.ts",
+          "offset": 0,
+          "length": 5631,
+          "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r11-parameters",
+      "recipe": {
+        "id": "eureka",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "task": "quadruped forward walking at 1.0 m/s",
+          "generations": [
+            {
+              "index": 0,
+              "code": [
+                "def reward(obs, act):",
+                "    # task: walk forward at 1.0 m/s",
+                "    return obs.base_lin_vel_x"
+              ],
+              "fitness": 0.31,
+              "stats": [
+                {
+                  "label": "episode length",
+                  "value": "0.4 s",
+                  "tone": "err"
+                },
+                {
+                  "label": "base_vel_x (mean)",
+                  "value": "2.8 m/s",
+                  "tone": "warn"
+                },
+                {
+                  "label": "episodes ending in a fall",
+                  "value": "100%",
+                  "tone": "err"
+                },
+                {
+                  "label": "time at target speed",
+                  "value": "3%",
+                  "tone": "err"
+                }
+              ],
+              "reflection": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly three times the command, then every episode terminates in under half a second. The reward pays for speed and never for survival, so sprinting into a fall is the optimal policy. Next generation: add a survival bonus and make falls expensive."
+            },
+            {
+              "index": 1,
+              "code": [
+                "def reward(obs, act):",
+                "    # task: walk forward at 1.0 m/s",
+                "    alive = 1.0",
+                "    fall = 0.0",
+                "    if obs.terminated:",
+                "        fall = -5.0",
+                "    speed = obs.base_lin_vel_x",
+                "    return speed + alive + fall"
+              ],
+              "fitness": 0.58,
+              "stats": [
+                {
+                  "label": "episode length",
+                  "value": "20.0 s (max)",
+                  "tone": "ok"
+                },
+                {
+                  "label": "base_vel_x (mean)",
+                  "value": "0.02 m/s",
+                  "tone": "err"
+                },
+                {
+                  "label": "episodes ending in a fall",
+                  "value": "0%",
+                  "tone": "ok"
+                },
+                {
+                  "label": "time at target speed",
+                  "value": "1%",
+                  "tone": "err"
+                }
+              ],
+              "reflection": "The fall penalty worked too well. Episodes now run to the time limit with zero falls, but mean velocity collapsed to 0.02 m/s: standing still collects the alive bonus with no risk. The statistics show survival saturated and the task term starved. Next generation: replace raw speed with tracking the 1.0 m/s command, and price action rate so the gait is smooth enough to matter on hardware."
+            },
+            {
+              "index": 2,
+              "code": [
+                "def reward(obs, act):",
+                "    # task: walk forward at 1.0 m/s",
+                "    alive = 1.0",
+                "    fall = 0.0",
+                "    if obs.terminated:",
+                "        fall = -5.0",
+                "    err = obs.base_lin_vel_x - 1.0",
+                "    track = exp(-4.0 * err * err)",
+                "    jitter = act - act_prev",
+                "    sq = sum(jitter ** 2)",
+                "    smooth = -0.01 * sq",
+                "    total = track + alive + fall",
+                "    return total + smooth"
+              ],
+              "fitness": 0.86,
+              "stats": [
+                {
+                  "label": "episode length",
+                  "value": "20.0 s (max)",
+                  "tone": "ok"
+                },
+                {
+                  "label": "velocity tracking error",
+                  "value": "0.12 m/s",
+                  "tone": "ok"
+                },
+                {
+                  "label": "episodes ending in a fall",
+                  "value": "2%",
+                  "tone": "warn"
+                },
+                {
+                  "label": "time at target speed",
+                  "value": "81%",
+                  "tone": "ok"
+                }
+              ],
+              "reflection": "Tracking error is down to 0.12 m/s with full-length episodes and the policy spends 81% of its time at the commanded speed. Residual ankle chatter remains in the joint-velocity trace, so further gains likely come from tuning the action-rate weight rather than adding new terms."
+            }
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "eureka:parameters:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/eureka-loop.tsx",
+            "bytes": 8062,
+            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+          },
+          "id": "source:components/interactive/eureka-loop.tsx",
+          "offset": 0,
+          "length": 8062,
+          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/eureka.ts",
+            "bytes": 5722,
+            "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+          },
+          "id": "file:lib/eureka.ts",
+          "offset": 0,
+          "length": 5722,
+          "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r11-generation-0",
+      "recipe": {
+        "id": "eureka",
+        "mode": "derive",
+        "inputs": {
+          "previous": 0,
+          "next": 0
+        }
+      },
+      "expected": {
+        "values": {
+          "previous": {
+            "index": 0,
+            "code": [
+              "def reward(obs, act):",
+              "    # task: walk forward at 1.0 m/s",
+              "    return obs.base_lin_vel_x"
+            ],
+            "fitness": 0.31,
+            "stats": [
+              {
+                "label": "episode length",
+                "value": "0.4 s",
+                "tone": "err"
+              },
+              {
+                "label": "base_vel_x (mean)",
+                "value": "2.8 m/s",
+                "tone": "warn"
+              },
+              {
+                "label": "episodes ending in a fall",
+                "value": "100%",
+                "tone": "err"
+              },
+              {
+                "label": "time at target speed",
+                "value": "3%",
+                "tone": "err"
+              }
+            ],
+            "reflection": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly three times the command, then every episode terminates in under half a second. The reward pays for speed and never for survival, so sprinting into a fall is the optimal policy. Next generation: add a survival bonus and make falls expensive."
+          },
+          "next": {
+            "index": 0,
+            "code": [
+              "def reward(obs, act):",
+              "    # task: walk forward at 1.0 m/s",
+              "    return obs.base_lin_vel_x"
+            ],
+            "fitness": 0.31,
+            "stats": [
+              {
+                "label": "episode length",
+                "value": "0.4 s",
+                "tone": "err"
+              },
+              {
+                "label": "base_vel_x (mean)",
+                "value": "2.8 m/s",
+                "tone": "warn"
+              },
+              {
+                "label": "episodes ending in a fall",
+                "value": "100%",
+                "tone": "err"
+              },
+              {
+                "label": "time at target speed",
+                "value": "3%",
+                "tone": "err"
+              }
+            ],
+            "reflection": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly three times the command, then every episode terminates in under half a second. The reward pays for speed and never for survival, so sprinting into a fall is the optimal policy. Next generation: add a survival bonus and make falls expensive."
+          },
+          "display": [
+            "Generation 0 of 2",
+            "0.31"
+          ],
+          "diff": [
+            {
+              "type": "same",
+              "text": "def reward(obs, act):"
+            },
+            {
+              "type": "same",
+              "text": "    # task: walk forward at 1.0 m/s"
+            },
+            {
+              "type": "same",
+              "text": "    return obs.base_lin_vel_x"
+            }
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "eureka:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/eureka-loop.tsx",
+            "bytes": 8062,
+            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+          },
+          "id": "source:components/interactive/eureka-loop.tsx",
+          "offset": 0,
+          "length": 8062,
+          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/eureka.ts",
+            "bytes": 5722,
+            "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+          },
+          "id": "file:lib/eureka.ts",
+          "offset": 0,
+          "length": 5722,
+          "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r11-generation-1",
+      "recipe": {
+        "id": "eureka",
+        "mode": "derive",
+        "inputs": {
+          "previous": 0,
+          "next": 1
+        }
+      },
+      "expected": {
+        "values": {
+          "previous": {
+            "index": 0,
+            "code": [
+              "def reward(obs, act):",
+              "    # task: walk forward at 1.0 m/s",
+              "    return obs.base_lin_vel_x"
+            ],
+            "fitness": 0.31,
+            "stats": [
+              {
+                "label": "episode length",
+                "value": "0.4 s",
+                "tone": "err"
+              },
+              {
+                "label": "base_vel_x (mean)",
+                "value": "2.8 m/s",
+                "tone": "warn"
+              },
+              {
+                "label": "episodes ending in a fall",
+                "value": "100%",
+                "tone": "err"
+              },
+              {
+                "label": "time at target speed",
+                "value": "3%",
+                "tone": "err"
+              }
+            ],
+            "reflection": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly three times the command, then every episode terminates in under half a second. The reward pays for speed and never for survival, so sprinting into a fall is the optimal policy. Next generation: add a survival bonus and make falls expensive."
+          },
+          "next": {
+            "index": 1,
+            "code": [
+              "def reward(obs, act):",
+              "    # task: walk forward at 1.0 m/s",
+              "    alive = 1.0",
+              "    fall = 0.0",
+              "    if obs.terminated:",
+              "        fall = -5.0",
+              "    speed = obs.base_lin_vel_x",
+              "    return speed + alive + fall"
+            ],
+            "fitness": 0.58,
+            "stats": [
+              {
+                "label": "episode length",
+                "value": "20.0 s (max)",
+                "tone": "ok"
+              },
+              {
+                "label": "base_vel_x (mean)",
+                "value": "0.02 m/s",
+                "tone": "err"
+              },
+              {
+                "label": "episodes ending in a fall",
+                "value": "0%",
+                "tone": "ok"
+              },
+              {
+                "label": "time at target speed",
+                "value": "1%",
+                "tone": "err"
+              }
+            ],
+            "reflection": "The fall penalty worked too well. Episodes now run to the time limit with zero falls, but mean velocity collapsed to 0.02 m/s: standing still collects the alive bonus with no risk. The statistics show survival saturated and the task term starved. Next generation: replace raw speed with tracking the 1.0 m/s command, and price action rate so the gait is smooth enough to matter on hardware."
+          },
+          "display": [
+            "Generation 1 of 2",
+            "0.58"
+          ],
+          "diff": [
+            {
+              "type": "same",
+              "text": "def reward(obs, act):"
+            },
+            {
+              "type": "same",
+              "text": "    # task: walk forward at 1.0 m/s"
+            },
+            {
+              "type": "del",
+              "text": "    return obs.base_lin_vel_x"
+            },
+            {
+              "type": "add",
+              "text": "    alive = 1.0"
+            },
+            {
+              "type": "add",
+              "text": "    fall = 0.0"
+            },
+            {
+              "type": "add",
+              "text": "    if obs.terminated:"
+            },
+            {
+              "type": "add",
+              "text": "        fall = -5.0"
+            },
+            {
+              "type": "add",
+              "text": "    speed = obs.base_lin_vel_x"
+            },
+            {
+              "type": "add",
+              "text": "    return speed + alive + fall"
+            }
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "eureka:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/eureka-loop.tsx",
+            "bytes": 8062,
+            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+          },
+          "id": "source:components/interactive/eureka-loop.tsx",
+          "offset": 0,
+          "length": 8062,
+          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/eureka.ts",
+            "bytes": 5722,
+            "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+          },
+          "id": "file:lib/eureka.ts",
+          "offset": 0,
+          "length": 5722,
+          "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    },
+    {
+      "id": "r11-generation-2",
+      "recipe": {
+        "id": "eureka",
+        "mode": "derive",
+        "inputs": {
+          "previous": 1,
+          "next": 2
+        }
+      },
+      "expected": {
+        "values": {
+          "previous": {
+            "index": 1,
+            "code": [
+              "def reward(obs, act):",
+              "    # task: walk forward at 1.0 m/s",
+              "    alive = 1.0",
+              "    fall = 0.0",
+              "    if obs.terminated:",
+              "        fall = -5.0",
+              "    speed = obs.base_lin_vel_x",
+              "    return speed + alive + fall"
+            ],
+            "fitness": 0.58,
+            "stats": [
+              {
+                "label": "episode length",
+                "value": "20.0 s (max)",
+                "tone": "ok"
+              },
+              {
+                "label": "base_vel_x (mean)",
+                "value": "0.02 m/s",
+                "tone": "err"
+              },
+              {
+                "label": "episodes ending in a fall",
+                "value": "0%",
+                "tone": "ok"
+              },
+              {
+                "label": "time at target speed",
+                "value": "1%",
+                "tone": "err"
+              }
+            ],
+            "reflection": "The fall penalty worked too well. Episodes now run to the time limit with zero falls, but mean velocity collapsed to 0.02 m/s: standing still collects the alive bonus with no risk. The statistics show survival saturated and the task term starved. Next generation: replace raw speed with tracking the 1.0 m/s command, and price action rate so the gait is smooth enough to matter on hardware."
+          },
+          "next": {
+            "index": 2,
+            "code": [
+              "def reward(obs, act):",
+              "    # task: walk forward at 1.0 m/s",
+              "    alive = 1.0",
+              "    fall = 0.0",
+              "    if obs.terminated:",
+              "        fall = -5.0",
+              "    err = obs.base_lin_vel_x - 1.0",
+              "    track = exp(-4.0 * err * err)",
+              "    jitter = act - act_prev",
+              "    sq = sum(jitter ** 2)",
+              "    smooth = -0.01 * sq",
+              "    total = track + alive + fall",
+              "    return total + smooth"
+            ],
+            "fitness": 0.86,
+            "stats": [
+              {
+                "label": "episode length",
+                "value": "20.0 s (max)",
+                "tone": "ok"
+              },
+              {
+                "label": "velocity tracking error",
+                "value": "0.12 m/s",
+                "tone": "ok"
+              },
+              {
+                "label": "episodes ending in a fall",
+                "value": "2%",
+                "tone": "warn"
+              },
+              {
+                "label": "time at target speed",
+                "value": "81%",
+                "tone": "ok"
+              }
+            ],
+            "reflection": "Tracking error is down to 0.12 m/s with full-length episodes and the policy spends 81% of its time at the commanded speed. Residual ankle chatter remains in the joint-velocity trace, so further gains likely come from tuning the action-rate weight rather than adding new terms."
+          },
+          "display": [
+            "Generation 2 of 2",
+            "0.86"
+          ],
+          "diff": [
+            {
+              "type": "same",
+              "text": "def reward(obs, act):"
+            },
+            {
+              "type": "same",
+              "text": "    # task: walk forward at 1.0 m/s"
+            },
+            {
+              "type": "same",
+              "text": "    alive = 1.0"
+            },
+            {
+              "type": "same",
+              "text": "    fall = 0.0"
+            },
+            {
+              "type": "same",
+              "text": "    if obs.terminated:"
+            },
+            {
+              "type": "same",
+              "text": "        fall = -5.0"
+            },
+            {
+              "type": "del",
+              "text": "    speed = obs.base_lin_vel_x"
+            },
+            {
+              "type": "del",
+              "text": "    return speed + alive + fall"
+            },
+            {
+              "type": "add",
+              "text": "    err = obs.base_lin_vel_x - 1.0"
+            },
+            {
+              "type": "add",
+              "text": "    track = exp(-4.0 * err * err)"
+            },
+            {
+              "type": "add",
+              "text": "    jitter = act - act_prev"
+            },
+            {
+              "type": "add",
+              "text": "    sq = sum(jitter ** 2)"
+            },
+            {
+              "type": "add",
+              "text": "    smooth = -0.01 * sq"
+            },
+            {
+              "type": "add",
+              "text": "    total = track + alive + fall"
+            },
+            {
+              "type": "add",
+              "text": "    return total + smooth"
+            }
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "eureka:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/rl-sim2real/reward-design-mpc.mdx",
+            "bytes": 20078,
+            "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+          },
+          "id": "article:rl-sim2real/reward-design-mpc",
+          "offset": 0,
+          "length": 20078,
+          "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+          "baseline": {
+            "kind": "prose",
+            "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/eureka-loop.tsx",
+            "bytes": 8062,
+            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+          },
+          "id": "source:components/interactive/eureka-loop.tsx",
+          "offset": 0,
+          "length": 8062,
+          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/eureka.ts",
+            "bytes": 5722,
+            "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+          },
+          "id": "file:lib/eureka.ts",
+          "offset": 0,
+          "length": 5722,
+          "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "tests/unit/reward-local-evidence.test.ts",
+            "bytes": 7995,
+            "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+          },
+          "id": "file:tests/unit/reward-local-evidence.test.ts",
+          "offset": 0,
+          "length": 7995,
+          "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+            "bytes": 4287,
+            "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+          },
+          "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+          "offset": 0,
+          "length": 4287,
+          "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+        }
+      ]
+    }
+  ]
+}

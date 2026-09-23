@@ -1,0 +1,58 @@
+{
+  "values": {
+    "robotCost": 80000,
+    "integrationMultiple": 2.5,
+    "cycleTimeSeconds": 6,
+    "uptimePercent": 95,
+    "successRatePercent": 99.9,
+    "jamClearSeconds": 15,
+    "wageUsdPerHour": 25,
+    "ranges": {
+      "robotCost": {
+        "min": 20000,
+        "max": 250000,
+        "step": 5000
+      },
+      "integrationMultiple": {
+        "min": 1,
+        "max": 5,
+        "step": 0.1
+      },
+      "cycleTimeSeconds": {
+        "min": 2,
+        "max": 20,
+        "step": 0.5
+      },
+      "uptimePercent": {
+        "min": 80,
+        "max": 100,
+        "step": 0.5
+      },
+      "successRatePercent": {
+        "min": 90,
+        "max": 99.9,
+        "step": 0.1
+      },
+      "jamClearSeconds": {
+        "min": 5,
+        "max": 300,
+        "step": 5
+      },
+      "wageUsdPerHour": {
+        "min": 10,
+        "max": 80,
+        "step": 1
+      }
+    },
+    "hours": 730,
+    "amortization": 60,
+    "target": 24,
+    "comparisonSuccess": 99,
+    "exampleClearing": 10,
+    "expensiveClearing": 300,
+    "basis": "Finite authored article comparisons, not empirical deployment inputs."
+  },
+  "units": "USD,s,%,hours,months as named",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "economics-examples:parameters:v1"
+}

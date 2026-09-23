@@ -1,0 +1,195 @@
+{
+  "prefixCount": 1069,
+  "added": [
+    {
+      "id": "classical-closure-20260923-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:6",
+      "oldHash": "9f1a4277079af4e214756999b2740a4df1212edce6f1c329dac1404813885982",
+      "newHash": "fbe7440b6427809815d63091844be9f35c61f9a87b6021218f5fa407ed049b40",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-2",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/kinematics",
+      "oldHash": "cd1a232f0de0417fab4e97316afe0c41930e33dd64ec58420715409b42568d16",
+      "newHash": "2f1a00c4e899f547ef14eb8d31c799079b1319b5f908a5c7d72500984568e1df",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9",
+      "newHash": "8c028d2510298aeaf36b459ffadd1297e1068b60af4ab174d9e7fade1b57e05c",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-4",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "c69b577c86776a84109cdce025c81d34f6db56ab2b44394381007057572c6a56",
+      "newHash": "196f4947164703e32d9cf533f6453ae0d6de53f14511a0d2692a1ef1fb6afdcb",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-5",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "057071ea25be70e5d17cfc20aacabeac7337660fb3d9abc5f65fcfec6aa21468",
+      "newHash": "d4c46009be622338e06707b74a8327aa8587de29dc1b2b591574912517aba178",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-6",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "316e1c240bc2e0cfa8b2f4a0b0dc8cabfe37680c4617ad8ba83c0af68ccbf4df",
+      "newHash": "65b2ea0fb13360b38a70f82d9074be7b3aa8adeefa8a187118776753e37fb571",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-7",
+      "manifest": "relationships",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "a1270839b0fde62e61a5b915c03a5b75331413904ef0f766d5e9bc6bd763ff18",
+      "newHash": "9a90af5159a310940d6a7e86b2b250327f21d706a92086c41b58734b6443da79",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-8",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "471442b2b5300ad670b5da991b057d5e030f2378610abef0a010057cb12f9d35",
+      "newHash": "8071a446e1d1f1ba9f85239fcd05984b9804dc68d23dcfeefa84bb010a52e552",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-9",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/rrt-explorer.tsx",
+      "oldHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27",
+      "newHash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-closure-20260923-10",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/kinematics",
+      "oldHash": "87c44e10604fc4a1c19ffeb21eed3804ae8c1dbc7047597d100919517fc42b49",
+      "newHash": "1b20d556b80ba97efd31bd249e08ad253058299eb896048bc23601ea93190f08",
+      "reason": "Ten bounded classical originals: authoritative DH definitions, removal of unsupported IK attributions/guarantees, explicit authored RRT/perception settings and scoped mathematical/editorial derivations. No model, controls, routes, tokens or unrelated article changes.",
+      "ownerApproval": "Controlling owner-decision-clear-all-holds-20260923 and sole-writer ten-original classical integration dispatch in Mission mis_2b1673fa; exact source, authored-proof and removal support. Not independent acceptance, gate waiver or permission to publish.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
+  ],
+  "unscopedDriftNotWaived": [
+    {
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb"
+    },
+    {
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "cfa28af732b80dbba2252d76c306e8f129321b11b642241c243fcabbff176858"
+    },
+    {
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "969ca0af100d7e56570a56b3b8896569fb686321be9e8b02375fe877273f5c96",
+      "newHash": "18a720a05fda8dcaa493e05286b5a3a2a9399e81ec319590543c202a9f911c1a"
+    }
+  ]
+}

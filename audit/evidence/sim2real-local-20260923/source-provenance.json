@@ -1,0 +1,221 @@
+{
+  "verifiedAt": "2026-09-23T04:44:08.051869+00:00",
+  "newNetworkRequests": 0,
+  "sources": [
+    {
+      "citationId": "tobin-2017",
+      "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+      "retrievedAt": "2026-09-08T07:26:18.853Z",
+      "toolReportedStatus": 200,
+      "originStatus": null,
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1703.06907v1-body.txt",
+      "savedPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/sim2real-local-20260923/tobin-body.txt",
+      "sha256": "45f2dd8321436db3726ec2826c19945e1fbd18ba48af0a85744778f06d8715f4",
+      "bytes": 48985,
+      "originalEvent": {
+        "source": "1703.06907v1-body",
+        "url": "https://arxiv.org/html/1703.06907v1",
+        "requestEvent": {
+          "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+          "line": 36,
+          "lineSHA256": "8b8e71f7743d7deec209c77d307d0238e0b5b675d4a58f78a3d1137dde0c73a5",
+          "bytesIncludingLF": 8674,
+          "recordId": "587df64a-84c7-4978-a2fc-d6129e23f423",
+          "timestamp": "2026-09-08T07:26:14.982Z"
+        },
+        "responseEvent": {
+          "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+          "line": 37,
+          "lineSHA256": "2e0c39b7eb86de6c62f1e1693503815de351b23cbad173055819fe12c5c4327f",
+          "bytesIncludingLF": 42221,
+          "recordId": "f3658b06-cb69-4ed7-acfb-bbc90ca8e72d",
+          "timestamp": "2026-09-08T07:26:18.853Z"
+        },
+        "rawSourceOutput": {
+          "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_ykcj2X6wCItJNw2k9061ZR0T-52378851.log",
+          "bytes": 49172,
+          "sha256": "b09710ef671e8db405e685a5c8e1c762aa806bf356323705cef52b95dd66685d"
+        },
+        "bodySHA256": "45f2dd8321436db3726ec2826c19945e1fbd18ba48af0a85744778f06d8715f4",
+        "retrievedAt": "2026-09-08T07:26:18.853Z",
+        "originStatus": null,
+        "toolReportedStatus": 200
+      },
+      "rawCaptureContainsExactBody": true
+    },
+    {
+      "citationId": "peng-2018",
+      "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+      "retrievedAt": "2026-09-08T07:26:42.941Z",
+      "toolReportedStatus": 200,
+      "originStatus": null,
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1710.06537v3-body.txt",
+      "savedPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/sim2real-local-20260923/peng-body.txt",
+      "sha256": "3b26bb1aca407fdbe980ba90e67653a3634a85521cb16054530214bb9795add3",
+      "bytes": 56618,
+      "originalEvent": {
+        "source": "1710.06537v3-body",
+        "url": "https://arxiv.org/html/1710.06537v3",
+        "requestEvent": {
+          "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+          "line": 40,
+          "lineSHA256": "e5a29a8eda4f0b685b926072f431a248c7064d32b4342d565fbd473a46b9fa80",
+          "bytesIncludingLF": 390,
+          "recordId": "3ec74eea-94ad-473b-89d1-dd2bdb68c87d",
+          "timestamp": "2026-09-08T07:26:38.631Z"
+        },
+        "responseEvent": {
+          "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+          "line": 41,
+          "lineSHA256": "08e40d90a758c23d20d661aaf4a03abb335996d714817bac8836b6e82ba1ff13",
+          "bytesIncludingLF": 43015,
+          "recordId": "32307aa2-89f6-40fd-8be4-8f9e951f57b5",
+          "timestamp": "2026-09-08T07:26:42.941Z"
+        },
+        "rawSourceOutput": {
+          "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_imBx1gyzcH4WtN1IEMSvyw5s-52402939.log",
+          "bytes": 56780,
+          "sha256": "8c7604a5ddceacd1be638d259078d0f7a6a5de270fe8f3a61def7f53553b28b9"
+        },
+        "bodySHA256": "3b26bb1aca407fdbe980ba90e67653a3634a85521cb16054530214bb9795add3",
+        "retrievedAt": "2026-09-08T07:26:42.941Z",
+        "originStatus": null,
+        "toolReportedStatus": 200
+      },
+      "rawCaptureContainsExactBody": true
+    },
+    {
+      "citationId": "openai-rubiks-cube-2019",
+      "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+      "retrievedAt": "2026-09-08T07:27:07.993Z",
+      "toolReportedStatus": 200,
+      "originStatus": null,
+      "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113v1-body.txt",
+      "savedPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/sim2real-local-20260923/adr-body.txt",
+      "sha256": "5604048be46fd257b18fa81c2afad3ce36a096e082337962163a77800d523778",
+      "bytes": 211058,
+      "originalEvent": {
+        "source": "1910.07113v1-body",
+        "url": "https://arxiv.org/html/1910.07113v1",
+        "requestEvent": {
+          "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+          "line": 44,
+          "lineSHA256": "ee49c68ab0ea5fb5aa3d25baa48f2cc64f0e4e9587df7dced2d6c2632b1c696e",
+          "bytesIncludingLF": 390,
+          "recordId": "3fdeb9fc-5dc3-4856-af6d-a421c9762a66",
+          "timestamp": "2026-09-08T07:27:02.976Z"
+        },
+        "responseEvent": {
+          "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+          "line": 45,
+          "lineSHA256": "cb71486b3b2943baef56eaf1c4452f1d28e7ce4c1cf256034788a9cab26939b0",
+          "bytesIncludingLF": 42112,
+          "recordId": "c00fda4b-8cfa-4e42-9d0d-4a7683d1c7b1",
+          "timestamp": "2026-09-08T07:27:07.993Z"
+        },
+        "rawSourceOutput": {
+          "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_lPVJUC6EpEZeqhzDGsRZLbtU-52427990.log",
+          "bytes": 211193,
+          "sha256": "25f640ba0e8efab695aafc8aef0341986339c047c235e44aee1cca5136e24b78"
+        },
+        "bodySHA256": "5604048be46fd257b18fa81c2afad3ce36a096e082337962163a77800d523778",
+        "retrievedAt": "2026-09-08T07:27:07.993Z",
+        "originStatus": null,
+        "toolReportedStatus": 200
+      },
+      "rawCaptureContainsExactBody": true
+    },
+    {
+      "citationId": "isaac-lab-2025",
+      "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+      "retrievedAt": "2026-09-08T00:55:54.267675+00:00",
+      "originStatus": 200,
+      "statusBasis": "Retained original GET receipt, not a current network observation",
+      "savedPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/sim2real-local-20260923/isaac-body.html",
+      "bytes": 508684,
+      "sha256": "9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39",
+      "originalReceipt": {
+        "requestUrl": "https://arxiv.org/html/2511.04831v1",
+        "method": "GET",
+        "requestStartedAt": "2026-09-08T00:55:54.021238+00:00",
+        "requestCompletedAt": "2026-09-08T00:55:54.267675+00:00",
+        "measuredRequestElapsedSeconds": 0.24720406904816628,
+        "maxBytes": 20971520,
+        "maxSeconds": 60,
+        "fallbackReason": "Fresh matching FetchUrl of registered abs supplied identity and this versioned HTML link but not full text. Discovered URL is outside FetchUrl user-explicit URL scope; parent authorizes bounded canonical GET.",
+        "command": [
+          "curl",
+          "--silent",
+          "--show-error",
+          "--fail",
+          "--location",
+          "--max-redirs",
+          "3",
+          "--proto",
+          "=https",
+          "--proto-redir",
+          "=https",
+          "--max-time",
+          "60",
+          "--max-filesize",
+          "20971520",
+          "--dump-header",
+          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-robocasa365-isaaclab-20260908/sources/isaaclab-v1-html.headers",
+          "--output",
+          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-robocasa365-isaaclab-20260908/sources/isaaclab-v1-html.body",
+          "--write-out",
+          "%{http_code}\n%{url_effective}\n%{num_redirects}\n%{size_download}\n%{time_total}\n%{content_type}\n",
+          "https://arxiv.org/html/2511.04831v1"
+        ],
+        "exitCode": 0,
+        "stdout": "200\nhttps://arxiv.org/html/2511.04831v1\n0\n508684\n0.241602\ntext/html; charset=utf-8\n",
+        "stderr": "",
+        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-robocasa365-isaaclab-20260908/sources/isaaclab-v1-html.body",
+        "bodyBytes": 508684,
+        "bodySHA256": "9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39",
+        "headersPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-robocasa365-isaaclab-20260908/sources/isaaclab-v1-html.headers",
+        "headersSHA256": "f952a12bd8f518d23d3300746e768a275e89eddba5db6d721ca6fd3c7c220c24",
+        "retries": 0,
+        "rangeRequests": 0
+      }
+    },
+    {
+      "citationId": "lee-2020",
+      "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2010.11251",
+      "retrievedAt": "2026-09-08T08:14:45.521Z",
+      "toolReportedStatus": 200,
+      "originStatus": null,
+      "edition": "Unversioned ar5iv rendered full body; not byte-pinned arXiv v1, despite metadata listing only v1.",
+      "savedPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/sim2real-local-20260923/lee-body.txt",
+      "bytes": 115542,
+      "sha256": "9df31f8f4078237baa690d9ea9a8492efe6ebc14c18bbe433b45361ce1e8be01",
+      "originalEvent": {
+        "key": "lee-2020-body",
+        "citationId": "lee-2020",
+        "url": "https://ar5iv.labs.arxiv.org/html/2010.11251",
+        "tool": "functions.FetchUrl",
+        "observedToolStatus": 200,
+        "statusMeaning": "Status reported by FetchUrl, not an independently observed raw HTTP exchange; no fresh liveness seal.",
+        "observedResponseEventAt": "2026-09-08T08:14:45.521Z",
+        "originalEventId": "6851ccf1-cc39-44f2-8683-9e667bfa9239",
+        "originalToolUseId": "call_j1b0nNt6190aDq6LcNAxj7d6",
+        "originalEventLine": 19,
+        "originalSessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/6a3c17bb-0335-45d7-a036-63ab494d0e14.jsonl",
+        "originalEventRawLineBytes": 201907,
+        "originalEventRawLineSha256": "ae44c5f45f63dc166c6d60c1011ad5a08fe879228fed89f2dfb8775164be7a93",
+        "originalToolResultContentBytes": 41039,
+        "originalToolResultContentSha256": "e90cfd099547e12b5943c42326d6fc725e1cb3ece3dcc49a4b8dc9ba77398e2d",
+        "originalFullOutputPath": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_j1b0nNt6190aDq6LcNAxj7d6-55285195.log",
+        "responsePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-learned-locomotion-20260908/lee-2020-body.txt",
+        "responseBytes": 115542,
+        "responseSha256": "9df31f8f4078237baa690d9ea9a8492efe6ebc14c18bbe433b45361ce1e8be01",
+        "bodyBytes": 115369,
+        "bodySha256": "27268a5c2538a9e2e4dae414882aa7a5300b04e38f26d019b15065135de1f267",
+        "bodyOffset": 173,
+        "edition": "Unversioned ar5iv rendered full body; not byte-pinned arXiv v1, despite metadata listing only v1."
+      },
+      "rawCaptureEqualsSavedRepresentation": true
+    }
+  ],
+  "status": "Preserved primary representations checked against actual original captures; not a typed plan or completion."
+}

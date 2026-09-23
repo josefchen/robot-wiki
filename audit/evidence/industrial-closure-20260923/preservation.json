@@ -1,0 +1,47 @@
+{
+  "identities": 994,
+  "unselectedFullRecordsIncludingLinePositions": 986,
+  "priorCompletions": 967,
+  "newCompletions": 8,
+  "afterComplete": 975,
+  "incomplete": 19,
+  "originalTypedPlans": 7,
+  "originalTypedProofs": 56,
+  "currentTypedPlans": 11,
+  "currentTypedProofs": 70,
+  "legacyPlanCount": 859,
+  "priorApprovalObjectsAndBytes": 1062,
+  "currentApprovals": 1069,
+  "unchangedTrackedFiles": 1991,
+  "changedTrackedFiles": [
+    "audit/README.md",
+    "audit/citations.md",
+    "audit/data-hardware.md",
+    "audit/local-basis.json",
+    "components/article/references.tsx",
+    "content/data-hardware/industrial-deployment.mdx",
+    "contract/brand-v2-approved-deltas.json",
+    "data/citations.ts",
+    "data/glossary.ts",
+    "data/schemas/citation.ts",
+    "lib/audit-ledger.ts",
+    "lib/audit-local-basis.ts",
+    "lib/citation-links.ts",
+    "lib/crossref-authors.ts",
+    "lib/prose-citation-years.ts",
+    "scripts/check-audit-coverage.ts",
+    "tests/e2e/industrial-deployment.spec.ts",
+    "tests/unit/audit-local-basis.test.ts",
+    "tests/unit/industrial-perception-truth-repair.test.ts"
+  ],
+  "protectedOwnerPaths": [
+    "PRODUCT_QUALITY.md",
+    "next-env.d.ts",
+    "qa/findings.json"
+  ],
+  "preservedAncestorCommits": [
+    "d282a83",
+    "2cf7d6b"
+  ],
+  "evidence": "Full native row equality against retained967/27 accounting; exact original JSON object bytes preserved; every tracked file compared against session-start hashes."
+}

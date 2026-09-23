@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "role": "integrator",
+  "eventId": "sim2real-local-s24-20260923:s24-reconstruction:2026-09-23T05:29:54.001Z",
+  "observedAt": "2026-09-23T05:29:54.001Z",
+  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "rationale": "Independent per-cell reconstruction/readings/occlusion and native outputs agree at0,0.15,1. MAE uses unrounded errors; rounding reconstructed cells first is a tested negative control. Divergence is exactly2.2*MAE; default/high MAE0.009894210242181204/0.1709614016145414 and discrepancy0.02176726253279865/0.37611508355199114 are constructed values, not learned action error.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "s24-reconstruction",
+  "inputDigest": "a0021d493f864b6bf64d09a3b4737c1ad62e66b64b4254157dfed1ad36cc31eb",
+  "inventory": [
+    {
+      "id": "s24-privileged-context",
+      "text": "The neighboring teacher/student explanation distinguishes privileged simulator state from deployable proprioceptive/history inputs.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "lee-2020"
+      ]
+    },
+    {
+      "id": "s24-input-mismatch",
+      "text": "Isaac Lab calls the teacher/student difference an information gap due to input mismatch and discusses reconstruction under camera occlusion.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "isaac-lab-2025"
+      ]
+    },
+    {
+      "id": "s24-authored-terrain-noise",
+      "text": "The 24-cell terrain, LCG seeds 123456789 and 987654321, sigma-3 blur, noise/occlusion coefficients, degradation range 0–1 and default 0.15 are authored construction.",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "s24-parameters"
+      ]
+    },
+    {
+      "id": "s24-reconstruction",
+      "text": "The specified local reconstruction, MAE, occlusion and 2.2*MAE normalized action divergence are derived from degradation, increasing by construction rather than reported distillation results.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "s24-zero",
+        "s24-default",
+        "s24-high"
+      ]
+    },
+    {
+      "id": "s24-mounted-degradation-default",
+      "text": "The actual teacher mount starts at degradation 0.15 and Reset returns the original input/reconstruction markup, MAE 0.01 m, discrepancy 0.02 and 3/24 occluded channels.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "s24-observed-default"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "default",
+          "prestate": "Article loaded; teacher unchanged",
+          "action": "Read initial teacher mount",
+          "poststate": "Degradation 0.15; MAE 0.01 m; discrepancy 0.02; 3/24 occluded"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "reset",
+          "prestate": "Degradation 0",
+          "action": "Activate teacher Reset",
+          "poststate": "Degradation 0.15, original input/reconstruction markup; MAE 0.01 m and discrepancy 0.02"
+        }
+      ]
+    },
+    {
+      "id": "s24-mounted-degradation-zero",
+      "text": "Changing the actual teacher control from degradation 1 to 0 restores exact terrain colors, unoccluded input, MAE 0.00 m and discrepancy 0.00.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "s24-observed-zero"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Degradation 1",
+          "action": "Set degradation to 0",
+          "poststate": "MAE 0.00 m; discrepancy 0.00; no occlusion; reconstructed colors equal teacher"
+        }
+      ]
+    },
+    {
+      "id": "s24-mounted-degradation-high",
+      "text": "Changing the actual teacher control from degradation 0.15 to 1 alters input/reconstruction panels, occludes 24/24 channels and displays MAE 0.17 m and discrepancy 0.38.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "s24-observed-high"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Degradation 0.15",
+          "action": "Set degradation to 1",
+          "poststate": "MAE 0.17 m; discrepancy 0.38; 24/24 occluded; input and reconstruction change"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/rl-sim2real.md:sim2real-transfer:24",
+  "currentTupleDigest": "ba7e83791ff7e1f3f5276ee3ffe95a984f89deb75bff86e14480449293e48524"
+}

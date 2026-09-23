@@ -1,0 +1,185 @@
+{
+  "sources": [
+    {
+      "url": "https://lavalle.pl/planning/node109.html",
+      "resolvedUrl": "https://lavalle.pl/planning/node109.html",
+      "tool": "rune___web_scrape",
+      "observedAt": "2026-09-23T18:29:41.239Z",
+      "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/e781d819-64a0-43b9-a76c-984d300b1b4f.jsonl",
+      "sessionLine": 35,
+      "toolMessageId": "06117fb9-0dc5-48b3-ac8f-30c20a563642",
+      "observedStatus": "Successful tool result; HTML markdown, truncated=false; no origin HTTP status exposed",
+      "httpStatus": null,
+      "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
+      "responsePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
+      "chars": 8268,
+      "kind": "external-source",
+      "citationId": "lavalle-2006",
+      "bodyArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
+        "bytes": 8269,
+        "sha256": "f4744be4ea7cfc57ea2738493bd382c608c1301721549c716fbe941ff18bae24"
+      },
+      "responseArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
+        "bytes": 8782,
+        "sha256": "a0d4a5c9add188dd68321a2910a2d2b0ae1841e0d76fbe9540e34cf7ffc93ad0"
+      },
+      "documentIdentity": {
+        "title": "3.3.2 A 3D Kinematic Chain",
+        "authorPrinted": "Steven M LaValle",
+        "pageFooter": "2020-08-14",
+        "editionHandling": "Use the already registered Planning Algorithms (2006) identity; the HTML footer is not a newly inferred publication year."
+      },
+      "passages": [
+        {
+          "text": "Consider a kinematic chain of ![$ m$](https://lavalle.pl/planning/img112.gif) links in ![$ {\\cal W}= {\\mathbb{R}}^3$](https://lavalle.pl/planning/img640.gif), in which each\n![$ {\\cal A}_i$](https://lavalle.pl/planning/img15.gif) for ![$ 1 \\leq i < m$](https://lavalle.pl/planning/img659.gif) is attached to ![$ {\\cal A}_{i+1}$](https://lavalle.pl/planning/img18.gif) by a revolute\njoint. Each link can be a complicated, rigid body as shown in Figure\n[3.13](https://lavalle.pl/planning/node109.html#fig:glink). For the 2D problem, the coordinate frames were based\non the points of attachment. For the 3D problem, it is convenient to\nuse the axis of rotation of each revolute joint (this is\nequivalent to the point of attachment for the 2D case). The axes of\nrotation will generally be skew lines in ![$ {\\mathbb{R}}^3$](https://lavalle.pl/planning/img23.gif), as shown in Figure\n[3.14](https://lavalle.pl/planning/node109.html#fig:glinkaxes). Let the ![$ z_i$](https://lavalle.pl/planning/img28.gif)-axis be the axis of rotation for\nthe revolute joint that holds ![$ {\\cal A}_i$](https://lavalle.pl/planning/img15.gif) to ![$ {\\cal A}_{i-1}$](https://lavalle.pl/planning/img17.gif). Between\neach pair of axes in succession, let the ![$ x_i$](https://lavalle.pl/planning/img855.gif)-axis join the closest\npair of points between the ![$ z_i$](https://lavalle.pl/planning/img28.gif)\\- and ![$ z_{i+1}$](https://lavalle.pl/planning/img881.gif)-axes, with the origin\non the ![$ z_i$](https://lavalle.pl/planning/img28.gif)-axis and the direction pointing towards the nearest point\nof the ![$ z_{i+1}$](https://lavalle.pl/planning/img881.gif)-axis. This axis is uniquely defined if the ![$ z_i$](https://lavalle.pl/planning/img28.gif)-\nand ![$ z_{i+1}$](https://lavalle.pl/planning/img881.gif)-axes are not parallel. The recommended body frame for\neach ![$ {\\cal A}_i$](https://lavalle.pl/planning/img15.gif) will be given with respect to the ![$ z_i$](https://lavalle.pl/planning/img28.gif)\\- and ![$ x_i$](https://lavalle.pl/planning/img855.gif)-axes,\nwhich are shown in Figure [3.14](https://lavalle.pl/planning/node109.html#fig:glinkaxes). Assuming a\nright-handed coordinate system, the ![$ y_i$](https://lavalle.pl/planning/img882.gif)-axis points away from us in\nFigure [3.14](https://lavalle.pl/planning/node109.html#fig:glinkaxes). In the transformations that will appear\nshortly, the coordinate frame given by ![$ x_i$](https://lavalle.pl/planning/img855.gif), ![$ y_i$](https://lavalle.pl/planning/img882.gif), and ![$ z_i$](https://lavalle.pl/planning/img28.gif) will\nbe most convenient for defining the model for ![$ {\\cal A}_i$](https://lavalle.pl/planning/img15.gif). It might not\nalways appear convenient because the origin of the frame may even lie\noutside of ![$ {\\cal A}_i$](https://lavalle.pl/planning/img15.gif), but the resulting transformation matrices will be\neasy to understand.",
+          "utf8Offset": 1871,
+          "utf8Bytes": 2895,
+          "sha256": "e09268fd9e00a480db80ba36020e97c1e9dd1e9d455b83de5162c520a83d6e5e"
+        },
+        {
+          "text": "**Figure 3.15:**\nDefinitions of the four DH parameters: ![$ d_i$](https://lavalle.pl/planning/img24.gif),\n![$ \\theta _i$](https://lavalle.pl/planning/img25.gif), ![$ a_{i-1}$](https://lavalle.pl/planning/img26.gif), ![$ \\alpha _{i-1}$](https://lavalle.pl/planning/img27.gif). The ![$ z_i$](https://lavalle.pl/planning/img28.gif)\\- and ![$ x_{i-1}$](https://lavalle.pl/planning/img29.gif)-axes\nin (b) and (d), respectively, are pointing outward. Any parameter may be\npositive, zero, or negative.\n\nIn Section [3.3.1](https://lavalle.pl/planning/node106.html#sec:2dchain), each ![$ T_i$](https://lavalle.pl/planning/img861.gif) was defined in terms of two\nparameters, ![$ a_{i-1}$](https://lavalle.pl/planning/img26.gif) and ![$ \\theta _i$](https://lavalle.pl/planning/img25.gif). For the 3D case, four\nparameters will be defined: ![$ d_i$](https://lavalle.pl/planning/img24.gif), ![$ \\theta _i$](https://lavalle.pl/planning/img25.gif), ![$ a_{i-1}$](https://lavalle.pl/planning/img26.gif), and\n![$ \\alpha _{i-1}$](https://lavalle.pl/planning/img27.gif). These are referred to as _Denavit-Hartenberg (DH)_\n_parameters_ \\[ [434](https://lavalle.pl/planning/node858.html#HarDen55)\\]. The\ndefinition of each parameter is indicated in Figure [3.15](https://lavalle.pl/planning/node109.html#fig:dh).\nFigure [3.15](https://lavalle.pl/planning/node109.html#fig:dh) a shows the definition of ![$ d_i$](https://lavalle.pl/planning/img24.gif). Note that the\n![$ x_{i-1}$](https://lavalle.pl/planning/img29.gif)\\- and ![$ x_i$](https://lavalle.pl/planning/img855.gif)-axes contact the ![$ z_i$](https://lavalle.pl/planning/img28.gif)-axis at two different\nplaces. Let ![$ d_i$](https://lavalle.pl/planning/img24.gif) denote signed distance between these points of\ncontact. If the ![$ x_i$](https://lavalle.pl/planning/img855.gif)-axis is above the ![$ x_{i-1}$](https://lavalle.pl/planning/img29.gif)-axis along the\n![$ z_i$](https://lavalle.pl/planning/img28.gif)-axis, then ![$ d_i$](https://lavalle.pl/planning/img24.gif) is positive; otherwise, ![$ d_i$](https://lavalle.pl/planning/img24.gif) is negative. The\nparameter ![$ \\theta _i$](https://lavalle.pl/planning/img25.gif) is the angle between the ![$ x_i$](https://lavalle.pl/planning/img855.gif)\\- and\n![$ x_{i-1}$](https://lavalle.pl/planning/img29.gif)-axes, which corresponds to the rotation about the ![$ z_i$](https://lavalle.pl/planning/img28.gif)-axis\nthat moves the ![$ x_{i-1}$](https://lavalle.pl/planning/img29.gif)-axis to coincide with the ![$ x_i$](https://lavalle.pl/planning/img855.gif)-axis. The\nparameter ![$ a_i$](https://lavalle.pl/planning/img874.gif) is the distance between the ![$ z_i$](https://lavalle.pl/planning/img28.gif)\\- and ![$ z_{i-1}$](https://lavalle.pl/planning/img884.gif)-axes;\nrecall these are generally skew lines in ![$ {\\mathbb{R}}^3$](https://lavalle.pl/planning/img23.gif). The parameter\n![$ \\alpha _{i-1}$](https://lavalle.pl/planning/img27.gif) is the angle between the ![$ z_i$](https://lavalle.pl/planning/img28.gif)\\- and ![$ z_{i-1}$](https://lavalle.pl/planning/img884.gif)-axes.",
+          "utf8Offset": 4998,
+          "utf8Bytes": 3075,
+          "sha256": "e804a14f92d6ce4ca0a1a66c09bda862560725aa4c2501e3b993629275adbd90"
+        }
+      ],
+      "limits": [
+        "Only node109 was retrieved; the linked matrix page and figure images were not fetched. Mathematical image alt text is present in the actual returned markdown, not an independently inspected image.",
+        "The page uses d_i, theta_i, a_(i-1), alpha_(i-1), but its prose then says a_i for the inter-axis distance. Preserve that indexing discrepancy; do not silently present this as the article matrix or an exact standard/modified-DH equivalence.",
+        "The body does not establish the original article's exclusive theta-only variability sentence or its exact 1955 attribution; those clauses are removed from this row's claim."
+      ]
+    },
+    {
+      "kind": "verified-retained-external-source",
+      "citationId": "realsense-d400-datasheet-2026",
+      "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+      "observedStatus": "HTTP/1.1 200 OK; transport metadata http_code=200, num_redirects=0, content_type=application/pdf",
+      "retrievedAt": "2026-09-13T08:25:29.954227+00:00",
+      "retrievalStartedAt": "2026-09-13T08:25:28.547454+00:00",
+      "tool": "historical curl, recorded in actual retained receipt; no new network request",
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/fetch-d400.receipt.json",
+      "bodyArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
+        "bytes": 5417349,
+        "sha256": "96cb5706bd879479bab36648bd3ec67f6338b4616d696dda55007f898182454f"
+      },
+      "textArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.text.txt",
+        "bytes": 377030,
+        "sha256": "29e230ab9e344a52a865c7a2193d2074aee10c59d29a2fdb6a1a497a7cdfd6d4"
+      },
+      "transportArtifact": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.transport.txt",
+        "bytes": 14475,
+        "sha256": "9dafd442c2b64104aca3fa949375c611c7aad851bb01b2a483b71d3ee8e2b81d"
+      },
+      "identity": "RealSense Product Family D400 Series Datasheet; Revision023; Mar2026; Document337029-017",
+      "passages": [
+        {
+          "locator": "Table4-15 specification, printed p85",
+          "text": "  Table 4-15. Depth Quality Specification\n\n                                     D410/D415                         D43x                       D450/D455/                  D401/D405\n\n              Metric           (<= 2 Meters and 80%       (<= 2 Meters and 80% ROI, HD            D455f/D456            (<= 0.5 Meters and 80%\n                                ROI, HD Resolution)                Resolution)                                            ROI, HD Resolution)\n                                                                                             (<= 4 Meters and 80%\n                                                                                              ROI, HD Resolution)\n\n       Z-accuracy (or\n                                        ± 2%                           ± 2%                           ± 2%                          ± 2%\n       Absolute Error)",
+          "sha256": "9dcae7f2ad5eaa239f76bd83c900d13793dc5112059eab8976ef73ada731e7e0",
+          "lineRange": [
+            4551,
+            4562
+          ],
+          "lineBasis": "Python str.splitlines of actual retained pdftotext output; form-feed handling differs from Read LF numbering",
+          "reviewBasis": "Literal text reconstructed from the captured source-read output; not copied from the article or research summary."
+        },
+        {
+          "locator": "Table4-15 factory/environment notes, printed p85",
+          "text": "                        1.   Key Performance Indicators (KPIs) are validated at the factory and reflect typical conditions\n\n                        2.   KPIs could be impacted by environmental factors over the camera/module’s lifetime",
+          "sha256": "a1137e653d3ca963079caa7dcf057764262cb023d4ce1850fb6fb3f12c15da89",
+          "lineRange": [
+            4576,
+            4578
+          ],
+          "lineBasis": "Python str.splitlines of actual retained pdftotext output; form-feed handling differs from Read LF numbering",
+          "reviewBasis": "Literal text reconstructed from the captured source-read output; not copied from the article or research summary."
+        },
+        {
+          "locator": "Table4-15 active-model test conditions, printed p86",
+          "text": "                   4.   KPIs for D405, a passive camera, are measured using a textured target and typical ambient room light (~250\n                        Lux). All other models are active and measured using a texture-less (white) target with default laser power\n                        (150mW) and auto exposure enabled.",
+          "sha256": "4dcc6e400d0baf41fcc7b70dd4b17218dac0397460983d6fc97eb1591b09e759",
+          "lineRange": [
+            4590,
+            4592
+          ],
+          "lineBasis": "Python str.splitlines of actual retained pdftotext output; form-feed handling differs from Read LF numbering",
+          "reviewBasis": "Literal text reconstructed from the captured source-read output; not copied from the article or research summary."
+        }
+      ],
+      "semanticScope": "Supports only the named ±2% specification and conditions. It does not establish a standard deviation, independence, a constant10mm real error, authored floor multipliers, 0.5m reference choice, pose3mm or any success band."
+    }
+  ],
+  "verifiedCopies": [
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+      "path": "audit/evidence/classical-closure-20260923/classical-original-2cf7d6b.md",
+      "bytes": 67494,
+      "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
+      "path": "audit/evidence/classical-closure-20260923/lavalle-dh.body.md",
+      "bytes": 8269,
+      "sha256": "f4744be4ea7cfc57ea2738493bd382c608c1301721549c716fbe941ff18bae24"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
+      "path": "audit/evidence/classical-closure-20260923/lavalle-dh.response.json",
+      "bytes": 8782,
+      "sha256": "a0d4a5c9add188dd68321a2910a2d2b0ae1841e0d76fbe9540e34cf7ffc93ad0"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
+      "path": "audit/evidence/classical-closure-20260923/d400.pdf",
+      "bytes": 5417349,
+      "sha256": "96cb5706bd879479bab36648bd3ec67f6338b4616d696dda55007f898182454f"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.text.txt",
+      "path": "audit/evidence/classical-closure-20260923/d400.text.txt",
+      "bytes": 377030,
+      "sha256": "29e230ab9e344a52a865c7a2193d2074aee10c59d29a2fdb6a1a497a7cdfd6d4"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.transport.txt",
+      "path": "audit/evidence/classical-closure-20260923/d400.transport.txt",
+      "bytes": 14475,
+      "sha256": "9dafd442c2b64104aca3fa949375c611c7aad851bb01b2a483b71d3ee8e2b81d"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/asme-dh1955.html",
+      "path": "audit/evidence/classical-closure-20260923/asme-dh1955.html",
+      "bytes": 5856,
+      "sha256": "87e4ee91b34b45d151d69068585ad9388a0d66e6148f07270786db08d964a0d5"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/wampler-doi.html",
+      "path": "audit/evidence/classical-closure-20260923/wampler-doi.html",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/levenberg-1944-pdf-403.html",
+      "path": "audit/evidence/classical-closure-20260923/levenberg-1944-pdf-403.html",
+      "bytes": 5947,
+      "sha256": "f5b13c9bf5fc78ed37fe2c7840c7b601b086ee34d05a4bccd335b8fc9f669e3b"
+    },
+    {
+      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/marquardt-siam.html",
+      "path": "audit/evidence/classical-closure-20260923/marquardt-siam.html",
+      "bytes": 5547,
+      "sha256": "3eda2b2c338e95f8b680dc971eced0d9108759c5e5d842c9b4d0b4ee7cce2a0a"
+    }
+  ],
+  "newNetworkRequests": 0,
+  "limitations": [
+    "No origin HTTP status exposed for LaValle.",
+    "D400 is verified retained retrieval, not a new fetch.",
+    "No unavailable-body retry; challenge/empty files are not scientific support."
+  ]
+}

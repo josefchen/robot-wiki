@@ -27,6 +27,42 @@ import type { LinkCheckException } from '../lib/citation-links.ts';
 
 export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
   {
+    id: 'seeed-so-arm101-pro-2026',
+    covers: ['title-mismatch'],
+    reason:
+      'The registered Seeed URL redirects to https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html. Its HTML/SEO title says "SO-101 3D-Printed Robotic Arm Frame | Open-Source Robotics Kit for DIY Projects", but the actual first-party body names "SO-ARM101 Pro Assembled Kit – LeRobot Compatible 6DOF Robotic Arm", SKU 100046482. The visible kit comparison identifies the Pro kit as pre-assembled with a camera, and the part list contains assembled leader/follower arms and a USB camera. This establishes the intended registered Pro-kit product despite the misleading SEO title. Cover only that exact title mismatch, never a wrong product or blocked/error/dead response.',
+    verifiedBy:
+      'External public markdown retrieved with rune___web_scrape at 2026-09-23T00:59:34.892Z from the exact native-observed final URL; 29108 markdown characters, truncated=false; raw result SHA256 43677acd47565968adae07fedd8ae1f98cfea80bf0c5e9bc9a731e2e6ffdcfee. Literal name/SKU, comparison and package-list passages retained in this source-only packet. Scrape success is not origin HTTP 200. Prior native 301 -> 200 / title mismatch / exit 1 at 2026-09-23T00:35:38.208530+00:00 is retained unchanged. Source-only preparation did not rerun native checks or audit original claims; subsequent integration observations are recorded separately in audit/citations.md.',
+    verifiedOn: '2026-09-23',
+  },
+  {
+    id: 'gsn-standard-v3',
+    covers: ['title-mismatch'],
+    reason:
+      'The registered SCSC-141C URL currently yields the generic download-page HTML title "Download" along its previously observed redirect chain. The actual published body retrieved from that exact registered URL identifies "Goal Structuring Notation", "Community Standard Version 3", the Assurance Case Working Group (ACWG) and SCSC-141C. Its document history specifies Version 3, May 2021; the body names the Safety-Critical Systems Club and assigns publication/maintenance to SCSC ACWG. This matches the registered title, authors, venue and edition year. Cover only this generic download-title versus identified-standard-title divergence, not an unrelated download or blocked/error/dead response.',
+    verifiedBy:
+      'Recovered the exact retained FetchUrl request from 2026-09-15T10:23:00.827Z and response from 2026-09-15T10:23:35.084Z, call_5d964b982bdb4c3db53dd8d6. Verified cover, published document-history row and publication attribution in its named full saved artifact: 234185 bytes, 4678 lines, SHA256 7b5acead31e173bc33448da216c2c84d9b4699a389ab48edbc4f42ecbb1b6210. The old Status: 200 is tool-reported, not origin headers, and September 23 is the recovery/review date, not a new fetch. Prior native 302 -> 302 -> 200 ending at https://scsc.uk/index.php/publications/download?ref=1386 with title Download and exit 1 at 2026-09-23T00:36:40.269472+00:00 remains unchanged. Source-only recovery made no new GSN request or native rerun; subsequent integration observations are recorded separately in audit/citations.md.',
+    verifiedOn: '2026-09-23',
+  },
+  {
+    id: 'symbotic-10k-2025',
+    covers: ['title-mismatch'],
+    reason:
+      'The exact SEC accession URL https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm uses its filename "sym-20250927" as the HTML title. The retained filing cover identifies Symbotic Inc. Form 10-K for the fiscal year ended September 27, 2025, matching the descriptive registry title. Only that filename-versus-document-title divergence is covered.',
+    verifiedBy:
+      'Native check:citations --id symbotic-10k-2025 --json observed direct HTTP 200 with HTML title "sym-20250927" on 2026-09-23T00:36:40.889288Z. Separately rechecked the actual retained FetchUrl response from 2026-09-12T21:03:19.099Z at that exact accession URL: cover "FORM 10-K", "For the fiscal year ended September 27, 2025", "SYMBOTIC INC.". Retained symbotic-fetch-result.txt: 579888 bytes, SHA256 b7f7f0a7cdbd4eacff3520b4ca7f25f91e64cf49f3fc0e1907727d93088cb32b; original response event f1f1a06e-43be-4162-ba53-2b277426ccdf, exact path in audit/citations.md. Its 200 is tool-reported; origin headers/redirects were not exposed. Current HTTP status comes from the native checker. This is document identity, not independent corroboration of company results or a new claim audit.',
+    verifiedOn: '2026-09-23',
+  },
+  {
+    id: 'nasa-availability-prediction-analysis',
+    covers: ['title-mismatch'],
+    reason:
+      'The exact NASA LLIS Lesson 841 URL https://llis.nasa.gov/lesson/841 serves the generic HTML title "Llis", not its Subject "Availability Prediction and Analysis". This exception documents only that title-tag divergence, not a dead link, bot-wall or fetch error.',
+    verifiedBy:
+      'Native check:citations --id nasa-availability-prediction-analysis --json observed HTTP 200 with no redirect and HTML title "Llis" on 2026-09-23 at 00:17:45.540729Z. Identity was separately rechecked against the retained rune___web_scrape / Firecrawl response from 2026-09-22T22:28:18.417Z at the same requested/final URL: Subject "Availability Prediction and Analysis"; "Lesson Number841Lesson Date1994-12-01Submitting Organizationjsc"; NASA institutional publisher. Retained source-3.txt SHA256 40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6, markdown SHA256 27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae; exact path and provenance in audit/citations.md. The retained response exposed no origin HTTP status; current liveness comes only from the native checker, not that older tool response. No equation or whole-claim verification is inferred.',
+    verifiedOn: '2026-09-23',
+  },
+  {
     id: 'iso-ts-15066',
     covers: ['error', 'blocked'],
     reason:

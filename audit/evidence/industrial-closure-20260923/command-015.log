@@ -1,0 +1,3 @@
+no-slop: source-only run, export sweeps skipped (postbuild gates the fresh export)
+no-slop: AI-writing lint over 47 MDX files
+no-slop: OK (zero placeholder markers, zero banned AI-writing markers, 14 registered quotation exception(s) in force)

@@ -330,7 +330,7 @@ test.describe('market map visualization', () => {
           'Task:',
           'Fitness:',
           'Proposed reward code',
-          'Reward statistics from training',
+          'Scripted reward statistics',
           'Task fitness',
           'Weighted total:',
           'Compute per step:',

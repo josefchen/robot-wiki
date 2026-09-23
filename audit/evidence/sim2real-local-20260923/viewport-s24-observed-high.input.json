@@ -1,0 +1,7 @@
+{
+  "id": "teacher",
+  "mode": "derive",
+  "inputs": {
+    "degradation": 1
+  }
+}

@@ -12073,59 +12073,6 @@
     ]
   },
   {
-    "id": "performance-worldmodels-taxonomy-4-20260908",
-    "ledgerPath": "audit/world-models.md",
-    "articleSlug": "taxonomy",
-    "rowOrdinal": 4,
-    "originalCellsDigest": "7f676ac79371fa09824d1694a4770f4423ff4be0776d717961bafa3e76f229e6",
-    "kind": "explicit-parts",
-    "parts": [
-      {
-        "id": "editorial-vs-source-taxonomy",
-        "text": "The survey provides a broad functional definition and an organization different from the article selected six-group inventory.",
-        "requiredCitationIds": [
-          "world-model-survey-2026"
-        ]
-      },
-      {
-        "id": "local-example-count-not-in-primary",
-        "text": "The exact count of six local examples is not stated by the cited primary survey; this source-based conjunct remains unresolved.",
-        "requiredCitationIds": [
-          "world-model-survey-2026"
-        ]
-      }
-    ],
-    "evidence": [
-      {
-        "partId": "editorial-vs-source-taxonomy",
-        "citationId": "world-model-survey-2026",
-        "sourceUrl": "https://arxiv.org/html/2605.00080",
-        "supportingPassage": "Overview of the organization of this survey.\nSection 3 reviews how world models are coupled with robot policies from an architectural perspective.\nSection 4 examines world models as simulators from an application perspective.\nSection 5 focuses on robotic video world models and organizes the literature by world-modeling capability.\n\n[… noncontiguous retained passage …]\n\nUnder this formulation, we use _world model_ in a functional sense to refer to predictive models whose outputs support policy-related computation, including control, planning, simulation, evaluation, and data generation. Its defining property is not merely to predict a plausible future, but to predict how the future changes under robot-relevant actions in a way that supports embodied decision making. This definition is therefore narrower than generic future prediction in computer vision: a model does not qualify as a world model in our sense simply because it generates plausible future images or videos. Rather, it must capture environment evolution in a form relevant to robot interaction and useful for downstream policy-related computation. In embodied control, the most important subclass is the action-conditioned world model, since visually plausible but action-inconsistent futures offer limited value for closed-loop decision making. Depending on the method, the modeled variable xtx\\_{t} may be a visual observation, latent state, structured physical state, or even an abstract symbolic state used for planning ( [Liang et al., 2026](https://arxiv.org/html/2605.00080#bib.bib107 \"\"); [Liang et al., 2025c](https://arxiv.org/html/2605.00080#bib.bib106 \"\"); [Athalye et al., 2026](https://arxiv.org/html/2605.00080#bib.bib5 \"\"); [Liang et al., 2026](https://arxiv.org/html/2605.00080#bib.bib107 \"\")), covering both classical latent dynamics models and newer generative predictive models for robot learning. In the symbolic case, the world model predicts transitions over predicates, object relations, affordances, or causal processes rather than over pixels ( [Liang et al., 2025c](https://arxiv.org/html/2605.00080#bib.bib106 \"\"); [Athalye et al., 2026](https://arxiv.org/html/2605.00080#bib.bib5 \"\"); [Liang et al., 2026](https://arxiv.org/html/2605.00080#bib.bib107 \"\"))."
-      }
-    ],
-    "planReview": {
-      "reviewedBy": "Droid delegated integrator2b3cad62-4739-4a04-9354-304f191b77b3; actual emitted custom:droidproxy:gpt-6-astra/max; not independent acceptance",
-      "rationale": "The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception.",
-      "planDigest": "79ac71fc3418ff621e6a815f82c96c4a86c33e089fbb8423262d19e13df71897"
-    },
-    "adjudications": [
-      {
-        "partId": "editorial-vs-source-taxonomy",
-        "outcome": "supported",
-        "reviewedBy": "Droid delegated integrator2b3cad62-4739-4a04-9354-304f191b77b3; actual emitted custom:droidproxy:gpt-6-astra/max; not independent acceptance",
-        "rationale": "The survey provides a broad functional definition and an organization different from the article selected six-group inventory. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception.",
-        "evidenceDigest": "68c9f570ed759090f82bbe8d01effb7f439f05bbb610d67be9232bb7b3f1015b"
-      },
-      {
-        "partId": "local-example-count-not-in-primary",
-        "outcome": "unresolved",
-        "reviewedBy": "Droid delegated integrator2b3cad62-4739-4a04-9354-304f191b77b3; actual emitted custom:droidproxy:gpt-6-astra/max; not independent acceptance",
-        "rationale": "The exact count of six local examples is not stated by the cited primary survey; this source-based conjunct remains unresolved. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception.",
-        "evidenceDigest": "5514be3e4fed6fe06c20327fdeb4546d8403f7c8a13cf39111cfc3d90e1da344"
-      }
-    ]
-  },
-  {
     "id": "performance-worldmodels-taxonomy-14-20260908",
     "ledgerPath": "audit/world-models.md",
     "articleSlug": "taxonomy",
@@ -62863,87 +62810,6 @@
     ]
   },
   {
-    "id": "reward-design-mpc-original-4-20260916",
-    "ledgerPath": "audit/rl-sim2real.md",
-    "articleSlug": "reward-design-mpc",
-    "rowOrdinal": 4,
-    "originalCellsDigest": "44c8769365d7eb2a93a5367ce8baab5eb04af8840b141d83c7023ee280fc94e2",
-    "kind": "explicit-parts",
-    "parts": [
-      {
-        "id": "r4-local",
-        "text": "LOCAL-AND part (integrator proves from the repo at application time): the RewardShaping interactive exposes exactly twelve weight sliders from lib/reward-shaping.ts TERMS, the component prints a live 'Terms: 12' readout, and the article says twelve terms sit on the illustrative preview; the lib header discloses the model as twelve illustrative terms, not the paper reward or a runnable pinned legged_gym configuration.",
-        "requiredCitationIds": [
-          "legged-gym-repo-2021"
-        ]
-      }
-    ],
-    "evidence": [
-      {
-        "partId": "r4-local",
-        "citationId": "legged-gym-repo-2021",
-        "sourceUrl": "https://github.com/leggedrobotics/legged_gym",
-        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/reward-shaping.ts header prints 'This local teaching model uses twelve illustrative terms and weights, not the paper reward or a runnable pinned legged_gym configuration.' and 'maps weights to illustrative failure attractors (freeze, prance, chatter)'; the TERMS array holds exactly twelve entries (velTrack, yawTrack, torque, jointAccel, actionRate, jointLimit, collision, baseHeight, orientation, airTime, stumble, termination). components/interactive/reward-shaping.tsx maps TERMS to one range slider per entry (line 418) and prints a live 'Terms: <span>{TERMS.length}</span>' readout (line 246). content/rl-sim2real/reward-design-mpc.mdx prints 'Twelve weighted terms sit on the illustrative behavior preview below. Its weights, per-term magnitudes and freeze/prance/chatter categories are teaching choices, not the paper's nine-term objective or a runnable `legged_gym` configuration.'"
-      }
-    ],
-    "planReview": null,
-    "adjudications": []
-  },
-  {
-    "id": "reward-design-mpc-original-5-20260916",
-    "ledgerPath": "audit/rl-sim2real.md",
-    "articleSlug": "reward-design-mpc",
-    "rowOrdinal": 5,
-    "originalCellsDigest": "213f3f6c6ab625c0d916ca532c473239bda95be515d92441786c4dc10bf6d91c",
-    "kind": "explicit-parts",
-    "parts": [
-      {
-        "id": "r5-local",
-        "text": "LOCAL-AND part (integrator proves from the repo at application time): freeze, prance and chatter are declared an illustrative teaching taxonomy in the article prose and the lib header, and the contrasting Rudin-observed artifacts sentence carries its own rudin-2021 citation bound by the row-2 plan.",
-        "requiredCitationIds": [
-          "rudin-2021"
-        ]
-      }
-    ],
-    "evidence": [
-      {
-        "partId": "r5-local",
-        "citationId": "rudin-2021",
-        "sourceUrl": "https://arxiv.org/abs/2109.11978",
-        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): content/rl-sim2real/reward-design-mpc.mdx prints 'The preview maps weight settings to three illustrative categories: freeze, prance, and chatter. Those classifications and the displayed motion are outputs of this local teaching model, not policies trained in the cited simulator. Rudin and colleagues report different observed artifacts, including a dragging leg and unusually high or low base height, and describe tuning reward weights before transferring their policy to hardware <Cite id=\"rudin-2021\" />.' lib/reward-shaping.ts header prints 'maps weights to illustrative failure attractors (freeze, prance, chatter)' and 'an illustrative teaching model, not measured simulator output'."
-      }
-    ],
-    "planReview": null,
-    "adjudications": []
-  },
-  {
-    "id": "reward-design-mpc-original-11-20260916",
-    "ledgerPath": "audit/rl-sim2real.md",
-    "articleSlug": "reward-design-mpc",
-    "rowOrdinal": 11,
-    "originalCellsDigest": "3826f5284c7776b629bc1e16c3517c077cf36a0c6339459ddcd3c7d9b6e672d7",
-    "kind": "explicit-parts",
-    "parts": [
-      {
-        "id": "r11-local",
-        "text": "LOCAL-AND part (integrator proves from the repo at application time): the EurekaLoop panel is captioned 'Scripted replay of the Eureka loop' in the UI, its component doc comment discloses that the generations are a scripted illustration rather than a recording of a real Eureka run, and the article prose frames the panel as replay.",
-        "requiredCitationIds": [
-          "eureka-2024"
-        ]
-      }
-    ],
-    "evidence": [
-      {
-        "partId": "r11-local",
-        "citationId": "eureka-2024",
-        "sourceUrl": "https://arxiv.org/abs/2310.12931",
-        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): components/interactive/eureka-loop.tsx prints at line 215 'Scripted replay of the Eureka loop (propose reward code, train, select on fitness, reflect on reward statistics, mutate). The code, statistics, and reflections are an illustration of the mechanism, not a recording of a real run.' and its doc comment at lines 21-22 prints 'The generations are a scripted illustration of the mechanism, labeled as such, not a recording of a real Eureka run.' The generations come from EUREKA_GENERATIONS in lib/eureka.ts."
-      }
-    ],
-    "planReview": null,
-    "adjudications": []
-  },
-  {
     "id": "reward-design-mpc-original-14-20260916",
     "ledgerPath": "audit/rl-sim2real.md",
     "articleSlug": "reward-design-mpc",
@@ -64948,42 +64814,62 @@
   "ledgerPath": "audit/data-hardware.md",
   "articleSlug": "datasets",
   "rowOrdinal": 10,
-  "originalCellsDigest": "66ef45e82775c5a3fe0f5f87391a6d6bf4b450b8917a26859ee7251403f11c0e",
+  "originalCellsDigest": "318ff44876cc4f093043a9c395013b46614e3d35169e1ffa8008fcd4676b4f76",
   "kind": "explicit-parts",
   "parts": [
     {
       "id": "ds10-counts-and-robots",
-      "text": "RoboMIND contains 107k demonstration trajectories across 479 diverse tasks involving 96 object classes, collected on a unified platform under a standardized protocol across four embodiments: Franka Emika Panda, UR5e, AgileX dual-arm robot, and a humanoid robot with dual dexterous hands (the v3 full text names it X-Humanoid Tien Kung).",
+      "text": "The inspected RoboMIND paper v3 reports 107k successful trajectories totaling 305.5 interaction hours across 479 tasks and 96 object classes. This cohort mixes real-world and simulated demonstrations under a unified platform and standardized protocol across Franka Emika Panda, UR5e, AgileX dual-arm and Tien Kung humanoid with dual dexterous hands. Do not infer real-only, simulation-only, failure-set or exact per-release duration; the paper's 26,856/26,866 Franka disagreement is unresolved.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
     },
     {
       "id": "ds10-failures-and-twin",
-      "text": "The dataset includes 5k real-world failure demonstrations each accompanied by detailed causes, and a digital twin of the tasks and assets was created in the Isaac Sim simulator for additional data collection and evaluation.",
+      "text": "In addition to the 107k successful trajectories, the paper reports 5k real-world failure demonstrations with detailed causes and an Isaac Sim digital twin replicating real-world tasks and assets for additional collection and evaluation. The failure set is not included in the 107k successful count, and its duration is not separately established.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
     },
     {
-      "id": "ds10-license-held",
-      "text": "HELD PART (not evidenced this session): the CC BY-NC-SA 4.0 data license. The abs page (the row's stated basis) prints no data license today, the full text prints none, the official project site prints none, and the HF dataset page is gated. The element keeps its 2026-08-09 prior verification and is not certified here.",
+      "id": "ds10-release-scope",
+      "text": "The inspected public card groups 107K/479/96 under Version 1.1 & 1.2, separately describes initial v1.0 and announces v2.0. The paper's first-submission and v3 dates are paper dates, not established dataset release dates.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-published-badge-and-access",
+      "text": "The public card retrieved on 21 September 2026 displays an Apache-2.0 license badge and states that access requires acceptance of conditions and sharing contact information. Its visible text can be read without claiming that those conditions or gated files were inspected.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-license-disclosure",
+      "text": "For the 107k release grouped under v1.1/v1.2, release-specific data terms are not disclosed in the inspected public card; it does not explicitly bind the badge to those data releases or separately state code/model terms, and the gated conditions were not inspected. Report the visible badge and this exact scope of uncertainty, not a CC BY-NC-SA grant, an Apache data grant, global absence, closed status or legal conclusion.",
       "requiredCitationIds": [
         "robomind-2024"
       ]
     }
   ],
   "planReview": {
-    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-    "rationale": "Packet record datasets:10 (ready-evidence-completion with one held element) reviewed: the seven paper-backed elements needle-verified against sources/robomind-abs.html (all counts, the four-embodiment list, 5k failures, Isaac Sim twin). The license part stays unresolved: abs prints only arXiv boilerplate, the v3 full text prints the arXiv perpetual license, the official project site (fetched 200) prints no license, and the HF page is gated (401); the 2026-08-09 stated basis does not reproduce. Article span annotated, not certified.",
-    "planDigest": "89f762ea560c47b891cacb20e6ae932e8ff2b5129fea273be27d33316114a3c7"
+    "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+    "rationale": "Read retained paper v3 duration/composition/success/failure paragraphs and the complete public card; matched all nine prior paired excerpts to their retained primary representations before reuse. Reviewed all five AND parts and all ten unique source-paired items containing the sixteen preserved source excerpts. The 305.5 hours belongs to the mixed successful paper cohort, not to failures, a real-only total or any precise card release. Preserve the 26,856/26,866 disagreement and paper/card wording difference, every scientific obligation and all licensing uncertainty. Card badge and gated-access disclosure certify no data/code/model permission; no conditions accepted. Zero new fetches, completion credit or independent acceptance. Old tuple, plan and reviews remain immutable history.",
+    "planDigest": "cfbdde2ed0059cd000a9048d755da21854567744064694d516848a2aafb7ccf8"
   },
   "evidence": [
     {
       "partId": "ds10-counts-and-robots",
       "citationId": "robomind-2024",
       "sourceUrl": "https://arxiv.org/abs/2412.13877",
-      "supportingPassage": "In this paper, we introduce RoboMIND (Multi-embodiment Intelligence Normative Data for Robot Manipulation), a dataset containing 107k demonstration trajectories across 479 diverse tasks involving 96 object classes. [...] RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the UR5e, the AgileX dual-arm robot, and a humanoid robot with dual dexterous hands."
+      "supportingPassage": "In this paper, we introduce RoboMIND (Multi-embodiment Intelligence Normative Data for Robot Manipulation), a dataset containing 107k demonstration trajectories across 479 diverse tasks involving 96 object classes. RoboMIND is collected through human teleoperation and encompasses comprehensive robotic-related information, including multi-view observations, proprioceptive robot state information, and linguistic task descriptions. To ensure data consistency and reliability for imitation learning, RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the UR5e, the AgileX dual-arm robot, and a humanoid robot with dual dexterous hands."
+    },
+    {
+      "partId": "ds10-counts-and-robots",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/html/2412.13877",
+      "supportingPassage": "To ensure data consistency and reliability for imitation learning, RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the X-Humannoid Tien Kung humanoid robot with dual dexterous hands, the AgileX dual-arm robot, and the UR5e.\n\n[...]\n\nOur dataset, called RoboMIND (Multi-embodiment Intelligence Normative Data for Robot manipulation), is an extensive dataset that encompasses a broad range of robotic interactions and experiences. RoboMIND features 107k demonstration trajectories amounting to 305.5 hours of interaction data of 4 kinds of robotic embodiments including Franka Emika Panda [34], a humanoid robot (i.e., X-Humanoid Tien Kung [12]), AgileX Cobot Magic V2.0 [87], and UR5e [88], as shown in Figure 1. Unlike the Open X-Embodiment dataset [77], which was compiled from various laboratories with differing data collection standards and diverse combinations of robotic platforms, RoboMIND is gathered within the same standardized setting, adhering to a standardized data collection protocol to ensure consistency and reliability. By maintaining uniform data collection standards, all data points are captured under similar conditions, reducing variability and noise, which is crucial for training models that can generalize well across different tasks and environments. The standardized procedures also enhance the reliability of the dataset, making it easier to validate and reproduce experimental results, thereby building trust in the trained models and ensuring their consistent performance in real-world applications.\n\n[...]\n\nMoreover, RoboMIND covers a wide range of robot environments and spans 479 diverse tasks involving 96 various object classes. Additionally, we provide a dataset from our real-world tasks simulated in the Nvidia Isaac Sim [76]. RoboMIND incorporates data from various robot types, including 26,856 motion trajectories from Franka Emika Panda single-arm robots, 15,187 from Tien Kung humanoid robots, 10,269 from AgileX Cobot Magic V2.0 dual-arm robots, 25,170 from UR5e single-arm robots, and 30,035 from simulation. All these trajectories are collected through a teleoperation system that captures natural human motion patterns and maps them onto robots to drive the same motion trajectories. These trajectories encompass RGB-D data from distinct viewpoints, detailed proprioceptive state information of the robot body, specific information regarding the robot’s end effector, and a linguistic description of the task at hand. Containing such comprehensive and detailed information, these data are valuable for training robotic models to perform complex manipulation tasks.\n\n[...]\n\nAt the same time, we not only publish the 107k successful trajectories but also document the 5k trajectories of real-world failure cases. The robot model can explore the causes of failures by learning from these failure case trajectories, thereby improving its performance through such learning experiences. This technique is representative of Reinforcement Learning from Human Feedback (RLHF) [18, 81], where human oversight and feedback direct the learning process of models, leading the models to produce more desirable and accurate outcomes. In addition, we annotate a total of 10k robot trajectories in RoboMIND with frame-level fine-grained language descriptions. These annotated trajectories encompass a wide range of robot tasks. To ensure accuracy and reliability, each annotation undergoes verification and correction by multiple reviewers. We believe that these additional failure cases and fine-grained linguistic annotations will further advance research in robot learning, particularly in areas such as failure recovery [66], task planning [60], visual question answering [25], among others.\n\n[...]\n\nTeleoperation is widely applied in the data collection processes for various types of robots [85, 114, 108, 40, 63, 106, 84, 16, 100]. Different types of robots also have specific teleoperation devices for data collection. For example, researchers typically use VR headsets and motion capture suits to collect humanoid robot motion data. They capture the state of human movements and map this motion onto the humanoid robot platform, enabling the robot to replicate these movements while simultaneously collecting a comprehensive dataset [16, 100]. RoboMIND contains teleoperation data in real-world and simulation environments from various types of robots, such as single-arm robots (Franka Emika Panda [34], UR5e [88]), dual-arm robots (AgileX Cobot Magic V2.0 [87]), and humanoid robots (X-Humanoid Tien Kung [12]).\n\n[...]\n\nHeterogeneous Embodiments. A manipulation dataset with different robotic embodiment types improves generalization to various actions and joint DoFs in downstream tasks. We select four mainstream hardware platforms, each paired with different actuators: the single-arm robots, Franka Emika Panda and UR5e with grippers; the dual-arm robot AgileX Cobot Magic V2.0 with grippers; and the humanoid robot Tien Kung equipped with dexterous hands. Figure 1(a) shows the distribution of trajectories across different embodiments in our dataset. Franka accounts for 49.2% of the total trajectories, with over 26,070 simulation-based trajectories from our digital twin environment and 26,866 real-world trajectories collected via human teleoperation. The remaining three embodiments consist solely of real-world demonstrations. Specifically, the dual-arm data enhances the dataset’s diversity and complexity, supporting the training of coordination skills and more long-horizon tasks. Additionally, the humanoid robot with dexterous hands, which constitutes 17.8% of the trajectories, can perform a series of complex, human-like manipulation skills. The heterogeneous set of embodiment data collected under a unified standard can provide pretraining data for policy models with different action spaces [65, 51], as well as experimental data for the cross-embodiment transfer research [110, 15]."
     },
     {
       "partId": "ds10-failures-and-twin",
@@ -64992,33 +64878,83 @@
       "supportingPassage": "Our dataset also includes 5k real-world failure demonstrations, each accompanied by detailed causes, enabling failure reflection and correction during policy learning. Additionally, we created a digital twin environment in the Isaac Sim simulator, replicating the real-world tasks and assets, which facilitates the low-cost collection of additional training data and enables efficient evaluation."
     },
     {
-      "partId": "ds10-license-held",
+      "partId": "ds10-release-scope",
       "citationId": "robomind-2024",
       "sourceUrl": "https://arxiv.org/abs/2412.13877",
-      "supportingPassage": "NO PASSAGE FETCHABLE THIS SESSION: the abs page prints only arXiv license boilerplate; the full text v3 prints 'License: arXiv.org perpetual non-exclusive license'; the project site (x-humanoid-robomind.github.io, fetched 200, 2026-09-16T04:13:58Z) prints no license; the HF dataset page returns 401 (gated). Held on the 2026-08-09 prior verification; not certified."
+      "supportingPassage": "[Submitted on 18 Dec 2024 ( v1 ), last revised 27 May 2025 (this version, v3)]"
+    },
+    {
+      "partId": "ds10-release-scope",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND",
+      "supportingPassage": "### Version 1.1 & 1.2\n\nCompared to Version 1.0, we further expanded the dataset, which now includes 107K trajectories, 479 tasks, and covers 96 different object classes.\n\nIn version 1.2, we added 10 tasks of Upright\\_Cup data to Version 1.1, including 1 real-world task and 9 tasks from the digital twin environment. The goal of these 10 tasks is to flip a mug, but they involve different environmental settings, such as the range of mug placement, table textures, and mug appearances.\n\n[...]\n\n### Version 1.0\n\nThe initial version of RoboMIND contains 55K trajectories, and 279 tasks, and involves 69 different object classes.\n\n[...]\n\nWe're excited to announce the release of **RoboMIND V2.0**!"
+    },
+    {
+      "partId": "ds10-release-scope",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://x-humanoid-robomind.github.io/",
+      "supportingPassage": "We're excited to announce the release of RoboMIND V2.0. Access the complete RoboMIND V2.0 collection on ModelScope"
+    },
+    {
+      "partId": "ds10-published-badge-and-access",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND",
+      "supportingPassage": "[![License](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)[![Project Page](https://img.shields.io/badge/Project%20Page-RoboMIND-blue.svg)](https://x-humanoid-robomind.github.io/)[![Dataset](https://img.shields.io/badge/Dataset-flopsera-000000.svg)](https://www.beaicloud.com/datasets/datasetDetail?path=%2Fdata-detail%2F21181956226031626&type=open)[![Hugging Face](https://img.shields.io/badge/Hugging_Face-RoboMIND-000000.svg)](https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND)[![arXiv](https://img.shields.io/badge/arXiv-2412.13877-red.svg?style=flat-square)](https://arxiv.org/abs/2412.13877)\n\n[...]\n\n## You need to agree to share your contact information to access this dataset\n\nThis repository is publicly accessible, but you have to accept the conditions to access its files and content.\n\n[Log in](https://huggingface.co/login?next=/datasets/x-humanoid-robomind/RoboMIND) or [Sign Up](https://huggingface.co/join?next=/datasets/x-humanoid-robomind/RoboMIND) to review the conditions and access this dataset content."
+    },
+    {
+      "partId": "ds10-license-disclosure",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND",
+      "supportingPassage": "[![License](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)\n\n[...]\n\nThis repository is publicly accessible, but you have to accept the conditions to access its files and content."
+    },
+    {
+      "partId": "ds10-license-disclosure",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/html/2412.13877",
+      "supportingPassage": "License: arXiv.org perpetual non-exclusive license arXiv:2412.13877v3 [cs.RO] 27 May 2025"
+    },
+    {
+      "partId": "ds10-failures-and-twin",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/html/2412.13877",
+      "supportingPassage": "At the same time, we not only publish the 107k successful trajectories but also document the 5k trajectories of real-world failure cases. The robot model can explore the causes of failures by learning from these failure case trajectories, thereby improving its performance through such learning experiences. This technique is representative of Reinforcement Learning from Human Feedback (RLHF) [18, 81], where human oversight and feedback direct the learning process of models, leading the models to produce more desirable and accurate outcomes. In addition, we annotate a total of 10k robot trajectories in RoboMIND with frame-level fine-grained language descriptions. These annotated trajectories encompass a wide range of robot tasks. To ensure accuracy and reliability, each annotation undergoes verification and correction by multiple reviewers. We believe that these additional failure cases and fine-grained linguistic annotations will further advance research in robot learning, particularly in areas such as failure recovery [66], task planning [60], visual question answering [25], among others.\n\n[...]\n\nFailure Case Demonstrations. We also release 5k trajectories of the robot task failure cases. The failure cases documented include scenarios where different types of humane operators failed to complete their assigned tasks, as well as instances where robots encountered failures during the execution of operational tasks. We present the visualization examples from the Franka and AgileX robots of these failure cases in Figure 9. For the FR-PlacePlateInPlateRack task performed by Franka, a successful execution shows the robotic arm accurately placing a plate into the plate rack. In the failure case, the arm fails to locate the correct slot position, causing the plate to slip out of the rack, likely due to visual occlusion or interference from the operator. For the AX-PutCarrot task performed by AgileX, successful execution demonstrates the robot’s collaborative manipulation to place a carrot onto the plate. In the failure case, the robot’s gripper unexpectedly opens, causing the carrot to drop prematurely and resulting in task failure-presumably due to accidental gripper activation by the operator. During the data quality inspection process, these failed trajectories are identified, categorized, and documented, further enhancing the overall quality of the dataset."
     }
   ],
   "adjudications": [
     {
       "partId": "ds10-counts-and-robots",
       "outcome": "supported",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Supported: the abstract prints 107k trajectories / 479 tasks / 96 object classes and the four-embodiment list (Franka Emika Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands); the v3 full text names the humanoid Tien Kung.",
-      "evidenceDigest": "96d765e4711a5f62c7acfad8356d172cc6edb13b6e636cbca5ef03c602654a81"
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "S1.p3.1 supplies 305.5 hours; S1.p4.1 and S3.SS1.p1.1 explicitly include simulation; S1.p5.1 identifies 107k successes. S4.SS1.p1.1 names all four embodiments and exposes the unreconciled 26,856/26,866 Franka difference. Abstract/protocol support retained and actually rechecked. This establishes the reported mixed aggregate, not a reconciled per-release or real-only duration.",
+      "evidenceDigest": "953f0d9cbaca9cd07fdeffd846b6a6d5c1480b8e408c5b5f77119c6f28a9c53a"
     },
     {
       "partId": "ds10-failures-and-twin",
       "outcome": "supported",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "Supported: the abstract prints the 5k real-world failure demonstrations with detailed causes and the Isaac Sim digital twin replicating real-world tasks and assets.",
-      "evidenceDigest": "67d0039099118c7def52f3e6243a4c7a0556cd58170cdf2b3a2baaea3dcfccbc"
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "S1.p5.1 explicitly says not only 107k successful trajectories but also 5k real-world failures; S4.SS2.p2.1 describes their causes and curation. The retained abstract supports detailed causes and Isaac Sim twin. Additional failures are not folded into successes; no failure duration or adjacent comparative rarity claim is certified. Incomplete Figure 9 excerpt (a) is unused.",
+      "evidenceDigest": "986cecb417010ee2a3b9603289ca2b8d94d503c025db0caa600499efe4f30be6"
     },
     {
-      "partId": "ds10-license-held",
-      "outcome": "unresolved",
-      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
-      "rationale": "UNRESOLVED, held: the CC BY-NC-SA 4.0 element's stated basis (abs page) does not reproduce - abs prints only arXiv boilerplate, the v3 full text prints \"License: arXiv.org perpetual non-exclusive license\", the official project site (fetched 200, retained) prints no license, and the HF dataset page is gated (401). Held on the 2026-08-09 prior verification; the article span is annotated this pass, not certified; escalate for a license-bearing source (gated HF card or a future project-page print).",
-      "evidenceDigest": "a676f112e3eecdc791a380890903810fe84a65e5049166f96aea13e6d17e6048"
+      "partId": "ds10-release-scope",
+      "outcome": "supported",
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "Re-read actual card Version 1.1 & 1.2, its one-real/nine-digital-twin task addition, initial 55K Version 1.0 and separate V2.0 announcement, plus retained abstract dates and project announcement. Paper dates are not release dates, and card headline real-world wording does not convert the paper mixed hours to a real-only or exact release duration.",
+      "evidenceDigest": "58e0c58baa78e5a3fa7011ebcb77724aa5f345ccb033a6fb957e622a6f2613ab"
+    },
+    {
+      "partId": "ds10-published-badge-and-access",
+      "outcome": "supported",
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "Re-read actual Apache-2.0 badge and contact-information/accept-conditions banner in the complete returned public card. Its 21 September retrieval is historical; no current liveness, gated file access or condition review is claimed.",
+      "evidenceDigest": "5812f1203d98622b6e7f3962a28016ca05567f387a3b9aa67a1b9082c6515957"
+    },
+    {
+      "partId": "ds10-license-disclosure",
+      "outcome": "supported",
+      "reviewedBy": "Droid content-auditor/integrator 82c643e8-34d1-49b7-9c6d-90c2cd721412, custom:droidproxy:gpt-6-astra/max, 2026-09-23T15:07:11.212228+00:00",
+      "rationale": "Reviewed the complete retained public card, not only the badge excerpt, for the release-specific assignment. It does not explicitly assign the badge to the 107k v1.1/v1.2 files or separately state code/model terms. The paper license notice applies to the paper. Applicable data-license remains null rendered not disclosed; no global absence, closed status or CC/Apache permission is inferred.",
+      "evidenceDigest": "489269bd0ee16ac8f2587c9ff1ab4e1e62d930e7bb07633c13aeeac33c3b2e60"
     }
   ]
 },
@@ -69840,33 +69776,6 @@
     "evidenceDigest": "d550709209c270f4561b612a0426a60cc07d93b19bf7d12d0f80218c7aef9f0e"
    }
   ]
- },
- {
-  "id": "parallel-sim-rl-18-training-time-chart-20260916k",
-  "ledgerPath": "audit/rl-sim2real.md",
-  "articleSlug": "parallel-sim-rl",
-  "rowOrdinal": 18,
-  "originalCellsDigest": "f17a3fd555b9708f82c3bed9711c059c50804e989722b4563ab62914e8f7cdc0",
-  "kind": "explicit-parts",
-  "planReview": null,
-  "parts": [
-   {
-    "id": "y18-rudin-diamond-anchors",
-    "text": "The chart's two measured anchors are printed by the registered Rudin paper on its retained surface: flat-terrain policies trained 'in under four minutes' and uneven-terrain 'in twenty minutes' via massive parallelism on a single workstation GPU, and the documented simulation-and-deployment protocol of 4,096 robots with batch size 98,304 trained for 1,500 policy updates 'in under 20 minutes' on an i9-11900k CPU and NVIDIA RTX A6000 GPU - the exact bounds and hardware the article Callout's diamonds carry. LOCAL-AND (integrator): the curve itself is an authored illustrative fixed-transitions model labeled as such in the Callout and lib/parallel-sim.ts header; the integrator must verify that labeling in-repo and that no surface presents the curve as measured, before applying.",
-    "requiredCitationIds": [
-     "rudin-2021"
-    ]
-   }
-  ],
-  "evidence": [
-   {
-    "partId": "y18-rudin-diamond-anchors",
-    "citationId": "rudin-2021",
-    "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
-    "supportingPassage": "The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. ... For our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes [footnote as printed: Trained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material.]"
-   }
-  ],
-  "adjudications": []
  },
  {
   "id": "rl-for-robotics-49-droid-oxe-corpora-20260916k",
@@ -74858,5 +74767,104 @@
       }
     ],
     "adjudications": []
+  },
+  {
+    "id": "classical-scene-representation-10-kinectfusion-correction-20260922",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "187e660896a7d550561ace8d5c694fb8cce70c78de281542e8eb900222d63e2d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "projective-distance",
+        "text": "KinectFusion distinguishes projective TSDF measurements from true discrete SDFs, states exactness only at the surface or for an isolated point, and describes fusion as a pseudo-Euclidean approximation.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "interface-normal",
+        "text": "Near the zero level set, KinectFusion assumes gradient orthogonality and computes normals numerically, including derivative scaling for voxel dimensions.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "ray-marching",
+        "text": "KinectFusion surface prediction marches rays until a visible zero crossing, back face, or exit from the working volume.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "interpolated-intersection",
+        "text": "KinectFusion uses an approximate intersection based on trilinearly interpolated SDF values rather than its more expensive full ray/trilinear-cell solution.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+      "rationale": "All four required scientific obligations cover the corrected claim, not the withdrawn universal guarantee. Section 3.3 explicitly chooses a projective TSDF over a true discrete SDF and qualifies its pseudo-Euclidean convergence. Section 3.4 limits numerical normals to the near-interface orthogonality assumption, stops ray marching at visible crossings/back faces/volume exit, and uses approximate interpolation instead of a full cubic cell-intersection solve. Retained full literal passages were checked against the source text and PDF hashes; extraction page/column order is retained, not silently rewritten. Curless–Levoy gives only a directional line-of-sight derivative. Shared copy is corrected atomically; historical HTTP observations are not current fetches. No collision, planner, source-liveness or independent-acceptance guarantee.",
+      "planDigest": "758c8fc1d174cb21d02aea1ea124525a9731c472d5722bbf7630916c37102e08"
+    },
+    "evidence": [
+      {
+        "partId": "projective-distance",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "Although efficient algorithms exist for computing the true discrete SDF for a given set of point measurements (complexity is\nlinear in the the number of voxels) [22], sophisticated implementations are required to achieve top performance on GPU hardware,\nwithout which real-time computation is not possible for a reasonable size volume. Instead, we use a projective truncated signed\ndistance function that is readily computed and trivially parallelisable. For a raw depth map Rk with a known pose Tg,k , its global\nframe projective TSDF [FRk , WRk ] at a point p in the global frame\ng is computed as,\n\u0010\n\u0011\nFRk (p) = Ψ λ −1 k(tg,k − pk2 − Rk (x) ,\n(6)\nλ\n\n=\n\nx\n\n=\n\nΨ(η)\n\n=\n\n−1\n\nkK ẋk2 ,\nj \u0010\n\u0011k\nπ KT−1\n,\ng,k p\n(\n\u0010\n\u0011\nmin 1, ηµ sgn(η)\nnull\n\n(7)\n(8)\niff η ≥ −µ\notherwise\n\n(9)\n\nWe use a nearest neighbour lookup b.c instead of interpolating\nthe depth value, to prevent smearing of measurements at depth discontinuities. 1/λ converts the ray distance to p to a depth (we found\nno considerable difference in using SDF values computed using distances along the ray or along the optical axis). Ψ performs the SDF\ntruncation. The truncation function is scaled to ensure that a surface measurement (zero crossing in the SDF) is represented by at\nleast one non truncated voxel value in the discretised volume either side of the surface. Also, the support is increased linearly with\ndistance from the sensor center to support correct representation\nof noisier measurements. The associated weight WRk (p) is proportional to cos(θ )/Rk (x), where θ is the angle between the associated\npixel ray direction and the surface normal measurement in the local\nframe.\nThe projective TSDF measurement is only correct exactly at the\nsurface FRk (p) = 0 or if there is only a single point measurement\nin isolation. When a surface is present the closest point along a\nray could be another surface point not on the ray associated with\nthe pixel in Equation 8. It has been shown that for points close\nto the surface, a correction can be applied by scaling the SDF by\ncos(θ ) [11]. However, we have found that approximation within\nthe truncation region for 100s or more fused TSDFs from multiple\nviewpoints (as performed here) converges towards an SDF with a\npseudo-Euclidean metric that does not hinder mapping and tracking\nperformance."
+      },
+      {
+        "partId": "interface-normal",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "For points on or very close to the surface interface Fk (p) = 0 it\nis assumed that the gradient of the TSDF at p is orthogonal to the\nzero level set, and so the surface normal for the associated pixel u\n\n\fparameter t∗ at which the intersection occurs more precisely:\nt∗ = t −\n\nFigure 5: Reconstructed of a scene showing raycasting of the TSDF\n(left) without and (middle and right) with interpolation of the TSDF at\nthe surface interface using eqn. 15.\n\nFigure 6: Demonstration of the space skipping ray casting. (Left)\npixel iteration count are shown where for each pixel the ray is traversed in steps of at most one voxel (white equals 480 increments\nand black 60). (middle) ray marching steps are drastically reduced\nby skipping empty space according to the minimum truncation µ\n(white equals 70 iterations and black 10 ≈ 6× speedup). Marching\nsteps can be seen to increase around the surface interface where\nthe signed distance function has not been truncated. (Right) Normal\nmap at resulting surface intersection.\n\nalong which p was found can be computed directly from Fk using a\nnumerical derivative of the SDF:\n\u0014\n\u0015\n\u0002\n\u0003\n∂F ∂F ∂F >\ng\nRg,k N̂k = N̂k (u) = ν ∇F(p) , ∇F =\n,\n,\n(14)\n∂x ∂y ∂z\nFurther, this derivative is scaled in each dimension to ensure correct isotropy given potentially arbitrary voxel resolutions and reconstruction dimensions."
+      },
+      {
+        "partId": "ray-marching",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "As we have a dense surface reconstruction in the form of a global\nSDF, a per pixel raycast can be performed [21]. Each pixel’s corresponding ray, Tg,k K−1 u̇, is marched starting from the minimum\ndepth for the pixel and stopping when a zero crossing (+ve to\n−ve for a visible surface) is found indicating the surface interface.\nMarching also stops if a −ve to +ve back face is found, or ultimately when exiting the working volume, both resulting in non surface measurement at the pixel u."
+      },
+      {
+        "partId": "interpolated-intersection",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "Higher quality intersections can be obtained by solving a ray/trilinear cell intersection [21] that requires solving a cubic polynomial. As this is expensive we use a simple approximation. Given\n+\na ray has been found to intersect the SDF where F+\nt and Ft+∆t are\ntrilinearly interpolated SDF values either side of the zero crossing\nat points along the ray t and t + ∆t from its starting point, we find\n\n∆tF+\nt\n.\n+\nFt+∆t − F+\nt\n\n(15)\n\nThe predicted vertex and normal maps are computed at the interpolated location in the global frame. Figure 5 shows a typical reconstruction, the interpolation scheme described achieves high quality\nocclusion boundaries at a fraction of the cost of full interpolation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "projective-distance",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.3 explicitly contrasts a true discrete SDF with the implemented projective TSDF. It says the measurement is correct at the surface or for an isolated point and describes approximate pseudo-Euclidean convergence after multi-view fusion within the truncation region. The corrected claim keeps approximation, not an exact nearest-surface/collision metric.",
+        "evidenceDigest": "6c3ccab83808b284328f48345af14a445315aa76e8c3b7e990111196e66651e8"
+      },
+      {
+        "partId": "interface-normal",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.4 explicitly assumes TSDF-gradient orthogonality on or very close to the zero interface and computes normals numerically with dimension scaling. The retained passage spans extraction columns/page material verbatim; it is not a global unit-gradient theorem or a collision-margin assertion.",
+        "evidenceDigest": "83b89ee40ebc6be25043c537743f6517e3555b11bcdf5fe39a5afca906357ac3"
+      },
+      {
+        "partId": "ray-marching",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.4 describes marching each pixel ray from minimum depth until the visible positive-to-negative crossing; back-face crossings and working-volume exit yield no surface measurement. This supports surface prediction by marching, not a universal lookup-only collision query.",
+        "evidenceDigest": "558c90dee5fc3fed5ff09d643f805a5d79d3e890ae183f3b57231bdce410d960"
+      },
+      {
+        "partId": "interpolated-intersection",
+        "outcome": "supported",
+        "reviewedBy": "Droid source-auditor 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864; custom:droidproxy:gpt-6-astra/max; 2026-09-22T22:38:08.796Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Section 3.4 and Equation 15 explicitly choose a simple approximation instead of the expensive cubic ray/trilinear-cell solution, using trilinearly interpolated values across a crossing and computing vertex/normal maps at the interpolated location. No exact collision guarantee or unquoted performance value is inferred.",
+        "evidenceDigest": "9d111d7d1c2697e195f518cef2adf3fc5f0e8a0ccef217bb8b975a7fc185784a"
+      }
+    ]
   }
 ]

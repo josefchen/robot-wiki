@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "role": "integrator",
+  "eventId": "industrial-32-i32-derived",
+  "observedAt": "2026-09-23T18:49:40.400Z",
+  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "rationale": "LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "i32-derived",
+  "inputDigest": "43bb430ff8bedd0814ffdf553d481d8559150f9bcbcc2bdfe570d64de189b6f0",
+  "inventory": [
+    {
+      "id": "i32-lei-cycle-time-definition",
+      "kind": "external-source",
+      "text": "Measured time to produce a part or complete a process; official undated LEI definition.",
+      "requiredCitationIds": [
+        "lei-cycle-time-definition"
+      ]
+    },
+    {
+      "id": "i32-nasa-availability-prediction-analysis",
+      "kind": "external-source",
+      "text": "Inherent/operational availability distinctions, MTBF/MTTR parameters, excluded/included delay categories, and uptime as operable state; no unread equations.",
+      "requiredCitationIds": [
+        "nasa-availability-prediction-analysis"
+      ]
+    },
+    {
+      "id": "i32-parameters",
+      "kind": "authored-parameter",
+      "text": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values.",
+      "requiredProofIds": [
+        "i32-parameters"
+      ]
+    },
+    {
+      "id": "i32-derived",
+      "kind": "derived-result",
+      "text": "LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term.",
+      "requiredProofIds": [
+        "i32-derived-1"
+      ]
+    }
+  ],
+  "originalId": "audit/data-hardware.md:industrial-deployment:32",
+  "currentTupleDigest": "5aaac700390d6cc16cc93d458ad202e24b09f6b9599a4b99ce3ee52750f7e695"
+}

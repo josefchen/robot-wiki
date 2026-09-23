@@ -1,0 +1,24 @@
+{
+  "values": {
+    "headings": [
+      "## Calibration: what a pixel means",
+      "### Hand-eye calibration: what a pixel means to the robot",
+      "## Depth sensing: what fails, and on what",
+      "## Detection: from pixels to candidate objects",
+      "## Segmentation: the grounding layer",
+      "## 6-DoF pose estimation, and how to read a claim about it"
+    ],
+    "count": 6,
+    "occurrences": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "units": "selected unique headings:count",
+  "precision": "exact integer",
+  "formula": "cardinality of the declared six-heading selection, not all headings"
+}

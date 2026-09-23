@@ -39,6 +39,8 @@ Every module so far in this domain assumed someone had already written the objec
 
 Twelve weighted terms sit on the illustrative behavior preview below. Its weights, per-term magnitudes and freeze/prance/chatter categories are teaching choices, not the paper's nine-term objective or a runnable `legged_gym` configuration. Drag the controls to explore this toy weighted sum.
 
+This local teaching model uses twelve authored terms, weights and fixed per-term magnitudes. Its signed weighted total is dimensionless per step, not a measured reward. Freeze, prance and chatter are chosen classification rules and drawn poses, not trained policies, measured control frequencies or actuator-damage predictions.
+
 <RewardShaping className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -78,7 +80,7 @@ Search uses five independent runs, five iterations per run and 16 candidate rewa
 
 The human-normalized score is `(Method - Sparse) / abs(Human - Sparse)`; for the headline average across all 29 tasks, Appendix D adjusts each score to lie in `[0, 3]`. The 52% headline is not a 52-percentage-point increase in success rate <Cite id="eureka-2024" />.
 
-The panel below replays the loop on a walking task. Watch the reflection, not the code. Each generation's mutation is justified by what the training statistics showed: a policy that sprints and falls, then a policy that survives by standing still, then a policy that actually tracks the command. The reflection step is where the search gets its direction.
+The panel below is a scripted teaching example of the Eureka loop, not a recorded Eureka or PPO experiment. All three generations, reward code, statistics, fitness scores and reflections are authored fixtures. The sequence illustrates sprinting and falling, standing still, then tracking a command; clicking advances the script without training a policy or calling a language model.
 
 <EurekaLoop className="my-6" />
 

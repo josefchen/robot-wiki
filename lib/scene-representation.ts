@@ -182,7 +182,7 @@ export const REPRESENTATIONS: readonly Representation[] = [
     name: 'truncated signed-distance field',
     article: 'a',
     stores:
-      'Signed distance to the nearest surface plus a fusion weight, kept in a narrow band around the surface.',
+      'A truncated projective signed-distance estimate plus a fusion weight, used to reconstruct the observed surface.',
     unobserved:
       'Voxels with zero weight, which is an honest unknown, though it is easy to read a zero-weight voxel as a zero distance if the weight is ignored.',
     capabilities: {
@@ -192,7 +192,7 @@ export const REPRESENTATIONS: readonly Representation[] = [
       },
       'contact-normal': {
         state: 'yes',
-        note: 'the gradient of the field is the surface normal, which is what a collision query wants',
+        note: 'KinectFusion estimates a normal from numerical field derivatives near the surface, under an orthogonality assumption',
       },
       'novel-view': {
         state: 'partial',

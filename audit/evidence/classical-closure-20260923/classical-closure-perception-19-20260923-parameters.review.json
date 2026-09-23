@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "role": "integrator",
+  "eventId": "classical-closure-perception-19-20260923:parameters",
+  "observedAt": "2026-09-23T19:54:47.700Z",
+  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "rationale": "Inspected the actual unchanged model constants and corrected article disclosure: the selected geometry, scene, target multipliers and finite examples are explicitly authored assumptions, not empirical values. For mixed plans the borrowed specification remains an external AND part.",
+  "inputDigest": "79b602f91a7b4d817034916eec5b59aba69ff0e45db911a59141086c1349210f",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "parameters",
+  "inventory": [
+    {
+      "id": "parameters",
+      "kind": "authored-parameter",
+      "text": "Authored choices and model settings for this exact original: The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements.",
+      "requiredProofIds": [
+        "p19-parameters"
+      ]
+    },
+    {
+      "id": "derivation",
+      "kind": "derived-result",
+      "text": "Right-triangle tangent derivation with degrees/metres/mm conversion and explicit example rounding; 0.1m is offline, not selectable in the UI.",
+      "requiredProofIds": [
+        "p19-ray-0.1",
+        "p19-ray-1",
+        "p19-ray-zero"
+      ]
+    }
+  ],
+  "originalId": "audit/classical.md:perception:19",
+  "currentTupleDigest": "df105c1f7f66121036d30bf89d9297abbcad5acef7837cc2542b03f2222cb952"
+}

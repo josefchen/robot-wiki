@@ -1,17 +1,20 @@
-import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
+import { createRequire } from 'node:module';
+import { runInNewContext } from 'node:vm';
+import ts from 'typescript6';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
-import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'e687718cd3c2d1c35d3f63b6e296712a5892a9f0';
-const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
+// Recheck the real license-pair commit; later row10 corrections have their own suite.
+const snapshot = 'b546965037d9226678e2678b310e99dcb58ed971';
+const read = (path: string) => execFileSync('git', ['show', `${snapshot}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
 const articlePath = 'content/data-hardware/datasets.mdx';
 const article = read(articlePath);
@@ -54,7 +57,36 @@ const oldHashes: Array<[BaselineKind, string, string]> = [
 ];
 const approvals: ApprovedDelta[] = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
 const selectedApprovals = approvals.filter(a => a.id.startsWith('dataset-license-pair-20260921-'));
-const truth = collectArticleTruthManifests();
+// Execute only the trusted, fixed historical citation module against the unchanged
+// schema. This reconstructs its labels from its bytes, not from approval hashes.
+const historicalModule = { exports: {} };
+runInNewContext(ts.transpileModule(read('data/citations.ts'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+}).outputText, {
+  module: historicalModule, exports: historicalModule.exports,
+  require: createRequire(resolve(root, 'data/citations.ts')),
+});
+const historical = historicalModule.exports as typeof import('../../data/citations');
+const parsedArticle = matter(article);
+const body = parsedArticle.content.trim();
+const matches = (pattern: RegExp) => [...body.matchAll(pattern)].map(m => m[1]).sort();
+const rendered = historical.CITATIONS.map(c => `${c.id}\t${historical.citationLabel(c)}\t${historical.citationMeta(c)}`).sort();
+const truth = {
+  prose: buildManifest('prose', [{ id: 'article:data-hardware/datasets', value: { path: articlePath, body } }]),
+  relationships: buildManifest('relationships', [{ id: 'article:data-hardware/datasets', value: {
+    seeAlso: parsedArticle.data.seeAlso,
+    citations: matches(/<Cite\s+id=["']([^"']+)["']/g),
+    terms: matches(/<Term\s+id=["']([^"']+)["']/g),
+    internalLinks: matches(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g),
+  } }]),
+  metadata: buildManifest('article-metadata', [
+    { id: 'article-fact-frontmatter:data-hardware/datasets', value: {
+      path: articlePath, lastReviewed: String(parsedArticle.data.lastReviewed), citations: parsedArticle.data.citations,
+    } },
+    { id: 'citation:cc-by-4-0-deed', value: JSON.parse(JSON.stringify(historical.CITATIONS.find(c => c.id === 'cc-by-4-0-deed'))) },
+    { id: 'citation-rendering:label-and-meta', value: { count: rendered.length, digest: sha256(rendered.join('\n')) } },
+  ]),
+};
 function bundle(old: boolean): BaselineBundle {
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const manifest = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);

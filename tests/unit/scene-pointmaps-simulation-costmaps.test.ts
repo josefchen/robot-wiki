@@ -86,8 +86,16 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
       'may keep private grids or write directly to the master',
       'Sensed obstacles may overwrite static-map costs if configured',
     ]) expect(definition.definition).toContain(text);
-    for (const id of ['dust3r-2024', 'splatsim-2024', 'robogsim-2024', 'layered-costmaps-2014']) {
-      expect(article).toContain(`<span className="block">Source: <Cite id="${id}" /></span>`);
+    for (const [claim, id] of [
+      ["DUSt3R's network", 'dust3r-2024'],
+      ['SplatSim replaces', 'splatsim-2024'],
+      ['RoboGSim combines', 'robogsim-2024'],
+      ['proposed and implemented layered costmaps in the ROS Navigation stack', 'layered-costmaps-2014'],
+    ]) {
+      const block = article.split('\n\n').find((text) => text.includes(claim));
+      expect(block, claim).toBeDefined();
+      expect(block, claim).toContain(`<Cite id="${id}" />.`);
+      expect(block, claim).not.toMatch(/Source:|<br\b|className="block"/);
     }
     expect(definition.definition).not.toContain('introduced the layered form now standard');
     expect(definition.citations).toEqual(['layered-costmaps-2014', 'nav2-2020']);

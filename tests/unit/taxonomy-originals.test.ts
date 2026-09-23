@@ -161,11 +161,12 @@ describe('taxonomy originals integration (2026-09-16h evidence completions)', ()
     expect(CITATIONS.filter(({ id }) => id === '3dgs-2023')).toHaveLength(1);
   });
 
-  it('keeps held row 4 bound to its standing plan and evidence-incomplete', () => {
-    const markdown = readFileSync(join(ROOT, 'audit/world-models.md'), 'utf8');
-    const compoundPlans = parseCompoundPlans(
-      JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')),
-    );
+  it('preserves row 4’s historical incomplete standing plan before typed count closure', () => {
+    const markdown = readFileSync(join(ROOT, 'audit/evidence/crossdomain-closure-20260923/before-audit--world-models.md.txt'), 'utf8');
+    const compoundPlans = parseCompoundPlans([
+      ...JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')),
+      ...JSON.parse(readFileSync(join(ROOT, 'audit/evidence/crossdomain-closure-20260923/superseded-plans.json'), 'utf8')),
+    ]);
     const registryIds = new Set(CITATIONS.map(({ id }) => id));
     const sections = parseLedger('audit/world-models.md', markdown, registryIds, { compoundPlans });
     const taxonomy = sections.find((section) => section.slug === 'taxonomy')!;

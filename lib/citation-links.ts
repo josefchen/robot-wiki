@@ -189,7 +189,7 @@ export interface VerifyCrossrefOptions {
  * "no corroborating metadata at all".
  */
 export function verifyCrossrefWork(
-  citation: { title: string; year: number },
+  citation: { title: string; year: number | 'n.d.' },
   work: CrossrefWork,
   options: VerifyCrossrefOptions = {},
 ): CrossrefVerification {
@@ -206,7 +206,7 @@ export function verifyCrossrefWork(
     if (!options.missingYearIsAcceptable) {
       problems.push('Crossref returned no publication year');
     }
-  } else if (!work.years.includes(citation.year)) {
+  } else if ((typeof citation.year !== 'number' || !work.years.includes(citation.year))) {
     problems.push(
       `year mismatch: registry says ${citation.year}, Crossref reports ${work.years.join(' or ')}`,
     );

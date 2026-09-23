@@ -271,7 +271,7 @@ export interface CrossrefAuthorException {
  * record, so the logic is unit-testable and offline.
  */
 export function compareCitationAuthors(
-  citation: { id: string; authors: string[]; year: number; title: string; venue?: string },
+  citation: { id: string; authors: string[]; year: number | 'n.d.'; title: string; venue?: string },
   work: CrossrefWorkRecord,
   /**
    * Source label for report text, and the selector for the preprint rule:
@@ -359,7 +359,7 @@ export function compareCitationAuthors(
     add('no-authors', `${sourceName} publishes no personal authors for this work (registry lists ${citation.authors.length})`);
   }
 
-  if (!publishedVenue && work.years.length > 0 && !work.years.includes(citation.year)) {
+  if (!publishedVenue && work.years.length > 0 && (typeof citation.year !== 'number' || !work.years.includes(citation.year))) {
     add('year', `year ${citation.year} vs ${sourceName} ${work.years.join('/')}`);
   }
 

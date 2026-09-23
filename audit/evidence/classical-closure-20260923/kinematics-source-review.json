@@ -1,0 +1,31 @@
+{
+  "originalId": "audit/classical.md:kinematics:3",
+  "currentTupleDigest": "4ebfca1f8211f62a8f9fd2240c8e8e949759358c394b442a24bc186c50051df5",
+  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "observedAt": "2026-09-23T19:54:47.822Z",
+  "body": {
+    "path": "audit/evidence/classical-closure-20260923/lavalle-dh.body.md",
+    "bytes": 8269,
+    "sha256": "f4744be4ea7cfc57ea2738493bd382c608c1301721549c716fbe941ff18bae24"
+  },
+  "response": {
+    "path": "audit/evidence/classical-closure-20260923/lavalle-dh.response.json",
+    "bytes": 8782,
+    "sha256": "a0d4a5c9add188dd68321a2910a2d2b0ae1841e0d76fbe9540e34cf7ffc93ad0"
+  },
+  "retrievedAt": "2026-09-23T18:29:41.239Z",
+  "httpStatus": null,
+  "sourceUrl": "https://lavalle.pl/planning/node109.html",
+  "passageMember": {
+    "file": {
+      "path": "audit/evidence/classical-closure-20260923/lavalle-dh.body.md",
+      "bytes": 8269,
+      "sha256": "f4744be4ea7cfc57ea2738493bd382c608c1301721549c716fbe941ff18bae24"
+    },
+    "id": "file:audit/evidence/classical-closure-20260923/lavalle-dh.body.md",
+    "offset": 1871,
+    "length": 6202,
+    "sha256": "523cdd8f61689ad132055aa3263349bea95487116159075b2e1a9525d2b9be8c"
+  },
+  "rationale": "The actual retrieved page defines the four parameters for a revolute chain. The a-subscript inconsistency is disclosed. It does not prove theta-only variability, a link/joint split, exact 1955 attribution or the linked matrix, so those attributions are not retained. Existing separately evidenced matrix and POE claims were not re-audited. No frontmatter-p1 plan exists for this article; the six-entry citation union and Term metadata are synchronized without an invented P1 source plan."
+}

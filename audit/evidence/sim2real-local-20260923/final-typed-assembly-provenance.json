@@ -1,0 +1,22 @@
+{
+  "assembledAt": "2026-09-23T05:21:04.033Z",
+  "newReviews": 0,
+  "source": {
+    "path": "audit/evidence/sim2real-local-20260923/source-provenance.json",
+    "bytes": 12533,
+    "sha256": "23129d8eef3388a69e6531b7efd33e5651ef796b5432448d8a201b5ac33aa791"
+  },
+  "numericalRun": {
+    "path": "audit/evidence/sim2real-local-20260923/numeric-run-bound.json",
+    "bytes": 37362,
+    "sha256": "f08d831bb62a24cad5cbf33a485c69a3a1a68c5c5bc55415f13a2f716463ce5b"
+  },
+  "browserRun": {
+    "path": "audit/evidence/sim2real-local-20260923/browser-run-final.json",
+    "bytes": 63556,
+    "sha256": "d4e6267bbd8c7304f91420443a10526f6ad53cffe79a01839d37803e15229bee"
+  },
+  "browserDependenciesMatched": true,
+  "browserExecutionRepeated": true,
+  "qualification": "Final receipts bind the actual fresh numeric run and desktop-only browser run after the explicit authored-toy disclosure change. All earlier raw runs and draft artifacts remain unchanged. Exact displayed values are checked against native recipe output; receipt assembly time is distinct from actual execution timestamps."
+}

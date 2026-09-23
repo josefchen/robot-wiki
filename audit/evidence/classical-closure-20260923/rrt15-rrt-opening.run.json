@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_NUMERIC=1 npx vitest run tests/unit/classical-closure-evidence.test.ts -t 'classical closure recipes'",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T19:50:25.323356+00:00",
+  "endedAt": "2026-09-23T19:50:26.785976+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/classical-closure-evidence.test.ts",
+    "bytes": 12839,
+    "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+  },
+  "inputDigest": "fe8bb4e0ddbc876f328032dfd42fd86bb7f0ab3d904141baca736869a847198a",
+  "outputDigest": "6e0cf8a8da62cc7738ec26c8613cc24816fdf2752c4512095d5e2b8ab799adce",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/rrt.ts",
+        "bytes": 9397,
+        "sha256": "3b7f3ab7234c342e9762bd987306492b09e0c62b82a827b4b369b00d56ead4ad"
+      },
+      "id": "file:lib/rrt.ts",
+      "offset": 0,
+      "length": 9397,
+      "sha256": "3b7f3ab7234c342e9762bd987306492b09e0c62b82a827b4b369b00d56ead4ad"
+    },
+    {
+      "file": {
+        "path": "components/interactive/rrt-explorer.tsx",
+        "bytes": 15289,
+        "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+      },
+      "id": "source:components/interactive/rrt-explorer.tsx",
+      "offset": 0,
+      "length": 15289,
+      "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+      }
+    },
+    {
+      "file": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24250,
+        "sha256": "945069f1b69d2b369e87fe143eb3e7748bd3893a0e5ebf3549f9547eed063890"
+      },
+      "id": "article:classical/motion-planning",
+      "offset": 0,
+      "length": 24250,
+      "sha256": "945069f1b69d2b369e87fe143eb3e7748bd3893a0e5ebf3549f9547eed063890",
+      "baseline": {
+        "kind": "prose",
+        "hash": "d4c46009be622338e06707b74a8327aa8587de29dc1b2b591574912517aba178"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 52190,
+      "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+    },
+    {
+      "file": {
+        "path": "tests/unit/classical-closure-evidence.test.ts",
+        "bytes": 12839,
+        "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+      },
+      "id": "file:tests/unit/classical-closure-evidence.test.ts",
+      "offset": 0,
+      "length": 12839,
+      "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+    }
+  ],
+  "observations": []
+}

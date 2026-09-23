@@ -4,18 +4,19 @@
  * at the gripper. Pure functions, unit-tested in
  * tests/unit/perception-error.test.ts.
  *
- * Three sources, composed in quadrature because they are independent and
- * zero-mean:
+ * Three illustrative input magnitudes, combined by an authored root-sum-of-
+ * squares rule. This implementation does not establish their distributions,
+ * statistical independence, zero means, or a deterministic error bound:
  *
  *   e_total = sqrt(e_handeye^2 + e_depth^2 + e_pose^2)
  *
  * 1. Hand-eye rotation. A residual rotation between the camera frame and
  *    the robot frame is an ANGLE, so what it costs in metres depends on
- *    how far away the target is: a target at range d suffers a lateral
- *    offset d * tan(theta). This is the one term that grows with working
- *    distance, and it is the module's teaching point, so it is modelled
- *    exactly. Tsai and Lenz posed the calibration that estimates theta;
- *    Zhang's planar-target method supplies the intrinsics it rides on.
+ *    how the authored geometry is chosen. This instrument uses a ray-to-plane
+ *    proxy d * tan(theta), with d the axial separation from the plane.
+ *    It is not a full 3D rigid-transform error norm or a result attributed
+ *    to Tsai and Lenz. The formula is retained to illustrate distance
+ *    dependence; local examples evaluate the formula, not measured calibration results.
  *
  * 2. Depth. Modelled as RANGE-INDEPENDENT, evaluated once at a fixed
  *    nominal standoff (NOMINAL_RANGE_M). Physically a stereo camera's

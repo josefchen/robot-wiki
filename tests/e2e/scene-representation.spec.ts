@@ -134,15 +134,21 @@ test.describe('classical scene-representation module', () => {
   test('paper-scoped occupancy and map tradeoffs retain their local source chips', async ({ page }) => {
     await page.goto(ROUTE);
     const expectations = [
-      ['moravec-elfes-1985', 0, 'two-dimensional horizontal', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
-      ['moravec-elfes-1985', 1, 'Zero represents unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
-      ['cadena-2016', 1, 'storage size, construction cost and usefulness for the task', 'https://arxiv.org/abs/1606.05830'],
-      ['cadena-2016', 2, 'range and external-light limitations', 'https://arxiv.org/abs/1606.05830'],
+      ['moravec-elfes-1985', 0, 2, 'two-dimensional horizontal', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['moravec-elfes-1985', 1, 2, 'Zero represents unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['cadena-2016', 0, 1, 'storage size, construction cost and usefulness for the task', 'https://arxiv.org/abs/1606.05830'],
+      ['cadena-2016', 0, 1, 'range and external-light limitations', 'https://arxiv.org/abs/1606.05830'],
     ] as const;
-    await expect(page.locator('.prose > p > span.block [data-cite-id="moravec-elfes-1985"]')).toHaveCount(2);
-    await expect(page.locator('.prose > p > span.block [data-cite-id="cadena-2016"]')).toHaveCount(3);
-    for (const [id, ordinal, text, href] of expectations) {
-      const chip = page.locator(`.prose > p > span.block [data-cite-id="${id}"]`).nth(ordinal);
+    await expect(page.locator('.prose > p [data-cite-id="moravec-elfes-1985"]')).toHaveCount(2);
+    await expect(page.locator('.prose > p [data-cite-id="cadena-2016"]')).toHaveCount(5);
+    // Cadena also supports other claims: select each tradeoff paragraph,
+    // not an article-wide ordinal or the removed Source-only wrapper.
+    for (const [id, ordinal, count, text, href] of expectations) {
+      const paragraph = page.locator('.prose > p').filter({ hasText: text });
+      await expect(paragraph).toHaveCount(1);
+      const chips = paragraph.locator(`[data-cite-id="${id}"]`);
+      await expect(chips).toHaveCount(count);
+      const chip = chips.nth(ordinal);
       await expect(chip.locator('xpath=ancestor::p[1]')).toContainText(text);
       const link = chip.locator('a[target="_blank"]');
       await expect(link).toHaveAttribute('href', href);

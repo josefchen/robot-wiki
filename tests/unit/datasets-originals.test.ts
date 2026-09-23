@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
+
+// The September 21 transaction is immutable history, not a restriction on later
+// authorized disclosures. Current state is checked by robomind-disclosure-evidence.
+const snapshot = 'b546965037d9226678e2678b310e99dcb58ed971';
+const root = resolve(import.meta.dirname, '../..');
+const readFileSync = (path: string, _encoding: 'utf8') => execFileSync('git', ['show', `${snapshot}:${path}`], { cwd: root, encoding: _encoding, maxBuffer: 32 * 1024 * 1024 });
 
 /**
  * Regression proof for the datasets originals integration (frozen packet

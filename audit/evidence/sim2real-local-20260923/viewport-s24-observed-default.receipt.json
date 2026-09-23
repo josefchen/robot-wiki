@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-viewport",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T05:24:19.108Z",
+  "endedAt": "2026-09-23T05:24:24.126Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+    "bytes": 9353,
+    "sha256": "f1a8f3a4c1e8f01177b21873e9456fce2df6d45d7a6e8e02d4e53f5bc01994b8"
+  },
+  "inputDigest": "85e5aafe7999307a1c8e077b315ed9928c09f0d317860e22676aa95829d68f92",
+  "outputDigest": "2361d9a211cc06754d2ee80c193a6a90004f9b37bbd34b9ca0879a30a821539f",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 21963,
+        "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+      },
+      "id": "article:rl-sim2real/sim2real-transfer",
+      "offset": 0,
+      "length": 21963,
+      "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c",
+      "baseline": {
+        "kind": "prose",
+        "hash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/sim2real.ts",
+        "bytes": 9575,
+        "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+      },
+      "id": "file:lib/sim2real.ts",
+      "offset": 0,
+      "length": 9575,
+      "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 40817,
+      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+    },
+    {
+      "file": {
+        "path": "components/interactive/friction-transfer.tsx",
+        "bytes": 16495,
+        "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+      },
+      "id": "file:components/interactive/friction-transfer.tsx",
+      "offset": 0,
+      "length": 16495,
+      "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+    },
+    {
+      "file": {
+        "path": "components/interactive/teacher-student.tsx",
+        "bytes": 10601,
+        "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+      },
+      "id": "source:components/interactive/teacher-student.tsx",
+      "offset": 0,
+      "length": 10601,
+      "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+      }
+    },
+    {
+      "file": {
+        "path": "components/article/commit-to-reveal.tsx",
+        "bytes": 12571,
+        "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+      },
+      "id": "file:components/article/commit-to-reveal.tsx",
+      "offset": 0,
+      "length": 12571,
+      "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/slider.ts",
+        "bytes": 1130,
+        "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+      },
+      "id": "file:tests/e2e/slider.ts",
+      "offset": 0,
+      "length": 1130,
+      "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+        "bytes": 9353,
+        "sha256": "f1a8f3a4c1e8f01177b21873e9456fce2df6d45d7a6e8e02d4e53f5bc01994b8"
+      },
+      "id": "file:tests/e2e/sim2real-local-evidence.spec.ts",
+      "offset": 0,
+      "length": 9353,
+      "sha256": "f1a8f3a4c1e8f01177b21873e9456fce2df6d45d7a6e8e02d4e53f5bc01994b8"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+        "bytes": 2972,
+        "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+      },
+      "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+      "offset": 0,
+      "length": 2972,
+      "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+      "caseId": "default",
+      "prestate": "Article loaded; teacher unchanged",
+      "action": "Read initial teacher mount",
+      "poststate": "Degradation 0.15; MAE 0.01 m; discrepancy 0.02; 3/24 occluded",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"mae-readout\"]",
+          "text": "0.01 m"
+        },
+        {
+          "selector": "[data-testid=\"divergence-readout\"]",
+          "text": "0.02"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/sim2real-local-20260923/captures/viewport/teacher-default.html",
+        "bytes": 12366,
+        "sha256": "a3414deac19b888afb93379c041b6a96d6055cad2fea6524cfb7a4dffecfb545"
+      },
+      "capture": {
+        "path": "audit/evidence/sim2real-local-20260923/captures/viewport/teacher-default.png",
+        "bytes": 132696,
+        "sha256": "bc43b76239b6cfebc56ab6c8a6741c54a1a31755b8d2e8f9bf37564054756fe0"
+      }
+    },
+    {
+      "mountId": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+      "caseId": "reset",
+      "prestate": "Degradation 0",
+      "action": "Activate teacher Reset",
+      "poststate": "Degradation 0.15, original input/reconstruction markup; MAE 0.01 m and discrepancy 0.02",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"mae-readout\"]",
+          "text": "0.01 m"
+        },
+        {
+          "selector": "[data-testid=\"divergence-readout\"]",
+          "text": "0.02"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/sim2real-local-20260923/captures/viewport/teacher-reset.html",
+        "bytes": 12366,
+        "sha256": "a3414deac19b888afb93379c041b6a96d6055cad2fea6524cfb7a4dffecfb545"
+      },
+      "capture": {
+        "path": "audit/evidence/sim2real-local-20260923/captures/viewport/teacher-reset.png",
+        "bytes": 132674,
+        "sha256": "0c5761508062e67f6193d626db031e1e93ebb1c4489dbb5045d929ded5731e4f"
+      }
+    }
+  ]
+}

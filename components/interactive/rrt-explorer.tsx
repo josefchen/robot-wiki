@@ -395,12 +395,12 @@ export function RrtExplorer({ className }: { className?: string }) {
         ]}
       />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        One accepted extension per iteration from a fixed seed, so the growth
-        is identical on every load. Each step samples a random point (2% of
-        the time the goal itself), finds the nearest tree node, and extends a
-        fixed length toward it, keeping the branch only when the segment
-        stays clear of the obstacles. The bias toward unexplored space is why
-        the canopy spreads first and the goal connection arrives late.
+        Authored scene and sampling settings, not a published benchmark.
+        The controls reveal accepted extensions from one fixed-seed tree.
+        Each sampling attempt selects the goal with probability 1.5%; otherwise
+        it samples uniformly in the world. An accepted step extends by at most
+        the chosen step length and passes this demo&apos;s sampled segment check.
+        Attempts rejected by that check do not advance the displayed count.
       </p>
     </div>
   );

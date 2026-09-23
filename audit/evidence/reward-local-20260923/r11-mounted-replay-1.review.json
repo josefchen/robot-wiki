@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "role": "integrator",
+  "eventId": "reward-local-r11-20260923:r11-mounted-replay-1:2026-09-23T04:12:57.411Z",
+  "observedAt": "2026-09-23T04:12:57.411Z",
+  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "rationale": "Actual registered EurekaLoop observation 1 binds its own generation/fitness/code/statistics/reflection, DOM and screenshot. Keyboard activation advances the script; generation 2 disables Next; Reset re-enables it and returns 0 without a diff. The disclosure is present in actual DOM. This witnesses these transitions, not all focus cases or a real training experiment.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "r11-mounted-replay-1",
+  "inputDigest": "a9b08192cc0d38d200c85e8e23a77f399132c974d5ac4c0f1ee8b2c24d4e4e3e",
+  "inventory": [
+    {
+      "id": "r11-eureka-mechanism",
+      "text": "The replay illustrates Eureka's reward-code proposal, separate PPO policy training/task fitness, reward-statistic reflection and iterative mutation; it is not a recorded experiment.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "eureka-2024"
+      ]
+    },
+    {
+      "id": "r11-authored-transcript",
+      "text": "The walking task 1.0 m/s, code, reflections, every displayed statistic and fitness values 0.31/0.58/0.86 are the three authored scripted fixtures: sprint/fall, stand still, then tracking.",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "r11-parameters"
+      ]
+    },
+    {
+      "id": "r11-diffs",
+      "text": "The replay derives generation-to-generation line diffs and formats each selected fitness to two decimals.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "r11-generation-0",
+        "r11-generation-1",
+        "r11-generation-2"
+      ]
+    },
+    {
+      "id": "r11-mounted-replay-0",
+      "text": "Run generation advances 0→1→2 with actual code/stat/reflection/readout changes, disables at the last generation, and Reset returns 0. This conjunct binds the 0 transition; it does not certify the entire registry case population.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r11-observed-0"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+          "caseId": "default",
+          "prestate": "Article loaded, replay not advanced",
+          "action": "Read initial mounted replay",
+          "poststate": "Generation 0 of 2, fitness 0.31, sprint/fall fixtures, Next enabled"
+        }
+      ]
+    },
+    {
+      "id": "r11-mounted-replay-1",
+      "text": "Run generation advances 0→1→2 with actual code/stat/reflection/readout changes, disables at the last generation, and Reset returns 0. This conjunct binds the 1 transition; it does not certify the entire registry case population.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r11-observed-1"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+          "caseId": "focus-each-control",
+          "prestate": "Generation 0",
+          "action": "Focus Run next generation and press Enter",
+          "poststate": "Generation 1 of 2, fitness 0.58, standing-still fixtures, diff, Next enabled"
+        }
+      ]
+    },
+    {
+      "id": "r11-mounted-replay-2",
+      "text": "Run generation advances 0→1→2 with actual code/stat/reflection/readout changes, disables at the last generation, and Reset returns 0. This conjunct binds the 2 transition; it does not certify the entire registry case population.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r11-observed-2"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+          "caseId": "focus-each-control",
+          "prestate": "Generation 1",
+          "action": "Focus Run next generation and press Enter",
+          "poststate": "Generation 2 of 2, fitness 0.86, tracking fixtures, diff, Next disabled"
+        }
+      ]
+    },
+    {
+      "id": "r11-mounted-replay-reset",
+      "text": "Run generation advances 0→1→2 with actual code/stat/reflection/readout changes, disables at the last generation, and Reset returns 0. This conjunct binds the reset transition; it does not certify the entire registry case population.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r11-observed-reset"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+          "caseId": "reset",
+          "prestate": "Generation 2 with Next disabled",
+          "action": "Activate EurekaLoop Reset",
+          "poststate": "Generation 0 of 2, fitness 0.31, no diff, Next enabled"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/rl-sim2real.md:reward-design-mpc:11",
+  "currentTupleDigest": "e9f93041218213db3cb49974843a0d94f87c086672ff0225ede3c1a51adf889c"
+}

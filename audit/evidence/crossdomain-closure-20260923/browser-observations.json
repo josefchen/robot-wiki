@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-09-23T20:51:07.591Z",
+  "endedAt": "2026-09-23T20:51:10.597Z",
+  "observations": [
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-23T20:51:08.863Z",
+      "dom": {
+        "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.dom.txt",
+        "bytes": 21397,
+        "sha256": "9d2df9072f3f7bd55195867bc50aa0e2b4cde8b2c38fa7eea443e74fde4f87f5"
+      },
+      "capture": {
+        "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.png",
+        "bytes": 133897,
+        "sha256": "a2c6476bd9ceea399906ec5f5a54a8a649cd18377bba80ff8a374f6799e38d0c"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-23T20:51:09.377Z",
+      "dom": {
+        "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-1440.dom.txt",
+        "bytes": 17740,
+        "sha256": "384136ab227c4990c3239904d4617ab0122a8d2f39077c1ca2483072be594a38"
+      },
+      "capture": {
+        "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-1440.png",
+        "bytes": 137201,
+        "sha256": "14c640822e8fd6dbd0cb85461974fd1b164f655a99323550ae956239fe9b9cb2"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-23T20:51:10.116Z",
+      "dom": {
+        "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-375.dom.txt",
+        "bytes": 21397,
+        "sha256": "9d2df9072f3f7bd55195867bc50aa0e2b4cde8b2c38fa7eea443e74fde4f87f5"
+      },
+      "capture": {
+        "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-375.png",
+        "bytes": 50224,
+        "sha256": "4cf55ada35dc888e8a7a755747f4cbf3bdcf8d4431820bbc33ec72fc439ab85d"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-23T20:51:10.595Z",
+      "dom": {
+        "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-375.dom.txt",
+        "bytes": 17740,
+        "sha256": "384136ab227c4990c3239904d4617ab0122a8d2f39077c1ca2483072be594a38"
+      },
+      "capture": {
+        "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-375.png",
+        "bytes": 47259,
+        "sha256": "2a7b1a137f345d4b014f86339b76c9b7aedbef1348a8295d36096bddaee693c9"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    }
+  ],
+  "errors": []
+}

@@ -37,7 +37,7 @@
 import {
   TRANSIENT_CONTACT_LIMIT_LABEL,
   TRANSIENT_CONTACT_LIMIT_N,
-} from '@/lib/force-limits';
+} from './force-limits.ts';
 
 export type ModeId =
   | 'monitored-stop'

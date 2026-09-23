@@ -1,0 +1,8 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 node /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/row-dispatch-preflight.mjs /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923/selection.json",
+  "startedAt": "2026-09-23T20:36:07.553021+00:00",
+  "endedAt": "2026-09-23T20:36:07.878254+00:00",
+  "exitCode": 0,
+  "stdoutPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923/preflight.json",
+  "stderrPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923/preflight.stderr.log"
+}

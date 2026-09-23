@@ -49,7 +49,7 @@ The asymmetry decomposes into six specific properties. Each row is a place where
 
 <MdpComparison className="my-6 wide-measure" />
 
-The Isaac Lab v1 paper says dexterous manipulation with multi-fingered hands "remains challenging compared to standard parallel-jaw grasping due to the high-dimensional action space and fine-grained control required". Its discussion names accurate contact modeling, vision and proprioception, domain randomization, and tiled rendering as support for this work<br />Source: <Cite id="isaac-lab-2025" />. The humanoid sim-to-real RL literature is blunter. Lin and colleagues note that previous successes in dexterous manipulation involve "much more laborious real-to-sim engineering efforts" that are task-specific or hardware-specific, unlike the locomotion successes <Cite id="lin-humanoid-sim2real-2025" />.
+The Isaac Lab v1 paper says dexterous manipulation with multi-fingered hands "remains challenging compared to standard parallel-jaw grasping due to the high-dimensional action space and fine-grained control required". Its discussion names accurate contact modeling, vision and proprioception, domain randomization, and tiled rendering as support for this work <Cite id="isaac-lab-2025" />. The humanoid sim-to-real RL literature is blunter. Lin and colleagues note that previous successes in dexterous manipulation involve "much more laborious real-to-sim engineering efforts" that are task-specific or hardware-specific, unlike the locomotion successes <Cite id="lin-humanoid-sim2real-2025" />.
 
 ## Contact geometry is where the gap lives
 
@@ -61,11 +61,9 @@ Three things to take from it. First, contact count: four near-point foot contact
 
 Sim-to-real RL has produced real dexterous results, and honesty requires listing them. In OpenAI’s 2019 paper, a policy trained in simulation with automatic domain randomization controlled a modified five-fingered Shadow Dexterous Hand. For one fixed fair-scramble sequence, its best policy completed all 43 subgoals in two of ten real trials using vision for cube pose and the sensor-equipped Giiker cube for face angles. The condition using vision for face angles completed the full sequence in zero of ten trials. These tests started from a solved cube and applied a fixed scramble, rather than sampling every possible scramble; a separate solver supplied the subgoal sequence <Cite id="openai-rubiks-cube-2019" />.
 
-In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained with privileged state on a KUKA arm and Allegro hand, then distilled into a network taking stereo RGB pairs as input<br />Source: <Cite id="isaac-lab-2025" />.
+Isaac Lab v1 describes DextrAH-RGB's privileged-state RL teacher distilled into a stereo-RGB student for a KUKA arm with an Allegro hand <Cite id="isaac-lab-2025" />. See the [sim-to-real explanation](/rl-sim2real/sim2real-transfer/).
 
- Play2Perfect trains CAD-derived sparse-reward assembly tasks and transfers zero-shot, including 60% success on insertions with 0.5 mm clearance <Cite id="play2perfect-2026" />.
-
-What these results share is per-task engineering. The Rubik’s-cube system used customized hand hardware, manually tuned motor-torque limits, and a hand simulation calibrated against recorded physical joint trajectories. ADR started from a calibrated environment and adjusted randomization ranges automatically using performance thresholds; the ranges were not all hand-tuned <Cite id="openai-rubiks-cube-2019" />. Play2Perfect's clearance number comes from a pipeline built around its task family.
+Play2Perfect trains CAD-derived sparse-reward assembly tasks and transfers zero-shot, including 60% success on insertions with 0.5 mm clearance <Cite id="play2perfect-2026" />. What these results share is per-task engineering. The Rubik’s-cube system used customized hand hardware, manually tuned motor-torque limits, and a hand simulation calibrated against recorded physical joint trajectories. ADR started from a calibrated environment and adjusted randomization ranges automatically using performance thresholds; the ranges were not all hand-tuned <Cite id="openai-rubiks-cube-2019" />. Play2Perfect's clearance number comes from a pipeline built around its task family.
 
 ## The honest snapshot comes from the imitation side
 

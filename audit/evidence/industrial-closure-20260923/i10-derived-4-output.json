@@ -1,0 +1,35 @@
+{
+  "values": {
+    "sanitized": {
+      "robotCost": 80000,
+      "integrationMultiple": 2.5,
+      "cycleTimeSeconds": 6,
+      "uptimePercent": 95,
+      "successRatePercent": 99,
+      "jamClearSeconds": 300,
+      "wageUsdPerHour": 25
+    },
+    "totalCellCost": 200000,
+    "jamRatePercent": 1,
+    "effectiveSecondsPerPick": 9,
+    "netPicksPerHour": 380,
+    "monthlyPicks": 277400,
+    "monthlyLaborValue": 11558.333333333334,
+    "costPerPickUsd": 0.01201634222542658,
+    "paybackMonths": 17.303532804614274,
+    "timeBreakdown": {
+      "productive": 2280,
+      "jamClearing": 1140,
+      "downtime": 180
+    },
+    "paysBack": true,
+    "display": [
+      "0.012",
+      "17.3 months"
+    ],
+    "jamOverheadPerPick": 3
+  },
+  "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "economics-examples:derive:v1"
+}

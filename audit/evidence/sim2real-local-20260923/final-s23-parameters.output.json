@@ -1,0 +1,20 @@
+{
+  "values": {
+    "mu": 0.8,
+    "range": 0.35,
+    "muRange": [
+      0.2,
+      1.5
+    ],
+    "drRange": [
+      0.1,
+      0.65
+    ],
+    "pointPeak": 0.97,
+    "sigma": 0.09,
+    "edgeSigma": 0.1
+  },
+  "units": "dimensionless unless explicitly keyed",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "friction:parameters:v1"
+}

@@ -1,0 +1,478 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T18:44:34.186Z",
+  "endedAt": "2026-09-23T18:44:39.875Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/industrial-deployment.spec.ts",
+    "bytes": 19923,
+    "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+  },
+  "dependencies": [
+    {
+      "path": "content/data-hardware/industrial-deployment.mdx",
+      "bytes": 19399,
+      "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+    },
+    {
+      "path": "data/glossary.ts",
+      "bytes": 83491,
+      "sha256": "8de5ceeed550244ccc7e83e27056d2721b26723e94dff0cf77548c3fe465adf0"
+    },
+    {
+      "path": "data/citations.ts",
+      "bytes": 301131,
+      "sha256": "f6df373b74920df7e37620f80d83855b0c540e3e65bb421ea5bb17b504f77405"
+    },
+    {
+      "path": "data/schemas/citation.ts",
+      "bytes": 2232,
+      "sha256": "b8c4ec86f5554ef53a8cbc798d5a9eecc1f49b8d25e7aefa7903c47c77818194"
+    },
+    {
+      "path": "components/article/references.tsx",
+      "bytes": 4091,
+      "sha256": "17297ca5f25d6c7d2c2273fef8510767454a617fcb01bf6a02d0ee17b5235223"
+    },
+    {
+      "path": "components/ui/term.tsx",
+      "bytes": 7392,
+      "sha256": "ceb6c0d36baae168a2fbb084d6846e64fa31e60dd54fc6fe6629765fee90cbd7"
+    },
+    {
+      "path": "components/ui/cite.tsx",
+      "bytes": 10428,
+      "sha256": "adcd78810e82e9284fb149a008616170d6e9ae9468629668d2ea9d859eaad055"
+    },
+    {
+      "path": "lib/deployment-economics.ts",
+      "bytes": 7602,
+      "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+    },
+    {
+      "path": "components/interactive/deployment-economics.tsx",
+      "bytes": 9866,
+      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+    },
+    {
+      "path": "tests/e2e/industrial-deployment.spec.ts",
+      "bytes": 19923,
+      "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+    },
+    {
+      "path": "audit/evidence/industrial-closure-20260923/support.ts",
+      "bytes": 2740,
+      "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+    }
+  ],
+  "proofDependencies": [
+    {
+      "file": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "id": "article:data-hardware/industrial-deployment",
+      "offset": 0,
+      "length": 19399,
+      "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+      "baseline": {
+        "kind": "prose",
+        "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/deployment-economics.tsx",
+        "bytes": 9866,
+        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+      },
+      "id": "source:components/interactive/deployment-economics.tsx",
+      "offset": 0,
+      "length": 9866,
+      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/deployment-economics.ts",
+        "bytes": 7602,
+        "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+      },
+      "id": "file:lib/deployment-economics.ts",
+      "offset": 0,
+      "length": 7602,
+      "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 44430,
+      "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/industrial-closure-20260923/support.ts",
+        "bytes": 2740,
+        "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+      },
+      "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+      "offset": 0,
+      "length": 2740,
+      "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-local-20260923/support.ts",
+        "bytes": 5308,
+        "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+      },
+      "id": "file:audit/evidence/economics-local-20260923/support.ts",
+      "offset": 0,
+      "length": 5308,
+      "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 19923,
+        "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+      },
+      "id": "file:tests/e2e/industrial-deployment.spec.ts",
+      "offset": 0,
+      "length": 19923,
+      "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/slider.ts",
+        "bytes": 1130,
+        "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+      },
+      "id": "file:tests/e2e/slider.ts",
+      "offset": 0,
+      "length": 1130,
+      "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+    }
+  ],
+  "observations": [
+    {
+      "input": {
+        "robotCost": 80000,
+        "integrationMultiple": 2.5,
+        "cycleTimeSeconds": 6,
+        "uptimePercent": 95,
+        "successRatePercent": 99.9,
+        "jamClearSeconds": 15,
+        "wageUsdPerHour": 25
+      },
+      "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "success=99.9; clearing=15",
+      "action": "Set clearing=15 seconds and success=99.9 percent",
+      "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%.; 0.008; 11.6 months; Pays back inside 24 months",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"cost-per-pick\"]",
+          "text": "0.008"
+        },
+        {
+          "selector": "[data-testid=\"payback-months\"]",
+          "text": "11.6 months"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "dom": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.dom.json",
+        "bytes": 343618,
+        "sha256": "ed0d4dad8f6414f4cfeb94775e08a601141f097b65e21aa1da3008e7a881a4d6"
+      },
+      "capture": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.png",
+        "bytes": 129091,
+        "sha256": "eb608d349e4ae275ebd360bd956cb6c2c9acd2df144bc83b4e188df948c37c7c"
+      }
+    },
+    {
+      "input": {
+        "robotCost": 80000,
+        "integrationMultiple": 2.5,
+        "cycleTimeSeconds": 6,
+        "uptimePercent": 95,
+        "successRatePercent": 99,
+        "jamClearSeconds": 15,
+        "wageUsdPerHour": 25
+      },
+      "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "success=99.9; clearing=15",
+      "action": "Set clearing=15 seconds and success=99 percent",
+      "poststate": "Cell cost $200,000; 556 modeled picks per elapsed hour and 405,951 per 730-hour month; jam rate 1.00%.; 0.008; 11.8 months; Pays back inside 24 months",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"cost-per-pick\"]",
+          "text": "0.008"
+        },
+        {
+          "selector": "[data-testid=\"payback-months\"]",
+          "text": "11.8 months"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "dom": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.dom.json",
+        "bytes": 343700,
+        "sha256": "0d3e50095b44fd9f6b6aa9ce577469be3d9764e1704df62b17a76eda6cde2b0b"
+      },
+      "capture": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.png",
+        "bytes": 129154,
+        "sha256": "bc82d2f476edfdd8438ddf2e0af6e9973b2385ae655355b8e8132422eb1d7438"
+      }
+    },
+    {
+      "input": {
+        "robotCost": 80000,
+        "integrationMultiple": 2.5,
+        "cycleTimeSeconds": 6,
+        "uptimePercent": 95,
+        "successRatePercent": 99.9,
+        "jamClearSeconds": 300,
+        "wageUsdPerHour": 25
+      },
+      "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "success=99; clearing=15",
+      "action": "Set clearing=300 seconds and success=99.9 percent",
+      "poststate": "Cell cost $200,000; 543 modeled picks per elapsed hour and 396,286 per 730-hour month; jam rate 0.10%.; 0.008; 12.1 months; Pays back inside 24 months",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"cost-per-pick\"]",
+          "text": "0.008"
+        },
+        {
+          "selector": "[data-testid=\"payback-months\"]",
+          "text": "12.1 months"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "dom": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.dom.json",
+        "bytes": 343710,
+        "sha256": "c611d7eb44e0e991099a13d8cb78f839c6e747068de0a6a1502697f240e6e7d7"
+      },
+      "capture": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.png",
+        "bytes": 129325,
+        "sha256": "577ee9500b32f817e7dc3fb49f695be0802a935e5a5edea3340d14897ee6fad6"
+      }
+    },
+    {
+      "input": {
+        "robotCost": 80000,
+        "integrationMultiple": 2.5,
+        "cycleTimeSeconds": 6,
+        "uptimePercent": 95,
+        "successRatePercent": 99,
+        "jamClearSeconds": 300,
+        "wageUsdPerHour": 25
+      },
+      "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "success=99.9; clearing=300",
+      "action": "Set clearing=300 seconds and success=99 percent",
+      "poststate": "Cell cost $200,000; 380 modeled picks per elapsed hour and 277,400 per 730-hour month; jam rate 1.00%.; 0.012; 17.3 months; Pays back inside 24 months",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"cost-per-pick\"]",
+          "text": "0.012"
+        },
+        {
+          "selector": "[data-testid=\"payback-months\"]",
+          "text": "17.3 months"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "dom": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99-300.dom.json",
+        "bytes": 343713,
+        "sha256": "6cc0e87c0c93771c60b0f42b042691e6b31c720ec0b9ac2b7db6da95447b9e16"
+      },
+      "capture": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99-300.png",
+        "bytes": 128952,
+        "sha256": "ddb94410ddc67e86ec394077955a7288b07e9c938f3648003b39c10bc4c6d706"
+      }
+    }
+  ],
+  "surfaceObservations": [
+    {
+      "checkedText": [
+        "A warehouse subsystem of fixed racking, cranes or shuttles, and control software that stores and retrieves unit loads without a human walking an aisle. Symbotic's systems and Ocado's customer fulfilment centres are large-scale descendants: high-bay storage, bots that fetch, and pick stations arranged around the software. An AS/RS buys density and precision at the price of being the building's skeletal structure, which is why it appears mostly in new builds.",
+        "A self-navigating transport vehicle that plans its own paths through a facility using onboard sensors, as distinct from an automated guided vehicle that follows fixed infrastructure like tape or wire. Amazon's Proteus and the case-handling robots inside Symbotic's systems are AMRs at fleet scale, and the fleet manager's traffic control, not any single robot's navigation, is the hard engineering.",
+        "The warehouse principle of moving stored items to a stationary human at a pick station, instead of sending the human to walk the shelves. It inverts the economics of order picking: the picker stops being paid to travel and spends nearly the whole shift handling items, which raises throughput per person and simultaneously defines the ceiling an automated picker must beat. Sequoia and Ocado's pick walls are both goods-to-person systems.",
+        "An organisation that integrates a robot with the end-effectors, sensors, safeguarding and controls needed for an application. Manufacturers or employers may also act as integrators. OSHA's Technical Manual, discussing ANSI/RIA R15.06-2012, calls for integrators to complete and document an application risk assessment before commissioning; employers remain responsible for a safe workplace. EVST's July 15, 2026 commercial palletising guide lists tooling, guarding, controls integration, commissioning and programming beyond the arm price.",
+        "The time required to produce a part or complete a process, as timed by actual measurement.",
+        "Available production time divided by customer demand over the same period, expressed as time per unit. Its purpose is to match production with demand.",
+        "Mean time between failures (MTBF) is a reliability parameter for repairable systems. NASA uses it with mean time to repair (MTTR) when estimating inherent availability. That measure excludes administrative and logistics delays and preventive maintenance; operational availability includes those times.",
+        "The time an automation investment takes to return its cost: total cell capital divided by the monthly value it produces, most often displaced labour. Operations buyers screen against a horizon rather than optimizing the number, and vendor guidance for robot cells quotes 12 to 24 month paybacks in multi-shift operation, stretching toward 36 in single shift. A robot whose payback misses the horizon is not a bad robot; it is a bad fit for that facility's wage and throughput.",
+        "How often an automated system needs a human to touch it: the fraction of cycles that end in a jam, mispick, or fault requiring attention, or equivalently one minus the per-cycle success rate. The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why deployed systems are engineered around cheap recovery rather than perfect autonomy.",
+        "Installing automation into a facility that already exists and already runs: existing floor plans, ceiling heights, power drops, traffic lanes, and a production schedule that cannot simply stop. A greenfield site is designed around the automation; a brownfield site makes the automation fit, and retrofit guarding, lockout procedures, and phased go-lives are what make the same technology cost more and take longer there.",
+        "Takt Time",
+        "n.d.; accessed 2026-09-22",
+        "Cycle Time",
+        "n.d.; accessed 2026-09-22",
+        "4,663,698",
+        "542,076",
+        "54%",
+        "~5,500",
+        "not a measured intervention rate",
+        "no published success rate"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "dom": {
+        "path": "audit/evidence/industrial-closure-20260923/final-surfaces-1440.dom.json",
+        "bytes": 346336,
+        "sha256": "db3c4703479f559265fb52f2c90661e8a7d2124fee3ad754c586abc4f1a40988"
+      },
+      "capture": {
+        "path": "audit/evidence/industrial-closure-20260923/final-surfaces-1440.png",
+        "bytes": 213291,
+        "sha256": "d05cdb3da0250216922a4156c38eae956b6fff468ca5e14488910e110a753abc"
+      },
+      "axeViolations": []
+    },
+    {
+      "checkedText": [
+        "A warehouse subsystem of fixed racking, cranes or shuttles, and control software that stores and retrieves unit loads without a human walking an aisle. Symbotic's systems and Ocado's customer fulfilment centres are large-scale descendants: high-bay storage, bots that fetch, and pick stations arranged around the software. An AS/RS buys density and precision at the price of being the building's skeletal structure, which is why it appears mostly in new builds.",
+        "A self-navigating transport vehicle that plans its own paths through a facility using onboard sensors, as distinct from an automated guided vehicle that follows fixed infrastructure like tape or wire. Amazon's Proteus and the case-handling robots inside Symbotic's systems are AMRs at fleet scale, and the fleet manager's traffic control, not any single robot's navigation, is the hard engineering.",
+        "The warehouse principle of moving stored items to a stationary human at a pick station, instead of sending the human to walk the shelves. It inverts the economics of order picking: the picker stops being paid to travel and spends nearly the whole shift handling items, which raises throughput per person and simultaneously defines the ceiling an automated picker must beat. Sequoia and Ocado's pick walls are both goods-to-person systems.",
+        "An organisation that integrates a robot with the end-effectors, sensors, safeguarding and controls needed for an application. Manufacturers or employers may also act as integrators. OSHA's Technical Manual, discussing ANSI/RIA R15.06-2012, calls for integrators to complete and document an application risk assessment before commissioning; employers remain responsible for a safe workplace. EVST's July 15, 2026 commercial palletising guide lists tooling, guarding, controls integration, commissioning and programming beyond the arm price.",
+        "The time required to produce a part or complete a process, as timed by actual measurement.",
+        "Available production time divided by customer demand over the same period, expressed as time per unit. Its purpose is to match production with demand.",
+        "Mean time between failures (MTBF) is a reliability parameter for repairable systems. NASA uses it with mean time to repair (MTTR) when estimating inherent availability. That measure excludes administrative and logistics delays and preventive maintenance; operational availability includes those times.",
+        "The time an automation investment takes to return its cost: total cell capital divided by the monthly value it produces, most often displaced labour. Operations buyers screen against a horizon rather than optimizing the number, and vendor guidance for robot cells quotes 12 to 24 month paybacks in multi-shift operation, stretching toward 36 in single shift. A robot whose payback misses the horizon is not a bad robot; it is a bad fit for that facility's wage and throughput.",
+        "How often an automated system needs a human to touch it: the fraction of cycles that end in a jam, mispick, or fault requiring attention, or equivalently one minus the per-cycle success rate. The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why deployed systems are engineered around cheap recovery rather than perfect autonomy.",
+        "Installing automation into a facility that already exists and already runs: existing floor plans, ceiling heights, power drops, traffic lanes, and a production schedule that cannot simply stop. A greenfield site is designed around the automation; a brownfield site makes the automation fit, and retrofit guarding, lockout procedures, and phased go-lives are what make the same technology cost more and take longer there.",
+        "Takt Time",
+        "n.d.; accessed 2026-09-22",
+        "Cycle Time",
+        "n.d.; accessed 2026-09-22",
+        "4,663,698",
+        "542,076",
+        "54%",
+        "~5,500",
+        "not a measured intervention rate",
+        "no published success rate"
+      ],
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "dom": {
+        "path": "audit/evidence/industrial-closure-20260923/final-surfaces-375.dom.json",
+        "bytes": 345960,
+        "sha256": "58090acc79b3160ef7578cd3f3c97b62785a08997a8193346af2bc7682823c65"
+      },
+      "capture": {
+        "path": "audit/evidence/industrial-closure-20260923/final-surfaces-375.png",
+        "bytes": 71223,
+        "sha256": "406e930644307d0af604f8c9ad7fe1cecc48bcc06758eddcee448a29e401d2f8"
+      },
+      "axeViolations": []
+    }
+  ],
+  "glossary": [
+    {
+      "id": "automated-storage-and-retrieval",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "autonomous-mobile-robot",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "goods-to-person",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "systems-integrator",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "cycle-time",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "takt-time",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "mean-time-between-failures",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "payback-period",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "intervention-rate",
+      "resolves": true,
+      "tooltipObserved": true
+    },
+    {
+      "id": "brownfield-deployment",
+      "resolves": true,
+      "tooltipObserved": true
+    }
+  ],
+  "dashboardLinkStatus": 200,
+  "errors": [],
+  "p4": {
+    "checked": true,
+    "statCount": 4,
+    "authoredInputs": 7,
+    "undatedIds": [
+      "lei-takt-time-definition",
+      "lei-cycle-time-definition"
+    ],
+    "absentNumericStandIns": [],
+    "population": "All four Stat values; all seven authored controls; numeric prose supported by the full native row conjunction; glossary and bibliography from canonical registries; Figure success remains unpublished, not a guessed number. No spec/data table mounts on this article."
+  }
+}

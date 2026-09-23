@@ -191,7 +191,7 @@ test.describe('classical perception module', () => {
       'Mitigated does not mean eliminated']) expect(depth!.text).toContain(text);
     expect(depth!.text).not.toMatch(/Three families of depth sensor|accurate option and the slow one|rules out closing a control loop/);
     await expect(page.getByTestId('perception-target-note')).toContainText(
-      'not a material-specific accuracy guarantee',
+      'not a measured property of that material',
     );
     // Keep all named topics; do not certify five universal failure classes.
     for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /thin objects/i, /self-occlusion/i]) {
@@ -264,7 +264,9 @@ test.describe('classical perception module', () => {
     expect(text).toMatch(/range-independent/i);
     // And why, including what the faithful model would do instead.
     expect(text).toMatch(/square of distance/i);
-    expect(text).toMatch(/compose/i);
+    expect(text).toMatch(/Root-sum-of-squares is an authored rule/i);
+    expect(text).toMatch(/not established standard deviations/i);
+    expect(text).toMatch(/does\s+not establish independence or a real-system error bound/i);
   });
 
   test('switching the target from opaque to transparent changes the depth and verdict readouts (VAL-CLASS-043)', async ({

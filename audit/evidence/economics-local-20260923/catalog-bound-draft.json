@@ -1,0 +1,2048 @@
+{
+  "schemaVersion": "authored-local-basis-v1",
+  "plans": [
+    {
+      "id": "economics-local-i52-20260923",
+      "kind": "explicit-parts-v2",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "rowOrdinal": 52,
+      "originalBinding": {
+        "originalCells": {
+          "claim": "Component defect: deployment-economics.tsx robotCost note attributes a \"\\$25k-\\$80k\" arm price range to EVST",
+          "sourceChecked": "evst-cell-cost-2026 publishes no arm-only prices (\"EVST does not publish fixed list prices\") and no such range; its bands are complete-cell budgets",
+          "verdict": "Unresolved (component files are out of my edit scope; recorded below)",
+          "note": ""
+        },
+        "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+        "snapshot": {
+          "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+          "bytes": 63957,
+          "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+        },
+        "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
+      },
+      "currentCells": {
+        "claim": "DeploymentEconomics robotCost is an authored80000 USD example with chosen20000..250000 range/5000 step, not an EVST arm-price quote; complete-cell vendor context, all seven model inputs, capital-only arithmetic and actual mounted controls are separately evidenced.",
+        "sourceChecked": "EVST July15,2026 complete-cell guide: verified retained September6 readable text and raw HTML with original provenance; actual September23 independent economics calculations and mounted default/endpoints/Reset.",
+        "verdict": "C",
+        "note": "The first historical Unresolved original and every prior current cell are preserved verbatim in non-counted history. EVST states no fixed list prices and complete-cell bands; its third-to-half arm share and multi-shift12..24/single-shift24..36-month guidance are vendor context, not certificates for chosen80000,2.5 or24. All defaults, ranges,730hours/month and60-month amortization are authored. Cost/pick is capital-only modeled output; no operating costs or financial forecast. Hourly throughput includes downtime and is labelled per elapsed hour. All five original obligations survive; the mounted obligation is partitioned by three prices. No new fetch, current-liveness claim, other industrial-row promotion or independent acceptance."
+      },
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "mounts": [
+        {
+          "sourceId": "interactive:DeploymentEconomics",
+          "sourceFingerprint": "4001d6d4285fea068d1388b443a6bed4989a81a6ee775725553ab80fe175d637",
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "mountFingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a",
+          "route": "/data-hardware/industrial-deployment/"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "parts": [
+        {
+          "id": "i52-evst-scope",
+          "text": "EVST's inspected guide does not publish fixed list prices; its quoted bands are complete-cell budgets, not a $25k–$80k robot-arm range.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "evst-cell-cost-2026"
+          ]
+        },
+        {
+          "id": "i52-vendor-context",
+          "text": "Any retained calculator sourcing of 2–3x complete-cell/arm ratio and 12–24 month multi-shift guidance remains a vendor statement, not a chosen-value certificate.",
+          "kind": "external-source",
+          "requiredCitationIds": [
+            "evst-cell-cost-2026"
+          ]
+        },
+        {
+          "id": "i52-authored-price-and-inputs",
+          "text": "The calculator's $80000 robotCost is an authored example, with $20000–$250000 range/5000 step, not a reported price; other model defaults and chosen horizon remain explicit assumptions.",
+          "kind": "authored-parameter",
+          "requiredProofIds": [
+            "i52-parameters"
+          ]
+        },
+        {
+          "id": "i52-price-arithmetic",
+          "text": "At fixed other example inputs, changing robotCost changes total cell capital, capital cost per modeled pick and modeled payback according to the existing formula.",
+          "kind": "derived-result",
+          "requiredProofIds": [
+            "i52-20000",
+            "i52-80000",
+            "i52-250000"
+          ]
+        },
+        {
+          "id": "i52-mounted-20000",
+          "text": "The real mounted calculator at robotCost20000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:min. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults.",
+          "kind": "observed-behavior",
+          "requiredProofIds": [
+            "i52-observed-20000"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "Default robotCost80000",
+              "action": "Move robotCost to minimum20000",
+              "poststate": "Cell cost $50,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.002; 2.9 months; all seven inputs, notes, verdict, time shares and seconds checked"
+            }
+          ]
+        },
+        {
+          "id": "i52-mounted-80000",
+          "text": "The real mounted calculator at robotCost80000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:default,reset,mobile-default. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults.",
+          "kind": "observed-behavior",
+          "requiredProofIds": [
+            "i52-observed-80000"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "default",
+              "prestate": "Article not loaded",
+              "action": "Navigate to existing article",
+              "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked"
+            },
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "reset",
+              "prestate": "Maximum robotCost250000",
+              "action": "Activate Reset",
+              "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked"
+            },
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "default",
+              "prestate": "Desktop reset state",
+              "action": "Resize existing mounted calculator to375px",
+              "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked"
+            }
+          ]
+        },
+        {
+          "id": "i52-mounted-250000",
+          "text": "The real mounted calculator at robotCost250000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:max. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults.",
+          "kind": "observed-behavior",
+          "requiredProofIds": [
+            "i52-observed-250000"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "Minimum robotCost20000",
+              "action": "Move robotCost to maximum250000",
+              "poststate": "Cell cost $625,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.025; 36.1 months; all seven inputs, notes, verdict, time shares and seconds checked"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "partId": "i52-evst-scope",
+          "citationId": "evst-cell-cost-2026",
+          "sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+          "supportingPassage": " Payload class is the single biggest driver of total system cost, because it determines robot frame size, gripper capacity, and often the footprint of the safety perimeter. The ranges below reflect industry-typical budgets for a complete cell (robot, EOAT, safety guarding, integration, and programming), not a robot-only list price. \n Payload segment \n Example EVST 4-axis model \n Payload \n Typical complete-cell budget* \n Typical use case \n Light \n QJRB15-1 \n 15 kg \n Lower five-figure to mid five-figure USD range \n Case and carton palletizing, frequent SKU changeover \n Mid \n QJRB30-1 \n 30 kg \n Mid to upper five-figure USD range \n Standard single-line case or bag palletizing \n Heavy \n QJRB180-1 \n 180 kg \n Upper five-figure to low six-figure USD range \n Bagged goods, multi-SKU end-of-line, bulk containers \n Extra-heavy \n QJRB800-1 \n 800 kg \n Six-figure USD range \n Full pallet loads, drums, building-materials handling \n *According to industry observations across the payload classes above; actual pricing depends on gripper complexity, safety-zone footprint, controls scope, and site conditions. EVST does not publish fixed list prices; request a configuration-specific quote through the 4-axis palletizing robot selection guide . \n",
+          "provenance": {
+            "retrievedAt": "2026-09-06T00:49:14.485Z",
+            "tool": "Preserved September6 curl response, final status200 only; readable text derived from retained raw HTML, both hashes verified. No headers/redirect-chain proof or current request. September23 semantic review is not retrieval.",
+            "response": {
+              "path": "audit/evidence/economics-local-20260923/evst.txt",
+              "bytes": 21932,
+              "sha256": "b51c5395721f10ea1ddaae213b67ba8209d8b4e3201fab4014b19061bfd6393c"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/economics-local-20260923/evst.txt",
+                "bytes": 21932,
+                "sha256": "b51c5395721f10ea1ddaae213b67ba8209d8b4e3201fab4014b19061bfd6393c"
+              },
+              "id": "file:audit/evidence/economics-local-20260923/evst.txt",
+              "offset": 10253,
+              "length": 1241,
+              "sha256": "e8b46b341b267afc5cc388e7b549521959e9aeeccc6a3222c0eb20629e3e7f7c"
+            }
+          }
+        },
+        {
+          "partId": "i52-vendor-context",
+          "citationId": "evst-cell-cost-2026",
+          "sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+          "supportingPassage": " A palletizing robot cell typically costs more than the robot arm alone: total capex spans the robot body, the end-of-arm tool, safety fencing and scanners, integration and commissioning, and programming. According to industry observations, most cells pay back within 12–24 months in multi-shift operations, with the robot itself usually representing only a third to half of the total budget. \n Why the Robot Price Tag Isn’t the Full Story \n Buyers researching palletizing robot cost often start with a single number in mind, the price of the robot arm, and are surprised when a quoted system comes in two to three times higher. That gap is not markup. A palletizing cell is a system: the robot manipulates pallets or cases, but the gripper, the safety perimeter, the controls integration, and the programming that ties them together are what actually make the line run unattended. Our complete guide to robotic palletizers covers robot types and selection criteria in depth; this article focuses narrowly on what a palletizing cell costs, how the capex breaks down, and how to work out when it pays for itself. \n What Drives Palletizing Robot Cost: Five Capex Line Items \n Manufacturers including FANUC, ABB, KUKA, Yaskawa, and EVST all sell palletizing-capable robots, but the robot itself is only one of five cost centers that show up on a typical system quote. Understanding each one is what lets a buyer compare quotes on an apples-to-apples basis instead of anchoring on the robot list price. \n 1. Robot Body \n The base hardware cost scales primarily with payload class, not brand prestige. A compact 4-axis palletizing robot rated for light cartons costs meaningfully less than a heavy-payload unit built for full pallet loads or bagged bulk goods. According to industry observations, the robot body typically accounts for roughly a third to half of total system cost, with the remainder distributed across the four items below. \n 2. End-of-Arm Tooling (EOAT / Gripper) \n Grippers for palletizing are application-specific: vacuum cups for cartons and bags, mechanical clamp grippers for crates and drums, or multi-zone tooling for mixed-SKU pallets. EOAT cost varies with the number of pick zones, product variability, and whether the tool needs quick-change capability for multiple SKUs on the same line. This line item is frequently underestimated in early budgeting because a single gripper design rarely covers every product a facility runs. \n 3. Safety Fencing and Scanners \n Under ISO 10218-2:2025, cell-level risk assessment and safeguarding are the system integrator’s responsibility, not the robot manufacturer’s. That means perimeter fencing, light curtains or area scanners, interlocked gates, and safety-rated PLCs are priced separately from the robot and typically represent a meaningful share of total cost, particularly for cells with frequent operator access for pallet or product changeover. \n 4. Integration and Commissioning \n This covers mechanical installation, electrical connection, PLC and HMI integration with upstream conveyors or wrapping equipment, and on-site commissioning and testing. Integration cost is where labor rates and travel distance from the integrator’s base matter most, and it is the line item most sensitive to how much of the surrounding line (conveyors, stretch wrappers, label applicators) already exists versus needs to be built. \n 5. Programming and Software \n Pattern programming (how layers and pallets are built), palletizing software licenses, and any vision-guided pick logic for mixed loads fall under this line. Standardized single-SKU patterns program faster and cheaper than mixed-case, interlocking pallet patterns that require collision checking and layer optimization software. \n According to industry observations, integration and commissioning combined with safety guarding commonly account for as much of a palletizing cell’s total cost as the robot and gripper together, which is why comparing “robot price” alone across suppliers gives an incomplete picture. EVST quotes palletizing cells as a complete package (robot, EOAT, guarding, and commissioning) rather than pricing the robot in isolation and leaving the rest for the buyer to source separately. \n Price Bands by Payload Segment \n Payload class is the single biggest driver of total system cost, because it determines robot frame size, gripper capacity, and often the footprint of the safety perimeter. The ranges below reflect industry-typical budgets for a complete cell (robot, EOAT, safety guarding, integration, and programming), not a robot-only list price. \n Payload segment \n Example EVST 4-axis model \n Payload \n Typical complete-cell budget* \n Typical use case \n Light \n QJRB15-1 \n 15 kg \n Lower five-figure to mid five-figure USD range \n Case and carton palletizing, frequent SKU changeover \n Mid \n QJRB30-1 \n 30 kg \n Mid to upper five-figure USD range \n Standard single-line case or bag palletizing \n Heavy \n QJRB180-1 \n 180 kg \n Upper five-figure to low six-figure USD range \n Bagged goods, multi-SKU end-of-line, bulk containers \n Extra-heavy \n QJRB800-1 \n 800 kg \n Six-figure USD range \n Full pallet loads, drums, building-materials handling \n *According to industry observations across the payload classes above; actual pricing depends on gripper complexity, safety-zone footprint, controls scope, and site conditions. EVST does not publish fixed list prices; request a configuration-specific quote through the 4-axis palletizing robot selection guide . \n Calculating Payback: The ROI Formula \n The payback calculation for a palletizing robot is straightforward once the capex is known: divide total system cost by the monthly value the cell delivers, whether that value comes from labor cost avoided, throughput gained, or reduced product damage and waste. \n Payback period (months) = Total system capex ÷ (Monthly labor cost avoided + Monthly value of reduced damage/waste + Monthly value of throughput gained) \n For illustration, consider a mid-segment cell. A facility running two shifts of manual palletizing might, according to industry observations, avoid roughly $3,500–$5,000 per month in fully loaded labor cost by reassigning that headcount, plus another $500–$1,500 per month in reduced product damage from more consistent stacking. Against a mid-segment complete-cell budget, that combination commonly lands the payback period in the 12–24 month range cited earlier, though single-shift operations with lower labor rates or lighter throughput will see the calculation stretch closer to 24–36 months. \n",
+          "provenance": {
+            "retrievedAt": "2026-09-06T00:49:14.485Z",
+            "tool": "Preserved September6 curl response, final status200 only; readable text derived from retained raw HTML, both hashes verified. No headers/redirect-chain proof or current request. September23 semantic review is not retrieval.",
+            "response": {
+              "path": "audit/evidence/economics-local-20260923/evst.txt",
+              "bytes": 21932,
+              "sha256": "b51c5395721f10ea1ddaae213b67ba8209d8b4e3201fab4014b19061bfd6393c"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/economics-local-20260923/evst.txt",
+                "bytes": 21932,
+                "sha256": "b51c5395721f10ea1ddaae213b67ba8209d8b4e3201fab4014b19061bfd6393c"
+              },
+              "id": "file:audit/evidence/economics-local-20260923/evst.txt",
+              "offset": 5975,
+              "length": 6587,
+              "sha256": "6ff17745cdf35e4929912e35386905046797a772b8d801ca381c54342595ecc9"
+            }
+          }
+        }
+      ],
+      "planReview": null,
+      "adjudications": []
+    }
+  ],
+  "proofs": [
+    {
+      "id": "i52-parameters",
+      "planId": "economics-local-i52-20260923",
+      "partId": "i52-authored-price-and-inputs",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19273,
+          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-local-evidence.test.ts",
+            "bytes": 6192,
+            "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+          },
+          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "offset": 0,
+          "length": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "recipe": {
+        "id": "economics",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25,
+          "ranges": {
+            "robotCost": {
+              "min": 20000,
+              "max": 250000,
+              "step": 5000
+            },
+            "integrationMultiple": {
+              "min": 1,
+              "max": 5,
+              "step": 0.1
+            },
+            "cycleTimeSeconds": {
+              "min": 2,
+              "max": 20,
+              "step": 0.5
+            },
+            "uptimePercent": {
+              "min": 80,
+              "max": 100,
+              "step": 0.5
+            },
+            "successRatePercent": {
+              "min": 90,
+              "max": 99.9,
+              "step": 0.1
+            },
+            "jamClearSeconds": {
+              "min": 5,
+              "max": 300,
+              "step": 5
+            },
+            "wageUsdPerHour": {
+              "min": 10,
+              "max": 80,
+              "step": 1
+            }
+          },
+          "hours": 730,
+          "amortization": 60,
+          "target": 24
+        },
+        "units": "USD,s,%,hours,months as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics:parameters:v1"
+      },
+      "input": {
+        "path": "audit/evidence/economics-local-20260923/i52-parameters.input.json",
+        "bytes": 64,
+        "sha256": "e34743830de6fedeb582d483c7cc943b72442f5081fe30ceeabbad9a4aed0db5"
+      },
+      "output": {
+        "path": "audit/evidence/economics-local-20260923/i52-parameters.output.json",
+        "bytes": 1098,
+        "sha256": "5aa5f0f26721c6d103f441c081bcb08e5dfba295bd6902b778f3fd56e36c686d"
+      },
+      "inputDigest": "e34743830de6fedeb582d483c7cc943b72442f5081fe30ceeabbad9a4aed0db5",
+      "outputDigest": "5aa5f0f26721c6d103f441c081bcb08e5dfba295bd6902b778f3fd56e36c686d",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T06:34:23.752Z",
+        "endedAt": "2026-09-23T06:34:23.779Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/economics-local-evidence.test.ts",
+          "bytes": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        },
+        "receipt": {
+          "path": "audit/evidence/economics-local-20260923/i52-parameters.receipt.json",
+          "bytes": 3521,
+          "sha256": "1455e7cfe4c678a48624392ff284387f48e3ab6c95a9407bfc78266a8fd67dd2"
+        }
+      },
+      "bases": [],
+      "kind": "authored-parameter"
+    },
+    {
+      "id": "i52-20000",
+      "planId": "economics-local-i52-20260923",
+      "partId": "i52-price-arithmetic",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19273,
+          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-local-evidence.test.ts",
+            "bytes": 6192,
+            "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+          },
+          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "offset": 0,
+          "length": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "recipe": {
+        "id": "economics",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 20000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 20000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 50000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.0020077305134983572,
+          "paybackMonths": 2.891131939437634,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.002",
+            "2.9 months"
+          ]
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/economics-local-20260923/i52-20000.input.json",
+        "bytes": 255,
+        "sha256": "420515783293802ee38786b30c73c05fe730f0d980acb8f9c7ed51f193f9f41a"
+      },
+      "output": {
+        "path": "audit/evidence/economics-local-20260923/i52-20000.output.json",
+        "bytes": 961,
+        "sha256": "228026062d2667f9e7ddfdcadd6b9e54441f3993a93a64dcd09dc3537e2e5e6a"
+      },
+      "inputDigest": "420515783293802ee38786b30c73c05fe730f0d980acb8f9c7ed51f193f9f41a",
+      "outputDigest": "228026062d2667f9e7ddfdcadd6b9e54441f3993a93a64dcd09dc3537e2e5e6a",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T06:34:23.752Z",
+        "endedAt": "2026-09-23T06:34:23.779Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/economics-local-evidence.test.ts",
+          "bytes": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        },
+        "receipt": {
+          "path": "audit/evidence/economics-local-20260923/i52-20000.receipt.json",
+          "bytes": 3521,
+          "sha256": "708981b80649873e8f44d8428b0c01303058c1931eb9faa1c38f48f0fa33e6dc"
+        }
+      },
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/ranges/robotCost/min",
+          "unit": "USD"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/integrationMultiple",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/cycleTimeSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/uptimePercent",
+          "unit": "%"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/successRatePercent",
+          "unit": "%"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/jamClearSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/wageUsdPerHour",
+          "unit": "USD/hour"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "i52-80000",
+      "planId": "economics-local-i52-20260923",
+      "partId": "i52-price-arithmetic",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19273,
+          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-local-evidence.test.ts",
+            "bytes": 6192,
+            "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+          },
+          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "offset": 0,
+          "length": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "recipe": {
+        "id": "economics",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.008030922053993429,
+          "paybackMonths": 11.564527757750536,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.6 months"
+          ]
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/economics-local-20260923/i52-80000.input.json",
+        "bytes": 255,
+        "sha256": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226"
+      },
+      "output": {
+        "path": "audit/evidence/economics-local-20260923/i52-80000.output.json",
+        "bytes": 963,
+        "sha256": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8"
+      },
+      "inputDigest": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226",
+      "outputDigest": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T06:34:23.752Z",
+        "endedAt": "2026-09-23T06:34:23.779Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/economics-local-evidence.test.ts",
+          "bytes": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        },
+        "receipt": {
+          "path": "audit/evidence/economics-local-20260923/i52-80000.receipt.json",
+          "bytes": 3521,
+          "sha256": "08b43179410aa541f8778b5cab9d0831120c7570e60220742e9a753a3806a742"
+        }
+      },
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/robotCost",
+          "unit": "USD"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/integrationMultiple",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/cycleTimeSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/uptimePercent",
+          "unit": "%"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/successRatePercent",
+          "unit": "%"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/jamClearSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/wageUsdPerHour",
+          "unit": "USD/hour"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "i52-250000",
+      "planId": "economics-local-i52-20260923",
+      "partId": "i52-price-arithmetic",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19273,
+          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-local-evidence.test.ts",
+            "bytes": 6192,
+            "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+          },
+          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "offset": 0,
+          "length": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "recipe": {
+        "id": "economics",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 250000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 250000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 625000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.025096631418729465,
+          "paybackMonths": 36.139149242970426,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": false,
+          "display": [
+            "0.025",
+            "36.1 months"
+          ]
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/economics-local-20260923/i52-250000.input.json",
+        "bytes": 256,
+        "sha256": "29cc49da6efff409300cabacbca0057303487574aca63b79566d2ff308244fa2"
+      },
+      "output": {
+        "path": "audit/evidence/economics-local-20260923/i52-250000.output.json",
+        "bytes": 965,
+        "sha256": "edc38ec04b81cb2a3541d69b3964b21dd4ef06830b3f3a227e387552990ffd5f"
+      },
+      "inputDigest": "29cc49da6efff409300cabacbca0057303487574aca63b79566d2ff308244fa2",
+      "outputDigest": "edc38ec04b81cb2a3541d69b3964b21dd4ef06830b3f3a227e387552990ffd5f",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T06:34:23.752Z",
+        "endedAt": "2026-09-23T06:34:23.779Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/economics-local-evidence.test.ts",
+          "bytes": 6192,
+          "sha256": "bf4d2f6a94e787298f4082e9cc9aed07a2b9653bdc73a35d47f1efac3d02e340"
+        },
+        "receipt": {
+          "path": "audit/evidence/economics-local-20260923/i52-250000.receipt.json",
+          "bytes": 3521,
+          "sha256": "e71a8203a41ed21952251335ad27d417c0024df7c3356e22de3814379197320d"
+        }
+      },
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/ranges/robotCost/max",
+          "unit": "USD"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/integrationMultiple",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/cycleTimeSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/uptimePercent",
+          "unit": "%"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/successRatePercent",
+          "unit": "%"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/jamClearSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/wageUsdPerHour",
+          "unit": "USD/hour"
+        }
+      ],
+      "kind": "derived-result"
+    },
+    {
+      "id": "i52-observed-20000",
+      "planId": "economics-local-i52-20260923",
+      "partId": "i52-mounted-20000",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19273,
+          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/economics-local-evidence.spec.ts",
+            "bytes": 6789,
+            "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+          },
+          "id": "file:tests/e2e/economics-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 6789,
+          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "lib/utils.ts",
+            "bytes": 176,
+            "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+          },
+          "id": "file:lib/utils.ts",
+          "offset": 0,
+          "length": 176,
+          "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "recipe": {
+        "id": "economics",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 20000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 20000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 50000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.0020077305134983572,
+          "paybackMonths": 2.891131939437634,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.002",
+            "2.9 months"
+          ]
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/economics-local-20260923/i52-observed-20000.input.json",
+        "bytes": 255,
+        "sha256": "420515783293802ee38786b30c73c05fe730f0d980acb8f9c7ed51f193f9f41a"
+      },
+      "output": {
+        "path": "audit/evidence/economics-local-20260923/i52-observed-20000.output.json",
+        "bytes": 961,
+        "sha256": "228026062d2667f9e7ddfdcadd6b9e54441f3993a93a64dcd09dc3537e2e5e6a"
+      },
+      "inputDigest": "420515783293802ee38786b30c73c05fe730f0d980acb8f9c7ed51f193f9f41a",
+      "outputDigest": "228026062d2667f9e7ddfdcadd6b9e54441f3993a93a64dcd09dc3537e2e5e6a",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T06:36:26.458Z",
+        "endedAt": "2026-09-23T06:36:31.448Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/economics-local-evidence.spec.ts",
+          "bytes": 6789,
+          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+        },
+        "receipt": {
+          "path": "audit/evidence/economics-local-20260923/i52-observed-20000.receipt.json",
+          "bytes": 5454,
+          "sha256": "e1255924ffa9fcc82dc01f0476d561e1b518f1f77f629141d5ec2a59a700748e"
+        }
+      },
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/ranges/robotCost/min",
+          "unit": "USD"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/integrationMultiple",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/cycleTimeSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/uptimePercent",
+          "unit": "%"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/successRatePercent",
+          "unit": "%"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/jamClearSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/wageUsdPerHour",
+          "unit": "USD/hour"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Default robotCost80000",
+          "action": "Move robotCost to minimum20000",
+          "poststate": "Cell cost $50,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.002; 2.9 months; all seven inputs, notes, verdict, time shares and seconds checked",
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.002"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "2.9 months"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/economics-local-20260923/captures/min.dom.json",
+            "bytes": 167408,
+            "sha256": "bab9073826c8199e1e2efb68a77d1e25aa1859aa3586a37d0fc4fc811b550ec6"
+          },
+          "capture": {
+            "path": "audit/evidence/economics-local-20260923/captures/min.png",
+            "bytes": 128383,
+            "sha256": "649468eaff04d057900fde9add5ad4bc284198f84d4371e9e0cb50571de86b44"
+          }
+        }
+      ]
+    },
+    {
+      "id": "i52-observed-80000",
+      "planId": "economics-local-i52-20260923",
+      "partId": "i52-mounted-80000",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19273,
+          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/economics-local-evidence.spec.ts",
+            "bytes": 6789,
+            "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+          },
+          "id": "file:tests/e2e/economics-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 6789,
+          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "lib/utils.ts",
+            "bytes": 176,
+            "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+          },
+          "id": "file:lib/utils.ts",
+          "offset": 0,
+          "length": 176,
+          "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "recipe": {
+        "id": "economics",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.008030922053993429,
+          "paybackMonths": 11.564527757750536,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.6 months"
+          ]
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/economics-local-20260923/i52-observed-80000.input.json",
+        "bytes": 255,
+        "sha256": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226"
+      },
+      "output": {
+        "path": "audit/evidence/economics-local-20260923/i52-observed-80000.output.json",
+        "bytes": 963,
+        "sha256": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8"
+      },
+      "inputDigest": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226",
+      "outputDigest": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T06:36:26.458Z",
+        "endedAt": "2026-09-23T06:36:31.448Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/economics-local-evidence.spec.ts",
+          "bytes": 6789,
+          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+        },
+        "receipt": {
+          "path": "audit/evidence/economics-local-20260923/i52-observed-80000.receipt.json",
+          "bytes": 7806,
+          "sha256": "0a3f95c2ca8ecd33a966dacff137d05246bca7073091132e3053c8f57a63aae2"
+        }
+      },
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/robotCost",
+          "unit": "USD"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/integrationMultiple",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/cycleTimeSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/uptimePercent",
+          "unit": "%"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/successRatePercent",
+          "unit": "%"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/jamClearSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/wageUsdPerHour",
+          "unit": "USD/hour"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "default",
+          "prestate": "Article not loaded",
+          "action": "Navigate to existing article",
+          "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked",
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.008"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "11.6 months"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/economics-local-20260923/captures/default.dom.json",
+            "bytes": 167335,
+            "sha256": "a0e9fbf97526568c9ed62c52a277ed4b57a4f8462ff0f6cf0ebc9787d6cec90f"
+          },
+          "capture": {
+            "path": "audit/evidence/economics-local-20260923/captures/default.png",
+            "bytes": 128324,
+            "sha256": "8a945d9e53425be13f8737eb976d5d7f5cac20a91306422573b47d429f78f5af"
+          }
+        },
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "reset",
+          "prestate": "Maximum robotCost250000",
+          "action": "Activate Reset",
+          "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked",
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.008"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "11.6 months"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/economics-local-20260923/captures/reset.dom.json",
+            "bytes": 167412,
+            "sha256": "64f72b18ec509b08d7ee53f0be4c1e756374968b317572a560fbc2082f82bf4a"
+          },
+          "capture": {
+            "path": "audit/evidence/economics-local-20260923/captures/reset.png",
+            "bytes": 128317,
+            "sha256": "5b434d63af46e6cccccfc725974fe1d618d3d42604364ccc859304485e19c6a8"
+          }
+        },
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "default",
+          "prestate": "Desktop reset state",
+          "action": "Resize existing mounted calculator to375px",
+          "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked",
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.008"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "11.6 months"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/economics-local-20260923/captures/mobile-default.dom.json",
+            "bytes": 167038,
+            "sha256": "e42ef0fc8ff83886b249b607f67f30f59928886df35bf04eea0f8ca11d1e7d3c"
+          },
+          "capture": {
+            "path": "audit/evidence/economics-local-20260923/captures/mobile-default.png",
+            "bytes": 41757,
+            "sha256": "dfc5bbcd78402df9915a8451b15aa419c533cd7368b250ee21bfd0933a264d2d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "i52-observed-250000",
+      "planId": "economics-local-i52-20260923",
+      "partId": "i52-mounted-250000",
+      "originalId": "audit/data-hardware.md:industrial-deployment:52",
+      "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864",
+      "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19273,
+          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 40817,
+            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 40817,
+          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/economics-local-evidence.spec.ts",
+            "bytes": 6789,
+            "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+          },
+          "id": "file:tests/e2e/economics-local-evidence.spec.ts",
+          "offset": 0,
+          "length": 6789,
+          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        },
+        {
+          "file": {
+            "path": "lib/utils.ts",
+            "bytes": 176,
+            "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+          },
+          "id": "file:lib/utils.ts",
+          "offset": 0,
+          "length": 176,
+          "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+        }
+      ],
+      "disclosure": {
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19273,
+            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4005,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+          }
+        },
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      },
+      "recipe": {
+        "id": "economics",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 250000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 250000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 625000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.025096631418729465,
+          "paybackMonths": 36.139149242970426,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": false,
+          "display": [
+            "0.025",
+            "36.1 months"
+          ]
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/economics-local-20260923/i52-observed-250000.input.json",
+        "bytes": 256,
+        "sha256": "29cc49da6efff409300cabacbca0057303487574aca63b79566d2ff308244fa2"
+      },
+      "output": {
+        "path": "audit/evidence/economics-local-20260923/i52-observed-250000.output.json",
+        "bytes": 965,
+        "sha256": "edc38ec04b81cb2a3541d69b3964b21dd4ef06830b3f3a227e387552990ffd5f"
+      },
+      "inputDigest": "29cc49da6efff409300cabacbca0057303487574aca63b79566d2ff308244fa2",
+      "outputDigest": "edc38ec04b81cb2a3541d69b3964b21dd4ef06830b3f3a227e387552990ffd5f",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T06:36:26.458Z",
+        "endedAt": "2026-09-23T06:36:31.448Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/economics-local-evidence.spec.ts",
+          "bytes": 6789,
+          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+        },
+        "receipt": {
+          "path": "audit/evidence/economics-local-20260923/i52-observed-250000.receipt.json",
+          "bytes": 5458,
+          "sha256": "1b85bfd3b2dcd1028eb9157a39302511d72222176ea948dd37f6678f578fd6b6"
+        }
+      },
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/ranges/robotCost/max",
+          "unit": "USD"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/integrationMultiple",
+          "unit": "dimensionless"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/cycleTimeSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/uptimePercent",
+          "unit": "%"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/successRatePercent",
+          "unit": "%"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/jamClearSeconds",
+          "unit": "s"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i52-parameters",
+          "pointer": "/wageUsdPerHour",
+          "unit": "USD/hour"
+        }
+      ],
+      "kind": "observed-behavior",
+      "observations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Minimum robotCost20000",
+          "action": "Move robotCost to maximum250000",
+          "poststate": "Cell cost $625,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.025; 36.1 months; all seven inputs, notes, verdict, time shares and seconds checked",
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.025"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "36.1 months"
+            }
+          ],
+          "dom": {
+            "path": "audit/evidence/economics-local-20260923/captures/max.dom.json",
+            "bytes": 167414,
+            "sha256": "32cea2065e6494a26d61943859228f60f8bdff387bce4455fe27660c3bc496a8"
+          },
+          "capture": {
+            "path": "audit/evidence/economics-local-20260923/captures/max.png",
+            "bytes": 129206,
+            "sha256": "1294ca16c0099ac4da27afb4804ad6d8508cbd6c1ab0c1ebcecea245b1b8d456"
+          }
+        }
+      ]
+    }
+  ]
+}

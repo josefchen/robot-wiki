@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_CAPTURE=1 npx playwright test tests/e2e/kinematics.spec.ts --grep 'classical closure mounted observations' --workers=1 --output=audit/evidence/classical-closure-20260923/playwright-output-008",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T19:50:26.786390+00:00",
+  "endedAt": "2026-09-23T19:50:39.412800+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/kinematics.spec.ts",
+    "bytes": 20967,
+    "sha256": "80dfdd9bf5871b7bf57af3aba585268367c06e0333a5ad496200a67d1d9cf286"
+  },
+  "inputDigest": "0d18c5005e8950a8e51d7a3b9e7ad3fd728988e34404b4abdf35c4ab3642f97b",
+  "outputDigest": "de8b4659cf9595a97da570df4ab2fd840e8fd6a62ba9c352da55030c9a08396b",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/perception-error.ts",
+        "bytes": 8220,
+        "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+      },
+      "id": "file:lib/perception-error.ts",
+      "offset": 0,
+      "length": 8220,
+      "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+    },
+    {
+      "file": {
+        "path": "components/interactive/perception-error-budget.tsx",
+        "bytes": 17977,
+        "sha256": "99129aeae101f10d5e5e0035da656b8bc1a71fc05d273ab4ecbba82c6d847f9a"
+      },
+      "id": "source:components/interactive/perception-error-budget.tsx",
+      "offset": 0,
+      "length": 17977,
+      "sha256": "99129aeae101f10d5e5e0035da656b8bc1a71fc05d273ab4ecbba82c6d847f9a",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "8071a446e1d1f1ba9f85239fcd05984b9804dc68d23dcfeefa84bb010a52e552"
+      }
+    },
+    {
+      "file": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 34910,
+        "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e"
+      },
+      "id": "article:classical/perception",
+      "offset": 0,
+      "length": 34910,
+      "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e",
+      "baseline": {
+        "kind": "prose",
+        "hash": "65b2ea0fb13360b38a70f82d9074be7b3aa8adeefa8a187118776753e37fb571"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 52190,
+      "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/kinematics.spec.ts",
+        "bytes": 20967,
+        "sha256": "80dfdd9bf5871b7bf57af3aba585268367c06e0333a5ad496200a67d1d9cf286"
+      },
+      "id": "file:tests/e2e/kinematics.spec.ts",
+      "offset": 0,
+      "length": 20967,
+      "sha256": "80dfdd9bf5871b7bf57af3aba585268367c06e0333a5ad496200a67d1d9cf286"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "discrete-options",
+      "prestate": "reset opening",
+      "action": "select transparent",
+      "poststate": "transparent",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "80.18 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "80.00 mm at 16.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "above model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/classical-closure-20260923/perception-transparent-1440.dom.json",
+        "bytes": 95975,
+        "sha256": "3baad9acc8427541552d7064b411274bda9a3a0be2b3d2293e6cb87161359745"
+      },
+      "capture": {
+        "path": "audit/evidence/classical-closure-20260923/perception-transparent-1440.png",
+        "bytes": 129350,
+        "sha256": "f334e1de3a186dd5aef3f7ad668f361c4ef9cd203648ec405ebdde85bcd91a4c"
+      }
+    },
+    {
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "discrete-options",
+      "prestate": "reset opening",
+      "action": "select transparent",
+      "poststate": "transparent",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "80.18 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "80.00 mm at 16.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "above model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/classical-closure-20260923/perception-transparent-375.dom.json",
+        "bytes": 95996,
+        "sha256": "2a43178e4e5d58c44b5157818f0ccfc05445616c5a30362233a980e02f96f3fe"
+      },
+      "capture": {
+        "path": "audit/evidence/classical-closure-20260923/perception-transparent-375.png",
+        "bytes": 43303,
+        "sha256": "8595cb34859106a81e3302c0ef4965cd571d3ba2bc0a358ae208d380122a57fa"
+      }
+    }
+  ]
+}

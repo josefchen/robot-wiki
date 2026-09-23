@@ -47,13 +47,13 @@ const CONTROLS: Array<{
     key: 'robotCost',
     label: 'Robot cost',
     format: (v) => `$${(v / 1000).toFixed(0)}k`,
-    note: 'Assumption: list price for a mid-range industrial arm; no cited source publishes an arm-only price.',
+    note: 'Assumption: $80k is a chosen example, not a sourced arm-price quote. EVST gives complete-cell budgets, not fixed list prices.',
   },
   {
     key: 'integrationMultiple',
     label: 'Integration multiple',
     format: (v) => `${v.toFixed(1)}x`,
-    note: 'Sourced: EVST guides quote complete cells at 2-3x the arm price, robot a third to half of total.',
+    note: 'Assumption: 2.5x is chosen within EVST’s 2-3x complete-cell guidance, not a measured cell.',
   },
   {
     key: 'cycleTimeSeconds',
@@ -213,11 +213,11 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
         <div className="sm:col-span-3">
           <p className="text-[11px] leading-snug text-text-dim">
             Cell cost {formatMoney(out.totalCellCost)};{' '}
-            {out.netPicksPerHour.toFixed(0)} good picks per up-hour and{' '}
+            {out.netPicksPerHour.toFixed(0)} modeled picks per elapsed hour and{' '}
             {out.monthlyPicks.toLocaleString('en-US', { maximumFractionDigits: 0 })}{' '}
             per {ROBOT_HOURS_PER_MONTH}-hour month; jam rate{' '}
-            {out.jamRatePercent.toFixed(2)}%. All seven defaults are
-            assumptions or vendor-guide figures, labelled under each slider;
+            {out.jamRatePercent.toFixed(2)}%. All seven defaults and slider ranges are
+            authored assumptions; EVST’s guide supplies context, not exact inputs;
             none is a measured deployment result.
           </p>
         </div>

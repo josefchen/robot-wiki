@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "classical-dependency-review-v1",
+  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; integrator, Astra/max, not independent acceptance",
+  "observedAt": "2026-09-23T19:57:26.422Z",
+  "rationale": "Finite target registration, four classical recipes and two mount-free derivations added. Existing calculation modules and all 70 expected derivations are unchanged. Existing proof, execution and review objects are preserved byte-for-byte as JSON values, not relabelled as new observations. Old article continuity remains under the unchanged industrial review. Exact old checker bytes and current checker bytes are bound here; an arbitrary stale hash remains rejected. Follow-up native preservation check found industrial37/47/48 hash-bind the shared glossary. Verified exactly three glossary replacements, confined to DH and inverse-kinematics entries; all industrial terms, citations and tooltips are byte-preserved. A bounded exact continuity binding preserves the original industrial receipt rather than replaying it. The checker change after classical runs only adds these exact historical hashes and chooses their reviewed archive; no recipes, inputs, outputs, UI, target inventories or observations changed.",
+  "bindings": [
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52393,
+        "sha256": "099b03595f3319518ece9613ba6804931d537faa69ab6acb867f344067108791"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-closure-20260923/original-checker.ts.txt",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "rationale": "Inspected additive diff: existing named recipes and model files unchanged; all retained expected numerical outputs recompute identically. No old UI observation is replayed or rehashed."
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52393,
+        "sha256": "099b03595f3319518ece9613ba6804931d537faa69ab6acb867f344067108791"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/checker-before.ts.txt",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "rationale": "Inspected additive diff: existing named recipes and model files unchanged; all retained expected numerical outputs recompute identically. No old UI observation is replayed or rehashed."
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52393,
+        "sha256": "099b03595f3319518ece9613ba6804931d537faa69ab6acb867f344067108791"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/checker-at-execution.ts.txt",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "rationale": "Exact checker used in the actual classical executions. Subsequent diff only adds finite retained-dependency dispatch for this hash and the unrelated industrial glossary; all four new recipes and validation behavior are identical. Receipt/proof objects remain unmodified."
+    },
+    {
+      "historical": {
+        "path": "data/glossary.ts",
+        "bytes": 83491,
+        "sha256": "8de5ceeed550244ccc7e83e27056d2721b26723e94dff0cf77548c3fe465adf0"
+      },
+      "current": {
+        "path": "data/glossary.ts",
+        "bytes": 83261,
+        "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/glossary-before.ts.txt",
+        "bytes": 83491,
+        "sha256": "8de5ceeed550244ccc7e83e27056d2721b26723e94dff0cf77548c3fe465adf0"
+      },
+      "rationale": "Verified 3 exact prepared replacements in DH and inverse-kinematics only. No term used by the industrial correction changed; their original tooltip observations remain applicable, not newly claimed."
+    }
+  ]
+}

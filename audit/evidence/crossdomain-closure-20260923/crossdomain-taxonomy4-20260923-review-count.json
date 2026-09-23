@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "b7856fa2-70d5-4c9d-ba8e-608460f99a6d",
+  "role": "integrator",
+  "eventId": "crossdomain-taxonomy4-20260923:crossdomain-taxonomy4-20260923-count",
+  "observedAt": "2026-09-23T20:54:41.433Z",
+  "reviewedBy": "Droid b7856fa2-70d5-4c9d-ba8e-608460f99a6d; integrator Astra/max, not independent acceptance",
+  "rationale": "Reviewed the six exact WM_PARADIGMS IDs and duplicate-free cardinality, matching the six selected article groups. Existing scientific-to-editorial qualification is preserved with the word authored made explicit. No survey passage is claimed to establish six universal paradigms; the superseded unresolved compound plan remains archived, not promoted. Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "crossdomain-taxonomy4-20260923-count",
+  "inputDigest": "d977e7f2872431ef2d4855c683a8c579a4886342d6dcf8e2e1d8962ade3852da",
+  "inventory": [
+    {
+      "id": "crossdomain-taxonomy4-20260923-parameters",
+      "kind": "authored-parameter",
+      "text": "Exact ordered author-selected member IDs, not source facts or a census.",
+      "requiredProofIds": [
+        "crossdomain-taxonomy4-20260923-parameters"
+      ]
+    },
+    {
+      "id": "crossdomain-taxonomy4-20260923-count",
+      "kind": "derived-result",
+      "text": "Reviewed the six exact WM_PARADIGMS IDs and duplicate-free cardinality, matching the six selected article groups. Existing scientific-to-editorial qualification is preserved with the word authored made explicit. No survey passage is claimed to establish six universal paradigms; the superseded unresolved compound plan remains archived, not promoted.",
+      "requiredProofIds": [
+        "crossdomain-taxonomy4-20260923-count"
+      ]
+    }
+  ],
+  "originalId": "audit/world-models.md:taxonomy:4",
+  "currentTupleDigest": "1f9abcf50097d8aa4b6b12d0900d5b6c45a632bfd3601a52d54b1a59ebec8b2c"
+}

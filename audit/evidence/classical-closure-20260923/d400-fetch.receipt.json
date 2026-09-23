@@ -1,0 +1,58 @@
+{
+  "start": "2026-09-13T08:25:28.547454+00:00",
+  "end": "2026-09-13T08:25:29.954227+00:00",
+  "argv": [
+    "curl",
+    "--silent",
+    "--show-error",
+    "--location",
+    "--max-redirs",
+    "3",
+    "--proto",
+    "=https",
+    "--proto-redir",
+    "=https",
+    "--max-time",
+    "60",
+    "--connect-timeout",
+    "15",
+    "--max-filesize",
+    "20971520",
+    "--dump-header",
+    "/dev/stderr",
+    "--write-out",
+    "%{stderr}\nCURL_META_JSON:%{json}\n",
+    "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf"
+  ],
+  "exitCode": 0,
+  "bodyBytes": 5417349,
+  "artifacts": [
+    {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
+      "bytes": 5417349,
+      "sha256": "96cb5706bd879479bab36648bd3ec67f6338b4616d696dda55007f898182454f"
+    },
+    {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.transport.txt",
+      "bytes": 14475,
+      "sha256": "9dafd442c2b64104aca3fa949375c611c7aad851bb01b2a483b71d3ee8e2b81d"
+    }
+  ],
+  "httpStatusNotInferredFromExit": true,
+  "extraction": {
+    "argv": [
+      "pdftotext",
+      "-layout",
+      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
+      "-"
+    ],
+    "exitCode": 0,
+    "end": "2026-09-13T08:25:30.309600+00:00",
+    "text": {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.text.txt",
+      "bytes": 377030,
+      "sha256": "29e230ab9e344a52a865c7a2193d2074aee10c59d29a2fdb6a1a497a7cdfd6d4"
+    },
+    "stderr": null
+  }
+}

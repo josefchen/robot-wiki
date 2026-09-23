@@ -1,0 +1,11 @@
+{
+  "id": "perception",
+  "mode": "derive",
+  "inputs": {
+    "handEyeDeg": 0,
+    "depthPct": 2,
+    "poseMm": 3,
+    "workingDistanceM": 1.5,
+    "target": "opaque"
+  }
+}

@@ -1,0 +1,1685 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: kinematics.spec.ts >> classical closure mounted observations at desktop and mobile
+- Location: tests/e2e/kinematics.spec.ts:16:1
+
+# Error details
+
+```
+Error: clock.pauseAt: Error: Cannot fast-forward to the past
+    at ClockController._innerFastForwardTo (<anonymous>:202:13)
+    at ClockController.pauseAt (<anonymous>:133:16)
+    at async <anonymous>:337:30
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=f1e1]:
+  - link "Skip to content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f1e3]:
+    - complementary [ref=f1e4]:
+      - generic [ref=f1e5]:
+        - link "Robot Wiki" [ref=f1e7] [cursor=pointer]:
+          - /url: /
+        - search "Site search" [ref=f1e8]:
+          - generic [ref=f1e9]: Search
+          - generic [ref=f1e10]:
+            - searchbox "Search" [ref=f1e11]
+            - button "Search the wiki" [ref=f1e12]
+        - navigation "Robot Wiki taxonomy" [ref=f1e15]:
+          - list [ref=f1e16]:
+            - listitem [ref=f1e17]:
+              - button "Manipulation & Learned Policies" [ref=f1e18]
+            - listitem [ref=f1e22]:
+              - button "RL, Sim-to-Real & Locomotion" [ref=f1e23]
+            - listitem [ref=f1e27]:
+              - button "World Models" [ref=f1e28]
+            - listitem [ref=f1e32]:
+              - button "Data, Hardware & Evaluation" [ref=f1e33]
+            - listitem [ref=f1e37]:
+              - button "Classical Foundations" [expanded] [ref=f1e38]
+              - list [ref=f1e42]:
+                - listitem [ref=f1e43]:
+                  - link "Domain overview" [ref=f1e44] [cursor=pointer]:
+                    - /url: /classical/
+                - listitem [ref=f1e45]:
+                  - link "Kinematics" [ref=f1e46] [cursor=pointer]:
+                    - /url: /classical/kinematics/
+                - listitem [ref=f1e47]:
+                  - link "Motion Planning" [ref=f1e48] [cursor=pointer]:
+                    - /url: /classical/motion-planning/
+                - listitem [ref=f1e49]:
+                  - link "Control" [ref=f1e50] [cursor=pointer]:
+                    - /url: /classical/control/
+                - listitem [ref=f1e51]:
+                  - link "State Estimation" [ref=f1e52] [cursor=pointer]:
+                    - /url: /classical/state-estimation/
+                - listitem [ref=f1e53]:
+                  - link "Grasp Planning" [ref=f1e54] [cursor=pointer]:
+                    - /url: /classical/grasp-planning/
+                - listitem [ref=f1e55]:
+                  - link "Perception for Manipulation" [ref=f1e56] [cursor=pointer]:
+                    - /url: /classical/perception/
+                - listitem [ref=f1e57]:
+                  - link "Scene Representation and Mapping" [ref=f1e58] [cursor=pointer]:
+                    - /url: /classical/scene-representation/
+            - listitem [ref=f1e59]:
+              - button "Frontier & Open Problems" [ref=f1e60]
+            - listitem [ref=f1e64]:
+              - button "Adjacent Domains" [ref=f1e65]
+          - list [ref=f1e69]:
+            - listitem [ref=f1e70]:
+              - link "A-Z Index" [ref=f1e71] [cursor=pointer]:
+                - /url: /a-z/
+            - listitem [ref=f1e72]:
+              - link "Market Map" [ref=f1e73] [cursor=pointer]:
+                - /url: /market-map/
+            - listitem [ref=f1e74]:
+              - link "Playground" [ref=f1e75] [cursor=pointer]:
+                - /url: /playground/
+            - listitem [ref=f1e76]:
+              - link "Glossary" [ref=f1e77] [cursor=pointer]:
+                - /url: /glossary/
+            - listitem [ref=f1e78]:
+              - link "Credits" [ref=f1e79] [cursor=pointer]:
+                - /url: /credits/
+    - generic [ref=f1e80]:
+      - main [ref=f1e81]:
+        - article [ref=f1e82]:
+          - navigation "Breadcrumb" [ref=f1e83]:
+            - list [ref=f1e84]:
+              - listitem [ref=f1e85]:
+                - link "Home" [ref=f1e86] [cursor=pointer]:
+                  - /url: /
+                - generic [ref=f1e87]: /
+              - listitem [ref=f1e88]:
+                - link "Classical Foundations" [ref=f1e89] [cursor=pointer]:
+                  - /url: /classical/
+                - generic [ref=f1e90]: /
+              - listitem [ref=f1e91]:
+                - generic [ref=f1e92]: Motion Planning
+          - generic [ref=f1e93]:
+            - heading "Motion Planning" [level=1] [ref=f1e94]
+            - paragraph [ref=f1e95]: RRT and its optimal variants, trajectory optimization, and CHOMP/TrajOpt.
+            - generic [ref=f1e96]:
+              - generic [ref=f1e97]:
+                - term [ref=f1e98]: Last reviewed
+                - definition [ref=f1e99]:
+                  - time [ref=f1e100]: 17 August 2026
+              - generic [ref=f1e101]:
+                - term [ref=f1e102]: Reading time
+                - definition [ref=f1e103]: 19 min
+              - generic [ref=f1e104]:
+                - term [ref=f1e105]: Citations
+                - definition [ref=f1e106]: "10"
+          - generic [ref=f1e107]:
+            - paragraph [ref=f1e108]:
+              - text: "Motion planning answers a deceptively simple question: given where the robot is and where it needs to be, what motion gets it there without hitting anything?"
+              - link "Kinematics" [ref=f1e109] [cursor=pointer]:
+                - /url: /classical/kinematics
+              - text: tells you where the arm is for a given set of joint angles; planning finds the sequence of joint angles worth executing. It is the layer where geometry becomes a decision, and it is the layer most learned policies quietly replace or lean on, depending on whom you ask.
+            - paragraph [ref=f1e110]:
+              - text: Sampling-based planning and
+              - link "trajectory optimization" [ref=f1e112] [cursor=pointer]:
+                - /url: /glossary/#trajectory-optimization
+              - text: start differently. A sampling planner explores configurations and connections; an optimizer starts with a complete candidate trajectory and improves an objective. Neither a smoothness objective nor an initial guess guarantees that local optimization will find a collision-free motion. CHOMP and TrajOpt both examine planning from infeasible guesses as well as refining existing trajectories
+              - generic [ref=f1e114]:
+                - link "Ratliff 2009" [ref=f1e115] [cursor=pointer]:
+                  - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                - 'link "Jump to the full reference for CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e116] [cursor=pointer]':
+                  - /url: "#ref-ratliff-2009"
+                  - generic [ref=f1e117]: ↓
+              - generic [ref=f1e118]:
+                - generic [ref=f1e120]:
+                  - link "Schulman 2013" [ref=f1e121] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e122] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e123]: ↓
+                - text: .
+            - paragraph [ref=f1e124]: "The interactive below uses an authored 2D scene: a 100 by 64 world with five obstacles. Its seed 19981001, maximum step of 2 world units, cap of 900 accepted extensions, obstacle layout and 1.5% goal-sampling probability are chosen teaching settings, not a published benchmark. The iteration control counts accepted extensions of this fixed-seed tree. Run, Step forward and the slider reveal that tree; Reset returns to its opening state. Sampling is otherwise uniform. This example does not establish a planner-wide success rate, completeness or optimality guarantee."
+            - generic [ref=f1e125]:
+              - generic [ref=f1e126]:
+                - generic [ref=f1e127]:
+                  - generic [ref=f1e128]:
+                    - text: Exploration iteration
+                    - generic [ref=f1e129]: 0 / 288
+                  - slider "Exploration iteration, currently 0 of 288" [ref=f1e130]: "0"
+                - generic [ref=f1e131]:
+                  - button "Run the exploration" [ref=f1e132]: Run
+                  - button "Step forward" [ref=f1e135]
+                  - button "Reset" [ref=f1e136]
+              - 'img "RRT exploration of a 2D planning scene with 5 obstacles between a start on the left and a goal on the right. Iteration 0 of 288, 1 nodes. Status: tree not started." [ref=f1e137]':
+                - generic [ref=f1e145]: goal
+                - generic [ref=f1e148]: start
+              - paragraph [ref=f1e151]:
+                - text: iteration
+                - generic [ref=f1e152]: 0 / 288
+                - text: nodes 1 tree not started path length n/a
+              - generic [ref=f1e153]:
+                - paragraph [ref=f1e154]: The RRT tree is at iteration 0 of 288 with 1 node and status tree not started; path length is n/a until a branch first reaches the goal.
+                - group [ref=f1e155]:
+                  - generic "Current RRT tree state" [ref=f1e156] [cursor=pointer]
+              - paragraph [ref=f1e157]: Authored scene and sampling settings, not a published benchmark. The controls reveal accepted extensions from one fixed-seed tree. Each sampling attempt selects the goal with probability 1.5%; otherwise it samples uniformly in the world. An accepted step extends by at most the chosen step length and passes this demo's sampled segment check. Attempts rejected by that check do not advance the displayed count.
+            - generic [ref=f1e158]:
+              - generic [ref=f1e159]:
+                - generic [ref=f1e160]: "1998"
+                - generic [ref=f1e161]: RRT introduced
+                - generic [ref=f1e162]: Iowa State TR 98-11; date in LaValle's bibliography
+              - generic [ref=f1e163]:
+                - generic [ref=f1e164]: "2009"
+                - generic [ref=f1e165]: CHOMP
+                - generic [ref=f1e166]: covariant gradient refinement
+              - generic [ref=f1e167]:
+                - generic [ref=f1e168]: "2011"
+                - generic [ref=f1e169]: RRT* analysis
+                - generic [ref=f1e170]: Karaman and Frazzoli; conditional theorem
+              - generic [ref=f1e171]:
+                - generic [ref=f1e172]: 2D
+                - generic [ref=f1e173]: demo scene below
+                - generic [ref=f1e174]: 100 by 64 world, 5 obstacles
+            - heading "Configuration space" [level=2] [ref=f1e175]:
+              - link "Configuration space" [ref=f1e176] [cursor=pointer]:
+                - /url: "#configuration-space"
+              - button "Copy link to this section, Configuration space" [ref=f1e178] [cursor=pointer]
+            - paragraph [ref=f1e181]:
+              - text: "Planning in the physical workspace is awkward because the robot has extent: every link sweeps volume, and collision is a statement about whole bodies. The standard reformulation, due to Lozano-Pérez in 1983, moves the problem into"
+              - link "configuration space" [ref=f1e183] [cursor=pointer]:
+                - /url: /glossary/#configuration-space
+              - generic [ref=f1e184]:
+                - generic [ref=f1e186]:
+                  - link "Lozano-Pérez 1983" [ref=f1e187] [cursor=pointer]:
+                    - /url: https://doi.org/10.1109/TC.1983.1676196
+                  - 'link "Jump to the full reference for Spatial Planning: A Configuration Space Approach" [ref=f1e188] [cursor=pointer]':
+                    - /url: "#ref-lozano-perez-1983"
+                    - generic [ref=f1e189]: ↓
+                - text: .
+              - text: A configuration
+              - generic [ref=f1e190]:
+                - math [ref=f1e192]:
+                  - generic [ref=f1e193]: q
+                - generic [ref=f1e196]: q
+              - text: is one complete specification of the robot's posture, the vector of its joint values, and the configuration space
+              - generic [ref=f1e198]:
+                - math [ref=f1e200]:
+                  - generic [ref=f1e201]: C
+                - generic [ref=f1e204]: C
+              - text: is the set of all of them. A point robot in the plane has a 2D configuration space; a 7-DoF arm has a 7-dimensional one, one axis per joint.
+            - paragraph [ref=f1e206]:
+              - text: Obstacles lift into this space too. The configuration-space obstacle
+              - generic [ref=f1e207]:
+                - math [ref=f1e209]:
+                  - generic [ref=f1e212]:
+                    - generic [ref=f1e213]: C
+                    - generic [ref=f1e214]:
+                      - generic [ref=f1e215]: o
+                      - generic [ref=f1e216]: b
+                      - generic [ref=f1e217]: s
+                - generic [ref=f1e220]:
+                  - text: C
+                  - generic [ref=f1e221]: obs
+              - text: "is the set of configurations where any part of the robot intersects anything it should not, and the rest is free space:"
+            - region "Display equation 1" [ref=f1e230]:
+              - generic [ref=f1e231]:
+                - math [ref=f1e233]:
+                  - generic [ref=f1e235]:
+                    - generic [ref=f1e236]: C
+                    - generic [ref=f1e237]: =
+                    - generic [ref=f1e238]:
+                      - generic [ref=f1e239]: C
+                      - generic [ref=f1e240]:
+                        - generic [ref=f1e241]: o
+                        - generic [ref=f1e242]: b
+                        - generic [ref=f1e243]: s
+                    - generic [ref=f1e244]: ∪
+                    - generic [ref=f1e245]:
+                      - generic [ref=f1e246]: C
+                      - generic [ref=f1e247]:
+                        - generic [ref=f1e248]: f
+                        - generic [ref=f1e249]: r
+                        - generic [ref=f1e250]: e
+                        - generic [ref=f1e251]: e
+                    - generic [ref=f1e252]: ","
+                    - generic [ref=f1e253]:
+                      - generic [ref=f1e254]: C
+                      - generic [ref=f1e255]:
+                        - generic [ref=f1e256]: f
+                        - generic [ref=f1e257]: r
+                        - generic [ref=f1e258]: e
+                        - generic [ref=f1e259]: e
+                    - generic [ref=f1e260]: =
+                    - generic [ref=f1e261]: C
+                    - generic [ref=f1e262]: ∖
+                    - generic [ref=f1e263]:
+                      - generic [ref=f1e264]: C
+                      - generic [ref=f1e265]:
+                        - generic [ref=f1e266]: o
+                        - generic [ref=f1e267]: b
+                        - generic [ref=f1e268]: s
+                - generic [ref=f1e269]:
+                  - generic [ref=f1e270]: C =
+                  - generic [ref=f1e271]:
+                    - generic [ref=f1e272]:
+                      - text: C
+                      - generic [ref=f1e273]: obs
+                    - text: ∪
+                  - generic [ref=f1e282]:
+                    - generic [ref=f1e283]:
+                      - text: C
+                      - generic [ref=f1e284]: free
+                    - text: ","
+                    - generic [ref=f1e293]:
+                      - text: C
+                      - generic [ref=f1e294]: free
+                    - text: =
+                  - generic [ref=f1e303]: C ∖
+                  - generic [ref=f1e305]:
+                    - text: C
+                    - generic [ref=f1e306]: obs
+            - paragraph [ref=f1e315]:
+              - text: The classical construction shrinks the robot to a point and grows each obstacle by the robot's shape, so collision checking reduces to point membership
+              - generic [ref=f1e316]:
+                - generic [ref=f1e318]:
+                  - link "Lozano-Pérez 1983" [ref=f1e319] [cursor=pointer]:
+                    - /url: https://doi.org/10.1109/TC.1983.1676196
+                  - 'link "Jump to the full reference for Spatial Planning: A Configuration Space Approach" [ref=f1e320] [cursor=pointer]':
+                    - /url: "#ref-lozano-perez-1983"
+                    - generic [ref=f1e321]: ↓
+                - text: .
+              - text: "Planning is then a clean statement: find a continuous curve in"
+              - generic [ref=f1e322]:
+                - math [ref=f1e324]:
+                  - generic [ref=f1e327]:
+                    - generic [ref=f1e328]: C
+                    - generic [ref=f1e329]:
+                      - generic [ref=f1e330]: f
+                      - generic [ref=f1e331]: r
+                      - generic [ref=f1e332]: e
+                      - generic [ref=f1e333]: e
+                - generic [ref=f1e336]:
+                  - text: C
+                  - generic [ref=f1e337]: free
+              - text: from
+              - generic [ref=f1e346]:
+                - math [ref=f1e348]:
+                  - generic [ref=f1e351]:
+                    - generic [ref=f1e352]: q
+                    - generic [ref=f1e353]:
+                      - generic [ref=f1e354]: s
+                      - generic [ref=f1e355]: t
+                      - generic [ref=f1e356]: a
+                      - generic [ref=f1e357]: r
+                      - generic [ref=f1e358]: t
+                - generic [ref=f1e361]:
+                  - text: q
+                  - generic [ref=f1e362]: start
+              - text: to
+              - generic [ref=f1e371]:
+                - math [ref=f1e373]:
+                  - generic [ref=f1e376]:
+                    - generic [ref=f1e377]: q
+                    - generic [ref=f1e378]:
+                      - generic [ref=f1e379]: g
+                      - generic [ref=f1e380]: o
+                      - generic [ref=f1e381]: a
+                      - generic [ref=f1e382]: l
+                - generic [ref=f1e385]:
+                  - text: q
+                  - generic [ref=f1e386]: goal
+              - text: . The difficulty is constructing the collision-constrained space, not a universal cutoff at a few dimensions. LaValle describes explicit boundary or solid representations as difficult, but also gives constructive translational cases and explains that semi-algebraic models for chains and trees can be generated automatically. His PSPACE-hardness statement concerns the basic semi-algebraic mover problem when the number of
+              - link "degrees of freedom" [ref=f1e396] [cursor=pointer]:
+                - /url: /glossary/#degrees-of-freedom
+              - text: is unbounded; it is not an impossibility result for every seven-joint arm
+              - generic [ref=f1e397]:
+                - generic [ref=f1e399]:
+                  - link "LaValle 2006" [ref=f1e400] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - link "Jump to the full reference for Planning Algorithms" [ref=f1e401] [cursor=pointer]:
+                    - /url: "#ref-lavalle-2006"
+                    - generic [ref=f1e402]: ↓
+                - text: .
+              - text: Sampling-based methods avoid explicit obstacle construction by probing a collision module, while still needing to validate entire local paths. Closed-chain constraints can also make efficient sampling difficult
+              - generic [ref=f1e403]:
+                - generic [ref=f1e405]:
+                  - link "LaValle 2006" [ref=f1e406] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - link "Jump to the full reference for Planning Algorithms" [ref=f1e407] [cursor=pointer]:
+                    - /url: "#ref-lavalle-2006"
+                    - generic [ref=f1e408]: ↓
+                - text: .
+            - heading "Sampling-based planning" [level=2] [ref=f1e409]:
+              - link "Sampling-based planning" [ref=f1e410] [cursor=pointer]:
+                - /url: "#sampling-based-planning"
+              - button "Copy link to this section, Sampling-based planning" [ref=f1e412] [cursor=pointer]
+            - paragraph [ref=f1e415]:
+              - text: Sampling-based planning can avoid an explicit configuration-space obstacle model by querying a collision-detection module for candidate configurations and validating local paths
+              - generic [ref=f1e416]:
+                - generic [ref=f1e418]:
+                  - link "LaValle 2006" [ref=f1e419] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - link "Jump to the full reference for Planning Algorithms" [ref=f1e420] [cursor=pointer]:
+                    - /url: "#ref-lavalle-2006"
+                    - generic [ref=f1e421]: ↓
+                - text: .
+              - text: The probabilistic roadmap (PRM) of Kavraki, Svestka, Latombe, and Overmars samples configurations uniformly at random, keeps the collision-free ones as milestones, connects nearby milestones with a local planner, and answers queries by searching the resulting graph
+              - generic [ref=f1e422]:
+                - generic [ref=f1e424]:
+                  - link "Kavraki 1996" [ref=f1e425] [cursor=pointer]:
+                    - /url: https://doi.org/10.1109/70.508439
+                  - link "Jump to the full reference for Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces" [ref=f1e426] [cursor=pointer]:
+                    - /url: "#ref-kavraki-1996"
+                    - generic [ref=f1e427]: ↓
+                - text: .
+              - text: "It is a multi-query method: build the roadmap once, plan many start-goal pairs against it."
+            - paragraph [ref=f1e428]:
+              - text: LaValle's report introduces the rapidly-exploring random tree at Iowa State University
+              - generic [ref=f1e429]:
+                - generic [ref=f1e431]:
+                  - link "LaValle 1998" [ref=f1e432] [cursor=pointer]:
+                    - /url: https://lavalle.pl/papers/Lav98c.pdf
+                  - 'link "Jump to the full reference for Rapidly-exploring Random Trees: A New Tool for Path Planning" [ref=f1e433] [cursor=pointer]':
+                    - /url: "#ref-lavalle-1998"
+                    - generic [ref=f1e434]: ↓
+                - text: .
+              - text: His textbook bibliography identifies it as Computer Science Technical Report 98-11, October 1998
+              - generic [ref=f1e435]:
+                - generic [ref=f1e437]:
+                  - link "LaValle 2006" [ref=f1e438] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - link "Jump to the full reference for Planning Algorithms" [ref=f1e439] [cursor=pointer]:
+                    - /url: "#ref-lavalle-2006"
+                    - generic [ref=f1e440]: ↓
+                - text: .
+              - text: The report starts a tree at an initial state. Each iteration samples a state in a bounded space, finds the nearest tree vertex under the chosen metric, selects a control input, and integrates the system over a fixed time interval. The vertices and the entire local paths represented by edges must remain in free state space
+              - generic [ref=f1e441]:
+                - generic [ref=f1e443]:
+                  - link "LaValle 1998" [ref=f1e444] [cursor=pointer]:
+                    - /url: https://lavalle.pl/papers/Lav98c.pdf
+                  - 'link "Jump to the full reference for Rapidly-exploring Random Trees: A New Tool for Path Planning" [ref=f1e445] [cursor=pointer]':
+                    - /url: "#ref-lavalle-1998"
+                    - generic [ref=f1e446]: ↓
+                - text: .
+            - paragraph [ref=f1e447]:
+              - text: For dynamics
+              - generic [ref=f1e448]:
+                - math [ref=f1e450]:
+                  - generic [ref=f1e452]:
+                    - generic [ref=f1e453]:
+                      - generic [ref=f1e454]: x
+                      - generic [ref=f1e455]: ˙
+                    - generic [ref=f1e456]: =
+                    - generic [ref=f1e457]: f
+                    - generic [ref=f1e458]: (
+                    - generic [ref=f1e459]: x
+                    - generic [ref=f1e460]: ","
+                    - generic [ref=f1e461]: u
+                    - generic [ref=f1e462]: )
+                - generic [ref=f1e463]:
+                  - generic [ref=f1e464]:
+                    - generic [ref=f1e468]:
+                      - generic [ref=f1e469]: x
+                      - generic [ref=f1e470]: ˙
+                    - text: =
+                  - generic [ref=f1e471]: f(x, u)
+              - text: ", the report gives the Euler approximation"
+            - region "Display equation 2" [ref=f1e472]:
+              - generic [ref=f1e473]:
+                - math [ref=f1e475]:
+                  - generic [ref=f1e477]:
+                    - generic [ref=f1e478]:
+                      - generic [ref=f1e479]: x
+                      - generic [ref=f1e480]:
+                        - generic [ref=f1e481]: "n"
+                        - generic [ref=f1e482]: e
+                        - generic [ref=f1e483]: w
+                    - generic [ref=f1e484]: ≈
+                    - generic [ref=f1e485]: x
+                    - generic [ref=f1e486]: +
+                    - generic [ref=f1e487]: f
+                    - generic [ref=f1e488]: (
+                    - generic [ref=f1e489]: x
+                    - generic [ref=f1e490]: ","
+                    - generic [ref=f1e491]: u
+                    - generic [ref=f1e492]: )
+                    - generic [ref=f1e493]: Δ
+                    - generic [ref=f1e494]: t
+                - generic [ref=f1e495]:
+                  - generic [ref=f1e496]:
+                    - generic [ref=f1e497]:
+                      - text: x
+                      - generic [ref=f1e498]: new
+                    - text: ≈
+                  - generic [ref=f1e507]: x +
+                  - generic [ref=f1e508]: f(x, u)Δt
+            - paragraph [ref=f1e509]:
+              - text: where
+              - generic [ref=f1e510]:
+                - math [ref=f1e512]:
+                  - generic [ref=f1e513]: x
+                - generic [ref=f1e516]: x
+              - text: is the starting state and
+              - generic [ref=f1e518]:
+                - math [ref=f1e520]:
+                  - generic [ref=f1e521]: u
+                - generic [ref=f1e524]: u
+              - text: is the chosen input. The report says a higher-order integrator such as Runge-Kutta is usually preferable. A fixed integration interval does not impose a fixed geometric extension distance for arbitrary dynamics
+              - generic [ref=f1e526]:
+                - generic [ref=f1e528]:
+                  - link "LaValle 1998" [ref=f1e529] [cursor=pointer]:
+                    - /url: https://lavalle.pl/papers/Lav98c.pdf
+                  - 'link "Jump to the full reference for Rapidly-exploring Random Trees: A New Tool for Path Planning" [ref=f1e530] [cursor=pointer]':
+                    - /url: "#ref-lavalle-1998"
+                    - generic [ref=f1e531]: ↓
+                - text: .
+            - paragraph [ref=f1e532]:
+              - text: LaValle's 2006 Section 5.5 explicitly removes the original step-size parameter. Its initial obstacle-free construction connects each sample to the nearest point in the tree's swath, the union of its edge paths. That point can lie inside an edge; Figure 5.18 splits the edge and inserts a vertex there. This construction is distinct from the original fixed-time control-integration rule
+              - generic [ref=f1e533]:
+                - generic [ref=f1e535]:
+                  - link "LaValle 2006" [ref=f1e536] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - link "Jump to the full reference for Planning Algorithms" [ref=f1e537] [cursor=pointer]:
+                    - /url: "#ref-lavalle-2006"
+                    - generic [ref=f1e538]: ↓
+                - text: .
+            - paragraph [ref=f1e539]:
+              - text: Nearest-neighbor selection gives RRT an exploration bias. In the report's planar holonomic example, frontier vertices have larger Voronoi regions and are more likely to be selected for expansion
+              - generic [ref=f1e540]:
+                - generic [ref=f1e542]:
+                  - link "LaValle 1998" [ref=f1e543] [cursor=pointer]:
+                    - /url: https://lavalle.pl/papers/Lav98c.pdf
+                  - 'link "Jump to the full reference for Rapidly-exploring Random Trees: A New Tool for Path Planning" [ref=f1e544] [cursor=pointer]':
+                    - /url: "#ref-lavalle-1998"
+                    - generic [ref=f1e545]: ↓
+                - text: .
+              - text: "The book's step-size-free dense-tree construction assumes an infinite dense sample sequence; a random sequence, including a biased one, must be dense with probability one. Its obstacle-free construction reaches each sample, while collision checking limits extensions when obstacles are present. This is not a guarantee of fast coverage on every problem: the report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query"
+              - generic [ref=f1e547]:
+                - link "LaValle 1998" [ref=f1e548] [cursor=pointer]:
+                  - /url: https://lavalle.pl/papers/Lav98c.pdf
+                - 'link "Jump to the full reference for Rapidly-exploring Random Trees: A New Tool for Path Planning" [ref=f1e549] [cursor=pointer]':
+                  - /url: "#ref-lavalle-1998"
+                  - generic [ref=f1e550]: ↓
+              - generic [ref=f1e551]:
+                - generic [ref=f1e553]:
+                  - link "LaValle 2006" [ref=f1e554] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - link "Jump to the full reference for Planning Algorithms" [ref=f1e555] [cursor=pointer]:
+                    - /url: "#ref-lavalle-2006"
+                    - generic [ref=f1e556]: ↓
+                - text: .
+              - text: The same construction handles dynamics by steering with controls instead of straight lines, which is the kinodynamic version LaValle and Kuffner developed
+              - generic [ref=f1e557]:
+                - generic [ref=f1e559]:
+                  - link "LaValle 2001" [ref=f1e560] [cursor=pointer]:
+                    - /url: https://lavalle.pl/papers/LavKuf01b.pdf
+                  - link "Jump to the full reference for Randomized Kinodynamic Planning" [ref=f1e561] [cursor=pointer]:
+                    - /url: "#ref-lavalle-kuffner-2001"
+                    - generic [ref=f1e562]: ↓
+                - text: .
+              - text: Probabilistic completeness is a limiting-probability property, not an assurance that an arbitrary existing path will be found
+              - generic [ref=f1e563]:
+                - generic [ref=f1e565]:
+                  - link "LaValle 2006" [ref=f1e566] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - link "Jump to the full reference for Planning Algorithms" [ref=f1e567] [cursor=pointer]:
+                    - /url: "#ref-lavalle-2006"
+                    - generic [ref=f1e568]: ↓
+                - text: .
+              - text: For a precise example, Karaman and Frazzoli state it for simplified PRM (sPRM) and their geometric RRT under the Euclidean model
+              - generic [ref=f1e569]:
+                - math [ref=f1e571]:
+                  - generic [ref=f1e573]:
+                    - generic [ref=f1e574]: X
+                    - generic [ref=f1e575]: =
+                    - generic [ref=f1e576]: (
+                    - generic [ref=f1e577]: "0"
+                    - generic [ref=f1e578]: ","
+                    - generic [ref=f1e579]: "1"
+                    - generic [ref=f1e580]:
+                      - generic [ref=f1e581]: )
+                      - generic [ref=f1e582]: d
+                - generic [ref=f1e583]:
+                  - generic [ref=f1e584]: X =
+                  - generic [ref=f1e585]:
+                    - text: (0, 1
+                    - generic [ref=f1e586]:
+                      - text: )
+                      - generic [ref=f1e587]: d
+              - text: ","
+              - generic [ref=f1e592]:
+                - math [ref=f1e594]:
+                  - generic [ref=f1e596]:
+                    - generic [ref=f1e597]: d
+                    - generic [ref=f1e598]: ≥
+                    - generic [ref=f1e599]: "2"
+                - generic [ref=f1e600]:
+                  - generic [ref=f1e601]: d ≥
+                  - generic [ref=f1e602]: "2"
+              - text: ", an open goal region, and robust feasibility: a solution path must have some positive clearance"
+              - generic [ref=f1e603]:
+                - math [ref=f1e605]:
+                  - generic [ref=f1e607]:
+                    - generic [ref=f1e608]: δ
+                    - generic [ref=f1e609]: ">"
+                    - generic [ref=f1e610]: "0"
+                - generic [ref=f1e611]:
+                  - generic [ref=f1e612]: δ >
+                  - generic [ref=f1e613]: "0"
+              - text: . Their algorithms use independent uniform free-space samples, a fixed positive connection radius for sPRM, RRT steering capped by a positive distance parameter, and collision tests over entire straight-line connections. Under those assumptions the probability of finding a solution tends to one. The result does not automatically extend to implementation heuristics; their 1-nearest sPRM counterexample is not probabilistically complete
+              - generic [ref=f1e614]:
+                - generic [ref=f1e616]:
+                  - link "Karaman 2011" [ref=f1e617] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1105.1186
+                  - link "Jump to the full reference for Sampling-based Algorithms for Optimal Motion Planning" [ref=f1e618] [cursor=pointer]:
+                    - /url: "#ref-karaman-frazzoli-2011"
+                    - generic [ref=f1e619]: ↓
+                - text: .
+            - paragraph [ref=f1e620]: "The Voronoi bias is what the scene at the top of this module is showing: the tree spreads because unexplored space claims more of the frontier, and the start-to-goal path lights up only once the goal region is reached."
+            - 'heading "Optimality: RRT*" [level=2] [ref=f1e621]':
+              - 'link "Optimality: RRT*" [ref=f1e622] [cursor=pointer]':
+                - /url: "#optimality-rrt"
+              - 'button "Copy link to this section, Optimality: RRT*" [ref=f1e624] [cursor=pointer]'
+            - paragraph [ref=f1e627]:
+              - text: Karaman and Frazzoli's 2011 analysis separates finding a feasible path from improving its cost. Their RRT non-optimality proof includes an obstacle-free Euclidean example with a steering distance at least the domain diameter in which the best path cost converges almost surely to a suboptimal value. Their PRM result concerns the forest-building version that rejects connections within an already connected component; it is not a result about every roadmap planner. The same paper proves asymptotic optimality for fixed-radius simplified PRM, which allows those connections, at greater computational cost
+              - generic [ref=f1e628]:
+                - generic [ref=f1e630]:
+                  - link "Karaman 2011" [ref=f1e631] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1105.1186
+                  - link "Jump to the full reference for Sampling-based Algorithms for Optimal Motion Planning" [ref=f1e632] [cursor=pointer]:
+                    - /url: "#ref-karaman-frazzoli-2011"
+                    - generic [ref=f1e633]: ↓
+                - text: .
+            - paragraph [ref=f1e634]:
+              - text: RRT* adds least-cost parent selection and rewiring; Algorithm 6 writes these costs additively. A new vertex keeps its feasible nearest parent unless a collision-free connection through a nearby vertex gives a cheaper path from the root. Neighbors are reattached only when a collision-free route through the new vertex lowers their cost. With
+              - generic [ref=f1e635]:
+                - math [ref=f1e637]:
+                  - generic [ref=f1e638]: "n"
+                - generic [ref=f1e641]: "n"
+              - text: vertices, Algorithm 6 uses
+            - region "Display equation 3" [ref=f1e643]:
+              - generic [ref=f1e644]:
+                - math [ref=f1e646]:
+                  - generic [ref=f1e648]:
+                    - generic [ref=f1e649]:
+                      - generic [ref=f1e650]: r
+                      - generic [ref=f1e651]: "n"
+                    - generic [ref=f1e652]: =
+                    - generic [ref=f1e653]: min
+                    - generic: ⁡
+                    - generic: ⁣
+                    - generic [ref=f1e654]:
+                      - generic [ref=f1e655]: "{"
+                      - generic [ref=f1e656]: η
+                      - generic [ref=f1e657]: ","
+                      - generic [ref=f1e658]: γ
+                      - generic [ref=f1e659]:
+                        - generic [ref=f1e660]:
+                          - generic [ref=f1e661]: (
+                          - generic [ref=f1e662]:
+                            - generic [ref=f1e663]:
+                              - generic [ref=f1e664]: log
+                              - generic: ⁡
+                              - generic [ref=f1e665]: "n"
+                            - generic [ref=f1e666]: "n"
+                          - generic [ref=f1e667]: )
+                        - generic [ref=f1e668]:
+                          - generic [ref=f1e669]: "1"
+                          - generic [ref=f1e670]: /
+                          - generic [ref=f1e671]: d
+                      - generic [ref=f1e672]: "}"
+                    - generic [ref=f1e673]: ","
+                - generic [ref=f1e674]:
+                  - generic [ref=f1e675]:
+                    - generic [ref=f1e676]:
+                      - text: r
+                      - generic [ref=f1e677]: "n"
+                    - text: =
+                  - generic [ref=f1e685]:
+                    - text: min
+                    - generic [ref=f1e686]:
+                      - generic [ref=f1e687]: "{"
+                      - text: η, γ
+                      - generic [ref=f1e688]:
+                        - generic [ref=f1e689]:
+                          - generic [ref=f1e690]: (
+                          - generic [ref=f1e695]:
+                            - generic [ref=f1e696]: "n"
+                            - generic [ref=f1e698]:
+                              - generic [ref=f1e699]: log
+                              - text: "n"
+                          - generic [ref=f1e703]: )
+                        - generic [ref=f1e704]: 1/d
+                      - generic [ref=f1e710]: "}"
+                    - text: ","
+            - paragraph [ref=f1e711]:
+              - text: where
+              - generic [ref=f1e712]:
+                - math [ref=f1e714]:
+                  - generic [ref=f1e716]:
+                    - generic [ref=f1e717]: η
+                    - generic [ref=f1e718]: ">"
+                    - generic [ref=f1e719]: "0"
+                - generic [ref=f1e720]:
+                  - generic [ref=f1e721]: η >
+                  - generic [ref=f1e722]: "0"
+              - text: caps the local steering distance and
+              - generic [ref=f1e723]:
+                - math [ref=f1e725]:
+                  - generic [ref=f1e727]:
+                    - generic [ref=f1e728]: d
+                    - generic [ref=f1e729]: ≥
+                    - generic [ref=f1e730]: "2"
+                - generic [ref=f1e731]:
+                  - generic [ref=f1e732]: d ≥
+                  - generic [ref=f1e733]: "2"
+              - text: is the Euclidean space dimension. The coefficient
+              - generic [ref=f1e734]:
+                - math [ref=f1e736]:
+                  - generic [ref=f1e737]: γ
+                - generic [ref=f1e740]: γ
+              - text: "must be sufficiently large for the problem: Theorem 38 and Appendix G's Lemma 71 print different sufficient bounds. The latter's conservative condition is"
+              - generic [ref=f1e742]:
+                - math [ref=f1e744]:
+                  - generic [ref=f1e746]:
+                    - generic [ref=f1e747]: γ
+                    - generic [ref=f1e748]: ">"
+                    - generic [ref=f1e749]: "4"
+                    - generic [ref=f1e750]: (
+                    - generic [ref=f1e751]: μ
+                    - generic [ref=f1e752]: (
+                    - generic [ref=f1e753]:
+                      - generic [ref=f1e754]: X
+                      - generic [ref=f1e755]:
+                        - generic [ref=f1e756]: f
+                        - generic [ref=f1e757]: r
+                        - generic [ref=f1e758]: e
+                        - generic [ref=f1e759]: e
+                    - generic [ref=f1e760]: )
+                    - generic [ref=f1e761]: /
+                    - generic [ref=f1e762]:
+                      - generic [ref=f1e763]: ζ
+                      - generic [ref=f1e764]: d
+                    - generic [ref=f1e765]:
+                      - generic [ref=f1e766]: )
+                      - generic [ref=f1e767]:
+                        - generic [ref=f1e768]: "1"
+                        - generic [ref=f1e769]: /
+                        - generic [ref=f1e770]: d
+                - generic [ref=f1e771]:
+                  - generic [ref=f1e772]: γ >
+                  - generic [ref=f1e773]:
+                    - text: 4(μ(
+                    - generic [ref=f1e774]:
+                      - text: X
+                      - generic [ref=f1e775]: free
+                    - text: )/
+                    - generic [ref=f1e784]:
+                      - text: ζ
+                      - generic [ref=f1e785]: d
+                    - generic [ref=f1e793]:
+                      - text: )
+                      - generic [ref=f1e794]: 1/d
+              - text: ", where"
+              - generic [ref=f1e800]:
+                - math [ref=f1e802]:
+                  - generic [ref=f1e804]:
+                    - generic [ref=f1e805]: μ
+                    - generic [ref=f1e806]: (
+                    - generic [ref=f1e807]:
+                      - generic [ref=f1e808]: X
+                      - generic [ref=f1e809]:
+                        - generic [ref=f1e810]: f
+                        - generic [ref=f1e811]: r
+                        - generic [ref=f1e812]: e
+                        - generic [ref=f1e813]: e
+                    - generic [ref=f1e814]: )
+                - generic [ref=f1e816]:
+                  - text: μ(
+                  - generic [ref=f1e817]:
+                    - text: X
+                    - generic [ref=f1e818]: free
+                  - text: )
+              - text: is free-space volume and
+              - generic [ref=f1e827]:
+                - math [ref=f1e829]:
+                  - generic [ref=f1e832]:
+                    - generic [ref=f1e833]: ζ
+                    - generic [ref=f1e834]: d
+                - generic [ref=f1e837]:
+                  - text: ζ
+                  - generic [ref=f1e838]: d
+              - text: is unit-ball volume; this is not a claim that the coefficient is minimal
+              - generic [ref=f1e846]:
+                - generic [ref=f1e848]:
+                  - link "Karaman 2011" [ref=f1e849] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1105.1186
+                  - link "Jump to the full reference for Sampling-based Algorithms for Optimal Motion Planning" [ref=f1e850] [cursor=pointer]:
+                    - /url: "#ref-karaman-frazzoli-2011"
+                    - generic [ref=f1e851]: ↓
+                - text: .
+            - paragraph [ref=f1e852]: "The convergence statement is conditional and concerns a bounded Euclidean domain. The paper uses independent uniform free-space samples, Euclidean distance and straight-line collision checking, not differential constraints. Its cost is positive on nontrivial paths, monotone under concatenation and bounded by a constant times path length. A finite-cost optimum must be robust: it has weak clearance, meaning it can be continuously deformed into paths with positive clearance, and the cost must be continuous for paths approaching that optimum in the paper's bounded-variation norm. Under this setup, its RRT* result is"
+            - region "Display equation 4" [ref=f1e853]:
+              - generic [ref=f1e854]:
+                - math [ref=f1e856]:
+                  - generic [ref=f1e858]:
+                    - generic [ref=f1e859]: P
+                    - generic: ⁣
+                    - generic [ref=f1e860]:
+                      - generic [ref=f1e861]: (
+                      - generic [ref=f1e862]:
+                        - generic [ref=f1e863]:
+                          - generic [ref=f1e864]: lim
+                          - generic: ⁡
+                        - generic [ref=f1e865]:
+                          - generic [ref=f1e866]: "n"
+                          - generic [ref=f1e867]: →
+                          - generic [ref=f1e868]: ∞
+                      - generic [ref=f1e869]:
+                        - generic [ref=f1e870]: c
+                        - generic [ref=f1e871]: "n"
+                      - generic [ref=f1e872]: =
+                      - generic [ref=f1e873]:
+                        - generic [ref=f1e874]: c
+                        - generic [ref=f1e875]: ∗
+                      - generic [ref=f1e876]: )
+                    - generic [ref=f1e877]: =
+                    - generic [ref=f1e878]: "1."
+                - generic [ref=f1e879]:
+                  - generic [ref=f1e880]:
+                    - text: P
+                    - generic [ref=f1e881]:
+                      - generic [ref=f1e882]: (
+                      - generic [ref=f1e886]:
+                        - generic [ref=f1e887]: n→∞
+                        - generic [ref=f1e889]: lim
+                      - generic [ref=f1e893]:
+                        - text: c
+                        - generic [ref=f1e894]: "n"
+                      - text: =
+                      - generic [ref=f1e902]:
+                        - text: c
+                        - generic [ref=f1e903]: ∗
+                      - generic [ref=f1e908]: )
+                    - text: =
+                  - generic [ref=f1e909]: "1."
+            - paragraph [ref=f1e910]:
+              - text: Here
+              - generic [ref=f1e911]:
+                - math [ref=f1e913]:
+                  - generic [ref=f1e916]:
+                    - generic [ref=f1e917]: c
+                    - generic [ref=f1e918]: "n"
+                - generic [ref=f1e921]:
+                  - text: c
+                  - generic [ref=f1e922]: "n"
+              - text: is the best feasible solution cost after
+              - generic [ref=f1e930]:
+                - math [ref=f1e932]:
+                  - generic [ref=f1e933]: "n"
+                - generic [ref=f1e936]: "n"
+              - text: iterations. This is an asymptotic cost guarantee, not a promise of an exact optimum after a finite budget. The non-optimality analysis also assumes that the set of states traversed by optimal paths has measure zero
+              - generic [ref=f1e938]:
+                - generic [ref=f1e940]:
+                  - link "Karaman 2011" [ref=f1e941] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1105.1186
+                  - link "Jump to the full reference for Sampling-based Algorithms for Optimal Motion Planning" [ref=f1e942] [cursor=pointer]:
+                    - /url: "#ref-karaman-frazzoli-2011"
+                    - generic [ref=f1e943]: ↓
+                - text: .
+            - paragraph [ref=f1e944]:
+              - text: "The computational comparison is narrower than a runtime promise: for fixed dimension and environment, the paper's efficient spatial-search model gives expected asymptotic processing work of order"
+              - generic [ref=f1e945]:
+                - math [ref=f1e947]:
+                  - generic [ref=f1e949]:
+                    - generic [ref=f1e950]: "n"
+                    - generic [ref=f1e951]: log
+                    - generic: ⁡
+                    - generic [ref=f1e952]: "n"
+                - generic [ref=f1e954]:
+                  - text: "n"
+                  - generic [ref=f1e955]: log
+                  - text: "n"
+              - text: for RRT*, within a constant factor of RRT's processing order. It does not bound every iteration's elapsed time by the same factor. In particular, its collision-check count grows as
+              - generic [ref=f1e956]:
+                - math [ref=f1e958]:
+                  - generic [ref=f1e960]:
+                    - generic [ref=f1e961]: O
+                    - generic [ref=f1e962]: (
+                    - generic [ref=f1e963]: log
+                    - generic: ⁡
+                    - generic [ref=f1e964]: "n"
+                    - generic [ref=f1e965]: )
+                - generic [ref=f1e967]:
+                  - text: O(
+                  - generic [ref=f1e968]: log
+                  - text: n)
+              - text: per iteration, while plain RRT makes one such check
+              - generic [ref=f1e969]:
+                - generic [ref=f1e971]:
+                  - link "Karaman 2011" [ref=f1e972] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1105.1186
+                  - link "Jump to the full reference for Sampling-based Algorithms for Optimal Motion Planning" [ref=f1e973] [cursor=pointer]:
+                    - /url: "#ref-karaman-frazzoli-2011"
+                    - generic [ref=f1e974]: ↓
+                - text: .
+            - paragraph [ref=f1e975]:
+              - text: RRT* with global sampling also improves routes to states irrelevant to a particular start-goal query. Informed RRT* addresses that work after a first solution is found. For Euclidean path length in
+              - generic [ref=f1e976]:
+                - math [ref=f1e978]:
+                  - generic [ref=f1e981]:
+                    - generic [ref=f1e982]: R
+                    - generic [ref=f1e983]: d
+                - generic [ref=f1e986]:
+                  - text: R
+                  - generic [ref=f1e987]: d
+              - text: with fixed start and goal, it samples directly from the planning domain's intersection with
+            - region "Display equation 5" [ref=f1e992]:
+              - generic [ref=f1e993]:
+                - math [ref=f1e995]:
+                  - generic [ref=f1e997]:
+                    - generic [ref=f1e998]:
+                      - generic [ref=f1e999]:
+                        - generic [ref=f1e1000]: X
+                        - generic [ref=f1e1001]: ^
+                      - generic [ref=f1e1002]: f
+                    - generic [ref=f1e1003]: =
+                    - generic [ref=f1e1004]:
+                      - generic [ref=f1e1005]: "{"
+                      - generic [ref=f1e1006]: x
+                      - generic [ref=f1e1007]: ":"
+                      - generic [ref=f1e1008]: ∥
+                      - generic [ref=f1e1009]: x
+                      - generic [ref=f1e1010]: −
+                      - generic [ref=f1e1011]:
+                        - generic [ref=f1e1012]: x
+                        - generic [ref=f1e1013]:
+                          - generic [ref=f1e1014]: s
+                          - generic [ref=f1e1015]: t
+                          - generic [ref=f1e1016]: a
+                          - generic [ref=f1e1017]: r
+                          - generic [ref=f1e1018]: t
+                      - generic [ref=f1e1019]:
+                        - generic [ref=f1e1020]: ∥
+                        - generic [ref=f1e1021]: "2"
+                      - generic [ref=f1e1022]: +
+                      - generic [ref=f1e1023]: ∥
+                      - generic [ref=f1e1024]: x
+                      - generic [ref=f1e1025]: −
+                      - generic [ref=f1e1026]:
+                        - generic [ref=f1e1027]: x
+                        - generic [ref=f1e1028]:
+                          - generic [ref=f1e1029]: g
+                          - generic [ref=f1e1030]: o
+                          - generic [ref=f1e1031]: a
+                          - generic [ref=f1e1032]: l
+                      - generic [ref=f1e1033]:
+                        - generic [ref=f1e1034]: ∥
+                        - generic [ref=f1e1035]: "2"
+                      - generic [ref=f1e1036]: ≤
+                      - generic [ref=f1e1037]:
+                        - generic [ref=f1e1038]: c
+                        - generic [ref=f1e1039]:
+                          - generic [ref=f1e1040]: b
+                          - generic [ref=f1e1041]: e
+                          - generic [ref=f1e1042]: s
+                          - generic [ref=f1e1043]: t
+                      - generic [ref=f1e1044]: "}"
+                    - generic [ref=f1e1045]: .
+                - generic [ref=f1e1046]:
+                  - generic [ref=f1e1047]:
+                    - generic [ref=f1e1048]:
+                      - generic [ref=f1e1049]: X
+                      - generic [ref=f1e1056]: f
+                    - text: =
+                  - generic [ref=f1e1064]:
+                    - generic [ref=f1e1065]:
+                      - text: "{x : ∥x −"
+                      - generic [ref=f1e1066]:
+                        - text: x
+                        - generic [ref=f1e1067]: start
+                      - generic [ref=f1e1076]:
+                        - text: ∥
+                        - generic [ref=f1e1077]: "2"
+                      - text: + ∥x −
+                      - generic [ref=f1e1085]:
+                        - text: x
+                        - generic [ref=f1e1086]: goal
+                      - generic [ref=f1e1095]:
+                        - text: ∥
+                        - generic [ref=f1e1096]: "2"
+                      - text: ≤
+                      - generic [ref=f1e1104]:
+                        - text: c
+                        - generic [ref=f1e1105]: best
+                      - text: "}"
+                    - text: .
+            - paragraph [ref=f1e1114]:
+              - text: This is a prolate hyperspheroid with start and goal as its foci and current best path length
+              - generic [ref=f1e1115]:
+                - math [ref=f1e1117]:
+                  - generic [ref=f1e1120]:
+                    - generic [ref=f1e1121]: c
+                    - generic [ref=f1e1122]:
+                      - generic [ref=f1e1123]: b
+                      - generic [ref=f1e1124]: e
+                      - generic [ref=f1e1125]: s
+                      - generic [ref=f1e1126]: t
+                - generic [ref=f1e1129]:
+                  - text: c
+                  - generic [ref=f1e1130]: best
+              - text: as its transverse diameter. Writing
+              - generic [ref=f1e1139]:
+                - math [ref=f1e1141]:
+                  - generic [ref=f1e1143]:
+                    - generic [ref=f1e1144]: f
+                    - generic [ref=f1e1145]: (
+                    - generic [ref=f1e1146]: x
+                    - generic [ref=f1e1147]: )
+                - generic [ref=f1e1148]: f(x)
+              - text: for the optimal start-goal cost constrained through
+              - generic [ref=f1e1150]:
+                - math [ref=f1e1152]:
+                  - generic [ref=f1e1153]: x
+                - generic [ref=f1e1156]: x
+              - text: ", the true improving set is"
+              - generic [ref=f1e1158]:
+                - math [ref=f1e1160]:
+                  - generic [ref=f1e1162]:
+                    - generic [ref=f1e1163]:
+                      - generic [ref=f1e1164]: X
+                      - generic [ref=f1e1165]: f
+                    - generic [ref=f1e1166]: =
+                    - generic [ref=f1e1167]: "{"
+                    - generic [ref=f1e1168]: x
+                    - generic [ref=f1e1169]: ":"
+                    - generic [ref=f1e1170]: f
+                    - generic [ref=f1e1171]: (
+                    - generic [ref=f1e1172]: x
+                    - generic [ref=f1e1173]: )
+                    - generic [ref=f1e1174]: <
+                    - generic [ref=f1e1175]:
+                      - generic [ref=f1e1176]: c
+                      - generic [ref=f1e1177]:
+                        - generic [ref=f1e1178]: b
+                        - generic [ref=f1e1179]: e
+                        - generic [ref=f1e1180]: s
+                        - generic [ref=f1e1181]: t
+                    - generic [ref=f1e1182]: "}"
+                - generic [ref=f1e1183]:
+                  - generic [ref=f1e1184]:
+                    - generic [ref=f1e1185]:
+                      - text: X
+                      - generic [ref=f1e1186]: f
+                    - text: =
+                  - generic [ref=f1e1194]: "{x :"
+                  - generic [ref=f1e1195]: f(x) <
+                  - generic [ref=f1e1196]:
+                    - generic [ref=f1e1197]:
+                      - text: c
+                      - generic [ref=f1e1198]: best
+                    - text: "}"
+              - text: ". The distance sum is an admissible lower bound: the region contains every state on a strictly improving feasible path, but a state inside it need not be collision-free or belong to any improving path. The planner still performs collision checks. Before the first finite-cost solution, it samples globally like RRT*"
+              - generic [ref=f1e1207]:
+                - generic [ref=f1e1209]:
+                  - link "Gammell 2014" [ref=f1e1210] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1404.2334
+                  - 'link "Jump to the full reference for Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic" [ref=f1e1211] [cursor=pointer]':
+                    - /url: "#ref-gammell-2014"
+                    - generic [ref=f1e1212]: ↓
+                - text: .
+            - paragraph [ref=f1e1213]:
+              - text: The paper reports the underlying RRT* completeness and optimality guarantees, not a universal speedup. Its linear expected-cost convergence calculation assumes no obstacles and a rewiring radius larger than the informed subset's diameter. Its simulation comparisons used common unoptimized code and 100 runs per variation on shared maps and seeds, with random-world refinement measured for 60 seconds after an initial solution. Those experiments found faster refinement than RRT*; when the informed set covers the planning domain, the heuristic supplies no focusing advantage
+              - generic [ref=f1e1214]:
+                - generic [ref=f1e1216]:
+                  - link "Gammell 2014" [ref=f1e1217] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1404.2334
+                  - 'link "Jump to the full reference for Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic" [ref=f1e1218] [cursor=pointer]':
+                    - /url: "#ref-gammell-2014"
+                    - generic [ref=f1e1219]: ↓
+                - text: .
+            - paragraph [ref=f1e1220]:
+              - text: Section V describes the Sample routine more strongly, as if every sampled state admits an improving path. That wording exceeds the admissible-superset construction in Section III and Algorithm 2; geometric membership alone does not establish it. Section V-A also leaves the exact informed rewiring-radius expression as ongoing work, so the paper does not supply a settled new threshold here
+              - generic [ref=f1e1221]:
+                - generic [ref=f1e1223]:
+                  - link "Gammell 2014" [ref=f1e1224] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1404.2334
+                  - 'link "Jump to the full reference for Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic" [ref=f1e1225] [cursor=pointer]':
+                    - /url: "#ref-gammell-2014"
+                    - generic [ref=f1e1226]: ↓
+                - text: .
+              - text: The Open Motion Planning Library's project documentation lists implementations of PRM and RRT, along with benchmarking tools for comparing planners. The core library is designed to integrate with external collision-checking and visualization components
+              - generic [ref=f1e1227]:
+                - generic [ref=f1e1229]:
+                  - link "Șucan 2012" [ref=f1e1230] [cursor=pointer]:
+                    - /url: https://ompl.kavrakilab.org/
+                  - link "Jump to the full reference for The Open Motion Planning Library" [ref=f1e1231] [cursor=pointer]:
+                    - /url: "#ref-ompl-2012"
+                    - generic [ref=f1e1232]: ↓
+                - text: .
+            - heading "Trajectory optimization" [level=2] [ref=f1e1233]:
+              - link "Trajectory optimization" [ref=f1e1234] [cursor=pointer]:
+                - /url: "#trajectory-optimization"
+              - button "Copy link to this section, Trajectory optimization" [ref=f1e1236] [cursor=pointer]
+            - paragraph [ref=f1e1239]: Trajectory optimization makes the trajectory the decision variable. Smoothness, obstacle clearance, and task requirements enter an objective or constraints; solving the local optimization problem is not the same as guaranteeing a feasible global route.
+            - 'heading "CHOMP: a smoothness metric, not a local step-size rule" [level=3] [ref=f1e1240]':
+              - 'link "CHOMP: a smoothness metric, not a local step-size rule" [ref=f1e1241] [cursor=pointer]':
+                - /url: "#chomp-a-smoothness-metric-not-a-local-step-size-rule"
+              - 'button "Copy link to this section, CHOMP: a smoothness metric, not a local step-size rule" [ref=f1e1243] [cursor=pointer]'
+            - paragraph [ref=f1e1246]:
+              - text: CHOMP combines an obstacle cost with an environment-independent prior on trajectory dynamics. In the paper's discrete formulation,
+              - generic [ref=f1e1247]:
+                - math [ref=f1e1249]:
+                  - generic [ref=f1e1250]: ξ
+                - generic [ref=f1e1253]: ξ
+              - text: contains the interior waypoints,
+              - generic [ref=f1e1255]:
+                - math [ref=f1e1257]:
+                  - generic [ref=f1e1260]:
+                    - generic [ref=f1e1261]: K
+                    - generic [ref=f1e1262]: d
+                - generic [ref=f1e1265]:
+                  - text: K
+                  - generic [ref=f1e1266]: d
+              - text: computes finite differences, and
+              - generic [ref=f1e1274]:
+                - math [ref=f1e1276]:
+                  - generic [ref=f1e1279]:
+                    - generic [ref=f1e1280]: e
+                    - generic [ref=f1e1281]: d
+                - generic [ref=f1e1284]:
+                  - text: e
+                  - generic [ref=f1e1285]: d
+              - text: "accounts for the fixed endpoints:"
+            - region "Display equation 6" [ref=f1e1293]:
+              - generic [ref=f1e1294]:
+                - math [ref=f1e1296]:
+                  - generic [ref=f1e1298]:
+                    - generic [ref=f1e1299]: U
+                    - generic [ref=f1e1300]: (
+                    - generic [ref=f1e1301]: ξ
+                    - generic [ref=f1e1302]: )
+                    - generic [ref=f1e1303]: =
+                    - generic [ref=f1e1304]:
+                      - generic [ref=f1e1305]: f
+                      - generic [ref=f1e1306]:
+                        - generic [ref=f1e1307]: p
+                        - generic [ref=f1e1308]: r
+                        - generic [ref=f1e1309]: i
+                        - generic [ref=f1e1310]: o
+                        - generic [ref=f1e1311]: r
+                    - generic [ref=f1e1312]: (
+                    - generic [ref=f1e1313]: ξ
+                    - generic [ref=f1e1314]: )
+                    - generic [ref=f1e1315]: +
+                    - generic [ref=f1e1316]:
+                      - generic [ref=f1e1317]: f
+                      - generic [ref=f1e1318]:
+                        - generic [ref=f1e1319]: o
+                        - generic [ref=f1e1320]: b
+                        - generic [ref=f1e1321]: s
+                    - generic [ref=f1e1322]: (
+                    - generic [ref=f1e1323]: ξ
+                    - generic [ref=f1e1324]: )
+                    - generic [ref=f1e1325]: ","
+                    - generic [ref=f1e1326]:
+                      - generic [ref=f1e1327]: f
+                      - generic [ref=f1e1328]:
+                        - generic [ref=f1e1329]: p
+                        - generic [ref=f1e1330]: r
+                        - generic [ref=f1e1331]: i
+                        - generic [ref=f1e1332]: o
+                        - generic [ref=f1e1333]: r
+                    - generic [ref=f1e1334]: (
+                    - generic [ref=f1e1335]: ξ
+                    - generic [ref=f1e1336]: )
+                    - generic [ref=f1e1337]: =
+                    - generic [ref=f1e1338]:
+                      - generic [ref=f1e1339]: "1"
+                      - generic [ref=f1e1340]: "2"
+                    - generic [ref=f1e1341]:
+                      - generic [ref=f1e1342]: ∑
+                      - generic [ref=f1e1343]:
+                        - generic [ref=f1e1344]: d
+                        - generic [ref=f1e1345]: =
+                        - generic [ref=f1e1346]: "1"
+                      - generic [ref=f1e1347]: D
+                    - generic [ref=f1e1348]:
+                      - generic [ref=f1e1349]: w
+                      - generic [ref=f1e1350]: d
+                    - generic [ref=f1e1351]: ∥
+                    - generic [ref=f1e1352]:
+                      - generic [ref=f1e1353]: K
+                      - generic [ref=f1e1354]: d
+                    - generic [ref=f1e1355]: ξ
+                    - generic [ref=f1e1356]: +
+                    - generic [ref=f1e1357]:
+                      - generic [ref=f1e1358]: e
+                      - generic [ref=f1e1359]: d
+                    - generic [ref=f1e1360]:
+                      - generic [ref=f1e1361]: ∥
+                      - generic [ref=f1e1362]: "2"
+                    - generic [ref=f1e1363]: .
+                - generic [ref=f1e1364]:
+                  - generic [ref=f1e1365]: U(ξ) =
+                  - generic [ref=f1e1366]:
+                    - generic [ref=f1e1367]:
+                      - text: f
+                      - generic [ref=f1e1368]: prior
+                    - text: (ξ) +
+                  - generic [ref=f1e1378]:
+                    - generic [ref=f1e1379]:
+                      - text: f
+                      - generic [ref=f1e1380]: obs
+                    - text: (ξ),
+                    - generic [ref=f1e1390]:
+                      - text: f
+                      - generic [ref=f1e1391]: prior
+                    - text: (ξ) =
+                  - generic [ref=f1e1401]:
+                    - generic [ref=f1e1406]:
+                      - generic [ref=f1e1407]: "2"
+                      - generic [ref=f1e1409]: "1"
+                    - generic [ref=f1e1416]:
+                      - generic [ref=f1e1417]: d=1
+                      - generic [ref=f1e1419]: ∑
+                      - generic [ref=f1e1420]: D
+                    - generic [ref=f1e1425]:
+                      - text: w
+                      - generic [ref=f1e1426]: d
+                    - text: ∥
+                    - generic [ref=f1e1434]:
+                      - text: K
+                      - generic [ref=f1e1435]: d
+                    - text: ξ +
+                  - generic [ref=f1e1443]:
+                    - generic [ref=f1e1444]:
+                      - text: e
+                      - generic [ref=f1e1445]: d
+                    - generic [ref=f1e1453]:
+                      - text: ∥
+                      - generic [ref=f1e1454]: "2"
+                    - text: .
+            - paragraph [ref=f1e1459]:
+              - text: The retained CHOMP body is an eight-page preprint, distinct from the landing page's six-page ICRA publication. The first derivative term penalizes squared velocity; higher-order terms can penalize other dynamics. This discrete expression is the source's explicit half-weighted formula, rather than an assertion that its continuous prior is printed with the same normalization
+              - generic [ref=f1e1460]:
+                - generic [ref=f1e1462]:
+                  - link "Ratliff 2009" [ref=f1e1463] [cursor=pointer]:
+                    - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                  - 'link "Jump to the full reference for CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e1464] [cursor=pointer]':
+                    - /url: "#ref-ratliff-2009"
+                    - generic [ref=f1e1465]: ↓
+                - text: .
+            - paragraph [ref=f1e1466]:
+              - text: The obstacle cost integrates over the robot's body elements and their arc length through the workspace. A workspace signed-distance field is negative inside an obstacle and positive outside; its penalty discourages low clearance. Arc-length weighting prevents merely moving faster through a costly region from reducing that obstacle cost. Covariant descent uses the inverse of a smoothness metric to distribute a gradient update along the trajectory while retaining smoothness. It is not a rule that selects large steps at cheap locations and small steps at expensive ones
+              - generic [ref=f1e1467]:
+                - generic [ref=f1e1469]:
+                  - link "Ratliff 2009" [ref=f1e1470] [cursor=pointer]:
+                    - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                  - 'link "Jump to the full reference for CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e1471] [cursor=pointer]':
+                    - /url: "#ref-ratliff-2009"
+                    - generic [ref=f1e1472]: ↓
+                - text: .
+            - paragraph [ref=f1e1473]:
+              - text: The arm experiment used the first six joints of a seven-DoF Barrett WAM. Its 15 endpoint configurations yielded 105 planning problems, of which CHOMP solved 99. The reported implementation used a
+              - generic [ref=f1e1474]:
+                - math [ref=f1e1476]:
+                  - generic [ref=f1e1478]:
+                    - generic [ref=f1e1479]: "50"
+                    - generic [ref=f1e1480]: ×
+                    - generic [ref=f1e1481]: "50"
+                    - generic [ref=f1e1482]: ×
+                    - generic [ref=f1e1483]: "50"
+                - generic [ref=f1e1484]:
+                  - generic [ref=f1e1485]: 50 ×
+                  - generic [ref=f1e1486]: 50 ×
+                  - generic [ref=f1e1487]: "50"
+              - text: voxel grid and Matlab distance-field computation; 400 optimization iterations took approximately 12 seconds, with the core optimization usually completed in the first 100 iterations, approximately 3 seconds. The inspected body does not name the processor. Those are setup-specific timings, not a processor-independent real-time claim. In the LittleDog experiment, CHOMP instead operated inside a footstep controller informed by a separate footstep planner. Trunk motion was initialized with a ZMP preview controller and swing-foot motion by interpolation, with stability and reachability criteria added. Its trajectories were generated before execution because worst-case optimization could take longer than the motion
+              - generic [ref=f1e1488]:
+                - generic [ref=f1e1490]:
+                  - link "Ratliff 2009" [ref=f1e1491] [cursor=pointer]:
+                    - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                  - 'link "Jump to the full reference for CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e1492] [cursor=pointer]':
+                    - /url: "#ref-ratliff-2009"
+                    - generic [ref=f1e1493]: ↓
+                - text: .
+            - paragraph [ref=f1e1494]:
+              - text: CHOMP can turn an infeasible initial guess into a useful trajectory without a separate motion planner on many queries. But the paper also implements a Hamiltonian Monte Carlo variant and records finite-time local-minimum failures. Neither “no samples” nor “no search” describes every variant or guarantees success
+              - generic [ref=f1e1495]:
+                - generic [ref=f1e1497]:
+                  - link "Ratliff 2009" [ref=f1e1498] [cursor=pointer]:
+                    - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                  - 'link "Jump to the full reference for CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e1499] [cursor=pointer]':
+                    - /url: "#ref-ratliff-2009"
+                    - generic [ref=f1e1500]: ↓
+                - text: .
+            - 'heading "TrajOpt: penalties, trust regions, and collision limits" [level=3] [ref=f1e1501]':
+              - 'link "TrajOpt: penalties, trust regions, and collision limits" [ref=f1e1502] [cursor=pointer]':
+                - /url: "#trajopt-penalties-trust-regions-and-collision-limits"
+              - 'button "Copy link to this section, TrajOpt: penalties, trust regions, and collision limits" [ref=f1e1504] [cursor=pointer]'
+            - paragraph [ref=f1e1507]:
+              - text: TrajOpt solves a sequence of convex subproblems. Its kinematic objective sums squared displacements between successive waypoints. Nonlinear constraints enter an
+              - generic [ref=f1e1508]:
+                - math [ref=f1e1510]:
+                  - generic [ref=f1e1513]:
+                    - generic [ref=f1e1514]: ℓ
+                    - generic [ref=f1e1515]: "1"
+                - generic [ref=f1e1518]:
+                  - text: ℓ
+                  - generic [ref=f1e1519]: "1"
+              - text: penalty method, with penalty coefficients increased in an outer loop as necessary; linear constraints are imposed directly. This does not eliminate soft penalties in favor of hard constraints from the first iteration. For a signed distance
+              - generic [ref=f1e1527]:
+                - math [ref=f1e1529]:
+                  - generic [ref=f1e1531]:
+                    - generic [ref=f1e1532]: sd
+                    - generic: ⁡
+                - generic [ref=f1e1533]: sd
+              - text: that is positive when objects are separated, the collision penalty is
+            - region "Display equation 7" [ref=f1e1536]:
+              - generic [ref=f1e1537]:
+                - math [ref=f1e1539]:
+                  - generic [ref=f1e1541]:
+                    - generic [ref=f1e1542]: max
+                    - generic: ⁡
+                    - generic: ⁣
+                    - generic [ref=f1e1543]:
+                      - generic [ref=f1e1544]: (
+                      - generic [ref=f1e1545]:
+                        - generic [ref=f1e1546]: d
+                        - generic [ref=f1e1547]:
+                          - generic [ref=f1e1548]: s
+                          - generic [ref=f1e1549]: a
+                          - generic [ref=f1e1550]: f
+                          - generic [ref=f1e1551]: e
+                      - generic [ref=f1e1552]: −
+                      - generic [ref=f1e1553]: sd
+                      - generic: ⁡
+                      - generic [ref=f1e1554]: ","
+                      - generic [ref=f1e1555]: "0"
+                      - generic [ref=f1e1556]: )
+                    - generic [ref=f1e1557]: .
+                - generic [ref=f1e1559]:
+                  - text: max
+                  - generic [ref=f1e1560]:
+                    - text: (
+                    - generic [ref=f1e1561]:
+                      - text: d
+                      - generic [ref=f1e1562]: safe
+                    - text: −
+                    - generic [ref=f1e1572]: sd
+                    - text: ", 0)"
+                  - text: .
+            - paragraph [ref=f1e1573]:
+              - text: It is active below the safety margin. The collision checker considers nearby pairs out to
+              - generic [ref=f1e1574]:
+                - math [ref=f1e1576]:
+                  - generic [ref=f1e1578]:
+                    - generic [ref=f1e1579]:
+                      - generic [ref=f1e1580]: d
+                      - generic [ref=f1e1581]:
+                        - generic [ref=f1e1582]: c
+                        - generic [ref=f1e1583]: h
+                        - generic [ref=f1e1584]: e
+                        - generic [ref=f1e1585]: c
+                        - generic [ref=f1e1586]: k
+                    - generic [ref=f1e1587]: ">"
+                    - generic [ref=f1e1588]:
+                      - generic [ref=f1e1589]: d
+                      - generic [ref=f1e1590]:
+                        - generic [ref=f1e1591]: s
+                        - generic [ref=f1e1592]: a
+                        - generic [ref=f1e1593]: f
+                        - generic [ref=f1e1594]: e
+                - generic [ref=f1e1595]:
+                  - generic [ref=f1e1596]:
+                    - generic [ref=f1e1597]:
+                      - text: d
+                      - generic [ref=f1e1598]: check
+                    - text: ">"
+                  - generic [ref=f1e1609]:
+                    - text: d
+                    - generic [ref=f1e1610]: safe
+              - text: ", so the linearized subproblem can also account for some pairs that currently have zero penalty. A box trust region limits each proposed update; it expands when actual improvement sufficiently agrees with the local model and shrinks otherwise"
+              - generic [ref=f1e1620]:
+                - generic [ref=f1e1622]:
+                  - link "Schulman 2013" [ref=f1e1623] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1624] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e1625]: ↓
+                - text: .
+            - paragraph [ref=f1e1626]:
+              - text: Checking only waypoints can miss a collision in the motion between them. TrajOpt therefore considers a modeled swept volume. For the translational case its construction uses the convex hull of endpoint shapes; rotations require additional inflation. The paper states a bound with
+              - generic [ref=f1e1627]:
+                - math [ref=f1e1629]:
+                  - generic [ref=f1e1631]:
+                    - generic [ref=f1e1632]:
+                      - generic [ref=f1e1633]: d
+                      - generic [ref=f1e1634]:
+                        - generic [ref=f1e1635]: a
+                        - generic [ref=f1e1636]: r
+                        - generic [ref=f1e1637]: c
+                    - generic [ref=f1e1638]: =
+                    - generic [ref=f1e1639]: r
+                    - generic [ref=f1e1640]:
+                      - generic [ref=f1e1641]: ϕ
+                      - generic [ref=f1e1642]: "2"
+                    - generic [ref=f1e1643]: /
+                    - generic [ref=f1e1644]: "8"
+                - generic [ref=f1e1645]:
+                  - generic [ref=f1e1646]:
+                    - generic [ref=f1e1647]:
+                      - text: d
+                      - generic [ref=f1e1648]: arc
+                    - text: =
+                  - generic [ref=f1e1658]:
+                    - text: r
+                    - generic [ref=f1e1659]:
+                      - text: ϕ
+                      - generic [ref=f1e1660]: "2"
+                    - text: /8
+              - text: "added to the safety margin, but omitted this correction in its experiments because it was well under 1 cm. It also notes that its swept-volume gradient approximation is not guaranteed accurate in 3D. The implementation used Bullet and convex hulls of robot meshes, and its continuous-time collision cost did not cover self-collisions: those were penalized at discrete times. These qualifications rule out an unconditional claim that thin obstacles can never be missed, especially for an arbitrary interpolation executed by a controller"
+              - generic [ref=f1e1665]:
+                - generic [ref=f1e1667]:
+                  - link "Schulman 2013" [ref=f1e1668] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1669] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e1670]: ↓
+                - text: .
+            - heading "What the TrajOpt benchmark measured" [level=3] [ref=f1e1671]:
+              - link "What the TrajOpt benchmark measured" [ref=f1e1672] [cursor=pointer]:
+                - /url: "#what-the-trajopt-benchmark-measured"
+              - button "Copy link to this section, What the TrajOpt benchmark measured" [ref=f1e1674] [cursor=pointer]
+            - paragraph [ref=f1e1677]:
+              - text: "The benchmark used four simulated MoveIt scenes with fixed start and goal configurations: 198 seven-DoF PR2 arm problems and 96 eighteen-DoF full-body problems. The arm trajectories had 11 timesteps and the full-body trajectories 41. A single initialization was a straight line; the arm multi-initialization condition used four manually selected intermediate configurations, while full-body planning used up to five collision-free base configurations sampled with the arms tucked. OMPL methods used default parameters and MoveIt's default smoother. Path length was normalized by the shortest path found for that problem across the compared planners; it was not a separate smoothness measurement"
+              - generic [ref=f1e1678]:
+                - generic [ref=f1e1680]:
+                  - link "Schulman 2013" [ref=f1e1681] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1682] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e1683]: ↓
+                - text: .
+            - region "TrajOpt arm benchmark results" [ref=f1e1684]:
+              - table [ref=f1e1685]:
+                - rowgroup [ref=f1e1686]:
+                  - row [ref=f1e1687]:
+                    - columnheader "Arm method" [ref=f1e1688]
+                    - columnheader "Success fraction" [ref=f1e1689]
+                    - columnheader "Average time (s)" [ref=f1e1690]
+                    - columnheader "Average normalized length" [ref=f1e1691]
+                - rowgroup [ref=f1e1692]:
+                  - row [ref=f1e1693]:
+                    - cell "TrajOpt" [ref=f1e1694]
+                    - cell "0.84" [ref=f1e1695]
+                    - cell "0.20" [ref=f1e1696]
+                    - cell "1.2" [ref=f1e1697]
+                  - row [ref=f1e1698]:
+                    - cell "TrajOpt, multiple initializations" [ref=f1e1699]
+                    - cell "0.99" [ref=f1e1700]
+                    - cell "0.32" [ref=f1e1701]
+                    - cell "1.2" [ref=f1e1702]
+                  - row [ref=f1e1703]:
+                    - cell "OMPL RRTConnect" [ref=f1e1704]
+                    - cell "0.97" [ref=f1e1705]
+                    - cell "1.2" [ref=f1e1706]
+                    - cell "1.6" [ref=f1e1707]
+                  - row [ref=f1e1708]:
+                    - cell "OMPL LBKPIECE" [ref=f1e1709]
+                    - cell "0.96" [ref=f1e1710]
+                    - cell "3.1" [ref=f1e1711]
+                    - cell "1.7" [ref=f1e1712]
+                  - row [ref=f1e1713]:
+                    - cell "CHOMP" [ref=f1e1714]
+                    - cell "0.66" [ref=f1e1715]
+                    - cell "3.1" [ref=f1e1716]
+                    - cell "2.4" [ref=f1e1717]
+                  - row [ref=f1e1718]:
+                    - cell "CHOMP, multiple initializations" [ref=f1e1719]
+                    - cell "0.85" [ref=f1e1720]
+                    - cell "6.0" [ref=f1e1721]
+                    - cell "2.6" [ref=f1e1722]
+            - paragraph [ref=f1e1723]:
+              - text: These are Table I's arm results. In particular, single-initialization TrajOpt solved a smaller fraction than either OMPL comparator; the multi-initialization result supports the stronger success comparison. The tested CHOMP implementation was supplied by its authors and is not established as identical to the earlier 2009 preprint
+              - generic [ref=f1e1724]:
+                - generic [ref=f1e1726]:
+                  - link "Schulman 2013" [ref=f1e1727] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1728] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e1729]: ↓
+                - text: .
+            - region "TrajOpt full-body benchmark results" [ref=f1e1730]:
+              - table [ref=f1e1731]:
+                - rowgroup [ref=f1e1732]:
+                  - row [ref=f1e1733]:
+                    - columnheader "Full-body method" [ref=f1e1734]
+                    - columnheader "Success fraction" [ref=f1e1735]
+                    - columnheader "Average time (s)" [ref=f1e1736]
+                    - columnheader "Average normalized length" [ref=f1e1737]
+                - rowgroup [ref=f1e1738]:
+                  - row [ref=f1e1739]:
+                    - cell "TrajOpt" [ref=f1e1740]
+                    - cell "0.63" [ref=f1e1741]
+                    - cell "2.1" [ref=f1e1742]
+                    - cell "1.08" [ref=f1e1743]
+                  - row [ref=f1e1744]:
+                    - cell "TrajOpt, multiple initializations" [ref=f1e1745]
+                    - cell "0.84" [ref=f1e1746]
+                    - cell "7.6" [ref=f1e1747]
+                    - cell "1.09" [ref=f1e1748]
+                  - row [ref=f1e1749]:
+                    - cell "OMPL RRTConnect" [ref=f1e1750]
+                    - cell "0.53" [ref=f1e1751]
+                    - cell "18.0" [ref=f1e1752]
+                    - cell "1.5" [ref=f1e1753]
+                  - row [ref=f1e1754]:
+                    - cell "OMPL LBKPIECE" [ref=f1e1755]
+                    - cell "0.50" [ref=f1e1756]
+                    - cell "18.7" [ref=f1e1757]
+                    - cell "1.5" [ref=f1e1758]
+            - paragraph [ref=f1e1759]:
+              - text: "Table II contains no CHOMP full-body result: the authors lacked the documentation or data needed to run that comparison. Its measured full-body times also qualify the introduction's subsecond characterization. The introduction says all planners had ten seconds, while the experimental section specifies three seconds per CHOMP initialization and a thirty-second full-body OMPL limit. Those statements should not be collapsed into a single matched-budget protocol. The inspected paper does not identify the processor used for these benchmark timings"
+              - generic [ref=f1e1760]:
+                - generic [ref=f1e1762]:
+                  - link "Schulman 2013" [ref=f1e1763] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1764] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e1765]: ↓
+                - text: .
+            - heading "Initial guesses and the two-stage pattern" [level=3] [ref=f1e1766]:
+              - link "Initial guesses and the two-stage pattern" [ref=f1e1767] [cursor=pointer]:
+                - /url: "#initial-guesses-and-the-two-stage-pattern"
+              - button "Copy link to this section, Initial guesses and the two-stage pattern" [ref=f1e1769] [cursor=pointer]
+            - paragraph [ref=f1e1772]:
+              - text: Both methods need an initial trajectory and can remain trapped in a bad local minimum. That does not make a sampling-based preplanner mandatory. CHOMP compared straight-line and RRT initializations; among queries where collision removal succeeded, straight-line initialization often produced the better objective. TrajOpt likewise evaluated planning from infeasible seeds and found that multiple initializations changed success rates
+              - generic [ref=f1e1774]:
+                - link "Ratliff 2009" [ref=f1e1775] [cursor=pointer]:
+                  - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                - 'link "Jump to the full reference for CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e1776] [cursor=pointer]':
+                  - /url: "#ref-ratliff-2009"
+                  - generic [ref=f1e1777]: ↓
+              - generic [ref=f1e1778]:
+                - generic [ref=f1e1780]:
+                  - link "Schulman 2013" [ref=f1e1781] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1782] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e1783]: ↓
+                - text: .
+            - paragraph [ref=f1e1784]:
+              - text: "Ratliff and colleagues describe PRM and RRT as typically used in a two-phase process: first find a feasible path, then remove redundant or jerky motion. Schulman and colleagues distinguish two roles for trajectory optimization: refining a trajectory generated by another method, or planning from scratch. Those are the papers' accounts, not evidence that sampling followed by refinement is the standard industrial pipeline today"
+              - generic [ref=f1e1786]:
+                - link "Ratliff 2009" [ref=f1e1787] [cursor=pointer]:
+                  - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                - 'link "Jump to the full reference for CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e1788] [cursor=pointer]':
+                  - /url: "#ref-ratliff-2009"
+                  - generic [ref=f1e1789]: ↓
+              - generic [ref=f1e1790]:
+                - generic [ref=f1e1792]:
+                  - link "Schulman 2013" [ref=f1e1793] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - link "Jump to the full reference for Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1794] [cursor=pointer]:
+                    - /url: "#ref-schulman-2013"
+                    - generic [ref=f1e1795]: ↓
+                - text: .
+            - heading "Where this meets the learned stack" [level=2] [ref=f1e1796]:
+              - link "Where this meets the learned stack" [ref=f1e1797] [cursor=pointer]:
+                - /url: "#where-this-meets-the-learned-stack"
+              - button "Copy link to this section, Where this meets the learned stack" [ref=f1e1799] [cursor=pointer]
+            - paragraph [ref=f1e1802]:
+              - text: Classical planning did not disappear when learned policies arrived; it changed jobs. Sampling planners label demonstration data, verify that a proposed motion is feasible, and generate the diverse training scenes that
+              - link "generative simulation" [ref=f1e1803] [cursor=pointer]:
+                - /url: /world-models/generative-sim
+              - text: pipelines rely on. Optimization survives inside model-predictive control, which replans a short horizon at every control cycle, a design whose tradeoffs against learned policies have their own module in
+              - link "reward design and the MPC debate" [ref=f1e1804] [cursor=pointer]:
+                - /url: /rl-sim2real/reward-design-mpc
+              - text: . And the hierarchical school of robot learning, from SayCan onward, is precisely the bet that a learned system should emit goals for a classical planner to execute, a bet the end-to-end camp answers by training the planning in.
+            - paragraph [ref=f1e1805]:
+              - text: What end-to-end policies do not escape is the geometry. A diffusion policy's action chunk is a trajectory in configuration space; an RRT's path is a trajectory in configuration space. The difference is who computed it, a planner with an explicit collision model or a network with an implicit one. The modules that follow,
+              - link "control" [ref=f1e1806] [cursor=pointer]:
+                - /url: /classical/control
+              - text: and state estimation, assume some such trajectory exists and ask how to track it and where the robot actually is while doing so.
+          - separator
+          - region [ref=f1e1807]:
+            - heading "See also" [level=2] [ref=f1e1808]
+            - list [ref=f1e1809]:
+              - listitem [ref=f1e1810]:
+                - link "Kinematics" [ref=f1e1811] [cursor=pointer]:
+                  - /url: /classical/kinematics/
+                - paragraph [ref=f1e1812]: Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.
+              - listitem [ref=f1e1813]:
+                - link "Control" [ref=f1e1814] [cursor=pointer]:
+                  - /url: /classical/control/
+                - paragraph [ref=f1e1815]: "PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy."
+              - listitem [ref=f1e1816]:
+                - link "Reward Design and the MPC Debate" [ref=f1e1817] [cursor=pointer]:
+                  - /url: /rl-sim2real/reward-design-mpc/
+                - paragraph [ref=f1e1818]: LLM-written rewards and curricula; where classical trajectory optimization still wins.
+              - listitem [ref=f1e1819]:
+                - link "Hierarchical Approaches" [ref=f1e1820] [cursor=pointer]:
+                  - /url: /manipulation/hierarchical/
+                - paragraph [ref=f1e1821]: SayCan, code-as-policies, and keypoint affordances; why separate planners gave way to internalized hierarchy.
+          - region [ref=f1e1822]:
+            - heading "Linked from" [level=2] [ref=f1e1823]
+            - list [ref=f1e1824]:
+              - listitem [ref=f1e1825]:
+                - link "Kinematics" [ref=f1e1826] [cursor=pointer]:
+                  - /url: /classical/kinematics/
+                - paragraph [ref=f1e1827]: Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.
+              - listitem [ref=f1e1828]:
+                - link "Control" [ref=f1e1829] [cursor=pointer]:
+                  - /url: /classical/control/
+                - paragraph [ref=f1e1830]: "PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy."
+              - listitem [ref=f1e1831]:
+                - link "State Estimation" [ref=f1e1832] [cursor=pointer]:
+                  - /url: /classical/state-estimation/
+                - paragraph [ref=f1e1833]: Kalman filters, factor graphs, and pose estimation from noisy sensors.
+              - listitem [ref=f1e1834]:
+                - link "Grasp Planning" [ref=f1e1835] [cursor=pointer]:
+                  - /url: /classical/grasp-planning/
+                - paragraph [ref=f1e1836]: Contact mechanics, grasp quality metrics, and force closure.
+              - listitem [ref=f1e1837]:
+                - link "Scene Representation and Mapping" [ref=f1e1838] [cursor=pointer]:
+                  - /url: /classical/scene-representation/
+                - paragraph [ref=f1e1839]: What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.
+              - listitem [ref=f1e1840]:
+                - link "Space Robotics" [ref=f1e1841] [cursor=pointer]:
+                  - /url: /adjacent/space/
+                - paragraph [ref=f1e1842]: "NASA/JPL systems, orbital servicing, and ISRU: robotics where repair is impossible."
+          - region [ref=f1e1843]:
+            - heading "References" [level=2] [ref=f1e1844]
+            - list [ref=f1e1845]:
+              - listitem [ref=f1e1846]:
+                - generic [ref=f1e1847]: "1"
+                - generic [ref=f1e1848]:
+                  - 'link "Spatial Planning: A Configuration Space Approach" [ref=f1e1850] [cursor=pointer]':
+                    - /url: https://doi.org/10.1109/TC.1983.1676196
+                  - paragraph [ref=f1e1851]: Tomás Lozano-Pérez, IEEE Trans. Computers, 1983.
+                  - paragraph [ref=f1e1852]: https://doi.org/10.1109/TC.1983.1676196
+              - listitem [ref=f1e1853]:
+                - generic [ref=f1e1854]: "2"
+                - generic [ref=f1e1855]:
+                  - link "Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces" [ref=f1e1857] [cursor=pointer]:
+                    - /url: https://doi.org/10.1109/70.508439
+                  - paragraph [ref=f1e1858]: Lydia E. Kavraki, P. Švestka, J.-C. Latombe, M. H. Overmars, IEEE Trans. Robotics and Automation, 1996.
+                  - paragraph [ref=f1e1859]: https://doi.org/10.1109/70.508439
+              - listitem [ref=f1e1860]:
+                - generic [ref=f1e1861]: "3"
+                - generic [ref=f1e1862]:
+                  - 'link "Rapidly-exploring Random Trees: A New Tool for Path Planning" [ref=f1e1864] [cursor=pointer]':
+                    - /url: https://lavalle.pl/papers/Lav98c.pdf
+                  - paragraph [ref=f1e1865]: Steven M. LaValle, Iowa State University TR 98-11, 1998.
+                  - paragraph [ref=f1e1866]: https://lavalle.pl/papers/Lav98c.pdf
+              - listitem [ref=f1e1867]:
+                - generic [ref=f1e1868]: "4"
+                - generic [ref=f1e1869]:
+                  - link "Randomized Kinodynamic Planning" [ref=f1e1871] [cursor=pointer]:
+                    - /url: https://lavalle.pl/papers/LavKuf01b.pdf
+                  - paragraph [ref=f1e1872]: Steven M. LaValle, James J. Kuffner, Int. J. Robotics Research, 2001.
+                  - paragraph [ref=f1e1873]: https://lavalle.pl/papers/LavKuf01b.pdf
+              - listitem [ref=f1e1874]:
+                - generic [ref=f1e1875]: "5"
+                - generic [ref=f1e1876]:
+                  - link "Sampling-based Algorithms for Optimal Motion Planning" [ref=f1e1878] [cursor=pointer]:
+                    - /url: https://arxiv.org/abs/1105.1186
+                  - paragraph [ref=f1e1879]: Sertac Karaman, Emilio Frazzoli, arXiv preprint, 2011.
+                  - paragraph [ref=f1e1880]: https://arxiv.org/abs/1105.1186
+              - listitem [ref=f1e1881]:
+                - generic [ref=f1e1882]: "6"
+                - generic [ref=f1e1883]:
+                  - 'link "Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic" [ref=f1e1885] [cursor=pointer]':
+                    - /url: https://arxiv.org/abs/1404.2334
+                  - paragraph [ref=f1e1886]: Jonathan D. Gammell, Siddhartha S. Srinivasa, Timothy D. Barfoot, IROS 2014.
+                  - paragraph [ref=f1e1887]: https://arxiv.org/abs/1404.2334
+              - listitem [ref=f1e1888]:
+                - generic [ref=f1e1889]: "7"
+                - generic [ref=f1e1890]:
+                  - 'link "CHOMP: Gradient Optimization Techniques for Efficient Motion Planning" [ref=f1e1892] [cursor=pointer]':
+                    - /url: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+                  - paragraph [ref=f1e1893]: Nathan Ratliff, Matthew Zucker, J. Andrew Bagnell, Siddhartha Srinivasa, ICRA 2009.
+                  - paragraph [ref=f1e1894]: https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/
+              - listitem [ref=f1e1895]:
+                - generic [ref=f1e1896]: "8"
+                - generic [ref=f1e1897]:
+                  - link "Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization" [ref=f1e1899] [cursor=pointer]:
+                    - /url: https://www.roboticsproceedings.org/rss09/p31.pdf
+                  - paragraph [ref=f1e1900]: John Schulman, Jonathan Ho, Alex Lee, Ibrahim Awwal, Henry Bradlow, Pieter Abbeel, RSS 2013.
+                  - paragraph [ref=f1e1901]: https://www.roboticsproceedings.org/rss09/p31.pdf
+              - listitem [ref=f1e1902]:
+                - generic [ref=f1e1903]: "9"
+                - generic [ref=f1e1904]:
+                  - link "Planning Algorithms" [ref=f1e1906] [cursor=pointer]:
+                    - /url: https://lavalle.pl/planning/
+                  - paragraph [ref=f1e1907]: Steven M. LaValle, Cambridge University Press, 2006.
+                  - paragraph [ref=f1e1908]: https://lavalle.pl/planning/
+              - listitem [ref=f1e1909]:
+                - generic [ref=f1e1910]: "10"
+                - generic [ref=f1e1911]:
+                  - link "The Open Motion Planning Library" [ref=f1e1913] [cursor=pointer]:
+                    - /url: https://ompl.kavrakilab.org/
+                  - paragraph [ref=f1e1914]: Ioan A. Șucan, Mark Moll, Lydia E. Kavraki, IEEE Robotics & Automation Magazine, 2012.
+                  - paragraph [ref=f1e1915]: https://ompl.kavrakilab.org/
+      - contentinfo [ref=f1e1916]:
+        - generic [ref=f1e1917]:
+          - link "Robot Wiki" [ref=f1e1919] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f1e1920]:
+            - text: Written and maintained by
+            - link "Josef Chen" [ref=f1e1921] [cursor=pointer]:
+              - /url: https://github.com/josefchen
+            - text: .
+            - link "Source on GitHub" [ref=f1e1922] [cursor=pointer]:
+              - /url: https://github.com/josefchen/robot-wiki
+            - text: .
+  - button "Open Next.js Dev Tools" [ref=f1e1928] [cursor=pointer]
+  - alert [ref=f1e1932]
+```

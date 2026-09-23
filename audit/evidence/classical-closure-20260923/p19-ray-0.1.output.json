@@ -1,0 +1,9 @@
+{
+  "values": {
+    "mm": 1.7455064928217585,
+    "rounded": "1.7"
+  },
+  "units": "offset:mm; input angle:deg, axial distance:m",
+  "precision": "0.1m example:nearest 0.1mm; 1m example:nearest 1mm",
+  "formula": "tan(theta)=opposite/adjacent; offsetMm=distanceM*1000*tan(angleDeg*pi/180)"
+}

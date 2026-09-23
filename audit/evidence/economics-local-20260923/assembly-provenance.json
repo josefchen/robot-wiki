@@ -1,0 +1,44 @@
+{
+  "assembledAt": "2026-09-23T06:38:13.549Z",
+  "newReviews": 0,
+  "supplementalRuntimeDependencies": [
+    {
+      "file": {
+        "path": "playwright.config.ts",
+        "bytes": 1122,
+        "sha256": "34239f70eb0e250860ce5b0d808a8fdfd1dd455575214aab6eaaf7a3498c4733"
+      },
+      "id": "file:playwright.config.ts",
+      "offset": 0,
+      "length": 1122,
+      "sha256": "34239f70eb0e250860ce5b0d808a8fdfd1dd455575214aab6eaaf7a3498c4733"
+    },
+    {
+      "file": {
+        "path": "package-lock.json",
+        "bytes": 493718,
+        "sha256": "1d74b589c54d3c9894640c6062359542df216d85ae95645466d763349f6e5dfb"
+      },
+      "id": "file:package-lock.json",
+      "offset": 0,
+      "length": 493718,
+      "sha256": "1d74b589c54d3c9894640c6062359542df216d85ae95645466d763349f6e5dfb"
+    }
+  ],
+  "numericalRun": {
+    "path": "audit/evidence/economics-local-20260923/numeric-run.json",
+    "bytes": 18767,
+    "sha256": "6ff541161513aa20937618109ac6b1e88f5cd2ff6f5444f8e5b486722af07f94"
+  },
+  "browserRun": {
+    "path": "audit/evidence/economics-local-20260923/browser-run.json",
+    "bytes": 12154,
+    "sha256": "823943fd4c4418804b0982c9344bd150d6f8909ea3c5956ff1bdf48a460bdbff"
+  },
+  "source": {
+    "path": "audit/evidence/economics-local-20260923/source-provenance.json",
+    "bytes": 6972,
+    "sha256": "8d5afd5029a9e1c67cd5ad9a5942754c3ca0b26a56da3eb3d0e8971e70eff240"
+  },
+  "qualification": "Exact first Unresolved original and actual source/run bytes retained. Five original obligations, seven native parts. Review not pre-certified."
+}

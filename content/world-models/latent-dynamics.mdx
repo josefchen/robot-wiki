@@ -25,7 +25,7 @@ import { LatentImagination } from '@/components/interactive/latent-imagination';
 
 Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, <Term id="latent-dynamics">latent dynamics</Term> is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The idea is one sentence: learn a compact recurrent latent state, predict how that state and the reward evolve under the agent's actions, and do the learning or the planning entirely inside that imagination, without touching the real environment. Everything else, the decoder versus no-decoder split, the actor versus planner split, is a design choice on top of that sentence.
 
-The interactive is a deterministic toy of compounding error, not a measured rollout from any of the papers. Drag the horizon slider to explore its assumed recurrence; the 3 to 15-step shaded band is illustrative, not a published reliable-horizon range. Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />.
+The interactive is a deterministic toy of compounding error, not a measured rollout from any of the papers. Drag the horizon slider to explore its assumed recurrence; the 3 to 15-step shaded band is illustrative, not a published reliable-horizon range. Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. The two horizon labels have different values even within the 2023 preprint <Cite id="dreamerv3-2023" />.
 
 <LatentImagination className="my-6" />
 
@@ -33,7 +33,7 @@ The interactive is a deterministic toy of compounding error, not a measured roll
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" accent />
   <Stat label="TD-MPC2 agent" value="317M" note="one offline agent, 80 tasks" />
   <Stat label="DayDreamer A1" value="~1 h" note="one real-world training run" />
-  <Stat label="DreamerV3 labels" value="H=15 / T=16" note="2023 preprint; not reconciled" />
+  <Stat label="DreamerV3 labels" value="H=15 / T=16" note="2023 preprint: table / actor-critic" />
 </div>
 
 ## The RSSM: a state you can dream in
@@ -44,7 +44,7 @@ The payoff is where learning happens. The actor and the critic are trained purel
 
 ## DreamerV3: one recipe across 150 tasks
 
-DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. Its robustness techniques include symlog transforms for vector observations, free bits with KL balancing, and percentile-based return normalization. The detailed distribution section describes two-hot targets for reward and value prediction; an earlier world-model paragraph instead says the reward predictor uses symlog squared loss. These two descriptions are not reconciled here <Cite id="dreamerv3-2023" />.
+DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. Its robustness techniques include symlog transforms for vector observations, free bits with KL balancing, and percentile-based return normalization. The paper's reward-loss descriptions differ: the detailed distribution section describes two-hot targets for reward and value prediction, whereas an earlier world-model paragraph says the reward predictor uses symlog squared loss <Cite id="dreamerv3-2023" />.
 
 The headline result is Minecraft. In their 2025 Nature article, Hafner, Pasukonis, Ba, and Lillicrap describe DreamerV3 as, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula. The experiment used a MineRL-based environment with abstract crafting actions, accelerated block breaking, and sparse intermediate rewards. Its 12 rewarded milestones are log, plank, stick, crafting table, wooden pickaxe, cobblestone, stone pickaxe, iron ore, furnace, iron ingot, iron pickaxe, and diamond <Cite id="dreamerv3-2023" />.
 
@@ -60,7 +60,7 @@ DayDreamer builds on the DreamerV2 implementation and learns online on four phys
 
 ## The horizon problem
 
-Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />. In TD-MPC2 v2, Table 8 lists planning horizon H = 3; the planner bootstraps beyond the rollout with a learned terminal value <Cite id="tdmpc2-2023" />. DayDreamer v1 likewise gives two labels: its actor-critic methods state a planning horizon H = 16, while Appendix D lists imagination horizon H = 15. That difference is not reconciled here <Cite id="daydreamer-2022" />. These source settings are step counts, not control frequencies or universal bounds on reliable prediction.
+Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. The two horizon labels have different values even within the 2023 preprint <Cite id="dreamerv3-2023" />. In TD-MPC2 v2, Table 8 lists planning horizon H = 3; the planner bootstraps beyond the rollout with a learned terminal value <Cite id="tdmpc2-2023" />. DayDreamer v1 likewise gives two labels: its actor-critic methods state a planning horizon H = 16, while Appendix D lists imagination horizon H = 15. Its methods and appendix thus report different horizon values <Cite id="daydreamer-2022" />. These source settings are step counts, not control frequencies or universal bounds on reliable prediction.
 
 Both display modes in the figure are schematic. The Dreamer-labelled mode draws illustrative frames; the TD-MPC2-labelled mode omits reconstruction and shows a toy reward-error readout equal to 0.35 times the toy latent deviation. The curves, frames, and shaded band are not measured model predictions, published losses, or reliability estimates.
 

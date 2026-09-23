@@ -1,0 +1,199 @@
+{
+  "commands": [
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/undated-citations.test.ts tests/unit/industrial-closure-evidence.test.ts --no-file-parallelism",
+      "startedAt": "2026-09-23T18:27:15.881939+00:00",
+      "endedAt": "2026-09-23T18:27:17.866976+00:00",
+      "exitCode": 1,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/001.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-001.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 env INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+      "startedAt": "2026-09-23T18:40:10.394125+00:00",
+      "endedAt": "2026-09-23T18:40:12.229813+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/002.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-002.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/tsc --noEmit --incremental false",
+      "startedAt": "2026-09-23T18:40:22.400156+00:00",
+      "endedAt": "2026-09-23T18:40:24.720909+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/003.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-003.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 env INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep 'industrial closure paired' --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright",
+      "startedAt": "2026-09-23T18:43:50.870422+00:00",
+      "endedAt": "2026-09-23T18:44:03.409765+00:00",
+      "exitCode": 1,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/004.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-004.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 env INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep 'industrial closure paired' --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
+      "startedAt": "2026-09-23T18:44:31.075374+00:00",
+      "endedAt": "2026-09-23T18:44:40.000777+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/005.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-005.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 env INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+      "startedAt": "2026-09-23T18:44:49.812388+00:00",
+      "endedAt": "2026-09-23T18:44:51.636765+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/006.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-006.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/industrial-closure-20260923/integrate.ts",
+      "startedAt": "2026-09-23T18:49:40.109369+00:00",
+      "endedAt": "2026-09-23T18:49:40.627257+00:00",
+      "exitCode": 1,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/007.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-007.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 env INDUSTRIAL_RESUME_APPLICATION=1 node audit/evidence/industrial-closure-20260923/integrate.ts",
+      "startedAt": "2026-09-23T18:50:24.287058+00:00",
+      "endedAt": "2026-09-23T18:50:25.269728+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/008.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-008.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/audit-corrected-disposition.test.ts tests/unit/audit-local-basis.test.ts tests/unit/audit-ledger.test.ts tests/unit/economics-local-evidence.test.ts tests/unit/industrial-perception-truth-repair.test.ts tests/unit/citations.test.ts tests/unit/citation-links.test.ts tests/unit/crossref-authors.test.ts --no-file-parallelism",
+      "startedAt": "2026-09-23T18:54:20.899099+00:00",
+      "endedAt": "2026-09-23T18:54:30.808522+00:00",
+      "exitCode": 1,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/009.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-009.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/audit-local-basis.test.ts --testNamePattern 'accepts only the exact versioned empty envelope' --no-file-parallelism",
+      "startedAt": "2026-09-23T18:57:08.657800+00:00",
+      "endedAt": "2026-09-23T18:57:09.757506+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/010.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-010.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/tsc --noEmit --incremental false",
+      "startedAt": "2026-09-23T18:57:29.495662+00:00",
+      "endedAt": "2026-09-23T18:57:31.925007+00:00",
+      "exitCode": 1,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/011.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-011.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/tsc --noEmit --incremental false",
+      "startedAt": "2026-09-23T18:57:48.550610+00:00",
+      "endedAt": "2026-09-23T18:57:50.837274+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/012.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-012.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/eslint components/article/references.tsx data/citations.ts data/glossary.ts data/schemas/citation.ts lib/audit-ledger.ts lib/audit-local-basis.ts lib/audit-corrected-disposition.ts lib/citation-links.ts lib/crossref-authors.ts lib/prose-citation-years.ts scripts/check-audit-coverage.ts tests/e2e/industrial-deployment.spec.ts tests/unit/industrial-perception-truth-repair.test.ts tests/unit/audit-local-basis.test.ts tests/unit/audit-corrected-disposition.test.ts tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts audit/evidence/industrial-closure-20260923/support.ts audit/evidence/industrial-closure-20260923/integrate.ts",
+      "startedAt": "2026-09-23T18:58:02.957033+00:00",
+      "endedAt": "2026-09-23T18:58:05.210661+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/013.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-013.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node audit/evidence/industrial-closure-20260923/check-article.mjs",
+      "startedAt": "2026-09-23T18:59:26.987853+00:00",
+      "endedAt": "2026-09-23T18:59:27.393215+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/014.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-014.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node scripts/lint-no-slop.ts --source-only",
+      "startedAt": "2026-09-23T18:59:39.109126+00:00",
+      "endedAt": "2026-09-23T18:59:39.306216+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/015.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-015.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/vitest run tests/unit/audit-corrected-disposition.test.ts --no-file-parallelism",
+      "startedAt": "2026-09-23T18:59:59.179721+00:00",
+      "endedAt": "2026-09-23T19:00:01.335478+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/016.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-016.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node scripts/check-audit-coverage.ts --json",
+      "startedAt": "2026-09-23T19:00:18.442899+00:00",
+      "endedAt": "2026-09-23T19:00:19.944724+00:00",
+      "exitCode": 1,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/017.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-017.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/eslint tests/unit/audit-corrected-disposition.test.ts audit/evidence/industrial-closure-20260923/check-article.mjs",
+      "startedAt": "2026-09-23T19:03:13.339007+00:00",
+      "endedAt": "2026-09-23T19:03:14.566246+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/018.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-018.log"
+    },
+    {
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/tsc --noEmit --incremental false",
+      "startedAt": "2026-09-23T19:06:42.441397+00:00",
+      "endedAt": "2026-09-23T19:06:44.751435+00:00",
+      "exitCode": 0,
+      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/019.log",
+      "observation": "Actual process output retained verbatim.",
+      "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-019.log"
+    }
+  ],
+  "actualReview": {
+    "reviewedAt": "2026-09-23T19:05:21.908973+00:00",
+    "role": "integrator, not independent validator",
+    "manualProseReview": "Read every changed sentence against the inspected LEI/NASA text and exact arithmetic. New prose distinguishes source definitions, hypothetical inputs and calculated results; removes unsupported Ohno attribution, buffer/starvation extensions, economic certainty and the dashboard count. Prior scientific disagreement and qualifications remain. No new facts were attributed to unavailable equation images.",
+    "imagesInspected": [
+      "final-surfaces-375.png",
+      "final-surfaces-1440.png"
+    ],
+    "visualObservation": "Observed the new n.d. chips in the existing brand-v2 reader with no horizontal overflow. Screenshots include the still-focused brownfield tooltip; do not claim an unobscured full article or full state/reference-board acceptance. Browser DOM assertions separately checked all10 terms and both references at1440/375."
+  },
+  "knownUnscopedFailures": [
+    "Unchanged historical whole-compound-catalog SHA assertion in tests/unit/industrial-perception-truth-repair.test.ts; same legacy catalog bytes as base41ffef2.",
+    "Native approval comparison found pre-existing unscoped drift for prose adjacent/surgical, prose rl-sim2real/legged-locomotion and relationships manipulation/hierarchical; no new approval for them."
+  ],
+  "diagnostics": [
+    {
+      "phase": "browser preflight",
+      "result": "Read-only command exited1 because guessed components/article/term.tsx and cite.tsx did not exist; actual components/ui paths used before successful observation."
+    },
+    {
+      "phase": "approval assembly",
+      "result": "Native validator rejected null oldHash for two added members before any write. Used required sha256(missing), without changing the validator."
+    }
+  ]
+}

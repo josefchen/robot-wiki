@@ -1,0 +1,13 @@
+{
+  "id": "economics",
+  "mode": "derive",
+  "inputs": {
+    "robotCost": 250000,
+    "integrationMultiple": 2.5,
+    "cycleTimeSeconds": 6,
+    "uptimePercent": 95,
+    "successRatePercent": 99.9,
+    "jamClearSeconds": 15,
+    "wageUsdPerHour": 25
+  }
+}

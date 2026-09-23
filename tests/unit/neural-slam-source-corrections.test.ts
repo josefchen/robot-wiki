@@ -135,7 +135,15 @@ describe('source-scoped neural SLAM prose', () => {
     for (const ordinal of [18, 24, 26, 27, 31, 33, 45, 49]) {
       expect(current[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
     }
-    expect(source).toContain('<span className="block">Source: <Cite id="layered-costmaps-2014" /></span>');
+  });
+
+  it('keeps the earlier costmap and front-end source repairs in the article', () => {
+    const block = source.split('\n\n').find((text) =>
+      text.includes('proposed and implemented layered costmaps in the ROS Navigation stack'));
+    expect(block).toBeDefined();
+    expect(block).toContain('remains configurable <Cite id="layered-costmaps-2014" />.');
+    expect(block).toContain('Navigation2 uses a layered costmap <Cite id="nav2-2020" />.');
+    expect(block).not.toMatch(/Source:|<br\b|className="block"/);
     expect(source).toContain('In Section II, Cadena and colleagues separate a sensor-dependent front end');
   });
 });

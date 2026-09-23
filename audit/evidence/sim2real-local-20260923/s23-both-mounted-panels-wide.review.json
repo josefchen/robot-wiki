@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "role": "integrator",
+  "eventId": "sim2real-local-s23-20260923:s23-both-mounted-panels-wide:2026-09-23T05:29:54.001Z",
+  "observedAt": "2026-09-23T05:29:54.001Z",
+  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "rationale": "I reviewed this exact output-specific transition group: The ordinary mount redraws at half-width 0.65; selecting the prediction reveals mount two at half-width 0.65, and its Reset restores 0.65 independently of the ordinary 0.35 default. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "s23-both-mounted-panels-wide",
+  "inputDigest": "3ee15b310c12fec80a3a6570cc46a8938bf675a375d6f92268e852d2406b6ec3",
+  "inventory": [
+    {
+      "id": "s23-tobin-framing",
+      "text": "Tobin supplies visual-randomization framing, not a friction/success curve or these constants.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "tobin-2017"
+      ]
+    },
+    {
+      "id": "s23-peng-framing",
+      "text": "Peng supplies dynamics-randomization and expected-return framing, not a universal peak-versus-width law.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "peng-2018"
+      ]
+    },
+    {
+      "id": "s23-adr",
+      "text": "Original note's ADR anchor remains external: adaptive randomization expands bounds based on performance thresholds.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "openai-rubiks-cube-2019"
+      ]
+    },
+    {
+      "id": "s23-isaac-plumbing",
+      "text": "Original note's CPU-API constraint is the Isaac Lab v1 distinction between GPU state/control and CPU parameter modification, with runtime exceptions preserved.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "isaac-lab-2025"
+      ]
+    },
+    {
+      "id": "s23-curves-and-mount-defaults",
+      "text": "Both curves, constants, ranges, assumed uniform band and per-mount initial values are authored: mu 0.80, point peak 0.97/sigma 0.09, DR peak 0.93−0.55*range and tails sigma 0.10; ordinary range 0.35, reveal range 0.65.",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "s23-parameters"
+      ]
+    },
+    {
+      "id": "s23-arithmetic",
+      "text": "Gaussian/plateau/tail arithmetic and percentage rounding produce readouts at chosen friction and half-width.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "s23-default",
+        "s23-wide",
+        "s23-tail"
+      ]
+    },
+    {
+      "id": "s23-both-mounted-panels-default",
+      "text": "The actual ordinary FrictionTransfer mount starts at mu 0.80/half-width 0.35 and Reset restores those values and the original SVG after a width change.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "s23-observed-default"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "default",
+          "prestate": "Article not loaded",
+          "action": "Navigate to the article",
+          "poststate": "mu 0.80, range 0.35; point 97%, DR 74%"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "reset",
+          "prestate": "mu 0.80, range 0.65",
+          "action": "Activate ordinary Reset",
+          "poststate": "mu 0.80, range 0.35; point 97%, DR 74%; original SVG"
+        }
+      ]
+    },
+    {
+      "id": "s23-both-mounted-panels-wide",
+      "text": "The ordinary mount redraws at half-width 0.65; selecting the prediction reveals mount two at half-width 0.65, and its Reset restores 0.65 independently of the ordinary 0.35 default.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "s23-observed-wide"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "mu 1.50, range 0.35",
+          "action": "Set friction 0.80 then half-width 0.65",
+          "poststate": "DR curve redraws; point 97%, DR 57%"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+          "caseId": "default",
+          "prestate": "Prediction details closed",
+          "action": "Choose the authored plateau-falls prediction radio",
+          "poststate": "Prediction mount visible at mu 0.80, range 0.65; point 97%, DR 57%"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+          "caseId": "reset",
+          "prestate": "Prediction mu 1.50, range 0.35",
+          "action": "Activate prediction Reset",
+          "poststate": "Prediction restores mu 0.80, range 0.65 and 57% DR; ordinary half-width remains 0.35"
+        }
+      ]
+    },
+    {
+      "id": "s23-both-mounted-panels-tail",
+      "text": "Setting mu 1.50 at half-width 0.35 moves the real-friction line in both mounted panels and displays the separately recomputed tail percentages.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "s23-observed-tail"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "mu 0.80, range 0.35",
+          "action": "Set real friction slider to 1.50",
+          "poststate": "Line moves to 1.50; point 0%, DR 0%"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Prediction mu 0.80, range 0.65",
+          "action": "Set prediction friction 1.50 then half-width 0.35",
+          "poststate": "Prediction line and curve change; point 0%, DR 0%"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/rl-sim2real.md:sim2real-transfer:23",
+  "currentTupleDigest": "17242aafbe8b4afb9b06ff844b595e6c6d922758197c5ea68928552902011749"
+}

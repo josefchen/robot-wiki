@@ -100,7 +100,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'inverse-kinematics',
     term: 'inverse kinematics',
     definition:
-      'The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many, so practical solvers iterate, commonly with damped least squares, which trades a small residual error for bounded, well-conditioned steps near singularities.',
+      'The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution.',
     citations: ['modern-robotics-2017'],
   },
   {
@@ -317,8 +317,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'denavit-hartenberg-parameters',
     term: 'Denavit-Hartenberg parameters',
     definition:
-      'The standard four-parameter bookkeeping for a robot arm\'s geometry, introduced by Denavit and Hartenberg in 1955: each joint is described by a link length, a link twist, a link offset, and a joint angle, and chaining the per-joint transforms yields the full forward kinematics. Four numbers per joint instead of the six a free transform needs is the convention\'s appeal, compact enough to print on a datasheet. Its known cost is a discontinuity when neighboring joint axes drift toward parallel, which later formulations such as the product of exponentials avoid.',
-    citations: ['denavit-hartenberg-1955', 'modern-robotics-2017'],
+      'A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem.',
+    citations: ['lavalle-2006', 'modern-robotics-2017'],
   },
   {
     id: 'configuration-space',
@@ -595,7 +595,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'signed-distance-field',
     term: 'signed-distance field',
     definition:
-      'A volumetric map that stores, per voxel, the distance to the nearest surface, signed so the value is negative behind the surface and positive in front of it. Curless and Levoy introduced the cumulative weighted form for fusing range images, where the surface is recovered as the zero crossing. Two properties earn it its place in a robot stack: the gradient of the field is the surface normal, and the distance value is itself the collision margin, which is why a truncated variant is what collision checkers and GPU trajectory optimisers consume. KinectFusion is where the representation became a real-time product of a commodity depth camera.',
+      'A scalar field whose zero crossing represents a surface. Curless and Levoy fuse weighted signed distances measured along sensor lines of sight. KinectFusion uses a projective truncated field rather than a true discrete signed-distance field; fusion approximates a pseudo-Euclidean distance metric. Near the surface, it estimates normals from numerical field derivatives under an orthogonality assumption. It predicts the surface by ray marching and approximate interpolation, not by treating every stored value as an exact collision margin.',
     citations: ['curless-levoy-1996', 'kinectfusion-2011'],
   },
   {
@@ -770,22 +770,22 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'takt-time',
     term: 'takt time',
     definition:
-      'The rate of production a line must hold to match customer demand: available production time divided by the quantity demanded in that time. Taiichi Ohno made it the pacing heartbeat of the Toyota Production System, borrowing the German word Takt for the beat a conductor holds. A cell whose cycle time is slower than takt starves the line; a cell faster than takt needs a buffer, because the point is the match, not the speed.',
-    citations: ['ohno-tps-1988'],
+      'Available production time divided by customer demand over the same period, expressed as time per unit. Its purpose is to match production with demand.',
+    citations: ['lei-takt-time-definition'],
   },
   {
     id: 'cycle-time',
     term: 'cycle time',
     definition:
-      'The elapsed time for one complete repetition of a automated task: from the start of one pick, weld, or load to the start of the next, including every move in between. It is the denominator of a cell\'s throughput and one of the two numbers an operations buyer asks for first; the other is takt time, which decides whether that cycle is fast enough. Vendor cycle times are quoted at the cell\'s designed pace with known parts, so an unmodelled failure mode lengthens the real one.',
-    citations: ['evst-cell-cost-2026'],
+      'The time required to produce a part or complete a process, as timed by actual measurement.',
+    citations: ['lei-cycle-time-definition'],
   },
   {
     id: 'mean-time-between-failures',
     term: 'mean time between failures',
     definition:
-      'The average elapsed operating time between one failure of a repairable system and the next, total operating time divided by the number of failures in that window. Together with mean time to repair it composes availability: MTBF over the sum of MTBF and MTTR. It is a maintenance-economics figure rather than a policy figure, but a cell whose robot fails weekly will bury any per-pick success rate the policy reports.',
-    citations: ['ohno-tps-1988'],
+      'Mean time between failures (MTBF) is a reliability parameter for repairable systems. NASA uses it with mean time to repair (MTTR) when estimating inherent availability. That measure excludes administrative and logistics delays and preventive maintenance; operational availability includes those times.',
+    citations: ['nasa-availability-prediction-analysis'],
   },
   {
     id: 'systems-integrator',

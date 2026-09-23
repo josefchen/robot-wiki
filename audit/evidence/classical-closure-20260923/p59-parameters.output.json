@@ -1,0 +1,15 @@
+{
+  "values": {
+    "headings": [
+      "## Calibration: what a pixel means",
+      "### Hand-eye calibration: what a pixel means to the robot",
+      "## Depth sensing: what fails, and on what",
+      "## Detection: from pixels to candidate objects",
+      "## Segmentation: the grounding layer",
+      "## 6-DoF pose estimation, and how to read a claim about it"
+    ]
+  },
+  "units": "authored heading selection",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "perception-stages:parameters:v1"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "reward",
+  "mode": "derive",
+  "inputs": {
+    "weights": {
+      "velTrack": 1,
+      "yawTrack": 0.5,
+      "torque": 4,
+      "jointAccel": 0.5,
+      "actionRate": 0.8,
+      "jointLimit": 1,
+      "collision": 1,
+      "baseHeight": 0.5,
+      "orientation": 0.8,
+      "airTime": 4,
+      "stumble": 0.8,
+      "termination": 1.5
+    },
+    "phase": 0
+  }
+}
