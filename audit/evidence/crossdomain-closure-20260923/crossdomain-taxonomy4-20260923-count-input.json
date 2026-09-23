@@ -1,0 +1,14 @@
+{
+  "id": "taxonomy-selection",
+  "mode": "derive",
+  "inputs": {
+    "ids": [
+      "latent-dynamics",
+      "decoder-free-latent",
+      "generative-video",
+      "jepa",
+      "world-action",
+      "symbolic"
+    ]
+  }
+}

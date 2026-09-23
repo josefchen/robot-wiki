@@ -25,7 +25,7 @@ import { TrainingTimeChart } from '@/components/interactive/training-time-chart'
 
 The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) was not an algorithmic result. <Term id="ppo">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id="rudin-2021" />. What changed between 2021 and 2026 was the infrastructure underneath the algorithm: physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module is about that infrastructure: what the throughput numbers actually are, and where the remaining bottleneck sits.
 
-The economics are worth seeing before the history. Drag the parallel environments slider below from 64 upward and watch the breakdown bar recompose: the CPU-and-transfer share shrinks as parallelism rises, and the same training run drops from hours to minutes without a single algorithmic change.
+The chart below illustrates the cost arithmetic before the history. Drag the parallel environments slider from 64 upward: in the default model, fixed CPU-and-transfer work takes a smaller share of each iteration and the chosen experience budget takes less wall-clock time. This is a constructed comparison, not repeated measurements of one training run.
 
 <TrainingTimeChart className="my-6" />
 
@@ -50,7 +50,7 @@ NVIDIA's stack was not the only path. Brax, from Google in 2021, wrote the physi
 
 ## What the environment count actually buys
 
-Here is the arithmetic behind the chart at the top of this module. Holding the total experience required to reach a target reward fixed, wall-clock time is iterations times per-iteration cost. Per-iteration cost has a fixed part (the learning update, host-device transfer, the Python loop) and a part that scales with the environment count. At 64 environments the fixed part dominates and the GPU idles; at 16,384 the simulation itself is most of each iteration.
+This authored fixed-transitions model is not a benchmark. We choose a budget of 220 million transitions and 24 rollout steps per environment per iteration, with 4,096 environments and the CPU toggle off by default. Each iteration costs 0.02 seconds plus 0.000004 seconds per environment for simulation, 0.04 seconds for learning, and 0.03 seconds for CPU and transfer work. The toggle adds 0.000022 seconds per environment to the CPU bucket. These costs and the fixed budget are illustrative choices, not estimates recovered from either paper. The curve uses 49 logarithmically spaced environment counts from 64 to 16,384, rounded to integers, and sample times rounded to 0.01 minute. Its near-four-minute default is a chosen calibration, not validation by the flat-terrain result. The flat diamond also uses a chosen 4,096-environment position; only the separate rough-run protocol establishes that count.
 
 The CPU toggle illustrates a possible bottleneck; it does not reproduce a measured Isaac Lab curve. In the paper’s state-based Franka cabinet-drawer benchmark, a GeForce RTX 5090 workstation with an AMD 9800X3D CPU approaches a two-GPU RTX PRO 6000 server with two AMD EPYC 9554 CPUs. The authors attribute the task-dependent comparison to CPU bottlenecks in parts of PhysX and the main training loop, together with the workstation’s fast single-core CPU. This is a finding about those systems, not a universal CPU limit<br />Source: <Cite id="isaac-lab-2025" />.
 

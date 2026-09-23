@@ -70,7 +70,7 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
                 <AuthorList
                   authors={citation.authors}
                   trailing={`${citation.venue ? `, ${citation.venue}` : ''}${
-                    venueStatesYear(citation) ? '' : `, ${citation.year}`
+                    venueStatesYear(citation) ? '' : `, ${citation.year}${citation.year === 'n.d.' ? `; accessed ${citation.accessedOn}` : ''}`
                   }.`}
                 />
               </p>

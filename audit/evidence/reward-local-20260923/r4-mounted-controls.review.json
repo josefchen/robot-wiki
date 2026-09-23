@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "role": "integrator",
+  "eventId": "reward-local-r4-20260923:r4-mounted-controls:2026-09-23T04:12:57.411Z",
+  "observedAt": "2026-09-23T04:12:57.411Z",
+  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "rationale": "Actual Playwright on the article found exactly twelve individually labeled sliders with correct min/default/max/step. Initial and post-chatter Reset show -5.52, balanced and the original phase-zero SVG. Retained DOM/PNG and hashes bind those observations, not a screenshot prediction.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "r4-mounted-controls",
+  "inputDigest": "6ed53385e1e5b312db0841ee20dc7a97e4442843061d6af2ee86db740dbc8f9c",
+  "inventory": [
+    {
+      "id": "r4-paper-boundary",
+      "text": "The current reader disclosure distinguishes twelve chosen teaching terms from Rudin Table 2's nine-term paper objective.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "rudin-2021"
+      ]
+    },
+    {
+      "id": "r4-reference-code-boundary",
+      "text": "Preserve the original slip-to-stumble correction and distinguish the pinned reference implementation from the local twelve-term teaching model.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "legged-gym-repo-2021"
+      ]
+    },
+    {
+      "id": "r4-parameters",
+      "text": "Exactly twelve authored term IDs, labels, signs, magnitudes and default weights; sliders 0–4 in 0.1 increments; Foot stumble penalty is the selected local label.",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "r4-parameters"
+      ]
+    },
+    {
+      "id": "r4-total",
+      "text": "The teaching preview displays the signed weighted sum with two-decimal cents rounding, not measured reward or policy quality.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "r4-default"
+      ]
+    },
+    {
+      "id": "r4-mounted-controls",
+      "text": "The actual article mount renders all twelve labeled controls and the preview/readout; controls change local state and Reset restores the selected defaults.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "r4-mounted"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "caseId": "default",
+          "prestate": "Article not loaded",
+          "action": "Navigate to the registered article mount",
+          "poststate": "Twelve labeled controls; default weights; balanced; phase 0; total -5.52"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "caseId": "reset",
+          "prestate": "Chatter with action-rate weight 0",
+          "action": "Activate RewardShaping Reset",
+          "poststate": "All default weights and original phase-zero pose; balanced; total -5.52"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/rl-sim2real.md:reward-design-mpc:4",
+  "currentTupleDigest": "35ca4322ed4337af206a8787a2faa82d00e5683c555fc2ac3a281e24ffa929a5"
+}

@@ -1,0 +1,152 @@
+{
+  "values": {
+    "previous": {
+      "index": 1,
+      "code": [
+        "def reward(obs, act):",
+        "    # task: walk forward at 1.0 m/s",
+        "    alive = 1.0",
+        "    fall = 0.0",
+        "    if obs.terminated:",
+        "        fall = -5.0",
+        "    speed = obs.base_lin_vel_x",
+        "    return speed + alive + fall"
+      ],
+      "fitness": 0.58,
+      "stats": [
+        {
+          "label": "episode length",
+          "value": "20.0 s (max)",
+          "tone": "ok"
+        },
+        {
+          "label": "base_vel_x (mean)",
+          "value": "0.02 m/s",
+          "tone": "err"
+        },
+        {
+          "label": "episodes ending in a fall",
+          "value": "0%",
+          "tone": "ok"
+        },
+        {
+          "label": "time at target speed",
+          "value": "1%",
+          "tone": "err"
+        }
+      ],
+      "reflection": "The fall penalty worked too well. Episodes now run to the time limit with zero falls, but mean velocity collapsed to 0.02 m/s: standing still collects the alive bonus with no risk. The statistics show survival saturated and the task term starved. Next generation: replace raw speed with tracking the 1.0 m/s command, and price action rate so the gait is smooth enough to matter on hardware."
+    },
+    "next": {
+      "index": 2,
+      "code": [
+        "def reward(obs, act):",
+        "    # task: walk forward at 1.0 m/s",
+        "    alive = 1.0",
+        "    fall = 0.0",
+        "    if obs.terminated:",
+        "        fall = -5.0",
+        "    err = obs.base_lin_vel_x - 1.0",
+        "    track = exp(-4.0 * err * err)",
+        "    jitter = act - act_prev",
+        "    sq = sum(jitter ** 2)",
+        "    smooth = -0.01 * sq",
+        "    total = track + alive + fall",
+        "    return total + smooth"
+      ],
+      "fitness": 0.86,
+      "stats": [
+        {
+          "label": "episode length",
+          "value": "20.0 s (max)",
+          "tone": "ok"
+        },
+        {
+          "label": "velocity tracking error",
+          "value": "0.12 m/s",
+          "tone": "ok"
+        },
+        {
+          "label": "episodes ending in a fall",
+          "value": "2%",
+          "tone": "warn"
+        },
+        {
+          "label": "time at target speed",
+          "value": "81%",
+          "tone": "ok"
+        }
+      ],
+      "reflection": "Tracking error is down to 0.12 m/s with full-length episodes and the policy spends 81% of its time at the commanded speed. Residual ankle chatter remains in the joint-velocity trace, so further gains likely come from tuning the action-rate weight rather than adding new terms."
+    },
+    "display": [
+      "Generation 2 of 2",
+      "0.86"
+    ],
+    "diff": [
+      {
+        "type": "same",
+        "text": "def reward(obs, act):"
+      },
+      {
+        "type": "same",
+        "text": "    # task: walk forward at 1.0 m/s"
+      },
+      {
+        "type": "same",
+        "text": "    alive = 1.0"
+      },
+      {
+        "type": "same",
+        "text": "    fall = 0.0"
+      },
+      {
+        "type": "same",
+        "text": "    if obs.terminated:"
+      },
+      {
+        "type": "same",
+        "text": "        fall = -5.0"
+      },
+      {
+        "type": "del",
+        "text": "    speed = obs.base_lin_vel_x"
+      },
+      {
+        "type": "del",
+        "text": "    return speed + alive + fall"
+      },
+      {
+        "type": "add",
+        "text": "    err = obs.base_lin_vel_x - 1.0"
+      },
+      {
+        "type": "add",
+        "text": "    track = exp(-4.0 * err * err)"
+      },
+      {
+        "type": "add",
+        "text": "    jitter = act - act_prev"
+      },
+      {
+        "type": "add",
+        "text": "    sq = sum(jitter ** 2)"
+      },
+      {
+        "type": "add",
+        "text": "    smooth = -0.01 * sq"
+      },
+      {
+        "type": "add",
+        "text": "    total = track + alive + fall"
+      },
+      {
+        "type": "add",
+        "text": "    return total + smooth"
+      }
+    ]
+  },
+  "units": "dimensionless unless explicitly keyed",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "eureka:derive:v1"
+}

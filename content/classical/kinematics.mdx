@@ -1,17 +1,14 @@
 ---
 title: "Kinematics"
-description: "Forward and inverse kinematics as one map and its reverse: homogeneous transforms, the Denavit-Hartenberg convention, the Jacobian, singularities, and the damped least-squares solver behind the 3D playground."
+description: "Forward and inverse kinematics as one map and its reverse: homogeneous transforms, the Denavit-Hartenberg convention, the Jacobian, singularities, and numerical inverse kinematics in the 3D playground."
 domain: classical
 slug: kinematics
 order: 1
 status: published
 lastReviewed: "2026-08-17"
 citations:
-  - denavit-hartenberg-1955
+  - lavalle-2006
   - whitney-1969
-  - wampler-1986
-  - levenberg-1944
-  - marquardt-1963
   - modern-robotics-2017
   - so-arm100-repo-2026
   - act-aloha-2023
@@ -37,7 +34,7 @@ The asymmetry is easiest to feel with an arm in front of you. Move the base join
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DH parameters per joint" value="4" note="theta, d, a, alpha" />
   <Stat label="SO-101 revolute joints" value="6" note="the arm in the 3D playground" />
-  <Stat label="playground IK tolerance" value="±0.5mm" note="damped least-squares residual target" />
+  <Stat label="playground IK tolerance" value="±0.5mm" note="solver residual target" />
   <Stat label="joints in the 2D demo" value="3" note="the planar chain below" />
 </div>
 
@@ -69,7 +66,7 @@ The arm at the top of this module evaluates exactly that expression: three revol
 
 ## Denavit-Hartenberg parameters
 
-The transform product answers the question once the frames are fixed, but the frames still need assigning. Denavit and Hartenberg gave the standard answer in 1955 <Cite id="denavit-hartenberg-1955" />: the <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term>, under which exactly four scalars describe the geometry from one joint to the next. Two belong to the link: $a_i$, the distance between consecutive joint axes measured along their common normal, and $\alpha_i$, the twist angle between those axes. Two belong to the joint: $d_i$, the offset along the preceding axis, and $\theta_i$, the joint angle itself. For a revolute joint only $\theta_i$ varies; the other three are constants of the hardware.
+The transform product answers the question once the frames are fixed, but the frames still need assigning. LaValle describes the <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term> for a chain connected by revolute joints using four parameters: an offset along a rotation axis, an angle about that axis, the distance between successive rotation axes, and the angle between those axes <Cite id="lavalle-2006" />. His notation is $d_i$, $\theta_i$, $a_{i-1}$ and $\alpha_{i-1}$; the page's distance-definition sentence instead writes $a_i$. Frame assignment and transform order matter: the matrix below defines the convention used for this example, rather than reproducing LaValle's matrix.
 
 The per-joint transform is a fixed sequence of four elementary motions, rotation about $z$, translation along $z$, translation along $x$, rotation about $x$:
 
@@ -90,11 +87,11 @@ For the planar arm above the table is short. All motion stays in one plane, so e
 
 <DhParameterTable className="my-6" />
 
-The convention earns its keep on real arms: four parameters per joint instead of six transform <Term id="degrees-of-freedom">degrees of freedom</Term>, and a description compact enough to print on a datasheet. It has costs. Frame assignment is fiddly, and the parameters become ill-conditioned: as two consecutive joint axes drift toward parallel, the common normal they define can vary wildly with small changes in the axes' orientation, so a small mechanical change can jump a table entry. The product-of-exponentials formulation avoids that ill-conditioning by describing each joint as a screw about a fixed axis, and it is the treatment Modern Robotics uses throughout <Cite id="modern-robotics-2017" />. The output of either notation is the same transform product; the convention is a choice of bookkeeping.
+This represents the inter-link geometry with four parameters. It has costs. Frame assignment is fiddly, and the parameters become ill-conditioned: as two consecutive joint axes drift toward parallel, the common normal they define can vary wildly with small changes in the axes' orientation, so a small mechanical change can jump a table entry. The product-of-exponentials formulation avoids that ill-conditioning by describing each joint as a screw about a fixed axis, and it is the treatment Modern Robotics uses throughout <Cite id="modern-robotics-2017" />. The output of either notation is the same transform product; the convention is a choice of bookkeeping.
 
 <Image id="puma-560-nasa-ames" />
 
-Modern rigs rarely run DH at all. The 3D playground reads the SO-101 chain directly from its URDF, a tree of links and joints where each joint carries an origin transform and a rotation axis <Cite id="so-arm100-repo-2026" />. DH remains the common paper language for writing a robot's geometry down, which is why every datasheet you read will speak it.
+The 3D playground reads the SO-101 chain directly from its URDF, a tree of links and joints where each joint carries an origin transform and a rotation axis <Cite id="so-arm100-repo-2026" />.
 
 ## The Jacobian
 
@@ -132,22 +129,16 @@ $$
 \Delta x = J(q)\,\Delta q \qquad \Delta q = J^{+}(q)\,\Delta x
 $$
 
-Near a singularity this inherits the Jacobian's pathology. $JJ^{T}$ approaches singularity, and the pseudoinverse step blows up exactly where careful motion matters most. The standard fix stops inverting precisely and solves a regularized problem instead. Wampler's damped least squares replaces the inverse with
 
-$$
-\Delta q = J^{T}\left(JJ^{T} + \lambda^2 I\right)^{-1}\Delta x
-$$
 
-The damping term trades a small amount of position error for a bounded, well-conditioned step. Far from singularities it is nearly invisible; near one it is what keeps the joint rates finite. The trade is governed by a single scalar, $\lambda$ <Cite id="wampler-1986" />.
 
-Make the damping adaptive and you recover the Levenberg-Marquardt pattern from nonlinear least squares: take a trial step, keep it only if the residual shrinks, decrease $\lambda$ after success and increase it after failure <Cite id="levenberg-1944" /> <Cite id="marquardt-1963" />. Under that rule the residual decreases monotonically, the solver cannot chase an oscillation, and an unreachable target produces a plateau at the edge of the workspace instead of a false zero. That is precisely the behavior of the solver in this wiki's playground: damped least squares with Levenberg-Marquardt acceptance, plus joint-limit clamps on every step.
 
 <Callout variant="info" title="Drive the full solver">
-  The [3D kinematics playground](/playground) runs this solver on the SO-101 arm: joint sliders for forward kinematics, click-to-reach targets for inverse kinematics, and a live residual and iteration count in the HUD. The arm model comes from TheRobotStudio's SO-ARM100 project <Cite id="so-arm100-repo-2026" />.
+  Explore the SO-101 arm in the [3D kinematics playground](/playground): joint sliders for forward kinematics, click-to-reach targets for inverse kinematics, and a live residual and iteration count in the HUD. The arm model comes from TheRobotStudio's SO-ARM100 project <Cite id="so-arm100-repo-2026" />.
 </Callout>
 
 ## The same geometry, inside learned policies
 
 It is fair to ask how much of this matters once policies learn end to end. The learned part still lives inside the kinematic structure, in practice. [Action chunking](/manipulation/action-chunking) with ACT predicts continuous joint-space targets, fourteen dimensions across two 6-DoF arms and their grippers <Cite id="act-aloha-2023" />. GR00T's recent releases shifted to a shared relative end-effector action space so that human hand data and robot grippers live in one frame, a coordinate choice with direct consequences for what pretraining data is usable <Cite id="isaac-gr00t-repo-2026" />. Simulators integrate a kinematic chain under their dynamics either way, teleoperation rigs still retarget human motion into joint space, and a residual policy trained on top of a classical controller inherits its coordinate system. The policies changed who picks the numbers. They did not change what the numbers mean.
 
-The forward direction is a product of transforms; the inverse direction is a damped iteration built on its derivative. Planning, control, and learning in the rest of this domain all run on top of those two operations.
+The forward direction is a product of transforms; the inverse direction searches for joint angles that reach a target. Planning, control, and learning in the rest of this domain all run on top of those two operations.

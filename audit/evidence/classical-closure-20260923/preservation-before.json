@@ -1,0 +1,170 @@
+{
+  "observedAt": "2026-09-23T19:27:45.682Z",
+  "baseHead": "0a459426b58d518c6a238fb7ab7df9bf9d2c5466",
+  "baseTree": "256beac74ea54b7408d5eedfe43d7c23aa57c6fa",
+  "packetSha256": "9bed82d094aee29497ebcebb2c5945ee3401fc7d575c978d29ef64aa64432709",
+  "selected": [
+    {
+      "originalId": "audit/classical.md:kinematics:3",
+      "rowOrdinal": 3,
+      "currentTupleDigest": "2a937e02dea1624796dcbc19a63e71f4b98519bb859e3d4de8442a7bdf99a98c",
+      "currentCells": {
+        "claim": "DH 1955: exactly four scalars per joint, a/alpha for the link, d/theta for the joint; revolute joints vary theta only",
+        "sourceChecked": "denavit-hartenberg-1955",
+        "verdict": "V",
+        "note": ""
+      }
+    },
+    {
+      "originalId": "audit/classical.md:kinematics:11",
+      "rowOrdinal": 11,
+      "currentTupleDigest": "796d3393946b44d597c19858b15a388d4aec5966908281921ab15093dae6f0f5",
+      "currentCells": {
+        "claim": "Wampler DLS: dq = J^T(JJ^T + lambda^2 I)^-1 dx, governed by the single scalar lambda",
+        "sourceChecked": "wampler-1986",
+        "verdict": "V",
+        "note": ""
+      }
+    },
+    {
+      "originalId": "audit/classical.md:kinematics:12",
+      "rowOrdinal": 12,
+      "currentTupleDigest": "21c53319e6e4a424fce0d79c2ac5f0fd12fd392a7a662bd65e41c94a2433fbde",
+      "currentCells": {
+        "claim": "Levenberg-Marquardt pattern: accept only on residual decrease, lambda down on success, up on failure",
+        "sourceChecked": "levenberg-1944, marquardt-1963",
+        "verdict": "V",
+        "note": ""
+      }
+    },
+    {
+      "originalId": "audit/classical.md:motion-planning:15",
+      "rowOrdinal": 15,
+      "currentTupleDigest": "0b70c67be00377f53a9e055169d814ce70444969ede3525e05408bcf3658a079",
+      "currentCells": {
+        "claim": "Demo scene: 2D, 100x64 world, 5 obstacles, one accepted extension per iteration from a fixed seed",
+        "sourceChecked": "components/interactive/rrt-explorer.tsx (internal)",
+        "verdict": "UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)",
+        "note": "Historical four-cell record retained: {\"claim\":\"Demo scene: 2D, 100x64 world, 5 obstacles, one accepted extension per iteration from a fixed seed\",\"sourceChecked\":\"components/interactive/rrt-explorer.tsx (internal)\",\"verdict\":\"V\",\"note\":\"\"} Correction rationale: The local sampler explicitly chooses scene.goal with probability .015; the article’s no-goal-knowledge claim and component’s 2% label disagree with that implementation. This is a local-model/source-format correction, not external source verification or whole-record completion. No primary fetch was performed in preparation."
+      }
+    },
+    {
+      "originalId": "audit/classical.md:perception:1",
+      "rowOrdinal": 1,
+      "currentTupleDigest": "b9581a68aaab7207f3b7deeab2346981c777ae0e7b2675ee7d0b1fe910dd3fca",
+      "currentCells": {
+        "claim": "Three stages contribute a positioning error at the gripper (hand-eye, depth, pose); two of them are fixed offsets",
+        "sourceChecked": "lib/perception-error.ts `composeBudget`, `depthErrorMm` range-independent, `poseMm` direct (internal)",
+        "verdict": "V",
+        "note": ""
+      }
+    },
+    {
+      "originalId": "audit/classical.md:perception:2",
+      "rowOrdinal": 2,
+      "currentTupleDigest": "c4f336b0d0b5a3b3afaaa479411784bd88a49c44b4ae2125a6262746bbcc1a6b",
+      "currentCells": {
+        "claim": "The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established.",
+        "sourceChecked": "lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage.",
+        "verdict": "UNRESOLVED",
+        "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+      }
+    },
+    {
+      "originalId": "audit/classical.md:perception:3",
+      "rowOrdinal": 3,
+      "currentTupleDigest": "9112cb1bb0fab4a4ed79efe8d774b0c7a8ca1ff388994682472a08c329c83b3e",
+      "currentCells": {
+        "claim": "The clearance band is a parallel-jaw gripper's lateral slack",
+        "sourceChecked": "lib/perception-error.ts `CLEARANCE_MM = 15` (90 mm opening around a 60 mm part) (internal)",
+        "verdict": "V",
+        "note": ""
+      }
+    },
+    {
+      "originalId": "audit/classical.md:perception:7",
+      "rowOrdinal": 7,
+      "currentTupleDigest": "006167beefa662141907125f226bfc2e5617ece56fc9e258002cb5bdc949d2d8",
+      "currentCells": {
+        "claim": "Half a degree of hand-eye is invisible at 15 cm and dominates at long standoff",
+        "sourceChecked": "lib/perception-error.ts composeBudget/handEyeErrorMm/SLIDER_SPECS (internal); read-only npx tsx import of lib/perception-error.ts at HEAD 56b825f1f7200efe9e8bde6b453f36de6346ca81, preparer run 2026-09-15T14:31:05Z; integrator re-ran the read-only module import at application time (observed values in this lane's local-proof.json)",
+        "verdict": "UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)",
+        "note": "Historical four-cell record retained: {\"claim\":\"Half a degree of hand-eye is invisible at 15 cm and dominates at long standoff\",\"sourceChecked\":\"lib/perception-error.ts composeBudget/handEyeErrorMm/SLIDER_SPECS (internal); read-only npx tsx import of lib/perception-error.ts at HEAD 56b825f1f7200efe9e8bde6b453f36de6346ca81, preparer run 2026-09-15T14:31:05Z; integrator re-ran the read-only module import at application time (observed values in this lane's local-proof.json)\",\"verdict\":\"V (at 0.5 deg on an opaque target the instrument's own verdict word at 1.5 m is \\\"marginal\\\", not \\\"will jam\\\"; the composed total does clear the clearance band)\",\"note\":\"\"} Correction rationale: The frozen model reaches 16.74383463350353 mm at the far end under the stated defaults, within its marginal band; its article instruction incorrectly predicts jam. This is a local-model/source-format correction, not external source verification or whole-record completion. No primary fetch was performed in preparation."
+      }
+    },
+    {
+      "originalId": "audit/classical.md:perception:19",
+      "rowOrdinal": 19,
+      "currentTupleDigest": "8b42597183269304a7e94dd2b3d42417cd522fcf173bc7e5c540ccb57f21ee75",
+      "currentCells": {
+        "claim": "The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements.",
+        "sourceChecked": "lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples.",
+        "verdict": "UNRESOLVED",
+        "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+      }
+    },
+    {
+      "originalId": "audit/classical.md:perception:59",
+      "rowOrdinal": 59,
+      "currentTupleDigest": "412d9a257597a831fc9b01ae6d76813c9a27e2f13760ab013fc7dfc6cf4cf002",
+      "currentCells": {
+        "claim": "Six subsystems, matching the six named stages",
+        "sourceChecked": "Article-internal: the six section stages are camera calibration, hand-eye calibration, depth, detection, segmentation, pose estimation; the closing paragraph's \"six subsystems\" and \"which of these six stages\" agree",
+        "verdict": "V",
+        "note": ""
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "PRODUCT_QUALITY.md",
+      "bytes": 7195,
+      "sha256": "84a8b66e0eaade7a631ec60befb38096ede06d73b40878bb47d91e1b23e20a2d"
+    },
+    {
+      "path": "audit/classical.md",
+      "bytes": 652402,
+      "sha256": "f771865d5faaabdbc27b60d6c190c836921425f40f13b276326a691d0e0a7b4d"
+    },
+    {
+      "path": "audit/compound-evidence.json",
+      "bytes": 11764208,
+      "sha256": "eea12d51f9348fcd1965f019e05886495960e87afce21eb1954558dd72f7bd82"
+    },
+    {
+      "path": "audit/local-basis.json",
+      "bytes": 1065900,
+      "sha256": "0f9b9fb37645421cf7645b99807e35ec65d5bd0e2378bd0577025cddf59aaf8d"
+    },
+    {
+      "path": "contract/brand-v2-approved-deltas.json",
+      "bytes": 1875390,
+      "sha256": "b95f7c5e3184c67be7542f3c1aedf19af0a010374a736fe294f52845202e5026"
+    },
+    {
+      "path": "lib/ik.ts",
+      "bytes": 18933,
+      "sha256": "df606ff4d6f7701a7c96fbee009902173c4f7308f0d1ca4bd051337faec18c3b"
+    },
+    {
+      "path": "lib/perception-error.ts",
+      "bytes": 8220,
+      "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+    },
+    {
+      "path": "lib/rrt.ts",
+      "bytes": 9397,
+      "sha256": "3b7f3ab7234c342e9762bd987306492b09e0c62b82a827b4b369b00d56ead4ad"
+    },
+    {
+      "path": "next-env.d.ts",
+      "bytes": 288,
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "qa/findings.json",
+      "bytes": 11464,
+      "sha256": "28101913c6141a1d807077b1521473f483de8a26aa1afed5c15d00af33632970"
+    }
+  ]
+}

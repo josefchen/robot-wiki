@@ -1,0 +1,16 @@
+{
+  "values": {
+    "ids": [
+      "latent-dynamics",
+      "decoder-free-latent",
+      "generative-video",
+      "jepa",
+      "world-action",
+      "symbolic"
+    ],
+    "count": 6
+  },
+  "units": "author-selected records:count; not scientific/source certification",
+  "precision": "exact integer",
+  "formula": "cardinality of the exact duplicate-free authored ID list"
+}

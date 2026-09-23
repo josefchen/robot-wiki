@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T05:11:30.984Z",
+  "endedAt": "2026-09-23T05:11:31.013Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/sim2real-local-evidence.test.ts",
+    "bytes": 9475,
+    "sha256": "b5a93626760f440c3d9d988efcf14878939fc24ff3b2454cd6e5821fb7958f33"
+  },
+  "inputDigest": "042a9ecb54e7f6c0d8c3755f4f46f479f6530928d05bf4ec816e5bc5b350df81",
+  "outputDigest": "1d19e0c11bf9b5ed6e8a7755f530f8d7ff06b83374b7156e36a7d324c2047361",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 21915,
+        "sha256": "4e89e687c0b3bff26e808d8247e91eaff9e518b58afd96ec8cfc22429ba95d37"
+      },
+      "id": "article:rl-sim2real/sim2real-transfer",
+      "offset": 0,
+      "length": 21915,
+      "sha256": "4e89e687c0b3bff26e808d8247e91eaff9e518b58afd96ec8cfc22429ba95d37",
+      "baseline": {
+        "kind": "prose",
+        "hash": "37d093cffb550ebdd5198555b6ee24c277fd00bb4640a61b2fd449ebe621c65f"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/teacher-student.tsx",
+        "bytes": 10601,
+        "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+      },
+      "id": "source:components/interactive/teacher-student.tsx",
+      "offset": 0,
+      "length": 10601,
+      "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/sim2real.ts",
+        "bytes": 9575,
+        "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+      },
+      "id": "file:lib/sim2real.ts",
+      "offset": 0,
+      "length": 9575,
+      "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 40817,
+      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+    },
+    {
+      "file": {
+        "path": "tests/unit/sim2real-local-evidence.test.ts",
+        "bytes": 9475,
+        "sha256": "b5a93626760f440c3d9d988efcf14878939fc24ff3b2454cd6e5821fb7958f33"
+      },
+      "id": "file:tests/unit/sim2real-local-evidence.test.ts",
+      "offset": 0,
+      "length": 9475,
+      "sha256": "b5a93626760f440c3d9d988efcf14878939fc24ff3b2454cd6e5821fb7958f33"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
+        "bytes": 2972,
+        "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+      },
+      "id": "file:audit/evidence/sim2real-local-20260923/proof-support.ts",
+      "offset": 0,
+      "length": 2972,
+      "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/sim2real-local-20260923/typed-support.ts",
+        "bytes": 3292,
+        "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+      },
+      "id": "file:audit/evidence/sim2real-local-20260923/typed-support.ts",
+      "offset": 0,
+      "length": 3292,
+      "sha256": "19b35ccfb7053ec5638c3cd784579366a7c7a845b837fe4ea09943cb72680bb1"
+    }
+  ],
+  "observations": []
+}

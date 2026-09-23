@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T18:44:50.849Z",
+  "endedAt": "2026-09-23T18:44:50.876Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/industrial-closure-evidence.test.ts",
+    "bytes": 5617,
+    "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+  },
+  "inputDigest": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b",
+  "outputDigest": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "id": "article:data-hardware/industrial-deployment",
+      "offset": 0,
+      "length": 19399,
+      "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+      "baseline": {
+        "kind": "prose",
+        "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/deployment-economics.tsx",
+        "bytes": 9866,
+        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+      },
+      "id": "source:components/interactive/deployment-economics.tsx",
+      "offset": 0,
+      "length": 9866,
+      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/deployment-economics.ts",
+        "bytes": 7602,
+        "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+      },
+      "id": "file:lib/deployment-economics.ts",
+      "offset": 0,
+      "length": 7602,
+      "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 44430,
+      "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/industrial-closure-20260923/support.ts",
+        "bytes": 2740,
+        "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+      },
+      "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+      "offset": 0,
+      "length": 2740,
+      "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-local-20260923/support.ts",
+        "bytes": 5308,
+        "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+      },
+      "id": "file:audit/evidence/economics-local-20260923/support.ts",
+      "offset": 0,
+      "length": 5308,
+      "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+    },
+    {
+      "file": {
+        "path": "tests/unit/industrial-closure-evidence.test.ts",
+        "bytes": 5617,
+        "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+      },
+      "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+      "offset": 0,
+      "length": 5617,
+      "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+    }
+  ],
+  "observations": []
+}

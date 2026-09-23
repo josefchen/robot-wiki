@@ -1,0 +1,22 @@
+{
+  "values": {
+    "ids": [
+      "helix",
+      "gemini-robotics-1",
+      "gr00t-n1",
+      "agibot-go1",
+      "pi05-context",
+      "gemini-robotics-15",
+      "pi06-context",
+      "helix-02",
+      "skild-brain",
+      "gr00t-n17",
+      "agibot-go2",
+      "pi07-context",
+      "gemini-robotics-2"
+    ]
+  },
+  "units": "author-selected IDs, not source facts",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "generalist-selection:parameters:v1"
+}

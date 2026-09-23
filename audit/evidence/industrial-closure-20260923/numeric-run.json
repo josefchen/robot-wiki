@@ -1,0 +1,855 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T18:40:11.430Z",
+  "endedAt": "2026-09-23T18:40:11.461Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/industrial-closure-evidence.test.ts",
+    "bytes": 5611,
+    "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+  },
+  "cases": [
+    {
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25,
+          "ranges": {
+            "robotCost": {
+              "min": 20000,
+              "max": 250000,
+              "step": 5000
+            },
+            "integrationMultiple": {
+              "min": 1,
+              "max": 5,
+              "step": 0.1
+            },
+            "cycleTimeSeconds": {
+              "min": 2,
+              "max": 20,
+              "step": 0.5
+            },
+            "uptimePercent": {
+              "min": 80,
+              "max": 100,
+              "step": 0.5
+            },
+            "successRatePercent": {
+              "min": 90,
+              "max": 99.9,
+              "step": 0.1
+            },
+            "jamClearSeconds": {
+              "min": 5,
+              "max": 300,
+              "step": 5
+            },
+            "wageUsdPerHour": {
+              "min": 10,
+              "max": 80,
+              "step": 1
+            }
+          },
+          "hours": 730,
+          "amortization": 60,
+          "target": 24,
+          "comparisonSuccess": 99,
+          "exampleClearing": 10,
+          "expensiveClearing": 300,
+          "basis": "Finite authored article comparisons, not empirical deployment inputs."
+        },
+        "units": "USD,s,%,hours,months as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:parameters:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2750,
+            "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2750,
+          "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5611,
+            "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5611,
+          "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+        }
+      ]
+    },
+    {
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.008030922053993429,
+          "paybackMonths": 11.564527757750536,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.6 months"
+          ],
+          "jamOverheadPerPick": 0.014999999999999148
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2750,
+            "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2750,
+          "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5611,
+            "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5611,
+          "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+        }
+      ]
+    },
+    {
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 6.15,
+          "netPicksPerHour": 556.0975609756097,
+          "monthlyPicks": 405951.21951219504,
+          "monthlyLaborValue": 16914.634146341457,
+          "costPerPickUsd": 0.008211167187374831,
+          "paybackMonths": 11.824080749819759,
+          "timeBreakdown": {
+            "productive": 3336.5853658536585,
+            "jamClearing": 83.41463414634144,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.8 months"
+          ],
+          "jamOverheadPerPick": 0.15
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2750,
+            "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2750,
+          "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5611,
+            "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5611,
+          "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+        }
+      ]
+    },
+    {
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 300,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 300,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.299999999999983,
+          "netPicksPerHour": 542.8571428571444,
+          "monthlyPicks": 396285.71428571537,
+          "monthlyLaborValue": 16511.904761904803,
+          "costPerPickUsd": 0.008411439557798583,
+          "paybackMonths": 12.112472963229962,
+          "timeBreakdown": {
+            "productive": 3257.142857142866,
+            "jamClearing": 162.85714285713405,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "12.1 months"
+          ],
+          "jamOverheadPerPick": 0.29999999999998295
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2750,
+            "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2750,
+          "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5611,
+            "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5611,
+          "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+        }
+      ]
+    },
+    {
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 300,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 300,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 9,
+          "netPicksPerHour": 380,
+          "monthlyPicks": 277400,
+          "monthlyLaborValue": 11558.333333333334,
+          "costPerPickUsd": 0.01201634222542658,
+          "paybackMonths": 17.303532804614274,
+          "timeBreakdown": {
+            "productive": 2280,
+            "jamClearing": 1140,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.012",
+            "17.3 months"
+          ],
+          "jamOverheadPerPick": 3
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2750,
+            "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2750,
+          "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5611,
+            "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5611,
+          "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+        }
+      ]
+    },
+    {
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 10,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 10,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 6.1,
+          "netPicksPerHour": 560.655737704918,
+          "monthlyPicks": 409278.68852459016,
+          "monthlyLaborValue": 17053.27868852459,
+          "costPerPickUsd": 0.008144409730566904,
+          "paybackMonths": 11.727950012016342,
+          "timeBreakdown": {
+            "productive": 3363.934426229508,
+            "jamClearing": 56.0655737704918,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.7 months"
+          ],
+          "jamOverheadPerPick": 0.1
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "dependencies": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2750,
+            "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2750,
+          "sha256": "740cbc8f65b26504c62296aa16a85901da70fa3c4df5a995a6069a1c4ca4f121"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5611,
+            "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5611,
+          "sha256": "3d7946b0dfb1e8e225e091fc3679d458cfef095dc383cfd9e64f771a8bf7d110"
+        }
+      ]
+    }
+  ]
+}

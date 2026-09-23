@@ -1,0 +1,861 @@
+{
+  "observedAt": "2026-09-23T19:50:26.747Z",
+  "test": "tests/unit/classical-closure-evidence.test.ts",
+  "results": [
+    {
+      "name": "rrt-parameters",
+      "recipe": {
+        "id": "rrt",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "scene": {
+            "width": 100,
+            "height": 64,
+            "start": {
+              "x": 7,
+              "y": 32
+            },
+            "goal": {
+              "x": 93,
+              "y": 32
+            },
+            "goalRadius": 3,
+            "obstacles": [
+              {
+                "kind": "circle",
+                "x": 26,
+                "y": 15,
+                "r": 7
+              },
+              {
+                "kind": "circle",
+                "x": 30,
+                "y": 47,
+                "r": 5
+              },
+              {
+                "kind": "rect",
+                "x": 47,
+                "y": 20,
+                "w": 6,
+                "h": 44
+              },
+              {
+                "kind": "circle",
+                "x": 71,
+                "y": 12,
+                "r": 6
+              },
+              {
+                "kind": "circle",
+                "x": 74,
+                "y": 48,
+                "r": 8
+              }
+            ]
+          },
+          "defaults": {
+            "seed": 19981001,
+            "stepSize": 2,
+            "goalBias": 0.015,
+            "maxIterations": 900
+          },
+          "iterations": {
+            "opening": 0,
+            "step": 1,
+            "playback": 3,
+            "scrub": 100
+          },
+          "cadence": {
+            "normal": {
+              "tickMs": 50,
+              "nodesPerTick": 3
+            },
+            "reduced": {
+              "tickMs": 340,
+              "nodesPerTick": 25
+            }
+          }
+        },
+        "units": "abstract world units; accepted extensions:count; probability:1",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "rrt:parameters:v1"
+      }
+    },
+    {
+      "name": "perception-parameters",
+      "recipe": {
+        "id": "perception",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "defaults": {
+            "handEyeDeg": 0.5,
+            "depthPct": 2,
+            "poseMm": 3,
+            "workingDistanceM": 0.5,
+            "target": "opaque"
+          },
+          "sliders": {
+            "handEye": {
+              "min": 0,
+              "max": 3,
+              "step": 0.1
+            },
+            "depth": {
+              "min": 0,
+              "max": 20,
+              "step": 0.5
+            },
+            "pose": {
+              "min": 0,
+              "max": 20,
+              "step": 0.5
+            },
+            "distance": {
+              "min": 0.15,
+              "max": 1.5,
+              "step": 0.05
+            }
+          },
+          "nominalRangeM": 0.5,
+          "referencePct": 2,
+          "multipliers": [
+            {
+              "id": "opaque",
+              "multiple": 1
+            },
+            {
+              "id": "specular",
+              "multiple": 3
+            },
+            {
+              "id": "transparent",
+              "multiple": 8
+            }
+          ],
+          "geometry": {
+            "openingMm": 90,
+            "partMm": 60
+          },
+          "bandsMm": [
+            15,
+            30
+          ],
+          "cases": {
+            "opening": {
+              "handEyeDeg": 0.5,
+              "depthPct": 2,
+              "poseMm": 3,
+              "workingDistanceM": 0.5,
+              "target": "opaque"
+            },
+            "near": {
+              "handEyeDeg": 0.5,
+              "depthPct": 2,
+              "poseMm": 3,
+              "workingDistanceM": 0.15,
+              "target": "opaque"
+            },
+            "far": {
+              "handEyeDeg": 0.5,
+              "depthPct": 2,
+              "poseMm": 3,
+              "workingDistanceM": 1.5,
+              "target": "opaque"
+            },
+            "zeroNear": {
+              "handEyeDeg": 0,
+              "depthPct": 2,
+              "poseMm": 3,
+              "workingDistanceM": 0.15,
+              "target": "opaque"
+            },
+            "zeroFar": {
+              "handEyeDeg": 0,
+              "depthPct": 2,
+              "poseMm": 3,
+              "workingDistanceM": 1.5,
+              "target": "opaque"
+            },
+            "specular": {
+              "handEyeDeg": 0.5,
+              "depthPct": 2,
+              "poseMm": 3,
+              "workingDistanceM": 0.5,
+              "target": "specular"
+            },
+            "transparent": {
+              "handEyeDeg": 0.5,
+              "depthPct": 2,
+              "poseMm": 3,
+              "workingDistanceM": 0.5,
+              "target": "transparent"
+            }
+          }
+        },
+        "units": "deg,m,mm,% as named; authored geometry, not empirical tolerance",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "perception:parameters:v1"
+      }
+    },
+    {
+      "name": "perception-ray-parameters",
+      "recipe": {
+        "id": "perception-ray",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "angles": {
+            "one": 1,
+            "zero": 0
+          },
+          "distances": {
+            "near": 0.1,
+            "far": 1
+          },
+          "geometry": "Right triangle: tan(theta)=lateral offset/axial plane separation; not a rigid-transform norm."
+        },
+        "units": "angle:deg; distance:m",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "perception-ray:parameters:v1"
+      }
+    },
+    {
+      "name": "perception-stages-parameters",
+      "recipe": {
+        "id": "perception-stages",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "headings": [
+            "## Calibration: what a pixel means",
+            "### Hand-eye calibration: what a pixel means to the robot",
+            "## Depth sensing: what fails, and on what",
+            "## Detection: from pixels to candidate objects",
+            "## Segmentation: the grounding layer",
+            "## 6-DoF pose estimation, and how to read a claim about it"
+          ]
+        },
+        "units": "authored heading selection",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "perception-stages:parameters:v1"
+      }
+    },
+    {
+      "name": "rrt-opening",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 0
+        }
+      },
+      "output": {
+        "values": {
+          "totalExtensions": 288,
+          "visibleNodes": 1,
+          "visibleEdges": 0,
+          "goalReached": false,
+          "goalNodeId": 288,
+          "pathLength": 124.17559667916905,
+          "treeDigest": "fffcf11968c1c8321be43f81b093fee8c4c52acf0d61557a61773a9104ab704a",
+          "display": [
+            "0 / 288",
+            "1",
+            "tree not started",
+            "n/a"
+          ]
+        },
+        "units": "abstract world units; accepted extensions:count",
+        "precision": "path length:toFixed(1); counts:integer",
+        "formula": "rrt:derive:v1"
+      }
+    },
+    {
+      "name": "rrt-step",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 1
+        }
+      },
+      "output": {
+        "values": {
+          "totalExtensions": 288,
+          "visibleNodes": 2,
+          "visibleEdges": 1,
+          "goalReached": false,
+          "goalNodeId": 288,
+          "pathLength": 124.17559667916905,
+          "treeDigest": "fffcf11968c1c8321be43f81b093fee8c4c52acf0d61557a61773a9104ab704a",
+          "display": [
+            "1 / 288",
+            "2",
+            "exploring free space",
+            "n/a"
+          ]
+        },
+        "units": "abstract world units; accepted extensions:count",
+        "precision": "path length:toFixed(1); counts:integer",
+        "formula": "rrt:derive:v1"
+      }
+    },
+    {
+      "name": "rrt-playback",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 3
+        }
+      },
+      "output": {
+        "values": {
+          "totalExtensions": 288,
+          "visibleNodes": 4,
+          "visibleEdges": 3,
+          "goalReached": false,
+          "goalNodeId": 288,
+          "pathLength": 124.17559667916905,
+          "treeDigest": "fffcf11968c1c8321be43f81b093fee8c4c52acf0d61557a61773a9104ab704a",
+          "display": [
+            "3 / 288",
+            "4",
+            "exploring free space",
+            "n/a"
+          ]
+        },
+        "units": "abstract world units; accepted extensions:count",
+        "precision": "path length:toFixed(1); counts:integer",
+        "formula": "rrt:derive:v1"
+      }
+    },
+    {
+      "name": "rrt-scrub",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 100
+        }
+      },
+      "output": {
+        "values": {
+          "totalExtensions": 288,
+          "visibleNodes": 101,
+          "visibleEdges": 100,
+          "goalReached": false,
+          "goalNodeId": 288,
+          "pathLength": 124.17559667916905,
+          "treeDigest": "fffcf11968c1c8321be43f81b093fee8c4c52acf0d61557a61773a9104ab704a",
+          "display": [
+            "100 / 288",
+            "101",
+            "exploring free space",
+            "n/a"
+          ]
+        },
+        "units": "abstract world units; accepted extensions:count",
+        "precision": "path length:toFixed(1); counts:integer",
+        "formula": "rrt:derive:v1"
+      }
+    },
+    {
+      "name": "perception-opening",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "opaque"
+        }
+      },
+      "output": {
+        "values": {
+          "effectiveDepthPct": 2,
+          "flooredByTarget": false,
+          "contributions": [
+            {
+              "key": "handeye",
+              "label": "hand-eye rotation",
+              "mm": 4.363433895379394,
+              "share": 0.14870057386493468
+            },
+            {
+              "key": "depth",
+              "label": "depth sensing",
+              "mm": 10,
+              "share": 0.7810086478303351
+            },
+            {
+              "key": "pose",
+              "label": "object pose",
+              "mm": 3,
+              "share": 0.07029077830473016
+            }
+          ],
+          "totalMm": 11.315456480378765,
+          "verdict": "within",
+          "slackMm": 15,
+          "bandsMm": [
+            15,
+            30
+          ],
+          "display": [
+            "11.32 mm",
+            "10.00 mm at 2.0%",
+            "within model band"
+          ]
+        },
+        "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+        "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+        "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+      }
+    },
+    {
+      "name": "perception-near",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.15,
+          "target": "opaque"
+        }
+      },
+      "output": {
+        "values": {
+          "effectiveDepthPct": 2,
+          "flooredByTarget": false,
+          "contributions": [
+            {
+              "key": "handeye",
+              "label": "hand-eye rotation",
+              "mm": 1.3090301686138184,
+              "share": 0.01547741742397621
+            },
+            {
+              "key": "depth",
+              "label": "depth sensing",
+              "mm": 10,
+              "share": 0.9032317271339667
+            },
+            {
+              "key": "pose",
+              "label": "object pose",
+              "mm": 3,
+              "share": 0.08129085544205701
+            }
+          ],
+          "totalMm": 10.522051130000325,
+          "verdict": "within",
+          "slackMm": 15,
+          "bandsMm": [
+            15,
+            30
+          ],
+          "display": [
+            "10.52 mm",
+            "10.00 mm at 2.0%",
+            "within model band"
+          ]
+        },
+        "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+        "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+        "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+      }
+    },
+    {
+      "name": "perception-far",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 1.5,
+          "target": "opaque"
+        }
+      },
+      "output": {
+        "values": {
+          "effectiveDepthPct": 2,
+          "flooredByTarget": false,
+          "contributions": [
+            {
+              "key": "handeye",
+              "label": "hand-eye rotation",
+              "mm": 13.090301686138185,
+              "share": 0.6112086037517942
+            },
+            {
+              "key": "depth",
+              "label": "depth sensing",
+              "mm": 10,
+              "share": 0.35668935435615207
+            },
+            {
+              "key": "pose",
+              "label": "object pose",
+              "mm": 3,
+              "share": 0.032102041892053686
+            }
+          ],
+          "totalMm": 16.74383463350353,
+          "verdict": "marginal",
+          "slackMm": 15,
+          "bandsMm": [
+            15,
+            30
+          ],
+          "display": [
+            "16.74 mm",
+            "10.00 mm at 2.0%",
+            "marginal"
+          ]
+        },
+        "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+        "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+        "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+      }
+    },
+    {
+      "name": "perception-zeroNear",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.15,
+          "target": "opaque"
+        }
+      },
+      "output": {
+        "values": {
+          "effectiveDepthPct": 2,
+          "flooredByTarget": false,
+          "contributions": [
+            {
+              "key": "handeye",
+              "label": "hand-eye rotation",
+              "mm": 0,
+              "share": 0
+            },
+            {
+              "key": "depth",
+              "label": "depth sensing",
+              "mm": 10,
+              "share": 0.9174311926605505
+            },
+            {
+              "key": "pose",
+              "label": "object pose",
+              "mm": 3,
+              "share": 0.08256880733944955
+            }
+          ],
+          "totalMm": 10.44030650891055,
+          "verdict": "within",
+          "slackMm": 15,
+          "bandsMm": [
+            15,
+            30
+          ],
+          "display": [
+            "10.44 mm",
+            "10.00 mm at 2.0%",
+            "within model band"
+          ]
+        },
+        "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+        "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+        "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+      }
+    },
+    {
+      "name": "perception-zeroFar",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 1.5,
+          "target": "opaque"
+        }
+      },
+      "output": {
+        "values": {
+          "effectiveDepthPct": 2,
+          "flooredByTarget": false,
+          "contributions": [
+            {
+              "key": "handeye",
+              "label": "hand-eye rotation",
+              "mm": 0,
+              "share": 0
+            },
+            {
+              "key": "depth",
+              "label": "depth sensing",
+              "mm": 10,
+              "share": 0.9174311926605505
+            },
+            {
+              "key": "pose",
+              "label": "object pose",
+              "mm": 3,
+              "share": 0.08256880733944955
+            }
+          ],
+          "totalMm": 10.44030650891055,
+          "verdict": "within",
+          "slackMm": 15,
+          "bandsMm": [
+            15,
+            30
+          ],
+          "display": [
+            "10.44 mm",
+            "10.00 mm at 2.0%",
+            "within model band"
+          ]
+        },
+        "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+        "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+        "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+      }
+    },
+    {
+      "name": "perception-specular",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "specular"
+        }
+      },
+      "output": {
+        "values": {
+          "effectiveDepthPct": 6,
+          "flooredByTarget": true,
+          "contributions": [
+            {
+              "key": "handeye",
+              "label": "hand-eye rotation",
+              "mm": 4.363433895379394,
+              "share": 0.020515887765121713
+            },
+            {
+              "key": "depth",
+              "label": "depth sensing",
+              "mm": 30,
+              "share": 0.9697862497375033
+            },
+            {
+              "key": "pose",
+              "label": "object pose",
+              "mm": 3,
+              "share": 0.009697862497375033
+            }
+          ],
+          "totalMm": 30.463741650679513,
+          "verdict": "jam",
+          "slackMm": 15,
+          "bandsMm": [
+            15,
+            30
+          ],
+          "display": [
+            "30.46 mm",
+            "30.00 mm at 6.0%",
+            "above model band"
+          ]
+        },
+        "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+        "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+        "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+      }
+    },
+    {
+      "name": "perception-transparent",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "transparent"
+        }
+      },
+      "output": {
+        "values": {
+          "effectiveDepthPct": 16,
+          "flooredByTarget": true,
+          "contributions": [
+            {
+              "key": "handeye",
+              "label": "hand-eye rotation",
+              "mm": 4.363433895379394,
+              "share": 0.002961953671158053
+            },
+            {
+              "key": "depth",
+              "label": "depth sensing",
+              "mm": 80,
+              "share": 0.9956379304890915
+            },
+            {
+              "key": "pose",
+              "label": "object pose",
+              "mm": 3,
+              "share": 0.001400115839750285
+            }
+          ],
+          "totalMm": 80.17505569289831,
+          "verdict": "jam",
+          "slackMm": 15,
+          "bandsMm": [
+            15,
+            30
+          ],
+          "display": [
+            "80.18 mm",
+            "80.00 mm at 16.0%",
+            "above model band"
+          ]
+        },
+        "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+        "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+        "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+      }
+    },
+    {
+      "name": "ray-0.1",
+      "recipe": {
+        "id": "perception-ray",
+        "mode": "derive",
+        "inputs": {
+          "angleDeg": 1,
+          "distanceM": 0.1
+        }
+      },
+      "output": {
+        "values": {
+          "mm": 1.7455064928217585,
+          "rounded": "1.7"
+        },
+        "units": "offset:mm; input angle:deg, axial distance:m",
+        "precision": "0.1m example:nearest 0.1mm; 1m example:nearest 1mm",
+        "formula": "tan(theta)=opposite/adjacent; offsetMm=distanceM*1000*tan(angleDeg*pi/180)"
+      }
+    },
+    {
+      "name": "ray-1",
+      "recipe": {
+        "id": "perception-ray",
+        "mode": "derive",
+        "inputs": {
+          "angleDeg": 1,
+          "distanceM": 1
+        }
+      },
+      "output": {
+        "values": {
+          "mm": 17.455064928217585,
+          "rounded": "17"
+        },
+        "units": "offset:mm; input angle:deg, axial distance:m",
+        "precision": "0.1m example:nearest 0.1mm; 1m example:nearest 1mm",
+        "formula": "tan(theta)=opposite/adjacent; offsetMm=distanceM*1000*tan(angleDeg*pi/180)"
+      }
+    },
+    {
+      "name": "ray-zero",
+      "recipe": {
+        "id": "perception-ray",
+        "mode": "derive",
+        "inputs": {
+          "angleDeg": 0,
+          "distanceM": 1
+        }
+      },
+      "output": {
+        "values": {
+          "mm": 0,
+          "rounded": "0"
+        },
+        "units": "offset:mm; input angle:deg, axial distance:m",
+        "precision": "0.1m example:nearest 0.1mm; 1m example:nearest 1mm",
+        "formula": "tan(theta)=opposite/adjacent; offsetMm=distanceM*1000*tan(angleDeg*pi/180)"
+      }
+    },
+    {
+      "name": "stages",
+      "recipe": {
+        "id": "perception-stages",
+        "mode": "derive",
+        "inputs": {
+          "headings": [
+            "## Calibration: what a pixel means",
+            "### Hand-eye calibration: what a pixel means to the robot",
+            "## Depth sensing: what fails, and on what",
+            "## Detection: from pixels to candidate objects",
+            "## Segmentation: the grounding layer",
+            "## 6-DoF pose estimation, and how to read a claim about it"
+          ]
+        }
+      },
+      "output": {
+        "values": {
+          "headings": [
+            "## Calibration: what a pixel means",
+            "### Hand-eye calibration: what a pixel means to the robot",
+            "## Depth sensing: what fails, and on what",
+            "## Detection: from pixels to candidate objects",
+            "## Segmentation: the grounding layer",
+            "## 6-DoF pose estimation, and how to read a claim about it"
+          ],
+          "count": 6,
+          "occurrences": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "units": "selected unique headings:count",
+        "precision": "exact integer",
+        "formula": "cardinality of the declared six-heading selection, not all headings"
+      }
+    }
+  ]
+}

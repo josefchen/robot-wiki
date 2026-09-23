@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_NUMERIC=1 npx vitest run tests/unit/classical-closure-evidence.test.ts -t 'classical closure recipes'",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T19:50:25.323356+00:00",
+  "endedAt": "2026-09-23T19:50:26.785976+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/classical-closure-evidence.test.ts",
+    "bytes": 12839,
+    "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+  },
+  "inputDigest": "26d1eb809546018bb389b77d0c74835574f8a64a4ebd655937faf2b7573e04a8",
+  "outputDigest": "094881971e4b04ee6708bd6dd5c687fcec84abba621a998a68ecb60c5630c125",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/perception-error.ts",
+        "bytes": 8220,
+        "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+      },
+      "id": "file:lib/perception-error.ts",
+      "offset": 0,
+      "length": 8220,
+      "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+    },
+    {
+      "file": {
+        "path": "components/interactive/perception-error-budget.tsx",
+        "bytes": 17977,
+        "sha256": "99129aeae101f10d5e5e0035da656b8bc1a71fc05d273ab4ecbba82c6d847f9a"
+      },
+      "id": "source:components/interactive/perception-error-budget.tsx",
+      "offset": 0,
+      "length": 17977,
+      "sha256": "99129aeae101f10d5e5e0035da656b8bc1a71fc05d273ab4ecbba82c6d847f9a",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "8071a446e1d1f1ba9f85239fcd05984b9804dc68d23dcfeefa84bb010a52e552"
+      }
+    },
+    {
+      "file": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 34910,
+        "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e"
+      },
+      "id": "article:classical/perception",
+      "offset": 0,
+      "length": 34910,
+      "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e",
+      "baseline": {
+        "kind": "prose",
+        "hash": "65b2ea0fb13360b38a70f82d9074be7b3aa8adeefa8a187118776753e37fb571"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 52190,
+      "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+    },
+    {
+      "file": {
+        "path": "tests/unit/classical-closure-evidence.test.ts",
+        "bytes": 12839,
+        "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+      },
+      "id": "file:tests/unit/classical-closure-evidence.test.ts",
+      "offset": 0,
+      "length": 12839,
+      "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+    }
+  ],
+  "observations": []
+}

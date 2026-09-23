@@ -1,0 +1,15 @@
+{
+  "values": {
+    "ids": [
+      "latent-dynamics",
+      "decoder-free-latent",
+      "generative-video",
+      "jepa",
+      "world-action",
+      "symbolic"
+    ]
+  },
+  "units": "author-selected IDs, not scientific paradigms",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "taxonomy-selection:parameters:v1"
+}

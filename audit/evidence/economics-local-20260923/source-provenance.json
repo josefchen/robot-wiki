@@ -1,0 +1,95 @@
+{
+  "source": {
+    "citationId": "evst-cell-cost-2026",
+    "representation": {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/evst.txt",
+      "bytes": 21932,
+      "sha256": "b51c5395721f10ea1ddaae213b67ba8209d8b4e3201fab4014b19061bfd6393c"
+    },
+    "originalProvenanceMetadata": {
+      "/0/key": "evst",
+      "/0/sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+      "/0/originalPath": "/tmp/evst.html",
+      "/0/bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/evst.html",
+      "/0/bodySha256": "947016abdd4043fd8e3f58960e218066eb8a804e6db3d8b132e0a704df3e4c21",
+      "/0/bodyBytes": 236502,
+      "/0/extraction": "remove script/style; remove tags; html.unescape; collapse spaces/tabs and blank newlines; Python re/html",
+      "/0/reviewedAt": "2026-09-08T11:03:10.694587+00:00",
+      "/0/originalFetchResultLine": 19,
+      "/0/freshFetch": false,
+      "/0/originalFetchWindow/call": "2026-09-06T00:49:10.685Z",
+      "/0/originalFetchWindow/result": "2026-09-06T00:49:14.485Z",
+      "/0/status/historicalObserved": "curl final HTTP 200, body size matched",
+      "/0/status/originHeadersPreserved": false,
+      "/0/status/redirectChainPreserved": false,
+      "/0/status/currentOriginRequest": false,
+      "/0/status/limitation": "The retained curl output records the final status only, not origin headers or redirect-chain proof; current review time is not a fetch time.",
+      "/0/publisherClassification": "EVST Engineering Team / EVS TECH CO., LTD; commercial integrator/vendor's own cost guidance. Primary for its own estimates and stated pricing policy, secondary for normative ISO claims; not independent pricing research or regulatory authority.",
+      "/0/scope": "Last updated July 15, 2026, palletising complete-cell guide; payload-class budgets are qualitative currency bands, not fixed arm-only USD prices or current configuration quotes."
+    },
+    "retainedHashMatched": true,
+    "actualTextExcerpts": [
+      {
+        "needle": "does not publish fixed",
+        "offset": 11181,
+        "length": 312,
+        "sha256": "5e2a37e19415a61b253ddadc336b112ab0a4172af1d0445da916b9ee08881033",
+        "text": " *According to industry observations across the payload classes above; actual pricing depends on gripper complexity, safety-zone footprint, controls scope, and site conditions. EVST does not publish fixed list prices; request a configuration-specific quote through the 4-axis palletizing robot selection guide . "
+      },
+      {
+        "needle": "complete cell",
+        "offset": 10253,
+        "length": 334,
+        "sha256": "4559b4fe12919885b1ffbdee45152b1e17d1e1879608df02fbb9ef17d9288234",
+        "text": " Payload class is the single biggest driver of total system cost, because it determines robot frame size, gripper capacity, and often the footprint of the safety perimeter. The ranges below reflect industry-typical budgets for a complete cell (robot, EOAT, safety guarding, integration, and programming), not a robot-only list price. "
+      },
+      {
+        "needle": "12\u201324",
+        "offset": 5975,
+        "length": 395,
+        "sha256": "dc3ef045b5aedd32c1ecf5cc4756615d621178f95064ebd7ed3e4b7c75f677a7",
+        "text": " A palletizing robot cell typically costs more than the robot arm alone: total capex spans the robot body, the end-of-arm tool, safety fencing and scanners, integration and commissioning, and programming. According to industry observations, most cells pay back within 12\u201324 months in multi-shift operations, with the robot itself usually representing only a third to half of the total budget. "
+      }
+    ],
+    "use": "Retained primary representation identified and excerpt bytes inspected; reuse requires full named-part semantic review, not automatic adjudication. No request in this worker.",
+    "provenancePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+    "sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+    "originalRetrievalWindow": [
+      "2026-09-06T00:49:10.685Z",
+      "2026-09-06T00:49:14.485Z"
+    ],
+    "provenanceLimit": "Prior final curl status 200 only; origin headers and redirect chain were not retained. Derived readable text is distinct from raw HTML. No current fetch."
+  },
+  "originalProvenance": {
+    "key": "evst",
+    "sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+    "originalPath": "/tmp/evst.html",
+    "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/evst.html",
+    "bodySha256": "947016abdd4043fd8e3f58960e218066eb8a804e6db3d8b132e0a704df3e4c21",
+    "bodyBytes": 236502,
+    "textPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/evst.txt",
+    "textSha256": "b51c5395721f10ea1ddaae213b67ba8209d8b4e3201fab4014b19061bfd6393c",
+    "textChars": 21874,
+    "extraction": "remove script/style; remove tags; html.unescape; collapse spaces/tabs and blank newlines; Python re/html",
+    "reviewedAt": "2026-09-08T11:03:10.694587+00:00",
+    "originalFetchResultLine": 19,
+    "freshFetch": false,
+    "originalFetchWindow": {
+      "call": "2026-09-06T00:49:10.685Z",
+      "result": "2026-09-06T00:49:14.485Z"
+    },
+    "status": {
+      "historicalObserved": "curl final HTTP 200, body size matched",
+      "originHeadersPreserved": false,
+      "redirectChainPreserved": false,
+      "currentOriginRequest": false,
+      "limitation": "The retained curl output records the final status only, not origin headers or redirect-chain proof; current review time is not a fetch time."
+    },
+    "publisherClassification": "EVST Engineering Team / EVS TECH CO., LTD; commercial integrator/vendor's own cost guidance. Primary for its own estimates and stated pricing policy, secondary for normative ISO claims; not independent pricing research or regulatory authority.",
+    "scope": "Last updated July 15, 2026, palletising complete-cell guide; payload-class budgets are qualitative currency bands, not fixed arm-only USD prices or current configuration quotes."
+  },
+  "savedText": "audit/evidence/economics-local-20260923/evst.txt",
+  "savedBody": "audit/evidence/economics-local-20260923/evst.html",
+  "verifiedAt": "2026-09-23T06:30:44.011740+00:00",
+  "freshFetch": false
+}

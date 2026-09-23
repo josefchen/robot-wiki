@@ -1,0 +1,20 @@
+{
+  "values": {
+    "totalExtensions": 288,
+    "visibleNodes": 2,
+    "visibleEdges": 1,
+    "goalReached": false,
+    "goalNodeId": 288,
+    "pathLength": 124.17559667916905,
+    "treeDigest": "fffcf11968c1c8321be43f81b093fee8c4c52acf0d61557a61773a9104ab704a",
+    "display": [
+      "1 / 288",
+      "2",
+      "exploring free space",
+      "n/a"
+    ]
+  },
+  "units": "abstract world units; accepted extensions:count",
+  "precision": "path length:toFixed(1); counts:integer",
+  "formula": "rrt:derive:v1"
+}

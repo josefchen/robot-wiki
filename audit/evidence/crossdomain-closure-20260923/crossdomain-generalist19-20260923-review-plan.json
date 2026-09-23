@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "b7856fa2-70d5-4c9d-ba8e-608460f99a6d",
+  "role": "integrator",
+  "eventId": "crossdomain-generalist19-20260923:plan",
+  "observedAt": "2026-09-23T20:54:41.423Z",
+  "reviewedBy": "Droid b7856fa2-70d5-4c9d-ba8e-608460f99a6d; integrator Astra/max, not independent acceptance",
+  "rationale": "Reviewed all 13 exact IDs and duplicate-free cardinality, actual passing numeric tests, two viewport DOM/captures and filter/reset preservation. Removed all unsupported aggregate Stat date/download/source-format claims and the seven-entry enumeration, including accessible aggregate date wording. Existing independently completed entry facts remain unchanged; the selected count certifies neither weights nor licenses nor papers nor replication. Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.",
+  "outcome": "supported",
+  "scope": "plan",
+  "partId": null,
+  "inputDigest": "9a7388ab4c336fd23afcfcce8e71983bcbfcc2f4093d0c1b9deefa93d5325dd5",
+  "inventory": [
+    {
+      "id": "crossdomain-generalist19-20260923-parameters",
+      "kind": "authored-parameter",
+      "text": "Exact ordered author-selected member IDs, not source facts or a census.",
+      "requiredProofIds": [
+        "crossdomain-generalist19-20260923-parameters"
+      ]
+    },
+    {
+      "id": "crossdomain-generalist19-20260923-count",
+      "kind": "derived-result",
+      "text": "Reviewed all 13 exact IDs and duplicate-free cardinality, actual passing numeric tests, two viewport DOM/captures and filter/reset preservation. Removed all unsupported aggregate Stat date/download/source-format claims and the seven-entry enumeration, including accessible aggregate date wording. Existing independently completed entry facts remain unchanged; the selected count certifies neither weights nor licenses nor papers nor replication.",
+      "requiredProofIds": [
+        "crossdomain-generalist19-20260923-count"
+      ]
+    }
+  ],
+  "originalId": "audit/manipulation.md:generalist-policies:19",
+  "currentTupleDigest": "c740b9d4e7c60c2ad9fbdac0cdedc5c7b9bbe594d49257a41de72dd03a85d25c"
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T06:44:44.455Z",
+  "endedAt": "2026-09-23T06:44:44.482Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/economics-local-evidence.test.ts",
+    "bytes": 6294,
+    "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+  },
+  "inputDigest": "420515783293802ee38786b30c73c05fe730f0d980acb8f9c7ed51f193f9f41a",
+  "outputDigest": "228026062d2667f9e7ddfdcadd6b9e54441f3993a93a64dcd09dc3537e2e5e6a",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19273,
+        "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+      },
+      "id": "article:data-hardware/industrial-deployment",
+      "offset": 0,
+      "length": 19273,
+      "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+      "baseline": {
+        "kind": "prose",
+        "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/deployment-economics.tsx",
+        "bytes": 9866,
+        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+      },
+      "id": "source:components/interactive/deployment-economics.tsx",
+      "offset": 0,
+      "length": 9866,
+      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/deployment-economics.ts",
+        "bytes": 7602,
+        "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+      },
+      "id": "file:lib/deployment-economics.ts",
+      "offset": 0,
+      "length": 7602,
+      "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 40817,
+      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-local-20260923/support.ts",
+        "bytes": 5308,
+        "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+      },
+      "id": "file:audit/evidence/economics-local-20260923/support.ts",
+      "offset": 0,
+      "length": 5308,
+      "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+    },
+    {
+      "file": {
+        "path": "tests/unit/economics-local-evidence.test.ts",
+        "bytes": 6294,
+        "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+      },
+      "id": "file:tests/unit/economics-local-evidence.test.ts",
+      "offset": 0,
+      "length": 6294,
+      "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+    }
+  ],
+  "observations": []
+}

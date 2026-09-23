@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "crossdomain-dependency-review-v1",
+  "reviewedBy": "Droid b7856fa2-70d5-4c9d-ba8e-608460f99a6d; integrator Astra/max, not independent acceptance",
+  "observedAt": "2026-09-23T20:50:25.408342+00:00",
+  "rationale": "Two closed mount-free authored-selection targets only. No old model/component or accepted original changes; exact prior snapshots retained and numerical recomputation remains mandatory. No broad stale-dependency exemption.",
+  "bindings": [
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 54444,
+        "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-closure-20260923/original-checker.ts.txt",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "rationale": "Inspected additive two-ID-selection recipes and exact reviewed-dependency routing. Existing recipe branches, parameters, computations, unit checks, input bases, observations and semantic review obligations are unchanged. Old archived executions remain old, not reissued."
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 54444,
+        "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/checker-before.ts.txt",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "rationale": "Inspected additive two-ID-selection recipes and exact reviewed-dependency routing. Existing recipe branches, parameters, computations, unit checks, input bases, observations and semantic review obligations are unchanged. Old archived executions remain old, not reissued."
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 54444,
+        "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/checker-at-execution.ts.txt",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "rationale": "Inspected additive two-ID-selection recipes and exact reviewed-dependency routing. Existing recipe branches, parameters, computations, unit checks, input bases, observations and semantic review obligations are unchanged. Old archived executions remain old, not reissued."
+    }
+  ]
+}

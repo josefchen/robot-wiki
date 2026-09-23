@@ -1,0 +1,134 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_CAPTURE=1 npx playwright test tests/e2e/kinematics.spec.ts --grep 'classical closure mounted observations' --workers=1 --output=audit/evidence/classical-closure-20260923/playwright-output-008",
+  "startedAt": "2026-09-23T19:50:26.786390+00:00",
+  "endedAt": "2026-09-23T19:50:39.412800+00:00",
+  "exitCode": 0,
+  "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-integration-20260923/008-current-mounted.log",
+  "observation": "Current dependency bytes after JSX escaping and truthful equality-label repair; old observations retained separately, not rehashed as new.",
+  "runner": "playwright",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "test": {
+    "path": "tests/e2e/kinematics.spec.ts",
+    "bytes": 20967,
+    "sha256": "80dfdd9bf5871b7bf57af3aba585268367c06e0333a5ad496200a67d1d9cf286"
+  },
+  "dependencies": [
+    {
+      "path": "content/classical/kinematics.mdx",
+      "bytes": 10927,
+      "sha256": "c4aa496590be6e78e0007efe4b4f0e3081457bf71bd7fdb9484344f65121b7fe"
+    },
+    {
+      "path": "lib/ik.ts",
+      "bytes": 18933,
+      "sha256": "df606ff4d6f7701a7c96fbee009902173c4f7308f0d1ca4bd051337faec18c3b"
+    },
+    {
+      "path": "data/glossary.ts",
+      "bytes": 83261,
+      "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+    },
+    {
+      "path": "components/interactive/planar-fk-arm.tsx",
+      "bytes": 9167,
+      "sha256": "4bff90efd06777cd9b61ed84e11edc40b9af4178e7b7c456de1a2ef05ab301b3"
+    },
+    {
+      "path": "components/mdx/dh-parameter-table.tsx",
+      "bytes": 3098,
+      "sha256": "0c74df76aed78540ca366346987034d9fa1c38310434821b145f8ea79ebd756f"
+    }
+  ],
+  "surfaceObservations": [
+    {
+      "name": "kinematics-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-23T19:50:30.623Z",
+      "surface": "kinematics",
+      "glossary": [
+        {
+          "id": "inverse-kinematics",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution."
+        },
+        {
+          "id": "denavit-hartenberg-parameters",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem."
+        }
+      ],
+      "checkedText": [
+        "LaValle describes",
+        "3D kinematics playground",
+        "±0.5mm"
+      ],
+      "dom": {
+        "path": "audit/evidence/classical-closure-20260923/kinematics-1440.dom.json",
+        "bytes": 32064,
+        "sha256": "2dbbd3749e236f01a8f6a542a3d244990ce63ac1e2e99343105dbd62f2678cab"
+      },
+      "capture": {
+        "path": "audit/evidence/classical-closure-20260923/kinematics-1440.png",
+        "bytes": 155341,
+        "sha256": "b105579bad5bbf0560b0d4f5570720d21444394f919adbcf6b767b0d33eb4058"
+      }
+    },
+    {
+      "name": "kinematics-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-23T19:50:35.801Z",
+      "surface": "kinematics",
+      "glossary": [
+        {
+          "id": "inverse-kinematics",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution."
+        },
+        {
+          "id": "denavit-hartenberg-parameters",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem."
+        }
+      ],
+      "checkedText": [
+        "LaValle describes",
+        "3D kinematics playground",
+        "±0.5mm"
+      ],
+      "dom": {
+        "path": "audit/evidence/classical-closure-20260923/kinematics-375.dom.json",
+        "bytes": 32064,
+        "sha256": "2dbbd3749e236f01a8f6a542a3d244990ce63ac1e2e99343105dbd62f2678cab"
+      },
+      "capture": {
+        "path": "audit/evidence/classical-closure-20260923/kinematics-375.png",
+        "bytes": 65576,
+        "sha256": "d93988a8e6a045baef352725cacbe6d7c59bc81046fea2f65d9e44a27ce4ba2f"
+      }
+    }
+  ],
+  "removals": {
+    "checked": true,
+    "glossaryChecked": true,
+    "absentCitationIds": [
+      "wampler-1986",
+      "levenberg-1944",
+      "marquardt-1963",
+      "denavit-hartenberg-1955"
+    ],
+    "playgroundHref": "/playground"
+  },
+  "sourcePreparationIsExecution": false
+}

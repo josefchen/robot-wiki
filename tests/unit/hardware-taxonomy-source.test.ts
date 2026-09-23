@@ -129,6 +129,26 @@ describe('hardware-taxonomy 2026-09-15 integration', () => {
     expect(article).not.toContain('not for individual sale');
   });
 
+  it('F20: dates the NEO hand announcement without claiming a shipping configuration', () => {
+    // The retained official related-post card says JUL 09 '26; its embedded
+    // neos-hands post date is 2026-07-09T14:00:00.000Z. This is not the
+    // World Model Lab announcement's own June date or a product-page date.
+    expect(article).toContain('a 25-DoF revision was announced on July 9, 2026');
+    expect(article).not.toContain('announced on July 9 <Cite');
+    expect(article).toContain('the order page lists 22 DoF per hand');
+    expect(article).toContain("The NEO's hands carry 22 DoF each, with the 25-DoF revision on the way");
+  });
+
+  it('F20: cites and declares the retained official announcement-bearing response', () => {
+    expect(article).toContain(
+      'July 9, 2026 <Cite id="1x-neo-2026" /> <Cite id="1x-world-model-lab-2026" />.',
+    );
+    expect(article.match(/^  - 1x-world-model-lab-2026$/gm)).toHaveLength(1);
+    expect(article.match(/<Cite id="1x-world-model-lab-2026" \/>/g)).toHaveLength(1);
+    expect(CITATIONS.find(({ id }) => id === '1x-world-model-lab-2026')?.url)
+      .toBe('https://www.1x.tech/discover/1x-world-model-lab');
+  });
+
   it('proves the local-AND row from local arithmetic over retained Table 3 endpoints', () => {
     const ratio = 314.4 / 19.0;
     expect(ratio).toBeCloseTo(16.54736842105263, 10);

@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-23T06:39:22.111Z",
+  "reason": "Native schema requires exactly one evidence pair per part/citation. Replaced two vendor-context excerpts with one actual contiguous passage spanning both, preserving all intervening context. Initial draft and every run/receipt remain unchanged.",
+  "initial": {
+    "path": "audit/evidence/economics-local-20260923/catalog-draft.json",
+    "bytes": 90682,
+    "sha256": "57ca9647ea327df6e8cb7542895bc4ef653ad4d9b33b45c16068aacb62ca9ee1"
+  },
+  "proofsReused": [
+    "i52-parameters",
+    "i52-20000",
+    "i52-80000",
+    "i52-250000",
+    "i52-observed-20000",
+    "i52-observed-80000",
+    "i52-observed-250000"
+  ],
+  "newReviews": 0
+}

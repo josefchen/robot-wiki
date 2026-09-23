@@ -106,7 +106,7 @@ describe('GeneralistReleaseTimeline', () => {
     const id = img.getAttribute('aria-describedby');
     expect(id).toBeTruthy();
     const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
-    expect(desc?.textContent).toMatch(/13 of 13 generalist policies/);
+    expect(desc?.textContent).toMatch(/13 of 13 selected generalist policy records/);
     expect(desc?.textContent).toMatch(/selected is Helix/);
     fireEvent.click(screen.getByRole('button', { name: /^GR00T N1$/i }));
     const moved = container.querySelector('[data-chart-description]')

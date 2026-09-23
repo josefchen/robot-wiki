@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 env CROSSDOMAIN_NUMERIC=1 node_modules/.bin/vitest run tests/unit/crossdomain-closure-evidence.test.ts",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T20:50:25.434426+00:00",
+  "endedAt": "2026-09-23T20:50:26.841785+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/crossdomain-closure-evidence.test.ts",
+    "bytes": 5982,
+    "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+  },
+  "inputDigest": "25dcfd61e7d0b2bdf3c529d2ea6be1c0587bbb6781038b557a4cdfa005577440",
+  "outputDigest": "ccac14de227f49364fe4c5c9eb741b03ab092ae638aa98143944c1e6593e5e43",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/manipulation/generalist-policies.mdx",
+        "bytes": 17278,
+        "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5"
+      },
+      "id": "article:manipulation/generalist-policies",
+      "offset": 0,
+      "length": 17278,
+      "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5",
+      "baseline": {
+        "kind": "prose",
+        "hash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/generalist-policies.ts",
+        "bytes": 9479,
+        "sha256": "52d0426d8cd45fbccdf15126a628215bc5918ece2c1e894d4e50b6a9524037b0"
+      },
+      "id": "file:lib/generalist-policies.ts",
+      "offset": 0,
+      "length": 9479,
+      "sha256": "52d0426d8cd45fbccdf15126a628215bc5918ece2c1e894d4e50b6a9524037b0"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 54444,
+        "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 54444,
+      "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+    },
+    {
+      "file": {
+        "path": "tests/unit/crossdomain-closure-evidence.test.ts",
+        "bytes": 5982,
+        "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+      },
+      "id": "file:tests/unit/crossdomain-closure-evidence.test.ts",
+      "offset": 0,
+      "length": 5982,
+      "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+    },
+    {
+      "file": {
+        "path": "components/interactive/generalist-release-timeline.tsx",
+        "bytes": 15363,
+        "sha256": "62ae73ae8b4e758cf4fe23e2bb2d06ea7e83c63d6cfc3727f6fc93d13b26796c"
+      },
+      "id": "file:components/interactive/generalist-release-timeline.tsx",
+      "offset": 0,
+      "length": 15363,
+      "sha256": "62ae73ae8b4e758cf4fe23e2bb2d06ea7e83c63d6cfc3727f6fc93d13b26796c"
+    }
+  ],
+  "observations": []
+}

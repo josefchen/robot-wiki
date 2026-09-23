@@ -1,0 +1,134 @@
+{
+  "observedAt": "2026-09-23T20:50:26.620Z",
+  "results": [
+    {
+      "recipe": {
+        "id": "generalist-selection",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "ids": [
+            "helix",
+            "gemini-robotics-1",
+            "gr00t-n1",
+            "agibot-go1",
+            "pi05-context",
+            "gemini-robotics-15",
+            "pi06-context",
+            "helix-02",
+            "skild-brain",
+            "gr00t-n17",
+            "agibot-go2",
+            "pi07-context",
+            "gemini-robotics-2"
+          ]
+        },
+        "units": "author-selected IDs, not source facts",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "generalist-selection:parameters:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "generalist-selection",
+        "mode": "derive",
+        "inputs": {
+          "ids": [
+            "helix",
+            "gemini-robotics-1",
+            "gr00t-n1",
+            "agibot-go1",
+            "pi05-context",
+            "gemini-robotics-15",
+            "pi06-context",
+            "helix-02",
+            "skild-brain",
+            "gr00t-n17",
+            "agibot-go2",
+            "pi07-context",
+            "gemini-robotics-2"
+          ]
+        }
+      },
+      "output": {
+        "values": {
+          "ids": [
+            "helix",
+            "gemini-robotics-1",
+            "gr00t-n1",
+            "agibot-go1",
+            "pi05-context",
+            "gemini-robotics-15",
+            "pi06-context",
+            "helix-02",
+            "skild-brain",
+            "gr00t-n17",
+            "agibot-go2",
+            "pi07-context",
+            "gemini-robotics-2"
+          ],
+          "count": 13
+        },
+        "units": "author-selected records:count; not scientific/source certification",
+        "precision": "exact integer",
+        "formula": "cardinality of the exact duplicate-free authored ID list"
+      }
+    },
+    {
+      "recipe": {
+        "id": "taxonomy-selection",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "ids": [
+            "latent-dynamics",
+            "decoder-free-latent",
+            "generative-video",
+            "jepa",
+            "world-action",
+            "symbolic"
+          ]
+        },
+        "units": "author-selected IDs, not scientific paradigms",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "taxonomy-selection:parameters:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "taxonomy-selection",
+        "mode": "derive",
+        "inputs": {
+          "ids": [
+            "latent-dynamics",
+            "decoder-free-latent",
+            "generative-video",
+            "jepa",
+            "world-action",
+            "symbolic"
+          ]
+        }
+      },
+      "output": {
+        "values": {
+          "ids": [
+            "latent-dynamics",
+            "decoder-free-latent",
+            "generative-video",
+            "jepa",
+            "world-action",
+            "symbolic"
+          ],
+          "count": 6
+        },
+        "units": "author-selected records:count; not scientific/source certification",
+        "precision": "exact integer",
+        "formula": "cardinality of the exact duplicate-free authored ID list"
+      }
+    }
+  ]
+}

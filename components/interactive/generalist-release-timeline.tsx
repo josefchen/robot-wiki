@@ -235,7 +235,7 @@ export function GeneralistReleaseTimeline({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Release timeline of generalist robot policies from ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel}. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
+        aria-label={`Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
         aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
@@ -439,7 +439,7 @@ export function GeneralistReleaseTimeline({
         className="mt-3"
         form="state"
         summary="Current generalist release"
-        description={`${visible.length} of ${GENERALIST_RELEASES.length} generalist policies sit on a ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel} axis; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}) and weight availability is stated by each node label; dim nodes do not establish closed licensing.`}
+        description={`${visible.length} of ${GENERALIST_RELEASES.length} selected generalist policy records are shown; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}) and weight availability is stated by each node label; dim nodes do not establish closed licensing.`}
         states={[
           { label: 'selected', value: selected.name },
           { label: 'org', value: selected.org },

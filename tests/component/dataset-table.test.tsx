@@ -64,6 +64,15 @@ describe('DatasetTable', () => {
     expect(oxeCells.some((c) => c.textContent === 'not disclosed')).toBe(true);
   });
 
+  it('discloses RoboMIND release-specific license uncertainty without inventing permission', () => {
+    render(<DatasetTable />);
+    const row = rowNamed('RoboMIND') as HTMLElement;
+    const cells = within(row).getAllByRole('cell');
+    expect(cells[7].textContent).toBe('not disclosed');
+    expect(cells[2]).toHaveTextContent('card versions 1.1/1.2');
+    expect(cells[7]).not.toHaveTextContent(/CC BY|Apache|n\/a/);
+  });
+
   it('carries at least one external source link per row (VAL-DATA-010)', () => {
     render(<DatasetTable />);
     for (const row of bodyRows()) {
@@ -72,6 +81,40 @@ describe('DatasetTable', () => {
         .filter((link) => link.getAttribute('href')?.startsWith('http'));
       expect(links.length, 'every dataset row needs an external link').toBeGreaterThanOrEqual(1);
     }
+  });
+
+  it('renders the exact RoboMIND decimal with mixed-cohort and additional-failure notes', () => {
+    render(<DatasetTable />);
+    const cells = within(rowNamed('RoboMIND') as HTMLElement).getAllByRole('cell');
+    expect(cells[3].firstElementChild?.firstChild?.textContent).toBe('305.5');
+    expect(cells[3]).toHaveTextContent('Paper v3: real + simulated; real-only and failure-set durations not separately reported');
+    expect(cells[2]).toHaveTextContent('107k successful, real + simulated');
+    expect(cells[2]).toHaveTextContent('5k additional real-world failures');
+    expect(cells[2]).not.toHaveTextContent('incl. 5k');
+    expect(cells[7].textContent).toBe('not disclosed');
+  });
+
+  it('sorts published hours numerically in both directions, keeping unknowns last', async () => {
+    const user = userEvent.setup();
+    render(<DatasetTable />);
+    const button = screen.getByRole('button', { name: /sort by hours/i });
+    const names = () => bodyRows().map(row => within(row).getAllByRole('cell')[0].textContent);
+    const unknownsLast = () => {
+      expect(names().slice(3).sort()).toEqual([
+        'AgiBot World 2026', 'BridgeData V2', 'Open X-Embodiment (OXE)',
+      ]);
+      for (const row of bodyRows().slice(3)) {
+        expect(within(row).getAllByRole('cell')[3].textContent).toBe('not disclosed');
+      }
+    };
+    await user.click(button);
+    expect(screen.getByRole('columnheader', { name: /hours/i })).toHaveAttribute('aria-sort', 'ascending');
+    expect(names().slice(0, 3)).toEqual(['RoboMIND', 'DROID', 'AgiBot World']);
+    unknownsLast();
+    await user.click(button);
+    expect(screen.getByRole('columnheader', { name: /hours/i })).toHaveAttribute('aria-sort', 'descending');
+    expect(names().slice(0, 3)).toEqual(['AgiBot World', 'DROID', 'RoboMIND']);
+    unknownsLast();
   });
 
   it('filters by size and restores on clear (VAL-DATA-008)', async () => {
@@ -148,10 +191,13 @@ describe('DatasetTable', () => {
     let headerCell = screen.getByRole('columnheader', { name: /episodes/i });
     expect(headerCell).toHaveAttribute('aria-sort', 'descending');
     const episodes = () =>
-      bodyRows().map(
-        (row) => within(row).getAllByRole('cell')[2].textContent ?? '',
-      );
-    // Leading grouped count only; note text under the number carries digits.
+      bodyRows().map((row) => {
+        const cell = within(row).getAllByRole('cell')[2];
+        // Read the count's own text node, not the adjacent qualifier: a
+        // digit-leading release note must not become part of the number.
+        return cell.firstElementChild?.firstChild?.textContent ?? '';
+      });
+    // Leading grouped count only; the separate note can also start with digits.
     const known = () =>
       episodes()
         .map((text) => text.match(/^([\d,]+)/)?.[1])

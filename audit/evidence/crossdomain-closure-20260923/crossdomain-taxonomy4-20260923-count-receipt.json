@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 env CROSSDOMAIN_NUMERIC=1 node_modules/.bin/vitest run tests/unit/crossdomain-closure-evidence.test.ts",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T20:50:25.434426+00:00",
+  "endedAt": "2026-09-23T20:50:26.841785+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/crossdomain-closure-evidence.test.ts",
+    "bytes": 5982,
+    "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+  },
+  "inputDigest": "9ca47b27593fe714eeac42e85a2d3dd9fcff5164adf692bbd97454fea5f7f2c9",
+  "outputDigest": "1f5ecebe6a786b875d1e03077ecfdf15aa37f53d81477bd577adac7f3b02abe6",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 13606,
+        "sha256": "4ee6b58843f33a444338ec8f3b13a1971aa2e9073efad54fe630482ff0925517"
+      },
+      "id": "article:world-models/taxonomy",
+      "offset": 0,
+      "length": 13606,
+      "sha256": "4ee6b58843f33a444338ec8f3b13a1971aa2e9073efad54fe630482ff0925517",
+      "baseline": {
+        "kind": "prose",
+        "hash": "89318d0a8e693a76d79b9c1833b04d7ad1b3509256f5e12b7180d70dbe96c795"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/world-model-taxonomy.ts",
+        "bytes": 5658,
+        "sha256": "ef98b513afef31763c4ce5ec179b3583446421dd86b725a49152659a410c5c89"
+      },
+      "id": "file:lib/world-model-taxonomy.ts",
+      "offset": 0,
+      "length": 5658,
+      "sha256": "ef98b513afef31763c4ce5ec179b3583446421dd86b725a49152659a410c5c89"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 54444,
+        "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 54444,
+      "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+    },
+    {
+      "file": {
+        "path": "tests/unit/crossdomain-closure-evidence.test.ts",
+        "bytes": 5982,
+        "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+      },
+      "id": "file:tests/unit/crossdomain-closure-evidence.test.ts",
+      "offset": 0,
+      "length": 5982,
+      "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+    },
+    {
+      "file": {
+        "path": "components/mdx/wm-taxonomy-table.tsx",
+        "bytes": 3098,
+        "sha256": "5630bbfbb2a4a86e6e292c6fb9118073b0fb0fff178fcdc989e2db768faff41d"
+      },
+      "id": "file:components/mdx/wm-taxonomy-table.tsx",
+      "offset": 0,
+      "length": 3098,
+      "sha256": "5630bbfbb2a4a86e6e292c6fb9118073b0fb0fff178fcdc989e2db768faff41d"
+    }
+  ],
+  "observations": []
+}

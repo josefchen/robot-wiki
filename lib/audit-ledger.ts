@@ -22,6 +22,9 @@
  */
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
+import { CORRECTION_TARGETS, parseCorrectedDispositions, validateCorrectedDisposition, type CorrectionContext } from './audit-corrected-disposition.ts';
+import { LOCAL_BASIS_REQUIRED_TARGETS, parseLocalBasisCatalog, validateLocalBasisPlan,
+  type LocalBasisContext, type LocalBasisResult } from './audit-local-basis.ts';
 
 /** A domain's ledger and the assertion, if any, that quantifies over it. */
 export interface AuditLedger {
@@ -409,6 +412,8 @@ const compoundPlanSchema = z.object({
 /** One format, audit/compound-evidence.json; unknown/partial keys fail closed. */
 export type CompoundPlan = z.infer<typeof compoundPlanSchema>;
 export type AuditEvidenceContext = {
+  readonly localBasis?: LocalBasisContext;
+  readonly correctedDispositions?: CorrectionContext;
   readonly compoundPlans?: unknown;
   /** Canonical article frontmatter, never derived from available evidence. */
   readonly articleCitations?: Readonly<Record<string, readonly string[]>>;
@@ -468,6 +473,8 @@ export type ClaimRecord = ClaimEvidence & {
   readonly outcome: VerdictClass;
   readonly evidenceFailures: readonly string[];
   readonly compound?: CompoundResult;
+  readonly localBasis?: LocalBasisResult;
+  readonly correctedDisposition?: { id: string; kind: string };
   /** A lead for recovery, never evidence or an exemption. */
   readonly legacyPointer: ReturnType<typeof legacyEvidencePointer>;
 };
@@ -530,6 +537,39 @@ const exactSet = (a: readonly string[], b: readonly string[]) =>
   a.length > 0 && a.length === new Set(a).size && b.length === new Set(b).size &&
   a.length === b.length && a.every((value) => b.includes(value));
 
+/** Shared exact external-pair checks; legacy messages and digests stay unchanged. */
+export function validateExternalPairs(
+  parts: readonly { id: string; requiredCitationIds: readonly string[] }[],
+  evidence: readonly (ClaimEvidence & { partId: string })[],
+  registryIds: ReadonlySet<string>,
+): string[] {
+  if (parts.length === 0 && evidence.length === 0) return [];
+  const structural: string[] = [];
+  const pairs = parts.flatMap((part) => {
+    if (new Set(part.requiredCitationIds).size !== part.requiredCitationIds.length ||
+      part.requiredCitationIds.some((id) => !registryIds.has(id))) {
+      structural.push(`compound part ${part.id} needs distinct registered required IDs`);
+    }
+    return part.requiredCitationIds.map((id) => JSON.stringify([part.id, id]));
+  });
+  const supplied = evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
+  // A work's arXiv metadata and official proceedings can establish different
+  // identity fields. Preserve each fetched URL/passage pair, while requiring
+  // the same exact set of required parts/citations and rejecting duplicate URLs.
+  const sourceItems = evidence.map((item) =>
+    JSON.stringify([item.partId, item.citationId, item.sourceUrl]));
+  if (!exactSet(pairs, [...new Set(supplied)]) ||
+    new Set(sourceItems).size !== sourceItems.length) {
+    structural.push('compound item coverage must equal every required (part, citation) pair; duplicate source items and extras fail');
+  }
+  for (const item of evidence) {
+    for (const failure of claimEvidence(item, registryIds)) {
+      structural.push(`compound item ${item.partId}/${item.citationId}: ${failure}`);
+    }
+  }
+  return structural;
+}
+
 function compoundEvidence(
   plan: CompoundPlan,
   record: Pick<ClaimRecord, 'claim' | 'sourceChecked' | 'verdict' | 'note'>,
@@ -560,28 +600,7 @@ function compoundEvidence(
       structural.push('P1 required citation set must exactly equal the original batch AND canonical frontmatter');
     }
   }
-  const pairs = plan.parts.flatMap((part) => {
-    if (new Set(part.requiredCitationIds).size !== part.requiredCitationIds.length ||
-      part.requiredCitationIds.some((id) => !registryIds.has(id))) {
-      structural.push(`compound part ${part.id} needs distinct registered required IDs`);
-    }
-    return part.requiredCitationIds.map((id) => JSON.stringify([part.id, id]));
-  });
-  const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
-  // A work's arXiv metadata and official proceedings can establish different
-  // identity fields. Preserve each fetched URL/passage pair, while requiring
-  // the same exact set of required parts/citations and rejecting duplicate URLs.
-  const sourceItems = plan.evidence.map((item) =>
-    JSON.stringify([item.partId, item.citationId, item.sourceUrl]));
-  if (!exactSet(pairs, [...new Set(supplied)]) ||
-    new Set(sourceItems).size !== sourceItems.length) {
-    structural.push('compound item coverage must equal every required (part, citation) pair; duplicate source items and extras fail');
-  }
-  for (const item of plan.evidence) {
-    for (const failure of claimEvidence(item, registryIds)) {
-      structural.push(`compound item ${item.partId}/${item.citationId}: ${failure}`);
-    }
-  }
+  structural.push(...validateExternalPairs(plan.parts, plan.evidence, registryIds));
   if (!plan.planReview || plan.planReview.planDigest !== compoundPlanDigest(plan)) {
     adjudication.push('compound plan review is missing or stale; changed/reduced plans need source-auditor review');
   }
@@ -614,6 +633,23 @@ export function parseLedger(
   context: AuditEvidenceContext = {},
 ): LedgerSection[] {
   const plans = parseCompoundPlans(context.compoundPlans === undefined ? [] : context.compoundPlans);
+  const localContext = context.localBasis ? { ...context.localBasis,
+    catalog: parseLocalBasisCatalog(context.localBasis.catalog) } : undefined;
+  const typedPlans = localContext?.catalog.plans ?? [];
+  for (const typed of typedPlans) {
+    if (plans.some(p => p.id === typed.id || (p.ledgerPath === typed.ledgerPath &&
+      p.articleSlug === typed.articleSlug && p.rowOrdinal === typed.rowOrdinal))) {
+      throw new Error('duplicate cross-catalog plan ID or row target');
+    }
+  }
+  const corrections = context.correctedDispositions ? parseCorrectedDispositions(context.correctedDispositions.records) : [];
+  for (const correction of corrections) {
+    if ([...plans, ...typedPlans].some(p => p.id === correction.id ||
+      `${p.ledgerPath}:${p.articleSlug}:${p.rowOrdinal}` === correction.originalId)) {
+      throw new Error('duplicate correction/cross-catalog target');
+    }
+  }
+  const correctionBindings = new Map<string, string>();
   const localPlans = plans.filter((plan) => plan.ledgerPath === ledgerPath);
   const usedPlans = new Set<string>();
   const seenBindings = new Set<string>();
@@ -682,11 +718,23 @@ export function parseLedger(
     const binding = row[header.findIndex((name) => name.toLowerCase() === 'evidence plan')] ?? '';
     if (binding && seenBindings.has(binding)) throw new Error(`${ledgerPath}: duplicate evidence plan binding ${binding}`);
     if (binding) seenBindings.add(binding);
+    if (Object.hasOwn(CORRECTION_TARGETS, `${ledgerPath}:${slug}:${rows.get(slug)}`)) {
+      correctionBindings.set(`${ledgerPath}:${slug}:${rows.get(slug)}`, binding);
+    }
     const plan = localPlans.find((candidate) =>
       candidate.articleSlug === slug && candidate.rowOrdinal === rows.get(slug));
+    const typedPlan = typedPlans.find(p => p.ledgerPath === ledgerPath &&
+      p.articleSlug === slug && p.rowOrdinal === rows.get(slug));
+    let localBasis: LocalBasisResult | undefined;
     let compound: CompoundResult | undefined;
     let evidenceFailures: string[];
-    if (plan) {
+    if (typedPlan && localContext) {
+      usedPlans.add(typedPlan.id);
+      localBasis = validateLocalBasisPlan(typedPlan, { claim, sourceChecked: source, verdict, note },
+        binding, fields, registryIds, localContext);
+      evidenceFailures = [...localBasis.failures];
+      if (P1_BATCH.test(claim)) evidenceFailures.push('P1 batch cannot use typed local evidence');
+    } else if (plan) {
       usedPlans.add(plan.id);
       compound = compoundEvidence(plan, { claim, sourceChecked: source, verdict, note },
         binding, fields, registryIds, context.articleCitations?.[slug]);
@@ -696,19 +744,26 @@ export function parseLedger(
     } else {
       evidenceFailures = claimEvidence(fields, registryIds);
     }
+    if (!typedPlan && evidenceFailures.length === 0 &&
+      Object.hasOwn(LOCAL_BASIS_REQUIRED_TARGETS, `${ledgerPath}:${slug}:${rows.get(slug)}`)) {
+      evidenceFailures.push('typed local evidence required for this closed local obligation; scalar/legacy fallback forbidden');
+    }
+    if (Object.hasOwn(CORRECTION_TARGETS, `${ledgerPath}:${slug}:${rows.get(slug)}`) && evidenceFailures.length === 0) {
+      evidenceFailures.push('finite correction evidence required; scalar fallback forbidden');
+    }
     if (claim === '') evidenceFailures.push('Claim text must not be empty');
     if (evidenceFailures.length > 0) {
       unevidenced.get(slug)?.push({ claim, source });
     } else {
       const counts = evidenceKinds.get(slug)!;
-      for (const kind of ['citation-id', 'locator', 'passage']) {
+      for (const kind of localBasis ? [localBasis.kind] : ['citation-id', 'locator', 'passage']) {
         counts[kind] = (counts[kind] ?? 0) + 1;
       }
     }
     const outcome = classifyVerdict(verdict, { source, note });
     records.get(slug)?.push({
       claim, line: lineIndex + 1, verdict, outcome, ...fields, evidenceFailures,
-      sourceChecked: source, note, ...(compound ? { compound } : {}),
+      sourceChecked: source, note, ...(compound ? { compound } : {}), ...(localBasis ? { localBasis } : {}),
       legacyPointer: legacyEvidencePointer([source, claim, note].join(' ~ '), registryIds),
     });
     // The verdict, which nothing used to read. The reconciliation counted
@@ -734,7 +789,32 @@ export function parseLedger(
     }
   }
 
-  for (const plan of localPlans) {
+  for (const slug of order.filter(slug => Object.values(CORRECTION_TARGETS)
+    .some(t => t.ledger === ledgerPath && t.slug === slug))) {
+    if (!context.correctedDispositions) continue;
+    const selected = records.get(slug)!;
+    // Resolve removal and ledger withdrawal before evaluating the full P4 AND.
+    for (const correction of corrections.filter(c => c.originalId.startsWith(`${ledgerPath}:${slug}:`))
+      .sort((a, b) => a.rowOrdinal - b.rowOrdinal)) {
+      const ordinal = correction.rowOrdinal;
+      if (!selected[ordinal - 1]) throw Error('unbound correction record');
+      const failures = validateCorrectedDisposition(correction, selected[ordinal - 1],
+        correctionBindings.get(correction.originalId) ?? '', selected, context.correctedDispositions);
+      selected[ordinal - 1] = { ...selected[ordinal - 1], evidenceFailures: failures,
+        correctedDisposition: { id: correction.id, kind: correction.kind } };
+    }
+    unevidenced.set(slug, selected.filter(r => r.evidenceFailures.length)
+      .map(r => ({ claim: r.claim, source: r.sourceChecked })));
+    const counts: Record<string, number> = {};
+    for (const r of selected.filter(r => !r.evidenceFailures.length)) {
+      for (const kind of r.correctedDisposition ? ['corrected-disposition'] : r.localBasis ? [r.localBasis.kind] : ['citation-id', 'locator', 'passage']) {
+        counts[kind] = (counts[kind] ?? 0) + 1;
+      }
+    }
+    evidenceKinds.set(slug, counts);
+  }
+
+  for (const plan of [...localPlans, ...typedPlans.filter(p => p.ledgerPath === ledgerPath)]) {
     if (!usedPlans.has(plan.id)) throw new Error(`${ledgerPath}: unbound compound plan ${plan.id}`);
   }
   const sections: LedgerSection[] = order.map((articleSlug) => ({
@@ -870,7 +950,7 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
     for (const { claim, source } of section.unevidencedRows) {
       const record = section.claimRecords.find((row) =>
         row.claim === claim && row.sourceChecked === source);
-      const compoundFailure = record?.compound ||
+      const compoundFailure = record?.compound || record?.localBasis ||
         record?.evidenceFailures.some((failure) => failure.startsWith('compound'));
       failures.push({
         kind: 'unevidenced-claim',
@@ -930,11 +1010,15 @@ export function summarise(
   const failures = [...coverage.flatMap((domain) => domain.failures)];
   for (const kind of REQUIRED_EVIDENCE_KINDS) {
     const claimRows = coverage.reduce((total, domain) => total + domain.claimRows, 0);
-    if (claimRows === 0 || (evidenceKinds[kind] ?? 0) !== claimRows) {
+    const localRows = (evidenceKinds['authored-local'] ?? 0) + (evidenceKinds['mixed-local'] ?? 0) +
+      (evidenceKinds['corrected-disposition'] ?? 0);
+    if (claimRows === 0 || (evidenceKinds[kind] ?? 0) + localRows !== claimRows) {
       failures.push({
         kind: 'unevidenced-claim',
         domain: 'all',
-        message: `${evidenceKinds[kind] ?? 0}/${claimRows} claim rows carry complete ${kind} evidence; every claim requires all three fields`,
+        message: localRows === 0
+          ? `${evidenceKinds[kind] ?? 0}/${claimRows} claim rows carry complete ${kind} evidence; every claim requires all three fields`
+          : `${(evidenceKinds[kind] ?? 0) + localRows}/${claimRows} rows carry complete ${kind} or fully adjudicated typed-local/corrected-disposition evidence`,
       });
     }
   }

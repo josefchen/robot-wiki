@@ -1,0 +1,21 @@
+[96maudit/evidence/industrial-closure-20260923/integrate.ts[0m:[93m212[0m:[93m82[0m - [91merror[0m[90m TS2322: [0mType 'number' is not assignable to type '37 | 47 | 48'.
+
+[7m212[0m     id: `industrial-correction-${ordinal}-20260923`, originalId: row.originalId, rowOrdinal: ordinal,
+[7m   [0m [91m                                                                                 ~~~~~~~~~~[0m
+
+  [96mlib/audit-corrected-disposition.ts[0m:[93m16[0m:[93m31[0m - The expected type comes from property 'rowOrdinal' which is declared here on type '{ id: string; originalId: string; rowOrdinal: 37 | 47 | 48; kind: "p4-conjunction" | "removed-assertion" | "withdrawn-audit-certification"; originalCells: { claim: string; sourceChecked: string; verdict: string; note: string; }; ... 10 more ...; review: { ...; }; }'
+    [7m16[0m   id: text, originalId: text, rowOrdinal: z.union([z.literal(37), z.literal(47), z.literal(48)]),
+    [7m  [0m [96m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mtests/unit/audit-corrected-disposition.test.ts[0m:[93m58[0m:[93m7[0m - [91merror[0m[90m TS2542: [0mIndex signature in type 'readonly ClaimRecord[]' only permits reading.
+
+[7m58[0m       broken[index] = { ...broken[index], evidenceFailures: ['unresolved dependency'] };
+[7m  [0m [91m      ~~~~~~~~~~~~~[0m
+
+
+Found 2 errors in 2 files.
+
+Errors  Files
+     1  audit/evidence/industrial-closure-20260923/integrate.ts[90m:212[0m
+     1  tests/unit/audit-corrected-disposition.test.ts[90m:58[0m
+

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T04:04:45.493Z",
+  "endedAt": "2026-09-23T04:04:45.557Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/reward-local-evidence.test.ts",
+    "bytes": 7995,
+    "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+  },
+  "inputDigest": "60d31efff081e63984fc86a23e65de98fc87622f7d58c68a57231584b125da92",
+  "outputDigest": "bc4b2782b9ef2c8510b12fd879d5a52421ab282451f6ea3512f7926ccf26b8e7",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 20078,
+        "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+      },
+      "id": "article:rl-sim2real/reward-design-mpc",
+      "offset": 0,
+      "length": 20078,
+      "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+      "baseline": {
+        "kind": "prose",
+        "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/eureka-loop.tsx",
+        "bytes": 8062,
+        "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+      },
+      "id": "source:components/interactive/eureka-loop.tsx",
+      "offset": 0,
+      "length": 8062,
+      "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/eureka.ts",
+        "bytes": 5722,
+        "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+      },
+      "id": "file:lib/eureka.ts",
+      "offset": 0,
+      "length": 5722,
+      "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 40817,
+      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+    },
+    {
+      "file": {
+        "path": "tests/unit/reward-local-evidence.test.ts",
+        "bytes": 7995,
+        "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+      },
+      "id": "file:tests/unit/reward-local-evidence.test.ts",
+      "offset": 0,
+      "length": 7995,
+      "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+        "bytes": 4287,
+        "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+      },
+      "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+      "offset": 0,
+      "length": 4287,
+      "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+    }
+  ],
+  "observations": []
+}

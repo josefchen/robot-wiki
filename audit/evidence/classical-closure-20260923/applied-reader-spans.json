@@ -1,0 +1,165 @@
+{
+  "applied": [
+    {
+      "id": "k3-dh-prose",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k3-remove-datasheet-inference",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k3-urdf-scope",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k3-frontmatter-source",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k3-glossary-definition",
+      "path": "data/glossary.ts"
+    },
+    {
+      "id": "k3-glossary-citations",
+      "path": "data/glossary.ts"
+    },
+    {
+      "id": "k11-remove-formula-and-guarantee",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k11-description",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k11-stat-note",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k11-frontmatter",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k11-glossary",
+      "path": "data/glossary.ts"
+    },
+    {
+      "id": "k11-footer",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k12-remove-schedule-and-guarantees",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k12-citations",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "k12-playground-transition",
+      "path": "content/classical/kinematics.mdx"
+    },
+    {
+      "id": "rrt15-article-disclosure",
+      "path": "content/classical/motion-planning.mdx"
+    },
+    {
+      "id": "rrt15-component-disclosure",
+      "path": "components/interactive/rrt-explorer.tsx"
+    },
+    {
+      "id": "perception-budget-scope",
+      "path": "content/classical/perception.mdx"
+    },
+    {
+      "id": "perception-three-inputs",
+      "path": "content/classical/perception.mdx"
+    },
+    {
+      "id": "perception-component-range-disclosure",
+      "path": "components/interactive/perception-error-budget.tsx"
+    },
+    {
+      "id": "perception-accessible-model-description",
+      "path": "components/interactive/perception-error-budget.tsx"
+    },
+    {
+      "id": "perception-chart-aria",
+      "path": "components/interactive/perception-error-budget.tsx"
+    },
+    {
+      "id": "perception-clearance-assumptions",
+      "path": "content/classical/perception.mdx"
+    },
+    {
+      "id": "perception-component-assumptions",
+      "path": "components/interactive/perception-error-budget.tsx"
+    },
+    {
+      "id": "perception-target-note",
+      "path": "components/interactive/perception-error-budget.tsx"
+    },
+    {
+      "id": "perception-unused-reference-import",
+      "path": "components/interactive/perception-error-budget.tsx"
+    },
+    {
+      "id": "perception-six-stage-scope",
+      "path": "content/classical/perception.mdx"
+    },
+    {
+      "id": "perception-six-stage-transition",
+      "path": "content/classical/perception.mdx"
+    },
+    {
+      "id": "perception-six-stage-conclusion",
+      "path": "content/classical/perception.mdx"
+    },
+    {
+      "id": "perception-six-stage-final",
+      "path": "content/classical/perception.mdx"
+    }
+  ],
+  "adaptations": [
+    "Model files remain byte-identical; visible model-band mapping moved to the component.",
+    "RRT numeric settings disclosed in the article."
+  ],
+  "skipped": [
+    {
+      "id": "perception-model-header",
+      "path": "lib/perception-error.ts",
+      "reason": "Preserve lib/perception-error.ts under implementation scope; adapt visible labels without changing model."
+    },
+    {
+      "id": "perception-depth-comment",
+      "path": "lib/perception-error.ts",
+      "reason": "Preserve lib/perception-error.ts under implementation scope; adapt visible labels without changing model."
+    },
+    {
+      "id": "perception-total-comment",
+      "path": "lib/perception-error.ts",
+      "reason": "Preserve lib/perception-error.ts under implementation scope; adapt visible labels without changing model."
+    },
+    {
+      "id": "perception-share-comment",
+      "path": "lib/perception-error.ts",
+      "reason": "Preserve lib/perception-error.ts under implementation scope; adapt visible labels without changing model."
+    },
+    {
+      "id": "perception-model-band-labels",
+      "path": "lib/perception-error.ts",
+      "reason": "Preserve lib/perception-error.ts under implementation scope; adapt visible labels without changing model."
+    },
+    {
+      "id": "perception-clearance-comment",
+      "path": "lib/perception-error.ts",
+      "reason": "Preserve lib/perception-error.ts under implementation scope; adapt visible labels without changing model."
+    },
+    {
+      "id": "perception-tangent-comment",
+      "path": "lib/perception-error.ts",
+      "reason": "Preserve lib/perception-error.ts under implementation scope; adapt visible labels without changing model."
+    }
+  ]
+}

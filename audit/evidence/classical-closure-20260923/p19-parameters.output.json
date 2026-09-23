@@ -1,0 +1,16 @@
+{
+  "values": {
+    "angles": {
+      "one": 1,
+      "zero": 0
+    },
+    "distances": {
+      "near": 0.1,
+      "far": 1
+    },
+    "geometry": "Right triangle: tan(theta)=lateral offset/axial plane separation; not a rigid-transform norm."
+  },
+  "units": "angle:deg; distance:m",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "perception-ray:parameters:v1"
+}

@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "role": "integrator",
+  "eventId": "classical-closure-perception-7-20260923:observed-zeroNear",
+  "observedAt": "2026-09-23T19:54:47.699Z",
+  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted zeroNear readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
+  "inputDigest": "0cac0e27f039070b42011c3be5eff06feda2a1da367d25ce52fd685d57f0d008",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "observed-zeroNear",
+  "inventory": [
+    {
+      "id": "depth-spec",
+      "kind": "external-source",
+      "text": "Borrowed ±2% Z-accuracy for D410/D415 and D43x, ≤2m, 80% ROI, HD. Typical factory KPI; active-model white target, default 150mW laser and auto exposure. Not a standard deviation or a measured material floor.",
+      "requiredCitationIds": [
+        "realsense-d400-datasheet-2026"
+      ]
+    },
+    {
+      "id": "parameters",
+      "kind": "authored-parameter",
+      "text": "Authored choices and model settings for this exact original: At authored angle0.5deg, opaque target, depth input2% at nominal0.5m and pose3mm, the model hand-eye term rises from1.3090301686138184mm at0.15m to13.090301686138185mm at1.5m; RSS totals are10.522051130000325mm and16.74383463350353mm, with the latter in the marginal model band, not a real grasp forecast.",
+      "requiredProofIds": [
+        "p7-parameters"
+      ]
+    },
+    {
+      "id": "derivation",
+      "kind": "derived-result",
+      "text": "RSS, squared-input shares, (90-60)/2=15mm and 15/30mm bands for the authored finite inputs; no variance, error-bound or collision interpretation.",
+      "requiredProofIds": [
+        "p7-perception-opening",
+        "p7-perception-near",
+        "p7-perception-far",
+        "p7-perception-zeroNear",
+        "p7-perception-zeroFar",
+        "p7-perception-specular",
+        "p7-perception-transparent"
+      ]
+    },
+    {
+      "id": "observed-opening",
+      "kind": "observed-behavior",
+      "text": "Actual mounted opening readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-opening"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "default",
+          "prestate": "unmounted",
+          "action": "navigate to article",
+          "poststate": "opening"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "default",
+          "prestate": "unmounted",
+          "action": "navigate to article",
+          "poststate": "opening"
+        }
+      ]
+    },
+    {
+      "id": "observed-near",
+      "kind": "observed-behavior",
+      "text": "Actual mounted near readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-near"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "opening",
+          "action": "distance to 0.15m",
+          "poststate": "near"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "opening",
+          "action": "distance to 0.15m",
+          "poststate": "near"
+        }
+      ]
+    },
+    {
+      "id": "observed-far",
+      "kind": "observed-behavior",
+      "text": "Actual mounted far readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-far"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "near",
+          "action": "distance to 1.5m",
+          "poststate": "far"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "near",
+          "action": "distance to 1.5m",
+          "poststate": "far"
+        }
+      ]
+    },
+    {
+      "id": "observed-zeroFar",
+      "kind": "observed-behavior",
+      "text": "Actual mounted zeroFar readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-zeroFar"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "far",
+          "action": "angle to zero",
+          "poststate": "zeroFar"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "far",
+          "action": "angle to zero",
+          "poststate": "zeroFar"
+        }
+      ]
+    },
+    {
+      "id": "observed-zeroNear",
+      "kind": "observed-behavior",
+      "text": "Actual mounted zeroNear readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-zeroNear"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "zeroFar",
+          "action": "distance to 0.15m",
+          "poststate": "zeroNear"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "zeroFar",
+          "action": "distance to 0.15m",
+          "poststate": "zeroNear"
+        }
+      ]
+    },
+    {
+      "id": "observed-specular",
+      "kind": "observed-behavior",
+      "text": "Actual mounted specular readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-specular"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "discrete-options",
+          "prestate": "reset opening",
+          "action": "select specular",
+          "poststate": "specular"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "discrete-options",
+          "prestate": "reset opening",
+          "action": "select specular",
+          "poststate": "specular"
+        }
+      ]
+    },
+    {
+      "id": "observed-transparent",
+      "kind": "observed-behavior",
+      "text": "Actual mounted transparent readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-transparent"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "discrete-options",
+          "prestate": "reset opening",
+          "action": "select transparent",
+          "poststate": "transparent"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "discrete-options",
+          "prestate": "reset opening",
+          "action": "select transparent",
+          "poststate": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "observed-reset",
+      "kind": "observed-behavior",
+      "text": "Actual mounted reset readouts at 1440×1000 and 375×812, with the recorded input transition.",
+      "requiredProofIds": [
+        "p7-observed-reset"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "reset",
+          "prestate": "transparent",
+          "action": "Reset",
+          "poststate": "reset"
+        },
+        {
+          "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+          "caseId": "reset",
+          "prestate": "transparent",
+          "action": "Reset",
+          "poststate": "reset"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/classical.md:perception:7",
+  "currentTupleDigest": "560ba238ab6509e0a9bf5714b7a2474ac90de24f2fc2134cafdf9f57572d4e24"
+}

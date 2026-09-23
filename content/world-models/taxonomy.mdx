@@ -33,7 +33,7 @@ A <Term id="world-model">world model</Term> predicts how an environment evolves 
 
 This article uses three questions as its organizing lens: what is predicted, in what representation, and for what purpose? The questions are an editorial comparison, not the survey's own three-axis taxonomy. The survey instead organizes its main sections around policy-coupling architectures, simulator applications, and video-world-model capabilities <Cite id="world-model-survey-2026" />.
 
-The six example groups below are this article's selection, not an exhaustive or universally agreed scientific taxonomy. Their panels compare different prediction targets and uses; selecting a panel is not a benchmark comparison between the named systems.
+The six example groups below are this article's authored selection, not an exhaustive or universally agreed scientific taxonomy. Their panels compare different prediction targets and uses; selecting a panel is not a benchmark comparison between the named systems.
 
 <WmDisambiguator className="my-6" />
 
@@ -60,7 +60,7 @@ In Section 8.1, "Causal Conditioning Gaps," the survey identifies weak action co
 
 The oldest learned lineage and the only one with a decade of evidence on sample-efficient control. DreamerV3 uses a recurrent state-space model with recurrent memory and stochastic latent representations, and reconstructs inputs during world-model learning. Its actor and critic learn from imagined trajectories; the critic also receives a loss on replay-buffer trajectories <Cite id="dreamerv3-2023" />.
 
-DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. Its robustness techniques include symlog transforms for vector observations, free bits with KL balancing, and percentile-based return normalization. The detailed distribution section describes two-hot targets for reward and value prediction; an earlier world-model paragraph instead says the reward predictor uses symlog squared loss. These two descriptions are not reconciled here <Cite id="dreamerv3-2023" />.
+DreamerV3 tested this approach across more than 150 tasks in eight domains with fixed hyperparameters. The paper describes reward prediction differently in its distribution section (two-hot reward/value targets) and earlier world-model paragraph (symlog squared loss) <Cite id="dreamerv3-2023" />. The [latent-dynamics explanation](/world-models/latent-dynamics/) covers the robustness techniques and this disagreement.
 
 In their 2025 Nature article, Hafner, Pasukonis, Ba, and Lillicrap describe DreamerV3 as, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula. The experiment used a MineRL-based environment with abstract crafting actions, accelerated block breaking, and sparse intermediate rewards <Cite id="dreamerv3-2023" />. DayDreamer used the DreamerV2 implementation, not DreamerV3. In one Unitree A1 run, it learned to roll off its back, stand, and walk forward with a pronking gait after about one hour of real-world training, without a simulator or reset policy. The experiment still used a PD controller and manual repositioning at the training-area boundary <Cite id="daydreamer-2022" />.
 

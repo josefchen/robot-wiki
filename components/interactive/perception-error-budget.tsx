@@ -4,12 +4,10 @@ import { useId, useState } from 'react';
 import {
   CLEARANCE_MM,
   DEFAULT_PARAMS,
-  INSERTION_CLEARANCE_MM,
   NOMINAL_RANGE_M,
   PUBLISHED_DEPTH_SPEC_PCT,
   SLIDER_SPECS,
   TARGET_CLASSES,
-  VERDICT_TEXT,
   composeBudget,
   depthFloorPct,
   getTargetClass,
@@ -22,20 +20,10 @@ import { CiteRef } from '@/components/mdx/cite-ref';
 import { cx } from '@/lib/utils';
 
 /**
- * PerceptionErrorBudget: the composed positioning error of a perception
- * pipeline, drawn against the clearance the grasp actually has.
- *
- * Four sliders (hand-eye rotation, depth error, object-pose error, working
- * distance) and a target selector that sets the depth term's floor. The
- * chart is a horizontal bar per source plus the composed total, with the
- * clearance band shaded behind them.
- *
- * The teaching move is the working-distance slider: a hand-eye rotation is
- * an angle, so a half-degree residual is nothing at 15 cm and dominates
- * everything else at 1.5 m, while the other two terms sit still. That only
- * reads cleanly because the depth term is modelled range-independent,
- * which is stated on the instrument rather than left for the reader to
- * discover.
+ * Authored teaching model: controls select three input magnitudes, composed
+ * by root-sum-of-squares, not measured positioning errors or variances.
+ * A distance sweep changes only the chosen ray-to-plane term. Model bands
+ * and target multipliers are teaching settings, not collision predictions.
  */
 
 const WIDTH = 640;
@@ -79,7 +67,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
     share: 1,
   }];
 
-  const verdictText = VERDICT_TEXT[budget.verdict];
+  const verdictText = { within: 'within model band', marginal: 'marginal', jam: 'above model band' }[budget.verdict];
   const verdictTone =
     budget.verdict === 'within'
       ? 'text-accent'
@@ -250,7 +238,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Per-source contribution to the composed positioning error against the clearance band. Total ${budget.totalMm.toFixed(1)} millimetres.`}
+        aria-label={`Authored input magnitudes and root-sum-of-squares total against the model band. Total ${budget.totalMm.toFixed(1)} millimetres.`}
         aria-describedby={descriptionId}
         data-testid="perception-chart"
         className="mt-4 block w-full"
@@ -309,7 +297,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          clearance {CLEARANCE_MM} mm
+          model band {CLEARANCE_MM} mm
         </text>
 
         {rows.map((row, i) => {
@@ -406,7 +394,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         <span data-testid="perception-depth-readout" className="text-text">
           {depthMm.toFixed(2)} mm at {budget.effectiveDepthPct.toFixed(1)}%
         </span>{' '}
-        <span className="text-text-dim">verdict</span>{' '}
+        <span className="text-text-dim">model band</span>{' '}
         <span data-testid="perception-verdict-readout" className={verdictTone}>
           {verdictText}
         </span>
@@ -414,12 +402,13 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         <span data-testid="perception-target-note">
-          The {target.label} is {target.failureMode}, so its depth floor is{' '}
-          {depthFloorPct(params.target).toFixed(0)}% of range.
+          The {target.label} case uses an authored depth floor of{' '}
+          {depthFloorPct(params.target).toFixed(0)}% of the fixed nominal range;
+          it is not a measured property of that material.
         </span>{' '}
         {budget.flooredByTarget
           ? 'That floor is above the slider, so the floor is what the budget uses.'
-          : 'The slider sits above that floor, so the slider is what the budget uses.'}
+          : 'The slider is at or above that floor, so the slider is what the budget uses.'}
       </p>
 
       <p
@@ -429,49 +418,44 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         Simplification, stated rather than hidden: the depth term here is
         modelled as range-independent, evaluated once at a fixed{' '}
         {NOMINAL_RANGE_M.toFixed(1)} m standoff, so the percentage you set
-        converts to the same millimetres at every working distance. A real
-        stereo camera is worse than that, because its ranging error grows
-        roughly with the square of distance. The simplification is here
-        because the point of this instrument is that independent error
-        sources compose into one budget, and the hand-eye rotation is the
-        term whose distance dependence carries that lesson. A second
-        distance-dependent term would swamp it.
+        converts to the same millimetres at every working distance. This
+        authored simplification isolates the chosen ray-to-plane term;
+        it does not describe how every real depth sensor changes with range.
+        Root-sum-of-squares is an authored rule here: these slider values
+        are not established standard deviations, and the instrument does
+        not establish independence or a real-system error bound.
       </p>
 
       <ChartDescription
         id={descriptionId}
         className="mt-3"
         form="state"
-        summary="Current error budget and verdict"
-        description={`At ${params.handEyeDeg.toFixed(1)} degrees of hand-eye rotation and ${params.workingDistanceM.toFixed(2)} m of working distance, the composed positioning error is ${budget.totalMm.toFixed(2)} mm against a ${CLEARANCE_MM} mm clearance band, and ${dominant.label} dominates at ${(dominant.share * 100).toFixed(0)}% of the variance: ${verdictText}.`}
+        summary="Current authored budget and model band"
+        description={`At an authored angle of ${params.handEyeDeg.toFixed(1)} degrees and axial distance ${params.workingDistanceM.toFixed(2)} m, the model's root-sum-of-squares magnitude is ${budget.totalMm.toFixed(2)} mm against its ${CLEARANCE_MM} mm comparison band. ${dominant.label} contributes ${(dominant.share * 100).toFixed(0)}% of the sum of squared inputs. Model band: ${verdictText}.`}
         states={[
           { label: 'hand-eye', value: `${params.handEyeDeg.toFixed(1)} deg` },
           { label: 'distance', value: `${params.workingDistanceM.toFixed(2)} m` },
           { label: 'depth', value: `${budget.effectiveDepthPct.toFixed(1)}%` },
           { label: 'pose', value: `${params.poseMm.toFixed(1)} mm` },
           { label: 'composed', value: `${budget.totalMm.toFixed(2)} mm` },
-          { label: 'verdict', value: verdictText },
+          { label: 'model band', value: verdictText },
         ]}
       />
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        The illustrative opaque-case floor borrows the
-        ±{PUBLISHED_DEPTH_SPEC_PCT}% Z-accuracy entry for D410/D415 and D43x
-        at ranges up to 2 m, 80% ROI and HD resolution. It is not a
-        measurement of opaque objects <CiteRef id="realsense-d400-datasheet-2026" />. The specular
-        and transparent floors are illustrative multiples of it, not
-        measurements: the datasheet publishes no per-material figure, and
-        the research on transparent-object depth exists precisely because
-        the sensors return garbage there <CiteRef id="cleargrasp-2020" />.
-        Things worth trying: park the hand-eye slider at half a degree and
-        walk the working distance from {SLIDER_SPECS.distance.min} m to{' '}
-        {SLIDER_SPECS.distance.max} m, and watch a term that was invisible
-        become the one that decides the outcome. Then set hand-eye to zero
-        and do it again: nothing moves, which is what it means for the other
-        terms to be range-independent. Either way the whole budget is an
-        order of magnitude above the {INSERTION_CLEARANCE_MM} mm insertion
-        clearance a precision assembly needs, which is why those tasks are
-        closed on force and contact rather than on vision alone.
+        These are authored teaching settings. The opaque-case floor borrows
+        the ±{PUBLISHED_DEPTH_SPEC_PCT}% Z-accuracy entry for D410/D415 and D43x
+        at ranges up to 2 m, 80% ROI and HD resolution. The datasheet&apos;s factory
+        KPIs reflect typical conditions; these active models use a texture-less
+        white target, default 150 mW laser power and auto exposure. This is not
+        an opaque-object measurement or a standard deviation{' '}
+        <CiteRef id="realsense-d400-datasheet-2026" />. The model chooses
+        multipliers 1, 3 and 8 for its opaque, specular and transparent cases;
+        none is a measured material-specific floor. Its 15 mm and 30 mm bands
+        are authored comparison thresholds, not predictions of grasp success
+        or collision. Try the distance sweep with the other inputs held fixed,
+        then repeat with the angle set to zero. Reset restores the authored
+        opening inputs.
       </p>
     </div>
   );

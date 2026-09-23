@@ -1,0 +1,117 @@
+{
+  "observedAt": "2026-09-23T20:11:11.853Z",
+  "baseHead": "0a459426b58d518c6a238fb7ab7df9bf9d2c5466",
+  "originalIds": 994,
+  "uniqueOriginalIds": 994,
+  "unselectedFullRecordsPreserved": 984,
+  "priorComplete": 975,
+  "priorCompletionsPreserved": 975,
+  "legacyPlans": 859,
+  "oldLocalPlansPreserved": 11,
+  "oldProofsPreserved": 70,
+  "totalLocalPlans": 18,
+  "totalProofs": 150,
+  "priorApprovalsPreserved": 1069,
+  "totalApprovals": 1079,
+  "protectedPaths": [
+    {
+      "path": "PRODUCT_QUALITY.md",
+      "bytes": 7195,
+      "sha256": "84a8b66e0eaade7a631ec60befb38096ede06d73b40878bb47d91e1b23e20a2d"
+    },
+    {
+      "path": "lib/ik.ts",
+      "bytes": 18933,
+      "sha256": "df606ff4d6f7701a7c96fbee009902173c4f7308f0d1ca4bd051337faec18c3b"
+    },
+    {
+      "path": "lib/perception-error.ts",
+      "bytes": 8220,
+      "sha256": "33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5"
+    },
+    {
+      "path": "lib/rrt.ts",
+      "bytes": 9397,
+      "sha256": "3b7f3ab7234c342e9762bd987306492b09e0c62b82a827b4b369b00d56ead4ad"
+    },
+    {
+      "path": "next-env.d.ts",
+      "bytes": 288,
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "qa/findings.json",
+      "bytes": 11464,
+      "sha256": "28101913c6141a1d807077b1521473f483de8a26aa1afed5c15d00af33632970"
+    }
+  ],
+  "unscopedTrackedFilesPreserved": 2115,
+  "changedFiles": [
+    "audit/classical.md",
+    "audit/local-basis.json",
+    "components/interactive/perception-error-budget.tsx",
+    "components/interactive/rrt-explorer.tsx",
+    "content/classical/kinematics.mdx",
+    "content/classical/motion-planning.mdx",
+    "content/classical/perception.mdx",
+    "contract/brand-v2-approved-deltas.json",
+    "data/glossary.ts",
+    "lib/audit-corrected-disposition.ts",
+    "lib/audit-ledger.ts",
+    "lib/audit-local-basis.ts",
+    "public/og/classical/kinematics.png",
+    "scripts/check-audit-coverage.ts",
+    "tests/component/perception-error-budget.test.tsx",
+    "tests/e2e/kinematics.spec.ts",
+    "tests/e2e/perception.spec.ts",
+    "tests/unit/audit-local-basis.test.ts",
+    "tests/unit/four-local-truth-repairs.test.ts",
+    "tests/unit/industrial-perception-truth-repair.test.ts"
+  ],
+  "preexistingAssertions": {
+    "legacyCatalogExpected": "fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49",
+    "actualAtBase": "eea12d51f9348fcd1965f019e05886495960e87afce21eb1954558dd72f7bd82",
+    "perception9and17AtBase": [
+      {
+        "id": "audit/classical.md:perception:9",
+        "currentTupleDigest": "432afd82556d37a349d86d82d89dc38e226efe38e31c65fa77c566e60c7253d0",
+        "evidenceFailures": [],
+        "outcome": "passing"
+      },
+      {
+        "id": "audit/classical.md:perception:17",
+        "currentTupleDigest": "c479824ec755851f1e88a4dc9bb847b2183aeed5db6027c2623b9675364523c3",
+        "evidenceFailures": [],
+        "outcome": "passing"
+      }
+    ]
+  },
+  "finalDocumentationReview": {
+    "observedAt": "2026-09-23T20:18:36.930899+00:00",
+    "finalChangedTrackedFiles": [
+      "audit/README.md",
+      "audit/classical.md",
+      "audit/local-basis.json",
+      "components/interactive/perception-error-budget.tsx",
+      "components/interactive/rrt-explorer.tsx",
+      "content/classical/kinematics.mdx",
+      "content/classical/motion-planning.mdx",
+      "content/classical/perception.mdx",
+      "contract/brand-v2-approved-deltas.json",
+      "data/glossary.ts",
+      "lib/audit-corrected-disposition.ts",
+      "lib/audit-ledger.ts",
+      "lib/audit-local-basis.ts",
+      "public/og/classical/kinematics.png",
+      "scripts/check-audit-coverage.ts",
+      "tests/component/perception-error-budget.test.tsx",
+      "tests/e2e/kinematics.spec.ts",
+      "tests/e2e/perception.spec.ts",
+      "tests/unit/audit-local-basis.test.ts",
+      "tests/unit/four-local-truth-repairs.test.ts",
+      "tests/unit/industrial-perception-truth-repair.test.ts"
+    ],
+    "unscopedTrackedFilesPreservedAtFinalBoundary": 2114,
+    "explanation": "After the exhaustive comparison, only authorized audit/README.md and an appended classical verification section changed. Native parse confirms all 187 classical records, coordinates and outcomes remain byte-for-byte JSON-equal to final coverage. README is now scoped rather than counted among preserved unscoped files."
+  }
+}

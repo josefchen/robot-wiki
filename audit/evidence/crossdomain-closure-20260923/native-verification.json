@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-09-23T20:56:56.502Z",
+  "completeNewPlans": 2,
+  "negativeMutationsRejected": [
+    "crossdomain-generalist19-20260923:missing-proof",
+    "crossdomain-generalist19-20260923:output",
+    "crossdomain-generalist19-20260923:review",
+    "crossdomain-generalist19-20260923:history",
+    "crossdomain-generalist19-20260923:input-unit",
+    "crossdomain-generalist19-20260923:dependency",
+    "crossdomain-generalist19-20260923:tuple",
+    "crossdomain-taxonomy4-20260923:missing-proof",
+    "crossdomain-taxonomy4-20260923:output",
+    "crossdomain-taxonomy4-20260923:review",
+    "crossdomain-taxonomy4-20260923:history",
+    "crossdomain-taxonomy4-20260923:input-unit",
+    "crossdomain-taxonomy4-20260923:dependency",
+    "crossdomain-taxonomy4-20260923:tuple"
+  ],
+  "priorPlansPreserved": 18,
+  "priorProofsPreserved": 150,
+  "legacyActive": 858,
+  "legacyArchived": 1,
+  "priorApprovalsPreserved": 1079,
+  "approvalsAdded": 3,
+  "originalIdentities": 994,
+  "fullUnselectedRecordsPreserved": 992
+}

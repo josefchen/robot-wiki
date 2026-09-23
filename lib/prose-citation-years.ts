@@ -28,7 +28,7 @@
 
 export interface ProseCitationEntry {
   id: string;
-  year: number;
+  year: number | 'n.d.';
   authors: string[];
 }
 
@@ -37,7 +37,7 @@ export interface ProseCitationYearHit {
   citationId: string;
   surname: string;
   proseYear: number;
-  registryYear: number;
+  registryYear: number | 'n.d.';
   excerpt: string;
 }
 

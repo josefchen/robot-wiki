@@ -12,10 +12,11 @@ import { CITATIONS } from '../../data/citations';
  * Red-first proof for the scene-representation originals integration
  * (frozen packet convergence-source-k-scene-representation-20260916d, rows
  * 3, 18, 19, 24, 45, 46, 47, 48, 49 selected; rows 1 and 10 held by the
- * parent dispatch and untouched). Every applied-state assertion here failed
+ * parent dispatch and untouched at that checkpoint). Every applied-state assertion here failed
  * before application and must pass after it. The regression guards (prior
  * plan order, protected held rows 1/10, neighbor sections) passed before and
- * must stay green.
+ * must stay green. Later authorized repairs bind row 1 (September 17) and
+ * correct row 10 (September 22); their current bindings are guarded below.
  *
  * Six of the nine records are internal/local-AND rows: their compound parts
  * are anchored to registered citations per the established internal-row
@@ -108,12 +109,10 @@ function rowCells(index: number): string[] {
 
 describe('scene-representation originals: compound plans appended lawfully', () => {
   it('carries exactly the 9 dispatched plans, append-only after the 740 prior plans', () => {
-    // 768 = 759 at the space checkpoint + 9 generative-video plans appended by
-    // the generative-video originals integration (2026-09-16)
-    // appended by the space originals integration (2026-09-16).
-    // 775 = 768 at the generative-video checkpoint + 7 surgical plans
-    // appended by the surgical originals integration (2026-09-16).
-    expect(plans.length).toBe(775);
+    // Guard this batch's exact native positions, not an expired global total
+    // that rejects later independently authorized append-only integrations.
+    expect(plans.slice(740, 749).map(({ id }) => id).sort())
+      .toEqual([...EXPECTED_PLAN_IDS].sort());
     const mine = plans.filter((plan) => EXPECTED_PLAN_IDS.includes(plan.id));
     expect(mine.map((plan) => plan.id).sort()).toEqual([...EXPECTED_PLAN_IDS].sort());
     // Append-only: no prior plan id moved or disappeared. Two older
@@ -228,9 +227,9 @@ describe('scene-representation originals: packet-critical passages survive verba
 
 describe('scene-representation originals: approved deltas and protected neighbors', () => {
   it('appends exactly the 9 dispatched delta entries after the 815 prior ones', () => {
-    // 852 = 845 at the generative-video checkpoint + 7 surgical deltas
-    // appended by the surgical originals integration (2026-09-16).
-    expect(deltas.entries.length).toBe(852);
+    expect(deltas.entries.slice(815, 824).map(({ id }) => id).sort()).toEqual(
+      [...ROW_ORDINALS].map((ordinal) => `sr-r${ordinal}-20260916-1`).sort(),
+    );
     const mine = deltas.entries.filter((entry) => entry.id.startsWith('sr-r'));
     expect(mine.map((entry) => entry.id).sort()).toEqual(
       [...ROW_ORDINALS].map((ordinal) => `sr-r${ordinal}-20260916-1`).sort(),
@@ -246,7 +245,7 @@ describe('scene-representation originals: approved deltas and protected neighbor
     }
   });
 
-  it('protects held row 10 and the applied row-1 sweep binding', () => {
+  it('protects the authorized row-10 correction and applied row-1 sweep binding', () => {
     // 2026-09-17a single-leftovers: row 1's claim cell now counts the real 24
     // frontmatter ids and binds the 24-identity compound plan; the three
     // scalar evidence cells stay empty (compound rows reject scalar fields).
@@ -254,10 +253,11 @@ describe('scene-representation originals: approved deltas and protected neighbor
     expect(rowCells(0)[3] ?? '').toBe('');
     expect(rowCells(0)[7] ?? '').toBe('scene-representation-1-identity-sweep-20260917a');
     expect(rowCells(0)[0]).toContain('Bibliographic fidelity of all 24 cited registry entries');
-    expect(rowCells(9)[2]).toBe('V');
+    expect(rowCells(9)[2]).toBe('C');
     expect(rowCells(9)[3] ?? '').toBe('');
-    expect(rowCells(9)[7] ?? '').toBe('');
-    expect(rowCells(9)[0]).toContain('Stored distance is the collision margin');
+    expect(rowCells(9)[7] ?? '').toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
+    expect(rowCells(9)[0]).toContain('KinectFusion uses a projective TSDF rather than a true discrete SDF');
+    expect(rowCells(9)[6]).toContain('Stored distance is the collision margin');
   });
 
   it('keeps prior complete rows and sections intact (no re-serialization)', () => {

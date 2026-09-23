@@ -1,0 +1,27 @@
+{
+  "id": "parallel-sim-rl-18-training-time-chart-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "parallel-sim-rl",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "f17a3fd555b9708f82c3bed9711c059c50804e989722b4563ab62914e8f7cdc0",
+  "kind": "explicit-parts",
+  "planReview": null,
+  "parts": [
+    {
+      "id": "y18-rudin-diamond-anchors",
+      "text": "The chart's two measured anchors are printed by the registered Rudin paper on its retained surface: flat-terrain policies trained 'in under four minutes' and uneven-terrain 'in twenty minutes' via massive parallelism on a single workstation GPU, and the documented simulation-and-deployment protocol of 4,096 robots with batch size 98,304 trained for 1,500 policy updates 'in under 20 minutes' on an i9-11900k CPU and NVIDIA RTX A6000 GPU - the exact bounds and hardware the article Callout's diamonds carry. LOCAL-AND (integrator): the curve itself is an authored illustrative fixed-transitions model labeled as such in the Callout and lib/parallel-sim.ts header; the integrator must verify that labeling in-repo and that no surface presents the curve as measured, before applying.",
+      "requiredCitationIds": [
+        "rudin-2021"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "partId": "y18-rudin-diamond-anchors",
+      "citationId": "rudin-2021",
+      "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+      "supportingPassage": "The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. ... For our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes [footnote as printed: Trained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material.]"
+    }
+  ],
+  "adjudications": []
+}

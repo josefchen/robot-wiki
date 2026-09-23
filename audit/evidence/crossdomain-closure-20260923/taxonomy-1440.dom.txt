@@ -1,0 +1,340 @@
+Home
+/
+World Models
+/
+What Is a World Model?
+What Is a World Model?
+
+An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.
+
+LAST REVIEWED
+17 August 2026
+READING TIME
+10 min
+CITATIONS
+12
+
+A world model predicts how an environment evolves in a form useful for a robot's decisions. Hou and colleagues' 2026 survey uses this functional definition for visual, latent, structured, and symbolic predictions; it does not require one architecture.
+Hou 2026
+↓
+
+This article uses three questions as its organizing lens: what is predicted, in what representation, and for what purpose? The questions are an editorial comparison, not the survey's own three-axis taxonomy. The survey instead organizes its main sections around policy-coupling architectures, simulator applications, and video-world-model capabilities 
+Hou 2026
+↓
+.
+
+The six example groups below are this article's authored selection, not an exhaustive or universally agreed scientific taxonomy. Their panels compare different prediction targets and uses; selecting a panel is not a benchmark comparison between the named systems.
+
+Selected: Latent dynamics
+Predicts: Next latent state + reward + continuation flag
+Reset
+latent z (stochastic + deterministic)
+r = 0.83
+continue = 1
+decoded frame
+(training only)
+Latent dynamics
+Next latent state + reward + continuation flag
+latent z (implicit)
+MPPI candidates
+no image
+Decoder-free latent
+Next latent state + reward; no reconstruction, no decoder
+predicted frame t+1
+conditioned on
+action / text
+pixels in,
+pixels out
+Generative video
+Future pixels conditioned on the current frame(s) + action/text
+embedding e
+goal
+dist(e_pred, e_goal) = 0.31
+no decoder
+JEPA
+Future representation, never pixels
+frame t+1
+action chunk
+one backbone, two heads
+World-action
+Future frames and action chunks from one backbone
+on(cup, table)
+clear(table)
+pick(cup)
+in(cup, gripper)
+Symbolic
+Transitions over predicates, object relations, occupancy
+Used for
+Policy learning
+Planning
+Evaluation
+Data generation
+
+Latent-dynamics world model (Dreamer-style): a latent vector, a reward scalar, and a fuzzy decoded reconstruction. Used for Policy learning. Representative systems: DreamerV3, DayDreamer, Robotic World Model.
+
+Latent-dynamics (Dreamer-style) predicts the next latent, a reward of 0.83 and a continue flag of 1, plus a fuzzy decoded frame used at training only; of the 4 uses, only policy learning is lit.
+
+Current world-model paradigm
+6
+example groups
+selected in this article
+150+
+DreamerV3 tasks
+one fixed hyperparameter set
+317M
+TD-MPC2 params
+one offline agent, 80 tasks
+>1M
+V-JEPA 2 video
+video hours; action-free pretraining
+The functional cut
+
+Hou and colleagues define a world model by whether it predicts how the future changes under robot-relevant actions in a way that supports embodied decision-making. They write: "a model does not qualify as a world model in our sense simply because it generates plausible future images or videos". Their action definition includes both low-level motor commands and high-level language or task instructions; this is the survey's functional scope, not a universal naming rule 
+Hou 2026
+↓
+.
+
+In Section 8.1, "Causal Conditioning Gaps," the survey identifies weak action conditioning as a technical bottleneck. The authors say many predictive objectives are trained mainly from observation history and task intent, allowing semantically plausible futures that are not causally tied to the pending robot action. This is their diagnosis, not a ranking of the field's challenges or a finding that every model below already satisfies the criterion 
+Hou 2026
+↓
+.
+
+Six example groups
+Six example groups selected for this article
+Paradigm	What it predicts	In what space	Trained on	Primary use	Representative systems
+Latent-dynamics world model (Dreamer-style)	Next latent state + reward + continuation flag	Learned compact latent (stochastic + deterministic); decoded to pixels during training	The agent's own interaction data	Policy optimization on imagined rollouts; sample-efficient RL	DreamerV3, DayDreamer, Robotic World Model
+Decoder-free latent model for planning (TD-MPC-style)	Next latent state + reward; no reconstruction, no decoder	Implicit latent trained only for value/reward prediction	Interaction data	Latent-space planning: MPPI or policy-seeded gradient ascent	TD-MPC, TD-MPC2, Dream-MPC
+Action-conditioned generative video model	Future pixels conditioned on the current frame(s) + action/text	Pixel or VAE-latent video space	Internet video + robot trajectories	Data generation, policy evaluation, RL post-training, interactive worlds	Cosmos 3, Genie 3, Odyssey, Interactive World Simulator
+Non-generative joint-embedding predictor (JEPA)	Future representation, never pixels	Learned embedding space; masked/future embedding prediction	Internet video + a small action-labeled robot set	Zero-shot planning by energy minimization over latent goals	V-JEPA, V-JEPA 2, V-JEPA 2-AC
+Unified world-action model	Future frames and action chunks from one backbone	Shared backbone; parallel generative and action heads	Robot trajectories + video	Policy with world-modeling as auxiliary objective / implicit lookahead	Cosmos Policy, WorldVLA, DreamZero
+Symbolic / structured world model	Transitions over predicates, object relations, occupancy	Discrete/relational or 3D-occupancy space	Curated or perception-grounded data	Long-horizon task planning without pixel-space error accumulation	OccWorld, symbolic-abstraction hybrids
+Latent dynamics: predict a compact state, dream in it
+
+The oldest learned lineage and the only one with a decade of evidence on sample-efficient control. DreamerV3 uses a recurrent state-space model with recurrent memory and stochastic latent representations, and reconstructs inputs during world-model learning. Its actor and critic learn from imagined trajectories; the critic also receives a loss on replay-buffer trajectories 
+Hafner 2023
+↓
+.
+
+DreamerV3 tested this approach across more than 150 tasks in eight domains with fixed hyperparameters. The paper describes reward prediction differently in its distribution section (two-hot reward/value targets) and earlier world-model paragraph (symlog squared loss) 
+Hafner 2023
+↓
+. The latent-dynamics explanation covers the robustness techniques and this disagreement.
+
+In their 2025 Nature article, Hafner, Pasukonis, Ba, and Lillicrap describe DreamerV3 as, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula. The experiment used a MineRL-based environment with abstract crafting actions, accelerated block breaking, and sparse intermediate rewards 
+Hafner 2023
+↓
+. DayDreamer used the DreamerV2 implementation, not DreamerV3. In one Unitree A1 run, it learned to roll off its back, stand, and walk forward with a pronking gait after about one hour of real-world training, without a simulator or reset policy. The experiment still used a PD controller and manual repositioning at the training-area boundary 
+Wu 2022
+↓
+.
+
+Decoder-free latent: no image, just value
+
+TD-MPC2 learns joint-embedding, reward, and value predictions without reconstructing observations. At each decision step, MPPI evaluates sampled action sequences through latent rollouts and combines predicted rewards with a learned terminal value. The policy prior supplies some candidate sequences; the shifted previous planning solution provides the warm start, and the first planned action is executed. Its reported 317M-parameter multitask configuration was trained offline on 545M transitions from 240 single-task agents, covering 50 Meta-World and 30 DMControl tasks across different embodiments and action spaces. That 80-task experiment is distinct from the 104-task online benchmark 
+Hansen 2023
+↓
+.
+
+Generative video: predict the pixels
+
+These models predict future pixels from current frames plus an action or text condition, and they are where the money is. NVIDIA presents Cosmos 3 as a common Mixture-of-Transformers architecture for understanding, generation, forward dynamics, inverse dynamics, and policy. It uses autoregressive and diffusion subsequences with separate parameter sets: diffusion attends to both streams, while the autoregressive stream remains causal and does not read diffusion tokens. The report distinguishes the base models from task-specific post-trained variants 
+NVIDIA 2026
+↓
+. DeepMind reports that Genie 3 generates text-prompted worlds navigable in real time at 24 fps and 720p, remaining largely consistent for a few minutes. Its blog lists constrained direct agent actions and a few minutes of continuous interaction among the model's limitations
+Parker-Holder 2025
+↓
+.
+For the broader research literature, Hou and colleagues distinguish learned simulation for reinforcement learning, rollout-based evaluation, and video generation for supervision. They also identify action faithfulness, rollout reliability, and functional evaluation as open problems. This is a map of research uses, not a deployment census for Cosmos 3 or Genie 3, nor evidence that either replaces a general-purpose physics engine 
+Hou 2026
+↓
+.
+
+JEPA: predict the representation, never the pixels
+
+V-JEPA 2 uses action-free pretraining on over a million hours of internet video plus images. V-JEPA 2-AC then freezes the encoder and trains a separate action-conditioned predictor on less than 62 hours of filtered left-camera Droid video, using end-effector state signals and actions derived from state changes. “Unlabeled” means no reward, task-type, or success labels; Droid includes Franka Panda teleoperation
+Assran 2025
+↓
+.
+
+For evaluation, the same weights and inference code run zero-shot on Franka Emika Panda arms with RobotiQ grippers in two labs absent from Droid, without training on those evaluation robots. Camera placement was manually selected. This is a new-environment result, not universal new-embodiment transfer. Planning minimizes predicted-to-goal feature-map L1 distance with the Cross-Entropy Method, executes the first action, and replans. Pick-and-place uses two supplied subgoal images plus the final goal
+Assran 2025
+↓
+.
+The JEPA module details these stages and their limitations.
+
+Unified world-action: one backbone, two heads
+
+Here the world model and the policy fuse into one backbone that emits future frames and action chunks together, so world modeling acts as an auxiliary objective that shapes the representations the policy reads. WorldVLA interleaves action and image tokens autoregressively and reports that the two objectives improve each other 
+Cen 2025
+↓
+; Cosmos Policy is the same idea on top of the Cosmos backbone, post-training the Cosmos-Predict2 video model into a robot policy with no architectural modifications 
+Kim 2026
+↓
+. The prediction is real, but its job is to make the policy better, not to be inspected or rolled out interactively.
+
+Symbolic and structured: predict predicates, not percepts
+
+These models predict transitions over predicates, object relations, or 3D occupancy instead of anything continuous. OccWorld, from autonomous driving, predicts how a scene's occupancy grid evolves and produces competitive planning results without instance or map supervision 
+Zheng 2023
+↓
+. The appeal is long-horizon: discrete relational state does not accumulate pixel-space error the way a 50-step video rollout does. The cost is that someone, or some perception stack, has to produce the symbols.
+
+Two boundary cases
+
+Two systems are routinely called world models and deserve a precise verdict.
+
+A physics engine is a world model
+
+MuJoCo is an explicit, hand-specified state-transition model: given a state and an action, it predicts the next state, and its predictions are nothing if not action-dependent 
+Todorov 2012
+↓
+. It is simply not learned. This is not a pedantic point. TD-MPC2 and classical MPC are the same algorithm with one difference, whether the dynamics model is learned or derived, and much of the RL-versus-MPC debate in the locomotion domain reduces to that choice.
+
+A 3D Gaussian Splatting twin is not
+
+A 3DGS reconstruction of a real scene is a learned renderer: it predicts what the scene looks like from a new camera pose 
+Kerbl 2023
+↓
+. When such a twin is used for robot training, the dynamics come from the physics engine the splats are bolted onto. Appearance is learned, physics is not, and a renderer alone fails the functional cut because it has no answer to what happens under an action.
+
+What each paradigm is actually for
+
+Return to the panel grid above to compare this article's six example groups. The pattern to internalize: the paradigm with the loudest name recognition, generative video, earns its keep in evaluation and data generation, while the two paradigms that plan (decoder-free latent, JEPA) never show you an image.
+
+Reading world-model claims
+
+When a paper or a vendor says "world model," use this article’s three comparison questions: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks.
+
+Self-check
+
+A vendor pitches a photorealistic 3D Gaussian Splatting reconstruction of your workcell as a world model for training a manipulation policy. What is the honest engineering verdict?
+It qualifies: it predicts the scene from any camera pose, which is a prediction
+It is a learned renderer bolted onto a physics engine: appearance is learned, dynamics are not
+It fails the cut because nothing hand-specified counts as a world model
+Read the reasoning
+See also
+Latent-Dynamics World Models
+
+Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based control.
+
+Generative Video World Models
+
+Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.
+
+JEPA and the Non-Generative Counterargument
+
+V-JEPA 2 and LeCun's case that prediction in representation space beats pixel generation.
+
+Scene Representation and Mapping
+
+What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.
+
+Linked from
+Latent-Dynamics World Models
+
+Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based control.
+
+Generative Video World Models
+
+Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.
+
+JEPA and the Non-Generative Counterargument
+
+V-JEPA 2 and LeCun's case that prediction in representation space beats pixel generation.
+
+Generative Simulation
+
+Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.
+
+Scene Representation and Mapping
+
+What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.
+
+Competing Theses
+
+End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.
+
+References
+1
+World Model for Robot Learning: A Comprehensive Survey
+
+Bohan Hou, Gen Li, Jindou Jia, Tuo An, Xinying Guo, Sicong Leng, Haoran Geng, Yanjie Ze, and 10 more, 2026. Show all 18 authors
+
+https://arxiv.org/abs/2605.00080
+
+2
+Mastering Diverse Domains through World Models
+
+Danijar Hafner, Jurgis Pasukonis, Jimmy Ba, Timothy Lillicrap, Nature 2025, 2023.
+
+https://arxiv.org/abs/2301.04104
+
+3
+TD-MPC2: Scalable, Robust World Models for Continuous Control
+
+Nicklas Hansen, Hao Su, Xiaolong Wang, ICLR 2024, 2023.
+
+https://arxiv.org/abs/2310.16828
+
+4
+DayDreamer: World Models for Physical Robot Learning
+
+Philipp Wu, Alejandro Escontrela, Danijar Hafner, Ken Goldberg, Pieter Abbeel, CoRL 2022.
+
+https://arxiv.org/abs/2206.14176
+
+5
+Cosmos 3: Omnimodal World Models for Physical AI
+
+NVIDIA, Aditi, Niket Agarwal, Arslan Ali, Jon Allen, Martin Antolini, Adeline Aubame, Alisson Azzolini, and 287 more, 2026. Show all 295 authors
+
+https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf
+
+6
+Genie 3: A new frontier for world models
+
+Jack Parker-Holder, Shlomi Fruchter, Google DeepMind, 2025.
+
+https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/
+
+7
+V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning
+
+Mahmoud Assran, Adrien Bardes, David Fan, Quentin Garrido, Russell Howes, Mojtaba Komeili, Matthew Muckley, Ammar Rizvi, and 21 more, 2025. Show all 29 authors
+
+https://arxiv.org/abs/2506.09985
+
+8
+WorldVLA: Towards Autoregressive Action World Model
+
+Jun Cen, Chaohui Yu, Hangjie Yuan, Yuming Jiang, Siteng Huang, Jiayan Guo, Xin Li, Yibing Song, and 4 more, 2025. Show all 12 authors
+
+https://arxiv.org/abs/2506.21539
+
+9
+Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning
+
+Moo Jin Kim, Yihuai Gao, Tsung-Yi Lin, Yen-Chen Lin, Yunhao Ge, Grace Lam, Percy Liang, Shuran Song, and 3 more, 2026. Show all 11 authors
+
+https://arxiv.org/abs/2601.16163
+
+10
+OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving
+
+Wenzhao Zheng, Weiliang Chen, Yuanhui Huang, Borui Zhang, Yueqi Duan, Jiwen Lu, 2023.
+
+https://arxiv.org/abs/2311.16038
+
+11
+MuJoCo: A physics engine for model-based control
+
+Emanuel Todorov, Tom Erez, Yuval Tassa, IROS 2012.
+
+https://doi.org/10.1109/IROS.2012.6386109
+
+12
+3D Gaussian Splatting for Real-Time Radiance Field Rendering
+
+Bernhard Kerbl, Georgios Kopanas, Thomas Leimkühler, George Drettakis, ACM Trans. Graph. 42(4), author manuscript (2023).
+
+https://arxiv.org/abs/2308.04079

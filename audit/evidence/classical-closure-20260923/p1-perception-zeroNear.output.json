@@ -1,0 +1,41 @@
+{
+  "values": {
+    "effectiveDepthPct": 2,
+    "flooredByTarget": false,
+    "contributions": [
+      {
+        "key": "handeye",
+        "label": "hand-eye rotation",
+        "mm": 0,
+        "share": 0
+      },
+      {
+        "key": "depth",
+        "label": "depth sensing",
+        "mm": 10,
+        "share": 0.9174311926605505
+      },
+      {
+        "key": "pose",
+        "label": "object pose",
+        "mm": 3,
+        "share": 0.08256880733944955
+      }
+    ],
+    "totalMm": 10.44030650891055,
+    "verdict": "within",
+    "slackMm": 15,
+    "bandsMm": [
+      15,
+      30
+    ],
+    "display": [
+      "10.44 mm",
+      "10.00 mm at 2.0%",
+      "within model band"
+    ]
+  },
+  "units": "contributions,total,slack,bands:mm; depth:%; shares:dimensionless squared-input fractions",
+  "precision": "readout:mm toFixed(2), percent toFixed(1); not a statistical variance",
+  "formula": "perception:derive:v1;sqrt((d*1000*tan(theta*pi/180))^2+(.5*1000*max(depthPct,2*multiple)/100)^2+poseMm^2)"
+}

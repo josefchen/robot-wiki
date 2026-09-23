@@ -12,7 +12,7 @@
  * surrounding prose says so. Pure functions only; the component and the
  * tests share this model.
  */
-import { GAITS, LEGS, legPhase, type LegId } from './gait';
+import { GAITS, LEGS, legPhase, type LegId } from './gait.ts';
 
 export type TermId =
   | 'velTrack'
