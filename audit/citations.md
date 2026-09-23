@@ -1235,3 +1235,14 @@ No new request or source verification occurred in this reconciliation.
     verifiedOn: '2026-08-24',
   },
 ```
+
+## Undated LEI definitions, retained identity review 2026-09-23
+
+The owner-approved undated-source rule is applied only to the two official Lean Lexicon definitions. The retained complete tool responses and decoded bodies identify Lean Enterprise Institute and the Takt Time / Cycle Time headings; neither inspected definition states a publication/update date. `n.d.` is the publication-date field; `2026-09-22` is the actual access date, not an invented publication year.
+
+| ID | URL | Verdict | Supporting identity and provenance |
+| --- | --- | --- | --- |
+| lei-takt-time-definition | https://www.lean.org/lexicon-terms/takt-time/ | unresolved (current liveness not checked; retained primary identity) | Takt Time - Lean Enterprise Institute; actual rune___web_scrape observation 2026-09-22T22:28:00.411Z; response SHA256 ae3277b46d7121c471c0334268312e7ef38f073192856cf9b5bf1ccd61d78abb. |
+| lei-cycle-time-definition | https://www.lean.org/lexicon-terms/cycle-time/ | unresolved (current liveness not checked; retained primary identity) | Cycle Time - How to Calculate It &#124; Lean Enterprise Institute; actual rune___web_scrape observation 2026-09-22T22:28:10.392Z; response SHA256 f62e78b4d3648a001072a8c50f96b2066bc30f9b36c0672e94aa5fbc784fa8a5. |
+
+No new source request, origin HTTP status or redirect chain was observed. Full exact source envelopes, decoded text, passage selectors and original retrieval records are retained under `audit/evidence/industrial-closure-20260923/` and indexed there. NASA remains dated by its explicit Lesson841 date1994-12-01, not this review. This records bibliographic fidelity and source support, not whole-corpus VAL-AUDIT-008 acceptance.

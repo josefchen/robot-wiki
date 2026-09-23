@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
@@ -160,7 +161,7 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     ));
     expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
     expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
-    expect(read('data/citations.ts')).toBe(committedSource(READER_RELEASE_BASE, 'data/citations.ts'));
+    preservedPreIndustrialCitations(READER_RELEASE_BASE);
   });
 
   it('preserves the complete licensing disclosure and unknown durations elsewhere', () => {
@@ -215,7 +216,14 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     for (const section of current) {
       const old = previous.find(s => s.slug === section.slug)!;
       for (const [i, record] of section.claimRecords.entries()) {
-        if (section.slug !== 'datasets' || i !== 9) expect(record).toEqual(old.claimRecords[i]);
+        if (section.slug === 'industrial-deployment' && [9, 10, 31, 32, 33, 37, 47, 48].includes(i + 1)) {
+          const history = JSON.parse(read('audit/evidence/industrial-closure-20260923/row-history.json'));
+          const archived = history.find((r: { rowOrdinal: number }) => r.rowOrdinal === i + 1);
+          expect(archived.currentCells).toEqual(Object.fromEntries(
+            ['claim', 'sourceChecked', 'verdict', 'note'].map(key => [key, old.claimRecords[i][key as 'claim']]),
+          ));
+          expect(record.verdict).toMatch(/^C\b/);
+        } else if (section.slug !== 'datasets' || i !== 9) expect(record).toEqual(old.claimRecords[i]);
       }
     }
   });

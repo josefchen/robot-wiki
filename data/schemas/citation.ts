@@ -32,7 +32,8 @@ export const citationSchema = z.object({
   id: slugSchema,
   title: z.string().min(1),
   authors: z.array(z.string().min(1)).min(1),
-  year: z.number().int().min(1900).max(2100),
+  year: z.union([z.number().int().min(1900).max(2100), z.literal('n.d.')]),
+  accessedOn: z.string().date().optional(),
   venue: z.string().min(1).optional(),
   /** Bare arXiv id, e.g. "2304.13705". When present, url must be its abs
    *  page (unversioned, or versioned …vN for quotes that exist only in a
@@ -43,6 +44,10 @@ export const citationSchema = z.object({
     .optional(),
   url: z.intersection(httpsUrlSchema, datedArchiveRefinement),
   type: z.enum(['paper', 'blog', 'docs', 'press']),
+}).superRefine((entry, ctx) => {
+  if (entry.year === 'n.d.' && !entry.accessedOn) {
+    ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['accessedOn'], message: 'Undated sources require their actual access date' });
+  }
 });
 
 export type Citation = z.infer<typeof citationSchema>;

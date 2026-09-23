@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T18:44:34.186Z",
+  "endedAt": "2026-09-23T18:44:39.875Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/industrial-deployment.spec.ts",
+    "bytes": 19923,
+    "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+  },
+  "inputDigest": "c8d0539a08e62bef2327e363d2d9096c9c3ea59e1cf02d7c8243e307b8affb3b",
+  "outputDigest": "d55f9c3d75a4b6e67f761d9a2bfb5d1ad4f212d9cb46160a18e94d301c306a54",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "id": "article:data-hardware/industrial-deployment",
+      "offset": 0,
+      "length": 19399,
+      "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+      "baseline": {
+        "kind": "prose",
+        "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/deployment-economics.tsx",
+        "bytes": 9866,
+        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+      },
+      "id": "source:components/interactive/deployment-economics.tsx",
+      "offset": 0,
+      "length": 9866,
+      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/deployment-economics.ts",
+        "bytes": 7602,
+        "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+      },
+      "id": "file:lib/deployment-economics.ts",
+      "offset": 0,
+      "length": 7602,
+      "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 44430,
+      "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/industrial-closure-20260923/support.ts",
+        "bytes": 2740,
+        "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+      },
+      "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+      "offset": 0,
+      "length": 2740,
+      "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-local-20260923/support.ts",
+        "bytes": 5308,
+        "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+      },
+      "id": "file:audit/evidence/economics-local-20260923/support.ts",
+      "offset": 0,
+      "length": 5308,
+      "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 19923,
+        "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+      },
+      "id": "file:tests/e2e/industrial-deployment.spec.ts",
+      "offset": 0,
+      "length": 19923,
+      "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/slider.ts",
+        "bytes": 1130,
+        "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+      },
+      "id": "file:tests/e2e/slider.ts",
+      "offset": 0,
+      "length": 1130,
+      "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "success=99.9; clearing=15",
+      "action": "Set clearing=15 seconds and success=99 percent",
+      "poststate": "Cell cost $200,000; 556 modeled picks per elapsed hour and 405,951 per 730-hour month; jam rate 1.00%.; 0.008; 11.8 months; Pays back inside 24 months",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"cost-per-pick\"]",
+          "text": "0.008"
+        },
+        {
+          "selector": "[data-testid=\"payback-months\"]",
+          "text": "11.8 months"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "dom": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.dom.json",
+        "bytes": 343700,
+        "sha256": "0d3e50095b44fd9f6b6aa9ce577469be3d9764e1704df62b17a76eda6cde2b0b"
+      },
+      "capture": {
+        "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.png",
+        "bytes": 129154,
+        "sha256": "bc82d2f476edfdd8438ddf2e0af6e9973b2385ae655355b8e8132422eb1d7438"
+      }
+    }
+  ]
+}

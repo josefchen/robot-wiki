@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
@@ -130,7 +131,7 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
     expect(historicalArticle.data).toEqual(matter(before(articlePath)).data);
     expect(matter(article).data).toEqual(matter(committedSource(releaseBase, articlePath)).data);
     expect(committedSource(disclosureCommit, 'data/citations.ts')).toBe(before('data/citations.ts'));
-    expect(read('data/citations.ts')).toBe(committedSource(releaseBase, 'data/citations.ts'));
+    preservedPreIndustrialCitations(releaseBase);
     expect(article).toContain(`[public RoboMIND dataset card](${card})`);
   });
 

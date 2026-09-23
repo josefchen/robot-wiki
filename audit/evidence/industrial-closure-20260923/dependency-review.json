@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "industrial-dependency-review-v1",
+  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "observedAt": "2026-09-23T18:49:40.391Z",
+  "rationale": "Reviewed the checker diff: existing parameter/derive outputs are unchanged; the economics-examples branch alone adds three chosen values and overhead. Recomputed old proofs remain required. Current article preserves the entire industrial52 disclosure, vendor qualifications and mount. Historical receipts/observations are not replayed or relabelled; the changed comparisons have their own actual observations.",
+  "bindings": [
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-closure-20260923/original-checker.ts.txt",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "rationale": "Existing recipe branches and expected outputs remain exact; current validator still recomputes each retained result and enforces every original evidence obligation."
+    },
+    {
+      "historical": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19273,
+        "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+      },
+      "current": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-closure-20260923/before-article.mdx",
+        "bytes": 19273,
+        "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+      },
+      "preservedText": [
+        "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      ],
+      "rationale": "Industrial52 disclosure and component/model remain unchanged. Only separate arithmetic examples, LEI definitions, unsupported attribution/certainty and dashboard count change; none reinterprets old robot-cost observations."
+    }
+  ],
+  "unchangedModel": {
+    "path": "lib/deployment-economics.ts",
+    "bytes": 7602,
+    "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+  },
+  "unchangedComponent": {
+    "path": "components/interactive/deployment-economics.tsx",
+    "bytes": 9866,
+    "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+  }
+}

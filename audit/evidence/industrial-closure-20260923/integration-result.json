@@ -1,0 +1,20 @@
+{
+  "applied": [
+    "audit/data-hardware.md:industrial-deployment:9",
+    "audit/data-hardware.md:industrial-deployment:10",
+    "audit/data-hardware.md:industrial-deployment:31",
+    "audit/data-hardware.md:industrial-deployment:32",
+    "audit/data-hardware.md:industrial-deployment:33",
+    "audit/data-hardware.md:industrial-deployment:37",
+    "audit/data-hardware.md:industrial-deployment:47",
+    "audit/data-hardware.md:industrial-deployment:48"
+  ],
+  "selectedComplete": 8,
+  "industrialRows": 52,
+  "industrialIncomplete": 0,
+  "newPlans": 4,
+  "newProofs": 14,
+  "originalCatalogSha256": "0f9b9fb37645421cf7645b99807e35ec65d5bd0e2378bd0577025cddf59aaf8d",
+  "reviewedAt": "2026-09-23T18:50:25.255Z",
+  "note": "Finite integration checks only; whole native corpus accounting and independent acceptance remain separate."
+}

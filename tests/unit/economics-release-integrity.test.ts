@@ -24,8 +24,9 @@ describe('fresh release economics proof preserves immutable history', () => {
       'audit/evidence/economics-release-20260923/previous-economics-plan-and-proofs.json', 'utf8',
     ));
     expect(archive).toEqual({ plan: oldPlan, proofs: previous.proofs.filter(p => p.planId === id) });
-    expect(context.catalog.plans.filter(p => p.id !== id)).toEqual(previous.plans.filter(p => p.id !== id));
-    expect(context.catalog.proofs.filter(p => p.planId !== id)).toEqual(previous.proofs.filter(p => p.planId !== id));
+    const priorIds = new Set(previous.plans.map(p => p.id));
+    expect(context.catalog.plans.filter(p => p.id !== id && priorIds.has(p.id))).toEqual(previous.plans.filter(p => p.id !== id));
+    expect(context.catalog.proofs.filter(p => p.planId !== id && priorIds.has(p.planId))).toEqual(previous.proofs.filter(p => p.planId !== id));
     for (const key of ['originalBinding', 'currentCells', 'currentTupleDigest', 'parts', 'evidence', 'mounts'] as const) {
       expect(plan[key]).toEqual(oldPlan[key]);
     }

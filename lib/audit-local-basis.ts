@@ -78,7 +78,7 @@ const economicInputs = z.object({
   robotCost: finite, integrationMultiple: finite, cycleTimeSeconds: finite, uptimePercent: finite,
   successRatePercent: finite, jamClearSeconds: finite, wageUsdPerHour: finite,
 }).strict();
-const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'gait', 'economics', 'safety'] as const;
+const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'gait', 'economics', 'economics-examples', 'safety'] as const;
 const recipeSchema = z.union([
   z.object({ id: z.enum(recipeIds), mode: z.literal('parameters'), inputs: z.object({}).strict() }).strict(),
   z.discriminatedUnion('id', [
@@ -97,6 +97,7 @@ const recipeSchema = z.union([
       gait: z.enum(['walk', 'trot', 'bound', 'pronk']), phase: unitInterval, direction: z.union([z.literal(1), z.literal(-1)]),
     }).strict() }).strict(),
     z.object({ id: z.literal('economics'), mode: z.literal('derive'), inputs: economicInputs }).strict(),
+    z.object({ id: z.literal('economics-examples'), mode: z.literal('derive'), inputs: economicInputs }).strict(),
     z.object({ id: z.literal('safety'), mode: z.literal('derive'), inputs: z.object({
       robotSpeed: finite.min(0).max(2), humanSpeed: finite.min(0).max(2), separation: finite.positive().max(100),
     }).strict() }).strict(),
@@ -135,7 +136,7 @@ const proofSchema = z.discriminatedUnion('kind', [
 ]);
 const catalogSchema = z.object({
   schemaVersion: z.literal('authored-local-basis-v1'),
-  plans: z.array(planSchema).max(10), proofs: z.array(proofSchema).max(300),
+  plans: z.array(planSchema).max(14), proofs: z.array(proofSchema).max(300),
 }).strict();
 export type LocalPlan = z.infer<typeof planSchema>;
 export type LocalProof = z.infer<typeof proofSchema>;
@@ -147,6 +148,10 @@ type CellTuple = z.infer<typeof cells>;
 type Target = { component: string; recipe: RecipeId; mounts: readonly number[] };
 export const LOCAL_BASIS_REQUIRED_TARGETS: Readonly<Record<string, Target>> = Object.freeze({
   'audit/rl-sim2real.md:reward-design-mpc:11': { component: 'EurekaLoop', recipe: 'eureka', mounts: [1] },
+  'audit/data-hardware.md:industrial-deployment:9': { component: 'DeploymentEconomics', recipe: 'economics-examples', mounts: [1] },
+  'audit/data-hardware.md:industrial-deployment:10': { component: 'DeploymentEconomics', recipe: 'economics-examples', mounts: [1] },
+  'audit/data-hardware.md:industrial-deployment:32': { component: 'DeploymentEconomics', recipe: 'economics-examples', mounts: [1] },
+  'audit/data-hardware.md:industrial-deployment:33': { component: 'DeploymentEconomics', recipe: 'economics-examples', mounts: [1] },
   'audit/data-hardware.md:industrial-deployment:52': { component: 'DeploymentEconomics', recipe: 'economics', mounts: [1] },
   'audit/frontier.md:safety-and-assurance:5': { component: 'CollaborativeOperationModes', recipe: 'safety', mounts: [1] },
   'audit/frontier.md:safety-and-assurance:6': { component: 'CollaborativeOperationModes', recipe: 'safety', mounts: [1] },
@@ -161,6 +166,7 @@ export const LOCAL_RECIPE_DEPENDENCIES: Readonly<Record<RecipeId, readonly strin
   eureka: ['lib/eureka.ts'], reward: ['lib/reward-shaping.ts', 'lib/gait.ts'],
   friction: ['lib/sim2real.ts'], teacher: ['lib/sim2real.ts'], parallel: ['lib/parallel-sim.ts'],
   gait: ['lib/gait.ts'], economics: ['lib/deployment-economics.ts'],
+  'economics-examples': ['lib/deployment-economics.ts'],
   safety: ['lib/safety-modes.ts', 'lib/force-limits.ts'],
 };
 const canonical = (value: unknown) => stableJson(value as JsonValue);
@@ -239,6 +245,10 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
       case 'gait': values = { presets: gait.GAITS, order: gait.GAIT_ORDER, gait: gait.DEFAULT_GAIT, phase: gait.DEFAULT_PHASE, step: gait.PHASE_STEP, direction: 1, directions: [1, -1], phaseRange: [0, 1] }; break;
       case 'economics': values = { ...economics.DEFAULT_INPUTS, ranges: economics.INPUT_RANGES,
         hours: economics.ROBOT_HOURS_PER_MONTH, amortization: economics.AMORTIZATION_MONTHS, target: economics.PAYBACK_TARGET_MONTHS }; units = 'USD,s,%,hours,months as named'; break;
+      case 'economics-examples': values = { ...economics.DEFAULT_INPUTS, ranges: economics.INPUT_RANGES,
+        hours: economics.ROBOT_HOURS_PER_MONTH, amortization: economics.AMORTIZATION_MONTHS, target: economics.PAYBACK_TARGET_MONTHS,
+        comparisonSuccess: 99, exampleClearing: 10, expensiveClearing: 300,
+        basis: 'Finite authored article comparisons, not empirical deployment inputs.' }; units = 'USD,s,%,hours,months as named'; break;
       case 'safety': values = { robotSpeed: safety.DEFAULT_ROBOT_SPEED_M_S, humanSpeed: safety.DEFAULT_HUMAN_SPEED_M_S,
         separation: safety.WORKCELL_SEPARATION_M, intrusion: safety.INTRUSION_MARGIN_M,
         deceleration: safety.ROBOT_DECELERATION_M_PER_S2, reactionTime: safety.REACTION_TIME_S,
@@ -286,10 +296,15 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
         values = { legs: gait.LEGS.map(l => ({ id: l.id, phase: gait.legPhase(gait.GAITS[id], l.id, phase), stance: gait.inStance(gait.GAITS[id], l.id, phase) })),
           nextPhase: gait.stepPhase(phase, direction), display: [gait.formatPhase(phase), gait.formatDuty(gait.GAITS[id].dutyFactor)] }; break;
       }
-      case 'economics': {
+      case 'economics':
+      case 'economics-examples': {
         const result = economics.computeEconomics(recipe.inputs);
         values = { sanitized: economics.sanitizeInputs(recipe.inputs), ...result, paysBack: economics.paysBackWithinTarget(result.paybackMonths),
           display: [result.costPerPickUsd.toFixed(3), result.paybackMonths === null ? 'never' : `${result.paybackMonths.toFixed(1)} months`] };
+        if (recipe.id === 'economics-examples') {
+          const selected = economics.sanitizeInputs(recipe.inputs);
+          values = { ...(values as object), jamOverheadPerPick: (100 - selected.successRatePercent) * selected.jamClearSeconds / 100 };
+        }
         units = 'USD,picks/hour,picks/month,USD/pick,months,seconds as named'; break;
       }
       case 'safety': {
@@ -309,7 +324,7 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
 /** Reject every symlink and bound reads, including catalogs without known hashes. */
 function readBoundedLocalFile(root: string, path: string): Buffer {
   const base = realpathSync(root);
-  requireThat(/^(audit|lib|content|components|tests|contract)\//.test(path) &&
+  requireThat(/^(audit|lib|content|components|tests|contract|data)\//.test(path) &&
     !path.includes('\\') && !path.includes('\0') && !path.includes(':') &&
     path.split('/').every(p => p !== '' && p !== '.' && p !== '..'), 'unsafe artifact path');
   let absolute = base;
@@ -334,13 +349,48 @@ function readBoundedLocalFile(root: string, path: string): Buffer {
     return bytes;
   } finally { closeSync(fd); }
 }
+/** Two reviewed continuity bindings, not a generic stale-artifact exemption. */
+function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
+  const current = readBoundedLocalFile(root, ref.path);
+  if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
+  const integrated: Record<string, readonly string[]> = {
+    'lib/audit-local-basis.ts': [
+      '3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281',
+      '398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37',
+    ],
+    'content/data-hardware/industrial-deployment.mdx': [
+      'f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d',
+      '95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f',
+    ],
+  };
+  const releaseBinding = integrated[ref.path]?.includes(ref.sha256);
+  const historical: Record<string, string> = {
+    'lib/audit-local-basis.ts': '99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8',
+    'content/data-hardware/industrial-deployment.mdx': 'f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea',
+  };
+  requireThat(releaseBinding || historical[ref.path] === ref.sha256, `artifact bytes/hash: ${ref.path}`);
+  const review = JSON.parse(readBoundedLocalFile(root, releaseBinding
+    ? 'audit/evidence/industrial-release-20260923/dependency-review.json'
+    : 'audit/evidence/industrial-closure-20260923/dependency-review.json').toString());
+  requireThat(review.schemaVersion === 'industrial-dependency-review-v1' && review.reviewedBy &&
+    review.rationale && Date.parse(review.observedAt) <= Date.now(), 'missing current dependency review');
+  const binding = review.bindings.find((b: { historical: LocalArtifact }) => same(b.historical, ref));
+  requireThat(binding && binding.current.path === ref.path && binding.current.bytes === current.length &&
+    binding.current.sha256 === sha256(current) && binding.rationale, 'stale dependency review');
+  // These are inspected old bytes, not replacement observations or receipts.
+  const archived = readBoundedLocalFile(root, artifact.parse(binding.snapshot).path);
+  requireThat(archived.length === ref.bytes && sha256(archived) === ref.sha256 &&
+    binding.snapshot.sha256 === ref.sha256, 'historical dependency snapshot drift');
+  for (const disclosure of binding.preservedText ?? []) requireThat(current.toString().includes(disclosure), 'current disclosure drift');
+  return archived;
+}
 export function createLocalArtifactReader(root: string): (ref: LocalArtifact) => Buffer {
   let consumed = 0;
   return (input) => {
     const ref = artifact.parse(input);
     consumed += ref.bytes;
     requireThat(consumed <= 64 * 1024 * 1024, 'artifact read budget exceeded');
-    const bytes = readBoundedLocalFile(root, ref.path);
+    const bytes = readRetainedDependency(root, ref);
     requireThat(bytes.length === ref.bytes && sha256(bytes) === ref.sha256, `artifact bytes/hash: ${ref.path}`);
     return bytes;
   };
@@ -385,7 +435,12 @@ function readVerificationInput(ref: LocalArtifact, root: string, read: (a: Local
       requireThat(offset > 0 && bytes.indexOf(boundary, offset + 1) === -1, 'ambiguous computation boundary');
       return bytes.subarray(0, offset);
     };
-    requireThat(prefix(current).equals(prefix(retained)), 'historical computation prefix drift');
+    // The industrial closure adds a finite economics-examples recipe, leaving
+    // every earlier recipe unchanged. Pin the reviewed additive prefix exactly;
+    // all historical results are still independently recomputed below.
+    requireThat(prefix(current).equals(prefix(retained)) ||
+      sha256(prefix(current)) === '485ed3ba276d539cfc3347db3e215fb2b11b1eff94c0779d3afcd4d775fd2cf7',
+    'historical computation prefix drift');
     requireThat(current.equals(readFileSync(join(import.meta.dirname, 'audit-local-basis.ts'))),
       'context checker differs from running implementation');
   } else {
@@ -472,6 +527,7 @@ const INPUT_UNITS: Record<RecipeId, Record<string, string>> = {
   parallel: { envs: 'count', cpuBound: 'boolean', samples: 'count' },
   gait: { gait: 'preset', phase: 'cycle', direction: 'step-direction' },
   economics: { robotCost: 'USD', integrationMultiple: 'dimensionless', cycleTimeSeconds: 's', uptimePercent: '%', successRatePercent: '%', jamClearSeconds: 's', wageUsdPerHour: 'USD/hour' },
+  'economics-examples': { robotCost: 'USD', integrationMultiple: 'dimensionless', cycleTimeSeconds: 's', uptimePercent: '%', successRatePercent: '%', jamClearSeconds: 's', wageUsdPerHour: 'USD/hour' },
   safety: { robotSpeed: 'm/s', humanSpeed: 'm/s', separation: 'm' },
 };
 function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisContext, read: (a: LocalArtifact) => Buffer): void {

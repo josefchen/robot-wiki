@@ -11,6 +11,7 @@ import {
 } from '@/lib/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integration';
+import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '90c8a0f4c958c42750711082bfb54960cac7d5e8';
@@ -124,7 +125,7 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
       expect(omit(historical)).toEqual(omit(previous));
     }
     expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
-    expect(read('data/citations.ts')).toBe(committedSource(READER_RELEASE_BASE, 'data/citations.ts'));
+    preservedPreIndustrialCitations(READER_RELEASE_BASE);
   });
 
   it('preserves native original four cells and every typed plan/proof dependency', () => {
@@ -138,8 +139,12 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     expect(read('audit/compound-evidence.json')).toBe(before('audit/compound-evidence.json'));
     expect(committedSource(checkpoint, 'audit/local-basis.json')).toBe(before('audit/local-basis.json'));
     const catalog = JSON.parse(read('audit/local-basis.json'));
-    expect(catalog.plans).toHaveLength(7);
-    expect(catalog.proofs).toHaveLength(56);
+    const released = JSON.parse(committedSource('ac65cf4', 'audit/local-basis.json'));
+    expect(released.plans).toHaveLength(7);
+    expect(released.proofs).toHaveLength(56);
+    const oldIds = new Set(released.plans.map((p: { id: string }) => p.id));
+    expect(catalog.plans.filter((p: { id: string }) => oldIds.has(p.id))).toEqual(released.plans);
+    expect(catalog.proofs.filter((p: { planId: string }) => oldIds.has(p.planId))).toEqual(released.proofs);
     for (const path of paths) expect(JSON.stringify(catalog)).not.toContain(path);
   });
 

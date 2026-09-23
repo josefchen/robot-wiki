@@ -90,7 +90,9 @@ describe('content integration of 2026-09-23', () => {
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
-      .toBe('continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta');
+      .toBe('continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta');
+    expect(approvals.find(a => a.id === 'continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta'))
+      .toEqual(ledgerAt('ac65cf4').find(a => a.id === 'continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta'));
   });
 
   it('approves the changed members only with every exact entry present and unmutated', () => {
@@ -116,9 +118,13 @@ describe('content integration of 2026-09-23', () => {
     };
     for (const id of baseIds) expect(block(current, id), id).toBe(block(before, id));
     expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id)).sort()).toEqual([
-      'llama-3-herd-2024', 'nasa-availability-prediction-analysis', 'shiu-ahmad-1989',
+      'lei-cycle-time-definition', 'lei-takt-time-definition', 'llama-3-herd-2024',
+      'nasa-availability-prediction-analysis', 'shiu-ahmad-1989',
     ]);
-    expect(CITATIONS).toHaveLength(baseIds.length + 3);
+    expect(CITATIONS).toHaveLength(baseIds.length + 5);
+    for (const id of ['lei-cycle-time-definition', 'lei-takt-time-definition']) {
+      expect(CITATIONS.find(c => c.id === id)).toMatchObject({ year: 'n.d.', accessedOn: '2026-09-22' });
+    }
     expect(CITATIONS.find(c => c.id === 'nasa-availability-prediction-analysis')).toMatchObject({
       year: 1994, url: 'https://llis.nasa.gov/lesson/841',
     });

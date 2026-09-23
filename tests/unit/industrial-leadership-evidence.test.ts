@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { parseCorrectedDispositions } from '../../lib/audit-corrected-disposition';
 import {
   originalClaimDigest,
   parseCompoundPlans,
@@ -41,8 +42,11 @@ const articleCitations = Object.fromEntries(
     ]),
 );
 const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
+const correctedDispositions = { root: process.cwd(), records: parseCorrectedDispositions(JSON.parse(
+  readFileSync('audit/evidence/industrial-release-20260923/corrections.json', 'utf8'),
+)) };
 const parse = (input = markdown, includeLocal = false) =>
-  parseLedger(ledgerPath, input, registryIds, { compoundPlans, articleCitations, ...(includeLocal ? { localBasis } : {}) });
+  parseLedger(ledgerPath, input, registryIds, { compoundPlans, articleCitations, ...(includeLocal ? { localBasis, correctedDispositions } : {}) });
 const industrial = (input = markdown) =>
   parse(input).find(({ slug }) => slug === 'industrial-deployment')!;
 const leadership = (input = markdown) => industrial(input).claimRecords[43];
@@ -279,7 +283,9 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
       newHash: proseHash(article),
     });
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
-    expect(article.match(/<Cite\s/g)).toHaveLength(33);
+    expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
+    expect(article.match(/<Cite\s/g)).toHaveLength(34);
+    expect(article.match(/<Cite id="lei-cycle-time-definition" \/>/g)).toHaveLength(1);
     expect(article.match(/<Cite id="nasa-availability-prediction-analysis" \/>/g)).toHaveLength(1);
     expect(article.match(/<Cite id="mit-work-future-2020" \/>/g)).toHaveLength(1);
     expect(matter(article).data.lastReviewed).toBe('2026-08-22');

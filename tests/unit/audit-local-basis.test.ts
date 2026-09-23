@@ -18,7 +18,7 @@ describe('authored-local-basis-v1', () => {
     for (const bad of [null, [], {}, { ...empty, schemaVersion: 'v0' }, { ...empty, supported: true }]) {
       expect(() => parseLocalBasisCatalog(bad)).toThrow();
     }
-    expect(Object.keys(LOCAL_BASIS_REQUIRED_TARGETS)).toHaveLength(10);
+    expect(Object.keys(LOCAL_BASIS_REQUIRED_TARGETS)).toHaveLength(14);
   });
   it('recomputes a safety distance against independent arithmetic', () => {
     const result = recomputeLocalDerivation({
@@ -463,7 +463,9 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       expect(JSON.stringify(f.context.catalog)).toBe(before);
       // Generic artifact reads never silently select a historical snapshot.
       const checker = f.proof.artifacts.find(a => a.file.path === 'lib/audit-local-basis.ts')!;
-      expect(() => createLocalArtifactReader(f.root)(checker.file)).toThrow(/bytes\/hash/);
+      // The industrial reader also supports exact reviewed historical bindings,
+      // but this fixture has no such review, so a generic read must still fail.
+      expect(() => createLocalArtifactReader(f.root)(checker.file)).toThrow(/bytes\/hash|ENOENT/);
     },
   );
   it.each(['missing', 'corrupt', 'symlink', 'directory', 'unknown-hash', 'computation', 'context-checker', 'live-model'])(

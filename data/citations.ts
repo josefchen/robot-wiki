@@ -8948,6 +8948,32 @@ export const CITATIONS: Citation[] = [
     url: 'https://llis.nasa.gov/lesson/841',
     type: 'docs',
   },
+  // Official LEI definition has no stated date; access is the retained 2026-09-22 observation.
+  {
+      "id": "lei-takt-time-definition",
+      "title": "Takt Time",
+      "authors": [
+          "Lean Enterprise Institute"
+      ],
+      "year": "n.d.",
+      "accessedOn": "2026-09-22",
+      "venue": "Lean Lexicon",
+      "url": "https://www.lean.org/lexicon-terms/takt-time/",
+      "type": "docs"
+  },
+  // Official LEI definition has no stated date; access is the retained 2026-09-22 observation.
+  {
+      "id": "lei-cycle-time-definition",
+      "title": "Cycle Time",
+      "authors": [
+          "Lean Enterprise Institute"
+      ],
+      "year": "n.d.",
+      "accessedOn": "2026-09-22",
+      "venue": "Lean Lexicon",
+      "url": "https://www.lean.org/lexicon-terms/cycle-time/",
+      "type": "docs"
+  },
   {
     id: 'ohno-tps-1988',
     title: 'Toyota Production System: Beyond Large-Scale Production',
@@ -9156,7 +9182,7 @@ export function citationLabel(citation: Citation): string {
  * informative, and a venue without a year keeps the trailing year.
  */
 export function venueStatesYear(citation: Citation): boolean {
-  return citation.venue?.includes(String(citation.year)) ?? false;
+  return typeof citation.year === 'number' && (citation.venue?.includes(String(citation.year)) ?? false);
 }
 
 /** Tooltip metadata line: up to three authors, then venue and year. */
@@ -9164,6 +9190,6 @@ export function citationMeta(citation: Citation): string {
   const shown = citation.authors.slice(0, 3);
   const suffix = citation.authors.length > 3 ? ' et al.' : '';
   const where = citation.venue ? `, ${citation.venue}` : '';
-  const when = venueStatesYear(citation) ? '' : `, ${citation.year}`;
+  const when = venueStatesYear(citation) ? '' : `, ${citation.year}${citation.year === 'n.d.' ? `; accessed ${citation.accessedOn}` : ''}`;
   return `${shown.join(', ')}${suffix}${where}${when}`;
 }

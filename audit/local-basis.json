@@ -2318,6 +2318,665 @@
           "outcome": "supported"
         }
       ]
+    },
+    {
+      "id": "industrial-closure-9-20260923",
+      "kind": "explicit-parts-v2",
+      "originalId": "audit/data-hardware.md:industrial-deployment:9",
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "rowOrdinal": 9,
+      "originalBinding": {
+        "originalCells": {
+          "claim": "Dragging per-pick success 99.9 -> 99 with cheap jam clearing \"barely moves\" the payback readout",
+          "sourceChecked": "Int: lib/deployment-economics.ts at defaults (robot \\$80k, 2.5x, 6 s cycle, 95% uptime, 15 s jam, \\$25/h, 730 h/month): payback 11.56 -> 11.82 months (+0.26), i.e. +2.3%",
+          "verdict": "V",
+          "note": ""
+        },
+        "originalTupleDigest": "5b4a5dd9a12609375c98b63ba4e10c242f5cae5edae7ea20fe22f1765da7cb97",
+        "snapshot": {
+          "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+          "bytes": 63957,
+          "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+        },
+        "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
+      },
+      "currentCells": {
+        "claim": "In the explicitly authored calculator model, reducing success from 99.9% to 99% at 15-second jam clearing, with the other stated defaults unchanged, changes payback 11.56→11.82 months (+0.26 months; +2.2%); the displayed readout rounds to 11.6→11.8 months.",
+        "sourceChecked": "Explicit authored assumptions, independently checked finite arithmetic, and actual required mounted comparisons where claimed.",
+        "verdict": "C",
+        "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Correction does not certify the superseded assertion. Retained retrieval times are not today’s review times. No independent acceptance."
+      },
+      "currentTupleDigest": "4b13bf654325d6854b0d87183b606ab94e827314060723f82f95ca59a1ecb821",
+      "mounts": [
+        {
+          "sourceId": "interactive:DeploymentEconomics",
+          "sourceFingerprint": "4001d6d4285fea068d1388b443a6bed4989a81a6ee775725553ab80fe175d637",
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "mountFingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a",
+          "route": "/data-hardware/industrial-deployment/"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "parts": [
+        {
+          "id": "i9-parameters",
+          "kind": "authored-parameter",
+          "text": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values.",
+          "requiredProofIds": [
+            "i9-parameters"
+          ]
+        },
+        {
+          "id": "i9-derived",
+          "kind": "derived-result",
+          "text": "Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability.",
+          "requiredProofIds": [
+            "i9-derived-1",
+            "i9-derived-2"
+          ]
+        },
+        {
+          "id": "i9-observed-0",
+          "kind": "observed-behavior",
+          "text": "Actual existing mount at success99.9% and clearing15s; rounded cost/payback and integer throughput, with the chosen24-month verdict.",
+          "requiredProofIds": [
+            "i9-observed-0"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "success=99.9; clearing=15",
+              "action": "Set clearing=15 seconds and success=99.9 percent",
+              "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%.; 0.008; 11.6 months; Pays back inside 24 months"
+            }
+          ]
+        },
+        {
+          "id": "i9-observed-1",
+          "kind": "observed-behavior",
+          "text": "Actual existing mount at success99% and clearing15s; rounded cost/payback and integer throughput, with the chosen24-month verdict.",
+          "requiredProofIds": [
+            "i9-observed-1"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "success=99.9; clearing=15",
+              "action": "Set clearing=15 seconds and success=99 percent",
+              "poststate": "Cell cost $200,000; 556 modeled picks per elapsed hour and 405,951 per 730-hour month; jam rate 1.00%.; 0.008; 11.8 months; Pays back inside 24 months"
+            }
+          ]
+        }
+      ],
+      "evidence": [],
+      "planReview": {
+        "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+        "rationale": "Reviewed whole original/current inventory and exact corrected article. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. External parts, if present, remain separate AND obligations; no generic internal truth category.",
+        "inputDigest": "2c5a60bca09959440142eb27d22c9428a5dc0da2532b65f39b4b527ce4412515",
+        "event": {
+          "path": "audit/evidence/industrial-closure-20260923/review-9-plan.json",
+          "bytes": 3300,
+          "sha256": "ac56015335b55a6991547464736dfc29ade68b5717c70df9de9da92b97d2c5c1"
+        }
+      },
+      "adjudications": [
+        {
+          "partId": "i9-parameters",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "65331e465fd0babe7ab8b1f3a5e6ff7805b24da19b31c63ed76799aafd74a588",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-9-i9-parameters.json",
+            "bytes": 3482,
+            "sha256": "184ba10a9b408102b22beb501c9d5ce2bc839adb5cd9b855d8c4c6c0be715ab5"
+          }
+        },
+        {
+          "partId": "i9-derived",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "33ae2a27e3750e3f4615a7d24f56e3f8096abea21bac5359b0b22e2490328bf8",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-9-i9-derived.json",
+            "bytes": 3550,
+            "sha256": "82a405589e8eb7ba8acebe44693bdee11020e35450db4198c26afe1023580ee6"
+          }
+        },
+        {
+          "partId": "i9-observed-0",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Actual existing mount at success99.9% and clearing15s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "4ee9f5bb5c08e675370ed7b311d8aed51f510f99ec1cbfba39d28a47f170b1ab",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-0.json",
+            "bytes": 3475,
+            "sha256": "62559c552257530c0363ecc33dd6a5371703f8e8e8e5145bc67985bcb95796d9"
+          }
+        },
+        {
+          "partId": "i9-observed-1",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Actual existing mount at success99% and clearing15s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "e563e4feb0778b070a85e26dcc7a2a99a35b1df73bf32882b717a49e3fa86876",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-1.json",
+            "bytes": 3473,
+            "sha256": "77ebb7e18beabd3637de23ab5a232a1cc589f5c66ad64f2a13aaa63f8013d15b"
+          }
+        }
+      ]
+    },
+    {
+      "id": "industrial-closure-10-20260923",
+      "kind": "explicit-parts-v2",
+      "originalId": "audit/data-hardware.md:industrial-deployment:10",
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "rowOrdinal": 10,
+      "originalBinding": {
+        "originalCells": {
+          "claim": "The same 0.9-point drop with five-minute jam clearing \"collapses the cell\"",
+          "sourceChecked": "Int: at jamClearSeconds = 300 the same move gives payback 12.11 -> 17.30 months (+5.19) and net output 542.9 -> 380.0 picks/h (-30%). Large, but inside PAYBACK_TARGET_MONTHS = 24, so the verdict readout does not flip and nothing \"collapses\"",
+          "verdict": "C (rewritten to the model's own numbers: \"adds five months to the payback and cuts the cell's hourly output by nearly a third\")",
+          "note": ""
+        },
+        "originalTupleDigest": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
+        "snapshot": {
+          "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+          "bytes": 63957,
+          "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+        },
+        "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
+      },
+      "currentCells": {
+        "claim": "In the same authored model at 300-second clearing, the 99.9%→99% comparison increases payback 12.11→17.30 months (+5.19) and lowers modeled output 542.9→380.0 picks per elapsed hour (30%); both paybacks stay within the chosen 24-month horizon, not a real cell-collapse claim.",
+        "sourceChecked": "Explicit authored assumptions, independently checked finite arithmetic, and actual required mounted comparisons where claimed.",
+        "verdict": "C",
+        "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Correction does not certify the superseded assertion. Retained retrieval times are not today’s review times. No independent acceptance."
+      },
+      "currentTupleDigest": "4e71ae73ad22d7228e458897cbeaa0567b72defa9cafa7d89d2829b9553a9aed",
+      "mounts": [
+        {
+          "sourceId": "interactive:DeploymentEconomics",
+          "sourceFingerprint": "4001d6d4285fea068d1388b443a6bed4989a81a6ee775725553ab80fe175d637",
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "mountFingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a",
+          "route": "/data-hardware/industrial-deployment/"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "parts": [
+        {
+          "id": "i10-parameters",
+          "kind": "authored-parameter",
+          "text": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values.",
+          "requiredProofIds": [
+            "i10-parameters"
+          ]
+        },
+        {
+          "id": "i10-derived",
+          "kind": "derived-result",
+          "text": "Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip.",
+          "requiredProofIds": [
+            "i10-derived-3",
+            "i10-derived-4"
+          ]
+        },
+        {
+          "id": "i10-observed-2",
+          "kind": "observed-behavior",
+          "text": "Actual existing mount at success99.9% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict.",
+          "requiredProofIds": [
+            "i10-observed-2"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "success=99; clearing=15",
+              "action": "Set clearing=300 seconds and success=99.9 percent",
+              "poststate": "Cell cost $200,000; 543 modeled picks per elapsed hour and 396,286 per 730-hour month; jam rate 0.10%.; 0.008; 12.1 months; Pays back inside 24 months"
+            }
+          ]
+        },
+        {
+          "id": "i10-observed-3",
+          "kind": "observed-behavior",
+          "text": "Actual existing mount at success99% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict.",
+          "requiredProofIds": [
+            "i10-observed-3"
+          ],
+          "requiredObservations": [
+            {
+              "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+              "caseId": "slider-boundaries-and-anchors",
+              "prestate": "success=99.9; clearing=300",
+              "action": "Set clearing=300 seconds and success=99 percent",
+              "poststate": "Cell cost $200,000; 380 modeled picks per elapsed hour and 277,400 per 730-hour month; jam rate 1.00%.; 0.012; 17.3 months; Pays back inside 24 months"
+            }
+          ]
+        }
+      ],
+      "evidence": [],
+      "planReview": {
+        "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+        "rationale": "Reviewed whole original/current inventory and exact corrected article. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. External parts, if present, remain separate AND obligations; no generic internal truth category.",
+        "inputDigest": "51a5e90b3ba4af6f01ffc0662027d8892bcfb32fdf3fa5c0c2e0c526ac7ada28",
+        "event": {
+          "path": "audit/evidence/industrial-closure-20260923/review-10-plan.json",
+          "bytes": 3332,
+          "sha256": "35168209281b1feb99e398fbb6025891976189812963f116cefd0caa0018dbfc"
+        }
+      },
+      "adjudications": [
+        {
+          "partId": "i10-parameters",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "a7dc9bb21ea521e6bdaf39143283fa59efb3fe9a2c647ec6cb48def91885f67a",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-10-i10-parameters.json",
+            "bytes": 3516,
+            "sha256": "8e1e4506c1d607ddf144dcfe8a66c93a0aa703059f5c28f832b5c8c5ae74076c"
+          }
+        },
+        {
+          "partId": "i10-derived",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "36037a4af97b33cbbe40cef93acdb665f16fb6a475501fc39ecd142ff17279ef",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-10-i10-derived.json",
+            "bytes": 3593,
+            "sha256": "140699640507be8e02589f34190642a13c740955bebca4771d06e3774711665a"
+          }
+        },
+        {
+          "partId": "i10-observed-2",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Actual existing mount at success99.9% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "af2b6cc62c954b20a084fc6aed468c4cbfd026dd994437868fb73cd2cf52f41a",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-2.json",
+            "bytes": 3510,
+            "sha256": "6d24aec33eebe4dca084fdebd5c3ef2683f40400e46a6a29ab59dd110e32d862"
+          }
+        },
+        {
+          "partId": "i10-observed-3",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Actual existing mount at success99% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "e64b66bbadde0fdf9f7b28d4ab0622ae69a5f0a44212c45bf9672d7e2dc5111f",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-3.json",
+            "bytes": 3508,
+            "sha256": "3389e8bbe5f4304d807b8e874bf8d94c5d6ec06f6483899267eaba3bd592ee17"
+          }
+        }
+      ]
+    },
+    {
+      "id": "industrial-closure-32-20260923",
+      "kind": "explicit-parts-v2",
+      "originalId": "audit/data-hardware.md:industrial-deployment:32",
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "rowOrdinal": 32,
+      "originalBinding": {
+        "originalCells": {
+          "claim": "Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions",
+          "sourceChecked": "Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached",
+          "verdict": "V",
+          "note": ""
+        },
+        "originalTupleDigest": "5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4",
+        "snapshot": {
+          "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+          "bytes": 63957,
+          "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+        },
+        "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
+      },
+      "currentCells": {
+        "claim": "Cycle time is the measured time required to produce a part or complete a process. NASA distinguishes inherent availability (estimated using MTBF/MTTR, excluding administrative/logistics delays and preventive maintenance) from operational availability, which includes those times; uptime means operable state. Separately, the calculator derives capital cost per modeled pick from cell capital and modeled lifetime picks and excludes running costs.",
+        "sourceChecked": "Retained LEI Cycle Time and NASA Lesson841 text; actual independent calculator execution. Distinct external AND authored/derived parts.",
+        "verdict": "C",
+        "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Correction does not certify the superseded assertion. Retained retrieval times are not today’s review times. No independent acceptance."
+      },
+      "currentTupleDigest": "5aaac700390d6cc16cc93d458ad202e24b09f6b9599a4b99ce3ee52750f7e695",
+      "mounts": [
+        {
+          "sourceId": "interactive:DeploymentEconomics",
+          "sourceFingerprint": "4001d6d4285fea068d1388b443a6bed4989a81a6ee775725553ab80fe175d637",
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "mountFingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a",
+          "route": "/data-hardware/industrial-deployment/"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "parts": [
+        {
+          "id": "i32-lei-cycle-time-definition",
+          "kind": "external-source",
+          "text": "Measured time to produce a part or complete a process; official undated LEI definition.",
+          "requiredCitationIds": [
+            "lei-cycle-time-definition"
+          ]
+        },
+        {
+          "id": "i32-nasa-availability-prediction-analysis",
+          "kind": "external-source",
+          "text": "Inherent/operational availability distinctions, MTBF/MTTR parameters, excluded/included delay categories, and uptime as operable state; no unread equations.",
+          "requiredCitationIds": [
+            "nasa-availability-prediction-analysis"
+          ]
+        },
+        {
+          "id": "i32-parameters",
+          "kind": "authored-parameter",
+          "text": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values.",
+          "requiredProofIds": [
+            "i32-parameters"
+          ]
+        },
+        {
+          "id": "i32-derived",
+          "kind": "derived-result",
+          "text": "LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term.",
+          "requiredProofIds": [
+            "i32-derived-1"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "partId": "i32-lei-cycle-time-definition",
+          "citationId": "lei-cycle-time-definition",
+          "sourceUrl": "https://www.lean.org/lexicon-terms/cycle-time",
+          "supportingPassage": "Cycle time is the time required to produce a part or complete a process, as timed by actual measurement.",
+          "provenance": {
+            "retrievedAt": "2026-09-22T22:28:10.392Z",
+            "tool": "rune___web_scrape",
+            "response": {
+              "path": "audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.md",
+              "bytes": 4062,
+              "sha256": "71d2b53a46e15833e9b0657135ebd9245d63de6129dcf91b53364eb0d0ca0b36"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.md",
+                "bytes": 4062,
+                "sha256": "71d2b53a46e15833e9b0657135ebd9245d63de6129dcf91b53364eb0d0ca0b36"
+              },
+              "id": "file:audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.md",
+              "offset": 14,
+              "length": 104,
+              "sha256": "0b183a20399e9632bb259c162231dcf265930ec1ccce6b08127e59ad1335e863"
+            }
+          }
+        },
+        {
+          "partId": "i32-nasa-availability-prediction-analysis",
+          "citationId": "nasa-availability-prediction-analysis",
+          "sourceUrl": "https://llis.nasa.gov/lesson/841",
+          "supportingPassage": "One basic measure of availability, called inherent availability, is useful during the design process to assess design characteristics. The measure involves only the as-designed reliability and maintainability characteristics and can be calculated using the estimated mean-time-between-failure (MTBF) and mean-time-to repair (MTTR) parameters. The predicted or estimated measure of inherent availability is calculated as:\n\n![refer to [D] description](https://llis.nasa.gov/llis_lib/images/1009356main_0841-1.jpg)[\\[D\\]](https://llis.nasa.gov/llis_lib/txt/1009831main_0841-1.txt)\n\nThe MTTR time in the inherent availability calculation does not include such times as administrative or logistic delay time, which generally are beyond the control of the designer, and does not include preventive maintenance time. However, effective trade-offs using the basic times and parameters are possible. Trade-off techniques and some sample uses are included in Reference 1, Section 5.5.\n\nAnother measure of availability, achieved availability or Aa, can be expressed as:\n\n![refer to [D] description](https://llis.nasa.gov/llis_lib/images/1009357main_0841-2.jpg)[\\[D\\]](https://llis.nasa.gov/llis_lib/txt/1009832main_0841-2.txt)\n\nwhere OT is the total time spent in an operating state, TCM is the total corrective maintenance time that does not include before-and-after maintenance checks, supply, or administrative waiting periods; and TPM is the total time spent performing preventive maintenance. Aa is more specifically directed toward the hardware characteristics than the operational availability measure, which considers the operating and logistics policies.\n\nA third basic measure of availability, operational availability, considers all repair time: corrective and preventive maintenance time, administrative delay time, and logistic support time. This is a more realistic definition of availability in terms providing a measure to assess alternative maintenance and logistics support concepts associated with the operation of a system or function. It is usually defined by the equation:\n\n![refer to [D] description](https://llis.nasa.gov/llis_lib/images/1009358main_0841-3.jpg)[\\[D\\]](https://llis.nasa.gov/llis_lib/txt/1009833main_0841-3.txt)\n\nwhere Uptime is the total time a system is in an operable state, and Downtime is the total time the system is in an inoperable state.",
+          "provenance": {
+            "retrievedAt": "2026-09-22T22:28:18.417Z",
+            "tool": "rune___web_scrape",
+            "response": {
+              "path": "audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.md",
+              "bytes": 14844,
+              "sha256": "27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae"
+            },
+            "passage": {
+              "file": {
+                "path": "audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.md",
+                "bytes": 14844,
+                "sha256": "27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae"
+              },
+              "id": "file:audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.md",
+              "offset": 2991,
+              "length": 2375,
+              "sha256": "a405335755ce98233bc31ab17dafb0297c1d2ea7b21e491196249683981e35b2"
+            }
+          }
+        }
+      ],
+      "planReview": {
+        "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+        "rationale": "Reviewed whole original/current inventory and exact corrected article. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. External parts, if present, remain separate AND obligations; no generic internal truth category.",
+        "inputDigest": "8e3968c42529f9b18b6916e40b7e79dac34425dd22fb67965951175c9d810a55",
+        "event": {
+          "path": "audit/evidence/industrial-closure-20260923/review-32-plan.json",
+          "bytes": 2571,
+          "sha256": "5059b0f70461b49525b679a1e0a99e0a1d234d8f162be5d8aedfb9861ccb77fe"
+        }
+      },
+      "adjudications": [
+        {
+          "partId": "i32-lei-cycle-time-definition",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Measured time to produce a part or complete a process; official undated LEI definition. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "1cf1f5e23b010fcff573f1135f7c55cb09ae41e382f9ccc8398561e3d89e6047",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-32-i32-lei-cycle-time-definition.json",
+            "bytes": 2733,
+            "sha256": "4527b2bb32d6dcd5a727a297639b862c58796676862a55fbe26ea7fc04bc63b6"
+          }
+        },
+        {
+          "partId": "i32-nasa-availability-prediction-analysis",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Inherent/operational availability distinctions, MTBF/MTTR parameters, excluded/included delay categories, and uptime as operable state; no unread equations. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "5e344a6364ae8c8e4b433fc15ccfda5550d934ec1a1e1ca8efdcdf91be26d465",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-32-i32-nasa-availability-prediction-analysis.json",
+            "bytes": 2826,
+            "sha256": "af2bd8cea266cd2af7a129e73b694f36e6b96e7afbc8d381c4e2209aab9ae572"
+          }
+        },
+        {
+          "partId": "i32-parameters",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "8b4f1b1bec087ee2d7e838cc2fc2944aea533a9708b09414dbb07f7be622711d",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-32-i32-parameters.json",
+            "bytes": 2755,
+            "sha256": "f8699d1be73f21d3a1520c9c240b31a5fc6dd4f15e818633fb3531b674836f40"
+          }
+        },
+        {
+          "partId": "i32-derived",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "43bb430ff8bedd0814ffdf553d481d8559150f9bcbcc2bdfe570d64de189b6f0",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-32-i32-derived.json",
+            "bytes": 2938,
+            "sha256": "006f1ba9e800eb20b358c48759b692034fac4d4575adedda0ad116a030a6b456"
+          }
+        }
+      ]
+    },
+    {
+      "id": "industrial-closure-33-20260923",
+      "kind": "explicit-parts-v2",
+      "originalId": "audit/data-hardware.md:industrial-deployment:33",
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "rowOrdinal": 33,
+      "originalBinding": {
+        "originalCells": {
+          "claim": "99% success with ten-second clearing costs a tenth of a second per pick",
+          "sourceChecked": "Int: 0.01 x 10 s = 0.1 s per pick, matching jamOverheadPerPick in lib/deployment-economics.ts",
+          "verdict": "V",
+          "note": ""
+        },
+        "originalTupleDigest": "5427032eefc9620fdf00d97cebc4af837fd511c376462dac2d5dd8751f5d84d1",
+        "snapshot": {
+          "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+          "bytes": 63957,
+          "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+        },
+        "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
+      },
+      "currentCells": {
+        "claim": "For the explicitly illustrative assumption of 99% success and ten seconds to clear every failed attempt, expected clearing overhead is (1−0.99)×10 = 0.1 seconds per attempted pick; this is not evidence of profitability.",
+        "sourceChecked": "Explicit authored assumptions, independently checked finite arithmetic, and actual required mounted comparisons where claimed.",
+        "verdict": "C",
+        "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Correction does not certify the superseded assertion. Retained retrieval times are not today’s review times. No independent acceptance."
+      },
+      "currentTupleDigest": "794628a6a3e9a580ca4c7402a04f16011a44d9297fdb2f88495403a9a960f685",
+      "mounts": [
+        {
+          "sourceId": "interactive:DeploymentEconomics",
+          "sourceFingerprint": "4001d6d4285fea068d1388b443a6bed4989a81a6ee775725553ab80fe175d637",
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "mountFingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a",
+          "route": "/data-hardware/industrial-deployment/"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "parts": [
+        {
+          "id": "i33-parameters",
+          "kind": "authored-parameter",
+          "text": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values.",
+          "requiredProofIds": [
+            "i33-parameters"
+          ]
+        },
+        {
+          "id": "i33-derived",
+          "kind": "derived-result",
+          "text": "Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim.",
+          "requiredProofIds": [
+            "i33-derived-5"
+          ]
+        }
+      ],
+      "evidence": [],
+      "planReview": {
+        "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+        "rationale": "Reviewed whole original/current inventory and exact corrected article. Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. External parts, if present, remain separate AND obligations; no generic internal truth category.",
+        "inputDigest": "570de579214e21d2e689bfe9eab1b1e94a72ef98f4aec37d0a3aa0b055597d58",
+        "event": {
+          "path": "audit/evidence/industrial-closure-20260923/review-33-plan.json",
+          "bytes": 1644,
+          "sha256": "a40425078a7ebc0433536813e3afe93b83c15ec368dc8a2ad1656d2293aff455"
+        }
+      },
+      "adjudications": [
+        {
+          "partId": "i33-parameters",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "95798e578a5d7aad155a8b0401483e96bd6ff11343badf804e8e37900a96a219",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-33-i33-parameters.json",
+            "bytes": 1828,
+            "sha256": "657ebbfb4e6d0b397b03044ea2ab4fe432e519212099ce3d0aa0302ba37a65fd"
+          }
+        },
+        {
+          "partId": "i33-derived",
+          "outcome": "supported",
+          "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+          "rationale": "Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. No new retrieval, historical replay or independent acceptance is claimed.",
+          "inputDigest": "a3862ab1deda5c3cbbf333a25ceb1f4794e1bcf3554e76730c694bbf6ba56575",
+          "event": {
+            "path": "audit/evidence/industrial-closure-20260923/review-33-i33-derived.json",
+            "bytes": 1865,
+            "sha256": "7a98d4f59a86d30937123efee82937fdfe66eb81685ac5afc7df9178a15fc7fd"
+          }
+        }
+      ]
     }
   ],
   "proofs": [
@@ -19540,6 +20199,3486 @@
           }
         }
       ]
+    },
+    {
+      "id": "i9-parameters",
+      "planId": "industrial-closure-9-20260923",
+      "partId": "i9-parameters",
+      "originalId": "audit/data-hardware.md:industrial-deployment:9",
+      "originalTupleDigest": "5b4a5dd9a12609375c98b63ba4e10c242f5cae5edae7ea20fe22f1765da7cb97",
+      "currentTupleDigest": "4b13bf654325d6854b0d87183b606ab94e827314060723f82f95ca59a1ecb821",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25,
+          "ranges": {
+            "robotCost": {
+              "min": 20000,
+              "max": 250000,
+              "step": 5000
+            },
+            "integrationMultiple": {
+              "min": 1,
+              "max": 5,
+              "step": 0.1
+            },
+            "cycleTimeSeconds": {
+              "min": 2,
+              "max": 20,
+              "step": 0.5
+            },
+            "uptimePercent": {
+              "min": 80,
+              "max": 100,
+              "step": 0.5
+            },
+            "successRatePercent": {
+              "min": 90,
+              "max": 99.9,
+              "step": 0.1
+            },
+            "jamClearSeconds": {
+              "min": 5,
+              "max": 300,
+              "step": 5
+            },
+            "wageUsdPerHour": {
+              "min": 10,
+              "max": 80,
+              "step": 1
+            }
+          },
+          "hours": 730,
+          "amortization": 60,
+          "target": 24,
+          "comparisonSuccess": 99,
+          "exampleClearing": 10,
+          "expensiveClearing": 300,
+          "basis": "Finite authored article comparisons, not empirical deployment inputs."
+        },
+        "units": "USD,s,%,hours,months as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:parameters:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-parameters-input.json",
+        "bytes": 73,
+        "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-parameters-output.json",
+        "bytes": 1279,
+        "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
+      },
+      "inputDigest": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d",
+      "outputDigest": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1",
+      "bases": [],
+      "kind": "authored-parameter",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i9-parameters-receipt.json",
+          "bytes": 3952,
+          "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
+        }
+      }
+    },
+    {
+      "id": "i9-derived-1",
+      "planId": "industrial-closure-9-20260923",
+      "partId": "i9-derived",
+      "originalId": "audit/data-hardware.md:industrial-deployment:9",
+      "originalTupleDigest": "5b4a5dd9a12609375c98b63ba4e10c242f5cae5edae7ea20fe22f1765da7cb97",
+      "currentTupleDigest": "4b13bf654325d6854b0d87183b606ab94e827314060723f82f95ca59a1ecb821",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.008030922053993429,
+          "paybackMonths": 11.564527757750536,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.6 months"
+          ],
+          "jamOverheadPerPick": 0.014999999999999148
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-input.json",
+        "bytes": 264,
+        "sha256": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-output.json",
+        "bytes": 1020,
+        "sha256": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22"
+      },
+      "inputDigest": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b",
+      "outputDigest": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/successRatePercent"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/jamClearSeconds"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "derived-result",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-receipt.json",
+          "bytes": 3952,
+          "sha256": "a7b27e7acec696da1cd4dd11f100eba7ab12c82071a1249735e4f0aeb3ad9939"
+        }
+      }
+    },
+    {
+      "id": "i9-derived-2",
+      "planId": "industrial-closure-9-20260923",
+      "partId": "i9-derived",
+      "originalId": "audit/data-hardware.md:industrial-deployment:9",
+      "originalTupleDigest": "5b4a5dd9a12609375c98b63ba4e10c242f5cae5edae7ea20fe22f1765da7cb97",
+      "currentTupleDigest": "4b13bf654325d6854b0d87183b606ab94e827314060723f82f95ca59a1ecb821",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 6.15,
+          "netPicksPerHour": 556.0975609756097,
+          "monthlyPicks": 405951.21951219504,
+          "monthlyLaborValue": 16914.634146341457,
+          "costPerPickUsd": 0.008211167187374831,
+          "paybackMonths": 11.824080749819759,
+          "timeBreakdown": {
+            "productive": 3336.5853658536585,
+            "jamClearing": 83.41463414634144,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.8 months"
+          ],
+          "jamOverheadPerPick": 0.15
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-input.json",
+        "bytes": 262,
+        "sha256": "c8d0539a08e62bef2327e363d2d9096c9c3ea59e1cf02d7c8243e307b8affb3b"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-output.json",
+        "bytes": 975,
+        "sha256": "d55f9c3d75a4b6e67f761d9a2bfb5d1ad4f212d9cb46160a18e94d301c306a54"
+      },
+      "inputDigest": "c8d0539a08e62bef2327e363d2d9096c9c3ea59e1cf02d7c8243e307b8affb3b",
+      "outputDigest": "d55f9c3d75a4b6e67f761d9a2bfb5d1ad4f212d9cb46160a18e94d301c306a54",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/comparisonSuccess"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/jamClearSeconds"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "derived-result",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-receipt.json",
+          "bytes": 3952,
+          "sha256": "2b5e71ed9758441dc3001de35f71d916ff917753319aefb0a262ebc1ef79e3a9"
+        }
+      }
+    },
+    {
+      "id": "i9-observed-0",
+      "planId": "industrial-closure-9-20260923",
+      "partId": "i9-observed-0",
+      "originalId": "audit/data-hardware.md:industrial-deployment:9",
+      "originalTupleDigest": "5b4a5dd9a12609375c98b63ba4e10c242f5cae5edae7ea20fe22f1765da7cb97",
+      "currentTupleDigest": "4b13bf654325d6854b0d87183b606ab94e827314060723f82f95ca59a1ecb821",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/industrial-deployment.spec.ts",
+            "bytes": 19923,
+            "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+          },
+          "id": "file:tests/e2e/industrial-deployment.spec.ts",
+          "offset": 0,
+          "length": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.008030922053993429,
+          "paybackMonths": 11.564527757750536,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.6 months"
+          ],
+          "jamOverheadPerPick": 0.014999999999999148
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-input.json",
+        "bytes": 264,
+        "sha256": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-output.json",
+        "bytes": 1020,
+        "sha256": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22"
+      },
+      "inputDigest": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b",
+      "outputDigest": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/successRatePercent"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/jamClearSeconds"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "observed-behavior",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:34.186Z",
+        "endedAt": "2026-09-23T18:44:39.875Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/industrial-deployment.spec.ts",
+          "bytes": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i9-observed-0-receipt.json",
+          "bytes": 5574,
+          "sha256": "cde83b493675937501e6c34b12f6f83a583fa4a36204fdf61f801aa8a034515b"
+        }
+      },
+      "observations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "success=99.9; clearing=15",
+          "action": "Set clearing=15 seconds and success=99.9 percent",
+          "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%.; 0.008; 11.6 months; Pays back inside 24 months",
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.008"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "11.6 months"
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "dom": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.dom.json",
+            "bytes": 343618,
+            "sha256": "ed0d4dad8f6414f4cfeb94775e08a601141f097b65e21aa1da3008e7a881a4d6"
+          },
+          "capture": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.png",
+            "bytes": 129091,
+            "sha256": "eb608d349e4ae275ebd360bd956cb6c2c9acd2df144bc83b4e188df948c37c7c"
+          }
+        }
+      ]
+    },
+    {
+      "id": "i9-observed-1",
+      "planId": "industrial-closure-9-20260923",
+      "partId": "i9-observed-1",
+      "originalId": "audit/data-hardware.md:industrial-deployment:9",
+      "originalTupleDigest": "5b4a5dd9a12609375c98b63ba4e10c242f5cae5edae7ea20fe22f1765da7cb97",
+      "currentTupleDigest": "4b13bf654325d6854b0d87183b606ab94e827314060723f82f95ca59a1ecb821",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/industrial-deployment.spec.ts",
+            "bytes": 19923,
+            "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+          },
+          "id": "file:tests/e2e/industrial-deployment.spec.ts",
+          "offset": 0,
+          "length": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 6.15,
+          "netPicksPerHour": 556.0975609756097,
+          "monthlyPicks": 405951.21951219504,
+          "monthlyLaborValue": 16914.634146341457,
+          "costPerPickUsd": 0.008211167187374831,
+          "paybackMonths": 11.824080749819759,
+          "timeBreakdown": {
+            "productive": 3336.5853658536585,
+            "jamClearing": 83.41463414634144,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.8 months"
+          ],
+          "jamOverheadPerPick": 0.15
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-input.json",
+        "bytes": 262,
+        "sha256": "c8d0539a08e62bef2327e363d2d9096c9c3ea59e1cf02d7c8243e307b8affb3b"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-output.json",
+        "bytes": 975,
+        "sha256": "d55f9c3d75a4b6e67f761d9a2bfb5d1ad4f212d9cb46160a18e94d301c306a54"
+      },
+      "inputDigest": "c8d0539a08e62bef2327e363d2d9096c9c3ea59e1cf02d7c8243e307b8affb3b",
+      "outputDigest": "d55f9c3d75a4b6e67f761d9a2bfb5d1ad4f212d9cb46160a18e94d301c306a54",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "%",
+          "pointer": "/comparisonSuccess"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "s",
+          "pointer": "/jamClearSeconds"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i9-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "observed-behavior",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:34.186Z",
+        "endedAt": "2026-09-23T18:44:39.875Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/industrial-deployment.spec.ts",
+          "bytes": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i9-observed-1-receipt.json",
+          "bytes": 5568,
+          "sha256": "f309eb483fd9908ab3906ad76a8e48f1da1950ce8740b22765d66268fd5ffdba"
+        }
+      },
+      "observations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "success=99.9; clearing=15",
+          "action": "Set clearing=15 seconds and success=99 percent",
+          "poststate": "Cell cost $200,000; 556 modeled picks per elapsed hour and 405,951 per 730-hour month; jam rate 1.00%.; 0.008; 11.8 months; Pays back inside 24 months",
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.008"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "11.8 months"
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "dom": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.dom.json",
+            "bytes": 343700,
+            "sha256": "0d3e50095b44fd9f6b6aa9ce577469be3d9764e1704df62b17a76eda6cde2b0b"
+          },
+          "capture": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.png",
+            "bytes": 129154,
+            "sha256": "bc82d2f476edfdd8438ddf2e0af6e9973b2385ae655355b8e8132422eb1d7438"
+          }
+        }
+      ]
+    },
+    {
+      "id": "i10-parameters",
+      "planId": "industrial-closure-10-20260923",
+      "partId": "i10-parameters",
+      "originalId": "audit/data-hardware.md:industrial-deployment:10",
+      "originalTupleDigest": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
+      "currentTupleDigest": "4e71ae73ad22d7228e458897cbeaa0567b72defa9cafa7d89d2829b9553a9aed",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25,
+          "ranges": {
+            "robotCost": {
+              "min": 20000,
+              "max": 250000,
+              "step": 5000
+            },
+            "integrationMultiple": {
+              "min": 1,
+              "max": 5,
+              "step": 0.1
+            },
+            "cycleTimeSeconds": {
+              "min": 2,
+              "max": 20,
+              "step": 0.5
+            },
+            "uptimePercent": {
+              "min": 80,
+              "max": 100,
+              "step": 0.5
+            },
+            "successRatePercent": {
+              "min": 90,
+              "max": 99.9,
+              "step": 0.1
+            },
+            "jamClearSeconds": {
+              "min": 5,
+              "max": 300,
+              "step": 5
+            },
+            "wageUsdPerHour": {
+              "min": 10,
+              "max": 80,
+              "step": 1
+            }
+          },
+          "hours": 730,
+          "amortization": 60,
+          "target": 24,
+          "comparisonSuccess": 99,
+          "exampleClearing": 10,
+          "expensiveClearing": 300,
+          "basis": "Finite authored article comparisons, not empirical deployment inputs."
+        },
+        "units": "USD,s,%,hours,months as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:parameters:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-parameters-input.json",
+        "bytes": 73,
+        "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-parameters-output.json",
+        "bytes": 1279,
+        "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
+      },
+      "inputDigest": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d",
+      "outputDigest": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1",
+      "bases": [],
+      "kind": "authored-parameter",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i10-parameters-receipt.json",
+          "bytes": 3952,
+          "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
+        }
+      }
+    },
+    {
+      "id": "i10-derived-3",
+      "planId": "industrial-closure-10-20260923",
+      "partId": "i10-derived",
+      "originalId": "audit/data-hardware.md:industrial-deployment:10",
+      "originalTupleDigest": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
+      "currentTupleDigest": "4e71ae73ad22d7228e458897cbeaa0567b72defa9cafa7d89d2829b9553a9aed",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 300,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 300,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.299999999999983,
+          "netPicksPerHour": 542.8571428571444,
+          "monthlyPicks": 396285.71428571537,
+          "monthlyLaborValue": 16511.904761904803,
+          "costPerPickUsd": 0.008411439557798583,
+          "paybackMonths": 12.112472963229962,
+          "timeBreakdown": {
+            "productive": 3257.142857142866,
+            "jamClearing": 162.85714285713405,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "12.1 months"
+          ],
+          "jamOverheadPerPick": 0.29999999999998295
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-input.json",
+        "bytes": 265,
+        "sha256": "dffce0c4d96a3b6aa18a9c74e04ced2ebd684b4252a60621209b3512d9e3d0f3"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-output.json",
+        "bytes": 1024,
+        "sha256": "101157775dd0c4e05c4cb2cf528e5e400e19eb8547547f60e49734f8cd1281e6"
+      },
+      "inputDigest": "dffce0c4d96a3b6aa18a9c74e04ced2ebd684b4252a60621209b3512d9e3d0f3",
+      "outputDigest": "101157775dd0c4e05c4cb2cf528e5e400e19eb8547547f60e49734f8cd1281e6",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/successRatePercent"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/expensiveClearing"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "derived-result",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-receipt.json",
+          "bytes": 3952,
+          "sha256": "92c63c35e2a760b0c4a1712ae7ab75d2023d8dc70033eb7d4b1c4b630374c0ec"
+        }
+      }
+    },
+    {
+      "id": "i10-derived-4",
+      "planId": "industrial-closure-10-20260923",
+      "partId": "i10-derived",
+      "originalId": "audit/data-hardware.md:industrial-deployment:10",
+      "originalTupleDigest": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
+      "currentTupleDigest": "4e71ae73ad22d7228e458897cbeaa0567b72defa9cafa7d89d2829b9553a9aed",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 300,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 300,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 9,
+          "netPicksPerHour": 380,
+          "monthlyPicks": 277400,
+          "monthlyLaborValue": 11558.333333333334,
+          "costPerPickUsd": 0.01201634222542658,
+          "paybackMonths": 17.303532804614274,
+          "timeBreakdown": {
+            "productive": 2280,
+            "jamClearing": 1140,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.012",
+            "17.3 months"
+          ],
+          "jamOverheadPerPick": 3
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-input.json",
+        "bytes": 263,
+        "sha256": "349e2a67225b1f1061466e86ed9a3787b541dc4a53bb4e77a92a022cda21b251"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-output.json",
+        "bytes": 916,
+        "sha256": "4b59a410d44ac6cecb0f56e6cddce0e00a2616bded174095e8ebc1c6af9d9d31"
+      },
+      "inputDigest": "349e2a67225b1f1061466e86ed9a3787b541dc4a53bb4e77a92a022cda21b251",
+      "outputDigest": "4b59a410d44ac6cecb0f56e6cddce0e00a2616bded174095e8ebc1c6af9d9d31",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/comparisonSuccess"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/expensiveClearing"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "derived-result",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-receipt.json",
+          "bytes": 3952,
+          "sha256": "d14608511c55069b9229b4526e3f4a55d5534cb77251b0481e82693b81f56f8c"
+        }
+      }
+    },
+    {
+      "id": "i10-observed-2",
+      "planId": "industrial-closure-10-20260923",
+      "partId": "i10-observed-2",
+      "originalId": "audit/data-hardware.md:industrial-deployment:10",
+      "originalTupleDigest": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
+      "currentTupleDigest": "4e71ae73ad22d7228e458897cbeaa0567b72defa9cafa7d89d2829b9553a9aed",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/industrial-deployment.spec.ts",
+            "bytes": 19923,
+            "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+          },
+          "id": "file:tests/e2e/industrial-deployment.spec.ts",
+          "offset": 0,
+          "length": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 300,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 300,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.299999999999983,
+          "netPicksPerHour": 542.8571428571444,
+          "monthlyPicks": 396285.71428571537,
+          "monthlyLaborValue": 16511.904761904803,
+          "costPerPickUsd": 0.008411439557798583,
+          "paybackMonths": 12.112472963229962,
+          "timeBreakdown": {
+            "productive": 3257.142857142866,
+            "jamClearing": 162.85714285713405,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "12.1 months"
+          ],
+          "jamOverheadPerPick": 0.29999999999998295
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-input.json",
+        "bytes": 265,
+        "sha256": "dffce0c4d96a3b6aa18a9c74e04ced2ebd684b4252a60621209b3512d9e3d0f3"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-output.json",
+        "bytes": 1024,
+        "sha256": "101157775dd0c4e05c4cb2cf528e5e400e19eb8547547f60e49734f8cd1281e6"
+      },
+      "inputDigest": "dffce0c4d96a3b6aa18a9c74e04ced2ebd684b4252a60621209b3512d9e3d0f3",
+      "outputDigest": "101157775dd0c4e05c4cb2cf528e5e400e19eb8547547f60e49734f8cd1281e6",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/successRatePercent"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/expensiveClearing"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "observed-behavior",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:34.186Z",
+        "endedAt": "2026-09-23T18:44:39.875Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/industrial-deployment.spec.ts",
+          "bytes": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i10-observed-2-receipt.json",
+          "bytes": 5575,
+          "sha256": "f255ba4c4a3d6c1039b83d193fcdfc8d49099c6b1fad3ec3cc07749ab47988c0"
+        }
+      },
+      "observations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "success=99; clearing=15",
+          "action": "Set clearing=300 seconds and success=99.9 percent",
+          "poststate": "Cell cost $200,000; 543 modeled picks per elapsed hour and 396,286 per 730-hour month; jam rate 0.10%.; 0.008; 12.1 months; Pays back inside 24 months",
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.008"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "12.1 months"
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "dom": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.dom.json",
+            "bytes": 343710,
+            "sha256": "c611d7eb44e0e991099a13d8cb78f839c6e747068de0a6a1502697f240e6e7d7"
+          },
+          "capture": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.png",
+            "bytes": 129325,
+            "sha256": "577ee9500b32f817e7dc3fb49f695be0802a935e5a5edea3340d14897ee6fad6"
+          }
+        }
+      ]
+    },
+    {
+      "id": "i10-observed-3",
+      "planId": "industrial-closure-10-20260923",
+      "partId": "i10-observed-3",
+      "originalId": "audit/data-hardware.md:industrial-deployment:10",
+      "originalTupleDigest": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
+      "currentTupleDigest": "4e71ae73ad22d7228e458897cbeaa0567b72defa9cafa7d89d2829b9553a9aed",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/industrial-deployment.spec.ts",
+            "bytes": 19923,
+            "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+          },
+          "id": "file:tests/e2e/industrial-deployment.spec.ts",
+          "offset": 0,
+          "length": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/slider.ts",
+            "bytes": 1130,
+            "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+          },
+          "id": "file:tests/e2e/slider.ts",
+          "offset": 0,
+          "length": 1130,
+          "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 300,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 300,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 9,
+          "netPicksPerHour": 380,
+          "monthlyPicks": 277400,
+          "monthlyLaborValue": 11558.333333333334,
+          "costPerPickUsd": 0.01201634222542658,
+          "paybackMonths": 17.303532804614274,
+          "timeBreakdown": {
+            "productive": 2280,
+            "jamClearing": 1140,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.012",
+            "17.3 months"
+          ],
+          "jamOverheadPerPick": 3
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-input.json",
+        "bytes": 263,
+        "sha256": "349e2a67225b1f1061466e86ed9a3787b541dc4a53bb4e77a92a022cda21b251"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-output.json",
+        "bytes": 916,
+        "sha256": "4b59a410d44ac6cecb0f56e6cddce0e00a2616bded174095e8ebc1c6af9d9d31"
+      },
+      "inputDigest": "349e2a67225b1f1061466e86ed9a3787b541dc4a53bb4e77a92a022cda21b251",
+      "outputDigest": "4b59a410d44ac6cecb0f56e6cddce0e00a2616bded174095e8ebc1c6af9d9d31",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "%",
+          "pointer": "/comparisonSuccess"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "s",
+          "pointer": "/expensiveClearing"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i10-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "observed-behavior",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
+        "runner": "playwright",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:34.186Z",
+        "endedAt": "2026-09-23T18:44:39.875Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/e2e/industrial-deployment.spec.ts",
+          "bytes": 19923,
+          "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i10-observed-3-receipt.json",
+          "bytes": 5572,
+          "sha256": "3c1e894ce3aab5f47c739375bff5c76a33729ccd76e96101972d7578ea056026"
+        }
+      },
+      "observations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "success=99.9; clearing=300",
+          "action": "Set clearing=300 seconds and success=99 percent",
+          "poststate": "Cell cost $200,000; 380 modeled picks per elapsed hour and 277,400 per 730-hour month; jam rate 1.00%.; 0.012; 17.3 months; Pays back inside 24 months",
+          "readouts": [
+            {
+              "selector": "[data-testid=\"cost-per-pick\"]",
+              "text": "0.012"
+            },
+            {
+              "selector": "[data-testid=\"payback-months\"]",
+              "text": "17.3 months"
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 1100
+          },
+          "dom": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99-300.dom.json",
+            "bytes": 343713,
+            "sha256": "6cc0e87c0c93771c60b0f42b042691e6b31c720ec0b9ac2b7db6da95447b9e16"
+          },
+          "capture": {
+            "path": "audit/evidence/industrial-closure-20260923/final-case-99-300.png",
+            "bytes": 128952,
+            "sha256": "ddb94410ddc67e86ec394077955a7288b07e9c938f3648003b39c10bc4c6d706"
+          }
+        }
+      ]
+    },
+    {
+      "id": "i32-parameters",
+      "planId": "industrial-closure-32-20260923",
+      "partId": "i32-parameters",
+      "originalId": "audit/data-hardware.md:industrial-deployment:32",
+      "originalTupleDigest": "5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4",
+      "currentTupleDigest": "5aaac700390d6cc16cc93d458ad202e24b09f6b9599a4b99ce3ee52750f7e695",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25,
+          "ranges": {
+            "robotCost": {
+              "min": 20000,
+              "max": 250000,
+              "step": 5000
+            },
+            "integrationMultiple": {
+              "min": 1,
+              "max": 5,
+              "step": 0.1
+            },
+            "cycleTimeSeconds": {
+              "min": 2,
+              "max": 20,
+              "step": 0.5
+            },
+            "uptimePercent": {
+              "min": 80,
+              "max": 100,
+              "step": 0.5
+            },
+            "successRatePercent": {
+              "min": 90,
+              "max": 99.9,
+              "step": 0.1
+            },
+            "jamClearSeconds": {
+              "min": 5,
+              "max": 300,
+              "step": 5
+            },
+            "wageUsdPerHour": {
+              "min": 10,
+              "max": 80,
+              "step": 1
+            }
+          },
+          "hours": 730,
+          "amortization": 60,
+          "target": 24,
+          "comparisonSuccess": 99,
+          "exampleClearing": 10,
+          "expensiveClearing": 300,
+          "basis": "Finite authored article comparisons, not empirical deployment inputs."
+        },
+        "units": "USD,s,%,hours,months as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:parameters:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i32-parameters-input.json",
+        "bytes": 73,
+        "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i32-parameters-output.json",
+        "bytes": 1279,
+        "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
+      },
+      "inputDigest": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d",
+      "outputDigest": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1",
+      "bases": [],
+      "kind": "authored-parameter",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i32-parameters-receipt.json",
+          "bytes": 3952,
+          "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
+        }
+      }
+    },
+    {
+      "id": "i32-derived-1",
+      "planId": "industrial-closure-32-20260923",
+      "partId": "i32-derived",
+      "originalId": "audit/data-hardware.md:industrial-deployment:32",
+      "originalTupleDigest": "5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4",
+      "currentTupleDigest": "5aaac700390d6cc16cc93d458ad202e24b09f6b9599a4b99ce3ee52750f7e695",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99.9,
+            "jamClearSeconds": 15,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 0.09999999999999432,
+          "effectiveSecondsPerPick": 6.014999999999999,
+          "netPicksPerHour": 568.5785536159602,
+          "monthlyPicks": 415062.344139651,
+          "monthlyLaborValue": 17294.264339152127,
+          "costPerPickUsd": 0.008030922053993429,
+          "paybackMonths": 11.564527757750536,
+          "timeBreakdown": {
+            "productive": 3411.471321695761,
+            "jamClearing": 8.52867830423892,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.6 months"
+          ],
+          "jamOverheadPerPick": 0.014999999999999148
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i32-derived-1-input.json",
+        "bytes": 264,
+        "sha256": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i32-derived-1-output.json",
+        "bytes": 1020,
+        "sha256": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22"
+      },
+      "inputDigest": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b",
+      "outputDigest": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i32-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i32-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i32-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i32-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i32-parameters",
+          "unit": "%",
+          "pointer": "/successRatePercent"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i32-parameters",
+          "unit": "s",
+          "pointer": "/jamClearSeconds"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i32-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "derived-result",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i32-derived-1-receipt.json",
+          "bytes": 3952,
+          "sha256": "a7b27e7acec696da1cd4dd11f100eba7ab12c82071a1249735e4f0aeb3ad9939"
+        }
+      }
+    },
+    {
+      "id": "i33-parameters",
+      "planId": "industrial-closure-33-20260923",
+      "partId": "i33-parameters",
+      "originalId": "audit/data-hardware.md:industrial-deployment:33",
+      "originalTupleDigest": "5427032eefc9620fdf00d97cebc4af837fd511c376462dac2d5dd8751f5d84d1",
+      "currentTupleDigest": "794628a6a3e9a580ca4c7402a04f16011a44d9297fdb2f88495403a9a960f685",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "expected": {
+        "values": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99.9,
+          "jamClearSeconds": 15,
+          "wageUsdPerHour": 25,
+          "ranges": {
+            "robotCost": {
+              "min": 20000,
+              "max": 250000,
+              "step": 5000
+            },
+            "integrationMultiple": {
+              "min": 1,
+              "max": 5,
+              "step": 0.1
+            },
+            "cycleTimeSeconds": {
+              "min": 2,
+              "max": 20,
+              "step": 0.5
+            },
+            "uptimePercent": {
+              "min": 80,
+              "max": 100,
+              "step": 0.5
+            },
+            "successRatePercent": {
+              "min": 90,
+              "max": 99.9,
+              "step": 0.1
+            },
+            "jamClearSeconds": {
+              "min": 5,
+              "max": 300,
+              "step": 5
+            },
+            "wageUsdPerHour": {
+              "min": 10,
+              "max": 80,
+              "step": 1
+            }
+          },
+          "hours": 730,
+          "amortization": 60,
+          "target": 24,
+          "comparisonSuccess": 99,
+          "exampleClearing": 10,
+          "expensiveClearing": 300,
+          "basis": "Finite authored article comparisons, not empirical deployment inputs."
+        },
+        "units": "USD,s,%,hours,months as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:parameters:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i33-parameters-input.json",
+        "bytes": 73,
+        "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i33-parameters-output.json",
+        "bytes": 1279,
+        "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
+      },
+      "inputDigest": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d",
+      "outputDigest": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1",
+      "bases": [],
+      "kind": "authored-parameter",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i33-parameters-receipt.json",
+          "bytes": 3952,
+          "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
+        }
+      }
+    },
+    {
+      "id": "i33-derived-5",
+      "planId": "industrial-closure-33-20260923",
+      "partId": "i33-derived",
+      "originalId": "audit/data-hardware.md:industrial-deployment:33",
+      "originalTupleDigest": "5427032eefc9620fdf00d97cebc4af837fd511c376462dac2d5dd8751f5d84d1",
+      "currentTupleDigest": "794628a6a3e9a580ca4c7402a04f16011a44d9297fdb2f88495403a9a960f685",
+      "artifacts": [
+        {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 0,
+          "length": 19399,
+          "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        },
+        {
+          "file": {
+            "path": "components/interactive/deployment-economics.tsx",
+            "bytes": 9866,
+            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+          },
+          "id": "source:components/interactive/deployment-economics.tsx",
+          "offset": 0,
+          "length": 9866,
+          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "baseline": {
+            "kind": "interactive-sources-mounts",
+            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+          }
+        },
+        {
+          "file": {
+            "path": "lib/deployment-economics.ts",
+            "bytes": 7602,
+            "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+          },
+          "id": "file:lib/deployment-economics.ts",
+          "offset": 0,
+          "length": 7602,
+          "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+        },
+        {
+          "file": {
+            "path": "lib/audit-local-basis.ts",
+            "bytes": 44430,
+            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          },
+          "id": "file:lib/audit-local-basis.ts",
+          "offset": 0,
+          "length": 44430,
+          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/industrial-closure-20260923/support.ts",
+            "bytes": 2740,
+            "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+          },
+          "id": "file:audit/evidence/industrial-closure-20260923/support.ts",
+          "offset": 0,
+          "length": 2740,
+          "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+        },
+        {
+          "file": {
+            "path": "audit/evidence/economics-local-20260923/support.ts",
+            "bytes": 5308,
+            "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+          },
+          "id": "file:audit/evidence/economics-local-20260923/support.ts",
+          "offset": 0,
+          "length": 5308,
+          "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+        },
+        {
+          "file": {
+            "path": "tests/unit/industrial-closure-evidence.test.ts",
+            "bytes": 5617,
+            "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+          },
+          "id": "file:tests/unit/industrial-closure-evidence.test.ts",
+          "offset": 0,
+          "length": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        }
+      ],
+      "disclosure": {
+        "text": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+        "member": {
+          "file": {
+            "path": "content/data-hardware/industrial-deployment.mdx",
+            "bytes": 19399,
+            "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+          },
+          "id": "article:data-hardware/industrial-deployment",
+          "offset": 4296,
+          "length": 745,
+          "sha256": "901f04fae09351303ad132fb9f710762c1fe8778297c5b3263bb4ac5a772f932",
+          "baseline": {
+            "kind": "prose",
+            "hash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+          }
+        }
+      },
+      "recipe": {
+        "id": "economics-examples",
+        "mode": "derive",
+        "inputs": {
+          "robotCost": 80000,
+          "integrationMultiple": 2.5,
+          "cycleTimeSeconds": 6,
+          "uptimePercent": 95,
+          "successRatePercent": 99,
+          "jamClearSeconds": 10,
+          "wageUsdPerHour": 25
+        }
+      },
+      "expected": {
+        "values": {
+          "sanitized": {
+            "robotCost": 80000,
+            "integrationMultiple": 2.5,
+            "cycleTimeSeconds": 6,
+            "uptimePercent": 95,
+            "successRatePercent": 99,
+            "jamClearSeconds": 10,
+            "wageUsdPerHour": 25
+          },
+          "totalCellCost": 200000,
+          "jamRatePercent": 1,
+          "effectiveSecondsPerPick": 6.1,
+          "netPicksPerHour": 560.655737704918,
+          "monthlyPicks": 409278.68852459016,
+          "monthlyLaborValue": 17053.27868852459,
+          "costPerPickUsd": 0.008144409730566904,
+          "paybackMonths": 11.727950012016342,
+          "timeBreakdown": {
+            "productive": 3363.934426229508,
+            "jamClearing": 56.0655737704918,
+            "downtime": 180
+          },
+          "paysBack": true,
+          "display": [
+            "0.008",
+            "11.7 months"
+          ],
+          "jamOverheadPerPick": 0.1
+        },
+        "units": "USD,picks/hour,picks/month,USD/pick,months,seconds as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "economics-examples:derive:v1"
+      },
+      "input": {
+        "path": "audit/evidence/industrial-closure-20260923/i33-derived-5-input.json",
+        "bytes": 262,
+        "sha256": "7dc09ed587f8743cc7a55dc15ea34950a3ce276d2746198c19ef4dcb9c8d1904"
+      },
+      "output": {
+        "path": "audit/evidence/industrial-closure-20260923/i33-derived-5-output.json",
+        "bytes": 969,
+        "sha256": "f1f70651de28cec982e322ac3f743ea663bdef3099f3e1a7f559a43a1c7948c6"
+      },
+      "inputDigest": "7dc09ed587f8743cc7a55dc15ea34950a3ce276d2746198c19ef4dcb9c8d1904",
+      "outputDigest": "f1f70651de28cec982e322ac3f743ea663bdef3099f3e1a7f559a43a1c7948c6",
+      "bases": [
+        {
+          "input": "robotCost",
+          "kind": "authored-parameter",
+          "proofId": "i33-parameters",
+          "unit": "USD",
+          "pointer": "/robotCost"
+        },
+        {
+          "input": "integrationMultiple",
+          "kind": "authored-parameter",
+          "proofId": "i33-parameters",
+          "unit": "dimensionless",
+          "pointer": "/integrationMultiple"
+        },
+        {
+          "input": "cycleTimeSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i33-parameters",
+          "unit": "s",
+          "pointer": "/cycleTimeSeconds"
+        },
+        {
+          "input": "uptimePercent",
+          "kind": "authored-parameter",
+          "proofId": "i33-parameters",
+          "unit": "%",
+          "pointer": "/uptimePercent"
+        },
+        {
+          "input": "successRatePercent",
+          "kind": "authored-parameter",
+          "proofId": "i33-parameters",
+          "unit": "%",
+          "pointer": "/comparisonSuccess"
+        },
+        {
+          "input": "jamClearSeconds",
+          "kind": "authored-parameter",
+          "proofId": "i33-parameters",
+          "unit": "s",
+          "pointer": "/exampleClearing"
+        },
+        {
+          "input": "wageUsdPerHour",
+          "kind": "authored-parameter",
+          "proofId": "i33-parameters",
+          "unit": "USD/hour",
+          "pointer": "/wageUsdPerHour"
+        }
+      ],
+      "kind": "derived-result",
+      "provenance": {
+        "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
+        "runner": "vitest",
+        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "environment": {
+          "NODE_DISABLE_COMPILE_CACHE": "1"
+        },
+        "startedAt": "2026-09-23T18:44:50.849Z",
+        "endedAt": "2026-09-23T18:44:50.876Z",
+        "exitCode": 0,
+        "test": {
+          "path": "tests/unit/industrial-closure-evidence.test.ts",
+          "bytes": 5617,
+          "sha256": "831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7"
+        },
+        "receipt": {
+          "path": "audit/evidence/industrial-closure-20260923/i33-derived-5-receipt.json",
+          "bytes": 3952,
+          "sha256": "471bb1493d615223150462de6d5651ee5e60471d8c8804a37e0a1a09367bab90"
+        }
+      }
     }
   ]
 }

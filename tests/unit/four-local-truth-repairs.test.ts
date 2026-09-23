@@ -101,7 +101,8 @@ describe('four bounded local truth repairs without completion credit', () => {
   });
 
   it('corrects only the active industrial percentage, retaining the old value as history', () => {
-    const record = row('audit/data-hardware.md', 'industrial-deployment', 9);
+    const record = JSON.parse(read('audit/evidence/industrial-closure-20260923/row-history.json'))
+      .find((r: { rowOrdinal: number }) => r.rowOrdinal === 9).currentCells;
     expect(record.sourceChecked).toContain('i.e. +2.2%');
     expect(record.sourceChecked).not.toContain('+2.3%');
     expect(record.note).toContain('i.e. +2.3%');
@@ -165,8 +166,17 @@ describe('four bounded local truth repairs without completion credit', () => {
   });
 
   for (const [ledgerPath, slug, ordinal, oldDigest] of selected) {
-    it(`keeps ${slug}:${ordinal} unresolved with the exact old tuple and no invented evidence`, () => {
-      const record = row(ledgerPath, slug, ordinal);
+    it(`preserves ${slug}:${ordinal} unresolved history and the exact old tuple`, () => {
+      const historical = slug === 'industrial-deployment';
+      const record = historical ? parseLedger(ledgerPath,
+        committedSource(CONTINUATION_CHECKPOINT, ledgerPath), registryIds, { compoundPlans: plans })
+        .find(s => s.slug === slug)!.claimRecords[ordinal - 1] : row(ledgerPath, slug, ordinal);
+      if (historical) {
+        const archived = JSON.parse(read('audit/evidence/industrial-closure-20260923/row-history.json'))
+          .find((r: { rowOrdinal: number }) => r.rowOrdinal === ordinal);
+        expect(archived.currentTupleDigest).toBe(originalClaimDigest(record));
+        expect(row(ledgerPath, slug, ordinal).verdict).toBe('C');
+      }
       expect(record.verdict).toBe('UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)');
       expect(record.outcome).toBe('unresolved');
       expect(record.evidenceFailures).toHaveLength(3);
