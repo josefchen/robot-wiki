@@ -89,6 +89,17 @@ describe('vercel.json static-asset cache headers', () => {
     }
   });
 
+  it('caches the playground model and Draco decoder without pinning unhashed names for a year', () => {
+    // /models/so101/* and /draco/* keep stable, unhashed file names, so an
+    // immutable year would strand a replaced asset; a day plus a week of
+    // stale-while-revalidate stops the ~930 KB revalidation on every visit.
+    for (const source of ['/models/:path*', '/draco/:path*']) {
+      expect(cacheControlForSource(source), source).toBe(
+        'public, max-age=86400, stale-while-revalidate=604800',
+      );
+    }
+  });
+
   it('does not long-cache HTML (deploys must remain visible immediately)', () => {
     const htmlLike = [/\/$/, /html/i, /^\/:path\*$/, /^\/\(\.\*\)$/];
     for (const rule of vercel.headers ?? []) {
