@@ -12,10 +12,11 @@ import { CITATIONS } from '../../data/citations';
  * Red-first proof for the scene-representation originals integration
  * (frozen packet convergence-source-k-scene-representation-20260916d, rows
  * 3, 18, 19, 24, 45, 46, 47, 48, 49 selected; rows 1 and 10 held by the
- * parent dispatch and untouched). Every applied-state assertion here failed
+ * parent dispatch and untouched at that checkpoint). Every applied-state assertion here failed
  * before application and must pass after it. The regression guards (prior
  * plan order, protected held rows 1/10, neighbor sections) passed before and
- * must stay green.
+ * must stay green. Later authorized repairs bind row 1 (September 17) and
+ * correct row 10 (September 22); their current bindings are guarded below.
  *
  * Six of the nine records are internal/local-AND rows: their compound parts
  * are anchored to registered citations per the established internal-row
@@ -248,7 +249,7 @@ describe('scene-representation originals: approved deltas and protected neighbor
     }
   });
 
-  it('protects held row 10 and the applied row-1 sweep binding', () => {
+  it('protects the authorized row-10 correction and applied row-1 sweep binding', () => {
     // 2026-09-17a single-leftovers: row 1's claim cell now counts the real 24
     // frontmatter ids and binds the 24-identity compound plan; the three
     // scalar evidence cells stay empty (compound rows reject scalar fields).
@@ -256,10 +257,11 @@ describe('scene-representation originals: approved deltas and protected neighbor
     expect(rowCells(0)[3] ?? '').toBe('');
     expect(rowCells(0)[7] ?? '').toBe('scene-representation-1-identity-sweep-20260917a');
     expect(rowCells(0)[0]).toContain('Bibliographic fidelity of all 24 cited registry entries');
-    expect(rowCells(9)[2]).toBe('V');
+    expect(rowCells(9)[2]).toBe('C');
     expect(rowCells(9)[3] ?? '').toBe('');
-    expect(rowCells(9)[7] ?? '').toBe('');
-    expect(rowCells(9)[0]).toContain('Stored distance is the collision margin');
+    expect(rowCells(9)[7] ?? '').toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
+    expect(rowCells(9)[0]).toContain('KinectFusion uses a projective TSDF rather than a true discrete SDF');
+    expect(rowCells(9)[6]).toContain('Stored distance is the collision margin');
   });
 
   it('keeps prior complete rows and sections intact (no re-serialization)', () => {

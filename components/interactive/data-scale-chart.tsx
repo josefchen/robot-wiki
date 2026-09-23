@@ -10,6 +10,7 @@ import {
   MAX_RIGS,
   MIN_RIGS,
   OXE_SCALE_HOURS,
+  OXE_DURATION,
   ROBOT_POINTS,
   formatDuration,
   formatHours,
@@ -33,12 +34,10 @@ import { cx } from '@/lib/utils';
  * emptiness is the argument. No exchange rate between an hour and a token is
  * drawn, because no honest one exists.
  *
- * The teleop-farm slider projects a fleet's yearly throughput (signal-blue marker
- * and dashed vertical): a dedicated-farm assumption (1,000 productive hours
- * per rig-year, labeled as an assumption) or the measured DROID rate (350 h
- * from 50 collectors in 12 months, 7 h per collector-year). Readouts report
- * projected hours per year and the years to reach OXE scale (~10k h) and a
- * 100x-OXE frontier target (1M h).
+ * The teleop-farm slider preserves two authored hypothetical rates (1,000
+ * and 7 productive hours per rig-year) and targets (10,000 and 1,000,000
+ * hours). Neither is an empirical DROID rate or an OXE-equivalent duration.
+ * OXE remains discoverable outside the numeric plot as source-scoped unknown.
  *
  * Interactive contract: deterministic initial render, native range input and
  * aria-pressed rate toggles (keyboard-accessible), visible monospace
@@ -96,7 +95,6 @@ const LABEL_TIER: Record<string, 0 | 1 | 2> = {
   egodex: 1,
   ego4d: 1,
   'tri-lbm': 2,
-  oxe: 2,
 };
 /** Label and value baseline offsets from the robot lane, per tier. */
 const TIER_OFFSETS: Record<0 | 1 | 2, { label: number; value: number }> = {
@@ -134,8 +132,8 @@ export function DataScaleChart({
 
   const rate = rateById(rateId);
   const perYear = hoursPerYear(rigs, rateId);
-  const oxeYears = yearsToTarget(rigs, rateId, OXE_SCALE_HOURS);
-  const frontierYears = yearsToTarget(rigs, rateId, FRONTIER_HOURS);
+  const targetYears = yearsToTarget(rigs, rateId, OXE_SCALE_HOURS);
+  const largerTargetYears = yearsToTarget(rigs, rateId, FRONTIER_HOURS);
 
   const farmX = xFor(Math.max(perYear, 1));
   const farmLabelX = Math.min(Math.max(farmX, 190), 554);
@@ -241,21 +239,21 @@ export function DataScaleChart({
           </span>
         </span>
         <span className="text-text-dim">
-          throughput:{' '}
+          projected throughput:{' '}
           <span data-testid="hours-readout" className="text-accent">
             {formatHours(perYear)}/yr
           </span>
         </span>
         <span className="text-text-dim">
-          to OXE scale:{' '}
+          to 10,000 h:{' '}
           <span data-testid="oxe-years-readout" className="text-text">
-            {formatDuration(oxeYears)}
+            {formatDuration(targetYears)}
           </span>
         </span>
         <span className="text-text-dim">
-          to 100x OXE:{' '}
+          to 1,000,000 h:{' '}
           <span data-testid="frontier-years-readout" className="text-text">
-            {formatDuration(frontierYears)}
+            {formatDuration(largerTargetYears)}
           </span>
         </span>
       </div>
@@ -263,7 +261,7 @@ export function DataScaleChart({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Demonstration hours against pretraining tokens, ${formatRigs(rigs)}-rig farm projection`}
+        aria-label={`Demonstration hours against pretraining tokens, ${formatRigs(rigs)}-rig hypothetical farm projection`}
         aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
@@ -504,17 +502,27 @@ export function DataScaleChart({
       >
         <span className="text-text-dim">{formatRigs(rigs)} rigs:</span>{' '}
         <span className="text-accent">{formatHours(perYear)}/yr</span>{' '}
-        <span className="text-text-dim">projected, OXE scale in</span>{' '}
-        <span className="text-text">{formatDuration(oxeYears)}</span>
-        <span className="text-text-dim">, 100x OXE in</span>{' '}
-        <span className="text-text">{formatDuration(frontierYears)}</span>
+        <span className="text-text-dim">hypothetical, 10,000 h in</span>{' '}
+        <span className="text-text">{formatDuration(targetYears)}</span>
+        <span className="text-text-dim">, 1,000,000 h in</span>{' '}
+        <span className="text-text">{formatDuration(largerTargetYears)}</span>
       </p>
       <p
         data-testid="rate-explanation"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
-        {rate.note} Hours marked ~ are estimates; everything else is a
-        published count from the cited source.
+        {rate.note} The 10,000-hour and 1,000,000-hour targets are authored
+        hypothetical inputs, not OXE totals or measured frontier requirements.
+        Hours marked ~ on dataset points are estimates.
+      </p>
+
+      <p
+        data-testid="oxe-duration-note"
+        className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
+      >
+        <a href={OXE_DURATION.sourceUrl} className="text-link underline">OXE</a>:
+        {' '}1M+ trajectories across 22 robot embodiments. Total duration is
+        unknown in inspected sources; not plotted on the hours axis.
       </p>
 
       <ChartDescription
@@ -535,12 +543,13 @@ export function DataScaleChart({
             label: p.label,
             values: [p.value, 'n/a'] as Array<string>,
           })),
+          { label: OXE_DURATION.label, values: [OXE_DURATION.value, 'n/a'] },
           ...LLM_POINTS.map((p) => ({
             label: p.label,
             values: ['n/a', p.value] as Array<string>,
           })),
           {
-            label: `your farm (${formatRigs(rigs)} rigs)`,
+            label: `your hypothetical farm (${formatRigs(rigs)} rigs)`,
             values: [`${formatHours(perYear)}/yr`, 'n/a'],
           },
         ]}
@@ -554,8 +563,9 @@ export function DataScaleChart({
             3), {gapDecades} orders of magnitude apart with no honest hour-to-token
             exchange rate between the lanes; your {formatRigs(rigs)}-rig farm at the{' '}
             {rate.label.toLowerCase()} rate projects {formatHours(perYear)} per year,
-            reaching OXE scale in {formatDuration(oxeYears)} and 100x OXE in{' '}
-            {formatDuration(frontierYears)}.
+            reaching the authored 10,000-hour target in {formatDuration(targetYears)}
+            {' '}and the authored 1,000,000-hour target in {formatDuration(largerTargetYears)}.
+            {' '}OXE duration is unknown in inspected sources and is not plotted.
           </>
         }
       />

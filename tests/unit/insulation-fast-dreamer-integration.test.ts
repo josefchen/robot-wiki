@@ -29,8 +29,7 @@ describe('insulation FAST and Dreamer fixed original records', () => {
   it.each(selected)('completes the entire source-bound record %s', id => {
     expect(row(id).evidenceFailures).toEqual([]);
   });
-  it('rejects omission of every individual required source item', () => {
-    for (const id of selected) {
+  it.each(selected)('rejects omission of every individual required source item for %s', id => {
       const current = row(id);
       expect(current.compound, id).toBeDefined();
       const plan = plans.find(p => p.id === current.compound!.planId)!;
@@ -44,7 +43,6 @@ describe('insulation FAST and Dreamer fixed original records', () => {
         });
         expect(row(id, changed).evidenceFailures.length, `${id}/${i}`).toBeGreaterThan(0);
       }
-    }
   });
   it('keeps the exact DROID prediction, execution choices and control setting', () => {
     const fast = METHODS.find(m => m.id === 'pi0-fast')!;
@@ -98,10 +96,12 @@ describe('insulation FAST and Dreamer fixed original records', () => {
     expect(taxonomy).toContain('sparse intermediate rewards');
   });
   it('preserves incomplete P1 and held rows without a fake review-date bump', () => {
-    // comparison-matrix:1 remains held; knowledge-insulation:10 and
-    // latent-dynamics:17 were held when this pin was written but later
-    // audit packets completed them, so they now assert no failures.
-    expect(row('audit/manipulation.md:comparison-matrix:1').evidenceFailures.length).toBeGreaterThan(0);
+    // Later packets completed these records. Comparison original 1 now
+    // carries the setup-qualified RT-2/OpenVLA correction, not local proof.
+    const comparison = row('audit/manipulation.md:comparison-matrix:1');
+    expect(comparison.evidenceFailures).toEqual([]);
+    expect(comparison.verdict).toBe('C');
+    expect(comparison.compound?.planId).toBeDefined();
     for (const id of ['audit/manipulation.md:knowledge-insulation:10', 'audit/world-models.md:latent-dynamics:17']) {
       expect(row(id).evidenceFailures).toEqual([]);
     }

@@ -4,6 +4,7 @@ import { CITATIONS } from '../../data/citations';
 import {
   compoundPartDigest,
   compoundPlanDigest,
+  originalClaimDigest,
   parseCompoundPlans,
   parseLedger,
   type CompoundPlan,
@@ -157,18 +158,31 @@ describe('source-scoped calibration and TSDF corrections', () => {
     });
   }
 
-  it('preserves later scene repairs and does not credit excluded originals', () => {
+  it('preserves later scene repairs and the separately authorized row-10 correction', () => {
     const current = records('scene-representation');
     for (const ordinal of [4, 5, 25, 26, 27, 31, 32, 33, 34, 35, 36, 37, 38, 39, 45]) {
       expect(current[ordinal - 1].evidenceFailures, `prior original ${ordinal}`).toEqual([]);
     }
     // Later scene-representation packets completed the formerly excluded
     // 26/27/31/33/45, and the 20260917a identity sweep bound original 1
-    // (scene-representation-1-identity-sweep-20260917a); only original 10 remains incomplete.
+    // (scene-representation-1-identity-sweep-20260917a).
     expect(current[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
     expect(current[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
-    for (const ordinal of [10]) {
-      expect(current[ordinal - 1].evidenceFailures.length, `excluded original ${ordinal}`).toBeGreaterThan(0);
+    expect(current[9].verdict).toBe('C');
+    expect(current[9].evidenceFailures).toEqual([]);
+    expect(current[9].compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
+    // These were excluded only from the September 8 calibration batch.
+    // Preserve their actual complete pre-TSDF-integration tuples; do not
+    // reclassify them or reapply their later evidence to satisfy an old hold.
+    for (const [ordinal, digest] of [
+      [26, '3046b7b7df26e9aec432435a11e21a49086a56c9f754404837c96ae162695fe3'],
+      [27, '4f022463df05c93103d76036f6e14e63960b60e67e5e6bc2ffa7461d25b08094'],
+      [31, '13d5451d9426d917750c566414f7563a3ba5f5a0e4304d45a1cb1cf4c80eaa9e'],
+      [33, '7fae78aed5462d81f86a2abfdb88583ab523045880d2d8df04bd62c8cf52f840'],
+      [45, '0dca689b850c1f195842c7ac87f51d8c953d1541834aa8155c4a49d11686f3cc'],
+    ] as const) {
+      expect(originalClaimDigest(current[ordinal - 1])).toBe(digest);
+      expect(current[ordinal - 1].evidenceFailures, `prior complete original ${ordinal}`).toEqual([]);
     }
     expect(scene).toContain('does not perform loop closure');
     expect(scene).toContain('storage size, construction cost and usefulness for the task');

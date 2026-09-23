@@ -29,15 +29,15 @@ seeAlso:
 import { DataScaleChart } from '@/components/interactive/data-scale-chart';
 import { ScalingLawsTable } from '@/components/mdx/scaling-laws-table';
 
-Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 <Cite id="gpt3-2020" />; Llama 3 consumed over 15 trillion in 2024 <Cite id="llama-3-2024" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id="fineweb-2024" />. Robot learning has no equivalent. The largest aggregated robot corpus, <Term id="open-x-embodiment">Open X-Embodiment</Term>, holds over a million trajectories across 22 robot embodiments <Cite id="open-x-embodiment-2023" />, which works out to roughly ten thousand hours of interaction, an estimate rather than a published count. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory <Cite id="agibot-world-2025" />. A million trajectories, in other words, is under three thousand hours. The largest open dataset collected on a single robot platform, DROID, holds 76,000 trajectories totaling 350 hours, and collecting those took 50 operators at 13 institutions a full year <Cite id="droid-2024" />. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id="tri-lbm-2025" />. That gap, and everything the field is doing about it, is the subject of this module.
+Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 <Cite id="gpt3-2020" />; Llama 3 consumed over 15 trillion in 2024 <Cite id="llama-3-2024" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id="fineweb-2024" />. Robot learning has no equivalent. <Term id="open-x-embodiment">Open X-Embodiment</Term> pools over a million trajectories across 22 robot embodiments <Cite id="open-x-embodiment-2023" />. Its total duration is unknown in the inspected paper and project-page text; trajectory count alone does not establish hours. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory <Cite id="agibot-world-2025" />. A million trajectories, in other words, is under three thousand hours. DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months <Cite id="droid-2024" />. The paper also reports roughly 16,000 unsuccessful trajectories, released separately from the headline count. The 12 months describe elapsed collection time, not a full working year for each collector or robot. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id="tri-lbm-2025" />. That gap, and everything the field is doing about it, is the subject of this module.
 
-The gap is below, on one log-log plane. Drag the teleoperation rigs slider up and watch the projected collection time fall: even at a large fleet, the number stays in years.
+The chart below separates dataset counts from a teaching projection. Drag the teleoperation rigs slider to see how fleet size changes collection time under two authored hypothetical rates. The 10,000-hour and 1,000,000-hour targets are hypothetical too, not OXE duration or measured frontier requirements.
 
 <DataScaleChart className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="language" value="15T" note="tokens, Llama 3 pretraining" accent />
-  <Stat label="robots" value="350" note="hours, DROID's 12-month effort" />
+  <Stat label="robots" value="350" note="interaction hours, DROID dataset" />
   <Stat label="scaling law" value="32x50" note="envs x demos, Lin et al." />
   <Stat label="human video" value="20,854" note="hours, EgoScale" />
 </div>
@@ -46,35 +46,34 @@ The gap is below, on one log-log plane. Drag the teleoperation rigs slider up an
 
 Text is scraped. The internet accumulates language as a byproduct of everything people publish, so assembling a 15-trillion-token corpus is a filtering problem, not a collection problem. Robot data is different. Every hour of it is produced by a physical machine interacting with the world in real time, usually driven by a paid human teleoperator. There is no crawl for contact.
 
-The chart at the top of this module plots both universes. Robot and human demonstration data sits on the bottom lane, read off the hours axis: DROID at 350 hours, TRI's LBM corpus near 1,700, AgiBot World at 2,976, Open X-Embodiment at an estimated 10,000, EgoScale's human video at 20,854. Language corpora sit on the left lane, read off the tokens axis: GPT-3 at 300 billion, Llama 3 at 15 trillion. The dashed diagonal spans the empty plane between the two largest entries. No exchange rate between an hour of robot data and a token of text is drawn, because no honest one exists.
+The chart at the top of this module plots both universes. Robot and human demonstration data sits on the bottom lane, read off the hours axis: DROID at 350 hours, TRI's LBM corpus near 1,700, AgiBot World at 2,976, EgoScale's human video at 20,854. Open X-Embodiment remains listed as unknown duration and is not plotted or ranked by hours. Language corpora sit on the left lane, read off the tokens axis: GPT-3 at 300 billion, Llama 3 at 15 trillion. The dashed diagonal spans the empty plane between the two largest entries. No exchange rate between an hour of robot data and a token of text is drawn, because no honest one exists.
 
 <PredictThenReveal
-  prompt="A distributed collection effort runs at the measured DROID rate, about 7 productive hours per collector-year. At a fleet of 10 rigs, roughly how long until it reaches OXE scale, on the order of ten thousand hours?"
+  prompt="An authored hypothetical collection scenario uses 7 productive hours per rig-year. With 10 rigs, roughly how long would it take to collect the hypothetical target of 10,000 hours?"
   options={[
     {
       value: 'few-decades',
-      label: 'A couple of decades, splitting the difference between a full-time farm and a hobbyist effort',
-      why: 'The split-the-difference instinct is reasonable and still off by an order of magnitude: two decades at this fleet needs roughly 500 hours a year, seventy times the measured rate. The gap between the two rate assumptions is the whole reason the chart carries a toggle.'
+      label: 'A couple of decades',
+      why: 'Twenty years would require 500 hours a year. This scenario produces only 10 times 7, or 70 hours a year, so it takes much longer.'
     },
     {
       value: 'few-years',
-      label: 'A few years, since ten rigs collecting steadily usually cover thousands of hours per rig over that span',
-      why: 'This reads a rig as roughly a full-time worker. The measured rate says otherwise: part-time distributed collection runs at about 7 hours per collector-year, so thousands of hours per rig takes centuries, not years. Flip the chart’s rate toggle to dedicated-farm and years is the right answer at 4 hours a day.'
+      label: 'A few years',
+      why: 'That assumes a higher collection rate than the question supplies. The dedicated-farm hypothetical uses 1,000 hours per rig-year; at 10 rigs, it reaches 10,000 hours in one year.'
     },
     {
       value: 'century-plus',
       label: 'Well over a century, on the order of 140 years at that throughput',
-      why: 'The arithmetic is 10,000 hours at 70 hours a year, roughly 143 years: the measured DROID rate, 350 hours from 50 collectors in 12 months. The mounted chart is set to that fleet and rate, and the OXE readout says it outright.',
-      cite: 'droid-2024'
+      why: 'The arithmetic is 10,000 hours divided by 70 hours a year, roughly 143 years. Both the rate and target are authored hypothetical inputs, not measurements of DROID productivity or OXE duration.'
     }
   ]}
   answer="century-plus"
-  revealHint="The chart is mounted at 10 rigs on the measured DROID rate: the throughput reads 70 h/yr and the OXE-scale readout says 143 yr. Switch the rate to dedicated farm and it collapses to under half a year."
-  takeaway="At the measured DROID rate, 10 rigs need about 143 years to reach OXE scale: distributed part-time collection is roughly seventy times slower than the dedicated-farm assumption."
+  revealHint="The chart starts at 10 rigs and the low-rate hypothetical: 70 h/yr and 143 yr to 10,000 hours. Switch to the dedicated-farm hypothetical and the target takes one year."
+  takeaway="For the same 10,000-hour hypothetical target, 10 rigs take about 143 years at 7 hours per rig-year and one year at 1,000 hours per rig-year. The result depends on the assumed rate."
 >
   <DataScaleChart defaultRigs={10} defaultRate="droid-measured" className="mt-3" />
 </PredictThenReveal>
-The slider projects a <Term id="teleoperation">teleoperation</Term> farm. Under the dedicated-farm assumption, about four productive teleop hours per rig per day, ten rigs accumulate OXE-scale data in a year. Switch to the measured DROID rate, 350 hours from 50 collectors in 12 months, and the same target takes over a century at that fleet size. Real efforts sit between these poles, but the arithmetic explains the industry's response: teleoperation farms, where rows of operators drive fleets of rigs full time. It also gives you the two questions to ask of any data-scale claim. First, how many hours, because episode counts hide trajectory length. Second, how diverse, which is where the <Term id="scaling-law">scaling laws</Term> come in.
+The slider projects a <Term id="teleoperation">teleoperation</Term> farm using authored hypothetical inputs. The dedicated-farm rate assumes 1,000 productive hours per rig-year, equivalent to four hours on each of 250 working days. The low-rate scenario assumes seven. DROID's 350 hours divided by 50 collectors happens to equal seven, but that quotient is not a measured annual rate per rig: the source does not report each collector's or robot's working exposure. Neither scenario establishes how fast a real farm would collect data. Ask two questions of a dataset claim: how many hours, because episode counts hide trajectory length, and how diverse, which is where the <Term id="scaling-law">scaling laws</Term> come in.
 
 ## What the scaling laws say: diversity beats density
 

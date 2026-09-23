@@ -95,11 +95,12 @@ describe('classical SLAM source corrections', () => {
     }
     // Later scene-representation packets completed the formerly excluded
     // 18/24/45/49, and the 20260917a identity sweep bound original 1
-    // (scene-representation-1-identity-sweep-20260917a); only original 10 remains incomplete.
+    // (scene-representation-1-identity-sweep-20260917a). The later TSDF
+    // correction binds original 10 to its own source-qualified plan.
     expect(records()[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
     expect(records()[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
-    for (const ordinal of [10]) {
-      expect(records()[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
-    }
+    expect(records()[9].evidenceFailures).toEqual([]);
+    expect(records()[9].verdict).toBe('C');
+    expect(records()[9].compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
   });
 });

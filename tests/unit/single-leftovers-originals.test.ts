@@ -156,10 +156,11 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     expect(sr1.note).toContain('All 24 verify with disclosed channels');
     expect(sr1.sourceChecked).toContain('24/24 verified, disclosures per part');
     expect(sr1.note).toContain('Albert0');
-    // The sibling held row (10) stays unbound and incomplete.
+    // The later TSDF packet corrected this sibling without changing row 1.
     const sr10 = scene.claimRecords[9];
-    expect(sr10.compound?.planId ?? '').toBe('');
-    expect(sr10.evidenceFailures.length).toBeGreaterThan(0);
+    expect(sr10.compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
+    expect(sr10.evidenceFailures).toEqual([]);
+    expect(sr10.verdict).toBe('C');
   });
 
   it('records the 2026-09-17b rdm16 re-preparation now applied to reward-design-mpc:16', () => {

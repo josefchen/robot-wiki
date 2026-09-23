@@ -24401,6 +24401,608 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "vla-comparison-p1-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "fa7b5f5bce9692dbfa6ada8526a7d3930b6dc43e43de8c83c9157e7e9d434178",
+      "newHash": "3b7b31cce1983c1b1cbc47f35aa60cd6664dcacb914058e6280e3796a1eda6d5",
+      "reason": "Exact authorized replacement of the two comparison introduction paragraphs with setup-qualified RT-2 v1 serving rates and OpenVLA v3 inference settings and their inline citation consequences. No registry, VLA article, method data, old table/filter proof or unrelated content approval.",
+      "ownerApproval": "Josef standing routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-integration-20260922/authorization.json, base afeeb058097ed5720ca11b03e41d3d2167573f5d, source packet 171990a73fcf3baf892464b30548ef7205bfb6155a6250e5d747f6dc93d541c5. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-comparison-p1-20260922-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "179a093b41ad6ac10221f56590165292c7d160665b1b9bc17b49bd7e8a7565fa",
+      "newHash": "f7fe84dfaf83a59a297b0a83a9ec2e9fadcd842185ec191af19b1d89a844da47",
+      "reason": "Exact authorized replacement of the two comparison introduction paragraphs with setup-qualified RT-2 v1 serving rates and OpenVLA v3 inference settings and their inline citation consequences. No registry, VLA article, method data, old table/filter proof or unrelated content approval.",
+      "ownerApproval": "Josef standing routine source-backed correction authority through exact parent integrator dispatch /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-comparison-p1-integration-20260922/authorization.json, base afeeb058097ed5720ca11b03e41d3d2167573f5d, source packet 171990a73fcf3baf892464b30548ef7205bfb6155a6250e5d747f6dc93d541c5. Not a new human signature, personal source certification, gate waiver or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+      "newHash": "432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f",
+      "reason": "Correct OXE source-scoped unknown duration and DROID successful/unsuccessful counts, collectors, robots and elapsed duration. Retain prediction/reveal with authored hypothetical rates and targets, not source measurements; both selected audit rows stay unresolved.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/data-scale-chart.tsx:aria-label:2",
+      "oldHash": "462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d",
+      "newHash": "903172b89cc49201bb0262ec552fb6d7ee1ca3783807a0e8025a8dd6c4c85699",
+      "reason": "The existing dynamic chart accessible name now explicitly calls the preserved farm projection hypothetical; rig count, controls and numeric behavior are unchanged.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-3",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Remove only the unsupported numeric OXE marker; retain a source-linked unknown-duration entry. Label retained rates/targets and every coupled summary/accessibility/readout as hypothetical, preserving controls, IDs, default values and arithmetic.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-4",
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Keep OXE duration a source-scoped unknown, never zero or n/a. Its token column remains genuinely inapplicable, as for the other robot datasets; numeric plot and scenario behavior are preserved except the unsupported OXE marker.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "data-bottleneck-zero-credit-20260922-5",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/data-scale-chart.tsx:not-applicable:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "82f1cb562f662def75c5bf9104fca5f4e1699ba316f49325e30754c1146d360c",
+      "reason": "Keep OXE duration a source-scoped unknown, never zero or n/a. Its token column remains genuinely inapplicable, as for the other robot datasets; numeric plot and scenario behavior are preserved except the unsupported OXE marker.",
+      "ownerApproval": "Standing routine truth-correction authority, scoped by parent authorization.json in convergence-data-bottleneck-truth-repair-20260922. Zero completion credit; P2 and VAL-AUDIT-009 unchanged; not owner source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "scene-tsdf-10-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+      "newHash": "e503d1d3fb46ca601bb1747d5763ca37242cea7430f72ac71a1ec2015977e20a",
+      "reason": "Replace only the unsupported TSDF collision-margin/lookup and universal planner conclusion with the four source-qualified KinectFusion operations.",
+      "ownerApproval": "Standing routine source-backed truth-correction authority, bounded by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/authorization.json and successful parent preflight; four exact prepared spans only. Not personal source certification, a local-proof waiver or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "scene-tsdf-10-20260922-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "9a65c31a6059f709e48179a0dc92ae2be7f63a63acbbab34073d1efec3fd0ff9",
+      "newHash": "6153ac3b89547680bee0f7d3d5437bc202cb847709fc62ae96f77e47352f52aa",
+      "reason": "Add the KinectFusion citation for the replacement paragraph and remove only the motion-planning link carried by the withdrawn universal planner conclusion; all frontmatter relationships stay unchanged.",
+      "ownerApproval": "Standing routine source-backed truth-correction authority, bounded by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/authorization.json and successful parent preflight; four exact prepared spans only. Not personal source certification, a local-proof waiver or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "scene-tsdf-10-20260922-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c",
+      "newHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc",
+      "reason": "Replace only the repeated signed-distance-field glossary definition with projective, approximate and near-interface-qualified source semantics; keep its citation IDs and every other glossary entry.",
+      "ownerApproval": "Standing routine source-backed truth-correction authority, bounded by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/authorization.json and successful parent preflight; four exact prepared spans only. Not personal source certification, a local-proof waiver or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+      "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+      "reason": "Replace only NASA-supported availability wording and the misleading running-cost calculator description; retain cycle/takt and unproved whole-record obligations.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-2",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7",
+      "newHash": "468bb19a3886e8617014f7a2d1a3eb2fa718c05dcab78d5a988c5ce2276e70dc",
+      "reason": "Disclose the authored RSS model and explicit ray-plane geometry, keeping formula and examples but withdrawing independence, error-bound and measured-calibration assertions.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-3",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "20cc0ecaf854f0873eddf7d1072e12b413c162208cac5c794fe236ede4507244",
+      "newHash": "2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5",
+      "reason": "Add only the NASA citation occurrence for the repaired availability text; existing term and internal-link relationships remain.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-4",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/industrial-deployment",
+      "oldHash": "b35a32a495a8ed85111c3823139f481b56d55f6b9a700e631589018c78723e80",
+      "newHash": "280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50",
+      "reason": "Add only the NASA lesson ID to industrial frontmatter; retain all existing IDs and lastReviewed.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:nasa-availability-prediction-analysis",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a40ca9a668d043680c86a2a05303fd0ff9b50b077b3e79fb35da36f4b718c624",
+      "reason": "Register NASA LLIS Lesson841 with the exact1994-12-01 lesson date and jsc organization; no inferred memorandum year or unread equation proof.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-6",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+      "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+      "reason": "Extend the derived citation-label/metadata population by the NASA lesson only; all430 previous records and resolved renderings remain unchanged.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-7",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc",
+      "newHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
+      "reason": "Correct only the MTBF definition and source to NASA textual inherent/operational availability distinctions; no formula guarantee.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-perception-zero-credit-20260922-8",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "02dfd4f4becd247d248f8c3383cae4163d456b593a4b23f5fca6a732b3ed4886",
+      "newHash": "471442b2b5300ad670b5da991b057d5e030f2378610abef0a010057cb12f9d35",
+      "reason": "Replace only the explanatory perception copy with authored RSS/standard-deviation/independence/bound disclosures; preserve controls, geometry, defaults and calculations.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/authorization.json and current-HEAD preflight. Three exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+      "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+      "reason": "Clarify exactly the local timeline statistics and seven-source callout: report/announcement dates, downloadable markers and selected source formats, not licenses or independent replication.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-2",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+      "newHash": "057071ea25be70e5d17cfc20aacabeac7337660fb3d9abc5f65fcfec6aa21468",
+      "reason": "Replace only the no-goal-knowledge sentence with mostly uniform sampling and a small bias toward the known goal; retain the local RRT scene, seed and algorithm.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-3",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "468bb19a3886e8617014f7a2d1a3eb2fa718c05dcab78d5a988c5ce2276e70dc",
+      "newHash": "316e1c240bc2e0cfa8b2f4a0b0dc8cabfe37680c4617ad8ba83c0af68ccbf4df",
+      "reason": "Replace only the half-degree walkthrough sentence with its default-target conditions and actual marginal far-end verdict; preserve the preceding perception2/19 repairs, formula and thresholds.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "four-local-truth-repairs-20260922-4",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/rrt-explorer.tsx",
+      "oldHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8",
+      "newHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27",
+      "reason": "Correct only the visible RRT goal-sampling percentage from 2% to 1.5%; preserve all controls, numerical data, geometry and behavior.",
+      "ownerApproval": "Standing routine truth-correction authority scoped by /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-four-local-truth-repairs-20260922/authorization.json and the passing current-HEAD preflight, rechecked at application. Four exact originals remain unresolved with zero completion credit. No local-proof, P2, VAL-AUDIT-009, source-liveness or acceptance waiver.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-prose-article-classical-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "31916d31c0cc1dbbffa06cc6bdab6af6b6e4cd05784019d358403793931c19a4",
+      "reason": "Retain main-only editorial additions and correct the RRT known-goal/sampling explanation from d928b6b.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-prose-article-classical-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "091b3e915841c36b6ca2da6a33289e8af7d33eb12b5574a4fec999aeacac42d7",
+      "reason": "Retain main-only editorial additions and the mission corrections distinguishing authored RSS/ray-plane assumptions and conditional marginal half-degree example from measured results.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-prose-article-classical-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "1d29d28886df613888360d80a3c7a8aa25071c7a4fdf845fb82593d373e488d2",
+      "reason": "Retain main-only editorial additions and integrate 660ad53 projective TSDF qualifications and primary citations.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909",
+      "reason": "Retain main-only editorial additions and integrate NASA inherent/operational availability, capital-only calculator and 2.2 percent arithmetic corrections.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-prose-article-manipulation-comparison-matrix",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322",
+      "newHash": "4363112923a1fcf389a833306995ced689789ca9aa88b072a2843fad55d2008d",
+      "reason": "Retain main constraint-solver section and integrate 89cda67 setup-qualified RT-2/OpenVLA introduction.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+      "reason": "Retain main-only editorial additions and integrate d928b6b timeline-entry, downloads-not-license and source-format qualifications.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-relationships-article-classical-scene-representation",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "eae689da8cc82aba0f27f309117402020624902ca5e19698d9c363c9935fe0c7",
+      "reason": "Combined main relationships and mission primary citations for qualified projective TSDF operations.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-relationships-article-data-hardware-industrial-deployment",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
+      "newHash": "2ebb9818d00569c6e5ae2b0e3787df1d9cb925aef811ffceba9aa9e6a3d9d1f5",
+      "reason": "Combined main relationships and mission NASA availability reference; no existing references removed.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-relationships-article-manipulation-comparison-matrix",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955",
+      "newHash": "78d4ae457e0bbcddc2277b7bb4cbaf8ab01871a586d15efd5e1cb5ea6961e822",
+      "reason": "Combined main links and corrected RT-2/OpenVLA inline citation relationships.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-interactive-sources-mounts-source-components-interactive-data-scale-chart-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Mission ca9cb43 separates dataset facts from local authored rates/targets and preserves main production mounts and behavior.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-interactive-sources-mounts-source-components-interactive-perception-error-budget-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "c68e8f345412c4c56b538292cedfc12ba834df2ef85767a58d3d19a318c41b9b",
+      "newHash": "c9b3af94eef78bcdf4620ee1f5880760c5fac6fb45f11c67f1d5383cb6293c4e",
+      "reason": "Combine main server-passed citation-records import with mission authored-rule disclosure; controls, geometry and math remain unchanged.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-interactive-sources-mounts-source-components-interactive-rrt-explorer-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/rrt-explorer.tsx",
+      "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+      "newHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27",
+      "reason": "Correct known-goal and 1.5 percent goal sampling copy only; preserve controls, seed, geometry and algorithm.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-value-states-state-source-components-interactive-data-scale-chart-tsx",
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+      "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9",
+      "reason": "Mission source/assumption distinction preserves explicitly unknown OXE duration rather than inventing zero or a duration.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-article-metadata-article-fact-frontmatter-data-hardware-industrial-deployment",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/industrial-deployment",
+      "oldHash": "e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4",
+      "newHash": "280f4fe8af9fec67246c35637927a9c07e0d37325c4ee98d0dcffa5bfecc6a50",
+      "reason": "Preserve main metadata and add the mission NASA Lessons Learned citation.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-article-metadata-canonical-metadata-source-data-glossary-ts",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
+      "reason": "Combine main glossary additions with mission TSDF and MTBF corrections, preserving known uncertainty.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f",
+      "reason": "Reconcile main citation rendering population with mission NASA 1994 lesson identity; no invented LEI date.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: integrate verified continuation progress, preserve main-only SEO/performance additions, and record exact combined member approvals. Not an audit acceptance, gate waiver, license grant or security override.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

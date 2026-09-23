@@ -20,12 +20,12 @@
     "minutes": 16
   },
   "manipulation/generalist-policies": {
-    "words": 2579,
+    "words": 2574,
     "minutes": 13
   },
   "manipulation/comparison-matrix": {
-    "words": 3322,
-    "minutes": 17
+    "words": 3275,
+    "minutes": 16
   },
   "manipulation/hierarchical": {
     "words": 2175,
@@ -124,7 +124,7 @@
     "minutes": 11
   },
   "data-hardware/data-bottleneck": {
-    "words": 1707,
+    "words": 1751,
     "minutes": 9
   },
   "data-hardware/datasets": {
@@ -144,7 +144,7 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2585,
+    "words": 2623,
     "minutes": 13
   },
   "data-hardware/robot-learning-stack": {
@@ -156,7 +156,7 @@
     "minutes": 13
   },
   "classical/motion-planning": {
-    "words": 3912,
+    "words": 3916,
     "minutes": 20
   },
   "classical/control": {
@@ -172,11 +172,11 @@
     "minutes": 12
   },
   "classical/perception": {
-    "words": 5501,
+    "words": 5550,
     "minutes": 28
   },
   "classical/scene-representation": {
-    "words": 3359,
+    "words": 3380,
     "minutes": 17
   },
   "classical/calibration": {

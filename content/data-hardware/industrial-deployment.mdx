@@ -17,6 +17,7 @@ citations:
   - acemoglu-restrepo-2020
   - mit-work-future-2020
   - ohno-tps-1988
+  - nasa-availability-prediction-analysis
   - evst-cell-cost-2026
   - kroger-ocado-closures-2025
   - osha-otm-robots
@@ -77,7 +78,7 @@ The practical consequence for a policy: buy a robot and deploy a policy is wrong
 
 ## The metrics that decide a deployment
 
-Five quantities decide whether a cell ships, and none of them is a benchmark score. <Term id="cycle-time">Cycle time</Term> is the elapsed time of one complete repetition of the task, start of one pick to start of the next, and it is the denominator of throughput. <Term id="takt-time">Takt time</Term>, from Ohno's Toyota Production System, is the demand rate the line must match, available time divided by required units; a cell slower than takt starves the line no matter how elegant its policy <Cite id="ohno-tps-1988" />. Uptime, or availability, is the share of scheduled time the cell actually runs; it composes from <Term id="mean-time-between-failures">mean time between failures</Term> and its repair counterpart, MTBF over MTBF plus MTTR, and a cell that fails weekly buries any per-pick success rate the policy reports. Cost per pick is the cell's amortized capital plus running cost over its lifetime of good picks, the number the calculator above prints.
+Five quantities decide whether a cell ships, and none of them is a benchmark score. <Term id="cycle-time">Cycle time</Term> is the elapsed time of one complete repetition of the task, start of one pick to start of the next, and it is the denominator of throughput. <Term id="takt-time">Takt time</Term>, from Ohno's Toyota Production System, is the demand rate the line must match, available time divided by required units; a cell slower than takt starves the line no matter how elegant its policy <Cite id="ohno-tps-1988" />. NASA distinguishes inherent availability, which uses <Term id="mean-time-between-failures">mean time between failures</Term> and mean time to repair, from operational availability. The inherent measure excludes administrative and logistics delays and preventive maintenance; the operational measure includes corrective and preventive maintenance, administrative delays and logistics support time. Here, uptime means time in an operable state, not necessarily time spent producing <Cite id="nasa-availability-prediction-analysis" />. The calculator above reports capital cost per modeled pick: robot price times the integration multiple, divided by its modeled lifetime pick count over a fixed amortization period. It does not include running costs. This is a local worked-example calculation, not a measured deployment result.
 
 The <Term id="payback-period">payback period</Term> is total system capital cost divided by monthly labour, reduced-damage and throughput value. EVST's guide estimates 12 to 24 months for multi-shift palletising cells and says single-shift or lower-throughput operations typically stretch closer to 24 to 36 months <Cite id="evst-cell-cost-2026" />.
 

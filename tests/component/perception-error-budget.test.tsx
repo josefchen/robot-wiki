@@ -50,7 +50,9 @@ describe('PerceptionErrorBudget', () => {
     const label = screen.getByTestId('perception-simplification-label');
     expect(label).toHaveTextContent(/range-independent/i);
     expect(label).toHaveTextContent(/square of distance/i);
-    expect(label).toHaveTextContent(/compose/i);
+    expect(label).toHaveTextContent(/Root-sum-of-squares is an authored rule/i);
+    expect(label).toHaveTextContent(/not established standard deviations/i);
+    expect(label).toHaveTextContent(/does not establish independence or a real-system error bound/i);
   });
 
   it('increases the composed error as the working distance grows', () => {

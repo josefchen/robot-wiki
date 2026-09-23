@@ -140,7 +140,9 @@ describe('seven Symbotic and A3 industrial originals', () => {
       'Supporting passage must contain the passage actually read, not a locator or placeholder',
     );
     expect(article).toContain('lastReviewed: "2026-08-22"');
-    expect(article.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
+    const citations = article.split('citations:\n')[1].split('seeAlso:')[0];
+    expect(citations.match(/^  - /gm)).toHaveLength(22);
+    expect(citations).toContain('  - nasa-availability-prediction-analysis');
     expect(CITATIONS.find(c => c.id === 'osha-otm-robots')?.year).toBe(2026);
   });
 });

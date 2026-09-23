@@ -14,6 +14,7 @@ import {
 } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, ledgerAt, sealedHash, showAt } from './helpers/continuation-merge-ledger';
+import { RELEASE_BASE as CONTINUATION_RELEASE_BASE } from '../helpers/continuation-integration';
 
 /**
  * The 2026-09-23 content integration merged release/seo-content-fixes onto
@@ -80,19 +81,21 @@ describe('content integration of 2026-09-23', () => {
     for (const entry of block) {
       expect(entry).toMatchObject({
         oldHash: sealedHash(entry.manifest, entry.memberId),
-        newHash: currentHash(entry.manifest, entry.memberId),
         responsibleMilestone: 'content integration, 2026-09-23',
         disposition: 'permanent',
       });
+      expect(entry).toEqual(ledgerAt(CONTINUATION_RELEASE_BASE).find(prior => prior.id === entry.id));
+      expect(headReanchorFor(approvals, entry.manifest, entry.memberId)?.newHash)
+        .toBe(currentHash(entry.manifest, entry.memberId));
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
-    // The label/meta digest was re-anchored by the 2026-09-22 integration;
-    // this block's entry is now the latest re-anchor that brackets HEAD.
-    expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id).toBe(`${PREFIX}label-and-meta`);
+    expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
+      .toBe('continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta');
   });
 
   it('approves the changed members only with every exact entry present and unmutated', () => {
-    const block = approvals.filter((entry) => entry.id.startsWith(PREFIX));
+    const block = members.map(([kind, id]) => headReanchorFor(approvals, kind, id)!);
+    expect(block).toHaveLength(members.length);
     expect(compareBaseline(bundle(true), bundle(false), block).ok).toBe(true);
     for (const approval of block) {
       expect(compareBaseline(bundle(true), bundle(false), block.filter((a) => a.id !== approval.id)).ok).toBe(false);
@@ -112,8 +115,13 @@ describe('content integration of 2026-09-23', () => {
       return source.slice(at, source.indexOf('\n  },', at));
     };
     for (const id of baseIds) expect(block(current, id), id).toBe(block(before, id));
-    expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id)).sort()).toEqual(['llama-3-herd-2024', 'shiu-ahmad-1989']);
-    expect(CITATIONS).toHaveLength(baseIds.length + 2);
+    expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id)).sort()).toEqual([
+      'llama-3-herd-2024', 'nasa-availability-prediction-analysis', 'shiu-ahmad-1989',
+    ]);
+    expect(CITATIONS).toHaveLength(baseIds.length + 3);
+    expect(CITATIONS.find(c => c.id === 'nasa-availability-prediction-analysis')).toMatchObject({
+      year: 1994, url: 'https://llis.nasa.gov/lesson/841',
+    });
     expect(CITATIONS.find((c) => c.id === 'llama-3-herd-2024')).toEqual({
       id: 'llama-3-herd-2024',
       title: 'The Llama 3 Herd of Models',

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations.ts';
+import { committedSource } from '../helpers/continuation-integration';
 import {
   classifyVerdict,
   compoundPartDigest,
@@ -180,9 +181,14 @@ describe('two source-backed verdict reconciliations, not structural completions'
   });
 
   it('records zero new structural completions while closing the two outcome findings', () => {
-    expect(ledger).toContain('- Unresolved or unrecognised verdicts: 0');
-    expect(ledger).toContain('- Complete evidence records: 176');
-    expect(ledger).toContain('- Incomplete evidence records: 11');
+    const historical = committedSource('e687718', 'audit/classical.md');
+    expect(historical).toContain('- Unresolved or unrecognised verdicts: 0');
+    expect(historical).toContain('- Complete evidence records: 176');
+    expect(historical).toContain('- Incomplete evidence records: 11');
+    const current = parseLedger('audit/classical.md', ledger, registry, { compoundPlans: catalog });
+    expect(current.flatMap(section => section.summaryFailures)).toEqual([]);
+    expect(ledger).toContain('- Complete evidence records: 177');
+    expect(ledger).toContain('- Incomplete evidence records: 10');
     // Later checkpoints are prepended above this one, so find it by heading
     // rather than assuming it is still the first block.
     const checkpoint = readFileSync('audit/README.md', 'utf8')

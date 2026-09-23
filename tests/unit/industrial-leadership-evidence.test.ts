@@ -18,7 +18,7 @@ import {
   TRUE_MERGE_BASE,
   laneWindow,
   ledgerAt,
-  reanchorFor,
+  headReanchorFor,
   sealedHash,
   showAt,
 } from './helpers/continuation-merge-ledger';
@@ -147,16 +147,13 @@ const newProseHash = '125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33de
 const approvals = JSON.parse(
   readFileSync('contract/brand-v2-approved-deltas.json', 'utf8'),
 ).entries as ApprovedDelta[];
-// The production line's range-hyphen normalization (78a6afb) is the only
-// production edit to this article since the true merge base; the lane
-// endpoint is the integrated article with that edit reverted.
+// The first integration also carried main's range-hyphen normalization.
+// Preserve the MIT packet's actual historical endpoint separately from
+// the later NASA availability/capital-only correction.
 const productionEdits = [
   ['note="2021–2024 each above 500k"', 'note="2021-2024 each above 500k"'],
 ] as const;
-const laneArticle = productionEdits.reduce(
-  (text, [laneText, productionText]) => text.replace(productionText, laneText),
-  article,
-);
+const laneArticle = showAt('01f3d24', articlePath);
 // Lane ledger immediately before this approval (commit 6e5ee4c).
 const laneLedgerBefore = '6e5ee4c67a44e1f72941fa9f4e0ea17754fcd434';
 const proseHash = (source: string) => buildManifest('prose', [{
@@ -273,12 +270,14 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(proseHash(laneArticle.replace(newSpan, oldSpan))).toBe(oldProseHash);
     // Integrated line: the merged member is re-anchored from its seal.
     expect(
-      reanchorFor(approvals, 'prose', 'article:data-hardware/industrial-deployment'),
+      headReanchorFor(approvals, 'prose', 'article:data-hardware/industrial-deployment'),
     ).toMatchObject({
       oldHash: sealedHash('prose', 'article:data-hardware/industrial-deployment'),
       newHash: proseHash(article),
     });
-    expect(article.match(/<Cite\s/g)).toHaveLength(32);
+    expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
+    expect(article.match(/<Cite\s/g)).toHaveLength(33);
+    expect(article.match(/<Cite id="nasa-availability-prediction-analysis" \/>/g)).toHaveLength(1);
     expect(article.match(/<Cite id="mit-work-future-2020" \/>/g)).toHaveLength(1);
     expect(matter(article).data.lastReviewed).toBe('2026-08-22');
   });

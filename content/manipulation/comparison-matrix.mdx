@@ -37,9 +37,9 @@ seeAlso:
 
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 
-The preceding modules followed one lineage at a time. This table places 18 policies side by side across eight architectural axes. Each row links to its registered sources. Read the setting and release notes with the values: a paper, a model card, and a repository snapshot can describe different versions of the same system.
+RT-2’s reported rates depend on the model and serving setup. Its 55B PaLI-X variant runs at 1 to 3 Hz, while the 5B variant runs at around 5 Hz, using a multi-TPU cloud service queried over the network. <Cite id="rt2-2023" />
 
-Set the weights filter to Downloadable to select records with a reported download. Not disclosed is a separate availability state, not a closed-license claim. An unset scalar rate does not establish that no setup-specific rate appears in a paper. In particular, the RT-2 and OpenVLA rate cells remain unset here; they are not evidence that those papers disclose no rates.
+OpenVLA v3 reports approximately 6 Hz inference on one NVIDIA RTX 4090 in bfloat16, without compilation, speculative decoding, or other inference speed-up tricks. <Cite id="openvla-2024" />
 
 <ComparisonMatrix className="my-6 wide-measure" />
 

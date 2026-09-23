@@ -264,7 +264,9 @@ test.describe('classical perception module', () => {
     expect(text).toMatch(/range-independent/i);
     // And why, including what the faithful model would do instead.
     expect(text).toMatch(/square of distance/i);
-    expect(text).toMatch(/compose/i);
+    expect(text).toMatch(/Root-sum-of-squares is an authored rule/i);
+    expect(text).toMatch(/not established standard deviations/i);
+    expect(text).toMatch(/does\s+not establish independence or a real-system error bound/i);
   });
 
   test('switching the target from opaque to transparent changes the depth and verdict readouts (VAL-CLASS-043)', async ({

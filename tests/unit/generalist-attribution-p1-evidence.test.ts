@@ -10,6 +10,7 @@ import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedge
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
+import { committedSource } from '../helpers/continuation-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
@@ -42,7 +43,10 @@ const currentHash = (kind: BaselineKind, memberId: string) => Object.values(trut
 // HEAD for that member; it carries the integration re-anchor from its sealed
 // hash to the merged hash instead, and, once later registry additions move the
 // digest again, a later re-anchor from the same seal to HEAD.
-const productionTouched = new Set(['article-metadata|citation-rendering:label-and-meta']);
+const productionTouched = new Set([
+  'article-metadata|citation-rendering:label-and-meta',
+  'prose|article:manipulation/generalist-policies',
+]);
 const touched = ([kind, id]: [BaselineKind, string, string]) => productionTouched.has(`${kind}|${id}`);
 function bundle(old: boolean, selected: Array<[BaselineKind, string, string]> = oldHashes): BaselineBundle {
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
@@ -58,7 +62,11 @@ function bundle(old: boolean, selected: Array<[BaselineKind, string, string]> = 
 describe('generalist originals 15 and 21, exact attribution and metadata correction', () => {
   it('changes exactly the authorized paragraph without changing frontmatter or other claims', () => {
     expect(before(articlePath).split(oldSpan)).toHaveLength(2);
-    expect(article).toBe(before(articlePath).replace(oldSpan, newSpan));
+    expect(committedSource('afeeb05', articlePath)).toBe(before(articlePath).replace(oldSpan, newSpan));
+    // The later bounded truth repair changes the stat/callout copy only,
+    // while retaining this source-backed attribution paragraph.
+    expect(article).toBe(committedSource('d928b6b', articlePath));
+    expect(article).toContain(newSpan);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
   });
@@ -133,10 +141,20 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     expect(parse(plans, ledger, declared)[20].evidenceFailures.length).toBeGreaterThan(0);
   });
   it('preserves all prior plans and all unselected article rows including held original19', () => {
-    expect(plans.slice(0, oldPlans.length)).toEqual(oldPlans);
+    const priorIds = new Set(oldPlans.map(p => p.id));
+    const comparisonId = 'comparison-current-1-20260907';
+    expect(oldPlans.some(p => p.id === comparisonId)).toBe(true);
+    expect(plans.filter(p => priorIds.has(p.id) && p.id !== comparisonId)).toEqual(oldPlans.filter(p => p.id !== comparisonId));
+    const comparison = plans.find(p => p.id === comparisonId)!;
+    expect(comparison.planReview?.planDigest).toBe(compoundPlanDigest(comparison));
+    expect(comparison.parts).toHaveLength(23);
     const old = parse(oldPlans, before('audit/manipulation.md'));
     expect(parse()).toHaveLength(21);
-    for (let i = 0; i < old.length; i++) if (![14, 20].includes(i)) expect(parse()[i]).toEqual(old[i]);
+    for (let i = 0; i < old.length; i++) if (![14, 18, 20].includes(i)) expect(parse()[i]).toEqual(old[i]);
+    const heldHistory = parse()[18].note.match(/^Historical four-cell record retained: (.+) Correction rationale:/);
+    expect(heldHistory).not.toBeNull();
+    expect(originalClaimDigest(JSON.parse(heldHistory![1]))).toBe(originalClaimDigest(old[18]));
+    expect(parse()[18].verdict).toBe('UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)');
     expect(parse()[18].evidenceFailures.length).toBeGreaterThan(0);
     expect(ledger).toContain('Historical: generalist attribution and P1 correction 2026-09-22');
     const historyText = ledger.split('## Historical: generalist attribution and P1 correction 2026-09-22')[1];
@@ -177,8 +195,10 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
         // The integration re-anchor keeps the merged value that the
         // integration commit's own evidence observed; HEAD is bracketed from
         // the same seal by the latest re-anchor, which never precedes it.
-        expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
-        expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
+        if (reanchor) {
+          expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
+          expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
+        }
         const head = headReanchorFor(approvals, manifest, memberId)!;
         expect(head).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));

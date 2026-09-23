@@ -99,7 +99,10 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   registered llama-3-herd-2024 and shiu-ahmad-1989, which moved
  *   `citation-rendering:label-and-meta`.
  */
-export const LATER_REANCHOR_PREFIXES = ['content-integration-20260923-'] as const;
+export const LATER_REANCHOR_PREFIXES = [
+  'content-integration-20260923-',
+  'continuation-merge-2026-09-23-',
+] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;
 

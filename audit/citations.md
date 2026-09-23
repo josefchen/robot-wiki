@@ -855,3 +855,28 @@ integrator; every passage needle-verified against the retained sha256-pinned byt
 | ID | URL | Verdict | Identity | Correction | Note |
 |---|---|---|---|---|---|
 | no-hands-across-america-1995 | https://www.cs.cmu.edu/~tjochem/nhaa/nhaa_home_page.html | ok (retained) | match (retained) | registered 2026-09-17 from the frozen AO packet (convergence-ao-av2-plus-bookretry-20260917a, binding autonomous-vehicles:2); https no-redirect re-verified fresh by the preparer 2026-09-17; integrator needle-verified the retained bytes; no fresh fetch |  |
+
+
+## NASA availability lesson registration, 2026-09-22
+
+Retained primary identity and text review only; no fresh URL/liveness acceptance. The official LLIS Subject is Availability Prediction and Analysis. Exact Lesson Info: "Lesson Number841Lesson Date1994-12-01Submitting Organizationjsc". Register NASA as institutional publisher and 1994 as the lesson year, not the original memorandum date or retrieval year. The generic scraper title "Llis" is not the document title.
+
+Observed retrieval: 2026-09-22T22:28:18.417Z, rune___web_scrape / Firecrawl response event 4fea48b3-a0e4-4376-ada9-d89f054fce8f. No origin HTTP status was exposed; no redirect chain is inferred. Requested/final URL: https://llis.nasa.gov/lesson/841. Retained response /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/source-3.txt; SHA256 40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6; markdown SHA256 27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae; truncated=false, chars=14844. Current integration rechecked these hashes and the literal passages below; zero requests. Equation images and linked text descriptions were not retrieved. No formula, MTBF estimator, local calculator or whole-record proof is inferred.
+
+> Lesson Number841Lesson Date1994-12-01Submitting Organizationjsc
+
+> This Lesson Learned is based on Maintainability Technique number AT-3 from NASA Technical Memorandum 4628, Recommended Techniques for Effective Maintainability.
+
+> One basic measure of availability, called inherent availability, is useful during the design process to assess design characteristics. The measure involves only the as-designed reliability and maintainability characteristics and can be calculated using the estimated mean-time-between-failure (MTBF) and mean-time-to repair (MTTR) parameters.
+
+> The MTTR time in the inherent availability calculation does not include such times as administrative or logistic delay time, which generally are beyond the control of the designer, and does not include preventive maintenance time.
+
+> A third basic measure of availability, operational availability, considers all repair time: corrective and preventive maintenance time, administrative delay time, and logistic support time.
+
+> where Uptime is the total time a system is in an operable state, and Downtime is the total time the system is in an inoperable state. The sum of Uptime and Downtime, or Total Time, is usually known, specified as a requisite operating time, or is a given time to perform a critical function.
+
+> Estimate or predict the future availability of a system, function, or unit where availability is defined as the probability that the system, function, or unit will be in an operable state at a random time.
+
+| ID | URL | Verdict | Identity | Correction | Note |
+| --- | --- | --- | --- | --- | --- |
+| nasa-availability-prediction-analysis | https://llis.nasa.gov/lesson/841 | unresolved (current liveness not checked) | retained Subject and Lesson Info match; NASA institutional publisher, lesson date 1994-12-01, organization jsc | registered from the hash-verified retained primary response; no fresh fetch | text distinctions only; equations unseen; industrial original32 remains incomplete |
