@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T04:04:50.721Z",
+  "endedAt": "2026-09-23T04:04:55.409Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/reward-local-evidence.spec.ts",
+    "bytes": 7622,
+    "sha256": "57066b284cf21fd1aea8dec55ea33634cf4988129c8f9cb27719bbe748ee0b98"
+  },
+  "inputDigest": "2f3fd0d8bbcde145f3b4ec145125a90bd4895dc19ed97c074ac2f04c44d1a55a",
+  "outputDigest": "e8c4b04758425ca184c5449b779411968fc172e1b9f17348265d893c3de24a07",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 20078,
+        "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+      },
+      "id": "article:rl-sim2real/reward-design-mpc",
+      "offset": 0,
+      "length": 20078,
+      "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+      "baseline": {
+        "kind": "prose",
+        "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/reward-shaping.tsx",
+        "bytes": 16272,
+        "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+      },
+      "id": "source:components/interactive/reward-shaping.tsx",
+      "offset": 0,
+      "length": 16272,
+      "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/reward-shaping.ts",
+        "bytes": 11534,
+        "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+      },
+      "id": "file:lib/reward-shaping.ts",
+      "offset": 0,
+      "length": 11534,
+      "sha256": "2af8aa1a92d8a8dc1f648c3ada976f27fae5b6238d648493a62d25bc3578bc76"
+    },
+    {
+      "file": {
+        "path": "lib/gait.ts",
+        "bytes": 5631,
+        "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+      },
+      "id": "file:lib/gait.ts",
+      "offset": 0,
+      "length": 5631,
+      "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 40817,
+      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/reward-local-evidence.spec.ts",
+        "bytes": 7622,
+        "sha256": "57066b284cf21fd1aea8dec55ea33634cf4988129c8f9cb27719bbe748ee0b98"
+      },
+      "id": "file:tests/e2e/reward-local-evidence.spec.ts",
+      "offset": 0,
+      "length": 7622,
+      "sha256": "57066b284cf21fd1aea8dec55ea33634cf4988129c8f9cb27719bbe748ee0b98"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+        "bytes": 4287,
+        "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+      },
+      "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+      "offset": 0,
+      "length": 4287,
+      "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+      "caseId": "reset",
+      "prestate": "Chatter at action-rate 0",
+      "action": "Activate RewardShaping Reset",
+      "poststate": "balanced, original phase-zero pose, total -5.52",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"total-readout\"]",
+          "text": "-5.52"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/reward-local-20260923/reward-reset.dom.json",
+        "bytes": 184436,
+        "sha256": "687634fe6ae1a6ec541023cb701a78db7da1a9578ca9eb99ce7a2a1f354ac782"
+      },
+      "capture": {
+        "path": "audit/evidence/reward-local-20260923/reward-reset.png",
+        "bytes": 101203,
+        "sha256": "bdc8e1359361843bef748b2df15c1d99e2896bee0ec571977e52773f1f150250"
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "values": {
+    "contributions": [
+      {
+        "id": "velTrack",
+        "value": 1
+      },
+      {
+        "id": "yawTrack",
+        "value": 0.25
+      },
+      {
+        "id": "torque",
+        "value": -4
+      },
+      {
+        "id": "jointAccel",
+        "value": -0.25
+      },
+      {
+        "id": "actionRate",
+        "value": -0.8
+      },
+      {
+        "id": "jointLimit",
+        "value": -1
+      },
+      {
+        "id": "collision",
+        "value": -1
+      },
+      {
+        "id": "baseHeight",
+        "value": 0.25
+      },
+      {
+        "id": "orientation",
+        "value": -0.6400000000000001
+      },
+      {
+        "id": "airTime",
+        "value": 0.36
+      },
+      {
+        "id": "stumble",
+        "value": -0.6400000000000001
+      },
+      {
+        "id": "termination",
+        "value": -2.25
+      }
+    ],
+    "total": -8.72,
+    "behavior": "frozen",
+    "pose": {
+      "bodyY": 0,
+      "legs": {
+        "lf": {
+          "footDx": 0,
+          "footDy": 0
+        },
+        "rf": {
+          "footDx": 0,
+          "footDy": 0
+        },
+        "lh": {
+          "footDx": 0,
+          "footDy": 0
+        },
+        "rh": {
+          "footDx": 0,
+          "footDy": 0
+        }
+      },
+      "groundOffset": 0
+    },
+    "display": [
+      "-8.72"
+    ]
+  },
+  "units": "dimensionless unless explicitly keyed",
+  "precision": "total:toFixed(2); pose:existing model rounding",
+  "formula": "reward:derive:v1"
+}

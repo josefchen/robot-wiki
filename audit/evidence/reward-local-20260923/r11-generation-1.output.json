@@ -1,0 +1,118 @@
+{
+  "values": {
+    "previous": {
+      "index": 0,
+      "code": [
+        "def reward(obs, act):",
+        "    # task: walk forward at 1.0 m/s",
+        "    return obs.base_lin_vel_x"
+      ],
+      "fitness": 0.31,
+      "stats": [
+        {
+          "label": "episode length",
+          "value": "0.4 s",
+          "tone": "err"
+        },
+        {
+          "label": "base_vel_x (mean)",
+          "value": "2.8 m/s",
+          "tone": "warn"
+        },
+        {
+          "label": "episodes ending in a fall",
+          "value": "100%",
+          "tone": "err"
+        },
+        {
+          "label": "time at target speed",
+          "value": "3%",
+          "tone": "err"
+        }
+      ],
+      "reflection": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly three times the command, then every episode terminates in under half a second. The reward pays for speed and never for survival, so sprinting into a fall is the optimal policy. Next generation: add a survival bonus and make falls expensive."
+    },
+    "next": {
+      "index": 1,
+      "code": [
+        "def reward(obs, act):",
+        "    # task: walk forward at 1.0 m/s",
+        "    alive = 1.0",
+        "    fall = 0.0",
+        "    if obs.terminated:",
+        "        fall = -5.0",
+        "    speed = obs.base_lin_vel_x",
+        "    return speed + alive + fall"
+      ],
+      "fitness": 0.58,
+      "stats": [
+        {
+          "label": "episode length",
+          "value": "20.0 s (max)",
+          "tone": "ok"
+        },
+        {
+          "label": "base_vel_x (mean)",
+          "value": "0.02 m/s",
+          "tone": "err"
+        },
+        {
+          "label": "episodes ending in a fall",
+          "value": "0%",
+          "tone": "ok"
+        },
+        {
+          "label": "time at target speed",
+          "value": "1%",
+          "tone": "err"
+        }
+      ],
+      "reflection": "The fall penalty worked too well. Episodes now run to the time limit with zero falls, but mean velocity collapsed to 0.02 m/s: standing still collects the alive bonus with no risk. The statistics show survival saturated and the task term starved. Next generation: replace raw speed with tracking the 1.0 m/s command, and price action rate so the gait is smooth enough to matter on hardware."
+    },
+    "display": [
+      "Generation 1 of 2",
+      "0.58"
+    ],
+    "diff": [
+      {
+        "type": "same",
+        "text": "def reward(obs, act):"
+      },
+      {
+        "type": "same",
+        "text": "    # task: walk forward at 1.0 m/s"
+      },
+      {
+        "type": "del",
+        "text": "    return obs.base_lin_vel_x"
+      },
+      {
+        "type": "add",
+        "text": "    alive = 1.0"
+      },
+      {
+        "type": "add",
+        "text": "    fall = 0.0"
+      },
+      {
+        "type": "add",
+        "text": "    if obs.terminated:"
+      },
+      {
+        "type": "add",
+        "text": "        fall = -5.0"
+      },
+      {
+        "type": "add",
+        "text": "    speed = obs.base_lin_vel_x"
+      },
+      {
+        "type": "add",
+        "text": "    return speed + alive + fall"
+      }
+    ]
+  },
+  "units": "dimensionless unless explicitly keyed",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "eureka:derive:v1"
+}

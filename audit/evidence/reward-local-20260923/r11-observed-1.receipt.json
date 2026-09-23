@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T04:04:50.721Z",
+  "endedAt": "2026-09-23T04:04:55.409Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/reward-local-evidence.spec.ts",
+    "bytes": 7622,
+    "sha256": "57066b284cf21fd1aea8dec55ea33634cf4988129c8f9cb27719bbe748ee0b98"
+  },
+  "inputDigest": "8b6ef35be7f8f54a4fc3c15172f98336abbeaa816beb3a12b8246e5651d33548",
+  "outputDigest": "1d211505b297e32d4388f17ffa28c24a1894dddcdd32097b164334ea13b29585",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 20078,
+        "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+      },
+      "id": "article:rl-sim2real/reward-design-mpc",
+      "offset": 0,
+      "length": 20078,
+      "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d",
+      "baseline": {
+        "kind": "prose",
+        "hash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/eureka-loop.tsx",
+        "bytes": 8062,
+        "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+      },
+      "id": "source:components/interactive/eureka-loop.tsx",
+      "offset": 0,
+      "length": 8062,
+      "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/eureka.ts",
+        "bytes": 5722,
+        "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+      },
+      "id": "file:lib/eureka.ts",
+      "offset": 0,
+      "length": 5722,
+      "sha256": "6c43e0307499cf1cf83f8286a97be88eeddf65f69ba97c911eefee6d95caa1f9"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 40817,
+      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/reward-local-evidence.spec.ts",
+        "bytes": 7622,
+        "sha256": "57066b284cf21fd1aea8dec55ea33634cf4988129c8f9cb27719bbe748ee0b98"
+      },
+      "id": "file:tests/e2e/reward-local-evidence.spec.ts",
+      "offset": 0,
+      "length": 7622,
+      "sha256": "57066b284cf21fd1aea8dec55ea33634cf4988129c8f9cb27719bbe748ee0b98"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/reward-local-20260923/proof-support.ts",
+        "bytes": 4287,
+        "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+      },
+      "id": "file:audit/evidence/reward-local-20260923/proof-support.ts",
+      "offset": 0,
+      "length": 4287,
+      "sha256": "666f96d42c7413d6310d0699b7b7d01e8fa6b2c8c73e9acda4294a634743bdc5"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+      "caseId": "focus-each-control",
+      "prestate": "Generation 0",
+      "action": "Focus Run next generation and press Enter",
+      "poststate": "Generation 1 of 2, fitness 0.58, standing-still fixtures, diff, Next enabled",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"generation-readout\"], [data-testid=\"fitness-readout\"]",
+          "text": "Generation 1 of 2"
+        },
+        {
+          "selector": "[data-testid=\"generation-readout\"], [data-testid=\"fitness-readout\"]",
+          "text": "0.58"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/reward-local-20260923/eureka-1.dom.json",
+        "bytes": 180341,
+        "sha256": "acd247ed7de01858ca4dbd5352965eda3cf49b2902738a1ac276159761c4ea84"
+      },
+      "capture": {
+        "path": "audit/evidence/reward-local-20260923/eureka-1.png",
+        "bytes": 138420,
+        "sha256": "2d1172f3a1c627b1c497439d0f418859ee397a801d839e59d4a1c2a9fbe57ea5"
+      }
+    }
+  ]
+}

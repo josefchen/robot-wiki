@@ -92,19 +92,19 @@ function attractorTakeaway(
 ): string {
   const n = TERMS.length;
   if (behaviorId === 'frozen') {
-    return `The ${n} reward weights sum to a total of ${total} per step, and the preview is the freeze attractor: torque ${formatWeight(weights.torque)} now outweighs velocity tracking, so standing still pays more than walking.`;
+    return `The ${n} weighted reward terms give an illustrative total of ${total} per step, and the preview is the freeze attractor: torque ${formatWeight(weights.torque)} now outweighs velocity tracking, so the chosen rule draws a stationary pose, not a trained optimum.`;
   }
   if (behaviorId === 'prancing') {
-    return `The ${n} reward weights sum to a total of ${total} per step, and the preview is the prance attractor: foot air time ${formatWeight(weights.airTime)} now outweighs velocity tracking, so the robot bounces in place.`;
+    return `The ${n} weighted reward terms give an illustrative total of ${total} per step, and the preview is the prance attractor: foot air time ${formatWeight(weights.airTime)} now outweighs velocity tracking, so the chosen rule draws bouncing in place, not a trained policy.`;
   }
   if (behaviorId === 'chatter') {
-    return `The ${n} reward weights sum to a total of ${total} per step, and the preview is the chatter attractor: action-rate is only ${formatWeight(weights.actionRate)}, so nothing prices step-to-step joint vibration.`;
+    return `The ${n} weighted reward terms give an illustrative total of ${total} per step, and the preview is the chatter attractor: action-rate is only ${formatWeight(weights.actionRate)}, so the chosen rule draws vibration, not a measured control frequency.`;
   }
   // The balanced regime's real exit condition is relative: a term leaves
   // balanced only when it BOTH clears ATTRACTOR_WEIGHT_MIN and reaches
   // ATTRACTOR_DOMINANCE_RATIO x velTrack. High velTrack keeps heavy
   // penalties balanced, so an absolute "below 2.5" claim would be false.
-  return `The ${n} reward weights sum to a total of ${total} per step, and the preview is a balanced trot: neither torque ${formatWeight(weights.torque)} nor air time ${formatWeight(weights.airTime)} clears the ${ATTRACTOR_WEIGHT_MIN} attractor bar and ${ATTRACTOR_DOMINANCE_RATIO}x the ${formatWeight(weights.velTrack)} velocity-tracking weight together, so the quadruped tracks velocity instead of freezing, prancing, or chattering.`;
+  return `The ${n} weighted reward terms give an illustrative total of ${total} per step, and the preview is a balanced trot: neither torque ${formatWeight(weights.torque)} nor air time ${formatWeight(weights.airTime)} clears the ${ATTRACTOR_WEIGHT_MIN} attractor bar and ${ATTRACTOR_DOMINANCE_RATIO}x the ${formatWeight(weights.velTrack)} velocity-tracking weight together, so the chosen rule draws a trot instead of freezing, prancing, or chattering.`;
 }
 
 export function RewardShaping({ className }: { className?: string }) {
