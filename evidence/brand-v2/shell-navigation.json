@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "45fb9d5ae093faf044af891217028f66e20ba923d8476cb6f6212d7dbba4316a",
+  "fingerprint": "03bb03676eb5779ad7a0fb5d220f314f815951b589c97cda908825b5a7f0b000",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -4251,7 +4251,7 @@
       }
     },
     {
-      "visibleTextLength": 15880,
+      "visibleTextLength": 16849,
       "ariaCurrentNodes": [
         {
           "tag": "a",

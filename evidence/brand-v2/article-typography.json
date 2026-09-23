@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0e4c21406c50578c72f041c398aab6e1346eb786b1d1dec865f172f7b3ae37c8",
+  "fingerprint": "45b8f3809533a67a55f4bf73cb694b1133f4f06f1959bbe625e3eaec9e053d05",
   "viewports": [
     "375x812",
     "1440x900"
@@ -13129,7 +13129,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15501,
+      "visibleTextLength": 16470,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13196,11 +13196,11 @@
           "Major Datasets"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "open-x-embodiment-2023",
@@ -13345,6 +13345,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Two details set it apart. It includes 5,000 real-world failu"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The inspected public card displays an Apache-2.0 license bad"
         },
         {
           "familyHead": "newsreader",
@@ -13585,7 +13594,7 @@
         },
         {
           "kind": "citation",
-          "count": 58,
+          "count": 60,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13595,7 +13604,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 58,
+              "count": 60,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13629,7 +13638,7 @@
         },
         {
           "kind": "external",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13645,6 +13654,16 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -65670,7 +65689,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15880,
+      "visibleTextLength": 16849,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65737,11 +65756,11 @@
           "Major Datasets"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "open-x-embodiment-2023",
@@ -65886,6 +65905,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Two details set it apart. It includes 5,000 real-world failu"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The inspected public card displays an Apache-2.0 license bad"
         },
         {
           "familyHead": "newsreader",
@@ -66126,7 +66154,7 @@
         },
         {
           "kind": "citation",
-          "count": 58,
+          "count": 60,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -66136,7 +66164,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 58,
+              "count": 60,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -66170,7 +66198,7 @@
         },
         {
           "kind": "external",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -66186,6 +66214,16 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]

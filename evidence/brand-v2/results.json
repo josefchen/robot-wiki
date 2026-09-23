@@ -2406,11 +2406,11 @@
                   "Major Datasets"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 10,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "open-x-embodiment-2023",
@@ -9588,7 +9588,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 58,
+                  "count": 60,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9598,7 +9598,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 58,
+                      "count": 60,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9632,7 +9632,7 @@
                 },
                 {
                   "kind": "external",
-                  "count": 6,
+                  "count": 7,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9648,6 +9648,16 @@
                       "decorationStyle": "solid",
                       "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
                       "familyHead": "ibm plex mono",
+                      "shape": "inline border:0px/solid radius:0px"
+                    },
+                    {
+                      "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+                      "count": 1,
+                      "colour": "rgb(36, 95, 255)",
+                      "decorationLine": "underline",
+                      "decorationStyle": "solid",
+                      "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+                      "familyHead": "newsreader",
                       "shape": "inline border:0px/solid radius:0px"
                     }
                   ]
@@ -60834,7 +60844,7 @@
                 "unscopedHeaders": 0,
                 "sortButtons": 7,
                 "sortedColumns": 1,
-                "notDisclosedCells": 10,
+                "notDisclosedCells": 11,
                 "notApplicableCells": 0,
                 "scrollContainer": {
                   "overflowX": "auto",
@@ -60890,7 +60900,7 @@
                 "unscopedHeaders": 0,
                 "sortButtons": 7,
                 "sortedColumns": 1,
-                "notDisclosedCells": 10,
+                "notDisclosedCells": 11,
                 "notApplicableCells": 0,
                 "scrollContainer": {
                   "overflowX": "auto",
@@ -66646,11 +66656,11 @@
                   "Major Datasets"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 10,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "open-x-embodiment-2023",
@@ -70930,6 +70940,7 @@
                   "agibot-world-2025",
                   "agibot-world-2025",
                   "agibot-world-2026",
+                  "robomind-2024",
                   "robomind-2024",
                   "robomind-2024",
                   "cc-by-4-0-deed",
@@ -100411,7 +100422,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/datasets moved from a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c to 5f7d6f74fe4ba29d42d392c64bbd48d78be6913facdf521304873c5594ed8e5b exactly as approved delta continuation-merge-20260922-prose-data-hardware-datasets permits: Integration of josef/droid-wiki-continuation afeeb05 into main (true merge base 9212034): the merged prose member article:data-hardware/datasets combines main-line approvals seo-20260824-prose-b60aecf7d1d5, seo-merge-20260916-prose-8 with continuation approvals dataset-license-pair-20260921-3. Each lane approval brackets only its own lane endpoint (continuation lane approvals chain from lane-local hashes), so none reproduces the merged value; this entry re-anchors the combined, already-approved change to the sealed baseline value and records the merged-tree hash. No wording beyond the two lanes' approved edits was introduced by the merge.",
+      "actual": "prose member article:data-hardware/datasets moved from a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c to 6c44e285bfb380f855ffc2ab69dc783ea266fbdf6ec21fc894564bf2ab4b9adf exactly as approved delta continuation-merge-2026-09-23-0340-prose-datasets permits: Retain main-only training-contract and related-link additions while integrating the mission RoboMIND 107k v1.1/v1.2 licensing disclosure, public badge/access distinctions and truthful not-disclosed table value. No permission grant or audit acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100423,9 +100434,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/datasets",
           "baselineHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
-          "currentHash": "5f7d6f74fe4ba29d42d392c64bbd48d78be6913facdf521304873c5594ed8e5b",
+          "currentHash": "6c44e285bfb380f855ffc2ab69dc783ea266fbdf6ec21fc894564bf2ab4b9adf",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-20260922-prose-data-hardware-datasets"
+          "approvedDelta": "continuation-merge-2026-09-23-0340-prose-datasets"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102007,7 +102018,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/datasets moved from 2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8 to 7a4f81d7fa7e89c8143a01a10471eb8da49c6dca0fa676d5c47a6e496cb23c20 exactly as approved delta continuation-merge-20260922-relationships-data-hardware-datasets permits: Integration of josef/droid-wiki-continuation afeeb05 into main (true merge base 9212034): the merged relationships member article:data-hardware/datasets combines main-line approvals seo-20260824-relationships-f2d4be4f23cf with continuation approvals dataset-license-pair-20260921-4. Each lane approval brackets only its own lane endpoint (continuation lane approvals chain from lane-local hashes), so none reproduces the merged value; this entry re-anchors the combined, already-approved change to the sealed baseline value and records the merged-tree hash. No wording beyond the two lanes' approved edits was introduced by the merge.",
+      "actual": "relationships member article:data-hardware/datasets moved from 2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8 to a89b63a5e83d871c880facb9f85e6b0e8d91af227c530fb6ef81a661adbdc50f exactly as approved delta continuation-merge-2026-09-23-0340-relationships-datasets permits: Retain main-only training-contract and related-link additions while integrating the mission RoboMIND 107k v1.1/v1.2 licensing disclosure, public badge/access distinctions and truthful not-disclosed table value. No permission grant or audit acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102019,9 +102030,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/datasets",
           "baselineHash": "2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8",
-          "currentHash": "7a4f81d7fa7e89c8143a01a10471eb8da49c6dca0fa676d5c47a6e496cb23c20",
+          "currentHash": "a89b63a5e83d871c880facb9f85e6b0e8d91af227c530fb6ef81a661adbdc50f",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-20260922-relationships-data-hardware-datasets"
+          "approvedDelta": "continuation-merge-2026-09-23-0340-relationships-datasets"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -104095,7 +104106,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/datasets/ ships 47 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 47 outbound anchor occurrences on it with a visible focus ring in 166 stops",
+      "actual": "/data-hardware/datasets/ ships 49 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 49 outbound anchor occurrences on it with a visible focus ring in 169 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104103,8 +104114,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/datasets/",
-          "outboundAnchors": 47,
-          "distinctHrefs": 17,
+          "outboundAnchors": 49,
+          "distinctHrefs": 18,
           "shapes": [
             "citation-chip",
             "footer",
@@ -104112,9 +104123,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 38,
-          "reachedByTab": 47,
-          "tabStops": 166,
+          "anchorsWithNoreferrer": 40,
+          "reachedByTab": 49,
+          "tabStops": 169,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -131165,7 +131176,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/datasets/ rendered no v1 identity spelling and no v1 descriptor in 31381 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/datasets/ rendered no v1 identity spelling and no v1 descriptor in 33319 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -196852,7 +196863,7 @@
             {
               "id": "/data-hardware/datasets/",
               "observed": {
-                "paragraphCount": 17,
+                "paragraphCount": 18,
                 "familyHeads": [
                   "newsreader"
                 ],
@@ -204111,7 +204122,7 @@
             {
               "id": "/data-hardware/datasets/",
               "observed": {
-                "paragraphCount": 34,
+                "paragraphCount": 36,
                 "registeredFrameParagraphCount": 2,
                 "offendingFamilies": []
               }

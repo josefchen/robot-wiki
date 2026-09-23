@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "6e41be8c4613b8ab1a8dabe0aadd9373f22836c30152dd57c42dbf189ed88915",
+  "fingerprint": "faff65148c2a6e68d5838ef37970c34da75d553908e067c903fb7c15839fd2ab",
   "source": "out/ static export",
   "routes": [
     {
@@ -220,8 +220,8 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundAnchors": 47,
-      "distinctHrefs": 17,
+      "outboundAnchors": 49,
+      "distinctHrefs": 18,
       "shapes": [
         "citation-chip",
         "footer",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3114,
-  "distinctOutboundHrefs": 854,
+  "outboundAnchors": 3116,
+  "distinctOutboundHrefs": 855,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1370,
+    "citation-chip": 1371,
     "reference-entry": 745,
-    "other": 605
+    "other": 606
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2577,
+  "anchorsWithNoreferrer": 2579,
   "keyboard": [
     {
       "route": "/",
@@ -963,11 +963,11 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundInDom": 47,
-      "reachedByTab": 47,
+      "outboundInDom": 49,
+      "reachedByTab": 49,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 166
+      "tabStops": 169
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
