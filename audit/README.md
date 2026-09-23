@@ -1,3 +1,15 @@
+## Current checkpoint: economics52 typed-local integration (2026-09-23)
+
+**1 applied /0 held /0 unattempted**: `audit/data-hardware.md:industrial-deployment:52`, C. Native counts **967 complete /27 incomplete /994**, data-hardware **117/11/128**. One coverage gate remains **red:40 ledger findings**, zero citation findings/summary mismatches. Earlier checkpoints below are historical, not current totals.
+
+Five original obligations survive as7 native AND parts,7 local proofs,2 external pairs and8 active integrator reviews (10 actual events retained after two numeric-review refreshes). The genuine first Unresolved original and complete intervening history remain. EVST's retained September6 text/raw HTML were hash-verified, not newly fetched. Its complete-cell/no-fixed-list-price and qualified payback guidance stay external;80000USD, all input ranges/defaults and chosen2.5/24 are explicit authored assumptions. Capital-only modeled-pick disclosure survives. Only disclosure text changes; arithmetic, controls and geometry are unchanged.
+
+Final scoped checks: **207 passed /1 producer skip**, **13 distinct browser tests passed** across the12-case existing route lane and final new producer; rejected attempts retained. Final full no-emit types, scoped lint and article compilation/citation/no-slop checks pass. Five real DOM/PNG pairs cover default, robot-cost endpoints, Reset and375px; three images manually inspected. Mobile lower readouts/disclosure are DOM-checked below the screenshot, not claimed visibly captured. Exact commands, values, provenance and failures are self-contained in the economics52 verification section of `audit/data-hardware.md`.
+
+Preserved:994 identities/order,993 unselected full records,966 prior completions,6 prior typed plans/49 proofs/610 earlier evidence files,859 unchanged legacy plans,1042 prior approvals and protected owner work. Current catalog7 typed plans/56 proofs; two actual member approvals bring1044 total. Evidence: `audit/evidence/economics-local-20260923/`. No lastReviewed bump, publication, cleanup or independent acceptance. Automatic fixture/error artifacts not individually pre-enumerated are disclosed and retained. Remaining27 originals, full reader/brand/state coverage, export refresh and independent Sol/high scrutiny/user testing remain owed. Do not publish while red.
+
+---
+
 ## Current checkpoint: parallel18 typed-local integration (2026-09-23)
 
 **1 applied / 0 held / 0 unattempted**: `audit/rl-sim2real.md:parallel-sim-rl:18`, C. Native structural accounting: **966 complete / 28 incomplete / 994**, RL **165/2/167**. Single final coverage gate remains **red:41 ledger findings**, zero citation findings/summary mismatches. All earlier checkpoints below are historical, not current counts.

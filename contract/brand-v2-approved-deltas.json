@@ -18880,6 +18880,38 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "economics-local-20260923-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+      "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+      "reason": "Only industrial52: disclose chosen robot cost, full authored model assumptions and vendor-context limits; label throughput per elapsed hour. Preserve capital-only modeled picks. No formula, default, range, control, geometry, citation or other article-claim changes.",
+      "ownerApproval": "Owner authored-evidence decision and bounded economics52 authorization at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-economics-local-integration-20260923/authorization.md; parent9e4441e identity rechecked at application.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "economics-local-20260923-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/deployment-economics.tsx",
+      "oldHash": "702816227bc3e55c8e41978c9cc7730a91ce85a3a134ec5df49e417b8bcd5e6a",
+      "newHash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d",
+      "reason": "Only industrial52: disclose chosen robot cost, full authored model assumptions and vendor-context limits; label throughput per elapsed hour. Preserve capital-only modeled picks. No formula, default, range, control, geometry, citation or other article-claim changes.",
+      "ownerApproval": "Owner authored-evidence decision and bounded economics52 authorization at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-economics-local-integration-20260923/authorization.md; parent9e4441e identity rechecked at application.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
