@@ -25369,6 +25369,68 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "economics-local-20260923-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+      "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+      "reason": "Only industrial52: disclose chosen robot cost, full authored model assumptions and vendor-context limits; label throughput per elapsed hour. Preserve capital-only modeled picks. No formula, default, range, control, geometry, citation or other article-claim changes.",
+      "ownerApproval": "Owner authored-evidence decision and bounded economics52 authorization at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-economics-local-integration-20260923/authorization.md; parent9e4441e identity rechecked at application.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "economics-local-20260923-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/deployment-economics.tsx",
+      "oldHash": "702816227bc3e55c8e41978c9cc7730a91ce85a3a134ec5df49e417b8bcd5e6a",
+      "newHash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d",
+      "reason": "Only industrial52: disclose chosen robot cost, full authored model assumptions and vendor-context limits; label throughput per elapsed hour. Preserve capital-only modeled picks. No formula, default, range, control, geometry, citation or other article-claim changes.",
+      "ownerApproval": "Owner authored-evidence decision and bounded economics52 authorization at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-economics-local-integration-20260923/authorization.md; parent9e4441e identity rechecked at application.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9",
+      "reason": "Integrate the committed mission industrial52 authored-assumption and elapsed-hour disclosures; preserve main-only editorial corrections, including the lint-compliant year-range hyphen. Model arithmetic, defaults, ranges, citations and interaction behavior remain unchanged.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: combine mission editorial authority with verified main additions. This is not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "continuation-merge-2026-09-23-1430-interactive-sources-mounts-source-components-interactive-deployment-economics-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/deployment-economics.tsx",
+      "oldHash": "892138699f016dbbe33a5bf8a6bf8eb03753821d15d18034248d3b2c584669a6",
+      "newHash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d",
+      "reason": "Integrate the committed mission industrial52 authored-assumption and elapsed-hour disclosures; preserve main-only editorial corrections, including the lint-compliant year-range hyphen. Model arithmetic, defaults, ranges, citations and interaction behavior remain unchanged.",
+      "ownerApproval": "Josef release-steward delegation, 2026-09-23: combine mission editorial authority with verified main additions. This is not independent audit acceptance or a gate waiver.",
+      "responsibleMilestone": "continuation integration, 2026-09-23",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

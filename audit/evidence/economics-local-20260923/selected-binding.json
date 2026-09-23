@@ -1,0 +1,240 @@
+{
+  "originalId": "audit/data-hardware.md:industrial-deployment:52",
+  "rowOrdinal": 52,
+  "currentTupleDigest": "051dea589332e8976bfef45afcfb4b5f45f17827dc31c106bef1f476caf20a84",
+  "currentCells": {
+    "claim": "Component defect: deployment-economics.tsx robotCost note attributes a \"\\$25k-\\$80k\" arm price range to EVST",
+    "sourceChecked": "evst-cell-cost-2026 publishes no arm-only prices (\"EVST does not publish fixed list prices\") and no such range; its bands are complete-cell budgets",
+    "verdict": "C (the robotCost note in components/interactive/deployment-economics.tsx now reads \"Assumption: list price for a mid-range industrial arm; no cited source publishes an arm-only price.\" and attributes nothing to EVST)",
+    "note": "HELD: named September 8 authored-evidence hold restored on 2026-09-21T19:50:56.324Z; the September 17 scalar completion was invalid source bookkeeping, not a resolution of the external-plus-local conjunction. The genuine component correction and authored assumption remain unchanged. Partial EVST proof only (not the required Supporting passage): FAQ: \u201cEVST does not publish fixed list prices; request a configuration-specific quote for an exact figure.\u201d Separate complete-cell scope: \u201cThe ranges below reflect industry-typical budgets for a complete cell (robot, EOAT, safety guarding, integration, and programming), not a robot-only list price.\u201d These passages do not establish the authored robotCost default or certify local implementation/arithmetic as an external source. Original FetchUrl request call_7f3f9d12e3444823af3f7f93 at 2026-09-17T13:43:54.189Z; response event 1a3e33e2-721b-443e-a59d-3aca9b151e79 at 2026-09-17T13:43:59.522Z, tool-reported 200. Retained response content: 22171 UTF-8 bytes, SHA-256 49584786caf4f90d2aaaa203edbb7abee0cf20a33df11cd2d201c23fa293144a. Raw redirect chain unavailable; the exact \u201cfor an exact figure\u201d sentence is in the FAQ, not verbatim in both FAQ and footnote. The accepted September 21 source-authority review (/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial52-authority-review-20260921/review.json, SHA-256 2189de5b76871aa5c05fc71e59fabbfc260a0ab3a54f8d8173cb9f772e4cbb7f) established this partial support and invalid-source-completion. No new retrieval, local-proof addendum, relaxed audit criterion or independent acceptance. Original four-cell history: {\"claim\":\"Component defect: deployment-economics.tsx robotCost note attributes a \\\"\\\\$25k-\\\\$80k\\\" arm price range to EVST\",\"sourceChecked\":\"evst-cell-cost-2026 publishes no arm-only prices (\\\"EVST does not publish fixed list prices\\\") and no such range; its bands are complete-cell budgets\",\"verdict\":\"C (the robotCost note in components/interactive/deployment-economics.tsx now reads \\\"Assumption: list price for a mid-range industrial arm; no cited source publishes an arm-only price.\\\" and attributes nothing to EVST)\",\"note\":\"\"}. Withdrawn September 17 scalar evidence history (historical GLM/max integration, not current proof): {\"citationId\":\"evst-cell-cost-2026\",\"sourceUrl\":\"https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/\",\"supportingPassage\":\"\u201cEVST does not publish fixed list prices; request a configuration-specific quote for an exact figure.\u201d Scope: prints in both the payload-table footnote and the FAQ of the live page (fetched live in the 2026-09-17T13:3x-13:5xZ source-packet fetch window, tool-reported 200, no redirect; page states last updated July 15, 2026). The only bands on the page are complete-cell budgets (\u201cThe ranges below reflect industry-typical budgets for a complete cell (robot, EOAT, safety guarding, integration, and programming), not a robot-only list price.\u201d); no \\\\$25k-\\\\$80k arm range exists anywhere. The component note at HEAD already reads \u201cAssumption: list price for a mid-range industrial arm; no cited source publishes an arm-only price.\u201d and attributes nothing to EVST; verified this session, no component edit was needed.\"}"
+  },
+  "originalBinding": {
+    "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b",
+    "snapshot": {
+      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+      "bytes": 63957,
+      "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+    },
+    "originalCells": {
+      "claim": "Component defect: deployment-economics.tsx robotCost note attributes a \"\\$25k-\\$80k\" arm price range to EVST",
+      "sourceChecked": "evst-cell-cost-2026 publishes no arm-only prices (\"EVST does not publish fixed list prices\") and no such range; its bands are complete-cell budgets",
+      "verdict": "Unresolved (component files are out of my edit scope; recorded below)",
+      "note": ""
+    },
+    "originalTupleDigest": "82e25ed8ad6381edd7ae91d5a247ead79a3185c9b3e113a1b5501b00f344b864"
+  },
+  "parts": [
+    {
+      "id": "i52-evst-scope",
+      "kind": "external-source",
+      "text": "EVST's inspected guide does not publish fixed list prices; its quoted bands are complete-cell budgets, not a $25k\u2013$80k robot-arm range.",
+      "requiredEvidence": "evst-cell-cost-2026 preserved guide and explicit no-fixed-list-prices text; source-scoped uncertainty, not a claim that no source anywhere publishes any arm price."
+    },
+    {
+      "id": "i52-vendor-context",
+      "kind": "external-source",
+      "text": "Any retained calculator sourcing of 2\u20133x complete-cell/arm ratio and 12\u201324 month multi-shift guidance remains a vendor statement, not a chosen-value certificate.",
+      "requiredEvidence": "EVST exact ratio and payback/context passages, retaining single-shift 24\u201336 qualification; 2.5 and the 24-month model horizon are authored selections within that context."
+    },
+    {
+      "id": "i52-authored-price-and-inputs",
+      "kind": "authored-parameter",
+      "text": "The calculator's $80000 robotCost is an authored example, with $20000\u2013$250000 range/5000 step, not a reported price; other model defaults and chosen horizon remain explicit assumptions.",
+      "requiredEvidence": "economics/parameters with complete DEFAULT_INPUTS/INPUT_RANGES, 730 hours/month, 60-month amortization and chosen 24-month target. Keep all seven controls and the corrected robotCost note."
+    },
+    {
+      "id": "i52-price-arithmetic",
+      "kind": "derived-result",
+      "text": "At fixed other example inputs, changing robotCost changes total cell capital, capital cost per modeled pick and modeled payback according to the existing formula.",
+      "requiredEvidence": "economics/derive at default, robotCost min/max, using authored pointer bases for every input; actual independent arithmetic, sanitization and units/rounding. No financial forecast or measured cost claim."
+    },
+    {
+      "id": "i52-mounted-disclosure",
+      "kind": "observed-behavior",
+      "text": "The mounted robot-cost control and note identify the chosen assumption, no longer attribute the invented arm range to EVST, and Reset restores defaults.",
+      "requiredEvidence": "Actual DeploymentEconomics mount/reader disclosure, slider changes and reset, exact readouts. Preserve original Unresolved correction history and solve the raw-original whole-parser incompatibility first."
+    }
+  ],
+  "existingSources": [
+    {
+      "citationId": "evst-cell-cost-2026",
+      "representation": {
+        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/evst.txt",
+        "bytes": 21932,
+        "sha256": "b51c5395721f10ea1ddaae213b67ba8209d8b4e3201fab4014b19061bfd6393c"
+      },
+      "originalProvenanceMetadata": {
+        "/0/key": "evst",
+        "/0/sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+        "/0/originalPath": "/tmp/evst.html",
+        "/0/bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/evst.html",
+        "/0/bodySha256": "947016abdd4043fd8e3f58960e218066eb8a804e6db3d8b132e0a704df3e4c21",
+        "/0/bodyBytes": 236502,
+        "/0/extraction": "remove script/style; remove tags; html.unescape; collapse spaces/tabs and blank newlines; Python re/html",
+        "/0/reviewedAt": "2026-09-08T11:03:10.694587+00:00",
+        "/0/originalFetchResultLine": 19,
+        "/0/freshFetch": false,
+        "/0/originalFetchWindow/call": "2026-09-06T00:49:10.685Z",
+        "/0/originalFetchWindow/result": "2026-09-06T00:49:14.485Z",
+        "/0/status/historicalObserved": "curl final HTTP 200, body size matched",
+        "/0/status/originHeadersPreserved": false,
+        "/0/status/redirectChainPreserved": false,
+        "/0/status/currentOriginRequest": false,
+        "/0/status/limitation": "The retained curl output records the final status only, not origin headers or redirect-chain proof; current review time is not a fetch time.",
+        "/0/publisherClassification": "EVST Engineering Team / EVS TECH CO., LTD; commercial integrator/vendor's own cost guidance. Primary for its own estimates and stated pricing policy, secondary for normative ISO claims; not independent pricing research or regulatory authority.",
+        "/0/scope": "Last updated July 15, 2026, palletising complete-cell guide; payload-class budgets are qualitative currency bands, not fixed arm-only USD prices or current configuration quotes."
+      },
+      "retainedHashMatched": true,
+      "actualTextExcerpts": [
+        {
+          "needle": "does not publish fixed",
+          "offset": 11181,
+          "length": 312,
+          "sha256": "5e2a37e19415a61b253ddadc336b112ab0a4172af1d0445da916b9ee08881033",
+          "text": " *According to industry observations across the payload classes above; actual pricing depends on gripper complexity, safety-zone footprint, controls scope, and site conditions. EVST does not publish fixed list prices; request a configuration-specific quote through the 4-axis palletizing robot selection guide . "
+        },
+        {
+          "needle": "complete cell",
+          "offset": 10253,
+          "length": 334,
+          "sha256": "4559b4fe12919885b1ffbdee45152b1e17d1e1879608df02fbb9ef17d9288234",
+          "text": " Payload class is the single biggest driver of total system cost, because it determines robot frame size, gripper capacity, and often the footprint of the safety perimeter. The ranges below reflect industry-typical budgets for a complete cell (robot, EOAT, safety guarding, integration, and programming), not a robot-only list price. "
+        },
+        {
+          "needle": "12\u201324",
+          "offset": 5975,
+          "length": 395,
+          "sha256": "dc3ef045b5aedd32c1ecf5cc4756615d621178f95064ebd7ed3e4b7c75f677a7",
+          "text": " A palletizing robot cell typically costs more than the robot arm alone: total capex spans the robot body, the end-of-arm tool, safety fencing and scanners, integration and commissioning, and programming. According to industry observations, most cells pay back within 12\u201324 months in multi-shift operations, with the robot itself usually representing only a third to half of the total budget. "
+        }
+      ],
+      "use": "Retained primary representation identified and excerpt bytes inspected; reuse requires full named-part semantic review, not automatic adjudication. No request in this worker.",
+      "provenancePacket": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+      "sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+      "originalRetrievalWindow": [
+        "2026-09-06T00:49:10.685Z",
+        "2026-09-06T00:49:14.485Z"
+      ],
+      "provenanceLimit": "Prior final curl status 200 only; origin headers and redirect chain were not retained. Derived readable text is distinct from raw HTML. No current fetch."
+    }
+  ],
+  "requiredRealChecks": [
+    {
+      "stage": "future-only",
+      "type": "strict-plan-fields",
+      "kind": "explicit-parts-v2",
+      "planIdSuggestion": "local-v1-industrial-deployment-52",
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "rowOrdinal": 52,
+      "mounts": [
+        {
+          "sourceId": "interactive:DeploymentEconomics",
+          "sourceFingerprint": "4001d6d4285fea068d1388b443a6bed4989a81a6ee775725553ab80fe175d637",
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "mountFingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a",
+          "route": "/data-hardware/industrial-deployment/"
+        }
+      ],
+      "registeredCasesByMount": {
+        "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          }
+        ]
+      },
+      "rule": "Use each proposed external part with nonempty requiredCitationIds and real paired evidence; each local part gets unique requiredProofIds and matching kind/planId/partId. Observed parts additionally get exact requiredObservations. These suggestions are not a populated catalog."
+    },
+    {
+      "stage": "future-only",
+      "type": "immutable-dependencies",
+      "paths": [
+        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/deployment-economics.ts",
+        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/deployment-economics.tsx",
+        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/audit-local-basis.ts",
+        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/deployment-economics.test.ts",
+        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/deployment-economics.test.tsx",
+        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/industrial-deployment.spec.ts"
+      ],
+      "additionalInputs": "Pin the actual receipt-producing test file and every imported calculation/data dependency, test fixture/input and run output; component disclosure helpers/mount container where the actual observation depends on them. Original snapshots and retained source copies live under audit/evidence, never public/export.",
+      "memberRules": {
+        "article": "article:data-hardware/industrial-deployment",
+        "component": "source:components/interactive/deployment-economics.tsx",
+        "other": "file:<root-relative-path>",
+        "dependencySelection": "offset=0; length=file.bytes; member.sha256=file.sha256. Article additionally binds buildManifest prose hash; component binds interactive-sources-mounts source representation hash.",
+        "disclosureSelection": "Exact article UTF-8 byte slice/member, selected text and member hash plus article prose baseline hash. Component caption alone does not satisfy checkDisclosure."
+      }
+    },
+    {
+      "stage": "future-only",
+      "type": "fixed-recipe",
+      "parameters": {
+        "id": "economics",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "deriveInputsAndCases": "See each derived/observed part requiredEvidence. Use strict fields from lib/audit-local-basis.ts; actual run generates output values/units/precision/formula, never prefill them from this packet.",
+      "basesRule": "Every derive input needs a same-plan authored-parameter proof pointer with exactly equal value and exact INPUT_UNITS unit, or a genuinely external input part. No unrestricted arbitrary user-selected value can currently be declared by the parameter recipe.",
+      "provenanceRule": "Actual command must name tests/<file>, runner node/vitest/playwright, cwd actual root, NODE_DISABLE_COMPILE_CACHE=1, observed start/end and real exit. Retain input/output artifacts and hashes and a matching local-run-v1 receipt. No fabricated timestamps or test outcomes."
+    },
+    {
+      "stage": "future-only",
+      "type": "focused-unit-component",
+      "command": "NODE_DISABLE_COMPILE_CACHE=1 node node_modules/vitest/vitest.mjs run tests/unit/deployment-economics.test.ts tests/component/deployment-economics.test.tsx",
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "scope": "Run only assigned group sequentially. Add focused independent arithmetic/state cases and typed-plan missing-part/wrong-result/hash-drift/unobserved negatives as applicable; existing synthetic fixtures are not production evidence."
+    },
+    {
+      "stage": "future-only",
+      "type": "real-mounted",
+      "spec": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/industrial-deployment.spec.ts",
+      "requiredCases": "Use applicable existing cases plus the whole observed-part inventory above. Extend reward-design.spec.ts with actual Eureka transitions because its existing listed cases cover RewardShaping, not a complete Eureka run.",
+      "receiptRule": "runner=playwright; actual registered case ID, mountId, prestate/action/poststate, viewport, selector/readout strings and retained DOM/PNG. RequiredObservations must equal actual transitions in order, every expected.display string must be genuinely observed for that proof. Verify exact UI formatting, mode-specific visibility and reveal container; never construct a DOM to satisfy the checker.",
+      "releaseRule": "Reuse the existing affected-route lane; no redundant full corpus/build while red. Later real static-export and independent Sol/high validation remain required at their existing boundaries."
+    },
+    {
+      "stage": "future-only",
+      "type": "semantic-review-and-history",
+      "rule": "A real reviewer must inventory and review every ordered external/local part, exact corrected current claim/disclosure and actual proof. Record real local-review-event-v1 plan and part events only after review; localPlanDigest/localPartDigest bind the final identities and proofs. Preserve replaced legacy object/reviews in correction history, remove only the selected active legacy target, use one active v2 binding and empty scalar fields; no duplicate cross-catalog target. Update current cells/digest after authorized disclosure/history correction and re-preflight. Preserve first-original cells verbatim."
+    },
+    {
+      "stage": "packet-preparation-observed-not-product-test",
+      "type": "selected-native-identity-recheck",
+      "observedAt": "2026-09-23T03:09:59.491Z",
+      "beforeTupleDigest": "051dea589332e8976bfef45afcfb4b5f45f17827dc31c106bef1f476caf20a84",
+      "afterTupleDigest": "051dea589332e8976bfef45afcfb4b5f45f17827dc31c106bef1f476caf20a84",
+      "equal": true,
+      "rawSnapshotMatchesGitBlob": true,
+      "originalNativeTupleMatches": true,
+      "wholeOriginalSnapshotParserError": "audit/data-hardware.md: extra unheaded evidence cells",
+      "parentDispatchQualified": false
+    }
+  ],
+  "disclosuresNeeded": [
+    "Keep $80000 as a chosen example; scope the \u201cno cited source publishes an arm-only price\u201d note to inspected cited material and preserve EVST explicit no-fixed-price context, not universal source absence. 2.5 multiple and 24-month threshold are model selections, not exact quoted vendor values."
+  ],
+  "status": "held",
+  "unresolved": [
+    "The genuine first-original 20f32c04 full data-hardware blob fails parseLedger: extra unheaded evidence cells. The exact unchanged industrial section natively selects original52 with Unresolved verdict/digest82e25ed8\u2026, while a25d57ea later changed it to C/digest5bd2dcd7\u2026. No later tuple may substitute. Parent must resolve bounded original-snapshot parser compatibility before integration.",
+    "No actual typed local run, mounted observation, plan review or per-part adjudication is supplied here; every row remains incomplete.",
+    "Parent current-HEAD dispatch preflight after the RoboMIND writer boundary and integrator application recheck remain required."
+  ]
+}
