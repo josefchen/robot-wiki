@@ -32,8 +32,8 @@
     "minutes": 11
   },
   "manipulation/rl-finetuning": {
-    "words": 4182,
-    "minutes": 21
+    "words": 4090,
+    "minutes": 20
   },
   "manipulation/realtime-execution": {
     "words": 2404,
@@ -60,11 +60,11 @@
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 3561,
+    "words": 3554,
     "minutes": 18
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1353,
+    "words": 1342,
     "minutes": 7
   },
   "rl-sim2real/parallel-sim-rl": {
@@ -92,11 +92,11 @@
     "minutes": 8
   },
   "world-models/taxonomy": {
-    "words": 2147,
+    "words": 2128,
     "minutes": 11
   },
   "world-models/latent-dynamics": {
-    "words": 1879,
+    "words": 1889,
     "minutes": 9
   },
   "world-models/generative-video": {
@@ -108,7 +108,7 @@
     "minutes": 9
   },
   "world-models/generative-sim": {
-    "words": 2047,
+    "words": 2045,
     "minutes": 10
   },
   "world-models/model-based-robot-learning": {
@@ -124,15 +124,15 @@
     "minutes": 11
   },
   "data-hardware/data-bottleneck": {
-    "words": 1751,
+    "words": 1752,
     "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 2003,
+    "words": 2072,
     "minutes": 10
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3513,
+    "words": 3517,
     "minutes": 18
   },
   "data-hardware/teleop-rigs": {
@@ -144,8 +144,8 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2623,
-    "minutes": 13
+    "words": 2757,
+    "minutes": 14
   },
   "data-hardware/robot-learning-stack": {
     "words": 1205,
@@ -204,7 +204,7 @@
     "minutes": 15
   },
   "frontier/bear-case": {
-    "words": 1874,
+    "words": 1875,
     "minutes": 9
   },
   "frontier/safety-and-assurance": {
