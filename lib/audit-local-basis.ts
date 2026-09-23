@@ -1,0 +1,559 @@
+/**
+ * The closed authored-local-basis-v1 branch. This checks retained identities,
+ * recomputation and review inputs, not truth or reviewer authenticity. It never
+ * executes a command supplied by a catalog, fetches a URL or launches a browser.
+ */
+import { constants, closeSync, fstatSync, lstatSync, openSync, readFileSync, readSync, realpathSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { z } from 'zod';
+import matter from 'gray-matter';
+import { buildManifest, sha256, stableJson, type JsonValue } from './brand-v2-baseline.ts';
+import { originalClaimDigest, parseLedger, validateExternalPairs, type ClaimEvidence } from './audit-ledger.ts';
+import * as eureka from './eureka.ts';
+import * as reward from './reward-shaping.ts';
+import * as sim from './sim2real.ts';
+import * as parallel from './parallel-sim.ts';
+import * as gait from './gait.ts';
+import * as economics from './deployment-economics.ts';
+import * as safety from './safety-modes.ts';
+
+const text = z.string().min(1).max(100_000);
+const hash = z.string().regex(/^[a-f0-9]{64}$/);
+const strings = z.array(text).min(1).max(100).refine(a => new Set(a).size === a.length, 'duplicate members');
+const finite = z.number().finite();
+const unitInterval = finite.min(0).max(1);
+const cells = z.object({ claim: z.string(), sourceChecked: z.string(), verdict: z.string(), note: z.string() }).strict();
+const artifact = z.object({ path: text, bytes: z.number().int().positive().max(8 * 1024 * 1024), sha256: hash }).strict();
+const member = z.object({
+  file: artifact, id: text, offset: z.number().int().nonnegative(),
+  length: z.number().int().positive(), sha256: hash,
+  baseline: z.object({ kind: z.enum(['prose', 'interactive-sources-mounts']), hash }).strict().optional(),
+}).strict();
+const mount = z.object({ sourceId: text, sourceFingerprint: hash, mountId: text, mountFingerprint: hash, route: text }).strict();
+const transition = z.object({
+  mountId: text, caseId: text, prestate: text, action: text, poststate: text,
+}).strict();
+const commonPart = { id: text, text, };
+const part = z.discriminatedUnion('kind', [
+  z.object({ ...commonPart, kind: z.literal('external-source'), requiredCitationIds: strings }).strict(),
+  z.object({ ...commonPart, kind: z.literal('authored-parameter'), requiredProofIds: strings }).strict(),
+  z.object({ ...commonPart, kind: z.literal('derived-result'), requiredProofIds: strings }).strict(),
+  z.object({ ...commonPart, kind: z.literal('observed-behavior'), requiredProofIds: strings,
+    requiredObservations: z.array(transition).min(1).max(100) }).strict(),
+]);
+const review = z.object({
+  reviewedBy: text, rationale: text, inputDigest: hash, event: artifact,
+}).strict();
+const planSchema = z.object({
+  id: text, kind: z.literal('explicit-parts-v2'), originalId: text,
+  ledgerPath: text, articleSlug: text, rowOrdinal: z.number().int().positive(),
+  originalBinding: z.object({
+    originalCells: cells, originalTupleDigest: hash, snapshot: artifact,
+    sourceCommit: z.string().regex(/^[a-f0-9]{40}$/),
+  }).strict(),
+  currentCells: cells, currentTupleDigest: hash,
+  mounts: z.array(mount).min(1).max(10),
+  disclosure: z.object({ member, text }).strict(),
+  parts: z.array(part).min(1).max(100),
+  evidence: z.array(z.object({
+    partId: text, citationId: text, sourceUrl: text, supportingPassage: text,
+    provenance: z.object({
+      retrievedAt: z.string().datetime({ offset: true }), tool: text,
+      response: artifact, passage: member,
+    }).strict(),
+  }).strict()).max(300),
+  planReview: review.nullable(),
+  adjudications: z.array(review.extend({
+    partId: text, outcome: z.enum(['supported', 'unresolved', 'contradicted']),
+  }).strict()).max(100),
+}).strict();
+
+const weights = z.object({
+  velTrack: finite.min(0).max(4), yawTrack: finite.min(0).max(4), torque: finite.min(0).max(4),
+  jointAccel: finite.min(0).max(4), actionRate: finite.min(0).max(4), jointLimit: finite.min(0).max(4),
+  collision: finite.min(0).max(4), baseHeight: finite.min(0).max(4), orientation: finite.min(0).max(4),
+  airTime: finite.min(0).max(4), stumble: finite.min(0).max(4), termination: finite.min(0).max(4),
+}).strict();
+const economicInputs = z.object({
+  robotCost: finite, integrationMultiple: finite, cycleTimeSeconds: finite, uptimePercent: finite,
+  successRatePercent: finite, jamClearSeconds: finite, wageUsdPerHour: finite,
+}).strict();
+const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'gait', 'economics', 'safety'] as const;
+const recipeSchema = z.union([
+  z.object({ id: z.enum(recipeIds), mode: z.literal('parameters'), inputs: z.object({}).strict() }).strict(),
+  z.discriminatedUnion('id', [
+    z.object({ id: z.literal('eureka'), mode: z.literal('derive'), inputs: z.object({
+      previous: z.number().int().min(0).max(2), next: z.number().int().min(0).max(2),
+    }).strict() }).strict(),
+    z.object({ id: z.literal('reward'), mode: z.literal('derive'), inputs: z.object({ weights, phase: unitInterval }).strict() }).strict(),
+    z.object({ id: z.literal('friction'), mode: z.literal('derive'), inputs: z.object({
+      mu: finite.min(0.2).max(1.5), range: finite.min(0.1).max(0.65),
+    }).strict() }).strict(),
+    z.object({ id: z.literal('teacher'), mode: z.literal('derive'), inputs: z.object({ degradation: unitInterval }).strict() }).strict(),
+    z.object({ id: z.literal('parallel'), mode: z.literal('derive'), inputs: z.object({
+      envs: z.number().int().min(64).max(16384), cpuBound: z.boolean(), samples: z.number().int().min(2).max(100),
+    }).strict() }).strict(),
+    z.object({ id: z.literal('gait'), mode: z.literal('derive'), inputs: z.object({
+      gait: z.enum(['walk', 'trot', 'bound', 'pronk']), phase: unitInterval, direction: z.union([z.literal(1), z.literal(-1)]),
+    }).strict() }).strict(),
+    z.object({ id: z.literal('economics'), mode: z.literal('derive'), inputs: economicInputs }).strict(),
+    z.object({ id: z.literal('safety'), mode: z.literal('derive'), inputs: z.object({
+      robotSpeed: finite.min(0).max(2), humanSpeed: finite.min(0).max(2), separation: finite.positive().max(100),
+    }).strict() }).strict(),
+  ]),
+]);
+const jsonValue: z.ZodType<JsonValue> = z.lazy(() => z.union([z.string(), z.number().finite(), z.boolean(), z.null(), z.array(jsonValue), z.record(jsonValue)]));
+const outputSchema = z.object({
+  values: jsonValue, units: text, precision: text, formula: text,
+}).strict();
+const provenance = z.object({
+  command: text, runner: z.enum(['node', 'vitest', 'playwright']), cwd: text,
+  environment: z.object({ NODE_DISABLE_COMPILE_CACHE: z.literal('1'), TZ: text.optional() }).strict(),
+  startedAt: z.string().datetime({ offset: true }), endedAt: z.string().datetime({ offset: true }),
+  exitCode: z.number().int(), test: artifact, receipt: artifact,
+}).strict();
+const observation = transition.extend({
+  viewport: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).strict(),
+  readouts: z.array(z.object({ selector: text, text }).strict()).min(1).max(100),
+  dom: artifact, capture: artifact,
+}).strict();
+const proofCommon = {
+  id: text, planId: text, partId: text, originalId: text, originalTupleDigest: hash, currentTupleDigest: hash,
+  artifacts: z.array(member).min(1).max(100),
+  disclosure: z.object({ member, text }).strict(),
+  recipe: recipeSchema, expected: outputSchema,
+  input: artifact, output: artifact, inputDigest: hash, outputDigest: hash, provenance,
+  bases: z.array(z.discriminatedUnion('kind', [
+    z.object({ input: text, kind: z.literal('authored-parameter'), proofId: text, pointer: text, unit: text }).strict(),
+    z.object({ input: text, kind: z.literal('external-source'), partId: text, value: jsonValue, unit: text }).strict(),
+  ])).max(100),
+};
+const proofSchema = z.discriminatedUnion('kind', [
+  z.object({ ...proofCommon, kind: z.literal('authored-parameter') }).strict(),
+  z.object({ ...proofCommon, kind: z.literal('derived-result') }).strict(),
+  z.object({ ...proofCommon, kind: z.literal('observed-behavior'), observations: z.array(observation).min(1).max(100) }).strict(),
+]);
+const catalogSchema = z.object({
+  schemaVersion: z.literal('authored-local-basis-v1'),
+  plans: z.array(planSchema).max(10), proofs: z.array(proofSchema).max(300),
+}).strict();
+export type LocalPlan = z.infer<typeof planSchema>;
+export type LocalProof = z.infer<typeof proofSchema>;
+export type LocalArtifact = z.infer<typeof artifact>;
+export type LocalMember = z.infer<typeof member>;
+export type LocalCatalog = z.infer<typeof catalogSchema>;
+type RecipeId = typeof recipeIds[number];
+type CellTuple = z.infer<typeof cells>;
+type Target = { component: string; recipe: RecipeId; mounts: readonly number[] };
+export const LOCAL_BASIS_REQUIRED_TARGETS: Readonly<Record<string, Target>> = Object.freeze({
+  'audit/rl-sim2real.md:reward-design-mpc:11': { component: 'EurekaLoop', recipe: 'eureka', mounts: [1] },
+  'audit/data-hardware.md:industrial-deployment:52': { component: 'DeploymentEconomics', recipe: 'economics', mounts: [1] },
+  'audit/frontier.md:safety-and-assurance:5': { component: 'CollaborativeOperationModes', recipe: 'safety', mounts: [1] },
+  'audit/frontier.md:safety-and-assurance:6': { component: 'CollaborativeOperationModes', recipe: 'safety', mounts: [1] },
+  'audit/rl-sim2real.md:sim2real-transfer:23': { component: 'FrictionTransfer', recipe: 'friction', mounts: [1, 2] },
+  'audit/rl-sim2real.md:sim2real-transfer:24': { component: 'TeacherStudent', recipe: 'teacher', mounts: [1] },
+  'audit/rl-sim2real.md:parallel-sim-rl:18': { component: 'TrainingTimeChart', recipe: 'parallel', mounts: [1] },
+  'audit/rl-sim2real.md:reward-design-mpc:4': { component: 'RewardShaping', recipe: 'reward', mounts: [1] },
+  'audit/rl-sim2real.md:reward-design-mpc:5': { component: 'RewardShaping', recipe: 'reward', mounts: [1] },
+  'audit/rl-sim2real.md:legged-locomotion:8': { component: 'GaitDiagram', recipe: 'gait', mounts: [1] },
+});
+export const LOCAL_RECIPE_DEPENDENCIES: Readonly<Record<RecipeId, readonly string[]>> = {
+  eureka: ['lib/eureka.ts'], reward: ['lib/reward-shaping.ts', 'lib/gait.ts'],
+  friction: ['lib/sim2real.ts'], teacher: ['lib/sim2real.ts'], parallel: ['lib/parallel-sim.ts'],
+  gait: ['lib/gait.ts'], economics: ['lib/deployment-economics.ts'],
+  safety: ['lib/safety-modes.ts', 'lib/force-limits.ts'],
+};
+const canonical = (value: unknown) => stableJson(value as JsonValue);
+const digest = (value: unknown) => sha256(canonical(value));
+const same = (a: unknown, b: unknown) => canonical(a) === canonical(b);
+function requireThat(condition: unknown, message: string): asserts condition {
+  if (!condition) throw new Error(`local basis: ${message}`);
+}
+function distinct(values: readonly string[], label: string): void {
+  requireThat(new Set(values).size === values.length, `duplicate ${label}`);
+}
+export function parseLocalBasisCatalog(input: unknown): LocalCatalog {
+  const result = catalogSchema.parse(input);
+  distinct(result.plans.map(p => p.id), 'plan ID');
+  distinct(result.plans.map(p => p.originalId), 'row target');
+  distinct(result.proofs.map(p => p.id), 'proof ID');
+  const required: string[] = [];
+  for (const plan of result.plans) {
+    requireThat(Object.hasOwn(LOCAL_BASIS_REQUIRED_TARGETS, plan.originalId), 'ineligible original target');
+    requireThat(plan.originalId === `${plan.ledgerPath}:${plan.articleSlug}:${plan.rowOrdinal}`, 'original identity mismatch');
+    distinct(plan.parts.map(p => p.id), 'part ID');
+    const local = plan.parts.filter(p => p.kind !== 'external-source');
+    requireThat(local.length > 0, 'v2 needs a local obligation, not external substitution');
+    required.push(...local.flatMap(p => p.requiredProofIds));
+  }
+  distinct(required, 'required proof binding');
+  requireThat(same([...required].sort(), result.proofs.map(p => p.id).sort()), 'proof inventory must equal required proofs');
+  return result;
+}
+export function localPlanDigest(plan: LocalPlan): string {
+  const { planReview: _review, adjudications: _adjudications, evidence: _evidence, ...identity } = plan;
+  void _review; void _adjudications; void _evidence;
+  return digest(identity);
+}
+export function localProofDigest(proof: LocalProof): string { return digest(proof); }
+export function localPartDigest(plan: LocalPlan, partId: string, proofs: readonly LocalProof[]): string {
+  return digest([localPlanDigest(plan), partId, plan.evidence.filter(e => e.partId === partId),
+    proofs.filter(p => p.planId === plan.id && p.partId === partId).map(p => [p.id, localProofDigest(p)])]);
+}
+
+/** A finite typed dispatch, never a producer-supplied expression or import. */
+export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputSchema> {
+  const recipe = recipeSchema.parse(input);
+  let values: unknown;
+  let units = 'dimensionless unless explicitly keyed';
+  let precision = 'IEEE-754; existing model rounding only';
+  let formula = `${recipe.id}:${recipe.mode}:v1`;
+  if (recipe.mode === 'parameters') {
+    switch (recipe.id) {
+      case 'eureka': values = { task: eureka.EUREKA_TASK, generations: eureka.EUREKA_GENERATIONS }; break;
+      case 'reward': values = { terms: reward.TERMS, weights: reward.defaultWeights(), phase: 0, phaseRange: [0, 1],
+        weightRange: [reward.WEIGHT_MIN, reward.WEIGHT_MAX, reward.WEIGHT_STEP],
+        behaviors: reward.BEHAVIORS, threshold: reward.ATTRACTOR_WEIGHT_MIN, dominance: reward.ATTRACTOR_DOMINANCE_RATIO }; break;
+      case 'friction': values = { mu: sim.DEFAULT_REAL_MU, range: sim.DEFAULT_DR_RANGE,
+        muRange: [sim.MU_MIN, sim.MU_MAX], drRange: [sim.DR_RANGE_MIN, sim.DR_RANGE_MAX],
+        pointPeak: sim.POINT_PEAK, sigma: sim.POINT_SIGMA, edgeSigma: sim.EDGE_SIGMA }; break;
+      case 'teacher': values = { degradation: sim.DEFAULT_DEGRADATION, range: [0, 1], terrain: sim.TERRAIN, cells: sim.TERRAIN_CELLS }; units = 'terrain:m; degradation:1'; break;
+      case 'parallel': values = { envs: parallel.DEFAULT_ENVS, cpuBound: false, samples: 49,
+        transitions: parallel.TARGET_TRANSITIONS, rollout: parallel.ROLLOUT_STEPS,
+        costs: [parallel.SIM_FIXED_SECONDS, parallel.SIM_PER_ENV_SECONDS, parallel.LEARN_SECONDS, parallel.TRANSFER_SECONDS, parallel.CPU_PER_ENV_SECONDS],
+        // Only authored x choices here; paper time bounds remain external.
+        markerX: parallel.RUDIN_MARKERS.map(m => ({ id: m.id, envs: m.envs })) }; units = 'costs:s; envs:count; transitions:count'; break;
+      case 'gait': values = { presets: gait.GAITS, order: gait.GAIT_ORDER, gait: gait.DEFAULT_GAIT, phase: gait.DEFAULT_PHASE, step: gait.PHASE_STEP, direction: 1, directions: [1, -1], phaseRange: [0, 1] }; break;
+      case 'economics': values = { ...economics.DEFAULT_INPUTS, ranges: economics.INPUT_RANGES,
+        hours: economics.ROBOT_HOURS_PER_MONTH, amortization: economics.AMORTIZATION_MONTHS, target: economics.PAYBACK_TARGET_MONTHS }; units = 'USD,s,%,hours,months as named'; break;
+      case 'safety': values = { robotSpeed: safety.DEFAULT_ROBOT_SPEED_M_S, humanSpeed: safety.DEFAULT_HUMAN_SPEED_M_S,
+        separation: safety.WORKCELL_SEPARATION_M, intrusion: safety.INTRUSION_MARGIN_M,
+        deceleration: safety.ROBOT_DECELERATION_M_PER_S2, reactionTime: safety.REACTION_TIME_S,
+        uncertainty: safety.POSITION_UNCERTAINTY_M, mass: safety.CONTACT_EFFECTIVE_MASS_KG,
+        stiffness: safety.BODY_CONTACT_STIFFNESS_N_PER_M,
+        robotRange: safety.ROBOT_SPEED_RANGE, humanRange: safety.HUMAN_SPEED_RANGE }; units = 'm,m/s,m/s^2,s,kg,N/m as named'; break;
+    }
+  } else {
+    switch (recipe.id) {
+      case 'eureka': values = { previous: eureka.EUREKA_GENERATIONS[recipe.inputs.previous],
+        next: eureka.EUREKA_GENERATIONS[recipe.inputs.next],
+        display: [`Generation ${recipe.inputs.next} of ${eureka.EUREKA_GENERATIONS.length - 1}`, eureka.EUREKA_GENERATIONS[recipe.inputs.next].fitness.toFixed(2)],
+        diff: eureka.diffLines(eureka.EUREKA_GENERATIONS[recipe.inputs.previous].code, eureka.EUREKA_GENERATIONS[recipe.inputs.next].code) }; break;
+      case 'reward': {
+        const { weights: w, phase } = recipe.inputs;
+        const behavior = reward.classifyBehavior(w);
+        values = { contributions: reward.TERMS.map(t => ({ id: t.id, value: reward.termContribution(t, w[t.id]) })),
+          total: reward.weightedTotal(w), behavior, pose: reward.quadrupedPose(behavior, phase),
+          display: [reward.formatTotal(reward.weightedTotal(w))] };
+        precision = 'total:toFixed(2); pose:existing model rounding'; break;
+      }
+      case 'friction': {
+        const { mu, range } = recipe.inputs;
+        values = { point: sim.pointSuccess(mu), dr: sim.drSuccess(mu, range), peak: sim.drPeak(range),
+          display: [sim.formatMu(mu), sim.formatPct(sim.pointSuccess(mu)), sim.formatPct(sim.drSuccess(mu, range))] };
+        units = 'mu:1; success:fraction'; precision = 'mu:toFixed(2); success:Math.round(100*x)%'; break;
+      }
+      case 'teacher': {
+        const d = recipe.inputs.degradation;
+        values = { reconstruction: sim.reconstruction(d), mae: sim.reconstructionMae(d), divergence: sim.actionDivergence(d),
+          occluded: sim.occludedCells(d), proprio: sim.proprioReadings(d),
+          display: [sim.formatMeters(sim.reconstructionMae(d)), sim.formatDivergence(sim.actionDivergence(d))] };
+        units = 'terrain,mae:m; divergence:normalized action'; precision = 'terrain:toFixed(4); readouts:toFixed(2)'; break;
+      }
+      case 'parallel': {
+        const { envs, cpuBound, samples } = recipe.inputs;
+        values = { breakdown: parallel.iterationBreakdown(envs, cpuBound), iterations: parallel.iterationsToTarget(envs),
+          seconds: parallel.wallClockSeconds(envs, cpuBound), fps: parallel.throughputFps(envs, cpuBound),
+          crossover: parallel.simulationOvertakeEnvs(cpuBound), curve: parallel.curvePoints(cpuBound, samples),
+          display: [parallel.formatEnvs(envs), parallel.formatWallClock(parallel.wallClockSeconds(envs, cpuBound)), parallel.formatFps(parallel.throughputFps(envs, cpuBound))] };
+        units = 'seconds:s; fps:frames/s; curve:envs,minutes'; break;
+      }
+      case 'gait': {
+        const { gait: id, phase, direction } = recipe.inputs;
+        values = { legs: gait.LEGS.map(l => ({ id: l.id, phase: gait.legPhase(gait.GAITS[id], l.id, phase), stance: gait.inStance(gait.GAITS[id], l.id, phase) })),
+          nextPhase: gait.stepPhase(phase, direction), display: [gait.formatPhase(phase), gait.formatDuty(gait.GAITS[id].dutyFactor)] }; break;
+      }
+      case 'economics': {
+        const result = economics.computeEconomics(recipe.inputs);
+        values = { sanitized: economics.sanitizeInputs(recipe.inputs), ...result, paysBack: economics.paysBackWithinTarget(result.paybackMonths),
+          display: [result.costPerPickUsd.toFixed(3), result.paybackMonths === null ? 'never' : `${result.paybackMonths.toFixed(1)} months`] };
+        units = 'USD,picks/hour,picks/month,USD/pick,months,seconds as named'; break;
+      }
+      case 'safety': {
+        const { robotSpeed: r, humanSpeed: h, separation: s } = recipe.inputs;
+        values = { terms: safety.separationTerms(r, h), separation: safety.protectiveSeparationM(r, h),
+          permittedSpeed: safety.permittedRobotSpeedMs(h, s), force: safety.peakContactForceN(r),
+          verdict: safety.verdict(r, h, s),
+          display: [safety.formatMetres(safety.protectiveSeparationM(r, h)), safety.formatSpeed(safety.permittedRobotSpeedMs(h, s)), safety.formatForce(safety.peakContactForceN(r))] };
+        units = 'separation,terms:m; permittedSpeed:m/s; force:N';
+        precision = 'm,m/s:toFixed(2); N:Math.round'; formula += ';S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)'; break;
+      }
+    }
+  }
+  return outputSchema.parse({ values, units, precision, formula });
+}
+
+/** Reject every symlink and bound reads, including catalogs without known hashes. */
+function readBoundedLocalFile(root: string, path: string): Buffer {
+  const base = realpathSync(root);
+  requireThat(/^(audit|lib|content|components|tests|contract)\//.test(path) &&
+    !path.includes('\\') && !path.includes('\0') && !path.includes(':') &&
+    path.split('/').every(p => p !== '' && p !== '.' && p !== '..'), 'unsafe artifact path');
+  let absolute = base;
+  for (const segment of path.split('/')) {
+    absolute = join(absolute, segment);
+    requireThat(!lstatSync(absolute).isSymbolicLink(), `symlink artifact: ${path}`);
+  }
+  requireThat(realpathSync(absolute) === absolute && dirname(absolute).startsWith(base + '/'), 'artifact escaped root');
+  const fd = openSync(absolute, constants.O_RDONLY | constants.O_NOFOLLOW | constants.O_NONBLOCK);
+  try {
+    const stat = fstatSync(fd);
+    requireThat(stat.isFile() && stat.size > 0 && stat.size <= 8 * 1024 * 1024, `artifact bytes/type: ${path}`);
+    const bytes = Buffer.alloc(stat.size);
+    let offset = 0;
+    while (offset < bytes.length) {
+      const count = readSync(fd, bytes, offset, bytes.length - offset, null);
+      requireThat(count > 0, 'artifact truncated while reading');
+      offset += count;
+    }
+    requireThat(readSync(fd, Buffer.alloc(1), 0, 1, null) === 0 && fstatSync(fd).size === stat.size &&
+      realpathSync(absolute) === absolute, 'artifact changed while reading');
+    return bytes;
+  } finally { closeSync(fd); }
+}
+export function createLocalArtifactReader(root: string): (ref: LocalArtifact) => Buffer {
+  let consumed = 0;
+  return (input) => {
+    const ref = artifact.parse(input);
+    consumed += ref.bytes;
+    requireThat(consumed <= 64 * 1024 * 1024, 'artifact read budget exceeded');
+    const bytes = readBoundedLocalFile(root, ref.path);
+    requireThat(bytes.length === ref.bytes && sha256(bytes) === ref.sha256, `artifact bytes/hash: ${ref.path}`);
+    return bytes;
+  };
+}
+type Registry = {
+  sources: { id: string; sourcePath: string; fingerprint: string; cases: { id: string; kind: string }[] }[];
+  mounts: { id: string; sourceId: string; route: string; fingerprint: string; cases: { id: string; kind: string }[] }[];
+};
+export type LocalBasisContext = {
+  root: string; catalog: LocalCatalog; registry: Registry; publishedRoutes: readonly string[];
+};
+export function loadLocalBasisContext(root: string, publishedRoutes: readonly string[]): LocalBasisContext {
+  const catalog = parseLocalBasisCatalog(JSON.parse(readBoundedLocalFile(root, 'audit/local-basis.json').toString('utf8')));
+  const registry = JSON.parse(readBoundedLocalFile(root, 'contract/brand-v2-registries.json').toString('utf8')).interactive as Registry;
+  distinct(registry.sources.map(s => s.id), 'registry source');
+  distinct(registry.mounts.map(m => m.id), 'registry mount');
+  for (const plan of catalog.plans) {
+    requireThat(publishedRoutes.includes(routeFor(plan)), 'unpublished local target');
+  }
+  return { root: resolve(root), catalog, registry, publishedRoutes };
+}
+function routeFor(plan: LocalPlan): string {
+  return `/${plan.ledgerPath.slice(6, -3)}/${plan.articleSlug}/`;
+}
+function auditArtifact(ref: LocalArtifact): void {
+  requireThat(ref.path.startsWith('audit/'), 'evidence must be retained under audit/, never public/export');
+}
+function readMember(ref: LocalMember, read: (a: LocalArtifact) => Buffer): string {
+  const bytes = read(ref.file);
+  requireThat(ref.offset + ref.length <= bytes.length, 'member range');
+  const slice = bytes.subarray(ref.offset, ref.offset + ref.length);
+  requireThat(sha256(slice) === ref.sha256, 'member hash');
+  if (ref.baseline) {
+    const source = bytes.toString('utf8');
+    const isProse = ref.baseline.kind === 'prose';
+    const id = isProse ? `article:${ref.file.path.slice(8, -4)}` : `source:${ref.file.path}`;
+    requireThat(ref.id === id, 'baseline member identity');
+    const value: JsonValue = isProse ? { path: ref.file.path, body: matter(source).content.trim() } : { path: ref.file.path, source };
+    const actual = buildManifest(ref.baseline.kind, [{ id, value }]).members[0].hash;
+    requireThat(actual === ref.baseline.hash, 'baseline member representation drift');
+  }
+  return slice.toString('utf8');
+}
+function checkDisclosure(value: LocalPlan['disclosure'], articlePath: string, read: (a: LocalArtifact) => Buffer): void {
+  requireThat(value.member.file.path === articlePath && value.member.baseline?.kind === 'prose', 'reader disclosure must bind article prose');
+  const selected = readMember(value.member, read);
+  requireThat(selected === value.text && /\b(authored|assumption|illustrative|scripted|toy|modelled|modeled|deriv)/i.test(selected), 'missing explicit reader-local disclosure');
+}
+const eventSchema = z.object({
+  schemaVersion: z.literal('local-review-event-v1'), sessionId: text,
+  role: z.enum(['source-auditor', 'integrator', 'independent-reviewer']),
+  eventId: text, observedAt: z.string().datetime({ offset: true }),
+  reviewedBy: text, rationale: text, outcome: z.literal('supported'),
+  scope: z.enum(['plan', 'part']), partId: text.nullable(), inputDigest: hash,
+  inventory: z.array(part).min(1), originalId: text, currentTupleDigest: hash,
+}).strict();
+function checkReview(plan: LocalPlan, value: z.infer<typeof review> | null, inputDigest: string,
+  partId: string | null, read: (a: LocalArtifact) => Buffer, notBefore = 0): void {
+  requireThat(value && value.inputDigest === inputDigest, 'missing/stale semantic review');
+  auditArtifact(value.event);
+  const event = eventSchema.parse(JSON.parse(read(value.event).toString('utf8')));
+  requireThat(event.inputDigest === inputDigest && event.reviewedBy === value.reviewedBy &&
+    event.rationale === value.rationale && event.scope === (partId === null ? 'plan' : 'part') &&
+    event.partId === partId && event.originalId === plan.originalId &&
+    event.currentTupleDigest === plan.currentTupleDigest && same(event.inventory, plan.parts) &&
+    Date.parse(event.observedAt) >= notBefore && Date.parse(event.observedAt) <= Date.now(), 'review event does not bind actual whole ordered inventory/input');
+}
+function pointer(value: unknown, path: string): unknown {
+  requireThat(/^\/[^/]+(?:\/[^/]+)*$/.test(path), 'input basis pointer');
+  let current: unknown = value;
+  for (const key of path.slice(1).split('/').map(k => k.replace(/~1/g, '/').replace(/~0/g, '~'))) {
+    requireThat(current !== null && typeof current === 'object' && Object.hasOwn(current, key), 'missing input basis member');
+    current = (current as Record<string, unknown>)[key];
+  }
+  return current;
+}
+const INPUT_UNITS: Record<RecipeId, Record<string, string>> = {
+  eureka: { previous: 'index', next: 'index' }, reward: { weights: 'dimensionless', phase: 'cycle' },
+  friction: { mu: 'dimensionless', range: 'dimensionless' }, teacher: { degradation: 'dimensionless' },
+  parallel: { envs: 'count', cpuBound: 'boolean', samples: 'count' },
+  gait: { gait: 'preset', phase: 'cycle', direction: 'step-direction' },
+  economics: { robotCost: 'USD', integrationMultiple: 'dimensionless', cycleTimeSeconds: 's', uptimePercent: '%', successRatePercent: '%', jamClearSeconds: 's', wageUsdPerHour: 'USD/hour' },
+  safety: { robotSpeed: 'm/s', humanSpeed: 'm/s', separation: 'm' },
+};
+function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisContext, read: (a: LocalArtifact) => Buffer): void {
+  const target = LOCAL_BASIS_REQUIRED_TARGETS[plan.originalId];
+  const requiredPart = plan.parts.find(p => p.id === proof.partId);
+  requireThat(proof.planId === plan.id && proof.originalId === plan.originalId &&
+    proof.originalTupleDigest === plan.originalBinding.originalTupleDigest &&
+    proof.currentTupleDigest === plan.currentTupleDigest && requiredPart?.kind === proof.kind &&
+    requiredPart.requiredProofIds.includes(proof.id), 'proof target identity/category');
+  requireThat(proof.recipe.id === target.recipe, 'wrong recipe for target');
+  const articlePath = `content${routeFor(plan).slice(0, -1)}.mdx`;
+  checkDisclosure(proof.disclosure, articlePath, read);
+  requireThat(same(proof.disclosure, plan.disclosure), 'proof/plan disclosure differs');
+  const paths = proof.artifacts.map(a => a.file.path);
+  distinct(paths, 'dependency file');
+  const source = context.registry.sources.find(s => s.id === `interactive:${target.component}`);
+  requireThat(source, 'source missing from enumeration');
+  for (const path of [...LOCAL_RECIPE_DEPENDENCIES[target.recipe], source.sourcePath, articlePath,
+    'lib/audit-local-basis.ts', proof.provenance.test.path]) {
+    requireThat(paths.includes(path), `missing mandatory dependency ${path}`);
+  }
+  for (const ref of proof.artifacts) {
+    readMember(ref, read);
+    if ([...LOCAL_RECIPE_DEPENDENCIES[target.recipe], 'lib/audit-local-basis.ts'].includes(ref.file.path)) {
+      requireThat(sha256(readFileSync(join(import.meta.dirname, '..', ref.file.path))) === ref.file.sha256, 'pinned calculation differs from running implementation');
+    }
+    const expectedMemberId = ref.file.path === articlePath ? `article:${articlePath.slice(8, -4)}`
+      : ref.file.path === source.sourcePath ? `source:${source.sourcePath}` : `file:${ref.file.path}`;
+    requireThat(ref.id === expectedMemberId, 'dependency member selector mismatch');
+    // Calculation dependencies bind the whole file, not a cherry-picked fragment.
+    requireThat(ref.offset === 0 && ref.length === ref.file.bytes && ref.sha256 === ref.file.sha256, 'dependency member must be whole file');
+    if (ref.file.path === source.sourcePath) requireThat(ref.baseline?.kind === 'interactive-sources-mounts', 'source baseline binding');
+    if (ref.file.path === articlePath) requireThat(ref.baseline?.kind === 'prose', 'article baseline binding');
+  }
+  requireThat(proof.provenance.test.path.startsWith('tests/'), 'test identity must be a test file');
+  auditArtifact(proof.input); auditArtifact(proof.output); auditArtifact(proof.provenance.receipt);
+  requireThat(proof.inputDigest === proof.input.sha256 && proof.outputDigest === proof.output.sha256, 'input/output immutable hashes');
+  const input = JSON.parse(read(proof.input).toString('utf8'));
+  const output = JSON.parse(read(proof.output).toString('utf8'));
+  requireThat(same(input, proof.recipe) && same(output, proof.expected), 'input/output artifact content');
+  requireThat(same(recomputeLocalDerivation(proof.recipe), proof.expected), 'wrong recomputed values/units/precision/formula');
+  const run = proof.provenance;
+  requireThat(run.cwd === context.root && run.exitCode === 0 && Date.parse(run.startedAt) <= Date.parse(run.endedAt) &&
+    Date.parse(run.endedAt) <= Date.now() && run.command.includes(run.test.path), 'failed/missing real execution provenance');
+  read(run.test);
+  const { receipt: _receipt, ...runFields } = run; void _receipt;
+  const observations = proof.kind === 'observed-behavior' ? proof.observations : [];
+  const receipt = JSON.parse(read(run.receipt).toString('utf8'));
+  requireThat(same(receipt, { schemaVersion: 'local-run-v1', ...runFields, inputDigest: proof.inputDigest,
+    outputDigest: proof.outputDigest, dependencies: proof.artifacts, observations }), 'run receipt input/dependency/observation mismatch');
+  if (proof.kind === 'authored-parameter') {
+    requireThat(proof.recipe.mode === 'parameters' && proof.bases.length === 0, 'authored parameters require extraction, not empirical results');
+  } else {
+    requireThat(proof.recipe.mode === 'derive', 'derived/observed result requires a derivation');
+    const inputKeys = Object.keys(proof.recipe.inputs);
+    distinct(proof.bases.map(b => b.input), 'input basis');
+    requireThat(same([...inputKeys].sort(), proof.bases.map(b => b.input).sort()), 'every derivation input needs its basis');
+    for (const basis of proof.bases) {
+      requireThat(basis.unit === INPUT_UNITS[proof.recipe.id][basis.input], 'derivation input unit mismatch');
+      const value = (proof.recipe.inputs as Record<string, unknown>)[basis.input];
+      if (basis.kind === 'authored-parameter') {
+        const author = context.catalog.proofs.find(p => p.id === basis.proofId);
+        requireThat(author?.kind === 'authored-parameter' && author.planId === plan.id &&
+          same(pointer(author.expected.values, basis.pointer), value), 'authored input basis mismatch');
+      } else {
+        requireThat(plan.parts.some(p => p.id === basis.partId && p.kind === 'external-source') &&
+          same(basis.value, value), 'external input lacks required external part/value');
+      }
+    }
+  }
+  if (proof.kind === 'observed-behavior') {
+    requireThat(run.runner === 'playwright' && requiredPart.kind === 'observed-behavior', 'behavior requires a mounted browser run');
+    const transitions = proof.observations.map(({ mountId, caseId, prestate, action, poststate }) =>
+      ({ mountId, caseId, prestate, action, poststate }));
+    requireThat(same(transitions, requiredPart.requiredObservations), 'missing claimed observed transition');
+    for (const observation of proof.observations) {
+      const registered = context.registry.mounts.find(m => m.id === observation.mountId);
+      requireThat(plan.mounts.some(m => m.mountId === observation.mountId) &&
+        registered?.cases.some(c => c.id === observation.caseId && c.kind !== 'exception'), 'unregistered observed mount/case');
+      auditArtifact(observation.dom); auditArtifact(observation.capture);
+      const dom = read(observation.dom).toString('utf8');
+      const png = read(observation.capture);
+      requireThat(png.length >= 24 && png.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10])) &&
+        png.readUInt32BE(16) === observation.viewport.width && png.readUInt32BE(20) >= observation.viewport.height,
+      'missing/mismatched capture viewport');
+      requireThat(observation.readouts.every(r => dom.includes(r.text)) && dom.includes(proof.disclosure.text), 'actual DOM lacks readouts/disclosure');
+      const expectedValues = proof.expected.values as Record<string, unknown>;
+      const displays = expectedValues.display;
+      requireThat(Array.isArray(displays) && displays.every(d => observation.readouts.some(r => r.text === d)), 'observed readout differs from recomputation');
+    }
+  }
+}
+export type LocalBasisResult = { planId: string; kind: 'authored-local' | 'mixed-local'; failures: string[] };
+export function validateLocalBasisPlan(plan: LocalPlan, current: CellTuple, binding: string, scalar: ClaimEvidence,
+  registryIds: ReadonlySet<string>, context: LocalBasisContext): LocalBasisResult {
+  const failures: string[] = [];
+  const result: LocalBasisResult = { planId: plan.id, kind: plan.parts.some(p => p.kind === 'external-source') ? 'mixed-local' : 'authored-local', failures };
+  try {
+    const read = createLocalArtifactReader(context.root);
+    requireThat(binding === plan.id && !Object.values(scalar).some(Boolean), 'missing binding or mixed scalar fields');
+    requireThat(same(current, plan.currentCells) && originalClaimDigest(current) === plan.currentTupleDigest, 'current native identity drift');
+    requireThat(context.publishedRoutes.includes(routeFor(plan)), 'unpublished target');
+    const target = LOCAL_BASIS_REQUIRED_TARGETS[plan.originalId];
+    requireThat(target && plan.originalId === `${plan.ledgerPath}:${plan.articleSlug}:${plan.rowOrdinal}`, 'ineligible original identity');
+    const original = plan.originalBinding;
+    auditArtifact(original.snapshot);
+    const snapshot = parseLedger(plan.ledgerPath, read(original.snapshot).toString('utf8'))
+      .find(s => s.slug === plan.articleSlug)?.claimRecords[plan.rowOrdinal - 1];
+    requireThat(snapshot && originalClaimDigest(snapshot) === original.originalTupleDigest &&
+      originalClaimDigest(original.originalCells) === original.originalTupleDigest, 'immutable original snapshot/native cells differ');
+    const expectedMounts = target.mounts.map(n => `mount:${routeFor(plan)}:${target.component}:${n}`);
+    requireThat(same(plan.mounts.map(m => m.mountId).sort(), [...expectedMounts].sort()), 'required mount inventory differs');
+    for (const bound of plan.mounts) {
+      const source = context.registry.sources.find(s => s.id === bound.sourceId);
+      const mounted = context.registry.mounts.find(m => m.id === bound.mountId);
+      requireThat(bound.sourceId === `interactive:${target.component}` && source?.fingerprint === bound.sourceFingerprint &&
+        mounted?.fingerprint === bound.mountFingerprint && mounted.sourceId === bound.sourceId &&
+        mounted.route === bound.route && bound.route === routeFor(plan), 'source/mount/route fingerprint drift');
+    }
+    checkDisclosure(plan.disclosure, `content${routeFor(plan).slice(0, -1)}.mdx`, read);
+    const external = plan.parts.filter(p => p.kind === 'external-source');
+    failures.push(...validateExternalPairs(external, plan.evidence, registryIds));
+    for (const item of plan.evidence) {
+      const url = new URL(item.sourceUrl);
+      requireThat(decodeURIComponent(url.pathname).replace(/\/+$/, '') !== routeFor(plan).replace(/\/+$/, '') &&
+        !/\bREPO TEXT\b|\b(?:repository|local)[ -]only\b|\bno HTTP\b/i.test(item.supportingPassage), 'self-URL/repository text cannot be external evidence');
+      auditArtifact(item.provenance.response);
+      requireThat(same(item.provenance.response, item.provenance.passage.file) &&
+        readMember(item.provenance.passage, read) === item.supportingPassage &&
+        Date.parse(item.provenance.retrievedAt) <= Date.now(), 'external passage/provenance mismatch');
+    }
+    const proofs = context.catalog.proofs.filter(p => p.planId === plan.id);
+    const required = plan.parts.flatMap(p => p.kind === 'external-source' ? [] : p.requiredProofIds);
+    requireThat(same([...required].sort(), proofs.map(p => p.id).sort()), 'missing or extra local proof');
+    for (const proof of proofs) checkProof(plan, proof, context, read);
+    checkReview(plan, plan.planReview, localPlanDigest(plan), null, read);
+    distinct(plan.adjudications.map(a => a.partId), 'adjudication');
+    requireThat(same(plan.parts.map(p => p.id).sort(), plan.adjudications.map(a => a.partId).sort()), 'adjudications must cover full AND inventory');
+    for (const adjudication of plan.adjudications) {
+      requireThat(adjudication.outcome === 'supported', `part ${adjudication.partId} remains ${adjudication.outcome}`);
+      const notBefore = Math.max(0, ...proofs.filter(p => p.partId === adjudication.partId).map(p => Date.parse(p.provenance.endedAt)),
+        ...plan.evidence.filter(e => e.partId === adjudication.partId).map(e => Date.parse(e.provenance.retrievedAt)));
+      checkReview(plan, adjudication, localPartDigest(plan, adjudication.partId, proofs), adjudication.partId, read, notBefore);
+    }
+  } catch (error) { failures.push(error instanceof Error ? error.message : String(error)); }
+  return result;
+}
