@@ -338,7 +338,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/generalist-release-timeline.tsx',
     route: '/manipulation/generalist-policies/',
     quantityNames: ['policies', 'weights'],
-    text: '13 of 13 generalist policies sit on a Feb 2025 to Jul 2026 axis; selected is Helix from Figure (closed, lab blog, vendor-reported) and blue nodes mark open weights while dim nodes mark closed ones.',
+    text: '13 of 13 selected generalist policies are shown; selected is Helix from Figure (weights not disclosed, lab blog, vendor-reported). Blue nodes have reported weight downloads; dim nodes include unavailable and not-disclosed records, distinguished by text labels. Node shape marks source provenance; a dim node does not establish closed licensing.',
   },
   {
     component: 'JepaPlanning',

@@ -31,7 +31,8 @@ citations:
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/pi-line"
-  - "manipulation/hierarchical"
+  - "manipulation/foundation-models"
+  - "manipulation/action-spaces"
 ---
 
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
@@ -91,3 +92,9 @@ OpenVLA v3 reports approximately 6 Hz inference on one NVIDIA RTX 4090 in bfloat
 <Cite id="rt1-2022" /> The RT-1 paper announces code, which does not establish pretrained-weight availability. <Cite id="helix-02-2026" /> Figure's Helix 02 announcement does not state a chunk horizon or weight-release terms. Their availability cells therefore read "not disclosed" for these checked sources. <Cite id="openpi-repo-2024" /> The pinned openpi README lists π0, π0-FAST, and π0.5 checkpoints. <Cite id="isaac-gr00t-repo-2026" /> The N1.7 README lists downloadable weights, while its License section distinguishes Apache 2.0 code from the NVIDIA Open Model License for weights. These release statements do not establish a global generation ranking or closed licensing for an unlisted model.
 
 The Control Hz column is not an inference-throughput comparison. <Cite id="act-aloha-2023" /> ACT's 50 Hz ALOHA loop, <Cite id="helix-02-2026" /> Helix's 200 Hz S1/1 kHz S0 stack, and <Cite id="pi07-2026" /> π0.7's 20 Hz UR5e/50 Hz other-robot settings describe different systems. π0.7 also trains with simulated inference delays; that does not turn these rates into a shared benchmark. Read the setting notes before comparing two cells.
+
+## Use the matrix as a constraint solver
+
+Start with elimination, not ranking. Remove models whose weights or training data cannot be used under the project's terms. Remove models whose action representation cannot map cleanly to the robot's controller, then those whose measured end-to-end latency misses the deadline. Next test observation compatibility and the amount of adaptation data the model requires. Only after those constraints should benchmark performance influence the shortlist.
+
+For the surviving candidates, run one controlled comparison with the same cameras, action horizon, reset policy and physical trial protocol. Keep a simple behavior-cloning or action-chunking baseline in the evaluation. The [foundation-model guide](/manipulation/foundation-models) explains what prior each family contributes; the [action-space guide](/manipulation/action-spaces) explains whether its output is a fair fit. A matrix can expose missing evidence, but it cannot turn results from different robots and protocols into a universal leaderboard.

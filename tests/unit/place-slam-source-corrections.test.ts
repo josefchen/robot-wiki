@@ -131,8 +131,23 @@ describe('retained visual place and SLAM backend corrections', () => {
     for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 25, 26, 27, 31, 33, 38, 39, 40, 41, 42, 43, 44]) {
       expect(current[ordinal - 1].evidenceFailures, `original ${ordinal}`).toEqual([]);
     }
+    // The scene-representation-20260916d packet completed the formerly held
+    // originals 18, 24, 45 and 49; each now binds its own compound plan.
+    for (const [ordinal, planId] of [
+      [18, 'scene-representation-18-mast3r-head-20260916d'],
+      [24, 'scene-representation-24-occworld-20260916d'],
+      [45, 'scene-representation-45-occluder-demo-20260916d'],
+      [49, 'scene-representation-49-disagreement-20260916d'],
+    ] as const) {
+      const record = current[ordinal - 1];
+      expect(record.evidenceFailures, `original ${ordinal}`).toEqual([]);
+      expect(record.compound?.planId, `original ${ordinal}`).toBe(planId);
+    }
     for (const ordinal of [18, 24, 45, 49]) {
-      expect(current[ordinal - 1].evidenceFailures.length, `held original ${ordinal}`).toBeGreaterThan(0);
+      const p = plans.find(p => p.articleSlug === 'scene-representation' && p.rowOrdinal === ordinal)!;
+      expect(p.evidence.length, `later source plan for original ${ordinal}`).toBeGreaterThan(0);
+      expect(p.adjudications).toHaveLength(p.parts.length);
+      expect(current[ordinal - 1].evidenceFailures, `later complete original ${ordinal}`).toEqual([]);
     }
     expect(source).toContain('In Section II, Cadena and colleagues separate a sensor-dependent front end');
     expect(source).toContain('The MLP is the dense scene map, not the system\'s only stored data');

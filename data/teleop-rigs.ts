@@ -13,12 +13,15 @@
  *   - Ratings are ordered low < medium < high; each note states what the
  *     rating means for that dimension and row.
  *
- * The array is Zod-validated at import time, so a malformed row fails the
- * build, the dev server, and the test suite immediately. The runtime import
- * keeps its explicit .ts extension so plain node can load this file too.
+ * The rows are typed against the Zod schema's inferred type, and the schema
+ * itself parses them at build time on the server (lib/registry-validation.ts,
+ * run while the article routes prerender) and in the unit suite, so a
+ * malformed row still fails the build. The parse is deliberately not done
+ * here: the teleop-rig matrix renders in the browser, and a module-scope parse would
+ * bundle zod into every page that mounts it. The type-only import keeps its
+ * explicit .ts extension so plain node can load this file too.
  */
-import { z } from 'zod';
-import { teleopRigSchema, type TeleopRig } from './schemas/teleop-rig.ts';
+import type { TeleopRig } from './schemas/teleop-rig.ts';
 
 export type { RigRating, TeleopRig } from './schemas/teleop-rig.ts';
 
@@ -29,7 +32,7 @@ const ROWS: TeleopRig[] = [
     family: 'Bimanual leader-follower workstation',
     representatives: ['ALOHA 2 (Stanford)', 'Trossen AI Stationary and Mobile AI'],
     costUsd: null,
-    costNote: 'Community issue, researched Jun 2026: ALOHA / ALOHA 2 ~ $17k–32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
+    costNote: 'Community issue, researched Jun 2026: ALOHA / ALOHA 2 ~ $17k-32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
     dataQuality: 'high',
     dataQualityNote:
       'Leader and follower arms share kinematics; demonstrations land directly in the robot joint space at 500 Hz',
@@ -41,7 +44,7 @@ const ROWS: TeleopRig[] = [
       'The operator drives a kinematically identical arm, so recorded motion is the robot motion',
     details: {
       cost:
-        'A June 2026 community compilation in alpibrusl/lex-robot estimates the combined ALOHA / ALOHA 2 category at about $17k–32k. It does not identify the currency code, endpoint configurations, or itemized inclusions/exclusions; this is not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
+        'A June 2026 community compilation in alpibrusl/lex-robot estimates the combined ALOHA / ALOHA 2 category at about $17k-32k. It does not identify the currency code, endpoint configurations, or itemized inclusions/exclusions; this is not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
       dataQuality:
         'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. ACT learned six difficult bimanual tasks to 80-90% success from only 10 minutes of demonstrations on the original low-cost ALOHA hardware.',
       throughput:
@@ -163,5 +166,5 @@ const ROWS: TeleopRig[] = [
   },
 ];
 
-/** Zod-validated rows; an invalid entry throws at import time. */
-export const TELEOP_RIGS: TeleopRig[] = z.array(teleopRigSchema).parse(ROWS);
+/** Schema-validated at build time by lib/registry-validation.ts. */
+export const TELEOP_RIGS: TeleopRig[] = ROWS;

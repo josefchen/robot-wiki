@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { committedText } from '../helpers/editorial-current-context';
 import { CITATIONS } from '../../data/citations.ts';
+import { committedSource } from '../helpers/continuation-integration';
+import { currentAuditContext } from '../helpers/residual-integration';
 import {
   classifyVerdict,
   compoundPartDigest,
@@ -180,10 +183,35 @@ describe('two source-backed verdict reconciliations, not structural completions'
   });
 
   it('records zero new structural completions while closing the two outcome findings', () => {
-    expect(ledger).toContain('- Unresolved or unrecognised verdicts: 0');
-    expect(ledger).toContain('- Complete evidence records: 176');
-    expect(ledger).toContain('- Incomplete evidence records: 11');
-    expect(readFileSync('audit/README.md', 'utf8').split('\n---\n')[0])
+    const historical = committedSource('e687718', 'audit/classical.md');
+    expect(historical).toContain('- Unresolved or unrecognised verdicts: 0');
+    expect(historical).toContain('- Complete evidence records: 176');
+    expect(historical).toContain('- Incomplete evidence records: 11');
+    const current = parseLedger('audit/classical.md', ledger, registry, currentAuditContext());
+    expect(current.flatMap(section => section.summaryFailures)).toEqual([]);
+    const beforeClosure = readFileSync('audit/evidence/classical-closure-20260923/classical-before.md', 'utf8');
+    expect(beforeClosure).toContain('- Complete evidence records: 177');
+    expect(beforeClosure).toContain('- Incomplete evidence records: 10');
+    const imported = new Set(['calibration', 'ros2-for-ml-engineers']);
+    expect(current.filter(section => !imported.has(section.slug))
+      .reduce((n, section) => n + section.claimRecords.filter(r => r.evidenceFailures.length === 0).length, 0)).toBe(187);
+    expect(current.find(section => section.slug === 'calibration')?.claimRows).toBe(8);
+    expect(current.find(section => section.slug === 'ros2-for-ml-engineers')?.claimRows).toBe(7);
+    expect(current.reduce((n, section) => n + section.claimRecords.filter(r => r.evidenceFailures.length === 0).length, 0)).toBe(202);
+    // Later checkpoints are prepended above this one, so find it by heading
+    // rather than assuming it is still the first block.
+    const checkpoint = readFileSync('audit/README.md', 'utf8')
+      .split('\n---\n')
+      .find((block) => block.includes('## Current checkpoint: two corrected verdict outcomes reconciled (2026-09-21)'));
+    expect(checkpoint).toBeDefined();
+    expect(checkpoint).toContain('zero new structural completions');
+    const historicalCheckpoint = committedText('e687718cd3c2d1c35d3f63b6e296712a5892a9f0', 'audit/classical.md');
+    expect(historicalCheckpoint).toContain('- Unresolved or unrecognised verdicts: 0');
+    expect(historicalCheckpoint).toContain('- Complete evidence records: 176');
+    expect(historicalCheckpoint).toContain('- Incomplete evidence records: 11');
+    expect(ledger).toContain('- Complete evidence records: 202');
+    expect(committedText('e687718cd3c2d1c35d3f63b6e296712a5892a9f0', 'audit/README.md').split('\n---\n')[0])
       .toContain('zero new structural completions');
+    expect(readFileSync('audit/README.md', 'utf8')).toContain('994 complete / 0 incomplete');
   });
 });

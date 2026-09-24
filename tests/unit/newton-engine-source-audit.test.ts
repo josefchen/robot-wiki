@@ -84,7 +84,15 @@ describe('Newton engine source-scoped corrections', () => {
     }
     for (const phrase of ['86.25%', 'Those descriptions disagree', 'Only the fine-tuned tracking policy is deployed',
       'Robots of the same generation used the same controller']) expect(transfer()).toContain(phrase);
-    expect(catalog().some(p => p.articleSlug === 'reward-design-mpc' && p.rowOrdinal === 21)).toBe(false);
+    // Row 21 was unbound when this pin was written; the reward-design-mpc
+    // originals packet has since bound it to its own reviewed plan.
+    expect(catalog().some(
+      p => p.id === 'reward-design-mpc-original-21-20260916'
+        && p.articleSlug === 'reward-design-mpc' && p.rowOrdinal === 21,
+    )).toBe(true);
+    const laterReward21 = catalog().find(p => p.articleSlug === 'reward-design-mpc' && p.rowOrdinal === 21)!;
+    expect(laterReward21.id).toBe('reward-design-mpc-original-21-20260916');
+    expect(laterReward21.evidence).toHaveLength(3);
   });
   describe.each(selected)('%s original %i', (slug, ordinal, parts) => {
     it('binds every required part and actual final-current review', () => {

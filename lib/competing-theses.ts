@@ -8,40 +8,17 @@
  * source, and so the unit suite can assert that every citation id resolves
  * in the registry.
  *
- * The Zod schema is the completeness gate: every thesis
- * must carry non-empty proponents, evidenceFor, evidenceAgainst, and
- * falsification. The array is parsed at module scope, so an incomplete row
- * throws during static generation and fails `next build`.
+ * The Zod schema (lib/competing-theses-schema.ts) is the completeness gate:
+ * every thesis must carry non-empty proponents, evidenceFor,
+ * evidenceAgainst, and falsification. The explorer renders in the browser,
+ * so this module keeps zod out of its import graph: the rows are typed
+ * against the schema's inferred type here, and the schema parses them at
+ * build time on the server (lib/registry-validation.ts, run while the
+ * article routes prerender), so an incomplete row still fails `next build`.
  */
-import { z } from 'zod';
+import type { Thesis } from './competing-theses-schema.ts';
 
-/** One piece of evidence, with the registry ids that back it. */
-export const evidenceSchema = z.object({
-  text: z.string().min(1),
-  citationIds: z.array(z.string().min(1)).min(1),
-});
-
-export const thesisSchema = z.object({
-  /** Stable row id, used for test selectors. */
-  id: z.string().min(1),
-  /** Short thesis name, e.g. "End-to-end VLA scaling". */
-  name: z.string().min(1),
-  /** The core claim in one sentence. */
-  claim: z.string().min(1),
-  /** Named proponents (people or organizations), at least one. */
-  proponents: z.array(z.string().min(1)).min(1),
-  /** The strongest published evidence for the thesis. */
-  evidenceFor: z.array(evidenceSchema).min(1),
-  /** The strongest published evidence or argument against it. */
-  evidenceAgainst: z.array(evidenceSchema).min(1),
-  /** The falsification criterion: the observation that would kill it. */
-  falsification: z.string().min(1),
-  /** Compressed falsification signal for the table row. */
-  falsificationSignal: z.string().min(1),
-});
-
-export type Thesis = z.infer<typeof thesisSchema>;
-export type ThesisEvidence = z.infer<typeof evidenceSchema>;
+export type { Thesis, ThesisEvidence } from './competing-theses-schema.ts';
 
 const ROWS: Thesis[] = [
   {
@@ -212,8 +189,8 @@ const ROWS: Thesis[] = [
         citationIds: ['pistar06-2025'],
       },
       {
-        text: 'The two strongest verified deployment records, Agility\'s 65,000+ operating hours and Figure\'s 1,250+ hours at BMW Spartanburg, are supervised programs that generate training data as a byproduct.',
-        citationIds: ['technology-org-deployed-2026'],
+        text: 'Nucleus describes human-supervised operations as a route to useful work while autonomy improves. This is its proposed operating model, not evidence that Agility’s or Figure’s reported hours were teleoperated.',
+        citationIds: ['nucleus-supervised-2026'],
       },
       {
         text: "Bessemer’s investor outlook quotes Voxel51’s Brian Moore and Foxglove’s Adrian Macneil on a data flywheel: “better decisions, better model improvements, and better deployments faster than everyone else.” Both are disclosed portfolio companies. This is an attributed investment thesis, not evidence that deployment revenue funds collection or guarantees autonomy.",
@@ -259,8 +236,8 @@ const ROWS: Thesis[] = [
         citationIds: ['brooks-dexterity-2025'],
       },
       {
-        text: 'The verified deployment records belong to narrow applications: Agility\'s 65,000+ hours are logistics work, where purpose-built systems already carry the revenue.',
-        citationIds: ['technology-org-deployed-2026'],
+        text: 'Agility reports 65,000 hours of Digit production experience without an hours-by-task breakdown. It does not establish a humanoid versus purpose-built cost-per-task comparison.',
+        citationIds: ['agility-digit-production'],
       },
     ],
     falsification:
@@ -270,11 +247,11 @@ const ROWS: Thesis[] = [
 ];
 
 /**
- * The six theses, schema-validated at module load. An incomplete row throws
- * here, which fails `next build` during static generation of the module
- * page.
+ * The six theses. lib/registry-validation.ts parses them against
+ * thesesSchema at build time; an incomplete row fails `next build` during
+ * static generation of the article routes.
  */
-export const THESES: Thesis[] = z.array(thesisSchema).length(6).parse(ROWS);
+export const THESES: Thesis[] = ROWS;
 
 /** The explorer opens on the scaling thesis: it is the debate's center. */
 export const DEFAULT_THESIS_ID = 'end-to-end-vla';

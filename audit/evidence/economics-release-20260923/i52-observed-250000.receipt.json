@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_RELEASE_BROWSER=1 node_modules/.bin/playwright test --config=playwright.economics-release.config.ts tests/e2e/economics-release-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-release-20260923/playwright-final",
+  "runner": "playwright",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T18:01:20.457Z",
+  "endedAt": "2026-09-23T18:01:24.871Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/economics-release-evidence.spec.ts",
+    "bytes": 6921,
+    "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
+  },
+  "inputDigest": "29cc49da6efff409300cabacbca0057303487574aca63b79566d2ff308244fa2",
+  "outputDigest": "edc38ec04b81cb2a3541d69b3964b21dd4ef06830b3f3a227e387552990ffd5f",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19271,
+        "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
+      },
+      "id": "article:data-hardware/industrial-deployment",
+      "offset": 0,
+      "length": 19271,
+      "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
+      "baseline": {
+        "kind": "prose",
+        "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/deployment-economics.tsx",
+        "bytes": 9866,
+        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+      },
+      "id": "source:components/interactive/deployment-economics.tsx",
+      "offset": 0,
+      "length": 9866,
+      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/deployment-economics.ts",
+        "bytes": 7602,
+        "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+      },
+      "id": "file:lib/deployment-economics.ts",
+      "offset": 0,
+      "length": 7602,
+      "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44206,
+        "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 44206,
+      "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-local-20260923/support.ts",
+        "bytes": 5308,
+        "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+      },
+      "id": "file:audit/evidence/economics-local-20260923/support.ts",
+      "offset": 0,
+      "length": 5308,
+      "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-release-20260923/support.ts",
+        "bytes": 1256,
+        "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+      },
+      "id": "file:audit/evidence/economics-release-20260923/support.ts",
+      "offset": 0,
+      "length": 1256,
+      "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/economics-release-evidence.spec.ts",
+        "bytes": 6921,
+        "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
+      },
+      "id": "file:tests/e2e/economics-release-evidence.spec.ts",
+      "offset": 0,
+      "length": 6921,
+      "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/slider.ts",
+        "bytes": 1130,
+        "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+      },
+      "id": "file:tests/e2e/slider.ts",
+      "offset": 0,
+      "length": 1130,
+      "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+    },
+    {
+      "file": {
+        "path": "playwright.config.ts",
+        "bytes": 1122,
+        "sha256": "34239f70eb0e250860ce5b0d808a8fdfd1dd455575214aab6eaaf7a3498c4733"
+      },
+      "id": "file:playwright.config.ts",
+      "offset": 0,
+      "length": 1122,
+      "sha256": "34239f70eb0e250860ce5b0d808a8fdfd1dd455575214aab6eaaf7a3498c4733"
+    },
+    {
+      "file": {
+        "path": "package-lock.json",
+        "bytes": 494319,
+        "sha256": "d6971072b93157f7df0f457eb53050da53be0fec309c4dd9931e0e45b966bfc4"
+      },
+      "id": "file:package-lock.json",
+      "offset": 0,
+      "length": 494319,
+      "sha256": "d6971072b93157f7df0f457eb53050da53be0fec309c4dd9931e0e45b966bfc4"
+    },
+    {
+      "file": {
+        "path": "lib/utils.ts",
+        "bytes": 176,
+        "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+      },
+      "id": "file:lib/utils.ts",
+      "offset": 0,
+      "length": 176,
+      "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+    },
+    {
+      "file": {
+        "path": "playwright.economics-release.config.ts",
+        "bytes": 197,
+        "sha256": "2dbf5cda4b8ddfa1a9fd39e0b423e5adebb511f5fcd70f2566387a1f54554379"
+      },
+      "id": "file:playwright.economics-release.config.ts",
+      "offset": 0,
+      "length": 197,
+      "sha256": "2dbf5cda4b8ddfa1a9fd39e0b423e5adebb511f5fcd70f2566387a1f54554379"
+    },
+    {
+      "file": {
+        "path": "playwright.brand-v2.config.ts",
+        "bytes": 538,
+        "sha256": "29d545cbc6286fb6daf9a05c7f373ef93ba42058902c4f8ad51b0935ecaa25d1"
+      },
+      "id": "file:playwright.brand-v2.config.ts",
+      "offset": 0,
+      "length": 538,
+      "sha256": "29d545cbc6286fb6daf9a05c7f373ef93ba42058902c4f8ad51b0935ecaa25d1"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/brand-v2-static-fixture.ts",
+        "bytes": 3357,
+        "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+      },
+      "id": "file:tests/e2e/brand-v2-static-fixture.ts",
+      "offset": 0,
+      "length": 3357,
+      "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/static-export-server.ts",
+        "bytes": 4801,
+        "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
+      },
+      "id": "file:tests/e2e/static-export-server.ts",
+      "offset": 0,
+      "length": 4801,
+      "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "Minimum robotCost20000",
+      "action": "Move robotCost to maximum250000",
+      "poststate": "Cell cost $625,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.025; 36.1 months; all seven inputs, notes, verdict, time shares and seconds checked",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"cost-per-pick\"]",
+          "text": "0.025"
+        },
+        {
+          "selector": "[data-testid=\"payback-months\"]",
+          "text": "36.1 months"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/economics-release-20260923/captures/max.dom.json",
+        "bytes": 171763,
+        "sha256": "4b873f4951c0a9dcd3f514a807c19b0fdd8c648dc36fcde3f764aa2fe1379d0b"
+      },
+      "capture": {
+        "path": "audit/evidence/economics-release-20260923/captures/max.png",
+        "bytes": 128104,
+        "sha256": "702d5daa276b7759bcb65134b78142b0e283fea1f9ad0de9c10d50b80450aee4"
+      }
+    }
+  ]
+}

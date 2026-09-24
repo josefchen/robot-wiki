@@ -1,0 +1,286 @@
+{
+  "schemaVersion": "final-seven-evidence-index-v1",
+  "generatedAt": "2026-09-23T22:39:42.834Z",
+  "baseCommit": "b1782205a17ffa7a8c2f8d5a4cf15981197c2d1c",
+  "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
+  "originals": {
+    "total": 994,
+    "previousCompletePreserved": 987,
+    "newlyComplete": 7,
+    "remainingIncomplete": 0,
+    "publishedArticles": 47,
+    "citationLedgerRows": 433,
+    "unresolvedCitationVerdicts": 5
+  },
+  "catalog": {
+    "previousPlans": 20,
+    "previousProofs": 154,
+    "newPlans": 7,
+    "newProofs": 33,
+    "newParts": 37,
+    "newReviewEvents": 44,
+    "oldLegacyObjectsRetained": 853,
+    "legacyPlansArchived": 5
+  },
+  "numeric": {
+    "path": "audit/evidence/final-seven-closure-20260923/numeric-results-final.json",
+    "bytes": 41869,
+    "sha256": "32cd5c4f094d57f71416c5e678eacfc42bdcc2f6da7e993f9723fdff07bec02f",
+    "cases": 41
+  },
+  "mountedBrowser": {
+    "path": "audit/evidence/final-seven-closure-20260923/browser-observations.json",
+    "bytes": 30818,
+    "sha256": "5b2f056b0dbb2af5b5972924f3dd6b427420547b51415b8729a4f06faa495ded",
+    "uniqueObservations": 30,
+    "pageErrors": 0,
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 375,
+        "height": 812
+      }
+    ],
+    "qualification": "Safety article range punctuation was normalized after capture; rebind-safety.mjs binds an unchanged exact disclosure prefix and the final whole article. No second browser run is asserted."
+  },
+  "documents": [
+    {
+      "identity": "Open X-Embodiment arXiv HTML v9",
+      "url": "https://arxiv.org/html/2310.08864v9",
+      "historicalRetrieval": "2026-09-16T04:09:18Z",
+      "original": {
+        "path": "audit/evidence/final-seven-closure-20260923/retained-oxe-html-v9.html",
+        "bytes": 221753,
+        "sha256": "5af2c0b4c263b1734a3651e7b46e3ba855d62c5ba1b89e380e1d71a5ef8ea90a"
+      },
+      "derivedReadable": {
+        "path": "audit/evidence/final-seven-closure-20260923/retained-oxe-html-v9-readable.txt",
+        "bytes": 64878,
+        "sha256": "a407f264e7c25a07354335accfd030dfbe26868206e51b7a4cf8699b67004934"
+      },
+      "scope": "paper text count/embodiment; images/spreadsheet not inspected"
+    },
+    {
+      "identity": "Official Open X-Embodiment project page",
+      "url": "https://robotics-transformer-x.github.io/",
+      "historicalRetrieval": "2026-09-22T20:50:35.723Z",
+      "original": {
+        "path": "audit/evidence/final-seven-closure-20260923/retained-source-2.txt",
+        "bytes": 12904,
+        "sha256": "18180d2b27ed6c24142087f7047437ac7addae14ec8db0384bb338288416a143"
+      },
+      "derivedReadable": {
+        "path": "audit/evidence/final-seven-closure-20260923/retained-oxe-project-page-readable.txt",
+        "bytes": 12222,
+        "sha256": "ff0aed5f746b9846c807d0516adbbb920226124f60420cce4c365fba426094c9"
+      },
+      "scope": "project-page Markdown only; linked resources not inspected"
+    },
+    {
+      "identity": "DROID arXiv HTML v2",
+      "url": "https://arxiv.org/html/2403.12945v2",
+      "historicalRetrieval": "2026-09-16T04:09:18Z",
+      "original": {
+        "path": "audit/evidence/final-seven-closure-20260923/retained-droid-html-v2.html",
+        "bytes": 258370,
+        "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897"
+      },
+      "derivedReadable": {
+        "path": "audit/evidence/final-seven-closure-20260923/retained-droid-html-v2-readable.txt",
+        "bytes": 99329,
+        "sha256": "d72b43c33fe455b60306c1fa481a272480b05be65dc38c907235daa0274dbc58"
+      },
+      "scope": "paper text, corpus/cohort counts; no rig-year productivity claim"
+    },
+    {
+      "identity": "Marvel and Norcross retained PMC author manuscript",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+      "historicalRetrieval": "2026-09-06T00:34:25.849Z",
+      "original": {
+        "path": "audit/evidence/final-seven-closure-20260923/retained-marvel-norcross.txt",
+        "bytes": 72967,
+        "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e"
+      },
+      "scope": "author manuscript, not normative ISO text; historical HTTP result, no new request"
+    }
+  ],
+  "rows": [
+    {
+      "originalId": "audit/rl-sim2real.md:legged-locomotion:8",
+      "rowOrdinal": 8,
+      "originalTupleDigest": "8de21bc7399f995bfc18fabc2e0fa4ad9f7d79f112f7e3b5ac81ba5f8601f8a8",
+      "currentTupleDigest": "c8cee9c5f8e0402b4b170bff194bc9d0f2522d28837f51c306b13179234d41ea",
+      "verdict": "Cut",
+      "planId": "final-seven-rl-sim2real-legged-locomotion-8-20260923",
+      "parts": 5,
+      "proofs": 5,
+      "sourceUrls": []
+    },
+    {
+      "originalId": "audit/rl-sim2real.md:legged-locomotion:17",
+      "rowOrdinal": 17,
+      "originalTupleDigest": "a2a7ed80b3250d22bb7d5a13764feb736ff8e6227619ae4f9e84b8fa619e32d6",
+      "currentTupleDigest": "6175ca719a07877930ee90e9dd577233ccb31bb30db74a923291057d6612cbdd",
+      "verdict": "C",
+      "planId": "final-seven-rl-sim2real-legged-locomotion-17-20260923",
+      "parts": 5,
+      "proofs": 5,
+      "sourceUrls": []
+    },
+    {
+      "originalId": "audit/data-hardware.md:data-bottleneck:3",
+      "rowOrdinal": 3,
+      "originalTupleDigest": "358421f161ca94df1ae8b8c62a926894fb409aeb79bf2e9479b74e5f61ec7647",
+      "currentTupleDigest": "2f9d3ad6335b1b3936881554f8e14ec780b451550eedc335b24b8c1779569499",
+      "verdict": "C",
+      "planId": "final-seven-data-hardware-data-bottleneck-3-20260923",
+      "parts": 6,
+      "proofs": 5,
+      "sourceUrls": [
+        {
+          "citationId": "open-x-embodiment-2023",
+          "url": "https://arxiv.org/html/2310.08864v9",
+          "retrievedAt": "2026-09-16T04:09:18Z",
+          "passage": {
+            "file": {
+              "path": "audit/evidence/final-seven-closure-20260923/retained-oxe-html-v9-readable.txt",
+              "bytes": 64878,
+              "sha256": "a407f264e7c25a07354335accfd030dfbe26868206e51b7a4cf8699b67004934"
+            },
+            "id": "file:audit/evidence/final-seven-closure-20260923/retained-oxe-html-v9-readable.txt",
+            "offset": 16840,
+            "length": 808,
+            "sha256": "2f31e362b8ca62f27228aa41cc72cefbfc124cffc30e88abd24c731f36ed9646"
+          }
+        },
+        {
+          "citationId": "open-x-embodiment-2023",
+          "url": "https://robotics-transformer-x.github.io/",
+          "retrievedAt": "2026-09-22T20:50:35.723Z",
+          "passage": {
+            "file": {
+              "path": "audit/evidence/final-seven-closure-20260923/retained-oxe-project-page-readable.txt",
+              "bytes": 12222,
+              "sha256": "ff0aed5f746b9846c807d0516adbbb920226124f60420cce4c365fba426094c9"
+            },
+            "id": "file:audit/evidence/final-seven-closure-20260923/retained-oxe-project-page-readable.txt",
+            "offset": 7366,
+            "length": 137,
+            "sha256": "bcc3b1d751fb390013ff09f1ebcb4c62b4fbab10dd5a8bd8f072979efca427dd"
+          }
+        }
+      ]
+    },
+    {
+      "originalId": "audit/data-hardware.md:data-bottleneck:5",
+      "rowOrdinal": 5,
+      "originalTupleDigest": "20650ba68698303275a092afd6efb029284517d375afca1727b0e5740a857527",
+      "currentTupleDigest": "258900a761ba8f5d89c964a37c51d4d0576c744b27d3179975b4b5ab98a93787",
+      "verdict": "C",
+      "planId": "final-seven-data-hardware-data-bottleneck-5-20260923",
+      "parts": 6,
+      "proofs": 5,
+      "sourceUrls": [
+        {
+          "citationId": "droid-2024",
+          "url": "https://arxiv.org/html/2403.12945v2",
+          "retrievedAt": "2026-09-16T04:09:18Z",
+          "passage": {
+            "file": {
+              "path": "audit/evidence/final-seven-closure-20260923/retained-droid-html-v2-readable.txt",
+              "bytes": 99329,
+              "sha256": "d72b43c33fe455b60306c1fa481a272480b05be65dc38c907235daa0274dbc58"
+            },
+            "id": "file:audit/evidence/final-seven-closure-20260923/retained-droid-html-v2-readable.txt",
+            "offset": 2966,
+            "length": 18384,
+            "sha256": "b101ac7087797e5aa09661c3020ac7afacd213e4f1187a2d8be4833ae14d697c"
+          }
+        }
+      ]
+    },
+    {
+      "originalId": "audit/data-hardware.md:evaluation-crisis:1",
+      "rowOrdinal": 1,
+      "originalTupleDigest": "3b8871d3589c571068c9a4165043e4c9707fe512b0812741709bfaea79c00515",
+      "currentTupleDigest": "116769e9a49070372476dee3bf8c3591969b3e61ef75ac6882a72d8baefafa46",
+      "verdict": "C",
+      "planId": "final-seven-data-hardware-evaluation-crisis-1-20260923",
+      "parts": 5,
+      "proofs": 5,
+      "sourceUrls": []
+    },
+    {
+      "originalId": "audit/frontier.md:safety-and-assurance:5",
+      "rowOrdinal": 5,
+      "originalTupleDigest": "09919f055affcda5f9805670e89036bf6ff7d87e22dc53f7d6d6bfb79a096668",
+      "currentTupleDigest": "c7eb6812c70464df179826cceb01fb86c071a39e12e361f8e76925da448af85e",
+      "verdict": "C",
+      "planId": "final-seven-frontier-safety-and-assurance-5-20260923",
+      "parts": 5,
+      "proofs": 4,
+      "sourceUrls": [
+        {
+          "citationId": "marvel-norcross-2017",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+          "retrievedAt": "2026-09-06T00:34:25.849Z",
+          "passage": {
+            "file": {
+              "path": "audit/evidence/final-seven-closure-20260923/retained-marvel-norcross.txt",
+              "bytes": 72967,
+              "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e"
+            },
+            "id": "file:audit/evidence/final-seven-closure-20260923/retained-marvel-norcross.txt",
+            "offset": 4480,
+            "length": 61218,
+            "sha256": "b5d5b004cd9004746328d3e39269bac7adbf0a8f520b2ea5304b9a98c65fda69"
+          }
+        }
+      ]
+    },
+    {
+      "originalId": "audit/frontier.md:safety-and-assurance:6",
+      "rowOrdinal": 6,
+      "originalTupleDigest": "2cfe9ea2a10d3546078b3deb354f9310fb27475181fd62f880915245e33005e5",
+      "currentTupleDigest": "af86e34ac68cf18158a64fd9e67f406c414f9d855ce50bfc69a4809b0a4aeffd",
+      "verdict": "S",
+      "planId": "final-seven-frontier-safety-and-assurance-6-20260923",
+      "parts": 5,
+      "proofs": 4,
+      "sourceUrls": [
+        {
+          "citationId": "marvel-norcross-2017",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+          "retrievedAt": "2026-09-06T00:34:25.849Z",
+          "passage": {
+            "file": {
+              "path": "audit/evidence/final-seven-closure-20260923/retained-marvel-norcross.txt",
+              "bytes": 72967,
+              "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e"
+            },
+            "id": "file:audit/evidence/final-seven-closure-20260923/retained-marvel-norcross.txt",
+            "offset": 18407,
+            "length": 47291,
+            "sha256": "8571f1ea2f97416d9797ddf2d886f62af32fd74268931d7748d0c7057935bf5e"
+          }
+        }
+      ]
+    }
+  ],
+  "result": {
+    "offlineAuditGate": "OK: 994/994, zero incomplete, 47/47 published, 433/433 registered citations",
+    "baselineGate": "RED: 46 unrelated changed/unexpected members after 11 exact selected approvals; see existing Mission 007-baseline-final.log",
+    "citationNetworkGate": "not run; five unresolved citation verdicts remain",
+    "releaseGate": "not independently accepted; do not publish"
+  },
+  "preserved": [
+    "PRODUCT_QUALITY.md",
+    "qa/",
+    "next-env.d.ts",
+    "d282a83",
+    "2cf7d6b"
+  ]
+}

@@ -140,6 +140,14 @@ export const STRATEGIES: Record<StrategyId, Strategy> = {
   },
 };
 
+/**
+ * The EgoScale paper, cited as extra source context beside the
+ * relative-EEF strategy's own source (its caveat names EgoScale's separate
+ * specification). Named here rather than inline in the component so the
+ * server can resolve the record the widget renders (lib/widget-citations.ts).
+ */
+export const RELATIVE_EEF_CONTEXT_CITATION_ID = 'egoscale-2026';
+
 export function strategyById(id: StrategyId): Strategy {
   const found = STRATEGIES[id];
   if (!found) throw new Error(`unknown strategy: ${id}`);

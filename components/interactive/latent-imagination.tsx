@@ -336,7 +336,7 @@ export function LatentImagination({
       </div>
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
-        Illustrative toy, not measured model performance. The 3–15-step band,
+        Illustrative toy, not measured model performance. The 3-15-step band,
         error inputs, curves, and frames are teaching choices, not published
         reliability bounds. Source horizon settings are discussed in the article.
       </p>

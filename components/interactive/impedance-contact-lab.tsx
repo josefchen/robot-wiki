@@ -17,7 +17,7 @@ import {
   TRANSIENT_CONTACT_LIMIT_N,
 } from '@/lib/force-limits';
 import { ChartDescription } from '@/components/ui';
-import { CiteRef } from '@/components/mdx/cite-ref';
+import { CiteRef } from '@/components/article/citation-records';
 import { cx } from '@/lib/utils';
 
 /**

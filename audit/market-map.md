@@ -981,3 +981,40 @@ validate:content: OK (47 registry modules, 47 published, 412 citations, 119 term
 This check lives in `validate:content`, not `check:dataset-sources`, because
 same-record membership is deterministic offline data integrity and should
 fail every build. The network sweep remains responsible for URL liveness.
+
+## Unitree shipment-literal qualification (2026-09-24, VAL-MKT-009)
+
+Scope: round-2 independent user testing (2026-09-24) failed the Unitree
+card for publishing shipment and volume-rank literals under a
+high-confidence badge, and the owner's 05:05 VAL-MKT-009 ruling required
+the 2025 shipment quantity to read as not verified from an inspected
+company body — never ~5,500, zero, `n/a`, a 2026 target, or a
+proved-unpublished P4 absence. The 2026-08-18 pass (row above) had
+verified these deployment strings against Rest of World's fetched body;
+that verdict is superseded for these figures by the primary-claimant
+rule: Rest of World is a repeater whose "five key metrics from its
+363-page prospectus" all originate in Unitree's own SSE prospectus, which
+this mission has never inspected (the retained four-anchor packet's
+`source-008.txt` is an explicit empty no-fetch Unitree marker).
+
+| Record | Claim (shipped value) | Source checked (fetched 2026-09-24) | Verdict | Note |
+|---|---|---|---|---|
+| unitree-robotics | description "profitable since 2025 with 5,500 humanoids sold that year"; deployments "5,500 humanoids sold in 2025", "30,000+ quadrupeds sold", "~33% of global humanoid sales"; confidence high | https://restofworld.org/2026/unitree-china-humanoid-robot-shanghai-ipo/ (200: "Unitree sold 5,500 humanoid robots in 2025"; "shipped more than 30,000 quadruped robots" 2022–Sep 2025; "roughly a third of global humanoid robot sales"; all under "five key metrics from its 363-page prospectus"; the same body self-contradicts the profitability year — text "its first profitable year" for 2025 vs its own chart caption "turned profitable in 2024"); https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html (200: 150.8 yuan/share, ~61B yuan/$9.04B valuation, 6.1B yuan raise, "DeepSeek is among the strategic investors") | C (qualified) | Shipment/rank literals WITHDRAWN: the figures are press-repeated prospectus numbers and the prospectus itself is uninspected, so the card discloses scope instead of asserting counts. Description -> "Builds G1/H1 humanoids and quadruped robots; 2025 humanoid shipment volume not verified from an inspected Unitree company body; priced its Shanghai STAR Market IPO in Aug 2026 at a $9.04B valuation." ("profitable since 2025" dropped with them: the only supporting body contradicts itself on the year, and the metric is again prospectus-derived.) Deployments -> ["2025 humanoid shipments, cumulative quadruped shipments, and global sales-share rank not verified from an inspected Unitree company body", "DeepSeek strategic investment"]. Confidence high -> medium so the badge cannot imply the withdrawn metric was verified. IPO amount/date/valuation, status `public`, the three sources and the CNBC round pointer are unchanged and CNBC-supported; no `n/a`, zero, future target or P4 "not disclosed" disposition was introduced, and no replacement count was invented. research/04-market-map-companies.json updated identically and data/companies.ts regenerated via `npm run generate:companies` (111 rows unchanged, no duplicate source URLs). |
+
+Dataset-only pass: no article prose changed, so no `lastReviewed` moved
+and the humanizer does not apply (the new strings are data-field
+disclosures, not narrative prose; no humanizer skill is available in this
+worker session).
+
+### Gates for this pass (transcript of commands actually run)
+
+Sequential, `NODE_DISABLE_COMPILE_CACHE=1`:
+
+| Gate | Command | Result |
+|---|---|---|
+| Targeted unit/component | `npm run test -- companies market-map` | pass, 7 files / 104 tests |
+| Full unit suite | `npm run test` | 423 files: 414 passed / 9 failed; 5268 tests: 5097 passed / 162 failed / 9 skipped. All 162 failures are inside the 9 `brand-v2-*-evidence` readers, staled by this companies edit through the documented shell/apparatus closure fingerprint (`data/companies.ts` sits in the `app/layout.tsx` import closure via the search index); the same 9 files (229 tests) pass at clean HEAD 1d1bb1f. The prescribed remedy `npm run refresh:brand-v2-evidence` (ungated build + 13-spec full browser sweep) is outside this worker's bounded scope by the parent live boundary, so it is recorded, not run. |
+| Typecheck | `npm run typecheck` | pass (exit 0) |
+| Lint | `npm run lint` | pass (exit 0) |
+| Content | `npm run validate:content` | pass — validate:content OK (57 registry modules, 57 published, 443 citations, 119 terms, 118 images, 111 companies); no-slop OK; chart-descriptions OK; audit-coverage OK (57/57, 1080 claim rows) |
+| Targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts` | 12 passed / 1 failed. The failure is VAL-DESIGN-010 on `/manipulation/hierarchical/` (micro-label count 7 > 5), reproduced identically at clean HEAD 1d1bb1f with the edits stashed — pre-existing and unrelated to this change. The updated Unitree assertions passed: the "not verified from an inspected Unitree company body" disclosure renders on the card, and 5,500 / 30,000+ / 33% / "profitable since 2025" are absent. |

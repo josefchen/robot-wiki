@@ -1,6 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 const ROUTE = '/classical/control/';
 
@@ -46,6 +48,49 @@ async function angleDeg(page: Page): Promise<number> {
 }
 
 test.describe('classical control module', () => {
+  test('observes corrected sources, quiz and both labs at desktop and mobile', async ({ browser }) => {
+    const evidence = join(import.meta.dirname, '../../audit/evidence/control-citation-closeout-20260924');
+    mkdirSync(evidence, { recursive: true });
+    for (const width of [1440, 375]) {
+      const context = await browser.newContext({ viewport: { width, height: 900 } });
+      const page = await context.newPage();
+      const errors = collectPageErrors(page);
+      const response = await page.goto(ROUTE);
+      expect(response?.status()).toBe(200);
+      const text = await visibleArticleText(page);
+      expect(text).not.toMatch(/more than 95%|>95%|Kalman's 1960|Åström and Murray/i);
+      await expect(page.locator('[data-cite-id="astrom-murray-2008"]')).toHaveCount(0);
+      await expect(page.locator('[data-cite-id="kalman-1960"]')).toHaveCount(0);
+      const zn = page.locator('[data-cite-id="ziegler-nichols-1942"] a').first();
+      const lqr = page.locator('[data-cite-id="tedrake-underactuated"] a').first();
+      await expect(zn).toHaveAttribute('href', 'https://doi.org/10.1115/1.2899060');
+      await expect(lqr).toHaveAttribute('href', 'https://underactuated.mit.edu/');
+      await expect(page.locator('#ref-ziegler-nichols-1942')).toHaveCount(1);
+      await expect(page.locator('#ref-tedrake-underactuated')).toHaveCount(1);
+      expect(await page.locator('.katex-display').count()).toBeGreaterThanOrEqual(6);
+      await expect(page.getByTestId('pendulum-scene')).toHaveCount(2);
+      await expect(page.getByTestId('impedance-lab')).toBeVisible();
+      await page.getByRole('button', { name: /run the simulation/i }).first().click();
+      await expect(page.getByRole('button', { name: /pause the simulation/i }).first()).toBeVisible();
+      await page.getByRole('button', { name: /pause the simulation/i }).first().click();
+      await page.getByTestId('impedance-hardware-position').check();
+      await expect(page.getByTestId('impedance-stiffness-slider')).toBeDisabled();
+      await page.getByTestId('impedance-hardware-torque').check();
+      await expect(page.getByTestId('impedance-stiffness-slider')).toBeEnabled();
+      await expect(page.getByText(/A payload bolted off-center puts a constant torque bias/i)).toBeVisible();
+      expect(errors).toEqual([]);
+      const allText = await page.locator('#main-content').textContent() ?? '';
+      const dom = { route: ROUTE, width, height: 900, httpStatus: response!.status(),
+        text, allText, citationHrefs: [await zn.getAttribute('href'), await lqr.getAttribute('href')],
+        pendulumMounts: await page.getByTestId('pendulum-scene').count(),
+        contactSliderEnabled: await page.getByTestId('impedance-stiffness-slider').isEnabled(),
+        errors };
+      writeFileSync(join(evidence, `control-${width}.dom.json`), JSON.stringify(dom, null, 2) + '\n');
+      await page.screenshot({ path: join(evidence, `control-${width}.png`) });
+      await context.close();
+    }
+  });
+
   test('renders full prose on PID, LQR, MPC, and whole-body QP (VAL-CLASS-014)', async ({
     page,
   }) => {
@@ -102,15 +147,10 @@ test.describe('classical control module', () => {
     const main = page.locator('#main-content');
 
     // Primary sources for the main strands, each with its exact href.
-    await expect(
-      main.getByRole('link', { name: 'Åström 2008' }).first(),
-    ).toHaveAttribute(
-      'href',
-      'https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers',
-    );
-    await expect(
-      main.getByRole('link', { name: 'Kalman 1960' }).first(),
-    ).toHaveAttribute('href', 'https://doi.org/10.1109/9780470544334.ch8');
+    await expect(main.getByRole('link', { name: 'Ziegler 1942' }).first())
+      .toHaveAttribute('href', 'https://doi.org/10.1115/1.2899060');
+    await expect(main.getByRole('link', { name: 'Tedrake 2024' }).first())
+      .toHaveAttribute('href', 'https://underactuated.mit.edu/');
     await expect(
       main.getByRole('link', { name: 'Mayne 2000' }).first(),
     ).toHaveAttribute(
@@ -136,15 +176,14 @@ test.describe('classical control module', () => {
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
     // A chip is keyboard-focusable and reveals its metadata on focus. The
-    // source is cited several times on the page, so scope the tooltip to
-    // the focused chip's own group (the tooltip is its following sibling).
-    const pidChip = main.getByRole('link', { name: 'Åström 2008' }).first();
+    // Scope the tooltip to the focused chip's group.
+    const pidChip = main.getByRole('link', { name: 'Ziegler 1942' }).first();
     await pidChip.focus();
     const tooltip = pidChip.locator(
       'xpath=../following-sibling::span[@role="tooltip"]',
     );
     await expect(tooltip).toBeVisible();
-    await expect(tooltip).toContainText('Feedback Systems');
+    await expect(tooltip).toContainText('Optimum Settings');
   });
 
   test('KaTeX renders with no raw math delimiters (VAL-CLASS-017)', async ({

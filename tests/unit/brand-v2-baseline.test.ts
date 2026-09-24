@@ -1,8 +1,10 @@
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   assertAdditiveBaseline,
+  approvedDeltaPath,
   BASELINE_KINDS,
   buildManifest,
   compareBaseline,
@@ -25,6 +27,7 @@ import {
   collectBaselineCheckResult,
   collectBundle,
   jsxExpressionAt,
+  valueStateRenderSites,
 } from '../../scripts/brand-v2-baseline';
 
 function fixtureBundle(): BaselineBundle {
@@ -63,6 +66,72 @@ function fixtureBundle(): BaselineBundle {
 }
 
 describe('brand-v2 immutable baseline', () => {
+  it('requires an explicit complete exact-edge review to reconcile merged approval paths', () => {
+    const a = 'a'.repeat(64), b = 'b'.repeat(64), c = 'c'.repeat(64);
+    const common = {
+      manifest: 'prose' as const, memberId: 'article:example/member',
+      reason: 'Exact reviewed source correction', ownerApproval: 'delegated owner',
+      responsibleMilestone: 'release integration', affectedAssertions: ['VAL-B2-BASE-010'],
+      disposition: 'permanent' as const,
+    };
+    const history: ApprovedDelta[] = [
+      { ...common, id: 'first', oldHash: a, newHash: b },
+      { ...common, id: 'second', oldHash: b, newHash: c },
+      { ...common, id: 'merged', oldHash: a, newHash: c },
+    ];
+    expect(approvedDeltaPath(history, a, c).status).toBe('ambiguous');
+    const resolution: ApprovedDelta = {
+      ...common, id: 'reviewed-resolution', oldHash: a, newHash: c,
+      reconciles: history.map(({ id, oldHash, newHash }) => ({ id, oldHash, newHash })),
+    };
+    const input = [...history, resolution];
+    expect(validateApprovedDeltas(input)).toEqual([]);
+    expect(approvedDeltaPath(input, a, c)).toEqual({ status: 'approved', path: [resolution] });
+    for (const mutate of [
+      (rows: ApprovedDelta[]) => { rows.pop(); },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.reconciles!.pop(); },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.reconciles![0].oldHash = c; },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.reconciles![0].newHash = c; },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.reconciles![0].id = 'missing'; },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.reconciles![0] = rows.at(-1)!.reconciles![1]; },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.oldHash = b; },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.newHash = b; },
+      (rows: ApprovedDelta[]) => { rows[0].oldHash = c; },
+      (rows: ApprovedDelta[]) => { rows.push({ ...common, id: 'unreviewed-edge', oldHash: a, newHash: c }); },
+      (rows: ApprovedDelta[]) => { rows.push({ ...resolution, id: 'second-resolution' }); },
+      (rows: ApprovedDelta[]) => { rows.splice(0, 1); },
+    ]) {
+      const changed = structuredClone(input);
+      mutate(changed);
+      expect(approvedDeltaPath(changed, a, c).status).not.toBe('approved');
+    }
+    const foreign = structuredClone(input);
+    foreign[0].memberId = 'article:another/member';
+    expect(validateApprovedDeltas(foreign)).toEqual(expect.arrayContaining([
+      expect.objectContaining({ deltaId: resolution.id, field: 'reconciles' }),
+    ]));
+    const d = 'd'.repeat(64);
+    const extended = [...input, { ...common, id: 'next-endpoint', oldHash: c, newHash: d }];
+    expect(approvedDeltaPath(extended, a, d).status).toBe('ambiguous');
+    const next: ApprovedDelta = {
+      ...common, id: 'next-reviewed-resolution', oldHash: a, newHash: d,
+      reconciles: extended.map(({ id, oldHash, newHash }) => ({ id, oldHash, newHash })),
+    };
+    const nextInput = [...extended, next];
+    expect(validateApprovedDeltas(nextInput)).toEqual([]);
+    expect(approvedDeltaPath(nextInput, a, d)).toEqual({ status: 'approved', path: [next] });
+    for (const mutate of [
+      (rows: ApprovedDelta[]) => { rows[3].reconciles!.pop(); },
+      (rows: ApprovedDelta[]) => { rows.at(-1)!.reconciles!.splice(3, 1); },
+      (rows: ApprovedDelta[]) => { [rows[3], rows[4]] = [rows[4], rows[3]]; },
+      (rows: ApprovedDelta[]) => { rows[4].newHash = b; },
+    ]) {
+      const changed = structuredClone(nextInput);
+      mutate(changed);
+      expect(approvedDeltaPath(changed, a, d).status).toBe('ambiguous');
+    }
+  });
+
   it('builds deterministic manifests independent of input order', () => {
     const forward = buildManifest('routes', [
       { id: 'route:/b/', value: { path: '/b/' } },
@@ -171,6 +240,115 @@ describe('brand-v2 immutable baseline', () => {
       failures: [],
       approvedDifferences: [delta.id],
     });
+  });
+
+  it('accepts exactly reconciled branches, but not an ambiguous, broken or unrelated route', () => {
+    const baseline = fixtureBundle();
+    const current = structuredClone(baseline);
+    current.manifests.routes = buildManifest('routes', [
+      { id: 'routes:alpha', value: { label: 'alpha' } },
+      { id: 'routes:beta', value: { label: 'changed' } },
+    ]);
+    const first: ApprovedDelta = {
+      id: 'exact-beta-first',
+      manifest: 'routes',
+      memberId: 'routes:beta',
+      oldHash: baseline.manifests.routes.members[1].hash,
+      newHash: 'b'.repeat(64),
+      reason: 'Reviewed first member revision.',
+      ownerApproval: 'mission-owner:exact-member',
+      responsibleMilestone: 'brand-v2-shell-home',
+      affectedAssertions: ['VAL-B2-BASE-010'],
+      disposition: 'permanent',
+    };
+    const second = {
+      ...first,
+      id: 'exact-beta-second',
+      oldHash: first.newHash,
+      newHash: current.manifests.routes.members[1].hash,
+    };
+    expect(compareBaseline(baseline, current, [first, second])).toEqual({
+      ok: true,
+      failures: [],
+      approvedDifferences: [first.id, second.id],
+    });
+    const sameReviewedTransition = {
+      ...second,
+      id: 'exact-beta-second-other-claim',
+      reason: 'Separate reviewed claim at the same exact endpoint.',
+    };
+    expect(compareBaseline(baseline, current, [first, second, sameReviewedTransition]))
+      .toEqual({
+        ok: true,
+        failures: [],
+        approvedDifferences: [first.id, second.id, sameReviewedTransition.id],
+      });
+    const alternateFirst = {
+      ...first,
+      id: 'exact-beta-alternate-first',
+      newHash: 'c'.repeat(64),
+    };
+    const alternateSecond = {
+      ...second,
+      id: 'exact-beta-alternate-second',
+      oldHash: alternateFirst.newHash,
+    };
+    const reconcile = (edges: ApprovedDelta[]): ApprovedDelta => ({
+      ...first,
+      id: 'exact-beta-reconciliation',
+      newHash: second.newHash,
+      reconciles: edges.map(({ id, oldHash, newHash }) => ({ id, oldHash, newHash })),
+    });
+    const branches = [first, second, alternateFirst, alternateSecond];
+    expect(compareBaseline(baseline, current, branches).ok).toBe(false);
+    expect(compareBaseline(
+      baseline,
+      current,
+      [...branches, reconcile(branches)],
+    )).toEqual({
+      ok: true,
+      failures: [],
+      approvedDifferences: ['exact-beta-reconciliation'],
+    });
+    const direct = {
+      ...first,
+      id: 'exact-beta-direct',
+      newHash: second.newHash,
+    };
+    expect(compareBaseline(baseline, current, [first, second, direct]).ok).toBe(false);
+    expect(compareBaseline(baseline, current,
+      [first, second, direct, reconcile([first, second, direct])]))
+      .toEqual({
+        ok: true,
+        failures: [],
+        approvedDifferences: ['exact-beta-reconciliation'],
+      });
+    const offPath = {
+      ...first,
+      id: 'exact-beta-off-path',
+      oldHash: 'd'.repeat(64),
+      newHash: second.newHash,
+    };
+    expect(compareBaseline(baseline, current, [first, second, offPath]).ok)
+      .toBe(true);
+    for (const deltas of [
+      [second],
+      [first, second, direct],
+      [first, { ...second, newHash: 'c'.repeat(64) }],
+      [first, { ...second, oldHash: 'c'.repeat(64) }],
+      [first, offPath],
+      [first, { ...second, memberId: 'routes:alpha' }],
+      [first, { ...second, manifest: 'prose' as const }],
+    ]) {
+      expect(compareBaseline(baseline, current, deltas)).toMatchObject({
+        ok: false,
+        approvedDifferences: [],
+        failures: [expect.objectContaining({
+          manifest: 'routes',
+          memberId: 'routes:beta',
+        })],
+      });
+    }
   });
 
   it('rejects wildcard, broad, unowned, or unlinked delta entries', () => {
@@ -360,6 +538,31 @@ describe('brand-v2 immutable baseline', () => {
     }
   });
 
+  it('excludes exactly the internal checker/comment sites, not reader render states', () => {
+    const rawIds = new Set(
+      valueStateRenderSites({ tokenBoundaryAware: false }).map(({ id }) => id),
+    );
+    const boundedIds = new Set(valueStateRenderSites().map(({ id }) => id));
+    for (const id of [
+      'state-site:lib/audit-local-basis.ts:not-applicable:1',
+      'state-site:lib/brand-v2-table-math-evidence.ts:not-applicable:1',
+      'state-site:lib/brand-v2-table-math-evidence.ts:not-disclosed:1',
+    ]) {
+      expect(rawIds.has(id), `${id} was never scanned`).toBe(true);
+      expect(boundedIds.has(id), `${id} is not a reader render site`).toBe(false);
+    }
+    for (const prefix of [
+      'state-site:lib/entity-cells.ts:not-disclosed:',
+      'state-site:components/mdx/policy-chunking-table.tsx:not-disclosed:',
+      'state-site:components/market-map/company-card.tsx:not-applicable:',
+    ]) {
+      expect(
+        [...boundedIds].some((id) => id.startsWith(prefix)),
+        `${prefix} must remain measured`,
+      ).toBe(true);
+    }
+  });
+
   it.each([
     ['value-states', 'VAL-B2-BASE-013'],
     ['article-metadata', 'VAL-B2-BASE-012'],
@@ -516,7 +719,14 @@ describe('the article-truth collectors over the real tree', () => {
       const record = value as unknown as Record<string, unknown>;
       expect(String(record.url), id).toMatch(/^https:\/\//);
       expect(String(record.title).length, id).toBeGreaterThan(0);
-      expect(typeof record.year, id).toBe('number');
+      if (record.year === 'n.d.') {
+        expect(record.accessedOn, id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        const accessedOn = record.accessedOn as string;
+        expect(new Date(`${accessedOn}T00:00:00Z`).toISOString().slice(0, 10), id)
+          .toBe(accessedOn);
+      } else {
+        expect(typeof record.year, id).toBe('number');
+      }
     }
     // The record, not the file: an entry comment is audit reasoning, and
     // hashing the file would make a re-worded note read as a fact change
@@ -526,6 +736,7 @@ describe('the article-truth collectors over the real tree', () => {
       'title',
       'authors',
       'year',
+      'accessedOn',
       'venue',
       'arxiv',
       'url',
@@ -581,11 +792,30 @@ describe('the article-truth collectors over the real tree', () => {
     const sealedNames = new Set(
       sealed.manifests['accessible-names'].members.map(({ id }) => id),
     );
+    // Additions and removals enter through the approved-delta ledger rather
+    // than the seal: an addition names a member the baseline never recorded
+    // with oldHash sha256('missing'), a removal the reverse.
+    const missingHash = createHash('sha256').update('missing').digest('hex');
+    const deltas = (
+      JSON.parse(
+        readFileSync(
+          join(process.cwd(), 'contract/brand-v2-approved-deltas.json'),
+          'utf8',
+        ),
+      ) as { entries: ApprovedDelta[] }
+    ).entries;
+    const effectiveIds = new Set(sealedIds);
+    for (const delta of deltas) {
+      if (delta.manifest !== 'article-metadata') continue;
+      if (delta.oldHash === missingHash) effectiveIds.add(delta.memberId);
+      if (delta.newHash === missingHash) effectiveIds.delete(delta.memberId);
+    }
     expect([...sealedIds].filter((id) => id.startsWith('citation:')).length)
       .toBeGreaterThan(300);
     expect(
-      [...sealedIds].filter((id) => id.startsWith('article-fact-frontmatter:'))
-        .length,
+      [...effectiveIds].filter((id) =>
+        id.startsWith('article-fact-frontmatter:'),
+      ).length,
     ).toBe(publishedModules().length);
     expect([...sealedNames].filter((id) => id.startsWith('expression:')).length)
       .toBeGreaterThan(100);

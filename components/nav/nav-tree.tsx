@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CaretDown } from '@phosphor-icons/react';
 import { useState, type ReactNode } from 'react';
+import { IntentLink } from '@/components/ui/intent-link';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
 import { BrandDevice } from '@/components/ui/brand-device';
@@ -104,7 +104,7 @@ function NavEntryLink({
   children: ReactNode;
 }) {
   return (
-    <Link
+    <IntentLink
       href={href}
       aria-current={active ? 'page' : undefined}
       data-brand-control-id="control:link-focus"
@@ -113,7 +113,7 @@ function NavEntryLink({
     >
       {active ? <ActiveMarker railAnchorId={railAnchorId} /> : null}
       {children}
-    </Link>
+    </IntentLink>
   );
 }
 

@@ -12,20 +12,24 @@ import {
   AUTHOR_HANDLE,
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
+  CONTENT_CORRECTION_URL,
   PUBLIC_IDENTITY,
 } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '@/lib/seo';
 
 const title = 'Credits';
 
 export const metadata: Metadata = {
-  title,
-  description:
-    `Every photograph and diagram on ${PUBLIC_IDENTITY}, with its creator, source, and licence.`,
+  title: STANDALONE_SEO_TITLES.credits,
+  description: STANDALONE_SEO_DESCRIPTIONS.credits,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - Robot Wiki' document title.
+  // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
@@ -158,15 +162,23 @@ export default function CreditsPage() {
           yourself.
         </p>
         <p className="mt-4 font-sans text-sm text-text-dim">
-          Corrections and source disputes are welcome:{' '}
+          Corrections and source disputes are welcome. Read the{' '}
+          <Link
+            data-brand-control-id="control:link-focus"
+            href="/editorial-policy/"
+            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+          >
+            editorial policy
+          </Link>{' '}
+          or{' '}
           <a
             data-brand-control-id="control:link-focus"
-            href={AUTHOR_PROFILE_URL}
+            href={CONTENT_CORRECTION_URL}
             target="_blank"
             rel="noopener"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
-            contact {AUTHOR_HANDLE} on GitHub
+            report a factual issue on GitHub
           </a>
           .
         </p>

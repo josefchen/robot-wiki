@@ -16,6 +16,31 @@ import { ImageRef } from '@/components/mdx/image-ref';
 import { ProseH2, ProseH3 } from '@/components/mdx/prose-heading';
 import { TermRef } from '@/components/mdx/term-ref';
 
+function ProseLink({ href, rel, ...props }: ComponentPropsWithoutRef<'a'>) {
+  const outbound = /^(?:https?:)?\/\//i.test(href ?? '');
+  const relationship = outbound
+    ? [...new Set([...(rel?.split(/\s+/).filter(token => token && token !== 'opener') ?? []), 'noopener', 'noreferrer'])].join(' ')
+    : rel;
+  return <a data-brand-control-id="control:link-focus" {...props} href={href} rel={relationship} />;
+}
+
+/** Keep authored Markdown tables inside the prose column on narrow screens. */
+function ProseTable({ className, ...props }: ComponentPropsWithoutRef<'table'>) {
+  return (
+    <div
+      role="region"
+      aria-label="Scrollable article table"
+      tabIndex={0}
+      className="my-6 max-w-full overflow-x-auto rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      <table
+        {...props}
+        className={`border-collapse text-left text-sm ${className ?? ''}`}
+      />
+    </div>
+  );
+}
+
 // Global MDX component registry. Design-system primitives are available in
 // every module without imports. Cite is the registry-backed resolver
 // (components/mdx/cite-ref): MDX authors pass a citation id, never raw props.
@@ -45,9 +70,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // rehype-autolink-headings inserts. Annotating the shared override
     // rather than each authored link is what keeps the registered
     // population equal to the rendered one.
-    a: (props: ComponentPropsWithoutRef<'a'>) => (
-      <a data-brand-control-id="control:link-focus" {...props} />
-    ),
+    a: ProseLink,
     // rehype-pretty-code emits the highlighted block's title bar and its
     // bordered <pre>; both are painted planes the surface registry governs,
     // and neither passes through a first-party component where the
@@ -74,6 +97,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h2: ProseH2,
     h3: ProseH3,
+    table: ProseTable,
     ...components,
   };
 }

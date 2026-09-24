@@ -1,0 +1,374 @@
+Home
+/
+Data, Hardware & Evaluation
+/
+The Data Bottleneck
+The Data Bottleneck
+
+Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.
+
+LAST REVIEWED
+17 August 2026
+READING TIME
+9 min
+CITATIONS
+13
+
+Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 
+Brown 2020
+↓
+; Llama 3 consumed over 15 trillion in 2024 
+Meta AI 2024
+↓
+, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots 
+Penedo 2024
+↓
+. Robot learning has no equivalent. Open X-Embodiment pools over a million trajectories across 22 robot embodiments 
+Open X-Embodiment Collaboration 2023
+↓
+. The chart assigns it no hour estimate: trajectory count alone does not establish duration. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory 
+AgiBot-World-Contributors 2025
+↓
+. A million trajectories, in other words, is under three thousand hours. DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months 
+Khazatsky 2024
+↓
+. The paper also reports roughly 16,000 unsuccessful trajectories, released separately from the headline count. The 12 months describe elapsed collection time, not a full working year for each collector or robot. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment 
+TRI LBM Team 2025
+↓
+. That gap, and everything the field is doing about it, is the subject of this module.
+
+The chart below separates dataset counts from a teaching projection. Drag the teleoperation rigs slider to see how fleet size changes collection time under two authored hypothetical rates. The 10,000-hour and 1,000,000-hour targets are hypothetical too, not OXE duration or measured frontier requirements.
+
+TELEOPERATION RIGS
+15 rigs
+Reset
+Dedicated farm hypothetical (1,000 h/rig/yr)
+Low-rate hypothetical (7 h/rig/yr)
+fleet: 15
+projected throughput: 15,000 h/yr
+to 10,000 h: 8 mo
+to 1,000,000 h: 66.7 yr
+LLM pretraining tokens (log)
+10⁹
+10¹⁰
+10¹¹
+10¹²
+10¹³
+10¹⁴
+10⁰
+10¹
+10²
+10³
+10⁴
+10⁵
+10⁶
+demonstration hours (log)
+9 orders of magnitude apart
+GPT-3
+300B tokens
+Llama 3
+15T tokens
+DROID
+350 h
+EgoDex
+829 h
+TRI LBM
+~1,700 h
+AgiBot World
+2,976 h
+Ego4D
+3,670 h
+EgoScale
+20,854 h
+your farm: 15,000 h/yr
+robot data
+human video
+LLM corpus
+your farm
+~ = estimated hours, not a published count
+
+15 rigs: 15,000 h/yr hypothetical, 10,000 h in 8 mo, 1,000,000 h in 66.7 yr
+
+Authored hypothetical: 1,000 productive hours per rig-year. For example, 4 hours on each of 250 working days. This is a teaching input, not measured farm productivity. The 10,000-hour and 1,000,000-hour targets are authored hypothetical inputs, not OXE totals or measured frontier requirements. Hours marked ~ on dataset points are estimates.
+
+OXE: 1M+ trajectories across 22 robot embodiments. This chart supplies no hour estimate and does not plot OXE on the hours axis.
+
+Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), 9 orders of magnitude apart with no honest hour-to-token exchange rate between the lanes; your 15-rig farm at the dedicated farm hypothetical rate projects 15,000 h per year, reaching the authored 10,000-hour target in 8 mo and the authored 1,000,000-hour target in 66.7 yr. No OXE hour estimate is supplied or plotted here.
+
+Datasets and corpora by scale, with the farm projection
+15T
+language
+tokens, Llama 3 pretraining
+350
+robots
+interaction hours, DROID dataset
+32x50
+scaling law
+envs x demos, Lin et al.
+20,854
+human video
+hours, EgoScale
+Two data universes, nine orders of magnitude apart
+
+Text is scraped. The internet accumulates language as a byproduct of everything people publish, so assembling a 15-trillion-token corpus is a filtering problem, not a collection problem. Real-world robot data is different. Every hour of it is produced by a physical machine interacting with the world in real time, usually driven by a paid human teleoperator. There is no crawl for contact.
+
+The chart at the top of this module plots both universes. Robot and human demonstration data sits on the bottom lane, read off the hours axis: DROID at 350 hours, TRI's LBM corpus near 1,700, AgiBot World at 2,976, EgoScale's human video at 20,854. Open X-Embodiment is listed without an hour estimate and is not plotted or ranked by hours. Language corpora sit on the left lane, read off the tokens axis: GPT-3 at 300 billion, Llama 3 at 15 trillion. The dashed diagonal spans the empty plane between the two largest entries. No exchange rate between an hour of robot data and a token of text is drawn, because no honest one exists.
+
+Prediction
+
+An authored hypothetical collection scenario uses 7 productive hours per rig-year. With 10 rigs, roughly how long would it take to collect the hypothetical target of 10,000 hours?
+A couple of decades
+A few years
+Well over a century, on the order of 140 years at that throughput
+Read the reasoning
+The chart starts at 10 rigs and the low-rate hypothetical: 70 h/yr and 143 yr to 10,000 hours. Switch to the dedicated-farm hypothetical and the target takes one year.
+TELEOPERATION RIGS
+10 rigs
+Reset
+Dedicated farm hypothetical (1,000 h/rig/yr)
+Low-rate hypothetical (7 h/rig/yr)
+fleet: 10
+projected throughput: 70 h/yr
+to 10,000 h: 143 yr
+to 1,000,000 h: 14,286 yr
+LLM pretraining tokens (log)
+10⁹
+10¹⁰
+10¹¹
+10¹²
+10¹³
+10¹⁴
+10⁰
+10¹
+10²
+10³
+10⁴
+10⁵
+10⁶
+demonstration hours (log)
+9 orders of magnitude apart
+GPT-3
+300B tokens
+Llama 3
+15T tokens
+DROID
+350 h
+EgoDex
+829 h
+TRI LBM
+~1,700 h
+AgiBot World
+2,976 h
+Ego4D
+3,670 h
+EgoScale
+20,854 h
+your farm: 70 h/yr
+robot data
+human video
+LLM corpus
+your farm
+~ = estimated hours, not a published count
+
+10 rigs: 70 h/yr hypothetical, 10,000 h in 143 yr, 1,000,000 h in 14,286 yr
+
+Authored hypothetical: 7 productive hours per rig-year, not a measured DROID productivity rate. DROID reports collectors and elapsed collection time, not annual exposure for each rig. The 10,000-hour and 1,000,000-hour targets are authored hypothetical inputs, not OXE totals or measured frontier requirements. Hours marked ~ on dataset points are estimates.
+
+OXE: 1M+ trajectories across 22 robot embodiments. This chart supplies no hour estimate and does not plot OXE on the hours axis.
+
+Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), 9 orders of magnitude apart with no honest hour-to-token exchange rate between the lanes; your 10-rig farm at the low-rate hypothetical rate projects 70 h per year, reaching the authored 10,000-hour target in 143 yr and the authored 1,000,000-hour target in 14,286 yr. No OXE hour estimate is supplied or plotted here.
+
+Datasets and corpora by scale, with the farm projection
+A couple of decades
+Twenty years would require 500 hours a year. This scenario produces only 10 times 7, or 70 hours a year, so it takes much longer.
+A few years
+That assumes a higher collection rate than the question supplies. The dedicated-farm hypothetical uses 1,000 hours per rig-year; at 10 rigs, it reaches 10,000 hours in one year.
+Well over a century, on the order of 140 years at that throughput
+The arithmetic is 10,000 hours divided by 70 hours a year, roughly 143 years. Both the rate and target are authored hypothetical inputs, not measurements of DROID productivity or OXE duration.
+
+For the same 10,000-hour hypothetical target, 10 rigs take about 143 years at 7 hours per rig-year and one year at 1,000 hours per rig-year. The result depends on the assumed rate.
+
+The slider projects a teleoperation farm using authored hypothetical inputs. The dedicated-farm rate assumes 1,000 productive hours per rig-year, equivalent to four hours on each of 250 working days. The low-rate scenario assumes seven. The seven-hour rate is an authored teaching choice, not a measured annual rate per rig. The reported collector count and elapsed collection period do not establish each robot’s annual working exposure. Neither scenario establishes how fast a real farm would collect data. Ask two questions of a dataset claim: how many hours, because episode counts hide trajectory length, and how diverse, which is where the scaling laws come in.
+
+What the scaling laws say: diversity beats density
+
+The obvious answer to the bottleneck is to collect more. Two papers now give quantitative guidance on what "more" should mean, and both point away from raw volume.
+
+Lin et al. collected over 40,000 demonstrations and executed more than 15,000 real-world rollouts to map how generalization scales in imitation learning 
+Lin 2024
+↓
+. Success on unseen environments and objects follows a rough power law in the number of training environments and objects. Demonstrations per environment saturate quickly: past about 50 per environment, adding more yields little, while adding environments keeps paying. Their efficient recipe, 32 environments with 50 demonstrations each, reached about 90% success in novel environments with unseen objects, and the data for it was collected by four operators in a single afternoon.
+
+Shi et al., working on the AgiBot World stack, took diversity apart into three axes: task, embodiment, and expert 
+Shi 2025
+↓
+. Task diversity mattered more than per-task demonstration count, echoing Lin et al. Multi-embodiment pretraining turned out to be optional: models pretrained on high-quality single-embodiment data transferred to other platforms and scaled better during fine-tuning than multi-embodiment models. Expert diversity actively hurt. Operators with different styles produce multimodal action distributions, velocity multimodality in particular, that confound imitation. Debiasing those distributions produced GO-1-Pro, a 15% performance gain the authors equate to a 2.5x increase in pretraining data.
+
+Dimension	Effect on performance	Saturation	Source
+Environments	strong positive, power law	none found up to 32 envs	Lin et al. 2024
+Objects	strong positive, power law	none found	Lin et al. 2024
+Demos per environment	positive, saturating	about 50 per env	Lin et al. 2024
+Task diversity	strong positive	none found	Shi et al. 2025
+Expert diversity	negative unless debiased	multimodal action distributions	Shi et al. 2025
+Multi-embodiment pretraining	optional	single-embodiment suffices	Shi et al. 2025
+
+The strategic reading is that the bottleneck is breadth, not hours. An hour of teleoperation in a new kitchen with new objects is worth more than an hour in a scene the policy has already seen fifty times. A data budget spent maximizing scene and task coverage beats the same budget spent deepening coverage of familiar setups, and a fleet of operators with identical style can be worth more than a larger fleet with mixed styles, unless the mixed styles are debiased.
+
+Around the bottleneck: data that does not need a robot
+
+If breadth is the constraint, sources that are cheap and broad beat sources that are expensive and narrow, even when they lack robot actions.
+
+UMI removes the robot from collection entirely: an operator holds a 3D-printed gripper fitted with a GoPro and performs the task wherever the task naturally lives, and policies trained on the handheld data deploy zero-shot onto real arms 
+Chi 2024
+↓
+. Apple's EgoDex used the Vision Pro's hand tracking to record 829 hours of dexterous human manipulation with per-joint 3D poses across 194 tabletop tasks, again with no robot in the loop 
+Hoque 2025
+↓
+. Ego4D offers 3,670 hours of egocentric daily-life video from 931 camera wearers across 74 locations, valuable for visual pretraining even though it carries no action labels 
+Grauman 2022
+↓
+.
+
+EgoScale is the strongest evidence so far that this route scales. Zheng et al. trained a vision-language-action model on 20,854 hours of action-labeled egocentric human video, more than twenty times larger than prior efforts, and uncovered a log-linear scaling law between human data scale and validation loss 
+Zheng 2026
+↓
+. That validation loss, in turn, correlated with real-robot performance, which makes human video a predictable supervision source rather than a hopeful one. Their two-stage recipe, large-scale human pretraining followed by a lightweight aligned human-robot mid-training, improved average success rate by 54% over a no-pretraining baseline on a 22-DoF dexterous hand and transferred to robots with simpler hands.
+
+Simulation is the other escape route: GPU-parallel environments compress months of interaction into hours of wall-clock, at the price of the sim-to-real gap covered in massively parallel sim RL. And whichever source the data comes from, the failure modes of learning from it in closed loop are the ones covered in behavior cloning foundations: covariate shift does not care whether the demonstrations came from a teleop rig, a GoPro, or a physics engine.
+
+How to read the field's data claims
+
+Three habits serve well here. First, convert everything to hours: episode counts hide trajectory length, and AgiBot World's million trajectories are 2,976 hours, less than Ego4D's passive video. Second, ask for the diversity breakdown, meaning environments, objects, tasks, and operator styles, because the scaling laws say those axes dominate the hour count. Third, treat vendor-reported scale as a claim until the data or an independent audit is public; AgiBot World's 30% improvement over OXE pretraining 
+AgiBot-World-Contributors 2025
+↓
+ is the kind of figure with no independent replication behind it. The bottleneck is real, but so is the incentive to sound past it.
+
+See also
+Major Datasets
+
+Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.
+
+Teleoperation Rigs
+
+ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodiment gap.
+
+Massively Parallel Sim RL
+
+Isaac Lab, Newton, MJX, and Brax: GPU-parallel environments and the wall-clock economics of training.
+
+Linked from
+Major Datasets
+
+Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.
+
+Hardware Taxonomy
+
+Arms, humanoids, hands, sensors, and compute: a buyer's guide from SO-101 to Jetson Thor.
+
+Teleoperation Rigs
+
+ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodiment gap.
+
+The Evaluation Crisis
+
+Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.
+
+Industrial Deployment
+
+The installed base robot learning is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ships.
+
+Generalization
+
+What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.
+
+References
+1
+Language Models are Few-Shot Learners
+
+Tom B. Brown, Benjamin Mann, Nick Ryder, NeurIPS 2020.
+
+https://arxiv.org/abs/2005.14165
+
+2
+Introducing Meta Llama 3: The most capable openly available LLM to date
+
+Meta AI, 2024.
+
+https://ai.meta.com/blog/meta-llama-3/
+
+3
+The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale
+
+Guilherme Penedo, Hynek Kydlíček, Loubna Ben allal, Anton Lozhkov, Margaret Mitchell, Colin Raffel, Leandro Von Werra, Thomas Wolf, NeurIPS 2024.
+
+https://arxiv.org/abs/2406.17557
+
+4
+Open X-Embodiment: Robotic Learning Datasets and RT-X Models
+
+Open X-Embodiment Collaboration, Abby O'Neill, Abdul Rehman, Abhinav Gupta, Abhiram Maddukuri, Abhishek Gupta, Abhishek Padalkar, Abraham Lee, and 286 more, 2023. Show all 294 authors
+
+https://arxiv.org/abs/2310.08864
+
+5
+DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset
+
+Alexander Khazatsky, Karl Pertsch, Suraj Nair, 2024.
+
+https://arxiv.org/abs/2403.12945
+
+6
+AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems
+
+AgiBot-World-Contributors, Qingwen Bu, Jisong Cai, Li Chen, Xiuqi Cui, Yan Ding, Siyuan Feng, Shenyuan Gao, and 44 more, 2025. Show all 52 authors
+
+https://arxiv.org/abs/2503.06669
+
+7
+A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation
+
+TRI LBM Team, Jose Barreiros, Andrew Beaulieu, Aditya Bhat, Rick Cory, Eric Cousineau, Hongkai Dai, Ching-Hsin Fang, and 74 more, 2025. Show all 82 authors
+
+https://arxiv.org/abs/2507.05331
+
+8
+Data Scaling Laws in Imitation Learning for Robotic Manipulation
+
+Fanqi Lin, Yingdong Hu, Pingyue Sheng, Chuan Wen, Jiacheng You, Yang Gao, ICLR 2025, 2024.
+
+https://arxiv.org/abs/2410.18647
+
+9
+Is Diversity All You Need for Scalable Robotic Manipulation?
+
+Modi Shi, Li Chen, Jin Chen, Yuxiang Lu, Chiming Liu, Guanghui Ren, Ping Luo, Di Huang, and 2 more, 2025. Show all 10 authors
+
+https://arxiv.org/abs/2507.06219
+
+10
+Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots
+
+Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song, 2024.
+
+https://arxiv.org/abs/2402.10329
+
+11
+EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video
+
+Ryan Hoque, Peide Huang, David J. Yoon, Mouli Sivapurapu, Jian Zhang, ICLR 2026, 2025.
+
+https://arxiv.org/abs/2505.11709
+
+12
+EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data
+
+Ruijie Zheng, Dantong Niu, Yuqi Xie, Jing Wang, Mengda Xu, Yunfan Jiang, Fernando Castañeda, Fengyuan Hu, and 7 more, 2026. Show all 15 authors
+
+https://arxiv.org/abs/2602.16710
+
+13
+Ego4D: Around the World in 3,000 Hours of Egocentric Video
+
+Kristen Grauman, Andrew Westbury, Eugene Byrne, CVPR 2022.
+
+https://arxiv.org/abs/2110.07058

@@ -19,6 +19,8 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { parseCompoundPlans, originalClaimDigest, parseLedger } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { currentAuditContext, finalSevenBefore, finalSevenPriorPlans } from '../helpers/residual-integration';
+import { committedJson, committedText } from '../helpers/editorial-current-context';
 
 const root = join(__dirname, '..', '..');
 const ledger = readFileSync(join(root, 'audit/frontier.md'), 'utf8');
@@ -26,6 +28,26 @@ const plans = parseCompoundPlans(
   JSON.parse(readFileSync(join(root, 'audit/compound-evidence.json'), 'utf8')),
 );
 const registryIds = new Set(CITATIONS.map(({ id }) => id));
+const priorLedger = finalSevenBefore('audit/frontier.md');
+const priorPlans = finalSevenPriorPlans();
+const migrated = new Set([
+  'safety-remainder-20260916-safety-and-assurance-5',
+  'safety-remainder-20260916-safety-and-assurance-6',
+]);
+const planFor = (id: string) => (migrated.has(id) ? priorPlans : plans).find(p => p.id === id);
+const heldCommit = '5c48b2eb362be0a7e0fad87855740a208a258647';
+const heldLedger = committedText(heldCommit, 'audit/frontier.md');
+const heldPlans = parseCompoundPlans(committedJson<unknown>(heldCommit, 'audit/compound-evidence.json'));
+const typedPlans = (JSON.parse(readFileSync(join(root, 'audit/local-basis.json'), 'utf8')) as {
+  plans: Array<{ id: string; originalId: string; currentTupleDigest: string;
+  originalBinding: { originalTupleDigest: string; originalCells: {
+    claim: string; sourceChecked: string; verdict: string; note: string } }; parts: unknown[];
+  evidence: Array<{ citationId: string; sourceUrl: string; supportingPassage: string }> }> }).plans;
+const completedTyped = committedJson<{ plans: typeof typedPlans }>(
+  'ba934e6c9eec542407d04c41d58032e81895e88c', 'audit/local-basis.json',
+).plans;
+const currentTyped = (ordinal: number) => typedPlans.find(p =>
+  p.originalId === `audit/frontier.md:safety-and-assurance:${ordinal}`)!;
 
 const APPLIED: ReadonlyArray<{
   readonly ordinal: number;
@@ -77,10 +99,11 @@ const APPLIED_20260916: ReadonlyArray<{
 ];
 
 const ALL_APPLIED = [...APPLIED, ...APPLIED_20260916];
+const CURRENT_COMPOUND = ALL_APPLIED.filter(({ ordinal }) => ordinal !== 5 && ordinal !== 6);
 
-function rowLine(ordinal: number): string {
+function rowLine(ordinal: number, source = ledger): string {
   const prefix = `| SA${ordinal} |`;
-  const matches = ledger.split('\n').filter((line) => line.startsWith(prefix));
+  const matches = source.split('\n').filter((line) => line.startsWith(prefix));
   expect(matches, `row SA${ordinal} must appear exactly once`).toHaveLength(1);
   return matches[0];
 }
@@ -92,18 +115,34 @@ function cellsOf(line: string): string[] {
 describe('safety-and-assurance 2026-09-15 integration', () => {
   it('binds every applied original to its exact compound-evidence plan', () => {
     for (const { ordinal, planId } of ALL_APPLIED) {
+      expect(cellsOf(rowLine(ordinal, heldLedger)).at(-1), `SA${ordinal} historical binding`).toBe(planId);
+      expect(heldPlans.find(p => p.id === planId)?.rowOrdinal).toBe(ordinal);
+    }
+    for (const { ordinal, planId } of CURRENT_COMPOUND) {
       const cells = cellsOf(rowLine(ordinal));
       expect(cells[cells.length - 1], `SA${ordinal} evidence-plan cell`).toBe(planId);
-      const plan = plans.find((candidate) => candidate.id === planId);
+      const plan = planFor(planId);
       expect(plan, planId).toBeDefined();
       expect(plan!.ledgerPath).toBe('audit/frontier.md');
       expect(plan!.articleSlug).toBe('safety-and-assurance');
       expect(plan!.rowOrdinal).toBe(ordinal);
     }
+    for (const ordinal of [5, 6]) {
+      expect(cellsOf(rowLine(ordinal)).at(-1)).toBe(currentTyped(ordinal).id);
+      expect(currentTyped(ordinal).parts).toHaveLength(5);
+      expect(currentTyped(ordinal)).toEqual(completedTyped.find(p => p.originalId ===
+        `audit/frontier.md:safety-and-assurance:${ordinal}`));
+    }
   });
 
   it('keeps every applied plan digest aligned with the live row cells', () => {
     for (const { ordinal, planId } of ALL_APPLIED) {
+      const historical = cellsOf(rowLine(ordinal, heldLedger));
+      expect(originalClaimDigest({
+        claim: historical[1], sourceChecked: historical[2], verdict: historical[3], note: historical[4],
+      })).toBe(heldPlans.find(p => p.id === planId)!.originalCellsDigest);
+    }
+    for (const { ordinal, planId } of CURRENT_COMPOUND) {
       const plan = plans.find((candidate) => candidate.id === planId);
       expect(plan, planId).toBeDefined();
       const cells = cellsOf(rowLine(ordinal));
@@ -115,11 +154,16 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
         `SA${ordinal} live cells must digest to the plan's originalCellsDigest`,
       ).toBe(plan!.originalCellsDigest);
     }
+    for (const ordinal of [5, 6]) {
+      const cells = cellsOf(rowLine(ordinal));
+      expect(originalClaimDigest({ claim: cells[1], sourceChecked: cells[2], verdict: cells[3], note: cells[4] }))
+        .toBe(currentTyped(ordinal).currentTupleDigest);
+    }
   });
 
   it('requires registered citations, complete URLs and substantive passages on every evidence item', () => {
     for (const { planId, citations } of ALL_APPLIED) {
-      const plan = plans.find((candidate) => candidate.id === planId);
+      const plan = planFor(planId);
       expect(plan, planId).toBeDefined();
       expect(
         [...new Set(plan!.parts.flatMap((part) => part.requiredCitationIds))].sort(),
@@ -131,15 +175,22 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
         expect(item.sourceUrl).not.toMatch(/[@\s]/);
         expect(item.supportingPassage.trim().length, `${planId}/${item.partId} passage substantive`).toBeGreaterThan(40);
       }
-      if ([5, 6].includes(plan!.rowOrdinal)) {
+      if (migrated.has(planId)) {
         expect(plan!.planReview).toBeNull();
         expect(plan!.adjudications).toEqual([]);
-      } else {
-        expect(plan!.adjudications).toHaveLength(plan!.parts.length);
-        for (const review of plan!.adjudications) {
-          expect(review.outcome, `${planId}/${review.partId} supported`).toBe('supported');
-        }
+        continue;
       }
+      expect(plan!.adjudications).toHaveLength(plan!.parts.length);
+      for (const review of plan!.adjudications) {
+        expect(review.outcome, `${planId}/${review.partId} supported`).toBe('supported');
+      }
+    }
+    for (const ordinal of [5, 6]) {
+      const evidence = currentTyped(ordinal).evidence;
+      expect(evidence).toHaveLength(1);
+      expect(evidence[0].citationId).toBe('marvel-norcross-2017');
+      expect(evidence[0].sourceUrl).toMatch(/^https?:\/\/\S+$/);
+      expect(evidence[0].supportingPassage.length).toBeGreaterThan(40);
     }
   });
 
@@ -148,13 +199,17 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
     // pinned as held; each now carries exactly its new plan binding and the
     // compound shape (empty scalar cells, evidence in the plan items).
     for (const { ordinal, planId } of APPLIED_20260916) {
+      expect(cellsOf(rowLine(ordinal, heldLedger)).at(-1)).toBe(planId);
+    }
+    for (const { ordinal, planId } of APPLIED_20260916.filter(p => p.ordinal !== 5 && p.ordinal !== 6)) {
       const cells = cellsOf(rowLine(ordinal));
       expect(cells[cells.length - 1], `SA${ordinal} evidence-plan cell`).toBe(planId);
       expect(cells[5] ?? '', `SA${ordinal} scalar citation cell stays empty in compound shape`).toBe('');
       expect(cells[6] ?? '', `SA${ordinal} scalar URL cell stays empty in compound shape`).toBe('');
       expect(cells[7] ?? '', `SA${ordinal} scalar passage cell stays empty in compound shape`).toBe('');
     }
-    expect(plans.some((plan) => plan.articleSlug === 'safety-and-assurance' && !ALL_APPLIED.some(({ planId }) => planId === plan.id))).toBe(false);
+    expect(plans.some((plan) => plan.articleSlug === 'safety-and-assurance' && !CURRENT_COMPOUND.some(({ planId }) => planId === plan.id))).toBe(false);
+    for (const ordinal of [5, 6]) expect(cellsOf(rowLine(ordinal)).at(-1)).toBe(currentTyped(ordinal).id);
   });
 
   it('carries the SA40 corrected note counting 29 frontmatter citation ids', () => {
@@ -178,8 +233,8 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
         "oldTuple": "a0b6b670f57a2b1afb510811fdea1200e585ce19c66784b0ec5358302aa15ba6",
         "withdrawnReviewDigest": "895f6e01d8b13d82b2161e9267ccb8b7383a1ad2a044f7721fc6245a1d84a995"
     }
-])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
-    const markdown = ledger, compoundPlans = plans;
+])('preserves the former hold $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const markdown = priorLedger, compoundPlans = priorPlans;
     const article = parseLedger('audit/frontier.md', markdown, registryIds, { compoundPlans })
       .find(s => s.slug === 'safety-and-assurance')!;
     const record = article.claimRecords[ordinal - 1];
@@ -211,18 +266,44 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
     ])).digest('hex')).toBe(withdrawnReviewDigest);
     expect(archived.planReview).not.toBeNull();
     expect(archived.adjudications).toHaveLength(plan.parts.length);
+    // The typed closure has a separate source snapshot after the named hold;
+    // the withdrawn pre-hold plan and its four cells remain independently pinned above.
+    expect(originalClaimDigest(currentTyped(ordinal).originalBinding.originalCells))
+      .toBe(currentTyped(ordinal).originalBinding.originalTupleDigest);
+    expect(cellsOf(rowLine(ordinal)).at(-1)).toBe(currentTyped(ordinal).id);
   });
 
   it('retains the lower-bound correction and both velocity contexts without operand credit', () => {
     const article = readFileSync(join(root, 'content/frontier/safety-and-assurance.mdx'), 'utf8');
-    const rows = parseLedger('audit/frontier.md', ledger, registryIds, { compoundPlans: plans })
+    const rows = parseLedger('audit/frontier.md', priorLedger, registryIds, { compoundPlans: priorPlans })
       .find(s => s.slug === 'safety-and-assurance')!.claimRecords;
     expect(article).toContain('an intrusion margin of at least 850 mm');
     expect(rows[4].note).toContain('applicability');
     expect(rows[5].verdict).toBe('S');
     expect(rows[5].note).toContain('1600 mm/s');
     expect(rows[5].note).toContain('2000 mm/s');
-    expect(rows[5].note).toContain('may be measured directly');
+    expect(heldLedger).toContain('may be measured directly');
+    expect(rows[5].note).toContain('Source-internal inconsistency stands recorded');
+    const current = parseLedger('audit/frontier.md', ledger, registryIds, currentAuditContext())
+      .find(s => s.slug === 'safety-and-assurance')!.claimRecords;
+    expect(current[5].note).toContain('Inconsistency remains recorded');
+    expect(current[5].note).toContain('selected teaching inputs rather than a certified');
+  });
+
+  it('requires complete typed successors without crediting the old source-only mapping', () => {
+    const context = currentAuditContext();
+    const rows = parseLedger('audit/frontier.md', ledger, registryIds, context)
+      .find(s => s.slug === 'safety-and-assurance')!.claimRecords;
+    for (const ordinal of [5, 6]) {
+      expect(rows[ordinal - 1].localBasis?.planId).toBe(`final-seven-frontier-safety-and-assurance-${ordinal}-20260923`);
+      expect(rows[ordinal - 1].outcome).toBe(ordinal === 6 ? 'recorded-inconsistency' : 'passing');
+      expect(rows[ordinal - 1].evidenceFailures).toEqual([]);
+    }
+    expect(plans.filter(p => migrated.has(p.id))).toEqual([]);
+    const article = readFileSync(join(root, 'content/frontier/safety-and-assurance.mdx'), 'utf8');
+    expect(article).toContain('1200 mm for a single-height beam');
+    expect(article).toContain('2000 mm/s may be more prudent');
+    expect(article).toContain('A 100 Hz update period is 0.01 s');
   });
 
   it('still rejects missing source evidence from a complete unchanged safety peer', () => {

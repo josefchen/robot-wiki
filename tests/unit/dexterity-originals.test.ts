@@ -2,10 +2,12 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { DEXTEROUS_HANDS } from '../../lib/dexterous-hands';
+import { planPacket } from '../helpers/audit-plan-history';
 import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest,
   parseCompoundPlans, parseLedger,
 } from '../../lib/audit-ledger';
+import { committedJson } from '../helpers/editorial-current-context';
 
 const text = readFileSync('content/frontier/dexterity.mdx', 'utf8');
 const ledger = readFileSync('audit/frontier.md', 'utf8');
@@ -152,20 +154,32 @@ describe('dexterity originals integration (packet convergence-source-c-dexterity
   });
 
   test('append-only catalog and approvals preserve every prior object', () => {
-    expect(plans).toHaveLength(657 + 15);
-    expect(deltas.entries).toHaveLength(731 + 15);
+    // Earlier local plans migrated out; the exact packet stays contiguous.
+    expect(planPacket(plans, BINDINGS.map(b => b.planId)).map(p => p.id)).toEqual(BINDINGS.map(b => b.planId));
+    const packetDeltas = deltas.entries.slice(728, 743);
+    expect(packetDeltas.map((entry) => entry.id)).toEqual(
+      [9, 13, 14, 16, 17, 18, 19, 20, 21, 22, 24, 26, 27, 29, 30].map((r) => `dex-r${r}-20260915-1`),
+    );
+    const checkpoint = 'ba16fab637dd57d0512328ec8d334caa453d9de6';
+    const historicalPlans = committedJson<typeof plans>(checkpoint, 'audit/compound-evidence.json');
+    const historicalDeltas = committedJson<typeof deltas>(checkpoint, 'contract/brand-v2-approved-deltas.json');
+    expect(historicalPlans).toHaveLength(657 + 15);
+    expect(historicalDeltas.entries).toHaveLength(731 + 15);
     const mine = new Set(BINDINGS.map((b) => b.planId));
+    expect(historicalPlans.slice(657).map((p) => p.id)).toEqual([...mine]);
+    expect(plans.filter((p) => mine.has(p.id))).toEqual(historicalPlans.slice(657));
+    const added = historicalDeltas.entries.slice(731);
     const deltaIds = new Set(
-      deltas.entries.slice(731).map((entry) => entry.id as string),
+      added.map((entry) => entry.id as string),
     );
     expect(deltaIds.size).toBe(15);
-    for (const entry of deltas.entries.slice(731)) {
+    expect(deltas.entries.filter((entry) => deltaIds.has(entry.id as string))).toEqual(added);
+    for (const entry of added) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:frontier/dexterity');
       expect(entry.disposition).toBe('permanent');
     }
-    const endpointEntries = deltas.entries
-      .slice(731)
+    const endpointEntries = added
       .filter((entry) => entry.oldHash !== entry.newHash);
     expect(endpointEntries).toHaveLength(4);
     const sealed = '4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4';
@@ -173,7 +187,7 @@ describe('dexterity originals integration (packet convergence-source-c-dexterity
       expect(entry.oldHash).toBe(sealed);
     }
     const newHashes = new Set(
-      deltas.entries.slice(731).map((entry) => entry.newHash as string),
+      added.map((entry) => entry.newHash as string),
     );
     expect(newHashes.size).toBe(1);
     expect(plans.filter((p) => mine.has(p.id)).length).toBe(15);

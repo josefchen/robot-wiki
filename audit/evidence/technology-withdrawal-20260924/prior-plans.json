@@ -1,0 +1,937 @@
+{
+ "schema": "technology-withdrawal-prior-plans-v1",
+ "recordedOn": "2026-09-24",
+ "note": "The twelve superseded compound plans, retained verbatim (no field changed) after their rows were corrected/cut for the technology-org-deployed-2026 withdrawal.",
+ "plans": [
+  {
+   "id": "industrial-unitree-5500-20260917a",
+   "ledgerPath": "audit/data-hardware.md",
+   "articleSlug": "industrial-deployment",
+   "rowOrdinal": 5,
+   "originalCellsDigest": "5015f418792ab36f5a44fa1c5c686d2ce83144ea43fa08bfa030822b95c6a1ef",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "shipped-5500",
+     "text": "Unitree shipped approximately 5,500 humanoid units across its product line in 2025 (technology.org body).",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "scorecard-corroboration",
+     "text": "Scorecard cross-print: commercially available; ~5,500 in 2025; 10,000-20,000 targeted 2026.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:5 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "aa44d6a34a1bd6d7161048e5a2a9d15ca99c3fe3b22074f8f7bcf906ad7d8995"
+   },
+   "evidence": [
+    {
+     "partId": "shipped-5500",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    },
+    {
+     "partId": "scorecard-corroboration",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree G1 / H1 | Commercially available; deployment case data limited | ~5,500 in 2025; 10,000-20,000 targeted 2026 | Yes – open commercial availability"
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "shipped-5500",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "dc57f391051820f9cf0b6420e18d6283e45dfe9591beeb5bf28986797628a510"
+    },
+    {
+     "partId": "scorecard-corroboration",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "62fec5499bc5f64fa1da0a72bd7914569633b9322c669cc9d7a6194e6729dda0"
+    }
+   ]
+  },
+  {
+   "id": "industrial-volume-leader-20260917a",
+   "ledgerPath": "audit/data-hardware.md",
+   "articleSlug": "industrial-deployment",
+   "rowOrdinal": 6,
+   "originalCellsDigest": "0afb00befa8ba989ba410fd9d1be873f4e5f0d3a2aeb75e97f84ba64cf1dc869",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "western-competitor-only",
+     "text": "technology.org says only “ships more humanoids than any Western competitor”, not “the volume leader”.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "leading-shipper-324",
+     "text": "unitree-profit-2026 calls Unitree “the world's leading humanoid shipper” (5,500+ delivered 2025; estimated 32.4% global share).",
+     "requiredCitationIds": [
+      "unitree-profit-2026"
+     ]
+    },
+    {
+     "id": "omdia-counter-position",
+     "text": "RoboZaps counter-position: Unitree self-reports 5,500+ and claims the volume crown; Omdia counts ~4,200 and ranks AgiBot first.",
+     "requiredCitationIds": [
+      "robozaps-humanoids-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 3 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:6 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "74a1c9beee9a691d6fe0eab432dc01e99517a4a09eee37b16cd7c19f9230f258"
+   },
+   "evidence": [
+    {
+     "partId": "western-competitor-only",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree ships more humanoids than any Western competitor, at roughly a tenth of the price, and its Q1 2026 profit still fell by half."
+    },
+    {
+     "partId": "leading-shipper-324",
+     "citationId": "unitree-profit-2026",
+     "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+     "supportingPassage": "Unitree's Q1 2026 data — profit halved, growth sharply decelerated — is the first real earnings signal from the world's leading humanoid shipper. [...] In 2025, the company delivered more than 5,500 humanoid robots, capturing an estimated 32.4% of global market share, and holds approximately 60% global market share in quadrupedal robots."
+    },
+    {
+     "partId": "omdia-counter-position",
+     "citationId": "robozaps-humanoids-2026",
+     "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+     "supportingPassage": "Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing about when you read shipment headlines."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "western-competitor-only",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "e0e3af7d15e77ee93e01c29de273a25684aa818724b871d65b5badde80657a1b"
+    },
+    {
+     "partId": "leading-shipper-324",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "ddcced0ba0f99da21049eb44ff7ab9f8e8905e7b0f694a228cc31d626a914383"
+    },
+    {
+     "partId": "omdia-counter-position",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "f7b0484e7ef7535bbcd4ebe89c0375658c7a3aa6196d668e9564a7db2e9ce1d2"
+    }
+   ]
+  },
+  {
+   "id": "industrial-hundredfold-20260917a",
+   "ledgerPath": "audit/data-hardware.md",
+   "articleSlug": "industrial-deployment",
+   "rowOrdinal": 7,
+   "originalCellsDigest": "a1ecb24c51243fb071cd6998383e7caf44aa1afd78a23e5bf9658f4b50a7fbbf",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "hundredfold-5500",
+     "text": "542,076 / 5,500 = 98.6: “a hundred times” the self-reported humanoid figure (internal arithmetic over cited operands).",
+     "requiredCitationIds": [
+      "ifr-world-robotics-2025",
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "hundredfold-4200",
+     "text": "542,076 / 4,200 = 129 against Omdia's count (internal arithmetic over cited operands).",
+     "requiredCitationIds": [
+      "ifr-world-robotics-2025",
+      "robozaps-humanoids-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:7 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "f8a436ad4c1f37cf547212be83884f59681b80be825da97d11d73f8ce0093300"
+   },
+   "evidence": [
+    {
+     "partId": "hundredfold-5500",
+     "citationId": "ifr-world-robotics-2025",
+     "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+     "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+    },
+    {
+     "partId": "hundredfold-5500",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    },
+    {
+     "partId": "hundredfold-4200",
+     "citationId": "ifr-world-robotics-2025",
+     "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+     "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+    },
+    {
+     "partId": "hundredfold-4200",
+     "citationId": "robozaps-humanoids-2026",
+     "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+     "supportingPassage": "Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing about when you read shipment headlines."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "hundredfold-5500",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "1f3d478247d6a66b6dd130c88cd3f3f210e146c8211362b806ab2547e44585b9"
+    },
+    {
+     "partId": "hundredfold-4200",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "3acbd4ed384b23172ff872409a6b51240c0627204501b58efe43287a0fd07e9a"
+    }
+   ]
+  },
+  {
+   "id": "industrial-stat-cards-20260917a",
+   "ledgerPath": "audit/data-hardware.md",
+   "articleSlug": "industrial-deployment",
+   "rowOrdinal": 8,
+   "originalCellsDigest": "1ccb37f7f7bbcc0fa4a1c75c8f0333d35fed32440b07f7296a5b41054c4ead8b",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "stat-stock-4663698",
+     "text": "Stat operand: 4,663,698 industrial robots in global operational stock, 2024.",
+     "requiredCitationIds": [
+      "ifr-world-robotics-2025"
+     ]
+    },
+    {
+     "id": "stat-installations-542076",
+     "text": "Stat operand: 542,076 industrial robots installed, 2024.",
+     "requiredCitationIds": [
+      "ifr-world-robotics-2025"
+     ]
+    },
+    {
+     "id": "stat-china-share-54",
+     "text": "Stat operand: 54% of 2024 global installations deployed in China.",
+     "requiredCitationIds": [
+      "ifr-world-robotics-2025"
+     ]
+    },
+    {
+     "id": "stat-humanoid-5500",
+     "text": "Stat operand: ~5,500 humanoid units shipped 2025 (Unitree's own figure).",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+    "rationale": "Actual current review 2026-09-17T14:32:46Z; all 4 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:8 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+    "planDigest": "3749add3a57bf3b1bac0b3a334e6f9211e99eed1b5522875688c27d8c9e8df84"
+   },
+   "evidence": [
+    {
+     "partId": "stat-stock-4663698",
+     "citationId": "ifr-world-robotics-2025",
+     "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+     "supportingPassage": "In 2024, the operational stock of industrial robots was computed at 4,663,698 units\n(+9%). Since 2019, the operational stock of industrial robots had been increasing by 11%\non average each year."
+    },
+    {
+     "partId": "stat-installations-542076",
+     "citationId": "ifr-world-robotics-2025",
+     "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+     "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+    },
+    {
+     "partId": "stat-china-share-54",
+     "citationId": "ifr-world-robotics-2025",
+     "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+     "supportingPassage": "Three of the top five markets for industrial robots are in Asia: China is by far the largest\nmarket. More than every other robot (54%) installed worldwide in 2024 ended up in\nChina: Installations were up 7% to 295,045 units. Installations in Japan were down 4%\nto 44,453 units."
+    },
+    {
+     "partId": "stat-humanoid-5500",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "stat-stock-4663698",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "83a080e1f9f48d9b0445800a8b8b8de65066b9194000b2d24b21c693808d917d"
+    },
+    {
+     "partId": "stat-installations-542076",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "3ae84e89b7274e8f8827305c9e86f2485839d9480693e92a30b0a482dca03895"
+    },
+    {
+     "partId": "stat-china-share-54",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "0ec03b4692da1a155763e84c96b923cb3091ea48d3f5828fb49e8057be51c669"
+    },
+    {
+     "partId": "stat-humanoid-5500",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+     "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+     "evidenceDigest": "21bd76b4f90622ba54833b5b6999810c4131b807f93fb8da529256faa6286a24"
+    }
+   ]
+  },
+  {
+   "id": "reliability-gap-r6-editorial-solvedbar-20260917a",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "reliability-gap",
+   "rowOrdinal": 6,
+   "originalCellsDigest": "5ce34513303a36e6333ca8e71e30400124eff42c7bfb71867c6f091271053d6d",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "r6-yardstick-editorial",
+     "text": "Editorial-basis exception, recorded per the packet's missingDependencies: the \">1,000h documented MTBF\" solved bar is this wiki's own proposed yardstick (the corrected Stat label reads \"solved bar (this wiki's)\"), not an industry metric. No fetched surface in the technology.org deployment sweep, and no registered citation, states that a vendor-standard MTBF bar exists; uncertainty stays honest and nothing here claims one does. The part is bound to the sweep because the sweep is the article's recorded deployment basis, not because it states the bar.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "r6-absence-in-sweep",
+     "text": "Scoped negative completed as absence-in-the-fetched-source (house pattern of reliability-gap-r12): the corrected Stat note scopes the negative to \"the deployed systems we surveyed\", and the survey of record is the technology.org deployment sweep. The retained 20260915-lane FetchUrl render of the sweep (sha256 f41facbc191b56a96674781c92c8581d03ebc36c66fe896db33d0dc02c23e1fc in that lane's retained-fetch-manifest.json; zero MTBF occurrences, re-needled by this integrator 2026-09-17, zero retrieval) prints the deployment record the negative is scoped to - Tesla 50,000 cumulative Optimus units, Figure AI 10,000+ deployments, Agility Digit 65,000+ operating hours across nine facilities - and prints no MTBF figure for any system. External evidence of a universal negative cannot exist in printable primaries; the completion is the rewording plus this recorded sweep basis.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+    "rationale": "packet 547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c record 1 (ready-source-correction): cells applied exactly as prepared; the packet records no fetch for this row and no citation proposal, and its missingDependencies state the scalar cells stay empty by design with the editorial-basis exception recorded in the integrator's evidence plan. This plan is that record: two parts bound read-only to the registered sweep citation technology-org-deployed-2026 (already registered; no new registration), evidence passages needle-verified against the sha256-recorded retained render from the 20260915 reliability-gap lane. Zero retrieval by this integrator.",
+    "planDigest": "0a1d9b6741d8c4ad1dcafff9fe5be56b341cd65245ae624c30baceb25361377a"
+   },
+   "evidence": [
+    {
+     "partId": "r6-yardstick-editorial",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Search for humanoid robot deployment figures and you will find confident numbers. Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments across partner warehouses."
+    },
+    {
+     "partId": "r6-absence-in-sweep",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Search for humanoid robot deployment figures and you will find confident numbers. Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments across partner warehouses."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "r6-yardstick-editorial",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+     "rationale": "Editorial yardstick rewording applied verbatim from the packet; the retained sweep render prints no MTBF-bar statement anywhere, so no source is over-claimed. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "0f4499eded064a9095fffdcbfed47e7ab5afc0515958fefb86ebfa61e8d5dc30"
+    },
+    {
+     "partId": "r6-absence-in-sweep",
+     "outcome": "supported",
+     "reviewedBy": "GLM-5.3/max integrator c7c0348d-6c88-4315-b753-4e91d64da618; preserved-packet + retained-source needle re-verification 2026-09-17 (lane needle-verification.json, 4-row scope)",
+     "rationale": "Absence-in-fetched-source re-needled this session: deployment-record passage verbatim in the retained render, zero MTBF occurrences file-wide. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "6833fe772df8212256c4c60ab1bd4dd3eff61146ff73b552dd47fd1b39e391fe"
+    }
+   ]
+  },
+  {
+   "id": "reliability-gap-r9-deployment-record-20260915",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "reliability-gap",
+   "rowOrdinal": 9,
+   "originalCellsDigest": "2f30371c6dfead1eab7d9d4017523fbe8a4dc322f8882161fe1fa3c469dc6dfe",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "r9-circulating",
+     "text": "Circulating figures put Tesla past 50,000 cumulative Optimus units and Figure above 10,000 deployments; none of these figures come from the companies they describe.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "r9-tesla-never",
+     "text": "Tesla has never published an Optimus production count, audited or otherwise.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "r9-agility",
+     "text": "Agility's Digit has accumulated more than 65,000 operating hours across nine customer facilities (GXO, Schaeffler, Toyota Motor Manufacturing Canada, Mercado Libre).",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "r9-bmw",
+     "text": "Figure's eleven-month BMW Spartanburg pilot logged more than 1,250 hours, 90,000+ parts loaded, above 99 percent placement accuracy per shift and an 84-second cycle time (Figure's November 2025 report).",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "r9-unitree-target",
+     "text": "Unitree shipped roughly 5,500 units in 2025 and targets 10,000 to 20,000 units in 2026.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record reliability-gap:9 (ready-source-correction): all five parts needle-verified against the retained technology.org sweep; the Unitree 2026-target part reuses the bear-case-registered b4-volume passage byte-exact with the same registered citation (technology-org-deployed-2026); claim unchanged. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+    "planDigest": "42cb92739a500244917916f5e6ad87c6173eb0b3021e0ffef0b9d23646ec3ee4"
+   },
+   "evidence": [
+    {
+     "partId": "r9-circulating",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Search for humanoid robot deployment figures and you will find confident numbers. Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments across partner warehouses."
+    },
+    {
+     "partId": "r9-tesla-never",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "None of these figures come from the companies they describe. Tesla has never published an Optimus production count, audited or otherwise."
+    },
+    {
+     "partId": "r9-agility",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Agility Robotics has the broader commercial footprint. The company says its Digit robot has accumulated more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre as commercial customers."
+    },
+    {
+     "partId": "r9-bmw",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Figure AI completed an eleven-month pilot at BMW Group Plant Spartanburg with its Figure 02 robot. According to Figure’s November 2025 report, the robot logged more than 1,250 operating hours, loaded over 90,000 sheet-metal parts and took roughly 1.2 million steps while supporting production of more than 30,000 BMW X3 vehicles. It worked ten-hour shifts, Monday through Friday, placing metal parts into welding fixtures to five-millimetre precision, holding above 99 percent placement accuracy per shift and meeting an 84-second cycle time."
+    },
+    {
+     "partId": "r9-unitree-target",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "r9-circulating",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "4e7d0d93233ed7ca05a4c31003a78408bee8d5c9cb7ec98845430fd598c059d0"
+    },
+    {
+     "partId": "r9-tesla-never",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "dec69167f78ffe68766827e2193023d818a61e3f9e6b9ace3e8f4c177099d270"
+    },
+    {
+     "partId": "r9-agility",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "0936a3bb0cff7e2944eb7c4b5c6a5e230b5d01730f0abb2387cd57c3a6a775d1"
+    },
+    {
+     "partId": "r9-bmw",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "782886ce83e782512e6ae4dee98dd586fa593e90f3cf78415261708de4dcaf3a"
+    },
+    {
+     "partId": "r9-unitree-target",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "dd2d3ab8b80be130f26c6961266d0eb9cbaa2689f25c8b52a419c4e28d59bcb4"
+    }
+   ]
+  },
+  {
+   "id": "reliability-gap-r10-unitree-g1-price-20260915",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "reliability-gap",
+   "rowOrdinal": 10,
+   "originalCellsDigest": "c8adccdacf49ed649874ad79903755ce795e0054fe1994b391b34b938a99ae05",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "r10-volume",
+     "text": "Unitree shipped roughly 5,500 humanoid units across its product line in 2025.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "r10-g1-price",
+     "text": "The $16,000 figure is the G1's starting price, roughly an order of magnitude below full-size Western platforms - not the price of the whole 2025 shipment line.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record reliability-gap:10 (ready-source-correction): volume part reuses the bear-case b4-volume passage byte-exact; G1-price part needle-verified; the recorded C was already applied to the article ('with its G1 starting near $16,000'); verdict history preserved, no article edit. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+    "planDigest": "540135742fccec9d04f010f83dfdd20d3ca9bf3fddc0717854ba8999f9a6a4a3"
+   },
+   "evidence": [
+    {
+     "partId": "r10-volume",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    },
+    {
+     "partId": "r10-g1-price",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Its G1 humanoid starts around $16,000, roughly an order of magnitude below full-size Western platforms."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "r10-volume",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "e81212e7ebfbde3ec8134d2c2b9857b9b958e491bc59dd6fde87404c360dc0d1"
+    },
+    {
+     "partId": "r10-g1-price",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "0758a465f9057831ffeb1fee3aa3df966bce79f662f769c251d38d96a034d982"
+    }
+   ]
+  },
+  {
+   "id": "reliability-gap-r13-figure-goldman-20260915",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "reliability-gap",
+   "rowOrdinal": 13,
+   "originalCellsDigest": "c8e2b636a39c39ecdd8456cd5c3442f28ae8b0a282c709eae82feaf7a282ef99",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "r13-valuation",
+     "text": "Figure held a $39 billion private valuation as of September 2025 - higher than Goldman's projection for the entire humanoid market nine years out.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "r13-goldman",
+     "text": "Goldman Sachs projects the humanoid market at $38 billion by 2035.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record reliability-gap:13 (ready-source-correction): both parts reuse the bear-case-registered b5 passages byte-exact with the same registered citation; claim unchanged. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+    "planDigest": "d942979e9e826d08460f5804e2b43d30b220274a84647b9118876be21a5029bf"
+   },
+   "evidence": [
+    {
+     "partId": "r13-valuation",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Figure held a $39 billion private valuation as of September 2025 – higher than Goldman’s projection for the entire humanoid market nine years out."
+    },
+    {
+     "partId": "r13-goldman",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "r13-valuation",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "896edbaf64fd4bac3c001b627069522ae9ba815d0a95d1273bfb9125df50f839"
+    },
+    {
+     "partId": "r13-goldman",
+     "outcome": "supported",
+     "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "evidenceDigest": "c691817d44e2e291e0d9ec2be6247f31ccb8ffeeb5310c2309d7eba0c6a4b1b8"
+    }
+   ]
+  },
+  {
+   "id": "bear-case-b4-unitree-20260915",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "bear-case",
+   "rowOrdinal": 4,
+   "originalCellsDigest": "a3cf4fdf6ab98712eee314863262246a481b3ba61d0df03a04d241879c99a52d",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "b4-volume",
+     "text": "Unitree shipped roughly 5,500 humanoids in 2025, more than any Western competitor.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "b4-profit",
+     "text": "Unitree's Q1 2026 adjusted net profit fell 52.55% year over year.",
+     "requiredCitationIds": [
+      "unitree-profit-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator plan review of packet record bear-case:4 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Volume leg (technology.org) and profit leg (TechTimes) each carried by its own fetched source; the article already carried the earlier adjusted-net-profit correction, so this pass completes evidence only.",
+    "planDigest": "97a3cfd4e1132f9459c89f550b10483ef4c60f97ae717929b2ae3fd609d3dcab"
+   },
+   "evidence": [
+    {
+     "partId": "b4-volume",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+    },
+    {
+     "partId": "b4-profit",
+     "citationId": "unitree-profit-2026",
+     "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+     "supportingPassage": "The latest financial data in Unitree's prospectus covers Q1 2026, and it tells a substantially different story from the full-year 2025 results. Unitree reported Q1 2026 operating revenue of 423 million yuan (approximately $62.5 million) — year-on-year growth of 68.49%, down sharply from the 332.64% growth rate reported for full-year 2025. Adjusted net profit fell to 40.25 million yuan (approximately $5.9 million) from 84.84 million yuan in the same quarter last year, a year-on-year decline of 52.55%."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "b4-volume",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Retained technology.org text states ~5,500 units in 2025 and the any-Western-competitor takeaway.",
+     "evidenceDigest": "640edef742342953240d5a1957f30f3c63d948a9dcf49e796b548a2e116ebcb2"
+    },
+    {
+     "partId": "b4-profit",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Retained TechTimes text states adjusted net profit -52.55% (¥40.25M from ¥84.84M), Q1 2026.",
+     "evidenceDigest": "cde09c84342bf462a65d2b0c20c05bbbf6bfd6f4de40d4920638a0ae3940189e"
+    }
+   ]
+  },
+  {
+   "id": "bear-case-b5-figure-goldman-20260915",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "bear-case",
+   "rowOrdinal": 5,
+   "originalCellsDigest": "ccd5fa004b7eabb84d5dddcf9eefbaa02996b0bc2448e2aa7d3e45d5e97661a0",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "b5-valuation-vs-market",
+     "text": "Figure's $39B private valuation (September 2025) exceeds Goldman Sachs' $38B projection for the entire humanoid market in 2035.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "b5-goldman-38b",
+     "text": "Goldman Sachs projects the humanoid market at $38 billion by 2035.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator plan review of packet record bear-case:5 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Both the $39B-vs-$38B comparison sentence and the Goldman $38B-by-2035 sentence are printed by the retained technology.org text.",
+    "planDigest": "78c9ef6a98480869a10a4173b55f2ddfd97ddcd946e3c1c3286f6fb026531ad3"
+   },
+   "evidence": [
+    {
+     "partId": "b5-valuation-vs-market",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Figure held a $39 billion private valuation as of September 2025 – higher than Goldman’s projection for the entire humanoid market nine years out."
+    },
+    {
+     "partId": "b5-goldman-38b",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "b5-valuation-vs-market",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Retained text states the comparison directly.",
+     "evidenceDigest": "44695a53ea351a78fc1fea0893b14d574755a8acdef690ed1399e161729ca889"
+    },
+    {
+     "partId": "b5-goldman-38b",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Retained text states the projection directly.",
+     "evidenceDigest": "1199aff04d0dc7227c60deeb2a8bd28c88c33dd13518fea540b9362504008098"
+    }
+   ]
+  },
+  {
+   "id": "bear-case-b14-watchlist-legs-20260915",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "bear-case",
+   "rowOrdinal": 14,
+   "originalCellsDigest": "d5c5c16ed2d46755e238543ead77e47642281c16f5d54762ccb866a7529950cc",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "b14-pi05-homes",
+     "text": "pi0.5's most realistic final evaluation ran in three real homes absent from its training set, with bedroom and kitchen cleaning tasks in each.",
+     "requiredCitationIds": [
+      "pi05-2025"
+     ]
+    },
+    {
+     "id": "b14-units-agility-unitree",
+     "text": "The strongest verified deployment records are Agility's more than 65,000 operating hours across nine customer facilities and Unitree's roughly 5,500 units shipped in 2025; the \"no manufacturer has documented more than 1,000 deployed units\" status call is the milestone's own editorial framing on top of these records.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    },
+    {
+     "id": "b14-open-benchmark",
+     "text": "RoboArena deliberately crowd-sources double-blind pairwise evaluations across a distributed network of evaluators instead of standardizing fixed tasks, RoboChallenge provides a reproducible online evaluation system, and ManipulationNet delivers reproducible task setups through standardized hardware kits.",
+     "requiredCitationIds": [
+      "roboarena-2025",
+      "robochallenge-2025",
+      "manipulationnet-2026"
+     ]
+    },
+    {
+     "id": "b14-rl-reliability",
+     "text": "RL-100 attains 100 percent success across 1,000 of 1,000 evaluation episodes on eight diverse real-robot tasks; the final pi*0.6 model is in the 90%+ range on all tasks except diverse laundry.",
+     "requiredCitationIds": [
+      "rl-100-2025",
+      "pistar06-2025"
+     ]
+    },
+    {
+     "id": "b14-tactile",
+     "text": "Sparsh-X is trained on roughly one million contact-rich interactions collected with the Digit 360 sensor, and TouchWorld is a predictive-and-reactive tactile foundation model for dexterous manipulation; the \"outside every major VLA pipeline\" half of the status call is the milestone's own editorial framing, not a source-certified absence.",
+     "requiredCitationIds": [
+      "sparsh-x-2025",
+      "touchworld-2026"
+     ]
+    },
+    {
+     "id": "b14-egoscale",
+     "text": "EgoScale trains a VLA on over 20,854 hours of action-labeled egocentric human video and uncovers a log-linear scaling law between human data scale and validation loss, which correlates with downstream real-robot performance; the R² = 0.9983 constant in the statusDetail is not re-verified by this pass (the retained base holds the abs page only).",
+     "requiredCitationIds": [
+      "egoscale-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator plan review of packet record bear-case:14 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Restructured from the packet: the units/tactile part texts now separate the sourced facts from the milestone's own editorial status calls (the packet itself flagged \"outside every major VLA pipeline\" as editorial), and the open-benchmark part carries the per-benchmark correction applied to lib/bear-case.ts in this same commit (RoboArena's abstract replaces task standardization with crowd-sourced evaluation). The pistar06 sentence is needle-verified by fragments: pdftotext emits its runs reordered (a lone ∗ line; \"of the final π0.6\" after \"This makes it\") - all words verbatim in the retained text layer (see passage-verification.json artifact note). The EgoScale R² constant stands on the same-day generalization lane's PDF verification, not re-verified here.",
+    "planDigest": "b591821a68621514eace1f170eff49bf89fae28b6160815f64051a8d7b11cea5"
+   },
+   "evidence": [
+    {
+     "partId": "b14-pi05-homes",
+     "citationId": "pi05-2025",
+     "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+     "supportingPassage": "For quantitative comparisons, we use a set of mock home environments to provide a controlled and reproducible setup, while the most realistic final evaluation is conducted in three real homes that were not part of the training set (see Figure 6)."
+    },
+    {
+     "partId": "b14-units-agility-unitree",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Agility Robotics has the broader commercial footprint. The company says its Digit robot has accumulated more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre as commercial customers."
+    },
+    {
+     "partId": "b14-open-benchmark",
+     "citationId": "roboarena-2025",
+     "sourceUrl": "https://arxiv.org/abs/2506.18123",
+     "supportingPassage": "Instead of standardizing evaluations around fixed tasks, environments, or locations, we propose to crowd-source evaluations across a distributed network of evaluators."
+    },
+    {
+     "partId": "b14-open-benchmark",
+     "citationId": "robochallenge-2025",
+     "sourceUrl": "https://arxiv.org/abs/2510.17950",
+     "supportingPassage": "In this report, we describe our methodology for constructing RoboChallenge, an online evaluation system to test robotic control algorithms, and our survey of recent state-of-the-art VLA models using our initial benchmark Table30."
+    },
+    {
+     "partId": "b14-open-benchmark",
+     "citationId": "manipulationnet-2026",
+     "sourceUrl": "https://arxiv.org/abs/2603.04363",
+     "supportingPassage": "ManipulationNet delivers reproducible task setups through standardized hardware kits, and enables distributed performance evaluation via a unified software client that delivers real-time task instructions and collects benchmarking results."
+    },
+    {
+     "partId": "b14-rl-reliability",
+     "citationId": "rl-100-2025",
+     "sourceUrl": "https://arxiv.org/abs/2510.14830",
+     "supportingPassage": "We evaluate RL-100 on eight diverse real-robot tasks, from dynamic pushing and agile bowling to pouring, cloth folding, unscrewing, multi-stage juicing, and long-horizon box folding. RL-100 attains 100 percent success across evaluated trials, for a total of 1000 out of 1000 episodes, including up to 250 out of 250 consecutive trials on one task."
+    },
+    {
+     "partId": "b14-rl-reliability",
+     "citationId": "pistar06-2025",
+     "sourceUrl": "https://www.pi.website/download/pistar06.pdf",
+     "supportingPassage": "On all of the tasks except diverse laundry, the success rate of the final π*0.6 model is in the 90%+ range. This makes it feasible to use in practical settings, such as making espresso drinks at the office or assembling boxes in a factory, as shown in the accompanying videos."
+    },
+    {
+     "partId": "b14-tactile",
+     "citationId": "sparsh-x-2025",
+     "sourceUrl": "https://arxiv.org/abs/2506.14754",
+     "supportingPassage": "We present Sparsh-X, the first multisensory touch representations across four tactile modalities: image, audio, motion, and pressure. Trained on ~1M contact-rich interactions collected with the Digit 360 sensor, Sparsh-X captures complementary touch signals at diverse temporal and spatial scales."
+    },
+    {
+     "partId": "b14-tactile",
+     "citationId": "touchworld-2026",
+     "sourceUrl": "https://arxiv.org/abs/2607.07287",
+     "supportingPassage": "We introduce TouchWorld, a predictive-and-reactive tactile foundation model for dexterous manipulation."
+    },
+    {
+     "partId": "b14-egoscale",
+     "citationId": "egoscale-2026",
+     "sourceUrl": "https://arxiv.org/abs/2602.16710",
+     "supportingPassage": "We train a Vision Language Action (VLA) model on over 20,854 hours of action labeled egocentric human video, more than 20 times larger than prior efforts, and uncover a log linear scaling law between human data scale and validation loss. This validation loss strongly correlates with downstream real robot performance, establishing large scale human data as a predictable supervision source."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "b14-pi05-homes",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Retained pi05 PDF text states the three-unseen-homes final evaluation.",
+     "evidenceDigest": "366c5b533307637da281f5d501e36f0c779f60ea8ba846317df406a5ee6fd12d"
+    },
+    {
+     "partId": "b14-units-agility-unitree",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Retained technology.org text states the Agility 65,000+ hour record; the Unitree ~5,500 figure is carried by the same fetched page (see row 4).",
+     "evidenceDigest": "37da78fb5be5de9b8d798958d4f503d89b88eea2bf0553222b83d283194af20d"
+    },
+    {
+     "partId": "b14-open-benchmark",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "All three abstracts needle-verified; the statusDetail rewording applied to lib/bear-case.ts matches them.",
+     "evidenceDigest": "ad5ac93b2bcd183402372d5d0d61f96298f3ee7211bf50a71cf39af760620e08"
+    },
+    {
+     "partId": "b14-rl-reliability",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "RL-100 abs passage verbatim; pistar06 sentence fragment-verified with the documented pdftotext reordering artifact.",
+     "evidenceDigest": "94b51a6226226758fbe4a0b051fdb583b3b0273dfa6f988e1d7f1d5a15757939"
+    },
+    {
+     "partId": "b14-tactile",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Both abstracts verbatim in the retained fetch text; the editorial half is labelled as such.",
+     "evidenceDigest": "2b2aca21357487e58856da1eb67de5c6bf1a93df6ac620171180c0f45900f541"
+    },
+    {
+     "partId": "b14-egoscale",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Abs passage verbatim; the R² constant explicitly not re-verified by this pass.",
+     "evidenceDigest": "cf767213775ef08673303b7f904fdcd0b3cff07f097100a58cfef7a4b6a63781"
+    }
+   ]
+  },
+  {
+   "id": "bear-case-b15-board-count-20260915",
+   "ledgerPath": "audit/frontier.md",
+   "articleSlug": "bear-case",
+   "rowOrdinal": 15,
+   "originalCellsDigest": "6f8fa05b4f9b498083bddd67e95ea5d001b5e1ebf061dfab35c2d77e97a6f541",
+   "kind": "explicit-parts",
+   "parts": [
+    {
+     "id": "b15-board-count",
+     "text": "The board's unit-deployment status base is the fetched Agility 65,000+ operating-hour and Unitree ~5,500-unit deployment record (one of the eight status bases fetched under rows 13-14); over the schema-validated eight-row MILESTONES array in lib/bear-case.ts the local count reads four not met, four partial, zero met.",
+     "requiredCitationIds": [
+      "technology-org-deployed-2026"
+     ]
+    }
+   ],
+   "planReview": {
+    "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Integrator plan review of packet record bear-case:15 (disposition ready-source-correction-with-local-AND): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Restructured from the packet (local-AND): the locked compound schema fail-closes on a part with zero required citations, so the packet's empty-requirement part was restructured to cite one genuinely-fetched status base, while the count itself is local arithmetic over lib/bear-case.ts that this integrator re-ran at application time via node import of MILESTONES (four partial: unseen-homes-policy, open-benchmark, broad-rl-reliability, data-scaling-law; four not-met: ten-thousand-unit-deployment, tactile-foundation-model, sim-to-real-contact, cost-per-task-parity; zero met) AND-ed with rows 13-14's fetched status bases. No fetch exists or is claimed for a local count.",
+    "planDigest": "4e2e901fe632e1cdd30f8bac1d11b1021960da2dc4c0264b8ba7ace8ff8a9e40"
+   },
+   "evidence": [
+    {
+     "partId": "b15-board-count",
+     "citationId": "technology-org-deployed-2026",
+     "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+     "supportingPassage": "Agility Robotics has the broader commercial footprint. The company says its Digit robot has accumulated more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre as commercial customers."
+    }
+   ],
+   "adjudications": [
+    {
+     "partId": "b15-board-count",
+     "outcome": "supported",
+     "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+     "rationale": "Citation leg needle-verified in the retained technology.org text; count leg proven by the integrator's own local import of the schema-validated array at application time.",
+     "evidenceDigest": "7394f25243484b32aecd7e1e71132b811034a8bbb707093181f9442f28336d9e"
+    }
+   ]
+  }
+ ]
+}

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
+import { committedSource } from '../helpers/continuation-integration';
 import { originalClaimDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 
 const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
@@ -28,7 +29,9 @@ describe('Industrial engineering originals 30 and atomic 34/45', () => {
       'not a claim that engineering removes the need for learning',
       'model-free AI eventually to enable fully general-purpose robots']) expect(article.includes(text), text).toBe(true);
     expect(article.includes('across that 100,000-year gap')).toBe(false);
-    expect(article.includes('lastReviewed: "2026-08-22"')).toBe(true);
+    expect(committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx')
+      .includes('lastReviewed: "2026-08-22"')).toBe(true);
+    expect(article.includes('lastReviewed: "2026-09-24"')).toBe(true);
   });
 
   it('keeps Goldberg identity without manufacturing a metadata correction', () => {

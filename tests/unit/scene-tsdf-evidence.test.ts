@@ -1,5 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
+import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
@@ -18,6 +20,7 @@ import {
   type ManifestInput,
 } from '../../lib/brand-v2-baseline';
 import { relationshipManifestInputs } from '../../lib/relationship-manifest';
+import { currentAuditContext } from '../helpers/residual-integration';
 
 const hash = (text: string) => createHash('sha256').update(text).digest('hex');
 const read = (path: string) => readFileSync(path, 'utf8');
@@ -155,16 +158,17 @@ describe('scene original 10: source-scoped TSDF correction', () => {
   });
 
   it('appends after the exact 862-plan prefix without reapplying prior records', () => {
-    expect(hash(JSON.stringify(plans.slice(0, 862))))
+    expect(hash(JSON.stringify(parseCompoundPlans(preservedCompoundPacket('660ad53')).slice(0, 862))))
       .toBe('51695cf441132d5df905968ce26d654b0b537b3df96a61d1eff4aeccfc54c81e');
-    expect(plans[862]?.id).toBe(planId);
+    expect(preservedCompoundPacket('660ad53')[862]?.id).toBe(planId);
+    expect(plans.filter(p => p.id === planId)).toHaveLength(1);
   });
 
   it('approves only the three actually changed native members with the prior prefix intact', () => {
     const entries = (JSON.parse(read('contract/brand-v2-approved-deltas.json')) as {
       entries: ApprovedDelta[];
     }).entries;
-    expect(hash(JSON.stringify(entries.slice(0, 1015))))
+    expect(hash(JSON.stringify(preservedApprovalPacket('ca9cb43'))))
       .toBe('72ae640be3ebfcb61925bce105da674e79b8ce3e14fd50f18bf727d5223322df');
     const mine = entries.filter(({ id }) => id.startsWith('scene-tsdf-10-20260922-'));
     expect(mine.map(({ manifest, memberId }) => [manifest, memberId])).toEqual([
@@ -185,24 +189,51 @@ describe('scene original 10: source-scoped TSDF correction', () => {
       // rather than pretending the scene checkpoint remains the latest one.
       let latestHash = delta.newHash;
       for (const later of entries.slice(entries.indexOf(delta) + 1).filter((entry) =>
-        entry.manifest === delta.manifest && entry.memberId === delta.memberId)) {
+        entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
+        !entry.id.startsWith('continuation-merge-'))) {
         expect(later.oldHash).toBe(latestHash);
         latestHash = later.newHash;
       }
-      expect(latestHash).toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
+      const merged = headReanchorFor(entries, delta.manifest, delta.memberId);
+      expect(merged?.newHash ?? latestHash).toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });
 
-  it('keeps both perception originals held with exact pre-repair tuple history', () => {
+  it('preserves both perception holds and requires their later complete evidence', () => {
     const perception = records('perception');
+    const local = JSON.parse(read('audit/local-basis.json')) as {
+      plans: Array<{ id: string; originalId: string; originalBinding: { originalTupleDigest: string };
+        currentTupleDigest: string; parts: unknown[] }>;
+    };
+    const current = parseLedger('audit/classical.md', ledger, ids, currentAuditContext())
+      .find(s => s.slug === 'perception')!.claimRecords;
+    const historical = parseLedger('audit/classical.md',
+      read('audit/evidence/classical-closure-20260923/classical-before.md'), ids,
+      // Plans appended by the 2026-09-24 imported stack-classical packet bind only
+      // to rows added after this snapshot; the historical parse excludes them.
+      { compoundPlans: plans.filter(p => ![
+        'calib-handeye-axxb-20260924', 'calib-hwangbo-actuator-20260924', 'ros2-lyrical-release-20260924',
+      ].includes(p.id)) })
+      .find(s => s.slug === 'perception')!.claimRecords;
     for (const [ordinal, digest] of [
       [2, 'ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221'],
       [19, 'f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a'],
     ] as const) {
-      expect(perception[ordinal - 1].verdict).toBe('UNRESOLVED');
-      expect(perception[ordinal - 1].note).toContain('Original four-cell tuple (JSON):');
-      expect(perception[ordinal - 1].note).toContain(digest);
+      expect(historical[ordinal - 1].verdict).toBe('UNRESOLVED');
+      expect(historical[ordinal - 1].note).toContain('Original four-cell tuple (JSON):');
+      expect(historical[ordinal - 1].note).toContain(digest);
+      const p = local.plans.find(p => p.originalId === `audit/classical.md:perception:${ordinal}`)!;
+      expect(p.id).toBe(`classical-closure-perception-${ordinal}-20260923`);
+      expect(p.originalBinding.originalTupleDigest).toBe(digest);
+      expect(p.currentTupleDigest).toBe(originalClaimDigest(perception[ordinal - 1]));
+      expect(p.parts.length).toBe(ordinal === 2 ? 11 : 2);
+      expect(perception[ordinal - 1].verdict).toBe('C');
+      expect(ledger).toContain(`"previousTupleDigest": "${digest}"`);
+      // Without the typed context the scalar parser must still fail closed.
       expect(perception[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+      expect(current[ordinal - 1].outcome).toBe('passing');
+      expect(current[ordinal - 1].localBasis).toBeDefined();
+      expect(current[ordinal - 1].evidenceFailures).toEqual([]);
     }
   });
 });

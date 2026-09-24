@@ -1,0 +1,306 @@
+Home
+/
+RL, Sim-to-Real & Locomotion
+/
+Legged Locomotion Lineage
+Legged Locomotion Lineage
+
+From ANYmal to Unitree and the MIT humanoid line: how learned gaits became the default.
+
+LAST REVIEWED
+17 August 2026
+READING TIME
+11 min
+CITATIONS
+13
+
+The previous modules built the machinery: massively parallel simulation that trains a walking policy in minutes, and the transfer techniques that get it onto hardware. This module is where that machinery was proven. Legged locomotion is the one domain where sim-to-real reinforcement learning is not a promise or a demo but the shipping default, and the chain of results that made it so is unusually well documented. Between 2019 and 2022, the ETH Zurich line around ANYmal took a quadruped from fragile lab behavior to blind alpine hiking, and every humanoid program since has tried to rerun the same recipe on two legs.
+
+Underneath all of it sits an older idea that learning did not replace: the gait. Switch the diagram below from walk to trot to bound and watch the support readout, three feet always down, then two, then a flight phase with none. That progression is the stability story of legged locomotion in miniature.
+
+Walk
+Trot
+Bound
+Pronk
+Play
+Step back
+Step forward
+Reset
+GAIT PHASE
+0%
+gait: Walk
+duty factor: 0.75
+phase: 0%
+feet down: RF + LH + RH
+support: always 3 feet down
+stance intervals over one stride cycle
+walk, duty 0.75
+LF
+RF
+LH
+RH
+0%
+25%
+50%
+75%
+100%
+
+walk at 0% feet down RF + LH + RH duty 0.75
+
+In the walk, always 3 feet down at duty factor 0.75, and the footfall offsets around the cycle are (LH at 0%, LF at 25%, RH at 50%, RF at 75%); at the current phase of 0% the feet down are RF + LH + RH. The sampled table carries the rendered tick grid exactly: rows at 0%, 25%, 50%, 75% and 100%, the last row being the same instant as the cycle start.
+
+Footfall timing for the walk
+< 4 min
+Flat-terrain training
+Rudin abstract; single GPU, separate flat run
+< 20 min
+Uneven-terrain policy
+4,096 robots; i9-11900k + RTX A6000
+78 min
+Alpine hike
+Miki 2022: 2.2 km; planner 76 min
+3.03 m/s
+Sand running
+Choi 2023, feet fully buried
+The quadruped lineage
+
+Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, using supervised data collected by exciting the real robot's legs and manually disturbing it. The network models actuation inside the simulator; the control policies are trained there and then deployed on the robot. Policies trained with ideal or analytical actuator models could not take a single step without falling in the reported ablations. A separately trained recovery policy flipped ANYmal upright from nine tested configurations, including upside-down and folded-leg poses. The authors report relaxing joint-velocity constraints after the first successful hardware recovery attempt 
+Hwangbo 2019
+↓
+.
+
+Lee and colleagues used a privileged RL teacher to supervise both the actions and latent features of a temporal convolutional network student. Its deployed default uses two seconds of proprioceptive history from joint encoders and an IMU, alongside the command and current state. Trained on rigid, procedurally generated terrain, controllers for ANYmal-B and ANYmal-C traversed mud, snow, rubble, and vegetation outside the training conditions, without environment-specific tuning for robots of the same generation. The student has no external terrain map: it infers terrain properties from bodily feedback. This blindness still limits foresight: Lee and colleagues explicitly warn that a robot commanded off a cliff will walk off it 
+Lee 2020
+↓
+. The sim-to-real module covers the distillation mechanics.
+
+Miki and colleagues combined height samples from an elevation map with proprioception in a GRU-based recurrent belief encoder. A learned attention gate controls how much exteroceptive information enters the belief state; the student is trained to imitate a privileged teacher and reconstruct terrain information from noisy observations. In covered-sensor stair and slippery-platform tests, the controller fell back on proprioception, revising its terrain estimate after contact rather than anticipating every obstacle. On ANYmal C, deployment used either two Robosense Bpearl LiDAR sensors or four Intel RealSense D435 cameras, with elevation mapping at 20 Hz and the policy at 50 Hz. Their Etzel mountain hike covered 2.2 km with 120 m of elevation gain in 78 minutes, compared with a hiking planner's 76 minutes; it had no falls but included stops to reattach a shoe and swap batteries. The paper's “hour-long” description is not an exact one-hour traversal. Its limitations include possible falls at occluded cliffs or stepping stones, so the result does not establish all-terrain robustness 
+Miki 2022
+↓
+.
+
+Rudin and colleagues report flat-terrain walking policies trained in under four minutes on a single workstation GPU. Separately, their documented simulation-and-deployment policy used 4,096 parallel ANYmal robots, batches of 98,304 RL transitions (24 steps per robot), and 1,500 policy updates in under twenty minutes on an i9-11900k CPU and NVIDIA RTX A6000 GPU. Their game-inspired terrain curriculum promotes robots that cross a tile boundary, demotes those that cover less than half the commanded distance, and returns robots that solve the hardest level to a random level 
+Rudin 2021
+↓
+. The paper links its released training code, legged_gym; the pinned October 2021 repository identifies itself as the Isaac Gym environment used to train ANYmal on rough terrain 
+Rudin 2021
+↓
+.
+
+ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuator-network and terrain-curriculum results above all ran on this platform.
+Photo: ANYbotics / Wikimedia Commons. Licence: CC BY-SA 4.0.
+
+Choi and colleagues extended the recipe to ground that moves. Deformable terrain like sand defeats rigid-contact simulators, so they put a computationally cheap granular-media model inside the training loop and paired it with a controller that identifies terrain properties from feel as the robot walks. Their Raibo quadruped ran on soft beach sand at 3.03 m/s with its feet fully buried during stance 
+Choi 2023
+↓
+.
+
+A gait is a timing pattern
+
+A quadruped's gait is a footfall-timing pattern, described by two numbers per leg: the phase offset (when in the stride cycle the foot strikes) and the duty factor 
+𝛽
+β, the fraction of the cycle the foot spends on the ground. The diagram at the top of this module uses four authored timing examples.
+
+The walk spreads footfalls evenly and keeps three feet down at all times, so a static support polygon always exists. The trot, the working gait of most quadruped robots including ANYmal, strikes diagonal pairs together and balances dynamically on two feet. The bound alternates the front pair against the hind pair with a suspension interval in between. In the MIT Cheetah 2 control design, Park, Wensing and Kim plan stance time from stride length and desired speed, 
+𝑇
+𝑠
+𝑡
+=
+𝐿
+/
+𝑣
+𝑑
+T
+st
+	​
+
+=L/v
+d
+	​
+
+, keep swing duration fixed, and modulate the duty cycle via vertical impulse scaling (the paper’s Sec. 4.3 is literally titled “Duty cycle modulation via vertical impulse scaling”). Experimentally the stride length grows with speed only up to 3 m/s and is fixed above it, so the stance-time scaling is one classical controller’s schedule rather than a universal timing law, and the abstract’s 6.4 m/s bounding result with cost of transport 0.47 is qualified by side-wall contact and roll instability 
+Park 2017
+↓
+. The pronk throws all four feet down and up together and spends most of the cycle airborne.
+
+Learned policies are not handed these patterns. Foot-air-time and footfall-style reward terms induce them, and the policy discovers whichever pattern the reward makes cheapest. The diagram fixes authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35. Its phase offsets and support readouts describe those chosen timing examples, not a universal gait law or a measured controller’s response to speed.
+
+From quadrupeds to humanoids
+
+On Unitree's H1, H2O turns human pose estimates from an RGB camera into real-time whole-body teleoperation. It first fits and retargets AMASS human motions, then uses a privileged imitator to filter motions it cannot track. A separate tracking policy learns from the cleaned set with domain randomization and outputs 19 joint-position targets to a PD controller. Naive retargeting can produce infeasible references; it does not invariably destroy feasibility. The demonstrated system also uses robot-side motion capture for linear velocity, so "one RGB camera" describes the human-motion input, not the complete sensing setup 
+He 2024
+↓
+.
+
+On the G1 with fixed wrists, ASAP uses real rollouts to train an ankle delta-action model, freezes it in simulation for policy fine-tuning, and deploys the fine-tuned policy without the residual model. The paper illustrates jumps and Ronaldo-, LeBron- and Kobe-inspired motions. Its quantitative hardware comparison is kicking and LeBron's "Silencer" against Vanilla, not a success-rate study of every illustrated skill 
+He 2025
+↓
+.
+
+MIT's humanoid program attacked a different piece of the problem.
+
+Jeon and colleagues compared reward formulations, not RL algorithms, for running with a simulated MIT Humanoid: an 18-DoF platform with its arms fixed and ten leg joints controlled. They held PPO-Clip and the IsaacGym training setup fixed while comparing baseline rewards alone, baseline plus direct shaping, and baseline plus potential-based shaping of orientation, height, and joint regularization. After tuning the baseline weights and keeping them fixed, they compared accumulated baseline reward rather than the differently scaled total rewards. Ten runs per nominal case converged to similarly performing behaviors within 1,000 policy iterations; the potential-based terms offered only marginally faster convergence but were less sensitive in a sweep from 0.1 to 10 times the nominal shaping weights. The practical variant set the potential-shaping discount to 1 while retaining PPO's discount of 0.99, which the authors explicitly say sacrifices policy invariance. This is evidence for easier reward tuning in that experiment, not proof that algorithm choice is irrelevant or that the learned controller is optimal or safe 
+Jeon 2023
+↓
+.
+
+The full human-motion-tracking lineage, from PHC through GMT and the 2026 robustness results, gets its own module next.
+
+Industrial adoption
+
+Boston Dynamics describes a specific production lineage for Spot. Its earlier locomotion controller evaluated many MPC controllers simultaneously: in less than a millisecond, dozens of predictive horizons with distinct step-trajectory references were evaluated, then a scoring system selected the highest-valued controller output 
+Dynamics 2024
+↓
+.
+
+In its 2024 account, Boston Dynamics describes adding a learned policy while retaining the existing model-based locomotion controller for the part it handles well. This removed the need to run multiple MPC instances in parallel, reducing computational complexity. The company reports that Spot became less likely to fall, including on extremely slick or irregular surfaces, and says existing customers receive the policy through a software update; it does not supply a numerical fall-rate reduction. The same article separately describes research into other architectures: its example combining a learned policy with a model-based controller not limited by periodic-gait assumptions climbs boxes over 70 cm high. That example is not stated as a capability of the shipped production policy 
+Dynamics 2024
+↓
+.
+
+The reported evaluation process first benchmarks policies in simulation, then tests them on an internal Spot robustness fleet operating 24/7 for a cumulative runtime of over 2,000 hours a week across indoor and outdoor conditions, stairs, floor materials, and simulated weather. This is a fleet total, not a per-robot runtime. Falls and other mobility issues reproducible in a physics simulation are recreated for either the training or evaluation set; the article describes thousands of simulated and on-robot hours before customer deployment 
+Dynamics 2024
+↓
+.
+
+On March 19, 2025, the RAI Institute described its Boston Dynamics collaboration on Atlas: a control policy tracks and controls retargeted human motion, with each maneuver created from data from about 150 million simulator runs and transferred zero-shot to hardware. The readable landing page uses the unit “runs”; it does not define their duration or specify calibration, system identification, or intervention procedures. Its zero-shot report is not evidence of calibration-free deployment 
+Institute 2025
+↓
+.
+
+In August 2025, Boston Dynamics and Toyota Research Institute reported Large Behavior Models on Atlas for long-horizon manipulation involving locomotion: a 450M-parameter diffusion transformer trained with a flow-matching objective and conditioned on proprioception, images, and a language prompt. Training draws on curated teleoperated demonstrations from hardware and simulation. The article describes actions controlling the full robot at 30 Hz, but not a network inference on every control tick: images arrive at 30 Hz, the network predicts 48 actions (1.6 seconds), and generally 24 actions (0.8 seconds at 1x speed) are executed per inference. Its teleoperation system is built on MPC, and the neural policies use the same robot control interface. These are reported research policies deployed on hardware, not an announcement that every Atlas behavior or the complete controls stack has been replaced 
+Cousineau 2025
+↓
+.
+
+What the lineage does not solve
+
+Hold onto three limits. First, these controllers walk, and walking is not fetching: nothing in the legged success story transfers directly to contact-rich manipulation, where the first module in this domain showed the MDP itself resists simulation. Second, motion tracking inherits the human demonstrator's envelope, and retargeted references can be morphologically infeasible for the robot, which is the explicit motivation of the 2026 robustness work the humanoid module covers. Third, the lineage's center of gravity turned out to be reward design: the gait a policy learns is whichever pattern the reward makes cheapest, and getting that objective right is still hand labor, now with LLM assistants.
+
+See also
+Why RL Won Locomotion but Not Manipulation
+
+The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.
+
+Humanoid Whole-Body Control
+
+Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.
+
+Sim-to-Real Transfer
+
+Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.
+
+Linked from
+Why RL Won Locomotion but Not Manipulation
+
+The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.
+
+Sim-to-Real Transfer
+
+Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.
+
+Humanoid Whole-Body Control
+
+Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.
+
+Reward Design and the MPC Debate
+
+LLM-written rewards and curricula; where classical trajectory optimization still wins.
+
+Drones and Aerial Robotics
+
+Autonomous flight, aggressive maneuvers, and swarm coordination.
+
+References
+1
+Learning agile and dynamic motor skills for legged robots
+
+Jemin Hwangbo, Joonho Lee, Alexey Dosovitskiy, Dario Bellicoso, Vassilios Tsounis, Vladlen Koltun, Marco Hutter, Science Robotics 4(26), 2019.
+
+https://arxiv.org/abs/1901.08652
+
+2
+Learning Quadrupedal Locomotion over Challenging Terrain
+
+Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter, Science Robotics 5(47), 2020.
+
+https://arxiv.org/abs/2010.11251
+
+3
+Learning robust perceptive locomotion for quadrupedal robots in the wild
+
+Takahiro Miki, Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter, Science Robotics 7(62), 2022.
+
+https://arxiv.org/abs/2201.08117
+
+4
+Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning
+
+Nikita Rudin, David Hoeller, Philipp Reist, Marco Hutter, CoRL 2021.
+
+https://arxiv.org/abs/2109.11978
+
+5
+Isaac Gym Environments for Legged Robots
+
+Nikita Rudin, 2021.
+
+https://github.com/leggedrobotics/legged_gym
+
+6
+Learning Quadrupedal Locomotion on Deformable Terrain
+
+Suyoung Choi, Gwanghyeon Ji, Jeongsoo Park, Hyeongjun Kim, Juhyeok Mun, Jeong Hyun Lee, Jemin Hwangbo, Science Robotics 8(74), 2023.
+
+https://www.science.org/doi/10.1126/scirobotics.ade2256
+
+7
+High-Speed Bounding with the MIT Cheetah 2: Control Design and Experiments
+
+Hae-Won Park, Patrick M. Wensing, Sangbae Kim, International Journal of Robotics Research 36(2), 2017.
+
+https://journals.sagepub.com/doi/10.1177/0278364917694244
+
+8
+Learning Human-to-Humanoid Real-Time Whole-Body Teleoperation
+
+Tairan He, Zhengyi Luo, Wenli Xiao, Chong Zhang, Kris Kitani, Changliu Liu, Guanya Shi, IROS 2024.
+
+https://arxiv.org/abs/2403.04436
+
+9
+ASAP: Aligning Simulation and Real-World Physics for Learning Agile Humanoid Whole-Body Skills
+
+Tairan He, Jiawei Gao, Wenli Xiao, Yuanhang Zhang, Zi Wang, Jiashun Wang, Zhengyi Luo, Guanqi He, and 10 more, RSS 2025. Show all 18 authors
+
+https://arxiv.org/abs/2502.01143
+
+10
+Benchmarking Potential Based Rewards for Learning Humanoid Locomotion
+
+Se Hwan Jeon, Steve Heim, Charles Khazoom, Sangbae Kim, ICRA 2023.
+
+https://arxiv.org/abs/2307.10142
+
+11
+Reinforcement Learning Accelerates Humanoid Behavior Production
+
+Robotics and AI Institute, 2025.
+
+https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/
+
+12
+Starting on the Right Foot with Reinforcement Learning
+
+Boston Dynamics, 2024.
+
+https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/
+
+13
+Large Behavior Models and Atlas Find New Footing
+
+Eric Cousineau, Scott Kuindersma, Lucas Manuelli, Pat Marion, 2025.
+
+https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/
+
+Spot a factual error or missing qualification? Report a content correction.

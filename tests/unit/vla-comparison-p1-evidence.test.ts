@@ -8,9 +8,15 @@ import { METHODS } from '../../data/methods';
 import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
+import { headReanchorFor } from './helpers/continuation-merge-ledger';
+import { currentAuditContext, finalSevenPriorPlans } from '../helpers/residual-integration';
+import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
+import { committedJson, committedText } from '../helpers/editorial-current-context';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
+const transaction = '89cda670f72443e321f3282b256974b4376da0f1';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
 const articlePath = 'content/manipulation/comparison-matrix.mdx';
@@ -29,10 +35,19 @@ const oldIntro = before(articlePath).split("import { ComparisonMatrix } from '@/
 
 describe('VLA21 and comparison1 current identity and scoped introduction', () => {
   it('changes only the authorized introduction, leaving VLA, registry and metadata unchanged', () => {
-    expect(article).toBe(before(articlePath).replace(oldIntro, intro));
-    expect(matter(article).data).toEqual(matter(before(articlePath)).data);
-    expect(read('content/manipulation/vla-models.mdx')).toBe(before('content/manipulation/vla-models.mdx'));
-    expect(read('data/citations.ts')).toBe(before('data/citations.ts'));
+    const mainArticle = committedSource(RELEASE_BASE, articlePath);
+    expect(mainArticle.split(oldIntro)).toHaveLength(2);
+    expect(article).toBe(mainArticle.replace(oldIntro, intro));
+    expect(matter(article).data).toEqual(matter(mainArticle).data);
+    expect(read('content/manipulation/vla-models.mdx')).toBe(committedSource(RELEASE_BASE, 'content/manipulation/vla-models.mdx'));
+    // The original VLA packet did not alter the registry. NASA was added by
+    // the later industrial packet, whose complete record has its own test.
+    expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(committedText(transaction, articlePath)).toBe(before(articlePath).replace(oldIntro, intro));
+    expect(matter(committedText(transaction, articlePath)).data).toEqual(matter(before(articlePath)).data);
+    expect(committedText(transaction, 'content/manipulation/vla-models.mdx')).toBe(before('content/manipulation/vla-models.mdx'));
+    expect(committedText(transaction, 'data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(CITATIONS.filter(c => ['rt2-2023', 'openvla-2024'].includes(c.id))).toHaveLength(2);
   });
 
   it.each(selected)('requires a current C review for %s original %i', (slug, ordinal, count) => {
@@ -110,12 +125,30 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
 
   it('preserves unselected rows/plans and archives the exact old selected objects', () => {
     const chosen = (p: CompoundPlan) => selected.some(([slug, n]) => p.articleSlug === slug && p.rowOrdinal === n && p.ledgerPath === 'audit/manipulation.md');
-    expect(plans.filter(p => !chosen(p))).toEqual(oldPlans.filter(p => !chosen(p)));
-    expect(plans).toHaveLength(oldPlans.length + 1);
+    const packetPlans = preservedCompoundPacket('89cda67');
+    expect(packetPlans).toHaveLength(oldPlans.length + 1);
+    expect(packetPlans.filter(p => !chosen(p))).toEqual(oldPlans.filter(p => !chosen(p)));
+    const laterIds = finalSevenPriorPlans().filter(p => !packetPlans.some(old => old.id === p.id)).map(p => [p.articleSlug, p.rowOrdinal]);
+    expect(laterIds).toEqual([['data-bottleneck', 3], ['data-bottleneck', 5], ['scene-representation', 10]]);
+    preservedLegacySurvivors(finalSevenPriorPlans(), plans);
     const old = parse(oldPlans, before('audit/manipulation.md'));
     const current = parse();
     for (const section of old) section.claimRecords.forEach((record, i) => {
-      if (!selected.some(([slug, n]) => slug === section.slug && n === i + 1)) expect(current.find(s => s.slug === section.slug)!.claimRecords[i]).toEqual(record);
+      if (section.slug === 'generalist-policies' && i === 18) {
+        const archived = JSON.parse(read('audit/evidence/crossdomain-closure-20260923/row-history.json')).rows[0].currentCells;
+        const now = parseLedger('audit/manipulation.md', ledger, ids, currentAuditContext())
+          .find(s => s.slug === section.slug)!.claimRecords[i];
+        expect(archived.verdict).toBe('UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)');
+        const history = archived.note.match(/^Historical four-cell record retained: (.+) Correction rationale:/);
+        expect(history).not.toBeNull();
+        expect(originalClaimDigest(JSON.parse(history![1]))).toBe(originalClaimDigest(record));
+        expect(parse(oldPlans, read('audit/evidence/crossdomain-closure-20260923/before-audit--manipulation.md.txt'))
+          .find(s => s.slug === section.slug)!.claimRecords[i].evidenceFailures.length).toBeGreaterThan(0);
+        expect(now.verdict).toBe('C');
+        expect(now.evidenceFailures).toEqual([]);
+      } else if (!selected.some(([slug, n]) => slug === section.slug && n === i + 1)) {
+        expect(current.find(s => s.slug === section.slug)!.claimRecords[i]).toEqual(record);
+      }
     });
     const history = JSON.parse(ledger.split('## Historical: VLA and comparison P1 correction 2026-09-22')[1].split('```json\n')[1].split('\n```')[0]) as {
       records: Array<{ rowOrdinal: number; articleSlug: string; previousCells: Record<string, string>; previousPlan: CompoundPlan | null }>;
@@ -131,20 +164,29 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
   it('appends exactly the changed native article members, retaining the approval prefix', () => {
     const prior = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
     const current = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
+    const atTransaction = committedJson<{ entries: typeof current }>(transaction, 'contract/brand-v2-approved-deltas.json').entries;
     expect(prior).toHaveLength(1008);
-    expect(current.slice(0, prior.length)).toEqual(prior);
-    const added = current.slice(prior.length) as Array<{ manifest: string; memberId: string; oldHash: string; newHash: string; ownerApproval: string }>;
+    expect(preservedApprovalPacket(base)).toEqual(prior);
+    preservedApprovalPacket('89cda67');
+    const added = current.filter((entry: { id: string }) => entry.id.startsWith('vla-comparison-p1-20260922-')) as Array<{ manifest: string; memberId: string; oldHash: string; newHash: string; ownerApproval: string }>;
+    expect(atTransaction.slice(0, prior.length)).toEqual(prior);
+    expect(added).toEqual(atTransaction.slice(prior.length));
     const expected = [
       ['prose', 'article:manipulation/comparison-matrix', 'fa7b5f5bce9692dbfa6ada8526a7d3930b6dc43e43de8c83c9157e7e9d434178'],
       ['relationships', 'article:manipulation/comparison-matrix', '179a093b41ad6ac10221f56590165292c7d160665b1b9bc17b49bd7e8a7565fa'],
     ];
     expect(added).toHaveLength(expected.length);
     const truth = collectArticleTruthManifests();
-    expect(Object.values(truth).find(m => m.kind === 'article-metadata')?.members.find(m => m.id === 'citation-rendering:label-and-meta')?.hash).toBe('40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef');
+    expect(headReanchorFor(current, 'article-metadata', 'citation-rendering:label-and-meta')?.newHash)
+      .toBe(truth['article-metadata'].members.find(m => m.id === 'citation-rendering:label-and-meta')?.hash);
+    expect(atTransaction.find((a: { id: string }) => a.id === 'generalist-attribution-p1-20260922-4')?.newHash)
+      .toBe('40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef');
     for (const [manifest, memberId, oldHash] of expected) {
       const a = added.find(a => a.manifest === manifest && a.memberId === memberId)!;
       expect(a.oldHash).toBe(oldHash);
-      expect(a.newHash).toBe(Object.values(truth).find(m => m.kind === manifest)?.members.find(m => m.id === memberId)?.hash);
+      const merged = current.findLast((entry: { id: string; manifest: string; memberId: string }) =>
+        entry.id.startsWith('continuation-merge-2026-09-23-') && entry.manifest === manifest && entry.memberId === memberId);
+      expect(merged.newHash).toBe(Object.values(truth).find(m => m.kind === manifest)?.members.find(m => m.id === memberId)?.hash);
       expect(a.ownerApproval).toContain('convergence-vla-comparison-p1-integration-20260922/authorization.json');
     }
   });

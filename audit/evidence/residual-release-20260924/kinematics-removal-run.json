@@ -1,0 +1,134 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_CAPTURE=1 INDUSTRIAL_WRITE_BROWSER=1 npx playwright test --config /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-runs/20260924-0140-browser.config.mjs",
+  "startedAt": "2026-09-24T01:11:44.298Z",
+  "endedAt": "2026-09-24T01:11:49.691Z",
+  "exitCode": 0,
+  "logPath": "/home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-runs/20260924-0305-reader.log",
+  "observation": "Fresh static-export reader execution on merged release9d05b53. Historical observations and correction records remain unchanged.",
+  "runner": "playwright",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "test": {
+    "path": "tests/e2e/residual-release-classical.spec.ts",
+    "bytes": 9436,
+    "sha256": "7b1eafca461fa2585e454dc0a5e6ca2bb2fe14dcdd1f57b00f3ae24591070b69"
+  },
+  "dependencies": [
+    {
+      "path": "content/classical/kinematics.mdx",
+      "bytes": 12030,
+      "sha256": "cbe5049818b17aa9e1ef546e2fe71806fc8735fed30d6d08a2158b6f1e5f3551"
+    },
+    {
+      "path": "lib/ik.ts",
+      "bytes": 18933,
+      "sha256": "df606ff4d6f7701a7c96fbee009902173c4f7308f0d1ca4bd051337faec18c3b"
+    },
+    {
+      "path": "data/glossary.ts",
+      "bytes": 83261,
+      "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+    },
+    {
+      "path": "components/interactive/planar-fk-arm.tsx",
+      "bytes": 9167,
+      "sha256": "4bff90efd06777cd9b61ed84e11edc40b9af4178e7b7c456de1a2ef05ab301b3"
+    },
+    {
+      "path": "components/mdx/dh-parameter-table.tsx",
+      "bytes": 3098,
+      "sha256": "0c74df76aed78540ca366346987034d9fa1c38310434821b145f8ea79ebd756f"
+    }
+  ],
+  "surfaceObservations": [
+    {
+      "name": "kinematics-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:44.867Z",
+      "surface": "kinematics",
+      "glossary": [
+        {
+          "id": "inverse-kinematics",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution."
+        },
+        {
+          "id": "denavit-hartenberg-parameters",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem."
+        }
+      ],
+      "checkedText": [
+        "LaValle describes",
+        "3D kinematics playground",
+        "±0.5mm"
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-1440.dom.json",
+        "bytes": 37028,
+        "sha256": "2c7e437a64b35c5307e577d3d407af36b96e8f37e85aa92f9a226d140060f95a"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-1440.png",
+        "bytes": 152699,
+        "sha256": "b3b1a53b919c6654f8ca35f391f2aa69cba0cc60240a9968a57530128cd8260d"
+      }
+    },
+    {
+      "name": "kinematics-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:47.581Z",
+      "surface": "kinematics",
+      "glossary": [
+        {
+          "id": "inverse-kinematics",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution."
+        },
+        {
+          "id": "denavit-hartenberg-parameters",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem."
+        }
+      ],
+      "checkedText": [
+        "LaValle describes",
+        "3D kinematics playground",
+        "±0.5mm"
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-375.dom.json",
+        "bytes": 37028,
+        "sha256": "2c7e437a64b35c5307e577d3d407af36b96e8f37e85aa92f9a226d140060f95a"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-375.png",
+        "bytes": 63387,
+        "sha256": "ae999c863ff18f7e7b8e11ab19e2ba9a5635e57808b36daa62332b387b388f4d"
+      }
+    }
+  ],
+  "removals": {
+    "checked": true,
+    "glossaryChecked": true,
+    "absentCitationIds": [
+      "wampler-1986",
+      "levenberg-1944",
+      "marquardt-1963",
+      "denavit-hartenberg-1955"
+    ],
+    "playgroundHref": "/playground"
+  },
+  "sourcePreparationIsExecution": false
+}

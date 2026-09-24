@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "residual-safety-range-execution-v1",
+  "sourceCommit": "e2cb28c5dbee15388464840f68d1635f3a84110b",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
+  "command": "RESIDUAL_SAFETY_RANGE_CAPTURE=1 npx playwright test --config /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-runs/20260924-0140-browser.config.mjs residual-release-final-seven.spec.ts --workers=1",
+  "startedAt": "2026-09-24T02:14:10.526Z",
+  "endedAt": "2026-09-24T02:14:16.088Z",
+  "result": "passed",
+  "observations": {
+    "path": "audit/evidence/residual-release-20260924/final-seven-range/browser-observations.json",
+    "bytes": 31718,
+    "sha256": "24ef07a79b0efdf46601b218a2e07c2b092c0e86588a575219b0fbccaa1eb0df"
+  },
+  "sources": [
+    {
+      "path": "components/interactive/collaborative-operation-modes.tsx",
+      "bytes": 20172,
+      "sha256": "7b6f054ac59bef093fc47dd35c900607ec40e7ddc9d4efe7ddeda786f076b5c1"
+    },
+    {
+      "path": "lib/safety-modes.ts",
+      "bytes": 16224,
+      "sha256": "9517bddd2d49d46187c248a1c4a3728d752e77c1cbd1cfa93f8cd69955f272ec"
+    },
+    {
+      "path": "lib/force-limits.ts",
+      "bytes": 2176,
+      "sha256": "5cf2bbe8a64753761be8f358fc6a43f4037949b1232e4029c8a2fda1edc47657"
+    },
+    {
+      "path": "content/frontier/safety-and-assurance.mdx",
+      "bytes": 19566,
+      "sha256": "89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69"
+    },
+    {
+      "path": "tests/e2e/residual-release-final-seven.spec.ts",
+      "bytes": 8847,
+      "sha256": "c7fd97a5d68b825d11dc6fa06725d4de8563aacf008db487280fc13fb04d1081"
+    },
+    {
+      "path": "tests/e2e/slider.ts",
+      "bytes": 1130,
+      "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
+    }
+  ],
+  "historicalObservations": {
+    "path": "audit/evidence/residual-release-20260924/final-seven/browser-observations.json",
+    "bytes": 31358,
+    "sha256": "d3c5429b1f955ddc7c93c70c276ee12dab18106cf807b3af668d963a71a2c83a"
+  },
+  "scope": "Actual separate execution after the exact range-separator correction, 30 desktop/mobile observations including six safety default/mode/reset states. Historical receipts and numeric proofs are unchanged; not independent Mission acceptance."
+}

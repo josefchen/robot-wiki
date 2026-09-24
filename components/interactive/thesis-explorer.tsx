@@ -1,7 +1,7 @@
 'use client';
 
-import { useId, useRef, useState } from 'react';
-import { CiteRef } from '@/components/mdx/cite-ref';
+import { Fragment, useId, useRef, useState } from 'react';
+import { CiteRef } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
 import {
   DEFAULT_THESIS_ID,
@@ -63,13 +63,16 @@ function EvidenceList({
           className="font-sans text-xs leading-relaxed text-text-dim"
         >
           {item.text}{' '}
-          {item.citationIds.map((id) => (
-            id === 'vjepa2-2025' || id === 'cosmos-3-2026' ? (
+          {item.citationIds.map((id) => {
+            const chip = <CiteRef id={id} />;
+            return id === 'vjepa2-2025' || id === 'cosmos-3-2026' ? (
               <span key={id} className="block" data-thesis-source-placement="line-start">
-                <CiteRef id={id} />
+                {chip}
               </span>
-            ) : <CiteRef key={id} id={id} />
-          ))}
+            ) : (
+              <Fragment key={id}>{chip}</Fragment>
+            );
+          })}
         </li>
       ))}
     </ul>

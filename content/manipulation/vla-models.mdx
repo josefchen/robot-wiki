@@ -18,7 +18,8 @@ citations:
   - act-aloha-2023
 seeAlso:
   - "manipulation/pi-line"
-  - "manipulation/cross-embodiment"
+  - "manipulation/foundation-models"
+  - "manipulation/action-spaces"
   - "manipulation/comparison-matrix"
 ---
 
@@ -94,3 +95,9 @@ In ACT’s chunk-size ablation, the authors train separate policies for each chu
 ## Where this leaves the field
 
 These studies demonstrate particular transfers from web pretraining and pooled robot data, not universal improvement from scale alone. Their action interfaces, data mixtures, input modalities and execution protocols differ. Read the reported token-generation rates and robot-control rates separately, and compare results only with their task and evaluation settings attached. <Cite id="rt2-2023" /> <Cite id="openvla-2024" />
+
+## A 2026 selection rule
+
+Treat “VLA” as two decisions, not one model category. The first is the prior: which visual, language and robot experience the backbone brings to the task. The second is the control interface: what action the model emits, over what horizon, in which frame and at what measured rate. A large semantic prior can improve instruction following while a poor action interface still makes the system unusable at contact. OpenVLA-OFT is the clean example because changing the decoding and action head materially changed both throughput and success without replacing the underlying VLA <Cite id="openvla-oft-2025" />.
+
+Before choosing a checkpoint, write four rows: required semantic novelty, available embodiment data, action contract and latency budget. Use the [foundation-model guide](/manipulation/foundation-models) to select the prior family, then the [action-space guide](/manipulation/action-spaces) to specify the output. Only compare models after those two contracts match. Parameter count and benchmark average are weak selectors when one candidate cannot express the controller command or meet its deadline.

@@ -1,8 +1,8 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui';
-import { citationLabel, getCitation } from '@/data/citations';
 import {
   HIERARCHY_SYSTEMS,
   HORIZON_MS,
@@ -72,7 +72,8 @@ export function HierarchyTimescales({
 
   const system: TimescaleSystem =
     HIERARCHY_SYSTEMS.find((s) => s.id === systemId) ?? HIERARCHY_SYSTEMS[0];
-  const citation = getCitation(system.citationId);
+  const citationFor = useCitationLookup();
+  const citation = citationFor(system.citationId);
   const height = TOP_PAD + system.lanes.length * LANE_HEIGHT + AXIS_AREA;
   const updatesFired = system.lanes.reduce(
     (n, lane) => n + updateCountAt(lane, playhead),
@@ -336,7 +337,7 @@ export function HierarchyTimescales({
               rel="noopener"
               className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
-              Source: {citationLabel(citation)}
+              Source: {citation.label}
             </a>
           </p>
         )}

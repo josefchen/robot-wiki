@@ -40,8 +40,16 @@ describe('motion originals 3, 6 and 8', () => {
       .toEqual(['trajectory-optimization', 'configuration-space', 'degrees-of-freedom']);
     expect(article).toContain(String.raw`x_{new} \approx x + f(x,u)\Delta t`);
     expect(article).toContain('lastReviewed: "2026-08-17"');
-    expect(article).toContain('aria-label="TrajOpt arm benchmark results" tabIndex={0}');
-    expect(article).toContain('aria-label="TrajOpt full-body benchmark results" tabIndex={0}');
+    // The TrajOpt tables were extracted into shared components; the
+    // scroll-region aria-labels live there now, not inline in the article.
+    const trajoptTables = readFileSync(
+      'components/mdx/trajopt-results-table.tsx',
+      'utf8',
+    );
+    expect(article).toContain('<TrajOptArmTable');
+    expect(article).toContain('<TrajOptFullBodyTable');
+    expect(trajoptTables).toContain('ariaLabel="TrajOpt arm benchmark results"');
+    expect(trajoptTables).toContain('ariaLabel="TrajOpt full-body benchmark results"');
   });
   for (const [ordinal, parts, items] of [[3, 5, 5], [6, 3, 4], [8, 6, 6]]) {
     it(`binds all AND parts and genuine review digests for original ${ordinal}`, () => {

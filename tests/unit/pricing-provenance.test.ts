@@ -14,7 +14,7 @@ test('the community range never becomes configuration-specific USD data', () => 
   expect(hardware.priceAsOf).toBeNull();
   for (const context of [rig.costNote, hardware.priceNote]) {
     expect(context).toContain('ALOHA / ALOHA 2');
-    expect(context).toContain('$17k–32k');
+    expect(context).toContain('$17k-32k');
     expect(context).toContain('researched Jun 2026');
     expect(context).toContain('currency code');
     expect(context).toContain('configurations');

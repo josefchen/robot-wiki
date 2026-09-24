@@ -310,7 +310,7 @@ Full Cartesian products are neither required nor implied. The runner records exp
 
 | ID | Requirement |
 | --- | --- |
-| `VAL-B2-OG-001` | The generated corpus contains exactly 48 PNG files: one site card plus one card for each of the 47 published articles listed in the sealed matrix below. |
+| `VAL-B2-OG-001` | The generated OG/X corpus contains exactly 58 PNG files: one site card plus one card for each of the 57 published articles listed in the sealed matrix below. The separate 4:3 and square search structured-image assets are not part of this corpus. |
 | `VAL-B2-OG-002` | Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`. |
 | `VAL-B2-OG-003` | Site card contains exact `Robot Wiki` and exact descriptor. |
 | `VAL-B2-OG-004` | Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor. |
@@ -319,7 +319,7 @@ Full Cartesian products are neither required nor implied. The runner records exp
 | `VAL-B2-OG-007` | Every card renders the registered static Tektur instance mapped to the approved web Tektur Variable role, plus exact v2 palette/grid/rail/registration language with runtime/renderer parity. |
 | `VAL-B2-OG-008` | Cards contain no v1 public identity, old descriptor, fake chart, random ornament, screenshot collage, tiny UI, progress state, AI robot, or unlicensed image. |
 | `VAL-B2-OG-009` | Every audited route declares one `twitter:card=summary_large_image`, absolute apex-domain image URL, 1200/630 metadata, and meaningful alt text of at least 15 characters. |
-| `VAL-B2-OG-010` | Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 48 files. |
+| `VAL-B2-OG-010` | Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files. |
 
 ## 16. Accessibility and responsive behavior
 
@@ -425,9 +425,9 @@ The following named suites provide mandatory non-row evidence:
 | `brand-v2-forced-colours` | Every registered interactive plus every route × declared state; preserves content, focus, selection, controls, semantics, and essential boundaries. |
 | `brand-v2-reflow-320-200` | Separate literal `320×800` CSS-px/DPR-1 reflow, halved-CSS-viewport/DPR-2 200% zoom-equivalent (or proven pinned true zoom), and injected author-layer 200% text-only runs across every destination and exact bounded declared-state case. |
 
-## 20. Exact 48-OG matrix
+## 20. Exact 58-OG matrix
 
-The current published registry contains 47 articles. The release corpus is exactly the following 48 files.
+The current published registry contains 57 articles. The release OG/X corpus is exactly the following 58 files.
 
 | # | Route owner | Required exported asset |
 | ---: | --- | --- |
@@ -436,51 +436,61 @@ The current published registry contains 47 articles. The release corpus is exact
 | 3 | `/adjacent/drones/` | `/og/adjacent/drones.png` |
 | 4 | `/adjacent/space/` | `/og/adjacent/space.png` |
 | 5 | `/adjacent/surgical/` | `/og/adjacent/surgical.png` |
-| 6 | `/classical/control/` | `/og/classical/control.png` |
-| 7 | `/classical/grasp-planning/` | `/og/classical/grasp-planning.png` |
-| 8 | `/classical/kinematics/` | `/og/classical/kinematics.png` |
-| 9 | `/classical/motion-planning/` | `/og/classical/motion-planning.png` |
-| 10 | `/classical/perception/` | `/og/classical/perception.png` |
-| 11 | `/classical/scene-representation/` | `/og/classical/scene-representation.png` |
-| 12 | `/classical/state-estimation/` | `/og/classical/state-estimation.png` |
-| 13 | `/data-hardware/data-bottleneck/` | `/og/data-hardware/data-bottleneck.png` |
-| 14 | `/data-hardware/datasets/` | `/og/data-hardware/datasets.png` |
-| 15 | `/data-hardware/evaluation-crisis/` | `/og/data-hardware/evaluation-crisis.png` |
-| 16 | `/data-hardware/hardware-taxonomy/` | `/og/data-hardware/hardware-taxonomy.png` |
-| 17 | `/data-hardware/industrial-deployment/` | `/og/data-hardware/industrial-deployment.png` |
-| 18 | `/data-hardware/teleop-rigs/` | `/og/data-hardware/teleop-rigs.png` |
-| 19 | `/frontier/bear-case/` | `/og/frontier/bear-case.png` |
-| 20 | `/frontier/competing-theses/` | `/og/frontier/competing-theses.png` |
-| 21 | `/frontier/dexterity/` | `/og/frontier/dexterity.png` |
-| 22 | `/frontier/generalization/` | `/og/frontier/generalization.png` |
-| 23 | `/frontier/reliability-gap/` | `/og/frontier/reliability-gap.png` |
-| 24 | `/frontier/safety-and-assurance/` | `/og/frontier/safety-and-assurance.png` |
-| 25 | `/manipulation/action-chunking/` | `/og/manipulation/action-chunking.png` |
-| 26 | `/manipulation/bc-foundations/` | `/og/manipulation/bc-foundations.png` |
-| 27 | `/manipulation/comparison-matrix/` | `/og/manipulation/comparison-matrix.png` |
-| 28 | `/manipulation/cross-embodiment/` | `/og/manipulation/cross-embodiment.png` |
-| 29 | `/manipulation/diffusion-policy/` | `/og/manipulation/diffusion-policy.png` |
-| 30 | `/manipulation/generalist-policies/` | `/og/manipulation/generalist-policies.png` |
-| 31 | `/manipulation/hierarchical/` | `/og/manipulation/hierarchical.png` |
-| 32 | `/manipulation/knowledge-insulation/` | `/og/manipulation/knowledge-insulation.png` |
-| 33 | `/manipulation/pi-line/` | `/og/manipulation/pi-line.png` |
-| 34 | `/manipulation/realtime-execution/` | `/og/manipulation/realtime-execution.png` |
-| 35 | `/manipulation/rl-finetuning/` | `/og/manipulation/rl-finetuning.png` |
-| 36 | `/manipulation/vla-models/` | `/og/manipulation/vla-models.png` |
-| 37 | `/rl-sim2real/humanoid-wbc/` | `/og/rl-sim2real/humanoid-wbc.png` |
-| 38 | `/rl-sim2real/legged-locomotion/` | `/og/rl-sim2real/legged-locomotion.png` |
-| 39 | `/rl-sim2real/parallel-sim-rl/` | `/og/rl-sim2real/parallel-sim-rl.png` |
-| 40 | `/rl-sim2real/reward-design-mpc/` | `/og/rl-sim2real/reward-design-mpc.png` |
-| 41 | `/rl-sim2real/rl-for-robotics/` | `/og/rl-sim2real/rl-for-robotics.png` |
-| 42 | `/rl-sim2real/sim2real-transfer/` | `/og/rl-sim2real/sim2real-transfer.png` |
-| 43 | `/rl-sim2real/why-rl-locomotion/` | `/og/rl-sim2real/why-rl-locomotion.png` |
-| 44 | `/world-models/generative-sim/` | `/og/world-models/generative-sim.png` |
-| 45 | `/world-models/generative-video/` | `/og/world-models/generative-video.png` |
-| 46 | `/world-models/jepa/` | `/og/world-models/jepa.png` |
-| 47 | `/world-models/latent-dynamics/` | `/og/world-models/latent-dynamics.png` |
-| 48 | `/world-models/taxonomy/` | `/og/world-models/taxonomy.png` |
+| 6 | `/classical/calibration/` | `/og/classical/calibration.png` |
+| 7 | `/classical/control/` | `/og/classical/control.png` |
+| 8 | `/classical/grasp-planning/` | `/og/classical/grasp-planning.png` |
+| 9 | `/classical/kinematics/` | `/og/classical/kinematics.png` |
+| 10 | `/classical/motion-planning/` | `/og/classical/motion-planning.png` |
+| 11 | `/classical/perception/` | `/og/classical/perception.png` |
+| 12 | `/classical/ros2-for-ml-engineers/` | `/og/classical/ros2-for-ml-engineers.png` |
+| 13 | `/classical/scene-representation/` | `/og/classical/scene-representation.png` |
+| 14 | `/classical/state-estimation/` | `/og/classical/state-estimation.png` |
+| 15 | `/data-hardware/data-bottleneck/` | `/og/data-hardware/data-bottleneck.png` |
+| 16 | `/data-hardware/datasets/` | `/og/data-hardware/datasets.png` |
+| 17 | `/data-hardware/evaluation-crisis/` | `/og/data-hardware/evaluation-crisis.png` |
+| 18 | `/data-hardware/hardware-taxonomy/` | `/og/data-hardware/hardware-taxonomy.png` |
+| 19 | `/data-hardware/industrial-deployment/` | `/og/data-hardware/industrial-deployment.png` |
+| 20 | `/data-hardware/robot-learning-stack/` | `/og/data-hardware/robot-learning-stack.png` |
+| 21 | `/data-hardware/teleop-rigs/` | `/og/data-hardware/teleop-rigs.png` |
+| 22 | `/frontier/bear-case/` | `/og/frontier/bear-case.png` |
+| 23 | `/frontier/competing-theses/` | `/og/frontier/competing-theses.png` |
+| 24 | `/frontier/dexterity/` | `/og/frontier/dexterity.png` |
+| 25 | `/frontier/generalization/` | `/og/frontier/generalization.png` |
+| 26 | `/frontier/reliability-gap/` | `/og/frontier/reliability-gap.png` |
+| 27 | `/frontier/safety-and-assurance/` | `/og/frontier/safety-and-assurance.png` |
+| 28 | `/manipulation/action-chunking/` | `/og/manipulation/action-chunking.png` |
+| 29 | `/manipulation/action-spaces/` | `/og/manipulation/action-spaces.png` |
+| 30 | `/manipulation/bc-foundations/` | `/og/manipulation/bc-foundations.png` |
+| 31 | `/manipulation/comparison-matrix/` | `/og/manipulation/comparison-matrix.png` |
+| 32 | `/manipulation/cross-embodiment/` | `/og/manipulation/cross-embodiment.png` |
+| 33 | `/manipulation/diffusion-policy/` | `/og/manipulation/diffusion-policy.png` |
+| 34 | `/manipulation/foundation-models/` | `/og/manipulation/foundation-models.png` |
+| 35 | `/manipulation/generalist-policies/` | `/og/manipulation/generalist-policies.png` |
+| 36 | `/manipulation/hierarchical/` | `/og/manipulation/hierarchical.png` |
+| 37 | `/manipulation/knowledge-insulation/` | `/og/manipulation/knowledge-insulation.png` |
+| 38 | `/manipulation/pi-line/` | `/og/manipulation/pi-line.png` |
+| 39 | `/manipulation/realtime-execution/` | `/og/manipulation/realtime-execution.png` |
+| 40 | `/manipulation/rl-finetuning/` | `/og/manipulation/rl-finetuning.png` |
+| 41 | `/manipulation/robot-learning-roadmap/` | `/og/manipulation/robot-learning-roadmap.png` |
+| 42 | `/manipulation/vla-models/` | `/og/manipulation/vla-models.png` |
+| 43 | `/rl-sim2real/humanoid-wbc/` | `/og/rl-sim2real/humanoid-wbc.png` |
+| 44 | `/rl-sim2real/legged-locomotion/` | `/og/rl-sim2real/legged-locomotion.png` |
+| 45 | `/rl-sim2real/offline-rl/` | `/og/rl-sim2real/offline-rl.png` |
+| 46 | `/rl-sim2real/parallel-sim-rl/` | `/og/rl-sim2real/parallel-sim-rl.png` |
+| 47 | `/rl-sim2real/reward-design-mpc/` | `/og/rl-sim2real/reward-design-mpc.png` |
+| 48 | `/rl-sim2real/rl-for-robotics/` | `/og/rl-sim2real/rl-for-robotics.png` |
+| 49 | `/rl-sim2real/sim2real-transfer/` | `/og/rl-sim2real/sim2real-transfer.png` |
+| 50 | `/rl-sim2real/why-rl-locomotion/` | `/og/rl-sim2real/why-rl-locomotion.png` |
+| 51 | `/world-models/evaluation/` | `/og/world-models/evaluation.png` |
+| 52 | `/world-models/generative-sim/` | `/og/world-models/generative-sim.png` |
+| 53 | `/world-models/generative-video/` | `/og/world-models/generative-video.png` |
+| 54 | `/world-models/jepa/` | `/og/world-models/jepa.png` |
+| 55 | `/world-models/latent-dynamics/` | `/og/world-models/latent-dynamics.png` |
+| 56 | `/world-models/model-based-robot-learning/` | `/og/world-models/model-based-robot-learning.png` |
+| 57 | `/world-models/taxonomy/` | `/og/world-models/taxonomy.png` |
+| 58 | `/world-models/world-models-vs-simulators/` | `/og/world-models/world-models-vs-simulators.png` |
 
-The site card at row 1 MUST be used by exactly these 14 non-article destinations:
+The site card at row 1 MUST be used by exactly these 16 non-article destinations:
 
 1. `/`
 2. `/a-z/`
@@ -488,16 +498,20 @@ The site card at row 1 MUST be used by exactly these 14 non-article destinations
 4. `/playground/`
 5. `/glossary/`
 6. `/credits/`
-7. `/search/`
-8. `/adjacent/`
-9. `/classical/`
-10. `/data-hardware/`
-11. `/frontier/`
-12. `/manipulation/`
-13. `/rl-sim2real/`
-14. `/world-models/`
+7. `/editorial-policy/`
+8. `/privacy/`
+9. `/search/`
+10. `/adjacent/`
+11. `/classical/`
+12. `/data-hardware/`
+13. `/frontier/`
+14. `/manipulation/`
+15. `/rl-sim2real/`
+16. `/world-models/`
 
-The generator MUST also derive the registry population and fail if registry truth no longer equals this sealed 47-article list. A future publish requires an owner-approved contract update before the expected corpus can exceed 48.
+The search structured-image corpus is separate from OG/X: it contains exactly 114 article assets, one 1200×900 4:3 image and one 1200×1200 square image for each of the same 57 article owners, under `/structured-images/<domain>/<slug>-4x3.png` and `/structured-images/<domain>/<slug>-square.png`. Those assets are referenced by article structured data and image sitemap entries; no site-card variants exist in that directory.
+
+The generator MUST also derive the registry population and fail if registry truth no longer equals this sealed 57-article list. A future publish requires an owner-approved contract update before the expected OG/X corpus can exceed 58.
 
 ## 21. Zero-residue sweeps
 
@@ -513,7 +527,7 @@ Residue checks run over authored source, metadata, static export HTML/CSS/JS whe
 | `VAL-B2-RES-006` | Blue-filled primary actions and lime-as-success semantics | Zero rendered matches across the matrix. |
 | `VAL-B2-RES-007` | v1-only restrictions encoded as active tests, such as home-only grid, no bounded dark surfaces, no permitted elevation, or 2/3/4-only radius | Zero active acceptance assertions after replacement by `VAL-B2*` criteria. Historical comments must be labelled superseded. |
 | `VAL-B2-RES-008` | Generic visual residue: glass, glow, coloured shadow, universal bento, random registration glyphs, decorative telemetry, AI robot imagery | Zero rendered matches or asset inventory hits. |
-| `VAL-B2-RES-009` | Generated corpus drift: stale site card, missing article card, extra draft card, duplicate article hash, old font/palette/text | Zero findings across exactly 48 PNGs. |
+| `VAL-B2-RES-009` | Generated corpus drift: stale site card, missing article card, extra draft card, duplicate article hash, old font/palette/text | Zero findings across exactly 58 OG/X PNGs and the separate exact 114-file search structured-image corpus. |
 | `VAL-B2-RES-010` | Mixed identity in accessible names, alt text, structured metadata, page titles, manifests, and social metadata | Zero public-facing mixed-system matches; technical URL values remain allowlisted. |
 
 Allowlisting MUST be exact and documented. Broad directory exclusions are prohibited for runtime code, tests, generated assets, or exported output.
@@ -567,7 +581,7 @@ A release passes only when:
 - every exported public route passes registry-derived browser, computed-style, Axe, overflow, and residue sweeps;
 - every registered interactive passes the exact non-zero bounded §1.15 visual-state/contract cases with matching expected/observed counts;
 - search loading/error, reduced motion, forced colours, and 320px/200% reflow named suites pass;
-- exactly 48 OG/X cards pass dimensions, text, font, palette, uniqueness, route ownership, and deterministic-hash checks;
+- exactly 58 OG/X cards pass dimensions, text, font, palette, uniqueness, route ownership, and deterministic-hash checks, and the separate 114-file search structured-image corpus passes its registered dimensions and ownership checks;
 - source and generated-output residue sweeps return zero unallowlisted matches;
 - the complete assertion-enforcement map contains no unmapped `VAL-B2*` assertion;
 - every applicable §1.12 reference-feature anchor passes independently;
@@ -657,7 +671,7 @@ These assertions close the first-pass review gaps. They are additive, collision-
 | `VAL-B2-A11Y-013` | Tables expose captions/names and complete header associations; every meaningful SVG/canvas has a bound textual alternative and every interactive graphic exposes keyboard-operable equivalent controls where applicable. |
 | `VAL-B2-A11Y-014` | Contrast is measured for every foreground/background pair in every declared state, including bounded dark surfaces. Because `#245FFF` is insufficient for small text on graphite, such contexts use an approved measured alternate or dual treatment while retaining signal semantics. |
 | `VAL-B2-A11Y-015` | Route × declared-state coverage for Axe, keyboard, forced colours, and the three §1.14 profiles is registry-derived and non-empty, using the exact bounded §1.15 case counts rather than a full Cartesian product; hand-picked samples, missing cases, or count disagreement cannot pass. |
-| `VAL-B2-CONT-007` | Set equality holds among module registry, fixed-route registry, app route inventory, sitemap, export files, and metadata ledger: 47 article routes plus 14 non-article public destinations = 61 public destinations at baseline; 404 is separately registered and never counted as public content. |
+| `VAL-B2-CONT-007` | Set equality holds among module registry, fixed-route registry, app route inventory, export files, and metadata ledger: 57 article routes plus 16 non-article public destinations = 73 public destinations. The sitemap equals the 71 indexable destinations after the registered `/privacy/` and `/search/` noindex exceptions are removed; 404 is separately registered and never counted as public content. |
 | `VAL-B2-CONT-008` | The metadata ledger covers canonicals, titles/descriptions, all OG/X fields, JSON-LD, manifest, favicon/touch icons, theme-colour, and 404 policy for every owning route; owner and rendered/exported values agree. |
 | `VAL-B2-CONT-009` | Residue sweeps normalize CSS/SVG/WebGL colours, inspect source literals, raw attributes, computed states, generated pixels with declared tolerance, resource/font requests, provenance, and an explicit v1→v2 migration map; active runtime documentation is in scope while exact-path historical archives are allowlisted. |
 | `VAL-B2-EVID-013` | The named suites `brand-v2-route-flows`, `brand-v2-article-interactions`, `brand-v2-market-map-states`, and `brand-v2-playground-states` preserve latest-request-wins, partial errors, URL sync, focus retention, deep-link/history restoration, tooltip parity, table keyboard behavior, and FK/IK/import/error/fallback states through ordered `steps[]`/`captures[]` and exact bounded §1.15 case counts. |

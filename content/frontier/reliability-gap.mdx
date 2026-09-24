@@ -5,7 +5,7 @@ domain: frontier
 slug: reliability-gap
 order: 1
 status: published
-lastReviewed: "2026-08-18"
+lastReviewed: "2026-09-24"
 citations:
   - bessemer-robotics-2026
   - pistar06-blog-2025
@@ -13,7 +13,9 @@ citations:
   - asimov-agentic-2026
   - gemini-robotics-2-2026
   - pi07-blog-2026
-  - technology-org-deployed-2026
+  - agility-digit-production
+  - figure-bmw-production-2025
+  - tesla-q1-2026-update
   - figure-8hr-shift-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
@@ -27,11 +29,10 @@ import { DeploymentDashboard } from '@/components/interactive/deployment-dashboa
 
 A robot that finishes a task 80% of the time is a demo. A robot that finishes it 99.9% of the time is a product. The distance between those numbers is the reliability gap: the difference between the <Term id="success-rate">success rates</Term> a system demonstrates in controlled settings and the rates that deployment requires. Bessemer's 2026 robotics analysis states the framing directly: getting from 80% task success to 99.9% is not a linear problem, and the last stretch requires fundamentally different approaches than the first <Cite id="bessemer-robotics-2026" />. This module covers why the gap is structural, what is closing it, and what the deployment record shows once claims are separated from verified numbers.
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="95% per-step" value="21%" note="end-to-end over 30 steps" accent />
   <Stat label="99% per-step" value="74%" note="end-to-end over 30 steps" />
   <Stat label="99.9% per-step" value="97%" note="end-to-end over 30 steps" />
-<Stat label="solved bar (this wiki’s)" value=">1,000h" note="our proposed yardstick: documented MTBF; none of the deployed systems we surveyed publishes one" />
 </div>
 
 ## The arithmetic of compounding
@@ -62,15 +63,15 @@ Three methods are doing measurable work, each with a known ceiling.
 
 ## What is actually deployed
 
-The gap is easiest to see in the deployment record, where claimed and verified numbers diverge. Circulating figures put Tesla's cumulative Optimus builds in the tens of thousands and Figure's deployments above ten thousand; neither figure comes from the companies they describe, and Tesla has never published a production count <Cite id="technology-org-deployed-2026" />. The verified record is narrower. Agility's Digit has accumulated more than 65,000 operating hours across nine customer facilities. Figure's eleven-month pilot at BMW Spartanburg logged more than 1,250 hours on a live assembly line. Unitree shipped roughly 5,500 humanoid units in 2025, with its G1 starting near \$16,000, though volume has not produced profit: Q1 2026 adjusted net profit fell 52.55% year over year <Cite id="technology-org-deployed-2026" />.
+The gap is easiest to see in source-scoped deployment records, not circulating unit counts. On its undated homepage, Agility reports 65,000 hours of Digit production experience without specifying the facility allocation or measurement date <Cite id="agility-digit-production" />. In its November 19, 2025 report, Figure says its Figure 02 deployment at BMW Spartanburg logged 1,250+ runtime hours and loaded 90,000+ parts during an eleven-month programme. Its 84-second cycle and >99% placement accuracy were requirements or targets, not published achieved KPIs <Cite id="figure-bmw-production-2025" />. Tesla's Q1 2026 update lists its California and Texas Optimus lines as under construction and says first-generation lines were being installed in anticipation of volume production; design capacity does not count completed robots <Cite id="tesla-q1-2026-update" />.
 
 <DeploymentDashboard className="my-6" />
 
-The dashboard keeps the two classes apart. A verified row is documented against company statements, filings, or named customers; a claimed row is a circulating figure without a company source, or a vendor-run demonstration without an independent audit. Figure's eight-hour autonomous shift of May 2026 sits in the claimed rows deliberately: the livestream was real, but a single task at a single site with no published success rate is a demonstration, not a deployment metric <Cite id="figure-8hr-shift-2026" />. The valuation context belongs here as well. Figure's private valuation of \$39B (September 2025) exceeds Goldman Sachs' projection for the entire humanoid market in 2035, \$38B, a distance that only closes if reliability does <Cite id="technology-org-deployed-2026" />.
+The dashboard separates source-backed vendor reports from vendor demonstrations; “verified” means the figure is traceable to a cited company document, not independently audited. Neither the inspected primary sources nor their dates support a common July 2026 unit-count snapshot. Figure's eight-hour autonomous shift of May 2026 sits in the claimed rows deliberately: the livestream was real, but a single task at a single site with no published success rate is a demonstration, not a deployment metric <Cite id="figure-8hr-shift-2026" />.
 
 ## What solved would look like
 
-A closed reliability gap has a measurable shape: a deployed system with a documented mean time between failures above 1,000 hours on real tasks, formal safety guarantees for human-robot interaction, and a published protocol for the failure modes that remain. No current system publishes any of the three. Until one does, the honest unit of progress is not the demo but the verified operating hour, and on that metric the field measures tens of thousands of hours against the millions that general-purpose deployment implies.
+This wiki proposes a testable yardstick for closing the gap: document mean time between failures on real tasks, the method of human-robot safety assurance, and a protocol for remaining failures. This is an editorial test, not an industry-standard threshold or a claim that every system has been surveyed. The vendor-reported operating hours above do not by themselves disclose an MTBF, an intervention count, or general-purpose deployment at scale.
 
 The second of those three is the one with an established answer everywhere except robot learning. [Safety and assurance](/frontier/safety-and-assurance) covers the standards stack industrial robotics already has, why a learned policy cannot be assigned a rating under any of it, and the wrapper architecture teams ship in place of the guarantee.
 

@@ -1,10 +1,13 @@
 import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 import { METHODS } from '@/data/methods';
 import { getCitation } from '@/data/citations';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ComparisonMatrix');
 
 const article = readFileSync('content/manipulation/comparison-matrix.mdx', 'utf8');
 const parsed = matter(article);

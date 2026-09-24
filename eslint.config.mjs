@@ -11,6 +11,9 @@ const eslintConfig = defineConfig([
     // (tests/propagation/); transient build output like .next.
     '.next-probe/**',
     'out/**',
+    // Generated mirror of out/pagefind for Next.js/Vercel delivery.
+    // Keep linting the first-party search code and build-search script.
+    'public/pagefind/**',
     'node_modules/**',
     'next-env.d.ts',
     'playwright-report/**',

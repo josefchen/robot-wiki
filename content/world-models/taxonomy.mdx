@@ -20,9 +20,9 @@ citations:
   - mujoco-2012
   - 3dgs-2023
 seeAlso:
-  - "world-models/latent-dynamics"
-  - "world-models/generative-video"
-  - "world-models/jepa"
+  - "world-models/model-based-robot-learning"
+  - "world-models/evaluation"
+  - "world-models/world-models-vs-simulators"
   - "classical/scene-representation"
 ---
 
@@ -105,6 +105,12 @@ Return to the panel grid above to compare this article's six example groups. The
 ## Reading world-model claims
 
 When a paper or a vendor says "world model," use this article’s three comparison questions: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks.
+
+## Three tests before believing a world-model claim
+
+First apply the intervention test: hold observation history fixed, vary the candidate action and check whether predicted consequences change in the correct direction. Second apply the ranking test: ask whether the model orders policies or action sequences the same way the real system does. Third apply the transfer test: repeat both checks across the objects, contacts, viewpoints and horizons named in the claim. Visual quality is useful only after those tests pass.
+
+Then locate the model in an actual decision loop. A model used as an auxiliary training loss needs different evidence from one used for online planning or as a simulator of record. State what consumes the prediction, how often, at what cost and what happens when uncertainty grows. The [evaluation guide](/world-models/evaluation) turns these tests into a protocol; [model-based robot learning](/world-models/model-based-robot-learning) shows the planning loop; and [world models versus simulators](/world-models/world-models-vs-simulators) separates learned, physical and hybrid transition models.
 
 <SelfCheck
   prompt="A vendor pitches a photorealistic 3D Gaussian Splatting reconstruction of your workcell as a world model for training a manipulation policy. What is the honest engineering verdict?"

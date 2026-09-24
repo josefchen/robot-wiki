@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'katex/dist/katex.min.css';
 
 /*
  * Robot Wiki brand-v2 runtime tokens (Tailwind v4 CSS-first).
@@ -532,17 +531,11 @@ article > hr {
   border-top-right-radius: 0;
 }
 
-/* KaTeX on the dark theme */
-.katex {
-  color: var(--color-text);
-  font-size: 1.02em;
-}
-
-.katex-display {
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0.25rem 0;
-}
+/*
+ * KaTeX's stylesheet and the site's .katex / .katex-display overrides live
+ * in components/article/math.css, loaded only by the articles that render
+ * math (components/article/math-stylesheet.tsx).
+ */
 
 /* Search result snippets: Pagefind wraps matched terms in <mark>. */
 .search-excerpt mark {

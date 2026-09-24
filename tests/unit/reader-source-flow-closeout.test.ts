@@ -8,10 +8,12 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '@/lib/brand-v2-baseline';
-import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '328ae3600521c094c464b3ddc7ba62c159f95882';
+const checkpoint = '9a5ed060c65721201674bbd2bb1e59f58e5c637a';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
   cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
@@ -41,7 +43,7 @@ function bundle(old: boolean): BaselineBundle {
       id: `article:${path.slice(8, -4)}`,
       value: { path, body: matter(before(path)).content.trim() },
     })))
-    : collectArticleTruthManifests().prose;
+    : readerTruthAt(checkpoint, cases.map(c => c.path))[0];
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => [
     kind,
     buildManifest(kind, kind === 'prose'
@@ -72,15 +74,17 @@ describe('bounded remaining reader Source flow, zero original completions', () =
   it.each(cases)('changes only demonstrated Source separators and their terminators in $path', ({ path }) => {
     const old = before(path), current = read(path);
     expect(current).not.toBe(old);
-    expect(current).toBe(inlineSources(old));
+    expect(committedSource(checkpoint, path)).toBe(inlineSources(old));
+    expect(current).toBe(inlineSources(committedSource(READER_RELEASE_BASE, path)));
     expect(cites(current)).toEqual(cites(old));
   });
 
   it.each(cases)('preserves all scientific text, numbers, equations, links and metadata in $path', ({ path }) => {
     const old = before(path), current = read(path);
     const prose = (text: string) => inlineSources(text).replace(/<Cite\s+id="[^"]+"\s*\/>/g, '');
-    expect(prose(current)).toBe(prose(old));
-    expect(matter(current).data).toEqual(matter(old).data);
+    expect(prose(committedSource(checkpoint, path))).toBe(prose(old));
+    expect(prose(current)).toBe(prose(committedSource(READER_RELEASE_BASE, path)));
+    expect(matter(current).data).toEqual(matter(committedSource(READER_RELEASE_BASE, path)).data);
     expect(cites(current)).toEqual(cites(old));
     expect([...new Set(cites(current))].sort()).toEqual([...matter(current).data.citations].sort());
     for (const id of cites(current)) expect(CITATIONS.some(c => c.id === id)).toBe(true);
@@ -124,7 +128,7 @@ describe('bounded remaining reader Source flow, zero original completions', () =
   it('binds only three actual native prose deltas after the unchanged 1059-entry prefix', () => {
     const path = 'contract/brand-v2-approved-deltas.json';
     const previous: ApprovedDelta[] = JSON.parse(before(path)).entries;
-    const current: ApprovedDelta[] = JSON.parse(read(path)).entries;
+    const current = preservedApprovalPacket(checkpoint);
     expect(previous).toHaveLength(1059);
     expect(current.slice(0, previous.length)).toEqual(previous);
     expect(approvals().map(a => [a.manifest, a.memberId])).toEqual(members.map(id => ['prose', id]));

@@ -160,5 +160,165 @@
       "observedAt": "2026-09-23T19:54:47.702Z",
       "inputDigest": "1b7913e598cef5af14e2062fefff3b972e772d41716eeec79085230e0069cc69"
     }
+  },
+  {
+    "id": "control-citation-removed-1-20260924",
+    "originalId": "audit/classical.md:control:1",
+    "rowOrdinal": 1,
+    "kind": "removed-assertion",
+    "originalCells": {
+      "claim": "More than 95% of all industrial control problems are solved by PID control",
+      "sourceChecked": "astrom-murray-2008 (Feedback Systems, v2.11b first-edition ch. 1, sec. 1.5 Simple Forms of Feedback, author-hosted Caltech PDF http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf (curl GET 200, 2026-09-16T10:07:25Z, 2476609 bytes, sha256 11a59b71355192f16ce7b0029055b0949c582b8f1df350c285fc98e78153b3e7, title page prints 'Feedback Systems by Astrom and Murray, v2.11b'); registered fbswiki.org URL attempted first and timed out from this egress (curl 28, -m 50, 2026-09-16T09:59Z)",
+      "verdict": "V",
+      "note": "Verbatim (ch. 1 sec. 1.5, PDF p. 25): 'More than 95% of all industrial control problems are solved by PID control, although many of these controllers are actually proportional-integral (PI) controllers because derivative action is often not included [DM02].' The book itself attributes the statistic to [DM02]; the citation remains astrom-murray-2008, which prints the sentence."
+    },
+    "originalTupleDigest": "c9d0558165af68e49d0efb30fdeaa6bf0f0e2e9c51f5c7615b0e9120d40abbe2",
+    "snapshot": {
+      "path": "audit/evidence/control-citation-closeout-20260924/before-classical.md",
+      "bytes": 672801,
+      "sha256": "43e2907b0a5bc6879ecf3db0b7e56de190e4f527f8de76e909e3bec16b8956c6"
+    },
+    "currentCells": {
+      "claim": "Removed: the industrial PID prevalence percentage is no longer asserted in Control prose, Stat or SelfCheck feedback.",
+      "sourceChecked": "Article/frontmatter and desktop/mobile reader absence proof; historical Åström chapter text retained, not a live citation.",
+      "verdict": "Cut",
+      "note": "Original four cells preserved in audit/evidence/control-citation-closeout-20260924/before-classical.md (digest c9d0558165af68e49d0efb30fdeaa6bf0f0e2e9c51f5c7615b0e9120d40abbe2). The old chapter attributed the >95% sentence to [DM02]. No external passage is invented for removal."
+    },
+    "currentTupleDigest": "cd54feecd045ad082677b571a2105e63387de3253be48a2925ef8f3412018f48",
+    "article": {
+      "path": "content/classical/control.mdx",
+      "bytes": 20291,
+      "sha256": "f51112180bbd196de53d4d6ddabec8e62eac7709051c971b0d84c3f2f970a618"
+    },
+    "dependencies": [
+      {
+        "path": "data/citations.ts",
+        "bytes": 300669,
+        "sha256": "114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8"
+      },
+      {
+        "path": "tests/e2e/control.spec.ts",
+        "bytes": 24182,
+        "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+      },
+      {
+        "path": "components/interactive/pendulum-controller.tsx",
+        "bytes": 18785,
+        "sha256": "e41261f46b6932194261d87b026e707eaab82e0ccf0a8498635702f97d5fcfe8"
+      },
+      {
+        "path": "components/interactive/impedance-contact-lab.tsx",
+        "bytes": 17022,
+        "sha256": "22fe6e156af0b19433c58ed86749fc5203970a6820986e7d4d78b9f7273e2f0e"
+      }
+    ],
+    "requiredPresent": [
+      "<PendulumController",
+      "<ImpedanceContactLab",
+      "<SelfCheck",
+      "<PredictThenReveal",
+      "<Cite id=\"ziegler-nichols-1942\" />",
+      "<Cite id=\"tedrake-underactuated\" />",
+      "A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0"
+    ],
+    "requiredAbsent": [
+      "astrom-murray-2008",
+      "kalman-1960",
+      ">95%",
+      "more than 95%",
+      "Kalman's 1960"
+    ],
+    "execution": {
+      "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
+      "bytes": 3435,
+      "sha256": "7ce3daa05c8c934fb26d4e7b25c05c5c9f93fa84c08b638638cb8c46a735b85c"
+    },
+    "children": [],
+    "review": {
+      "reviewedBy": "Droid Sol/max integrator 30d764da-f317-4aa8-9853-63022d2b1701; not independent validator",
+      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
+      "observedAt": "2026-09-24T04:31:13.796Z",
+      "inputDigest": "70e57c6fcaa4934f269866cb5a9c7f1ced29469506d27158c5c4f7ea4fcba13a"
+    }
+  },
+  {
+    "id": "control-citation-removed-2-20260924",
+    "originalId": "audit/classical.md:control:2",
+    "rowOrdinal": 2,
+    "kind": "removed-assertion",
+    "originalCells": {
+      "claim": "Qualifier on the D term",
+      "sourceChecked": "astrom-murray-2008 (Feedback Systems, v2.11b first-edition ch. 1, sec. 1.5 Simple Forms of Feedback, author-hosted Caltech PDF http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf (curl GET 200, 2026-09-16T10:07:25Z, 2476609 bytes, sha256 11a59b71355192f16ce7b0029055b0949c582b8f1df350c285fc98e78153b3e7, title page prints 'Feedback Systems by Astrom and Murray, v2.11b'); registered fbswiki.org URL attempted first and timed out from this egress (curl 28, -m 50, 2026-09-16T09:59Z)",
+      "verdict": "C (\"most\" -> \"many\")",
+      "note": "Verbatim (ch. 1 sec. 1.5, PDF p. 25): 'More than 95% of all industrial control problems are solved by PID control, although many of these controllers are actually proportional-integral (PI) controllers because derivative action is often not included [DM02].' The word is 'many'; the applied correction is confirmed against the fetched body."
+    },
+    "originalTupleDigest": "13bbe6740034bb003fa2cb2b7e6ddda56ad4fd8b86f656af8ef2545d18394dbb",
+    "snapshot": {
+      "path": "audit/evidence/control-citation-closeout-20260924/before-classical.md",
+      "bytes": 672801,
+      "sha256": "43e2907b0a5bc6879ecf3db0b7e56de190e4f527f8de76e909e3bec16b8956c6"
+    },
+    "currentCells": {
+      "claim": "Removed: the dependent many-without-D prevalence qualifier is no longer asserted in Control.",
+      "sourceChecked": "Article/frontmatter and desktop/mobile reader absence proof; prior first-edition source and most-to-many correction remain historical.",
+      "verdict": "Cut",
+      "note": "Original four cells and prior most-to-many correction retained in before-classical.md (digest 13bbe6740034bb003fa2cb2b7e6ddda56ad4fd8b86f656af8ef2545d18394dbb). No PI prevalence fraction is now claimed. This removal does not re-award the old correction."
+    },
+    "currentTupleDigest": "d3a0861e54fc4720e0e4f689c0a4e035305f713fb7b8c21cd076211bc7651a93",
+    "article": {
+      "path": "content/classical/control.mdx",
+      "bytes": 20291,
+      "sha256": "f51112180bbd196de53d4d6ddabec8e62eac7709051c971b0d84c3f2f970a618"
+    },
+    "dependencies": [
+      {
+        "path": "data/citations.ts",
+        "bytes": 300669,
+        "sha256": "114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8"
+      },
+      {
+        "path": "tests/e2e/control.spec.ts",
+        "bytes": 24182,
+        "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+      },
+      {
+        "path": "components/interactive/pendulum-controller.tsx",
+        "bytes": 18785,
+        "sha256": "e41261f46b6932194261d87b026e707eaab82e0ccf0a8498635702f97d5fcfe8"
+      },
+      {
+        "path": "components/interactive/impedance-contact-lab.tsx",
+        "bytes": 17022,
+        "sha256": "22fe6e156af0b19433c58ed86749fc5203970a6820986e7d4d78b9f7273e2f0e"
+      }
+    ],
+    "requiredPresent": [
+      "<PendulumController",
+      "<ImpedanceContactLab",
+      "<SelfCheck",
+      "<PredictThenReveal",
+      "<Cite id=\"ziegler-nichols-1942\" />",
+      "<Cite id=\"tedrake-underactuated\" />",
+      "A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0"
+    ],
+    "requiredAbsent": [
+      "astrom-murray-2008",
+      "kalman-1960",
+      ">95%",
+      "more than 95%",
+      "Kalman's 1960"
+    ],
+    "execution": {
+      "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
+      "bytes": 3435,
+      "sha256": "7ce3daa05c8c934fb26d4e7b25c05c5c9f93fa84c08b638638cb8c46a735b85c"
+    },
+    "children": [],
+    "review": {
+      "reviewedBy": "Droid Sol/max integrator 30d764da-f317-4aa8-9853-63022d2b1701; not independent validator",
+      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
+      "observedAt": "2026-09-24T04:31:13.798Z",
+      "inputDigest": "93d30d967b00b69bdc9d0155c1c32961459c72cefe089dd89afe9edbeeba5bac"
+    }
   }
 ]

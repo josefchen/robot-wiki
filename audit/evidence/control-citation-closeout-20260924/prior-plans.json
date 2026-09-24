@@ -1,0 +1,178 @@
+[
+  {
+    "id": "control-1-astrom-20260916f",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "control",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "c9d0558165af68e49d0efb30fdeaa6bf0f0e2e9c51f5c7615b0e9120d40abbe2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "c1-95",
+        "text": "More than 95% of all industrial control problems are solved by PID control (with many actually PI).",
+        "requiredCitationIds": [
+          "astrom-murray-2008"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "f7fed8db00025c62b6dde84e6e97c763e90c5e1c2515789e58449bc01bff9b69"
+    },
+    "evidence": [
+      {
+        "partId": "c1-95",
+        "citationId": "astrom-murray-2008",
+        "sourceUrl": "http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf",
+        "supportingPassage": "More than 95% of all industrial control problems are solved by PID control, although many of these controllers are actually proportional-integral (PI) controllers because derivative action is often not included [DM02]."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "c1-95",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+        "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified author-hosted Caltech PDF text before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+        "evidenceDigest": "806079e2264d34d803049b43a3189a29a41138b6ec8ad2ac83c071d8a2d39fe9"
+      }
+    ]
+  },
+  {
+    "id": "control-2-astrom-20260916f",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "control",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "13bbe6740034bb003fa2cb2b7e6ddda56ad4fd8b86f656af8ef2545d18394dbb",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "c2-many-pi",
+        "text": "Many industrial PID controllers are actually PI (derivative action often not included).",
+        "requiredCitationIds": [
+          "astrom-murray-2008"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "a4b537b6acecce0c7c4da23224767b319b69c786fd865b14bd1ecde8ca149103"
+    },
+    "evidence": [
+      {
+        "partId": "c2-many-pi",
+        "citationId": "astrom-murray-2008",
+        "sourceUrl": "http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf",
+        "supportingPassage": "More than 95% of all industrial control problems are solved by PID control, although many of these controllers are actually proportional-integral (PI) controllers because derivative action is often not included [DM02]."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "c2-many-pi",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+        "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified author-hosted Caltech PDF text before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+        "evidenceDigest": "55dbc69c3cf5302b46e5d3fe7b9074f5af669b71cab52345462f269cc5938eaa"
+      }
+    ]
+  },
+  {
+    "id": "control-3-astrom-20260916f",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "control",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "7b9ab4074f9ec84fc364da11e6e605067b48597ed3e9135357df78246f6c0403",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "c3-three-terms",
+        "text": "PID: the past as the integral of the error, the present as the proportional term, the future as a linear extrapolation of the error.",
+        "requiredCitationIds": [
+          "astrom-murray-2008"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3) at HEAD 4fea1f4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application. Every evidence passage was independently needle-verified by this integrator against the retained sha256-verified fetch text preserved in the source lane (sources/ snapshots): rows 1/2/3 verbatim in the author-hosted Caltech am08-intro pdftotext; row 11 with one documented binding correction (the packet passage printed \"The largest number of applications is in refining\" where the retained CMU full text prints \"The largest single block of applications is in refining\"; the applied passage quotes the source's own wording); row 13 both spans (sec. V sentence and Fig. 2 caption) exact in the DSpace author-manuscript pdftotext, plus the row's local-AND basis re-run on the committed article (Stat note text equal, zero stale \"500-1000 Hz\" spans); row 16 as disclosed 500-dpi tesseract fragments of the image-only Stanford scan (equation (14) sentence, p(x)=∇U(x). (13), the prose \"(14) establish\" reference, operational-force and gravity-force sentences), with accent ambiguity disclosed. Cited ids verified registered per-id in data/citations.ts (astrom-murray-2008, qin-badgwell-2003, di-carlo-2018, khatib-1987); no new registrations. control:4 (Ziegler-Nichols 1942) is honestly HELD by this integrator: its clean passage comes from the Driedger text-layer reproduction, which is not a registered citation, and the NTNU original-scan OCR is too garbled for a verbatim passage, so no plan binds it (consistent with the 2026-09-15 paywalled hold). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "05e5807c28188cbdb6d6023c751cf2c4d52674021e1a5b78c4a2a4daabd4374d"
+    },
+    "evidence": [
+      {
+        "partId": "c3-three-terms",
+        "citationId": "astrom-murray-2008",
+        "sourceUrl": "http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-intro_28Sep12.pdf",
+        "supportingPassage": "The control action is thus a sum of three terms: the past as represented by the integral of the error, the present as represented by the proportional term and the future as represented by a linear extrapolation of the error (the derivative term)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "c3-three-terms",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 406a644e-67fe-41e5-919b-7443306044f8; preserved-packet + retained-source needle re-verification + local-basis check 2026-09-16",
+        "rationale": "Needle-verified verbatim by this integrator against the retained sha256-verified author-hosted Caltech PDF text before adjudication; the citation id is registered in data/citations.ts and the passage supports this part as stated.",
+        "evidenceDigest": "0302eaa0cb42897f2d658bd907a49f76a930b7a394d7b6bad7b20e2b5caa6cc9"
+      }
+    ]
+  },
+  {
+    "id": "control-c7-lqr-riccati-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "control",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "2ca30c2e984ea6ee460cf3875ba251d256caaa8927b2a86136f0c933be85db3b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "c7-form",
+        "text": "The optimal gain is K = R^{-1} B^T P with P solving the algebraic Riccati equation, as stated verbatim in the fetched online text (S in its notation).",
+        "requiredCitationIds": [
+          "tedrake-underactuated"
+        ]
+      },
+      {
+        "id": "c7-kalman",
+        "text": "The formulation is credited to Kalman's 1960 paper \"Contributions to the Theory of Optimal Control\", verified at bibliographic-catalogue scope via the registered reprint DOI.",
+        "requiredCitationIds": [
+          "kalman-1960"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "159d25c05ef57d678480c625fc3d785bce9f579c69d88e12a68fdea1343aa1fd"
+    },
+    "evidence": [
+      {
+        "partId": "c7-form",
+        "citationId": "tedrake-underactuated",
+        "sourceUrl": "https://underactuated.mit.edu/lqr.html",
+        "supportingPassage": "it is sufficient to consider the matrix equation $$0 = {\\bf S} {\\bf A} + {\\bf A}^T {\\bf S} - {\\bf S} \\bB {\\bf R}^{-1} \\bB^T {\\bf S} + {\\bf Q}.$$ This extremely important equation is a version of the algebraic Riccati equation ."
+      },
+      {
+        "partId": "c7-kalman",
+        "citationId": "kalman-1960",
+        "sourceUrl": "https://api.crossref.org/works/10.1109/9780470544334.ch8",
+        "supportingPassage": "Crossref record for 10.1109/9780470544334.ch8: title \"Contributions to the Theory of Optimal Control\", container-title \"Control Theory\" (Wiley reprint volume Control Theory: Twenty-Five Seminal Papers), issued 2009; no author list in Crossref. Semantic Scholar (fetched 2026-09-15T14:38:56Z..14:38:59Z) resolves the same DOI to that reprint chapter, editor-authored metadata T. Basar. The registry documents the original as R. E. Kalman, Bol. Soc. Mat. Mexicana 1960, reprinted in this volume."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "c7-form",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+        "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (tedrake-underactuated @ https://underactuated.mit.edu/lqr.html; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "94b5ee14bb5b8a1884c725810d8f4aab5b0e2c995679138ecec4a5d33ccfa6c7"
+      },
+      {
+        "partId": "c7-kalman",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+        "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (kalman-1960 @ https://api.crossref.org/works/10.1109/9780470544334.ch8; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "0fe00ff31a629a9cb35df6278c0ea1e0657d194ae22ec74bf9bc5c451d1e0bd2"
+      }
+    ]
+  }
+]

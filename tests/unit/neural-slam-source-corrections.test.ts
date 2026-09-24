@@ -127,13 +127,27 @@ describe('source-scoped neural SLAM prose', () => {
     });
   }
 
-  it('preserves earlier source repairs and leaves excluded holds incomplete', () => {
+  it('preserves earlier repairs and the separately qualified TSDF correction', () => {
     const current = records();
-    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 25, 40, 41, 42, 43, 44]) {
+    for (const ordinal of [12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 25, 26, 27, 31, 33, 40, 41, 42, 43, 44, 45, 49]) {
       expect(current[ordinal - 1].evidenceFailures, `original ${ordinal}`).toEqual([]);
     }
+    // Later scene-representation packets completed the formerly excluded
+    // 18/24/26/27/31/33/45/49, and the 20260917a identity sweep bound original 1
+    // (scene-representation-1-identity-sweep-20260917a). Original 10 now has
+    // its separate source-qualified TSDF correction.
+    expect(current[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
+    expect(current[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
+    expect(current[9].evidenceFailures).toEqual([]);
+    expect(current[9].verdict).toBe('C');
+    expect(current[9].compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
+    expect(source).toContain('<Cite id="layered-costmaps-2014" />.');
+    expect(source).not.toContain('<span className="block">Source: <Cite id="layered-costmaps-2014" /></span>');
     for (const ordinal of [18, 24, 26, 27, 31, 33, 45, 49]) {
-      expect(current[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
+      const p = plans.find(p => p.articleSlug === 'scene-representation' && p.rowOrdinal === ordinal)!;
+      expect(p.parts.length, `later source-backed original ${ordinal}`).toBeGreaterThan(0);
+      expect(p.evidence.length).toBeGreaterThan(0);
+      expect(current[ordinal - 1].evidenceFailures, `later complete original ${ordinal}`).toEqual([]);
     }
   });
 

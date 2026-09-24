@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "40be01549be2d54b83cbf1447a0f194b798fbb3b9d50a1ebf05a3232b00c2e5a",
+  "fingerprint": "9eb85590a857acd674844d7a83ac58e81539025f5fd52133753cd1094068b03d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -10,11 +10,13 @@
     "/adjacent/drones/",
     "/adjacent/space/",
     "/adjacent/surgical/",
+    "/classical/calibration/",
     "/classical/control/",
     "/classical/grasp-planning/",
     "/classical/kinematics/",
     "/classical/motion-planning/",
     "/classical/perception/",
+    "/classical/ros2-for-ml-engineers/",
     "/classical/scene-representation/",
     "/classical/state-estimation/",
     "/data-hardware/data-bottleneck/",
@@ -22,6 +24,7 @@
     "/data-hardware/evaluation-crisis/",
     "/data-hardware/hardware-taxonomy/",
     "/data-hardware/industrial-deployment/",
+    "/data-hardware/robot-learning-stack/",
     "/data-hardware/teleop-rigs/",
     "/frontier/bear-case/",
     "/frontier/competing-theses/",
@@ -30,29 +33,36 @@
     "/frontier/reliability-gap/",
     "/frontier/safety-and-assurance/",
     "/manipulation/action-chunking/",
+    "/manipulation/action-spaces/",
     "/manipulation/bc-foundations/",
     "/manipulation/comparison-matrix/",
     "/manipulation/cross-embodiment/",
     "/manipulation/diffusion-policy/",
+    "/manipulation/foundation-models/",
     "/manipulation/generalist-policies/",
     "/manipulation/hierarchical/",
     "/manipulation/knowledge-insulation/",
     "/manipulation/pi-line/",
     "/manipulation/realtime-execution/",
     "/manipulation/rl-finetuning/",
+    "/manipulation/robot-learning-roadmap/",
     "/manipulation/vla-models/",
     "/rl-sim2real/humanoid-wbc/",
     "/rl-sim2real/legged-locomotion/",
+    "/rl-sim2real/offline-rl/",
     "/rl-sim2real/parallel-sim-rl/",
     "/rl-sim2real/reward-design-mpc/",
     "/rl-sim2real/rl-for-robotics/",
     "/rl-sim2real/sim2real-transfer/",
     "/rl-sim2real/why-rl-locomotion/",
+    "/world-models/evaluation/",
     "/world-models/generative-sim/",
     "/world-models/generative-video/",
     "/world-models/jepa/",
     "/world-models/latent-dynamics/",
-    "/world-models/taxonomy/"
+    "/world-models/model-based-robot-learning/",
+    "/world-models/taxonomy/",
+    "/world-models/world-models-vs-simulators/"
   ],
   "observations": [
     {
@@ -62,7 +72,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28685,
+      "visibleTextLength": 29082,
       "tables": [
         {
           "index": 0,
@@ -113,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17662,
+      "visibleTextLength": 17766,
       "tables": [
         {
           "index": 0,
@@ -164,7 +174,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17983,
+      "visibleTextLength": 18087,
       "tables": [
         {
           "index": 0,
@@ -215,7 +225,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16582,
+      "visibleTextLength": 16686,
       "tables": [
         {
           "index": 0,
@@ -266,7 +276,70 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24052,
+      "visibleTextLength": 11847,
+      "tables": [],
+      "equations": [
+        {
+          "index": 0,
+          "display": false,
+          "mathmlText": "AX=XBAX = XB",
+          "annotationTex": "AX = XB",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "AX=XB",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "display": false,
+          "mathmlText": "tt",
+          "annotationTex": "t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "display": false,
+          "mathmlText": "t+Δtt + \\Delta t",
+          "annotationTex": "t + \\Delta t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t+Δt",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        }
+      ],
+      "scrollRegions": [],
+      "route": "/classical/calibration/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 25224,
       "tables": [],
       "equations": [
         {
@@ -399,22 +472,6 @@
         },
         {
           "index": 8,
-          "display": false,
-          "mathmlText": "KK",
-          "annotationTex": "K",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "K",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 9,
           "display": true,
           "mathmlText": "J=∫0∞(x⊤Qx+u⊤Ru)dtJ = \\int_0^{\\infty} \\left( x^{\\top} Q x + u^{\\top} R u \\right) dt",
           "annotationTex": "J = \\int_0^{\\infty} \\left( x^{\\top} Q x + u^{\\top} R u \\right) dt",
@@ -430,7 +487,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
+          "index": 9,
           "display": false,
           "mathmlText": "K=R−1B⊤PK = R^{-1} B^{\\top} P",
           "annotationTex": "K = R^{-1} B^{\\top} P",
@@ -446,7 +503,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 10,
           "display": false,
           "mathmlText": "PP",
           "annotationTex": "P",
@@ -462,7 +519,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 11,
           "display": true,
           "mathmlText": "A⊤P+PA−PBR−1B⊤P+Q=0A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0",
           "annotationTex": "A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0",
@@ -478,7 +535,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 12,
           "display": false,
           "mathmlText": "QQ",
           "annotationTex": "Q",
@@ -494,7 +551,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 13,
           "display": false,
           "mathmlText": "RR",
           "annotationTex": "R",
@@ -510,7 +567,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 14,
           "display": false,
           "mathmlText": "QQ",
           "annotationTex": "Q",
@@ -526,7 +583,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 16,
+          "index": 15,
           "display": false,
           "mathmlText": "KK",
           "annotationTex": "K",
@@ -542,7 +599,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 17,
+          "index": 16,
           "display": true,
           "mathmlText": "min⁡u0,…,uN−1 ∑k=0N−1(xk⊤Qxk+uk⊤Ruk)s.t.xk+1=f(xk,uk), uk∈U, xk∈X\\min_{u_0, \\dots, u_{N-1}} \\; \\sum_{k=0}^{N-1} \\left( x_k^{\\top} Q x_k + u_k^{\\top} R u_k \\right) \\quad \\text{s.t.} \\quad x_{k+1} = f(x_k, u_k), \\; u_k \\in \\mathcal{U}, \\; x_k \\in \\mathcal{X}",
           "annotationTex": "\\min_{u_0, \\dots, u_{N-1}} \\; \\sum_{k=0}^{N-1} \\left( x_k^{\\top} Q x_k + u_k^{\\top} R u_k \\right) \\quad \\text{s.t.} \\quad x_{k+1} = f(x_k, u_k), \\; u_k \\in \\mathcal{U}, \\; x_k \\in \\mathcal{X}",
@@ -558,7 +615,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 18,
+          "index": 17,
           "display": true,
           "mathmlText": "Λ(x) x¨+μ(x,x˙)+p(x)=F\\Lambda(x)\\, \\ddot{x} + \\mu(x, \\dot{x}) + p(x) = F",
           "annotationTex": "\\Lambda(x)\\, \\ddot{x} + \\mu(x, \\dot{x}) + p(x) = F",
@@ -574,7 +631,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 19,
+          "index": 18,
           "display": false,
           "mathmlText": "Λ\\Lambda",
           "annotationTex": "\\Lambda",
@@ -590,7 +647,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 20,
+          "index": 19,
           "display": false,
           "mathmlText": "μ\\mu",
           "annotationTex": "\\mu",
@@ -606,7 +663,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 20,
           "display": false,
           "mathmlText": "pp",
           "annotationTex": "p",
@@ -622,7 +679,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 22,
+          "index": 21,
           "display": true,
           "mathmlText": "min⁡q¨, τ, f∑iwi ∥Aiq¨−bi∥2s.t.M(q) q¨+h(q,q˙)=S⊤τ+Jc(q)⊤fτmin≤τ≤τmax,f∈F\\begin{aligned} \\min_{\\ddot{q},\\, \\tau,\\, f} \\quad & \\sum_i w_i \\, \\lVert A_i \\ddot{q} - b_i \\rVert^2 \\\\ \\text{s.t.} \\quad & M(q)\\, \\ddot{q} + h(q, \\dot{q}) = S^{\\top} \\tau + J_c(q)^{\\top} f \\\\ & \\tau_{min} \\le \\tau \\le \\tau_{max}, \\qquad f \\in \\mathcal{F} \\end{aligned}",
           "annotationTex": "\\begin{aligned} \\min_{\\ddot{q},\\, \\tau,\\, f} \\quad & \\sum_i w_i \\, \\lVert A_i \\ddot{q} - b_i \\rVert^2 \\\\ \\text{s.t.} \\quad & M(q)\\, \\ddot{q} + h(q, \\dot{q}) = S^{\\top} \\tau + J_c(q)^{\\top} f \\\\ & \\tau_{min} \\le \\tau \\le \\tau_{max}, \\qquad f \\in \\mathcal{F} \\end{aligned}",
@@ -638,7 +695,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 23,
+          "index": 22,
           "display": false,
           "mathmlText": "F\\mathcal{F}",
           "annotationTex": "\\mathcal{F}",
@@ -743,7 +800,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16933,
+      "visibleTextLength": 17028,
       "tables": [],
       "equations": [
         {
@@ -1134,7 +1191,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15281,
+      "visibleTextLength": 14990,
       "tables": [
         {
           "index": 0,
@@ -1293,38 +1350,6 @@
         {
           "index": 8,
           "display": false,
-          "mathmlText": "aia_i",
-          "annotationTex": "a_i",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ai​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 9,
-          "display": false,
-          "mathmlText": "αi\\alpha_i",
-          "annotationTex": "\\alpha_i",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "αi​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 10,
-          "display": false,
           "mathmlText": "did_i",
           "annotationTex": "d_i",
           "htmlLayerHidden": true,
@@ -1339,7 +1364,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 9,
           "display": false,
           "mathmlText": "θi\\theta_i",
           "annotationTex": "\\theta_i",
@@ -1355,13 +1380,45 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 10,
           "display": false,
-          "mathmlText": "θi\\theta_i",
-          "annotationTex": "\\theta_i",
+          "mathmlText": "ai−1a_{i-1}",
+          "annotationTex": "a_{i-1}",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "θi​",
+          "renderedText": "ai−1​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 11,
+          "display": false,
+          "mathmlText": "αi−1\\alpha_{i-1}",
+          "annotationTex": "\\alpha_{i-1}",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "αi−1​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 12,
+          "display": false,
+          "mathmlText": "aia_i",
+          "annotationTex": "a_i",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ai​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -1737,70 +1794,6 @@
           "role": "region",
           "accessibleName": "Display equation 9",
           "viewportOverflowPx": 0
-        },
-        {
-          "index": 36,
-          "display": false,
-          "mathmlText": "JJTJJ^{T}",
-          "annotationTex": "JJ^{T}",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "JJT",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 37,
-          "display": true,
-          "mathmlText": "Δq=JT(JJT+λ2I)−1Δx\\Delta q = J^{T}\\left(JJ^{T} + \\lambda^2 I\\right)^{-1}\\Delta x",
-          "annotationTex": "\\Delta q = J^{T}\\left(JJ^{T} + \\lambda^2 I\\right)^{-1}\\Delta x",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "Δq=JT(JJT+λ2I)−1Δx",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 335,
-          "clientWidth": 335,
-          "tabIndex": 0,
-          "role": "region",
-          "accessibleName": "Display equation 10",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 38,
-          "display": false,
-          "mathmlText": "λ\\lambda",
-          "annotationTex": "\\lambda",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "λ",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 39,
-          "display": false,
-          "mathmlText": "λ\\lambda",
-          "annotationTex": "\\lambda",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "λ",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
         }
       ],
       "scrollRegions": [
@@ -1913,17 +1906,6 @@
           "clientWidth": 335,
           "scrollWidth": 335,
           "scrolledBy": 0
-        },
-        {
-          "index": 10,
-          "kind": "math",
-          "outline": "<span class=\"katex-display\">",
-          "role": "region",
-          "accessibleName": "Display equation 10",
-          "tabIndex": 0,
-          "clientWidth": 335,
-          "scrollWidth": 335,
-          "scrolledBy": 0
         }
       ],
       "route": "/classical/kinematics/",
@@ -1936,14 +1918,14 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26326,
+      "visibleTextLength": 27625,
       "tables": [
         {
           "index": 0,
           "accessibleName": "TrajOpt arm benchmark results",
           "captionText": "",
           "columnHeaders": 4,
-          "rowHeaders": 0,
+          "rowHeaders": 6,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -1954,11 +1936,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "TrajOpt arm benchmark results",
-            "clientWidth": 335,
-            "scrollWidth": 360,
-            "scrolledBy": 25
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
           },
-          "tableWidth": 360,
+          "tableWidth": 520,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -1967,7 +1949,7 @@
           "accessibleName": "TrajOpt full-body benchmark results",
           "captionText": "",
           "columnHeaders": 4,
-          "rowHeaders": 0,
+          "rowHeaders": 4,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -1978,11 +1960,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "TrajOpt full-body benchmark results",
-            "clientWidth": 335,
-            "scrollWidth": 360,
-            "scrolledBy": 25
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
           },
-          "tableWidth": 360,
+          "tableWidth": 520,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -2758,24 +2740,24 @@
         {
           "index": 7,
           "kind": "table",
-          "outline": "<div class=\"my-6 max-w-full overflow-x-auto\">",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "TrajOpt arm benchmark results",
           "tabIndex": 0,
-          "clientWidth": 335,
-          "scrollWidth": 360,
-          "scrolledBy": 25
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
         },
         {
           "index": 8,
           "kind": "table",
-          "outline": "<div class=\"my-6 max-w-full overflow-x-auto\">",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "TrajOpt full-body benchmark results",
           "tabIndex": 0,
-          "clientWidth": 335,
-          "scrollWidth": 360,
-          "scrolledBy": 25
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
         }
       ],
       "route": "/classical/motion-planning/",
@@ -2788,11 +2770,27 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 40695,
+      "visibleTextLength": 42403,
       "tables": [],
       "equations": [
         {
           "index": 0,
+          "display": false,
+          "mathmlText": "(90−60)/2=15(90-60)/2=15",
+          "annotationTex": "(90-60)/2=15",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "(90−60)/2=15",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
           "display": false,
           "mathmlText": "AX=XBAX = XB",
           "annotationTex": "AX = XB",
@@ -2808,7 +2806,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 1,
+          "index": 2,
           "display": false,
           "mathmlText": "AA",
           "annotationTex": "A",
@@ -2824,7 +2822,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 2,
+          "index": 3,
           "display": false,
           "mathmlText": "BB",
           "annotationTex": "B",
@@ -2840,7 +2838,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 3,
+          "index": 4,
           "display": false,
           "mathmlText": "XX",
           "annotationTex": "X",
@@ -2853,22 +2851,6 @@
           "tabIndex": -1,
           "role": null,
           "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "display": true,
-          "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
-          "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "eθ​(d)=dtanθ",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 335,
-          "clientWidth": 335,
-          "tabIndex": 0,
-          "role": "region",
-          "accessibleName": "Display equation 1",
           "viewportOverflowPx": 0
         },
         {
@@ -2890,11 +2872,11 @@
         {
           "index": 6,
           "display": false,
-          "mathmlText": "M\\mathcal M",
-          "annotationTex": "\\mathcal M",
+          "mathmlText": "θ\\theta",
+          "annotationTex": "\\theta",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "M",
+          "renderedText": "θ",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -2905,70 +2887,22 @@
         },
         {
           "index": 7,
-          "display": false,
-          "mathmlText": "(R,T)(R,T)",
-          "annotationTex": "(R,T)",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "(R,T)",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 8,
-          "display": false,
-          "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
-          "annotationTex": "(\\widetilde R,\\widetilde T)",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "(R,T)",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 9,
           "display": true,
-          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
+          "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+          "renderedText": "eθ​(d)=dtanθ",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 335,
           "clientWidth": 335,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 2",
+          "accessibleName": "Display equation 1",
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
-          "display": false,
-          "mathmlText": "m≤kmdm \\leq k_m d",
-          "annotationTex": "m \\leq k_m d",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "m≤km​d",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 11,
+          "index": 8,
           "display": false,
           "mathmlText": "dd",
           "annotationTex": "d",
@@ -2984,7 +2918,103 @@
           "viewportOverflowPx": 0
         },
         {
+          "index": 9,
+          "display": false,
+          "mathmlText": "M\\mathcal M",
+          "annotationTex": "\\mathcal M",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "M",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 10,
+          "display": false,
+          "mathmlText": "(R,T)(R,T)",
+          "annotationTex": "(R,T)",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "(R,T)",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 11,
+          "display": false,
+          "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
+          "annotationTex": "(\\widetilde R,\\widetilde T)",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "(R,T)",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
           "index": 12,
+          "display": true,
+          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 335,
+          "clientWidth": 335,
+          "tabIndex": 0,
+          "role": "region",
+          "accessibleName": "Display equation 2",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 13,
+          "display": false,
+          "mathmlText": "m≤kmdm \\leq k_m d",
+          "annotationTex": "m \\leq k_m d",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "m≤km​d",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 14,
+          "display": false,
+          "mathmlText": "dd",
+          "annotationTex": "d",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "d",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 15,
           "display": false,
           "mathmlText": "kmk_m",
           "annotationTex": "k_m",
@@ -3000,7 +3030,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 16,
           "display": false,
           "mathmlText": "km=0.1k_m=0.1",
           "annotationTex": "k_m=0.1",
@@ -3016,7 +3046,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 17,
           "display": true,
           "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
           "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
@@ -3032,61 +3062,13 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 18,
           "display": false,
           "mathmlText": "e<θee < \\theta_e",
           "annotationTex": "e < \\theta_e",
           "htmlLayerHidden": true,
           "renderError": false,
           "renderedText": "e<θe​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 16,
-          "display": false,
-          "mathmlText": "ARCAR_C",
-          "annotationTex": "AR_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ARC​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 17,
-          "display": false,
-          "mathmlText": "APCAP_C",
-          "annotationTex": "AP_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "APC​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 18,
-          "display": false,
-          "mathmlText": "ARCAR_C",
-          "annotationTex": "AR_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ARC​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -3114,6 +3096,54 @@
         {
           "index": 20,
           "display": false,
+          "mathmlText": "APCAP_C",
+          "annotationTex": "AP_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "APC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 21,
+          "display": false,
+          "mathmlText": "ARCAR_C",
+          "annotationTex": "AR_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ARC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 22,
+          "display": false,
+          "mathmlText": "ARCAR_C",
+          "annotationTex": "AR_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ARC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 23,
+          "display": false,
           "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
           "annotationTex": "\\dot{s} = L_s v_c",
           "htmlLayerHidden": true,
@@ -3128,7 +3158,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 24,
           "display": false,
           "mathmlText": "vcv_c",
           "annotationTex": "v_c",
@@ -3189,7 +3219,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26902,
+      "visibleTextLength": 11765,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 28420,
       "tables": [],
       "equations": [
         {
@@ -3284,7 +3328,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18265,
+      "visibleTextLength": 19792,
       "tables": [
         {
           "index": 0,
@@ -3883,7 +3927,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14594,
+      "visibleTextLength": 15305,
       "tables": [
         {
           "index": 0,
@@ -4004,7 +4048,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13130,
+      "visibleTextLength": 17008,
       "tables": [
         {
           "index": 0,
@@ -4023,10 +4067,10 @@
             "role": "region",
             "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
             "clientWidth": 299,
-            "scrollWidth": 909,
+            "scrollWidth": 893,
             "scrolledBy": 40
           },
-          "tableWidth": 909,
+          "tableWidth": 893,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4041,7 +4085,7 @@
           "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
           "tabIndex": 0,
           "clientWidth": 299,
-          "scrollWidth": 909,
+          "scrollWidth": 893,
           "scrolledBy": 40
         }
       ],
@@ -4055,7 +4099,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17054,
+      "visibleTextLength": 17439,
       "tables": [
         {
           "index": 0,
@@ -4141,7 +4185,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26419,
+      "visibleTextLength": 26683,
       "tables": [
         {
           "index": 0,
@@ -4192,7 +4236,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21845,
+      "visibleTextLength": 23613,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4206,7 +4250,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14783,
+      "visibleTextLength": 12245,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 14666,
       "tables": [
         {
           "index": 0,
@@ -4257,7 +4315,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17465,
+      "visibleTextLength": 17482,
       "tables": [
         {
           "index": 0,
@@ -4308,7 +4366,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24436,
+      "visibleTextLength": 24732,
       "tables": [
         {
           "index": 0,
@@ -4359,7 +4417,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20463,
+      "visibleTextLength": 20567,
       "tables": [
         {
           "index": 0,
@@ -4410,7 +4468,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17211,
+      "visibleTextLength": 17315,
       "tables": [
         {
           "index": 0,
@@ -4545,7 +4603,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14526,
+      "visibleTextLength": 14135,
       "tables": [
         {
           "index": 0,
@@ -4576,7 +4634,7 @@
           "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "captionText": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "columnHeaders": 4,
-          "rowHeaders": 6,
+          "rowHeaders": 4,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -4588,10 +4646,10 @@
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
             "clientWidth": 301,
-            "scrollWidth": 501,
+            "scrollWidth": 599,
             "scrolledBy": 40
           },
-          "tableWidth": 501.2,
+          "tableWidth": 599.2,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4666,7 +4724,7 @@
           "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "tabIndex": 0,
           "clientWidth": 301,
-          "scrollWidth": 501,
+          "scrollWidth": 599,
           "scrolledBy": 40
         }
       ],
@@ -4680,7 +4738,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23984,
+      "visibleTextLength": 26766,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4694,7 +4752,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22111,
+      "visibleTextLength": 22393,
       "tables": [
         {
           "index": 0,
@@ -5039,7 +5097,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13742,
+      "visibleTextLength": 12529,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Action space requirements compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Action space requirements compared",
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
+          },
+          "tableWidth": 520,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Action space requirements compared",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/manipulation/action-spaces/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 14030,
       "tables": [
         {
           "index": 0,
@@ -5623,7 +5732,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27453,
+      "visibleTextLength": 28432,
       "tables": [
         {
           "index": 0,
@@ -5707,7 +5816,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14927,
+      "visibleTextLength": 15214,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -5721,7 +5830,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13956,
+      "visibleTextLength": 14060,
       "tables": [],
       "equations": [
         {
@@ -6047,7 +6156,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20976,
+      "visibleTextLength": 11702,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Foundation model families compared",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Foundation model families compared",
+            "clientWidth": 333,
+            "scrollWidth": 563,
+            "scrolledBy": 40
+          },
+          "tableWidth": 563,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Foundation model families compared",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 563,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/manipulation/foundation-models/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 21631,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6061,7 +6221,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18875,
+      "visibleTextLength": 19097,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6075,7 +6235,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11980,
+      "visibleTextLength": 12084,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6089,7 +6249,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25196,
+      "visibleTextLength": 25300,
       "tables": [],
       "equations": [
         {
@@ -6216,7 +6376,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16881,
+      "visibleTextLength": 16985,
       "tables": [
         {
           "index": 0,
@@ -6402,7 +6562,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 31816,
+      "visibleTextLength": 31438,
       "tables": [
         {
           "index": 0,
@@ -6559,7 +6719,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18304,
+      "visibleTextLength": 10724,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 19819,
       "tables": [
         {
           "index": 0,
@@ -6610,7 +6784,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20678,
+      "visibleTextLength": 20782,
       "tables": [
         {
           "index": 0,
@@ -6661,7 +6835,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18230,
+      "visibleTextLength": 18423,
       "tables": [
         {
           "index": 0,
@@ -6745,7 +6919,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14971,
+      "visibleTextLength": 13605,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/rl-sim2real/offline-rl/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 15576,
       "tables": [
         {
           "index": 0,
@@ -6796,7 +6984,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27159,
+      "visibleTextLength": 27643,
       "tables": [
         {
           "index": 0,
@@ -6893,7 +7081,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29973,
+      "visibleTextLength": 30376,
       "tables": [
         {
           "index": 0,
@@ -6944,7 +7132,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23368,
+      "visibleTextLength": 24335,
       "tables": [
         {
           "index": 0,
@@ -7030,7 +7218,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12372,
+      "visibleTextLength": 12431,
       "tables": [
         {
           "index": 0,
@@ -7081,7 +7269,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15648,
+      "visibleTextLength": 12347,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Evaluation shift taxonomy",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Evaluation shift taxonomy",
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
+          },
+          "tableWidth": 520,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Evaluation shift taxonomy",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/world-models/evaluation/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 17031,
       "tables": [],
       "equations": [
         {
@@ -7112,7 +7351,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18310,
+      "visibleTextLength": 19389,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7126,7 +7365,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14782,
+      "visibleTextLength": 16190,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7140,7 +7379,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14156,
+      "visibleTextLength": 15663,
       "tables": [
         {
           "index": 0,
@@ -7191,7 +7430,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17903,
+      "visibleTextLength": 10726,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/world-models/model-based-robot-learning/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 19366,
       "tables": [
         {
           "index": 0,
@@ -7236,13 +7489,99 @@
       "viewport": "375x812"
     },
     {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 335,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 19671,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Physics simulators and learned world models compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 8,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Physics simulators and learned world models compared",
+            "clientWidth": 333,
+            "scrollWidth": 520,
+            "scrolledBy": 40
+          },
+          "tableWidth": 520,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Inference cost of four world representations compared on one machine",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 11,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Inference cost of four world representations compared on one machine",
+            "clientWidth": 333,
+            "scrollWidth": 542,
+            "scrolledBy": 40
+          },
+          "tableWidth": 542,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Physics simulators and learned world models compared",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 520,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Inference cost of four world representations compared on one machine",
+          "tabIndex": 0,
+          "clientWidth": 333,
+          "scrollWidth": 542,
+          "scrolledBy": 40
+        }
+      ],
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewport": "375x812"
+    },
+    {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
       "rootOverflowX": "visible",
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29003,
+      "visibleTextLength": 29400,
       "tables": [
         {
           "index": 0,
@@ -7293,7 +7632,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17980,
+      "visibleTextLength": 18084,
       "tables": [
         {
           "index": 0,
@@ -7344,7 +7683,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18301,
+      "visibleTextLength": 18405,
       "tables": [
         {
           "index": 0,
@@ -7395,7 +7734,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16900,
+      "visibleTextLength": 17004,
       "tables": [
         {
           "index": 0,
@@ -7446,7 +7785,70 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24418,
+      "visibleTextLength": 12268,
+      "tables": [],
+      "equations": [
+        {
+          "index": 0,
+          "display": false,
+          "mathmlText": "AX=XBAX = XB",
+          "annotationTex": "AX = XB",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "AX=XB",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "display": false,
+          "mathmlText": "tt",
+          "annotationTex": "t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "display": false,
+          "mathmlText": "t+Δtt + \\Delta t",
+          "annotationTex": "t + \\Delta t",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "t+Δt",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        }
+      ],
+      "scrollRegions": [],
+      "route": "/classical/calibration/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 25645,
       "tables": [],
       "equations": [
         {
@@ -7579,22 +7981,6 @@
         },
         {
           "index": 8,
-          "display": false,
-          "mathmlText": "KK",
-          "annotationTex": "K",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "K",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 9,
           "display": true,
           "mathmlText": "J=∫0∞(x⊤Qx+u⊤Ru)dtJ = \\int_0^{\\infty} \\left( x^{\\top} Q x + u^{\\top} R u \\right) dt",
           "annotationTex": "J = \\int_0^{\\infty} \\left( x^{\\top} Q x + u^{\\top} R u \\right) dt",
@@ -7610,7 +7996,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
+          "index": 9,
           "display": false,
           "mathmlText": "K=R−1B⊤PK = R^{-1} B^{\\top} P",
           "annotationTex": "K = R^{-1} B^{\\top} P",
@@ -7626,7 +8012,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 10,
           "display": false,
           "mathmlText": "PP",
           "annotationTex": "P",
@@ -7642,7 +8028,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 11,
           "display": true,
           "mathmlText": "A⊤P+PA−PBR−1B⊤P+Q=0A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0",
           "annotationTex": "A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0",
@@ -7658,7 +8044,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 12,
           "display": false,
           "mathmlText": "QQ",
           "annotationTex": "Q",
@@ -7674,7 +8060,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 13,
           "display": false,
           "mathmlText": "RR",
           "annotationTex": "R",
@@ -7690,7 +8076,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 14,
           "display": false,
           "mathmlText": "QQ",
           "annotationTex": "Q",
@@ -7706,7 +8092,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 16,
+          "index": 15,
           "display": false,
           "mathmlText": "KK",
           "annotationTex": "K",
@@ -7722,7 +8108,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 17,
+          "index": 16,
           "display": true,
           "mathmlText": "min⁡u0,…,uN−1 ∑k=0N−1(xk⊤Qxk+uk⊤Ruk)s.t.xk+1=f(xk,uk), uk∈U, xk∈X\\min_{u_0, \\dots, u_{N-1}} \\; \\sum_{k=0}^{N-1} \\left( x_k^{\\top} Q x_k + u_k^{\\top} R u_k \\right) \\quad \\text{s.t.} \\quad x_{k+1} = f(x_k, u_k), \\; u_k \\in \\mathcal{U}, \\; x_k \\in \\mathcal{X}",
           "annotationTex": "\\min_{u_0, \\dots, u_{N-1}} \\; \\sum_{k=0}^{N-1} \\left( x_k^{\\top} Q x_k + u_k^{\\top} R u_k \\right) \\quad \\text{s.t.} \\quad x_{k+1} = f(x_k, u_k), \\; u_k \\in \\mathcal{U}, \\; x_k \\in \\mathcal{X}",
@@ -7738,7 +8124,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 18,
+          "index": 17,
           "display": true,
           "mathmlText": "Λ(x) x¨+μ(x,x˙)+p(x)=F\\Lambda(x)\\, \\ddot{x} + \\mu(x, \\dot{x}) + p(x) = F",
           "annotationTex": "\\Lambda(x)\\, \\ddot{x} + \\mu(x, \\dot{x}) + p(x) = F",
@@ -7754,7 +8140,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 19,
+          "index": 18,
           "display": false,
           "mathmlText": "Λ\\Lambda",
           "annotationTex": "\\Lambda",
@@ -7770,7 +8156,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 20,
+          "index": 19,
           "display": false,
           "mathmlText": "μ\\mu",
           "annotationTex": "\\mu",
@@ -7786,7 +8172,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 20,
           "display": false,
           "mathmlText": "pp",
           "annotationTex": "p",
@@ -7802,7 +8188,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 22,
+          "index": 21,
           "display": true,
           "mathmlText": "min⁡q¨, τ, f∑iwi ∥Aiq¨−bi∥2s.t.M(q) q¨+h(q,q˙)=S⊤τ+Jc(q)⊤fτmin≤τ≤τmax,f∈F\\begin{aligned} \\min_{\\ddot{q},\\, \\tau,\\, f} \\quad & \\sum_i w_i \\, \\lVert A_i \\ddot{q} - b_i \\rVert^2 \\\\ \\text{s.t.} \\quad & M(q)\\, \\ddot{q} + h(q, \\dot{q}) = S^{\\top} \\tau + J_c(q)^{\\top} f \\\\ & \\tau_{min} \\le \\tau \\le \\tau_{max}, \\qquad f \\in \\mathcal{F} \\end{aligned}",
           "annotationTex": "\\begin{aligned} \\min_{\\ddot{q},\\, \\tau,\\, f} \\quad & \\sum_i w_i \\, \\lVert A_i \\ddot{q} - b_i \\rVert^2 \\\\ \\text{s.t.} \\quad & M(q)\\, \\ddot{q} + h(q, \\dot{q}) = S^{\\top} \\tau + J_c(q)^{\\top} f \\\\ & \\tau_{min} \\le \\tau \\le \\tau_{max}, \\qquad f \\in \\mathcal{F} \\end{aligned}",
@@ -7818,7 +8204,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 23,
+          "index": 22,
           "display": false,
           "mathmlText": "F\\mathcal{F}",
           "annotationTex": "\\mathcal{F}",
@@ -7923,7 +8309,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17299,
+      "visibleTextLength": 17449,
       "tables": [],
       "equations": [
         {
@@ -8314,7 +8700,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15647,
+      "visibleTextLength": 15411,
       "tables": [
         {
           "index": 0,
@@ -8473,38 +8859,6 @@
         {
           "index": 8,
           "display": false,
-          "mathmlText": "aia_i",
-          "annotationTex": "a_i",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ai​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 9,
-          "display": false,
-          "mathmlText": "αi\\alpha_i",
-          "annotationTex": "\\alpha_i",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "αi​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 10,
-          "display": false,
           "mathmlText": "did_i",
           "annotationTex": "d_i",
           "htmlLayerHidden": true,
@@ -8519,7 +8873,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 9,
           "display": false,
           "mathmlText": "θi\\theta_i",
           "annotationTex": "\\theta_i",
@@ -8535,13 +8889,45 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 10,
           "display": false,
-          "mathmlText": "θi\\theta_i",
-          "annotationTex": "\\theta_i",
+          "mathmlText": "ai−1a_{i-1}",
+          "annotationTex": "a_{i-1}",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "θi​",
+          "renderedText": "ai−1​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 11,
+          "display": false,
+          "mathmlText": "αi−1\\alpha_{i-1}",
+          "annotationTex": "\\alpha_{i-1}",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "αi−1​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 12,
+          "display": false,
+          "mathmlText": "aia_i",
+          "annotationTex": "a_i",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ai​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -8917,70 +9303,6 @@
           "role": "region",
           "accessibleName": "Display equation 9",
           "viewportOverflowPx": 0
-        },
-        {
-          "index": 36,
-          "display": false,
-          "mathmlText": "JJTJJ^{T}",
-          "annotationTex": "JJ^{T}",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "JJT",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 37,
-          "display": true,
-          "mathmlText": "Δq=JT(JJT+λ2I)−1Δx\\Delta q = J^{T}\\left(JJ^{T} + \\lambda^2 I\\right)^{-1}\\Delta x",
-          "annotationTex": "\\Delta q = J^{T}\\left(JJ^{T} + \\lambda^2 I\\right)^{-1}\\Delta x",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "Δq=JT(JJT+λ2I)−1Δx",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 715,
-          "clientWidth": 715,
-          "tabIndex": 0,
-          "role": "region",
-          "accessibleName": "Display equation 10",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 38,
-          "display": false,
-          "mathmlText": "λ\\lambda",
-          "annotationTex": "\\lambda",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "λ",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 39,
-          "display": false,
-          "mathmlText": "λ\\lambda",
-          "annotationTex": "\\lambda",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "λ",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
         }
       ],
       "scrollRegions": [
@@ -9093,17 +9415,6 @@
           "clientWidth": 715,
           "scrollWidth": 715,
           "scrolledBy": 0
-        },
-        {
-          "index": 10,
-          "kind": "math",
-          "outline": "<span class=\"katex-display\">",
-          "role": "region",
-          "accessibleName": "Display equation 10",
-          "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
-          "scrolledBy": 0
         }
       ],
       "route": "/classical/kinematics/",
@@ -9116,14 +9427,14 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26692,
+      "visibleTextLength": 28046,
       "tables": [
         {
           "index": 0,
           "accessibleName": "TrajOpt arm benchmark results",
           "captionText": "",
           "columnHeaders": 4,
-          "rowHeaders": 0,
+          "rowHeaders": 6,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -9134,11 +9445,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "TrajOpt arm benchmark results",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 713,
+            "scrollWidth": 713,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 713,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -9147,7 +9458,7 @@
           "accessibleName": "TrajOpt full-body benchmark results",
           "captionText": "",
           "columnHeaders": 4,
-          "rowHeaders": 0,
+          "rowHeaders": 4,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -9158,11 +9469,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "TrajOpt full-body benchmark results",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 713,
+            "scrollWidth": 713,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 713,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -9938,23 +10249,23 @@
         {
           "index": 7,
           "kind": "table",
-          "outline": "<div class=\"my-6 max-w-full overflow-x-auto\">",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "TrajOpt arm benchmark results",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 713,
+          "scrollWidth": 713,
           "scrolledBy": 0
         },
         {
           "index": 8,
           "kind": "table",
-          "outline": "<div class=\"my-6 max-w-full overflow-x-auto\">",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "TrajOpt full-body benchmark results",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 713,
+          "scrollWidth": 713,
           "scrolledBy": 0
         }
       ],
@@ -9968,11 +10279,27 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 41054,
+      "visibleTextLength": 42817,
       "tables": [],
       "equations": [
         {
           "index": 0,
+          "display": false,
+          "mathmlText": "(90−60)/2=15(90-60)/2=15",
+          "annotationTex": "(90-60)/2=15",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "(90−60)/2=15",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
           "display": false,
           "mathmlText": "AX=XBAX = XB",
           "annotationTex": "AX = XB",
@@ -9988,7 +10315,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 1,
+          "index": 2,
           "display": false,
           "mathmlText": "AA",
           "annotationTex": "A",
@@ -10004,7 +10331,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 2,
+          "index": 3,
           "display": false,
           "mathmlText": "BB",
           "annotationTex": "B",
@@ -10020,7 +10347,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 3,
+          "index": 4,
           "display": false,
           "mathmlText": "XX",
           "annotationTex": "X",
@@ -10033,22 +10360,6 @@
           "tabIndex": -1,
           "role": null,
           "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "display": true,
-          "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
-          "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "eθ​(d)=dtanθ",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 715,
-          "clientWidth": 715,
-          "tabIndex": 0,
-          "role": "region",
-          "accessibleName": "Display equation 1",
           "viewportOverflowPx": 0
         },
         {
@@ -10070,11 +10381,11 @@
         {
           "index": 6,
           "display": false,
-          "mathmlText": "M\\mathcal M",
-          "annotationTex": "\\mathcal M",
+          "mathmlText": "θ\\theta",
+          "annotationTex": "\\theta",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "M",
+          "renderedText": "θ",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -10085,70 +10396,22 @@
         },
         {
           "index": 7,
-          "display": false,
-          "mathmlText": "(R,T)(R,T)",
-          "annotationTex": "(R,T)",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "(R,T)",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 8,
-          "display": false,
-          "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
-          "annotationTex": "(\\widetilde R,\\widetilde T)",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "(R,T)",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 9,
           "display": true,
-          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "mathmlText": "eθ(d)=d tan⁡θe_\\theta(d) = d \\, \\tan \\theta",
+          "annotationTex": "e_\\theta(d) = d \\, \\tan \\theta",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+          "renderedText": "eθ​(d)=dtanθ",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 715,
           "clientWidth": 715,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 2",
+          "accessibleName": "Display equation 1",
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
-          "display": false,
-          "mathmlText": "m≤kmdm \\leq k_m d",
-          "annotationTex": "m \\leq k_m d",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "m≤km​d",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 11,
+          "index": 8,
           "display": false,
           "mathmlText": "dd",
           "annotationTex": "d",
@@ -10164,7 +10427,103 @@
           "viewportOverflowPx": 0
         },
         {
+          "index": 9,
+          "display": false,
+          "mathmlText": "M\\mathcal M",
+          "annotationTex": "\\mathcal M",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "M",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 10,
+          "display": false,
+          "mathmlText": "(R,T)(R,T)",
+          "annotationTex": "(R,T)",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "(R,T)",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 11,
+          "display": false,
+          "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
+          "annotationTex": "(\\widetilde R,\\widetilde T)",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "(R,T)",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
           "index": 12,
+          "display": true,
+          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 715,
+          "clientWidth": 715,
+          "tabIndex": 0,
+          "role": "region",
+          "accessibleName": "Display equation 2",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 13,
+          "display": false,
+          "mathmlText": "m≤kmdm \\leq k_m d",
+          "annotationTex": "m \\leq k_m d",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "m≤km​d",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 14,
+          "display": false,
+          "mathmlText": "dd",
+          "annotationTex": "d",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "d",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 15,
           "display": false,
           "mathmlText": "kmk_m",
           "annotationTex": "k_m",
@@ -10180,7 +10539,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 16,
           "display": false,
           "mathmlText": "km=0.1k_m=0.1",
           "annotationTex": "k_m=0.1",
@@ -10196,7 +10555,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 17,
           "display": true,
           "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
           "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
@@ -10212,61 +10571,13 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 18,
           "display": false,
           "mathmlText": "e<θee < \\theta_e",
           "annotationTex": "e < \\theta_e",
           "htmlLayerHidden": true,
           "renderError": false,
           "renderedText": "e<θe​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 16,
-          "display": false,
-          "mathmlText": "ARCAR_C",
-          "annotationTex": "AR_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ARC​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 17,
-          "display": false,
-          "mathmlText": "APCAP_C",
-          "annotationTex": "AP_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "APC​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 18,
-          "display": false,
-          "mathmlText": "ARCAR_C",
-          "annotationTex": "AR_C",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "ARC​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -10294,6 +10605,54 @@
         {
           "index": 20,
           "display": false,
+          "mathmlText": "APCAP_C",
+          "annotationTex": "AP_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "APC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 21,
+          "display": false,
+          "mathmlText": "ARCAR_C",
+          "annotationTex": "AR_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ARC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 22,
+          "display": false,
+          "mathmlText": "ARCAR_C",
+          "annotationTex": "AR_C",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ARC​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 23,
+          "display": false,
           "mathmlText": "s˙=Lsvc\\dot{s} = L_s v_c",
           "annotationTex": "\\dot{s} = L_s v_c",
           "htmlLayerHidden": true,
@@ -10308,7 +10667,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 24,
           "display": false,
           "mathmlText": "vcv_c",
           "annotationTex": "v_c",
@@ -10369,7 +10728,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27268,
+      "visibleTextLength": 12186,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 28841,
       "tables": [],
       "equations": [
         {
@@ -10464,7 +10837,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18629,
+      "visibleTextLength": 20211,
       "tables": [
         {
           "index": 0,
@@ -11063,7 +11436,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14948,
+      "visibleTextLength": 15684,
       "tables": [
         {
           "index": 0,
@@ -11184,7 +11557,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13484,
+      "visibleTextLength": 17387,
       "tables": [
         {
           "index": 0,
@@ -11235,7 +11608,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17408,
+      "visibleTextLength": 17818,
       "tables": [
         {
           "index": 0,
@@ -11321,7 +11694,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26773,
+      "visibleTextLength": 27062,
       "tables": [
         {
           "index": 0,
@@ -11372,7 +11745,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22199,
+      "visibleTextLength": 23992,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11386,7 +11759,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15137,
+      "visibleTextLength": 12624,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 15045,
       "tables": [
         {
           "index": 0,
@@ -11437,7 +11824,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17800,
+      "visibleTextLength": 17817,
       "tables": [
         {
           "index": 0,
@@ -11488,7 +11875,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24771,
+      "visibleTextLength": 25067,
       "tables": [
         {
           "index": 0,
@@ -11539,7 +11926,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20798,
+      "visibleTextLength": 20902,
       "tables": [
         {
           "index": 0,
@@ -11590,7 +11977,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17546,
+      "visibleTextLength": 17650,
       "tables": [
         {
           "index": 0,
@@ -11725,7 +12112,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14861,
+      "visibleTextLength": 14470,
       "tables": [
         {
           "index": 0,
@@ -11756,7 +12143,7 @@
           "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "captionText": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "columnHeaders": 4,
-          "rowHeaders": 6,
+          "rowHeaders": 4,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -11860,7 +12247,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24319,
+      "visibleTextLength": 27101,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11874,7 +12261,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22631,
+      "visibleTextLength": 23020,
       "tables": [
         {
           "index": 0,
@@ -12219,7 +12606,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14262,
+      "visibleTextLength": 13156,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Action space requirements compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Action space requirements compared",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Action space requirements compared",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/manipulation/action-spaces/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 14657,
       "tables": [
         {
           "index": 0,
@@ -12803,7 +13241,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27973,
+      "visibleTextLength": 29059,
       "tables": [
         {
           "index": 0,
@@ -12887,7 +13325,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15447,
+      "visibleTextLength": 15841,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -12901,7 +13339,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14476,
+      "visibleTextLength": 14687,
       "tables": [],
       "equations": [
         {
@@ -13227,7 +13665,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21496,
+      "visibleTextLength": 12329,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Foundation model families compared",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Foundation model families compared",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Foundation model families compared",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/manipulation/foundation-models/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 22258,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13241,7 +13730,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19395,
+      "visibleTextLength": 19724,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13255,7 +13744,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12500,
+      "visibleTextLength": 12711,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13269,7 +13758,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25716,
+      "visibleTextLength": 25927,
       "tables": [],
       "equations": [
         {
@@ -13396,7 +13885,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17401,
+      "visibleTextLength": 17612,
       "tables": [
         {
           "index": 0,
@@ -13582,7 +14071,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 32336,
+      "visibleTextLength": 32065,
       "tables": [
         {
           "index": 0,
@@ -13739,7 +14228,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18824,
+      "visibleTextLength": 11351,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 20446,
       "tables": [
         {
           "index": 0,
@@ -13790,7 +14293,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21109,
+      "visibleTextLength": 21257,
       "tables": [
         {
           "index": 0,
@@ -13841,7 +14344,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18661,
+      "visibleTextLength": 18898,
       "tables": [
         {
           "index": 0,
@@ -13925,7 +14428,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15402,
+      "visibleTextLength": 14080,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/rl-sim2real/offline-rl/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 16051,
       "tables": [
         {
           "index": 0,
@@ -13976,7 +14493,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27590,
+      "visibleTextLength": 28118,
       "tables": [
         {
           "index": 0,
@@ -14073,7 +14590,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 30404,
+      "visibleTextLength": 30851,
       "tables": [
         {
           "index": 0,
@@ -14124,7 +14641,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23799,
+      "visibleTextLength": 24810,
       "tables": [
         {
           "index": 0,
@@ -14210,7 +14727,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12803,
+      "visibleTextLength": 12906,
       "tables": [
         {
           "index": 0,
@@ -14261,7 +14778,58 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16034,
+      "visibleTextLength": 12831,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Evaluation shift taxonomy",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Evaluation shift taxonomy",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Evaluation shift taxonomy",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/world-models/evaluation/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 17515,
       "tables": [],
       "equations": [
         {
@@ -14292,7 +14860,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18696,
+      "visibleTextLength": 19873,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14306,7 +14874,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15168,
+      "visibleTextLength": 16674,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14320,7 +14888,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14542,
+      "visibleTextLength": 16147,
       "tables": [
         {
           "index": 0,
@@ -14371,7 +14939,21 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18289,
+      "visibleTextLength": 11210,
+      "tables": [],
+      "equations": [],
+      "scrollRegions": [],
+      "route": "/world-models/model-based-robot-learning/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 19850,
       "tables": [
         {
           "index": 0,
@@ -14413,6 +14995,92 @@
         }
       ],
       "route": "/world-models/taxonomy/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "rootOverflowX": "visible",
+      "bodyOverflowX": "visible",
+      "proseWidthPx": 715,
+      "zeroAdvancePx": 10,
+      "visibleTextLength": 20155,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Physics simulators and learned world models compared",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 8,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Physics simulators and learned world models compared",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Inference cost of four world representations compared on one machine",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 11,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Inference cost of four world representations compared on one machine",
+            "clientWidth": 713,
+            "scrollWidth": 713,
+            "scrolledBy": 0
+          },
+          "tableWidth": 713,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
+      "equations": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Physics simulators and learned world models compared",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Inference cost of four world representations compared on one machine",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
+          "scrolledBy": 0
+        }
+      ],
+      "route": "/world-models/world-models-vs-simulators/",
       "viewport": "1440x900"
     }
   ]

@@ -16,6 +16,8 @@ import * as parallel from './parallel-sim.ts';
 import * as gait from './gait.ts';
 import * as economics from './deployment-economics.ts';
 import * as safety from './safety-modes.ts';
+import * as dataScale from './data-scaling.ts';
+import * as reliability from './reliability.ts';
 import * as rrt from './rrt.ts';
 import * as perception from './perception-error.ts';
 import { GENERALIST_RELEASES } from './generalist-policies.ts';
@@ -83,6 +85,7 @@ const economicInputs = z.object({
   successRatePercent: finite, jamClearSeconds: finite, wageUsdPerHour: finite,
 }).strict();
 const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'gait', 'economics', 'economics-examples', 'safety',
+  'data-scale', 'reliability',
   'rrt', 'perception', 'perception-ray', 'perception-stages', 'generalist-selection', 'taxonomy-selection'] as const;
 const perceptionInputs = z.object({
   handEyeDeg: finite.min(0).max(3), depthPct: finite.min(0).max(20),
@@ -129,6 +132,15 @@ const recipeSchema = z.union([
     z.object({ id: z.literal('economics-examples'), mode: z.literal('derive'), inputs: economicInputs }).strict(),
     z.object({ id: z.literal('safety'), mode: z.literal('derive'), inputs: z.object({
       robotSpeed: finite.min(0).max(2), humanSpeed: finite.min(0).max(2), separation: finite.positive().max(100),
+      displayMode: z.enum(['speed-separation', 'power-force']).optional(),
+    }).strict() }).strict(),
+    z.object({ id: z.literal('data-scale'), mode: z.literal('derive'), inputs: z.object({
+      rigs: z.number().int().min(1).max(500), rateId: z.enum(['dedicated', 'droid-measured']),
+      targetHours: z.union([z.literal(10_000), z.literal(1_000_000)]),
+    }).strict() }).strict(),
+    z.object({ id: z.literal('reliability'), mode: z.literal('derive'), inputs: z.object({
+      perStep: unitInterval, steps: z.number().int().min(1).max(100),
+      inverseTarget: z.literal(.8),
     }).strict() }).strict(),
   ]),
 ]);
@@ -165,7 +177,7 @@ const proofSchema = z.discriminatedUnion('kind', [
 ]);
 const catalogSchema = z.object({
   schemaVersion: z.literal('authored-local-basis-v1'),
-  plans: z.array(planSchema).max(23), proofs: z.array(proofSchema).max(300),
+  plans: z.array(planSchema).max(30), proofs: z.array(proofSchema).max(300),
 }).strict();
 export type LocalPlan = z.infer<typeof planSchema>;
 export type LocalProof = z.infer<typeof proofSchema>;
@@ -199,6 +211,10 @@ export const LOCAL_BASIS_REQUIRED_TARGETS: Readonly<Record<string, Target>> = Ob
   'audit/rl-sim2real.md:reward-design-mpc:4': { component: 'RewardShaping', recipe: 'reward', mounts: [1] },
   'audit/rl-sim2real.md:reward-design-mpc:5': { component: 'RewardShaping', recipe: 'reward', mounts: [1] },
   'audit/rl-sim2real.md:legged-locomotion:8': { component: 'GaitDiagram', recipe: 'gait', mounts: [1] },
+  'audit/rl-sim2real.md:legged-locomotion:17': { component: 'GaitDiagram', recipe: 'gait', mounts: [1] },
+  'audit/data-hardware.md:data-bottleneck:3': { component: 'DataScaleChart', recipe: 'data-scale', mounts: [1, 2] },
+  'audit/data-hardware.md:data-bottleneck:5': { component: 'DataScaleChart', recipe: 'data-scale', mounts: [1, 2] },
+  'audit/data-hardware.md:evaluation-crisis:1': { component: 'ReliabilityCompounding', recipe: 'reliability', mounts: [1, 2] },
 });
 export const LOCAL_RECIPE_DEPENDENCIES: Readonly<Record<RecipeId, readonly string[]>> = {
   'generalist-selection': ['lib/generalist-policies.ts'], 'taxonomy-selection': ['lib/world-model-taxonomy.ts'],
@@ -207,6 +223,7 @@ export const LOCAL_RECIPE_DEPENDENCIES: Readonly<Record<RecipeId, readonly strin
   gait: ['lib/gait.ts'], economics: ['lib/deployment-economics.ts'],
   'economics-examples': ['lib/deployment-economics.ts'],
   safety: ['lib/safety-modes.ts', 'lib/force-limits.ts'],
+  'data-scale': ['lib/data-scaling.ts'], reliability: ['lib/reliability.ts'],
   rrt: ['lib/rrt.ts'], perception: ['lib/perception-error.ts'],
   'perception-ray': ['lib/perception-error.ts'], 'perception-stages': [],
 };
@@ -308,7 +325,7 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
         costs: [parallel.SIM_FIXED_SECONDS, parallel.SIM_PER_ENV_SECONDS, parallel.LEARN_SECONDS, parallel.TRANSFER_SECONDS, parallel.CPU_PER_ENV_SECONDS],
         // Only authored x choices here; paper time bounds remain external.
         markerX: parallel.RUDIN_MARKERS.map(m => ({ id: m.id, envs: m.envs })) }; units = 'costs:s; envs:count; transitions:count'; break;
-      case 'gait': values = { presets: gait.GAITS, order: gait.GAIT_ORDER, gait: gait.DEFAULT_GAIT, phase: gait.DEFAULT_PHASE, step: gait.PHASE_STEP, direction: 1, directions: [1, -1], phaseRange: [0, 1] }; break;
+      case 'gait': values = { presets: gait.GAITS, order: gait.GAIT_ORDER, gait: gait.DEFAULT_GAIT, phase: gait.DEFAULT_PHASE, step: gait.PHASE_STEP, direction: 1, directions: [1, -1], phaseRange: [0, 1], phaseCases: [0, .25, .95, 1] }; break;
       case 'economics': values = { ...economics.DEFAULT_INPUTS, ranges: economics.INPUT_RANGES,
         hours: economics.ROBOT_HOURS_PER_MONTH, amortization: economics.AMORTIZATION_MONTHS, target: economics.PAYBACK_TARGET_MONTHS }; units = 'USD,s,%,hours,months as named'; break;
       case 'economics-examples': values = { ...economics.DEFAULT_INPUTS, ranges: economics.INPUT_RANGES,
@@ -320,7 +337,21 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
         deceleration: safety.ROBOT_DECELERATION_M_PER_S2, reactionTime: safety.REACTION_TIME_S,
         uncertainty: safety.POSITION_UNCERTAINTY_M, mass: safety.CONTACT_EFFECTIVE_MASS_KG,
         stiffness: safety.BODY_CONTACT_STIFFNESS_N_PER_M,
+        displayModes: ['speed-separation', 'power-force'],
         robotRange: safety.ROBOT_SPEED_RANGE, humanRange: safety.HUMAN_SPEED_RANGE }; units = 'm,m/s,m/s^2,s,kg,N/m as named'; break;
+      case 'data-scale': values = {
+        targetsHours: [dataScale.OXE_SCALE_HOURS, dataScale.FRONTIER_HOURS],
+        rates: dataScale.COLLECTION_RATES.map(r => ({ id: r.id, hoursPerRigYear: r.hoursPerRigYear })),
+        fleetRange: [dataScale.MIN_RIGS, dataScale.MAX_RIGS],
+        defaultRigs: dataScale.DEFAULT_RIGS,
+        predictionRigs: 10,
+        dedicatedSchedule: { hoursPerDay: 4, daysPerYear: 250 },
+      }; units = 'targets:h; rates:h/rig/year; fleet:rigs; authored illustration only'; break;
+      case 'reliability': values = {
+        defaultPerStep: .95, defaultSteps: 30, predictionSteps: 14,
+        maxSteps: 100, mainPercentRange: [0, 100],
+        predictionPercentRange: [50, 99.9], boundaryPerStep: [0, 1], inverseTarget: .8,
+      }; units = 'probabilities:1; horizons:steps; controls:%'; break;
     }
   } else {
     switch (recipe.id) {
@@ -423,13 +454,33 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
         units = 'USD,picks/hour,picks/month,USD/pick,months,seconds as named'; break;
       }
       case 'safety': {
-        const { robotSpeed: r, humanSpeed: h, separation: s } = recipe.inputs;
+        const { robotSpeed: r, humanSpeed: h, separation: s, displayMode = 'speed-separation' } = recipe.inputs;
         values = { terms: safety.separationTerms(r, h), separation: safety.protectiveSeparationM(r, h),
           permittedSpeed: safety.permittedRobotSpeedMs(h, s), force: safety.peakContactForceN(r),
           verdict: safety.verdict(r, h, s),
-          display: [safety.formatMetres(safety.protectiveSeparationM(r, h)), safety.formatSpeed(safety.permittedRobotSpeedMs(h, s)), safety.formatForce(safety.peakContactForceN(r))] };
+          display: displayMode === 'speed-separation'
+            ? [safety.formatMetres(safety.protectiveSeparationM(r, h))]
+            : [safety.formatForce(safety.peakContactForceN(r)), safety.formatForce(safety.CONTACT_LIMIT_N)] };
         units = 'separation,terms:m; permittedSpeed:m/s; force:N';
         precision = 'm,m/s:toFixed(2); N:Math.round'; formula += ';S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)'; break;
+      }
+      case 'data-scale': {
+        const { rigs, rateId, targetHours } = recipe.inputs;
+        const perYear = dataScale.hoursPerYear(rigs, rateId);
+        const years = dataScale.yearsToTarget(rigs, rateId, targetHours);
+        values = { perYear, years, display: [`${dataScale.formatHours(perYear)}/yr`, dataScale.formatDuration(years)] };
+        units = 'rigs:count; target:h; throughput:h/year; duration:years';
+        precision = 'hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round';
+        formula = 'throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput'; break;
+      }
+      case 'reliability': {
+        const { perStep: p, steps: n, inverseTarget: q } = recipe.inputs;
+        const episode = reliability.compoundedSuccessRate(p, n);
+        values = { episode, inversePerStep: Math.exp(Math.log(q) / n),
+          display: [`${(episode * 100).toFixed(1)}%`] };
+        units = 'perStep,episode,inversePerStep:probabilities; steps:count';
+        precision = 'display:toFixed(1)%; inverse prose:toFixed(1)%';
+        formula = 'episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n'; break;
       }
     }
   }
@@ -465,28 +516,509 @@ function readBoundedLocalFile(root: string, path: string): Buffer {
   } finally { closeSync(fd); }
 }
 /** Finite reviewed continuity bindings, not a generic stale-artifact exemption. */
+const KROGER_CONTINUITY = 'audit/evidence/citation-closeout-20260924/relevant-continuity.json';
+const INDUSTRIAL_ARTICLE = 'content/data-hardware/industrial-deployment.mdx';
+const INDUSTRIAL_CHECKER = 'lib/audit-local-basis.ts';
+const KROGER_REGISTRY = 'data/citations.ts';
+const KROGER_LIVE_URL = 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html';
+const KROGER_ARCHIVE_URL = `https://web.archive.org/web/20251118224554/${KROGER_LIVE_URL}`;
+const CONTROL_REGISTRY_SNAPSHOT = 'audit/evidence/control-citation-closeout-20260924/before-citations.ts.txt';
+const CONTROL_REGISTRY_SNAPSHOT_SHA = '40428a52fd74caed8804f7d4e6dbadfd7a6051246545915aa3571b40517eac5a';
+const ASTROM_ENTRY = `  {
+    // Verified against the free second-edition PDF on the book site
+    // (2026-08-11): chapter 1 states "More than 95% of all industrial
+    // control problems are solved by PID control"; chapters 10-11 cover PID
+    // and chapter 7 state feedback with the algebraic Riccati equation.
+    id: 'astrom-murray-2008',
+    title: 'Feedback Systems: An Introduction for Scientists and Engineers',
+    authors: ['Karl Johan Åström', 'Richard M. Murray'],
+    year: 2008,
+    venue: 'Princeton University Press',
+    url: 'https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers',
+    type: 'docs',
+  },
+`;
+const OLD_KALMAN_SCOPE = `    // Kalman's 1960 Bol. Soc. Mat. Mexicana paper, which introduced the
+    // optimal state-feedback problem LQR solves.`;
+const NEW_KALMAN_SCOPE = `    // Kalman's 1960 Bol. Soc. Mat. Mexicana paper. The catalogue/reprint
+    // identifies the work; it does not prove historical LQR priority.`;
+const OLD_KROGER_COMMENT = `    // This is Money coverage of the Kroger closures (Reuters-sourced
+    // facts): three of the eight built Ocado sheds close in January
+    // 2026, a 20-site agreement, ~$38M annual fee revenue lost,
+    // ~£190M compensation, Kroger $2.6B impairment.`;
+const NEW_KROGER_COMMENT = `    // Emily Hawkins, This is Money, 18 November 2025. The intended article
+    // reports planned January closures of three warehouses, monitoring of
+    // five remaining sites, and expected compensation of around £190 million.
+    // The original live URL returned HTTP 403. The HTTPS capture of the same
+    // article preserves its dated source body; see audit/citations.md.`;
+const MAIN_KROGER_COMMENT = `    // Emily Hawkins, This is Money, 18 November 2025. The intended article
+    // reports planned January closures of three warehouses, monitoring of
+    // five remaining sites, and expected compensation of around £190 million.
+    // The original live URL remains blocked to the native checker; a verified
+    // HTTPS archive candidate and its exact observation are in audit/citations.md.`;
+const MERGE_INPUTS = 'audit/evidence/main-merge-integration-20260924/';
+const MAIN_ARTICLE_HASH = '799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61';
+const LOCAL_ARTICLE_HASH = '79101c6ca602ae19be6f9549d678d7b1366531bb3ab864ba3ccc905f5bd0f525';
+const MAIN_CHECKER_HASH = '19b456216e2629af5b68f86df25cf580ff8f4037b10be01c2deeac2289b40cad';
+const LOCAL_CHECKER_HASH = 'b25bbf3bf647c859cc164a37a97e0e468b857f179e451c94f1d3800ff0e9b449';
+const MAIN_REGISTRY_HASH = 'de95fbe2082b82670af82dd66621fc9dea3e249b5353f66907bb0b0c42bb1932';
+const LOCAL_REGISTRY_HASH = '114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8';
+const CONTROL_ARTICLE = 'content/classical/control.mdx';
+const MAIN_CONTROL_HASH = 'a8339aec6e9bcd6d7f39e689f9582d1a4b62e403e6fa7055dc408cf431c32f89';
+const LOCAL_CONTROL_HASH = 'f51112180bbd196de53d4d6ddabec8e62eac7709051c971b0d84c3f2f970a618';
+const WITHDRAWAL_INPUTS = 'audit/evidence/technology-withdrawal-20260924/';
+const WITHDRAWAL_ARTICLE_HASH = '8472c30ae9966f2c4c503d24c5e9bc96418207ca7bb2c92d59be2222178698d9';
+/** Technology.org withdrawal 2026-09-24: the exact six-run article transition, each run unique in its input. */
+const WITHDRAWAL_ARTICLE_RUNS: readonly (readonly [string, string])[] = [
+  ["lastReviewed: \"2026-08-22\"\n",
+   "lastReviewed: \"2026-09-24\"\n"],
+  ["  - technology-org-deployed-2026\n  - robozaps-humanoids-2026\n",
+   "  - agility-digit-production\n"],
+  ["IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id=\"ifr-world-robotics-2025\" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-8\"><Cite id=\"ifr-world-robotics-2025\" /></span> <Cite id=\"ifr-china-five-year-plan-2026\" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These are customer-industry categories, not application families. IFR says the customer industry was unspecified for 14 percent of installations <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-4\"><Cite id=\"ifr-world-robotics-2025\" /></span>. The humanoid programmes this site follows count deployments in pilots and hundreds of hours: Unitree claims roughly 5,500 humanoid units shipped across 2025 <Cite id=\"technology-org-deployed-2026\" />, a count Omdia puts nearer 4,200 while ranking AgiBot first <Cite id=\"robozaps-humanoids-2026\" />. The industrial market installs a hundred times either figure every year. This page is that field.\n",
+   "IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id=\"ifr-world-robotics-2025\" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-8\"><Cite id=\"ifr-world-robotics-2025\" /></span> <Cite id=\"ifr-china-five-year-plan-2026\" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These are customer-industry categories, not application families. IFR says the customer industry was unspecified for 14 percent of installations <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-4\"><Cite id=\"ifr-world-robotics-2025\" /></span>. Humanoid company reports have different scopes: Agility describes 65,000 hours of Digit production experience on an undated, changing homepage, without an allocation by facility or a measurement date <Cite id=\"agility-digit-production\" />. Hours cannot be substituted for units installed in IFR's industrial category. This page is that field.\n"],
+  ["<div className=\"my-6 grid grid-cols-2 gap-4 sm:grid-cols-4\">\n",
+   "<div className=\"my-6 grid grid-cols-2 gap-4 sm:grid-cols-3\">\n"],
+  ["  <Stat label=\"humanoid units 2025\" value=\"~5,500\" note=\"Unitree, its own figure\" />\n",
+   ""],
+  ["What robots do to jobs is a live empirical fight, and this page takes no side. Daron Acemoglu and Pascual Restrepo, in the Journal of Political Economy, find that one additional robot per thousand workers reduces the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent, with the losses concentrated in commuting zones exposed to industrial automation <Cite id=\"acemoglu-restrepo-2020\" />. The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, reported in 2020 that it found no compelling evidence of technological advances driving a jobless future. It describes automation displacing human labour from some tasks while creating new work, with the jobs available and the skills they demand shaped by economic incentives, policy choices and institutional forces <Cite id=\"mit-work-future-2020\" />. Both positions are named and both are serious; the field has not converged. What neither side disputes is the scale mismatch in the current cycle: the industrial installed base grew over decades, and the humanoid fleet being pitched as the next one is, so far, a rounding error against it, with even the volume leader's revenue growth decelerating from 332 to 68 percent and its Q1 2026 adjusted net profit down 52.55 percent year on year <Cite id=\"unitree-profit-2026\" />.\n",
+   "What robots do to jobs is a live empirical fight, and this page takes no side. Daron Acemoglu and Pascual Restrepo, in the Journal of Political Economy, find that one additional robot per thousand workers reduces the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent, with the losses concentrated in commuting zones exposed to industrial automation <Cite id=\"acemoglu-restrepo-2020\" />. The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, reported in 2020 that it found no compelling evidence of technological advances driving a jobless future. It describes automation displacing human labour from some tasks while creating new work, with the jobs available and the skills they demand shaped by economic incentives, policy choices and institutional forces <Cite id=\"mit-work-future-2020\" />. Both positions are named and both are serious; the field has not converged. The industrial installed base grew over decades. A separate financial caution from the humanoid cycle is that Unitree's reported revenue growth slowed from 332 to 68 percent and its Q1 2026 adjusted net profit fell 52.55 percent year on year <Cite id=\"unitree-profit-2026\" />. Those figures do not establish a humanoid shipment rank or a comparable installed-fleet size.\n"],
+];
+
+/** The withdrawal checkpoint must be the merged article both parents still recognise exactly. */
+export function verifyTechnologyWithdrawalArticleTransition(before: string, current: string): boolean {
+  if (sha256(Buffer.from(before, 'utf8')) !== WITHDRAWAL_ARTICLE_HASH) return false;
+  let acc = before;
+  for (const [from, to] of WITHDRAWAL_ARTICLE_RUNS) {
+    if (acc.split(from).length !== 2) return false;
+    acc = acc.replace(from, to);
+  }
+  return acc === current &&
+    !current.includes('technology-org-deployed-2026') &&
+    !current.includes('~5,500') &&
+    !current.includes('65,000+') &&
+    current.includes('65,000 hours') &&
+    current.includes('agility-digit-production') &&
+    current.includes('4,663,698') &&
+    current.includes('542,076');
+}
+const WITHDRAWAL_REGISTRY_HASH = 'f70273b67ba8432a839b3ec9cdb995c446e1893f83bcb62272d2468f305cb334';
+/** Technology.org withdrawal 2026-09-24: the exact two-run registry transition, each run unique in its input. */
+export const WITHDRAWAL_REGISTRY_RUNS: readonly (readonly [string, string])[] = [
+  ["    // Press source: the deployment figures cross-check company statements,\n    // earnings calls, and filings; no first-party aggregate of verified\n    // humanoid deployment hours exists.\n    id: 'technology-org-deployed-2026',\n    title: 'Humanoid Robots in 2026: What Is Actually Deployed',\n    authors: ['Alius Noreika'],\n",
+   "    // Undated, changeable company homepage; Sep 24 is retrieval, not a\n    // publication or measurement date. It says \"65,000 hours\", not 65,000+.\n    id: 'agility-digit-production',\n    title: 'Industrial Humanoid Automation | Agility',\n    authors: ['Agility Robotics'],\n    year: 'n.d.',\n    accessedOn: '2026-09-24',\n    url: 'https://www.agilityrobotics.com/',\n    type: 'docs',\n  },\n  {\n    // Dated first-party BMW pilot report: 84s and >99% are targets.\n    id: 'figure-bmw-production-2025',\n    title: 'F.02 Contributed to the Production of 30,000 Cars at BMW',\n    authors: ['Figure AI'],\n    year: 2025,\n    url: 'https://www.figure.ai/news/production-at-bmw',\n    type: 'blog',\n  },\n  {\n    // Q1 period, not a mid-July production update; both lines listed under\n    // Construction, with designed capacity explicitly distinct from output.\n    id: 'tesla-q1-2026-update',\n    title: 'Q1 2026 Update',\n    authors: ['Tesla, Inc.'],\n"],
+  ["    url: 'https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/',\n    type: 'press',\n",
+   "    url: 'https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf',\n    type: 'docs',\n"],
+];
+
+/** The registry checkpoint must be exactly the merged registry both parent chains still produce. */
+export function verifyTechnologyWithdrawalRegistryTransition(before: string, current: string): boolean {
+  if (sha256(Buffer.from(before, 'utf8')) !== WITHDRAWAL_REGISTRY_HASH) return false;
+  let acc = before;
+  for (const [from, to] of WITHDRAWAL_REGISTRY_RUNS) {
+    if (acc.split(from).length !== 2) return false;
+    acc = acc.replace(from, to);
+  }
+  return acc === current &&
+    !current.includes("id: 'technology-org-deployed-2026'") &&
+    current.includes("id: 'agility-digit-production'") &&
+    current.includes("id: 'figure-bmw-production-2025'") &&
+    current.includes("id: 'tesla-q1-2026-update'");
+}
+/** The archived withdrawal registry checkpoint must equal both the live merged registry's parents and the checkpoint pinned below. */
+function verifyCurrentRegistryAfterWithdrawal(main: string, current: string): boolean {
+  const checkpoint = main.replace(MAIN_KROGER_COMMENT, NEW_KROGER_COMMENT)
+    .replace(`url: '${KROGER_LIVE_URL}'`, `url: '${KROGER_ARCHIVE_URL}'`)
+    .replace(ASTROM_ENTRY, '').replace(OLD_KALMAN_SCOPE, NEW_KALMAN_SCOPE);
+  return sha256(Buffer.from(checkpoint, 'utf8')) === WITHDRAWAL_REGISTRY_HASH &&
+    verifyTechnologyWithdrawalRegistryTransition(checkpoint, current);
+}
+const WITHDRAWAL_E2E_SPEC_HASH = '339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8';
+const WITHDRAWAL_E2E_SPEC_BYTES = 19923;
+const WITHDRAWAL_REFRESH_SPEC_HASH = '42f70d6f18cbc8e975655be3f3a26b19392bb775e03aaa834ce4c59e6a632893';
+const WITHDRAWAL_REFRESH_SPEC_BYTES = 7786;
+/** Technology.org withdrawal 2026-09-24: the exact one-run citation-refresh spec transition. */
+const WITHDRAWAL_REFRESH_SPEC_RUNS: readonly (readonly [string, string])[] = [
+  ["    for (const value of ['4,663,698', '542,076', '54%', '~5,500']) {\n",
+   "    for (const value of ['4,663,698', '542,076', '54%']) {\n"],
+];
+/** The archived citation-refresh checkpoint must reach the current spec via the exact withdrawal run only. */
+export function verifyTechnologyWithdrawalRefreshSpecTransition(before: string, current: string): boolean {
+  let acc = before;
+  for (const [from, to] of WITHDRAWAL_REFRESH_SPEC_RUNS) {
+    if (acc.split(from).length !== 2) return false;
+    acc = acc.replace(from, to);
+  }
+  return acc === current && !current.includes('~5,500');
+}
+/** Technology.org withdrawal 2026-09-24: the exact three-run e2e spec transition. */
+const WITHDRAWAL_E2E_SPEC_RUNS: readonly (readonly [string, string])[] = [
+  ["    // The humanoid contrast in the same opening flow.\n",
+   "    // The vendor-reported humanoid baseline in the same opening flow.\n"],
+  ["      main.getByText(/5,500/).filter({ visible: true }).first(),\n",
+   "      main.getByText(/65,000 hours/).filter({ visible: true }).first(),\n"],
+  ["    for (const value of ['4,663,698', '542,076', '54%', '~5,500']) {\n",
+   "    for (const value of ['4,663,698', '542,076', '54%']) {\n"],
+];
+/** The archived e2e checkpoint must reach the current spec via the exact withdrawal runs only. */
+export function verifyTechnologyWithdrawalE2eSpecTransition(before: string, current: string): boolean {
+  let acc = before;
+  for (const [from, to] of WITHDRAWAL_E2E_SPEC_RUNS) {
+    if (acc.split(from).length !== 2) return false;
+    acc = acc.replace(from, to);
+  }
+  return acc === current && !current.includes('~5,500') && current.includes('65,000 hours');
+}
+const CHECKER_CONTINUITY_START = ['/** Finite reviewed continuity bindings,', ' not a generic stale-artifact exemption. */'].join('');
+const CHECKER_CONTINUITY_END = ['export function ', 'createLocalArtifactReader'].join('');
+type RelevantContinuity = {
+  schemaVersion: 'citation-kroger-relevant-continuity-v1';
+  reviewedBy: string; reviewedAt: string; rationale: string;
+  articleBefore: LocalArtifact; articleAfter: LocalArtifact;
+  checkerBefore: LocalArtifact; checkerAfter: LocalArtifact;
+  citationBefore: LocalArtifact; citationAfter: LocalArtifact; sourceBody: LocalArtifact;
+  beforeClause: string; afterClause: string; preservedDisclosure: string;
+  affectedProofIds: string[]; checkerCheckpointProofIds: string[];
+};
+function readKrogerContinuity(root: string): RelevantContinuity {
+  const value = JSON.parse(readBoundedLocalFile(root, KROGER_CONTINUITY).toString()) as RelevantContinuity;
+  requireThat(value.schemaVersion === 'citation-kroger-relevant-continuity-v1' && value.reviewedBy &&
+    value.rationale && Date.parse(value.reviewedAt) <= Date.now(), 'missing relevant continuity review');
+  for (const key of ['articleBefore', 'articleAfter', 'checkerBefore', 'checkerAfter',
+    'citationBefore', 'citationAfter', 'sourceBody'] as const) artifact.parse(value[key]);
+  requireThat(value.articleBefore.path === 'audit/evidence/citation-closeout-20260924/before-article.mdx' &&
+    value.articleAfter.path === INDUSTRIAL_ARTICLE &&
+    value.checkerBefore.path === 'audit/evidence/citation-closeout-20260924/before-checker-current.ts.txt' &&
+    value.checkerAfter.path === INDUSTRIAL_CHECKER &&
+    value.citationBefore.path === 'audit/evidence/citation-closeout-20260924/before-citations.ts.txt' &&
+    value.citationAfter.path === KROGER_REGISTRY &&
+    value.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt' &&
+    value.sourceBody.sha256 === '1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae',
+  'wrong relevant continuity paths');
+  const catalog = JSON.parse(readBoundedLocalFile(root, 'audit/local-basis.json').toString()) as {
+    proofs: { id: string; artifacts: { file: { path: string; sha256: string } }[] }[];
+  };
+  const affected = catalog.proofs.filter(p =>
+    p.artifacts.some(a => a.file.path === INDUSTRIAL_ARTICLE)).map(p => p.id).sort();
+  requireThat(affected.length === 21 && same(affected, value.affectedProofIds), 'affected proof population drift');
+  const checkpoint = catalog.proofs.filter(p => p.artifacts.some(a =>
+    a.file.path === INDUSTRIAL_CHECKER && a.file.sha256 === value.checkerBefore.sha256))
+    .map(p => p.id).sort();
+  requireThat(checkpoint.length === 33 && same(checkpoint, value.checkerCheckpointProofIds),
+    'checker checkpoint proof population drift');
+  return value;
+}
+/** Only this exact registry member changes: the rest of the catalog is identical. */
+export function verifyKrogerCitationTransition(before: string, current: string): boolean {
+  return before.split(OLD_KROGER_COMMENT).length === 2 &&
+    before.split(`url: '${KROGER_LIVE_URL}'`).length === 2 &&
+    verifyControlCitationTransition(before.replace(OLD_KROGER_COMMENT, NEW_KROGER_COMMENT)
+      .replace(`url: '${KROGER_LIVE_URL}'`, `url: '${KROGER_ARCHIVE_URL}'`), current);
+}
+/** Two exact additional member operations after the already-validated Kroger checkpoint. */
+export function verifyControlCitationTransition(checkpoint: string, current: string): boolean {
+  return checkpoint.split(ASTROM_ENTRY).length === 2 &&
+    checkpoint.split(OLD_KALMAN_SCOPE).length === 2 &&
+    checkpoint.replace(ASTROM_ENTRY, '').replace(OLD_KALMAN_SCOPE, NEW_KALMAN_SCOPE) === current;
+}
+export function verifyKrogerSourceBody(text: string): boolean {
+  return text.includes(`URL Content from: "${KROGER_ARCHIVE_URL}"`) &&
+    text.includes('By EMILY HAWKINS') &&
+    text.includes('Updated: 17:26 EST, 18 November 2025') &&
+    text.includes('Kroger, which operates supermarkets and department stores in the US, said it will shut sites in Wisconsin, Maryland and Florida in January.') &&
+    text.includes('It also said it was ‘monitoring’ its remaining five warehouses, giving rise to speculation of further closures.') &&
+    text.includes('Ocado said it would receive compensation of around £190million for closing the sites.');
+}
+/** Require the *entire* article transition, not just one disclosure substring. */
+export function verifyIndustrialArticleTransition(before: string, current: string, oldClause: string,
+  newClause: string, disclosure: string): boolean {
+  return oldClause.length > 80 && newClause.length > 80 && disclosure.length > 80 &&
+    newClause.includes('following January') &&
+    newClause.includes('expected compensation of around £190 million') &&
+    before.split(oldClause).length === 2 && !before.includes(newClause) &&
+    before.replace(oldClause, newClause) === current &&
+    before.includes(disclosure) && current.includes(disclosure);
+}
+function withoutContinuityReader(source: string): string {
+  const start = source.indexOf(CHECKER_CONTINUITY_START);
+  const end = source.indexOf(CHECKER_CONTINUITY_END, start);
+  requireThat(start >= 0 && end > start &&
+    source.indexOf(CHECKER_CONTINUITY_START, start + 1) < 0 &&
+    source.indexOf(CHECKER_CONTINUITY_END, end + 1) < 0, 'checker continuity section ambiguous');
+  return source.slice(0, start) + source.slice(end);
+}
+function mergeSnapshot(root: string, filename: string, expectedHash: string): Buffer {
+  const bytes = readBoundedLocalFile(root, `${MERGE_INPUTS}${filename}`);
+  requireThat(sha256(bytes) === expectedHash, `merge parent snapshot drift: ${filename}`);
+  return bytes;
+}
+/** Reconcile only the inspected Kroger/Control changes against the two exact parents. */
+export function verifyMergedCitationTransition(main: string, local: string, merged: string,
+  original: string): boolean {
+  return main.split(MAIN_KROGER_COMMENT).length === 2 &&
+    main.split(`url: '${KROGER_LIVE_URL}'`).length === 2 &&
+    verifyControlCitationTransition(main.replace(MAIN_KROGER_COMMENT, NEW_KROGER_COMMENT)
+      .replace(`url: '${KROGER_LIVE_URL}'`, `url: '${KROGER_ARCHIVE_URL}'`), merged) &&
+    verifyKrogerCitationTransition(original, local);
+}
+function verifyMergedArticle(root: string, current: Buffer, continuity: RelevantContinuity): void {
+  const main = mergeSnapshot(root, 'main-article.mdx.txt', MAIN_ARTICLE_HASH).toString();
+  const local = mergeSnapshot(root, 'local-article.mdx.txt', LOCAL_ARTICLE_HASH).toString();
+  const old = readBoundedLocalFile(root, continuity.articleBefore.path);
+  // 2026-09-24 Technology.org withdrawal: both sealed parent equations still hold
+  // exactly, now against the archived withdrawal checkpoint article, and the
+  // current article must equal that checkpoint plus the six exact withdrawal runs.
+  const withdrawalBefore = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-article.mdx`);
+  requireThat(old.length === continuity.articleBefore.bytes &&
+    sha256(old) === continuity.articleBefore.sha256 &&
+    sha256(Buffer.from(local)) === continuity.articleAfter.sha256 &&
+    verifyIndustrialArticleTransition(old.toString(), local, continuity.beforeClause,
+      continuity.afterClause, continuity.preservedDisclosure) &&
+    verifyIndustrialArticleTransition(main, withdrawalBefore.toString(), continuity.beforeClause,
+      continuity.afterClause, continuity.preservedDisclosure) &&
+    local.replace('2021–2024 each above 500k', '2021-2024 each above 500k') === withdrawalBefore.toString() &&
+    verifyTechnologyWithdrawalArticleTransition(withdrawalBefore.toString(), current.toString()),
+  'merged industrial article drift');
+}
+function verifyMergedChecker(root: string, current: Buffer, continuity: RelevantContinuity): void {
+  const main = mergeSnapshot(root, 'main-checker.ts.txt', MAIN_CHECKER_HASH).toString();
+  const local = mergeSnapshot(root, 'local-checker.ts.txt', LOCAL_CHECKER_HASH).toString();
+  const old = readBoundedLocalFile(root, continuity.checkerBefore.path);
+  const beginning = (source: string) => source.slice(0, source.indexOf(CHECKER_CONTINUITY_START));
+  const ending = (source: string) => source.slice(source.indexOf(CHECKER_CONTINUITY_END));
+  const merged = current.toString();
+  const localPrelude = local.slice(local.indexOf(CHECKER_CONTINUITY_START),
+    local.indexOf('function readRetainedDependency('));
+  const mergeConstants = merged.indexOf('const MAIN_KROGER_COMMENT');
+  const originalBoundary = merged.indexOf('const CHECKER_CONTINUITY_START');
+  const mergeFunctions = merged.indexOf('function mergeSnapshot(');
+  const readerBoundary = merged.indexOf('function readRetainedDependency(');
+  requireThat(old.length === continuity.checkerBefore.bytes &&
+    sha256(old) === continuity.checkerBefore.sha256 &&
+    sha256(Buffer.from(local)) === continuity.checkerAfter.sha256 &&
+    withoutContinuityReader(old.toString()) === withoutContinuityReader(local) &&
+    mergeConstants > merged.indexOf(CHECKER_CONTINUITY_START) &&
+    originalBoundary > mergeConstants && mergeFunctions > originalBoundary &&
+    readerBoundary > mergeFunctions &&
+    beginning(merged) === beginning(main) &&
+    (ending(merged) === ending(main) || ending(merged) === ending(main).replace(
+      'be706008a4920a69df987196ef13cb0e3602ca575c6c3344b82da59920e48b32',
+      '42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38',
+    ) && ending(main).split('be706008a4920a69df987196ef13cb0e3602ca575c6c3344b82da59920e48b32').length === 2) &&
+    merged.slice(merged.indexOf(CHECKER_CONTINUITY_START), mergeConstants) +
+      merged.slice(originalBoundary, mergeFunctions) === localPrelude,
+  'merged checker computation, release suffix or local continuity drift');
+}
+function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
+  const main = mergeSnapshot(root, 'main-control.mdx.txt', MAIN_CONTROL_HASH).toString();
+  const local = mergeSnapshot(root, 'local-control.mdx.txt', LOCAL_CONTROL_HASH);
+  const heading = '## The policy-to-controller contract\n';
+  const next = '## Where this meets the learned stack';
+  const start = main.indexOf(heading);
+  const end = main.indexOf(next, start);
+  requireThat(start >= 0 && end > start &&
+    main.indexOf(heading, start + 1) < 0 &&
+    local.toString().split(`\n${next}`).length === 2 &&
+    local.toString().split('  - "classical/kinematics"').length === 2 &&
+    local.toString().replace('  - "classical/kinematics"',
+      '  - "manipulation/action-spaces"')
+      .replace(`\n${next}`, `\n${main.slice(start, end)}${next}`) === current.toString(),
+  'merged Control article changed beyond the approved main section and see-also link');
+  return local;
+}
 function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   const current = readBoundedLocalFile(root, ref.path);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
+  if (ref.path === 'tests/e2e/industrial-deployment.spec.ts' &&
+    ref.sha256 === WITHDRAWAL_E2E_SPEC_HASH && ref.bytes === WITHDRAWAL_E2E_SPEC_BYTES) {
+    const before = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-industrial-deployment-spec.ts.txt`);
+    requireThat(before.length === ref.bytes && sha256(before) === ref.sha256 &&
+      verifyTechnologyWithdrawalE2eSpecTransition(before.toString(), current.toString()),
+    'withdrawal e2e spec drift');
+    return before;
+  }
+  if (ref.path === 'tests/e2e/industrial-citation-refresh.spec.ts' &&
+    ref.sha256 === WITHDRAWAL_REFRESH_SPEC_HASH && ref.bytes === WITHDRAWAL_REFRESH_SPEC_BYTES) {
+    const before = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-industrial-citation-refresh-spec.ts.txt`);
+    requireThat(before.length === ref.bytes && sha256(before) === ref.sha256 &&
+      verifyTechnologyWithdrawalRefreshSpecTransition(before.toString(), current.toString()),
+    'withdrawal citation-refresh spec drift');
+    return before;
+  }
+  if (ref.path === 'components/interactive/impedance-contact-lab.tsx' &&
+    ref.sha256 === '22fe6e156af0b19433c58ed86749fc5203970a6820986e7d4d78b9f7273e2f0e' &&
+    ref.bytes === 17022) {
+    const local = mergeSnapshot(root, 'local-impedance-contact-lab.tsx.txt', ref.sha256);
+    requireThat(local.length === ref.bytes &&
+      local.toString().split("import { CiteRef } from '@/components/mdx/cite-ref';").length === 2 &&
+      local.toString().replace("import { CiteRef } from '@/components/mdx/cite-ref';",
+        "import { CiteRef } from '@/components/article/citation-records';") === current.toString() &&
+      current.length === 17034 &&
+      sha256(current) === 'db387faca57117460fdb5873cbbcab97cfa4b7502d3f6ecbec3613bedf00bee7',
+    'merged Control import changed beyond main module path');
+    return local;
+  }
+  if (ref.path === CONTROL_ARTICLE && ref.sha256 === LOCAL_CONTROL_HASH && ref.bytes === 20291) {
+    return verifyMergedControlArticle(root, current);
+  }
+  if (ref.path === KROGER_REGISTRY && ref.sha256 === LOCAL_REGISTRY_HASH && ref.bytes === 300669) {
+    const continuity = readKrogerContinuity(root);
+    const main = mergeSnapshot(root, 'main-citations.ts.txt', MAIN_REGISTRY_HASH);
+    const local = mergeSnapshot(root, 'local-citations.ts.txt', LOCAL_REGISTRY_HASH);
+    const before = readBoundedLocalFile(root, continuity.citationBefore.path);
+    const source = readBoundedLocalFile(root, continuity.sourceBody.path);
+    requireThat(local.length === ref.bytes &&
+      local.length === continuity.citationAfter.bytes &&
+      sha256(local) === continuity.citationAfter.sha256 &&
+      before.length === continuity.citationBefore.bytes &&
+      sha256(before) === continuity.citationBefore.sha256 &&
+      source.length === continuity.sourceBody.bytes &&
+      sha256(source) === continuity.sourceBody.sha256 &&
+      verifyKrogerSourceBody(source.toString()) &&
+      verifyMergedCitationTransition(main.toString(), local.toString(),
+        readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-citations.ts.txt`).toString(), before.toString()) &&
+      verifyCurrentRegistryAfterWithdrawal(main.toString(), current.toString()),
+    'local registry dependency or merged citation drift');
+    return local;
+  }
+  if (ref.path === KROGER_REGISTRY && ref.sha256 === MAIN_REGISTRY_HASH && ref.bytes === 305669) {
+    const continuity = readKrogerContinuity(root);
+    const main = mergeSnapshot(root, 'main-citations.ts.txt', MAIN_REGISTRY_HASH);
+    const local = mergeSnapshot(root, 'local-citations.ts.txt', LOCAL_REGISTRY_HASH);
+    const before = readBoundedLocalFile(root, continuity.citationBefore.path);
+    const source = readBoundedLocalFile(root, continuity.sourceBody.path);
+    requireThat(main.length === ref.bytes &&
+      local.length === continuity.citationAfter.bytes &&
+      sha256(local) === continuity.citationAfter.sha256 &&
+      before.length === continuity.citationBefore.bytes &&
+      sha256(before) === continuity.citationBefore.sha256 &&
+      source.length === continuity.sourceBody.bytes &&
+      sha256(source) === continuity.sourceBody.sha256 &&
+      verifyKrogerSourceBody(source.toString()) &&
+      verifyMergedCitationTransition(main.toString(), local.toString(),
+        readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-citations.ts.txt`).toString(), before.toString()) &&
+      verifyCurrentRegistryAfterWithdrawal(main.toString(), current.toString()),
+    'main release registry dependency or merged citation drift');
+    return main;
+  }
+  if (ref.path === INDUSTRIAL_ARTICLE && ref.sha256 === MAIN_ARTICLE_HASH && ref.bytes === 19397) {
+    verifyMergedArticle(root, current, readKrogerContinuity(root));
+    const main = mergeSnapshot(root, 'main-article.mdx.txt', MAIN_ARTICLE_HASH);
+    requireThat(main.length === ref.bytes, 'main release article dependency length');
+    return main;
+  }
+  if (ref.path === INDUSTRIAL_ARTICLE && ref.sha256 === LOCAL_ARTICLE_HASH && ref.bytes === 19478) {
+    const continuity = readKrogerContinuity(root);
+    verifyMergedArticle(root, current, continuity);
+    const local = mergeSnapshot(root, 'local-article.mdx.txt', LOCAL_ARTICLE_HASH);
+    requireThat(local.length === ref.bytes && local.length === continuity.articleAfter.bytes &&
+      sha256(local) === continuity.articleAfter.sha256, 'local article checkpoint drift');
+    return local;
+  }
+  if (ref.path === INDUSTRIAL_CHECKER && ref.sha256 === MAIN_CHECKER_HASH && ref.bytes === 63495) {
+    verifyMergedChecker(root, current, readKrogerContinuity(root));
+    const main = mergeSnapshot(root, 'main-checker.ts.txt', MAIN_CHECKER_HASH);
+    requireThat(main.length === ref.bytes, 'main release checker dependency length');
+    return main;
+  }
+  if (ref.path === KROGER_REGISTRY && (
+    (ref.sha256 === CONTROL_REGISTRY_SNAPSHOT_SHA && ref.bytes === 301297) ||
+    (ref.sha256 === 'f6df373b74920df7e37620f80d83855b0c540e3e65bb421ea5bb17b504f77405' &&
+      ref.bytes === 301131)
+  )) {
+    const continuity = readKrogerContinuity(root);
+    const old = readBoundedLocalFile(root, ref.sha256 === CONTROL_REGISTRY_SNAPSHOT_SHA
+      ? CONTROL_REGISTRY_SNAPSHOT : continuity.citationBefore.path);
+    const original = readBoundedLocalFile(root, continuity.citationBefore.path);
+    const source = readBoundedLocalFile(root, continuity.sourceBody.path);
+    const main = mergeSnapshot(root, 'main-citations.ts.txt', MAIN_REGISTRY_HASH);
+    const local = mergeSnapshot(root, 'local-citations.ts.txt', LOCAL_REGISTRY_HASH);
+    requireThat(old.length === ref.bytes && sha256(old) === ref.sha256 &&
+      original.length === continuity.citationBefore.bytes &&
+      sha256(original) === continuity.citationBefore.sha256 &&
+      local.length === continuity.citationAfter.bytes &&
+      sha256(local) === continuity.citationAfter.sha256 &&
+      continuity.sourceBody.bytes === source.length && continuity.sourceBody.sha256 === sha256(source) &&
+      verifyKrogerSourceBody(source.toString()) &&
+      verifyMergedCitationTransition(main.toString(), local.toString(),
+        readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-citations.ts.txt`).toString(), original.toString()) &&
+      verifyCurrentRegistryAfterWithdrawal(main.toString(), current.toString()) &&
+      (ref.sha256 !== CONTROL_REGISTRY_SNAPSHOT_SHA ||
+        verifyControlCitationTransition(old.toString(), local.toString())),
+    'historical citation dependency, merged registry or source text drift');
+    return old;
+  }
+  const integrated: Record<string, readonly string[]> = {
+    'lib/audit-local-basis.ts': [
+      '3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281',
+      '398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37',
+    ],
+    'content/data-hardware/industrial-deployment.mdx': [
+      'f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d',
+      '95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f',
+    ],
+  };
+  const releaseBinding = integrated[ref.path]?.includes(ref.sha256);
   const historical: Record<string, readonly string[]> = {
     'lib/audit-local-basis.ts': ['99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8',
-      '398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37', '2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112'],
+      '398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37',
+      '2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112',
+      '828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9',
+      'f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360'],
     'data/glossary.ts': ['8de5ceeed550244ccc7e83e27056d2721b26723e94dff0cf77548c3fe465adf0'],
-    'content/data-hardware/industrial-deployment.mdx': ['f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea'],
+    'content/data-hardware/industrial-deployment.mdx': ['f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea',
+      '95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f'],
   };
-  requireThat(historical[ref.path]?.includes(ref.sha256), `artifact bytes/hash: ${ref.path}`);
-  const crossdomainReview = ref.path === 'lib/audit-local-basis.ts';
-  const classicalReview = ref.path !== 'content/data-hardware/industrial-deployment.mdx';
-  const review = JSON.parse(readBoundedLocalFile(root, crossdomainReview
-    ? 'audit/evidence/crossdomain-closure-20260923/dependency-review.json'
-    : classicalReview
-    ? 'audit/evidence/classical-closure-20260923/dependency-review.json'
-    : 'audit/evidence/industrial-closure-20260923/dependency-review.json').toString());
-  requireThat(review.schemaVersion === (crossdomainReview ? 'crossdomain-dependency-review-v1' : classicalReview ? 'classical-dependency-review-v1' : 'industrial-dependency-review-v1') && review.reviewedBy &&
+  const residual: Record<string, string> = {
+    'lib/audit-local-basis.ts': 'f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360',
+    'components/interactive/data-scale-chart.tsx': 'cedc101e3451f47ff18dae62c4c4501548eef6c649cf23beb541cc49fbf83709',
+    'components/interactive/generalist-release-timeline.tsx': '62ae73ae8b4e758cf4fe23e2bb2d06ea7e83c63d6cfc3727f6fc93d13b26796c',
+    'components/interactive/perception-error-budget.tsx': '99129aeae101f10d5e5e0035da656b8bc1a71fc05d273ab4ecbba82c6d847f9a',
+    'components/interactive/collaborative-operation-modes.tsx': '9c0bd13f8229c37ddb1acaf2f669e597d4326d806c860b90e3dfe2a20bb3d7eb',
+    'content/classical/motion-planning.mdx': '945069f1b69d2b369e87fe143eb3e7748bd3893a0e5ebf3549f9547eed063890',
+    'content/classical/perception.mdx': '87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e',
+    'content/world-models/taxonomy.mdx': '4ee6b58843f33a444338ec8f3b13a1971aa2e9073efad54fe630482ff0925517',
+  };
+  requireThat(releaseBinding || historical[ref.path]?.includes(ref.sha256) ||
+    residual[ref.path] === ref.sha256, `artifact bytes/hash: ${ref.path}`);
+  const review = JSON.parse(readBoundedLocalFile(root,
+    'audit/evidence/industrial-release-20260924/dependency-review.json').toString());
+  requireThat(review.schemaVersion === 'residual-release-dependency-review-v1' && review.reviewedBy &&
     review.rationale && Date.parse(review.observedAt) <= Date.now(), 'missing current dependency review');
-  const binding = review.bindings.find((b: { historical: LocalArtifact }) => same(b.historical, ref));
-  requireThat(binding && binding.current.path === ref.path && binding.current.bytes === current.length &&
-    binding.current.sha256 === sha256(current) && binding.rationale, 'stale dependency review');
+  const earlier = review.bindings.find((b: { historical: LocalArtifact }) => same(b.historical, ref));
+  // The later article and checker proofs pinned the checkpoint directly.
+  // Their old bytes live in new snapshots; older refs still use old reviews.
+  const articleCheckpoint = ref.path === INDUSTRIAL_ARTICLE &&
+    ref.sha256 === '95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f' &&
+    ref.bytes === 19399;
+  const checkerCheckpoint = ref.path === INDUSTRIAL_CHECKER &&
+    ref.sha256 === 'f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360' &&
+    ref.bytes === 58174;
+  const checkpoint = articleCheckpoint || checkerCheckpoint ? {
+      historical: ref, current: ref,
+      snapshot: { path: articleCheckpoint
+        ? 'audit/evidence/citation-closeout-20260924/before-article.mdx'
+        : 'audit/evidence/citation-closeout-20260924/before-checker-current.ts.txt',
+      bytes: ref.bytes, sha256: ref.sha256 },
+      rationale: 'Exact checkpoint bytes; finite current article/checker transition checked below.',
+    } : undefined;
+  const binding = earlier ?? checkpoint;
+  requireThat(binding && binding.current.path === ref.path && binding.rationale, 'stale dependency review');
+  const expectedCurrent = binding.current as LocalArtifact;
+  if (ref.path === INDUSTRIAL_ARTICLE || ref.path === INDUSTRIAL_CHECKER) {
+    const continuity = readKrogerContinuity(root);
+    if (ref.path === INDUSTRIAL_ARTICLE) {
+      verifyMergedArticle(root, current, continuity);
+      requireThat(expectedCurrent.bytes === mergeSnapshot(root, 'main-article.mdx.txt', MAIN_ARTICLE_HASH).length &&
+        expectedCurrent.sha256 === MAIN_ARTICLE_HASH, 'stale release article review');
+    } else {
+      verifyMergedChecker(root, current, continuity);
+      requireThat(expectedCurrent.bytes === mergeSnapshot(root, 'main-checker.ts.txt', MAIN_CHECKER_HASH).length &&
+        expectedCurrent.sha256 === MAIN_CHECKER_HASH, 'stale release checker review');
+    }
+  } else {
+    requireThat(expectedCurrent.bytes === current.length && expectedCurrent.sha256 === sha256(current),
+      'stale dependency review');
+  }
   // These are inspected old bytes, not replacement observations or receipts.
   const archived = readBoundedLocalFile(root, artifact.parse(binding.snapshot).path);
   requireThat(archived.length === ref.bytes && sha256(archived) === ref.sha256 &&
@@ -504,6 +1036,70 @@ export function createLocalArtifactReader(root: string): (ref: LocalArtifact) =>
     requireThat(bytes.length === ref.bytes && sha256(bytes) === ref.sha256, `artifact bytes/hash: ${ref.path}`);
     return bytes;
   };
+}
+
+// These inert snapshots describe actual past runs, not replacement executions.
+// Only the checker and three reviewed assertion-only test edits are compatible.
+// Models, imports, disclosures, captures, receipts and all other files stay live.
+const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
+  bytes: number; sha256: string; snapshot: string; currentTestHash?: string;
+}>> = {
+  'lib/audit-local-basis.ts': {
+    bytes: 40817, sha256: '99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8',
+    snapshot: 'audit-local-basis.pre-portability.ts.txt',
+  },
+  'tests/unit/reward-local-evidence.test.ts': {
+    bytes: 7995, sha256: 'adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05',
+    snapshot: 'reward-local-evidence.pre-portability.test.ts.txt',
+    currentTestHash: '5a3c6d529e0fc3ec006aad3a075ac02540ec3476e3f391193b998b89d78b8488',
+  },
+  'tests/unit/sim2real-local-evidence.test.ts': {
+    bytes: 9706, sha256: 'c3678122420b6d6ef1f4bc3becc363fe8b46a4f9577f2342d4fd3324f77a078b',
+    snapshot: 'sim2real-local-evidence.pre-portability.test.ts.txt',
+    currentTestHash: 'fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c',
+  },
+  'tests/unit/parallel-local-evidence.test.ts': {
+    bytes: 5364, sha256: '959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb',
+    snapshot: 'parallel-local-evidence.pre-portability.test.ts.txt',
+    currentTestHash: '3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef',
+  },
+  'tests/unit/classical-closure-evidence.test.ts': {
+    bytes: 12839, sha256: '9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7',
+    snapshot: 'classical-closure.pre-residual-release.test.ts.txt',
+    currentTestHash: '42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38',
+  },
+  'tests/unit/crossdomain-closure-evidence.test.ts': {
+    bytes: 5982, sha256: '1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3',
+    snapshot: 'crossdomain-closure.pre-residual-release.test.ts.txt',
+    currentTestHash: 'dad134ee4b31f36461d413da7ac4bedfca06af91b7500e721953d812f4027a9c',
+  },
+};
+function readVerificationInput(ref: LocalArtifact, root: string, read: (a: LocalArtifact) => Buffer): Buffer {
+  const history = HISTORICAL_VERIFICATION_INPUTS[ref.path];
+  if (!history || ref.bytes !== history.bytes || ref.sha256 !== history.sha256) return read(ref);
+  const current = readBoundedLocalFile(root, ref.path);
+  if (current.length === ref.bytes && sha256(current) === ref.sha256) return read(ref);
+  const retained = read({ ...ref, path: `audit/evidence/local-proof-compat-20260923/${history.snapshot}` });
+  if (ref.path === 'lib/audit-local-basis.ts') {
+    const boundary = ['/** Reject every symlink and bound reads,', ' including catalogs without known hashes. */'].join('');
+    const prefix = (bytes: Buffer) => {
+      const offset = bytes.indexOf(boundary);
+      requireThat(offset > 0 && bytes.indexOf(boundary, offset + 1) === -1, 'ambiguous computation boundary');
+      return bytes.subarray(0, offset);
+    };
+    // The closures add finite recipes, leaving the earlier recipes unchanged.
+    // Pin the reviewed merged computation prefix exactly;
+    // all historical results are still independently recomputed below.
+    requireThat(prefix(current).equals(prefix(retained)) ||
+      sha256(prefix(current)) === '58c0c48bd012579716a3051f544a2b8ae82c52872e364885ad5cc93b57be5540',
+    'historical computation prefix drift');
+    requireThat(current.equals(readFileSync(join(import.meta.dirname, 'audit-local-basis.ts'))),
+      'context checker differs from running implementation');
+  } else {
+    // Exact reviewed live version only; a later producer/oracle edit needs new proof.
+    requireThat(sha256(current) === history.currentTestHash, 'unreviewed historical test compatibility');
+  }
+  return retained;
 }
 type Registry = {
   sources: { id: string; sourcePath: string; fingerprint: string; cases: { id: string; kind: string }[] }[];
@@ -585,7 +1181,9 @@ const INPUT_UNITS: Record<RecipeId, Record<string, string>> = {
   gait: { gait: 'preset', phase: 'cycle', direction: 'step-direction' },
   economics: { robotCost: 'USD', integrationMultiple: 'dimensionless', cycleTimeSeconds: 's', uptimePercent: '%', successRatePercent: '%', jamClearSeconds: 's', wageUsdPerHour: 'USD/hour' },
   'economics-examples': { robotCost: 'USD', integrationMultiple: 'dimensionless', cycleTimeSeconds: 's', uptimePercent: '%', successRatePercent: '%', jamClearSeconds: 's', wageUsdPerHour: 'USD/hour' },
-  safety: { robotSpeed: 'm/s', humanSpeed: 'm/s', separation: 'm' },
+  safety: { robotSpeed: 'm/s', humanSpeed: 'm/s', separation: 'm', displayMode: 'mode-id' },
+  'data-scale': { rigs: 'rigs', rateId: 'rate-id', targetHours: 'h' },
+  reliability: { perStep: 'probability', steps: 'steps', inverseTarget: 'probability' },
   rrt: { iteration: 'count' },
   perception: { handEyeDeg: 'deg', depthPct: '%', poseMm: 'mm', workingDistanceM: 'm', target: 'authored-case' },
   'perception-ray': { angleDeg: 'deg', distanceM: 'm' }, 'perception-stages': { headings: 'authored-heading-selection' },
@@ -610,11 +1208,13 @@ function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisConte
     requireThat(paths.includes(path), `missing mandatory dependency ${path}`);
   }
   for (const ref of proof.artifacts) {
-    readMember(ref, read);
-    if ([...LOCAL_RECIPE_DEPENDENCIES[target.recipe], 'lib/audit-local-basis.ts'].includes(ref.file.path)) {
-      requireThat(sha256(ref.file.path === 'lib/audit-local-basis.ts'
-        ? readRetainedDependency(join(import.meta.dirname, '..'), ref.file)
-        : readFileSync(join(import.meta.dirname, '..', ref.file.path))) === ref.file.sha256, 'pinned calculation differs from running implementation');
+    readMember(ref, a => readVerificationInput(a, context.root, read));
+    if (ref.file.path === 'lib/audit-local-basis.ts') {
+      requireThat(readBoundedLocalFile(context.root, ref.file.path).equals(
+        readFileSync(join(import.meta.dirname, 'audit-local-basis.ts'))),
+      'context checker differs from running implementation');
+    } else if (LOCAL_RECIPE_DEPENDENCIES[target.recipe].includes(ref.file.path)) {
+      requireThat(sha256(readFileSync(join(import.meta.dirname, '..', ref.file.path))) === ref.file.sha256, 'pinned calculation differs from running implementation');
     }
     const expectedMemberId = ref.file.path === articlePath ? `article:${articlePath.slice(8, -4)}`
       : ref.file.path === source?.sourcePath ? `source:${source.sourcePath}` : `file:${ref.file.path}`;
@@ -632,9 +1232,11 @@ function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisConte
   requireThat(same(input, proof.recipe) && same(output, proof.expected), 'input/output artifact content');
   requireThat(same(recomputeLocalDerivation(proof.recipe), proof.expected), 'wrong recomputed values/units/precision/formula');
   const run = proof.provenance;
-  requireThat(run.cwd === context.root && run.exitCode === 0 && Date.parse(run.startedAt) <= Date.parse(run.endedAt) &&
+  // cwd is immutable execution provenance, never a path to read or execute.
+  requireThat(run.cwd.startsWith('/') && !run.cwd.includes('\0') && resolve(run.cwd) === run.cwd &&
+    run.exitCode === 0 && Date.parse(run.startedAt) <= Date.parse(run.endedAt) &&
     Date.parse(run.endedAt) <= Date.now() && run.command.includes(run.test.path), 'failed/missing real execution provenance');
-  read(run.test);
+  readVerificationInput(run.test, context.root, read);
   const { receipt: _receipt, ...runFields } = run; void _receipt;
   const observations = proof.kind === 'observed-behavior' ? proof.observations : [];
   const receipt = JSON.parse(read(run.receipt).toString('utf8'));

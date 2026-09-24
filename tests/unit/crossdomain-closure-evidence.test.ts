@@ -67,7 +67,7 @@ describe('corrected-disposition aggregate accounting', () => {
   });
   it('native parsing does not credit absent, stale or invalid correction records', () => {
     const records = [
-      ...JSON.parse(read('audit/evidence/industrial-closure-20260923/corrections.json')),
+      ...JSON.parse(read('audit/evidence/industrial-release-20260924/corrections.json')),
       ...JSON.parse(read('audit/evidence/classical-closure-20260923/corrections.json')),
     ];
     const ids = new Set(CITATIONS.map(c => c.id));

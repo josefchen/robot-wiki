@@ -424,6 +424,27 @@ function collectValueStateRenderSites(): {
     ['not-applicable', 'n/a'],
   ] as const;
 
+  // These three exact scanned occurrences describe proof/checker behavior,
+  // not values rendered by a reader. Keep the raw inventory (including its
+  // ordinals) for legacy baseline reconciliation. Neither file nor directory
+  // is broadly exempt: any other rendered-token occurrence remains measured.
+  const isInternalCheckerText = (
+    path: string,
+    state: ValueStateRecord['state'],
+    ordinal: number,
+    line: string,
+  ) =>
+    ordinal === 1 && (
+      (path === 'lib/audit-local-basis.ts' &&
+        state === 'not-applicable' &&
+        line.trim() ===
+          "goalReached ? `${rrt.formatLength(tree.pathLength)} units` : 'n/a'] };") ||
+      (path === 'lib/brand-v2-table-math-evidence.ts' &&
+        (state === 'not-applicable' || state === 'not-disclosed') &&
+        line.trim() ===
+          '/** Cells reading `not disclosed` and `n/a`, kept distinct on purpose. */')
+    );
+
   for (const path of paths) {
     const text = source(path);
     for (const [state, rendered] of renderings) {
@@ -437,7 +458,13 @@ function collectValueStateRenderSites(): {
           rendered,
         };
         raw.push(record);
-        if (isRenderedValueStateTokenAt(text, rendered, offset)) {
+        const lineStart = text.lastIndexOf('\n', offset - 1) + 1;
+        const lineEnd = text.indexOf('\n', offset);
+        const line = text.slice(lineStart, lineEnd === -1 ? text.length : lineEnd);
+        if (
+          isRenderedValueStateTokenAt(text, rendered, offset) &&
+          !isInternalCheckerText(path, state, ordinal, line)
+        ) {
           bounded.push(record);
         }
         offset += rendered.length;

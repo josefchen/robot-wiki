@@ -2,17 +2,20 @@ import type { Metadata } from 'next';
 import { MarketMap } from '@/components/market-map/market-map';
 import { COMPANIES } from '@/data/companies';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '@/lib/seo';
 
 const title = 'Market Map';
 
 export const metadata: Metadata = {
-  title,
-  description:
-    'The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.',
+  title: STANDALONE_SEO_TITLES.marketMap,
+  description: STANDALONE_SEO_DESCRIPTIONS.marketMap,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - Robot Wiki' document title.
+  // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };

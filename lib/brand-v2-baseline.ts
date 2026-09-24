@@ -73,6 +73,7 @@ export interface ApprovedDelta {
   affectedAssertions: string[];
   disposition: 'permanent' | 'expires';
   expiresOn?: string;
+  reconciles?: Array<{ id: string; oldHash: string; newHash: string }>;
 }
 
 export interface BaselineFailure {
@@ -209,7 +210,7 @@ export function validateApprovedDeltas(
   const failures: DeltaValidationFailure[] = [];
   const ids = new Set<string>();
 
-  for (const delta of deltas) {
+  for (const [index, delta] of deltas.entries()) {
     const fail = (field: keyof ApprovedDelta, message: string) => {
       failures.push({ deltaId: delta.id, field, message });
     };
@@ -246,27 +247,93 @@ export function validateApprovedDeltas(
     if (delta.disposition === 'permanent' && delta.expiresOn) {
       fail('expiresOn', 'must be omitted for a permanent delta');
     }
+    if (delta.reconciles !== undefined) {
+      const peers = deltas.slice(0, index).filter((entry) =>
+        entry.manifest === delta.manifest &&
+        entry.memberId === delta.memberId);
+      if (!exactReconciliation(delta.reconciles, peers)) {
+        fail('reconciles', 'must bind every prior approval for this exact member by ID and both hashes');
+      }
+    }
   }
 
   return failures;
 }
 
-function deltaMatches(
-  delta: ApprovedDelta,
-  manifest: BaselineKind,
-  memberId: string,
-  oldMember: ManifestMember | undefined,
-  newMember: ManifestMember | undefined,
+function exactReconciliation(
+  bindings: unknown,
+  peers: readonly { id?: string; oldHash: string; newHash: string }[],
 ): boolean {
-  if (
-    delta.manifest !== manifest ||
-    delta.memberId !== memberId ||
-    delta.oldHash !== (oldMember?.hash ?? sha256('missing')) ||
-    delta.newHash !== (newMember?.hash ?? sha256('missing'))
-  ) {
-    return false;
+  return Array.isArray(bindings) && bindings.length > 0 &&
+    bindings.length === peers.length &&
+    new Set(bindings.map((binding) => binding?.id)).size === bindings.length &&
+    bindings.every((binding) => binding && typeof binding.id === 'string' &&
+      Object.keys(binding).sort().join(',') === 'id,newHash,oldHash' &&
+      peers.some((peer) => peer.id === binding.id &&
+        peer.oldHash === binding.oldHash && peer.newHash === binding.newHash));
+}
+
+/**
+ * Only approvals forming one complete path from the immutable seal to the
+ * current member count. The registry retains approvals for superseded
+ * historical endpoints; those off-path edges do not approve today's bytes.
+ * Distinct hash paths to the same endpoint are ambiguous. Several reviewed
+ * claim rows can authorize the same exact hash transition; those are one
+ * edge with every approval ID retained, not a branch. A separately reviewed
+ * merge resolution may reconcile the complete exact prior edge inventory.
+ * It cannot approve another endpoint, silently omit history, or survive a
+ * subsequent unreviewed edge. Existing ambiguous paths still fail closed.
+ */
+export function approvedDeltaPath<T extends Pick<
+  ApprovedDelta,
+  'oldHash' | 'newHash'
+> & Partial<Pick<ApprovedDelta, 'id' | 'reconciles'>>>(
+  deltas: readonly T[],
+  sealedHash: string,
+  currentHash: string,
+): { status: 'approved'; path: T[] } | { status: 'missing' | 'ambiguous'; path: [] } {
+  if (deltas.some((delta) => delta.reconciles !== undefined)) {
+    // Earlier resolutions remain immutable history. A new one must inventory
+    // their exact edges too, rather than replacing or invalidating them.
+    for (const [index, delta] of deltas.entries()) {
+      if (delta.reconciles !== undefined &&
+        (!delta.id || !exactReconciliation(delta.reconciles, deltas.slice(0, index)))) {
+        return { status: 'ambiguous', path: [] };
+      }
+    }
+    const resolution = deltas.at(-1)!;
+    if (resolution.reconciles === undefined ||
+      resolution.oldHash !== sealedHash || resolution.newHash !== currentHash ||
+      !exactReconciliation(resolution.reconciles, deltas.slice(0, -1))) {
+      return { status: 'ambiguous', path: [] };
+    }
+    return { status: 'approved', path: [resolution] };
   }
-  return true;
+  const byEndpoint = new Map<string, Map<string, T[]>>();
+  for (const delta of deltas) {
+    const predecessors = byEndpoint.get(delta.newHash) ?? new Map<string, T[]>();
+    predecessors.set(delta.oldHash, [...(predecessors.get(delta.oldHash) ?? []), delta]);
+    byEndpoint.set(delta.newHash, predecessors);
+  }
+  const paths: T[][] = [];
+  const visit = (hash: string, reverseEdges: T[][], visited: Set<string>) => {
+    if (paths.length > 1) return;
+    if (hash === sealedHash) {
+      if (reverseEdges.length > 0) {
+        paths.push([...reverseEdges].reverse().flat());
+      }
+      return;
+    }
+    if (visited.has(hash)) return;
+    const nextVisited = new Set(visited).add(hash);
+    for (const [previousHash, approvals] of byEndpoint.get(hash) ?? []) {
+      visit(previousHash, [...reverseEdges, approvals], nextVisited);
+    }
+  };
+  visit(currentHash, [], new Set());
+  if (paths.length > 1) return { status: 'ambiguous', path: [] };
+  if (paths.length === 0) return { status: 'missing', path: [] };
+  return { status: 'approved', path: paths[0] };
 }
 
 export function compareBaseline(
@@ -307,11 +374,13 @@ export function compareBaseline(
       const oldMember = before.get(id);
       const newMember = after.get(id);
       if (oldMember?.hash === newMember?.hash) continue;
-      const approved = deltas.find((delta) =>
-        deltaMatches(delta, kind, id, oldMember, newMember),
+      const approval = approvedDeltaPath(
+        deltas.filter((delta) => delta.manifest === kind && delta.memberId === id),
+        oldMember?.hash ?? sha256('missing'),
+        newMember?.hash ?? sha256('missing'),
       );
-      if (approved) {
-        approvedDifferences.push(approved.id);
+      if (approval.status === 'approved') {
+        approvedDifferences.push(...approval.path.map(({ id: deltaId }) => deltaId));
         continue;
       }
       failures.push({

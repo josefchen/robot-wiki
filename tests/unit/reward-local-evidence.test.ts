@@ -7,6 +7,7 @@ import {
 import { classifyBehavior, quadrupedPose } from '../../lib/reward-shaping';
 import { loadLocalBasisContext, validateLocalBasisPlan } from '../../lib/audit-local-basis';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
 
 describe('reward local evidence', () => {
   it('discloses the authored reward and complete scripted Eureka transcript to readers', () => {
@@ -93,11 +94,13 @@ describe('reward local evidence', () => {
   });
 
   it('requires all three mixed plans and every prepared external/local obligation', () => {
-    const context = loadLocalBasisContext(ROOT, ['/rl-sim2real/reward-design-mpc/']);
-    expect(context.catalog.plans.map(p => p.originalId)).toEqual([4, 5, 11].map(n => `audit/rl-sim2real.md:reward-design-mpc:${n}`));
-    expect(context.catalog.plans.map(p => p.parts.length)).toEqual([5, 7, 7]);
-    expect(context.catalog.proofs).toHaveLength(22);
-    for (const plan of context.catalog.plans) {
+    const context = loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
+    const plans = context.catalog.plans.filter(p => p.articleSlug === 'reward-design-mpc');
+    expect(plans.map(p => p.originalId)).toEqual([4, 5, 11].map(n => `audit/rl-sim2real.md:reward-design-mpc:${n}`));
+    expect(plans.map(p => p.id)).toEqual(['reward-local-r4-20260923', 'reward-local-r5-20260923', 'reward-local-r11-20260923']);
+    expect(plans.map(p => p.parts.length)).toEqual([5, 7, 7]);
+    expect(plans.map(p => context.catalog.proofs.filter(proof => proof.planId === p.id).length)).toEqual([3, 11, 8]);
+    for (const plan of plans) {
       expect(validateLocalBasisPlan(plan, plan.currentCells, plan.id, {
         citationId: '', sourceUrl: '', supportingPassage: '',
       }, new Set(CITATIONS.map(c => c.id)), context).failures).toEqual([]);
@@ -106,14 +109,15 @@ describe('reward local evidence', () => {
   });
 
   it('rejects a missing external passage or stale real review without modifying artifacts', () => {
-    const context = loadLocalBasisContext(ROOT, ['/rl-sim2real/reward-design-mpc/']);
-    expect(context.catalog.plans).toHaveLength(3);
-    const plan = structuredClone(context.catalog.plans[0]);
+    const context = loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
+    const plans = context.catalog.plans.filter(p => p.id === 'reward-local-r4-20260923');
+    expect(plans).toHaveLength(1);
+    const plan = structuredClone(plans[0]);
     plan.evidence[0].supportingPassage = rewardDisclosure;
     const scalar = { citationId: '', sourceUrl: '', supportingPassage: '' };
     expect(validateLocalBasisPlan(plan, plan.currentCells, plan.id, scalar,
       new Set(CITATIONS.map(c => c.id)), context).failures.length).toBeGreaterThan(0);
-    const unreviewed = structuredClone(context.catalog.plans[0]);
+    const unreviewed = structuredClone(plans[0]);
     unreviewed.planReview = null;
     expect(validateLocalBasisPlan(unreviewed, unreviewed.currentCells, unreviewed.id, scalar,
       new Set(CITATIONS.map(c => c.id)), context).failures).toContain('local basis: missing/stale semantic review');

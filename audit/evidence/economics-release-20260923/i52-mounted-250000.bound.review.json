@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "release-steward-20260923T1745Z",
+  "role": "integrator",
+  "eventId": "release-20260923:economics-local-i52-20260923:i52-mounted-250000:2026-09-23T18:04:32.980Z",
+  "observedAt": "2026-09-23T18:04:32.980Z",
+  "reviewedBy": "Robot Wiki release steward (GPT 6 Astra), integrator, not independent Mission acceptance",
+  "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost250000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:max. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated. Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent Mission acceptance.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "i52-mounted-250000",
+  "inputDigest": "481e040aa7aa396cd99505a8ea7e12630425f74dc12a7f8fc654d5aef03bf9e3",
+  "inventory": [
+    {
+      "id": "i52-evst-scope",
+      "text": "EVST's inspected guide does not publish fixed list prices; its quoted bands are complete-cell budgets, not a $25k–$80k robot-arm range.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "evst-cell-cost-2026"
+      ]
+    },
+    {
+      "id": "i52-vendor-context",
+      "text": "Any retained calculator sourcing of 2–3x complete-cell/arm ratio and 12–24 month multi-shift guidance remains a vendor statement, not a chosen-value certificate.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "evst-cell-cost-2026"
+      ]
+    },
+    {
+      "id": "i52-authored-price-and-inputs",
+      "text": "The calculator's $80000 robotCost is an authored example, with $20000–$250000 range/5000 step, not a reported price; other model defaults and chosen horizon remain explicit assumptions.",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "i52-parameters"
+      ]
+    },
+    {
+      "id": "i52-price-arithmetic",
+      "text": "At fixed other example inputs, changing robotCost changes total cell capital, capital cost per modeled pick and modeled payback according to the existing formula.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "i52-20000",
+        "i52-80000",
+        "i52-250000"
+      ]
+    },
+    {
+      "id": "i52-mounted-20000",
+      "text": "The real mounted calculator at robotCost20000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:min. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "i52-observed-20000"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Default robotCost80000",
+          "action": "Move robotCost to minimum20000",
+          "poststate": "Cell cost $50,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.002; 2.9 months; all seven inputs, notes, verdict, time shares and seconds checked"
+        }
+      ]
+    },
+    {
+      "id": "i52-mounted-80000",
+      "text": "The real mounted calculator at robotCost80000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:default,reset,mobile-default. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "i52-observed-80000"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "default",
+          "prestate": "Article not loaded",
+          "action": "Navigate to existing article",
+          "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked"
+        },
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "reset",
+          "prestate": "Maximum robotCost250000",
+          "action": "Activate Reset",
+          "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked"
+        },
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "default",
+          "prestate": "Desktop reset state",
+          "action": "Resize existing mounted calculator to375px",
+          "poststate": "Cell cost $200,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.008; 11.6 months; all seven inputs, notes, verdict, time shares and seconds checked"
+        }
+      ]
+    },
+    {
+      "id": "i52-mounted-250000",
+      "text": "The real mounted calculator at robotCost250000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:max. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "i52-observed-250000"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "caseId": "slider-boundaries-and-anchors",
+          "prestate": "Minimum robotCost20000",
+          "action": "Move robotCost to maximum250000",
+          "poststate": "Cell cost $625,000; 569 modeled picks per elapsed hour and 415,062 per 730-hour month; jam rate 0.10%. 0.025; 36.1 months; all seven inputs, notes, verdict, time shares and seconds checked"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/data-hardware.md:industrial-deployment:52",
+  "currentTupleDigest": "581dea675321582b10aae9ab1989353be915997f0b696d1421e385ce38264470"
+}

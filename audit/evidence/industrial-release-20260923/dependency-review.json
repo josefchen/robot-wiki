@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "industrial-dependency-review-v1",
+  "reviewedBy": "Robot Wiki release steward, not independent Mission acceptance",
+  "observedAt": "2026-09-23T19:49:35.709600+00:00",
+  "rationale": "Exact integration review of ac65cf4 and 0a45942. Immutable historical sources and receipts retained; no timestamps, commands, outputs or previous review altered. Existing and added focused tests independently verify outputs and fail-closed binding behavior.",
+  "bindings": [
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44206,
+        "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 48674,
+        "sha256": "cad2d36bea90edc2d838b6f3bc9dfcf91eb6f4c2ba4488050a6cb8cee30c93b9"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-release-20260923/release-before-checker.ts.txt",
+        "bytes": 44206,
+        "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+      },
+      "rationale": "Checker: exact reviewed additive economics-examples dispatch plus merged read-only provenance compatibility. All old recipes, model dependencies, recomputation, receipts and AND obligations remain enforced.",
+      "preservedText": []
+    },
+    {
+      "historical": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19271,
+        "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
+      },
+      "current": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19397,
+        "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-release-20260923/release-before-article.mdx.txt",
+        "bytes": 19271,
+        "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
+      },
+      "rationale": "Article: exact mission industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions.",
+      "preservedText": [
+        "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      ]
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 48674,
+        "sha256": "cad2d36bea90edc2d838b6f3bc9dfcf91eb6f4c2ba4488050a6cb8cee30c93b9"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-release-20260923/industrial-checker.ts.txt",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "rationale": "Checker: exact reviewed additive economics-examples dispatch plus merged read-only provenance compatibility. All old recipes, model dependencies, recomputation, receipts and AND obligations remain enforced.",
+      "preservedText": []
+    },
+    {
+      "historical": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "current": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19397,
+        "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-release-20260923/industrial-article.mdx.txt",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "rationale": "Article: exact mission industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions.",
+      "preservedText": [
+        "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      ]
+    }
+  ]
+}

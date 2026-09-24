@@ -4,8 +4,8 @@ import {
   MILESTONES,
   MILESTONE_STATUSES,
   filterMilestones,
-  milestoneSchema,
 } from '@/lib/bear-case';
+import { milestoneSchema } from '@/lib/bear-case-schema';
 
 const EXPECTED_IDS = [
   'unseen-homes-policy',

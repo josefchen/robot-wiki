@@ -466,14 +466,26 @@ export function CollaborativeOperationModes({ className }: { className?: string 
       />
 
       <p className="mt-3 font-mono text-[11px] leading-relaxed text-text-dim">
-        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S), the
-        linear form restated by Marvel and Norcross. Sourced terms: C ={' '}
-        {formatMetres(INTRUSION_MARGIN_M)} for a normal approach on multiple beams,
-        robot deceleration {ROBOT_DECELERATION_M_PER_S2} m/s², operator worst case{' '}
-        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}. Modelled: T_R = {REACTION_TIME_S} s,
-        Z_R + Z_S = {formatMetres(POSITION_UNCERTAINTY_M)}, and the impact force,
-        an energy balance for a 4 kg effective mass against a 25 kN/m body contact
-        stiffness. The force limit is {CONTACT_LIMIT_LABEL}.
+        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S),
+        the rough early-draft approximation restated by Marvel and Norcross.
+        Teaching choices: C = {formatMetres(INTRUSION_MARGIN_M)}, selected at the
+        normal-multibeam minimum, not a universal margin (the paper also gives
+        1200 mm for a single-height beam and a conditional two-handed-control
+        reduction to 250 mm); constant robot deceleration{' '}
+        {ROBOT_DECELERATION_M_PER_S2} m/s², reusing an acceleration example rather
+        than a measured braking profile; robot default{' '}
+        {formatSpeed(DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}
+        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0 to 2 m/s
+        in 0.05 m/s steps. The paper records both 1600 and 2000 mm/s, qualifies
+        the 1600 option by separation greater than 500 mm, allows direct
+        measurement, and later urges considering 2000 mm/s; this choice does
+        not resolve that context. Also chosen: T_R = {REACTION_TIME_S} s (a
+        100 Hz period is 0.01 s, not this delay), Z_R + Z_S ={' '}
+        {formatMetres(POSITION_UNCERTAINTY_M)}, workcell separation{' '}
+        {formatMetres(WORKCELL_SEPARATION_M)}, and an energy-balance contact
+        model with 4 kg effective mass and 25 kN/m stiffness. The existing
+        force-limit label is {CONTACT_LIMIT_LABEL}. These calculations are
+        illustrative, not measurements or safety certification.
       </p>
     </div>
   );

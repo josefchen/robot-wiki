@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '@/data/citations';
 import { THESES } from '@/lib/competing-theses';
+import { committedSource } from '../helpers/continuation-integration';
 import {
   compoundPartDigest,
   compoundPlanDigest,
@@ -62,7 +63,9 @@ describe('Brooks source-backed thesis corrections', () => {
   it('attributes the word comparison to Brooks rather than recounting Sutton', () => {
     expect(article).toContain('paraphrases Sutton and describes itself, including its closing comment');
     expect(article).not.toContain("in a reply he kept seventy-six words shorter");
-    expect(article).toContain('lastReviewed: "2026-08-18"');
+    expect(committedSource('0cbdda1', 'content/frontier/competing-theses.mdx'))
+      .toContain('lastReviewed: "2026-08-18"');
+    expect(article).toContain('lastReviewed: "2026-09-24"');
   });
 
   it('preserves implementation variation and the acknowledged learning gains', () => {

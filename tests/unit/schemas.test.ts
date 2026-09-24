@@ -71,6 +71,21 @@ describe('moduleFrontmatterSchema', () => {
     ).toBe(false);
   });
 
+  it('accepts an optional verified publication date and rejects a malformed one', () => {
+    expect(
+      moduleFrontmatterSchema.safeParse({
+        ...valid,
+        datePublished: '2026-08-01',
+      }).success,
+    ).toBe(true);
+    expect(
+      moduleFrontmatterSchema.safeParse({
+        ...valid,
+        datePublished: 'August 1, 2026',
+      }).success,
+    ).toBe(false);
+  });
+
   it('rejects missing citations field', () => {
     const rest: Record<string, unknown> = { ...valid };
     delete rest.citations;

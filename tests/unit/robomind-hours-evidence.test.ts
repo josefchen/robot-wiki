@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -13,14 +13,19 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, isRenderedValueStateTokenAt, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '../../lib/brand-v2-baseline';
-import { collectArticleTruthManifests, valueStateRenderSites } from '../../scripts/brand-v2-baseline';
+import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integration';
+import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integration';
+import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
+import { committedText, committedJson } from '../helpers/editorial-current-context';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '358f5050333386606f041505613e4a65d90dc703';
+const checkpoint = 'f2cae9e5983a2e4f686adec4f37c3b26e4b67e74';
+const hoursCommit = 'f2cae9e5983a2e4f686adec4f37c3b26e4b67e74';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
-  cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
-});
+const before = (path: string) => committedText(base, path);
+const atHours = (path: string) => committedText(hoursCommit, path);
 const articlePath = 'content/data-hardware/datasets.mdx';
 const adjacentPath = 'content/data-hardware/data-bottleneck.mdx';
 const article = read(articlePath);
@@ -40,17 +45,17 @@ const approvalMembers = [
   ['value-states', 'state-site:content/data-hardware/datasets.mdx:not-disclosed:6'],
 ] as const;
 
-// Reconstruct only this transaction's four members from real base Git bytes.
+// Reconstruct only this transaction's four members from both committed states.
 // Historical TypeScript is never imported or executed.
 function hoursApprovalBundle(old: boolean): BaselineBundle {
   const articles = [articlePath, adjacentPath].map(path => ({
-    path, parsed: matter(before(path)),
+    path, parsed: matter(old ? before(path) : atHours(path)),
   }));
   const datasetArticle = articles.find(a => a.path === articlePath)!.parsed;
   const matches = (pattern: RegExp) =>
     [...datasetArticle.content.trim().matchAll(pattern)].map(m => m[1]).sort();
   const historicalStates = [];
-  const source = before(articlePath);
+  const source = old ? before(articlePath) : atHours(articlePath);
   const rendered = 'not disclosed';
   let offset = 0;
   let ordinal = 0;
@@ -65,7 +70,7 @@ function hoursApprovalBundle(old: boolean): BaselineBundle {
     }
     offset += rendered.length;
   }
-  const sources = old ? [
+  const sources = [
     buildManifest('prose', articles.map(({ path, parsed }) => ({
       id: `article:${path.slice(8, -4)}`, value: { path, body: parsed.content.trim() },
     }))),
@@ -79,11 +84,6 @@ function hoursApprovalBundle(old: boolean): BaselineBundle {
       },
     }]),
     buildManifest('value-states', historicalStates),
-  ] : [
-    ...Object.values(collectArticleTruthManifests()),
-    buildManifest('value-states', valueStateRenderSites().map(({ id, state, rendered }) => ({
-      id, value: { id, state, rendered },
-    }))),
   ];
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const scaffold = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
@@ -152,18 +152,32 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
   });
 
   it('changes only the real-world qualifier in the adjacent article', () => {
-    expect(read(adjacentPath)).toBe(before(adjacentPath).replace(
+    expect(committedSource(checkpoint, adjacentPath)).toBe(before(adjacentPath).replace(
       'Robot data is different. Every hour of it',
       'Real-world robot data is different. Every hour of it',
     ));
-    expect(matter(article).data).toEqual(matter(before(articlePath)).data);
-    expect(read('data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(finalSevenBefore(adjacentPath)).toBe(committedSource(READER_RELEASE_BASE, adjacentPath).replace(
+      'Robot data is different. Every hour of it',
+      'Real-world robot data is different. Every hour of it',
+    ));
+    expect(read(adjacentPath)).toBe(committedSource('ba934e6', adjacentPath));
+    expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
+    expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
+    expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
+    preservedPreIndustrialCitations(READER_RELEASE_BASE);
+    expect(atHours(adjacentPath)).toBe(before(adjacentPath).replace(
+      'Robot data is different. Every hour of it',
+      'Real-world robot data is different. Every hour of it',
+    ));
+    expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
+    expect(matter(atHours(articlePath)).data).toEqual(matter(before(articlePath)).data);
+    expect(atHours('data/citations.ts')).toBe(before('data/citations.ts'));
   });
 
   it('preserves the complete licensing disclosure and unknown durations elsewhere', () => {
     const licensing = 'The inspected public card displays an Apache-2.0 license badge';
     expect(article.slice(article.indexOf(licensing))).toBe(
-      before(articlePath).slice(before(articlePath).indexOf(licensing)),
+      committedSource(READER_RELEASE_BASE, articlePath).slice(committedSource(READER_RELEASE_BASE, articlePath).indexOf(licensing)),
     );
     for (const id of ['open-x-embodiment', 'bridgedata-v2', 'agibot-world-2026']) {
       expect(DATASETS.find(d => d.id === id)!.hours).toBeNull();
@@ -200,44 +214,85 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(saved.compoundPlan).toEqual(selected(oldPlans));
     expect(saved.currentTupleDigest).toBe('ff9aa17f614941b79f89d3e891450e886b7bd2d257bc64a579afc6157cc838b4');
     expect(originalClaimDigest(saved.currentCells)).toBe(saved.currentTupleDigest);
-    expect(plans.filter(p => p.id !== planId)).toEqual(oldPlans.filter(p => p.id !== planId));
-    expect(read('audit/local-basis.json')).toBe(before('audit/local-basis.json'));
+    preservedLegacySurvivors(oldPlans.filter(p => p.id !== planId), plans.filter(p => p.id !== planId));
+    expect(committedSource(checkpoint, 'audit/local-basis.json')).toBe(before('audit/local-basis.json'));
+    const hoursPlans = committedJson<CompoundPlan[]>(hoursCommit, 'audit/compound-evidence.json');
+    expect(hoursPlans.filter(p => p.id !== planId)).toEqual(oldPlans.filter(p => p.id !== planId));
+    expect(selected()).toEqual(selected(hoursPlans));
+    expect(atHours('audit/local-basis.json')).toBe(before('audit/local-basis.json'));
   });
 
-  it('preserves all other data-hardware rows, including data-bottleneck holds 3/5 and row6', () => {
+  it('preserves other rows and the later closure history for data-bottleneck 3/5 and evaluation1', { timeout: 60_000 }, () => {
     const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
     const previous = parseLedger(ledgerPath, before(ledgerPath), ids, { compoundPlans: oldPlans });
+    const atTransaction = parseLedger(ledgerPath, atHours(ledgerPath), ids, {
+      compoundPlans: committedJson<CompoundPlan[]>(hoursCommit, 'audit/compound-evidence.json'),
+    });
     const current = parseLedger(ledgerPath, read(ledgerPath), ids, { compoundPlans: plans });
-    expect(current.map(s => [s.slug, s.claimRows])).toEqual(previous.map(s => [s.slug, s.claimRows]));
-    for (const section of current) {
+    expect(atTransaction.map(s => [s.slug, s.claimRows])).toEqual(previous.map(s => [s.slug, s.claimRows]));
+    for (const section of atTransaction) {
       const old = previous.find(s => s.slug === section.slug)!;
       for (const [i, record] of section.claimRecords.entries()) {
         if (section.slug !== 'datasets' || i !== 9) expect(record).toEqual(old.claimRecords[i]);
+        if (section.slug === 'industrial-deployment' && [9, 10, 31, 32, 33, 37, 47, 48].includes(i + 1)) {
+          const history = JSON.parse(read('audit/evidence/industrial-closure-20260923/row-history.json'));
+          const archived = history.find((r: { rowOrdinal: number }) => r.rowOrdinal === i + 1);
+          expect(archived.currentCells).toEqual(Object.fromEntries(
+            ['claim', 'sourceChecked', 'verdict', 'note'].map(key => [key, old.claimRecords[i][key as 'claim']]),
+          ));
+          expect(current.find(s => s.slug === section.slug)!.claimRecords[i].verdict).toBe(i === 46
+            ? 'Cut (historical ledger certification withdrawn)'
+            : 'C');
+        } else if ((section.slug === 'data-bottleneck' && [3, 5].includes(i + 1))
+          || (section.slug === 'evaluation-crisis' && i === 0)) {
+          const archived = parseLedger(ledgerPath, finalSevenBefore(ledgerPath), ids, { compoundPlans: oldPlans })
+            .find(s => s.slug === section.slug)!.claimRecords[i];
+          const cells = (r: typeof record) => Object.fromEntries(
+            ['claim', 'sourceChecked', 'verdict', 'note'].map(key => [key, r[key as 'claim']]),
+          );
+          expect(cells(archived)).toEqual(cells(old.claimRecords[i]));
+          const now = parseLedger(ledgerPath, read(ledgerPath), ids, currentAuditContext())
+            .find(s => s.slug === section.slug)!.claimRecords[i];
+          expect(now.localBasis?.planId).toBe(`final-seven-data-hardware-${section.slug}-${i + 1}-20260923`);
+          expect(now.outcome).toBe('passing');
+          expect(now.evidenceFailures).toEqual([]);
+        } else if (section.slug !== 'datasets' || i !== 9) expect(record).toEqual(old.claimRecords[i]);
       }
     }
+    for (const ordinal of [3, 5]) {
+      expect(atTransaction.find(s => s.slug === 'data-bottleneck')!.claimRecords[ordinal - 1].outcome).toBe('unresolved');
+      expect(current.find(s => s.slug === 'data-bottleneck')!.claimRecords[ordinal - 1].verdict).toBe('C');
+    }
+    expect(current.find(s => s.slug === 'data-bottleneck')!.claimRecords[5].claim)
+      .toBe(atTransaction.find(s => s.slug === 'data-bottleneck')!.claimRecords[5].claim);
   });
 
   it('appends only four exact native member approvals to the unchanged prefix', () => {
     const path = 'contract/brand-v2-approved-deltas.json';
-    const approvals: ApprovedDelta[] = JSON.parse(read(path)).entries;
+    const approvals = preservedApprovalPacket(checkpoint);
     const prior: ApprovedDelta[] = JSON.parse(before(path)).entries;
-    const added = approvals.slice(prior.length);
+    const atCheckpoint = committedJson<{ entries: ApprovedDelta[] }>(hoursCommit, path).entries;
+    const added = atCheckpoint.slice(prior.length);
     expect(approvals.slice(0, prior.length)).toEqual(prior);
+    expect(atCheckpoint.slice(0, prior.length)).toEqual(prior);
     expect(added).toHaveLength(4);
-    const truth = collectArticleTruthManifests();
+    const truth = readerTruthAt(checkpoint, [articlePath, adjacentPath]);
+    expect(hoursApprovals).toEqual(added);
     const endpoints = [
       ['prose', 'article:data-hardware/data-bottleneck', '432107f45cd127f2c98f89da3a0b0da915621410b957b61e41eda5e2b475ae0f'],
       ['prose', 'article:data-hardware/datasets', '5a1230749a17bbf0ece78558d70f3edc0d4ef319efdc8ea159771894d4bdacf6'],
       ['relationships', 'article:data-hardware/datasets', '8ea748667d9ecc23e4d178a9a1f9dcf5ec22aedf104d3bc16b4f4f4cccddbcaf'],
     ];
     for (const [kind, memberId, oldHash] of endpoints) {
-      const manifest = Object.values(truth).find(m => m.kind === kind)!;
+      const manifest = Object.values(currentApprovalBundle.manifests).find(m => m.kind === kind)!;
+      expect(manifest.members).toEqual(truth.find(m => m.kind === kind)!.members
+        .filter(m => approvalMembers.some(([k, id]) => k === kind && id === m.id)));
       expect(added.find(a => a.manifest === kind && a.memberId === memberId)).toMatchObject({
         oldHash, newHash: manifest.members.find(m => m.id === memberId)!.hash,
       });
     }
     const retired = 'state-site:content/data-hardware/datasets.mdx:not-disclosed:6';
-    expect(valueStateRenderSites().some(s => s.id === retired)).toBe(false);
+    expect(currentApprovalBundle.manifests['value-states'].members.some(s => s.id === retired)).toBe(false);
     expect(added.find(a => a.manifest === 'value-states')).toMatchObject({
       memberId: retired,
       oldHash: 'b968a22d24734d899622a6b9b4eb848ef084ffefd853cb6df81829ca8ed0e5f9',

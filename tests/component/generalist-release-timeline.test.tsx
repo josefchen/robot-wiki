@@ -1,8 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
 import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('GeneralistReleaseTimeline');
 
 describe('GeneralistReleaseTimeline', () => {
   it('renders a selectable node for every release', () => {
@@ -117,6 +120,11 @@ describe('GeneralistReleaseTimeline', () => {
   it('renders an unknown as not disclosed rather than closed and exposes its source scope', async () => {
     const user = userEvent.setup();
     render(<GeneralistReleaseTimeline />);
+    expect(screen.getByRole('img')).toHaveAttribute(
+      'aria-label',
+      expect.stringContaining('dim nodes include unavailable and not-disclosed records'),
+    );
+    expect(screen.getByRole('button', { name: /^Helix$/i })).toHaveAttribute('data-status', 'undisclosed');
     await user.click(screen.getByRole('button', { name: /^not disclosed$/i }));
     const skild = screen.getByRole('button', { name: /^Skild Brain$/i });
     expect(skild).toHaveAttribute('data-status', 'undisclosed');

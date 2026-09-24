@@ -1,8 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
 import { PI_GENERATIONS } from '@/lib/pi-generations';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('PiGenerationTimeline');
 
 describe('PiGenerationTimeline', () => {
   it('renders a selectable node for every generation', () => {

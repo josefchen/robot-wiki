@@ -682,7 +682,7 @@
     "founded": 2016,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
-    "description": "Builds G1/H1 humanoids and quadruped robots; profitable since 2025 with 5,500 humanoids sold that year; priced its Shanghai STAR Market IPO in Aug 2026 at a $9.04B valuation.",
+    "description": "Builds G1/H1 humanoids and quadruped robots; 2025 humanoid shipment volume not verified from an inspected Unitree company body; priced its Shanghai STAR Market IPO in Aug 2026 at a $9.04B valuation.",
     "approach": ["vertical-integration", "self-developed-components", "cost-leadership"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -694,14 +694,14 @@
       "sourceUrl": "https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html"
     },
     "status": "public",
-    "deployments": ["5,500 humanoids sold in 2025", "30,000+ quadrupeds sold", "~33% of global humanoid sales", "DeepSeek strategic investment"],
+    "deployments": ["2025 humanoid shipments, cumulative quadruped shipments, and global sales-share rank not verified from an inspected Unitree company body", "DeepSeek strategic investment"],
     "openSource": [],
     "sources": [
       { "url": "https://restofworld.org/2026/unitree-china-humanoid-robot-shanghai-ipo/", "title": "China robot maker Unitree files for $610 million Shanghai IPO", "asOf": "2026-08-18" },
       { "url": "https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html", "title": "Chinese humanoid robot maker Unitree prices IPO at $9 billion valuation", "asOf": "2026-08-18" },
       { "url": "https://en.wikipedia.org/wiki/Unitree_Robotics", "title": "Unitree Robotics - Wikipedia", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "medium"
   },
   {
     "id": "ubtech-robotics",
@@ -1065,14 +1065,14 @@
       "date": "2026-04-16",
       "valuationUsd": null,
       "leadInvestors": ["Hillhouse Capital", "HSG"],
-      "sourceUrl": "https://olachina.org/tars-ai/"
+      "sourceUrl": "https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector"
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
       { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "TARS Robotics raises $513M seed", "asOf": "2026-08-18" },
-      { "url": "https://olachina.org/tars-ai/", "title": "China's TARS AI Raises $455M in Embodied Intelligence Round (Ola China; $455M Pre-A announced 2026-04-16, Hillhouse + Sequoia China co-led)", "asOf": "2026-08-18" }
+      { "url": "https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector", "title": "TARS Raises $455M Pre-A Round, Setting Record in China's Embodied AI Sector (Pandaily; announced 2026-04-16)", "asOf": "2026-08-25" }
     ],
     "confidence": "medium"
   },

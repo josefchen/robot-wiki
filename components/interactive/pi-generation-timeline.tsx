@@ -1,8 +1,8 @@
 'use client';
 
 import { useId, useRef, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui';
-import { citationLabel, getCitation } from '@/data/citations';
 import {
   PI_GENERATIONS,
   generationsBehind,
@@ -65,7 +65,8 @@ export function PiGenerationTimeline({
 
   const selected: PiGeneration =
     PI_GENERATIONS.find((g) => g.id === selectedId) ?? PI_GENERATIONS[0];
-  const citation = getCitation(selected.citationId);
+  const citationFor = useCitationLookup();
+  const citation = citationFor(selected.citationId);
   const frontier = openWeightsFrontier();
   const behind = generationsBehind();
 
@@ -334,7 +335,7 @@ export function PiGenerationTimeline({
               rel="noopener"
               className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
-              Source: {citationLabel(citation)}
+              Source: {citation.label}
             </a>
           </p>
         )}

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';
@@ -10,6 +10,9 @@ import {
   representationById,
   type CapabilityId,
 } from '@/lib/scene-representation';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('SceneRepresentationLadder');
 
 function selector(id: string) {
   return screen.getByTestId(`scene-select-${id}`);

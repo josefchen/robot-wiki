@@ -3,12 +3,24 @@ import { describe, expect, it } from 'vitest';
 import { GLOSSARY } from '../../data/glossary';
 import { CITATIONS } from '../../data/citations';
 import { compoundPlanDigest, compoundPartDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
+import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integration';
+import { committedText } from '../helpers/editorial-current-context';
 
 const prose = readFileSync('content/data-hardware/evaluation-crisis.mdx', 'utf8');
 const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')));
 const selected = plans.filter((p) => p.articleSlug === 'evaluation-crisis' && p.rowOrdinal >= 2 && p.rowOrdinal <= 7);
 const ids = new Set(CITATIONS.map((c) => c.id));
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');
+const context = currentAuditContext();
+const currentOriginal = parseLedger('audit/data-hardware.md', ledger, ids, context)
+  .find(s => s.slug === 'evaluation-crisis')!.claimRecords[0];
+// Plans appended by the 2026-09-24 imported stack-classical packet; they bind only
+// to ledger rows added after this snapshot, so historical parses exclude them.
+const stackClassicalPacket = new Set([
+  'stack-droid-oxe-20260924', 'stack-lerobot-20260924', 'stack-robomimic-20260924', 'stack-openvla-20260924',
+  'stack-libero-plus-20260924', 'calib-handeye-axxb-20260924', 'calib-hwangbo-actuator-20260924',
+  'ros2-lyrical-release-20260924',]);
+
 const records = (catalog = plans) => parseLedger('audit/data-hardware.md', ledger, ids, { compoundPlans: catalog })
   .find((s) => s.slug === 'evaluation-crisis')!.claimRecords;
 
@@ -18,7 +30,10 @@ describe('evaluation statistics originals 2–7', () => {
     expect(selected.reduce((n, p) => n + p.parts.length, 0)).toBe(23);
     expect(selected.reduce((n, p) => n + p.evidence.length, 0)).toBe(24);
     for (const r of records().slice(1, 7)) expect(r.evidenceFailures).toEqual([]);
-    expect(records()[0].evidenceFailures.length).toBeGreaterThan(0);
+    expect(parseLedger('audit/data-hardware.md', finalSevenBefore('audit/data-hardware.md'), ids, { compoundPlans: plans.filter(p => !stackClassicalPacket.has(p.id)) })
+      .find(s => s.slug === 'evaluation-crisis')!.claimRecords[0].evidenceFailures.length).toBeGreaterThan(0);
+    expect(currentOriginal.localBasis?.planId).toBe('final-seven-data-hardware-evaluation-crisis-1-20260923');
+    expect(currentOriginal.evidenceFailures).toEqual([]);
   });
 
   it('states examples, units and protocol without a universal minimum', () => {
@@ -59,7 +74,12 @@ describe('evaluation statistics originals 2–7', () => {
   it('preserves the article’s date, excluded arithmetic and nine-source union', () => {
     expect(prose).toContain('lastReviewed: "2026-08-17"');
     expect(prose.match(/^  - [a-z][\w-]+$/gm)).toHaveLength(9);
-    expect(prose).toContain('which is 21.5%');
+    expect(finalSevenBefore('content/data-hardware/evaluation-crisis.mdx')).toContain('which is 21.5%');
+    expect(prose).toContain('Choosing p = 0.95 and n = 30 gives 21.5% after rounding to one decimal place');
+    expect(prose).toContain('same probability p of success conditional on all earlier decisions succeeding');
+    expect(committedText('f83b407d5ddc624886d9f9ca5a7b2ca0bb2983e3', 'content/data-hardware/evaluation-crisis.mdx')).toContain('which is 21.5%');
+    expect(prose).toContain('Choosing p = 0.95 and n = 30 gives 21.5% after rounding');
+    expect(prose).not.toContain('which is 21.5%');
     expect(prose).toContain('minPerStepPercent={0} maxPerStepPercent={100}');
     expect(prose).toContain('label="real rollouts" value="1,800"');
   });

@@ -1,0 +1,140 @@
+---
+title: "World Models vs Physics Simulators"
+description: "Learned world models and physics simulators compared for robot training, planning and evaluation, including the hybrid designs that learn residuals or content while retaining explicit dynamics."
+domain: world-models
+slug: world-models-vs-simulators
+order: 8
+status: published
+datePublished: "2026-08-24"
+lastReviewed: "2026-09-24"
+citations:
+  - mujoco-2012
+  - isaac-lab-2025
+  - world-model-survey-2026
+  - robotic-world-model-2025
+  - robogsim-2024
+  - robocasa-2024
+  - robocasa365-2026
+  - simpler-2024
+  - roboworld-2026
+  - llama-3-2024
+  - llama-3-herd-2024
+  - vjepa2-2025
+  - cosmos-predict-2025
+  - cosmos-predict2-perf-2025
+  - cosmos-1-diffusion-14b-card-2025
+  - 3dgs-2023
+seeAlso:
+  - "world-models/model-based-robot-learning"
+  - "world-models/generative-sim"
+  - "rl-sim2real/sim2real-transfer"
+  - "world-models/evaluation"
+---
+import { SimVsModelTable, WorldModelCostTable } from '@/components/mdx/text-tables';
+
+A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned <Term id="world-model">world model</Term> predicts from data. Both are models of what happens under an action; neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate.
+
+Many productive systems combine them. Physics supplies structure and broad counterfactual coverage. Learning supplies appearance, actuator residuals, contacts or task distributions that are expensive to specify.
+
+Try the check below and choose the actuator-residual option that preserves the strongest known structure for a contact-rich training task.
+
+<SelfCheck
+  prompt="You have accurate arm geometry and rough rigid-body physics, but the simulated actuator response differs systematically from hardware. What is the most data-efficient first correction?"
+  options={[
+    {
+      value: 'replace-all',
+      label: 'Replace the entire simulator with an unconstrained video world model',
+      why: 'This discards useful geometry and asks limited robot data to relearn every transition. It also makes forces and constraints harder to inspect.'
+    },
+    {
+      value: 'learn-residual',
+      label: 'Learn an actuator residual while retaining explicit geometry and physics',
+      why: 'This targets the measured mismatch and keeps known structure intact. The residual can be validated directly against held-out hardware trajectories.'
+    },
+    {
+      value: 'random-textures',
+      label: 'Randomize only the rendered textures',
+      why: 'Texture randomization can improve visual transfer, but it does not correct a systematic actuator-dynamics error.'
+    }
+  ]}
+  answer="learn-residual"
+  takeaway="Keep trustworthy structure explicit and spend learned capacity on the residual you can measure."
+/>
+
+## They solve different specification problems
+
+MuJoCo models articulated bodies, constraints and contact with explicit equations and parameters <Cite id="mujoco-2012" />. Isaac Lab builds a robot-learning workflow around GPU-accelerated simulation, sensors, task definitions and large batches of environments <Cite id="isaac-lab-2025" />. These systems are strongest when the relevant objects and rules can be represented and their parameters can be estimated.
+
+A learned world model avoids writing every rule. It estimates transitions from observations and actions, often in a latent or video space. This is attractive for complex appearance, deformable interaction and real environments whose full state is unavailable. It also replaces parameter error with dataset and generalization error.
+
+The current survey of world models for robot learning treats learned simulators as one role among planning, policy learning, evaluation and data generation <Cite id="world-model-survey-2026" />. That role should not erase the distinction between a simulator whose state variables are explicit and a generator whose internal state must be inferred through outputs.
+
+## Comparison by engineering property
+
+<SimVsModelTable className="my-6" />
+
+The table is not a winner. It identifies where each system makes uncertainty visible.
+
+## What each representation costs to run
+
+A world model's usefulness is bounded by what it costs to query. The table below compares four deployed forms of world knowledge on a single machine: a text LLM as a familiar decode reference, an action-conditioned latent world model, an autoregressive or diffusion video world model, and an explicit 3D scene. The figures come from the cited papers and vendor documentation; the FLOP row is a derived order-of-magnitude estimate, not a measurement.
+
+<WorldModelCostTable className="my-6" />
+
+The LLM column anchors the scale. An 8B dense decoder such as Llama 3 8B stores about 16 GB of weights in fp16 (8B parameters at two bytes each); at this scale, decoding is typically dominated by reading those weights from memory rather than by compute <Cite id="llama-3-2024" />. The Llama 3 paper gives the 8B model 32 layers and 8 key-value heads under grouped-query attention <Cite id="llama-3-herd-2024" />. In fp16 that works out to a KV cache of about 128 KB per token (32 layers x 8 key-value heads x 128-dimensional keys and values at two bytes each, from the paper's architecture table), so memory grows linearly with context length.
+
+The latent column is where planning gets cheap enough to run on a robot. V-JEPA 2-AC pairs a frozen 1B-parameter ViT-g video encoder with a 300M-parameter block-causal predictor, so the whole planning stack is about 1.3B parameters, a few GB in fp16 <Cite id="vjepa2-2025" />. Its planner runs the cross-entropy method with 800 samples over 10 refinement iterations and produces an action in about 16 seconds, while a Cosmos video-generation planner took about 4 minutes per action with only 80 samples. The paper reports the two times, not a ratio; they work out to roughly 15x <Cite id="vjepa2-2025" />. Cheap per step does not mean flat in horizon. The predictor is block-causal: each patch feature attends to the patch features, actions and end-effector states of the current and earlier steps, so a longer rollout carries a longer context, though of 16 x 16 latent patch maps rather than pixels. Both planners in that comparison looked one step ahead <Cite id="vjepa2-2025" />.
+
+The generative-video column is the expensive one. Cosmos Predict spans autoregressive models at 4B to 13B and diffusion models at 7B to 14B over continuous and discrete video tokenizers <Cite id="cosmos-predict-2025" />. NVIDIA's own measurements put Predict2's 14B Video2World variant at 56 GB of VRAM and roughly 85 seconds on a GB200 to over 30 minutes on a DGX Spark per clip at 480p and 16 fps, with 720p slower still <Cite id="cosmos-predict2-perf-2025" />; the Predict1 14B Video2World card lists over 80 GB of GPU memory for a five-second 1280x704 clip in its configuration that still offloads the prompt upsampler <Cite id="cosmos-1-diffusion-14b-card-2025" />. These are offline generators rather than 24 fps runtimes, and a policy that calls one per action step inherits that latency.
+
+The explicit-3D column inverts the trade. 3D Gaussian Splatting stores the scene as rasterizable primitives, so a query is a raster pass: no weights, no tokens, and tens of milliseconds or better per frame on ordinary GPUs <Cite id="3dgs-2023" />. Memory moves to the asset itself: the paper reports 270 to 734 MB per scene for its tested scenes, which use 1 to 5 million Gaussians. The limitation is semantic rather than computational: a splat answers what a view looks like, not what an action does, which is why the real-to-sim-to-real pattern below attaches explicit physics.
+
+Two rows carry the design lesson. Batch behavior is the tell for robot use: LLM decode batches KV-bound streams, CEM planning is built to be batched, video diffusion usually runs one clip at a time, and rasterization makes extra cameras nearly free, which is why splats are attractive for evaluation and sensor simulation. The horizon row is a difference of degree: the latent predictor's context also grows with each step, by one 256-token patch map at a time, while token generators pay linearly in both KV and steps. For a training loop that asks the model for thousands of imagined rollouts, as in the [model-based RL guide](/world-models/model-based-robot-learning), those two rows decide what is affordable.
+
+## Where physics remains difficult to replace
+
+Planning queries actions the dataset did not take. A physics engine can usually integrate those actions as long as its modeled regime remains valid. A learned model is being asked to extrapolate. A planner can exploit that extrapolation error by selecting actions whose predicted reward is high only because the model is wrong.
+
+Safety constraints also favor explicit state. Joint limits, collision geometry, force bounds and signed distances can be checked directly. A video prediction may imply a collision without representing the quantity a safety monitor needs.
+
+Throughput is workload-dependent. GPU physics can advance thousands of low-dimensional environments in parallel. A large video diffusion model may spend several denoising passes on one rollout. Learned latent dynamics can be faster than either. “Neural” does not determine speed; state size, horizon and sampling procedure do.
+
+## Where learning has the advantage
+
+Rendering a real workcell with every texture, reflection, cable and background object is expensive. A learned visual model can absorb that distribution from video. Contacts with deformable objects, unmodeled actuator dynamics and wear can also resist clean parameterization.
+
+Robotic World Model is an example of pushing the learned system toward a neural simulator for policy optimization <Cite id="robotic-world-model-2025" />. RoboWorld pushes toward policy evaluation, using a neural simulator plus task-progress scoring and validating rankings against real robot results <Cite id="roboworld-2026" />. Their usefulness depends on downstream agreement, not on replacing a physics engine in name.
+
+## Three hybrid patterns
+
+### Learn appearance, keep dynamics
+
+Real-to-sim systems reconstruct a scene's visual geometry while retaining a conventional physics engine for motion and contact. RoboGSim uses Gaussian-splatting-based scene reconstruction in a real-to-sim-to-real pipeline <Cite id="robogsim-2024" />. The learned renderer makes observations resemble the workcell; it does not by itself supply action-conditioned physics.
+
+This pattern is strong for visual policy transfer when rigid-body mechanics are adequate. It is weak when the missing effect is friction, deformation or tool compliance.
+
+### Generate content, keep the engine
+
+Generative simulation uses models to author objects, layouts, tasks and assets inside a physics simulator. RoboCasa supplies large-scale everyday manipulation environments <Cite id="robocasa-2024" />, and RoboCasa365 expands the framework for training and benchmarking generalist robots <Cite id="robocasa365-2026" />.
+
+The generator solves a coverage problem while the engine still solves transitions. This avoids asking a video model to maintain contact causality over long rollouts.
+
+### Learn residual dynamics
+
+Start from explicit dynamics and learn the difference between simulated and measured transitions. Residuals can target actuator delay, torque response, contact impulses or observation noise. This is the most conservative hybrid because the learned component has a named error to fit.
+
+Residual models still need support checks. A correction learned around nominal walking may not extrapolate to a fall. The explicit base model provides a fallback, not a guarantee.
+
+## Evaluation must use the same real anchor
+
+Both simulator types can be wrong in correlated ways. A policy may exploit contact softness in physics or visual shortcuts in a world model. Evaluate the environment by whether policies and interventions transfer.
+
+SIMPLER formalizes this for conventional simulation: build matched environments and measure correlation between simulated and real policy performance <Cite id="simpler-2024" />. Apply the same protocol to learned worlds. Include several policy families, physical perturbations and held-out environments. The [world-model evaluation guide](/world-models/evaluation) details the ranking and calibration tests.
+
+Do not compare a physics engine on task success with a world model on frame similarity. Put both behind the same decision: select a policy, select an action sequence or generate training experience, then measure the real consequence.
+
+## A selection rule
+
+Use explicit physics when the state and mechanics can be specified, broad counterfactuals matter, constraints must be inspected, or massive parallel stepping is the main value. Use a learned world model when real observations contain structure the simulator cannot economically author, available trajectories cover the decisions of interest, and downstream validation can anchor model error.
+
+Use a hybrid when the mismatch is localized. That is the default worth defending: geometry, constraints and reliable mechanics stay explicit; appearance, residual dynamics and task distributions are learned where data has an advantage. The result is not philosophically pure. It is easier to validate, which is the property robot learning needs.

@@ -11,7 +11,7 @@ const ids = new Set(CITATIONS.map(c => c.id));
 const read = (file: string) => JSON.parse(readFileSync(file, 'utf8'));
 const localBasis = loadLocalBasisContext(root, publishedModules().map(m => `/${m.domain}/${m.slug}/`));
 const correctedDispositions = { root,
-  records: parseCorrectedDispositions(read('audit/evidence/industrial-closure-20260923/corrections.json')) };
+  records: parseCorrectedDispositions(read('audit/evidence/industrial-release-20260924/corrections.json')) };
 const context = { localBasis, correctedDispositions, compoundPlans: read('audit/compound-evidence.json') };
 const rows = parseLedger('audit/data-hardware.md', readFileSync('audit/data-hardware.md', 'utf8'), ids, context)
   .find(s => s.slug === 'industrial-deployment')!.claimRecords;

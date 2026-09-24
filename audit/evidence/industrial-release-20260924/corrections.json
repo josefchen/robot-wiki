@@ -1,0 +1,518 @@
+[
+ {
+  "id": "industrial-correction-37-20260923",
+  "originalId": "audit/data-hardware.md:industrial-deployment:37",
+  "rowOrdinal": 37,
+  "kind": "removed-assertion",
+  "originalCells": {
+   "claim": "\"The seven-row deployment dashboard at The Reliability Gap\"",
+   "sourceChecked": "Int: lib/deployment-reality.ts DEPLOYMENT_ROWS holds six rows (agility-digit, figure-bmw, unitree-2025, tesla-optimus, optimus-50k-claim, figure-8hr-shift)",
+   "verdict": "C (now \"six-row\"; a stale comment in tests/e2e/industrial-deployment.spec.ts still says seven, and tests are out of my edit scope)",
+   "note": ""
+  },
+  "originalTupleDigest": "8e990de370bbadea0b87d00864629d22a22c6814254451dd46ea281ab199fb18",
+  "snapshot": {
+   "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+   "bytes": 63957,
+   "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+  },
+  "currentCells": {
+   "claim": "The unsupported-as-evidence numbered dashboard assertion is withdrawn; the unnumbered link to the existing deployment dashboard remains.",
+   "sourceChecked": "Finite correction record; actual desktop/mobile mounted glossary, reference, field and cross-link checks with complete original history.",
+   "verdict": "C",
+   "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Correction does not certify the superseded assertion. Retained retrieval times are not today’s review times. No independent acceptance."
+  },
+  "currentTupleDigest": "0f26d174aaa43feb7948b8aff7a1cc181a347834a84110e42bd14fce24e778ac",
+  "article": {
+   "path": "content/data-hardware/industrial-deployment.mdx",
+   "bytes": 19397,
+   "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+  },
+  "dependencies": [
+   {
+    "path": "data/glossary.ts",
+    "bytes": 83261,
+    "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+   },
+   {
+    "path": "data/citations.ts",
+    "bytes": 305669,
+    "sha256": "de95fbe2082b82670af82dd66621fc9dea3e249b5353f66907bb0b0c42bb1932"
+   },
+   {
+    "path": "data/schemas/citation.ts",
+    "bytes": 2232,
+    "sha256": "b8c4ec86f5554ef53a8cbc798d5a9eecc1f49b8d25e7aefa7903c47c77818194"
+   },
+   {
+    "path": "components/article/references.tsx",
+    "bytes": 4091,
+    "sha256": "17297ca5f25d6c7d2c2273fef8510767454a617fcb01bf6a02d0ee17b5235223"
+   },
+   {
+    "path": "components/ui/term.tsx",
+    "bytes": 7417,
+    "sha256": "6af4846e55b78003e67a1928d0c7cbcffefc0c11df6d650a2197b0ed6da8d09c"
+   },
+   {
+    "path": "components/ui/cite.tsx",
+    "bytes": 10428,
+    "sha256": "adcd78810e82e9284fb149a008616170d6e9ae9468629668d2ea9d859eaad055"
+   },
+   {
+    "path": "lib/deployment-economics.ts",
+    "bytes": 7602,
+    "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+   },
+   {
+    "path": "components/interactive/deployment-economics.tsx",
+    "bytes": 9866,
+    "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+   },
+   {
+    "path": "audit/evidence/industrial-closure-20260923/support.ts",
+    "bytes": 2740,
+    "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+   },
+   {
+    "path": "tests/e2e/industrial-citation-refresh.spec.ts",
+    "bytes": 7786,
+    "sha256": "42f70d6f18cbc8e975655be3f3a26b19392bb775e03aaa834ce4c59e6a632893"
+   },
+   {
+    "path": "audit/evidence/industrial-release-20260924/support.ts",
+    "bytes": 752,
+    "sha256": "b0355db1b753b3ed85b3a406126d91600a51ca53eab9e8c38de3684148f74666"
+   }
+  ],
+  "requiredPresent": [
+   "[The Reliability Gap](/frontier/reliability-gap)"
+  ],
+  "requiredAbsent": [
+   "six-row deployment dashboard"
+  ],
+  "execution": {
+   "path": "audit/evidence/industrial-release-20260924/browser-run.json",
+   "bytes": 23027,
+   "sha256": "bb92f063e73b817ea89f6704d62b1691482387f97efc062c7cd3151abd3661f6"
+  },
+  "children": [],
+  "review": {
+   "reviewedBy": "Robot Wiki release steward, not independent Mission acceptance",
+   "rationale": "Fresh desktop/mobile observation after the exact Kroger citation comment correction. The article and citation fields are unchanged; all glossary, bibliography, authored-input and dashboard checks ran again. Both industrial-closure-20260923 and industrial-release-20260923 remain immutable. Rebind the complete P4 child conjunction without claiming independent Mission acceptance.",
+   "observedAt": "2026-09-24T04:17:15.709Z",
+   "inputDigest": "6954a158a120be1568a1ed9b6b2f61e0654e46876745359fd75f871ae58c5f05"
+  }
+ },
+ {
+  "id": "industrial-correction-47-20260923",
+  "originalId": "audit/data-hardware.md:industrial-deployment:47",
+  "rowOrdinal": 47,
+  "kind": "withdrawn-audit-certification",
+  "originalCells": {
+   "claim": "Every `<Term>` id used resolves in the glossary",
+   "sourceChecked": "Int: takt-time, cycle-time, mean-time-between-failures, systems-integrator, brownfield-deployment, automated-storage-and-retrieval, autonomous-mobile-robot, goods-to-person, payback-period, intervention-rate all present in data/glossary.ts; `npm run validate:content` passes (47 modules, 412 citations, 119 terms)",
+   "verdict": "V",
+   "note": ""
+  },
+  "originalTupleDigest": "3c69b7f092c1a02d8ec8d78e6ef7c574b016708eccf88d80d3c03703e3f2475b",
+  "snapshot": {
+   "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+   "bytes": 63957,
+   "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+  },
+  "currentCells": {
+   "claim": "Withdrawn historical blanket audit certification: the old glossary-resolution and historical validate:content pass statement is not a current sourced article claim. Current glossary/link checks remain mandatory and are not certified by this withdrawal.",
+   "sourceChecked": "Finite correction record; actual desktop/mobile mounted glossary, reference, field and cross-link checks with complete original history.",
+   "verdict": "Cut (historical ledger certification withdrawn)",
+   "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. No article-removal span is claimed; current glossary observations are separate from the withdrawn historical audit assertion. Retained retrieval times are not today’s review times. No independent acceptance."
+  },
+  "currentTupleDigest": "4bfcc59b7eaf2823df127de29d47dd540ebd54744723207f03c841adb32c9495",
+  "article": {
+   "path": "content/data-hardware/industrial-deployment.mdx",
+   "bytes": 19397,
+   "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+  },
+  "dependencies": [
+   {
+    "path": "data/glossary.ts",
+    "bytes": 83261,
+    "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+   },
+   {
+    "path": "data/citations.ts",
+    "bytes": 305669,
+    "sha256": "de95fbe2082b82670af82dd66621fc9dea3e249b5353f66907bb0b0c42bb1932"
+   },
+   {
+    "path": "data/schemas/citation.ts",
+    "bytes": 2232,
+    "sha256": "b8c4ec86f5554ef53a8cbc798d5a9eecc1f49b8d25e7aefa7903c47c77818194"
+   },
+   {
+    "path": "components/article/references.tsx",
+    "bytes": 4091,
+    "sha256": "17297ca5f25d6c7d2c2273fef8510767454a617fcb01bf6a02d0ee17b5235223"
+   },
+   {
+    "path": "components/ui/term.tsx",
+    "bytes": 7417,
+    "sha256": "6af4846e55b78003e67a1928d0c7cbcffefc0c11df6d650a2197b0ed6da8d09c"
+   },
+   {
+    "path": "components/ui/cite.tsx",
+    "bytes": 10428,
+    "sha256": "adcd78810e82e9284fb149a008616170d6e9ae9468629668d2ea9d859eaad055"
+   },
+   {
+    "path": "lib/deployment-economics.ts",
+    "bytes": 7602,
+    "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+   },
+   {
+    "path": "components/interactive/deployment-economics.tsx",
+    "bytes": 9866,
+    "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+   },
+   {
+    "path": "audit/evidence/industrial-closure-20260923/support.ts",
+    "bytes": 2740,
+    "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+   },
+   {
+    "path": "tests/e2e/industrial-citation-refresh.spec.ts",
+    "bytes": 7786,
+    "sha256": "42f70d6f18cbc8e975655be3f3a26b19392bb775e03aaa834ce4c59e6a632893"
+   },
+   {
+    "path": "audit/evidence/industrial-release-20260924/support.ts",
+    "bytes": 752,
+    "sha256": "b0355db1b753b3ed85b3a406126d91600a51ca53eab9e8c38de3684148f74666"
+   }
+  ],
+  "requiredPresent": [],
+  "requiredAbsent": [],
+  "execution": {
+   "path": "audit/evidence/industrial-release-20260924/browser-run.json",
+   "bytes": 23027,
+   "sha256": "bb92f063e73b817ea89f6704d62b1691482387f97efc062c7cd3151abd3661f6"
+  },
+  "children": [],
+  "review": {
+   "reviewedBy": "Robot Wiki release steward, not independent Mission acceptance",
+   "rationale": "Fresh desktop/mobile observation after the exact Kroger citation comment correction. The article and citation fields are unchanged; all glossary, bibliography, authored-input and dashboard checks ran again. Both industrial-closure-20260923 and industrial-release-20260923 remain immutable. Rebind the complete P4 child conjunction without claiming independent Mission acceptance.",
+   "observedAt": "2026-09-24T04:17:15.709Z",
+   "inputDigest": "05f8522756beca940aedb61064c48e2aac54ea5a7fff2c70866985f742edebb1"
+  }
+ },
+ {
+  "id": "industrial-correction-48-20260923",
+  "originalId": "audit/data-hardware.md:industrial-deployment:48",
+  "rowOrdinal": 48,
+  "kind": "p4-conjunction",
+  "originalCells": {
+   "claim": "P4 absence semantics: no absent value is rendered as a guessed, rounded or inferred stand-in",
+   "sourceChecked": "Int: the article carries no `not disclosed` or `n/a` field renders; every figure in prose and in the four Stat cards is a published number from a cited source, and the calculator's unpublished inputs are labelled assumptions under their own sliders rather than presented as measurements",
+   "verdict": "V",
+   "note": ""
+  },
+  "originalTupleDigest": "e41e2b17f1328b2ac08b015de0e6bee424122dde1d2afc8282df17ae3e0ac3eb",
+  "snapshot": {
+   "path": "audit/evidence/economics-local-20260923/original-data-hardware.md",
+   "bytes": 63957,
+   "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e"
+  },
+  "currentCells": {
+   "claim": "External figures retain their source-specific scope; calculator inputs and worked examples are explicitly authored, not stand-ins for unknown measurements. Any applicable unpublished real-world field must retain its canonical not disclosed disposition; n/a requires genuine inapplicability. The two undated LEI bibliographic entries use n.d. and their actual 2026-09-22 access date.",
+   "sourceChecked": "Finite correction record; actual desktop/mobile mounted glossary, reference, field and cross-link checks with complete original history.",
+   "verdict": "C",
+   "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Every other industrial original is a required AND child, with actual registry/render comparison; not certification by calculator proof alone. Retained retrieval times are not today’s review times. No independent acceptance."
+  },
+  "currentTupleDigest": "8d7e51aa523a44e7f3d3f3ef8b9f55b042a28cfb4b58089e2e363e5318e64369",
+  "article": {
+   "path": "content/data-hardware/industrial-deployment.mdx",
+   "bytes": 19397,
+   "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+  },
+  "dependencies": [
+   {
+    "path": "data/glossary.ts",
+    "bytes": 83261,
+    "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+   },
+   {
+    "path": "data/citations.ts",
+    "bytes": 305669,
+    "sha256": "de95fbe2082b82670af82dd66621fc9dea3e249b5353f66907bb0b0c42bb1932"
+   },
+   {
+    "path": "data/schemas/citation.ts",
+    "bytes": 2232,
+    "sha256": "b8c4ec86f5554ef53a8cbc798d5a9eecc1f49b8d25e7aefa7903c47c77818194"
+   },
+   {
+    "path": "components/article/references.tsx",
+    "bytes": 4091,
+    "sha256": "17297ca5f25d6c7d2c2273fef8510767454a617fcb01bf6a02d0ee17b5235223"
+   },
+   {
+    "path": "components/ui/term.tsx",
+    "bytes": 7417,
+    "sha256": "6af4846e55b78003e67a1928d0c7cbcffefc0c11df6d650a2197b0ed6da8d09c"
+   },
+   {
+    "path": "components/ui/cite.tsx",
+    "bytes": 10428,
+    "sha256": "adcd78810e82e9284fb149a008616170d6e9ae9468629668d2ea9d859eaad055"
+   },
+   {
+    "path": "lib/deployment-economics.ts",
+    "bytes": 7602,
+    "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+   },
+   {
+    "path": "components/interactive/deployment-economics.tsx",
+    "bytes": 9866,
+    "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+   },
+   {
+    "path": "audit/evidence/industrial-closure-20260923/support.ts",
+    "bytes": 2740,
+    "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
+   },
+   {
+    "path": "tests/e2e/industrial-citation-refresh.spec.ts",
+    "bytes": 7786,
+    "sha256": "42f70d6f18cbc8e975655be3f3a26b19392bb775e03aaa834ce4c59e6a632893"
+   },
+   {
+    "path": "audit/evidence/industrial-release-20260924/support.ts",
+    "bytes": 752,
+    "sha256": "b0355db1b753b3ed85b3a406126d91600a51ca53eab9e8c38de3684148f74666"
+   }
+  ],
+  "requiredPresent": [
+   "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+   "not a measured intervention rate",
+   "no published success rate"
+  ],
+  "requiredAbsent": [],
+  "execution": {
+   "path": "audit/evidence/industrial-release-20260924/browser-run.json",
+   "bytes": 23027,
+   "sha256": "bb92f063e73b817ea89f6704d62b1691482387f97efc062c7cd3151abd3661f6"
+  },
+  "children": [
+   {
+    "rowOrdinal": 1,
+    "digest": "427b5b4af901053496a7c1a0183a0a8963be314bee46094e788902fcfb1cd5e2"
+   },
+   {
+    "rowOrdinal": 2,
+    "digest": "208173e9db3ae5810cb94850ee3e49aaf8e6ba424df97fb0923eb9da17186a61"
+   },
+   {
+    "rowOrdinal": 3,
+    "digest": "18e084e4c2f20401111233d9d2379d9591600aaead0385465e70b6bc9a37f177"
+   },
+   {
+    "rowOrdinal": 4,
+    "digest": "aad3667ff109e65968a1dadb6a5bece81a57e2cdc767c5dc550a8b98007fb18c"
+   },
+   {
+    "rowOrdinal": 5,
+    "digest": "ab61402ae0ef7c6d667f838d57073f45543df28e537bc6cf92b3bb64fb97f88f"
+   },
+   {
+    "rowOrdinal": 6,
+    "digest": "7e5e89fae14a8e2b9cd40600fc9ded6e647f3a74ecea1263891f7b190eeede91"
+   },
+   {
+    "rowOrdinal": 7,
+    "digest": "1b810342d62da8d0a0f060d69f1e61d55b8d4254edb09d414d68ba30282d247a"
+   },
+   {
+    "rowOrdinal": 8,
+    "digest": "15ca0c677e25834eb090fe95beff6a6e76681cba55495ca2a5da3c697850ec22"
+   },
+   {
+    "rowOrdinal": 9,
+    "digest": "7b824233370e7a8aa9bbee7719cecc0771eec60118e5074041d4a7b30563243f"
+   },
+   {
+    "rowOrdinal": 10,
+    "digest": "cf3a07d5750ff79ff672feb5affc0434b7c9db21de9ab4b831a27cd5047c8d58"
+   },
+   {
+    "rowOrdinal": 11,
+    "digest": "91a63228e16b3950162c54d290dad4024488bf8cf222779d49ed27b033d15895"
+   },
+   {
+    "rowOrdinal": 12,
+    "digest": "a307ff95ff3e73d7f1e8678381b1c40b65eae54cfc224d605139e79b6b85a54b"
+   },
+   {
+    "rowOrdinal": 13,
+    "digest": "99a120572ac95a77c36ff7deba7c8cd0ff42b6e70636b6406fb93218a1d4d109"
+   },
+   {
+    "rowOrdinal": 14,
+    "digest": "698ad53f87ee900b6cc9cbf9de717f327703275bd05d71e32e6477d281574562"
+   },
+   {
+    "rowOrdinal": 15,
+    "digest": "51309d93bf65d728471810294b9f47910a0af6e378b11640bd855de6c28855a2"
+   },
+   {
+    "rowOrdinal": 16,
+    "digest": "ef259aeb96c09024616071a058b2ffd954b770a2d7fcb32c5b6a078597d78bc7"
+   },
+   {
+    "rowOrdinal": 17,
+    "digest": "a33c5df387c1bc3f78891136db1a39eee1ced47dd2f39b9d3f37b62521c28abb"
+   },
+   {
+    "rowOrdinal": 18,
+    "digest": "ff9b67d30336462d9aa9e6d6918cf033be351980825ea3c661716767b6cdf961"
+   },
+   {
+    "rowOrdinal": 19,
+    "digest": "bcb54ceb13b7f2b89e5ae16e267d364cab0b72817f1e689723a2de0be9c8f154"
+   },
+   {
+    "rowOrdinal": 20,
+    "digest": "26b2dfb14228b4919281e7d015e3cfe8ea814e1addcb8dd94c149fca88afb087"
+   },
+   {
+    "rowOrdinal": 21,
+    "digest": "620f18982843c4d3ef49123681890f03d48c3cbcc89b90409667c51abd394a49"
+   },
+   {
+    "rowOrdinal": 22,
+    "digest": "415302fe95c212cd2f8ee8dd52b30b5aa69406ec352713b8680e694d86e8c949"
+   },
+   {
+    "rowOrdinal": 23,
+    "digest": "287de31af588c63f8a007bf10ad448cc42ba43b372a738902a1acafb22545623"
+   },
+   {
+    "rowOrdinal": 24,
+    "digest": "2c8be5aae8769733be42ca59b7d5eb8797eb1ce720ce03687a00ecced01e711c"
+   },
+   {
+    "rowOrdinal": 25,
+    "digest": "3d008044c34aecbada46abf2c3f0be58dca5f630984e8463d95b257dd626f543"
+   },
+   {
+    "rowOrdinal": 26,
+    "digest": "d1b96caa7e6e6202c7b5b5f65ca9f5fc676e6c9c643c55c10e975cb7e1a0bac1"
+   },
+   {
+    "rowOrdinal": 27,
+    "digest": "adcb6146557df84ab14c652d1d533fc35938bf9eaf13deae3a8680258f58c068"
+   },
+   {
+    "rowOrdinal": 28,
+    "digest": "5763c3bff8db42401ad6157cb92c919ad1348b5790ccc8bfd4d1193c9423f6df"
+   },
+   {
+    "rowOrdinal": 29,
+    "digest": "17b27542fd0117f4064f25529e907009a5cd660efc32168953c24f53213f04f1"
+   },
+   {
+    "rowOrdinal": 30,
+    "digest": "7f0796dd5da7012a60323ef524964480b17ef7a7e88051d85e8f7c3c34de6952"
+   },
+   {
+    "rowOrdinal": 31,
+    "digest": "f8330578dea4739a5aac8e41ad42e2808b17c374e68c65a4c49b647db79dc870"
+   },
+   {
+    "rowOrdinal": 32,
+    "digest": "057e7f286fde274ca1ff34ac55ac4274b70222f02bb5fdec9db04251a8790acc"
+   },
+   {
+    "rowOrdinal": 33,
+    "digest": "86266cfa5aed57ca0d343afb5e37cfc699a5663d9c607668a2318a8a6d3bb30b"
+   },
+   {
+    "rowOrdinal": 34,
+    "digest": "b453ec54031f09ea6c3bef5956e2e319229253dfc6eb9ccf6c0337c6af84efbf"
+   },
+   {
+    "rowOrdinal": 35,
+    "digest": "ce17ebfdb33e49e5337a7d72031a8d025de30c926259749ff1e6261bce40f976"
+   },
+   {
+    "rowOrdinal": 36,
+    "digest": "7338942a7aad8bc4b8754ed917a26bfc6261cc731e0eef29cc42ff0ce4e28713"
+   },
+   {
+    "rowOrdinal": 37,
+    "digest": "0e9211ae62b7bc9f1cc587a0f55e47e8dde9cf22b55c826fbc6455c274aa1238"
+   },
+   {
+    "rowOrdinal": 38,
+    "digest": "38c5a19a058eda74188e323e618fb0fc1f93c13ee9a4192188e5bae3a79ad60e"
+   },
+   {
+    "rowOrdinal": 39,
+    "digest": "07d3e9f6fdb0b88365b7ef758a51fe218be48649d3c38b0963ea56227ff643f2"
+   },
+   {
+    "rowOrdinal": 40,
+    "digest": "e038fe1c2a29eb6239fb5ff4cf94309ad5913cc5358723dd6458bd54a64abe6e"
+   },
+   {
+    "rowOrdinal": 41,
+    "digest": "bd99794489119aec43da5f87bb04e94517d63d5214df919b05e985535375ff0f"
+   },
+   {
+    "rowOrdinal": 42,
+    "digest": "3141c316ee2c46c8e3282cd365ba08a96b8ba2ab8ab996900b9981d5f1bc5df8"
+   },
+   {
+    "rowOrdinal": 43,
+    "digest": "a5e591e722fe87baa209cba6ab1f90d185b2a0f7a3d92fcfdcc9fbfe5d7b5073"
+   },
+   {
+    "rowOrdinal": 44,
+    "digest": "99ebf0d973023e299966a0f33a0fd872041f261741ce73fe39258827bbd268c0"
+   },
+   {
+    "rowOrdinal": 45,
+    "digest": "3cb032b89d028da061b42613f0503c933e8fea6f3193ef329cbc4565dcda73b5"
+   },
+   {
+    "rowOrdinal": 46,
+    "digest": "cc02a207430ee773801b46eaef6c11620d001b5832b764699615c869e2542355"
+   },
+   {
+    "rowOrdinal": 47,
+    "digest": "84c93de75454371774c8e456e490166e5e048b7ea1bc14efcb9e88bb7fa18175"
+   },
+   {
+    "rowOrdinal": 49,
+    "digest": "c3dc0944a3f1ab16a0a2f1bf8a445eeacabc47ef73b34d5c62882d6659ab7eb9"
+   },
+   {
+    "rowOrdinal": 50,
+    "digest": "774f86e41b7543f177b2bc24175eacf0b9fd24140193ffbf5a34047a18f1f1b1"
+   },
+   {
+    "rowOrdinal": 51,
+    "digest": "43dc9014d421a09397017e3343505440f254d984a49d32a82b1a662db5280fd6"
+   },
+   {
+    "rowOrdinal": 52,
+    "digest": "21f40dd304432dfee001dfb8209e0864b6dd4d51e14fb3817e3875c3f7040739"
+   }
+  ],
+  "review": {
+   "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-techwithdraw-20260924",
+   "rationale": "Technology.org withdrawal rebind 2026-09-24: industrial-deployment rows 5-8 were cut/corrected to inspected first-party sources (audit/evidence/technology-withdrawal-20260924/), so their child digests are rebound to the current parsed rows; the prior complete record is preserved verbatim in prior-corrections-industrial-release.json. Original cells, snapshot, currentCells, dependencies, execution receipt and the Kroger changed-children review are unchanged; no independent Mission acceptance is claimed.",
+   "observedAt": "2026-09-24T09:10:49.143Z",
+   "inputDigest": "821034d84abc6283146f9052e07efb7ea67d6da2280dd30611838b29f5129d20"
+  }
+ }
+]

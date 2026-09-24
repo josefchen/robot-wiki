@@ -9,6 +9,7 @@ import {
 } from '../../lib/audit-local-basis';
 import { parseCorrectedDispositions } from '../../lib/audit-corrected-disposition';
 import { buildRrt, edgesUpTo, RRT_SCENE } from '../../lib/rrt';
+import { committedSource } from '../helpers/continuation-integration';
 
 const root = process.cwd();
 const read = (path: string) => readFileSync(`${root}/${path}`, 'utf8');
@@ -20,7 +21,7 @@ const inputs = { handEyeDeg: .5, depthPct: 2, poseMm: 3, workingDistanceM: .5, t
 
 describe('classical closure recipes and reader corrections', () => {
   it('registers only the seven additional authored obligations', () => {
-    expect(Object.keys(LOCAL_BASIS_REQUIRED_TARGETS)).toHaveLength(21);
+    expect(Object.keys(LOCAL_BASIS_REQUIRED_TARGETS).filter(id => id.startsWith('audit/classical.md:'))).toHaveLength(7);
     for (const [slug, ordinals] of Object.entries(selected)) {
       for (const ordinal of ordinals) {
         expect(Object.hasOwn(LOCAL_BASIS_REQUIRED_TARGETS, `audit/classical.md:${slug}:${ordinal}`))
@@ -122,7 +123,8 @@ describe('classical closure native evidence and preservation', () => {
   const context = () => ({
     localBasis: loadLocalBasisContext(root, publishedModules().map(m => `/${m.domain}/${m.slug}/`)),
     correctedDispositions: { root, records: parseCorrectedDispositions([
-      ...json('audit/evidence/industrial-closure-20260923/corrections.json'), ...json(`${evidence}/corrections.json`),
+      ...json('audit/evidence/industrial-release-20260924/corrections.json'),
+      ...json('audit/evidence/residual-release-20260924/corrections.json'),
     ]) },
     compoundPlans: json('audit/compound-evidence.json'),
     articleCitations: { kinematics: [
@@ -141,13 +143,53 @@ describe('classical closure native evidence and preservation', () => {
       }
     }
     const before = parseLedger('audit/classical.md', read(`${evidence}/classical-before.md`));
-    expect(sections.map(s => [s.slug, s.claimRows])).toEqual(before.map(s => [s.slug, s.claimRows]));
+    // The stack-classical packet appends calibration and ros2-for-ml-engineers
+    // sections after the closure snapshot; every closure-time section is unchanged.
+    expect(sections.slice(0, before.length).map(s => [s.slug, s.claimRows])).toEqual(before.map(s => [s.slug, s.claimRows]));
+    expect(sections.slice(before.length).map(s => [s.slug, s.claimRows]))
+      .toEqual([['calibration', 8], ['ros2-for-ml-engineers', 7]]);
     const all = ['classical', 'manipulation', 'rl-sim2real', 'world-models', 'data-hardware', 'frontier', 'adjacent'];
-    expect(all.flatMap(d => parseLedger(`audit/${d}.md`, read(`audit/${d}.md`))).reduce((n, s) => n + s.claimRows, 0)).toBe(994);
+    const identities = (source: (path: string) => string) => all.flatMap((d) =>
+      parseLedger(`audit/${d}.md`, source(`audit/${d}.md`)).flatMap((section) =>
+        Array.from({ length: section.claimRows }, (_, index) => `${d}:${section.slug}:${index + 1}`)));
+    const released = identities((path) => committedSource('0cbdda1', path));
+    expect(released).toHaveLength(994);
+    const live = identities(read);
+    expect(live).toHaveLength(1080);
+    const liveSet = new Set(live);
+    expect(liveSet.size).toBe(live.length);
+    for (const id of released) expect(liveSet.has(id), id).toBe(true);
+    // 994 sealed row identities (commit 5c48b2e): classical 187, manipulation 225,
+    // rl-sim2real 167, world-models 92, data-hardware 128, frontier 147, adjacent 48.
+    // Rows only append, so every ledger keeps its sealed identities; the exact total
+    // is re-pinned per packet application (+29 manipulation 2026-09-24; +8
+    // robot-learning-stack and +15 calibration/ros2-for-ml-engineers stack-classical
+    // 2026-09-24; +34 world-rl imported-article rows across world-models and
+    // rl-sim2real 2026-09-24) instead of silently drifting.
+    const sealed: Record<string, number> = { classical: 187, manipulation: 225, 'rl-sim2real': 167, 'world-models': 92, 'data-hardware': 128, frontier: 147, adjacent: 48 };
+    expect(Object.values(sealed).reduce((n, v) => n + v, 0)).toBe(994);
+    const perLedger = Object.fromEntries(all.map(d => [d, parseLedger(`audit/${d}.md`, read(`audit/${d}.md`)).reduce((n, s) => n + s.claimRows, 0)]));
+    for (const d of all) expect(perLedger[d], d).toBeGreaterThanOrEqual(sealed[d]);
+    expect(Object.values(perLedger).reduce((n, v) => n + v, 0)).toBe(1080);
   });
   it('preserves old local proof bytes and the full AND source obligations', () => {
     const ctx = context();
-    expect(ctx.localBasis.catalog.plans).toHaveLength(18);
+    const historical = JSON.parse(committedSource('5c48b2e', 'audit/local-basis.json'));
+    expect(historical.plans).toHaveLength(18);
+    const historicalIds = new Set(historical.plans.map((p: { id: string }) => p.id));
+    const released = JSON.parse(committedSource('1626b43', 'audit/local-basis.json'));
+    const economicsId = 'economics-local-i52-20260923';
+    const archived = json('audit/evidence/economics-release-20260923/previous-economics-plan-and-proofs.json');
+    expect(archived.plan).toEqual(historical.plans.find((p: { id: string }) => p.id === economicsId));
+    expect(archived.proofs).toEqual(historical.proofs.filter((p: { planId: string }) => p.planId === economicsId));
+    // Main already carries seven separately executed economics proofs.
+    // Preserve that exact released replacement and every other mission byte.
+    const expectedPlans = historical.plans.map((p: { id: string }) => p.id === economicsId
+      ? released.plans.find((r: { id: string }) => r.id === economicsId) : p);
+    const expectedProofs = historical.proofs.map((p: { id: string; planId: string }) => p.planId === economicsId
+      ? released.proofs.find((r: { id: string }) => r.id === p.id) : p);
+    expect(ctx.localBasis.catalog.plans.filter(p => historicalIds.has(p.id))).toEqual(expectedPlans);
+    expect(ctx.localBasis.catalog.proofs.filter(p => historicalIds.has(p.planId))).toEqual(expectedProofs);
     const old = json(`${evidence}/preservation-before.json`);
     for (const binding of old.selected) expect(binding.currentTupleDigest).toBe(originalClaimDigest(binding.currentCells));
     for (const ordinal of [1, 2, 3, 7]) {

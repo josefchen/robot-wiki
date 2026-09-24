@@ -1,20 +1,20 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { Badge, TableScroll } from '@/components/ui';
-import { getCitation } from '@/data/citations';
 import {
   DEPLOYMENT_ROWS,
   filterDeployments,
   type DeploymentFilter,
+  type DeploymentRow,
   type DeploymentStatus,
 } from '@/lib/deployment-reality';
 import { cx } from '@/lib/utils';
 
 /**
  * DeploymentDashboard: the deployment-reality table for the reliability-gap
- * module. Verified deployment figures (documented against company statements
- * and filings) sit next to circulating or vendor-run claims, with the status
+ * module. Source-backed vendor reports sit next to vendor-run demonstrations, with the status
  * badge carrying the distinction: green for verified, ochre for claimed.
  *
  * Interactive contract: typed data from lib/deployment-reality.ts, a filter
@@ -39,10 +39,15 @@ const STATUS_VARIANT: Record<DeploymentStatus, 'ok' | 'warn'> = {
 const HEADER_CELL =
   'px-3 py-2.5 text-left font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
 
-export function DeploymentDashboard({ className }: { className?: string }) {
+export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROWS }: {
+  className?: string;
+  /** Explicit input permits empty evidence categories without changing the UI. */
+  deploymentRows?: DeploymentRow[];
+}) {
   const [filter, setFilter] = useState<DeploymentFilter>('all');
-  const rows = filterDeployments(DEPLOYMENT_ROWS, filter);
+  const rows = filterDeployments(deploymentRows, filter);
   const captionId = useId();
+  const citationFor = useCitationLookup();
 
   return (
     <div
@@ -83,7 +88,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
           aria-live="polite"
           className="ml-auto font-mono text-xs text-text-dim"
         >
-          {rows.length} of {DEPLOYMENT_ROWS.length} rows
+          {rows.length} of {deploymentRows.length} rows
         </p>
         <button
           data-brand-control-id="control:secondary-action"
@@ -120,8 +125,23 @@ export function DeploymentDashboard({ className }: { className?: string }) {
             </tr>
           </thead>
           <tbody>
+            {rows.length === 0 && (
+              <tr>
+                <td colSpan={4} className="px-3 py-6 text-center font-sans text-sm text-text-dim">
+                  No records in this evidence category.{' '}
+                  <button
+                    type="button"
+                    data-brand-control-id="control:link-focus"
+                    onClick={() => setFilter('all')}
+                    className="text-accent underline decoration-border underline-offset-2 hover:text-text"
+                  >
+                    Show all records
+                  </button>
+                </td>
+              </tr>
+            )}
             {rows.map((row) => {
-              const citation = getCitation(row.sourceId);
+              const citation = citationFor(row.sourceId);
               return (
                 <tr
                   key={row.id}

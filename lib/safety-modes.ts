@@ -6,15 +6,18 @@
  * HONESTY CEILING (binding, and it shapes every constant below).
  * ISO/TS 15066 is paywalled and this project does not purchase standards,
  * so nothing here quotes or paraphrases a clause, table or numeric limit
- * from the technical specification itself. Every equation and every
- * traceable constant comes from Marvel and Norcross, "Implementing speed
- * and separation monitoring in collaborative robot workcells" (Robotics
- * and Computer-Integrated Manufacturing, 2017,
- * doi:10.1016/j.rcim.2016.08.001), a NIST paper published open access,
- * which restates the separation model and its terms in public. Constants
- * that paper does NOT supply are marked `modelled` in the term list the
- * component renders, so a reader can tell a sourced number from a chosen
- * one at a glance.
+ * from the technical specification itself. The separation equation and
+ * source context come from Marvel and Norcross, "Implementing speed and
+ * separation monitoring in collaborative robot workcells" (Robotics and
+ * Computer-Integrated Manufacturing, 2017,
+ * doi:10.1016/j.rcim.2016.08.001), the NIST-authored paper archived by PMC.
+ * The equation is a rough early-draft approximation, not certification.
+ * This teaching model chooses all of its parameter settings, including
+ * its mapping of a context-specific intrusion minimum and operator-speed
+ * assumption. A printed source number does not certify that selection.
+ * Article and component disclosures distinguish source context from
+ * authored choices; real stopping time and braking distance need measured
+ * evidence for the robot system under test.
  *
  * The separation model is the linear form Marvel and Norcross print as
  * their Eq. 3, the early-draft approximation they reproduce alongside the
@@ -108,28 +111,31 @@ export function modeById(id: ModeId): CollaborativeMode {
  * ------------------------------------------------------------------ */
 
 /**
- * Intrusion-distance safety margin C, in metres. Marvel and Norcross
- * reproduce the ISO 13855 decision table and give 850 mm for a normal
- * direction of approach protected by multiple separate beams; this is
- * that row. Sourced, not chosen.
+ * Chosen intrusion margin C, in metres. The teaching model selects 0.85 m
+ * at Marvel and Norcross's context-specific minimum for a normal approach
+ * protected by multiple separate beams (Table 5 and its discussion).
+ * Their single-height-beam value is 1200 mm; the accompanying example
+ * permits 250 mm with a two-handed control device, not a typical teach
+ * pendant. The paper questions transfer to reconfigurable robots. This
+ * selected mapping is not a universally prescribed or certified margin.
  */
 export const INTRUSION_MARGIN_M = 0.85;
 
 /**
- * Robot deceleration used to derive the stopping time T_S and braking
- * distance B, in m/s^2. Marvel and Norcross work their update-rate
- * example with a robot at a constant acceleration rate of 10.0 m/s^2, and
- * this reuses that figure rather than inventing a braking profile. A real
- * cell measures T_S and B on the machine under test.
+ * Authored constant deceleration for stopping time T_S and braking
+ * distance B, in m/s^2. This teaching model reuses the magnitude of the
+ * paper's 10.0 m/s^2 acceleration example as a deceleration assumption;
+ * that example is not a measured braking profile. A real robot system
+ * needs traceable measurements of T_S and B on the machine under test.
  */
 export const ROBOT_DECELERATION_M_PER_S2 = 10;
 
 /**
- * Safety-system reaction time T_R, in seconds. MODELLED. Marvel and
- * Norcross argue a 100 Hz update rate from the operator-locating sensor
- * is not unreasonable for even aged computer hardware; 0.1 s is one
- * update interval at that rate, used here as a round stand-in for the
- * detect-to-command latency a real integrator measures.
+ * Authored safety-system reaction delay T_R, in seconds. The selected
+ * 0.1 s is a teaching assumption, not a measured detect-to-command latency.
+ * The paper discusses a 100 Hz update rate; its period is 0.01 s, not
+ * 0.1 s. Update frequency alone does not establish end-to-end latency.
+ * A real integrator must evaluate the reaction time of the actual system.
  */
 export const REACTION_TIME_S = 0.1;
 
@@ -149,6 +155,7 @@ export const POSITION_UNCERTAINTY_M = 0.1;
  */
 export const WORKCELL_SEPARATION_M = 1.6;
 
+// Authored teaching controls, not sourced or certified operating limits.
 export const ROBOT_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;
 export const HUMAN_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;
 
@@ -156,9 +163,14 @@ export const DEFAULT_MODE: ModeId = 'speed-separation';
 export const DEFAULT_ROBOT_SPEED_M_S = 1;
 
 /**
- * Default operator approach speed, m/s. Marvel and Norcross state that
- * v_H is assumed to be a worst-case maximum of 1600 mm/s from ISO 13855
- * when it is not measured directly, and that is this default.
+ * Authored default operator approach speed, m/s. The paper frames
+ * 1600 mm/s as a worst-case assumption in its approximate equation, but
+ * also gives 2000 mm/s for stationary machinery and permits 1600 mm/s
+ * only for separation greater than 500 mm. Direct measurement is allowed.
+ * Its later discussion favors considering 2000 mm/s for rapid motions
+ * and detection uncertainty and questions transfer of the 1600 mm/s
+ * special case to robots. Choosing 1.6 here does not resolve that context
+ * or establish a universal worst case; the slider range is authored too.
  */
 export const DEFAULT_HUMAN_SPEED_M_S = 1.6;
 
@@ -223,17 +235,17 @@ export function protectiveSeparationM(
 }
 
 /**
- * The fastest robot speed whose protective separation distance still fits
- * inside the drawn workcell, in m/s.
+ * The modeled robot speed at which the computed protective separation
+ * reaches the supplied workcell separation, in m/s; not a certified limit.
  *
- * S is quadratic in v_R with all-positive coefficients, so inverting it is
- * the positive root of
+ * For nonnegative approach speed, solve the increasing quadratic
  *
- *   v^2 / (2a) + (v_H / a + T_R) v + (C + Z - separation) = 0.
+ *   v^2 / (2a) + (v_H / a + T_R) v
+ *     + (v_H * T_R + C + Z - separation) = 0.
  *
- * Returns 0 when even a stationary robot violates the distance, which is
- * the honest answer: the margin terms alone already exceed the cell, and
- * speed-and-separation monitoring cannot be used in that geometry at all.
+ * Returns 0 when the stationary modeled distance already reaches or
+ * exceeds the supplied separation. The human reaction-travel term is
+ * included in the constant, as it is in the implementation below.
  */
 export function permittedRobotSpeedMs(
   humanSpeedMs: number,

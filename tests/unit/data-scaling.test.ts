@@ -147,7 +147,7 @@ describe('source-scoped unknown duration and authored scenarios', () => {
   it('keeps OXE discoverable without a numeric magnitude or zero fallback', () => {
     expect(OXE_DURATION).toMatchObject({ id: 'oxe', status: 'unknown', cite: 'open-x-embodiment-2023' });
     expect(OXE_DURATION).not.toHaveProperty('magnitude');
-    expect(OXE_DURATION.value).toMatch(/unknown.*inspected sources/i);
+    expect(OXE_DURATION.value).toBe('No hour estimate plotted');
     expect(OXE_DURATION.sourceUrl).toBe('https://arxiv.org/html/2310.08864v9');
   });
   it('labels both retained rates as authored hypothetical inputs', () => {

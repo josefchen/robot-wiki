@@ -1,9 +1,9 @@
 'use client';
 
 import { useMemo, useState, type ReactNode } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { Badge, Table, type Column } from '@/components/ui';
 import { METHODS, type Method } from '@/data/methods';
-import { citationLabel, getCitation } from '@/data/citations';
 import {
   methodConditioningText,
   methodFrequencyFigure,
@@ -82,6 +82,37 @@ function frequencyCell(method: Method): ReactNode {
   );
 }
 
+/**
+ * A method's primary sources. The records come from the server through
+ * CitationRecordsProvider (lib/widget-citations.ts), so the table never
+ * imports the citation registry into the browser.
+ */
+function MethodSources({ sources }: { sources: readonly string[] }) {
+  const citationFor = useCitationLookup();
+  return (
+    <ul className="m-0 flex list-none flex-col gap-2 p-0">
+      {sources.map((id) => {
+        const citation = citationFor(id);
+        if (!citation) throw new Error(`Missing method source: ${id}`);
+        return (
+          <li key={id}>
+            <a
+              href={citation.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-brand-control-id="control:link-focus"
+              data-method-source-id={id}
+              className="font-sans text-xs text-signal underline underline-offset-2"
+            >
+              {citation.label}: {citation.title}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 const COLUMNS: Column<Method>[] = [
   { key: 'name', header: 'Method', sortable: true },
   { key: 'year', header: 'Year', sortable: true, numeric: true },
@@ -154,28 +185,7 @@ const COLUMNS: Column<Method>[] = [
   {
     key: 'sources',
     header: 'Sources',
-    render: (row) => (
-      <ul className="m-0 flex list-none flex-col gap-2 p-0">
-        {row.sources.map((id) => {
-          const citation = getCitation(id);
-          if (!citation) throw new Error(`Missing method source: ${id}`);
-          return (
-            <li key={id}>
-              <a
-                href={citation.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-brand-control-id="control:link-focus"
-                data-method-source-id={id}
-                className="font-sans text-xs text-signal underline underline-offset-2"
-              >
-                {citationLabel(citation)}: {citation.title}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    ),
+    render: (row) => <MethodSources sources={row.sources} />,
   },
 ];
 

@@ -1,5 +1,55 @@
 # Citation reachability and identity audit (VAL-AUDIT-008)
 
+## Technology.org withdrawal and first-party replacements (2026-09-24)
+
+The active `technology-org-deployed-2026` member was withdrawn after its
+September 23 direct-origin HTTP 403. No exception, successful retry, invented
+passage, or alternative path to that article was asserted. The three new
+active entries below are document-specific replacements, not aliases:
+Agility's undated homepage (fetched 2026-09-24T04:11:55.369Z;
+`source-003.txt`, SHA-256 `552878a2fe5aa1cdd883a72b0d1065e256b51da9d30f2ba5bd66d2bcaa849e51`) states **65,000 hours**,
+without a facility allocation; Figure's November 19, 2025 company report
+(fetched 2026-09-24T04:12:54.568Z; `source-004.txt`, SHA-256
+`b4aa1db3a27b474fb4c34d25751111d535b444d7745c7def88f243a7c76287e0`) reports **1,250+ hours and 90,000+ parts**,
+while 84 seconds and >99% are targets; Tesla's Q1 2026 update
+(`source-007.txt` extracted from the PDF fetched with verified TLS
+2026-09-24T04:58:45.081875953Z, extracted-text SHA-256
+`740606cc2d80c0ba00c1e1403b16b32d33204df8c2b0b737d93741c9642e2bc1`) lists California and Texas Optimus lines under
+**Construction**, not a built-unit count. The Unitree source artifact was
+empty and supports no shipment or rank. These retained source-body checks
+are not new network requests, a full-registry citation sweep, or independent
+acceptance. Source packets are retained in the existing Mission at
+`validation/brand-v2-editorial/source-recovery-20260906/final-two-citation-ready-20260924/`.
+
+For lossless audit history, the prior active-table row is copied *verbatim*
+here, outside the active per-entry table:
+
+```text
+| technology-org-deployed-2026 | https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ | FAIL (unresolved access; HTTP 403; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Direct origin HTTP 403; native classification blocked, identity unavailable. No title exception, authorization/captcha/paywall bypass, alternative source search or retry. This is access-blocked, not demonstrated link death. Observed 2026-09-23T00:36:21.156565+00:00; exit 1; chain: 403 https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; final URL: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; fetched title: (not available). |
+```
+
+## Current Control citation correction (2026-09-24)
+
+The inaccessible `astrom-murray-2008` member has no active product use and
+was removed from the registry and the active per-entry table (432 current
+members). The September 23 fetch-failure observation remains in the
+historical JSON rows below: status 0 was not an origin response. Its retained
+first-edition chapter did print the old >95% claim but attributed it to
+`[DM02]`; it is not a replacement for the unreachable whole-book citation.
+Control no longer presents the percentage, the many-without-D qualifier or
+the Åström metaphor. Native originals 1 and 2 use independently checked
+active-page removal receipts; original 3 now uses the actual 1942
+Ziegler–Nichols text and original 7 uses Tedrake's chapter 8. The
+`kalman-1960` catalogue/reprint member stays registered as historical
+bibliography, but Control no longer claims that it proves priority or a 1960
+LQR Stat. Existing Kalman reprint title/year exception is unchanged.
+
+No whole-registry network run occurred. The Technology.org HTTP-403 observation
+remains in the historical row above but is no longer an active registry
+verdict; the content/release gate remains red for other outstanding work.
+Prior totals and attempts below are dated historical observations, not a
+new green check.
+
 First audit: 2026-08-16, covering the 300 entries the registry held then.
 Re-audited in full on 2026-09-06 against all 412 entries; the per-entry
 table below and the section "Re-audit of the full registry (2026-09-06)"
@@ -377,6 +427,9 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | ami-labs-founding-2026 | https://techcrunch.com/2026/01/23/whos-behind-ami-labs-yann-lecuns-world-model-startup/ | ok | match | none (registered 2026-09-16 by the jepa integrator; first audited 2026-09-16) | REQUIRED registration per frozen packet convergence-source-x-jepa-20260916j record 1 (jepa row 9 part j9-ami-expansion). January piece fetched live in the packet session (curl GET 200, 240,641 bytes, sha256 9b81d9b2…, retained sha-verified in the source lane); title, byline Anna Heim and dateline 4:04 PM PST · January 23, 2026 needle-verified by this zero-retrieval integrator against the retained body before registering. Fetch-of-record provenance, not a fresh liveness probe. |
 | cosmos-3-2026 | https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf | ok | match (pdf) | none (verified as cited) |  |
 | cosmos-policy-2026 | https://arxiv.org/abs/2601.16163 | ok | match | none (first audited 2026-09-06) |  |
+| cosmos-predict-2025 | https://arxiv.org/abs/2501.03575 | ok | match | none (registered 2026-09-17 by the inference-economics integrator; fetched 2026-09-17) | Registered for the world-models-vs-simulators inference-cost section. Fetched live 2026-09-17 (HTTP 200); abstract page title matches the registry title and names the diffusion and autoregressive WFM families. |
+| cosmos-predict2-perf-2025 | https://github.com/nvidia-cosmos/cosmos-predict2/blob/main/documentations/performance.md | ok | match | none (registered 2026-09-17 by the inference-economics integrator; fetched 2026-09-17) | Registered for the inference-cost table's VRAM and generation-time rows. Fetched live 2026-09-17 (HTTP 200); page carries the per-variant VRAM table (2B-Video2World 32.54 GB, 14B-Video2World 56.38 GB) and the per-GPU generation-time table cited in the article. |
+| cosmos-1-diffusion-14b-card-2025 | https://catalog.ngc.nvidia.com/orgs/nvidia/cosmos/models/cosmos-1.0-diffusion-14b-video2world | ok | match | none (registered 2026-09-17 by the inference-economics integrator; fetched 2026-09-17) | Registered for the Predict1 14B VRAM and clip-shape rows. Fetched live 2026-09-17 (HTTP 200); the card lists 121 frames at 1280x704/24fps and the offload-strategy table topping 80 GB without offloading. |
 | genie-3-2025 | https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/ | ok | match | none (verified as cited) |  |
 | worldvla-2025 | https://arxiv.org/abs/2506.21539 | ok | match | none (verified as cited) |  |
 | occworld-2023 | https://arxiv.org/abs/2311.16038 | ok | match | none (verified as cited) |  |
@@ -396,6 +449,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | grs-2024 | https://arxiv.org/abs/2410.15536 | ok | match | none (verified as cited) |  |
 | gpt3-2020 | https://arxiv.org/abs/2005.14165 | ok | match | none (verified as cited) |  |
 | llama-3-2024 | https://ai.meta.com/blog/meta-llama-3/ | ok (exception) | unavailable | none (verified as cited) | ai.meta.com answers HTTP 400 to every non-browser client (curl and node fetch, regardless of headers): a TLS-fingerprint bot-wall, not link rot. The post has no DOI, so Crossref cannot stand in for the fetch. Verified 2026-08-11: Headless Chromium (Playwright) on a real browser fingerprint: HTTP 200, page title "Introducing Meta Llama 3: The most capable openly available LLM to date" matches the registry entry. |
+| llama-3-herd-2024 | https://arxiv.org/abs/2407.21783 | ok | match | none (registered 2026-09-23 by the SEO content-fixes pass; fetched 2026-09-23) | Registered for the world-models-vs-simulators LLM column. `npm run check:citations -- --id llama-3-herd-2024` on 2026-09-23: ok, title match. The arXiv abs page (HTTP 200) titles "The Llama 3 Herd of Models" with 561 citation_author entries; the v3 PDF Table 3 prints, for the 8B model, Layers 32, Model Dimension 4,096, Attention Heads 32 and Key/Value Heads 8, and section 3.2 states "We use grouped query attention (GQA ...) with 8 key-value heads". |
 | fineweb-2024 | https://arxiv.org/abs/2406.17557 | ok | match | none (verified as cited) |  |
 | cc-by-4-0-deed | https://creativecommons.org/licenses/by/4.0/ | ok (HTTP 200; 2026-09-23) | match: Deed - Attribution 4.0 International - Creative Commons (native HTML title check) | scoped liveness observation added; registry unchanged | Native check:citations --id cc-by-4-0-deed --json, completed 2026-09-23T00:17:28.727644Z, exit 0: checked 1, ok 1, every other summary count 0. GET HTTP 200, one-hop chain at the exact registry/final URL, no redirect or exception. Year 2013 remains the license-version publication year, not the undated deed webpage year. Full original row and retained-source history are preserved in the 2026-09-23 scoped-check addendum below. Link success supplies no new claim completion, legal permission or full-corpus acceptance. |
 | droid-2024 | https://arxiv.org/abs/2403.12945 | ok | match | none (verified as cited) |  |
@@ -461,7 +515,6 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | schulman-2013 | https://www.roboticsproceedings.org/rss09/p31.pdf | ok | match (pdf) | none (verified as cited) |  |
 | lavalle-2006 | https://lavalle.pl/planning/ | ok | match | none (verified as cited) |  |
 | ompl-2012 | https://ompl.kavrakilab.org/ | ok | match | none (verified as cited) |  |
-| astrom-murray-2008 | https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers | FAIL (unresolved transport; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Native status 0 is a fetch-failure sentinel, NOT an origin HTTP response. Empty chain; error "fetch failed". No origin status or document identity established. No additional invocation, exception or replacement URL proposal. Observed 2026-09-23T00:36:01.035383+00:00; exit 1; chain: (empty); final URL: https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers; fetched title: (not available). |
 | ziegler-nichols-1942 | https://doi.org/10.1115/1.2899060 | ok (exception) | MISMATCH: "Optimum Settings for Automatic Controllers" | none (verified as cited) | chain: 302 -> 403 https://asmedigitalcollection.asme.org/dynamicsystems/article/115/2B/220/417448/Optimum-Settings-for-Automatic-Controllers; final: https://asmedigitalcollection.asme.org/dynamicsystems/article/115/2B/220/417448/Optimum-Settings-for-Automatic-Controllers; ASME bot-walls the sweep behind a Cloudflare interstitial (HTTP 403, even headless Chromium). The DOI is registered by ASME against the 1993 JDSMC reprint, so Crossref reports only 1993 and the year check can never corroborate the 1942 Trans. ASME original the registry cites; the divergence is documented on the registry entry itself. Verified 2026-08-11: Crossref content negotiation for doi:10.1115/1.2899060: title "Optimum Settings for Automatic Controllers" matches the registry exactly, and the doi.org redirect target is the ASME page for the paper. |
 | kalman-1960 | https://doi.org/10.1109/9780470544334.ch8 | ok (exception) | MISMATCH: "Contributions to the Theory of Optimal Control" | documented exception added (DOI is the 2009 Wiley reprint; 1960 original has no DOI) | chain: 302 -> 202 https://ieeexplore.ieee.org/document/5311913; final: https://ieeexplore.ieee.org/document/5311913; The cited DOI is the Wiley Online Books chapter republication (2009), so Crossref reports 2009 while the registry cites the original 1960 Bol. Soc. Mat. Mexicana paper. The title matches exactly; only the year diverges, for the same reprint-vs-original reason as ziegler-nichols-1942. The IEEE page the DOI resolves to is a JS shell whose served <title> is the chapter title without the original publication framing. Verified 2026-08-18: Crossref content negotiation for doi:10.1109/9780470544334.ch8: title "Contributions to the Theory of Optimal Control" matches the registry exactly; doi.org resolves to ieeexplore.ieee.org/document/5311913 (HTTP 202), the chapter record. Re-confirmed 2026-08-18. |
 | tedrake-underactuated | https://underactuated.mit.edu/ | ok | match | none (verified as cited) |  |
@@ -512,7 +565,9 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | dexnet-2-2017 | https://arxiv.org/abs/1703.09312 | ok | match | none (verified as cited) |  |
 | rl-100-2025 | https://arxiv.org/abs/2510.14830 | ok | match | none (verified as cited) |  |
 | bessemer-robotics-2026 | https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai | ok | match | none (verified as cited) |  |
-| technology-org-deployed-2026 | https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ | FAIL (unresolved access; HTTP 403; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Direct origin HTTP 403; native classification blocked, identity unavailable. No title exception, authorization/captcha/paywall bypass, alternative source search or retry. This is access-blocked, not demonstrated link death. Observed 2026-09-23T00:36:21.156565+00:00; exit 1; chain: 403 https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; final URL: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; fetched title: (not available). |
+| agility-digit-production | https://www.agilityrobotics.com/ | ok (retained 2026-09-24 source-body fetch; no new request) | title matches retained page metadata | added; undated, actual access date registered | Undated homepage metadata: “Industrial Humanoid Automation / Agility”; body: “Digit is a humanoid robot with 65,000 hours of real production experience.” No plus sign, measurement date or facility count. |
+| figure-bmw-production-2025 | https://www.figure.ai/news/production-at-bmw | ok (retained 2026-09-24 source-body fetch; no new request) | title matches retained page heading | added; 2025-11-19 publication | “F.02 Contributed to the Production of 30,000 Cars at BMW”; “90,000+ parts loaded”; “1,250+ hours of runtime”; 84-second cycle and >99% placement are targets. |
+| tesla-q1-2026-update | https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf | ok (retained 2026-09-24 PDF fetch; no new request) | Q1 2026 update identity checked in retained PDF | added; Q1 period, no inferred publication date | California and Texas Optimus lines listed under Construction; lines installed in anticipation of volume production. Designed annual capacity is not present output. |
 | asimov-agentic-2026 | https://huggingface.co/datasets/google/asimov_agentic | ok | match | none (verified as cited) |  |
 | figure-8hr-shift-2026 | https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots | ok | match | none (verified as cited) | chain: 301 -> 200 https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots-complete-full-8-hour-autonomous-shifts-humanoid-race-intensifies.htm; final: https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots-complete-full-8-hour-autonomous-shifts-humanoid-race-intensifies.htm |
 | brooks-dexterity-2025 | https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/ | ok | match | none (verified as cited) |  |
@@ -605,6 +660,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | franka-fci-docs | https://frankarobotics.github.io/docs/ | ok | match | none (first audited 2026-09-06) |  |
 | ur-force-mode-docs | https://www.universal-robots.com/articles/ur/programming/urscript-dynamic-force-control/ | ok | match | none (first audited 2026-09-06) |  |
 | zhang-2000-calibration | https://doi.org/10.1109/34.888718 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 301 -> 202 https://ieeexplore.ieee.org/document/888718/; final: https://ieeexplore.ieee.org/document/888718/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/34.888718 matches the registry title and year |
+| shiu-ahmad-1989 | https://doi.org/10.1109/70.88014 | ok (crossref) | match (crossref) | none (registered 2026-09-23 by the SEO content-fixes pass; first audited 2026-09-23) | chain: 302 -> 301 -> 202 https://ieeexplore.ieee.org/document/88014/; final: https://ieeexplore.ieee.org/document/88014/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/70.88014 matches the registry title and year. Registered for the calibration article's AX = XB attribution. Abstract read 2026-09-23 from the OpenAlex transcription of the IEEE record: moving the robot and observing the sensor "yields a homogeneous transform equation of the form AX=XB", and "A closed-form solution to this system of equations is developed". |
 | tsai-lenz-1989 | https://doi.org/10.1109/70.34770 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 301 -> 202 https://ieeexplore.ieee.org/document/34770/; final: https://ieeexplore.ieee.org/document/34770/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/70.34770 matches the registry title and year |
 | espiau-1992 | https://doi.org/10.1109/70.143350 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 301 -> 202 https://ieeexplore.ieee.org/document/143350/; final: https://ieeexplore.ieee.org/document/143350/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/70.143350 matches the registry title and year |
 | chaumette-hutchinson-2006 | https://doi.org/10.1109/MRA.2006.250573 | ok (crossref) | match (crossref) | none (first audited 2026-09-06) | chain: 302 -> 202 https://ieeexplore.ieee.org/document/4015997/; final: https://ieeexplore.ieee.org/document/4015997/; no comparable title at HTTP 202; Crossref metadata for doi:10.1109/MRA.2006.250573 matches the registry title and year |
@@ -661,7 +717,11 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | ohno-tps-1988 | https://www.taylorfrancis.com/books/mono/10.4324/9780429273018/toyota-production-system-taiichi-ohno | ok | match | none (first audited 2026-09-06) |  |
 | evst-cell-cost-2026 | https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/ | ok | match | none (first audited 2026-09-06) |  |
 | ocado-oia-2026 | https://ocadointelligentautomation.com/ | ok | match | none (first audited 2026-09-06) |  |
-| kroger-ocado-closures-2025 | https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html | FAIL (unresolved access; HTTP 403; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Direct origin HTTP 403; native classification blocked, identity unavailable. No title exception, authorization/captcha/paywall bypass, alternative source search or retry. This is access-blocked, not demonstrated link death. Observed 2026-09-23T00:36:41.418303+00:00; exit 1; chain: 403 https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html; final URL: https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html; fetched title: (not available). |
+| kroger-ocado-closures-2025 | https://web.archive.org/web/20251118224554/https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html | ok (archival HTTPS 200, current registry 2026-09-24) | match (HTML title) | Exact source-backed archive and temporal reader correction approved as two chained sealed-baseline member deltas; original row and September23 access failure retained below | Current native one-ID invocation at 2026-09-24T03:41:02Z: exit 0, checked 1/live 1/archival 1, HTTPS 200 with no redirect; archive timestamp 20251118224554, original URL matches, title "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm &#124; This is Money" (Mission command-021.log). The earlier first-phase command-006.log is a separate candidate trial before the approved deltas. The intended Emily Hawkins source body is preserved verbatim at audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt (SHA-256 1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae), originally retrieved by FetchUrl on September24. Its November18 report says Kroger would close three sites in January, monitor five others, and Ocado would receive around £190 million; no completed closure/payment is asserted. No extra citation exception or whole-corpus pass claimed. |
+| moveit-planning-scene-2026 | https://moveit.picknik.ai/main/api/html/planning_scene_overview.html | ok | match | none (first audited 2026-09-16) | Fetched 200 during the SEO-merge integration; page title "moveit2: Planning Scene" contains the registered page name. |
+| ros2-lyrical-2026 | https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html | ok (canonical source) | match (canonical source) | canonical rst fetched 2026-09-24 (packet, retained); docs.ros.org itself not re-probed | docs.ros.org still serves its Anubis anti-bot challenge to automated fetches (exception retained in data/link-check-exceptions.ts), so this closure claims no docs.ros.org fetch. Identity and content closed against the canonical source document on the registered page's own lyrical branch: ros2_documentation Release-Lyrical-Luth.rst, browser-rendered HTTP 200 at 2026-09-24T06:47:40Z with raw-file cross-check HTTP 200 at 2026-09-24T06:58:14Z (retained packet source-001.txt, sha256 77ed1284a8c27780b6c151bae0886279250b2dc47fc964f595974f2b73c0ef59), printing the heading "Lyrical Luth (codename 'lyrical'; May, 2026)" and "It is a Long Term Support (LTS) release, and it is supported until May 2031"; corroborated by the lyrical-branch Releases.rst index (May 22, 2026, EOL May 2031; retained source-006.txt, sha256 9ad0f4bb892d173a18fb3965ee357eddbf7379165362a4d7dfdf5e514a19d410). Per-claim rows in audit/classical.md (ros2-for-ml-engineers section, plan ros2-lyrical-release-20260924). |
+| ros2-interfaces-2026 | https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html | ok (canonical source) | match (canonical source) | canonical rst fetched 2026-09-24 (packet, retained); docs.ros.org itself not re-probed | docs.ros.org Anubis challenge unchanged (exception retained in data/link-check-exceptions.ts); no docs.ros.org fetch claimed. Closed against the canonical source document on the lyrical branch: Interfaces-Topics-Services-Actions.rst, browser-rendered HTTP 200 at 2026-09-24T06:49:34Z with raw-file cross-check HTTP 200 at 2026-09-24T06:58:04Z (retained packet source-002.txt, sha256 ff856b8b964bceab1813d21ccd74bf5c7ea7e3bfa4e3a794bf2b78824eab583d), whose heading matches the registry title and which enumerates the three interface patterns with the topics/services/actions semantics cited by Robot Wiki. Page prints no publication date; n.d. with actual access date if cited standalone. Per-claim row in audit/classical.md (ros2-for-ml-engineers section). |
+| ros2-qos-2026 | https://docs.ros.org/en/lyrical/Concepts/Intermediate/About-Quality-of-Service-Settings.html | ok (canonical source) | match (canonical source) | canonical rst fetched 2026-09-24 (packet, retained); docs.ros.org itself not re-probed | docs.ros.org Anubis challenge unchanged (exception retained in data/link-check-exceptions.ts); no docs.ros.org fetch claimed. Closed against the canonical source document on the lyrical branch: About-Quality-of-Service-Settings.rst, browser-rendered HTTP 200 at 2026-09-24T06:50:46Z (retained packet source-003.txt, sha256 545096b7711a3229f4a38f9be5a7bfda82cd51adb08ac9fc018dbeadceddf9ac), which states the default profile ("keep last" history, queue size 10, "reliable") and the sensor-data profile (best effort reliability, smaller queue) plus the QoS-compatibility connection rule cited by Robot Wiki. Per-claim rows in audit/classical.md (ros2-for-ml-engineers section). |
 
 ## Verification (recorded 2026-08-18, reconciliation sweep)
 
@@ -1196,13 +1256,96 @@ findings, not a newly run gate result. Content gate remains red.
 No unaffected prior green unit cases or citation IDs were rerun. The three external failure statuses and absent exceptions are explicitly retained; no broader suite or gate was run.
 
 
+## Release integration: superseded main exceptions (2026-09-23)
+
+The mission's September 23 observations take precedence over the two
+August 24 main-only exception records below. Symbotic retains only its
+newer, exact title-mismatch exception, avoiding duplicate active IDs.
+Technology Org remains unresolved after the observed HTTP 403; the
+older alternate-client observation does not waive that current failure.
+The former records are retained verbatim as history, not active coverage.
+No new request or source verification occurred in this reconciliation.
+
+```ts
+  {
+    id: 'symbotic-10k-2025',
+    covers: ['title-mismatch'],
+    reason:
+      'The SEC filing serves its accession filename, "sym-20250927", as the HTML title rather than a human-readable Form 10-K title, so the title checker cannot compare document identity from the <title> element.',
+    verifiedBy:
+      'Direct SEC filing read at the exact URL confirmed the fiscal year ended 2025-09-27, $22.5B backlog, Walmart agreement covering all 42 regional distribution centres, 48 operational systems under maintenance contracts, and the Symbotic filing identity.',
+    verifiedOn: '2026-08-24',
+  },
+  {
+    id: 'technology-org-deployed-2026',
+    covers: ['blocked'],
+    reason:
+      'technology.org serves a Cloudflare interstitial (HTTP 403) to node fetch, curl, and headless Chromium from this network. The article has no DOI, so Crossref cannot stand in for the fetch.',
+    verifiedBy:
+      'Independent text-extraction fetch through r.jina.ai returned the full exact-URL article with title "Humanoid Robots in 2026: What Is Actually Deployed - Technology Org", publication timestamp 2026-07-18, Alius Noreika byline, deployment table, and the Figure, Agility, and Unitree figures cited by Robot Wiki.',
+    verifiedOn: '2026-08-24',
+  },
+```
+
 ## Undated LEI definitions, retained identity review 2026-09-23
 
 The owner-approved undated-source rule is applied only to the two official Lean Lexicon definitions. The retained complete tool responses and decoded bodies identify Lean Enterprise Institute and the Takt Time / Cycle Time headings; neither inspected definition states a publication/update date. `n.d.` is the publication-date field; `2026-09-22` is the actual access date, not an invented publication year.
 
 | ID | URL | Verdict | Supporting identity and provenance |
 | --- | --- | --- | --- |
+| lei-takt-time-definition | https://www.lean.org/lexicon-terms/takt-time/ | ok (native 2026-09-24) | Takt Time - Lean Enterprise Institute; native `check:citations -- --id lei-takt-time-definition --json` returned exit 0, HTTP 200, matching HTML title, one-hop HTTPS chain and no redirect (Mission command-001.log). The retained complete definition envelope SHA256 ae3277b46d7121c471c0334268312e7ef38f073192856cf9b5bf1ccd61d78abb was actually accessed 2026-09-22T22:28:00.411Z and states available production time divided by customer demand, to match production with demand. `n.d.` and accessedOn 2026-09-22 remain unchanged. |
+| lei-cycle-time-definition | https://www.lean.org/lexicon-terms/cycle-time/ | ok (native 2026-09-24) | Cycle Time - How to Calculate It &#124; Lean Enterprise Institute; native `check:citations -- --id lei-cycle-time-definition --json` returned exit 0, HTTP 200, matching HTML title, one-hop HTTPS chain and no redirect (Mission command-002.log). The retained complete definition envelope SHA256 f62e78b4d3648a001072a8c50f96b2066bc30f9b36c0672e94aa5fbc784fa8a5 was actually accessed 2026-09-22T22:28:10.392Z and defines cycle time as actual measured time to produce a part or complete a process. `n.d.` and accessedOn 2026-09-22 remain unchanged. |
+
+In the original September 23 review, no new source request, origin HTTP status
+or redirect chain was observed. Full exact source envelopes, decoded text,
+passage selectors and original retrieval records are retained under
+`audit/evidence/industrial-closure-20260923/` and indexed there. NASA remains
+dated by its explicit Lesson841 date 1994-12-01, not this review. The later
+September 24 native transport observations appear in the updated active rows
+and the addendum below; neither review establishes whole-corpus VAL-AUDIT-008
+acceptance.
+
+## Three bounded native citation observations, 2026-09-24
+
+Two active LEI rows above now reflect actual native observations. The Kroger
+active row remains unresolved at the original URL, while its exact HTTPS archive
+candidate passed a bounded native trial but was not applied. The sealed
+`VAL-B2-BASE-012` baseline rejected the URL change as an unapproved citation
+member delta; that candidate was restored rather than committing a new baseline
+failure. Their immediately preceding rows are retained verbatim below; the September 22
+definition access times and September 23 Kroger failure are historical observations,
+not the September 24 transport observations. The dated Kroger HTTPS snapshot was
+also actually fetched as the intended Emily Hawkins article by `FetchUrl` (HTTP
+200), independently of the native title/transport check. Its November 2025
+report uses future tense for January closures and expected compensation; the
+industrial-deployment reader currently uses completed/present tense, so that
+article correction, its dependent plans and its local-proof hash bindings remain
+**unresolved**. No VAL-AUDIT-001–009 acceptance is claimed from these checks.
+
+```text
+| kroger-ocado-closures-2025 | https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html | FAIL (unresolved access; HTTP 403; 2026-09-23) | unavailable | Scoped observation only; registry unchanged; original row preserved below | Direct origin HTTP 403; native classification blocked, identity unavailable. No title exception, authorization/captcha/paywall bypass, alternative source search or retry. This is access-blocked, not demonstrated link death. Observed 2026-09-23T00:36:41.418303+00:00; exit 1; chain: 403 https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html; final URL: https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html; fetched title: (not available). |
 | lei-takt-time-definition | https://www.lean.org/lexicon-terms/takt-time/ | unresolved (current liveness not checked; retained primary identity) | Takt Time - Lean Enterprise Institute; actual rune___web_scrape observation 2026-09-22T22:28:00.411Z; response SHA256 ae3277b46d7121c471c0334268312e7ef38f073192856cf9b5bf1ccd61d78abb. |
 | lei-cycle-time-definition | https://www.lean.org/lexicon-terms/cycle-time/ | unresolved (current liveness not checked; retained primary identity) | Cycle Time - How to Calculate It &#124; Lean Enterprise Institute; actual rune___web_scrape observation 2026-09-22T22:28:10.392Z; response SHA256 f62e78b4d3648a001072a8c50f96b2066bc30f9b36c0672e94aa5fbc784fa8a5. |
+```
 
-No new source request, origin HTTP status or redirect chain was observed. Full exact source envelopes, decoded text, passage selectors and original retrieval records are retained under `audit/evidence/industrial-closure-20260923/` and indexed there. NASA remains dated by its explicit Lesson841 date1994-12-01, not this review. This records bibliographic fidelity and source support, not whole-corpus VAL-AUDIT-008 acceptance.
+Verification so far: `NODE_DISABLE_COMPILE_CACHE=1 npm run --silent check:citations -- --id <id> --json`
+returned three separate exit-0 results, each one checked/one live/zero mismatch,
+with HTTPS 200 and no redirect (Mission command-001.log, command-002.log,
+command-006.log). Only the LEI results are current-registry passes after restoration.
+The candidate archive run is retained as a genuine observation, not an active
+registry pass. No unrelated citation was retried, no exception was added,
+no article prose or `lastReviewed` changed, and the humanizer does not apply.
+
+## Kroger active archive integration, 2026-09-24
+
+The active table row above supersedes its former current-registry hold. The earlier
+September 23 origin HTTP 403, September 24 unapplied archive trial and baseline
+rejection remain verbatim as historical observations in the preceding addendum.
+This continuation applies exactly two owner-authorized baseline deltas for the
+Kroger registry member and industrial article prose, retaining the seal and the
+old row tuples. Current native run `command-021.log` checked the *active* HTTPS
+archive identity and title (200, no redirect, one archival live result). Source
+passages come from the separately retained fetched body, not that title check.
+The source reports future closures and expected compensation, not realized
+closures or payments. Åström and Technology.org remain independent unresolved
+source lanes; no whole-corpus acceptance or publication is inferred.

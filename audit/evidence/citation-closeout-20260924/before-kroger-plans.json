@@ -1,0 +1,120 @@
+[
+  {
+    "id": "industrial-kroger-closures-20260917a",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 22,
+    "originalCellsDigest": "5c11ef42459fe469ca2af9c0974db98db3a3aca091341d13f6bb050cb856392c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "three-of-eight",
+        "text": "Kroger closing three of its robotic warehouses (Wisconsin, Maryland, Florida) in January.",
+        "requiredCitationIds": [
+          "kroger-ocado-closures-2025"
+        ]
+      },
+      {
+        "id": "three-plus-five",
+        "text": "“Monitoring” its remaining five warehouses: 3 + 5 = 8 automated sheds.",
+        "requiredCitationIds": [
+          "kroger-ocado-closures-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:22 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+      "planDigest": "c66b5e8d5541c6d618b02b868f02e6b2632d721efab261bd6ba7c0e0a3672948"
+    },
+    "evidence": [
+      {
+        "partId": "three-of-eight",
+        "citationId": "kroger-ocado-closures-2025",
+        "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+        "supportingPassage": "Ocado shares fell to their lowest level in more than a decade after a key US partner said it was closing three of its robotic warehouses. Kroger, which operates supermarkets and department stores in the US, said it will shut sites in Wisconsin, Maryland and Florida in January."
+      },
+      {
+        "partId": "three-plus-five",
+        "citationId": "kroger-ocado-closures-2025",
+        "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+        "supportingPassage": "It also said it was 'monitoring' its remaining five warehouses, giving rise to speculation of further closures."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "three-of-eight",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+        "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+        "evidenceDigest": "1ae60ba73c256dafd306752a4c25509d93804aabfbe58d300224f1b58797cb92"
+      },
+      {
+        "partId": "three-plus-five",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+        "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+        "evidenceDigest": "241e0fb5fe4622caf493ab9bda267d69c953f9c627c6bfc424b3d92624da2e97"
+      }
+    ]
+  },
+  {
+    "id": "industrial-kroger-compensation-20260917a",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 24,
+    "originalCellsDigest": "ddc812e9fefdaf424bb27a77bb51ead1e898a35dd83a615d56c2d6c3d3c8f346",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "compensation-190m",
+        "text": "Compensation of around £190 million for closing the sites.",
+        "requiredCitationIds": [
+          "kroger-ocado-closures-2025"
+        ]
+      },
+      {
+        "id": "five-monitored",
+        "text": "The five remaining warehouses are still being “monitor[ed]”.",
+        "requiredCitationIds": [
+          "kroger-ocado-closures-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+      "rationale": "Actual current review 2026-09-17T14:32:46Z; all 2 mandatory parts reviewed against the retained, sha256-pinned lane packet passages (convergence-ar-industrial-evidencefields-20260917a). audit/data-hardware.md:industrial-deployment:24 evidence completion; claim, source-checked and verdict cells are byte-unchanged.",
+      "planDigest": "5214d3b07b1b85d4b31cbe45875e47f9fa96e60be1bd74cf0c8a23bd5e616933"
+    },
+    "evidence": [
+      {
+        "partId": "compensation-190m",
+        "citationId": "kroger-ocado-closures-2025",
+        "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+        "supportingPassage": "Ocado said it would receive compensation of around £190million for closing the sites."
+      },
+      {
+        "partId": "five-monitored",
+        "citationId": "kroger-ocado-closures-2025",
+        "sourceUrl": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+        "supportingPassage": "It also said it was 'monitoring' its remaining five warehouses, giving rise to speculation of further closures."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "compensation-190m",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+        "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+        "evidenceDigest": "e47288a0796b4860632c9802d7e718b828e4ae12718f6dcfed73b27796a80759"
+      },
+      {
+        "partId": "five-monitored",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator fd137388-f254-4d11-97b1-548904d2cad2-as0917a",
+        "rationale": "2026-09-17T14:32:46Z: glyph-verified against the retained lane packet passage (fetched live, tool-reported 200, no redirect, in the source window); supported as recorded in the row note.",
+        "evidenceDigest": "c7c4470d9379ef2f1b21e152f41671a56aef6f22b0173b3473b230461e9fa9a4"
+      }
+    ]
+  }
+]

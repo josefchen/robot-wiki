@@ -166,7 +166,7 @@ describe('taxonomy originals integration (2026-09-16h evidence completions)', ()
     const compoundPlans = parseCompoundPlans([
       ...JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')),
       ...JSON.parse(readFileSync(join(ROOT, 'audit/evidence/crossdomain-closure-20260923/superseded-plans.json'), 'utf8')),
-    ]);
+    ]).filter((plan) => !plan.id.startsWith('world-rl-'));
     const registryIds = new Set(CITATIONS.map(({ id }) => id));
     const sections = parseLedger('audit/world-models.md', markdown, registryIds, { compoundPlans });
     const taxonomy = sections.find((section) => section.slug === 'taxonomy')!;

@@ -190,7 +190,11 @@ describe('Isaac original whole-record bindings', () => {
     expect(sim).toContain('Mimic segments human demonstrations into object-centric subtasks');
     expect(sim).toContain('not a promise of unlimited successful demonstrations');
     const why = readFileSync('content/rl-sim2real/why-rl-locomotion.mdx', 'utf8');
-    expect(why).toContain('KUKA arm and Allegro hand');
+    expect(why).toContain('KUKA arm with an Allegro hand');
+    expect(why).toContain('privileged-state RL teacher');
+    expect(why).toContain('stereo-RGB student');
+    expect(why).toContain('[sim-to-real explanation](/rl-sim2real/sim2real-transfer/)');
+    expect(why).toContain('privileged-state RL teacher distilled into a stereo-RGB student');
     expect(why).not.toContain('the first system to map stereo images');
     const chart = readFileSync('components/interactive/training-time-chart.tsx', 'utf8');
     expect(chart).toContain('Neither this curve nor its CPU-cost constant is measured by that benchmark.');

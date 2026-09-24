@@ -9,14 +9,22 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '@/lib/brand-v2-baseline';
-import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { READER_RELEASE_BASE } from '../helpers/reader-integration';
+import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
+import { currentAuditContext } from '../helpers/residual-integration';
+import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
+import { committedText, committedJson } from '../helpers/editorial-current-context';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '90c8a0f4c958c42750711082bfb54960cac7d5e8';
+const checkpoint = '280d8661a49feb16e45ef337e7cb46a794211004';
+const readerCommit = '280d8661a49feb16e45ef337e7cb46a794211004';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
   cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
 });
+const atReader = (path: string) => committedText(readerCommit, path);
 const paths = ['latent-dynamics', 'taxonomy'].map(slug => `content/world-models/${slug}.mdx`);
 const [latent, taxonomy] = paths.map(read);
 const dreamerParagraph = (text: string) => text.split('\n\n')
@@ -28,11 +36,11 @@ const members = [
 ] as const;
 
 function approvalBundle(old: boolean): BaselineBundle {
-  const parsed = paths.map(path => ({ path, parsed: matter(before(path)) }));
+  const parsed = paths.map(path => ({ path, parsed: matter(old ? before(path) : atReader(path)) }));
   const tax = parsed[1].parsed;
   const matches = (pattern: RegExp) => [...tax.content.trim().matchAll(pattern)]
     .map(m => m[1]).sort();
-  const sources = old ? [
+  const sources = [
     buildManifest('prose', parsed.map(({ path, parsed: p }) => ({
       id: `article:${path.slice(8, -4)}`, value: { path, body: p.content.trim() },
     }))),
@@ -45,7 +53,7 @@ function approvalBundle(old: boolean): BaselineBundle {
         internalLinks: matches(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g),
       },
     }]),
-  ] : Object.values(collectArticleTruthManifests());
+  ];
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const scaffold = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
     const selected = sources.find(m => m.kind === kind)?.members
@@ -112,39 +120,109 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
   it('preserves frontmatter, citation occurrences, source registry and untouched paragraphs', () => {
     for (const path of paths) {
       const previous = before(path);
-      expect(matter(read(path)).data).toEqual(matter(previous).data);
+      const historical = committedSource(checkpoint, path);
+      expect(matter(historical).data).toEqual(matter(previous).data);
+      expect(matter(read(path)).data).toEqual(matter(committedSource(READER_RELEASE_BASE, path)).data);
       expect(read(path).match(/<Cite\s+id="[^"]+"\s*\/>/g))
         .toEqual(previous.match(/<Cite\s+id="[^"]+"\s*\/>/g));
       const touched = path === paths[0] ? [28, 36, 47, 63] : [63];
       const omit = (text: string) => text.split('\n').filter((_line, i) => !touched.includes(i + 1));
-      expect(omit(read(path))).toEqual(omit(previous));
+      expect(omit(historical)).toEqual(omit(previous));
     }
-    expect(read('data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
+    preservedPreIndustrialCitations(READER_RELEASE_BASE);
+    for (const path of paths) {
+      expect(atReader(path).match(/<Cite\s+id="[^"]+"\s*\/>/g))
+        .toEqual(before(path).match(/<Cite\s+id="[^"]+"\s*\/>/g));
+    }
+    const latentHeading = "## Pick the model's role before its architecture";
+    const releasedLatent = matter(committedSource(READER_RELEASE_BASE, paths[0])).content;
+    expect(releasedLatent.split(latentHeading)).toHaveLength(2);
+    expect(matter(read(paths[0])).content.trim()).toBe(
+      `${matter(atReader(paths[0])).content.trim()}\n\n${latentHeading}${releasedLatent.split(latentHeading)[1]}`.trim(),
+    );
+    const taxonomyHeading = '## Three tests before believing a world-model claim';
+    const releasedTaxonomy = matter(committedSource(READER_RELEASE_BASE, paths[1])).content;
+    expect(releasedTaxonomy.split(taxonomyHeading)).toHaveLength(2);
+    const taxonomyAddition = taxonomyHeading + releasedTaxonomy.split(taxonomyHeading)[1].split('<SelfCheck')[0];
+    expect(matter(atReader(paths[1])).content.split('<SelfCheck')).toHaveLength(2);
+    expect(matter(read(paths[1])).content).toBe(matter(atReader(paths[1])).content.replace(
+      "The six example groups below are this article's selection",
+      "The six example groups below are this article's authored selection",
+    ).replace('<SelfCheck', () => taxonomyAddition + '<SelfCheck'));
   });
 
   it('preserves native original four cells and every typed plan/proof dependency', () => {
     const ids = new Set(CITATIONS.map(c => c.id));
     const path = 'audit/world-models.md';
-    const current = parseLedger(path, read(path), ids);
+    const historical = parseLedger(path, committedSource(checkpoint, path), ids);
     const prior = parseLedger(path, before(path), ids);
-    expect(current).toEqual(prior);
-    expect(current.map(s => s.claimRecords.map(originalClaimDigest)))
+    expect(historical).toEqual(prior);
+    expect(historical.map(s => s.claimRecords.map(originalClaimDigest)))
       .toEqual(prior.map(s => s.claimRecords.map(originalClaimDigest)));
-    expect(read('audit/compound-evidence.json')).toBe(before('audit/compound-evidence.json'));
-    expect(read('audit/local-basis.json')).toBe(before('audit/local-basis.json'));
+    const context = currentAuditContext();
+    const current = parseLedger(path, read(path), ids, context);
+    const archived = JSON.parse(read('audit/evidence/crossdomain-closure-20260923/row-history.json'))
+      .rows.find((r: { originalId: string }) => r.originalId === 'audit/world-models.md:taxonomy:4');
+    expect(current.slice(0, prior.length).map(s => [s.slug, s.claimRows]))
+      .toEqual(prior.map(s => [s.slug, s.claimRows]));
+    expect(current.slice(prior.length).map(s => [s.slug, s.claimRows]))
+      .toEqual([['world-models-vs-simulators', 11], ['model-based-robot-learning', 8], ['evaluation', 7]]);
+    for (const section of current) {
+      const old = prior.find(s => s.slug === section.slug);
+      if (!old) continue;
+      expect(section.claimRows).toBe(old.claimRows);
+      for (const [i, record] of section.claimRecords.entries()) {
+        if (section.slug === 'taxonomy' && i === 3) {
+          expect(originalClaimDigest(archived.currentCells)).toBe(originalClaimDigest(old.claimRecords[i]));
+          expect(record.localBasis?.planId).toBe('crossdomain-taxonomy4-20260923');
+          expect(record.evidenceFailures).toEqual([]);
+          expect(record.outcome).toBe('passing');
+        } else expect(originalClaimDigest(record)).toBe(originalClaimDigest(old.claimRecords[i]));
+      }
+    }
+    expect(committedSource(checkpoint, 'audit/compound-evidence.json')).toBe(before('audit/compound-evidence.json'));
+    preservedLegacySurvivors(JSON.parse(before('audit/compound-evidence.json')), context.compoundPlans);
+    expect(committedSource(checkpoint, 'audit/local-basis.json')).toBe(before('audit/local-basis.json'));
     const catalog = JSON.parse(read('audit/local-basis.json'));
-    expect(catalog.plans).toHaveLength(7);
-    expect(catalog.proofs).toHaveLength(56);
-    for (const path of paths) expect(JSON.stringify(catalog)).not.toContain(path);
+    const released = JSON.parse(committedSource('ac65cf4', 'audit/local-basis.json'));
+    expect(released.plans).toHaveLength(7);
+    expect(released.proofs).toHaveLength(56);
+    const oldIds = new Set(released.plans.map((p: { id: string }) => p.id));
+    expect(catalog.plans.filter((p: { id: string }) => oldIds.has(p.id))).toEqual(released.plans);
+    expect(catalog.proofs.filter((p: { planId: string }) => oldIds.has(p.planId))).toEqual(released.proofs);
+    const historicalCatalog = JSON.parse(committedSource(checkpoint, 'audit/local-basis.json'));
+    for (const path of paths) expect(JSON.stringify(historicalCatalog)).not.toContain(path);
+    expect(JSON.stringify(catalog.plans.filter((p: { id: string }) => p.id !== 'crossdomain-taxonomy4-20260923')))
+      .not.toContain(paths[1]);
+    expect(JSON.stringify(catalog)).not.toContain(paths[0]);
+    const original = committedJson<typeof catalog>(readerCommit, 'audit/local-basis.json');
+    expect(original.plans).toHaveLength(7);
+    expect(original.proofs).toHaveLength(56);
+    const economicsHistory = JSON.parse(read(
+      'audit/evidence/economics-release-20260923/previous-economics-plan-and-proofs.json',
+    ));
+    for (const plan of original.plans) {
+      if (plan.id === 'economics-local-i52-20260923') expect(economicsHistory.plan).toEqual(plan);
+      else expect(catalog.plans).toContainEqual(plan);
+    }
+    for (const proof of original.proofs) {
+      if (proof.planId === 'economics-local-i52-20260923') expect(economicsHistory.proofs).toContainEqual(proof);
+      else expect(catalog.proofs).toContainEqual(proof);
+    }
+    for (const path of paths) expect(JSON.stringify(original)).not.toContain(path);
   });
 
   it('appends only three exact native member approvals without resetting the baseline', () => {
     const path = 'contract/brand-v2-approved-deltas.json';
-    const current: ApprovedDelta[] = JSON.parse(read(path)).entries;
+    const current = preservedApprovalPacket(checkpoint);
     const prior: ApprovedDelta[] = JSON.parse(before(path)).entries;
     expect(current.slice(0, prior.length)).toEqual(prior);
-    expect(current.slice(prior.length).map(a => [a.manifest, a.memberId])).toEqual(members);
-    expect(compareBaseline(approvalBundle(true), approvalBundle(false), current.slice(prior.length)).ok).toBe(true);
+    const reader: ApprovedDelta[] = committedJson<{ entries: ApprovedDelta[] }>(readerCommit, path).entries;
+    expect(reader.slice(0, prior.length)).toEqual(prior);
+    expect(reader.slice(prior.length).map(a => [a.manifest, a.memberId])).toEqual(members);
+    expect(current.filter(a => a.id.startsWith('reader-dreamer-20260923-'))).toEqual(reader.slice(prior.length));
+    expect(compareBaseline(approvalBundle(true), approvalBundle(false), reader.slice(prior.length)).ok).toBe(true);
   });
 
   it.each(members)('rejects missing and mutated current-native approval for %s / %s', (kind, memberId) => {

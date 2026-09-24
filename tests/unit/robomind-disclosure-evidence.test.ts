@@ -1,8 +1,10 @@
 import { readFileSync } from 'node:fs';
+import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
+import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { DATASETS, type Dataset } from '../../data/datasets';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
@@ -14,6 +16,9 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '../../lib/brand-v2-baseline';
+import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { headReanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '1e07db26e614dd24e9f1c0c79a651df26cdec88b';
@@ -50,6 +55,8 @@ const parts = [
 const approvals: ApprovedDelta[] = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
 const oldApprovals: ApprovedDelta[] = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
 const ownApprovals = approvals.filter(a => a.id.startsWith('robomind-disclosure-20260923-'));
+const truth = collectArticleTruthManifests();
+const releaseBase = 'f1d03a919f70a336326e1c044e1cc338a8cb6abe';
 // These endpoints describe the licensing transaction, not later hours corrections.
 // Hash actual committed article bytes independently of the approval objects.
 const historicalArticle = matter(atDisclosure(articlePath));
@@ -94,16 +101,19 @@ function assertDisclosure(text: string, dataset: Dataset) {
   expect(text).not.toContain('The 107k dataset is licensed under Apache-2.0.');
 }
 
-function scopedBundle(old: boolean): BaselineBundle {
+function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'current'): BaselineBundle {
   const members = [
     ['prose', 'article:data-hardware/datasets', '4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95'],
     ['relationships', 'article:data-hardware/datasets', '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'],
   ];
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const scaffold = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
-    const relevant = members.filter(([k]) => k === kind).map(([, id, hash]) => old
-      ? { id, hash }
-      : historicalTruth.find(m => m.kind === kind)!.members.find(m => m.id === id)!);
+    const relevant = members.filter(([k]) => k === kind).map(([, id, hash]) => {
+      if (stage === 'before') return { id, hash };
+      if (stage === 'sealed') return { id, hash: sealedHash(kind, id) };
+      const manifests = stage === 'historical' ? historicalTruth : Object.values(truth);
+      return manifests.find(m => m.kind === kind)!.members.find(m => m.id === id)!;
+    });
     return [kind, { ...scaffold, members: relevant, memberCount: relevant.length }];
   })) as BaselineBundle['manifests'];
   return {
@@ -118,8 +128,13 @@ function scopedBundle(old: boolean): BaselineBundle {
 describe('RoboMIND original10 truthful release licensing disclosure', () => {
   it('states the badge and release-specific uncertainty without granting permission', () => {
     assertDisclosure(article, DATASETS.find(d => d.id === 'robomind')!);
-    expect(matter(article).data).toEqual(matter(before(articlePath)).data);
-    expect(read('data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(historicalArticle.data).toEqual(matter(before(articlePath)).data);
+    expect(matter(article).data).toEqual(matter(committedSource(releaseBase, articlePath)).data);
+    expect(committedSource(disclosureCommit, 'data/citations.ts')).toBe(before('data/citations.ts'));
+    preservedPreIndustrialCitations(releaseBase);
+    expect(matter(atDisclosure(articlePath)).data).toEqual(matter(before(articlePath)).data);
+    expect(atDisclosure('data/citations.ts')).toBe(before('data/citations.ts'));
+    expect(CITATIONS.find(c => c.id === 'robomind-2024')?.url).toBe('https://arxiv.org/abs/2412.13877');
     expect(article).toContain(`[public RoboMIND dataset card](${card})`);
   });
 
@@ -202,17 +217,25 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
     expect(ledger).toContain(JSON.stringify(oldCells, null, 2));
     expect(ledger).toContain(JSON.stringify(selected(oldPlans), null, 2));
     expect(parse().find(s => s.slug === 'datasets')!.claimRecords).toHaveLength(11);
-    expect(plans.map(p => p.id)).toEqual(oldPlans.map(p => p.id));
-    expect(plans.filter(p => p.id !== planId)).toEqual(oldPlans.filter(p => p.id !== planId));
+    const historical: CompoundPlan[] = JSON.parse(committedSource(disclosureCommit, 'audit/compound-evidence.json'));
+    expect(historical.map(p => p.id)).toEqual(oldPlans.map(p => p.id));
+    preservedLegacySurvivors(oldPlans.filter(p => p.id !== planId), plans);
   });
 
   it('preserves every other native data-hardware record and completed license pair', () => {
     const old = parse(oldPlans, before(ledgerPath));
-    for (const section of parse()) {
+    const historicalPlans: CompoundPlan[] = JSON.parse(atDisclosure('audit/compound-evidence.json'));
+    const historical = parse(historicalPlans, atDisclosure(ledgerPath));
+    for (const section of historical) {
       const previous = old.find(s => s.slug === section.slug)!;
       for (const [i, record] of section.claimRecords.entries()) {
         if (section.slug !== 'datasets' || i !== 9) expect(record).toEqual(previous.claimRecords[i]);
       }
+    }
+    for (const ordinal of [3, 5]) {
+      const record = parse().find(s => s.slug === 'data-bottleneck')!.claimRecords[ordinal - 1];
+      expect(record.verdict).toBe('C');
+      expect(read('audit/local-basis.json')).toContain(`final-seven-data-hardware-data-bottleneck-${ordinal}-20260923`);
     }
     for (const ordinal of [5, 6]) {
       const find = (catalog: CompoundPlan[]) => catalog.find(p => p.ledgerPath === ledgerPath && p.articleSlug === 'datasets' && p.rowOrdinal === ordinal);
@@ -227,8 +250,16 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
     expect(robot.tasks).toBe(479);
     expect(robot.embodimentCount).toBe(4);
     expect(robot.year).toBe(2024);
-    expect(approvals.slice(0, oldApprovals.length)).toEqual(oldApprovals);
-    expect(approvals.length).toBe(oldApprovals.length + ownApprovals.length);
+    const historicalApprovals: ApprovedDelta[] = JSON.parse(committedSource(disclosureCommit, 'contract/brand-v2-approved-deltas.json')).entries;
+    expect(historicalApprovals.slice(0, oldApprovals.length)).toEqual(oldApprovals);
+    expect(historicalApprovals.length).toBe(oldApprovals.length + ownApprovals.length);
+    preservedApprovalPacket(disclosureCommit);
+    const productionApprovals: ApprovedDelta[] = JSON.parse(committedSource(releaseBase, 'contract/brand-v2-approved-deltas.json')).entries;
+    expect(approvals.slice(0, productionApprovals.length)).toEqual(productionApprovals);
+    expect(preservedApprovalPacket(disclosureCommit).slice(0, oldApprovals.length)).toEqual(oldApprovals);
+    const atTransaction = JSON.parse(atDisclosure('contract/brand-v2-approved-deltas.json')).entries as ApprovedDelta[];
+    expect(atTransaction.slice(0, oldApprovals.length)).toEqual(oldApprovals);
+    expect(atTransaction.slice(oldApprovals.length)).toEqual(ownApprovals);
   });
 
   it('distinguishes historical null hours from the current successful mixed cohort', () => {
@@ -249,10 +280,17 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
       expect(approval.disposition).toBe('permanent');
     }
     const relevant = ownApprovals.filter(a => ['prose', 'relationships'].includes(a.manifest));
-    expect(compareBaseline(scopedBundle(true), scopedBundle(false), relevant).ok).toBe(true);
-    for (const a of relevant) {
-      expect(compareBaseline(scopedBundle(true), scopedBundle(false), relevant.filter(v => v.id !== a.id)).ok).toBe(false);
-      expect(compareBaseline(scopedBundle(true), scopedBundle(false), relevant.map(v => v.id === a.id ? { ...v, newHash: sha256('wrong') } : v)).ok).toBe(false);
+    const reanchors = (['prose', 'relationships'] as const).map(kind =>
+      headReanchorFor(approvals, kind, 'article:data-hardware/datasets')!);
+    for (const [previous, next, edges] of [
+      [scopedBundle('before'), scopedBundle('historical'), relevant],
+      [scopedBundle('sealed'), scopedBundle('current'), reanchors],
+    ] as const) {
+      expect(compareBaseline(previous, next, edges).ok).toBe(true);
+      for (const a of edges) {
+        expect(compareBaseline(previous, next, edges.filter(v => v.id !== a.id)).ok).toBe(false);
+        expect(compareBaseline(previous, next, edges.map(v => v.id === a.id ? { ...v, newHash: sha256('wrong') } : v)).ok).toBe(false);
+      }
     }
   });
 });

@@ -75,9 +75,22 @@ for (const plan of compoundPlans) {
 
 const localBasis = loadLocalBasisContext(root, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
 
+// The September 23 classical packet also retains older kinematics entries;
+// only the two later Control withdrawals are new native gate targets. The
+// kinematics successors remain bound to the residual-release packet.
+const controlCloseout = (JSON.parse(readFileSync(join(root,
+  'audit/evidence/classical-closure-20260923/corrections.json'), 'utf8')) as Array<{ originalId: string }>)
+  .filter(record => ['audit/classical.md:control:1', 'audit/classical.md:control:2']
+    .includes(record.originalId));
+if (controlCloseout.length !== 2 ||
+  controlCloseout.map(record => record.originalId).join(',') !==
+    'audit/classical.md:control:1,audit/classical.md:control:2') {
+  throw new Error('Control withdrawal correction population drift');
+}
 const correctedDispositions = { root, records: parseCorrectedDispositions(
-  ['industrial-closure-20260923', 'classical-closure-20260923'].flatMap(directory =>
-    JSON.parse(readFileSync(join(root, 'audit/evidence', directory, 'corrections.json'), 'utf8'))),
+  ['industrial-release-20260924', 'residual-release-20260924'].flatMap(directory =>
+    JSON.parse(readFileSync(join(root, 'audit/evidence', directory, 'corrections.json'), 'utf8')))
+    .concat(controlCloseout),
 ) };
 
 const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {

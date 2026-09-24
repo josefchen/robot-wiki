@@ -1,10 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { planPacket } from '../helpers/audit-plan-history';
 import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest,
   parseCompoundPlans, parseLedger,
 } from '../../lib/audit-ledger';
+import { committedJson } from '../helpers/editorial-current-context';
 
 const text = readFileSync('content/frontier/dexterity.mdx', 'utf8');
 const ledger = readFileSync('audit/frontier.md', 'utf8');
@@ -137,14 +139,26 @@ describe('reviewed plans and adjudications are internally consistent', () => {
   });
 
   test('prior Brooks/Holson/Figure dexterity plans survive unchanged', () => {
-    for (const id of [
+    const historical = committedJson<typeof plans>(
+      'fcbfd1d2cedcc81b00226716cd37d17bfc49f2d7', 'audit/compound-evidence.json',
+    );
+    expect(historical).toHaveLength(684);
+    const priorIds = [
       'dexterity-brooks-2-source-20260914', 'dexterity-brooks-3-source-20260914',
       'dexterity-brooks-5-source-20260914', 'dexterity-brooks-6-source-20260914',
       'dexterity-figure15-source-20260914', 'dexterity-holson-pipeline-source-20260915',
       'dexterity-tactile-outlook-source-20260915', 'dexterity-keyring-rules-source-20260915',
-    ]) {
-      expect(plans.some(p => p.id === id)).toBe(true);
+    ];
+    for (const id of priorIds) {
+      expect(plans.find(p => p.id === id)).toEqual(historical.find(p => p.id === id));
     }
-    expect(plans).toHaveLength(684);
+    const packetIds = [
+      'dexterity-brooks-ernst-1-source-20260915',
+      'dexterity-brooks-eweek-4-source-20260915',
+      'dexterity-brooks-forecast-7-source-20260915',
+    ];
+    expect(planPacket(plans, packetIds).map(p => p.id)).toEqual(packetIds);
+    expect(plans.filter(p => p.id.startsWith('dexterity-')))
+      .toEqual(historical.filter(p => p.id.startsWith('dexterity-')));
   });
 });

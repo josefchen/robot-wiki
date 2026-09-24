@@ -77,8 +77,23 @@ describe('Boston Dynamics control source corrections', () => {
     expect(p.evidence.map(e => e.sourceUrl)).toEqual([spotUrl, lbmUrl]);
     expect(p.evidence[0].supportingPassage).toContain('removing the need to run multiple MPC instances in parallel');
     expect(p.evidence[1].supportingPassage).toContain('same control interface to the robot as the teleoperation system');
-    expect(sections().find(s => s.slug === 'reward-design-mpc')!.claimRecords[18].evidenceFailures.length).toBeGreaterThan(0);
-    expect(sections().find(s => s.slug === 'legged-locomotion')!.claimRecords[0].evidenceFailures.length).toBeGreaterThan(0);
+    // Row 19 was held incomplete when this pin was written; the
+    // reward-design-mpc originals packet has since bound it to
+    // reward-design-mpc-original-19-20260916, so the honest current
+    // assertion is that its record carries no evidence failures while
+    // reward18 stays its own separate two-document conjunction.
+    expect(sections().find(s => s.slug === 'reward-design-mpc')!.claimRecords[18].evidenceFailures).toEqual([]);
+    // Legged-locomotion original 1 (Stats) was held when this pin was written;
+    // the 20260917a packet bound it to legged-locomotion-1-stats-78min-20260917a.
+    const leggedStats = sections().find(s => s.slug === 'legged-locomotion')!.claimRecords[0];
+    expect(leggedStats.evidenceFailures).toEqual([]);
+    expect(leggedStats.compound?.planId).toBe('legged-locomotion-1-stats-78min-20260917a');
+    const reward19 = catalog().find(p => p.id === 'reward-design-mpc-original-19-20260916')!;
+    expect(reward19.id).toBe('reward-design-mpc-original-19-20260916');
+    expect(new Set(reward19.evidence.map(e => e.citationId))).toEqual(new Set(['lee-2020', 'miki-2022']));
+    expect(sections().find(s => s.slug === 'reward-design-mpc')!.claimRecords[18].evidenceFailures).toEqual([]);
+    expect(catalog().some(p => p.id === 'legged-locomotion-1-stats-78min-20260917a')).toBe(true);
+    expect(sections().find(s => s.slug === 'legged-locomotion')!.claimRecords[0].evidenceFailures).toEqual([]);
     expect(legged()).toContain('<Stat label="Alpine hike" value="78 min"');
     expect(legged()).toContain('reattach a shoe and swap batteries');
   });
@@ -122,7 +137,14 @@ describe('Boston Dynamics control source corrections', () => {
       expect(failures(stale).length).toBeGreaterThan(0);
       const wrongOrdinal = selected(slug, ordinal);
       wrongOrdinal.rowOrdinal += 1;
-      if (slug === 'legged-locomotion' && ordinal < 16) {
+      const collides = catalog().some(
+        (p) =>
+          p.id !== wrongOrdinal.id &&
+          p.ledgerPath === wrongOrdinal.ledgerPath &&
+          p.articleSlug === slug &&
+          p.rowOrdinal === wrongOrdinal.rowOrdinal,
+      );
+      if (collides) {
         expect(() => failures(wrongOrdinal, slug, ordinal)).toThrow(/duplicate compound row target/);
       } else {
         expect(failures(wrongOrdinal, slug, ordinal).length).toBeGreaterThan(0);

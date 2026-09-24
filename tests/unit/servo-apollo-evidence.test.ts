@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { parseLedger, compoundPlanDigest, compoundPartDigest } from '../../lib/audit-ledger';
+import { committedText } from '../helpers/editorial-current-context';
 const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const ledger = readFileSync('audit/classical.md', 'utf8');
 const registry = new Set(CITATIONS.map(c => c.id));
@@ -42,7 +43,11 @@ describe('servo source scope', () => {
     expect(section).not.toContain('deletes the pose-estimation term');
     expect(section).toMatch(/depth/); expect(section).toMatch(/local/); expect(section).toMatch(/poor estimates/);
     expect(section).toMatch(/Part I[\s\S]*performance and stability/);
-    expect(section.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(5);
+    // A later packet added a sixth 2006 cite (the field-of-view sentence).
+    const atServo = committedText('ae0846177a7000a7e69a00d330956a9acb2cf8a0', 'content/classical/perception.mdx')
+      .split('## Visual servoing:')[1]?.split('## ')[0] ?? '';
+    expect(atServo.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(6);
+    expect(section.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(6);
     expect(section.match(/<Cite id="chaumette-hutchinson-2007" \/>/g)).toHaveLength(2);
   });
   it('uses the source titles and complete accented bylines without repinning DOI URLs',()=>{

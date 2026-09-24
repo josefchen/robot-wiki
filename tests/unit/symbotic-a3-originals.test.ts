@@ -1,9 +1,13 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { committedSource } from '../helpers/continuation-integration';
 import {
-  compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan,
+  compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan,
 } from '../../lib/audit-ledger';
+import { committedText } from '../helpers/editorial-current-context';
 
 const ordinals = [19, 20, 21, 39, 40, 14, 50];
 const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
@@ -11,8 +15,9 @@ const ledger = readFileSync('audit/data-hardware.md', 'utf8');
 const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
 const selected = ordinals.map(n => plans.find(p => p.ledgerPath === 'audit/data-hardware.md'
   && p.articleSlug === 'industrial-deployment' && p.rowOrdinal === n));
-const parse = (catalog = plans) => parseLedger('audit/data-hardware.md', ledger,
-  new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog })
+const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
+const parse = (catalog = plans, includeLocal = false) => parseLedger('audit/data-hardware.md', ledger,
+  new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog, ...(includeLocal ? { localBasis } : {}) })
   .find(s => s.slug === 'industrial-deployment')!;
 const expectedUrls: Record<string, string> = {
   'symbotic-10k-2025': 'https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm',
@@ -133,14 +138,55 @@ describe('seven Symbotic and A3 industrial originals', () => {
 
   it('preserves completed peers and original 8, the original 52 hold, citation union and review date', () => {
     for (const n of [1, 2, 3, 4, 13, 27, 28]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
-    // Row 8 stays complete. Row 52 retains its genuine correction but is held:
-    // the September 17 scalar EVST passage did not prove the authored part.
+    // Row 8 stays complete. Row 52's later typed correction is not the old
+    // September 17 scalar EVST passage promoted into an authored proof.
     expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
-    expect(parse().claimRecords[51].evidenceFailures).toContain(
+    const historical = parseLedger('audit/data-hardware.md',
+      committedSource('9e4441e', 'audit/data-hardware.md'), new Set(CITATIONS.map(c => c.id)),
+      // Plans appended by the 2026-09-24 imported stack-classical packet bind only
+      // to rows added after this commit; the historical parse excludes them.
+      { compoundPlans: plans.filter(p => !p.id.startsWith('stack-') && p.id !== 'ros2-lyrical-release-20260924' && p.id !== 'calib-handeye-axxb-20260924' && p.id !== 'calib-hwangbo-actuator-20260924') }).find(s => s.slug === 'industrial-deployment')!;
+    expect(historical.claimRecords[51].evidenceFailures).toContain(
       'Supporting passage must contain the passage actually read, not a locator or placeholder',
     );
-    expect(article).toContain('lastReviewed: "2026-08-22"');
-    expect(article.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
+    const current = parse(plans, true).claimRecords[51];
+    expect(current.evidenceFailures).toEqual([]);
+    expect(current.outcome).toBe('passing');
+    expect(committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx'))
+      .toContain('lastReviewed: "2026-08-22"');
+    expect(article).toContain('lastReviewed: "2026-09-24"');
+    const citations = article.split('citations:\n')[1].split('seeAlso:')[0];
+    const priorCitations = committedSource('ac65cf4', 'content/data-hardware/industrial-deployment.mdx')
+      .split('citations:\n')[1].split('seeAlso:')[0];
+    expect(priorCitations.match(/^  - /gm)).toHaveLength(22);
+    expect(priorCitations).toContain('  - ohno-tps-1988\n');
+    expect(priorCitations).toContain('  - technology-org-deployed-2026\n');
+    expect(citations).toBe(priorCitations.replace('  - ohno-tps-1988\n',
+      '  - lei-takt-time-definition\n  - lei-cycle-time-definition\n')
+      .replace('  - technology-org-deployed-2026\n  - robozaps-humanoids-2026\n',
+        '  - agility-digit-production\n'));
+    expect(citations).toContain('  - nasa-availability-prediction-analysis');
+    const row52 = parse().claimRecords[51];
+    const typed = JSON.parse(readFileSync('audit/local-basis.json', 'utf8')).plans
+      .find((p: { originalId: string }) => p.originalId === 'audit/data-hardware.md:industrial-deployment:52');
+    expect(typed.id).toBe('economics-local-i52-20260923');
+    expect(typed.currentTupleDigest).toBe(originalClaimDigest(row52));
+    expect(row52.verdict).toBe('C');
+    expect(typed.parts).toHaveLength(7);
+    expect(typed.evidence.map((e: { citationId: string }) => e.citationId))
+      .toEqual(['evst-cell-cost-2026', 'evst-cell-cost-2026']);
+    expect(article).toContain('lastReviewed: "2026-09-24"');
+    const atSymbotic = committedText('d194e9547944a551e7fa58d8537cb6776e43f6a0', 'content/data-hardware/industrial-deployment.mdx');
+    expect(atSymbotic.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
+    const leiIds = committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx')
+      .split('citations:\n')[1].split('seeAlso:')[0];
+    expect(leiIds.match(/^  - /gm)).toHaveLength(23);
+    const currentIds = article.split('citations:\n')[1].split('seeAlso:')[0];
+    expect(currentIds.match(/^  - /gm)).toHaveLength(22);
+    expect(currentIds).toContain('lei-cycle-time-definition');
+    expect(currentIds).not.toContain('ohno-tps-1988');
+    expect(currentIds).toContain('agility-digit-production');
+    expect(currentIds).not.toContain('technology-org-deployed-2026');
     expect(CITATIONS.find(c => c.id === 'osha-otm-robots')?.year).toBe(2026);
   });
 });

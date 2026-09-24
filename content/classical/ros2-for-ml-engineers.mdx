@@ -1,0 +1,146 @@
+---
+title: "ROS 2 for Machine Learning Engineers"
+description: "ROS 2 explained as the runtime boundary around a learned robot policy: nodes, topics, services, actions, QoS, tf2, rosbag2, URDF, MoveIt and a production inference layout."
+domain: classical
+slug: ros2-for-ml-engineers
+order: 9
+status: published
+datePublished: "2026-08-24"
+lastReviewed: "2026-09-24"
+citations:
+  - ros2-lyrical-2026
+  - ros2-interfaces-2026
+  - ros2-qos-2026
+  - moveit-planning-scene-2026
+  - nav2-2020
+  - modern-robotics-2017
+seeAlso:
+  - "data-hardware/robot-learning-stack"
+  - "classical/scene-representation"
+  - "classical/control"
+  - "classical/calibration"
+---
+
+ROS 2 is the integration layer around a robot policy. It carries sensor streams, coordinate transforms, commands, task requests, logs and lifecycle state between processes. It is not an operating system and it is not the controller itself. For a machine-learning engineer, the shortest useful mental model is a typed, distributed dataflow graph with explicit delivery policies and a shared transform tree.
+
+As of August 2026, Lyrical Luth is the current ROS 2 long-term-support release, released in May 2026 and supported through May 2031 <Cite id="ros2-lyrical-2026" />. Choose a supported stable distribution for a product; use Rolling only when contributing to the next release.
+
+Try the check below and choose the ROS interface that matches a long-running robot task with feedback and cancellation.
+
+<SelfCheck
+  prompt="A task request tells the robot to fetch an object, takes 30 seconds, reports progress and may need to be cancelled. Which ROS 2 interface fits?"
+  options={[
+    {
+      value: 'topic',
+      label: 'Publish the request repeatedly on a sensor topic',
+      why: 'Topics fit continuous streams, not one task with acceptance, feedback, completion and cancellation semantics.'
+    },
+    {
+      value: 'service',
+      label: 'Block on a synchronous service call until the task finishes',
+      why: 'Services are intended for short request-response operations. A long task needs feedback and preemption without holding a synchronous request open.'
+    },
+    {
+      value: 'action',
+      label: 'Use a ROS action with goal, feedback, result and cancellation',
+      why: 'Actions model long-running, preemptible work. The client can observe progress and cancel while the server owns execution.'
+    }
+  ]}
+  answer="action"
+  takeaway="Topics stream, services answer short requests, and actions manage long-running goals with feedback and cancellation."
+/>
+
+## The graph: nodes and typed interfaces
+
+A **node** is one participant in the graph. Keep its responsibility narrow: camera driver, state estimator, policy server, controller bridge or task executive. Nodes discover one another through the ROS middleware and communicate through named, typed interfaces.
+
+ROS 2 defines three primary interface patterns <Cite id="ros2-interfaces-2026" />:
+
+- **topics** for asynchronous streams such as images, joint states and commands;
+- **services** for short request-response operations such as resetting a component or querying configuration;
+- **actions** for long-running goals that need progress, result and cancellation.
+
+The interface definition is a contract. Put units and frame conventions in message documentation, and prefer standard message types when their semantics fit. A `geometry_msgs/PoseStamped` includes both a timestamp and a frame identifier; a bare array does not tell the next node what its seven numbers mean.
+
+## QoS is part of the model input
+
+Quality of Service controls delivery behavior. Reliability, durability, history, depth, deadline and lifespan can change which messages arrive and how old they are. ROS 2's sensor-data profile favors timely latest samples with best-effort reliability, while the default profile is reliable with a deeper queue <Cite id="ros2-qos-2026" />.
+
+For policy inference, stale data is often worse than a dropped frame. A reliable camera subscription with a large queue can deliver every image and make the policy act on the past. A best-effort queue of one may be the correct contract on a local robot network. State and command channels may need different choices.
+
+Publisher and subscriber QoS must be compatible or they will not connect. Treat a silent topic as a possible QoS mismatch before debugging the neural code.
+
+Record message age at the policy boundary. The tensor may have the right shape while the physical state it describes is already obsolete.
+
+## Time and synchronization
+
+Every observation used together should refer to a defensible time. Camera, depth, joint state and force streams arrive at different rates and latencies. Use message timestamps from acquisition, not only arrival time. Decide whether to use exact synchronization, approximate synchronization or interpolation of the robot state to the image timestamp.
+
+Separate three clocks in logs: source timestamp, receipt timestamp and inference completion. Then you can decompose latency into sensing, transport, preprocessing, model execution and command delivery.
+
+Simulation introduces ROS time, where `/clock` can advance faster, slower or discontinuously relative to wall time. Nodes that mix the two will produce timeouts and derivative estimates that look like random instability.
+
+The [calibration guide](/classical/calibration) covers the spatial and temporal alignment needed before transitions become training examples.
+
+## tf2: the coordinate-frame graph
+
+tf2 maintains time-indexed rigid transforms between frames such as `map`, `odom`, `base_link`, camera optical frames, wrist and tool. A transform lookup asks where one frame was relative to another at a particular time.
+
+The tree should reflect ownership. Static transforms describe fixed mounting geometry. Dynamic transforms come from state estimation and joint state. Avoid publishing two authorities for the same edge. Name optical frames according to their axis convention rather than silently reusing a mechanical camera frame.
+
+At the policy boundary, transform observations and actions deliberately. If training used base-frame <Term id="end-effector">end-effector</Term> deltas, deployment must not send tool-frame deltas with the same tensor layout. The geometry behind these transformations is developed in *Modern Robotics* <Cite id="modern-robotics-2017" />.
+
+## URDF, robot state and MoveIt
+
+URDF describes the robot's links, joints, geometry and limits. `robot_state_publisher` combines that model with joint states to publish the kinematic frame tree. The model is the shared reference for visualization, collision checking, planning and controllers.
+
+MoveIt 2 sits above that representation for manipulation planning. Its Planning Scene combines current robot state, robot model and world geometry, supporting forward and inverse kinematics, constraints and collision checking <Cite id="moveit-planning-scene-2026" />.
+
+A learned policy can use MoveIt in several ways:
+
+- plan a collision-free approach, then hand off to a contact policy;
+- validate a predicted waypoint or reject one in collision;
+- provide a classical baseline for the same task;
+- execute a policy's Cartesian target through a controller with joint limits.
+
+Do not ask MoveIt to fix an undefined action convention. It needs a target frame, robot state and constraints just as the learner does.
+
+## rosbag2 is the experiment record
+
+rosbag2 records topic messages with timestamps for replay. It is invaluable for debugging and dataset capture, but a bag is not automatically a machine-learning dataset.
+
+Record the raw sensor topics, transforms, joint state, commands, controller state, task events, software version and calibration identity. Preserve QoS information and verify that high-bandwidth topics were actually recorded. Replay a small bag through preprocessing in continuous integration so schema drift fails early.
+
+Convert bags into immutable training shards with a versioned transformation. Keep the bag URI and message timestamps in provenance. That lets a suspicious sample be traced back to raw traffic rather than only to a tensor file.
+
+## A production policy layout
+
+A robust learned-policy graph often has six nodes or components:
+
+1. **drivers** publish raw, timestamped sensor and robot state;
+2. **state assembly** synchronizes, transforms and validates observations;
+3. **policy server** owns preprocessing, model inference and model version;
+4. **command gate** checks freshness, limits and task state;
+5. **controller bridge** converts the action contract into the hardware interface;
+6. **supervisor** handles lifecycle, faults, reset and recovery.
+
+Keep inference out of the safety-critical feedback loop unless its worst-case latency and failure behavior meet that loop's requirements. A position or impedance controller can run at high rate while the learned policy updates a slower target.
+
+Publish diagnostics for model version, observation age, inference duration, action clipping, dropped frames and fallback state. A system that logs only success has no evidence for why it failed.
+
+## Navigation uses the same architecture
+
+Nav2 is the reference ROS 2 navigation stack and applies a similar split: global planning over a map, local control against current obstacles, behavior coordination and recovery <Cite id="nav2-2020" />. For an ML engineer, it is a useful example of learned components living inside a larger system rather than replacing the whole graph.
+
+A learned local controller can consume the same costmap and goal interface as a classical one. That preserves test harnesses and fallback behavior. The [scene-representation module](/classical/scene-representation) explains why the map used for planning is not necessarily the representation used for rendering or learning.
+
+## Common integration failures
+
+- **Correct tensor, wrong frame:** training and deployment disagree about base, tool or camera coordinates.
+- **Reliable but stale:** a queue preserves old images and hides latency.
+- **Two command publishers:** teleoperation and policy both control the same interface without arbitration.
+- **Bag without transforms:** images and joints were recorded but cannot be reconstructed in a common frame.
+- **Simulation-only time assumptions:** a node uses wall time and breaks under `/clock`.
+- **One giant node:** drivers, inference and hardware commands share a failure domain and cannot be replayed independently.
+
+The remedy is explicit contracts. Topics carry timestamped state, tf2 carries geometry, QoS carries delivery intent, and the controller bridge carries action semantics. The learned model is then replaceable without rewriting the robot around it, which is the production property ROS 2 should provide.

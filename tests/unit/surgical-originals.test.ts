@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -7,6 +8,7 @@ import {
   parseCompoundPlans,
 } from '../../lib/audit-ledger';
 import { CITATIONS } from '../../data/citations';
+import { committedJson } from '../helpers/editorial-current-context';
 
 /**
  * Red-first proof for the surgical originals integration (frozen packet
@@ -87,8 +89,9 @@ const surgicalPlans = plans.filter(
 
 describe('surgical originals: ledger rows and compound plans', () => {
   it('keeps all 768 prior plans first and appends the surgical plans (20260916f + 20260917a)', () => {
-    expect(plans).toHaveLength(856); // 845 at convergence-aq close + 11 convergence-as industrial plans (2026-09-17)
-    expect(plans.slice(0, 768).every((plan) => !plan.id.startsWith('surgical-'))).toBe(true);
+    // The original packet stays contiguous; the later row-5 plan follows it.
+    expect(plans.slice(0, plans.findIndex(p => p.id === SURGICAL_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('surgical-'))).toBe(true);
+    expect(planPacket(plans, SURGICAL_PLAN_IDS).map((plan) => plan.id)).toEqual(SURGICAL_PLAN_IDS);
     expect(surgicalPlans.map((plan) => plan.id)).toEqual([...SURGICAL_PLAN_IDS, SURGICAL_20260917A_PLAN_ID]);
     expect(surgicalPlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 6, 7, 8, 5]);
   });
@@ -261,7 +264,17 @@ describe('surgical originals: approved deltas', () => {
   const FINAL_HASH = 'c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb';
 
   it('appends exactly 7 entries, same-same except the one combined prose move', () => {
-    expect(deltas.entries).toHaveLength(996); // 995 at convergence-aq close + 1 convergence-as industrial entry (2026-09-17)
+    // The merged delta ledger keeps appending later packets; the surgical
+    // block keeps its append position, so pin the slot rather than a moving
+    // total.
+    expect(
+      deltas.entries.slice(1158, 1165).map((delta) => delta.id),
+    ).toEqual(['1', '2', '3', '4', '6', '7', '8'].map((row) => `sg-r${row}-20260916-1`));
+    const historical = committedJson<typeof deltas>(
+      '8e6a835f6e358b7082025b2ef8e402a65718d275', 'contract/brand-v2-approved-deltas.json',
+    );
+    expect(historical.entries).toHaveLength(996);
+    expect(surgicalDeltas).toEqual(historical.entries.filter((delta) => delta.id.startsWith('sg-r')));
     expect(surgicalDeltas.map((delta) => delta.id).sort()).toEqual(
       ['1', '2', '3', '4', '6', '7', '8'].map((row) => `sg-r${row}-20260916-1`).sort(),
     );

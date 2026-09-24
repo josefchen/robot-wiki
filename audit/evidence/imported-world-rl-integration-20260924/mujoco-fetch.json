@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Recovery of the mujoco-2012 primary for the imported world-rl packet application (packet source-26 recorded a failed fetch with sha256 null). The citation registry and audit/citations.md already resolved the bibliographic identity via Crossref (DOI 10.1109/IROS.2012.6386109); this file records the primary-body retrieval used for the two ledger rows that quote the paper body.",
+  "citationId": "mujoco-2012",
+  "registryTitle": "MuJoCo: A physics engine for model-based control",
+  "fetchedUrl": "https://www.roboti.us/lab/papers/TodorovIROS12.pdf",
+  "fetch": {
+    "method": "uncredentialed curl GET after WebSearch located the author-hosted copy at roboti.us (the official MuJoCo site's publications page domain)",
+    "observedTime": "2026-09-24T12:00:00Z",
+    "outcome": "HTTP 200, application/pdf, 447792 bytes"
+  },
+  "retained": [
+    {
+      "path": "audit/evidence/imported-world-rl-integration-20260924/mujoco-iros2012.pdf",
+      "bytes": 447792,
+      "sha256": "31bab10428d0714ad2baeb905eaa9eb6010c27aff1173681ca91b7ebb2e82372"
+    },
+    {
+      "path": "audit/evidence/imported-world-rl-integration-20260924/mujoco-iros2012.txt",
+      "tool": "pdftotext (layout-preserving default mode)",
+      "bytes": 44724,
+      "sha256": "1df9bf512001911932eda958ccfd132c7bfa7da3a18fd63849648ef6f798e13b"
+    }
+  ],
+  "identityVerification": "First text line reads 'MuJoCo: A physics engine for model-based control'; byline 'Emanuel Todorov, Tom Erez and Yuval Tassa, University of Washington'; IROS 2012 paper (registry year 2012, DOI 10.1109/IROS.2012.6386109). Title, author list and venue match the registered citation exactly; the fetched document is the author-hosted copy of the registered work, not a different edition.",
+  "notACertification": "This records one observed retrieval and one identity read. It does not certify the registry entry, waive P1-P5 for any other claim, or convert any other packet null-SHA fetch into evidence."
+}

@@ -9,42 +9,26 @@
  * one source, and so the unit suite can assert that every citation id
  * resolves in the registry.
  *
- * The Zod schema is the completeness gate: every milestone must carry
- * non-empty whyItMatters, statusDetail, and howWeKnow, plus at least one
- * citation for the status call. The array is parsed at module scope, so an
- * incomplete row throws during static generation and fails `next build`.
+ * The Zod schema (lib/bear-case-schema.ts) is the completeness gate: every
+ * milestone must carry non-empty whyItMatters, statusDetail, and howWeKnow,
+ * plus at least one citation for the status call. The watchlist renders in
+ * the browser, so this module keeps zod out of its import graph: the rows
+ * are typed against the schema's inferred type here, and the schema parses
+ * them at build time on the server (lib/registry-validation.ts, run while
+ * the article routes prerender), so an incomplete row still fails
+ * `next build`.
  *
  * Status calls are evidence, not vibes: each statusDetail cites the
  * published record it summarizes. As of writing no milestone is met; the
  * "met" filter in the watchlist deliberately renders an empty state.
  */
-import { z } from 'zod';
+import type { Milestone, MilestoneStatus } from './bear-case-schema.ts';
+
+export type { Milestone, MilestoneStatus } from './bear-case-schema.ts';
 
 export const MILESTONE_STATUSES = ['not-met', 'partial', 'met'] as const;
 
-export const milestoneStatusSchema = z.enum(MILESTONE_STATUSES);
-
-export type MilestoneStatus = z.infer<typeof milestoneStatusSchema>;
-
 export type MilestoneFilter = 'all' | MilestoneStatus;
-
-export const milestoneSchema = z.object({
-  /** Stable row id, used for test selectors. */
-  id: z.string().min(1),
-  /** Short milestone name for the table row. */
-  name: z.string().min(1),
-  /** The question the milestone settles. */
-  whyItMatters: z.string().min(1),
-  status: milestoneStatusSchema,
-  /** The published evidence behind the status call. */
-  statusDetail: z.string().min(1),
-  /** The observation that would flip the status to met. */
-  howWeKnow: z.string().min(1),
-  /** Citation registry ids backing the status detail. */
-  citationIds: z.array(z.string().min(1)).min(1),
-});
-
-export type Milestone = z.infer<typeof milestoneSchema>;
 
 const ROWS: Milestone[] = [
   {
@@ -66,10 +50,10 @@ const ROWS: Milestone[] = [
       'Commercial viability at scale: five figures of humanoids doing documented productive work would end the pilot-program era.',
     status: 'not-met',
     statusDetail:
-      "No manufacturer has deployed more than 1,000 units with documented task performance; the strongest verified records are Agility's 65,000+ operating hours across nine facilities and Unitree's roughly 5,500 units shipped in 2025.",
+      'The inspected company records do not document 10,000 humanoids doing productive work: Agility reports 65,000 hours of Digit production experience without a unit count, while Figure reports 1,250+ hours and 90,000+ parts at BMW. This is an evidence-status call for these records, not a census of every manufacturer.',
     howWeKnow:
       'Company filings or independent reporting confirming 10,000 or more units in productive work, with task performance documented.',
-    citationIds: ['technology-org-deployed-2026'],
+    citationIds: ['agility-digit-production', 'figure-bmw-production-2025'],
   },
   {
     id: 'open-benchmark',
@@ -126,10 +110,10 @@ const ROWS: Milestone[] = [
       "The form-factor question in one number: if a humanoid's total cost per task matches a purpose-built system in the same application, the general-purpose thesis survives contact with accounting.",
     status: 'not-met',
     statusDetail:
-      'No published cost analysis shows parity; the verified deployment economics belong to purpose-built systems, and task-specific robots remain cheaper for known tasks.',
+      'The inspected palletising-cell cost guide supplies budget and payback context for a task-specific application, not a head-to-head humanoid comparison. These materials cannot establish humanoid cost-per-task parity; absence from them is not proof that no comparison exists elsewhere.',
     howWeKnow:
       'A published total-cost-of-ownership analysis showing humanoid cost per task at or below a purpose-built system for a specific application.',
-    citationIds: ['technology-org-deployed-2026'],
+    citationIds: ['evst-cell-cost-2026'],
   },
   {
     id: 'data-scaling-law',
@@ -146,14 +130,11 @@ const ROWS: Milestone[] = [
 ];
 
 /**
- * The eight milestones, schema-validated at module load. An incomplete row
- * throws here, which fails `next build` during static generation of the
- * module page.
+ * The eight milestones. lib/registry-validation.ts parses them against
+ * milestonesSchema at build time; an incomplete row fails `next build`
+ * during static generation of the article routes.
  */
-export const MILESTONES: Milestone[] = z
-  .array(milestoneSchema)
-  .length(8)
-  .parse(ROWS);
+export const MILESTONES: Milestone[] = ROWS;
 
 /** Filter milestones by status; "all" returns the full set. */
 export function filterMilestones(

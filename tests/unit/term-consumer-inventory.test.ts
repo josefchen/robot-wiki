@@ -6,10 +6,24 @@ import pinned from '../fixtures/term-consumer-identities.json';
 function identities(inventory: ReturnType<typeof termConsumerInventory>) {
   return inventory.map(a => ({ route: a.route, rawOpeningTags: a.rawOpeningTags, termIds: a.occurrences.map(o => o.termId) }));
 }
+// The retained pin predates the reviewed kinematics correction, which
+// removed one degrees-of-freedom trigger. Express that single change
+// explicitly; every other route, order and occurrence remains pinned.
+function currentPinned() {
+  const articles = structuredClone(pinned.articles);
+  const kinematics = articles.find(a => a.route === '/classical/kinematics/');
+  if (!kinematics || kinematics.rawOpeningTags !== 7
+    || kinematics.termIds.filter(id => id === 'degrees-of-freedom').length !== 1) {
+    throw new Error('historical kinematics Term pin is not the reviewed predecessor');
+  }
+  kinematics.rawOpeningTags--;
+  kinematics.termIds.splice(kinematics.termIds.indexOf('degrees-of-freedom'), 1);
+  return articles;
+}
 function assertPopulation(actual: ReturnType<typeof identities>) {
   expect(actual.length).toBeGreaterThan(0);
   expect(new Set(actual.map(a => a.route)).size).toBe(actual.length);
-  expect(actual).toEqual(pinned.articles);
+  expect(actual).toEqual(currentPinned());
 }
 
 describe('bounded Term consumer identities', () => {
@@ -37,37 +51,46 @@ describe('bounded Term consumer identities', () => {
   });
   it('binds all published MDX without unresolved or unknown term ids', () => {
     const inventory = termConsumerInventory();
-    expect(inventory).toHaveLength(47);
+    // 57 published articles on the merged seo-merge line (was 47 before the
+    // seo workstream added ten articles); the pinned fixture owns the
+    // ordered identity list, this only pins the live population size.
+    expect(inventory).toHaveLength(57);
     expect(inventory.flatMap(a => a.unresolved)).toEqual([]);
     expect(inventory.flatMap(a => a.occurrences).filter(o => !getTerm(o.termId))).toEqual([]);
-    expect(new Set(inventory.map(a => a.route)).size).toBe(47);
+    expect(new Set(inventory.map(a => a.route)).size).toBe(57);
   });
   it('reconciles raw occurrences separately from article/term bindings', () => {
     const inventory = termConsumerInventory();
-    expect(inventory.filter(a => a.occurrences.length)).toHaveLength(47);
+    // All 57 merged articles carry at least one occurrence.
+    expect(inventory.filter(a => a.occurrences.length)).toHaveLength(57);
     // 53d2cf8 added legged-locomotion/teleoperation occurrence 1.
     // 6af0bdd removed competing-theses/imitation-learning occurrence 1.
     // a7c35d3 added six cross-embodiment Term markers (ART-003), making
     // every published article a raw-occurrence holder.
     // Pin ordered members, not just a total that a replacement could preserve.
     assertPopulation(identities(inventory));
-    expect(inventory.reduce((n, a) => n + a.rawOpeningTags, 0)).toBe(pinned.articles.reduce((n, a) => n + a.rawOpeningTags, 0));
-    expect(inventory.flatMap(a => a.occurrences)).toHaveLength(pinned.articles.flatMap(a => a.termIds).length);
-    expect(inventory.reduce((n, a) => n + new Set(a.occurrences.map(o => o.termId)).size, 0)).toBe(pinned.articles.reduce((n, a) => n + new Set(a.termIds).size, 0));
+    expect(inventory.reduce((n, a) => n + a.rawOpeningTags, 0)).toBe(currentPinned().reduce((n, a) => n + a.rawOpeningTags, 0));
+    expect(inventory.flatMap(a => a.occurrences)).toHaveLength(currentPinned().flatMap(a => a.termIds).length);
+    expect(inventory.reduce((n, a) => n + new Set(a.occurrences.map(o => o.termId)).size, 0)).toBe(currentPinned().reduce((n, a) => n + new Set(a.termIds).size, 0));
   });
-  it.each(['empty', 'omitted-route', 'duplicate-route', 'omitted-trigger', 'same-count-substitution'])('rejects %s population mutation', mutation => {
-    const changed = structuredClone(pinned.articles);
+  it.each(['empty', 'omitted-route', 'duplicate-route', 'omitted-trigger', 'same-count-substitution', 'restored-kinematics-trigger'])('rejects %s population mutation', mutation => {
+    const changed = currentPinned();
     if (mutation === 'empty') changed.length = 0;
     if (mutation === 'omitted-route') changed.pop();
     if (mutation === 'duplicate-route') changed[1] = structuredClone(changed[0]);
     const legged = changed.find(a => a.route === '/rl-sim2real/legged-locomotion/');
     if (mutation === 'omitted-trigger') legged!.termIds.splice(legged!.termIds.indexOf('teleoperation'), 1);
     if (mutation === 'same-count-substitution') legged!.termIds[legged!.termIds.indexOf('teleoperation')] = 'retargeting';
+    if (mutation === 'restored-kinematics-trigger') {
+      const kinematics = changed.find(a => a.route === '/classical/kinematics/')!;
+      kinematics.termIds.push('degrees-of-freedom');
+      kinematics.rawOpeningTags++;
+    }
     expect(() => assertPopulation(changed)).toThrow();
   });
 
   it.each(['restored-trigger', 'reordered-triggers', 'same-count-thesis-substitution'])('rejects %s in the corrected thesis population', mutation => {
-    const changed = structuredClone(pinned.articles);
+    const changed = currentPinned();
     const thesis = changed.find(a => a.route === '/frontier/competing-theses/')!;
     if (mutation === 'restored-trigger') { thesis.termIds.splice(4, 0, 'imitation-learning'); thesis.rawOpeningTags++; }
     if (mutation === 'reordered-triggers') [thesis.termIds[3], thesis.termIds[4]] = [thesis.termIds[4], thesis.termIds[3]];

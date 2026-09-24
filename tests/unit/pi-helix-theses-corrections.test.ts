@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { committedSource } from '../helpers/continuation-integration';
 
 const article = readFileSync('content/frontier/competing-theses.mdx', 'utf8');
 const table = readFileSync('lib/competing-theses.ts', 'utf8');
@@ -39,6 +40,8 @@ describe('bounded PI and Helix thesis corrections', () => {
     expect(article).toContain('  - pi07-2026\n  - pi07-blog-2026');
     expect(article).toContain('<Cite id="pi07-2026" /> <Cite id="pi07-blog-2026" />');
     expect(table).toContain("citationIds: ['pi07-2026', 'pi07-blog-2026']");
-    expect(article).toMatch(/lastReviewed: ['"]?2026-08-18/);
+    expect(committedSource('0cbdda1', 'content/frontier/competing-theses.mdx'))
+      .toMatch(/lastReviewed: ['"]?2026-08-18/);
+    expect(article).toMatch(/lastReviewed: ['"]?2026-09-24/);
   });
 });

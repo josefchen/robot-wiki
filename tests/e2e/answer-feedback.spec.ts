@@ -28,7 +28,8 @@ import { forEachInOwnContext } from './helpers/per-route-context';
  */
 
 const EXPECTED_PREDICT = 8;
-const EXPECTED_SELF_CHECK = 6;
+const EXPECTED_SELF_CHECK = 16;
+const EXPECTED_REGION_ROUTES = 20;
 
 const VERDICT =
   /^\s*(correct|incorrect|wrong|right|nice|well done|good job|try again|yes|no|✓|✗|✔|✘)\s*[.!]?\s*$/i;
@@ -210,7 +211,9 @@ function expectCompleteRegions(
     check,
     `self-checks: ${check.map((r) => r.route).join(', ')}`,
   ).toHaveLength(EXPECTED_SELF_CHECK);
-  expect(new Set(complete.map((r) => r.route)).size).toBe(10);
+  expect(new Set(complete.map((r) => r.route)).size).toBe(
+    EXPECTED_REGION_ROUTES,
+  );
   return complete;
 }
 

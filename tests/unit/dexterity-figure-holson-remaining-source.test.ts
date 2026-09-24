@@ -1,10 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { planPacket } from '../helpers/audit-plan-history';
 import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest,
   parseCompoundPlans, parseLedger,
 } from '../../lib/audit-ledger';
+import { committedJson } from '../helpers/editorial-current-context';
 
 const text = readFileSync('content/frontier/dexterity.mdx', 'utf8');
 const citations = readFileSync('data/citations.ts', 'utf8');
@@ -216,14 +218,27 @@ describe('reviewed plans and adjudications are internally consistent', () => {
   });
 
   test('prior dexterity plans survive unchanged and the catalog grows by exactly four', () => {
+    const historical = committedJson<typeof plans>(
+      'ee95d0a625762fd4e6379196bf7386cd0d53618b', 'audit/compound-evidence.json',
+    );
+    expect(historical).toHaveLength(475);
     for (const id of [
       'dexterity-brooks-2-source-20260914', 'dexterity-figure15-source-20260914',
       'dexterity-holson-pipeline-source-20260915', 'dexterity-tactile-outlook-source-20260915',
       'dexterity-keyring-rules-source-20260915', 'dexterity-brooks-ernst-1-source-20260915',
       'dexterity-brooks-eweek-4-source-20260915', 'dexterity-brooks-forecast-7-source-20260915',
     ]) {
-      expect(plans.some(p => p.id === id)).toBe(true);
+      expect(plans.find(p => p.id === id)).toEqual(historical.find(p => p.id === id));
     }
-    expect(plans).toHaveLength(475);
+    const packetIds = [
+      'dexterity-holson-original8-20260915',
+      'dexterity-gobig-navigation-12-20260915',
+      'dexterity-figure02-dof-23-20260915',
+      'dexterity-helix02-tasks-25-20260915',
+    ];
+    expect(planPacket(plans, packetIds).map(p => p.id)).toEqual(packetIds);
+    const checkpointDexterity = historical.filter(p => p.id.startsWith('dexterity-'));
+    const checkpointIds = new Set(checkpointDexterity.map(p => p.id));
+    expect(plans.filter(p => checkpointIds.has(p.id))).toEqual(checkpointDexterity);
   });
 });

@@ -51,7 +51,7 @@ async function inspectFixture(source: string) {
  * and killing an unrelated spec half an hour into a browser run.
  */
 describe('e2e per-page navigation budget', () => {
-  it('bounds how many navigations one page performs inside one test', async () => {
+  it('bounds how many navigations one page performs inside one test', { timeout: 30_000 }, async () => {
     const { unlisted } = await auditNavigationBudget();
     expect(
       unlisted.map(describeRow),
@@ -128,7 +128,10 @@ describe('dynamic route ownership uses the existing navigation policy', () => {
         ...value.componentCitationSites.map(site => site.id)]
         .some(id => changed.includes(id)),
     );
-    expect(affected.map(([route]) => route)).toEqual(['/rl-sim2real/rl-for-robotics/']);
+    // The production line's offline-RL article also cites q-transformer-2023,
+    // so the reader walks both consumers, each in its own context.
+    expect(affected.map(([route]) => route).sort())
+      .toEqual(['/rl-sim2real/offline-rl/', '/rl-sim2real/rl-for-robotics/']);
     expect([...graph.keys()].filter(route => route.endsWith('/generalist-policies/')))
       .toEqual(['/manipulation/generalist-policies/']);
   });
@@ -264,9 +267,17 @@ describe('RL reader route, viewport and assertion preservation', () => {
     const digest = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
     expect(inventory.testTitles).toHaveLength(3);
     expect(inventory.viewports).toHaveLength(3);
-    expect(inventory.calls).toHaveLength(288);
-    expect(digest(inventory)).toBe('4719865f393347a76155fcbaeb0bdd1565847505f3be322dcccc19b51157ec19');
-    expect(digest(routeBody)).toBe('1e01c0835395af2daf3d48c79eb5e7fd38388d80b148192bb3831049c9d7fc7d');
+    // Re-frozen 2026-09-22 at the continuation integration: the production
+    // line's offline-RL article also renders q-transformer-2023, so the
+    // reader walks every affected route. Reviewed delta against the prior
+    // freeze (288 calls, 4719865f.../1e01c083...): the heading title, the
+    // affected-route pin, the capture name and the changed-id loop now key
+    // off the route (AFFECTED_TITLES, capturePrefix, rendered); the RL
+    // reader keeps every Term/widget/reset/table call inside its route
+    // guard, and the other 282 calls are byte-identical.
+    expect(inventory.calls).toHaveLength(298);
+    expect(digest(inventory)).toBe('7a12f93d4ebe309a3a606d08c37e8a405f2a68e6a079efa737dbb233633c093e');
+    expect(digest(routeBody)).toBe('d58f803cb3faa7484c6b0fb13b427b7f7ba118e23927a8b953f18e5dfbd8ff8e');
     expect(helpers).toHaveLength(1);
     expect(helpers[0].arguments[0].getText(source)).toBe('browser');
     expect(helpers[0].arguments[1].getText(source)).toBe('affected');

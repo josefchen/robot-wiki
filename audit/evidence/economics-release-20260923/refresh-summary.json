@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-23T18:04:32.980Z",
+  "archive": {
+    "path": "audit/evidence/economics-release-20260923/previous-economics-plan-and-proofs.json",
+    "bytes": 105828,
+    "sha256": "79731ff4c80f2a210d4dce130056c557656a98d892465bad9555678fc97f0dc9"
+  },
+  "changedProofs": [
+    "i52-parameters",
+    "i52-20000",
+    "i52-80000",
+    "i52-250000",
+    "i52-observed-20000",
+    "i52-observed-80000",
+    "i52-observed-250000"
+  ],
+  "actualNumericRun": {
+    "path": "audit/evidence/economics-release-20260923/numeric-run-final.json",
+    "bytes": 20576,
+    "sha256": "5de179a06ef00260ac4c38574b796db0cb239d171aff0ed6d910160c78690982"
+  },
+  "actualBrowserRun": {
+    "path": "audit/evidence/economics-release-20260923/browser-run.json",
+    "bytes": 14150,
+    "sha256": "e5b6f4a343de18ec373df2b49abd29bd1fccda5f66a8816364c0cd7a3fbe9090"
+  },
+  "noNewCompletions": true,
+  "unchangedExternalEvidence": true,
+  "unchangedOtherPlans": true,
+  "independentMissionAcceptance": false
+}

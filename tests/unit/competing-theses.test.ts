@@ -3,8 +3,8 @@ import { getCitation } from '@/data/citations';
 import {
   DEFAULT_THESIS_ID,
   THESES,
-  thesisSchema,
 } from '@/lib/competing-theses';
+import { thesisSchema } from '@/lib/competing-theses-schema';
 
 const EXPECTED_IDS = [
   'end-to-end-vla',

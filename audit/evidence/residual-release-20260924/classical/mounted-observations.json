@@ -1,0 +1,1360 @@
+{
+  "startedAt": "2026-09-24T01:11:44.298Z",
+  "endedAt": "2026-09-24T01:11:49.691Z",
+  "runner": "playwright",
+  "documentNavigations": 6,
+  "externalRequests": "blocked; no external source or embed retrieval",
+  "errors": [],
+  "captures": [
+    {
+      "name": "kinematics-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:44.867Z",
+      "surface": "kinematics",
+      "glossary": [
+        {
+          "id": "inverse-kinematics",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution."
+        },
+        {
+          "id": "denavit-hartenberg-parameters",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem."
+        }
+      ],
+      "checkedText": [
+        "LaValle describes",
+        "3D kinematics playground",
+        "±0.5mm"
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-1440.dom.json",
+        "bytes": 37028,
+        "sha256": "2c7e437a64b35c5307e577d3d407af36b96e8f37e85aa92f9a226d140060f95a"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-1440.png",
+        "bytes": 152699,
+        "sha256": "b3b1a53b919c6654f8ca35f391f2aa69cba0cc60240a9968a57530128cd8260d"
+      }
+    },
+    {
+      "name": "rrt-opening-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:45.149Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 0
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "navigate to article",
+      "poststate": "opening",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "0 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "1"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "tree not started"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-opening-1440.dom.json",
+        "bytes": 65826,
+        "sha256": "88b3d9679b304eff061ce6dbc49df847788e6d361c6863ca61ca5d856fc34131"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-opening-1440.png",
+        "bytes": 110843,
+        "sha256": "fe760cfc2c697a9ecea9f470c9c94acbd7404c2fddae1feea9ea47dfb0703299"
+      }
+    },
+    {
+      "name": "rrt-step-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:45.322Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 1
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "opening",
+      "action": "Step forward",
+      "poststate": "step",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "1 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "2"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "exploring free space"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-step-1440.dom.json",
+        "bytes": 65848,
+        "sha256": "8abcfe5ec08788a2cfac4f29ec9a0a72f30f8fba01329f6dc7c402d834fbfc6c"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-step-1440.png",
+        "bytes": 111673,
+        "sha256": "1ec43e850a5298500a3e0669b331d121a1ef7bb9cda9c0e86a902dedda185499"
+      }
+    },
+    {
+      "name": "rrt-playback-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:45.544Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 3
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "reset at 0",
+      "action": "Run, one 50ms timer tick, Pause",
+      "poststate": "playback",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "3 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "4"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "exploring free space"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-playback-1440.dom.json",
+        "bytes": 65848,
+        "sha256": "9c99975f30d36b9ff6a540587af70a9b6207e27113a92f59f15cc6e668052fc3"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-playback-1440.png",
+        "bytes": 112127,
+        "sha256": "92759776747efee74e5108c7424d1fe64ffed102994d8365c93a32a39788e3ef"
+      }
+    },
+    {
+      "name": "rrt-scrub-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:45.724Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 100
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "playback at 3",
+      "action": "set iteration slider to 100",
+      "poststate": "scrub",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "100 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "101"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "exploring free space"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-scrub-1440.dom.json",
+        "bytes": 65872,
+        "sha256": "f878437e39fbe5fbd16218de18e709e5abb1332c340c3c092a541d88721c4844"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-scrub-1440.png",
+        "bytes": 122972,
+        "sha256": "41ecb6cfc077ab70f3cda8fde92324414592c5fc37de5ded542e06b1ecd8ec15"
+      }
+    },
+    {
+      "name": "rrt-reset-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:45.975Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 0
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "reset",
+      "prestate": "scrub at 100",
+      "action": "Reset",
+      "poststate": "reset",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "0 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "1"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "tree not started"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-reset-1440.dom.json",
+        "bytes": 65826,
+        "sha256": "88b3d9679b304eff061ce6dbc49df847788e6d361c6863ca61ca5d856fc34131"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-reset-1440.png",
+        "bytes": 111263,
+        "sha256": "ba5c8fac767832d4225d0c47918a9212ac2860e6e588d1c07cbb081db92f2c50"
+      }
+    },
+    {
+      "name": "perception-opening-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:46.235Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "navigate to article",
+      "poststate": "opening",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "11.32 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-opening-1440.dom.json",
+        "bytes": 101139,
+        "sha256": "a4210e3d36213f9b96fb4fca435ca3e8b73a05119efcb0368f4a477cb9fa260f"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-opening-1440.png",
+        "bytes": 129268,
+        "sha256": "bcfac6f4f14cf3addf52e14e9b1b3dececc6fbf0f6ccb53dc6ee0a253bd4a24b"
+      }
+    },
+    {
+      "name": "perception-near-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:46.347Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.15,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "opening",
+      "action": "distance to 0.15m",
+      "poststate": "near",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "10.52 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-near-1440.dom.json",
+        "bytes": 101139,
+        "sha256": "b05990e608b7b3a3798cdc048463b3f3116add429103f392c05146f9b2da847d"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-near-1440.png",
+        "bytes": 129923,
+        "sha256": "775dc0ccc7006098448ab31ff255900a1d7e2695d959a92b954c37441f880a2d"
+      }
+    },
+    {
+      "name": "perception-far-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:46.447Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 1.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "near",
+      "action": "distance to 1.5m",
+      "poststate": "far",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "16.74 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "marginal"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-far-1440.dom.json",
+        "bytes": 101104,
+        "sha256": "f0cdbfe671f3170bb7c78e8846c81cb40202d250a251bea7f0d2d1e6686185c7"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-far-1440.png",
+        "bytes": 131560,
+        "sha256": "82f8460083bed9b114459ca9bfb6f0e05de6b508c7b15fd6face349f4f420bba"
+      }
+    },
+    {
+      "name": "perception-zeroFar-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:46.546Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 1.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "far",
+      "action": "angle to zero",
+      "poststate": "zeroFar",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "10.44 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroFar-1440.dom.json",
+        "bytes": 101139,
+        "sha256": "e0437818e71c5b3b3039760585b1853b9cd4a6b29d6423ac248c20c2d434e45c"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroFar-1440.png",
+        "bytes": 129819,
+        "sha256": "9fc1a6d037290c05714aea12af105ae4180154c71b6f67cf0083f7af9f887104"
+      }
+    },
+    {
+      "name": "perception-zeroNear-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:46.663Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.15,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "zeroFar",
+      "action": "distance to 0.15m",
+      "poststate": "zeroNear",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "10.44 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroNear-1440.dom.json",
+        "bytes": 101139,
+        "sha256": "5cad6f53309534971a3176e058ebba1f99c32921ff9695b06411b6167be91a01"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroNear-1440.png",
+        "bytes": 129625,
+        "sha256": "3736389a499a9f5521a34f4bc641941673d01fe2321a90173d2b6276534f364f"
+      }
+    },
+    {
+      "name": "perception-specular-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:46.877Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "specular"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "discrete-options",
+      "prestate": "reset opening",
+      "action": "select specular",
+      "poststate": "specular",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "30.46 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "30.00 mm at 6.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "above model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-specular-1440.dom.json",
+        "bytes": 101138,
+        "sha256": "5effeb6c0b0eb3465fb0713570a640905cc795726576554b8c54e8e1cf8e32dd"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-specular-1440.png",
+        "bytes": 132869,
+        "sha256": "97c0b5a14f577c2edebaf3bed81d047304255d2f6e52ae5bfd8024ed54a2ef64"
+      }
+    },
+    {
+      "name": "perception-transparent-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:47.083Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "transparent"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "discrete-options",
+      "prestate": "reset opening",
+      "action": "select transparent",
+      "poststate": "transparent",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "80.18 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "80.00 mm at 16.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "above model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-transparent-1440.dom.json",
+        "bytes": 101127,
+        "sha256": "c5739706aae895de86a34021a2cf4b3f9f750f50656d0d60a2e28757cdbcec80"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-transparent-1440.png",
+        "bytes": 131378,
+        "sha256": "969b663787d82b743c214b7dfda80047cbb1d32fe56ca476e2202e926bec308d"
+      }
+    },
+    {
+      "name": "perception-reset-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:47.213Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "reset",
+      "prestate": "transparent",
+      "action": "Reset",
+      "poststate": "reset",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "11.32 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-reset-1440.dom.json",
+        "bytes": 101139,
+        "sha256": "a4210e3d36213f9b96fb4fca435ca3e8b73a05119efcb0368f4a477cb9fa260f"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-reset-1440.png",
+        "bytes": 129255,
+        "sha256": "a9b7d5a239a46e1872f016e87923b4f97a2ca35991d3b3c4a9ad60f28eb13f90"
+      }
+    },
+    {
+      "name": "kinematics-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:47.581Z",
+      "surface": "kinematics",
+      "glossary": [
+        {
+          "id": "inverse-kinematics",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution."
+        },
+        {
+          "id": "denavit-hartenberg-parameters",
+          "resolves": true,
+          "tooltipObserved": true,
+          "definition": "A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem."
+        }
+      ],
+      "checkedText": [
+        "LaValle describes",
+        "3D kinematics playground",
+        "±0.5mm"
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-375.dom.json",
+        "bytes": 37028,
+        "sha256": "2c7e437a64b35c5307e577d3d407af36b96e8f37e85aa92f9a226d140060f95a"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/kinematics-375.png",
+        "bytes": 63387,
+        "sha256": "ae999c863ff18f7e7b8e11ab19e2ba9a5635e57808b36daa62332b387b388f4d"
+      }
+    },
+    {
+      "name": "rrt-opening-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:47.854Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 0
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "navigate to article",
+      "poststate": "opening",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "0 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "1"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "tree not started"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-opening-375.dom.json",
+        "bytes": 65826,
+        "sha256": "88b3d9679b304eff061ce6dbc49df847788e6d361c6863ca61ca5d856fc34131"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-opening-375.png",
+        "bytes": 35884,
+        "sha256": "08be1adadfa22b88bc7e50624249c7c0604dde551dc2a4af5041feef2a729e98"
+      }
+    },
+    {
+      "name": "rrt-step-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:47.986Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 1
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "opening",
+      "action": "Step forward",
+      "poststate": "step",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "1 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "2"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "exploring free space"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-step-375.dom.json",
+        "bytes": 65848,
+        "sha256": "8abcfe5ec08788a2cfac4f29ec9a0a72f30f8fba01329f6dc7c402d834fbfc6c"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-step-375.png",
+        "bytes": 35949,
+        "sha256": "654bc6482ae8e62bd90c98106230e7843c8ae6927d51a0079a25692fa4385e7c"
+      }
+    },
+    {
+      "name": "rrt-playback-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:48.243Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 3
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "reset at 0",
+      "action": "Run, one 50ms timer tick, Pause",
+      "poststate": "playback",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "3 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "4"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "exploring free space"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-playback-375.dom.json",
+        "bytes": 65848,
+        "sha256": "9c99975f30d36b9ff6a540587af70a9b6207e27113a92f59f15cc6e668052fc3"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-playback-375.png",
+        "bytes": 36475,
+        "sha256": "1683f70642ce65dcaec72f0a0e4e5e5890a6d5b3ee5eee954be4463ee84a9a8e"
+      }
+    },
+    {
+      "name": "rrt-scrub-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:48.365Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 100
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "playback at 3",
+      "action": "set iteration slider to 100",
+      "poststate": "scrub",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "100 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "101"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "exploring free space"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-scrub-375.dom.json",
+        "bytes": 65872,
+        "sha256": "f878437e39fbe5fbd16218de18e709e5abb1332c340c3c092a541d88721c4844"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-scrub-375.png",
+        "bytes": 40868,
+        "sha256": "f502195390c5eb9203168b27cabb876db35eb0c5a571481ebd058dee1a69db5e"
+      }
+    },
+    {
+      "name": "rrt-reset-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:48.486Z",
+      "surface": "rrt",
+      "recipe": {
+        "id": "rrt",
+        "mode": "derive",
+        "inputs": {
+          "iteration": 0
+        }
+      },
+      "mountId": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "caseId": "reset",
+      "prestate": "scrub at 100",
+      "action": "Reset",
+      "poststate": "reset",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"rrt-iteration-readout\"]",
+          "text": "0 / 288"
+        },
+        {
+          "selector": "[data-testid=\"rrt-node-readout\"]",
+          "text": "1"
+        },
+        {
+          "selector": "[data-testid=\"rrt-status-readout\"]",
+          "text": "tree not started"
+        },
+        {
+          "selector": "[data-testid=\"rrt-path-readout\"]",
+          "text": "n/a"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-reset-375.dom.json",
+        "bytes": 65826,
+        "sha256": "88b3d9679b304eff061ce6dbc49df847788e6d361c6863ca61ca5d856fc34131"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/rrt-reset-375.png",
+        "bytes": 36317,
+        "sha256": "552e3f43023c6948a1f201500d0b874c16590bac209ce56e14b070e1bd286f1e"
+      }
+    },
+    {
+      "name": "perception-opening-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:48.702Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "navigate to article",
+      "poststate": "opening",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "11.32 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-opening-375.dom.json",
+        "bytes": 101160,
+        "sha256": "2f26d9e981109c12a28eb699ab0b597b174a03a62ce2e29fe35a0211a5672f20"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-opening-375.png",
+        "bytes": 39867,
+        "sha256": "9ff2cb112660bbf19ad128464021c712ee5a5b79e35bb55ee97a58f498d78e43"
+      }
+    },
+    {
+      "name": "perception-near-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:48.802Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.15,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "opening",
+      "action": "distance to 0.15m",
+      "poststate": "near",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "10.52 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-near-375.dom.json",
+        "bytes": 101160,
+        "sha256": "d7b6d9c134d96c3058565baf6ef219fd3fe697d96c268b8fd95f50dc5ea7d9de"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-near-375.png",
+        "bytes": 40220,
+        "sha256": "8a89a7967b99b268e9aa52fa6b2cb44b22822d22250431d048a56f574fb91869"
+      }
+    },
+    {
+      "name": "perception-far-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:48.886Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 1.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "near",
+      "action": "distance to 1.5m",
+      "poststate": "far",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "16.74 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "marginal"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-far-375.dom.json",
+        "bytes": 101125,
+        "sha256": "4edff064aa6ba931ed67c2689639188ed503170a070960a271ae9e0c65c9fd99"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-far-375.png",
+        "bytes": 41092,
+        "sha256": "4bb8b5e540ce7692433b43780219212e49c2b3c91f64b913dcf5896a876e5d2f"
+      }
+    },
+    {
+      "name": "perception-zeroFar-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:49.051Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 1.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "far",
+      "action": "angle to zero",
+      "poststate": "zeroFar",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "10.44 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroFar-375.dom.json",
+        "bytes": 101160,
+        "sha256": "227af3a9f282b75614b41eed68b05494aa95727a3d6c14a1d815306b7bb999a2"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroFar-375.png",
+        "bytes": 39335,
+        "sha256": "1dd3aaa62c795e77aa7637baceaa03cc4fc0131657316b47fe59c5d701f3f69e"
+      }
+    },
+    {
+      "name": "perception-zeroNear-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:49.210Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.15,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "zeroFar",
+      "action": "distance to 0.15m",
+      "poststate": "zeroNear",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "10.44 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroNear-375.dom.json",
+        "bytes": 101160,
+        "sha256": "5ccaac6f478476a65a567770da555dd513efdf09cdfeec0c1a62cf940a299d65"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-zeroNear-375.png",
+        "bytes": 39666,
+        "sha256": "a9f0d2842f9ad4fdf3a16c5813133e7ab5b462353e8d9a3c18d13e5c86417339"
+      }
+    },
+    {
+      "name": "perception-specular-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:49.370Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "specular"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "discrete-options",
+      "prestate": "reset opening",
+      "action": "select specular",
+      "poststate": "specular",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "30.46 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "30.00 mm at 6.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "above model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-specular-375.dom.json",
+        "bytes": 101159,
+        "sha256": "1f5806634320e157e1a82098d53e9141c076c91f87c16cf1e43540ce23c4609d"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-specular-375.png",
+        "bytes": 42005,
+        "sha256": "790c1547ec25072800298c1147909c7b0e55986b00980f5a741f89cccb297747"
+      }
+    },
+    {
+      "name": "perception-transparent-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:49.570Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "transparent"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "discrete-options",
+      "prestate": "reset opening",
+      "action": "select transparent",
+      "poststate": "transparent",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "80.18 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "80.00 mm at 16.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "above model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-transparent-375.dom.json",
+        "bytes": 101148,
+        "sha256": "e897068e98984f271c595756387283d30ebf9a7abcf8e487a67cf4e63d26ac51"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-transparent-375.png",
+        "bytes": 41386,
+        "sha256": "6a6f6993613d3855358a8b683d5b1980ca027ac6df542a14343a04325a72d999"
+      }
+    },
+    {
+      "name": "perception-reset-375",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:49.685Z",
+      "surface": "perception",
+      "recipe": {
+        "id": "perception",
+        "mode": "derive",
+        "inputs": {
+          "handEyeDeg": 0.5,
+          "depthPct": 2,
+          "poseMm": 3,
+          "workingDistanceM": 0.5,
+          "target": "opaque"
+        }
+      },
+      "mountId": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "caseId": "reset",
+      "prestate": "transparent",
+      "action": "Reset",
+      "poststate": "reset",
+      "readouts": [
+        {
+          "selector": "[data-testid=\"perception-total-readout\"]",
+          "text": "11.32 mm"
+        },
+        {
+          "selector": "[data-testid=\"perception-depth-readout\"]",
+          "text": "10.00 mm at 2.0%"
+        },
+        {
+          "selector": "[data-testid=\"perception-verdict-readout\"]",
+          "text": "within model band"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-reset-375.dom.json",
+        "bytes": 101160,
+        "sha256": "2f26d9e981109c12a28eb699ab0b597b174a03a62ce2e29fe35a0211a5672f20"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/classical/perception-reset-375.png",
+        "bytes": 39877,
+        "sha256": "2b5cb9f0933bbafac3061498acdbfade7eb847233552d74fa5604c4fa7310b44"
+      }
+    }
+  ]
+}

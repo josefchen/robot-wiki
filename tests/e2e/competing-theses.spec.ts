@@ -156,7 +156,10 @@ test.describe('frontier competing-theses module', () => {
     await explorer
       .getByRole('button', { name: 'Teleoperation as a bridge' })
       .click();
-    await expect(detail).toContainText('65,000+');
+    // b9e318b replaced the Technology.org deployment-hours item with a
+    // Nucleus operating-model item; the 65,000-hours record now lives in
+    // the Humanoid versus task-specific thesis, not this detail view.
+    await expect(detail).toContainText('human-supervised operations');
     await expect(detail).toContainText('teleop alone');
     await expect(detail).not.toContainText('Cosmos 3');
 

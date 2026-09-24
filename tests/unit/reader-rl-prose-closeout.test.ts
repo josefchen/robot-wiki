@@ -8,10 +8,12 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '@/lib/brand-v2-baseline';
-import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { preservedApprovalPacket } from '../helpers/continuation-integration';
+import { readerTruthAt } from '../helpers/reader-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '280d8661a49feb16e45ef337e7cb46a794211004';
+const checkpoint = 'f880e137e9f0c35fd383cb9cdafe5a38ec25d29d';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
   cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
@@ -53,7 +55,7 @@ function approvalBundle(old: boolean): BaselineBundle {
         },
       };
     })),
-  ] : Object.values(collectArticleTruthManifests());
+  ] : readerTruthAt(checkpoint, paths);
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const scaffold = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
     const selected = sources.find(m => m.kind === kind)?.members
@@ -170,7 +172,7 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
 
   it('appends exactly the four current-native member deltas to the unchanged approval prefix', () => {
     const path = 'contract/brand-v2-approved-deltas.json';
-    const current: ApprovedDelta[] = JSON.parse(read(path)).entries;
+    const current = preservedApprovalPacket(checkpoint);
     const previous: ApprovedDelta[] = JSON.parse(before(path)).entries;
     expect(current.slice(0, previous.length)).toEqual(previous);
     const added = current.filter(a => a.id.startsWith('reader-rl-prose-20260923-'));

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
+import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
 
 /**
@@ -20,9 +20,11 @@ import { CITATIONS } from '../../data/citations.ts';
  */
 const ROOT = join(import.meta.dirname, '../..');
 const PACKET_SHA = '547e1cd7688de34652ea2ea1a8920236bd0dbf40d813a098bbb998405ef6850c';
-const R6_PLAN = 'reliability-gap-r6-editorial-solvedbar-20260917a';
+const R6_PLAN = 'reliability-gap-r6-editorial-yardstick-20260924';
+const R6_PRIOR_PLAN = 'reliability-gap-r6-editorial-solvedbar-20260917a';
 const SR_PLAN = 'scene-representation-1-identity-sweep-20260917a';
 const SWEEP_URL = 'https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/';
+const WITHDRAWAL_EVIDENCE = 'audit/evidence/technology-withdrawal-20260924';
 
 const registryIds = new Set(CITATIONS.map(({ id }) => id));
 const loadPlans = () =>
@@ -62,43 +64,63 @@ const sectionsOf = (ledgerPath: string) => {
 };
 
 describe('single-leftovers 4-row integration (2026-09-17a)', () => {
-  it('applies the reliability-gap:6 editorial correction with its editorial-basis plan', () => {
+  it('carries the 2026-09-24 withdrawal Cut of reliability-gap:6 with its first-party plan', () => {
     const reliability = sectionsOf('audit/frontier.md').find((s) => s.slug === 'reliability-gap')!;
     const r6 = reliability.claimRecords[5];
-    expect(r6.claim).toContain('this wiki\u2019s proposal');
-    expect(r6.claim).toContain('none of the deployed systems surveyed publishes one');
-    expect(r6.verdict.replace(/\*/g, '')).toBe('C');
+    expect(r6.claim).toContain('Removed: the ">1,000h solved bar" Stat is gone');
+    expect(r6.claim).toContain("this wiki's own editorial test");
+    expect(r6.verdict.replace(/\*/g, '')).toBe('Cut');
     expect(r6.citationId).toBe('');
     expect(r6.sourceUrl).toBe('');
     expect(r6.compound?.planId).toBe(R6_PLAN);
     expect(r6.compound?.structuralFailures ?? ['missing']).toEqual([]);
     expect(r6.compound?.adjudicationFailures ?? ['missing']).toEqual([]);
     expect(r6.evidenceFailures).toEqual([]);
-    expect(r6.note).toContain('this wiki\u2019s own proposed yardstick');
-    expect(r6.note).toContain('deployed systems we surveyed');
+    expect(r6.note).toContain(WITHDRAWAL_EVIDENCE);
+    expect(r6.note).toContain(R6_PRIOR_PLAN);
 
     const plan = loadPlans().find((p) => p.id === R6_PLAN)!;
     expect(plan.kind).toBe('explicit-parts');
-    expect(plan.parts).toHaveLength(2);
-    expect(plan.parts.map((part) => part.requiredCitationIds[0])).toEqual([
+    expect(plan.parts).toHaveLength(1);
+    expect(plan.parts[0].requiredCitationIds).toEqual([
+      'agility-digit-production',
+      'figure-bmw-production-2025',
+    ]);
+    for (const item of plan.evidence) {
+      expect(CITATIONS.some(({ id }) => id === item.citationId)).toBe(true);
+      expect(item.sourceUrl).not.toBe(SWEEP_URL);
+    }
+    expect(plan.evidence.find((i) => i.citationId === 'agility-digit-production')
+      ?.supportingPassage).toContain('65,000 hours of real production experience');
+    expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+    expect(plan.planReview?.rationale).toContain(R6_PRIOR_PLAN);
+    expect(plan.planReview?.rationale).toContain('prior-plans.json');
+  });
+
+  it('preserves the superseded 0917a plan verbatim in the withdrawal evidence', () => {
+    const prior = JSON.parse(readFileSync(
+      join(ROOT, WITHDRAWAL_EVIDENCE, 'prior-plans.json'), 'utf8')) as { plans: unknown[] };
+    const plan = prior.plans.find((p) => (p as { id: string }).id === R6_PRIOR_PLAN)!;
+    expect((plan as { parts: { requiredCitationIds: string[] }[] }).parts
+      .map((part) => part.requiredCitationIds[0])).toEqual([
       'technology-org-deployed-2026',
       'technology-org-deployed-2026',
     ]);
-    for (const item of plan.evidence) {
+    for (const item of (plan as { evidence: { citationId: string; sourceUrl: string; supportingPassage: string }[] }).evidence) {
       expect(item.citationId).toBe('technology-org-deployed-2026');
       expect(item.sourceUrl).toBe(SWEEP_URL);
       expect(item.supportingPassage).toContain('Tesla has passed 50,000 cumulative Optimus units');
     }
-    expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
-    expect(plan.planReview?.rationale).toContain(PACKET_SHA);
+    expect((plan as { planReview: { rationale: string } }).planReview.rationale).toContain(PACKET_SHA);
   });
 
-  it('rewords the solved-bar Stat in the article exactly as prepared', () => {
+  it('removes the solved-bar Stat and states the authored yardstick without a survey negative', () => {
     const article = readFileSync(join(ROOT, 'content/frontier/reliability-gap.mdx'), 'utf8');
-    expect(article).toContain(
-      '<Stat label="solved bar (this wiki\u2019s)" value=">1,000h" note="our proposed yardstick: documented MTBF; none of the deployed systems we surveyed publishes one" />',
-    );
+    expect(article).not.toContain('solved bar');
     expect(article).not.toContain('note="documented MTBF; no system publishes one"');
+    expect(article).not.toContain('none of the deployed systems we surveyed publishes one');
+    expect(article).toContain('This wiki proposes a testable yardstick');
+    expect(article).toContain('This is an editorial test, not an industry-standard threshold');
   });
 
   it('completes generalization:17 as scalar Goldberg evidence without a plan binding', () => {
@@ -156,10 +178,32 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     expect(sr1.note).toContain('All 24 verify with disclosed channels');
     expect(sr1.sourceChecked).toContain('24/24 verified, disclosures per part');
     expect(sr1.note).toContain('Albert0');
-    // The sibling held row (10) stays unbound and incomplete.
+    // The later TSDF packet corrected this sibling without changing row 1.
     const sr10 = scene.claimRecords[9];
-    expect(sr10.compound?.planId ?? '').toBe('');
-    expect(sr10.evidenceFailures.length).toBeGreaterThan(0);
+    expect(sr10.compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
+    expect(sr10.evidenceFailures).toEqual([]);
+    expect(sr10.verdict).toBe('C');
+    // The sibling was later source-corrected; its old tuple remains in the
+    // non-counted Scene TSDF history, not in the active row's disposition.
+    const sceneLedger = readFileSync(join(ROOT, 'audit/classical.md'), 'utf8');
+    const saved = JSON.parse(sceneLedger.split('## Scene TSDF correction history, 2026-09-22')[1]
+      .split('```json\n')[1].split('\n```')[0]);
+    expect(saved.originalId).toBe('audit/classical.md:scene-representation:10');
+    expect(originalClaimDigest(saved.previousCells)).toBe(saved.previousTupleDigest);
+    expect(saved.previousTupleDigest).toBe('833a900270e11b09e5503e395d53c3365d1edfdb42f4fb33736077c8bcdf2f90');
+    expect(sr10.compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
+    expect(sr10.verdict).toBe('C');
+    expect(sr10.evidenceFailures).toEqual([]);
+    const corrected = loadPlans().find(p => p.id === sr10.compound?.planId)!;
+    expect(corrected.originalCellsDigest).toBe(originalClaimDigest(sr10));
+    expect(corrected.parts).toHaveLength(4);
+    expect(corrected.adjudications.map(a => a.outcome)).toEqual(['supported', 'supported', 'supported', 'supported']);
+    for (const item of corrected.evidence) {
+      expect(item.citationId).toBe('kinectfusion-2011');
+      expect(CITATIONS.some(c => c.id === item.citationId)).toBe(true);
+      expect(item.sourceUrl).toBe('https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf');
+      expect(item.supportingPassage.length).toBeGreaterThan(40);
+    }
   });
 
   it('records the 2026-09-17b rdm16 re-preparation now applied to reward-design-mpc:16', () => {
@@ -183,12 +227,17 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     expect(row23.evidenceFailures).toEqual([]);
   });
 
-  it('reuses the registered citations read-only with no new registration', () => {
-    for (const id of ['technology-org-deployed-2026', 'goldberg-data-gap-2025', 'di-carlo-2018']) {
+  it('registers the withdrawal replacements instead of the withdrawn sweep', () => {
+    expect(CITATIONS.filter(({ id }) => id === 'technology-org-deployed-2026')).toHaveLength(0);
+    for (const id of ['goldberg-data-gap-2025', 'di-carlo-2018']) {
       expect(CITATIONS.filter(({ id: cid }) => cid === id)).toHaveLength(1);
     }
-    const sweep = CITATIONS.find(({ id }) => id === 'technology-org-deployed-2026')!;
-    expect(sweep.url).toBe(SWEEP_URL);
+    const agility = CITATIONS.find(({ id }) => id === 'agility-digit-production')!;
+    expect(agility.url).toBe('https://www.agilityrobotics.com/');
+    const figure = CITATIONS.find(({ id }) => id === 'figure-bmw-production-2025')!;
+    expect(figure.url).toBe('https://www.figure.ai/news/production-at-bmw');
+    const tesla = CITATIONS.find(({ id }) => id === 'tesla-q1-2026-update')!;
+    expect(tesla.url).toBe('https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf');
     const goldberg = CITATIONS.find(({ id }) => id === 'goldberg-data-gap-2025')!;
     expect(goldberg.url).toBe('https://doi.org/10.1126/scirobotics.aea7390');
   });

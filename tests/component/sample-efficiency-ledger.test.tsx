@@ -1,8 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { SampleEfficiencyLedger } from '@/components/interactive/sample-efficiency-ledger';
 import { ANCHORS, BUDGET_SPEC, FLEET_SPEC } from '@/lib/sample-efficiency';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('SampleEfficiencyLedger');
 
 function slider(name: RegExp) {
   return screen.getByRole('slider', { name });
