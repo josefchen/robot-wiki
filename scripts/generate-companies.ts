@@ -171,10 +171,13 @@ const file = `/**
  * value plus their sources, rather than being averaged or silently
  * replaced.
  *
- * Parsed at module scope so an invalid row fails \`next build\`.
+ * The rows are typed against the Zod schema's inferred type; the schema
+ * parses them at build time on the server (lib/registry-validation.ts, run
+ * while the article routes prerender), so an invalid row fails
+ * \`next build\`. Structured search imports these rows into the browser,
+ * so a module-scope parse here would ship zod with them.
  */
-import { z } from 'zod';
-import { companySchema, type Company } from './schemas/company.ts';
+import type { Company } from './schemas/company.ts';
 
 export type { Company } from './schemas/company.ts';
 
@@ -182,8 +185,8 @@ const ROWS: Company[] = [
 ${body},
 ];
 
-/** Zod-validated rows; an invalid entry throws at import time. */
-export const COMPANIES: Company[] = z.array(companySchema).parse(ROWS);
+/** Schema-validated at build time by lib/registry-validation.ts. */
+export const COMPANIES: Company[] = ROWS;
 `;
 
 writeFileSync(DEST, file);

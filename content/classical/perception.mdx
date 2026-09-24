@@ -37,7 +37,8 @@ citations:
   - play2perfect-2026
 seeAlso:
   - "classical/grasp-planning"
-  - "manipulation/hierarchical"
+  - "classical/calibration"
+  - "classical/ros2-for-ml-engineers"
   - "classical/state-estimation"
 ---
 
@@ -194,6 +195,12 @@ For a fixed goal and motionless target, the tutorial gives local asymptotic stab
 Chaumette and Hutchinson’s Part I, *Basic Approaches* (2006), presents IBVS and PBVS and analyzes their performance and stability<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />. Part II, *Advanced Approaches* (2007), extends the treatment to interaction-matrix estimation, hybrid and partitioned control, optimization, switching, trajectory planning, target tracking, and joint-space formulations for eye-in-hand and eye-to-hand systems<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2007" />.
 
 Visibility requirements depend on the chosen measurements. The tutorial’s stereo point feature is observed in both images<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />, while its epipolar estimate uses matches between the current and desired images. Part II describes switching and trajectory-planning methods that address target visibility, occlusions and joint limits<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2007" />. Visibility is not automatic: Part I gives PBVS configurations in which points leave the camera’s field of view<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+
+## Separate model error from geometric error
+
+Evaluate a perception model in its native output first, then evaluate the geometry that consumes it. A detector can have stable image coordinates while the robot misses because the camera transform drifted. A depth model can improve pixel metrics while a grasp degrades because invalid values cluster on the target material. Mixing the stages into one task-success number makes both failures harder to localize.
+
+Maintain a small calibration target set and a separate task object set. Track reprojection, depth residual, pose residual, age and task success as a chain, preserving sample IDs between stages. Re-run the geometric checks after camera remounts, lens changes, time-source changes and software updates that alter resizing or intrinsics. The dedicated [calibration guide](/classical/calibration) defines those checks; the [ROS 2 guide](/classical/ros2-for-ml-engineers) shows where images, transforms and timestamps meet at runtime.
 
 ## What the end-to-end models replaced
 

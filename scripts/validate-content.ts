@@ -15,6 +15,7 @@ import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
 import { COMPANIES } from '../data/companies.ts';
 import { roundSourceMembershipIssues } from '../lib/company-source-provenance.ts';
+import { validateClientRegistries } from '../lib/registry-validation.ts';
 
 const root = join(import.meta.dirname, '..');
 
@@ -122,6 +123,18 @@ for (const message of roundSourceMembershipIssues(COMPANIES)) {
   issues.push({
     file: 'data/companies.ts',
     message,
+  });
+}
+
+// The registries client widgets import are plain typed rows, so zod stays
+// out of the browser; their schemas run here and in the article template's
+// generateStaticParams instead (lib/registry-validation.ts).
+try {
+  validateClientRegistries();
+} catch (error) {
+  issues.push({
+    file: null,
+    message: error instanceof Error ? error.message : String(error),
   });
 }
 

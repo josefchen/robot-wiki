@@ -16,30 +16,35 @@ const previous = parseLedger('audit/manipulation.md', before('audit/manipulation
 // Preserve the actual base's unselected readiness; only original 1 is newly complete.
 const ready = [1, ...previous.flatMap((row, i) => row.evidenceFailures.length ? [] : [i + 1])];
 const rows = (compoundPlans = plans) => parseLedger('audit/manipulation.md', ledger, ids, {
-  compoundPlans,
+  // Plans only bind rows in their own ledger; scoping keeps each mutation
+  // re-parse proportional to this ledger, not the merged catalog.
+  compoundPlans: compoundPlans.filter(p => p.ledgerPath === 'audit/manipulation.md'),
 }).find(section => section.slug === 'comparison-matrix')!.claimRecords;
 
 describe('comparison fixed original audit population', () => {
   it('adds only original 1 to base readiness, retaining all 25 original identities', () => {
     expect(previous[0].evidenceFailures.length).toBeGreaterThan(0);
     expect(rows()).toHaveLength(25);
+    expect(ready).toEqual(Array.from({ length: 25 }, (_, i) => i + 1));
     expect(rows().flatMap((row, i) => row.evidenceFailures.length ? [] : [i + 1])).toEqual(ready);
   });
 
-  it('fails each whole ready row when any one required part loses its passage', () => {
+  it('fails each whole ready row when any one required part loses its passage', { timeout: 60000 }, () => {
     const current = rows();
     for (const ordinal of ready) {
       const planId = current[ordinal - 1].compound!.planId;
       const original = plans.find(p => p.id === planId)!;
       for (const part of original.parts) {
-        const changed = structuredClone(plans);
-        const plan = changed.find(p => p.id === original.id)!;
-        plan.evidence = plan.evidence.filter(e => e.partId !== part.id);
-        for (const review of plan.adjudications) review.evidenceDigest = compoundPartDigest(plan, review.partId);
+        // Clone only the mutated plan; the rest of the catalog is untouched
+        // and cloning it per iteration does not scale on the merged ledger.
+        const clone = structuredClone(original);
+        clone.evidence = clone.evidence.filter(e => e.partId !== part.id);
+        for (const review of clone.adjudications) review.evidenceDigest = compoundPartDigest(clone, review.partId);
+        const changed = plans.map(p => (p.id === original.id ? clone : p));
         expect(rows(changed)[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
       }
     }
-  }, 30_000);
+  });
 
   it('requires the actual 21-source identity union and both supported introductory setups', () => {
     const citations = matter(readFileSync('content/manipulation/comparison-matrix.mdx', 'utf8')).data.citations as string[];

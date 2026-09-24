@@ -1,9 +1,12 @@
 import { readFileSync } from 'node:fs';
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { METHODS } from '@/data/methods';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ComparisonMatrix');
 
 const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
 describe('Octo v2 and pi0 v4 reported settings', () => {

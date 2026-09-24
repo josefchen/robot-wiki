@@ -2,6 +2,10 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { moduleFrontmatterSchema } from '../../data/schemas/module';
+import { parseCorrectedDispositions } from '../../lib/audit-corrected-disposition';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import {
   AUDIT_LEDGERS,
   parseCompoundPlans,
@@ -11,15 +15,39 @@ import {
 const read = (path: string) => readFileSync(path, 'utf8');
 const plans = parseCompoundPlans(JSON.parse(read('audit/compound-evidence.json')));
 const ids = new Set(CITATIONS.map(c => c.id));
+const localBasis = loadLocalBasisContext(
+  process.cwd(),
+  publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`),
+);
+const correctedDispositions = {
+  root: process.cwd(),
+  records: parseCorrectedDispositions(
+    ['industrial-release-20260924', 'residual-release-20260924']
+      .flatMap(directory =>
+        JSON.parse(read(`audit/evidence/${directory}/corrections.json`)))
+      .concat(
+        (JSON.parse(read('audit/evidence/classical-closure-20260923/corrections.json')) as Array<{ originalId: string }>)
+          .filter(record => ['audit/classical.md:control:1', 'audit/classical.md:control:2']
+            .includes(record.originalId)),
+      ),
+  ),
+};
 const ledgers = AUDIT_LEDGERS.map(ledger => {
   const articleCitations = Object.fromEntries(plans
     .filter(p => p.ledgerPath === ledger.ledgerPath && p.kind === 'frontmatter-p1')
-    .map(p => [p.articleSlug,
-      matter(read(`content/${ledger.domain}/${p.articleSlug}.mdx`)).data.citations]));
+    .map(p => {
+      const frontmatter = moduleFrontmatterSchema.parse(
+        matter(read(`content/${ledger.domain}/${p.articleSlug}.mdx`)).data,
+      );
+      if (frontmatter.domain !== ledger.domain || frontmatter.slug !== p.articleSlug) {
+        throw new Error(`compound plan ${p.id} has a different canonical target`);
+      }
+      return [p.articleSlug, frontmatter.citations];
+    }));
   return {
     ...ledger,
     sections: parseLedger(ledger.ledgerPath, read(ledger.ledgerPath), ids,
-      { compoundPlans: plans, articleCitations }),
+      { compoundPlans: plans, articleCitations, localBasis, correctedDispositions }),
   };
 });
 

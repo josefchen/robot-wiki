@@ -34,6 +34,8 @@ const ROUTES: string[] = [
   '/search/',
   '/glossary/',
   '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
   '/a-z/',
   ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
 ];

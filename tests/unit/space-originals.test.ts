@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -6,6 +7,7 @@ import {
   parseCompoundPlans,
 } from '../../lib/audit-ledger';
 import { CITATIONS } from '../../data/citations';
+import { committedJson, committedText } from '../helpers/editorial-current-context';
 
 /**
  * Red-first proof for the space originals integration (frozen packet
@@ -81,10 +83,9 @@ const spacePlans = plans.filter((plan) => plan.ledgerPath === 'audit/adjacent.md
 
 describe('space originals: ledger rows and compound plans', () => {
   it('keeps all 749 prior plans first and appends exactly the 10 space plans', () => {
-    // 775 = 768 at this lane's close + 7 surgical plans appended by the
-    // surgical originals integration (2026-09-16)
-    expect(plans).toHaveLength(775);
-    expect(plans.slice(0, 749).every((plan) => !plan.id.startsWith('space-'))).toBe(true);
+    // Preserve the selected packet and preceding survivors by identity.
+    expect(planPacket(plans, SPACE_PLAN_IDS).map((plan) => plan.id)).toEqual(SPACE_PLAN_IDS);
+    expect(plans.slice(0, plans.findIndex(p => p.id === SPACE_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('space-'))).toBe(true);
     expect(spacePlans.map((plan) => plan.id)).toEqual(SPACE_PLAN_IDS);
     expect(spacePlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });
@@ -186,7 +187,17 @@ describe('space originals: approved deltas', () => {
   const PRE_HASH = 'f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118';
 
   it('appends exactly 10 entries, same-same except the one article correction', () => {
-    expect(deltas.entries).toHaveLength(852);
+    // The merged delta ledger keeps appending later packets; this packet's
+    // entries keep their append slot at 1125..1134, so pin the slot, not a
+    // moving total.
+    expect(deltas.entries.slice(1125, 1135).map((delta) => delta.id).sort()).toEqual(
+      ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map((row) => `sp-r${row}-20260916-1`).sort(),
+    );
+    const historical = committedJson<typeof deltas>(
+      '4fea1f45907a5751249ae0064be6103ede8c49bd', 'contract/brand-v2-approved-deltas.json',
+    );
+    expect(historical.entries).toHaveLength(852);
+    expect(spaceDeltas).toEqual(historical.entries.filter((delta) => delta.id.startsWith('sp-r')));
     expect(spaceDeltas.map((delta) => delta.id).sort()).toEqual(
       ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map((row) => `sp-r${row}-20260916-1`).sort(),
     );
@@ -212,8 +223,25 @@ describe('space originals: protected neighbors', () => {
     expect(section).toContain('| Claim | Source checked | Verdict |');
   });
 
-  it('keeps the held autonomous-vehicles row honestly held', () => {
-    expect(ledger).toContain('HELD 2026-09-15 (integrator, record 2 of 19)');
+  it('leaves the formerly held autonomous-vehicles row to its own completion', () => {
+    // AV original 2 was held on 2026-09-15 for a registration blocker; the
+    // 20260917a books/industrial integration removed that blocker and bound
+    // it to av-2-nhaa-tour-20260917a. No space plan touches it.
+    const avRow = ledger.split('\n').find((line) => line.startsWith('| ALVINN "drove it across America in a demonstration tour" |'));
+    expect(avRow).toBeDefined();
+    expect(avRow).toContain('the registration blocker named by the 2026-09-15 hold is removed');
+    expect(avRow).toContain('av-2-nhaa-tour-20260917a');
+    expect(avRow).not.toMatch(/\bspace-/);
+  });
+
+  it('preserves the historical autonomous-vehicles hold and later completion', () => {
+    expect(committedText('9d8cf9365accd63a580a16738a0b3c7272988904', 'audit/adjacent.md'))
+      .toContain('HELD 2026-09-15 (integrator, record 2 of 19)');
+    const av2 = plans.find(p => p.id === 'av-2-nhaa-tour-20260917a')!;
+    expect(av2.rowOrdinal).toBe(2);
+    expect(av2.parts).toHaveLength(3);
+    expect(av2.evidence.some(e => e.sourceUrl.includes('cs.cmu.edu') && e.supportingPassage.length > 40)).toBe(true);
+    expect(ledger).toContain('av-2-nhaa-tour-20260917a');
   });
 
   it('keeps every drones plan bound and reviewed', () => {

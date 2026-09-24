@@ -96,7 +96,7 @@ async function get(path: string): Promise<{ status: number; body: string }> {
 
 // Vitest evaluates the describe factory at collection even when skipIf
 // skips the suite, so dereferencing `probe!` in the factory body throws
-// once no drafts remain (all 42 modules published, 2026-08-15). Type the
+// once no drafts remain (all 57 modules published as of 2026-08-24). Type the
 // sentinel as the real registry entry: with no drafts the suite is skipped
 // and the sentinel's fields are never read.
 import type { ModuleRegistryEntry } from '@/data/modules';

@@ -140,6 +140,7 @@ export function Term({ termId, term, definition, children }: TermProps) {
     >
       <Link
         href={`/glossary#${termId}`}
+        prefetch={false}
         aria-describedby={tooltipId}
         data-brand-control-id="control:link-focus"
         className="term-link"

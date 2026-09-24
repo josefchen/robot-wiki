@@ -72,7 +72,7 @@ describe('Home page', () => {
       name: /how to read this wiki/i,
     });
     expect(within(howTo).getByText(/registry order/)).toBeInTheDocument();
-    expect(within(howTo).getByText(/citation chip/)).toBeInTheDocument();
+    expect(within(howTo).getByText(/citation chip/i)).toBeInTheDocument();
     expect(
       within(howTo).getByRole('link', {
         name: /Action Chunking \(ACT and ALOHA\)/,

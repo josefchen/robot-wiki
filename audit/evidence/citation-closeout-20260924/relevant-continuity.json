@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "citation-kroger-relevant-continuity-v1",
+  "reviewedBy": "Droid Sol/max integrator 80c2755d-5ee6-41f7-93db-97517ec472f9",
+  "reviewedAt": "2026-09-24T04:22:17Z",
+  "rationale": "The original Kroger review at 2026-09-24T03:47:07.820Z established the exact archive/temporal article correction and enumerated 21 article-bound and 33 checker-bound historical proofs. Control continuation: inspected the subsequent complete pre-correction registry snapshot (40428a52...) and exact current transition (delete only the unused Åström entry and qualify only the Kalman priority comment). Both whole-file Kroger-before-to-current and post-Kroger-to-current comparisons are exact; old receipt and P4 registry references read the pinned snapshot, never a forged current response. The checker changes only its finite dependency-reader section; historical calculation semantics and reader proofs remain pinned. This new review does not claim a fresh Kroger reader run, Kalman priority or independent acceptance.",
+  "articleBefore": {
+    "path": "audit/evidence/citation-closeout-20260924/before-article.mdx",
+    "bytes": 19399,
+    "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+  },
+  "articleAfter": {
+    "path": "content/data-hardware/industrial-deployment.mdx",
+    "bytes": 19478,
+    "sha256": "79101c6ca602ae19be6f9549d678d7b1366531bb3ab864ba3ccc905f5bd0f525"
+  },
+  "checkerBefore": {
+    "path": "audit/evidence/citation-closeout-20260924/before-checker-current.ts.txt",
+    "bytes": 58174,
+    "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+  },
+  "checkerAfter": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 70332,
+    "sha256": "b25bbf3bf647c859cc164a37a97e0e468b857f179e451c94f1d3800ff0e9b449"
+  },
+  "citationBefore": {
+    "path": "audit/evidence/citation-closeout-20260924/before-citations.ts.txt",
+    "bytes": 301131,
+    "sha256": "f6df373b74920df7e37620f80d83855b0c540e3e65bb421ea5bb17b504f77405"
+  },
+  "citationAfter": {
+    "path": "data/citations.ts",
+    "bytes": 300669,
+    "sha256": "114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8"
+  },
+  "sourceBody": {
+    "path": "audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt",
+    "bytes": 95187,
+    "sha256": "1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae"
+  },
+  "beforeClause": "The unwind reads the same way: Kroger closed three of the eight automated sheds it built with Ocado, said it was monitoring the remaining five, and pays Ocado around £190 million in compensation for the privilege <Cite id=\"kroger-ocado-closures-2025\" />",
+  "afterClause": "The unwind reads the same way: in November 2025, Kroger said it would close three robotic warehouses in Wisconsin, Maryland and Florida the following January and was monitoring its five remaining warehouses. Ocado said it expected compensation of around £190 million for the planned closures <Cite id=\"kroger-ocado-closures-2025\" />",
+  "preservedDisclosure": "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.",
+  "affectedProofIds": [
+    "i10-derived-3",
+    "i10-derived-4",
+    "i10-observed-2",
+    "i10-observed-3",
+    "i10-parameters",
+    "i32-derived-1",
+    "i32-parameters",
+    "i33-derived-5",
+    "i33-parameters",
+    "i52-20000",
+    "i52-250000",
+    "i52-80000",
+    "i52-observed-20000",
+    "i52-observed-250000",
+    "i52-observed-80000",
+    "i52-parameters",
+    "i9-derived-1",
+    "i9-derived-2",
+    "i9-observed-0",
+    "i9-observed-1",
+    "i9-parameters"
+  ],
+  "checkerCheckpointProofIds": [
+    "final-seven-data-hardware-data-bottleneck-3-20260923-3-derivation",
+    "final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-0",
+    "final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-1",
+    "final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-2",
+    "final-seven-data-hardware-data-bottleneck-3-20260923-3-parameters",
+    "final-seven-data-hardware-data-bottleneck-5-20260923-5-derivation",
+    "final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-0",
+    "final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-1",
+    "final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-2",
+    "final-seven-data-hardware-data-bottleneck-5-20260923-5-parameters",
+    "final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation",
+    "final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0",
+    "final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1",
+    "final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2",
+    "final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters",
+    "final-seven-frontier-safety-and-assurance-5-20260923-5-derivation",
+    "final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-0",
+    "final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-1",
+    "final-seven-frontier-safety-and-assurance-5-20260923-5-parameters",
+    "final-seven-frontier-safety-and-assurance-6-20260923-6-derivation",
+    "final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-0",
+    "final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-1",
+    "final-seven-frontier-safety-and-assurance-6-20260923-6-parameters",
+    "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation",
+    "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0",
+    "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1",
+    "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2",
+    "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters",
+    "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation",
+    "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0",
+    "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1",
+    "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2",
+    "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters"
+  ]
+}

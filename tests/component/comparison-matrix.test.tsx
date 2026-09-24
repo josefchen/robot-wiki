@@ -1,8 +1,11 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 import { METHODS } from '@/data/methods';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ComparisonMatrix');
 
 function bodyRows(): HTMLElement[] {
   const table = screen.getByRole('table');
@@ -10,6 +13,7 @@ function bodyRows(): HTMLElement[] {
 }
 
 function rowNamed(name: string | RegExp): HTMLElement | undefined {
+  if (!screen.queryByRole('table')) return undefined;
   return bodyRows().find((row) => within(row).queryByText(name));
 }
 
@@ -148,8 +152,13 @@ describe('ComparisonMatrix', () => {
     expect(rowNamed('ACT')).toBeDefined();
     expect(rowNamed('Diffusion Policy')).toBeDefined();
     await user.click(screen.getByRole('button', { name: /^not released$/i }));
+    // The audit corrected every method to downloadable or not-disclosed
+    // weights, so Not released legitimately shows the empty state.
+    expect(screen.queryByRole('table')).toBeNull();
+    expect(METHODS.every((method) => method.openWeights !== false)).toBe(true);
     expect(rowNamed('ACT')).toBeUndefined();
     expect(rowNamed('Diffusion Policy')).toBeUndefined();
+    expect(screen.getByRole('status')).toHaveTextContent(/no methods match/i);
     await user.click(screen.getByRole('button', { name: /all weights/i }));
     expect(bodyRows()).toHaveLength(METHODS.length);
   });
@@ -175,7 +184,9 @@ describe('ComparisonMatrix', () => {
   it('shows an empty state with a clear affordance on zero results (VAL-MAN-066)', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
-    // No closed method ships a diffusion head.
+    // The current registry has no method proven not released; its unknown
+    // rows must not be silently counted as closed even under a second filter.
+    expect(METHODS.every((method) => method.openWeights !== false)).toBe(true);
     await user.click(screen.getByRole('button', { name: /^not released$/i }));
     await user.click(screen.getByRole('button', { name: /^diffusion$/i }));
 
@@ -204,7 +215,10 @@ describe('ComparisonMatrix', () => {
   it('reset restores filters and the initial sort', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
-    await user.click(screen.getByRole('button', { name: /^not released$/i }));
+    // Not released now matches zero methods (audit-corrected data), which
+    // would remove the table and its sort buttons; use Not disclosed, which
+    // still exercises a non-default filter before reset.
+    await user.click(within(screen.getByRole('group', { name: 'Filter by weights' })).getByRole('button', { name: /^not disclosed$/i }));
     await user.click(screen.getByRole('button', { name: /sort by method/i }));
 
     await user.click(screen.getByRole('button', { name: /^reset$/i }));

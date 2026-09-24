@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { IntentLink } from '@/components/ui/intent-link';
 import { SITE_URL } from '@/lib/site';
 
 /**
@@ -41,7 +41,7 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
               className="flex items-baseline gap-2"
             >
               {item.href && !last ? (
-                <Link
+                <IntentLink
                   href={item.href}
                   data-brand-control-id="control:link-focus"
                   // The underline is the non-colour cue design-system 4.4
@@ -50,7 +50,7 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
                   className="text-text-dim underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
                 >
                   {item.label}
-                </Link>
+                </IntentLink>
               ) : (
                 <span className="text-text">{item.label}</span>
               )}

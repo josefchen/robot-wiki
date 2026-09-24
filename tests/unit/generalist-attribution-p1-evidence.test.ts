@@ -3,28 +3,30 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
+import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { GENERALIST_RELEASES } from '../../lib/generalist-policies';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
-import { BASELINE_KINDS, buildManifest, compareBaseline, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
+import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
+import { committedSource } from '../helpers/continuation-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
 const attributionCommit = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const at = (commit: string, path: string) => execFileSync('git', ['show', `${commit}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
-const before = (path: string) => at(base, path);
+const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
 const articlePath = 'content/manipulation/generalist-policies.mdx';
-const article = read('audit/evidence/crossdomain-closure-20260923/before-content--manipulation--generalist-policies.mdx.txt');
-const attributionArticle = at(attributionCommit, articlePath);
+const article = read(articlePath);
+const attributionArticle = committedSource(attributionCommit, articlePath);
+const attributionLedger = committedSource(attributionCommit, 'audit/manipulation.md');
+const attributionPlans: CompoundPlan[] = JSON.parse(committedSource(attributionCommit, 'audit/compound-evidence.json'));
+const isGeneralistPlan = (p: CompoundPlan) => p.ledgerPath === 'audit/manipulation.md' && p.articleSlug === 'generalist-policies';
 const ledger = read('audit/manipulation.md');
-const attributionLedger = at(attributionCommit, 'audit/manipulation.md');
 const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
 const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
-const attributionPlans: CompoundPlan[] = JSON.parse(at(attributionCommit, 'audit/compound-evidence.json'));
-const isGeneralistPlan = (p: CompoundPlan) => p.ledgerPath === 'audit/manipulation.md' && p.articleSlug === 'generalist-policies';
 const registry = new Set(CITATIONS.map(c => c.id));
 const citations = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations]));
 const parse = (catalog = plans, markdown = ledger, declared = citations) => parseLedger('audit/manipulation.md', markdown, registry, { compoundPlans: catalog, articleCitations: declared }).find(s => s.slug === 'generalist-policies')!.claimRecords;
@@ -51,43 +53,89 @@ const oldHashes: Array<[BaselineKind, string, string]> = [
   ['article-metadata', 'citation:agibot-world-2025', '68d060d391d0cca49c824f96d2bc226add599dd915d28d8a9410b159ec6cb425'],
   ['article-metadata', 'citation-rendering:label-and-meta', '525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b'],
 ];
-const attributionHashes: Array<[BaselineKind, string, string]> = [
-  ['prose', 'article:manipulation/generalist-policies', 'a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951'],
-  ['relationships', 'article:manipulation/generalist-policies', '785ab5aee7ea2c1cafabb9e2ea3c1420c7d3564bad6527769bda1f6ab00b94e6'],
-  ['article-metadata', 'citation:agibot-world-2025', '3a8411c2d1287ed2e89b8ab0ac7fcdb3f3830b1d0b3981afdd1109c330dab1c2'],
-  ['article-metadata', 'citation-rendering:label-and-meta', '40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef'],
-];
-// Exact subsequent edges affecting these four members, not blanket permission
-// for the other source corrections or their unselected ledger records.
-const successorEndpoints = [
-  ['industrial-perception-zero-credit-20260922-6', 'article-metadata', 'citation-rendering:label-and-meta',
-    '40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef',
-    'f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450'],
-  ['four-local-truth-repairs-20260922-1', 'prose', 'article:manipulation/generalist-policies',
-    'a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951',
-    'bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4'],
-] as const;
-const approvals: ApprovedDelta[] = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter((a: ApprovedDelta) => !a.id.startsWith('crossdomain-closure-20260923-'));
-const attributionApprovals: ApprovedDelta[] = JSON.parse(at(attributionCommit, 'contract/brand-v2-approved-deltas.json')).entries;
+const approvals: ApprovedDelta[] = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
 const selectedApprovals = approvals.filter(a => a.id.startsWith('generalist-attribution-p1-20260922-'));
-const successorApprovals = approvals.filter(a => successorEndpoints.some(([id]) => a.id === id));
 const truth = collectArticleTruthManifests();
-function bundle(stage: 'before' | 'attribution' | 'current'): BaselineBundle {
+const currentHash = (kind: BaselineKind, memberId: string) => Object.values(truth).find(m => m.kind === kind)?.members.find(m => m.id === memberId)?.hash;
+// The production line also changed the citation label/meta digest (its own
+// citation additions). On the integrated line the lane endpoint is no longer
+// HEAD for that member; it carries the integration re-anchor from its sealed
+// hash to the merged hash instead, and, once later registry additions move the
+// digest again, a later re-anchor from the same seal to HEAD.
+const productionTouched = new Set([
+  'article-metadata|citation-rendering:label-and-meta',
+  'prose|article:manipulation/generalist-policies',
+]);
+const touched = ([kind, id]: [BaselineKind, string, string]) => productionTouched.has(`${kind}|${id}`);
+function bundle(old: boolean, selected: Array<[BaselineKind, string, string]> = oldHashes): BaselineBundle {
   const manifests = Object.fromEntries(BASELINE_KINDS.map(kind => {
     const manifest = buildManifest(kind, [{ id: 'fixture:unchanged', value: 'bounded comparison' }]);
-    const hashes = stage === 'before' ? oldHashes : attributionHashes;
-    const members: ManifestMember[] = hashes.filter(([k]) => k === kind).flatMap(([, id, hash]) => stage === 'current'
-      ? (kind === 'prose' && id === 'article:manipulation/generalist-policies'
-        ? buildManifest('prose', [{ id, value: { path: articlePath, body: matter(article).content.trim() } }]).members
-        : Object.values(truth).flatMap(m => m.kind === kind ? m.members.filter(v => v.id === id) : []))
-      : [{ id, hash }]);
+    const members: ManifestMember[] = selected.filter(([k]) => k === kind).flatMap(([, id, hash]) => old
+      ? (hash === sha256('missing') ? [] : [{ id, hash }])
+      : Object.values(truth).flatMap(m => m.kind === kind ? m.members.filter(v => v.id === id) : []));
     return [kind, { ...manifest, members, memberCount: members.length }];
   })) as BaselineBundle['manifests'];
   return { schemaVersion: 1, source: { commit: base, tree: '', trackedWorktreeClean: false }, tools: { node: '', npm: '', playwright: '', next: '', typescript: '', vitest: '', lockfileSha256: '' }, manifests, manifestRoots: Object.fromEntries(BASELINE_KINDS.map(k => [k, manifests[k].rootHash])) as BaselineBundle['manifestRoots'], rootHash: '' };
 }
 
 describe('generalist originals 15 and 21, exact attribution and metadata correction', () => {
-  it('preserves the attribution paragraph through only the five approved original19 copy changes', () => {
+  it('retains the later industrial rendering transition and rejects missing or mutated approval', () => {
+    const kind = 'article-metadata';
+    const memberId = 'citation-rendering:label-and-meta';
+    const oldHash = 'f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450';
+    const newHash = '51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab';
+    const approval = approvals.find(a => a.id === 'industrial-closure-20260923-3')!;
+    expect(approval).toMatchObject({ manifest: kind, memberId, oldHash, newHash, disposition: 'permanent' });
+    const previous = bundle(true, [[kind, memberId, oldHash]]);
+    const next = bundle(true, [[kind, memberId, newHash]]);
+    expect(compareBaseline(previous, next, [approval]).ok).toBe(true);
+    expect(compareBaseline(previous, next, []).ok).toBe(false);
+    for (const endpoint of ['oldHash', 'newHash'] as const) {
+      expect(compareBaseline(previous, next, [{ ...approval, [endpoint]: '0'.repeat(64) }]).ok).toBe(false);
+    }
+  });
+  it('retains both historical native transitions and their negative controls', () => {
+    const attributionHashes: Array<[BaselineKind, string, string]> = [
+      ['prose', 'article:manipulation/generalist-policies', 'a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951'],
+      ['relationships', 'article:manipulation/generalist-policies', '785ab5aee7ea2c1cafabb9e2ea3c1420c7d3564bad6527769bda1f6ab00b94e6'],
+      ['article-metadata', 'citation:agibot-world-2025', '3a8411c2d1287ed2e89b8ab0ac7fcdb3f3830b1d0b3981afdd1109c330dab1c2'],
+      ['article-metadata', 'citation-rendering:label-and-meta', '40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef'],
+    ];
+    const successors = [
+      ['industrial-perception-zero-credit-20260922-6', 'article-metadata', 'citation-rendering:label-and-meta',
+        '40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef',
+        'f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450'],
+      ['four-local-truth-repairs-20260922-1', 'prose', 'article:manipulation/generalist-policies',
+        'a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951',
+        'bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4'],
+    ];
+    const historical: ApprovedDelta[] = JSON.parse(committedSource(attributionCommit, 'contract/brand-v2-approved-deltas.json')).entries;
+    const prior: ApprovedDelta[] = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
+    expect(historical.slice(0, prior.length)).toEqual(prior);
+    expect(historical.slice(prior.length)).toEqual(selectedApprovals);
+    const lane: ApprovedDelta[] = JSON.parse(committedSource('d7aebfa', 'contract/brand-v2-approved-deltas.json')).entries;
+    expect(lane.slice(0, historical.length)).toEqual(historical);
+    const edges = lane.slice(historical.length).filter(a =>
+      oldHashes.some(([kind, id]) => a.manifest === kind && a.memberId === id));
+    expect(edges.map(a => [a.id, a.manifest, a.memberId, a.oldHash, a.newHash])).toEqual(successors);
+    expect(approvals.filter(a => edges.some(e => e.id === a.id))).toEqual(edges);
+    const successorHashes = attributionHashes.map(([kind, id, hash]) => [
+      kind, id, successors.find(([, k, member]) => k === kind && member === id)?.[4] ?? hash,
+    ] as [BaselineKind, string, string]);
+    expect(compareBaseline(bundle(true), bundle(true, successorHashes), selectedApprovals).ok).toBe(false);
+    for (const [previous, next, exact] of [
+      [bundle(true), bundle(true, attributionHashes), selectedApprovals],
+      [bundle(true, attributionHashes), bundle(true, successorHashes), edges],
+    ] as const) {
+      expect(compareBaseline(previous, next, exact).ok).toBe(true);
+      for (const approval of exact) {
+        expect(approval.disposition).toBe('permanent');
+        expect(compareBaseline(previous, next, exact.filter(a => a.id !== approval.id)).ok).toBe(false);
+        expect(compareBaseline(previous, next, exact.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
+      }
+    }
+  });
+  it('changes exactly the authorized paragraph without changing frontmatter or other claims', () => {
     expect(before(articlePath).split(oldSpan)).toHaveLength(2);
     expect(attributionArticle).toBe(before(articlePath).replace(oldSpan, () => newSpan));
     let expected = attributionArticle;
@@ -95,18 +143,19 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
       expect(expected.split(previous)).toHaveLength(2);
       expected = expected.replace(previous, () => corrected);
     }
-    expect(article).toBe(expected);
+    expect(committedSource('d928b6b', articlePath)).toBe(expected);
     // The current article may differ only by the two explicitly approved aggregate removals.
     const removals = JSON.parse(read('audit/evidence/crossdomain-closure-20260923/row-history.json'))
       .rows[0].exactChanges.filter((change: { path: string }) => change.path.endsWith('/' + articlePath));
     expect(removals).toHaveLength(2);
-    let corrected = article;
+    let corrected = expected;
     for (const change of removals) {
       expect(corrected.split(change.old)).toHaveLength(2);
       corrected = corrected.replace(change.old, () => change.new);
     }
     expect(read(articlePath)).toBe(corrected);
     expect(article.split(newSpan)).toHaveLength(2);
+    expect(article).toBe(corrected);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
   });
@@ -184,6 +233,20 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     // Preserve the original integration's global prefix at its own endpoint.
     // Later corrections elsewhere do not authorize changing generalist plans.
     expect(attributionPlans.slice(0, oldPlans.length)).toEqual(oldPlans);
+    const changedPlanIds = new Set(['comparison-current-1-20260907', 'datasets-10-robomind-20260916c']);
+    preservedLegacySurvivors(oldPlans.filter(p => !changedPlanIds.has(p.id)), plans);
+    const checkpointPlans: CompoundPlan[] = JSON.parse(committedSource('2aaf058', 'audit/compound-evidence.json'));
+    for (const id of changedPlanIds) {
+      const checkpoint = checkpointPlans.find(p => p.id === id)!;
+      if (id === 'datasets-10-robomind-20260916c') {
+        preservedLegacySurvivors([checkpoint], plans);
+      } else {
+        expect(plans.find(p => p.id === id)).toEqual(checkpoint);
+      }
+    }
+    const comparison = plans.find(p => p.id === 'comparison-current-1-20260907')!;
+    expect(comparison.planReview?.planDigest).toBe(compoundPlanDigest(comparison));
+    expect(comparison.parts).toHaveLength(23);
     expect(attributionPlans.slice(oldPlans.length)).toEqual([plan(15), plan(21)]);
     expect(plans.filter(isGeneralistPlan)).toEqual(attributionPlans.filter(isGeneralistPlan));
     const old = parse(oldPlans, before('audit/manipulation.md'));
@@ -195,7 +258,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
       if (![14, 20].includes(i)) expect(historical[i]).toEqual(old[i]);
       if (i !== 18) expect(current[i]).toEqual(historical[i]);
     }
-    const held = parse(plans, read('audit/evidence/crossdomain-closure-20260923/before-audit--manipulation.md.txt'))[18];
+    const held = parse(oldPlans, read('audit/evidence/crossdomain-closure-20260923/before-audit--manipulation.md.txt'))[18];
     expect(held.claim).toBe('Local timeline inventory: 13 entries with report/announcement dates from Feb 2025 to Jul 2026; 4 marked downloadable (GR00T N1 and N1.7, GO-1, π0.5), not a license classification; 5 selected arXiv sources, 1 repository source and 7 selected blog/press sources. The seven-entry enumeration is not a census of external replication.');
     expect(held.sourceChecked).toBe(historical[18].sourceChecked);
     expect(held.verdict).toBe('UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)');
@@ -221,43 +284,66 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
       expect(entry.currentTupleDigest).toBe(originalClaimDigest(parse()[i]));
     }
   });
-  it('retains four exact historical approvals and only the two named successor edges for these members', () => {
-    const old = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
+  it('appends only the four exact current-HEAD approvals with the old prefix intact', () => {
+    const old: ApprovedDelta[] = JSON.parse(before('contract/brand-v2-approved-deltas.json')).entries;
     expect(old).toHaveLength(1004);
-    expect(attributionApprovals).toHaveLength(1008);
-    expect(attributionApprovals.slice(0, old.length)).toEqual(old);
-    expect(approvals.slice(0, attributionApprovals.length)).toEqual(attributionApprovals);
+    // Integrated line: the production ledger is an exact prefix, entries it
+    // shares with the lane keep their identity, and the lane-only block
+    // follows unchanged in lane order with these four appended right after it.
+    const { production, shared, laneOnly, start } = laneWindow(old);
+    expect(approvals.slice(0, production.length)).toEqual(production);
+    for (const entry of shared) {
+      expect(production.find(p => p.id === entry.id)).toMatchObject({ manifest: entry.manifest, memberId: entry.memberId });
+    }
+    expect(approvals.slice(production.length, start)).toEqual(laneOnly);
+    expect(approvals.slice(start, start + 4)).toEqual(selectedApprovals);
     expect(selectedApprovals).toHaveLength(4);
-    expect(selectedApprovals).toEqual(attributionApprovals.slice(old.length));
-    for (const [manifest, memberId, oldHash] of oldHashes) {
+    for (const entry of oldHashes) {
+      const [manifest, memberId, oldHash] = entry;
       const a = selectedApprovals.find(a => a.manifest === manifest && a.memberId === memberId)!;
       expect(a?.oldHash).toBe(oldHash);
-      expect(a?.newHash).toBe(attributionHashes.find(([kind, id]) => kind === manifest && id === memberId)?.[2]);
       expect(a?.disposition).toBe('permanent');
-    }
-    expect(successorApprovals.map(a => [a.id, a.manifest, a.memberId, a.oldHash, a.newHash])).toEqual(successorEndpoints);
-    expect(approvals.slice(attributionApprovals.length).filter(a =>
-      oldHashes.some(([kind, id]) => a.manifest === kind && a.memberId === id),
-    )).toEqual(successorApprovals);
-    for (const a of successorApprovals) {
-      expect(a.disposition).toBe('permanent');
-      expect(a.oldHash).toBe(attributionHashes.find(([kind, id]) => kind === a.manifest && id === a.memberId)?.[2]);
+      const reanchor = reanchorFor(approvals, manifest, memberId);
+      if (touched(entry)) {
+        expect(a?.newHash).not.toBe(currentHash(manifest, memberId));
+        // The integration re-anchor keeps the merged value that the
+        // integration commit's own evidence observed; HEAD is bracketed from
+        // the same seal by the latest re-anchor, which never precedes it.
+        if (reanchor) {
+          expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
+          expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
+        }
+        const head = headReanchorFor(approvals, manifest, memberId)!;
+        expect(head).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
+      } else {
+        expect(a?.newHash).toBe(currentHash(manifest, memberId));
+        // A lane-only member needs no integration re-anchor; if one exists it must be exact.
+        if (reanchor) expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId) });
+      }
     }
   });
-  it('rejects missing or mutated approvals at both bounded native transitions', () => {
-    const beforeAttribution = bundle('before');
-    const attributed = bundle('attribution');
-    const current = bundle('current');
-    expect(compareBaseline(beforeAttribution, current, selectedApprovals).ok).toBe(false);
-    for (const [previous, next, edges] of [
-      [beforeAttribution, attributed, selectedApprovals],
-      [attributed, current, successorApprovals],
-    ] as const) {
-      expect(compareBaseline(previous, next, edges).ok).toBe(true);
-      for (const approval of edges) {
-        expect(compareBaseline(previous, next, edges.filter(a => a.id !== approval.id)).ok).toBe(false);
-        expect(compareBaseline(previous, next, edges.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
-      }
+  it('rejects missing or mutated exact approvals in native comparison', () => {
+    // Members only the lane changed: lane start -> HEAD through the lane approvals.
+    const laneMembers = oldHashes.filter(entry => !touched(entry));
+    const laneApprovals = selectedApprovals.filter(a => laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
+    expect(laneApprovals.length).toBeGreaterThan(0);
+    expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals).ok).toBe(true);
+    for (const approval of laneApprovals) {
+      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
+      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
+    }
+    // Members the production line also changed: seal -> HEAD through the latest integration re-anchors.
+    const mergedMembers = oldHashes.filter(touched).map(([k, id]) => [k, id, sealedHash(k, id)] as [BaselineKind, string, string]);
+    const reanchors = mergedMembers.map(([k, id]) => headReanchorFor(approvals, k, id)!);
+    expect(reanchors).toHaveLength(productionTouched.size);
+    // Explicit merge resolutions bind the complete prior member graph, not
+    // standalone edges detached from the history they reconcile.
+    const graph = approvals.filter(a => mergedMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
+    expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), graph).ok).toBe(true);
+    for (const approval of reanchors) {
+      expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), graph.filter(a => a.id !== approval.id)).ok).toBe(false);
+      expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), graph.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
     }
   });
 });

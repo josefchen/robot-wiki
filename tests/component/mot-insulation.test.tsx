@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
@@ -7,6 +7,9 @@ import {
   LANGUAGE_SCORE_MIN,
   LAYER_COUNT,
 } from '@/lib/knowledge-insulation';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('MotInsulation');
 
 function passButton(name: RegExp) {
   return screen.getByRole('button', { name });

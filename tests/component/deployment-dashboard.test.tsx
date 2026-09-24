@@ -1,8 +1,11 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
 import { DEPLOYMENT_ROWS } from '@/lib/deployment-reality';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('DeploymentDashboard');
 
 const VERIFIED_COUNT = DEPLOYMENT_ROWS.filter((r) => r.status === 'verified').length;
 const CLAIMED_COUNT = DEPLOYMENT_ROWS.filter((r) => r.status === 'claimed').length;
@@ -84,5 +87,21 @@ describe('DeploymentDashboard', () => {
     expect(screen.getByTestId('deployment-count')).toHaveTextContent(
       `${DEPLOYMENT_ROWS.length} of ${DEPLOYMENT_ROWS.length}`,
     );
+  });
+
+  it('offers keyboard and pointer recovery from an empty filtered category', async () => {
+    const user = userEvent.setup();
+    render(<DeploymentDashboard deploymentRows={DEPLOYMENT_ROWS.filter(r => r.status === 'claimed')} />);
+    await user.click(screen.getByRole('button', { name: 'Verified' }));
+    expect(screen.getByTestId('deployment-count')).toHaveTextContent('0 of 1 rows');
+    expect(screen.queryByTestId(/^deployment-row-/)).not.toBeInTheDocument();
+    const recover = screen.getByRole('button', { name: 'Show all records' });
+    expect(recover).toBeVisible();
+    recover.focus();
+    await user.keyboard('{Enter}');
+    expect(screen.getByTestId('deployment-count')).toHaveTextContent('1 of 1 rows');
+    await user.click(screen.getByRole('button', { name: 'Verified' }));
+    await user.click(screen.getByRole('button', { name: 'Reset' }));
+    expect(screen.getByTestId('deployment-row-figure-8hr-shift')).toBeVisible();
   });
 });

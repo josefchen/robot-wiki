@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '@/data/citations';
 import { METHODS } from '@/data/methods';
 import { parseLedger, type CompoundPlan } from '@/lib/audit-ledger';
+import { committedJson, committedText } from '../helpers/editorial-current-context';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const selected = [
@@ -17,7 +18,11 @@ const plans = JSON.parse(read('audit/compound-evidence.json')) as CompoundPlan[]
 const citationIds = new Set(CITATIONS.map(c => c.id));
 function row(id: string, compoundPlans = plans) {
   const [path, slug, ordinal] = id.split(':');
-  return parseLedger(path, read(path), citationIds, { compoundPlans })
+  // Plans only bind rows in their own ledger, so scope the context before
+  // parsing — re-validating the whole catalog per call makes this test
+  // exceed its timeout as the merged catalog grows.
+  const scoped = compoundPlans.filter(p => p.ledgerPath === path);
+  return parseLedger(path, read(path), citationIds, { compoundPlans: scoped })
     .find(section => section.slug === slug)!.claimRecords[Number(ordinal) - 1];
 }
 
@@ -25,18 +30,20 @@ describe('insulation FAST and Dreamer fixed original records', () => {
   it.each(selected)('completes the entire source-bound record %s', id => {
     expect(row(id).evidenceFailures).toEqual([]);
   });
-  it('rejects omission of every individual required source item', () => {
-    for (const id of selected) {
+  it.each(selected)('rejects omission of every individual required source item for %s', id => {
       const current = row(id);
       expect(current.compound, id).toBeDefined();
       const plan = plans.find(p => p.id === current.compound!.planId)!;
       expect(plan.evidence.length).toBeGreaterThan(0);
       for (let i = 0; i < plan.evidence.length; i++) {
-        const changed = structuredClone(plans);
-        changed.find(p => p.id === plan.id)!.evidence.splice(i, 1);
+        const changed = plans.map(p => {
+          if (p.id !== plan.id) return p;
+          const clone = structuredClone(p);
+          clone.evidence.splice(i, 1);
+          return clone;
+        });
         expect(row(id, changed).evidenceFailures.length, `${id}/${i}`).toBeGreaterThan(0);
       }
-    }
   });
   it('keeps the exact DROID prediction, execution choices and control setting', () => {
     const fast = METHODS.find(m => m.id === 'pi0-fast')!;
@@ -90,8 +97,24 @@ describe('insulation FAST and Dreamer fixed original records', () => {
     expect(taxonomy).toContain('sparse intermediate rewards');
   });
   it('preserves incomplete P1 and held rows without a fake review-date bump', () => {
+    // Later packets completed these records. Comparison original 1 now
+    // carries the setup-qualified RT-2/OpenVLA correction, not local proof.
+    const comparison = row('audit/manipulation.md:comparison-matrix:1');
+    expect(comparison.evidenceFailures).toEqual([]);
+    expect(comparison.verdict).toBe('C');
+    expect(comparison.compound?.planId).toBeDefined();
+    for (const id of ['audit/manipulation.md:knowledge-insulation:10', 'audit/world-models.md:latent-dynamics:17']) {
+      expect(row(id).evidenceFailures).toEqual([]);
+    }
+    const checkpoint = 'f1cf5aa08bd023606deeb25d3476db300518dea0';
+    const priorPlans = committedJson<CompoundPlan[]>(checkpoint, 'audit/compound-evidence.json');
     for (const id of ['audit/manipulation.md:comparison-matrix:1', 'audit/manipulation.md:knowledge-insulation:10', 'audit/world-models.md:latent-dynamics:17']) {
-      expect(row(id).evidenceFailures.length).toBeGreaterThan(0);
+      const [path, slug, ordinal] = id.split(':');
+      const oldRecord = parseLedger(path, committedText(checkpoint, path), citationIds,
+        { compoundPlans: priorPlans }).find(s => s.slug === slug)!.claimRecords[Number(ordinal) - 1];
+      expect(oldRecord.evidenceFailures.length).toBeGreaterThan(0);
+      expect(row(id).evidenceFailures).toEqual([]);
+      expect(row(id).compound?.planId).toBeTruthy();
     }
     expect(row('audit/world-models.md:latent-dynamics:6').evidenceFailures).toEqual([]);
     for (const path of ['manipulation/knowledge-insulation', 'manipulation/pi-line', 'manipulation/comparison-matrix', 'world-models/latent-dynamics', 'world-models/taxonomy']) {

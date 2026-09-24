@@ -52,10 +52,11 @@ function rendererFonts(
 export async function renderCorpusCard(
   entry: OgCardCorpusEntry,
   root: string,
+  dimensions?: { width: number; height: number },
 ): Promise<Buffer> {
   const options = {
-    width: OG_CARD_WIDTH,
-    height: OG_CARD_HEIGHT,
+    width: dimensions?.width ?? OG_CARD_WIDTH,
+    height: dimensions?.height ?? OG_CARD_HEIGHT,
     fonts: rendererFonts(root),
   };
   const finalTree = openSealedCardTree(entry.card);

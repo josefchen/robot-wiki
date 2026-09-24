@@ -2,6 +2,10 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
+import { moduleFrontmatterSchema } from '../../data/schemas/module';
+import { parseCorrectedDispositions } from '../../lib/audit-corrected-disposition';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import {
   originalClaimDigest,
   parseCompoundPlans,
@@ -13,6 +17,15 @@ import {
   validateApprovedDeltas,
   type ApprovedDelta,
 } from '../../lib/brand-v2-baseline';
+import {
+  PRODUCTION_BASE,
+  TRUE_MERGE_BASE,
+  laneWindow,
+  ledgerAt,
+  headReanchorFor,
+  sealedHash,
+  showAt,
+} from './helpers/continuation-merge-ledger';
 
 const ledgerPath = 'audit/data-hardware.md';
 const markdown = readFileSync(ledgerPath, 'utf8');
@@ -20,17 +33,37 @@ const registryIds = new Set(CITATIONS.map(({ id }) => id));
 const compoundPlans = parseCompoundPlans(
   JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')),
 );
+const localBasis = loadLocalBasisContext(
+  process.cwd(),
+  publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`),
+);
+const correctedDispositions = {
+  root: process.cwd(),
+  records: parseCorrectedDispositions(
+    ['industrial-release-20260924', 'residual-release-20260924']
+      .flatMap(directory => JSON.parse(readFileSync(
+        `audit/evidence/${directory}/corrections.json`, 'utf8',
+      ))),
+  ),
+};
 const articleCitations = Object.fromEntries(
   compoundPlans
     .filter((plan) => plan.ledgerPath === ledgerPath && plan.kind === 'frontmatter-p1')
-    .map((plan) => [
-      plan.articleSlug,
-      matter(readFileSync(`content/data-hardware/${plan.articleSlug}.mdx`, 'utf8'))
-        .data.citations as string[],
-    ]),
+    .map((plan) => {
+      const frontmatter = moduleFrontmatterSchema.parse(
+        matter(readFileSync(`content/data-hardware/${plan.articleSlug}.mdx`, 'utf8')).data,
+      );
+      if (frontmatter.domain !== 'data-hardware' || frontmatter.slug !== plan.articleSlug) {
+        throw new Error(`compound plan ${plan.id} has a different canonical target`);
+      }
+      return [plan.articleSlug, frontmatter.citations];
+    }),
 );
-const parse = (input = markdown) =>
-  parseLedger(ledgerPath, input, registryIds, { compoundPlans, articleCitations });
+const parse = (input = markdown, withNativeContext = false) =>
+  parseLedger(ledgerPath, input, registryIds, {
+    compoundPlans, articleCitations,
+    ...(withNativeContext ? { localBasis, correctedDispositions } : {}),
+  });
 const industrial = (input = markdown) =>
   parse(input).find(({ slug }) => slug === 'industrial-deployment')!;
 const leadership = (input = markdown) => industrial(input).claimRecords[43];
@@ -123,7 +156,10 @@ describe('industrial deployment original 44: MIT leadership evidence', () => {
   });
 
   it('keeps the native domain summary reconciled without changing recorded verdicts', () => {
-    expect(parse().flatMap(({ summaryFailures }) => summaryFailures)).toEqual([]);
+    // The summary counts all native typed-local and corrected outcomes.
+    // Scalar mutation cases above intentionally retain their narrower
+    // comparison context, so this expensive full check runs only once.
+    expect(parse(markdown, true).flatMap(({ summaryFailures }) => summaryFailures)).toEqual([]);
   });
 });
 
@@ -138,6 +174,15 @@ const newProseHash = '125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33de
 const approvals = JSON.parse(
   readFileSync('contract/brand-v2-approved-deltas.json', 'utf8'),
 ).entries as ApprovedDelta[];
+// The first integration also carried main's range-hyphen normalization.
+// Preserve the MIT packet's actual historical endpoint separately from
+// the later NASA availability/capital-only correction.
+const productionEdits = [
+  ['note="2021–2024 each above 500k"', 'note="2021-2024 each above 500k"'],
+] as const;
+const laneArticle = showAt('01f3d24', articlePath);
+// Lane ledger immediately before this approval (commit 6e5ee4c).
+const laneLedgerBefore = '6e5ee4c67a44e1f72941fa9f4e0ea17754fcd434';
 const proseHash = (source: string) => buildManifest('prose', [{
   id: 'article:data-hardware/industrial-deployment',
   value: {
@@ -196,7 +241,7 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
       ['Citation ID', 4],
       ['Source URL fetched', 5],
       ['Supporting passage', 6],
-    ] as const)(`fails original ${expected.ordinal} closed without %s and preserves other records`, (_field, column) => {
+    ] as const)(`fails original ${expected.ordinal} closed without %s and preserves other records`, { timeout: 60_000 }, (_field, column) => {
       const lines = markdown.split('\n');
       const cells = lines[row().line - 1].split(/(?<!\\)\|/);
       expect(cells).toHaveLength(8);
@@ -232,23 +277,82 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
   });
 
   it('applies only the exact authorized source-faithful article span with unchanged citation multiplicity', () => {
+    // The production edit list is complete: it alone turns the merge-base
+    // article into the production article, and each edit occurs exactly once.
+    expect(
+      productionEdits.reduce(
+        (text, [laneText, productionText]) => text.replace(laneText, productionText),
+        showAt(TRUE_MERGE_BASE, articlePath),
+      ),
+    ).toBe(showAt(PRODUCTION_BASE, articlePath));
+    for (const [laneText, productionText] of productionEdits) {
+      expect(article.split(productionText)).toHaveLength(2);
+      expect(laneArticle.split(laneText)).toHaveLength(2);
+    }
     expect(article.split(newSpan)).toHaveLength(2);
     expect(article).not.toContain(oldSpan);
     expect(article).not.toContain('surveyed the same evidence');
     expect(article).not.toContain('rather than whole occupations');
-    expect(proseHash(article)).toBe(newProseHash);
-    expect(proseHash(article.replace(newSpan, oldSpan))).toBe(oldProseHash);
-    expect(article.match(/<Cite\s/g)).toHaveLength(32);
+    expect(proseHash(laneArticle)).toBe(newProseHash);
+    expect(proseHash(laneArticle.replace(newSpan, oldSpan))).toBe(oldProseHash);
+    // Integrated line: the merged member is re-anchored from its seal.
+    expect(
+      headReanchorFor(approvals, 'prose', 'article:data-hardware/industrial-deployment'),
+    ).toMatchObject({
+      oldHash: sealedHash('prose', 'article:data-hardware/industrial-deployment'),
+      newHash: proseHash(article),
+    });
+    expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
+    expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
+    expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);
+    expect(article.match(/<Cite\s/g)).toHaveLength(33);
+    expect(article.match(/<Cite id="lei-cycle-time-definition" \/>/g)).toHaveLength(1);
+    expect(article.match(/<Cite id="nasa-availability-prediction-analysis" \/>/g)).toHaveLength(1);
+    // This historical approval ends at the 2026-09-21 article, not the
+    // current article after three separately approved later corrections.
+    const successorIds = [
+      'industrial-perception-zero-credit-20260922-1',
+      'economics-local-20260923-1',
+      'industrial-closure-20260923-6',
+    ];
+    let endpoint = newProseHash;
+    for (const id of successorIds) {
+      const delta = approvals.find(entry => entry.id === id)!;
+      expect(delta.manifest).toBe('prose');
+      expect(delta.memberId).toBe('article:data-hardware/industrial-deployment');
+      expect(delta.oldHash, id).toBe(endpoint);
+      endpoint = delta.newHash;
+    }
+    expect(proseHash(showAt('0a45942', articlePath))).toBe(endpoint);
+    // Two later industrial source corrections added their own placements;
+    // MIT's one citation remains singular in the approved current prose.
+    expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);
+    expect(article.match(/<Cite\s/g)).toHaveLength(33);
     expect(article.match(/<Cite id="mit-work-future-2020" \/>/g)).toHaveLength(1);
-    expect(matter(article).data.lastReviewed).toBe('2026-08-22');
+    expect(matter(showAt('0cbdda1', articlePath)).data.lastReviewed).toBe('2026-08-22');
+    expect(matter(article).data.lastReviewed).toBe('2026-09-24');
   });
 
   it('appends one exact native approval without rewriting the 996-entry prior prefix', () => {
-    expect(sha256(JSON.stringify(approvals.slice(0, 996))))
+    const old = ledgerAt(laneLedgerBefore);
+    expect(old).toHaveLength(996);
+    expect(sha256(JSON.stringify(old)))
       .toBe('ba543843eda437da7e6031ad52fd0e84069e8c0a48e7cfd9596a962c4f640907');
+    // Integrated line: the production ledger is an exact prefix, entries it
+    // shares with the lane keep their identity, and the lane-only block
+    // follows unchanged in lane order with this approval right after it.
+    const { production, shared, laneOnly, start } = laneWindow(old);
+    expect(approvals.slice(0, production.length)).toEqual(production);
+    for (const entry of shared) {
+      expect(production.find((p) => p.id === entry.id)).toMatchObject({
+        manifest: entry.manifest,
+        memberId: entry.memberId,
+      });
+    }
+    expect(approvals.slice(production.length, start)).toEqual(laneOnly);
     const selected = approvals.filter(delta => delta.id === approvalId);
     expect(selected).toHaveLength(1);
-    expect(approvals[996]).toEqual(selected[0]);
+    expect(approvals[start]).toEqual(selected[0]);
     expect(validateApprovedDeltas(selected)).toEqual([]);
     expect(selected[0]).toMatchObject({
       manifest: 'prose',

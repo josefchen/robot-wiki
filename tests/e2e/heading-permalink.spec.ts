@@ -30,12 +30,12 @@ const BANNED_DASHES = /[\u2013\u2014]/;
  * (components/ui/card.tsx, marked data-card-title) which labels a box inside
  * a section rather than addressing a section, so it is excluded: three of
  * them sit in prose across the corpus, which is why the raw selector counts
- * 300 headings where the sweep counts 297.
+ * 410 headings where the sweep counts 407.
  *
  * Both figures are re-derivable from the shipped export with the spec's own
- * selectors (measured 2026-08-23 at 47 published articles):
+ * selectors (measured 2026-08-24 at 57 published articles):
  *   node scripts/probe-heading-counts.mts
- * (raw 300, swept 297, card titles 3). Nothing executable reads these
+ * (raw 410, swept 407, card titles 3). Nothing executable reads these
  * numbers; they are the derivation note for the corpus assertion below,
  * whose bound is rows.length > 200.
  */

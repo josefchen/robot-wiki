@@ -1,4 +1,74 @@
-## Current checkpoint: two crossdomain originals closed; seven held (2026-09-23)
+<!-- rl-reader-current:start -->
+## Current checkpoint: imported stack-classical and world-rl packets (2026-09-24)
+
+The 994 released original identities remain complete. Twelve Technology.org
+compound plans were withdrawn and replaced with first-party Agility, Figure
+and Tesla members; `technology-org-deployed-2026` is no longer an active
+citation. Imported manipulation, stack-classical and world-rl audit rows
+extend the live ledger without rewriting those 994 identities.
+
+Native row accounting is
+**1080 complete / 0 incomplete / 1080 original identities**.
+This structural green result does not certify sources or the whole
+content/release gate. It is not acceptance; **do not publish**.
+Older checkpoints below are retained historical observations, including
+the Control closeout at **994 complete / 0 incomplete / 994 original
+identities**.
+<!-- rl-reader-current:end -->
+
+## Historical checkpoint: Kroger archived article and three industrial corrections re-admitted (2026-09-24)
+
+The exact HTTPS Wayback capture of Emily Hawkins's 18 November 2025
+This is Money article now replaces the blocked live Kroger URL. Current
+native one-ID checking returned HTTPS 200, a matching title, no redirect
+and an archival result (`native-citation-integration-20260924/command-021.log`).
+The separate retained FetchUrl body, originally read on September 24,
+says Kroger **would close** three sites the following January while
+monitoring five others and Ocado **would receive** around £190 million;
+the article, industrial claim rows 22 and 24, and their two compound
+plans now say planned and expected, not completed and paid. Row 23
+remains cut. Two exact chained sealed-baseline approvals name only
+the changed prose and citation members.
+
+The earlier 991/994 regression was a historical `data/citations.ts`
+whole-file hash pinned by correction originals 37/47/48. A finite
+old-byte snapshot plus an exact one-comment/one-URL registry comparison
+restores their historical dependencies; the old correction records,
+receipts and original tuples were not rewritten. The current article
+transition and preserved authored-calculator disclosure are compared
+against the prior complete article, and the checker calculation outside
+the finite dependency-reader section is byte-identical. Twenty-one
+industrial article proofs and 33 later checker-pinned proofs are
+enumerated in `audit/evidence/citation-closeout-20260924/relevant-continuity.json`;
+they were not replayed. Row 48's only changed children (22, 24) have
+a separately hashed current review and genuine 1440/375 Playwright
+DOM/PNG, citation tooltip and References observations. Its other 49
+child digests and the historical P4 execution remain pinned.
+
+Native `check:audit-coverage` now reports **994/994 complete evidence
+records**, **47/47 published articles**, **433/433 active citation rows**
+and zero structural findings; `validate:content` passes. This is
+structural evidence completeness, not independent source acceptance.
+Two active citation verdicts remain **unresolved**:
+`astrom-murray-2008` (no complete first-edition identity/verified origin)
+and `technology-org-deployed-2026` (HTTP 403 and no admissible
+same-document replacement). They belong to the separate source-only
+lane. The overall release/content gate is still red; do not publish.
+No full build, OG corpus, broad browser suite, push or deployment
+was performed. The earlier September 24 five-citation handoff at the
+bottom is a preserved historical checkpoint, not today's active state.
+
+## Current checkpoint: final seven residual originals structurally closed (2026-09-24)
+
+Exactly seven selected original records were corrected: legged-locomotion 8/17, data-bottleneck 3/5, evaluation-crisis 1, and safety-and-assurance 5/6. Native accounting is **994 complete / 0 incomplete / 994 original identities** (994 original rows), across 47/47 published articles and 433/433 citation-ledger rows; all other 987 completed originals remain in place. The offline `check:audit-coverage -- --write-summaries` returned OK after deriving the three changed domain summaries. Five citation-ledger verdicts still record unresolved checks and remain owned by the separate network citation gate.
+
+Retained OXE paper/project-page, DROID paper and Marvel–Norcross manuscript passages were hash-checked against original source bodies without a new retrieval or implied current HTTP status. OXE's hour estimate and universal gait-speed claim were removed; DROID's collection context, the two hypothetical chart rates, the equal-conditional-probability reliability model, and the contextual rather than normative safety settings are disclosed in the actual articles. Seven new typed AND plans bind four external source parts, 33 new finite local proofs, 30 actual desktop/mobile state observations, seven whole-plan integrator reviews and every required part review. The catalog now has **27 typed plans / 187 proofs**. Five withdrawn legacy plans are exactly archived; 853 other legacy objects, all 20 earlier typed plans and 154 earlier proofs are preserved. Four historical checker snapshots are rebound by reviewed byte continuity, not by replaying earlier producers. Eleven exact prose/relationship/interactive member approvals extend the existing 1082 approvals to 1093.
+
+This is **structural local evidence closure, not independent source certification, release acceptance or permission to publish**. It is not acceptance. The Sol/high parent must inspect article semantics, document-specific passages, local producer/receipt bindings and mobile rendering, then run user testing. The baseline comparator recognizes all eleven exact selected member approvals but still reports 46 unrelated `changed-member`/`unexpected-member` findings. Full release-wide brand/state/export and citation network gates have not been established green. Five unresolved citation verdicts, linked OXE images/spreadsheet uninspected, export/reading-time regeneration, other historical expectation drift and formal Mission acceptance remain separate follow-ups. Do not publish while any required gate is red.
+
+---
+
+## Historical: two crossdomain originals closed; seven held (2026-09-23)
 
 **2 completed / 7 unimplemented within dispatch; 987 complete / 7 incomplete / 994 originals.** Generalist-policies19 removes unsupported aggregate date/source/access claims and proves the 13 authored selections. Taxonomy4 proves the six selected IDs, not six universal scientific paradigms. The directly affected aggregate diagnostic now includes the five valid corrected dispositions; missing/stale/invalid corrections still fail. The content gate remains red:12 ledger findings, zero citation coverage findings/summary mismatches, and five unresolved citation verdicts. Older checkpoint headings below are historical.
 
@@ -2562,7 +2632,24 @@ Content remains **RED: 619 findings plus nine separately reported citation gaps*
 Exact source identities, original retrieval moments, final tuple reviews, command windows, retained failures, preservation and local checkpoint evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-neural-scene-integration-20260908/`. The initial red suite had 12 failures; an evidence-helper Git capture exceeded the default buffer before being retried with a bounded 32 MiB capture; the initial mobile selector failure is retained. The final handoff records commit and checkpoint timing. **Do not publish while the content gate is red.**
 
 
-<!-- rl-reader-current:start -->
+
+## Historical: industrial continuation integration audit checkpoint — 2026-09-23
+
+**975 complete / 19 incomplete / 994 original identities / 47 audited articles.** Counts use the integrated legacy, typed-local and corrected-disposition contexts, not acceptance. This integration carries continuation 0a45942 into main ac65cf4. All 52 industrial originals are structurally complete, with fresh merged-reader evidence and the full P4 child conjunction checked. The gate's narrower citation-id/typed-local evidence counter reports 972/994; the three separately recorded corrected dispositions bring structural completeness to 975/994.
+
+The merged content gate remains **RED: 40 findings**, with eight unresolved citation verdicts reported separately. The ten SEO-corpus articles (57 published) still have no audit section. The production `vercel-build` retains its existing content-audit skip; every other release gate must pass.
+
+
+## Historical: continuation integration audit checkpoint — 2026-09-23
+
+**960 complete / 34 incomplete / 994 original identities / 47 audited articles. 863 compound plans; 1,427 approval-ledger entries.** Counts are computed from the integrated ledgers, not acceptance. This integration carries continuation 2aaf058 into main f1d03a9. Main's 1,419 approval records remain an unchanged prefix, followed by six mission-only RoboMIND approvals and two exact combined-member approvals. The approved RoboMIND release-scoped disclosure adds one structurally complete original without granting licensing permission; the authored-example holds remain unresolved. The ten SEO-corpus articles (57 published) still have no audit section, so the content audit remains RED. The production `vercel-build` retains its existing content-audit skip; every other gate must pass. The preceding d928b6b integration had 959 complete / 35 incomplete records; that count remains historical, not the current total.
+
+## Historical: seo-merge audit checkpoint — 2026-09-16
+
+**905 complete / 89 incomplete / 994 original identities / 57 articles. 815 compound plans; 1,214 approval-ledger entries.** Counts are computed live from the merged ledgers, not acceptance. The audit lane remains open: nine citations stay unresolved with documented fetch failures or verified exceptions, and independent Sol/high scrutiny plus user testing remain pending with both skip flags false. Content remains RED until the content gate clears. Do not publish while the content gate is red.
+
+The seo-merge line carries the ten-article SEO corpus (57 published articles) alongside the audit workstream. Prior checkpoints are preserved below; this block tracks the live merged-tree counts when it was current.
+
 ## Historical: six-method aggregate checkpoint — 2026-09-08
 
 **375 complete / 619 incomplete / 994 original identities / 47 articles. 281 compound plans; 359 exact approval objects.** Only original `audit/manipulation.md:rl-finetuning:11` applied: 30 AND-parts, 41 paired items, eight citations. This is implementation, not acceptance. RL-finetuning is 11/11; main RL remains 48/52. Formal Mission progress remains 307/331.
@@ -2570,7 +2657,6 @@ Exact source identities, original retrieval moments, final tuple reviews, comman
 Retained source passages and original retrieval provenance were verified without new requests. Recap closed status and cross-paper superlatives were removed; reported code is distinguished from inspected weights/licensing. Scientific conflicts, denominators and predecessor corrections remain. All 993 unselected records, 374 prior complete records, 280 prior plan objects/serialization and 356 prior approvals are preserved. Three exact member deltas retain all 47 inherited baseline failure objects. The stale originals 3/7/11 incompleteness assertion was replaced with exact distinct-plan/current-completion protection, retaining every original 6/8/9/10 mutation case.
 
 Final checks: 141/141 focused unit cases pass in eight files. The initial browser matrix passed 40/42; two desktop-only taxonomy selectors were repaired to exercise the visible drawer, and all four targeted viewport cases pass, yielding 42 distinct covered browser cases with overlapping reruns excluded. Eleven final captures were read; drawer Escape/inert/focus restoration, keyboard access to the rightmost table column, eight source tooltip pairs and complete bylines were checked at 375×812 and 1440×900. Normal lint including prelint and nonincremental TypeScript pass. Content remains RED at 624 findings plus nine separate citation gaps. OG facts, renderer inputs and 96 destination files are unchanged-input reuse only; no new build/export or render acceptance. The 35-minute wall target was exceeded, not met. Checks and real invocation failures are recorded in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-method-table-closeout-20260908`; the final handoff names their actual results. No whole-article P1, current liveness or review-date change is claimed. Content remains RED; 619 incomplete originals, nine separate citation gaps, 47 baseline failures, production/reading-time proof, full corpus/reference comparison and independent Sol/high scrutiny/user testing remain open. Both independent-validation skip flags remain false. Do not publish while the content gate is red.
-<!-- rl-reader-current:end -->
 
 ## Historical: correctly bound RL source checkpoint — 2026-09-08
 
@@ -5000,3 +5086,51 @@ perception-lane invalid-approved-delta fields; comparison-current-audit
 2/3) remain open and are not claimed here.
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915/`.
+
+## 2026-09-24 — bounded five-citation transport handoff (not editorial acceptance)
+
+The two undated Lean Enterprise Institute definitions now have current native
+HTTP 200, matching-title, no-redirect observations. Their original source
+envelopes and 2026-09-22 access dates remain the source-body provenance;
+`n.d.` is not a new publication date. The active registry URL for Kroger/Ocado
+is **unchanged and unresolved**. A genuine HTTPS Wayback snapshot of the
+intended Emily Hawkins article was fetched (HTTP 200, body read) and passed
+the native one-ID gate (200, matching title, no redirect), but a trial URL
+change failed the sealed `VAL-B2-BASE-012` citation-member baseline because
+no exact approved delta was in scope. It was restored. The article also still
+incorrectly speaks of completed closures/payment where the November 2025
+source says planned January closures/expected compensation. Correct that
+whole claim and its dependent two compound plans without invalidating the
+industrial article's 21 exact local-proof references and three existing
+correction records. The registry comment's unsourced impairment and
+dollar/pound conflation was corrected without changing its registered fields.
+
+The Åström–Murray first-edition complete-PDF candidate could not be fetched
+with verified TLS (FetchUrl rejected binary processing; bounded curl/Node
+requests failed certificate validation before any origin HTTP response).
+No insecure TLS mode was used and no full-book identity or origin status
+is claimed. Its retained first-edition chapter supports the PID passages
+but does not establish the full book; the packet's finite claim-removal
+fallback remains unapplied. Technology.org remains native HTTP 403, with
+no qualifying same-document archive. Withdrawal of its five dependent
+dashboard records would leave the locked verified category empty and fail
+the existing four-anchor and filter tests. Authoritative replacements for
+those exact records, or a fully scoped correction retaining the interactive,
+remain owed. No source quote from the hand-extracted excerpt was promoted.
+
+At the restored current tree, `check:audit-coverage -- --json` parsed **994
+original claims in 47 audited/published articles**, **433/433 citation
+rows**, **991/994 complete evidence records**, **7 audit findings** (one
+data-hardware summary mismatch, three unproven corrected-disposition rows,
+and three aggregate evidence-field diagnostics), and **three unresolved active
+citation verdicts** (Åström–Murray, Technology.org, Kroger/Ocado).
+`validate:content` exits 1 at that same native audit gate; its module,
+no-slop and chart-description stages passed. The restored sealed baseline,
+typecheck, lint and 57 focused unit cases passed. Detailed commands, the
+failed candidate receipt, native results, source identity and current
+original-row bindings are recorded in `audit/citations.md` and the existing
+Mission `native-citation-integration-20260924/` output. No article text,
+interactive, proof, original row, `lastReviewed` or protected owner file
+changed. This is a local scoped checkpoint, not release readiness; do not
+publish while the content gate is red. No browser/build/OG corpus or
+independent Sol/high acceptance was run.

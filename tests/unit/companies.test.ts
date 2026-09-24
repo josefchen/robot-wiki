@@ -170,6 +170,25 @@ describe('COMPANIES data', () => {
     expect(unitree?.latestRound?.amountUsd).toBe(904_000_000);
     expect(unitree?.latestRound?.date).toBe('2026-08-06');
     expect(unitree?.latestRound?.valuationUsd).toBe(9_040_000_000);
+    // VAL-MKT-009 (2026-09-24 qualification): the 5,500-unit 2025
+    // shipment, 30,000+ cumulative quadruped and ~33% share literals were
+    // press-repeated prospectus figures (Rest of World prints them citing
+    // its 363-page prospectus copy), not inspected company-body evidence.
+    // They are withdrawn; the deployments field discloses the exact scope
+    // of non-verification, and confidence no longer reads high over a
+    // card whose volume metrics are unverified.
+    expect(unitree?.description).not.toMatch(
+      /5,500|30,000|33%|profitable since 2025/,
+    );
+    expect(unitree?.deployments.join(' ')).not.toMatch(
+      /5,500|30,000\+|~33%/,
+    );
+    expect(
+      unitree?.deployments.some((deployment) =>
+        /not verified from an inspected Unitree company body/.test(deployment),
+      ),
+    ).toBe(true);
+    expect(unitree?.confidence).toBe('medium');
   });
 
   it('carries website and logo through from the research source', () => {

@@ -54,8 +54,18 @@ describe('grasp source fidelity', () => {
   it('preserves held originals, citation URLs, article date and unassigned conclusion', () => {
     // Rows 10 and 12 were completed by the 2026-09-16 grasp-planning originals
     // integration (frozen packet convergence-source-j-grasp-planning-20260916c);
-    // row 3 (Cutkosky body) remains held without a lawful public mirror.
-    for (const ordinal of [3]) expect(records()[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+    // Row 3 (Cutkosky body) was held without a lawful public mirror when this
+    // pin was written; the 20260917a book-retry packet bound it to
+    // grasp-planning-3-cutkosky-1989-20260917a.
+    expect(records()[2].evidenceFailures).toEqual([]);
+    expect(records()[2].compound?.planId).toBe('grasp-planning-3-cutkosky-1989-20260917a');
+    // Row 3's later preserved Stanford PDF body completed the earlier hold;
+    // the scalar URL alone must not be mistaken for its three paired passages.
+    const cutkosky = plans.find(p => p.id === 'grasp-planning-3-cutkosky-1989-20260917a')!;
+    expect(cutkosky.evidence).toHaveLength(3);
+    expect(cutkosky.evidence.every(e => e.citationId === 'cutkosky-1989'
+      && e.sourceUrl.startsWith('https://bdml.stanford.edu/') && e.supportingPassage.length > 60)).toBe(true);
+    expect(records()[2].evidenceFailures).toEqual([]);
     for (const ordinal of [10, 12]) expect(records()[ordinal - 1].evidenceFailures.length).toBe(0);
     expect(article).toContain('lastReviewed: "2026-08-17"');
     expect(article).toContain('That pattern generalizes. Modern learned manipulation');

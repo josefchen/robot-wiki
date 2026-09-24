@@ -14,6 +14,7 @@ import {
   type LinkCheckResult,
   type LinkStatus,
 } from '@/lib/citation-links';
+import { crossrefApiUrl } from '@/lib/crossref-client';
 import { CITATIONS } from '@/data/citations';
 import { LINK_CHECK_EXCEPTIONS } from '@/data/link-check-exceptions';
 
@@ -120,6 +121,14 @@ describe('extractDoi', () => {
     expect(extractDoi('https://arxiv.org/abs/2304.13705')).toBeNull();
     expect(extractDoi('https://ai.meta.com/blog/meta-llama-3/')).toBeNull();
     expect(extractDoi('https://www.agibot.com/article/231/detail/56.html')).toBeNull();
+  });
+});
+
+describe('crossrefApiUrl', () => {
+  it('encodes the DOI as one path segment and requests CSL JSON', () => {
+    expect(crossrefApiUrl('10.1145/237170.237269')).toBe(
+      'https://api.crossref.org/works/10.1145%2F237170.237269/transform/application/vnd.citationstyles.csl%2Bjson',
+    );
   });
 });
 

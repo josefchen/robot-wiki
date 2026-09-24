@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_RELEASE_WRITE=1 node_modules/.bin/vitest run tests/unit/economics-release-evidence.test.ts --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T17:59:00.791Z",
+  "endedAt": "2026-09-23T17:59:00.818Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/economics-release-evidence.test.ts",
+    "bytes": 2265,
+    "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
+  },
+  "inputDigest": "420515783293802ee38786b30c73c05fe730f0d980acb8f9c7ed51f193f9f41a",
+  "outputDigest": "228026062d2667f9e7ddfdcadd6b9e54441f3993a93a64dcd09dc3537e2e5e6a",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19271,
+        "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
+      },
+      "id": "article:data-hardware/industrial-deployment",
+      "offset": 0,
+      "length": 19271,
+      "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
+      "baseline": {
+        "kind": "prose",
+        "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
+      }
+    },
+    {
+      "file": {
+        "path": "components/interactive/deployment-economics.tsx",
+        "bytes": 9866,
+        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+      },
+      "id": "source:components/interactive/deployment-economics.tsx",
+      "offset": 0,
+      "length": 9866,
+      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/deployment-economics.ts",
+        "bytes": 7602,
+        "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+      },
+      "id": "file:lib/deployment-economics.ts",
+      "offset": 0,
+      "length": 7602,
+      "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44206,
+        "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 44206,
+      "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-local-20260923/support.ts",
+        "bytes": 5308,
+        "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+      },
+      "id": "file:audit/evidence/economics-local-20260923/support.ts",
+      "offset": 0,
+      "length": 5308,
+      "sha256": "34afb5996a538fe7a087ae44ffd008f1b375a21c1c6198d4a951b872cf2bd82f"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/economics-release-20260923/support.ts",
+        "bytes": 1256,
+        "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+      },
+      "id": "file:audit/evidence/economics-release-20260923/support.ts",
+      "offset": 0,
+      "length": 1256,
+      "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+    },
+    {
+      "file": {
+        "path": "tests/unit/economics-release-evidence.test.ts",
+        "bytes": 2265,
+        "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
+      },
+      "id": "file:tests/unit/economics-release-evidence.test.ts",
+      "offset": 0,
+      "length": 2265,
+      "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
+    }
+  ],
+  "observations": []
+}

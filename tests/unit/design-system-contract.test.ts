@@ -128,7 +128,7 @@ describe('canonical design-system documentation', () => {
       expect(text).toContain('contract/design-integrity.md');
     }
     expect(agents).toContain('Do not invent a logo');
-    expect(readme).toContain('there is\nno separate logo');
+    expect(readme).toMatch(/there is\s+no separate logo/i);
   });
 
   it('only names npm scripts that exist', () => {
@@ -381,11 +381,15 @@ describe('identity geometry and typography stay aligned', () => {
     // chart-description-registry.spec.ts, so its colour words must name
     // the marks the components actually paint (accent blue since v1).
     expect(registry).not.toContain('green marks the layer');
-    expect(registry).not.toContain('green nodes mark open weights');
+    expect(registry).not.toContain('green nodes have reported weight downloads');
     expect(registry).toContain('blue marks the layer');
-    expect(registry).toContain('blue nodes mark open weights');
-    expect(generalist).toContain('Blue nodes are open weights');
-    expect(generalist).toContain('blue nodes mark open weights');
+    expect(registry).toContain('Blue nodes have reported weight downloads');
+    expect(registry).toContain('dim nodes include unavailable and not-disclosed records');
+    expect(registry).not.toContain('dim nodes mark closed ones');
+    expect(generalist).toContain("open ? 'var(--color-accent)' : 'var(--color-surface-2)'");
+    expect(generalist).toContain('dim nodes include unavailable and not-disclosed records');
+    expect(generalist).toContain('dim nodes do not establish closed licensing');
+    expect(generalist).not.toMatch(/green/i);
     // Fired timeline ticks are accent blue, not green.
     expect(hierarchy).toContain('blue ticks: updates fired');
     expect(hierarchy).not.toContain('green ticks');
@@ -394,14 +398,30 @@ describe('identity geometry and typography stay aligned', () => {
     // and the sim-to-real DR plateau, plus the advantage-scrubber trace.
     const stateEst = read('content/classical/state-estimation.mdx');
     const jepa = read('content/world-models/jepa.mdx');
+    const latentImagination = read('components/interactive/latent-imagination.tsx');
     const sim2real = read('content/rl-sim2real/sim2real-transfer.mdx');
+    const frictionTransfer = read('components/interactive/friction-transfer.tsx');
+    const jepaChart = read('components/interactive/jepa-planning.tsx');
+    const frictionChart = read('components/interactive/friction-transfer.tsx');
     const advantage = read('components/interactive/advantage-scrubber.tsx');
     expect(stateEst).not.toMatch(/green band/i);
     expect(stateEst.toLowerCase()).toContain('blue band');
+    // The JEPA article no longer narrates the marker's colour; the
+    // current-latent marker itself still renders through ACCENT (signal
+    // blue) in the latent-imagination chart, and nothing calls it green.
     expect(jepa).not.toMatch(/green marker/i);
-    expect(jepa.toLowerCase()).toContain('blue marker');
+    expect(latentImagination).toContain('stroke={ACCENT}');
+    expect(latentImagination).not.toMatch(/green/i);
     expect(sim2real).not.toMatch(/green plateau/i);
-    expect(sim2real.toLowerCase()).toContain('blue plateau');
+    // The DR plateau prose lost its colour word in the audit rewrite; the
+    // curve itself still paints through the accent token.
+    expect(frictionTransfer).toContain('var(--color-accent)');
+    expect(frictionTransfer).not.toMatch(/green/i);
+    expect(jepa).toContain('Its synthetic coordinates and distance trace are not learned robot embeddings');
+    expect(jepaChart).toContain("const ACCENT = 'var(--color-accent)'");
+    expect(jepaChart).toMatch(/stroke=\{ACCENT\}[\s\S]*?>\s*z_t\s*</);
+    expect(sim2real).toContain('the plateau because that relationship is built into this model');
+    expect(frictionChart).toMatch(/points=\{polyline\(drCurvePoints\(range\)\)\}[\s\S]*?stroke="var\(--color-accent\)"/);
     expect(advantage).not.toContain('elapsed portion green');
     expect(advantage).not.toMatch(/green (?:line|trace)/i);
   });
@@ -414,7 +434,9 @@ describe('identity geometry and typography stay aligned', () => {
     // which is also its non-colour distinction from the blue active dims.
     expect(cross).not.toContain("latent: 'var(--color-ok)'");
     expect(cross).toContain("latent: 'latent-hatch'");
-    expect(cross).toContain('hatched: shared latent (schematic)');
+    expect(cross).toContain('hatched: illustrative link, not model dimensions');
+    expect(cross).toContain('patternUnits="userSpaceOnUse"');
+    expect(cross).toContain('state === \'latent\' ? `url(#${hatchId})`');
     expect(cross).not.toContain('green</span>: shared latent');
     expect(cross).not.toContain('the green slots on the');
   });

@@ -1,3 +1,5 @@
+import { sha256 } from './brand-v2-baseline.ts';
+
 /**
  * Canonical populations for the desktop shell and navigation assertions.
  *
@@ -45,6 +47,14 @@ export type NavigationBaselineMember = {
  * hash is the sealed one unless an approved delta names this member, in
  * which case it is that delta's new hash: an unapproved rename still fails,
  * and the approval is a reviewable entry rather than a special case in code.
+ *
+ * New destinations enter the taxonomy the same way the baseline checker
+ * sanctions them (`compareBaseline` in `lib/brand-v2-baseline.ts`): an
+ * approved delta whose memberId the baseline never sealed and whose
+ * oldHash is the missing-member sentinel `sha256("missing")`. The delta's
+ * newHash is what the rendered entry has to reproduce, so an approved
+ * addition is still bound to the exact entry that was approved, and an
+ * addition nobody approved stays an unexpected rendered member.
  */
 export function navigationBaselineMembers(
   baseline: unknown,
@@ -81,20 +91,31 @@ export function navigationBaselineMembers(
       .filter(({ manifest }) => manifest === 'navigation')
       .map((entry) => [entry.memberId, entry]),
   );
-  return members
-    .map(({ id, hash }) => {
-      const delta = approved.get(id);
-      if (delta && delta.oldHash !== hash) {
-        throw new Error(
-          `the approved delta ${delta.id} claims to move ${id} from a hash the baseline does not record`,
-        );
-      }
-      return {
-        id,
-        hash: delta?.newHash ?? hash,
-        sealedHash: hash,
-        approvedDeltaId: delta?.id ?? null,
-      };
-    })
-    .sort((left, right) => left.id.localeCompare(right.id));
+  const sealed = members.map(({ id, hash }) => {
+    const delta = approved.get(id);
+    if (delta && delta.oldHash !== hash) {
+      throw new Error(
+        `the approved delta ${delta.id} claims to move ${id} from a hash the baseline does not record`,
+      );
+    }
+    return {
+      id,
+      hash: delta?.newHash ?? hash,
+      sealedHash: hash,
+      approvedDeltaId: delta?.id ?? null,
+    };
+  });
+  const sealedIds = new Set(sealed.map(({ id }) => id));
+  const missingHash = sha256('missing');
+  const additions = [...approved.values()]
+    .filter(({ memberId, oldHash }) => !sealedIds.has(memberId) && oldHash === missingHash)
+    .map((delta) => ({
+      id: delta.memberId,
+      hash: delta.newHash,
+      sealedHash: missingHash,
+      approvedDeltaId: delta.id,
+    }));
+  return [...sealed, ...additions].sort((left, right) =>
+    left.id.localeCompare(right.id),
+  );
 }

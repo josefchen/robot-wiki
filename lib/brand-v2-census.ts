@@ -103,6 +103,7 @@ function duplicates(values: readonly string[]): string[] {
 export function reconcileNamedSets(
   sets: Record<string, readonly string[]>,
   assertionId = 'VAL-B2-CONT-007',
+  exemptions: Record<string, readonly string[]> = {},
 ): CensusFailure[] {
   const entries = Object.entries(sets);
   if (entries.length < 2) {
@@ -132,7 +133,10 @@ export function reconcileNamedSets(
   const universe = new Set(entries.flatMap(([, values]) => values));
   for (const id of [...universe].sort()) {
     const membership = Object.fromEntries(
-      entries.map(([name, values]) => [name, values.includes(id)]),
+      entries.map(([name, values]) => [
+        name,
+        values.includes(id) || (exemptions[name] ?? []).includes(id),
+      ]),
     );
     if (Object.values(membership).every(Boolean)) continue;
     failures.push({

@@ -1,7 +1,10 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('CrossEmbodimentStrategies');
 
 function strategyButton(name: RegExp | string) {
   return screen.getByRole('button', { name });
@@ -70,7 +73,12 @@ describe('CrossEmbodimentStrategies', () => {
     expect(screen.getByTestId('underspecified-flag')).toBeInTheDocument();
     for (const id of ['arm', 'bimanual', 'humanoid']) {
       expect(screen.getByTestId(`row-${id}`)).toHaveTextContent(/not model dimensions/);
+      const row = screen.getByTestId(`row-${id}`);
+      const pattern = row.querySelector('pattern');
+      expect(pattern).not.toBeNull();
+      expect(row.querySelector(`rect[fill="url(#${pattern!.id})"]`)).not.toBeNull();
     }
+    expect(screen.getByText('hatched: illustrative link, not model dimensions')).toBeInTheDocument();
     expect(screen.getByTestId('row-human-hand')).toHaveTextContent(
       /mapping not specified in this illustration/i,
     );

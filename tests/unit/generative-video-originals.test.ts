@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -6,6 +7,7 @@ import {
   parseCompoundPlans,
 } from '../../lib/audit-ledger';
 import { CITATIONS } from '../../data/citations';
+import { committedJson } from '../helpers/editorial-current-context';
 
 /**
  * Red-first proof for the generative-video originals integration (frozen
@@ -86,10 +88,9 @@ const mine = gvPlans.filter((plan) => GV_PLAN_IDS.includes(plan.id));
 
 describe('generative-video originals: ledger rows and compound plans', () => {
   it('keeps all 759 prior plans first and appends exactly the 9 dispatched plans', () => {
-    // 775 = 768 at this lane's close + 7 surgical plans appended by the
-    // surgical originals integration (2026-09-16)
-    expect(plans).toHaveLength(775);
-    expect(plans.slice(0, 759).every((plan) => !plan.id.startsWith('generative-video-6-'))).toBe(true);
+    // Preserve the selected packet and preceding survivors by identity.
+    expect(planPacket(plans, GV_PLAN_IDS).map((plan) => plan.id)).toEqual(GV_PLAN_IDS);
+    expect(plans.slice(0, plans.findIndex(p => p.id === GV_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('generative-video-6-'))).toBe(true);
     expect(mine.map((plan) => plan.id)).toEqual(GV_PLAN_IDS);
     expect(mine.map((plan) => plan.rowOrdinal)).toEqual([6, 11, 12, 15, 16, 17, 20, 21, 22]);
     // The 13 prior generative-video closeout plans survive unchanged.
@@ -265,7 +266,21 @@ describe('generative-video originals: approved deltas', () => {
   const gvDeltas = deltas.entries.filter((delta) => delta.id.startsWith('gv-'));
 
   it('appends 9 row entries plus the relationships and frontmatter members, append-only', () => {
-    expect(deltas.entries).toHaveLength(852);
+    // The merged delta ledger keeps appending later packets; this packet's
+    // 11 entries keep their append slot at 1135..1145, so pin the slot, not
+    // a moving total.
+    expect(deltas.entries.slice(1135, 1146).map((delta) => delta.id).sort()).toEqual(
+      [
+        ...[6, 11, 12, 15, 16, 17, 20, 21, 22].map((row) => `gv-r${row}-20260916-1`),
+        'gv-relationships-20260916-1',
+        'gv-article-metadata-20260916-1',
+      ].sort(),
+    );
+    const historical = committedJson<typeof deltas>(
+      '4fea1f45907a5751249ae0064be6103ede8c49bd', 'contract/brand-v2-approved-deltas.json',
+    );
+    expect(historical.entries).toHaveLength(852);
+    expect(gvDeltas).toEqual(historical.entries.filter((delta) => delta.id.startsWith('gv-')));
     expect(gvDeltas.filter((delta) => delta.manifest === 'prose').map((delta) => delta.id).sort())
       .toEqual([6, 11, 12, 15, 16, 17, 20, 21, 22].map((row) => `gv-r${row}-20260916-1`).sort());
     expect(gvDeltas.filter((delta) => delta.manifest === 'relationships')).toHaveLength(1);

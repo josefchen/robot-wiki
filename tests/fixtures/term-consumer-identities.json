@@ -13,6 +13,7 @@
     "removalCommit": "6af0bdd73375f8c121a8830df20e247ce5dd2c67",
     "removedIdentity": "/frontier/competing-theses/#imitation-learning:1",
     "removalReason": "PI/Helix source-backed paragraph replacement removed the fifth authored trigger; teleoperation occurrence 1 moves from ordinal 6 to 5.",
+    "mergeUpdate": "2026-09-16 seo-merge: ten new published articles joined the term-consumer population (47 -> 57); inventory regenerated over the merged tree.",
     "crossEmbodimentCommit": "a7c35d37fe919b7ecf9a95ee5f6cb0dd2a023c6b",
     "crossEmbodimentIdentities": [
       "/manipulation/cross-embodiment/#retargeting:1",
@@ -62,6 +63,13 @@
         "minimally-invasive-surgery",
         "success-rate",
         "force-feedback"
+      ]
+    },
+    {
+      "route": "/classical/calibration/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "camera-intrinsics"
       ]
     },
     {
@@ -124,6 +132,13 @@
         "pose-estimation",
         "add-s-metric",
         "visual-servoing"
+      ]
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "end-effector"
       ]
     },
     {
@@ -207,6 +222,13 @@
         "payback-period",
         "intervention-rate",
         "brownfield-deployment"
+      ]
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "open-x-embodiment"
       ]
     },
     {
@@ -305,6 +327,13 @@
       ]
     },
     {
+      "route": "/manipulation/action-spaces/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "action-chunking"
+      ]
+    },
+    {
       "route": "/manipulation/bc-foundations/",
       "rawOpeningTags": 6,
       "termIds": [
@@ -345,6 +374,13 @@
         "diffusion-policy",
         "flow-matching",
         "real-time-chunking"
+      ]
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "vision-language-action-model"
       ]
     },
     {
@@ -408,6 +444,13 @@
       ]
     },
     {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "imitation-learning"
+      ]
+    },
+    {
       "route": "/manipulation/vla-models/",
       "rawOpeningTags": 5,
       "termIds": [
@@ -441,6 +484,13 @@
         "retargeting",
         "mpc",
         "flow-matching"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "offline-reinforcement-learning"
       ]
     },
     {
@@ -503,6 +553,13 @@
       ]
     },
     {
+      "route": "/world-models/evaluation/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "world-model"
+      ]
+    },
+    {
       "route": "/world-models/generative-sim/",
       "rawOpeningTags": 1,
       "termIds": [
@@ -534,12 +591,26 @@
       ]
     },
     {
+      "route": "/world-models/model-based-robot-learning/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "world-model"
+      ]
+    },
+    {
       "route": "/world-models/taxonomy/",
       "rawOpeningTags": 3,
       "termIds": [
         "world-model",
         "latent-dynamics",
         "mpc"
+      ]
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "world-model"
       ]
     }
   ]

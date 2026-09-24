@@ -442,6 +442,14 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
       'arXiv feed for 2403.12945 (101 authors: Alexander Khazatsky, Karl Pertsch, Suraj Nair, ...) read 2026-08-20.',
   },
   {
+    id: 'llama-3-herd-2024',
+    skip: 'author-count',
+    reason:
+      'Registry lists the first three of 561 authors, with the count and convention documented in the entry comment; the first three match the arXiv byline in order. The PDF itself prints the collective byline "Llama Team, AI @ Meta".',
+    verified:
+      'arXiv feed and abs citation_author metadata for 2407.21783v3 (561 authors: Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, ...) read 2026-09-23.',
+  },
+  {
     id: 'bridgedata-v2-2023',
     skip: 'author-count',
     reason:

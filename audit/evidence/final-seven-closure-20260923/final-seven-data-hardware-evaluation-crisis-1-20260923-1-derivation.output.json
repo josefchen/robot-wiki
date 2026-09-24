@@ -1,0 +1,1 @@
+{"formula":"episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n","precision":"display:toFixed(1)%; inverse prose:toFixed(1)%","units":"perStep,episode,inversePerStep:probabilities; steps:count","values":{"display":["21.5%"],"episode":0.21463876394293727,"inversePerStep":0.992589475966305}}

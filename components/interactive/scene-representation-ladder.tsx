@@ -2,7 +2,7 @@
 
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
-import { CiteRef } from '@/components/mdx/cite-ref';
+import { CiteRef } from '@/components/article/citation-records';
 import {
   BACK_WALL,
   CAPABILITIES,

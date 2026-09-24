@@ -110,7 +110,7 @@ export const OXE_DURATION = {
   id: 'oxe',
   label: 'OXE',
   status: 'unknown',
-  value: 'Unknown in inspected sources',
+  value: 'No hour estimate plotted',
   cite: 'open-x-embodiment-2023',
   sourceUrl: 'https://arxiv.org/html/2310.08864v9',
 } as const;

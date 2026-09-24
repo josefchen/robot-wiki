@@ -1,0 +1,1 @@
+{"formula":"reliability:parameters:v1","precision":"IEEE-754; existing model rounding only","units":"probabilities:1; horizons:steps; controls:%","values":{"boundaryPerStep":[0,1],"defaultPerStep":0.95,"defaultSteps":30,"inverseTarget":0.8,"mainPercentRange":[0,100],"maxSteps":100,"predictionPercentRange":[50,99.9],"predictionSteps":14}}

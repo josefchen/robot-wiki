@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { committedJson } from '../helpers/editorial-current-context';
 
 /**
  * Red-first proof for the grasp-planning originals integration
@@ -97,6 +99,7 @@ const newPlanIds = [
   'grasp-planning-10-epsilon-evidence-20260916',
   'grasp-planning-12-internal-local-and-20260916',
 ];
+const selectedPlans = newPlanIds.map((id) => plans.find((plan) => plan.id === id)!);
 const newDeltaIds = [
   'gp-r5-20260916-1',
   'gp-r7-20260916-1',
@@ -222,13 +225,20 @@ describe('grasp-planning originals: ledger rows complete', () => {
 
 describe('grasp-planning originals: compound plans', () => {
   it('appends exactly five new plans and preserves the prior 713 in order', () => {
-    expect(plans).toHaveLength(856); // 845 at convergence-aq close + 11 convergence-as industrial plans (2026-09-17)
-    expect(plans[712].id).toBe('state-estimation-17-20260916');
-    expect(plans.slice(713, 718).map((plan) => plan.id)).toEqual(newPlanIds);
+    // Preserve the exact packet and its surviving predecessor by identity.
+    expect(plans[plans.findIndex(p => p.id === newPlanIds[0]) - 1].id).toBe('state-estimation-17-20260916');
+    expect(planPacket(plans, newPlanIds).map((plan) => plan.id)).toEqual(newPlanIds);
+    const historical = committedJson<typeof plans>(
+      '5d8be27dc774564820d72f6891b51662445ceeed', 'audit/compound-evidence.json',
+    );
+    expect(historical).toHaveLength(718);
+    expect(historical[712].id).toBe('state-estimation-17-20260916');
+    expect(historical.slice(713, 718).map((plan) => plan.id)).toEqual(newPlanIds);
+    expect(selectedPlans).toEqual(historical.slice(713, 718));
   });
 
   it('binds every plan to the classical grasp-planning ledger with fresh digests', () => {
-    for (const plan of plans.slice(713, 718)) {
+    for (const plan of selectedPlans) {
       expect(plan.ledgerPath).toBe('audit/classical.md');
       expect(plan.articleSlug).toBe('grasp-planning');
       expect(plan.kind).toBe('explicit-parts');
@@ -241,7 +251,7 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('covers every required (part, citation) pair exactly with registered ids and real passages', () => {
-    for (const plan of plans.slice(713, 718)) {
+    for (const plan of selectedPlans) {
       const required = plan.parts.flatMap((part) =>
         part.requiredCitationIds.map((id) => JSON.stringify([part.id, id])));
       const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
@@ -256,7 +266,7 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('adjudicates every part supported with fresh evidence digests', () => {
-    for (const plan of plans.slice(713, 718)) {
+    for (const plan of selectedPlans) {
       expect(plan.adjudications.map((review) => review.partId).sort())
         .toEqual(plan.parts.map((part) => part.id).sort());
       for (const review of plan.adjudications) {
@@ -300,8 +310,8 @@ describe('grasp-planning originals: compound plans', () => {
   });
 
   it('appends the four 20260917a paywall plans after the whole prior catalog', () => {
-    expect(plans.slice(826, 830).map((plan) => plan.id)).toEqual(paywallPlanIds);
-    for (const plan of plans.slice(826, 830)) {
+    expect(planPacket(plans, paywallPlanIds).map((plan) => plan.id)).toEqual(paywallPlanIds);
+    for (const plan of planPacket(plans, paywallPlanIds)) {
       expect(plan.ledgerPath).toBe('audit/classical.md');
       expect(plan.articleSlug).toBe('grasp-planning');
       expect(plan.kind).toBe('explicit-parts');
@@ -350,13 +360,22 @@ describe('grasp-planning originals: compound plans', () => {
 
 describe('grasp-planning originals: approved deltas', () => {
   it('appends exactly five new entries and preserves the prior 788 in order', () => {
-    expect(deltas.entries).toHaveLength(996); // 995 at convergence-aq close + 1 convergence-as industrial entry (2026-09-17)
-    expect(deltas.entries[787].id).toBe('se-r17-20260916-1');
-    expect(deltas.entries.slice(788, 793).map((entry) => entry.id)).toEqual(newDeltaIds);
+    // The merged delta ledger keeps appending later packets; pin this
+    // packet's append slot (785..789) rather than a moving total.
+    expect(deltas.entries[784].id).toBe('se-r17-20260916-1');
+    expect(deltas.entries.slice(785, 790).map((entry) => entry.id)).toEqual(newDeltaIds);
+    const historical = committedJson<typeof deltas>(
+      '8e6a835f6e358b7082025b2ef8e402a65718d275', 'contract/brand-v2-approved-deltas.json',
+    );
+    expect(historical.entries).toHaveLength(996);
+    expect(historical.entries[787].id).toBe('se-r17-20260916-1');
+    expect(historical.entries.slice(788, 793).map((entry) => entry.id)).toEqual(newDeltaIds);
+    expect(deltas.entries.filter((entry) => newDeltaIds.includes(entry.id)))
+      .toEqual(historical.entries.slice(788, 793));
   });
 
   it('records every entry against the grasp-planning prose member with pinned-baseline oldHash', () => {
-    for (const entry of deltas.entries.slice(788, 793)) {
+    for (const entry of deltas.entries.slice(785, 790)) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:classical/grasp-planning');
       expect(entry.oldHash).toBe(PINNED_PROSE_HASH);

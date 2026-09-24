@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -22,6 +23,7 @@ import {
   relationshipSourceDrift,
   termAffordanceVerdicts,
   type ApparatusRuntimeEvidence,
+  type RelationshipDelta,
 } from '@/lib/brand-v2-apparatus-evidence';
 import {
   currentArticleFactFrontmatterMembers,
@@ -565,8 +567,28 @@ describe('the apparatus verdict families', () => {
   it('binds the References the frontmatter declares to the sealed frontmatter', () => {
     const sealed = readSealedFrontmatterFactMembers(ROOT);
     const current = currentArticleFactFrontmatterMembers(ROOT);
+    const articleMetadataDeltas = readRelationshipDeltas(
+      ROOT,
+      'article-metadata',
+    );
     expect(sealed.length).toBeGreaterThan(0);
-    expect(current.length).toBe(sealed.length);
+    // Articles published after the seal enter through approved additions —
+    // deltas whose memberId the baseline never sealed — so the effective
+    // population is the seal plus every approved frontmatter-fact addition.
+    const missingHash = createHash('sha256').update('missing').digest('hex');
+    const sealedIds = new Set(sealed.map(({ id }) => id));
+    const approvedAdditions = articleMetadataDeltas.filter(
+      ({ memberId, oldHash }) =>
+        memberId.startsWith('article-fact-frontmatter:') &&
+        !sealedIds.has(memberId) &&
+        oldHash === missingHash,
+    );
+    // A member may be re-approved (world-models-vs-simulators was added by
+    // the SEO merge and re-approved by the inference-economics section), so
+    // the population grows by distinct added members, not by entries.
+    expect(current.length).toBe(
+      sealed.length + new Set(approvedAdditions.map(({ memberId }) => memberId)).size,
+    );
     // One collector, two gates: the sealed `article-metadata` manifest and
     // this row have to hash the frontmatter facts the same way.
     expect(
@@ -588,9 +610,18 @@ describe('the apparatus verdict families', () => {
 
     // Appending a valid registry id to `frontmatter.citations` moves the
     // rendered References list and the derived expectation together, so the
-    // rendered comparison stays green. Only the sealed side can see it.
+    // rendered comparison stays green. Only the sealed side can see it. The
+    // mutated member has to be a sealed one: a member that exists only as an
+    // approved addition has no sealed hash to move from. It also has to be
+    // one no approved delta names yet, or the drift reads as a stale delta.
+    const sealedIndex = current.findIndex(
+      ({ id }) =>
+        sealedIds.has(id) &&
+        !articleMetadataDeltas.some(({ memberId }) => memberId === id),
+    );
+    expect(sealedIndex).toBeGreaterThanOrEqual(0);
     const moved = current.map((member, index) =>
-      index === 0 ? { ...member, hash: '0'.repeat(64) } : member,
+      index === sealedIndex ? { ...member, hash: '0'.repeat(64) } : member,
     );
     expect(
       [
@@ -606,7 +637,7 @@ describe('the apparatus verdict families', () => {
       /changed the frontmatter review date or declared References the migration sealed \([0-9a-f]{12} -> 000000000000\), and no approved delta names the change/,
     );
 
-    const memberId = current[0].id;
+    const memberId = current[sealedIndex].id;
     const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
     expect(
       [
@@ -652,20 +683,28 @@ describe('the apparatus verdict families', () => {
     // The rollout edits an article's seeAlso list or drops a <Cite> from a
     // body. The derived expectation moves with it and the rendered
     // comparison stays green; only the sealed manifest can see it.
+    // Plant the move on a member no approved relationships delta names, so
+    // the only thing that can see it is the sealed manifest.
+    const target = current.findIndex(
+      (member) =>
+        !readRelationshipDeltas(ROOT).some(({ memberId }) => memberId === member.id),
+    );
+    expect(target).toBeGreaterThanOrEqual(0);
     const moved = current.map((member, index) =>
-      index === 0 ? { ...member, hash: '0'.repeat(64) } : member,
+      index === target ? { ...member, hash: '0'.repeat(64) } : member,
     );
     const drift = relationshipBaselineDrift({
       sealed,
       current: moved,
       deltas: readRelationshipDeltas(ROOT),
     });
+    // This selected member has no approval, independent of ledger order.
     expect([...drift.values()].flat().join('\n')).toMatch(
       /changed the relationships the migration sealed \([0-9a-f]{12} -> 000000000000\), and no approved delta names the change/,
     );
 
     // An approved delta closes it, and only for the change it names.
-    const memberId = current[0].id;
+    const memberId = current[target].id;
     const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
     expect(
       [
@@ -707,10 +746,79 @@ describe('the apparatus verdict families', () => {
     ).toMatch(/is covered by approved delta test-delta for .*but the tree moved/);
   });
 
+  it('reports a stale historical relationship approval without approving a new endpoint', () => {
+    const id = 'article:classical/kinematics';
+    const drift = relationshipBaselineDrift({
+      sealed: [{ id, hash: 'a'.repeat(64) }],
+      current: [{ id, hash: '0'.repeat(64) }],
+      deltas: [{
+        id: 'historical-endpoint', manifest: 'relationships', memberId: id,
+        oldHash: 'a'.repeat(64), newHash: 'b'.repeat(64),
+      }],
+    });
+    expect([...drift.values()].flat().join('\n')).toMatch(
+      /is covered by approved delta historical-endpoint for a{12} -> b{12}, but the tree moved a{12} -> 0{12}/,
+    );
+  });
+
   it('refuses a baseline comparison with an empty side', () => {
     expect(() =>
       relationshipBaselineDrift({ sealed: [], current: [], deltas: [] }),
     ).toThrow(/empty side/);
+  });
+
+  it('accepts exactly reconciled apparatus branches but rejects ambiguous or unconnected edges', () => {
+    for (const [manifest, driftFor] of [
+      ['relationships', relationshipBaselineDrift],
+      ['article-metadata', frontmatterFactDrift],
+    ] as const) {
+      const memberId = manifest === 'relationships'
+        ? 'article:classical/kinematics'
+        : 'article-fact-frontmatter:classical/kinematics';
+      const sealed = [{ id: memberId, hash: 'a'.repeat(64) }];
+      const current = [{ id: memberId, hash: 'c'.repeat(64) }];
+      const first = {
+        id: `${manifest}-first`,
+        manifest,
+        memberId,
+        oldHash: 'a'.repeat(64),
+        newHash: 'b'.repeat(64),
+      };
+      const second = {
+        ...first,
+        id: `${manifest}-second`,
+        oldHash: 'b'.repeat(64),
+        newHash: 'c'.repeat(64),
+      };
+      const check = (deltas: RelationshipDelta[]) =>
+        [...driftFor({ sealed, current, deltas }).values()].flat();
+
+      expect(check([first, second])).toEqual([]);
+      expect(check([second]).join('\n')).toMatch(/approval|delta|changed/i);
+      expect(check([first, { ...second, newHash: 'd'.repeat(64) }]).join('\n'))
+        .toMatch(/approval|delta|moved/i);
+      const branch = { ...first, id: `${manifest}-branch`, newHash: 'c'.repeat(64) };
+      expect(check([first, second, branch]).join('\n')).toMatch(/approval|delta|moved/i);
+      const resolution = {
+        ...branch,
+        id: `${manifest}-resolution`,
+        reconciles: [first, second, branch].map(({ id, oldHash, newHash }) => ({
+          id, oldHash, newHash,
+        })),
+      };
+      expect(check([first, second, branch, resolution])).toEqual([]);
+      expect(check([first, branch])).toEqual([]);
+      expect(check([
+        first,
+        { ...second, newHash: 'd'.repeat(64) },
+        { ...branch, id: `${manifest}-wrong-member`, memberId: 'article:unrelated' },
+      ]).join('\n')).toMatch(/approval|delta|moved/i);
+      expect(check([
+        first,
+        { ...second, newHash: 'd'.repeat(64) },
+        { ...branch, id: `${manifest}-wrong-manifest`, manifest: 'routes' },
+      ]).join('\n')).toMatch(/approval|delta|moved/i);
+    }
   });
 
   it('fails a template that renders a different apparatus at 375px than at 1440px', () => {

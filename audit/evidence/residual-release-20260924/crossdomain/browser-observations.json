@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-09-24T01:11:49.730Z",
+  "endedAt": "2026-09-24T01:11:51.038Z",
+  "observations": [
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:50.279Z",
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/generalist-policies-1440.dom.txt",
+        "bytes": 21631,
+        "sha256": "f232fd18255b2c6b332a6debb099b87c55daaafd5d6d5b83764a24ac15a964f1"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/generalist-policies-1440.png",
+        "bytes": 137411,
+        "sha256": "dd7286c99c10a14607abd976b0dbe51f4d615f86f26c4d10af09ee9d8e3e1a7e"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "observedAt": "2026-09-24T01:11:50.462Z",
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/taxonomy-1440.dom.txt",
+        "bytes": 19289,
+        "sha256": "8bd400897eb31cec482148951747af06f9777e189f724475bdc2a544ddd1b197"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/taxonomy-1440.png",
+        "bytes": 140782,
+        "sha256": "2c2e57f519244dd21ca13d9bdb212ed944601c15f70443c17d9e2031f8b96e70"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:50.879Z",
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/generalist-policies-375.dom.txt",
+        "bytes": 21631,
+        "sha256": "f232fd18255b2c6b332a6debb099b87c55daaafd5d6d5b83764a24ac15a964f1"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/generalist-policies-375.png",
+        "bytes": 48030,
+        "sha256": "5a2f89122d49154f4d6a7ad74c9d48c79ab17097b54111595daa2ce64ed24138"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "observedAt": "2026-09-24T01:11:51.038Z",
+      "dom": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/taxonomy-375.dom.txt",
+        "bytes": 19289,
+        "sha256": "8bd400897eb31cec482148951747af06f9777e189f724475bdc2a544ddd1b197"
+      },
+      "capture": {
+        "path": "audit/evidence/residual-release-20260924/crossdomain/taxonomy-375.png",
+        "bytes": 44817,
+        "sha256": "f5df139f1d060f058a5669a0c5bd1d6770947f4205934e5fb470d78f210de8fe"
+      },
+      "scope": "Actual selected counts, disclosure/removal and preserved controls; not scientific/source certification."
+    }
+  ],
+  "errors": []
+}

@@ -13,6 +13,7 @@ import { validateApprovedDeltas, type ApprovedDelta } from '../../lib/brand-v2-b
 import { applyTitleMismatchException, compareTitles, isAuditFailure, type CitationAuditResult } from '../../lib/citation-audit';
 import { applyException, classifyStatus } from '../../lib/citation-links';
 import { DEFAULT_PARAMS, SLIDER_SPECS, composeBudget, handEyeErrorMm } from '../../lib/perception-error';
+import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const hash = (text: string) => createHash('sha256').update(text).digest('hex');
@@ -23,6 +24,7 @@ const library = read('lib/perception-error.ts');
 const planText = read('audit/compound-evidence.json');
 const plans = parseCompoundPlans(JSON.parse(planText));
 const registryIds = new Set(CITATIONS.map(({ id }) => id));
+const krogerCurrentVerdict = 'ok (archival HTTPS 200, current registry 2026-09-24)';
 const nasaId = 'nasa-availability-prediction-analysis';
 const nasaUrl = 'https://llis.nasa.gov/lesson/841';
 const row = (ledgerPath: string, slug: string, ordinal: number) => parseLedger(
@@ -61,7 +63,7 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     expect(fm.citations).not.toContain('ohno-tps-1988');
     expect(fm.citations).toContain('lei-takt-time-definition');
     expect(fm.citations).toContain('lei-cycle-time-definition');
-    expect(fm.lastReviewed).toBe('2026-08-22');
+    expect(fm.lastReviewed).toBe('2026-09-24');
   });
 
   it('distinguishes inherent from operational availability without claiming unread equations', () => {
@@ -90,6 +92,10 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     expect(industrial).not.toContain("capital plus running cost over its lifetime of good picks");
     expect(hash(read('lib/deployment-economics.ts')))
       .toBe('ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e');
+    expect(hash(committedSource('a4381e8', 'components/interactive/deployment-economics.tsx')))
+      .toBe('0e982f1dde7f8be7fb5c1d70bda395dc80c403fbdda210b703a45d2870bf6756');
+    expect(read('components/interactive/deployment-economics.tsx'))
+      .toBe(committedSource('358f505', 'components/interactive/deployment-economics.tsx'));
     expect(hash(read('components/interactive/deployment-economics.tsx')))
       .toBe('af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f');
   });
@@ -124,6 +130,15 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
   it('retains the independence withdrawal while qualifying authored model readouts', () => {
     expect(component).toContain(newComponentCopy.slice(newComponentCopy.indexOf('Root-sum-of-squares')));
     expect(component).not.toContain(oldComponentCopy);
+    const reverted = committedSource('a4381e8', 'components/interactive/perception-error-budget.tsx')
+      .replace("from '@/components/mdx/cite-ref'", "from '@/components/article/citation-records'")
+      .replace(newComponentCopy, oldComponentCopy);
+    expect(reverted).toBe(committedSource(RELEASE_BASE, 'components/interactive/perception-error-budget.tsx'));
+    expect(hash(reverted.replace(
+      "from '@/components/article/citation-records'",
+      "from '@/components/mdx/cite-ref'",
+    )))
+      .toBe('f80245399a8015a30a7946f2c304541e97edbc84de6f67dfff7fd8787b3977c7');
     expect(component).toContain('sum of squared inputs');
     expect(component).not.toContain('of the variance');
     expect(component).toContain('above model band');
@@ -172,8 +187,59 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     });
   }
 
-  it('does not manufacture plans or alter the existing native catalog', () => {
-    expect(hash(planText)).toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+  it('preserves historical plans and every plan outside the four Control originals', () => {
+    expect(hash(committedSource('a4381e8', 'audit/compound-evidence.json')))
+      .toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+    preservedCompoundPacket('a4381e8');
+    // The 2026-09-24 Technology.org withdrawal additionally superseded twelve
+    // plans (industrial-deployment 5-8, reliability-gap 6/9/10/13,
+    // bear-case 4/5/14/15); they are preserved verbatim in the withdrawal
+    // evidence against their committed bytes, and the 837 pre-packet plans
+    // are byte-unchanged. The 2026-09-24 imported-manipulation packet then
+    // appended seventeen new manipulation compound plans (robot-learning-
+    // roadmap 4, action-spaces 7, foundation-models 6), making 854. The
+    // 2026-09-24 imported stack-classical packet appended eight more
+    // (robot-learning-stack 5, calibration 2, ros2-for-ml-engineers 1),
+    // making 862. The 2026-09-24 imported world-rl packet then appended
+    // five more (world-models-vs-simulators 4, offline-rl 1), making 867.
+    const superseded = (plan: { ledgerPath: string; articleSlug: string; rowOrdinal: number }) => (
+      (plan.ledgerPath === 'audit/classical.md' && plan.articleSlug === 'control'
+        && [1, 2, 3, 7].includes(plan.rowOrdinal)) ||
+      (plan.ledgerPath === 'audit/data-hardware.md' && plan.articleSlug === 'industrial-deployment'
+        && [5, 6, 7, 8].includes(plan.rowOrdinal)) ||
+      (plan.ledgerPath === 'audit/frontier.md' && plan.articleSlug === 'reliability-gap'
+        && [6, 9, 10, 13].includes(plan.rowOrdinal)) ||
+      (plan.ledgerPath === 'audit/frontier.md' && plan.articleSlug === 'bear-case'
+        && [4, 5, 14, 15].includes(plan.rowOrdinal))
+    );
+    const unselected = plans.filter((plan) => !superseded(plan));
+    expect(unselected.slice(0, 862)).toHaveLength(862);
+    expect(hash(JSON.stringify(unselected.slice(0, 862))))
+      .toBe('a4afea0bda9011ffe8234bf2d7b9c8f2bccbead1771f8d5eed328793157d2b50');
+    expect(unselected.slice(862).map((plan) => plan.id)).toEqual([
+      'world-rl-wmv-mujoco-isaac-20260924',
+      'world-rl-wmv-cosmos-stack-20260924',
+      'world-rl-wmv-neural-simulators-20260924',
+      'world-rl-wmv-generative-content-20260924',
+      'world-rl-offline-bc-evidence-20260924',
+    ]);
+    expect(unselected).toHaveLength(867);
+    expect(hash(JSON.stringify(unselected)))
+      .toBe('e169a78b0205e3728f63093f00ffa6efe7377118d29bd38798bf6a24f73a86e6');
+    const committed = JSON.parse(committedSource(
+      '714cf3a', 'audit/compound-evidence.json')) as typeof plans;
+    const prior = JSON.parse(read(
+      'audit/evidence/technology-withdrawal-20260924/prior-plans.json')) as { plans: typeof plans };
+    expect(prior.plans).toHaveLength(12);
+    for (const entry of prior.plans) {
+      expect(hash(JSON.stringify(entry)))
+        .toBe(hash(JSON.stringify(committed.find((plan) => plan.id === entry.id))));
+      expect(plans.some((plan) => plan.id === entry.id)).toBe(false);
+      expect(entry.parts.some((part) => part.requiredCitationIds.includes('technology-org-deployed-2026')) ||
+        entry.evidence.some((item) => item.citationId === 'technology-org-deployed-2026')).toBe(true);
+    }
+    expect(selected.every(([ledgerPath, slug, ordinal]) => !plans.some((plan) =>
+      plan.ledgerPath === ledgerPath && plan.articleSlug === slug && plan.rowOrdinal === ordinal))).toBe(true);
     expect(plans.every((plan) => plan.parts.every((part) => part.requiredCitationIds.length > 0))).toBe(true);
   });
 
@@ -199,7 +265,7 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     const entries = (JSON.parse(read('contract/brand-v2-approved-deltas.json')) as {
       entries: ApprovedDelta[];
     }).entries;
-    expect(hash(JSON.stringify(entries.slice(0, 1018))))
+    expect(hash(JSON.stringify(preservedApprovalPacket('660ad53'))))
       .toBe('6470a16f8a527af438b36f9ac4b780e344a441abe8c0f6998aa9c34ea0c16ad6');
     const mine = entries.filter(({ id }) => id.startsWith('industrial-perception-zero-credit-20260922-'));
     expect(mine.map(({ manifest, memberId }) => [manifest, memberId])).toEqual([
@@ -327,11 +393,22 @@ describe('prior citation links: nine-obligation follow-up', () => {
     fetchedTitle: 'sym-20250927', titleCheckedBy: 'html', titleComparison: 'mismatch',
   };
 
-  it.each(outcomes)('records exactly one current disposition for %s', (id, verdict) => {
+  it.each(outcomes.filter(([id]) => id !== 'astrom-murray-2008' && id !== 'technology-org-deployed-2026'))('records exactly one current disposition for %s', (id, historicalVerdict) => {
     const selected = rows.filter((row) => row.id === id);
     expect(selected).toHaveLength(1);
-    expect(selected[0].verdict).toBe(verdict);
+    const historical = parseCitationLedgerRows(committedSource('4695852', 'audit/citations.md'))
+      .filter((row) => row.id === id);
+    expect(historical).toHaveLength(1);
+    expect(historical[0].verdict).toBe(historicalVerdict);
+    expect(selected[0].verdict).toBe(id === 'kroger-ocado-closures-2025' ? krogerCurrentVerdict : historicalVerdict);
     expect(selected[0].url).toBe(CITATIONS.find((citation) => citation.id === id)?.url);
+  });
+
+  it('keeps the old Åström fetch failure as history, not an active unregistered row', () => {
+    expect(CITATIONS.some(c => c.id === 'astrom-murray-2008')).toBe(false);
+    expect(rows.some(row => row.id === 'astrom-murray-2008')).toBe(false);
+    expect(text).toContain('status 0 is absence of an observed HTTP response');
+    expect(text).toContain('"id": "astrom-murray-2008"');
   });
 
   it('preserves all nine failed original rows as history, not active duplicate coverage', () => {
@@ -510,14 +587,24 @@ describe('two identity exceptions integration', () => {
     expect(addendum).toContain('Zero original claim completions');
   });
 
-  it('keeps all three external failures unresolved and without exception coverage', () => {
+  it('withdraws the Technology.org sweep and keeps only its first-party replacements active', () => {
     const rows = parseCitationLedgerRows(read('audit/citations.md'));
-    for (const [id, verdict] of [
-      ['astrom-murray-2008', 'FAIL (unresolved transport; 2026-09-23)'],
-      ['technology-org-deployed-2026', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
-      ['kroger-ocado-closures-2025', 'FAIL (unresolved access; HTTP 403; 2026-09-23)'],
-    ]) {
-      expect(rows.find((row) => row.id === id)?.verdict).toBe(verdict);
+    expect(rows.find((row) => row.id === 'astrom-murray-2008')).toBeUndefined();
+    expect(rows.find((row) => row.id === 'technology-org-deployed-2026')).toBeUndefined();
+    expect(CITATIONS.some(({ id }) => id === 'technology-org-deployed-2026')).toBe(false);
+    expect(rows.find((row) => row.id === 'kroger-ocado-closures-2025')?.verdict)
+      .toBe(krogerCurrentVerdict);
+    for (const [id, url] of [
+      ['agility-digit-production', 'https://www.agilityrobotics.com/'],
+      ['figure-bmw-production-2025', 'https://www.figure.ai/news/production-at-bmw'],
+      ['tesla-q1-2026-update', 'https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf'],
+    ] as const) {
+      const row = rows.find((candidate) => candidate.id === id);
+      expect(row?.url).toBe(url);
+      expect(row?.verdict).toMatch(/^ok \(retained 2026-09-24/);
+      expect(CITATIONS.find((citation) => citation.id === id)?.url).toBe(url);
+    }
+    for (const id of ['astrom-murray-2008', 'technology-org-deployed-2026', 'kroger-ocado-closures-2025']) {
       expect(LINK_CHECK_EXCEPTIONS.some((item) => item.id === id)).toBe(false);
     }
   });
@@ -528,9 +615,13 @@ describe('two identity exceptions integration', () => {
       year: 2026, url: targets[0].url, type: 'docs',
     });
     expect(CITATIONS.find(({ id }) => id === targets[1].id)).toEqual({
-      id: targets[1].id, title: 'Goal Structuring Notation Community Standard Version 3',
+      id: targets[1].id, title: 'Goal Structuring Notation Community Standard (Version 3)',
       authors: ['SCSC Assurance Case Working Group'], year: 2021,
       venue: 'Safety-Critical Systems Club', url: targets[1].url, type: 'docs',
     });
+    expect(committedSource('c624fab', 'data/citations.ts'))
+      .toContain("title: 'Goal Structuring Notation Community Standard Version 3'");
+    expect(committedSource(RELEASE_BASE, 'data/citations.ts'))
+      .toContain("title: 'Goal Structuring Notation Community Standard (Version 3)'");
   });
 });

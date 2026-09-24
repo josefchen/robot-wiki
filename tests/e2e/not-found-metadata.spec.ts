@@ -75,7 +75,7 @@ test.describe('not-found page metadata', () => {
     const response = await page.goto(`${BASE}/404/`);
     expect(response?.ok()).toBe(true);
 
-    await expect(page).toHaveTitle(`Page not found - ${PUBLIC_IDENTITY}`);
+    await expect(page).toHaveTitle(`Page not found | ${PUBLIC_IDENTITY}`);
     // The pre-hydration guard fixed the React #418 mismatch
     // (polish-go-public, 2026-08-15): the 404 route is console-clean.
     expect(consoleErrors, 'no console errors on /404/').toEqual([]);

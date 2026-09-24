@@ -11,10 +11,13 @@
  * value plus their sources, rather than being averaged or silently
  * replaced.
  *
- * Parsed at module scope so an invalid row fails `next build`.
+ * The rows are typed against the Zod schema's inferred type; the schema
+ * parses them at build time on the server (lib/registry-validation.ts, run
+ * while the article routes prerender), so an invalid row fails
+ * `next build`. Structured search imports these rows into the browser,
+ * so a module-scope parse here would ship zod with them.
  */
-import { z } from 'zod';
-import { companySchema, type Company } from './schemas/company.ts';
+import type { Company } from './schemas/company.ts';
 
 export type { Company } from './schemas/company.ts';
 
@@ -1180,7 +1183,7 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds G1/H1 humanoids and quadruped robots; profitable since 2025 with 5,500 humanoids sold that year; priced its Shanghai STAR Market IPO in Aug 2026 at a $9.04B valuation.',
+    description: 'Builds G1/H1 humanoids and quadruped robots; 2025 humanoid shipment volume not verified from an inspected Unitree company body; priced its Shanghai STAR Market IPO in Aug 2026 at a $9.04B valuation.',
     approach: [
       'vertical-integration',
       'self-developed-components',
@@ -1197,9 +1200,7 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      '5,500 humanoids sold in 2025',
-      '30,000+ quadrupeds sold',
-      '~33% of global humanoid sales',
+      '2025 humanoid shipments, cumulative quadruped shipments, and global sales-share rank not verified from an inspected Unitree company body',
       'DeepSeek strategic investment',
     ],
     openSource: [],
@@ -1220,7 +1221,7 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'high',
+    confidence: 'medium',
   },
   {
     id: 'ubtech-robotics',
@@ -1862,7 +1863,7 @@ const ROWS: Company[] = [
         'Hillhouse Capital',
         'HSG',
       ],
-      sourceUrl: 'https://olachina.org/tars-ai/',
+      sourceUrl: 'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
     },
     status: 'private',
     deployments: [],
@@ -1874,9 +1875,9 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://olachina.org/tars-ai/',
-        title: 'China\'s TARS AI Raises $455M in Embodied Intelligence Round (Ola China; $455M Pre-A announced 2026-04-16, Hillhouse + Sequoia China co-led)',
-        asOf: '2026-08-18',
+        url: 'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
+        title: 'TARS Raises $455M Pre-A Round, Setting Record in China\'s Embodied AI Sector (Pandaily; announced 2026-04-16)',
+        asOf: '2026-08-25',
       },
     ],
     confidence: 'medium',
@@ -5357,5 +5358,5 @@ const ROWS: Company[] = [
   },
 ];
 
-/** Zod-validated rows; an invalid entry throws at import time. */
-export const COMPANIES: Company[] = z.array(companySchema).parse(ROWS);
+/** Schema-validated at build time by lib/registry-validation.ts. */
+export const COMPANIES: Company[] = ROWS;

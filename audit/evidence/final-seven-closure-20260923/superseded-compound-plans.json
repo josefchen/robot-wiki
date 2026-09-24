@@ -1,0 +1,275 @@
+[
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-5",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 5,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa5-table5-850",
+        "text": "Marvel and Norcross reproduce the ISO 13855 decision table (their Table 5) and it prints C = 850 mm for a normal direction of approach protected by multiple separate beams (single-height beam: 1200 mm).",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      },
+      {
+        "id": "sa5-lower-bound-qualifier",
+        "text": "Article-span correction: the source states the value as a minimum (\"the value of C must be at least 850 mm\"), so the article must read \"an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams\", adding the lower-bound qualifier the 2026-09-06 batch-2 checkpoint identified as absent.",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [
+      {
+        "partId": "sa5-table5-850",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "Table 5. Decision criteria that determine the value of the intrusion distance, C, from ISO 13855. Choosing to provide safety by limiting the direction of approach, relying on the placement of sensors, or requiring a specific control device determines the safety buffer. | Decision Criteria: Direction of Approach; Conditions: Normal; Multiple Separate Beams; C: 850 mm. | Direction of Approach; Normal; Single-Height Beam; C: 1200 mm."
+      },
+      {
+        "partId": "sa5-lower-bound-qualifier",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "For example, if the integrator chooses to ensure safety by limiting the direction of approach to be normal to the machinery and protects the region by multiple laser-based sensors, the value of C must be at least 850 mm. If the operator also requires a two-handed control device, the value of C may be reduced to 250 mm."
+      }
+    ],
+    "adjudications": [],
+    "originalCellsDigest": "0b6acd21bfdfc99a3bf45f77b99ec0cbd74a728735e009ea7d61a5e11c388623"
+  },
+  {
+    "id": "safety-remainder-20260916-safety-and-assurance-6",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "safety-and-assurance",
+    "rowOrdinal": 6,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sa6-1600-worst-case",
+        "text": "Marvel & Norcross §III states the operator speed vH is assumed to be a worst-case maximum of 1600 mm/s based on ISO 13855, with the provision that vH may be measured directly; when such measurements are unavailable it is assumed constant and directed at the robot. The article's span states exactly this, and the instrument default (1.6 m/s) carries this basis.",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      },
+      {
+        "id": "sa6-recorded-2000-inconsistency",
+        "text": "The same document's Discussion recommends the worst-case assumption of 2000 mm/s from ISO 13855 as possibly more prudent than 1600 mm/s; §III itself also records ISO 13855's 2000 mm/s maximum with the 1600 mm/s option for separation distances greater than 500 mm. The inconsistency is recorded in the ledger (verdict S) and is not resolved by the article.",
+        "requiredCitationIds": [
+          "marvel-norcross-2017"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [
+      {
+        "partId": "sa6-1600-worst-case",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "In Equation 3, the speed of the operator, vH, is assumed to be a worst-case maximum of 1600 mm/s based on the specifications in ISO 13855. ISO 13855 claims a maximum speed of 2000 mm/s for an operator when calculating the minimum protective distance for stationary machinery with the option for using 1600 mm/s in the case that the separation distance is greater than 500 mm. The new application in Equation 1, however, allows for the provision that vH may be measured directly. If such measurements are not available, vH is typically assumed to be constant and in the direction of the robot, though more realistic acceleration profiles may be adopted."
+      },
+      {
+        "partId": "sa6-recorded-2000-inconsistency",
+        "citationId": "marvel-norcross-2017",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
+        "supportingPassage": "For instance, regarding the assumed value of the operator velocity, vH, even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the worst-case assumption of 2000 mm/s from ISO 13855 to accommodate instantaneous rapid motions and the uncertainties associated with operator detection. Although this worst-case assumption is not necessarily accurate at all times, it is clearly safer to assume than the special case"
+      }
+    ],
+    "adjudications": [],
+    "originalCellsDigest": "0058b5e1457cd54661ab95097a1eaef1040b34d7e041d42841df1c4ab661cf89"
+  },
+  {
+  "id": "legged-locomotion-8-duty-factor-disclaimer-20260916i",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "legged-locomotion",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "cf0bf31e7172bcba2ff8d509efa7724ac0ceb2954e9c4aa054b25c4734a216d0",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "l8-classical-instance",
+    "text": "Park et al. 2017 supply the classical INSTANCE of speed-dependent duty-cycle modulation: Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling', stance time T_st = L/v_d scales inversely with speed with fixed swing duration, and §7 uses speed-dependent stride length below 3 m/s. This is one controller's schedule, not a universal statement about all classical controllers.",
+    "requiredCitationIds": [
+     "park-2017-bounding"
+    ]
+   },
+   {
+    "id": "l8-authored-values-local-AND",
+    "text": "LOCAL-AND: the disclaimer's 'canonical nominal values' are the authored constants in lib/gait.ts (walk 0.75, trot 0.50, bound 0.45, pronk 0.35 with the listed phase offsets; DEFAULT_GAIT walk; GAIT_ORDER walk/trot/bound/pronk), rendered by components/interactive/gait-diagram.tsx and mounted at legged-locomotion.mdx line 35; the corrected sentence scopes them as authored nominal values. The 'learned alike' clause stays the article's framing over the air-time reward discussion (Rudin Table 2 includes feet air time), not a Park attribution. The integrator must re-run this local proof at apply time.",
+    "requiredCitationIds": [
+     "park-2017-bounding"
+    ]
+   }
+  ],
+  "planReview": null,
+  "evidence": [
+   {
+    "partId": "l8-classical-instance",
+    "citationId": "park-2017-bounding",
+    "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+    "supportingPassage": "Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling'; stance time T_st = L/v_d scales inversely with speed; fixed swing duration vs stride-length growth; Park §7 uses speed-dependent stride length below 3 m/s."
+   },
+   {
+    "partId": "l8-authored-values-local-AND",
+    "citationId": "park-2017-bounding",
+    "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+    "supportingPassage": "Park-side instance as above (retained). The authored duty factors and phase offsets are LOCAL facts read at HEAD cc09291a: lib/gait.ts GAITS (walk 0.75 / trot 0.5 / bound 0.45 / pronk 0.35), consumed by components/interactive/gait-diagram.tsx; article mount line 35, disclaimer sentence line 64 with <Cite id=\"park-2017-bounding\" /> on the span."
+   }
+  ],
+  "adjudications": []
+ },
+  {
+    "id": "data-bottleneck-3-scale-correction-draft-20260922",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "bddd9e19f468d2a2bb4adec1d55b1aa5bc04d19ebe855a29c92ea43afa4ca3f7",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "trajectory-bound",
+        "text": "The named OXE release is reported as 1M+ real-robot trajectories; do not convert the lower bound into an exact one-million count.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      },
+      {
+        "id": "embodiments",
+        "text": "The reported repository spans 22 robot embodiments; this is not the smaller model-training embodiment subset.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      },
+      {
+        "id": "total-hours-and-plotting",
+        "text": "The current 10,000-hour plotted OXE value and hour-ranking lack an established primary-source total; the proposed removal must reach every numeric representation, not only the introductory sentence.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      },
+      {
+        "id": "unknown-and-teaching-cut",
+        "text": "Mandatory inherited whole-record obligation: establish compliant evidence/correction for the current 10,000-hour OXE target, 1,000,000-hour 100x-OXE target and every teaching/readout consequence. Relabelling as illustrative does not waive P2 or VAL-AUDIT-009. No qualifying source passage has been recovered.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [
+      {
+        "partId": "trajectory-bound",
+        "citationId": "open-x-embodiment-2023",
+        "sourceUrl": "https://arxiv.org/html/2310.08864v9",
+        "supportingPassage": "The Open X-Embodiment Dataset contains 1M+ real robot trajectories spanning 22 robot embodiments, from single robot arms to bi-manual robots and quadrupeds. The dataset was constructed by pooling 60 existing robot datasets from 34 robotic research labs around the world and converting them into a consistent data format for easy download and usage. We use the RLDS data format [119], which saves data in serialized tfrecord files and accommodates the various action spaces and input modalities of different robot setups, such as differing numbers of RGB cameras, depth cameras and point clouds. It also supports efficient, parallelized data loading in all major deep learning frameworks. For more details about the data storage format and a breakdown of all 60 datasets, see robotics-transformer-x.github.io."
+      },
+      {
+        "partId": "embodiments",
+        "citationId": "open-x-embodiment-2023",
+        "sourceUrl": "https://robotics-transformer-x.github.io/",
+        "supportingPassage": "**It contains 1M+ real robot trajectories spanning 22 robot embodiments,**\n**from single robot arms to bi-manual robots and quadrupeds.**"
+      }
+    ],
+    "adjudications": []
+  },
+  {
+    "id": "data-bottleneck-5-scale-correction-draft-20260922",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "341059b74bafbed760981b99d72978575c478c20c3dab832398b911e1a5c3568",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "headline-trajectories-and-hours",
+        "text": "DROID reports 76k demonstration trajectories or 350 hours of interaction data; retain that dataset scope.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "success-filter",
+        "text": "The 76k headline counts successful episodes; roughly 16k unsuccessful trajectories are included in the release but excluded from that headline count.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "collectors",
+        "text": "The cohort has 50 data collectors, not 50 rigs.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "robots",
+        "text": "Section III reports 18 robots.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "institutions",
+        "text": "Section III reports 13 institutions; the introduction separately says 18 research labs, a distinct unit.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "elapsed-collection-duration",
+        "text": "Data collection took place over 12 months; this does not establish year-long individual labor or robot utilization.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      },
+      {
+        "id": "derived-not-measured-rate",
+        "text": "Mandatory inherited whole-record obligation: source-backed correction for the 7 h/rig-year mapping from 350 hours/50 collectors, resulting 70 h/year/approximately 143 years, and comparison with 1,000 h/rig-year from 4 h/day × 250 days. Published cohort operands do not establish these authored rates or target projections.",
+        "requiredCitationIds": [
+          "droid-2024"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [
+      {
+        "partId": "headline-trajectories-and-hours",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "The creation of large, diverse, high-quality robot manipulation datasets is an important stepping stone on the path toward more capable and robust robotic manipulation policies. However, creating such datasets is challenging: collecting robot manipulation data in diverse environments poses logistical and safety challenges and requires substantial investments in hardware and human labour. As a result, even the most general robot manipulation policies today are mostly trained on data collected in a small number of environments with limited scene and task diversity. In this work, we introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 86 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months. We demonstrate that training with DROID leads to policies with higher performance and improved generalization ability. We open source the full dataset, policy learning code, and a detailed guide for reproducing our robot hardware setup."
+      },
+      {
+        "partId": "success-filter",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "Every data collection session starts with moving the robot to a new scene. Data collectors were encouraged to choose scenes that include multiple interesting tasks, numerous interaction objects, and a healthy amount of clutter (see example scenes in Fig. 10). After setting up the robot in the new scene, the data collector chooses views for the 3rd person cameras that can capture a wide range of interesting behaviors in the scene. Then they perform extrinsic camera calibration using a checkerboard and the OpenCV calibration algorithm. Next, the data collector will enter all potential tasks for the current scene into a data collection GUI on the laptop attached to the robot, either by selecting from a list of task options or by typing in free-from task instructions (see Fig. 9 for screenshots of the GUI). During data collection the GUI will prompt the data collector with a randomly sampled task from this list for each new episode. This way we ensure that there is high coverage of diverse tasks and collection is not biased to easier tasks or closer objects. Additionally, the GUI periodically prompts the data collector to perform randomly sampled “scene augmentations” like nudges to the mobile base, moving and re-calibrating the 3rd person cameras, changing the room lighting, and adding or removing items within the scene. For each trajectory, we record the output of all RGB cameras, relevant low level state information from the robot, equivalent robot control commands from various popular action spaces, a data collector ID, and the metadata entered in the GUI (see Appendix B for a detailed list of all features we record). The data collector also marks whether the collected sequence was a success, which we log as part of the metadata. DROID consists of 76k successful episodes; roughly 16k trajectories in our data collection were labeled as “not successful”, which we include in our dataset release but do not count towards the size of DROID. A data collector will typically collect up to 100 trajectories or about 20 minutes of interaction data per scene before moving on to a new scene."
+      },
+      {
+        "partId": "collectors",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      },
+      {
+        "partId": "robots",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      },
+      {
+        "partId": "institutions",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      },
+      {
+        "partId": "elapsed-collection-duration",
+        "citationId": "droid-2024",
+        "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+        "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform."
+      }
+    ],
+    "adjudications": []
+  }
+]

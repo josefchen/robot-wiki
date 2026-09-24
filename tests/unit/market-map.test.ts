@@ -398,7 +398,7 @@ describe('timelineEvents', () => {
     // sources without reordering the historical sources[] ledger.
     expect(byId['spirit-ai'].sourceTitle).toContain('1.5B yuan / $222M');
     expect(byId['tars-robotics'].sourceTitle).toContain(
-      "China's TARS AI Raises $455M",
+      'TARS Raises $455M Pre-A Round',
     );
     expect(byId['carbon-robotics'].sourceTitle).toContain(
       'Carbon Robotics raises $20M',

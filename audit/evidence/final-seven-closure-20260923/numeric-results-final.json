@@ -1,0 +1,1599 @@
+{
+  "observedAt": "2026-09-23T22:05:30.792Z",
+  "results": [
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "presets": {
+            "walk": {
+              "id": "walk",
+              "name": "Walk",
+              "dutyFactor": 0.75,
+              "offsets": {
+                "lh": 0,
+                "lf": 0.25,
+                "rh": 0.5,
+                "rf": 0.75
+              },
+              "note": "Four-beat gait; three feet stay down at all times."
+            },
+            "trot": {
+              "id": "trot",
+              "name": "Trot",
+              "dutyFactor": 0.5,
+              "offsets": {
+                "lf": 0,
+                "rh": 0,
+                "rf": 0.5,
+                "lh": 0.5
+              },
+              "note": "Diagonal pairs strike together; two feet down at all times."
+            },
+            "bound": {
+              "id": "bound",
+              "name": "Bound",
+              "dutyFactor": 0.45,
+              "offsets": {
+                "lf": 0,
+                "rf": 0,
+                "lh": 0.5,
+                "rh": 0.5
+              },
+              "note": "Front pair and hind pair alternate, with suspension between."
+            },
+            "pronk": {
+              "id": "pronk",
+              "name": "Pronk",
+              "dutyFactor": 0.35,
+              "offsets": {
+                "lf": 0,
+                "rf": 0,
+                "lh": 0,
+                "rh": 0
+              },
+              "note": "All four feet strike and lift together; mostly airborne."
+            }
+          },
+          "order": [
+            "walk",
+            "trot",
+            "bound",
+            "pronk"
+          ],
+          "gait": "walk",
+          "phase": 0,
+          "step": 0.05,
+          "direction": 1,
+          "directions": [
+            1,
+            -1
+          ],
+          "phaseRange": [
+            0,
+            1
+          ],
+          "phaseCases": [
+            0,
+            0.25,
+            0.95,
+            1
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:parameters:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "data-scale",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "targetsHours": [
+            10000,
+            1000000
+          ],
+          "rates": [
+            {
+              "id": "dedicated",
+              "hoursPerRigYear": 1000
+            },
+            {
+              "id": "droid-measured",
+              "hoursPerRigYear": 7
+            }
+          ],
+          "fleetRange": [
+            1,
+            500
+          ],
+          "defaultRigs": 15,
+          "predictionRigs": 10,
+          "dedicatedSchedule": {
+            "hoursPerDay": 4,
+            "daysPerYear": 250
+          }
+        },
+        "units": "targets:h; rates:h/rig/year; fleet:rigs; authored illustration only",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "data-scale:parameters:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "reliability",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "defaultPerStep": 0.95,
+          "defaultSteps": 30,
+          "predictionSteps": 14,
+          "maxSteps": 100,
+          "mainPercentRange": [
+            0,
+            100
+          ],
+          "predictionPercentRange": [
+            50,
+            99.9
+          ],
+          "boundaryPerStep": [
+            0,
+            1
+          ],
+          "inverseTarget": 0.8
+        },
+        "units": "probabilities:1; horizons:steps; controls:%",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "reliability:parameters:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "parameters",
+        "inputs": {}
+      },
+      "output": {
+        "values": {
+          "robotSpeed": 1,
+          "humanSpeed": 1.6,
+          "separation": 1.6,
+          "intrusion": 0.85,
+          "deceleration": 10,
+          "reactionTime": 0.1,
+          "uncertainty": 0.1,
+          "mass": 4,
+          "stiffness": 25000,
+          "displayModes": [
+            "speed-separation",
+            "power-force"
+          ],
+          "robotRange": {
+            "min": 0,
+            "max": 2,
+            "step": 0.05
+          },
+          "humanRange": {
+            "min": 0,
+            "max": 2,
+            "step": 0.05
+          }
+        },
+        "units": "m,m/s,m/s^2,s,kg,N/m as named",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "safety:parameters:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "walk",
+          "phase": 0,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.75,
+              "stance": false
+            },
+            {
+              "id": "rf",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0.5,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "0%",
+            "0.75"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "walk",
+          "phase": 0.25,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0.5,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0.75,
+              "stance": false
+            }
+          ],
+          "nextPhase": 0.3,
+          "display": [
+            "25%",
+            "0.75"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "walk",
+          "phase": 0.95,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.7,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0.19999999999999996,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0.95,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0.44999999999999996,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0,
+          "display": [
+            "95%",
+            "0.75"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "walk",
+          "phase": 1,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.75,
+              "stance": false
+            },
+            {
+              "id": "rf",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0.5,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "100%",
+            "0.75"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "trot",
+          "phase": 0,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0.5,
+              "stance": false
+            },
+            {
+              "id": "lh",
+              "phase": 0.5,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "0%",
+            "0.50"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "trot",
+          "phase": 0.25,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0.75,
+              "stance": false
+            },
+            {
+              "id": "lh",
+              "phase": 0.75,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0.25,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.3,
+          "display": [
+            "25%",
+            "0.50"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "trot",
+          "phase": 0.95,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.95,
+              "stance": false
+            },
+            {
+              "id": "rf",
+              "phase": 0.44999999999999996,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0.44999999999999996,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0.95,
+              "stance": false
+            }
+          ],
+          "nextPhase": 0,
+          "display": [
+            "95%",
+            "0.50"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "trot",
+          "phase": 1,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0.5,
+              "stance": false
+            },
+            {
+              "id": "lh",
+              "phase": 0.5,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "100%",
+            "0.50"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "bound",
+          "phase": 0,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0.5,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0.5,
+              "stance": false
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "0%",
+            "0.45"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "bound",
+          "phase": 0.25,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0.75,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0.75,
+              "stance": false
+            }
+          ],
+          "nextPhase": 0.3,
+          "display": [
+            "25%",
+            "0.45"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "bound",
+          "phase": 0.95,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.95,
+              "stance": false
+            },
+            {
+              "id": "rf",
+              "phase": 0.95,
+              "stance": false
+            },
+            {
+              "id": "lh",
+              "phase": 0.44999999999999996,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0.44999999999999996,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0,
+          "display": [
+            "95%",
+            "0.45"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "bound",
+          "phase": 1,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0.5,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0.5,
+              "stance": false
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "100%",
+            "0.45"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "pronk",
+          "phase": 0,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "0%",
+            "0.35"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "pronk",
+          "phase": 0.25,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0.25,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0.25,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.3,
+          "display": [
+            "25%",
+            "0.35"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "pronk",
+          "phase": 0.95,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0.95,
+              "stance": false
+            },
+            {
+              "id": "rf",
+              "phase": 0.95,
+              "stance": false
+            },
+            {
+              "id": "lh",
+              "phase": 0.95,
+              "stance": false
+            },
+            {
+              "id": "rh",
+              "phase": 0.95,
+              "stance": false
+            }
+          ],
+          "nextPhase": 0,
+          "display": [
+            "95%",
+            "0.35"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "gait",
+        "mode": "derive",
+        "inputs": {
+          "gait": "pronk",
+          "phase": 1,
+          "direction": 1
+        }
+      },
+      "output": {
+        "values": {
+          "legs": [
+            {
+              "id": "lf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rf",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "lh",
+              "phase": 0,
+              "stance": true
+            },
+            {
+              "id": "rh",
+              "phase": 0,
+              "stance": true
+            }
+          ],
+          "nextPhase": 0.05,
+          "display": [
+            "100%",
+            "0.35"
+          ]
+        },
+        "units": "dimensionless unless explicitly keyed",
+        "precision": "IEEE-754; existing model rounding only",
+        "formula": "gait:derive:v1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "data-scale",
+        "mode": "derive",
+        "inputs": {
+          "rigs": 10,
+          "rateId": "droid-measured",
+          "targetHours": 10000
+        }
+      },
+      "output": {
+        "values": {
+          "perYear": 70,
+          "years": 142.85714285714286,
+          "display": [
+            "70 h/yr",
+            "143 yr"
+          ]
+        },
+        "units": "rigs:count; target:h; throughput:h/year; duration:years",
+        "precision": "hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round",
+        "formula": "throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput"
+      }
+    },
+    {
+      "recipe": {
+        "id": "data-scale",
+        "mode": "derive",
+        "inputs": {
+          "rigs": 10,
+          "rateId": "dedicated",
+          "targetHours": 10000
+        }
+      },
+      "output": {
+        "values": {
+          "perYear": 10000,
+          "years": 1,
+          "display": [
+            "10,000 h/yr",
+            "1.0 yr"
+          ]
+        },
+        "units": "rigs:count; target:h; throughput:h/year; duration:years",
+        "precision": "hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round",
+        "formula": "throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput"
+      }
+    },
+    {
+      "recipe": {
+        "id": "data-scale",
+        "mode": "derive",
+        "inputs": {
+          "rigs": 15,
+          "rateId": "dedicated",
+          "targetHours": 1000000
+        }
+      },
+      "output": {
+        "values": {
+          "perYear": 15000,
+          "years": 66.66666666666667,
+          "display": [
+            "15,000 h/yr",
+            "66.7 yr"
+          ]
+        },
+        "units": "rigs:count; target:h; throughput:h/year; duration:years",
+        "precision": "hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round",
+        "formula": "throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput"
+      }
+    },
+    {
+      "recipe": {
+        "id": "data-scale",
+        "mode": "derive",
+        "inputs": {
+          "rigs": 1,
+          "rateId": "droid-measured",
+          "targetHours": 10000
+        }
+      },
+      "output": {
+        "values": {
+          "perYear": 7,
+          "years": 1428.5714285714287,
+          "display": [
+            "7 h/yr",
+            "1,429 yr"
+          ]
+        },
+        "units": "rigs:count; target:h; throughput:h/year; duration:years",
+        "precision": "hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round",
+        "formula": "throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput"
+      }
+    },
+    {
+      "recipe": {
+        "id": "data-scale",
+        "mode": "derive",
+        "inputs": {
+          "rigs": 500,
+          "rateId": "dedicated",
+          "targetHours": 1000000
+        }
+      },
+      "output": {
+        "values": {
+          "perYear": 500000,
+          "years": 2,
+          "display": [
+            "500,000 h/yr",
+            "2.0 yr"
+          ]
+        },
+        "units": "rigs:count; target:h; throughput:h/year; duration:years",
+        "precision": "hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round",
+        "formula": "throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput"
+      }
+    },
+    {
+      "recipe": {
+        "id": "reliability",
+        "mode": "derive",
+        "inputs": {
+          "perStep": 0.95,
+          "steps": 30,
+          "inverseTarget": 0.8
+        }
+      },
+      "output": {
+        "values": {
+          "episode": 0.21463876394293727,
+          "inversePerStep": 0.992589475966305,
+          "display": [
+            "21.5%"
+          ]
+        },
+        "units": "perStep,episode,inversePerStep:probabilities; steps:count",
+        "precision": "display:toFixed(1)%; inverse prose:toFixed(1)%",
+        "formula": "episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n"
+      }
+    },
+    {
+      "recipe": {
+        "id": "reliability",
+        "mode": "derive",
+        "inputs": {
+          "perStep": 0.95,
+          "steps": 100,
+          "inverseTarget": 0.8
+        }
+      },
+      "output": {
+        "values": {
+          "episode": 0.0059205292203339975,
+          "inversePerStep": 0.9977710522882823,
+          "display": [
+            "0.6%"
+          ]
+        },
+        "units": "perStep,episode,inversePerStep:probabilities; steps:count",
+        "precision": "display:toFixed(1)%; inverse prose:toFixed(1)%",
+        "formula": "episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n"
+      }
+    },
+    {
+      "recipe": {
+        "id": "reliability",
+        "mode": "derive",
+        "inputs": {
+          "perStep": 0.95,
+          "steps": 14,
+          "inverseTarget": 0.8
+        }
+      },
+      "output": {
+        "values": {
+          "episode": 0.48767497911552954,
+          "inversePerStep": 0.9841875257932288,
+          "display": [
+            "48.8%"
+          ]
+        },
+        "units": "perStep,episode,inversePerStep:probabilities; steps:count",
+        "precision": "display:toFixed(1)%; inverse prose:toFixed(1)%",
+        "formula": "episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n"
+      }
+    },
+    {
+      "recipe": {
+        "id": "reliability",
+        "mode": "derive",
+        "inputs": {
+          "perStep": 0.95,
+          "steps": 5,
+          "inverseTarget": 0.8
+        }
+      },
+      "output": {
+        "values": {
+          "episode": 0.7737809374999998,
+          "inversePerStep": 0.956352499790037,
+          "display": [
+            "77.4%"
+          ]
+        },
+        "units": "perStep,episode,inversePerStep:probabilities; steps:count",
+        "precision": "display:toFixed(1)%; inverse prose:toFixed(1)%",
+        "formula": "episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n"
+      }
+    },
+    {
+      "recipe": {
+        "id": "reliability",
+        "mode": "derive",
+        "inputs": {
+          "perStep": 0,
+          "steps": 1,
+          "inverseTarget": 0.8
+        }
+      },
+      "output": {
+        "values": {
+          "episode": 0,
+          "inversePerStep": 0.8,
+          "display": [
+            "0.0%"
+          ]
+        },
+        "units": "perStep,episode,inversePerStep:probabilities; steps:count",
+        "precision": "display:toFixed(1)%; inverse prose:toFixed(1)%",
+        "formula": "episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n"
+      }
+    },
+    {
+      "recipe": {
+        "id": "reliability",
+        "mode": "derive",
+        "inputs": {
+          "perStep": 1,
+          "steps": 1,
+          "inverseTarget": 0.8
+        }
+      },
+      "output": {
+        "values": {
+          "episode": 1,
+          "inversePerStep": 0.8,
+          "display": [
+            "100.0%"
+          ]
+        },
+        "units": "perStep,episode,inversePerStep:probabilities; steps:count",
+        "precision": "display:toFixed(1)%; inverse prose:toFixed(1)%",
+        "formula": "episode=p^n for constant conditional p; inverse=exp(log(q)/n) for positive n"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 0,
+          "humanSpeed": 0,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0,
+            "robotReactionM": 0,
+            "brakingM": 0,
+            "marginM": 0.95,
+            "totalM": 0.95
+          },
+          "separation": 0.95,
+          "permittedSpeed": 2.7416573867739413,
+          "force": 0,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": true,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation",
+              "power-force"
+            ],
+            "summary": "Both continuous-motion modes are available at these speeds: the protective separation distance fits inside the cell, and an impact would land under the contact-force limit."
+          },
+          "display": [
+            "0.95 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 0,
+          "humanSpeed": 1.6,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0.16000000000000003,
+            "robotReactionM": 0,
+            "brakingM": 0,
+            "marginM": 0.95,
+            "totalM": 1.1099999999999999
+          },
+          "separation": 1.1099999999999999,
+          "permittedSpeed": 1.4693979898751612,
+          "force": 0,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": true,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation",
+              "power-force"
+            ],
+            "summary": "Both continuous-motion modes are available at these speeds: the protective separation distance fits inside the cell, and an impact would land under the contact-force limit."
+          },
+          "display": [
+            "1.11 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 0,
+          "humanSpeed": 2,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0.2,
+            "robotReactionM": 0,
+            "brakingM": 0,
+            "marginM": 0.95,
+            "totalM": 1.15
+          },
+          "separation": 1.15,
+          "permittedSpeed": 1.2426406871192852,
+          "force": 0,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": true,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation",
+              "power-force"
+            ],
+            "summary": "Both continuous-motion modes are available at these speeds: the protective separation distance fits inside the cell, and an impact would land under the contact-force limit."
+          },
+          "display": [
+            "1.15 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 1,
+          "humanSpeed": 0,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0,
+            "robotReactionM": 0.1,
+            "brakingM": 0.05,
+            "marginM": 0.95,
+            "totalM": 1.1
+          },
+          "separation": 1.1,
+          "permittedSpeed": 2.7416573867739413,
+          "force": 316.22776601683796,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": false,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation"
+            ],
+            "summary": "Speed and separation monitoring is available at these speeds, but power and force limiting is not: an impact at this robot speed would exceed the contact-force limit, so contact must be prevented rather than survived."
+          },
+          "display": [
+            "1.10 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 1,
+          "humanSpeed": 1.6,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0.32000000000000006,
+            "robotReactionM": 0.1,
+            "brakingM": 0.05,
+            "marginM": 0.95,
+            "totalM": 1.42
+          },
+          "separation": 1.42,
+          "permittedSpeed": 1.4693979898751612,
+          "force": 316.22776601683796,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": false,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation"
+            ],
+            "summary": "Speed and separation monitoring is available at these speeds, but power and force limiting is not: an impact at this robot speed would exceed the contact-force limit, so contact must be prevented rather than survived."
+          },
+          "display": [
+            "1.42 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 1,
+          "humanSpeed": 2,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0.4,
+            "robotReactionM": 0.1,
+            "brakingM": 0.05,
+            "marginM": 0.95,
+            "totalM": 1.5
+          },
+          "separation": 1.5,
+          "permittedSpeed": 1.2426406871192852,
+          "force": 316.22776601683796,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": false,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation"
+            ],
+            "summary": "Speed and separation monitoring is available at these speeds, but power and force limiting is not: an impact at this robot speed would exceed the contact-force limit, so contact must be prevented rather than survived."
+          },
+          "display": [
+            "1.50 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 2,
+          "humanSpeed": 0,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0,
+            "robotReactionM": 0.2,
+            "brakingM": 0.2,
+            "marginM": 0.95,
+            "totalM": 1.35
+          },
+          "separation": 1.35,
+          "permittedSpeed": 2.7416573867739413,
+          "force": 632.4555320336759,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": false,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation"
+            ],
+            "summary": "Speed and separation monitoring is available at these speeds, but power and force limiting is not: an impact at this robot speed would exceed the contact-force limit, so contact must be prevented rather than survived."
+          },
+          "display": [
+            "1.35 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 2,
+          "humanSpeed": 1.6,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0.4800000000000001,
+            "robotReactionM": 0.2,
+            "brakingM": 0.2,
+            "marginM": 0.95,
+            "totalM": 1.83
+          },
+          "separation": 1.83,
+          "permittedSpeed": 1.4693979898751612,
+          "force": 632.4555320336759,
+          "verdict": {
+            "separationSatisfied": false,
+            "forceSatisfied": false,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding"
+            ],
+            "summary": "Neither continuous-motion mode is available at these speeds. The protective separation distance overruns the cell and an impact would exceed the contact-force limit, which leaves a monitored stop or hand guiding as the only options."
+          },
+          "display": [
+            "1.83 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 2,
+          "humanSpeed": 2,
+          "separation": 1.6,
+          "displayMode": "speed-separation"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0.6000000000000001,
+            "robotReactionM": 0.2,
+            "brakingM": 0.2,
+            "marginM": 0.95,
+            "totalM": 1.95
+          },
+          "separation": 1.95,
+          "permittedSpeed": 1.2426406871192852,
+          "force": 632.4555320336759,
+          "verdict": {
+            "separationSatisfied": false,
+            "forceSatisfied": false,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding"
+            ],
+            "summary": "Neither continuous-motion mode is available at these speeds. The protective separation distance overruns the cell and an impact would exceed the contact-force limit, which leaves a monitored stop or hand guiding as the only options."
+          },
+          "display": [
+            "1.95 m"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    },
+    {
+      "recipe": {
+        "id": "safety",
+        "mode": "derive",
+        "inputs": {
+          "robotSpeed": 1,
+          "humanSpeed": 1.6,
+          "separation": 1.6,
+          "displayMode": "power-force"
+        }
+      },
+      "output": {
+        "values": {
+          "terms": {
+            "humanTravelM": 0.32000000000000006,
+            "robotReactionM": 0.1,
+            "brakingM": 0.05,
+            "marginM": 0.95,
+            "totalM": 1.42
+          },
+          "separation": 1.42,
+          "permittedSpeed": 1.4693979898751612,
+          "force": 316.22776601683796,
+          "verdict": {
+            "separationSatisfied": true,
+            "forceSatisfied": false,
+            "satisfiedModes": [
+              "monitored-stop",
+              "hand-guiding",
+              "speed-separation"
+            ],
+            "summary": "Speed and separation monitoring is available at these speeds, but power and force limiting is not: an impact at this robot speed would exceed the contact-force limit, so contact must be prevented rather than survived."
+          },
+          "display": [
+            "316 N",
+            "255 N"
+          ]
+        },
+        "units": "separation,terms:m; permittedSpeed:m/s; force:N",
+        "precision": "m,m/s:toFixed(2); N:Math.round",
+        "formula": "safety:derive:v1;S=vH*(TR+vR/a)+vR*TR+vR^2/(2a)+C+Z;F=vR*sqrt(k*m)"
+      }
+    }
+  ]
+}

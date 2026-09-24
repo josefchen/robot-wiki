@@ -42,6 +42,10 @@ import {
   SITE_URL_ORIGIN,
 } from '../lib/og-cards.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../lib/identity.ts';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '../lib/seo.ts';
 import { SITE_URL } from '../lib/site.ts';
 import { isSyncConflictDuplicate } from '../lib/sync-duplicates.ts';
 
@@ -55,8 +59,10 @@ const PUBLIC_FIXED_ROUTES = [
   '/glossary/',
   '/credits/',
   '/search/',
+  '/editorial-policy/',
+  '/privacy/',
 ] as const;
-const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/'];
+const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/', 'structured-images/'];
 const ASSET_EXTENSIONS = new Set([
   '.avif',
   '.gif',
@@ -219,6 +225,14 @@ function titleAndDescription(path: string): {
     '/glossary/': ['Glossary', `Cited definitions of the robotics and machine-learning terms used across ${PUBLIC_IDENTITY}.`],
     '/credits/': ['Credits', `Every photograph and diagram on ${PUBLIC_IDENTITY}, with its creator, source, and licence.`],
     '/search/': ['Search', `Search ${PUBLIC_IDENTITY}: full-text over article prose plus the structured data layer (methods, companies, datasets).`],
+    '/editorial-policy/': [
+      STANDALONE_SEO_TITLES.editorialPolicy,
+      STANDALONE_SEO_DESCRIPTIONS.editorialPolicy,
+    ],
+    '/privacy/': [
+      STANDALONE_SEO_TITLES.privacy,
+      STANDALONE_SEO_DESCRIPTIONS.privacy,
+    ],
   };
   const value = fixed[path];
   if (!value) throw new Error(`Missing fixed-route metadata owner for ${path}`);
@@ -234,6 +248,8 @@ function metadataLedger() {
     '/glossary/': 'app/glossary/page.tsx',
     '/credits/': 'app/credits/page.tsx',
     '/search/': 'app/search/page.tsx',
+    '/editorial-policy/': 'app/editorial-policy/page.tsx',
+    '/privacy/': 'app/privacy/page.tsx',
   };
   return [
     ...publicRoutes().map((path) => {
@@ -1191,7 +1207,15 @@ function collect() {
         .filter(({ routeId }) => routeId !== 'route:/404/')
         .map(({ routeId }) => routeId.replace(/^route:/, '')),
       ...(exportRoutes ? { exportFiles: exportRoutes } : {}),
-    }),
+    },
+      'VAL-B2-CONT-007',
+      {
+        // /search/ and /privacy/ are deliberately crawlable but noindex
+        // (query-dependent output / policy page), so app/sitemap.ts
+        // excludes them on purpose.
+        sitemap: ['/search/', '/privacy/'],
+      },
+    ),
     ...validateInteractiveRegistry(interactive.sources, interactive.mounts),
     ...validatePrimitiveRegistries(staticEntries),
     ...validateExactRegistryParity(

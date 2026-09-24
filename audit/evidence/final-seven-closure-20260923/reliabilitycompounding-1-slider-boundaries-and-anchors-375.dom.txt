@@ -1,0 +1,286 @@
+Home
+/
+Data, Hardware & Evaluation
+/
+The Evaluation Crisis
+The Evaluation Crisis
+
+Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.
+
+LAST REVIEWED
+17 August 2026
+READING TIME
+10 min
+CITATIONS
+9
+
+A robot learning paper announces its headline result as a single number: the success rate. That number compresses several choices into one digit: how many times the task was attempted, how long each attempt was allowed to run, how the scene was arranged, and who scored the outcome. An episode success rate alone does not specify the probability of success at each decision; the illustrative horizon model below makes its assumptions explicit. This module covers what the success rate hides, measured in three places: the statistics of small trial counts, the brittleness of clean benchmarks, and the bias of single-lab scoring. Each has a response now being built, and the responses are as much the story as the problem.
+
+10 or 50
+trial-count examples
+small feasible samples, Snyder et al.; not a census
+1,800
+real rollouts
+TRI LBM evaluation, blind A/B
+612
+pairwise comparisons
+RoboArena v2, seven universities; distinct from 4,284 oracle rollouts
+<30%
+benchmark collapse
+LIBERO-Plus, from 95% under modest shifts
+What the success rate hides: the horizon
+
+This is an illustrative probability model, not a measured robot policy. Assume every decision has the same probability p of success conditional on all earlier decisions succeeding. The probability of completing n decisions without failure is then p^n. Choosing p = 0.95 and n = 30 gives 21.5% after rounding to one decimal place; choosing n = 100 gives 0.6%. Drag the episode-length slider to compare those derived examples. Real tasks need not satisfy the constant conditional-probability assumption.
+
+PER-STEP SUCCESS
+95.0%
+EPISODE LENGTH
+100 steps
+Reset
+25%
+50%
+75%
+100%
+0
+50
+100
+steps
+
+(0.950)^100 = 0.6% episode success
+
+The evaluation calculator at 95.0 percent per-step success reports 0.6% episode success after 100 decisions and 0.6% at the 100-step end of the range, crossing half only around step 14.
+
+Sampled episode success by episode length
+
+The calculator above computes that product. The per-step slider spans the full range on purpose, so the boundary cases are honest: at 0% per-step the task never completes once the horizon is at least one step, at 100% it always completes, and at a horizon of exactly one step the readout equals the per-step value. No setting produces a meaningless number, and the decay curve is the point. Within the same illustrative model, solving p^n = q gives p = q^(1/n). For the chosen episode target q = 0.8, n = 5 gives 95.6% and n = 30 gives 99.3%, rounded to one decimal place. These are model-dependent derivations, not per-step reliabilities inferred from real benchmark results.
+
+Prediction
+
+In this illustrative model, each decision succeeds with probability 95% conditional on all earlier decisions succeeding. Roughly how many consecutive decisions bring episode success below one half?
+About 200 decisions, because errors average out over an episode
+About 50 decisions, since 95% leaves little room for error
+About 14 decisions, because the loss compounds at every step
+Read the reasoning
+Small samples limit comparison
+
+The second thing the number hides is its own uncertainty. Toyota Research Institute's Large Behavior Model program took the opposite approach to scale. The models extend the Diffusion Policy recipe into multitask systems trained on about 1,700 demonstration hours in the Ramen mixture: 468 hours of internally collected real bimanual teleoperation, 45 simulation hours, 32 UMI handheld-collection hours, and roughly 1,150 hours curated from a subset of Open X-Embodiment 
+Chi 2023
+↓
+ 
+TRI LBM Team 2025
+↓
+. TRI reports 1,800 real-world rollouts and over 47,000 simulation rollouts. The protocol used 50 real attempts per task per policy per condition and targeted 200 in simulation; Section 8.4 discloses missing simulation data for some combinations. Hardware comparisons were blind, with policy order randomized within bundles sharing an initial condition. Simulation used automated predicates rather than human scoring 
+TRI LBM Team 2025
+↓
+.
+
+For binary success rates, TRI plots Bayesian posteriors over each policy’s success probability using a uniform prior. It gives two reasons for using violin plots: they show the whole parameter distribution rather than a single interval, and overlapping confidence intervals can be misread as an absence of statistical separation even when a hypothesis test can distinguish the policies. These distributions describe individual policy checkpoints; they do not include variation from stochastic training 
+TRI LBM Team 2025
+↓
+.
+
+Snyder et al. give 10 or 50 trials as examples of small feasible sample sizes for policy comparison, not a census of what most papers run or a universal range. Their formal trial budget is specified per policy 
+Snyder 2025
+↓
+. TRI warns of a significant risk that many robotics papers are measuring statistical noise because of insufficient power. That warning does not establish how many papers are wrong. Likewise, a comparison that fails to find a significant difference does not establish that the policies are equivalent 
+TRI LBM Team 2025
+↓
+ 
+Snyder 2025
+↓
+.
+
+Snyder et al. propose STEP, a sequential policy-comparison test that can stop when sufficient evidence accumulates or remain inconclusive when its trial budget is exhausted. The observed arXiv v4 reports up to 32% fewer evaluation trials against state-of-the-art sequential baselines, not a guaranteed saving against fixed-budget testing. Its feasible baselines are Lai and SAVI; the oracle comparison uses information unavailable to an evaluator. The analysis assumes i.i.d. binary outcomes, an evaluator-selected significance level and maximum number of trials per policy. The reported experiments use a uniform risk-accumulation schedule, and statistical power varies with the setting and method 
+Snyder 2025
+↓
+.
+
+TRI also uses a sequential framework for binary policy comparison, but explicitly adopts the Lai test identified in its reference 79 rather than STEP. Its categorical task-progress comparisons use Welch’s t-test, with a stated normality-assumption caveat; Type-I error is not globally controlled across all tasks shown together 
+TRI LBM Team 2025
+↓
+.
+
+Clean benchmarks overstate
+
+The third hiding place is the benchmark itself. Simulation benchmarks are cheap and reproducible, which is why result tables fill with them. LIBERO’s original lifelong-learning benchmark reports 130 tasks: ten each in LIBERO-Spatial, LIBERO-Object, and LIBERO-Goal, plus 100 in LIBERO-100. The paper splits LIBERO-100 into 90 short-horizon pretraining tasks and ten long-horizon downstream tasks; that last subset is not another 100-task evaluation suite. Each generated task has 50 human-expert demonstrations collected through Spacemouse teleoperation 
+Liu 2023
+↓
+. LIBERO-Plus asked what those scores survive 
+Fei 2025
+↓
+. The authors perturb the benchmark along seven dimensions: object layout, camera viewpoint, robot initial state, language instruction, lighting, background texture, and sensor noise. Models that score 95% on the clean benchmark fall below 30% under modest shifts of camera viewpoint or initial state. The language ablation cuts deeper: shuffle or remove the instruction and performance barely moves, evidence that the models were largely ignoring the language they appeared to be following 
+Fei 2025
+↓
+. A high clean-benchmark score can coexist with no real task understanding, and the two are only distinguishable by evaluation under variation.
+
+Simulation as an evaluation proxy
+
+If real rollouts are expensive and clean benchmarks overstate, the obvious middle ground is simulation. The question is whether simulated performance predicts real performance at all. SIMPLER was built to answer it 
+Li 2024
+↓
+. It identifies visual differences between rendered and real images and control differences in how the robot responds to the same actions. Visual matching mitigates the first with real-image backgrounds and matched object and robot textures; offline system identification mitigates the second by fitting controller stiffness and damping against recorded action and end-effector trajectories. These are methods for reducing the gaps, not guarantees that they are closed 
+Li 2024
+↓
+.
+
+The project site reports approximately 1,500 evaluation episodes from each of real and simulation on Google Robot and WidowX setups. These are paired policy-and-task comparisons, not an established 1,500 one-to-one matching raw-trial count: the paper’s simulated trials multiply with environment variants, tuned robot colors, and Octo random seeds. Octo simulation success rates are averaged over three seeds; Google Robot results also average four arm-color versions, while WidowX does not use that color averaging 
+Li 2024
+↓
+.
+
+Pearson correlation measures linear agreement in policy performance. Mean Maximum Rank Violation (MMRV) instead weights incorrect policy orderings by their real-world performance margins and averages each policy’s worst violation. Pearson can be unstable when policies perform similarly, and low MMRV does not mean that absolute success rates or individual rollouts match. Agreement varies by task: the WidowX carrot-placement comparison contains a ranking error, unlike the other final-success comparisons in that table. The reported distribution-shift agreement likewise concerns the tested tasks, policies, and perturbations. SIMPLER complements real rollouts; its experiments focus on rigid objects, and its green-screening assumes fixed cameras and misses shadows and other visual details 
+Li 2024
+↓
+. Sim-to-real transfer as a training technique has its own module; see Sim-to-Real Transfer.
+
+Blind, distributed, pairwise
+
+RoboArena distributes policy evaluation across seven universities using the DROID Franka Panda platform 
+Khazatsky 2024
+↓
+ 
+Atreya 2025
+↓
+. Evaluators choose tasks and scenes after receiving anonymous policy endpoints, then run each pair back-to-back while closely matching the initial conditions within the pair. The paper calls the protocol double-blind and specifies that evaluators do not know which policies they are evaluating; it does not establish that every server operator or policy developer is blind to all assignments. Evaluators provide progress scores, preferences, and explanations 
+Atreya 2025
+↓
+. The v2 study reports 612 pairwise comparisons across seven DROID-trained policies. Running the other five policies on each tested task produced 4,284 individual rollouts for an exhaustive progress-score oracle. Against that particular oracle, the authors report better ranking agreement than a conventional DROID evaluation using 17 tasks and 44 episodes per policy, measured with Pearson correlation and Mean Maximum Rank Violation. Their task-aware preference model and progress-score rankings capture complementary information. This is a comparison within the tested policy, task, evaluator, and hardware population, not a universal guarantee that distributed rankings are more accurate or cheaper 
+Atreya 2025
+↓
+.
+
+RoboChallenge instead hosts robots at its testing site and exposes asynchronous observation and action APIs; model inference remains with the submitting user. Its initial Table30 benchmark contains tasks performed on or around a table. The benchmark protocol uses held-out demonstration frames to guide scene resets, but lighting and camera drift remain, and the system cannot verify that the remotely run model matches the submitted name 
+Yakefu 2025
+↓
+. These approaches address different evaluation needs: RoboArena explicitly remains complementary to controlled, single-condition experiments, while RoboChallenge standardizes its own benchmark setup. Neither paper establishes that one protocol is best for every evaluation 
+Atreya 2025
+↓
+ 
+Yakefu 2025
+↓
+.
+
+Reading a result table
+
+Five questions recover what the single number hides. How many rollouts produced it, and does the paper report the uncertainty around it at all, whether as an interval or a posterior; TRI chose 50 real attempts per task per policy per condition and still acknowledges measurement noise 
+TRI LBM Team 2025
+↓
+. How long is the task, and what assumptions connect its steps? The calculator illustrates one explicit model; it does not infer a real policy’s per-step reliability. What survives perturbation, because a clean-benchmark score needs a robustness counterpart before it means deployment 
+Fei 2025
+↓
+. Who scored it and where, and how closely did the ranking agree with the comparison population the study actually tested 
+Atreya 2025
+↓
+. And what correlation backs any simulation number, because sim agreement is task-dependent and must be measured, not assumed 
+Li 2024
+↓
+. The field's response to the crisis is exactly this instrumentation: sequential tests that spend trials efficiently, perturbation benchmarks that probe brittleness, sim proxies with stated correlations, and blind distributed arenas. Adoption remains partial, which is why the questions are still worth asking of every table you read.
+
+Self-check
+
+Two policies both report 80% success on the same nominal task. One was scored on 10 trials, the other on 50 with a Bayesian posterior attached. What can you conclude from that information alone?
+Neither policy is established as better; inspect the uncertainty and comparison protocol
+The identical reported success rates establish equivalent performance
+Policy B is better because it used the more rigorous protocol
+Read the reasoning
+See also
+RL Fine-Tuning of Policies
+
+DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.
+
+The Data Bottleneck
+
+Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.
+
+Sim-to-Real Transfer
+
+Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.
+
+The Reliability Gap
+
+80% is a demo, 99.9% is a product: what deployment numbers actually show.
+
+Linked from
+RL Fine-Tuning of Policies
+
+DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.
+
+The Reliability Gap
+
+80% is a demo, 99.9% is a product: what deployment numbers actually show.
+
+Generalization
+
+What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.
+
+Competing Theses
+
+End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.
+
+The Bear Case
+
+Why this could be another robotics winter, and the milestones that would prove it wrong.
+
+References
+1
+A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation
+
+TRI LBM Team, Jose Barreiros, Andrew Beaulieu, Aditya Bhat, Rick Cory, Eric Cousineau, Hongkai Dai, Ching-Hsin Fang, and 74 more, 2025. Show all 82 authors
+
+https://arxiv.org/abs/2507.05331
+
+2
+Diffusion Policy: Visuomotor Policy Learning via Action Diffusion
+
+Cheng Chi, Zhenjia Xu, Siyuan Feng, Eric Cousineau, Yilun Du, Benjamin Burchfiel, Russ Tedrake, Shuran Song, 2023.
+
+https://arxiv.org/abs/2303.04137
+
+3
+Is Your Imitation Learning Policy Better than Mine? Policy Comparison with Near-Optimal Stopping
+
+David Snyder, Asher James Hancock, Apurva Badithela, Emma Dixon, Patrick Miller, Rares Andrei Ambrus, Anirudha Majumdar, Masha Itkina, and 1 more, RSS 2025. Show all 9 authors
+
+https://arxiv.org/abs/2503.10966
+
+4
+LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning
+
+Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu, Peter Stone, 2023.
+
+https://arxiv.org/abs/2306.03310
+
+5
+LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models
+
+Senyu Fei, Siyin Wang, Junhao Shi, Zihao Dai, Jikun Cai, Pengfang Qian, Li Ji, Xinzhe He, and 5 more, 2025. Show all 13 authors
+
+https://arxiv.org/abs/2510.13626
+
+6
+Evaluating Real-World Robot Manipulation Policies in Simulation
+
+Xuanlin Li, Kyle Hsu, Jiayuan Gu, Karl Pertsch, Oier Mees, Homer Rich Walke, Chuyuan Fu, Ishikaa Lunawat, and 8 more, 2024. Show all 16 authors
+
+https://arxiv.org/abs/2405.05941
+
+7
+RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies
+
+Pranav Atreya, Karl Pertsch, Tony Lee, Moo Jin Kim, Arhan Jain, Artur Kuramshin, Clemens Eppner, Cyrus Neary, and 24 more, 2025. Show all 32 authors
+
+https://arxiv.org/abs/2506.18123
+
+8
+RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies
+
+Adina Yakefu, Bin Xie, Chongyang Xu, Enwen Zhang, Erjin Zhou, Fan Jia, Haitao Yang, Haoqiang Fan, and 29 more, 2025. Show all 37 authors
+
+https://arxiv.org/abs/2510.17950
+
+9
+DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset
+
+Alexander Khazatsky, Karl Pertsch, Suraj Nair, 2024.
+
+https://arxiv.org/abs/2403.12945

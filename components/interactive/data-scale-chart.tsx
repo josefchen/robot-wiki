@@ -520,9 +520,14 @@ export function DataScaleChart({
         data-testid="oxe-duration-note"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
-        <a href={OXE_DURATION.sourceUrl} className="text-link underline">OXE</a>:
-        {' '}1M+ trajectories across 22 robot embodiments. Total duration is
-        unknown in inspected sources; not plotted on the hours axis.
+        <a
+          data-brand-control-id="control:link-focus"
+          href={OXE_DURATION.sourceUrl}
+          rel="noopener noreferrer"
+          className="text-link underline"
+        >OXE</a>:
+        {' '}1M+ trajectories across 22 robot embodiments. This chart supplies
+        no hour estimate and does not plot OXE on the hours axis.
       </p>
 
       <ChartDescription
@@ -565,7 +570,7 @@ export function DataScaleChart({
             {rate.label.toLowerCase()} rate projects {formatHours(perYear)} per year,
             reaching the authored 10,000-hour target in {formatDuration(targetYears)}
             {' '}and the authored 1,000,000-hour target in {formatDuration(largerTargetYears)}.
-            {' '}OXE duration is unknown in inspected sources and is not plotted.
+            {' '}No OXE hour estimate is supplied or plotted here.
           </>
         }
       />

@@ -1,0 +1,919 @@
+{
+  "startedAt": "2026-09-23T21:59:57.275Z",
+  "endedAt": "2026-09-23T22:00:04.633Z",
+  "observations": [
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "walk@0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "0%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.75"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-default-1440.dom.txt",
+        "bytes": 18293,
+        "sha256": "cf141f79652070d8d0c0d85879e46c21db0342b361c2f5a857a3e0ee9a9e67d3"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-default-1440.png",
+        "bytes": 123323,
+        "sha256": "2a17c532eb9e59f839311e8b5fde55d80b7333aff3d51a93d6e9732e12028cdf"
+      },
+      "observedAt": "2026-09-23T21:59:58.360Z"
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "discrete-options",
+      "prestate": "walk@0",
+      "action": "select trot",
+      "poststate": "trot@0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "0%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.50"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-discrete-options-1440.dom.txt",
+        "bytes": 18279,
+        "sha256": "46890ddd8d5d06f47a2a8fe43744f1160403795155e20e8dae2f7fa3dcfbead9"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-discrete-options-1440.png",
+        "bytes": 122771,
+        "sha256": "a90021545c71154957cde8a3bfb2eb68e4e37f804ee60bcacc087d1c2d74cacc"
+      },
+      "observedAt": "2026-09-23T21:59:58.544Z"
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "trot@20%",
+      "action": "step forward on 5% grid",
+      "poststate": "trot@25%",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "25%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.50"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-1440.dom.txt",
+        "bytes": 18283,
+        "sha256": "6c1e865408efe767fe2758b0544146ab48250abbabc53581d976f9bf843d978c"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-1440.png",
+        "bytes": 124800,
+        "sha256": "ce0eb7c496817bd8495375dd92196c520ae633bfab7490c4ac6d187919044429"
+      },
+      "observedAt": "2026-09-23T21:59:58.708Z"
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "reset",
+      "prestate": "trot@25%",
+      "action": "reset",
+      "poststate": "walk@0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "0%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.75"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-reset-1440.dom.txt",
+        "bytes": 18293,
+        "sha256": "cf141f79652070d8d0c0d85879e46c21db0342b361c2f5a857a3e0ee9a9e67d3"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-reset-1440.png",
+        "bytes": 126144,
+        "sha256": "5625b203acc38d05f07e21cd509fe7403183270815392ecaaa7ed2dc181dce1a"
+      },
+      "observedAt": "2026-09-23T21:59:58.855Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "15-dedicated",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "15,000 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"frontier-years-readout\"]",
+          "text": "66.7 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-1-default-1440.dom.txt",
+        "bytes": 15164,
+        "sha256": "08c41ff39ccad531dc40b080f31907d457fdb44bc3f0171878f6d91a267e829b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-1-default-1440.png",
+        "bytes": 134219,
+        "sha256": "fb3417e4787af42cc536e8e4a15bc6a834202d32993cc9836cbc5a0316fc6968"
+      },
+      "observedAt": "2026-09-23T21:59:59.463Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "reveal prediction",
+      "poststate": "10-low-rate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "70 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "143 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-default-1440.dom.txt",
+        "bytes": 17817,
+        "sha256": "1fcb44b2fa14a29530718662c1b892ebd66161248e2e2b78cb22903cfa67fac2"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-default-1440.png",
+        "bytes": 134931,
+        "sha256": "129e1d7849e6f1b499322e0a83f8a2fca9ac4dc9eb9e59567d63eb13c152e291"
+      },
+      "observedAt": "2026-09-23T21:59:59.600Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "discrete-options",
+      "prestate": "10-low-rate",
+      "action": "select dedicated",
+      "poststate": "10-dedicated",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "10,000 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "1.0 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-1440.dom.txt",
+        "bytes": 17814,
+        "sha256": "0375b1084968c23b2270e8835498989751b92dee8171dd39a4b94c5b82d67641"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-1440.png",
+        "bytes": 133126,
+        "sha256": "3f794eb9233fb5199a787049e5b4cb57143053f91698c826fb8955c46d916736"
+      },
+      "observedAt": "2026-09-23T21:59:59.761Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "reset",
+      "prestate": "10-dedicated",
+      "action": "reset",
+      "poststate": "10-low-rate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "70 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "143 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-reset-1440.dom.txt",
+        "bytes": 17817,
+        "sha256": "1fcb44b2fa14a29530718662c1b892ebd66161248e2e2b78cb22903cfa67fac2"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-reset-1440.png",
+        "bytes": 134945,
+        "sha256": "61d67c07b986c29bd59a202ed6164415339a1dec13df9d0d2ffad85484b9ec73"
+      },
+      "observedAt": "2026-09-23T21:59:59.921Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-1440.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-1440.png",
+        "bytes": 138907,
+        "sha256": "3aaebac2af3c4b5159ff53c02a0091a66d411c4d856daa1ee4662c7943ae1bd9"
+      },
+      "observedAt": "2026-09-23T22:00:00.396Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "p.95-n30",
+      "action": "set horizon 100",
+      "poststate": "p.95-n100",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "0.6%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-slider-boundaries-and-anchors-1440.dom.txt",
+        "bytes": 16961,
+        "sha256": "c88f23af4b73bf3aa1fd00c069b4658652db29be67c1c25ff6fad01757ebc03e"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-slider-boundaries-and-anchors-1440.png",
+        "bytes": 139143,
+        "sha256": "4a23d623c3564de6c7fe11ba4cdfe5fc719129e29dafcddca72007f1c5e67ede"
+      },
+      "observedAt": "2026-09-23T22:00:00.509Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "reset",
+      "prestate": "p.95-n100",
+      "action": "reset",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-1440.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-1440.png",
+        "bytes": 138883,
+        "sha256": "ce0e26a9bddf0e63bc0c7b7dac1c2099e7d483a5e1f0467d8545489b9c2f8a83"
+      },
+      "observedAt": "2026-09-23T22:00:00.643Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "reveal prediction",
+      "poststate": "p.95-n14",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "48.8%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-2-default-1440.dom.txt",
+        "bytes": 18537,
+        "sha256": "7742b70940c93628d4f1a606b0222dc13bec9efbc6d6d580af2da0cd214c6806"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-2-default-1440.png",
+        "bytes": 124743,
+        "sha256": "c4a00c9d4fbc31d257f26ccf8b6f7cea2bf9bb37dbd79e18f4aa0885c8eab908"
+      },
+      "observedAt": "2026-09-23T22:00:00.775Z"
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-1440.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-1440.png",
+        "bytes": 134241,
+        "sha256": "d00c4a7fb093518d3564147d78da3ef989e3babb9cd1f8980c4ebf76672a12a9"
+      },
+      "observedAt": "2026-09-23T22:00:01.295Z"
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "discrete-options",
+      "prestate": "distance-r1-h1.6",
+      "action": "select power-force",
+      "poststate": "force-r1-h1.6",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"force-readout\"]",
+          "text": "316 N"
+        },
+        {
+          "selector": "[data-testid=\"force-limit-readout\"]",
+          "text": "255 N"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-discrete-options-1440.dom.txt",
+        "bytes": 26619,
+        "sha256": "d3e5b9b7469f0f2da59a00ca303b67d5b962d4b06c0e3e77825fe52899171d8f"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-discrete-options-1440.png",
+        "bytes": 138841,
+        "sha256": "dad33ac375f257010e628e1b1618afcd2b4b1af9f299312a76afc3a79573ace8"
+      },
+      "observedAt": "2026-09-23T22:00:01.434Z"
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "reset",
+      "prestate": "force-r1-h1.6",
+      "action": "reset",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-1440.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-1440.png",
+        "bytes": 134660,
+        "sha256": "9c30e3a54c0f91b9c1e81a3a03b7db89d34b85c88a4b29ffdeed66f608803f4c"
+      },
+      "observedAt": "2026-09-23T22:00:01.581Z"
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "walk@0",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "0%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.75"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-default-375.dom.txt",
+        "bytes": 18293,
+        "sha256": "cf141f79652070d8d0c0d85879e46c21db0342b361c2f5a857a3e0ee9a9e67d3"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-default-375.png",
+        "bytes": 43615,
+        "sha256": "efc704f3989508e55266a933566c090f33b12a8bca277b8ea81290b67df33547"
+      },
+      "observedAt": "2026-09-23T22:00:01.985Z"
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "discrete-options",
+      "prestate": "walk@0",
+      "action": "select trot",
+      "poststate": "trot@0",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "0%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.50"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-discrete-options-375.dom.txt",
+        "bytes": 18279,
+        "sha256": "46890ddd8d5d06f47a2a8fe43744f1160403795155e20e8dae2f7fa3dcfbead9"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-discrete-options-375.png",
+        "bytes": 41377,
+        "sha256": "239ce1ea83117c5cfcb4eecd1f51448097be4a2edc56cff68058000222d07aff"
+      },
+      "observedAt": "2026-09-23T22:00:02.114Z"
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "trot@20%",
+      "action": "step forward on 5% grid",
+      "poststate": "trot@25%",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "25%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.50"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-375.dom.txt",
+        "bytes": 18283,
+        "sha256": "6c1e865408efe767fe2758b0544146ab48250abbabc53581d976f9bf843d978c"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-375.png",
+        "bytes": 43104,
+        "sha256": "b04ca77602e517266f6ec60488e93e245c58ca79a15356beeb22d81be22ff35e"
+      },
+      "observedAt": "2026-09-23T22:00:02.247Z"
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "reset",
+      "prestate": "trot@25%",
+      "action": "reset",
+      "poststate": "walk@0",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "0%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.75"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-reset-375.dom.txt",
+        "bytes": 18293,
+        "sha256": "cf141f79652070d8d0c0d85879e46c21db0342b361c2f5a857a3e0ee9a9e67d3"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-reset-375.png",
+        "bytes": 44027,
+        "sha256": "8a6e95bd888fc7c2b866d7ebbafb9e23da858cd439141151dec510e9269549a8"
+      },
+      "observedAt": "2026-09-23T22:00:02.348Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "15-dedicated",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "15,000 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"frontier-years-readout\"]",
+          "text": "66.7 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-1-default-375.dom.txt",
+        "bytes": 15164,
+        "sha256": "08c41ff39ccad531dc40b080f31907d457fdb44bc3f0171878f6d91a267e829b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-1-default-375.png",
+        "bytes": 56163,
+        "sha256": "821ad61efbd413985fe27fc33c204017e833e67c2e096d04a45bbeafc68a3390"
+      },
+      "observedAt": "2026-09-23T22:00:02.770Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "reveal prediction",
+      "poststate": "10-low-rate",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "70 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "143 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-default-375.dom.txt",
+        "bytes": 17817,
+        "sha256": "1fcb44b2fa14a29530718662c1b892ebd66161248e2e2b78cb22903cfa67fac2"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-default-375.png",
+        "bytes": 44710,
+        "sha256": "b363fc5e534d70679bbd70723f50c3fa3c437dbcf539114320463ae68e27f11c"
+      },
+      "observedAt": "2026-09-23T22:00:02.882Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "discrete-options",
+      "prestate": "10-low-rate",
+      "action": "select dedicated",
+      "poststate": "10-dedicated",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "10,000 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "1.0 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-375.dom.txt",
+        "bytes": 17814,
+        "sha256": "0375b1084968c23b2270e8835498989751b92dee8171dd39a4b94c5b82d67641"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-375.png",
+        "bytes": 41681,
+        "sha256": "52c96f4cebc52014f7544463e825f9e921409c00fb0e9eafa1be798356d9baf6"
+      },
+      "observedAt": "2026-09-23T22:00:03.018Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "reset",
+      "prestate": "10-dedicated",
+      "action": "reset",
+      "poststate": "10-low-rate",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "70 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "143 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-reset-375.dom.txt",
+        "bytes": 17817,
+        "sha256": "1fcb44b2fa14a29530718662c1b892ebd66161248e2e2b78cb22903cfa67fac2"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-reset-375.png",
+        "bytes": 43197,
+        "sha256": "d769dee2805cc7a34d4beb28778210b716a3282de5c7d7ab6e5ee598a2b0a7ab"
+      },
+      "observedAt": "2026-09-23T22:00:03.136Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-375.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-375.png",
+        "bytes": 45280,
+        "sha256": "a62601031fc6b7aba7d5c8a53d91948a6461cb387ffdafde387b64910845572d"
+      },
+      "observedAt": "2026-09-23T22:00:03.636Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "p.95-n30",
+      "action": "set horizon 100",
+      "poststate": "p.95-n100",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "0.6%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-slider-boundaries-and-anchors-375.dom.txt",
+        "bytes": 16961,
+        "sha256": "c88f23af4b73bf3aa1fd00c069b4658652db29be67c1c25ff6fad01757ebc03e"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-slider-boundaries-and-anchors-375.png",
+        "bytes": 44825,
+        "sha256": "6f46b16a18bcf8ca57f91fdee3a31c4daea9446a48f1a48cd75b600a6ffbb435"
+      },
+      "observedAt": "2026-09-23T22:00:03.715Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "reset",
+      "prestate": "p.95-n100",
+      "action": "reset",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-375.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-375.png",
+        "bytes": 45241,
+        "sha256": "afb9a0175cc82ab3b99f3cc367f2273b4b2882f5a9a548fbb49e3714257e2f74"
+      },
+      "observedAt": "2026-09-23T22:00:03.831Z"
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "reveal prediction",
+      "poststate": "p.95-n14",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "48.8%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-2-default-375.dom.txt",
+        "bytes": 18537,
+        "sha256": "7742b70940c93628d4f1a606b0222dc13bec9efbc6d6d580af2da0cd214c6806"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-2-default-375.png",
+        "bytes": 42035,
+        "sha256": "b77e74026aa14b0fb9fe0d810923c66e456a35a1b6c8f1fea4a2aa10d9e3fab1"
+      },
+      "observedAt": "2026-09-23T22:00:03.948Z"
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-375.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-375.png",
+        "bytes": 50774,
+        "sha256": "ce65a5fd7a9fd6b3b6ea364115fff55f79055e190dd312cacb2a3d002a8b7597"
+      },
+      "observedAt": "2026-09-23T22:00:04.403Z"
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "discrete-options",
+      "prestate": "distance-r1-h1.6",
+      "action": "select power-force",
+      "poststate": "force-r1-h1.6",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"force-readout\"]",
+          "text": "316 N"
+        },
+        {
+          "selector": "[data-testid=\"force-limit-readout\"]",
+          "text": "255 N"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-discrete-options-375.dom.txt",
+        "bytes": 26619,
+        "sha256": "d3e5b9b7469f0f2da59a00ca303b67d5b962d4b06c0e3e77825fe52899171d8f"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-discrete-options-375.png",
+        "bytes": 44852,
+        "sha256": "8801cfcc8dfae791fc2e29340dadca643b675ba07eb7d16661ad3511407befaa"
+      },
+      "observedAt": "2026-09-23T22:00:04.516Z"
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "reset",
+      "prestate": "force-r1-h1.6",
+      "action": "reset",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-375.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-375.png",
+        "bytes": 43957,
+        "sha256": "3acbf9373fc94d67e0efb1d7adef8b1631e23a333676b519d3b082ac3827fb68"
+      },
+      "observedAt": "2026-09-23T22:00:04.631Z"
+    }
+  ],
+  "errors": []
+}

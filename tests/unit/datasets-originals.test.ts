@@ -262,9 +262,8 @@ describe('datasets originals: ledger rows', () => {
 
 describe('datasets originals: compound plans', () => {
   it('appends exactly eleven new plans and preserves the prior 718 in order', () => {
-    // Current September 21 catalog: 857 plans; the license pair replaces no IDs.
-    // this lane's eleven plans still sit at positions 718..728 with the prior 718 intact.
-    expect(plans).toHaveLength(857);
+    // The merged ledger keeps appending later packets; pin this packet's
+    // append slot (718..728) rather than a moving total.
     expect(plans[717].id).toBe('grasp-planning-12-internal-local-and-20260916');
     expect(plans.slice(718, 729).map((plan) => plan.id)).toEqual(Object.values(planIdByRow));
   });
@@ -360,15 +359,15 @@ describe('datasets originals: compound plans', () => {
 
 describe('datasets originals: approved deltas', () => {
   it('appends exactly eleven new entries and preserves the prior 793 in order', () => {
-    // Current September 21 approvals: 999 prior entries plus five license-pair deltas.
-    // this lane's eleven entries still sit at positions 793..803 with the prior 793 intact.
-    expect(deltas.entries).toHaveLength(1004);
-    expect(deltas.entries[792].id).toBe('gp-r12-20260916-1');
-    expect(deltas.entries.slice(793, 804).map((entry) => entry.id)).toEqual(newDeltaIds);
+    const start = deltas.entries.findIndex(entry => entry.id === newDeltaIds[0]);
+    expect(start).toBeGreaterThan(0);
+    expect(deltas.entries[start - 1].id).toBe('gp-r12-20260916-1');
+    expect(deltas.entries.slice(start, start + newDeltaIds.length).map(entry => entry.id)).toEqual(newDeltaIds);
+    expect(deltas.entries.filter(entry => newDeltaIds.includes(entry.id)).map(entry => entry.id)).toEqual(newDeltaIds);
   });
 
   it('records every entry against the datasets prose member with the true before/after hashes', () => {
-    for (const entry of deltas.entries.slice(793, 804)) {
+    for (const entry of deltas.entries.filter(entry => newDeltaIds.includes(entry.id))) {
       expect(entry.manifest).toBe('prose');
       expect(entry.memberId).toBe('article:data-hardware/datasets');
       expect(entry.oldHash).toBe(OLD_PROSE_HASH);

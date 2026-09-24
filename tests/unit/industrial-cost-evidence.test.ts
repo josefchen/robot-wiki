@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { committedSource } from '../helpers/continuation-integration';
 import {
   compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan,
 } from '../../lib/audit-ledger';
@@ -82,7 +83,9 @@ describe('industrial cost and responsibility coupled originals', () => {
     expect(CITATIONS.find(c => c.id === 'evst-cell-cost-2026')?.authors).toEqual(['EVST Engineering Team']);
     expect(CITATIONS.find(c => c.id === 'osha-otm-robots')?.url)
       .toBe('https://www.osha.gov/otm/section-4-safety-hazards/chapter-4');
-    expect(article).toContain('lastReviewed: "2026-08-22"');
+    expect(committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx'))
+      .toContain('lastReviewed: "2026-08-22"');
+    expect(article).toContain('lastReviewed: "2026-09-24"');
   });
   it('does not credit industrial52 or either held safety conjunction', () => {
     expect(parse().claimRecords[51].evidenceFailures.length).toBeGreaterThan(0);

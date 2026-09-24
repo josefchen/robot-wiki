@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { IntentLink } from '@/components/ui/intent-link';
 import type { ArticleLinkEntry } from '@/lib/backlinks';
 
 /**
@@ -47,13 +47,13 @@ function ArticleLinkSection({
       <ul className="mt-6 list-none space-y-5">
         {entries.map((entry) => (
           <li key={entry.key} data-article-key={entry.key}>
-            <Link
+            <IntentLink
               href={entry.href}
               data-brand-control-id="control:link-focus"
               className="break-words font-sans text-sm font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
             >
               {entry.title}
-            </Link>
+            </IntentLink>
             <p className="mt-1 font-sans text-[13px] leading-relaxed text-text-dim">
               {entry.summary}
             </p>

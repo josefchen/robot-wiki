@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
+import { committedJson } from '../helpers/editorial-current-context';
 
 /**
  * Red-first proof for the state-estimation originals integration
@@ -166,7 +168,15 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
   const lanePlans = plans.filter((plan) => /^state-estimation-\d+-20260916$/.test(plan.id));
 
   it('adds exactly seven reviewed, fully adjudicated plans', () => {
-    expect(plans).toHaveLength(856); // 845 at convergence-aq close + 11 convergence-as industrial plans (2026-09-17)
+    // Identify the original seven plans independently of unrelated migrations.
+    expect(
+      planPacket(plans, [8, 9, 10, 12, 14, 15, 17].map(n => `state-estimation-${n}-20260916`)).map((plan) => plan.rowOrdinal),
+    ).toEqual([8, 9, 10, 12, 14, 15, 17]);
+    const historical = committedJson<typeof plans>(
+      '8e6a835f6e358b7082025b2ef8e402a65718d275', 'audit/compound-evidence.json',
+    );
+    expect(historical).toHaveLength(856);
+    expect(lanePlans).toEqual(historical.filter((plan) => /^state-estimation-\d+-20260916$/.test(plan.id)));
     expect(lanePlans.map((plan) => plan.rowOrdinal).sort((a, b) => a - b)).toEqual([
       8, 9, 10, 12, 14, 15, 17,
     ]);
@@ -187,16 +197,25 @@ describe('state-estimation originals: compound plans and approved deltas', () =>
   });
 
   it('keeps every prior plan object and its order intact', () => {
-    expect(plans[705].id).toBe('reward-design-mpc-original-23-20260916');
-    expect(new Set(plans.map((plan) => plan.id)).size).toBe(856);
+    expect(plans[plans.findIndex(p => p.id === 'state-estimation-8-20260916') - 1].id).toBe('reward-design-mpc-original-23-20260916');
+    // Append-only ledger: uniqueness holds globally; the total keeps growing.
+    expect(new Set(plans.map((plan) => plan.id)).size).toBe(plans.length);
   });
 
   it('adds exactly seven approved-delta entries for this lane', () => {
-    expect(deltas.entries).toHaveLength(996); // 995 at convergence-aq close + 1 convergence-as industrial entry (2026-09-17)
+    // Slot-pinned: this lane's entries sit at 778..784 on the merged ledger.
+    expect(
+      deltas.entries.slice(778, 785).map((entry) => entry.id),
+    ).toEqual([8, 9, 10, 12, 14, 15, 17].map((row) => `se-r${row}-20260916-1`));
+    const historical = committedJson<typeof deltas>(
+      '8e6a835f6e358b7082025b2ef8e402a65718d275', 'contract/brand-v2-approved-deltas.json',
+    );
+    expect(historical.entries).toHaveLength(996);
     const lane = deltas.entries.filter((entry) =>
       /^se-r(8|9|10|12|14|15|17)-20260916-1$/.test(entry.id),
     );
     expect(lane).toHaveLength(7);
+    expect(lane).toEqual(historical.entries.filter((entry) => /^se-r(8|9|10|12|14|15|17)-20260916-1$/.test(entry.id)));
     for (const entry of lane) {
       expect(entry.memberId).toBe('article:classical/state-estimation');
       expect(entry.oldHash).toMatch(/^[a-f0-9]{64}$/);

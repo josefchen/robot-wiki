@@ -7,6 +7,10 @@ import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/
 import { moduleFrontmatterSchema } from '../../data/schemas/module.ts';
 import { CITATIONS } from '../../data/citations.ts';
 import { GAITS, GAIT_ORDER, DEFAULT_GAIT } from '../../lib/gait.ts';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { publishedModules } from '../../data/modules';
+import { currentAuditContext, finalSevenBefore, finalSevenPriorPlans } from '../helpers/residual-integration';
+import { committedJson, committedText } from '../helpers/editorial-current-context';
 
 /**
  * Pins the 2026-09-16i legged-locomotion originals integration: the one
@@ -25,6 +29,17 @@ import { GAITS, GAIT_ORDER, DEFAULT_GAIT } from '../../lib/gait.ts';
 const ROOT = join(import.meta.dirname, '../..');
 const PLAN_ID = 'legged-locomotion-8-duty-factor-disclaimer-20260916i';
 const PARK_URL = 'https://journals.sagepub.com/doi/10.1177/0278364917694244';
+const heldCommit = '5c48b2eb362be0a7e0fad87855740a208a258647';
+const heldLedger = committedText(heldCommit, 'audit/rl-sim2real.md');
+const heldPlans = parseCompoundPlans(committedJson<unknown>(heldCommit, 'audit/compound-evidence.json'));
+const typed = JSON.parse(readFileSync(join(ROOT, 'audit/local-basis.json'), 'utf8')).plans as Array<{
+  id: string; originalId: string; currentTupleDigest: string; parts: unknown[];
+}>;
+const currentTyped = (ordinal: number) => typed.find(p =>
+  p.originalId === `audit/rl-sim2real.md:legged-locomotion:${ordinal}`)!;
+const heldRow8 = () => parseLedger('audit/rl-sim2real.md', heldLedger,
+  new Set(CITATIONS.map(({ id }) => id)), { compoundPlans: heldPlans })
+  .find(s => s.slug === 'legged-locomotion')!.claimRecords[7];
 const EXPECTED_20260916I: Readonly<Record<number, string>> = {
   8: PLAN_ID,
 };
@@ -44,9 +59,10 @@ const PRE_EXISTING_PLANS: Readonly<Record<number, string>> = {
   16: 'boston-control-20260908-legged-locomotion-16',
 };
 
-const loadSection = () => {
-  const markdown = readFileSync(join(ROOT, 'audit/rl-sim2real.md'), 'utf8');
-  const compoundPlans = parseCompoundPlans(
+const loadSection = (historical = false) => {
+  const markdown = historical ? finalSevenBefore('audit/rl-sim2real.md')
+    : readFileSync(join(ROOT, 'audit/rl-sim2real.md'), 'utf8');
+  const compoundPlans = historical ? finalSevenPriorPlans() : parseCompoundPlans(
     JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')),
   );
   const registryIds = new Set(CITATIONS.map(({ id }) => id));
@@ -60,16 +76,24 @@ const loadSection = () => {
     const frontmatter = moduleFrontmatterSchema.parse(matter(readFileSync(file, 'utf8')).data);
     articleCitations[plan.articleSlug] = frontmatter.citations;
   }
+  const localBasis = loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
+  if (historical) {
+    // Do not combine archived compound bindings with their typed replacements.
+    // Only final-seven plans postdate this pinned ledger.
+    localBasis.catalog.plans = localBasis.catalog.plans.filter(p => !p.id.startsWith('final-seven-'));
+    localBasis.catalog.proofs = localBasis.catalog.proofs.filter(p => !p.planId.startsWith('final-seven-'));
+  }
   const sections = parseLedger('audit/rl-sim2real.md', markdown, registryIds, {
     compoundPlans,
     articleCitations,
+    localBasis,
   });
   return { sections, compoundPlans, registryIds, markdown };
 };
 
 describe('legged-locomotion originals integration (2026-09-16i row-8 correction)', () => {
-  it('preserves the held row binding, partial evidence and truthful summary', () => {
-    const { sections, compoundPlans } = loadSection();
+  it('preserves the historical held row binding, partial evidence and truthful summary', () => {
+    const { sections, compoundPlans } = loadSection(true);
     const article = sections.find((section) => section.slug === 'legged-locomotion');
     expect(article).toBeDefined();
     for (const [ordinal, planId] of Object.entries(EXPECTED_20260916I)) {
@@ -105,12 +129,25 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     const r18 = article.claimRecords[17];
     expect(r18.compound?.planId ?? '').toBe('legged-locomotion-18-frontmatter-sweep-20260917a');
     expect(r18.evidenceFailures).toEqual([]);
-    // row 17 stays honestly HELD: the authored-toy schema family
-    // (compoundPlanSchema requiredCitationIds min(1) on an internal
-    // interactive row)
-    const r17 = article.claimRecords[16];
+    // Preserve the formerly held row separately from the later typed closure.
+    const r17 = loadSection(true).sections.find(s => s.slug === 'legged-locomotion')!.claimRecords[16];
     expect(r17.compound?.planId ?? '').toBe('');
     expect(r17.evidenceFailures.length).toBeGreaterThan(0);
+    expect(article.claimRecords[16].localBasis?.planId).toBe('final-seven-rl-sim2real-legged-locomotion-17-20260923');
+    expect(article.claimRecords[16].evidenceFailures).toEqual([]);
+  });
+
+  it('requires complete current typed evidence for both later closures', () => {
+    const context = currentAuditContext();
+    const current = parseLedger('audit/rl-sim2real.md', readFileSync(join(ROOT, 'audit/rl-sim2real.md'), 'utf8'),
+      new Set(CITATIONS.map(c => c.id)), context).find(s => s.slug === 'legged-locomotion')!;
+    for (const ordinal of [8, 17]) {
+      const record = current.claimRecords[ordinal - 1];
+      expect(record.localBasis?.planId).toBe(`final-seven-rl-sim2real-legged-locomotion-${ordinal}-20260923`);
+      expect(record.evidenceFailures).toEqual([]);
+      expect(record.outcome).toBe('passing');
+    }
+    expect(context.compoundPlans.some(p => p.id === PLAN_ID)).toBe(false);
   });
 
   it('binds the two 20260917a paywall rows (1 and 6) to complete compound evidence', () => {
@@ -171,9 +208,9 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
   });
 
   it('preserves the corrected verdict and uncredited Park/local-AND history', () => {
-    const { sections, compoundPlans } = loadSection();
+    const { sections } = loadSection();
     const article = sections.find((section) => section.slug === 'legged-locomotion')!;
-    const r8 = article.claimRecords[7];
+    const r8 = heldRow8();
     expect(r8.claim).toBe('"The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed"');
     expect(r8.verdict).toContain('corrected');
     // source cell: registered citation id + URL, the preparer's live 403
@@ -190,7 +227,7 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     expect(r8.note).toContain('speed-dependent stride length below 3 m/s');
     expect(r8.note).toContain('not a claim about all classical or learned controllers');
     expect(r8.note).toContain("the article's induction over the air-time reward discussion");
-    const plan = compoundPlans.find((p) => p.id === PLAN_ID)!;
+    const plan = heldPlans.find((p) => p.id === PLAN_ID)!;
     expect(plan.parts.map((part) => part.id)).toEqual([
       'l8-classical-instance', 'l8-authored-values-local-AND',
     ]);
@@ -208,6 +245,11 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     expect(localAnd.supportingPassage).toContain('line 64');
     expect(localAnd.supportingPassage).toContain('<Cite id="park-2017-bounding" />');
     expect(plan.adjudications).toEqual([]);
+    const now = article.claimRecords[7];
+    expect(now.verdict).toBe('Cut');
+    expect(now.claim).toContain('universal speed-dependent duty-factor attribution was cut');
+    expect(currentTyped(8).id).toBe('final-seven-rl-sim2real-legged-locomotion-8-20260923');
+    expect(currentTyped(8).currentTupleDigest).toBe(originalClaimDigest(now));
   });
 
   it('pins the local-AND facts at the repo surface the row scopes', () => {
@@ -233,7 +275,15 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     const mdx = readFileSync(
       join(ROOT, 'content/rl-sim2real/legged-locomotion.mdx'), 'utf8');
     expect(mdx).toContain('<GaitDiagram className="my-6" />');
-    expect(mdx).toContain('The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />');
+    expect(finalSevenBefore('content/rl-sim2real/legged-locomotion.mdx')).toContain('The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />');
+    expect(mdx).not.toContain('classical and learned alike, modulate duty factor continuously with speed');
+    expect(mdx).toContain('authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35');
+    expect(committedText(heldCommit, 'content/rl-sim2real/legged-locomotion.mdx'))
+      .toContain('The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />');
+    expect(mdx).not.toContain('canonical nominal values; real controllers');
+    expect(currentTyped(8).currentTupleDigest).toBe(originalClaimDigest(
+      loadSection().sections.find(s => s.slug === 'legged-locomotion')!.claimRecords[7],
+    ));
   });
 
   it('reuses the registered citation with no new registrations', () => {
@@ -254,8 +304,8 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
         "oldTuple": "100f787b1aa8c18b7b9e21c822c4868c3a9888b38737b3d235ef6bcb3bf9025f",
         "withdrawnReviewDigest": "f4946f4ac52e6887639272648c1e729d6fc174f217c6d74bf1cda6784c534644"
     }
-])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
-    const { sections, compoundPlans, markdown } = loadSection();
+])('preserves the former hold $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const { sections, compoundPlans, markdown } = loadSection(true);
     const article = sections.find(s => s.slug === 'legged-locomotion')!;
     const record = article.claimRecords[ordinal - 1];
     const plan = compoundPlans.find(p => p.id === planId)!;
@@ -286,6 +336,9 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     ])).digest('hex')).toBe(withdrawnReviewDigest);
     expect(archived.planReview).not.toBeNull();
     expect(archived.adjudications).toHaveLength(plan.parts.length);
+    const current = loadSection().sections.find(s => s.slug === 'legged-locomotion')!.claimRecords[ordinal - 1];
+    expect(currentTyped(ordinal).currentTupleDigest).toBe(originalClaimDigest(current));
+    expect(current.verdict).toBe('Cut');
   });
 
 });

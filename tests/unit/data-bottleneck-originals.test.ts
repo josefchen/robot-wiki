@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { parseLedger, parseCompoundPlans, originalClaimDigest } from '@/lib/audit-ledger';
+import { parseLedger, originalClaimDigest } from '@/lib/audit-ledger';
 import { CITATIONS } from '@/data/citations';
+import { currentAuditContext, finalSevenBefore, finalSevenPriorPlans } from '../helpers/residual-integration';
+import { planPacket } from '../helpers/audit-plan-history';
 
 const ROOT = join(__dirname, '..', '..');
 const ARTICLE = join(ROOT, 'content', 'data-hardware', 'data-bottleneck.mdx');
@@ -32,20 +34,33 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
   it('all 12 evidence plans are registered and referenced by the ledger', () => {
     const ledger = readFileSync(LEDGER, 'utf8');
     const plans = JSON.parse(readFileSync(PLANS, 'utf8')) as Array<{ id: string; ledgerPath: string; articleSlug: string }>;
-    expect(plans.filter((p) => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'data-bottleneck')).toHaveLength(14);
+    expect(plans.filter((p) => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'data-bottleneck').map(p => p.id)).toEqual(PLAN_IDS);
+    expect(finalSevenPriorPlans().filter(p => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'data-bottleneck')).toHaveLength(14);
+    const selected = plans.filter((p) => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'data-bottleneck');
+    // Originals 3/5 now use typed local proof, not invented compound plans.
+    expect(selected.map((p) => p.id).sort()).toEqual([...PLAN_IDS].sort());
     for (const id of PLAN_IDS) {
       expect(plans.some((p) => p.id === id)).toBe(true);
       expect(ledger.includes(id)).toBe(true);
     }
+    // Earlier plans migrated to typed local evidence; this packet stays contiguous.
+    expect(planPacket(plans, PLAN_IDS).map(p => p.id)).toEqual(PLAN_IDS);
     expect(new Set(plans.map((plan) => plan.id)).size).toBe(plans.length);
   });
 
-  it('keeps both corrected rows unresolved and preserves their exact original tuples', () => {
+  it('preserves both unresolved corrections and verifies their later typed closures', () => {
     const ledger = readFileSync(LEDGER, 'utf8');
-    const plans = parseCompoundPlans(JSON.parse(readFileSync(PLANS, 'utf8')));
-    const section = parseLedger('audit/data-hardware.md', ledger, new Set(CITATIONS.map((c) => c.id)), { compoundPlans: plans })
+    const plans = finalSevenPriorPlans();
+    const ids = new Set(CITATIONS.map(c => c.id));
+    const section = parseLedger('audit/data-hardware.md', finalSevenBefore('audit/data-hardware.md'), ids, { compoundPlans: plans })
       .find((entry) => entry.slug === 'data-bottleneck')!;
+    const current = parseLedger('audit/data-hardware.md', ledger, ids, currentAuditContext())
+      .find(entry => entry.slug === 'data-bottleneck')!;
     expect(section.claimRecords).toHaveLength(14);
+    const local = JSON.parse(readFileSync('audit/local-basis.json', 'utf8')) as {
+      plans: Array<{ id: string; originalId: string; originalBinding: { originalTupleDigest: string };
+        currentTupleDigest: string; evidence: Array<{ citationId: string; sourceUrl: string; supportingPassage: string }> }>;
+    };
     for (const ordinal of [3, 5]) {
       const record = section.claimRecords[ordinal - 1];
       expect(record.verdict).toMatch(/^UNRESOLVED/);
@@ -55,6 +70,22 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
       expect(plan.planReview).toBeNull();
       expect(plan.adjudications).toEqual([]);
       expect(plan.originalCellsDigest).toBe(originalClaimDigest(record));
+      const now = current.claimRecords[ordinal - 1];
+      expect(now.localBasis?.planId).toBe(`final-seven-data-hardware-data-bottleneck-${ordinal}-20260923`);
+      expect(now.outcome).toBe('passing');
+      expect(now.evidenceFailures).toEqual([]);
+    {
+      const record = parseLedger('audit/data-hardware.md', ledger, ids)
+        .find(s => s.slug === 'data-bottleneck')!.claimRecords[ordinal - 1];
+      const plan = local.plans.find(p => p.originalId === `audit/data-hardware.md:data-bottleneck:${ordinal}`)!;
+      expect(plan.id).toBe(`final-seven-data-hardware-data-bottleneck-${ordinal}-20260923`);
+      expect(plan.currentTupleDigest).toBe(originalClaimDigest(record));
+      expect(plan.evidence.some(e => e.sourceUrl.startsWith('https://') && e.supportingPassage.length > 60)).toBe(true);
+      expect(record.verdict).toBe('C');
+      // This deliberately context-free parser cannot certify a typed plan;
+      // it must not silently grant scalar completion credit.
+      expect(record.evidenceFailures).toContain('compound Evidence plan is missing; scalar evidence cannot certify this batch');
+    }
     }
     const historyBody = ledger.split('<!-- data-bottleneck-zero-credit-truth-repair-20260922 -->')[1];
     const history = JSON.parse(historyBody.match(/```json\n([\s\S]*?)\n```/)![1]) as Array<{
@@ -66,6 +97,11 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
       '20650ba68698303275a092afd6efb029284517d375afca1727b0e5740a857527',
     ]);
     expect(history.every((h) => h.completed === false)).toBe(true);
+    for (const ordinal of [3, 5]) {
+      const originalId = `audit/data-hardware.md:data-bottleneck:${ordinal}`;
+      const plan = local.plans.find(p => p.originalId === originalId)!;
+      expect(plan.originalBinding.originalTupleDigest).toBe(history.find(h => h.originalId === originalId)!.beforeTupleDigest);
+    }
   });
 
   it('the 12 bound plans carry integrator plan review and all-supported per-part adjudications', () => {
@@ -85,6 +121,12 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
 
   it('approved deltas carry the 12 new approval entries against the unchanged prose hash', () => {
     const deltas = JSON.parse(readFileSync(DELTAS, 'utf8')) as { entries: Array<{ id: string; oldHash: string; newHash: string }> };
+    // Append-only ledger: pin the packet's slot at 691..702, not the total.
+    expect(
+      deltas.entries.slice(691, 703).map((e) => e.id),
+    ).toEqual(
+      [1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((row) => `db-r${row}-20260915-1`),
+    );
     expect(new Set(deltas.entries.map((entry) => entry.id)).size).toBe(deltas.entries.length);
     const mine = deltas.entries.filter((e) => /^db-r\d+-20260915-1$/.test(e.id));
     expect(mine).toHaveLength(12);

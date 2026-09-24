@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-lab';
 import { DEFAULT_PARAMS, SLIDER_SPECS } from '@/lib/impedance';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ImpedanceContactLab');
 
 /** The rendered numeric peak-force readout, parsed, when numeric. */
 function parsePeak(): number | null {

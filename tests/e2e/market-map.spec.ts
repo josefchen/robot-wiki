@@ -141,7 +141,18 @@ test.describe('market map visualization', () => {
 
     const unitree = page.locator('article[data-company-id="unitree-robotics"]');
     await expect(unitree.locator('[data-field="status"]')).toHaveText('IPO');
-    await expect(unitree.getByText(/5,500/)).toBeVisible();
+    // VAL-MKT-009 (2026-09-24 qualification): the 5,500-unit 2025
+    // shipment, 30,000+ cumulative quadruped and ~33% sales-share
+    // literals were press-repeated prospectus figures (Rest of World);
+    // the Unitree prospectus itself was never inspected, so the card
+    // discloses that scope instead of asserting a count or rank.
+    await expect(
+      unitree.getByText(/not verified from an inspected Unitree company body/),
+    ).toBeVisible();
+    await expect(unitree.getByText(/5,500/)).toHaveCount(0);
+    await expect(unitree.getByText(/30,000\+/)).toHaveCount(0);
+    await expect(unitree.getByText(/33%/)).toHaveCount(0);
+    await expect(unitree.getByText(/profitable since 2025/)).toHaveCount(0);
 
     const covariant = page.locator('article[data-company-id="covariant"]');
     await expect(covariant.getByText('not disclosed').first()).toBeVisible();

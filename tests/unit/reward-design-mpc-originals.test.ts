@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { publishedModules } from '../../data/modules';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger';
 
 const ROOT = join(__dirname, '..', '..');
@@ -53,7 +54,7 @@ function sectionRows(historical = false) {
     registryIds(),
     {
       compoundPlans: JSON.parse(historical ? historicalFile('audit/compound-evidence.json') : readFileSync(PLANS, 'utf8')),
-      ...(!historical ? { localBasis: loadLocalBasisContext(ROOT, ['/rl-sim2real/reward-design-mpc/']) } : {}),
+      ...(!historical ? { localBasis: loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`)) } : {}),
       articleCitations: frontmatterCitations(),
     },
   );

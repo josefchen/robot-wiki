@@ -33,7 +33,17 @@ function articlePerDomain(): string[] {
   });
 }
 
-const STANDALONE = ['/', '/search/', '/market-map/', '/playground/', '/glossary/'];
+const STANDALONE = [
+  '/',
+  '/search/',
+  '/market-map/',
+  '/playground/',
+  '/glossary/',
+  '/a-z/',
+  '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
+];
 const ROUTES = [...articlePerDomain(), ...STANDALONE];
 
 function srgbChannel(value: number): number {

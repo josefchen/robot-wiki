@@ -1,0 +1,43 @@
+name: Content correction
+description: Report a factual error, weak explanation, missing qualification, or outdated source.
+title: "content correction: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Robot Wiki. Criticism and primary-source corrections are welcome. Please do not include private or sensitive information.
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+      description: Link to the exact Robot Wiki article or interactive.
+      placeholder: https://robot-wiki.com/domain/article/
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim or explanation to review
+      description: Quote the shortest passage needed, or name the diagram, table, or interactive state.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should change?
+      description: Explain what is wrong, incomplete, misleading, or outdated.
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Supporting source
+      description: Prefer a paper, standard, official documentation, dataset card, or first-party technical report.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: conflict
+    attributes:
+      label: Relevant connection or conflict
+      description: Optional. State if you authored, maintain, sell, or otherwise work on the subject being corrected.

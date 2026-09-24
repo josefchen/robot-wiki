@@ -160,9 +160,14 @@ describe('source-scoped calibration and TSDF corrections', () => {
 
   it('preserves later scene repairs and the separately authorized row-10 correction', () => {
     const current = records('scene-representation');
-    for (const ordinal of [4, 5, 25, 32, 34, 35, 36, 37, 38, 39]) {
+    for (const ordinal of [4, 5, 25, 26, 27, 31, 32, 33, 34, 35, 36, 37, 38, 39, 45]) {
       expect(current[ordinal - 1].evidenceFailures, `prior original ${ordinal}`).toEqual([]);
     }
+    // Later scene-representation packets completed the formerly excluded
+    // 26/27/31/33/45, and the 20260917a identity sweep bound original 1
+    // (scene-representation-1-identity-sweep-20260917a).
+    expect(current[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
+    expect(current[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
     expect(current[9].verdict).toBe('C');
     expect(current[9].evidenceFailures).toEqual([]);
     expect(current[9].compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');

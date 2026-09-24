@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { useId, useRef, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui';
-import { citationLabel, getCitation } from '@/data/citations';
 import {
   GENERALIST_RELEASES,
   PROVENANCE_TIERS,
@@ -146,7 +146,8 @@ export function GeneralistReleaseTimeline({
   const visible = filterReleases(filter);
   const selected: GeneralistRelease =
     visible.find((r) => r.id === selectedId) ?? visible[0];
-  const citation = getCitation(selected.citationId);
+  const citationFor = useCitationLookup();
+  const citation = citationFor(selected.citationId);
 
   // Spread releases that share a month so every node stays visible.
   const nodeX = (r: GeneralistRelease): number => {
@@ -426,7 +427,7 @@ export function GeneralistReleaseTimeline({
               rel="noopener"
               className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
-              Source: {citationLabel(citation)}
+              Source: {citation.label}
             </a>
             {isVendorReported(selected) && (
               <span className="text-text-dim"> (vendor-reported)</span>

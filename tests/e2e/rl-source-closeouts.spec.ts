@@ -16,6 +16,14 @@ const affected = [...graph].filter(([, value]) =>
     ...value.componentCitationSites.map((site) => site.id)]
     .some((id) => changed.includes(id)),
 );
+// The RL reader owns the widget and Term checks; every other route that
+// renders a changed citation (the production line's offline-RL article cites
+// q-transformer-2023) gets the same citation, reference and page checks.
+const RL_READER = '/rl-sim2real/rl-for-robotics/';
+const AFFECTED_TITLES: Record<string, string> = {
+  [RL_READER]: 'RL for Robotics',
+  '/rl-sim2real/offline-rl/': 'Offline Reinforcement Learning for Robotics',
+};
 
 /** Real viewport slices, retaining original bytes and document coordinates.
  * The useful coverage band avoids both the sticky header and the dev badge;
@@ -61,13 +69,14 @@ for (const width of [1440, 375]) {
     mkdirSync(directory, { recursive: true });
     const errors: string[] = [];
     const requests: string[] = [];
-    expect(affected.map(([route]) => route)).toEqual(['/rl-sim2real/rl-for-robotics/']);
+    expect(affected.map(([route]) => route).sort()).toEqual(Object.keys(AFFECTED_TITLES).sort());
     await forEachInOwnContext(browser, affected, async (page, [route, required]) => {
       page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
       page.on('pageerror', (error) => errors.push(error.message));
       page.on('request', (request) => requests.push(request.url()));
       expect((await page.goto(`http://127.0.0.1:3200${route}`))?.ok()).toBe(true);
-      await expect(page.getByRole('heading', { name: 'RL for Robotics', exact: true, level: 1 })).toBeVisible();
+      await expect(page.getByRole('heading', { name: AFFECTED_TITLES[route], exact: true, level: 1 })).toBeVisible();
+      const capturePrefix = route === RL_READER ? `${width}` : `${width}-${route.split('/').filter(Boolean).join('-')}`;
       const observed = await page.locator('[data-cite-id]').evaluateAll((nodes) =>
         nodes.map((node) => node.getAttribute('data-cite-id') ?? ''),
       );
@@ -78,7 +87,9 @@ for (const width of [1440, 375]) {
       expect(await page.locator('ol [data-reference-id]').evaluateAll((nodes) =>
         nodes.map((node) => node.getAttribute('data-reference-id')),
       )).toEqual(required.references);
-      for (const id of changed) {
+      const rendered = changed.filter((id) => required.references.includes(id));
+      expect(rendered.length).toBeGreaterThan(0);
+      for (const id of rendered) {
         const citation = getCitation(id)!;
         const reference = page.locator(`ol [data-reference-id="${id}"]`);
         await reference.scrollIntoViewIfNeeded();
@@ -93,52 +104,54 @@ for (const width of [1440, 375]) {
         await expect(link).toHaveAttribute('target', '_blank');
         await expect(link).toHaveAttribute('rel', /noopener/);
         await expect(link).toHaveAttribute('rel', /noreferrer/);
-        await captureSlices(page, reference, `${width}-${id}`, directory);
+        await captureSlices(page, reference, `${capturePrefix}-${id}`, directory);
         if (await expand.count()) await expand.click();
       }
-      for (const id of ['sample-efficiency', 'offline-reinforcement-learning', 'hindsight-experience-replay']) {
-        const term = page.locator(`.prose [data-term-id="${id}"]`).first();
-        const trigger = term.locator('a,button').first();
-        await trigger.scrollIntoViewIfNeeded();
-        await trigger.focus();
-        await expect(trigger).toBeFocused();
-        await expect(term.getByRole('tooltip')).toBeVisible();
-        await trigger.hover();
-        await expect(term.getByRole('tooltip')).toBeVisible();
-      }
-      const widget = page.getByTestId('sample-efficiency');
-      await page.mouse.move(0, 0);
-      await page.getByTestId('sample-budget-slider').focus();
-      await captureSlices(page, widget, `${width}-widget-default`, directory);
-      for (const anchor of ANCHORS) {
-        await expect(page.getByTestId(`sample-anchor-${anchor.id}`)).toHaveText(anchor.label);
-      }
-      const opening = await page.getByTestId('sample-wallclock-readout').textContent();
-      for (const value of [BUDGET_SPEC.min, BUDGET_SPEC.max]) {
-        await setSlider(page.getByTestId('sample-budget-slider'), value);
-        await setSlider(page.getByTestId('sample-fleet-slider'), value === BUDGET_SPEC.min ? FLEET_SPEC.min : FLEET_SPEC.max);
-        for (const source of ['sim', 'robot', 'fleet']) {
-          await page.getByTestId(`sample-source-${source}`).check();
-          await expect(page.getByTestId(`sample-source-${source}`)).toBeChecked();
-          await expect(page.getByTestId('sample-provenance-note')).toContainText(/toy|model/i);
+      if (route === RL_READER) {
+        for (const id of ['sample-efficiency', 'offline-reinforcement-learning', 'hindsight-experience-replay']) {
+          const term = page.locator(`.prose [data-term-id="${id}"]`).first();
+          const trigger = term.locator('a,button').first();
+          await trigger.scrollIntoViewIfNeeded();
+          await trigger.focus();
+          await expect(trigger).toBeFocused();
+          await expect(term.getByRole('tooltip')).toBeVisible();
+          await trigger.hover();
+          await expect(term.getByRole('tooltip')).toBeVisible();
         }
+        const widget = page.getByTestId('sample-efficiency');
+        await page.mouse.move(0, 0);
+        await page.getByTestId('sample-budget-slider').focus();
+        await captureSlices(page, widget, `${width}-widget-default`, directory);
+        for (const anchor of ANCHORS) {
+          await expect(page.getByTestId(`sample-anchor-${anchor.id}`)).toHaveText(anchor.label);
+        }
+        const opening = await page.getByTestId('sample-wallclock-readout').textContent();
+        for (const value of [BUDGET_SPEC.min, BUDGET_SPEC.max]) {
+          await setSlider(page.getByTestId('sample-budget-slider'), value);
+          await setSlider(page.getByTestId('sample-fleet-slider'), value === BUDGET_SPEC.min ? FLEET_SPEC.min : FLEET_SPEC.max);
+          for (const source of ['sim', 'robot', 'fleet']) {
+            await page.getByTestId(`sample-source-${source}`).check();
+            await expect(page.getByTestId(`sample-source-${source}`)).toBeChecked();
+            await expect(page.getByTestId('sample-provenance-note')).toContainText(/toy|model/i);
+          }
+        }
+        await captureSlices(page, widget, `${width}-widget-maximum-fleet`, directory);
+        const budget = page.getByTestId('sample-budget-slider');
+        await budget.focus();
+        await page.keyboard.press('ArrowLeft');
+        await expect(budget).not.toHaveValue(String(BUDGET_SPEC.max));
+        await widget.getByRole('button', { name: /reset the budget/i }).click();
+        await expect(budget).toHaveValue(String(BUDGET_SPEC.default));
+        await expect(page.getByTestId('sample-fleet-slider')).toHaveValue(String(FLEET_SPEC.default));
+        await expect(page.getByTestId('sample-source-sim')).toBeChecked();
+        await expect(page.getByTestId('sample-wallclock-readout')).toHaveText(opening!);
+        await expect(page.getByTestId('sample-simplification-label')).toContainText('bands do not rule algorithms in or out');
+        const details = widget.locator('details');
+        if (await details.count() && await details.getAttribute('open') === null) {
+          await details.locator('summary').click();
+        }
+        await expect(widget.getByRole('table')).toBeVisible();
       }
-      await captureSlices(page, widget, `${width}-widget-maximum-fleet`, directory);
-      const budget = page.getByTestId('sample-budget-slider');
-      await budget.focus();
-      await page.keyboard.press('ArrowLeft');
-      await expect(budget).not.toHaveValue(String(BUDGET_SPEC.max));
-      await widget.getByRole('button', { name: /reset the budget/i }).click();
-      await expect(budget).toHaveValue(String(BUDGET_SPEC.default));
-      await expect(page.getByTestId('sample-fleet-slider')).toHaveValue(String(FLEET_SPEC.default));
-      await expect(page.getByTestId('sample-source-sim')).toBeChecked();
-      await expect(page.getByTestId('sample-wallclock-readout')).toHaveText(opening!);
-      await expect(page.getByTestId('sample-simplification-label')).toContainText('bands do not rule algorithms in or out');
-      const details = widget.locator('details');
-      if (await details.count() && await details.getAttribute('open') === null) {
-        await details.locator('summary').click();
-      }
-      await expect(widget.getByRole('table')).toBeVisible();
       const axe = await new AxeBuilder({ page }).analyze();
       expect(axe.violations).toEqual([]);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);

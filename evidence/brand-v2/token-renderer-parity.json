@@ -37,10 +37,10 @@
       "lib/sync-duplicates.ts",
       "scripts/generate-og-cards.ts"
     ],
-    "fingerprint": "c8f0b2f832cd53823014519537738f1db0ad8160ad9fd245f76b1b6b99c1d136"
+    "fingerprint": "28dee62869c5a8763226c136b92f2efc47d098f6b8310a5e15a1085ff58425ef"
   },
-  "cardCount": 48,
-  "paintedProperties": 9743,
+  "cardCount": 58,
+  "paintedProperties": 11773,
   "paintedByCard": [
     {
       "cardId": "site",
@@ -198,6 +198,42 @@
       }
     },
     {
+      "cardId": "manipulation/robot-learning-roadmap",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/action-spaces",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/foundation-models",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
       "cardId": "rl-sim2real/rl-for-robotics",
       "paintedProperties": 203,
       "byHex": {
@@ -282,6 +318,18 @@
       }
     },
     {
+      "cardId": "rl-sim2real/offline-rl",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
       "cardId": "world-models/taxonomy",
       "paintedProperties": 203,
       "byHex": {
@@ -331,6 +379,42 @@
     },
     {
       "cardId": "world-models/generative-sim",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/model-based-robot-learning",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/evaluation",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/world-models-vs-simulators",
       "paintedProperties": 203,
       "byHex": {
         "#0B0B0C": 2,
@@ -403,6 +487,18 @@
     },
     {
       "cardId": "data-hardware/industrial-deployment",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "data-hardware/robot-learning-stack",
       "paintedProperties": 203,
       "byHex": {
         "#0B0B0C": 2,
@@ -487,6 +583,30 @@
     },
     {
       "cardId": "classical/scene-representation",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/calibration",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/ros2-for-ml-engineers",
       "paintedProperties": 203,
       "byHex": {
         "#0B0B0C": 2,
@@ -619,12 +739,12 @@
     }
   ],
   "paintedByHex": {
-    "#0B0B0C": 95,
-    "#242D33": 97,
-    "#245FFF": 47,
-    "#D9DADB": 9408,
-    "#F5F6F7": 48,
-    "#FFFFFF": 48
+    "#0B0B0C": 115,
+    "#242D33": 117,
+    "#245FFF": 57,
+    "#D9DADB": 11368,
+    "#F5F6F7": 58,
+    "#FFFFFF": 58
   },
   "unregisteredPaintedValues": [],
   "mirrorParity": [

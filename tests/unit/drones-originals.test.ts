@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { planPacket } from '../helpers/audit-plan-history';
 import { readFileSync } from 'node:fs';
 import {
   compoundPartDigest,
@@ -7,6 +8,7 @@ import {
   parseCompoundPlans,
 } from '../../lib/audit-ledger';
 import { CITATIONS } from '../../data/citations';
+import { committedJson, committedText } from '../helpers/editorial-current-context';
 
 /**
  * Red-first proof for the drones originals integration (frozen packet
@@ -112,13 +114,11 @@ function rowCells(index: number): string[] {
 
 describe('drones originals: compound plans appended lawfully', () => {
   it('carries exactly the 11 dispatched plans, append-only after the 729 prior plans', () => {
-    // 759 = 740 at the drones checkpoint + 10 space plans appended by the
-    // space originals integration (2026-09-16); the 729 prior prefix and the
-    // 11 drones plans are unchanged.
-    expect(plans.length).toBe(759);
+    // Select the exact packet by identity after the four archived migrations.
+    expect(planPacket(plans, EXPECTED_PLAN_IDS).map((plan) => plan.id)).toEqual(EXPECTED_PLAN_IDS);
     expect(dronePlans.map((plan) => plan.id)).toEqual(EXPECTED_PLAN_IDS);
     // Append-only: no prior plan id moved or disappeared.
-    expect(plans.slice(0, 729).every((plan) => !plan.id.startsWith('drones-'))).toBe(true);
+    expect(plans.slice(0, plans.findIndex(p => p.id === EXPECTED_PLAN_IDS[0])).every((plan) => !plan.id.startsWith('drones-'))).toBe(true);
   });
 
   it('binds every plan to audit/adjacent.md drones with the exact packet part shape', () => {
@@ -250,10 +250,20 @@ describe('drones originals: article corrections applied, not hedged', () => {
 
 describe('drones originals: approved deltas and protected neighbors', () => {
   it('appends exactly the 11 dispatched delta entries after the 804 prior ones', () => {
+    // The merged delta ledger keeps appending later packets; the drones
+    // block keeps its append slot at 1105..1115, so pin the slot, not a
+    // moving total.
+    expect(deltas.entries.slice(1105, 1116).map((entry) => entry.id)).toEqual(
+      EXPECTED_PLAN_IDS.map((id, index) => `dr-r${index + 1}-20260916-1`),
+    );
     // 834 = 815 at the drones checkpoint + 10 space deltas (sp-r*) appended
     // by the space originals integration (2026-09-16).
-    expect(deltas.entries.length).toBe(834);
+    const historical = committedJson<typeof deltas>(
+      '9d8cf9365accd63a580a16738a0b3c7272988904', 'contract/brand-v2-approved-deltas.json',
+    );
+    expect(historical.entries).toHaveLength(834);
     const mine = deltas.entries.filter((entry) => entry.id.startsWith('dr-r'));
+    expect(mine).toEqual(historical.entries.filter((entry) => entry.id.startsWith('dr-r')));
     expect(mine.map((entry) => entry.id)).toEqual(
       EXPECTED_PLAN_IDS.map((id, index) => `dr-r${index + 1}-20260916-1`),
     );
@@ -275,11 +285,22 @@ describe('drones originals: approved deltas and protected neighbors', () => {
     const surgicalSection = lines.slice(surgical, space).join('\n');
     expect(surgicalSection).toContain('11,106 da Vinci systems');
     // The surgical originals integration (2026-09-16) applied rows
-    // 1,2,3,4,6,7,8 with compound plans; the held Maestro row 5 keeps the
-    // original 3-column shape with no evidence plan binding.
+    // 1,2,3,4,6,7,8 with compound plans and held Maestro row 5; the later
+    // 20260917a surgical packet completed row 5 with its own plan. No drones
+    // plan is bound anywhere in the surgical section.
     expect(surgicalSection).toContain('Evidence plan');
     expect(surgicalSection).toContain('| Maestro: first 510(k) December 2022');
-    expect(surgicalSection).not.toContain('surgical-5-');
+    expect(surgicalSection.match(/surgical-5-[a-z0-9-]+/g)).toEqual(['surgical-5-maestro-510k-scopilot-20260917a']);
+    expect(surgicalSection).not.toMatch(/\bdrones-/);
+    // At the drones checkpoint the adjacent Maestro row was not selected;
+    // its subsequent source-backed paywall closeout is not a drones edit.
+    const snapshot = committedText('9d8cf9365accd63a580a16738a0b3c7272988904', 'audit/adjacent.md');
+    const oldSurgical = snapshot.split('## surgical.mdx')[1].split('## space.mdx')[0];
+    expect(oldSurgical).toContain('| Maestro: first 510(k) December 2022');
+    expect(oldSurgical).not.toContain('surgical-5-');
+    expect(surgicalSection).toContain('Evidence plan');
+    expect(surgicalSection).toContain('| Maestro: first 510(k) December 2022');
+    expect(surgicalSection).toContain('surgical-5-maestro-510k-scopilot-20260917a');
   });
 
   it('keeps the prior plan order stable in the append-only compound file', () => {

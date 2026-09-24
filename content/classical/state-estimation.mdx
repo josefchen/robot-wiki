@@ -20,8 +20,8 @@ citations:
   - forster-2017
   - gtsam-2026
 seeAlso:
-  - "classical/control"
-  - "classical/kinematics"
+  - "classical/calibration"
+  - "classical/ros2-for-ml-engineers"
   - "classical/perception"
   - "world-models/latent-dynamics"
 ---
@@ -130,3 +130,9 @@ State estimation is the layer of the classical stack that learning has penetrate
 One connection is deeper than the rest. The latent-dynamics world models in the [world-models](/world-models/latent-dynamics) module are learned state estimators in disguise: a recurrent latent state that predicts the next observation is a belief state by another name, trained end to end instead of derived. What learning changes is where the models come from; the predict-update structure underneath has survived every regime change since 1960.
 
 With estimation in place, the classical stack closes: [kinematics](/classical/kinematics) describes the body, [planning](/classical/motion-planning) picks the motion, [control](/classical/control) executes it, and estimation tells all three what actually happened.
+
+## Timing is part of the state
+
+Many apparent estimator failures begin before the filter. A camera exposure, encoder reading and inertial sample that carry the same receipt time may describe different physical instants. Feeding them into a precise model creates a confident estimate of a state that never existed. Clock offset, transport delay and rolling-shutter timing belong in the measurement contract beside frame and covariance.
+
+Test the pipeline in that order: verify clock domains and timestamp monotonicity, measure sensor latency, validate transforms, then tune process and measurement noise. Replay a recorded motion and inspect innovations by sensor; persistent directional residuals suggest calibration or timing bias rather than random noise. The [calibration guide](/classical/calibration) covers spatial and temporal residuals, while the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers timestamped message and transform interfaces. A larger covariance can express uncertainty. It cannot repair misassociated time.

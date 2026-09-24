@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { CORRECTION_TARGETS, parseCorrectedDispositions, validateCorrectedDisposition } from '../../lib/audit-corrected-disposition.ts';
 
 /**
  * Pins the 2026-09-15 control-originals integration: the eleven dispatched
@@ -26,9 +27,7 @@ const EXPECTED: Readonly<Record<number, string>> = {
 };
 
 const EXPECTED_20260916F: Readonly<Record<number, string>> = {
-  1: 'control-1-astrom-20260916f',
-  2: 'control-2-astrom-20260916f',
-  3: 'control-3-astrom-20260916f',
+  3: 'control-3-zn-effects-20260924',
   11: 'control-11-qb-20260916f',
   13: 'control-13-dc-20260916f',
   16: 'control-16-kh-20260916f',
@@ -40,6 +39,63 @@ const EXPECTED_20260917A: Readonly<Record<number, string>> = {
 };
 
 describe('control originals integration (2026-09-16 evidence completions)', () => {
+  it('requires finite removal evidence for exactly the two withdrawn prevalence rows', () => {
+    expect(Object.keys(CORRECTION_TARGETS).filter(id => id.startsWith('audit/classical.md:control:')))
+      .toEqual(['audit/classical.md:control:1', 'audit/classical.md:control:2']);
+    const corrections = parseCorrectedDispositions([
+      ...JSON.parse(readFileSync(join(ROOT, 'audit/evidence/industrial-closure-20260923/corrections.json'), 'utf8')),
+      ...JSON.parse(readFileSync(join(ROOT, 'audit/evidence/classical-closure-20260923/corrections.json'), 'utf8')),
+    ]);
+    expect(corrections).toHaveLength(7);
+    const plans = parseCompoundPlans(JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')));
+    const rows = parseLedger('audit/classical.md', readFileSync(join(ROOT, 'audit/classical.md'), 'utf8'),
+      new Set(CITATIONS.map(c => c.id)), {
+        compoundPlans: plans, correctedDispositions: { root: ROOT, records: corrections },
+      }).find(s => s.slug === 'control')!.claimRecords;
+    for (const n of [1, 2]) {
+      const correction = corrections.find(c => c.originalId === `audit/classical.md:control:${n}`)!;
+      expect(rows[n - 1].correctedDisposition?.id).toBe(correction.id);
+      expect(rows[n - 1].evidenceFailures).toEqual([]);
+      expect(validateCorrectedDisposition({ ...correction, requiredAbsent: correction.requiredAbsent.slice(1) },
+        rows[n - 1], correction.id, rows, { root: ROOT, records: corrections }))
+        .toContain('corrected disposition: missing/stale correction semantic review');
+      expect(validateCorrectedDisposition({ ...correction, currentTupleDigest: '0'.repeat(64) },
+        rows[n - 1], correction.id, rows, { root: ROOT, records: corrections }))
+        .toContain('corrected disposition: correction current tuple drift');
+    }
+  });
+
+  it('binds supported replacement parts without a historical-priority shortcut', () => {
+    const plans = parseCompoundPlans(JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')));
+    const control = plans.filter(p => p.ledgerPath === 'audit/classical.md' && p.articleSlug === 'control');
+    const three = control.find(p => p.rowOrdinal === 3)!;
+    const seven = control.find(p => p.rowOrdinal === 7)!;
+    expect(control.some(p => p.rowOrdinal === 1 || p.rowOrdinal === 2)).toBe(false);
+    expect(three.parts.map(p => p.id)).toEqual(['c3-proportional', 'c3-reset', 'c3-preact']);
+    expect(three.evidence.map(e => e.citationId)).toEqual(Array(3).fill('ziegler-nichols-1942'));
+    expect(seven.parts.map(p => p.id)).toEqual(['c7-state', 'c7-cost', 'c7-policy', 'c7-are']);
+    expect(seven.evidence.map(e => e.citationId)).toEqual(Array(4).fill('tedrake-underactuated'));
+    expect(seven.evidence.map(e => e.sourceUrl)).toEqual(Array(4).fill('https://underactuated.mit.edu/lqr.html'));
+    expect(control.flatMap(p => p.evidence).some(e => e.citationId === 'astrom-murray-2008' || e.citationId === 'kalman-1960')).toBe(false);
+  });
+
+  it('removes unsupported active Åström and Kalman claims without removing control interactions', () => {
+    const article = readFileSync(join(ROOT, 'content/classical/control.mdx'), 'utf8');
+    const frontmatter = article.slice(0, article.indexOf('---', 4));
+    expect(article).not.toMatch(/(?:more than 95%|>95%|many of them without the D|Åström and Murray's reading|Kalman's 1960 formulation)/i);
+    expect(frontmatter).not.toContain('astrom-murray-2008');
+    expect(frontmatter).not.toContain('kalman-1960');
+    expect(article).not.toContain('<Cite id="astrom-murray-2008" />');
+    expect(article).not.toContain('<Cite id="kalman-1960" />');
+    expect(article).toContain('<Cite id="ziegler-nichols-1942" />');
+    expect(article).toContain('<Cite id="tedrake-underactuated" />');
+    expect(article.match(/<PendulumController\b/g)).toHaveLength(2);
+    expect(article).toContain('<ImpedanceContactLab');
+    expect(article).toContain('<SelfCheck');
+    expect(article).toContain('<PredictThenReveal');
+    expect(article).toContain('A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0');
+  });
+
   it('binds the six applied control rows to complete compound evidence', () => {
     const markdown = readFileSync(join(ROOT, 'audit/classical.md'), 'utf8');
     const compoundPlans = parseCompoundPlans(
@@ -114,14 +170,19 @@ describe('control originals integration (2026-09-16 evidence completions)', () =
     }
   });
 
-  it('records integrator plan review on every 20260916f control plan', () => {
+  it('records integrator plan review on every retained 20260916f control plan', () => {
     const compoundPlans = parseCompoundPlans(
       JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')),
     );
     for (const planId of Object.values(EXPECTED_20260916F)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
-      expect(plan.planReview?.rationale).toContain('7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3');
+      if (planId === 'control-3-zn-effects-20260924') {
+        expect(plan.planReview?.reviewedBy).toContain('Droid Sol/max integrator');
+        expect(plan.planReview?.rationale).toContain('1942 reproduction');
+      } else {
+        expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+        expect(plan.planReview?.rationale).toContain('7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3');
+      }
     }
   });
 });
@@ -156,8 +217,13 @@ describe('control originals integration (2026-09-15)', () => {
     );
     for (const planId of Object.values(EXPECTED)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
-      expect(plan.planReview?.rationale).toContain('9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af');
+      if (planId === 'control-c7-lqr-riccati-20260915') {
+        expect(plan.planReview?.reviewedBy).toContain('Droid Sol/max integrator');
+        expect(plan.planReview?.rationale).toContain('Tedrake chapter 8');
+      } else {
+        expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+        expect(plan.planReview?.rationale).toContain('9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af');
+      }
     }
   });
 });

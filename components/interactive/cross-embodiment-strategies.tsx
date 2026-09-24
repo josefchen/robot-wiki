@@ -1,12 +1,13 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui';
-import { citationLabel, getCitation } from '@/data/citations';
 import {
   EEF_SPACE_DIMS,
   EMBODIMENT_ORDER,
   LATENT_DIMS,
+  RELATIVE_EEF_CONTEXT_CITATION_ID,
   SHARED_WIDTH,
   STRATEGIES,
   STRATEGY_ORDER,
@@ -170,8 +171,10 @@ export function CrossEmbodimentStrategies({
   const descriptionId = `${useId()}-description`;
   const [strategyId, setStrategyId] = useState<StrategyId>(defaultStrategy);
   const strategy = STRATEGIES[strategyId];
-  const citation = getCitation(strategy.citationId);
-  const extraCitation = strategyId === 'relative-eef' ? getCitation('egoscale-2026') : undefined;
+  const citationFor = useCitationLookup();
+  const citation = citationFor(strategy.citationId);
+  const extraCitation =
+    strategyId === 'relative-eef' ? citationFor(RELATIVE_EEF_CONTEXT_CITATION_ID) : undefined;
 
   function reset() {
     setStrategyId(defaultStrategy);
@@ -310,7 +313,7 @@ export function CrossEmbodimentStrategies({
               rel="noopener"
               className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
-              Source context: {citationLabel(citation)}
+              Source context: {citation.label}
             </a>
           </p>
         )}
@@ -323,7 +326,7 @@ export function CrossEmbodimentStrategies({
               rel="noopener"
               className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
-              Source context: {citationLabel(extraCitation)}
+              Source context: {extraCitation.label}
             </a>
           </p>
         )}

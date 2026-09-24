@@ -1,0 +1,349 @@
+{
+  "schemaVersion": "residual-release-dependency-review-v1",
+  "observedAt": "2026-09-24T02:07:23.153615+00:00",
+  "reviewedBy": "Robot Wiki release steward, not independent Mission acceptance",
+  "rationale": "Exact ba934e6/1626b43 integration. Whole historical files, receipt timestamps, commands, observations and previous reviews are immutable. This dependency review does not assert a new browser execution; current merged reader observations are recorded separately.",
+  "bindings": [
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 63493,
+        "sha256": "a2b622b8819f9d8cf909afd68135945809c249059d23a27226d00aede6bd11c5"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-closure-20260923/original-checker.ts.txt",
+        "bytes": 40817,
+        "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      },
+      "rationale": "Reviewed additive data-scale/reliability finite recipes, four new targets, bounded schema capacity and mode-specific safety display. Existing reward/economics/parallel/classical recipe implementations and prior run artifacts are unchanged; archived historical checker bytes remain their old execution context, not replayed or treated as new observations. Final checker bytes also include strict, finite data-scale and reliability recipe input cases; none change historical recipe branches, input validation of old proofs, or prior persisted run receipts. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately. Assertion-only release follow-through: the sole checker change pins the classical test after preserving its complete numeric producer/oracle prefix and reconciling the separately released economics replacement. No recipe, old receipt, captured output or historical dependency bytes changed. Added one finite retained safety component identity for the exact 0\u20132 to 0 to 2 typography-only replacement. No derivation code or original execution bytes changed."
+    },
+    {
+      "historical": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19273,
+        "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+      },
+      "current": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19397,
+        "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-closure-20260923/before-article.mdx",
+        "bytes": 19273,
+        "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+      },
+      "preservedText": [
+        "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      ],
+      "rationale": "Industrial52 disclosure and component/model remain unchanged. Only separate arithmetic examples, LEI definitions, unsupported attribution/certainty and dashboard count change; none reinterprets old robot-cost observations. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately."
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44206,
+        "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 63493,
+        "sha256": "a2b622b8819f9d8cf909afd68135945809c249059d23a27226d00aede6bd11c5"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-release-20260923/release-before-checker.ts.txt",
+        "bytes": 44206,
+        "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+      },
+      "rationale": "Checker: exact reviewed additive economics-examples dispatch plus merged read-only provenance compatibility. All old recipes, model dependencies, recomputation, receipts and AND obligations remain enforced. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately. Assertion-only release follow-through: the sole checker change pins the classical test after preserving its complete numeric producer/oracle prefix and reconciling the separately released economics replacement. No recipe, old receipt, captured output or historical dependency bytes changed. Added one finite retained safety component identity for the exact 0\u20132 to 0 to 2 typography-only replacement. No derivation code or original execution bytes changed.",
+      "preservedText": []
+    },
+    {
+      "historical": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19271,
+        "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
+      },
+      "current": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19397,
+        "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-release-20260923/release-before-article.mdx.txt",
+        "bytes": 19271,
+        "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
+      },
+      "rationale": "Article: exact mission industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately.",
+      "preservedText": [
+        "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      ]
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 63493,
+        "sha256": "a2b622b8819f9d8cf909afd68135945809c249059d23a27226d00aede6bd11c5"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/checker-before.ts.txt",
+        "bytes": 44430,
+        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      },
+      "rationale": "Reviewed additive data-scale/reliability finite recipes, four new targets, bounded schema capacity and mode-specific safety display. Existing reward/economics/parallel/classical recipe implementations and prior run artifacts are unchanged; archived historical checker bytes remain their old execution context, not replayed or treated as new observations. Final checker bytes also include strict, finite data-scale and reliability recipe input cases; none change historical recipe branches, input validation of old proofs, or prior persisted run receipts. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately. Assertion-only release follow-through: the sole checker change pins the classical test after preserving its complete numeric producer/oracle prefix and reconciling the separately released economics replacement. No recipe, old receipt, captured output or historical dependency bytes changed. Added one finite retained safety component identity for the exact 0\u20132 to 0 to 2 typography-only replacement. No derivation code or original execution bytes changed."
+    },
+    {
+      "historical": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "current": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19397,
+        "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      },
+      "snapshot": {
+        "path": "audit/evidence/industrial-release-20260923/industrial-article.mdx.txt",
+        "bytes": 19399,
+        "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
+      },
+      "rationale": "Article: exact mission industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately.",
+      "preservedText": [
+        "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
+      ]
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 63493,
+        "sha256": "a2b622b8819f9d8cf909afd68135945809c249059d23a27226d00aede6bd11c5"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/checker-at-execution.ts.txt",
+        "bytes": 52190,
+        "sha256": "2dbee98e012cc1f34ffbeb14919ce64bf77c58fb717137259d57054600786112"
+      },
+      "rationale": "Reviewed additive data-scale/reliability finite recipes, four new targets, bounded schema capacity and mode-specific safety display. Existing reward/economics/parallel/classical recipe implementations and prior run artifacts are unchanged; archived historical checker bytes remain their old execution context, not replayed or treated as new observations. Final checker bytes also include strict, finite data-scale and reliability recipe input cases; none change historical recipe branches, input validation of old proofs, or prior persisted run receipts. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately. Assertion-only release follow-through: the sole checker change pins the classical test after preserving its complete numeric producer/oracle prefix and reconciling the separately released economics replacement. No recipe, old receipt, captured output or historical dependency bytes changed. Added one finite retained safety component identity for the exact 0\u20132 to 0 to 2 typography-only replacement. No derivation code or original execution bytes changed."
+    },
+    {
+      "historical": {
+        "path": "data/glossary.ts",
+        "bytes": 83491,
+        "sha256": "8de5ceeed550244ccc7e83e27056d2721b26723e94dff0cf77548c3fe465adf0"
+      },
+      "current": {
+        "path": "data/glossary.ts",
+        "bytes": 83261,
+        "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+      },
+      "snapshot": {
+        "path": "audit/evidence/classical-closure-20260923/glossary-before.ts.txt",
+        "bytes": 83491,
+        "sha256": "8de5ceeed550244ccc7e83e27056d2721b26723e94dff0cf77548c3fe465adf0"
+      },
+      "rationale": "Verified 3 exact prepared replacements in DH and inverse-kinematics only. No term used by the industrial correction changed; their original tooltip observations remain applicable, not newly claimed. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately."
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 54444,
+        "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 63493,
+        "sha256": "a2b622b8819f9d8cf909afd68135945809c249059d23a27226d00aede6bd11c5"
+      },
+      "snapshot": {
+        "path": "audit/evidence/final-seven-closure-20260923/before-checker.ts.txt",
+        "bytes": 54444,
+        "sha256": "828b11a142c2a180002fbf7e85042d54ab846a701fb4ac5c3005a219899009f9"
+      },
+      "rationale": "Reviewed the exact 54,444-byte pre-change checker snapshot against current patch: existing finite formula branches and review/input/hash safeguards unchanged. Added only requested target recipes and mode-correct safety adapter; prior crossdomain actual runs are retained and not reissued. Final checker bytes also include strict, finite data-scale and reliability recipe input cases; none change historical recipe branches, input validation of old proofs, or prior persisted run receipts. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately. Assertion-only release follow-through: the sole checker change pins the classical test after preserving its complete numeric producer/oracle prefix and reconciling the separately released economics replacement. No recipe, old receipt, captured output or historical dependency bytes changed. Added one finite retained safety component identity for the exact 0\u20132 to 0 to 2 typography-only replacement. No derivation code or original execution bytes changed."
+    },
+    {
+      "historical": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 58174,
+        "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+      },
+      "current": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 63493,
+        "sha256": "a2b622b8819f9d8cf909afd68135945809c249059d23a27226d00aede6bd11c5"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/lib--audit-local-basis.ts.txt",
+        "bytes": 58174,
+        "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+      },
+      "rationale": "Preserve main provenance portability and all incoming finite recipe branches. Every historical recipe is independently recomputed; external obligations, source hashes, conjunctions and immutable receipts remain enforced. Assertion-only release follow-through: the sole checker change pins the classical test after preserving its complete numeric producer/oracle prefix and reconciling the separately released economics replacement. No recipe, old receipt, captured output or historical dependency bytes changed. Added one finite retained safety component identity for the exact 0\u20132 to 0 to 2 typography-only replacement. No derivation code or original execution bytes changed.",
+      "preservedText": []
+    },
+    {
+      "historical": {
+        "path": "components/interactive/data-scale-chart.tsx",
+        "bytes": 19962,
+        "sha256": "cedc101e3451f47ff18dae62c4c4501548eef6c649cf23beb541cc49fbf83709"
+      },
+      "current": {
+        "path": "components/interactive/data-scale-chart.tsx",
+        "bytes": 20080,
+        "sha256": "6d95c5b717f0fdbe1f56c5a2c5bd70dde5ee3dcc4fa5fe3c44def6bdab5e3c85"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/components--interactive--data-scale-chart.tsx.txt",
+        "bytes": 19962,
+        "sha256": "cedc101e3451f47ff18dae62c4c4501548eef6c649cf23beb541cc49fbf83709"
+      },
+      "rationale": "Only retain the main registered link-focus annotation and noopener noreferrer relationship on the OXE source link. All incoming text, model, controls and layout otherwise match ba934e6.",
+      "preservedText": []
+    },
+    {
+      "historical": {
+        "path": "components/interactive/generalist-release-timeline.tsx",
+        "bytes": 15363,
+        "sha256": "62ae73ae8b4e758cf4fe23e2bb2d06ea7e83c63d6cfc3727f6fc93d13b26796c"
+      },
+      "current": {
+        "path": "components/interactive/generalist-release-timeline.tsx",
+        "bytes": 15409,
+        "sha256": "5266f4ae13b9f8ed59435d162a4059e6000cc1ab9068ad9aaa218fef259ced91"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/components--interactive--generalist-release-timeline.tsx.txt",
+        "bytes": 15363,
+        "sha256": "62ae73ae8b4e758cf4fe23e2bb2d06ea7e83c63d6cfc3727f6fc93d13b26796c"
+      },
+      "rationale": "Retain the released scoped citation lookup to avoid bundling the full citation registry; preserve incoming selection disclosure, source URL and rendered canonical citation label.",
+      "preservedText": []
+    },
+    {
+      "historical": {
+        "path": "components/interactive/perception-error-budget.tsx",
+        "bytes": 17977,
+        "sha256": "99129aeae101f10d5e5e0035da656b8bc1a71fc05d273ab4ecbba82c6d847f9a"
+      },
+      "current": {
+        "path": "components/interactive/perception-error-budget.tsx",
+        "bytes": 17989,
+        "sha256": "ecf0e9b43cc89cc6135846f784f823f46345feca9c775e1c4a5e63758f42fca1"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/components--interactive--perception-error-budget.tsx.txt",
+        "bytes": 17977,
+        "sha256": "99129aeae101f10d5e5e0035da656b8bc1a71fc05d273ab4ecbba82c6d847f9a"
+      },
+      "rationale": "Only the import owner differs: the released scoped citation-records CiteRef preserves the same canonical citation behavior; all incoming authored model labels and controls remain.",
+      "preservedText": []
+    },
+    {
+      "historical": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24250,
+        "sha256": "945069f1b69d2b369e87fe143eb3e7748bd3893a0e5ebf3549f9547eed063890"
+      },
+      "current": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24518,
+        "sha256": "9b27aeb6c7abf475c7050bad199b7f5f41cf3013c2eeda7d3575354f0b41bdfe"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/content--classical--motion-planning.mdx.txt",
+        "bytes": 24250,
+        "sha256": "945069f1b69d2b369e87fe143eb3e7748bd3893a0e5ebf3549f9547eed063890"
+      },
+      "rationale": "Retain main-only learning-stack integration prose and see-also links alongside the incoming authored RRT disclosure; the recipe, widget and complete disclosure remain.",
+      "preservedText": [
+        "The interactive below uses an authored 2D scene: a 100 by 64 world with five obstacles."
+      ]
+    },
+    {
+      "historical": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 34910,
+        "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e"
+      },
+      "current": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 35934,
+        "sha256": "a78229b59f433a43912821f7d18eab400cafcf0356000dbcd6a09d37d0f9f55b"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/content--classical--perception.mdx.txt",
+        "bytes": 34910,
+        "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e"
+      },
+      "rationale": "Retain main-only geometric-error guidance and calibration/ROS links alongside the incoming source corrections and model disclosures. No selected source or equation changes.",
+      "preservedText": [
+        "That authored grouping is an editorial guide, not an exhaustive subsystem count or proof that their errors form one statistical budget.",
+        "The instrument combines three authored input magnitudes labelled hand-eye, depth and pose.",
+        "The instrument uses an illustrative ray-to-plane model, not a full three-dimensional hand-eye error model."
+      ]
+    },
+    {
+      "historical": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 13606,
+        "sha256": "4ee6b58843f33a444338ec8f3b13a1971aa2e9073efad54fe630482ff0925517"
+      },
+      "current": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 14756,
+        "sha256": "8c93a0ed162fe063370288a0088b72145accd657dcc0a37b9de8db0e613e126b"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/content--world-models--taxonomy.mdx.txt",
+        "bytes": 13606,
+        "sha256": "4ee6b58843f33a444338ec8f3b13a1971aa2e9073efad54fe630482ff0925517"
+      },
+      "rationale": "Retain released Stat date-range typography and main-only related guides; incoming authored finite taxonomy selection disclosure remains unchanged.",
+      "preservedText": [
+        "The six example groups below are this article's authored selection, not an exhaustive or universally agreed scientific taxonomy. Their panels compare different prediction targets and uses; selecting a panel is not a benchmark comparison between the named systems."
+      ]
+    },
+    {
+      "historical": {
+        "path": "components/interactive/collaborative-operation-modes.tsx",
+        "bytes": 20171,
+        "sha256": "9c0bd13f8229c37ddb1acaf2f669e597d4326d806c860b90e3dfe2a20bb3d7eb"
+      },
+      "current": {
+        "path": "components/interactive/collaborative-operation-modes.tsx",
+        "bytes": 20172,
+        "sha256": "7b6f054ac59bef093fc47dd35c900607ec40e7ddc9d4efe7ddeda786f076b5c1"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/collaborative-operation-modes-before-range.tsx.txt",
+        "bytes": 20171,
+        "sha256": "9c0bd13f8229c37ddb1acaf2f669e597d4326d806c860b90e3dfe2a20bb3d7eb"
+      },
+      "rationale": "Exact single range-separator replacement for the rendered-prose release gate: 0\u20132 m/s becomes 0 to 2 m/s. All constants, imports, controls, algorithms, semantic qualifications and other bytes remain equal. Old receipts remain historical; a separate final-seven-range browser run verifies the current reader.",
+      "preservedText": [
+        "with both sliders choosing 0 to 2 m/s",
+        "in 0.05 m/s steps",
+        "illustrative, not measurements or safety certification."
+      ]
+    }
+  ],
+  "priorReview": {
+    "path": "audit/evidence/residual-release-20260924/dependency-review-before-safety-range.json",
+    "bytes": 22006,
+    "sha256": "b1bf0bf170329c36bc359414546536fd04feb8d849a72dcb8ee6a6678bc6ebf3"
+  }
+}

@@ -1,8 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { PerceptionErrorBudget } from '@/components/interactive/perception-error-budget';
 import { SLIDER_SPECS } from '@/lib/perception-error';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('PerceptionErrorBudget');
 
 function slider(name: RegExp) {
   return screen.getByRole('slider', { name });

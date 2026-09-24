@@ -1,0 +1,164 @@
+[
+  {
+    "id": "classical-closure-kinematics-11-20260923",
+    "originalId": "audit/classical.md:kinematics:11",
+    "rowOrdinal": 11,
+    "kind": "removed-assertion",
+    "originalCells": {
+      "claim": "Wampler DLS: dq = J^T(JJ^T + lambda^2 I)^-1 dx, governed by the single scalar lambda",
+      "sourceChecked": "wampler-1986",
+      "verdict": "V",
+      "note": ""
+    },
+    "originalTupleDigest": "796d3393946b44d597c19858b15a388d4aec5966908281921ab15093dae6f0f5",
+    "snapshot": {
+      "path": "audit/evidence/classical-closure-20260923/classical-original-2cf7d6b.md",
+      "bytes": 67494,
+      "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc"
+    },
+    "currentCells": {
+      "claim": "Removed: the Wampler-attributed DLS equation, single-scalar account and associated general conditioning guarantees are no longer asserted by this article or its inverse-kinematics glossary entry.",
+      "sourceChecked": "Exact before/after article, metadata and glossary removal proof; Wampler DOI and unavailable-body history retained, not used as proof of the removed formula.",
+      "verdict": "Cut",
+      "note": "Original identity and four cells are preserved. No external passage establishing the removed assertion is required or invented. Approved solver, controls, supported tolerance and iterative-IK context remain unchanged. Record completion only after actual removal checks and review of the remaining text. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+    },
+    "currentTupleDigest": "fcf1101b18556fcbac844c512db36c295cfbe7da441ec177161a3de1fda67ee2",
+    "article": {
+      "path": "content/classical/kinematics.mdx",
+      "bytes": 12030,
+      "sha256": "cbe5049818b17aa9e1ef546e2fe71806fc8735fed30d6d08a2158b6f1e5f3551"
+    },
+    "dependencies": [
+      {
+        "path": "lib/ik.ts",
+        "bytes": 18933,
+        "sha256": "df606ff4d6f7701a7c96fbee009902173c4f7308f0d1ca4bd051337faec18c3b"
+      },
+      {
+        "path": "data/glossary.ts",
+        "bytes": 83261,
+        "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+      },
+      {
+        "path": "components/interactive/planar-fk-arm.tsx",
+        "bytes": 9167,
+        "sha256": "4bff90efd06777cd9b61ed84e11edc40b9af4178e7b7c456de1a2ef05ab301b3"
+      },
+      {
+        "path": "components/mdx/dh-parameter-table.tsx",
+        "bytes": 3098,
+        "sha256": "0c74df76aed78540ca366346987034d9fa1c38310434821b145f8ea79ebd756f"
+      }
+    ],
+    "requiredPresent": [
+      "<PlanarFkArm",
+      "<DhParameterTable",
+      "/playground",
+      "±0.5mm",
+      "product-of-exponentials",
+      "A_i = \\begin{bmatrix}"
+    ],
+    "requiredAbsent": [
+      "Wampler",
+      "Levenberg-Marquardt",
+      "\\lambda^2 I",
+      "residual decreases monotonically",
+      "wampler-1986",
+      "levenberg-1944",
+      "marquardt-1963"
+    ],
+    "execution": {
+      "path": "audit/evidence/residual-release-20260924/kinematics-removal-run.json",
+      "bytes": 5583,
+      "sha256": "c41a6188913629df76ba6008b6dc806d7cd734a045e404326c31a9f32dd712d0"
+    },
+    "children": [],
+    "review": {
+      "reviewedBy": "Robot Wiki release steward, not independent Mission acceptance",
+      "rationale": "Inspected fresh desktop/mobile captures, current article and glossary, retained DH matrix and FK controls, real playground link, absence of unsupported attribution and formula, and unchanged solver. Source histories and all older execution records are preserved. This binds current merged dependencies to genuine new reader observations, not a relabelled earlier execution.",
+      "observedAt": "2026-09-24T01:17:16.306Z",
+      "inputDigest": "bb432228e3da9fc576c65e74c1f2796058a3ca1fa7e506136f4c54d4bb5242e0"
+    }
+  },
+  {
+    "id": "classical-closure-kinematics-12-20260923",
+    "originalId": "audit/classical.md:kinematics:12",
+    "rowOrdinal": 12,
+    "kind": "removed-assertion",
+    "originalCells": {
+      "claim": "Levenberg-Marquardt pattern: accept only on residual decrease, lambda down on success, up on failure",
+      "sourceChecked": "levenberg-1944, marquardt-1963",
+      "verdict": "V",
+      "note": ""
+    },
+    "originalTupleDigest": "21c53319e6e4a424fce0d79c2ac5f0fd12fd392a7a662bd65e41c94a2433fbde",
+    "snapshot": {
+      "path": "audit/evidence/classical-closure-20260923/classical-original-2cf7d6b.md",
+      "bytes": 67494,
+      "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc"
+    },
+    "currentCells": {
+      "claim": "Removed: the named Levenberg–Marquardt acceptance schedule and universal monotonic/no-oscillation/unreachable-target guarantee are no longer asserted in the article.",
+      "sourceChecked": "Exact article/frontmatter correction and removal proof. Historical Levenberg/Marquardt references and failed retrievals remain retained; no external passage is invented.",
+      "verdict": "Cut",
+      "note": "The removed scientific/source-attribution proposition is resolved by its actual removal, not by code comments. lib/ik.ts and the approved playground remain unchanged. In particular, internal escape nudges and displayed best-so-far residuals must not be conflated with universal monotonic trial iterates. Original and intermediate four-cell identities remain in history. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+    },
+    "currentTupleDigest": "9fbf61495edc92093aa322923e3020a3f54418e5b1348506c0f8f90bc83f44d3",
+    "article": {
+      "path": "content/classical/kinematics.mdx",
+      "bytes": 12030,
+      "sha256": "cbe5049818b17aa9e1ef546e2fe71806fc8735fed30d6d08a2158b6f1e5f3551"
+    },
+    "dependencies": [
+      {
+        "path": "lib/ik.ts",
+        "bytes": 18933,
+        "sha256": "df606ff4d6f7701a7c96fbee009902173c4f7308f0d1ca4bd051337faec18c3b"
+      },
+      {
+        "path": "data/glossary.ts",
+        "bytes": 83261,
+        "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+      },
+      {
+        "path": "components/interactive/planar-fk-arm.tsx",
+        "bytes": 9167,
+        "sha256": "4bff90efd06777cd9b61ed84e11edc40b9af4178e7b7c456de1a2ef05ab301b3"
+      },
+      {
+        "path": "components/mdx/dh-parameter-table.tsx",
+        "bytes": 3098,
+        "sha256": "0c74df76aed78540ca366346987034d9fa1c38310434821b145f8ea79ebd756f"
+      }
+    ],
+    "requiredPresent": [
+      "<PlanarFkArm",
+      "<DhParameterTable",
+      "/playground",
+      "±0.5mm",
+      "product-of-exponentials",
+      "A_i = \\begin{bmatrix}"
+    ],
+    "requiredAbsent": [
+      "Wampler",
+      "Levenberg-Marquardt",
+      "\\lambda^2 I",
+      "residual decreases monotonically",
+      "wampler-1986",
+      "levenberg-1944",
+      "marquardt-1963"
+    ],
+    "execution": {
+      "path": "audit/evidence/residual-release-20260924/kinematics-removal-run.json",
+      "bytes": 5583,
+      "sha256": "c41a6188913629df76ba6008b6dc806d7cd734a045e404326c31a9f32dd712d0"
+    },
+    "children": [],
+    "review": {
+      "reviewedBy": "Robot Wiki release steward, not independent Mission acceptance",
+      "rationale": "Inspected fresh desktop/mobile captures, current article and glossary, retained DH matrix and FK controls, real playground link, absence of unsupported attribution and formula, and unchanged solver. Source histories and all older execution records are preserved. This binds current merged dependencies to genuine new reader observations, not a relabelled earlier execution.",
+      "observedAt": "2026-09-24T01:17:16.307Z",
+      "inputDigest": "48a4be879c25938b38ae81a43210a7d83d76a4266e677b9bcdbabd5631d94d1d"
+    }
+  }
+]

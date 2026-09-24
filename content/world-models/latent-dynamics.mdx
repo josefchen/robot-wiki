@@ -17,7 +17,8 @@ citations:
   - fast-wam-2026
 seeAlso:
   - "world-models/taxonomy"
-  - "world-models/generative-video"
+  - "world-models/model-based-robot-learning"
+  - "world-models/evaluation"
   - "world-models/jepa"
 ---
 
@@ -74,3 +75,9 @@ The primary papers describe narrower limits than a verdict on the whole paradigm
 - **Hardware learning has costs.** DayDreamer's authors note that many hours of learning can cause wear requiring human intervention or repair. They also call for longer training to establish the limits of both Dreamer and its baselines <Cite id="daydreamer-2022" />.
 
 The one-hour A1 run and TD-MPC2's offline 80-task experiment address different questions. Neither establishes a universal horizon, a control-rate ceiling, or a field-wide advantage over every other world-model paradigm.
+
+## Pick the model's role before its architecture
+
+A latent model can serve three different roles. It can generate imagined experience for actor and critic training, as in Dreamer. It can score candidate action sequences online, as in TD-MPC2. Or it can supply a representation while a separate policy acts. Each role has a different failure budget. Training-only imagination may tolerate slow generation but can bias the learned policy silently; online planning needs predictable latency and a fallback; representation learning needs evidence that the latent preserves task-relevant distinctions.
+
+Write the loop before selecting the loss: observation encoder, latent update, action proposal, rollout horizon, score, replanning rate and stop condition. Evaluate multi-step state usefulness and policy ranking, not reconstruction alone. Log planner improvement over its policy prior, because a planner that never changes the proposed action is paying model cost without using the model. The [model-based robot-learning guide](/world-models/model-based-robot-learning) covers these loops, and the [evaluation guide](/world-models/evaluation) defines evidence for each role.

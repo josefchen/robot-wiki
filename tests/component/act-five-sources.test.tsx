@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { METHODS } from '@/data/methods';
@@ -7,6 +7,9 @@ import { methodSchema } from '@/data/schemas/method';
 import { DEFAULT_FILTERS, filterMethods } from '@/lib/methods';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ComparisonMatrix');
 
 describe('ACT five source-scoped records', () => {
   it('accepts explicit unknown weight availability without converting it to false', () => {
@@ -44,8 +47,14 @@ describe('ACT five source-scoped records', () => {
     render(<ComparisonMatrix />);
     await user.click(within(screen.getByRole('group', { name: 'Filter by weights' })).getByRole('button', { name: 'Not disclosed' }));
     const rows = within(screen.getByRole('table')).getAllByRole('row').slice(1);
-    expect(rows).toHaveLength(4);
-    expect(rows.map(r => r.textContent).join(' ')).toMatch(/RT-1.*π0.6.*π0.7.*Helix 02/);
+    const unknown = METHODS.filter(method => method.openWeights === null);
+    expect(unknown.length).toBeGreaterThan(4);
+    expect(rows).toHaveLength(unknown.length);
+    expect(new Set(rows.map(row => within(row).getAllByRole('cell')[0].textContent)))
+      .toEqual(new Set(unknown.map(method => method.name)));
+    for (const name of ['RT-1', 'π0.6', 'π0.7', 'Helix 02']) {
+      expect(unknown.some(method => method.name === name)).toBe(true);
+    }
   });
   it('places actual citations and replaces the unqualified release cutoff', () => {
     const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');

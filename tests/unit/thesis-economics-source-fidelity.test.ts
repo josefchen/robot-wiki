@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { THESES } from '@/lib/competing-theses';
+import { committedSource } from '../helpers/continuation-integration';
 import { parseCompoundPlans, compoundPlanDigest, compoundPartDigest } from '@/lib/audit-ledger';
 
 const article = readFileSync('content/frontier/competing-theses.mdx', 'utf8');
@@ -49,7 +50,9 @@ describe('two economics originals retain the source position and its scope', () 
     expect(flywheel.citationIds).toEqual(['bessemer-robotics-2026']);
     expect(glow.citationIds).toEqual(['bessemer-robotics-2026']);
     expect(article.match(/<Term id="teleoperation">/g)).toHaveLength(1);
-    expect(article).toContain('lastReviewed: "2026-08-18"');
+    expect(committedSource('0cbdda1', 'content/frontier/competing-theses.mdx'))
+      .toContain('lastReviewed: "2026-08-18"');
+    expect(article).toContain('lastReviewed: "2026-09-24"');
     expect(THESES).toHaveLength(6);
   });
   for (const [ordinal, expectedParts] of [[21, 5], [22, 4]]) {

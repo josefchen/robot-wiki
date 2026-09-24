@@ -4,13 +4,16 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { committedSource } from '../helpers/continuation-integration';
 
 /**
  * Pins the 2026-09-16k parallel-sim-rl originals integration: the five
  * dispatched rl-sim2real/parallel-sim-rl rows (originals 1, 3, 5, 6 and 18)
  * retain exact plan bindings. Rows 1/3/5/6 remain complete; original18
- * is held for its unresolved authored-model AND, from the committed ledger and
- * catalog exactly as check-audit-coverage reads them. Row 1 additionally
+ * retains its historical hold and now has a complete typed authored-model AND.
+ * The current catalog is read as check-audit-coverage reads it. Row 1 additionally
  * applies the packet's article-span correction (the Isaac Gym primacy
  * sentence); rows 3, 5, 6 and 18 change no article prose. Every other row
  * keeps its pre-existing evidence state: rows 2 and 7-17 carry their
@@ -40,14 +43,16 @@ const PRE_EXISTING_PLANS: Readonly<Record<number, string>> = {
   17: 'source-newton-engine-20260908-parallel-sim-rl-17',
 };
 
-const loadSection = () => {
-  const markdown = readFileSync(join(ROOT, 'audit/rl-sim2real.md'), 'utf8');
+const loadSection = (historical = false) => {
+  const read = (path: string) => historical ? committedSource('9a78604', path) : readFileSync(join(ROOT, path), 'utf8');
+  const markdown = read('audit/rl-sim2real.md');
   const compoundPlans = parseCompoundPlans(
-    JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')),
+    JSON.parse(read('audit/compound-evidence.json')),
   );
   const registryIds = new Set(CITATIONS.map(({ id }) => id));
   const sections = parseLedger('audit/rl-sim2real.md', markdown, registryIds, {
     compoundPlans,
+    ...(!historical ? { localBasis: loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`)) } : {}),
   });
   return { sections, compoundPlans, registryIds, markdown };
 };
@@ -149,17 +154,16 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
     expect(p6.evidence.some((e) => e.supportingPassage.includes('with the express goal of streamlining simulation, training, and sim-to-real transfer onto robots'))).toBe(true);
     expect(p6.evidence.some((e) => e.supportingPassage.includes('quadrupeds, humanoids, dexterous hands, and robotic arms'))).toBe(true);
 
-    // Row 18: local-AND. The measured-anchor conjunct reuses the registered
-    // rudin-2021 surface of the row-2 plan read-only; the illustrative-model
-    // conjunct remains held; that local proof is not external source evidence.
-    const r18 = article.claimRecords[17];
+    // The old source-only packet is retained as history, not active credit.
+    const prior = loadSection(true);
+    const r18 = prior.sections.find(s => s.slug === 'parallel-sim-rl')!.claimRecords[17];
     expect(r18.verdict).toBe('verified');
     expect(r18.sourceChecked).toContain('rudin-2021 @ https://ar5iv.labs.arxiv.org/html/2109.11978');
     expect(r18.sourceChecked).toContain('local proof');
     expect(r18.note).toContain('illustrative fixed-transitions model');
     expect(r18.note).toContain('flat terrain in under four minutes, and in twenty minutes for uneven terrain');
     expect(r18.note).toContain('4096 robots and a batch size of 98304');
-    const p18 = compoundPlans.find((p) => p.id === EXPECTED_20260916K[18])!;
+    const p18 = prior.compoundPlans.find((p) => p.id === EXPECTED_20260916K[18])!;
     expect(p18.evidence).toHaveLength(1);
     expect(p18.evidence[0].citationId).toBe('rudin-2021');
     expect(p18.evidence[0].sourceUrl).toBe('https://ar5iv.labs.arxiv.org/html/2109.11978');
@@ -214,8 +218,8 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
         "oldTuple": "c48d84728c0ef1633848263913732949a7713b5efea7cd27e2f13c4c712f4948",
         "withdrawnReviewDigest": "0d1abfcdc6baaa280076d67c3602e0018c43227fcb9bdddb5723767b5817b123"
     }
-])('holds $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
-    const { sections, compoundPlans, markdown } = loadSection();
+])('retains the historical hold for $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
+    const { sections, compoundPlans, markdown } = loadSection(true);
     const article = sections.find(s => s.slug === 'parallel-sim-rl')!;
     const record = article.claimRecords[ordinal - 1];
     const plan = compoundPlans.find(p => p.id === planId)!;
@@ -248,4 +252,18 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
     expect(archived.adjudications).toHaveLength(plan.parts.length);
   });
 
+  it('binds current parallel18 to all twelve typed obligations while retaining the held plan unchanged', () => {
+    const { sections, compoundPlans } = loadSection();
+    const row = sections.find(s => s.slug === 'parallel-sim-rl')!.claimRecords[17];
+    expect(row.verdict).toBe('C');
+    expect(row.evidenceFailures).toEqual([]);
+    const context = loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
+    const selected = context.catalog.plans.filter(p => p.originalId === 'audit/rl-sim2real.md:parallel-sim-rl:18');
+    expect(selected).toHaveLength(1);
+    expect(selected[0].id).toBe('parallel-local-p18-20260923');
+    expect(selected[0].parts).toHaveLength(12);
+    expect(compoundPlans.some(p => p.id === EXPECTED_20260916K[18])).toBe(false);
+    const archived = JSON.parse(readFileSync(join(ROOT, 'audit/evidence/parallel-local-20260923/legacy-plan-original.json'), 'utf8'));
+    expect(archived).toEqual(loadSection(true).compoundPlans.find(p => p.id === EXPECTED_20260916K[18]));
+  });
 });

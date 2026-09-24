@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "fd137388-f254-4d11-97b1-548904d2cad2",
+  "role": "integrator",
+  "eventId": "final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-0-20260923",
+  "observedAt": "2026-09-23T22:33:09.717Z",
+  "reviewedBy": "Delegated Droid Sol/max integrator; independent reviewer pending",
+  "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 4 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions. After browser capture, a source-only prose lint normalized the range notation to 0 to 2. The exact disclosure prefix and controls/readouts remain visible in the recorded DOM; no second browser run is asserted.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "5-mounted-0",
+  "inputDigest": "f101ea10035ac0ec7e68c579a7a5e44b00f35210037e91a75ab2a17fbd9fa51a",
+  "inventory": [
+    {
+      "id": "5-external",
+      "kind": "external-source",
+      "text": "The retained Marvel–Norcross manuscript establishes contextual numbers and their limitations, not chosen safety-control values or normative approval.",
+      "requiredCitationIds": [
+        "marvel-norcross-2017"
+      ]
+    },
+    {
+      "id": "5-parameters",
+      "kind": "authored-parameter",
+      "text": "The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
+      "requiredProofIds": [
+        "final-seven-frontier-safety-and-assurance-5-20260923-5-parameters"
+      ]
+    },
+    {
+      "id": "5-derivation",
+      "kind": "derived-result",
+      "text": "The finite calculation and display rounding follow the explicit model inputs; numerical agreement is not a source truth claim.",
+      "requiredProofIds": [
+        "final-seven-frontier-safety-and-assurance-5-20260923-5-derivation"
+      ]
+    },
+    {
+      "id": "5-mounted-0",
+      "kind": "observed-behavior",
+      "text": "The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions.",
+      "requiredProofIds": [
+        "final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-0"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "caseId": "default",
+          "prestate": "unmounted",
+          "action": "load",
+          "poststate": "distance-r1-h1.6"
+        },
+        {
+          "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "caseId": "reset",
+          "prestate": "force-r1-h1.6",
+          "action": "reset",
+          "poststate": "distance-r1-h1.6"
+        },
+        {
+          "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "caseId": "default",
+          "prestate": "unmounted",
+          "action": "load",
+          "poststate": "distance-r1-h1.6"
+        },
+        {
+          "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "caseId": "reset",
+          "prestate": "force-r1-h1.6",
+          "action": "reset",
+          "poststate": "distance-r1-h1.6"
+        }
+      ]
+    },
+    {
+      "id": "5-mounted-1",
+      "kind": "observed-behavior",
+      "text": "The registered desktop and mobile article mount 1 shows discrete-options controls, disclosure and model-specific readouts after real state transitions.",
+      "requiredProofIds": [
+        "final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-1"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "caseId": "discrete-options",
+          "prestate": "distance-r1-h1.6",
+          "action": "select power-force",
+          "poststate": "force-r1-h1.6"
+        },
+        {
+          "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "caseId": "discrete-options",
+          "prestate": "distance-r1-h1.6",
+          "action": "select power-force",
+          "poststate": "force-r1-h1.6"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/frontier.md:safety-and-assurance:5",
+  "currentTupleDigest": "c7eb6812c70464df179826cceb01fb86c071a39e12e361f8e76925da448af85e"
+}

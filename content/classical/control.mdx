@@ -7,9 +7,7 @@ order: 3
 status: published
 lastReviewed: "2026-08-17"
 citations:
-  - astrom-murray-2008
   - ziegler-nichols-1942
-  - kalman-1960
   - tedrake-underactuated
   - garcia-1989
   - mayne-2000
@@ -32,7 +30,7 @@ citations:
   - han-force-pain-2024
 seeAlso:
   - "classical/motion-planning"
-  - "classical/kinematics"
+  - "manipulation/action-spaces"
   - "rl-sim2real/humanoid-wbc"
   - "rl-sim2real/reward-design-mpc"
 ---
@@ -42,15 +40,15 @@ import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-
 
 [Motion planning](/classical/motion-planning) decides where the robot should go. Control is what makes the robot actually go there, in a world where the model is slightly wrong, the payload shifted, and the floor is never quite flat. The tool is feedback: measure where the robot is, compare it to where it should be, and correct. That loop runs at every level of the stack, from the motor current loops deep inside an actuator to the whole-body torque controller of a humanoid, and it keeps running underneath whatever learned policy sits on top.
 
-The field's own estimate of its workhorse is blunt: more than 95% of all industrial control problems are solved by PID control, many of them without the D <Cite id="astrom-murray-2008" />. Everything in this module descends from that observation or reacts against it.
+Start with the simplest feedback law: correct the measured error, accumulate a persistent offset, and respond to how quickly the error changes. Those are the three actions in PID control. State feedback and constrained optimization ask what to do when that single-error loop is not enough.
 
 The loop is below, on the smallest problem that still shows everything: an inverted pendulum with a payload bolted off-center. Press Run, then drag the proportional gain down. Somewhere just under 9.81 in the slider's units the pole stops coming back up, and no setting of the other two gains rescues it.
 
 <PendulumController className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="PID share" value=">95%" note="of industrial control problems" />
-  <Stat label="LQR" value="1960" note="Kalman's optimal-control paper" />
+  <Stat label="PID" value="3 actions" note="proportional, reset, pre-act" />
+  <Stat label="LQR cost" value="Q / R" note="state error / control effort" />
   <Stat label="Cheetah 3 MPC" value="<1 ms" note="per convex QP, at 20-30 Hz" />
   <Stat label="whole-body layer" value="1 kHz" note="Di Carlo's estimation and leg loops" />
 </div>
@@ -63,7 +61,7 @@ $$
 u(t) = K_p\, e(t) + K_i \int_0^{t} e(\tau)\, d\tau + K_d\, \frac{de}{dt}
 $$
 
-Åström and Murray's reading of the three terms is the one to keep: the proportional term reacts to the present error, the integral term accounts for the past, and the derivative term is a linear extrapolation into the future <Cite id="astrom-murray-2008" />. Proportional action alone always leaves a steady-state error, because a nonzero error is what generates the corrective torque; that is exactly what the integral term exists to erase. Derivative action adds damping, predicting where the error is heading, at the cost of amplifying measurement noise.
+Ziegler and Nichols described proportional response as valve movement proportional to the measured displacement; automatic reset moves the valve to eliminate a sustained offset; and pre-act adds movement proportional to the rate of pen movement <Cite id="ziegler-nichols-1942" />. In the equation above, these are the proportional, integral and derivative actions. For a constant disturbance in this lab, proportional action alone leaves an offset; integral action accumulates that residual error to remove it, while derivative action responds to the rate of change.
 
 Tuning those three gains is its own craft. The Ziegler-Nichols rules of 1942, drive the loop into oscillation with proportional gain alone, then back off from the critical gain and period by fixed fractions, are still printed in every textbook <Cite id="ziegler-nichols-1942" />. The failure modes are just as canonical: integral windup, where a saturated actuator lets the integrator accumulate error it can never repay, and derivative kick, where a setpoint step spikes the derivative term.
 
@@ -104,7 +102,7 @@ with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance fro
 
 ## State space and LQR
 
-PID acts on one error. State feedback acts on the whole state. Write the plant in state-space form, $\dot{x} = Ax + Bu$, and close the loop with $u = -Kx$: every state gets its own gain, and pole placement becomes a linear-algebra exercise <Cite id="astrom-murray-2008" />. The natural question is which $K$ is best, and Kalman's 1960 formulation made that precise <Cite id="kalman-1960" />: pick the gain that minimizes a quadratic cost trading state error against control effort,
+PID acts on one error. State feedback acts on the whole state. Write a linear plant in state-space form, $\dot{x} = Ax + Bu$, and close the loop with $u = -Kx$: each state contributes to the control input. LQR picks a gain by minimizing a quadratic cost that trades state error against control effort <Cite id="tedrake-underactuated" />:
 
 $$
 J = \int_0^{\infty} \left( x^{\top} Q x + u^{\top} R u \right) dt
@@ -168,6 +166,12 @@ The lab below puts that claim in your hands. Command a penetration depth, progra
 
 <ImpedanceContactLab className="my-6" />
 
+## The policy-to-controller contract
+
+A learned action is a controller request, not a motor command by default. Specify the request type, expected update rate, horizon, frame, saturation behavior and the lower loop that interprets it. A Cartesian delta sent to a position controller has different contact behavior from the same delta interpreted as an impedance target. A torque output transfers still more responsibility to the policy and demands a faster, better observed loop.
+
+Keep deadline handling and hard bounds outside the model. On every tick, validate observation age, action shape, finite values, joint and workspace bounds, then define what the controller holds or stops when inference is late. Measure command-to-actuation latency rather than model latency alone. The [action-space guide](/manipulation/action-spaces) helps choose the interface; this control hierarchy determines whether that choice can be executed safely and at the claimed rate.
+
 ## Where this meets the learned stack
 
 Classical control did not lose to learning; it became the floor learning stands on. Every actuator in a learned-policy demo still closes a current loop, usually PI, at kilohertz. The interesting boundary is one level up. MPC has no sim-to-real gap in the reinforcement-learning sense, because it re-solves against the measured state every step rather than baking a model into weights; the [sim-to-real transfer](/rl-sim2real/sim2real-transfer) problem is largely a problem of open-loop policies. The honest 2026 picture is hybrid: Boston Dynamics added reinforcement learning to Spot's existing MPC stack to handle variability, rather than replacing it <Cite id="bd-spot-rl-2024" />, and the classical floor a learning paper must clear now includes an iLQR controller the authors kept deliberately simple, an easy-to-reproduce hardware baseline by design <Cite id="mujoco-ilqr-2026" />.
@@ -185,7 +189,7 @@ The stack you have now seen end to end, [kinematics](/classical/kinematics) to l
     {
       value: 'retrain',
       label: 'Retrain the walking policy with the payload present',
-      why: 'This encodes the belief that a constant disturbance is a data problem. The module’s own estimate says more than 95% of industrial control problems are solved by PID feedback, most without any learning: the loop exists precisely so that constant offsets are removed at runtime rather than trained away.'
+      why: 'This treats a constant disturbance as a training problem. Automatic reset, the integral action in the joint-level loop, instead accumulates the residual error and removes a constant offset at runtime without changing the walking policy.'
     },
     {
       value: 'faster-mpc',

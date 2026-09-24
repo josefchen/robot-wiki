@@ -1,9 +1,10 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui';
-import { citationLabel, getCitation } from '@/data/citations';
 import {
+  KNOWLEDGE_INSULATION_CITATION_ID,
   LAYER_COUNT,
   TRAINING_STEP_SPEEDUP,
   backboneSupervision,
@@ -86,7 +87,8 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
   const score = languageScore(pass, stopGradient, step);
   const barrier = gradientBarrier(pass, stopGradient);
   const supervision = backboneSupervision(pass, stopGradient);
-  const citation = getCitation('knowledge-insulation-paper-2025');
+  const citationFor = useCitationLookup();
+  const citation = citationFor(KNOWLEDGE_INSULATION_CITATION_ID);
 
   const corrupted = pass === 'backward' && !stopGradient;
   const meterColor = corrupted ? 'var(--color-err)' : 'var(--color-accent)';
@@ -618,7 +620,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
               rel="noopener"
               className="font-mono text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
-              Source: {citationLabel(citation)}
+              Source: {citation.label}
             </a>
           </>
         )}

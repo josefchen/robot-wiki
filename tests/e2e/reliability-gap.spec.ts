@@ -74,12 +74,9 @@ test.describe('frontier reliability-gap module', () => {
     await expect(
       main.getByRole('link', { name: 'Lei 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2510.14830');
-    await expect(
-      main.getByRole('link', { name: 'Noreika 2026' }).first(),
-    ).toHaveAttribute(
-      'href',
-      'https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/',
-    );
+    await expect(main.locator('a[href="https://www.agilityrobotics.com/"]').first()).toBeVisible();
+    await expect(main.locator('a[href="https://www.figure.ai/news/production-at-bmw"]').first()).toBeVisible();
+    await expect(main.locator('a[href="https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf"]').first()).toBeVisible();
     // At least five inline citation chips, all external.
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 8 registry anchors alone still passed this floor.
@@ -93,7 +90,9 @@ test.describe('frontier reliability-gap module', () => {
       'rl-100-2025',
       'asimov-agentic-2026',
       'gemini-robotics-2-2026',
-      'technology-org-deployed-2026',
+      'agility-digit-production',
+      'figure-bmw-production-2025',
+      'tesla-q1-2026-update',
     ]) {
       expect(await main.getByText(`missing citation: ${id}`).count()).toBe(0);
     }
@@ -167,8 +166,17 @@ test.describe('frontier reliability-gap module', () => {
     const horizon = page.getByRole('slider', HORIZON);
     const readout = page.getByTestId('episode-success-readout');
 
+    // The first programmatic set after load can race the island's hydration
+    // (the sibling VAL-FRONT-021 test hides this because its first set is a
+    // no-op at the default value). Retry the first set until the readout
+    // responds; every later interaction in this suite is already stable.
+    for (let attempt = 0; attempt < 8; attempt += 1) {
+      await setSlider(perStep, 100);
+      if ((await readout.textContent()) === '100.0%') break;
+      await page.waitForTimeout(250);
+    }
+
     // 100% per-step yields 100% at any horizon.
-    await setSlider(perStep, 100);
     await setSlider(horizon, 30);
     await expect(readout).toHaveText('100.0%');
     await setSlider(horizon, 100);
@@ -200,29 +208,28 @@ test.describe('frontier reliability-gap module', () => {
   }) => {
     await page.goto(ROUTE);
 
-    // The four anchor entries with their figures.
+    // Source-scoped records, not a single mid-July deployment census.
     const agility = page.getByTestId('deployment-row-agility-digit');
     await expect(agility).toContainText('65,000');
     await expect(agility).toContainText('verified');
     const figure = page.getByTestId('deployment-row-figure-bmw');
     await expect(figure).toContainText('1,250');
     await expect(figure).toContainText('verified');
-    const unitree = page.getByTestId('deployment-row-unitree-2025');
-    await expect(unitree).toContainText('5,500');
-    await expect(unitree).toContainText('verified');
     const tesla = page.getByTestId('deployment-row-tesla-optimus');
-    await expect(tesla).toContainText(/not started/i);
+    await expect(tesla).toContainText(/construction/i);
     await expect(tesla).toContainText('verified');
+    await expect(page.getByTestId('deployment-row-unitree-2025')).toHaveCount(0);
+    await expect(page.getByTestId('deployment-row-optimus-50k-claim')).toHaveCount(0);
 
     // Every row carries an external source link and an as-of date.
     const rows = page.getByTestId(/^deployment-row-/);
     const rowCount = await rows.count();
-    expect(rowCount).toBeGreaterThanOrEqual(6);
+    expect(rowCount).toBe(4);
     for (let i = 0; i < rowCount; i += 1) {
       const row = rows.nth(i);
       const source = row.getByRole('link');
       await expect(source).toHaveAttribute('href', /^https:\/\//);
-      await expect(row).toContainText(/[A-Z][a-z]{2} \d{4}/);
+      await expect(row).toContainText(/202[56]/);
     }
 
     // Claimed rows exist and are visually distinct from verified rows.
@@ -243,6 +250,9 @@ test.describe('frontier reliability-gap module', () => {
       await claimedBadges.count(),
     );
     await expect(page.getByTestId('deployment-row-agility-digit')).toHaveCount(0);
+    await expect(dashboard.getByTestId('deployment-count')).toHaveText('1 of 4 rows');
+    await dashboard.getByRole('button', { name: 'Verified' }).click();
+    await expect(dashboard.getByTestId('deployment-count')).toHaveText('3 of 4 rows');
     await dashboard.getByRole('button', { name: 'Reset' }).click();
     expect(await page.getByTestId(/^deployment-row-/).count()).toBe(rowCount);
   });

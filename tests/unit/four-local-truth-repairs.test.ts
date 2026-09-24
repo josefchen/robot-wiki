@@ -1,4 +1,8 @@
 import { createHash } from 'node:crypto';
+import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
+import { headReanchorFor } from './helpers/continuation-merge-ledger';
+import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-history';
+import type { LocalPlan } from '../../lib/audit-local-basis';
 import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -100,14 +104,17 @@ describe('four bounded local truth repairs without completion credit', () => {
   });
 
   it('corrects only the active industrial percentage, retaining the old value as history', () => {
-    const record = row('audit/data-hardware.md', 'industrial-deployment', 9);
+    const record = JSON.parse(read('audit/evidence/industrial-closure-20260923/row-history.json'))
+      .find((r: { rowOrdinal: number }) => r.rowOrdinal === 9).currentCells;
     expect(record.sourceChecked).toContain('i.e. +2.2%');
     expect(record.sourceChecked).not.toContain('+2.3%');
     expect(record.note).toContain('i.e. +2.3%');
     expect(hash(read('lib/deployment-economics.ts')))
       .toBe('ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e');
-    expect(hash(read('components/interactive/deployment-economics.tsx')))
+    expect(hash(committedSource('d928b6b', 'components/interactive/deployment-economics.tsx')))
       .toBe('0e982f1dde7f8be7fb5c1d70bda395dc80c403fbdda210b703a45d2870bf6756');
+    expect(read('components/interactive/deployment-economics.tsx'))
+      .toBe(committedSource('358f505', 'components/interactive/deployment-economics.tsx'));
   });
 
   it('acknowledges the known goal and states the actual sampling probability', () => {
@@ -165,7 +172,7 @@ describe('four bounded local truth repairs without completion credit', () => {
 
   for (const [ledgerPath, slug, ordinal, oldDigest] of selected) {
     it(`preserves ${slug}:${ordinal} history and the current disposition`, () => {
-      const record = row(ledgerPath, slug, ordinal);
+      let record = row(ledgerPath, slug, ordinal);
       if (slug === 'generalist-policies') {
         expect(record.verdict).toBe('C');
         expect(record.evidenceFailures).toEqual([]);
@@ -185,6 +192,23 @@ describe('four bounded local truth repairs without completion credit', () => {
         expect(binding).toBeDefined();
         return;
       }
+      const historical = slug === 'industrial-deployment';
+      record = historical ? parseLedger(ledgerPath,
+        committedSource(CONTINUATION_CHECKPOINT, ledgerPath), registryIds,
+        // Plans appended by the 2026-09-24 imported stack-classical packet bind
+        // only to rows added after this checkpoint; historical parses exclude them.
+        { compoundPlans: plans.filter(p => ![
+          'stack-droid-oxe-20260924', 'stack-lerobot-20260924', 'stack-robomimic-20260924',
+          'stack-openvla-20260924', 'stack-libero-plus-20260924', 'calib-handeye-axxb-20260924',
+          'calib-hwangbo-actuator-20260924', 'ros2-lyrical-release-20260924',
+        ].includes(p.id)) })
+        .find(s => s.slug === slug)!.claimRecords[ordinal - 1] : row(ledgerPath, slug, ordinal);
+      if (historical) {
+        const archived = JSON.parse(read('audit/evidence/industrial-closure-20260923/row-history.json'))
+          .find((r: { rowOrdinal: number }) => r.rowOrdinal === ordinal);
+        expect(archived.currentTupleDigest).toBe(originalClaimDigest(record));
+        expect(row(ledgerPath, slug, ordinal).verdict).toBe('C');
+      }
       expect(record.verdict).toBe('UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)');
       expect(record.outcome).toBe('unresolved');
       expect(record.evidenceFailures).toHaveLength(3);
@@ -201,10 +225,40 @@ describe('four bounded local truth repairs without completion credit', () => {
   }
 
   it('does not create synthetic local-code plans or modify the existing native catalog', () => {
-    expect(plans).toHaveLength(863);
-    expect(hash(plansText)).toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+    expect(preservedCompoundPacket(CONTINUATION_CHECKPOINT)).toHaveLength(863);
+    expect(hash(committedSource(CONTINUATION_CHECKPOINT, 'audit/compound-evidence.json')))
+      .toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
   });
 
+  it.each(['missing-survivor', 'changed-survivor', 'reordered-survivors', 'duplicate-survivor',
+    'restored-legacy', 'missing-successor', 'wrong-successor', 'duplicate-successor', 'corrupt-archive'])(
+    'rejects an unexplained migration/preservation defect: %s', mutation => {
+      const prior = preservedCompoundPacket(CONTINUATION_CHECKPOINT);
+      // RoboMIND has its own independently checked in-place successor.
+      const before = prior.map(p => p.id === 'datasets-10-robomind-20260916c' ? plans.find(q => q.id === p.id)! : p);
+      const current = structuredClone(plans);
+      const typed: LocalPlan[] = JSON.parse(read('audit/local-basis.json')).plans;
+      if (mutation === 'missing-survivor') current.shift();
+      if (mutation === 'changed-survivor') current[0].parts[0].text += ' drift';
+      if (mutation === 'reordered-survivors') [current[0], current[1]] = [current[1], current[0]];
+      if (mutation === 'duplicate-survivor') current.push(current[0]);
+      if (mutation === 'restored-legacy') current.push(prior.find(p => p.id === 'reward-design-mpc-original-4-20260916')!);
+      if (mutation === 'missing-successor') typed.shift();
+      if (mutation === 'wrong-successor') typed[0].originalId += '-wrong';
+      if (mutation === 'duplicate-successor') typed.push(typed[0]);
+      const archive = (path: string) => mutation === 'corrupt-archive'
+        ? Buffer.from(read(path) + ' ') : Buffer.from(read(path));
+      expect(() => preservedLegacySurvivors(before, current, typed, archive)).toThrow();
+    },
+  );
+  it('rejects missing, duplicated, reordered or noncontiguous selected packet identities', () => {
+    const packet = [{ id: 'one' }, { id: 'two' }];
+    expect(planPacket(packet, ['one', 'two'])).toEqual(packet);
+    for (const broken of [packet.slice(0, 1), [...packet, packet[0]], [...packet].reverse(),
+      [packet[0], { id: 'unrelated' }, packet[1]]]) {
+      expect(() => planPacket(broken, ['one', 'two'])).toThrow();
+    }
+  });
   it('adds exactly the four necessary native member approvals, not a gate waiver', () => {
     const entries = (JSON.parse(read('contract/brand-v2-approved-deltas.json')) as {
       entries: ApprovedDelta[];
@@ -217,23 +271,32 @@ describe('four bounded local truth repairs without completion credit', () => {
       ['interactive-sources-mounts', 'source:components/interactive/rrt-explorer.tsx'],
     ]);
     expect(validateApprovedDeltas(mine)).toEqual([]);
+    const missionEntries = preservedApprovalPacket(CONTINUATION_CHECKPOINT);
     for (const delta of mine) {
       const path = delta.manifest === 'prose'
         ? `content/${delta.memberId.slice('article:'.length)}.mdx`
         : delta.memberId.slice('source:'.length);
-      const source = read(path);
+      const source = committedSource(CONTINUATION_CHECKPOINT, path);
       // Match publishedMdx(): the native prose member trims the MDX body.
       const value: ManifestInput['value'] = delta.manifest === 'prose'
         ? { path, body: matter(source).content.trim() }
         : { path, source };
-      const currentDelta = [...entries].reverse().find(e => e.manifest === delta.manifest && e.memberId === delta.memberId)!;
+      const currentDelta = [...missionEntries].reverse().find(e => e.manifest === delta.manifest && e.memberId === delta.memberId)!;
       expect(currentDelta.newHash).toBe(buildManifest(delta.manifest, [
         { id: delta.memberId, value },
       ]).members[0].hash);
-      const prior = entries.slice(0, entries.indexOf(delta)).reverse().find(
+      const prior = missionEntries.slice(0, missionEntries.findIndex(entry => entry.id === delta.id)).reverse().find(
         (entry) => entry.manifest === delta.manifest && entry.memberId === delta.memberId,
       );
       expect(delta.oldHash).toBe(prior?.newHash);
+      const currentSource = read(path);
+      const currentValue: ManifestInput['value'] = delta.manifest === 'prose'
+        ? { path, body: matter(currentSource).content.trim() }
+        : { path, source: currentSource };
+      const merged = headReanchorFor(entries, delta.manifest, delta.memberId);
+      expect(merged?.newHash ?? delta.newHash).toBe(buildManifest(delta.manifest, [
+        { id: delta.memberId, value: currentValue },
+      ]).members[0].hash);
       if (delta.manifest === 'prose') {
         expect(delta.newHash).not.toBe(buildManifest('prose', [{
           id: delta.memberId, value: { path, body: matter(source).content },

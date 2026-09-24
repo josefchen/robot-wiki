@@ -641,7 +641,7 @@ Every external image or texture uses the owner-approved closed legal-basis enum 
 - Article cards remain byte-distinct through factual text and deterministic composition, never random ornament.
 - The title remains legible in a small X timeline preview.
 - Cards may use paper or a bounded dark instrument region, but no generic screenshot collage, fake chart, tiny UI, or unlicensed image.
-- The required corpus is exactly 48 PNGs for the current 47 published articles plus the site card; the exact matrix is sealed in `contract/design-integrity.md`.
+- The required OG/X corpus is exactly 58 PNGs for the current 57 published articles plus the site card; the exact matrix is sealed in `contract/design-integrity.md`. The separate search structured-image corpus contains the registered 4:3 and square variants and is not part of this OG/X count.
 - Non-article destinations use the site card unless the contract is deliberately revised after owner approval.
 - Regenerate the complete corpus after font, palette, identity, grid, or artwork changes.
 
@@ -761,7 +761,7 @@ Changing a locked foundation requires explicit owner approval. For an approved c
 2. update the measurable contract;
 3. update executable tokens and shared primitives;
 4. update all affected routes and states;
-5. update OG/X artwork and regenerate all 48 cards;
+5. update OG/X artwork and regenerate all 58 cards plus the registered search structured-image variants;
 6. update automated validation and zero-residue sweeps;
 7. run autonomous visual evidence review at every matrix row;
 8. leave no mixed-system residue.
@@ -773,7 +773,7 @@ Workers MUST NOT stop at “tests pass.” They must compare rendered evidence w
 A brand-v2 release is complete only when the worker:
 
 1. runs lint, typecheck, unit tests, production build, and the relevant browser suites;
-2. generates the complete 48-card OG/X corpus;
+2. generates the complete 58-card OG/X corpus and the separate registered search structured-image corpus;
 3. captures every route/viewport/state row in the sealed matrix;
 4. derives every exported public route from the canonical route/content registries and runs browser, computed-style, Axe, responsive-overflow, and rendered/source residue sweeps across that complete population;
 5. derives every interactive and its declared visual states from the canonical interactive registry and runs the exact bounded state cases: each discrete option independently, slider min/default/max plus registered discontinuities/source anchors, reset/default/focus/meaningful hover/selected, one witness per implemented loading/error/empty/unavailable state, deterministic pairwise independent-control combinations, and only registered higher-order combinations; expected and observed non-zero case counts must match and a full Cartesian product is not required;
@@ -833,7 +833,7 @@ The rollout is sequential. A later milestone MUST NOT ship on top of an incomple
 
 ### Milestone 8 — Social assets and corpus convergence
 
-- Convert OG/X artwork and regenerate exactly 48 cards.
+- Convert OG/X artwork and regenerate exactly 58 cards plus the registered search structured-image variants.
 - Run the 27-row deep matrix, registry-derived exhaustive route and interactive sweeps, visual captures, accessibility gates, named special-state suites, and zero-residue sweeps.
 - Resolve mixed-system drift and archive evidence.
 
@@ -873,7 +873,7 @@ Current baseline expectations are 52 interactive source files and 62 production 
 
 Visual assets reconcile physical files, imports/CSS URLs, inline-SVG dependencies, registries, rendered use, and credits. The owner-approved legal-basis enum is closed; automation checks enum membership, official source URL, retrieval date, hashes, attribution fields, and byte/style preservation rather than issuing a legal opinion. Company marks use `official-identification-use`, contain fit, neutral plates, and no recolour/filter/mask/distortion/crop. `unlicensed` is never an approved reusable-content licence. Favicon, manifest/touch icons, masks, inline symbols, and unused first-party symbol assets are swept.
 
-Route/metadata release truth is set equality among module registry, fixed-route registry, app inventory, sitemap, export files, and metadata ledger: currently 47 articles plus 14 non-article public destinations = 61; 404 is separate. The ledger covers canonicals, JSON-LD, manifest, favicons/touch icons, theme-colour, and all OG/X fields.
+Route/metadata release truth is set equality among module registry, fixed-route registry, app inventory, export files, and metadata ledger: currently 57 articles plus 16 non-article public destinations = 73; 404 is separate. The sitemap is the exact 71-route indexable subset after the registered `/privacy/` and `/search/` noindex exceptions are removed. The ledger covers canonicals, JSON-LD, manifest, favicons/touch icons, theme-colour, indexing policy, and all OG/X fields.
 
 Evidence uses one common result/failure envelope plus source/build, browser-state, generated-image, and autonomous-comparison payloads. Non-applicable fields are omitted with typed `notApplicableReason`; multi-phase rows use ordered `steps[]` and `captures[]`; composite assertions map through `enforcementTargets[]`. Countable anti-bento, nested-frame, device-density/alignment, and reference-feature rubrics replace unstructured taste claims. Required fields are payload-specific and mutation-proven.
 

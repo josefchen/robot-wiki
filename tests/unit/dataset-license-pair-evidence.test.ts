@@ -6,7 +6,6 @@ import ts from 'typescript6';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
-import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
 
@@ -22,7 +21,7 @@ const ledger = read('audit/data-hardware.md');
 const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
 const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
 const ids = new Set(CITATIONS.map(c => c.id));
-const citations = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations]));
+const citations = { datasets: matter(article).data.citations };
 const parse = (catalog = plans, markdown = ledger, registry = ids) => parseLedger('audit/data-hardware.md', markdown, registry, { compoundPlans: catalog, articleCitations: citations }).find(s => s.slug === 'datasets')!.claimRecords;
 const row = (ordinal: number) => parse()[ordinal - 1];
 const plan = (ordinal: number, catalog = plans) => catalog.find(p => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'datasets' && p.rowOrdinal === ordinal)!;

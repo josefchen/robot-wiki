@@ -16,6 +16,16 @@ function humanSlider() {
 }
 
 describe('CollaborativeOperationModes', () => {
+  it('states the exact slider range without rendered prose dashes', () => {
+    const { container } = render(<CollaborativeOperationModes />);
+    expect(container).toHaveTextContent('both sliders choosing 0 to 2 m/s in 0.05 m/s steps');
+    expect(container.textContent).not.toMatch(/[–—]/);
+    for (const slider of [robotSlider(), humanSlider()]) {
+      expect(slider).toHaveAttribute('min', '0');
+      expect(slider).toHaveAttribute('max', '2');
+      expect(slider).toHaveAttribute('step', '0.05');
+    }
+  });
   it('renders a button per mode, both sliders and a reset control', () => {
     render(<CollaborativeOperationModes />);
     for (const mode of MODES) {

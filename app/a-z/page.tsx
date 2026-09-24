@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
+import { IntentLink } from '@/components/ui/intent-link';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
 import { DOMAIN_META, publishedModules } from '@/data/modules';
 import {
@@ -8,19 +9,21 @@ import {
   letterAnchorId,
   type AzIndexSourceEntry,
 } from '@/lib/az-index';
-import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '@/lib/seo';
 
 const title = 'A-Z Index';
 
 export const metadata: Metadata = {
-  title,
-  description:
-    `Every published ${PUBLIC_IDENTITY} article and glossary term in one alphabetical list.`,
+  title: STANDALONE_SEO_TITLES.azIndex,
+  description: STANDALONE_SEO_DESCRIPTIONS.azIndex,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - Robot Wiki' document title.
+  // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
@@ -69,8 +72,8 @@ export default function AzIndexPage() {
           body region as soon as one page declares one, so this route was
           unreachable by the sidebar's own "A-Z Index" label
           (VAL-SEARCH-021, VAL-SEARCH-022). Scoped to the header rather
-          than the whole page: the alphabetical run is 42 article titles
-          and 73 term names that all live on their own routes, and
+          than the whole page: the alphabetical run is made of article
+          titles and term names that all live on their own routes, and
           indexing them here would put this page in front of the article a
           reader was looking for. */}
       <header data-pagefind-body>
@@ -127,13 +130,13 @@ export default function AzIndexPage() {
                   data-az-group={entry.group}
                   className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5"
                 >
-                  <Link
+                  <IntentLink
                     data-brand-control-id="control:link-focus"
                     href={entry.href}
                     className="font-sans text-sm font-medium leading-snug text-text transition-colors hover:text-accent"
                   >
                     {entry.label}
-                  </Link>
+                  </IntentLink>
                   <span className="font-mono text-[11px] text-text-dim">
                     {entry.group}
                   </span>

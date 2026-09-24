@@ -58,7 +58,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const aloha = table.locator('tbody tr').filter({ hasText: 'ALOHA-class workstation' });
     const cost = aloha.locator('td').nth(1);
     await expect(cost.getByText('not disclosed', { exact: true })).toBeVisible();
-    for (const text of ['researched Jun 2026', 'ALOHA / ALOHA 2', '$17k–32k', 'currency code', 'configurations', 'inclusions/exclusions', 'not a vendor quote']) {
+    for (const text of ['researched Jun 2026', 'ALOHA / ALOHA 2', '$17k-32k', 'currency code', 'configurations', 'inclusions/exclusions', 'not a vendor quote']) {
       await expect(cost).toContainText(text);
     }
     await expect(table.locator('tbody td:nth-child(2)').getByText('not disclosed', { exact: true })).toHaveCount(2);

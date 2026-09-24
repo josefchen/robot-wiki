@@ -20,7 +20,7 @@ import {
   type SourceId,
 } from '@/lib/sample-efficiency';
 import { ChartDescription } from '@/components/ui';
-import { CiteRef } from '@/components/mdx/cite-ref';
+import { CiteRef } from '@/components/article/citation-records';
 import { cx } from '@/lib/utils';
 
 /**
@@ -474,7 +474,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         800 robot hours, separate from approximately 28,000 additional
         on-policy fine-tuning grasps <CiteRef id="qt-opt-2018" />; and
         section 5.2 of Levine&apos;s 2016 preprint reports about 800,000
-        grasp attempts over two months using 6–14 robots. Its abstract says
+        grasp attempts over two months using 6-14 robots. Its abstract says
         “over 800,000” and its introduction says “several months”
         <CiteRef id="levine-hand-eye-2016" />. Robot-hours are not parallel
         wall time. Bounds and approximate durations are plotted at their

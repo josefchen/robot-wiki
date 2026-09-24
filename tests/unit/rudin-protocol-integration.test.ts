@@ -72,8 +72,19 @@ describe('Rudin protocol and code integration', () => {
         `<span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="${id}" /></span>`,
       );
     }
+    // a7c35d3 (round-5 SURF-010 closeout) removed the hand-authored 40-hex
+    // code span from reward-design-mpc prose: the sentence now points at the
+    // commit pinned in the cited record's audit trail, which must still carry
+    // the exact revision token so the claim stays checkable.
+    const rewardDesign = text('content/rl-sim2real/reward-design-mpc.mdx');
+    expect(rewardDesign).not.toContain('ae614c029977157123225f538ecdd3f873e54bd4');
+    expect(rewardDesign).toContain('The separate `legged_gym` initial commit (October 2021, pinned by commit hash in the cited record\'s audit trail)');
+    expect(text('data/citations.ts')).toContain('Exact code claims use initial commit ae614c029977157123225f538ecdd3f873e54bd4');
+    expect(text('audit/rl-sim2real.md')).toContain('ae614c029977157123225f538ecdd3f873e54bd4');
+    expect(selected(planIds[2]).evidence.find(e => e.partId === 'code-identity')!.sourceUrl)
+      .toContain('ae614c029977157123225f538ecdd3f873e54bd4');
     expect(text('content/rl-sim2real/reward-design-mpc.mdx')).toContain(
-      '<code className="[overflow-wrap:anywhere]">ae614c029977157123225f538ecdd3f873e54bd4</code>',
+      'initial commit (October 2021, pinned by commit hash in the cited record\'s audit trail)',
     );
   });
   describe.each(planIds)('%s conjunction and stale-review guards', id => {

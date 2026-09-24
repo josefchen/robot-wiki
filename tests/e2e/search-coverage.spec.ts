@@ -11,7 +11,7 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * Runs against the shipped export, because the Pagefind index only exists
  * there. Pagefind's scoping rule is the reason this spec exists: once any
  * page in a site declares `data-pagefind-body`, every page that declares
- * none is dropped from the index entirely, so the 13 non-article
+ * none is dropped from the index entirely, so the 15 non-article
  * destinations were invisible to search while the 42 articles were fine.
  *
  * The route population is DERIVED from the module registry plus the fixed
@@ -32,6 +32,8 @@ const NON_ARTICLE_ROUTES = [
   '/playground/',
   '/glossary/',
   '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
 ];
 
 function articleRoutes(): string[] {

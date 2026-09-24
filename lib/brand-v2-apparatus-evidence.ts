@@ -2,6 +2,7 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import matter from 'gray-matter';
 import { z } from 'zod';
+import { approvedDeltaPath, sha256 } from './brand-v2-baseline.ts';
 import { DOMAIN_META, modules, publishedModules } from '../data/modules.ts';
 import { getCitation } from '../data/citations.ts';
 import { DEFAULT_THESIS_ID, THESES } from './competing-theses.ts';
@@ -684,7 +685,7 @@ const observationSchema = z.object({
   ariaCurrentPage: z.array(
     z.object({
       outline: z.string(),
-      /** Absolute href when the marked element is an anchor. */
+      /** Pathname of the marked element when it is an anchor. */
       href: z.string().nullable(),
       insideNavLandmark: z.boolean(),
       matchesRoute: z.boolean(),
@@ -996,9 +997,6 @@ export function frontmatterFactDrift(input: {
   const sealedByMember = new Map(
     input.sealed.map((member) => [member.id, member]),
   );
-  const deltaByMember = new Map(
-    input.deltas.map((delta) => [delta.memberId, delta]),
-  );
   const drift = new Map<string, string[]>();
   const add = (route: string, failure: string) => {
     drift.set(route, [...(drift.get(route) ?? []), failure]);
@@ -1013,9 +1011,17 @@ export function frontmatterFactDrift(input: {
   for (const member of input.current) {
     const route = routeOf(member.id);
     const sealed = sealedByMember.get(member.id);
-    const delta = deltaByMember.get(member.id);
+    const deltas = input.deltas.filter(
+      (delta) => delta.manifest === 'article-metadata' && delta.memberId === member.id,
+    );
+    const delta = deltas.at(-1);
+    const approval = approvedDeltaPath(
+      deltas,
+      sealed?.hash ?? sha256('missing'),
+      member.hash,
+    );
     if (!sealed) {
-      if (!delta) {
+      if (approval.status !== 'approved') {
         add(
           route,
           `${route} declares frontmatter References the migration baseline never sealed, and no approved delta adds ${member.id}`,
@@ -1024,6 +1030,11 @@ export function frontmatterFactDrift(input: {
       continue;
     }
     if (sealed.hash === member.hash) continue;
+    if (approval.status === 'approved') continue;
+    if (approval.status === 'ambiguous') {
+      add(route, `${route} has ambiguous or branched frontmatter approval paths from its sealed hash to ${member.hash.slice(0, 12)}`);
+      continue;
+    }
     if (!delta) {
       add(
         route,
@@ -1031,12 +1042,10 @@ export function frontmatterFactDrift(input: {
       );
       continue;
     }
-    if (delta.oldHash !== sealed.hash || delta.newHash !== member.hash) {
-      add(
-        route,
-        `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but its frontmatter moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
-      );
-    }
+    add(
+      route,
+      `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but its frontmatter moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
+    );
   }
   return drift;
 }
@@ -1068,11 +1077,6 @@ export function relationshipBaselineDrift(input: {
   const sealedByMember = new Map(
     input.sealed.map((member) => [member.id, member]),
   );
-  const deltaByMember = new Map(
-    input.deltas
-      .filter(({ manifest }) => manifest === 'relationships')
-      .map((delta) => [`article:${delta.memberId.replace(/^article:/, '')}`, delta]),
-  );
   const drift = new Map<string, string[]>();
   const add = (route: string, failure: string) => {
     drift.set(route, [...(drift.get(route) ?? []), failure]);
@@ -1092,9 +1096,19 @@ export function relationshipBaselineDrift(input: {
   for (const member of input.current) {
     const route = routeOf(member.id);
     const sealed = sealedByMember.get(member.id);
-    const delta = deltaByMember.get(member.id);
+    const deltas = input.deltas.filter(
+      (delta) =>
+        delta.manifest === 'relationships' &&
+        `article:${delta.memberId.replace(/^article:/, '')}` === member.id,
+    );
+    const delta = deltas.at(-1);
+    const approval = approvedDeltaPath(
+      deltas,
+      sealed?.hash ?? sha256('missing'),
+      member.hash,
+    );
     if (!sealed) {
-      if (!delta) {
+      if (approval.status !== 'approved') {
         add(
           route,
           `${route} carries relationships the migration baseline never sealed, and no approved delta adds ${member.id}`,
@@ -1103,6 +1117,11 @@ export function relationshipBaselineDrift(input: {
       continue;
     }
     if (sealed.hash === member.hash) continue;
+    if (approval.status === 'approved') continue;
+    if (approval.status === 'ambiguous') {
+      add(route, `${route} has ambiguous or branched relationship approval paths from its sealed hash to ${member.hash.slice(0, 12)}`);
+      continue;
+    }
     if (!delta) {
       add(
         route,
@@ -1110,12 +1129,10 @@ export function relationshipBaselineDrift(input: {
       );
       continue;
     }
-    if (delta.oldHash !== sealed.hash || delta.newHash !== member.hash) {
-      add(
-        route,
-        `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but the tree moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
-      );
-    }
+    add(
+      route,
+      `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but the tree moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
+    );
   }
   return drift;
 }

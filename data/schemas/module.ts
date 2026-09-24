@@ -22,6 +22,8 @@ export const moduleFrontmatterSchema = z.object({
   slug: slugSchema,
   order: z.number().int().positive(),
   status: moduleStatusSchema,
+  /** Real first production-publication date when it can be verified. */
+  datePublished: isoDateSchema.optional(),
   lastReviewed: isoDateSchema,
   /** Citation registry IDs used by this module. */
   citations: z.array(z.string().min(1)),

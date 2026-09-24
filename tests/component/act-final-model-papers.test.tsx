@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { METHODS } from '@/data/methods';
 import { methodSchema } from '@/data/schemas/method';
@@ -7,6 +7,9 @@ import { methodHorizonFigure } from '@/lib/entity-cells';
 import { DEFAULT_FILTERS, filterMethods } from '@/lib/methods';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('ComparisonMatrix');
 
 const model = (id: string) => METHODS.find(m => m.id === id)!;
 describe('ACT final model paper corrections', () => {

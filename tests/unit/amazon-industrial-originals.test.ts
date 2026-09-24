@@ -1,14 +1,19 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
-import { compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
+import { publishedModules } from '../../data/modules';
+import { loadLocalBasisContext } from '../../lib/audit-local-basis';
+import { committedSource } from '../helpers/continuation-integration';
+import { compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan, originalClaimDigest } from '../../lib/audit-ledger';
+import { committedText } from '../helpers/editorial-current-context';
 
 const ordinals = [15, 16, 17, 18, 49];
 const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');
 const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
 const selected = ordinals.map(n => plans.find(p => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'industrial-deployment' && p.rowOrdinal === n));
-const parse = (catalog = plans) => parseLedger('audit/data-hardware.md', ledger, new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog }).find(s => s.slug === 'industrial-deployment')!;
+const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
+const parse = (catalog = plans, includeLocal = false) => parseLedger('audit/data-hardware.md', ledger, new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog, ...(includeLocal ? { localBasis } : {}) }).find(s => s.slug === 'industrial-deployment')!;
 const urls: Record<string, string> = {
   'amazon-sequoia-digit-2023': 'https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions',
   'amazon-robot-fleet-2026': 'https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center',
@@ -112,13 +117,55 @@ describe('five Amazon industrial originals', () => {
 
   it('preserves completed peers and original 8, the original 52 hold, citation union and review date', () => {
     for (const n of [1, 2, 3, 4, 13, 14, 19, 20, 21, 27, 28, 39, 40, 50]) expect(parse().claimRecords[n - 1].evidenceFailures).toEqual([]);
-    // Row 8 stays complete. EVST is only partial proof for row 52's authored
-    // component correction; the named hold was not resolved by September 17.
+    // Row 8 stays complete. The later authored cell-cost mapping is a typed
+    // correction, not a retroactive completion by the scalar EVST excerpt.
     expect(parse().claimRecords[7].evidenceFailures).toEqual([]);
-    expect(parse().claimRecords[51].evidenceFailures).toContain(
+    const historical = parseLedger('audit/data-hardware.md',
+      committedSource('9e4441e', 'audit/data-hardware.md'), new Set(CITATIONS.map(c => c.id)),
+      // Plans appended by the 2026-09-24 imported stack-classical packet bind only
+      // to rows added after this commit; the historical parse excludes them.
+      { compoundPlans: plans.filter(p => !p.id.startsWith('stack-') && p.id !== 'ros2-lyrical-release-20260924' && p.id !== 'calib-handeye-axxb-20260924' && p.id !== 'calib-hwangbo-actuator-20260924') }).find(s => s.slug === 'industrial-deployment')!;
+    expect(historical.claimRecords[51].evidenceFailures).toContain(
       'Supporting passage must contain the passage actually read, not a locator or placeholder',
     );
-    expect(article).toContain('lastReviewed: "2026-08-22"');
-    expect(article.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
+    const current = parse(plans, true).claimRecords[51];
+    expect(current.evidenceFailures).toEqual([]);
+    expect(current.outcome).toBe('passing');
+    expect(committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx'))
+      .toContain('lastReviewed: "2026-08-22"');
+    expect(article).toContain('lastReviewed: "2026-09-24"');
+    const citations = article.split('citations:\n')[1].split('seeAlso:')[0];
+    const priorCitations = committedSource('ac65cf4', 'content/data-hardware/industrial-deployment.mdx')
+      .split('citations:\n')[1].split('seeAlso:')[0];
+    expect(priorCitations.match(/^  - /gm)).toHaveLength(22);
+    expect(priorCitations).toContain('  - ohno-tps-1988\n');
+    expect(priorCitations).toContain('  - technology-org-deployed-2026\n');
+    expect(citations).toBe(priorCitations.replace('  - ohno-tps-1988\n',
+      '  - lei-takt-time-definition\n  - lei-cycle-time-definition\n')
+      .replace('  - technology-org-deployed-2026\n  - robozaps-humanoids-2026\n',
+        '  - agility-digit-production\n'));
+    expect(citations).toContain('  - nasa-availability-prediction-analysis');
+    const row52 = parse().claimRecords[51];
+    const plan = JSON.parse(readFileSync('audit/local-basis.json', 'utf8')).plans
+      .find((p: { originalId: string }) => p.originalId === 'audit/data-hardware.md:industrial-deployment:52');
+    expect(plan.id).toBe('economics-local-i52-20260923');
+    expect(plan.currentTupleDigest).toBe(originalClaimDigest(row52));
+    expect(row52.verdict).toBe('C');
+    expect(plan.evidence).toHaveLength(2);
+    expect(plan.evidence.every((e: { citationId: string; sourceUrl: string; supportingPassage: string }) =>
+      e.citationId === 'evst-cell-cost-2026' && e.sourceUrl.startsWith('https://www.evsint.com/')
+      && e.supportingPassage.length > 40)).toBe(true);
+    expect(article).toContain('lastReviewed: "2026-09-24"');
+    const atAmazon = committedText('b34c5d0c390d1abb86bd61e4ba27be4c5d85fd6d', 'content/data-hardware/industrial-deployment.mdx');
+    expect(atAmazon.split('citations:\n')[1].split('seeAlso:')[0].match(/^  - /gm)).toHaveLength(21);
+    const leiIds = committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx')
+      .split('citations:\n')[1].split('seeAlso:')[0];
+    expect(leiIds.match(/^  - /gm)).toHaveLength(23);
+    const currentIds = article.split('citations:\n')[1].split('seeAlso:')[0];
+    expect(currentIds.match(/^  - /gm)).toHaveLength(22);
+    expect(currentIds).toContain('lei-takt-time-definition');
+    expect(currentIds).toContain('nasa-availability-prediction-analysis');
+    expect(currentIds).toContain('agility-digit-production');
+    expect(currentIds).not.toContain('technology-org-deployed-2026');
   });
 });

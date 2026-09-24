@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { compoundPartDigest, compoundPlanDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
+import { committedJson, committedText } from '../helpers/editorial-current-context';
 
 const article = readFileSync('content/rl-sim2real/sim2real-transfer.mdx', 'utf8');
 const ledger = readFileSync('audit/rl-sim2real.md', 'utf8');
@@ -45,12 +46,32 @@ describe('Splat transfer bounded integration', () => {
     expect(record(19).note).toContain('Table 1 and Section 4.3');
   });
   it('preserves four mobile citation wrappers, held interpretations and review date', () => {
-    expect(article.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(4);
-    expect(article.match(/<span className="max-sm:/g)).toHaveLength(6);
+    // Later audit work added mobile tooltip-shift wrappers: five before the
+    // Real-to-sim section, nine total.
+    const atSplat = committedText('2ed812e20ee3dbe663c75f157ac3e5f066b37ea2', 'content/rl-sim2real/sim2real-transfer.mdx');
+    expect(atSplat.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(4);
+    expect(atSplat.match(/<span className="max-sm:/g)).toHaveLength(6);
+    expect(article.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(5);
+    expect(article.match(/<span className="max-sm:/g)).toHaveLength(9);
     expect(article).toContain('lastReviewed: "2026-08-17"');
     expect(article).toContain('Real-to-sim twins freeze the scene they captured.');
     expect(article).toContain('Confusing the two is the most common misreading');
-    for (const ordinal of [21, 23, 24]) expect(record(ordinal).evidenceFailures.length).toBeGreaterThan(0);
+    // Original 21 was held when this pin was written but a later packet
+    // completed it; 23 and 24 remain held.
+    expect(record(21).evidenceFailures).toEqual([]);
+    for (const ordinal of [23, 24]) expect(record(ordinal).evidenceFailures.length).toBeGreaterThan(0);
+    const oldLedger = committedText('2ed812e20ee3dbe663c75f157ac3e5f066b37ea2', 'audit/rl-sim2real.md');
+    const oldPlans = committedJson<typeof plans>('2ed812e20ee3dbe663c75f157ac3e5f066b37ea2', 'audit/compound-evidence.json');
+    const held = parseLedger('audit/rl-sim2real.md', oldLedger, ids, { compoundPlans: oldPlans })
+      .find(s => s.slug === 'sim2real-transfer')!.claimRecords;
+    for (const ordinal of [21, 23, 24]) expect(held[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+    expect(record(21).evidenceFailures).toEqual([]);
+    const typed = JSON.parse(readFileSync('audit/local-basis.json', 'utf8')).plans as Array<{ id: string; originalId: string }>;
+    for (const ordinal of [23, 24]) {
+      expect(typed.some(p => p.originalId === `audit/rl-sim2real.md:sim2real-transfer:${ordinal}`)).toBe(true);
+      expect(record(ordinal).verdict).toBe('C');
+      expect(record(ordinal).evidenceFailures.length).toBeGreaterThan(0); // no typed context
+    }
     expect(plans.some(p => p.id === 'sim2real-splat-consumer-21-20260908')).toBe(false);
   });
   for (const [ordinal, count] of [[4, 4], [18, 10], [19, 11]]) {

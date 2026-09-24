@@ -2,9 +2,10 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 /**
- * Self-check contract (VAL-EDU-004..010). One self-check per content
- * domain, six routes, each authored as the last block of the article
- * prose inside [data-pagefind-body].
+ * Self-check contract (VAL-EDU-004..010) on the six canonical domain
+ * examples, each authored as the last block of the article prose inside
+ * [data-pagefind-body]. Corpus-wide behavior is covered by the derived
+ * sweeps in answer-feedback and predict-then-reveal.
  */
 const ROUTES: Array<{ route: string; domain: string }> = [
   { route: '/classical/control/', domain: 'classical' },
@@ -16,7 +17,7 @@ const ROUTES: Array<{ route: string; domain: string }> = [
 ];
 
 test.describe('self-check (CommitToReveal)', () => {
-  test('exactly six routes render one self-check, one per domain', async ({ page }) => {
+  test('the six canonical routes render one final self-check per domain', async ({ page }) => {
     const found: string[] = [];
     for (const { route, domain } of ROUTES) {
       await page.goto(route);

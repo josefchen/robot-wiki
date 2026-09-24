@@ -1,8 +1,11 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { HandComparison } from '@/components/interactive/hand-comparison';
 import { DEXTEROUS_HANDS } from '@/lib/dexterous-hands';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('HandComparison');
 
 /** Rendered row order as hand ids, top to bottom. */
 function rowOrder(): string[] {

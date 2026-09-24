@@ -2,15 +2,22 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';
 import localFont from 'next/font/local';
+import { AnonymousAnalytics } from '@/components/analytics/anonymous-analytics';
 import { SiteShell } from '@/components/nav/site-shell';
-import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
+import {
+  ALLOW_INDEXING,
+  ENABLE_ANALYTICS,
+  SITE_DISPLAY_NAME,
+  SITE_URL,
+} from '@/lib/site';
 import {
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
   PUBLIC_DESCRIPTOR,
   PUBLIC_IDENTITY,
 } from '@/lib/identity';
-import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { HOME_SEO_TITLE } from '@/lib/seo';
 import './globals.css';
 
 // The four first-party roles are Tektur display, IBM Plex Sans interface,
@@ -42,21 +49,41 @@ const newsreader = Newsreader({
   display: 'swap',
 });
 
+// IBM Plex Mono is loaded as two faces of one family so each weight can
+// carry its own preload decision. Measured on a 412px viewport, weight 400
+// sets a label or two above the fold on every route (about 55 characters)
+// and weight 500 sets nothing there, so only 400 is preloaded: a late
+// discovered 400 cost home a simulated round trip before first paint, while
+// preloading 500 only spent early bandwidth the LCP font needed (Newsreader
+// on articles, Plex Sans on home). Both calls declare the same
+// `--font-plex-mono` stack for the same family name, so the data role
+// resolves exactly as before; 500 loads as soon as a page uses it, and
+// `swap` with the size-adjusted fallback keeps that text in place meanwhile.
 const plexMono = IBM_Plex_Mono({
   variable: '--font-plex-mono',
-  weight: ['400', '500'],
+  weight: ['400'],
   subsets: ['latin'],
   display: 'swap',
 });
 
+const plexMonoMedium = IBM_Plex_Mono({
+  variable: '--font-plex-mono',
+  weight: ['500'],
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  // The '%s - Robot Wiki' template must stay in lockstep with
+  // The '%s | Robot Wiki' template must stay in lockstep with
   // SITE_TITLE_SUFFIX in lib/search.ts, which strips the site name off
-  // Pagefind result titles; both derive it from PUBLIC_IDENTITY.
-  title: { default: PUBLIC_IDENTITY, template: `%s - ${PUBLIC_IDENTITY}` },
-  // The site-level description is a descriptor surface (VAL-B2-ID-002), so
-  // it is the exact locked string rather than a summary of it.
+  // Pagefind result titles; the default is the SEO home title while the
+  // site-level description stays the locked descriptor (VAL-B2-ID-002).
+  title: {
+    default: HOME_SEO_TITLE,
+    template: `%s | ${PUBLIC_IDENTITY}`,
+  },
   description: PUBLIC_DESCRIPTOR,
   // Author identity (VAL-DIST-009): declared once in the root layout so
   // every route inherits meta[name=author] (a route-level metadata object
@@ -67,38 +94,57 @@ export const metadata: Metadata = {
   creator: AUTHOR_NAME,
   // './' resolves against each route's own pathname, so every page gets a
   // route-correct canonical and og:url on the apex origin.
-  alternates: { canonical: './' },
+  alternates: {
+    canonical: './',
+    types: {
+      'application/rss+xml': `${SITE_URL}/feed.xml`,
+    },
+  },
   openGraph: {
-    type: 'website',
-    url: './',
-    siteName: PUBLIC_IDENTITY,
-    // Site-level social card (VAL-DIST-002/005): a build-time PNG under
-    // /og/, served as a plain static file. Non-article routes inherit
-    // this block; routes that declare their own openGraph object (which
-    // replaces this one, no deep merge) re-declare images themselves.
-    images: siteOgImage(),
+    // routeOpenGraph re-declares type/url/siteName and the build-time PNG
+    // site card (VAL-DIST-002/005); routes that declare their own
+    // openGraph object replace this block, no deep merge.
+    ...routeOpenGraph(SITE_DISPLAY_NAME),
+    description: PUBLIC_DESCRIPTOR,
+    locale: 'en_US',
   },
   // summary_large_image: the card is the 1.91:1 asset above, not a small
   // square thumbnail (VAL-DIST-001).
-  twitter: largeCardTwitter(),
+  twitter: {
+    ...routeTwitter(SITE_DISPLAY_NAME),
+    description: PUBLIC_DESCRIPTOR,
+  },
   // Site-wide robots guard, driven by ALLOW_INDEXING in lib/site.ts (the
-  // single switch). True since the go-public decision of 2026-08-16, so
-  // this resolves to undefined and no meta tag ships; /404/ pins its own
-  // route-level noindex either way (app/not-found.tsx).
-  robots: ALLOW_INDEXING ? undefined : { index: false, follow: false },
+  // single switch). Search engines may use the preview limits below when
+  // rendering richer result snippets; /search and /404 pin route-level
+  // noindex directives independently.
+  robots: ALLOW_INDEXING
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+          'max-video-preview': -1,
+        },
+      }
+    : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
+      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable} ${plexMonoMedium.variable}`}
     >
       <body>
         {/* The skip link is the shell's first tab stop and the shell has to
             be able to take it out of the tab order while the mobile drawer
             holds focus, so SiteShell mounts it as its own first child. */}
         <SiteShell>{children}</SiteShell>
+        {ENABLE_ANALYTICS ? <AnonymousAnalytics /> : null}
       </body>
     </html>
   );

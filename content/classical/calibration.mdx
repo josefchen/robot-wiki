@@ -1,0 +1,128 @@
+---
+title: "Robot Calibration"
+description: "A practical calibration stack for learned and classical robots: camera intrinsics, hand-eye transforms, kinematic zeroes, depth, time synchronization, actuator dynamics and drift validation."
+domain: classical
+slug: calibration
+order: 8
+status: published
+datePublished: "2026-08-24"
+lastReviewed: "2026-09-24"
+citations:
+  - zhang-2000-calibration
+  - shiu-ahmad-1989
+  - tsai-lenz-1989
+  - modern-robotics-2017
+  - realsense-d400-datasheet-2026
+  - realsense-tuning-2026
+  - hwangbo-2019
+  - espiau-1992
+  - foundationpose-2024
+seeAlso:
+  - "classical/perception"
+  - "classical/kinematics"
+  - "classical/state-estimation"
+  - "data-hardware/robot-learning-stack"
+---
+
+Calibration makes measurements and commands refer to the same physical world. A camera pixel, depth value, joint encoder and motor command each has its own coordinate system, clock and error. A robot policy can learn around a stable bias; it cannot reliably absorb a transform that changes after every camera bump or a label stream shifted by a variable delay.
+
+The useful unit is not one calibration file. It is a chain with a validation residual at every link: intrinsics, depth, camera-to-robot transform, robot kinematics, time alignment and actuator response.
+
+Try the check below and choose the diagnostic that separates a fixed hand-eye error from random policy error.
+
+<SelfCheck
+  prompt="A grasp misses by almost the same small offset in one direction across many objects, and the miss grows as targets move farther from the wrist camera. What should you inspect first?"
+  options={[
+    {
+      value: 'hand-eye',
+      label: 'Inspect the hand-eye rotation and its validation residual',
+      why: 'A small angular transform error creates lateral position error that grows with working distance. The consistent direction is a calibration signature.'
+    },
+    {
+      value: 'more-data',
+      label: 'Collect more demonstrations for the same policy',
+      why: 'More data can teach a stable bias, but the distance-dependent systematic direction points to geometry. Fixing the transform removes the error for every policy and dataset.'
+    },
+    {
+      value: 'larger-model',
+      label: 'Increase the vision encoder parameter count',
+      why: 'Capacity does not make the camera and robot frames agree. A larger model may conceal the bias on familiar poses and retain the same physical defect.'
+    }
+  ]}
+  answer="hand-eye"
+  takeaway="Systematic, geometry-dependent misses are calibration evidence; measure the transform before changing the learner."
+/>
+
+## The calibration chain
+
+A manipulation system commonly carries these transforms and models:
+
+1. <Term id="camera-intrinsics">camera intrinsics</Term> and lens distortion;
+2. depth scale and depth-to-color alignment;
+3. camera extrinsics relative to the robot base or wrist;
+4. joint encoder zeroes and link parameters;
+5. tool-center-point and payload parameters;
+6. timestamps and sensor-to-command latency;
+7. actuator or controller response.
+
+The output of one stage is the input to the next. A 6-DoF pose estimator can be accurate in camera coordinates and still place the gripper incorrectly because the hand-eye transform is wrong. FoundationPose can estimate and track novel-object poses under model-based or model-free inputs <Cite id="foundationpose-2024" />; it does not calibrate the camera to the arm for you.
+
+## Camera intrinsics
+
+Intrinsics map pixels to rays. The core parameters are focal lengths, principal point and lens distortion. Zhang's planar-target method recovers them from several views of a flat pattern at unknown orientations, followed by nonlinear refinement <Cite id="zhang-2000-calibration" />. Its practical strength is that the target pose need not be measured.
+
+Good calibration images cover the full field of view, vary distance and tilt, keep the target sharp, and avoid collecting many near-duplicate views. Report reprojection error and inspect its spatial pattern. A low mean can hide a bad corner of the image or a few dominant views.
+
+Do not transfer intrinsics across a changed focus, resolution or crop without validation. Image resizing requires a corresponding scale of focal length and principal point. A model trained on undistorted images must receive the same transformation at deployment.
+
+## Depth is a measurement model
+
+Depth cameras do not produce uniformly accurate metric state. Stereo error grows with range, repetitive patterns create ambiguous matches, and low texture or specular surfaces can invalidate measurements. The RealSense tuning guide describes the distance-squared growth and the effects of scene texture and lighting <Cite id="realsense-tuning-2026" />. The D400 family datasheet also documents false depth and saturation failure cases rather than one universal accuracy number <Cite id="realsense-d400-datasheet-2026" />.
+
+Calibrate depth scale against known distances across the operating range. Plot residual against range and image location. Measure invalid-pixel rate on the actual materials in the task. If color and depth sensors are separate, validate their registration after every resolution or firmware change.
+
+## Hand-eye calibration
+
+Hand-eye calibration solves the rigid relationship between camera motion and robot motion. For a wrist camera, the unknown is usually the transform from gripper to camera; for a fixed camera, it is base to camera. Shiu and Ahmad framed wrist-mounted sensor calibration as solving homogeneous transform equations of the form $AX = XB$ <Cite id="shiu-ahmad-1989" />; Tsai and Lenz gave the classic efficient solution <Cite id="tsai-lenz-1989" />.
+
+The dataset needs rotational diversity. Motions around nearly one axis leave parts of the transform weakly constrained. Use many poses across the workspace, reject target detections with poor geometry, and reserve some poses for validation rather than solving on every sample.
+
+Validate in the units the task cares about. Place the calibration target at several distances and orientations, transform its detected pose into the robot frame, and measure translation and rotation residuals. Then execute slow reaches to independent landmarks. Reprojection error alone does not close the robot-coordinate loop.
+
+## Kinematic and tool calibration
+
+Nominal link lengths and joint zeroes describe the design, not necessarily the assembled machine. Encoder offsets, compliance and tool mounting error can shift the end effector. The forward-kinematics model in [kinematics](/classical/kinematics) shows how each parameter contributes to the final pose <Cite id="modern-robotics-2017" />.
+
+At minimum, define and verify the tool center point. Touch a fixed physical point from several tool orientations. If the estimated point moves, the tool transform is wrong. For higher accuracy, fit joint offsets and selected link parameters from external pose measurements, then validate on a held-out workspace grid.
+
+Do not fit every possible parameter without an observability analysis. Flexible models can trade one incorrect link length against another and reproduce the calibration poses while extrapolating poorly.
+
+## Time calibration
+
+Spatial calibration assumes simultaneous measurements. A camera frame at time $t$ paired with joint state at $t + \Delta t$ creates a pose error proportional to motion speed. At slow motion the system looks calibrated; at production speed it misses.
+
+Use hardware timestamps where available. Record camera exposure time, robot-state time, command time and arrival time separately. Estimate offset by correlating a motion visible in both streams, such as a tracked tool moving through a known trajectory. Repeat under load because buffering and network transport can add variable latency.
+
+For learned policies, perform alignment before forming observation-action pairs. A fixed temporal shift changes the apparent control law and can make a policy look temporally unstable.
+
+## Dynamics and actuator calibration
+
+Sim-to-real work often calls this system identification. Measure how commanded position, velocity or torque becomes realized motion. Fit latency, gains, friction and actuator response at the operating amplitudes and rates.
+
+Hwangbo and colleagues identified actuator-model error as a central transfer obstacle on ANYmal and learned an actuator network from real measurements to replace the inadequate analytic component <Cite id="hwangbo-2019" />. This is calibration by residual learning: known rigid-body structure remains, while the hard actuator mapping is estimated from data.
+
+Record both commands and measured response. A dataset that stores only the command cannot distinguish policy error from controller tracking error.
+
+## Calibration versus visual servoing
+
+Visual servoing closes the loop on image error and can reduce sensitivity to an imperfect global pose estimate. The task-function formulation uses the relationship between feature motion and camera motion to drive features toward a target <Cite id="espiau-1992" />.
+
+It does not make calibration irrelevant. The interaction model, velocity command and safety geometry still need consistent conventions. It changes which errors become steady-state bias and which bend the path.
+
+## Drift and ownership
+
+Calibration is an operational asset. Store it with hardware serial numbers, camera settings, tool identity, software version, date, temperature where relevant, procedure and validation results. Define triggers for revalidation: camera remount, collision, tool change, firmware update, focus change or a residual crossing its threshold.
+
+Build a short automated check that can run before data collection and evaluation. Fixed landmarks should transform into the robot frame within tolerance; timestamps should stay within a bound; commanded and measured motion should agree under a standard sequence.
+
+The final output is not “calibrated.” It is a set of measured residuals with an operating range and an owner. That is what lets a policy failure be attributed to the learner rather than to an invisible disagreement between coordinates.

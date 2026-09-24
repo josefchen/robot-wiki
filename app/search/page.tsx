@@ -1,19 +1,28 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
-import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+} from '@/lib/seo';
 
 const title = 'Search';
 
 export const metadata: Metadata = {
   title,
-  description:
-    `Search ${PUBLIC_IDENTITY}: full-text over article prose plus the structured data layer (methods, companies, datasets).`,
+  description: STANDALONE_SEO_DESCRIPTIONS.search,
+  // Internal search results are useful to readers but are not standalone
+  // landing pages. Keep the route crawlable so noindex can be observed and
+  // links can still be followed, while excluding it from search results.
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: { index: false, follow: true },
+  },
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - Robot Wiki' document title.
+  // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };

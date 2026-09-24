@@ -36,6 +36,12 @@
       "signature": "ruled-plain/closing-heading/guidance-prose",
       "owner": "brand-v2-home-hero-domain-index-and-structure",
       "purpose": "The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home."
+    },
+    {
+      "route": "/",
+      "signature": "plain/module-heading/ordered-link-lists",
+      "owner": "brand-v2-home-hero-domain-index-and-structure",
+      "purpose": "The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order."
     }
   ]
 }

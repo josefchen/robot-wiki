@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "citation-kroger-reader-observation-v1",
+  "runner": "playwright",
+  "startedAt": "2026-09-24T03:43:00.738Z",
+  "endedAt": "2026-09-24T03:43:02.918Z",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1",
+    "server": "fresh Next.js dev, PORT=3200, PID 181972"
+  },
+  "article": {
+    "path": "content/data-hardware/industrial-deployment.mdx",
+    "bytes": 19478,
+    "sha256": "79101c6ca602ae19be6f9549d678d7b1366531bb3ab864ba3ccc905f5bd0f525"
+  },
+  "citationRegistry": {
+    "path": "data/citations.ts",
+    "bytes": 301297,
+    "sha256": "40428a52fd74caed8804f7d4e6dbadfd7a6051246545915aa3571b40517eac5a"
+  },
+  "sourceBody": {
+    "path": "audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt",
+    "bytes": 95187,
+    "sha256": "1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae"
+  },
+  "observations": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "path": "audit/evidence/citation-closeout-20260924/reader-kroger-1440.json",
+        "bytes": 26501,
+        "sha256": "0e4fd0b33ffe6a992e681344d82c42b3b099298275802b09f59f2d17bdee6eae"
+      },
+      "capture": {
+        "path": "audit/evidence/citation-closeout-20260924/reader-kroger-1440.png",
+        "bytes": 180157,
+        "sha256": "bfc61f873f3c22f3fd265fbfb5ad3d46b216bd18e321c645a26fc768a82fce99"
+      },
+      "checkedText": [
+        "in November 2025",
+        "would close three robotic warehouses in Wisconsin, Maryland and Florida the following January",
+        "monitoring its five remaining warehouses",
+        "Ocado said it expected compensation of around £190 million for the planned closures"
+      ],
+      "chipHref": "https://web.archive.org/web/20251118224554/https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+      "tooltipText": "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm\nEmily Hawkins, This is Money, 2025-11-18"
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 900
+      },
+      "dom": {
+        "path": "audit/evidence/citation-closeout-20260924/reader-kroger-375.json",
+        "bytes": 26500,
+        "sha256": "907944d24e45868af0278bd5a09d93c0c8813e5ac19b54b9d5c0dc116d540d7a"
+      },
+      "capture": {
+        "path": "audit/evidence/citation-closeout-20260924/reader-kroger-375.png",
+        "bytes": 83162,
+        "sha256": "98ee9e1e02fded3f3a17aca3814caa9bda9c5aa9a9a2f5e1fd98720fc70091ce"
+      },
+      "checkedText": [
+        "in November 2025",
+        "would close three robotic warehouses in Wisconsin, Maryland and Florida the following January",
+        "monitoring its five remaining warehouses",
+        "Ocado said it expected compensation of around £190 million for the planned closures"
+      ],
+      "chipHref": "https://web.archive.org/web/20251118224554/https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
+      "tooltipText": "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm\nEmily Hawkins, This is Money, 2025-11-18"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 'use client';
 
 import { useId, useMemo, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
-import { getCitation } from '@/data/citations';
 import {
   DEFAULT_HAND_SORT,
   DEXTEROUS_HANDS,
@@ -67,7 +67,8 @@ const SORT_DESCRIPTION: Record<HandSortKey, Record<SortDirection, string>> = {
 };
 
 function SourceLink({ id, label }: { id: string; label: string }) {
-  const citation = getCitation(id);
+  const citationFor = useCitationLookup();
+  const citation = citationFor(id);
   if (!citation) {
     return <span className="text-text-dim">{label}</span>;
   }

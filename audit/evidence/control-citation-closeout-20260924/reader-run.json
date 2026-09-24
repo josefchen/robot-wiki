@@ -1,0 +1,105 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 node node_modules/@playwright/test/cli.js test tests/e2e/control.spec.ts -g 'observes corrected sources' --workers=1",
+  "startedAt": "2026-09-24T04:29:18.340Z",
+  "endedAt": "2026-09-24T04:29:25.706Z",
+  "exitCode": 0,
+  "runner": "playwright",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "test": {
+    "path": "tests/e2e/control.spec.ts",
+    "bytes": 24182,
+    "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+  },
+  "dependencies": [
+    {
+      "path": "content/classical/control.mdx",
+      "bytes": 20291,
+      "sha256": "f51112180bbd196de53d4d6ddabec8e62eac7709051c971b0d84c3f2f970a618"
+    },
+    {
+      "path": "data/citations.ts",
+      "bytes": 300669,
+      "sha256": "114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8"
+    },
+    {
+      "path": "tests/e2e/control.spec.ts",
+      "bytes": 24182,
+      "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+    },
+    {
+      "path": "components/interactive/pendulum-controller.tsx",
+      "bytes": 18785,
+      "sha256": "e41261f46b6932194261d87b026e707eaab82e0ccf0a8498635702f97d5fcfe8"
+    },
+    {
+      "path": "components/interactive/impedance-contact-lab.tsx",
+      "bytes": 17022,
+      "sha256": "22fe6e156af0b19433c58ed86749fc5203970a6820986e7d4d78b9f7273e2f0e"
+    }
+  ],
+  "surfaceObservations": [
+    {
+      "name": "control-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "observedAt": "2026-09-24T04:29:23.646Z",
+      "checkedText": [
+        "Ziegler and Nichols described",
+        "automatic reset",
+        "quadratic cost",
+        "A payload bolted off-center"
+      ],
+      "dom": {
+        "path": "audit/evidence/control-citation-closeout-20260924/control-1440.dom.json",
+        "bytes": 73124,
+        "sha256": "071f0df9efb327eb4fa9123490736f79ff3b2b1672026cdbf9aab4bdbed84ac2"
+      },
+      "capture": {
+        "path": "audit/evidence/control-citation-closeout-20260924/control-1440.png",
+        "bytes": 128840,
+        "sha256": "3ff7ac767c0657cb0b1e3501d4669b5a3c7b2aec230613beeecc7f71ba545b7e"
+      }
+    },
+    {
+      "name": "control-375",
+      "viewport": {
+        "width": 375,
+        "height": 900
+      },
+      "observedAt": "2026-09-24T04:29:25.547Z",
+      "checkedText": [
+        "Ziegler and Nichols described",
+        "automatic reset",
+        "quadratic cost",
+        "A payload bolted off-center"
+      ],
+      "dom": {
+        "path": "audit/evidence/control-citation-closeout-20260924/control-375.dom.json",
+        "bytes": 73123,
+        "sha256": "62508e59e46409e9413ad7716ae561914719dd618a7db9c4e081a5226d1b7018"
+      },
+      "capture": {
+        "path": "audit/evidence/control-citation-closeout-20260924/control-375.png",
+        "bytes": 60554,
+        "sha256": "4505e6ee15984d5a533a9483589227f1245950ac8c49d8b78394754e1fe13cfd"
+      }
+    }
+  ],
+  "removals": {
+    "controlChecked": true,
+    "absentCitationIds": [
+      "astrom-murray-2008",
+      "kalman-1960"
+    ]
+  },
+  "priorAttempt": {
+    "startedAt": "2026-09-24T04:28:47.070Z",
+    "endedAt": "2026-09-24T04:29:04.095Z",
+    "exitCode": 1,
+    "reason": "First new test selected citation wrapper spans rather than descendant anchor; six other focused browser cases passed. Selector repaired before one-case retry; failed attempt not counted as proof."
+  }
+}

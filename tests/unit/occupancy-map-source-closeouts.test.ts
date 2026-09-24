@@ -127,13 +127,25 @@ describe('paper-scoped occupancy and map tradeoffs', () => {
     });
   }
 
-  it('preserves completed peers and all four excluded ORB holds', () => {
+  it('preserves completed ORB peers and the later TSDF correction', () => {
     const current = records();
-    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 25, 32, 34, 35, 38, 39, 40, 41, 42, 43, 44]) {
+    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 25, 26, 27, 31, 32, 33, 34, 35, 38, 39, 40, 41, 42, 43, 44]) {
       expect(current[ordinal - 1].evidenceFailures, `prior original ${ordinal}`).toEqual([]);
     }
+    // Later scene-representation packets completed the formerly held ORB
+    // originals 26/27/31/33, and the 20260917a identity sweep bound original 1
+    // (scene-representation-1-identity-sweep-20260917a). Original 10 now has
+    // its separate source-qualified TSDF correction.
+    expect(current[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
+    expect(current[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
+    expect(current[9].evidenceFailures).toEqual([]);
+    expect(current[9].verdict).toBe('C');
+    expect(current[9].compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
     for (const ordinal of [26, 27, 31, 33]) {
-      expect(current[ordinal - 1].evidenceFailures.length, `held original ${ordinal}`).toBeGreaterThan(0);
+      const plan = catalog.find(p => p.articleSlug === 'scene-representation' && p.rowOrdinal === ordinal)!;
+      expect(plan.id).toBe(`classical-slam-scene-${ordinal}-20260908`);
+      expect(plan.evidence.length).toBeGreaterThan(0);
+      expect(current[ordinal - 1].evidenceFailures, `later source-complete original ${ordinal}`).toEqual([]);
     }
   });
 });

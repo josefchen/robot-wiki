@@ -1,8 +1,9 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { ogCardCorpus } from './og-card-corpus.ts';
+import { ogCardCorpus, type OgCardCorpusEntry } from './og-card-corpus.ts';
 import { renderCorpusCard } from './og-card-render-boundary.ts';
+import { ARTICLE_IMAGE_VARIANTS, articleCardPath } from './og-cards.ts';
 import { isSyncConflictDuplicate } from './sync-duplicates.ts';
 
 /**
@@ -95,51 +96,65 @@ export async function verifyShippedCardBytes(input: {
   if (corpus.length === 0) {
     throw new Error('The Open Graph corpus is empty');
   }
-  const relativeByCard = new Map<string, string>();
-  for (const { cardId, cardPath } of corpus) {
-    relativeByCard.set(cardId, cardPath.replace(/^\/+/, ''));
+  // The rendered population the shipped tree must match: each corpus card
+  // at its landscape path, plus the two registered structured-data
+  // variants (4:3, square) every article card emits for JSON-LD and the
+  // sitemap's image entries.
+  const expectedFiles = new Map<
+    string,
+    { entry: OgCardCorpusEntry; width?: number; height?: number }
+  >();
+  for (const entry of corpus) {
+    expectedFiles.set(entry.cardPath.replace(/^\/+/, ''), { entry });
+    if (entry.cardId === 'site') continue;
+    const [domain, slug] = entry.cardId.split('/');
+    for (const variant of ARTICLE_IMAGE_VARIANTS) {
+      if (variant.id === 'landscape') continue;
+      expectedFiles.set(
+        articleCardPath(domain, slug, variant.id).replace(/^\/+/, ''),
+        { entry, width: variant.width, height: variant.height },
+      );
+    }
   }
   const directories = new Set(
-    [...relativeByCard.values()].map((path) => path.split('/')[0]),
+    [...expectedFiles.keys()].map((path) => path.split('/')[0]),
   );
-  if (directories.size !== 1) {
-    throw new Error(
-      `The Open Graph corpus writes into ${directories.size} top-level directories (${[...directories].sort().join(', ')}); the shipped cards must share one`,
-    );
-  }
-  const cardDirectory = [...directories][0];
 
   const reconciled: string[] = [];
   for (const destinationRoot of input.destinationRoots) {
-    const directory = join(resolve(root, destinationRoot), cardDirectory);
-    if (!existsSync(directory)) {
-      throw new Error(
-        `${directory} does not exist, so the shipped cards cannot be compared with the render boundary's output`,
-      );
+    for (const cardDirectory of [...directories].sort()) {
+      const directory = join(resolve(root, destinationRoot), cardDirectory);
+      if (!existsSync(directory)) {
+        throw new Error(
+          `${directory} does not exist, so the shipped cards cannot be compared with the render boundary's output`,
+        );
+      }
+      const shipped = filesUnder(directory);
+      const expected = [...expectedFiles.keys()]
+        .filter((path) => path.startsWith(`${cardDirectory}/`))
+        .map((path) => path.slice(`${cardDirectory}/`.length))
+        .sort();
+      if (shipped.join('|') !== expected.join('|')) {
+        throw new Error(
+          `${directory} holds ${shipped.length} file(s) [${shipped.join(', ')}]; the corpus ships ${expected.length} [${expected.join(', ')}]`,
+        );
+      }
+      reconciled.push(directory);
     }
-    const shipped = filesUnder(directory);
-    const expected = [...relativeByCard.values()]
-      .map((path) => path.slice(`${cardDirectory}/`.length))
-      .sort();
-    if (shipped.join('|') !== expected.join('|')) {
-      throw new Error(
-        `${directory} holds ${shipped.length} file(s) [${shipped.join(', ')}]; the corpus ships ${expected.length} [${expected.join(', ')}]`,
-      );
-    }
-    reconciled.push(directory);
   }
 
   const cards: ShippedCardBytes[] = [];
   let files = 0;
-  for (const entry of corpus) {
-    const rendered = await renderCorpusCard(entry, root);
+  for (const [relPath, { entry, width, height }] of expectedFiles) {
+    const rendered = await renderCorpusCard(
+      entry,
+      root,
+      width === undefined ? undefined : { width, height: height as number },
+    );
     const expected = digest(rendered);
     const destinations: string[] = [];
     for (const destinationRoot of input.destinationRoots) {
-      const file = join(
-        resolve(root, destinationRoot),
-        relativeByCard.get(entry.cardId) as string,
-      );
+      const file = join(resolve(root, destinationRoot), relPath);
       const actual = digest(readFileSync(file));
       if (actual !== expected) {
         throw new Error(
@@ -150,8 +165,8 @@ export async function verifyShippedCardBytes(input: {
       files += 1;
     }
     cards.push({
-      cardId: entry.cardId,
-      cardPath: entry.cardPath,
+      cardId: relPath,
+      cardPath: `/${relPath}`,
       sha256: expected,
       destinations,
     });

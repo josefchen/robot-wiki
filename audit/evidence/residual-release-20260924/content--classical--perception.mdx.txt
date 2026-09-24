@@ -1,0 +1,204 @@
+---
+title: "Perception for Manipulation"
+description: "Camera and hand-eye calibration, depth sensing and where it fails, open-vocabulary detection, promptable segmentation, 6-DoF pose estimation and visual servoing: the explicit pipeline that turns pixels into an object pose a grasp planner can use, with a live error budget composed end to end."
+domain: classical
+slug: perception
+order: 6
+status: published
+lastReviewed: "2026-08-22"
+citations:
+  - zhang-2000-calibration
+  - tsai-lenz-1989
+  - keselman-2017-realsense
+  - realsense-d400-datasheet-2026
+  - realsense-tuning-2026
+  - azure-kinect-depth-docs-2026
+  - photoneo-phoxi-l-2026
+  - cleargrasp-2020
+  - grounding-dino-2024
+  - dinov2-2023
+  - segment-anything-2023
+  - sam2-2024
+  - pointnet-2017
+  - pointnet-plus-plus-2017
+  - dense-object-nets-2018
+  - posecnn-2018
+  - foundationpose-2024
+  - megapose-2022
+  - bop-challenge-2023
+  - hinterstoisser-2012
+  - espiau-1992
+  - chaumette-hutchinson-2006
+  - chaumette-hutchinson-2007
+  - dexnet-2-2017
+  - moka-2024
+  - rekep-2024
+  - robopoint-2024
+  - play2perfect-2026
+seeAlso:
+  - "classical/grasp-planning"
+  - "manipulation/hierarchical"
+  - "classical/state-estimation"
+---
+
+import { PerceptionErrorBudget } from '@/components/interactive/perception-error-budget';
+
+[Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.
+
+This article groups an explicit perception pipeline into six stages for explanation; that organization is not a universal architecture or a required fixed execution order. Calibrate the camera so a pixel means a direction. Calibrate it against the robot so that direction means something in the robot's frame. Measure depth so the direction becomes a point. Detect and segment so points become an object. Estimate pose so the object becomes a graspable rigid body. The instrument below combines three adjustable error magnitudes by root-sum-of-squares as an illustrative modelling choice. It does not establish that calibration, depth and pose errors are statistically independent, or that its output bounds the positioning error of a real pipeline.
+
+## An illustrative positioning budget
+
+The instrument combines three authored input magnitudes labelled hand-eye, depth and pose. In this model only, depth is evaluated at a fixed 0.5 m nominal distance and the pose input is held constant during a distance sweep. The hand-eye proxy uses the ray-to-plane geometry defined below; it is not the full error of a rigid transform. With the default opaque-target, depth and pose settings and a half-degree angle, the hand-eye contribution is small at 15 cm and largest at 1.5 m. The far-end readout falls in the marginal model band; it is not a prediction that a real grasp will succeed or jam.
+
+<PerceptionErrorBudget className="my-6" />
+
+The model's 15 mm band comes from an authored geometry: a 90 mm opening centred around a 60 mm part leaves $(90-60)/2=15$ mm on each side. Its bands at 15 mm and 30 mm are teaching thresholds, not measured grasp tolerances or success/failure limits. A separate assembly example reports 0.5 mm clearance <Cite id="play2perfect-2026" />; that reported setting does not validate this calculator or establish a general limit for vision-based positioning.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="Zhang calibration" value="2000" note="planar target; motion need not be known" />
+  <Stat label="hand-eye (AX = XB)" value="1989" note="Tsai and Lenz solve the camera-to-gripper transform" />
+  <Stat label="visual-servo formulation" value="1992" note="Espiau, Chaumette and Rives; image-feature feedback" />
+  <Stat label="promptable masks" value="2023" note="SAM; SA-1B: 1.1 billion masks on 11 million images" />
+</div>
+
+The next sections use those six chosen stages to organize the discussion; the calculator is a separate illustrative model.
+
+## Calibration: what a pixel means
+
+A camera is a device that discards a dimension. It maps a 3D point onto a 2D sensor, and the mapping it uses is described by the <Term id="camera-intrinsics">intrinsics</Term>: focal length in pixels on each axis, the principal point, and the lens distortion terms. Before those are known, a pixel coordinate is a number with no geometric meaning.
+
+Zhang's 2000 method uses a planar calibration target. Show the camera a planar target at several arbitrary orientations, none of them measured; the paper models radial lens distortion and gives a closed-form solution followed by nonlinear refinement under a maximum-likelihood criterion <Cite id="zhang-2000-calibration" />.
+
+Zhang <Cite id="zhang-2000-calibration" /> compares this setup with classical techniques that use expensive equipment such as two or three orthogonal planes.
+
+Extrinsics are the other half: where the camera sits relative to something else. Two cameras on a stereo rig need their relative pose. A camera and a robot need the harder version.
+
+### Hand-eye calibration: what a pixel means to the robot
+
+A perfectly calibrated camera reporting perfectly accurate 3D points in the *camera's* frame is useless to an arm that plans in its *own* frame. <Term id="hand-eye-calibration">Hand-eye calibration</Term> is the step that connects them: for a wrist-mounted camera, the rigid transform from the gripper flange to the camera; for a camera bolted to a post, the transform from the robot base to the camera.
+
+The 1989 papers on it share one form: move the robot through a set of known motions while the camera watches a static target, and each motion pair gives you an equation of the form $AX = XB$, where $A$ is the robot's motion, $B$ is the camera's observed motion, and $X$ is the unknown transform. Tsai and Lenz gave the efficient closed-form technique still used, solving rotation first and then translation from the accumulated constraints <Cite id="tsai-lenz-1989" />.
+
+The instrument uses an illustrative ray-to-plane model, not a full three-dimensional hand-eye error model. Here $d$ is the separation along the normal to a target plane, and $\theta$ is the inclination of a ray relative to that normal. The lateral intersection offset used by the instrument is
+
+$$
+e_\theta(d) = d \, \tan \theta
+$$
+
+With $d$ expressed in millimetres, the local example at one degree gives about 1.7 mm at 10 cm and 17 mm at 1 m. These are evaluations of the authored formula, not measurements reported by the calibration paper or predictions that a grasp will succeed or fail. The formula is not a general norm of a rigid-transform error; nor is an exact tangent construction the same claim as a small-angle approximation.
+
+## Depth sensing: what fails, and on what
+
+The examples below report specifications and limitations of named devices. They do not establish a universal accuracy or speed ranking across sensing technologies.
+
+**Stereo** matches features between two images and triangulates. It needs texture: the matching is a correspondence search, so a featureless surface gives it nothing to correspond. The March 2026 RealSense D400-series datasheet lists ±2% Z-accuracy for D410/D415 and D43x at distances up to 2 m, with an 80% region of interest at HD resolution. Table 4-15 gives different range limits for other model groups: up to 4 m for D450/D455/D455f/D456 and up to 0.5 m for D401/D405. Depth accuracy compares valid pixels with ground truth. Factory KPIs reflect typical conditions and can change with the environment. The D405 protocol uses a textured target in typical room light (about 250 lux); the other models use a texture-less white target, default 150 mW laser power and auto exposure. Section 4.7 defines the measurement region as within 80% of the depth field of view; it is not a whole-image guarantee <Cite id="realsense-d400-datasheet-2026" />. RealSense's tuning checklist for the D415 and D435 says that D400 depth error scales as the square of distance. It advises moving closer where possible, but staying outside the minimum operating distance, MinZ. The guide also describes resolution and range trade-offs when changing MinZ, and notes that focus and different left/right views can limit very-near-range matching <Cite id="realsense-tuning-2026" />. A pattern projector is the standard mitigation, painting texture onto surfaces that have none <Cite id="keselman-2017-realsense" />.
+
+**Industrial 3D scanning.** The PhoXi 3D Scanner L product page separately lists calibration accuracy of 0.200 mm (1 σ), temporal noise of 0.190 mm (1 σ), a scanning range of 870 to 2150 mm, and a scanning time of 250 to 2750 ms. The separate range field does not establish uniform accuracy throughout that range. These are the named model's published specification fields, not a family-wide ranking, a per-material accuracy guarantee or a robot control frequency <Cite id="photoneo-phoxi-l-2026" />.
+
+**Time of flight** measures the round-trip of modulated light per pixel. It does not need texture at all, which is its advantage, and it has a characteristic failure the other two do not: multi-path interference, where one pixel integrates light that arrived by more than one route. Microsoft's Azure Kinect DK documentation lists five reasons for invalid depth pixels: outside the active IR illumination mask, saturated IR signal, low IR signal, filter outlier, and multi-path interference. Such pixels are indicated by a depth value of zero, not a measured zero-distance surface. Under ambiguous depth, the page describes light reflecting from one wall onto another in a corner, and mixed foreground/background signals around object edges. It also notes that fast motion can increase edge invalidation because of the raw-depth exposure interval <Cite id="azure-kinect-depth-docs-2026" />.
+
+### The failure taxonomy that decides how a cell is built
+
+The examples below distinguish material-related problems from weak signal, ambiguous stereo correspondence and view-dependent invalidation. The RealSense and Azure Kinect guidance describes particular sensors and setups, not a rule that every listed surface defeats every depth-sensing family.
+
+- **Transparent** surfaces refract rather than reflect, so the sensor ranges whatever is behind them. Transparent objects "often appear as noisy or distorted approximations of the surfaces that lie behind them", which is the premise the ClearGrasp work was built on: it infers surface normals, transparent-surface masks and occlusion boundaries and then *replaces* the depth the sensor returned <Cite id="cleargrasp-2020" />.
+- **Specular reflections.** Table 3-50 of the RealSense datasheet says they “May cause image saturation” on D400, while the D400f column says “Saturation mitigated”. Mitigated does not mean eliminated <Cite id="realsense-d400-datasheet-2026" />. The time-of-flight documentation lists saturated IR signal as an invalidation cause in its own right <Cite id="azure-kinect-depth-docs-2026" />.
+- **Dark surfaces and low signal.** Azure Kinect can invalidate a pixel when its IR signal is too weak to generate depth <Cite id="azure-kinect-depth-docs-2026" />. RealSense's D415/D435 guidance instead relates D4xx depth quality to the input images and describes grainy images in low light. It warns about both underexposure and overexposure. Active illumination changes the setup: for its projected-pattern example, reducing background light while leaving the projector on can improve the pattern's signal-to-noise ratio <Cite id="realsense-tuning-2026" />. These are signal, exposure and illumination conditions, not a claim that every visibly dark object loses depth.
+- **Thin objects versus repetitive structures.** RealSense names fences and wire grids as repetitive scenes in which left/right correspondence can become ambiguous. Its D4 processor compares the best and second-best match scores; similar scores can indicate aliasing, not necessarily two exactly equal matches. Increasing DSSecondPeakThreshold rejects more results as black or zero depth. This guidance concerns repetitive-pattern matching, not a blanket failure claim for every thin object <Cite id="realsense-tuning-2026" />.
+- **Self-occlusion versus view-dependent invalidation.** In its multi-path discussion, the Azure Kinect documentation says that a surface area invalidated from one camera view may reappear from another. That is a view-dependent multi-path example, not a demonstration about generic self-occlusion or a guarantee that multi-view capture recovers every missing surface <Cite id="azure-kinect-depth-docs-2026" />.
+
+Two things about the numbers above should be said out loud. The 2 percent is measured against a texture-less white target with the laser projector at default power <Cite id="realsense-d400-datasheet-2026" />, and the 0.200 mm publishes no target condition at all <Cite id="photoneo-phoxi-l-2026" />. And no datasheet in this list publishes an accuracy figure for a transparent or a specular surface: that figure is not disclosed, which says something different from saying the sensor has no error there. It is why a research literature on transparent-object depth exists at all.
+
+Once you have depth you have a <Term id="point-cloud">point cloud</Term>, and a network that consumes one has to be invariant to the ordering of its own input, since the set carries no canonical order. PointNet solved that with a shared per-point encoder and a symmetric pooling function <Cite id="pointnet-2017" />. PointNet++ groups metric-space neighbourhoods and applies PointNet within them, building local features at progressively larger scales. It uses sampled centroids, radius-based neighbourhoods and coordinates relative to each centroid; pooling summarizes these local features rather than preserving all geometry. Small neighbourhoods can contain too few samples, so its density-adaptive variants combine information across scales <Cite id="pointnet-plus-plus-2017" />.
+
+## Detection: from pixels to candidate objects
+
+Classical detection returns boxes over a class list fixed at training time, which is a poor fit for a robot that will be asked about objects nobody enumerated. Open-vocabulary detection removes the fixed list. Grounding DINO extends the DINO detector with language and vision fusion in the feature enhancer, language-guided query selection and cross-modality decoder. It accepts category names or referring expressions, but the paper reports weak referring-expression performance without REC training data <Cite id="grounding-dino-2024" />. Table 2 reports 52.5 AP on COCO 2017 validation for Grounding DINO L with a Swin-L backbone, pretrained on O365, OpenImage and GoldG without COCO training images. Here, zero-shot means transfer without using COCO’s training split, not that its object categories were absent from pretraining <Cite id="grounding-dino-2024" />.
+
+DINOv2 learns image and patch features through self-supervised pretraining on the curated LVD-142M image dataset. Its transfer evaluations keep the image encoder frozen while training task-specific predictors: linear classifiers for image classification and semantic segmentation, and linear or DPT depth heads. “Without fine-tuning” the encoder does not mean that no downstream predictor is trained <Cite id="dinov2-2023" />.
+
+## Segmentation: the grounding layer
+
+A box is the wrong output for manipulation. A box around a mug also contains the table behind it, and a grasp is planned on a surface region, not on a rectangle, so <Term id="semantic-segmentation">per-pixel labelling</Term> is what a downstream planner can actually use.
+
+Segment Anything (SAM, 2023) makes image segmentation *promptable*. Its default ViT-H model was trained on SA-1B, which the paper reports as 1.1 billion automatically generated masks from 11 million images. Those are dataset counts: the training recipe samples and filters masks rather than establishing that every mask is used. Points, boxes and mask prompts condition the decoder; an ambiguous point can refer to a part or a whole object, so SAM can return multiple candidate masks <Cite id="segment-anything-2023" />.
+
+The paper evaluates zero-shot transfer on new datasets and tasks. In its single-point test across 23 datasets, the default prompt is the ground-truth mask's center and the default output is SAM's most confident mask. SAM has higher mIoU than RITM on 16 of those 23 datasets, not all of them; the separate oracle result selects the best mask using ground truth. Free-form text is a separately trained, CLIP-conditioned proof of concept, not evidence that the ordinary geometric-prompt model has the same text capability. Fine structures and boundaries remain failure cases. The reported roughly 50 ms prompt processing on a browser CPU assumes a precomputed image embedding; the paper explicitly says a heavy image encoder prevents overall real-time performance <Cite id="segment-anything-2023" />.
+
+SAM 2 extends point, box and mask prompting across video with a streaming memory of earlier predictions and prompted frames. The paper's v2, dated 28 October 2024, states that its reported results use the improved model called SAM 2.1. In the interactive video experiment, the authors report better average segmentation accuracy with more than three times fewer interactions than their SAM+XMem++ and SAM+Cutie baselines. This is a simulated comparison on nine densely annotated video datasets, using Hiera-B+ at resolution 1024, three clicks per interacted frame and one to eight interacted frames, not a measured reduction in every user's work. Offline evaluation repeatedly prompts the worst-IoU frame; online evaluation adds corrections when IoU falls below 0.75 and changes only subsequent frames. Both use ground truth to select corrections. Section 6.1 describes feeding tracker masks to SAM as mask prompts; Appendix F.1.4 instead reconstructs masks with clicks until IoU exceeds 0.8, then adds correction clicks. Those baseline descriptions do not fully agree <Cite id="sam2-2024" />.
+
+The image-speed comparison is different. Tables 5 and 15 compare SA-1B-only SAM 2 with a Hiera-B+ encoder against SAM with ViT-H: 58.9 versus 58.1 one-click mIoU on the 23-dataset SA-23 aggregate, and 130.1 versus 21.7 images per second. That is the paper's roughly sixfold throughput result on one A100, with image batches of 10, PyTorch 2.3.1, CUDA 12.1, bfloat16 mixed precision and compiled image encoders for both models. It is not single-image latency, video-tracking speed or robot control frequency. The image evaluation spans 37 datasets, including video frames treated as individual images; the separate first-frame-prompt video-object-segmentation comparison spans 17 datasets <Cite id="sam2-2024" />.
+
+These are model- and protocol-specific results. Objects are inferred independently, which limits inter-object modeling. The paper still reports failures after shot changes or long occlusions, in crowded scenes and on thin, fast-moving details. Its mixed-data SA-23 prose says 61.4 while Tables 5 and 15 say 61.9; that unresolved source inconsistency is not part of the SA-1B-only comparison above. Appendix F.3.2 also warns that OVIS is not strictly zero-shot for the mixed-data model because its videos occur in MOSE training data <Cite id="sam2-2024" />.
+
+<Term id="promptable-segmentation">Promptable segmentation</Term> supplies object masks in MOKA and ReKep, but the [keypoint interfaces](/manipulation/hierarchical) do not all use the same perception stack.
+
+MOKA uses GroundedSAM masks to propose marked candidate points, then prompts a pretrained VLM to select grasp, function and target keypoints where applicable, along with waypoint regions and motion attributes. Calibrated depth lifts the surface points into the robot frame; a separate grasp sampler and motion pipeline turn the selections into actions. The prompted method does not train a robot policy, although the paper separately studies policy distillation from successful trajectories <Cite id="moka-2024" />.
+
+ReKep proposes semantic keypoints from DINOv2 features within SAM masks and calibrated RGB-D geometry. GPT-4o writes Python sub-goal and path constraints from a marked image and a language instruction; a separate solver repeatedly plans end-effector motion from tracked keypoints. Its implementation penalizes constraint violations rather than guaranteeing physical feasibility. Rigidity assumptions and tracking failures remain limitations, and some evaluations use human annotations or disable tracking <Cite id="rekep-2024" />.
+
+RoboPoint instead instruction-tunes a VLM to predict image-space affordance points, mixing synthetic object and free-space reference data with real-image VQA and LVIS detection data. Its point predictor does not require an external detector at test time, but the reported robot pipeline still uses depth, an end-effector offset and a motion planner. Predicting a point is not by itself a grasp pose or a complete control policy <Cite id="robopoint-2024" />.
+
+Dense Object Nets learns a descriptor vector for each RGB pixel, using matches from static RGB-D reconstructions as self-supervision. With object-centric training techniques, the authors demonstrate correspondence across viewpoints and moderately deformable object configurations; they do not guarantee that every physical point has an identical descriptor. Their class-consistent training mode generalizes across sufficiently similar hats, shoes and mugs, while instance-specific training distinguishes objects <Cite id="dense-object-nets-2018" />.
+
+The paper's 20-minute estimate is for learning a new object, including collection of a handful of scenes. Appendix D reports 3500 optimization steps, about 13 minutes, on a single Nvidia 1080 Ti or Titan Xp; Appendix B reports about 70 seconds for one static-scene scan. The demonstrated setup uses a calibrated Kuka IIWA LBR arm, a wrist-mounted Primesense Carmine 1.09 RGB-D sensor and a Schunk two-finger gripper. Humans often rearranged objects and still switched and identified different objects during multi-object collection. A matched reference pixel is mapped into depth geometry for grasp planning; the descriptor does not itself specify the gripper's 6-DoF orientation <Cite id="dense-object-nets-2018" />.
+
+Dex-Net 2.0 instead learns to score candidate parallel-jaw grasps. The paper reports 6.7 million synthetic training datapoints pairing grasps with depth observations and analytic grasp-quality labels, generated from 1500 object models. Its training images are grasp-aligned crops, not 6.7 million measured robot successes or necessarily that many distinct scene views; Figure 3 describes the population as “over 6.7 million grasp images.” GQ-CNN takes an aligned depth crop and the gripper's depth relative to the camera. Its labels use thresholded robust epsilon quality and collision constraints; physical grasp success is evaluated separately <Cite id="dexnet-2-2017" />.
+
+The Dex-Net planner samples and ranks antipodal candidates, checks reachability and table collision, and operates on single-view depth for an isolated object on a planar worksurface. Training assumes rigid objects and known camera intrinsics and gripper geometry. It avoids registering a target-specific object model at execution, not geometric assumptions or synthetic object models during training. Missing depth on thin parts and collisions remain failure modes; its pile-handling demonstration separates objects before grasping <Cite id="dexnet-2-2017" />.
+
+## 6-DoF pose estimation, and how to read a claim about it
+
+<Term id="pose-estimation">Pose estimation</Term> is the stage that turns a mask into a rigid body with an orientation. The methods divide by what they assume they already know about the object, which is also the division that decides whether you can use one.
+
+**Instance-level** methods are trained for specific objects. PoseCNN localises each object's centre, predicts its distance, and regresses a quaternion for rotation, with a loss designed to handle symmetric objects; it shipped with the YCB-Video dataset, 21 objects across 92 videos and 133,827 frames <Cite id="posecnn-2018" />. Accurate on the objects it knows, useless on the object that arrived this morning.
+
+**Model-free and novel-object** methods removed that constraint. MegaPose estimates the pose of novel objects by render-and-compare against a CAD model supplied at test time <Cite id="megapose-2022" />, and FoundationPose unifies model-based and model-free operation in one network: give it a CAD model, or give it a handful of reference images, and it runs on an object it never trained on, reaching results comparable to instance-level methods despite assuming far less <Cite id="foundationpose-2024" />.
+
+To read a pose-estimation result, check its evaluation protocol. Hinterstoisser and colleagues' LINEMOD-based paper evaluates a model $\mathcal M$ using its ground-truth rotation and translation $(R,T)$ and its estimated pose $(\widetilde R,\widetilde T)$. Equation (1) averages the distances between corresponding model points after the two transforms <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
+
+$$
+m = \operatorname{avg}_{x \in \mathcal M}
+\left\lVert (Rx+T)-(\widetilde R x+\widetilde T) \right\rVert
+$$
+
+The paper counts the detection and pose estimate as correct when $m \leq k_m d$, where $d$ is the model's diameter and $k_m$ is a chosen coefficient. Equality counts as correct. Table 1 uses $k_m=0.1$; that is this evaluation's setting, not a universal pose-accuracy threshold <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />.
+
+For the <Term id="add-s-metric">symmetry-aware pose error</Term>, Equation (2) changes the correspondence rule: each ground-truth-transformed model point is matched to its nearest estimated-pose-transformed model point, and those distances are averaged <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
+
+$$
+m = \operatorname{avg}_{x_1 \in \mathcal M}
+\min_{x_2 \in \mathcal M}
+\left\lVert (Rx_1+T)-(\widetilde R x_2+\widetilde T) \right\rVert
+$$
+
+The paper uses this rule for objects that are ambiguous, or appear ambiguous from a subset of views, naming “cup”, “bowl”, “box” and “glue” <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />. Read that as a rule over the supplied model points, not a guarantee that every indistinguishable rotation of any bowl has zero error or passes the chosen threshold.
+
+The BOP Challenge 2023 report uses a different aggregate from ADD-S. For 6-DoF localisation, each dataset score first averages three metric recalls: VSD, MSSD and MSPD. Each recall is averaged over multiple correctness thresholds, with a strict correctness test $e < \theta_e$; VSD also varies its misalignment tolerance. $AR_C$ then averages the dataset scores equally across seven core datasets: LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L and IC-BIN. The report displays this dimensionless recall score on a 0 to 100 scale, not ADD-S distance, millimetres or robot success. It does not use the object-first averaging of the report's 2D-detection $AP_C$. VSD considers the visible object surface; MSSD and MSPD use pre-identified object symmetries. The report delegates numerical threshold grids and further symmetry details to its cited 2020 report. Seen and unseen localisation use the same evaluation methodology, with object identities and instance counts supplied at test time <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+
+In the report’s retrospective 2017 to 2023 comparison, seen-object accuracy rises from 56.9 to 85.6 $AR_C$, a relative improvement of more than 50 percent. The endpoints are Vidal’s point-pair-feature method and GPose2023, not a universal gain in robot performance. The dates and channels need care: Figure 1 labels the selected methods RGB-D and associates Vidal with 2017, while Table 2 labels the Vidal-Sensors18 entry’s submission year as 2019 and its test input as depth. That entry uses PPF and ICP without training images; GPose2023 uses object-specific networks, custom detections, coordinate-guided refinement and RGB-D training/testing with PBR plus real training images <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+
+For unseen objects, GenFlow-MultiHypo16 leads Task 4 with 67.4 $AR_C$. The best 2020 seen-object entry, CosyPose-ECCV20-SYNT+REAL-ICP, scores 69.8 in Task 1. Section 4.4 calls these results comparable, not identical. Their reported average image-processing times are 34.58 and 13.74 seconds, respectively: reported timings, not a matched-hardware speed ratio or a robot control frequency. Both entries test on RGB-D images. GenFlow uses one network across datasets, CNOS-fastSAM, recurrent-flow refinement and PBR training; CosyPose uses dataset-specific networks, default synthetic-plus-real detections, DeepIM plus ICP refinement and RGB training with PBR plus real images. Task 4 still supplies 3D mesh models of the test objects for onboarding, capped at 5 minutes per object on one GPU; no real images of those objects may be used for onboarding. This is a comparison between two benchmark entries with different training and onboarding conditions, not evidence that the seen-versus-unseen gap disappeared. Figure 4 still shows GenFlow failures under heavy object occlusion <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+
+## Visual servoing: image-based and position-based control
+
+Image-based visual control defines a desired configuration of image features and uses their measured error to guide motion. Espiau, Chaumette and Rives’s 1992 paper applies a task-function framework to this problem. The task function is designed for regulation and need not be the raw feature difference. Their interaction matrix relates feature rates to the camera’s translational and rotational velocity relative to the scene, expressed in the camera frame. Convergence depends on the task and interaction-model conditions; neglecting target motion can leave a tracking error <Cite id="espiau-1992" />.
+
+For the fixed goal and motionless target considered in Chaumette and Hutchinson’s Part I, the relation is $\dot{s} = L_s v_c$: $v_c$ is the camera’s six-component spatial velocity, not a vector of joint rates <Cite id="chaumette-hutchinson-2006" />.
+
+<Term id="visual-servoing">Visual servoing</Term> uses vision in the control loop; image-based visual servoing (IBVS) and position-based visual servoing (PBVS) define different errors. IBVS uses image features, while PBVS uses estimated pose parameters. This does not make IBVS universally pose- or calibration-free: the point-feature interaction matrix uses depth and camera intrinsics, and its estimate may use current depths or depths at the desired pose<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+
+For a fixed goal and motionless target, the tutorial gives local asymptotic stability conditions for redundant-feature IBVS: the interaction matrices must have full rank, and the estimated pseudoinverse multiplied by the true matrix must satisfy a positivity condition. The approximations must not be too coarse. Within a convergent IBVS motion, coarse estimates can change the camera trajectory without changing the final pose reached; poor estimates can instead make the system unstable. Large displacements can encounter local minima or singularities, and the camera path can be unpredictable and suboptimal. This is not a guarantee under arbitrary calibration error or image noise. In PBVS, errors in the estimated pose can also affect final accuracy<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+
+Chaumette and Hutchinson’s Part I, *Basic Approaches* (2006), presents IBVS and PBVS and analyzes their performance and stability<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />. Part II, *Advanced Approaches* (2007), extends the treatment to interaction-matrix estimation, hybrid and partitioned control, optimization, switching, trajectory planning, target tracking, and joint-space formulations for eye-in-hand and eye-to-hand systems<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2007" />.
+
+Visibility requirements depend on the chosen measurements. The tutorial’s stereo point feature is observed in both images<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />, while its epipolar estimate uses matches between the current and desired images. Part II describes switching and trajectory-planning methods that address target visibility, occlusions and joint limits<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2007" />. Visibility is not automatic: Part I gives PBVS configurations in which points leave the camera’s field of view<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+
+## What the end-to-end models replaced
+
+This is the argument the module exists to make. Every stage above is a place where a real system carries an interface, a calibration file, a failure mode and an engineer who owns it. The six stages chosen here name different interfaces: camera calibration, hand-eye calibration, depth, detection, segmentation and pose estimation. That authored grouping is an editorial guide, not an exhaustive subsystem count or proof that their errors form one statistical budget.
+
+The explicit pipeline is exactly what end-to-end vision-language-action policies replaced. A policy trained on images and actions does not compute a pose, because nothing in its objective asks it to, and the geometric reasoning that calibration and pose estimation made explicit gets absorbed into weights where it is no longer a stage you can inspect or calibrate. That trade runs in both directions. What you buy is a stack that no longer breaks when an object arrives that no detector was trained on and no CAD model exists for. What you sell is the error budget: when an end-to-end policy misses a grasp by 8 mm, there is no hand-eye residual to re-solve, because there is no hand-eye transform.
+
+The [keypoint interfaces](/manipulation/hierarchical) sat in the honest middle of that trade, and what happened to them is worth noting. They kept geometry as an explicit intermediate representation while letting a learned model produce it, and by the time frontier systems arrived the geometry had moved out of the runtime pipeline and into the training mixture as an auxiliary objective. Naming this pipeline is what makes that history legible instead of mystical. When comparing an end-to-end policy with an explicit pipeline, ask which interfaces remain explicit. The six-stage grouping here is one way to organize that question, not a required decomposition of every policy.

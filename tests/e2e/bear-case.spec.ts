@@ -91,9 +91,9 @@ test.describe('frontier bear-case module', () => {
     expect(text).toMatch(/social license to deploy/);
     expect(text).toMatch(/tangible evidence of real-world return on investment/);
 
-    // Unitree: profit halving despite volume leadership.
+    // Unitree: the earnings datapoint only, no shipment or ranking claim.
     expect(text).toMatch(/Unitree/);
-    expect(text).toMatch(/5,500/);
+    expect(text).not.toMatch(/5,500/);
     expect(text).toMatch(/52\.55% year over year/);
 
     // Computex: the on-stage collapse.

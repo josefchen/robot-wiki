@@ -91,11 +91,23 @@ describe('classical SLAM source corrections', () => {
   });
 
   it('retains all earlier scene source completions without claiming whole P1 or local proof', () => {
-    for (const ordinal of [12, 13, 14, 15, 16, 17, 20, 21, 40, 41, 42, 43, 44]) {
+    for (const ordinal of [12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 40, 41, 42, 43, 44, 45, 49]) {
       expect(records()[ordinal - 1].evidenceFailures, `original ${ordinal}`).toEqual([]);
     }
+    // Later scene-representation packets completed the formerly excluded
+    // 18/24/45/49, and the 20260917a identity sweep bound original 1
+    // (scene-representation-1-identity-sweep-20260917a). The later TSDF
+    // correction binds original 10 to its own source-qualified plan.
+    expect(records()[0].evidenceFailures, 'original 1 (identity sweep)').toEqual([]);
+    expect(records()[0].compound?.planId).toBe('scene-representation-1-identity-sweep-20260917a');
+    expect(records()[9].evidenceFailures).toEqual([]);
+    expect(records()[9].verdict).toBe('C');
+    expect(records()[9].compound?.planId).toBe('classical-scene-representation-10-kinectfusion-correction-20260922');
     for (const ordinal of [18, 24, 45, 49]) {
-      expect(records()[ordinal - 1].evidenceFailures.length, `original ${ordinal}`).toBeGreaterThan(0);
+      const p = plans.find(p => p.articleSlug === 'scene-representation' && p.rowOrdinal === ordinal)!;
+      expect(p.evidence.length, `later reviewed original ${ordinal}`).toBeGreaterThan(0);
+      expect(p.adjudications).toHaveLength(p.parts.length);
+      expect(records()[ordinal - 1].evidenceFailures, `later completed original ${ordinal}`).toEqual([]);
     }
   });
 });

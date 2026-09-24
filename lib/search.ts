@@ -36,11 +36,11 @@ export const RESULT_LIMIT = 20;
 
 /**
  * The site-name tail Pagefind appends to result titles, taken from the
- * <title> template in app/layout.tsx ('%s - Robot Wiki'). Both derive the
+ * <title> template in app/layout.tsx ('%s | Robot Wiki'). Both derive the
  * name from PUBLIC_IDENTITY, or every search result renders with a visible
  * site-name suffix.
  */
-const SITE_TITLE_SUFFIX = ` - ${PUBLIC_IDENTITY}`;
+const SITE_TITLE_SUFFIX = ` | ${PUBLIC_IDENTITY}`;
 
 /* The subset of the Pagefind runtime API this app consumes. */
 export interface PagefindResultData {
@@ -139,6 +139,34 @@ export function titleWeight(query: string, title: string): number {
 }
 
 /**
+ * Whether the query appears as one contiguous token sequence in the page
+ * content. Tokens use the same punctuation and Greek folding as the
+ * genuineness check, and retain its typeahead behavior: "tempor ensemb"
+ * matches "temporal ensembling". This is deliberately a secondary signal
+ * behind titleWeight. It distinguishes a page that actually contains the
+ * requested phrase from pages where the same common words occur far apart,
+ * which otherwise lets the exact page fall beyond RESULT_LIMIT.
+ */
+export function contentPhraseWeight(query: string, content: string): number {
+  const queryTokens = tokenize(query);
+  if (queryTokens.length === 0 || !content.trim()) return 0;
+  const contentTokens = tokenize(content);
+  if (queryTokens.length > contentTokens.length) return 0;
+
+  for (let start = 0; start <= contentTokens.length - queryTokens.length; start += 1) {
+    let matches = true;
+    for (let offset = 0; offset < queryTokens.length; offset += 1) {
+      if (!contentTokens[start + offset].startsWith(queryTokens[offset])) {
+        matches = false;
+        break;
+      }
+    }
+    if (matches) return 1;
+  }
+  return 0;
+}
+
+/**
  * Maps a raw Pagefind response to ranked, renderable hits.
  *
  * Order of operations is load-bearing. Every raw result is resolved and
@@ -148,8 +176,8 @@ export function titleWeight(query: string, title: string): number {
  * place, so the rendered count fell below the cap with nothing to show that
  * anything had been dropped.
  *
- * Ranking is a stable sort on the title weight alone, so Pagefind's own
- * relevance order survives intact within each tier.
+ * Ranking is a stable sort on title weight, then contiguous content phrase,
+ * so Pagefind's own relevance order survives intact within each tier.
  */
 export async function toSearchHits(
   response: PagefindSearchResponse,
@@ -161,13 +189,25 @@ export async function toSearchHits(
   );
   return data
     .filter((entry) => isGenuineHit(query, entry.content ?? ''))
-    .map((entry) => ({
-      url: entry.url,
-      title: stripSiteSuffix(entry.meta?.title, entry.url),
-      excerpt: entry.excerpt ?? '',
-    }))
-    .map((hit, index) => ({ hit, index, weight: titleWeight(query, hit.title) }))
-    .sort((a, b) => b.weight - a.weight || a.index - b.index)
+    .map((entry, index) => {
+      const title = stripSiteSuffix(entry.meta?.title, entry.url);
+      return {
+        hit: {
+          url: entry.url,
+          title,
+          excerpt: entry.excerpt ?? '',
+        },
+        index,
+        titleWeight: titleWeight(query, title),
+        phraseWeight: contentPhraseWeight(query, entry.content ?? ''),
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.titleWeight - a.titleWeight ||
+        b.phraseWeight - a.phraseWeight ||
+        a.index - b.index,
+    )
     .slice(0, limit)
     .map((entry) => entry.hit);
 }

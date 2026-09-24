@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import * as model from '../../lib/deployment-economics';
 import { loadLocalBasisContext, recomputeLocalDerivation, validateLocalBasisPlan } from '../../lib/audit-local-basis';
 import { CITATIONS } from '../../data/citations';
+import { publishedModules } from '../../data/modules';
 import { ARTICLE, COMPONENT, UNIT, ROUTE, artifact, cases, defaults, ranges, dependencies, oracle, save } from '../../audit/evidence/economics-local-20260923/support';
 
 function check(input: typeof defaults) {
@@ -42,7 +43,9 @@ describe('industrial52 authored economics evidence', () => {
     }
   });
   it('requires every external and local part, binding and observation', () => {
-    const ctx = loadLocalBasisContext(process.cwd(), [ROUTE, '/rl-sim2real/parallel-sim-rl/', '/rl-sim2real/reward-design-mpc/', '/rl-sim2real/sim2real-transfer/']);
+    const routes = publishedModules().map(m => `/${m.domain}/${m.slug}/`);
+    expect(routes).toContain(ROUTE);
+    const ctx = loadLocalBasisContext(process.cwd(), routes);
     const plan = ctx.catalog.plans.find(p => p.originalId === 'audit/data-hardware.md:industrial-deployment:52');
     expect(plan).toBeDefined();
     if (!plan) return;

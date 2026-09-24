@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { IntentLink } from '@/components/ui/intent-link';
 import {
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
@@ -76,6 +77,22 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
           >
             Source on GitHub
           </a>
+          .{' '}
+          <IntentLink
+            href="/editorial-policy/"
+            data-brand-control-id="control:link-focus"
+            className={externalLink}
+          >
+            Editorial policy
+          </IntentLink>
+          .{' '}
+          <IntentLink
+            href="/privacy/"
+            data-brand-control-id="control:link-focus"
+            className={externalLink}
+          >
+            Privacy
+          </IntentLink>
           .
         </p>
       </div>

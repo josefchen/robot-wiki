@@ -1,8 +1,11 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { MilestonesWatchlist } from '@/components/interactive/milestones-watchlist';
 import { MILESTONES } from '@/lib/bear-case';
+import { renderWithCitations } from '../helpers/widget-citations';
+
+const render = renderWithCitations('MilestonesWatchlist');
 
 const STATUS_LABEL: Record<string, string> = {
   'not-met': 'not met',

@@ -354,6 +354,8 @@ export function siteCardElement(): CardNode {
           padding: '52px 48px 44px 60px',
         },
         [
+          // The site card carries the exact Brand v2 descriptor; article
+          // cards omit it so their title and source facts keep priority.
           div(
             {
               display: 'flex',

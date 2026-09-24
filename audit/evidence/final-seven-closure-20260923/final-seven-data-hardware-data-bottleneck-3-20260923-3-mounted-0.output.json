@@ -1,0 +1,1 @@
+{"formula":"throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput","precision":"hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round","units":"rigs:count; target:h; throughput:h/year; duration:years","values":{"display":["15,000 h/yr","66.7 yr"],"perYear":15000,"years":66.66666666666667}}

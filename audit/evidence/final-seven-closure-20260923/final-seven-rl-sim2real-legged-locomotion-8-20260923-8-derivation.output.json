@@ -1,0 +1,1 @@
+{"formula":"gait:derive:v1","precision":"IEEE-754; existing model rounding only","units":"dimensionless unless explicitly keyed","values":{"display":["0%","0.75"],"legs":[{"id":"lf","phase":0.75,"stance":false},{"id":"rf","phase":0.25,"stance":true},{"id":"lh","phase":0,"stance":true},{"id":"rh","phase":0.5,"stance":true}],"nextPhase":0.05}}

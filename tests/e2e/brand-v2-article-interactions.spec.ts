@@ -41,6 +41,11 @@ test.describe('brand-v2-article-interactions', () => {
                 (node as HTMLElement).blur()
               );
               await page.mouse.move(2, 2);
+              // The citation tooltip is a top-layer popover that lingers
+              // ~120ms after pointer-leave for gap traversal. While shown it
+              // can cover the term's hover point, so wait for it to hide —
+              // otherwise the term's :hover never engages.
+              await expect(citation.getByRole('tooltip')).toBeHidden();
               const term = page.locator('.prose [data-term-id]').first();
               if ((await term.count()) > 0) {
                 await term.hover();

@@ -14,7 +14,11 @@ const plans = () => catalog.map(p => p.id.startsWith('rl-finetuning-closeout-')
   ? structuredClone(p) : p);
 const rows = (compoundPlans = plans()) =>
   parseLedger('audit/manipulation.md', text('audit/manipulation.md'),
-    new Set(CITATIONS.map(c => c.id)), { compoundPlans })
+    new Set(CITATIONS.map(c => c.id)), {
+      // Plans only bind rows in their own ledger; scoping keeps each
+      // mutation re-parse proportional to this ledger, not the catalog.
+      compoundPlans: compoundPlans.filter(p => p.ledgerPath === 'audit/manipulation.md'),
+    })
     .find(section => section.slug === 'rl-finetuning')!.claimRecords;
 
 describe('bounded DPPO and ConRFT closeout', () => {
@@ -39,6 +43,8 @@ describe('bounded DPPO and ConRFT closeout', () => {
       .not.toContain('Strongest overall fine-tuning performance and efficiency');
   });
 
+  // The isolated 50-mutation sweep measured 4.73 s; preserve all negatives
+  // under concurrent suites without a global timeout change.
   it('rejects every removed part, duplicate, stale passage and wrong citation pair', () => {
     const selected = plans().filter(p => p.id.startsWith('rl-finetuning-closeout-'));
     expect(selected).toHaveLength(2);
@@ -64,7 +70,7 @@ describe('bounded DPPO and ConRFT closeout', () => {
         }
       }
     }
-  });
+  }, 10_000);
 
   it('requires exactly the sixteen reviewed citation/part/URL pairs', () => {
     const required = [
