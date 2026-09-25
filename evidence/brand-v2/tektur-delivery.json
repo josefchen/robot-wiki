@@ -7787,7 +7787,6 @@
       "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
       "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
       "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
-      "/_next/static/media/750c737482d9de2f-s.3ex3j6ahhvjry.woff2",
       "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
       "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
       "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
@@ -7852,18 +7851,6 @@
         ],
         "payloadSignature": "774f4632",
         "sha256": "2a69ec1c0fb79a464de0e19957cdb3a65b5f626d85fffd164f9de557d3a64878"
-      },
-      {
-        "url": "/_next/static/media/750c737482d9de2f-s.3ex3j6ahhvjry.woff2",
-        "origin": "same",
-        "resourceTypes": [
-          "font"
-        ],
-        "contentTypes": [
-          "font/woff2"
-        ],
-        "payloadSignature": "774f4632",
-        "sha256": "fe52554ab1cd7dd9704db81572f45ef0eb122679c35bbbbc728baf701033b727"
       },
       {
         "url": "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",

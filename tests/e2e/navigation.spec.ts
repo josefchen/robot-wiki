@@ -138,6 +138,11 @@ test.describe('navigation shell', () => {
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/manipulation/action-chunking/');
+    // The keyboard cycle needs React's handlers attached. On a cold
+    // dev-server compile the first load can beat hydration, and Enter
+    // before hydration is a no-op: the router only stamps history.state
+    // once it initializes, so wait for that before driving the keyboard.
+    await page.waitForFunction(() => window.history.state !== null);
     // VAL-A11Y-020: the skip link is still the first thing a Tab reaches at
     // mobile width, before the drawer trigger.
     await page.keyboard.press('Tab');

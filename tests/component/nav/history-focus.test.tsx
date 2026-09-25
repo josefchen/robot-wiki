@@ -45,14 +45,22 @@ function activeElementId(): string {
   return el.id || el.tagName.toLowerCase();
 }
 
+/**
+ * A click navigation: the router pushes the new URL (which the component
+ * observes through its history wrapper) and then commits the route.
+ */
 function navigateTo(path: string) {
   window.history.pushState({}, '', path);
   mockPathname = path;
 }
 
-function goBackTo(path: string) {
-  window.history.pushState({}, '', path);
-  mockPathname = path;
+/**
+ * A history traversal: the browser changes the URL without going through
+ * the router's pushState, so this must bypass the component's own-property
+ * wrapper and use the prototype directly, then deliver the popstate.
+ */
+function traverseTo(path: string) {
+  History.prototype.pushState.call(window.history, {}, '', path);
   act(() => {
     window.dispatchEvent(new PopStateEvent('popstate'));
   });
@@ -95,7 +103,8 @@ describe('HistoryFocus', () => {
     const { rerender } = render(<Harness />);
     navigateTo('/manipulation/action-chunking/');
     await rerenderAt(rerender);
-    goBackTo('/');
+    mockPathname = '/';
+    traverseTo('/');
     await rerenderAt(rerender);
     const heading = document.querySelector<HTMLElement>('main h1');
     expect(heading).not.toBeNull();
@@ -105,11 +114,33 @@ describe('HistoryFocus', () => {
     expect(heading).toHaveAttribute('tabindex', '-1');
   });
 
+  it('still focuses when Back races the outgoing route\'s commit', async () => {
+    // The router pushes the article URL but has not committed it when the
+    // reader hits Back (Next.js updates the URL optimistically); the stale
+    // article commit lands after the popstate, before the restored route.
+    const { rerender } = render(<Harness />);
+    navigateTo('/manipulation/action-chunking/');
+    // No rerender: the article commit is still in flight.
+    mockPathname = '/';
+    traverseTo('/');
+    // The outgoing route's commit arrives first, ahead of the restored URL.
+    mockPathname = '/manipulation/action-chunking/';
+    await rerenderAt(rerender);
+    expect(activeElementId()).toBe('BODY');
+    // Then the restored route commits and focus lands on its heading.
+    mockPathname = '/';
+    await rerenderAt(rerender);
+    expect(document.activeElement).toBe(
+      document.querySelector('main h1'),
+    );
+  });
+
   it('falls back to the main landmark when the page has no h1', async () => {
     const { rerender } = render(<Harness heading={false} />);
     navigateTo('/market-map/');
     await rerenderAt(rerender, { heading: false });
-    goBackTo('/');
+    mockPathname = '/';
+    traverseTo('/');
     await rerenderAt(rerender, { heading: false });
     expect(activeElementId()).toBe('main-content');
   });
@@ -119,7 +150,8 @@ describe('HistoryFocus', () => {
     navigateTo('/manipulation/action-chunking/');
     await rerenderAt(rerender);
     document.getElementById('outside-stop')?.focus();
-    goBackTo('/');
+    mockPathname = '/';
+    traverseTo('/');
     await rerenderAt(rerender);
     expect(activeElementId()).toBe('outside-stop');
   });
@@ -136,7 +168,7 @@ describe('HistoryFocus', () => {
     });
     await rerenderAt(rerender);
     expect(activeElementId()).toBe('BODY');
-    // A later click navigation must also not fire the stale pending step.
+    // A later click navigation must also not fire the stale armed step.
     navigateTo('/');
     await rerenderAt(rerender);
     expect(activeElementId()).toBe('BODY');
@@ -146,7 +178,8 @@ describe('HistoryFocus', () => {
     const { rerender } = render(<Harness suspended />);
     navigateTo('/manipulation/action-chunking/');
     await rerenderAt(rerender, { suspended: true });
-    goBackTo('/');
+    mockPathname = '/';
+    traverseTo('/');
     await rerenderAt(rerender, { suspended: true });
     // Drawer open: focus stays wherever the dialog put it.
     expect(activeElementId()).toBe('BODY');
