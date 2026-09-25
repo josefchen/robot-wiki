@@ -42,16 +42,17 @@ test.afterAll(async () => {
 });
 
 /**
- * Clicks must be client-side navigations for the history tests below, and a
- * freshly loaded static page hydrates slightly after its load event: an
- * immediate click falls through to a plain anchor navigation. Waiting for
- * the network to settle lets hydration finish first. (A history step that
- * loads a full document is covered separately: the component also restores
- * focus for back_forward page loads.)
+ * Clicks must be client-side navigations for the history tests below: a
+ * freshly loaded static page hydrates slightly after its load event, and an
+ * immediate click falls through to a plain anchor navigation, replacing the
+ * document. The Next router initializes history.state (null on the raw
+ * document) during hydration, so waiting for it is a deterministic
+ * hydrated signal. (A history step that loads a full document is covered
+ * separately: the component also restores focus for back_forward loads.)
  */
 async function gotoSettled(page: import('@playwright/test').Page, url: string) {
   await page.goto(url, { waitUntil: 'load' });
-  await page.waitForLoadState('networkidle');
+  await page.waitForFunction(() => window.history.state !== null);
 }
 
 test.describe('browser history restores route and focus', () => {
@@ -61,14 +62,18 @@ test.describe('browser history restores route and focus', () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await gotoSettled(page, `${BASE}/`);
     // Real click navigation: home domain index → domain landing → article.
+    // Scoped to main content: the desktop sidebar carries the same article
+    // link in a persistent DOM node, and focus correctly STAYS on a link
+    // that survives the history step — these flows must exercise the
+    // content link that unmounts, which is where focus was lost.
     await page
+      .getByRole('main')
       .getByRole('link', { name: 'Manipulation & Learned Policies' })
-      .first()
       .click();
     await page.waitForURL(/\/manipulation\/$/);
     await page
+      .getByRole('main')
       .getByRole('link', { name: 'Action Chunking (ACT and ALOHA)' })
-      .first()
       .click();
     await page.waitForURL(/\/manipulation\/action-chunking\/$/);
 
@@ -93,13 +98,31 @@ test.describe('browser history restores route and focus', () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await gotoSettled(page, `${BASE}/manipulation/`);
     await page
+      .getByRole('main')
       .getByRole('link', { name: 'Action Chunking (ACT and ALOHA)' })
-      .first()
       .click();
     await page.waitForURL(/\/manipulation\/action-chunking\/$/);
     await page.goBack();
     await page.waitForURL(/\/manipulation\/$/);
     await expect(page.locator('main h1')).toBeFocused();
+  });
+
+  test('back leaves focus on a sidebar link that survived the step', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await gotoSettled(page, `${BASE}/manipulation/`);
+    // The sidebar never unmounts, so the clicked link keeps focus across
+    // the whole history step: nothing was lost, so nothing may be moved.
+    const link = page
+      .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
+      .getByRole('link', { name: 'Action Chunking (ACT and ALOHA)' });
+    await link.click();
+    await page.waitForURL(/\/manipulation\/action-chunking\/$/);
+    await page.goBack();
+    await page.waitForURL(/\/manipulation\/$/);
+    await expect(link).toBeFocused();
+    await expect(page.locator('main h1')).not.toBeFocused();
   });
 
   test('back from a breadcrumb jump restores the article with heading focus', async ({

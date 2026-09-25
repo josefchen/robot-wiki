@@ -33,14 +33,15 @@ Visual posture for review:
 | Role | Owns | Cannot approve |
 | --- | --- | --- |
 | Josef | Product direction, locked-foundation changes, release | Technical evidence he has not reviewed |
-| Droid | Implementation, focused regression tests, technical handoff | Its own product-quality result |
-| Codex | Scope briefs, adversarial QA, rendered review, acceptance or rejection | A direction change reserved for Josef |
+| Implementation | Building the change, focused regression tests, technical handoff | Its own product-quality result |
+| Review | Scope briefs, adversarial QA, rendered review, acceptance or rejection | A direction change reserved for Josef |
 
-No agent certifies its own work. A progress count, worker report, screenshot, or
-green local test is evidence, not approval.
+No role certifies its own work. A progress count, implementation report,
+screenshot, or green local test is evidence, not approval.
 
-Only one agent writes to a worktree at a time. If Codex must implement while
-Droid is active, use a separate worktree or pause Droid first.
+Only one writer changes the repository at a time. If a review pass must make
+changes during an active implementation pass, use a separate branch or pause
+the implementation first.
 
 ## Review personas
 
@@ -112,7 +113,7 @@ product is free of slop.
 
 ### Independent review
 
-Codex reviews the actual diff and rendered target against all four personas.
+Review inspects the actual diff and rendered target against all four personas.
 An LLM evaluator may suggest findings, but its score is advisory and cannot be
 the release gate.
 
@@ -141,24 +142,26 @@ Severity definitions:
 - `P2`: local friction or polish defect;
 - `P3`: optional improvement with no release impact.
 
-Allowed states are `queued`, `ready_for_droid`, `in_progress`,
+Allowed states are `queued`, `ready_for_implementation`, `in_progress`,
 `ready_for_review`, `accepted`, `rejected`, and `blocked`.
 
 ## Batch workflow
 
-1. Codex audits the real target and selects at most two P0 findings or three P1
+1. Review audits the real target and selects at most two P0 findings or three P1
    findings for one batch.
-2. Droid implements only the IDs named by `currentBatch.scope` in the queue.
-3. Droid preserves routes, citations, data truth, accessibility, and the locked
-   identity. It does not add unrelated features or validation documents.
-4. Droid returns the exact diff, changed routes, before-and-after measurements,
-   desktop and mobile screenshots, tests run, and unresolved decisions.
-5. Codex reruns focused checks and inspects the rendered routes. Each finding is
-   accepted or rejected separately.
+2. Implementation builds only the IDs named by `currentBatch.scope` in the queue.
+3. Implementation preserves routes, citations, data truth, accessibility, and
+   the locked identity. It does not add unrelated features or validation
+   documents.
+4. Implementation returns the exact diff, changed routes, before-and-after
+   measurements, desktop and mobile screenshots, tests run, and unresolved
+   decisions.
+5. Review reruns focused checks and inspects the rendered routes. Each finding
+   is accepted or rejected separately.
 6. Rejected findings receive a narrower correction brief. Accepted findings
    leave the batch. The next batch starts only after the current one closes.
 
-## Droid handoff format
+## Change handoff format
 
 ```text
 Batch:
