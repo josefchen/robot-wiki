@@ -54,13 +54,13 @@ Try the check below and choose the baseline you would run before a larger policy
 
 ## Stage 1: make coordinates concrete
 
-Start with [kinematics](/classical/kinematics), not because every learner will implement an inverse-kinematics solver, but because observations and actions live in frames. You should be able to answer four questions without looking at the training code: which frame an object pose uses, which frame an end-effector delta uses, whether rotations compose on the left or right, and where joint limits enter. *Modern Robotics* supplies the compact mathematical vocabulary for this layer <Cite id="modern-robotics-2017" />.
+Start with [kinematics](/classical/kinematics); the reason is that observations and actions live in frames, with no expectation that every learner implements an inverse-kinematics solver. You should be able to answer four questions without looking at the training code: which frame an object pose uses, which frame an end-effector delta uses, whether rotations compose on the left or right, and where joint limits enter. *Modern Robotics* supplies the compact mathematical vocabulary for this layer <Cite id="modern-robotics-2017" />.
 
 Then read [calibration](/classical/calibration) and [state estimation](/classical/state-estimation). A policy can appear stochastic when the real defect is a drifting camera transform or a timestamp mismatch. This is the first habit to import from robotics: before changing the network, prove that the target the network sees refers to the same physical state as the action in the label.
 
 ## Stage 2: treat data collection as a system
 
-Robot data is a coupled record, not a folder of images. Each transition needs synchronized observations, the commanded action, the action actually realized when available, robot state, task identity, termination, and enough provenance to reproduce the split. DROID reports 76k episodes collected across 13 institutions <Cite id="droid-2024" />.
+Robot data is a coupled record; a folder of images carries none of the coupling. Each transition needs synchronized observations, the commanded action, the action actually realized when available, robot state, task identity, termination, and enough provenance to reproduce the split. DROID reports 76k episodes collected across 13 institutions <Cite id="droid-2024" />.
 
 Before collecting at scale, record ten episodes and replay them end to end. Plot timestamp gaps. Render actions back onto the robot state. Verify units and rotation conventions. Check that train and test environments do not share nearly identical episodes. These checks are cheaper than discovering after substantial teleoperation that camera and joint streams were misaligned.
 
@@ -88,9 +88,9 @@ Ask what pretraining is supposed to provide. If the missing capability is recogn
 
 ## Stage 6: make evaluation harder than the demo
 
-Create the evaluation protocol before the main training run. Define task success, failure, intervention, reset and timeout. Separate familiar configurations from changed objects, backgrounds, lighting and geometry. Report trial counts and uncertainty, not only an average. LIBERO-Plus tests VLA robustness under controlled changes to object layout, camera viewpoint, robot initial state, language, lighting, background texture and sensor noise <Cite id="libero-plus-2025" />.
+Create the evaluation protocol before the main training run. Define task success, failure, intervention, reset and timeout. Separate familiar configurations from changed objects, backgrounds, lighting and geometry. Report trial counts and uncertainty alongside the average. LIBERO-Plus tests VLA robustness under controlled changes to object layout, camera viewpoint, robot initial state, language, lighting, background texture and sensor noise <Cite id="libero-plus-2025" />.
 
-Open-loop loss is a diagnostic, not the result. A useful evaluation pyramid has four levels:
+Open-loop loss is a diagnostic; the result sits elsewhere. A useful evaluation pyramid has four levels:
 
 1. **Dataset checks:** leakage, action distributions, timestamps and annotation quality.
 2. **Open-loop checks:** prediction error and calibration on held-out episodes.

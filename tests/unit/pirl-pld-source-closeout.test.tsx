@@ -42,7 +42,7 @@ describe('retained pi_RL v3 and PLD v1 source corrections', () => {
     expect(article).toContain('50.6-percentage-point gain');
     expect(article).toContain('displayed means differ by 24.8 points');
     expect(article).toContain('per-stage one-shot success is not 100%');
-    expect(article).toContain('The inspected PLD preprint does not establish a code or weight release');
+    expect(article).toContain('The inspected PLD and DSRL sources do not establish a code or weight release');
     expect(article).not.toContain('Xiao et al., ICLR 2026');
     expect(article).not.toContain('100% success on its real Franka and YAM');
     expect(overview).toContain('hybrid recovery data');

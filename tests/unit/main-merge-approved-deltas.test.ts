@@ -89,16 +89,47 @@ const techWithdrawalAppends = [
 const searchStatesAppends = [
   'brand-v2-search-clear-control-name',
 ] as const;
+// The manipulation humanizer pass and EXPO-FT intake (owner decision
+// 20260925) registered 25 members afterwards.
+const humanizerAppends = [
+  'humanizer-manipulation-v3-20260925-prose-action-chunking',
+  'humanizer-manipulation-v3-20260925-prose-action-spaces',
+  'humanizer-manipulation-v3-20260925-prose-bc-foundations',
+  'humanizer-manipulation-v3-20260925-prose-comparison-matrix',
+  'humanizer-manipulation-v3-20260925-prose-cross-embodiment',
+  'humanizer-manipulation-v3-20260925-prose-diffusion-policy',
+  'humanizer-manipulation-v3-20260925-prose-foundation-models',
+  'humanizer-manipulation-v3-20260925-prose-generalist-policies',
+  'humanizer-manipulation-v3-20260925-prose-hierarchical',
+  'humanizer-manipulation-v3-20260925-prose-knowledge-insulation',
+  'humanizer-manipulation-v3-20260925-prose-pi-line',
+  'humanizer-manipulation-v3-20260925-prose-realtime-execution',
+  'humanizer-manipulation-v3-20260925-prose-rl-finetuning',
+  'humanizer-manipulation-v3-20260925-prose-robot-learning-roadmap',
+  'humanizer-manipulation-v3-20260925-prose-vla-models',
+  'expo-ft-intake-20260925-relationships-rl-finetuning',
+  'expo-ft-intake-20260925-frontmatter-rl-finetuning',
+  'expo-ft-intake-20260925-metadata-rl-finetuning',
+  'expo-ft-intake-20260925-citation-rendering',
+  'expo-ft-intake-20260925-citation-dsrl-2025',
+  'expo-ft-intake-20260925-citation-expo-2025',
+  'expo-ft-intake-20260925-citation-expo-ft-2026',
+  'expo-ft-intake-20260925-citation-perry-dong-post-training-2026',
+  'expo-ft-intake-20260925-citation-realtime-expo-ft-2026',
+  'expo-ft-intake-20260925-chart-aria-label',
+] as const;
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval in order and appends exactly seven local-only approvals', () => {
     const mainIds = new Set(main.map(x => x.id));
     const localOnly = local.filter(x => !mainIds.has(x.id));
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1607]);
+    // The 20260925 manipulation humanizer pass and EXPO-FT intake appended
+    // 25 more approvals after the merge.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1632]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends]);
     expect(new Set(merged.map(x => x.id)).size).toBe(merged.length);
     expect(validateApprovedDeltas(merged)).toEqual([]);
   });
@@ -151,8 +182,11 @@ describe('two-parent exact approval reconciliation', () => {
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:data-hardware/industrial-deployment').at(-1)?.id)
       .toBe('continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment');
+    // citation-rendering was later re-anchored by the 20260925 EXPO-FT
+    // intake; the merge entry stays the last LOCAL merge for the member.
     expect(merged.filter(x => x.manifest === 'article-metadata'
-      && x.memberId === 'citation-rendering:label-and-meta').at(-1)?.id)
+      && x.memberId === 'citation-rendering:label-and-meta'
+      && x.id.startsWith('continuation-merge-')).at(-1)?.id)
       .toBe('continuation-merge-2026-09-24-tech-withdrawal-citation-rendering');
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:classical/calibration').at(-1)?.id)

@@ -17,15 +17,15 @@ describe('OFT, Gemini and OXE source scope', () => {
   });
   it('keeps Gemini mechanism disclosure, chart populations, and source-scoped unknowns distinct', () => {
     const text = article('generalist-policies');
-    for (const phrase of ['October 2, 2025', 'not an established product-release date', 'continuous numerical robot actions', 'Apollo with Inspire hands', '92%', '44%', '40%', '32%', 'image alt text', 'individual-task', 'Trial counts', 'fewer than 200', 'not disclosed']) expect(text).toContain(phrase);
+    for (const phrase of ['October 2, 2025', 'the product-release date is unestablished', 'continuous numerical robot actions', 'Apollo with Inspire hands', '92%', '44%', '40%', '32%', 'image alt text', 'individual-task', 'Trial counts', 'fewer than 200', 'not disclosed']) expect(text).toContain(phrase);
     expect(text).not.toContain('specified in neither');
     expect(text).not.toContain('Weights are closed throughout');
     expect(article('cross-embodiment')).toContain('hand-to-action mapping unmodelled');
-    expect(article('hierarchical')).toContain('does not mean that the external orchestrator has disappeared');
+    expect(article('hierarchical')).toContain('Internal VLA thinking and the external orchestrator therefore coexist');
   });
   it('attributes Skild claims and preserves the valuation lower bound and data categories', () => {
     const text = article('generalist-policies');
-    for (const phrase of ['over \\$14', 'company', 'simulation and Internet video', 'teleoperation and deployments', 'not a disclosed runtime action-head architecture']) expect(text).toContain(phrase);
+    for (const phrase of ['over \\$14', 'company', 'simulation and Internet video', 'teleoperation and deployments', 'the runtime action-head architecture stays undisclosed']) expect(text).toContain(phrase);
     expect(text).not.toContain('essentially nothing technical');
   });
   it('uses complete source author lists, not corporate affiliations as authors', () => {

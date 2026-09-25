@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6e17d7fba546867ce6325e4616b50dc8c85715764e7ee664175e67ce979f8fb0",
+  "fingerprint": "2a72c29b831138ccbf2104273a92825ba8c2296959a22826985cd0fcba4ca2df",
   "viewports": [
     "375x812",
     "1440x900"
@@ -4752,7 +4752,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22393,
+      "visibleTextLength": 22659,
       "tables": [
         {
           "index": 0,
@@ -5097,7 +5097,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12529,
+      "visibleTextLength": 12533,
       "tables": [
         {
           "index": 0,
@@ -5148,7 +5148,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14030,
+      "visibleTextLength": 14135,
       "tables": [
         {
           "index": 0,
@@ -5732,7 +5732,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28432,
+      "visibleTextLength": 28671,
       "tables": [
         {
           "index": 0,
@@ -5816,7 +5816,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15214,
+      "visibleTextLength": 15342,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -5830,7 +5830,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14060,
+      "visibleTextLength": 14094,
       "tables": [],
       "equations": [
         {
@@ -6156,7 +6156,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11702,
+      "visibleTextLength": 11741,
       "tables": [
         {
           "index": 0,
@@ -6207,7 +6207,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21631,
+      "visibleTextLength": 21818,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6221,7 +6221,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19097,
+      "visibleTextLength": 19232,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6235,7 +6235,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12084,
+      "visibleTextLength": 12183,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6249,7 +6249,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25300,
+      "visibleTextLength": 25571,
       "tables": [],
       "equations": [
         {
@@ -6376,7 +6376,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16985,
+      "visibleTextLength": 17255,
       "tables": [
         {
           "index": 0,
@@ -6562,7 +6562,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 31438,
+      "visibleTextLength": 38103,
       "tables": [
         {
           "index": 0,
@@ -6590,20 +6590,44 @@
         },
         {
           "index": 1,
-          "accessibleName": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
-          "captionText": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "accessibleName": "Per-task successes out of 30",
+          "captionText": "",
           "columnHeaders": 6,
-          "rowHeaders": 0,
+          "rowHeaders": 4,
           "unscopedHeaders": 0,
-          "sortButtons": 3,
-          "sortedColumns": 1,
-          "notDisclosedCells": 2,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
           "notApplicableCells": 0,
           "scrollContainer": {
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+            "accessibleName": "Per-task successes out of 30",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "captionText": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "columnHeaders": 6,
+          "rowHeaders": 0,
+          "unscopedHeaders": 0,
+          "sortButtons": 3,
+          "sortedColumns": 1,
+          "notDisclosedCells": 3,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
             "clientWidth": 333,
             "scrollWidth": 607,
             "scrolledBy": 40
@@ -6700,9 +6724,20 @@
         {
           "index": 3,
           "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Per-task successes out of 30",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 4,
+          "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-sm border border-border my-6 wide-me\">",
           "role": "region",
-          "accessibleName": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
           "tabIndex": 0,
           "clientWidth": 333,
           "scrollWidth": 607,
@@ -6719,7 +6754,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 10724,
+      "visibleTextLength": 10777,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6733,7 +6768,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19819,
+      "visibleTextLength": 19903,
       "tables": [
         {
           "index": 0,
@@ -12261,7 +12296,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23020,
+      "visibleTextLength": 23286,
       "tables": [
         {
           "index": 0,
@@ -12606,7 +12641,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13156,
+      "visibleTextLength": 13160,
       "tables": [
         {
           "index": 0,
@@ -12657,7 +12692,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14657,
+      "visibleTextLength": 14762,
       "tables": [
         {
           "index": 0,
@@ -13241,7 +13276,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29059,
+      "visibleTextLength": 29298,
       "tables": [
         {
           "index": 0,
@@ -13325,7 +13360,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15841,
+      "visibleTextLength": 15969,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13339,7 +13374,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14687,
+      "visibleTextLength": 14721,
       "tables": [],
       "equations": [
         {
@@ -13665,7 +13700,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12329,
+      "visibleTextLength": 12368,
       "tables": [
         {
           "index": 0,
@@ -13716,7 +13751,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22258,
+      "visibleTextLength": 22445,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13730,7 +13765,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19724,
+      "visibleTextLength": 19859,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13744,7 +13779,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12711,
+      "visibleTextLength": 12810,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13758,7 +13793,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25927,
+      "visibleTextLength": 26198,
       "tables": [],
       "equations": [
         {
@@ -13885,7 +13920,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17612,
+      "visibleTextLength": 17882,
       "tables": [
         {
           "index": 0,
@@ -14071,7 +14106,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 32065,
+      "visibleTextLength": 38730,
       "tables": [
         {
           "index": 0,
@@ -14099,20 +14134,44 @@
         },
         {
           "index": 1,
-          "accessibleName": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
-          "captionText": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "accessibleName": "Per-task successes out of 30",
+          "captionText": "",
           "columnHeaders": 6,
-          "rowHeaders": 0,
+          "rowHeaders": 4,
           "unscopedHeaders": 0,
-          "sortButtons": 3,
-          "sortedColumns": 1,
-          "notDisclosedCells": 2,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
           "notApplicableCells": 0,
           "scrollContainer": {
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+            "accessibleName": "Per-task successes out of 30",
+            "clientWidth": 673,
+            "scrollWidth": 673,
+            "scrolledBy": 0
+          },
+          "tableWidth": 673,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "captionText": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "columnHeaders": 6,
+          "rowHeaders": 0,
+          "unscopedHeaders": 0,
+          "sortButtons": 3,
+          "sortedColumns": 1,
+          "notDisclosedCells": 3,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
             "clientWidth": 1102,
             "scrollWidth": 1102,
             "scrolledBy": 0
@@ -14209,9 +14268,20 @@
         {
           "index": 3,
           "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Per-task successes out of 30",
+          "tabIndex": 0,
+          "clientWidth": 673,
+          "scrollWidth": 673,
+          "scrolledBy": 0
+        },
+        {
+          "index": 4,
+          "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-sm border border-border my-6 wide-me\">",
           "role": "region",
-          "accessibleName": "Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
+          "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
           "tabIndex": 0,
           "clientWidth": 1102,
           "scrollWidth": 1102,
@@ -14228,7 +14298,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11351,
+      "visibleTextLength": 11404,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14242,7 +14312,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20446,
+      "visibleTextLength": 20530,
       "tables": [
         {
           "index": 0,

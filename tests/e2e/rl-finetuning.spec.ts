@@ -122,10 +122,10 @@ test.describe('rl-finetuning module', () => {
   test('DPPO and ConRFT keep source-specific results and conflicts visible', async ({ page }) => {
     await page.goto(ROUTE);
     const prose = page.locator('div.prose[data-pagefind-body]');
-    await expect(prose).toContainText('PPO updates the denoising policy, not the environment dynamics.');
+    await expect(prose).toContainText('PPO updates the denoising policy while the environment dynamics stay fixed.');
     await expect(prose).toContainText('16 of 20 hardware trials');
     await expect(prose).toContainText('from 15 to 90 minutes');
-    await expect(prose).toContainText('not a percentage-point gain');
+    await expect(prose).toContainText('144% is a rounded relative gain');
     await expect(prose).toContainText('PA-RL without them');
     const table = page.getByRole('table').filter({ has: page.getByRole('columnheader', { name: 'Headline result' }) });
     await expect(table).toHaveCount(1);
@@ -174,6 +174,52 @@ test.describe('rl-finetuning module', () => {
     await expect(prose).toContainText('per-stage one-shot success is not 100%');
     await expect(prose.getByRole('link', { name: /Xiao 2025/ }).first())
       .toHaveAttribute('href', 'https://arxiv.org/abs/2511.00091');
+  });
+
+  test('EXPO-FT keeps the paper numbers, dated attribution, and chart in sync', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    // Attribution names the Stanford authors and dates the position pieces.
+    await expect(prose).toContainText('Perry Dong, Kuo-Han Hung, Tian Gao, Dorsa Sadigh and Chelsea Finn (Stanford)');
+    // Verified paper numbers stay in prose.
+    await expect(prose).toContainText('30/30 successes on every evaluated task');
+    await expect(prose).toContainText('19.1 minutes of online robot data');
+    await expect(prose).toContainText('over 95% accuracy');
+    await expect(prose).toContainText('around 40% success before online RL starts');
+    await expect(prose).toContainText("It's a craft.");
+    await expect(prose).toContainText('from 42% to 97%');
+    // Citation chips link to the primary sources.
+    for (const [id, href] of [
+      ['expo-ft-2026', 'https://arxiv.org/abs/2605.25477'],
+      ['expo-2025', 'https://arxiv.org/abs/2507.07986'],
+      ['realtime-expo-ft-2026', 'https://arxiv.org/abs/2609.18207'],
+      ['dsrl-2025', 'https://arxiv.org/abs/2506.15799'],
+      ['perry-dong-post-training-2026', 'https://pd-perry.github.io/posts/post-training.html'],
+    ]) {
+      const chips = prose.locator(`[data-cite-id="${id}"] a[target="_blank"]`);
+      expect(await chips.count()).toBeGreaterThan(0);
+      for (const chip of await chips.all()) {
+        await expect(chip).toHaveAttribute('href', href);
+      }
+      await expect(page.locator(`#ref-${id} [data-reference-source-link]`)).toHaveAttribute('href', href);
+    }
+    // The chart renders the paper's own four-task comparison: every EXPO-FT
+    // bar is 30/30 and the contrast methods keep their measured counts.
+    const chart = page
+      .locator('svg[role="img"]')
+      .filter({ has: page.getByTestId('expo-ft-bar-expo-ft-0') });
+    await expect(chart).toBeVisible();
+    for (let gi = 0; gi < 4; gi += 1) {
+      await expect(page.getByTestId(`expo-ft-bar-expo-ft-${gi}`)).toContainText('30');
+    }
+    const expected = { dsrl: ['15', '24', '25', '12'], 'hil-serl': ['13', '0', '1', '8'], sft: ['16', '22', '23', '14'] };
+    for (const [method, values] of Object.entries(expected)) {
+      for (let gi = 0; gi < 4; gi += 1) {
+        await expect(page.getByTestId(`expo-ft-bar-${method}-${gi}`)).toContainText(values[gi]);
+      }
+    }
+    // The HIL-SERL footnote keeps the protocol caveat next to the chart.
+    await expect(page.getByText('randomizes a substantially larger initial-state space').first()).toBeVisible();
   });
 
   test('zero axe violations', async ({ page }) => {

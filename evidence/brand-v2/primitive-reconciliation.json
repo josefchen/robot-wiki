@@ -1148,7 +1148,7 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "672b15d9041c9384d94375bbd6c291f4865974bb45e4291c9f684ed0fd17c603",
+      "fingerprint": "70ace635d251a35f94ab4c2eb8880a1136c848ccb4efcda7ce721fccda19a11b",
       "mountState": "production",
       "definedIn": [
         "app/page.tsx",
@@ -1172,6 +1172,7 @@
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/expo-ft-results.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/friction-transfer.tsx",
         "components/interactive/gait-diagram.tsx",
@@ -1257,6 +1258,7 @@
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/expo-ft-results.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/friction-transfer.tsx",
         "components/interactive/gait-diagram.tsx",

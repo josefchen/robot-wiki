@@ -56,13 +56,14 @@ describe('source-scoped six-method aggregate original 11', () => {
   it('renders source-scoped missing values rather than inventing closed licensing', () => {
     render(<RlMethodsTable />);
     const table = screen.getByRole('table');
-    expect(within(table).getAllByRole('row')).toHaveLength(7);
-    for (const name of ['Recap (pi*0.6)', 'Residual RL (PLD)']) {
+    // EXPO-FT and DSRL joined the table with the 20260925 intake.
+    expect(within(table).getAllByRole('row')).toHaveLength(9);
+    for (const name of ['Recap (pi*0.6)', 'Residual RL (PLD)', 'DSRL']) {
       const record = within(table).getByText(name).closest('tr')!;
       expect(within(record).getByText('not disclosed')).toBeInTheDocument();
     }
     expect(within(table).queryByText('closed', { exact: true })).not.toBeInTheDocument();
-    expect(within(table).getAllByText('code', { exact: true })).toHaveLength(4);
+    expect(within(table).getAllByText('code', { exact: true })).toHaveLength(5);
     expect(table).toHaveTextContent('not verified weights or licensing');
     expect(table).toHaveTextContent('not a claim that the model is closed');
   });
@@ -70,7 +71,7 @@ describe('source-scoped six-method aggregate original 11', () => {
   it('preserves finite denominators, source conflicts and non-ranking prose', () => {
     const prose = readFileSync('content/manipulation/rl-finetuning.mdx', 'utf8');
     for (const value of ['16 of 20', '45-90', '39.4%', 'without stating an evaluation-trial denominator',
-      'not 100%', 'two attempts per sub-policy', '18%', '28%', 'not a cross-paper ranking'])
+      'not 100%', 'two attempts per sub-policy', '18%', '28%', 'rankings across these protocols would mislead'])
       expect(prose).toContain(value);
     expect(prose).not.toContain("Recap's numbers are the most impressive");
     expect(prose).not.toContain("the strongest real-world results, Recap's");
