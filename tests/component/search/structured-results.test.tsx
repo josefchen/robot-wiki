@@ -211,6 +211,13 @@ describe('SearchInterface structured results', () => {
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: /^Companies$/i }));
+    // Selection is lime plus an independent marker plus semantics, never
+    // colour alone (VAL-B2-DISC-003).
+    const companies = screen.getByRole('button', { name: /^Companies$/i });
+    expect(companies).toHaveAttribute('aria-pressed', 'true');
+    expect(companies.className).toContain('bg-selection');
+    expect(companies.className).toContain('text-ink');
+    expect(companies.querySelector('[data-facet-check]')).not.toBeNull();
     expect(
       within(structured).getByRole('link', { name: FIGURE_RESULT }),
     ).toBeInTheDocument();

@@ -30788,6 +30788,23 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-search-clear-control-name",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/search/search-interface.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "402bb968b16eff30191b925fce4757f6577e2ad3770f9d682274412863187f6a",
+      "reason": "Fact-preserving accessible-name addition. `components/search/search-interface.tsx` gained the labelled clear control the search state machine was missing: the second aria-label in that file names the button \"Clear search\" so the reset action is operable and announced without the visible glyph carrying the meaning. The name restates the control's own printed label; no result, index, citation or attribution text changed. Added by brand-v2-search-states-facets-and-results.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-DISC-001 and VAL-B2-DISC-007: search must expose an explicit, keyboard-operable clear/reset treatment, which requires the control to carry an accessible name. The name is the control's own visible label; no article fact changed.",
+      "responsibleMilestone": "brand-v2-discovery",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-DISC-001",
+        "VAL-B2-DISC-007"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
