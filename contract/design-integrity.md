@@ -215,7 +215,7 @@ Full Cartesian products are neither required nor implied. The runner records exp
 | ID | Requirement |
 | --- | --- |
 | `VAL-B2-SHELL-001` | Desktop shell, mobile header, drawer, and footer render the v2 identity and share palette, display type, grid/rail, shape, and focus language. |
-| `VAL-B2-SHELL-002` | Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current="page"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. |
+| `VAL-B2-SHELL-002` | Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current="page"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current="page"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries. |
 | `VAL-B2-SHELL-003` | The skip link is the first keyboard destination and becomes visible on focus. |
 | `VAL-B2-SHELL-004` | Mobile drawer traps focus, closes on Escape, restores focus to its trigger, and makes obscured content inert. |
 | `VAL-B2-SHELL-005` | Existing navigation hierarchy, accessible names, and href destinations remain unchanged except the visible product lockup string. |

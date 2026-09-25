@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5cc743103f068cfd41603abd1dd2588439bef14ff69e6b378f1689a196f3d91c",
+  "fingerprint": "ef1b49546722290d6d50a4a99230bda65b9a4568146ddf94b209a9471e7ac810",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -100,19 +100,7 @@
           "fontWeight": 600,
           "fontFamilyHead": "tektur",
           "ariaCurrent": "page",
-          "marker": {
-            "deviceId": "device:active-interval-rail",
-            "anchorSelector": "#sidebar-taxonomy",
-            "ariaHidden": "true",
-            "pointerEvents": "none",
-            "borderLeftColour": "rgb(198, 255, 25)",
-            "borderLeftWidthPx": 3,
-            "leftPx": 12,
-            "heightPx": 29.5,
-            "alignmentErrorPx": 0,
-            "ownerHeightPx": 29.5,
-            "contributedText": ""
-          }
+          "marker": null
         },
         {
           "index": 1,
@@ -12311,7 +12299,7 @@
       }
     },
     {
-      "visibleTextLength": 54573,
+      "visibleTextLength": 54599,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -16954,19 +16942,7 @@
       "fontWeight": 600,
       "fontFamilyHead": "tektur",
       "ariaCurrent": "page",
-      "marker": {
-        "deviceId": "device:active-interval-rail",
-        "anchorSelector": "#sidebar-taxonomy",
-        "ariaHidden": "true",
-        "pointerEvents": "none",
-        "borderLeftColour": "rgb(198, 255, 25)",
-        "borderLeftWidthPx": 3,
-        "leftPx": 12,
-        "heightPx": 29.5,
-        "alignmentErrorPx": 0,
-        "ownerHeightPx": 29.5,
-        "contributedText": ""
-      }
+      "marker": null
     },
     {
       "index": 1,

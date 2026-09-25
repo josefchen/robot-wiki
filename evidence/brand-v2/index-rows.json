@@ -1,0 +1,398 @@
+{
+  "version": 1,
+  "fingerprint": "f7c54c89c47d9253f4681e533170735ea912bf1dd458457694e08b786b6cd25e",
+  "viewport": "1440x900",
+  "surfaces": [
+    {
+      "route": "/",
+      "visibleTextLength": 5795,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Robot Wiki",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 92.16,
+      "monoMetadataCount": 43,
+      "rowLists": [
+        {
+          "key": "home-domain-index",
+          "rowCount": 7,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            0
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/manipulation/",
+      "visibleTextLength": 8672,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Manipulation & Learned Policies",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 15,
+      "rowLists": [
+        {
+          "key": "domain-article",
+          "rowCount": 15,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/rl-sim2real/",
+      "visibleTextLength": 5004,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "RL, Sim-to-Real & Locomotion",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 8,
+      "rowLists": [
+        {
+          "key": "domain-article",
+          "rowCount": 8,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/world-models/",
+      "visibleTextLength": 5303,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "World Models",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 8,
+      "rowLists": [
+        {
+          "key": "domain-article",
+          "rowCount": 8,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/data-hardware/",
+      "visibleTextLength": 4408,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Data, Hardware & Evaluation",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 7,
+      "rowLists": [
+        {
+          "key": "domain-article",
+          "rowCount": 7,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/classical/",
+      "visibleTextLength": 5031,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Classical Foundations",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 9,
+      "rowLists": [
+        {
+          "key": "domain-article",
+          "rowCount": 9,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/frontier/",
+      "visibleTextLength": 3659,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Frontier & Open Problems",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 6,
+      "rowLists": [
+        {
+          "key": "domain-article",
+          "rowCount": 6,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/adjacent/",
+      "visibleTextLength": 2600,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Adjacent Domains",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 4,
+      "rowLists": [
+        {
+          "key": "domain-article",
+          "rowCount": 4,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    },
+    {
+      "route": "/a-z/",
+      "visibleTextLength": 6258,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "A-Z Index",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 178,
+      "rowLists": [
+        {
+          "key": "az-entry",
+          "rowCount": 176,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "flex"
+          ],
+          "rowPaddingTopPx": [
+            12
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": {
+        "kind": "az-letters",
+        "expectedCount": 23,
+        "missing": []
+      }
+    },
+    {
+      "route": "/glossary/",
+      "visibleTextLength": 81847,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Glossary",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 193,
+      "rowLists": [
+        {
+          "key": "glossary-term",
+          "rowCount": 119,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            24
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": {
+        "kind": "glossary-terms",
+        "expectedCount": 119,
+        "missing": []
+      }
+    },
+    {
+      "route": "/credits/",
+      "visibleTextLength": 20750,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "h1Text": "Credits",
+      "h1FontFamilyHead": "tektur",
+      "h1SizePx": 30,
+      "monoMetadataCount": 120,
+      "rowLists": [
+        {
+          "key": "credits-entry",
+          "rowCount": 118,
+          "containerDisplay": "block",
+          "rowDisplayKinds": [
+            "list-item"
+          ],
+          "rowPaddingTopPx": [
+            32
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "separatorRuleStyles": [
+            "solid"
+          ],
+          "boxedRowCount": 0
+        }
+      ],
+      "deepLinkTargets": null
+    }
+  ],
+  "fragmentKeyboard": [
+    {
+      "route": "/a-z/",
+      "fragment": "#letter-a",
+      "initiator": "direct-url",
+      "activeElementTag": "H2",
+      "activeElementId": "letter-a",
+      "targetReceivedFocus": true,
+      "targetScrolledIntoView": true,
+      "nextTabContinuesAtTarget": true
+    },
+    {
+      "route": "/a-z/",
+      "fragment": "#letter-a",
+      "initiator": "in-page-jump",
+      "activeElementTag": "A",
+      "activeElementId": "",
+      "targetReceivedFocus": false,
+      "targetScrolledIntoView": true,
+      "nextTabContinuesAtTarget": false
+    },
+    {
+      "route": "/glossary/",
+      "fragment": "#behavior-cloning",
+      "initiator": "direct-url",
+      "activeElementTag": "LI",
+      "activeElementId": "behavior-cloning",
+      "targetReceivedFocus": true,
+      "targetScrolledIntoView": true,
+      "nextTabContinuesAtTarget": true
+    },
+    {
+      "route": "/glossary/",
+      "fragment": "#behavior-cloning",
+      "initiator": "cross-route-link",
+      "activeElementTag": "BODY",
+      "activeElementId": "",
+      "targetReceivedFocus": false,
+      "targetScrolledIntoView": true,
+      "nextTabContinuesAtTarget": true
+    }
+  ]
+}

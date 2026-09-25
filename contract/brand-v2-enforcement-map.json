@@ -18407,24 +18407,59 @@
     },
     {
       "assertionId": "VAL-B2-DISC-005",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-DISC-005",
-          "mechanism": "VAL-B2-DISC-005 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:deep-links",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:keyboard-reachability",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:source-wording",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:shared-index-treatment",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:deep-links",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:keyboard-reachability",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:source-wording",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:shared-index-treatment",
+          "mechanism": "VAL-B2-DISC-005 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#discoveryIndexAnchors"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-index-rows.spec.ts",
+          "title": "brand-v2 index rows › measures every index surface, its rules, its inventory and its fragment keyboard, and persists the artifact",
+          "mechanism": "Sweeps the built export at 1440x900 over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring every index run’s separator rules, row rhythm and boxed-card residue, reconciling each inventory and fragment-target census against the module, glossary and image registries, and recording where real fragment navigations left document.activeElement; the verdicts the generator emits are enforced inside the suite before the artifact is written, and three in-page plant tests strip the rules, break the fragment focus and box the rows to prove each predicate can fail."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-index-evidence.test.ts",
+          "title": "index-rows evidence > refuses stale, incomplete, and unmeasured index evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, the wrong viewport, a missing and an extra surface, an empty rendered page, a surface with no row list, and a missing fragment-keyboard reading, and proves the verdict populations and registry-derived expectations are exact before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -18432,7 +18467,7 @@
         "statement": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
         "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 8,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18441,30 +18476,82 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-DISC-005"
+          "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:deep-links",
+          "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:keyboard-reachability",
+          "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:source-wording",
+          "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:shared-index-treatment",
+          "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:deep-links",
+          "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:keyboard-reachability",
+          "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:source-wording",
+          "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:shared-index-treatment"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-DISC-006",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-DISC-006",
-          "mechanism": "VAL-B2-DISC-006 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/manipulation/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/rl-sim2real/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/world-models/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/data-hardware/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/classical/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/frontier/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/adjacent/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/a-z/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/glossary/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-006:row-rhythm:/credits/",
+          "mechanism": "VAL-B2-DISC-006 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#rowRhythmSurfaces"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-index-rows.spec.ts",
+          "title": "brand-v2 index rows › measures every index surface, its rules, its inventory and its fragment keyboard, and persists the artifact",
+          "mechanism": "Sweeps the built export at 1440x900 over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring every index run’s separator rules, row rhythm and boxed-card residue, reconciling each inventory and fragment-target census against the module, glossary and image registries, and recording where real fragment navigations left document.activeElement; the verdicts the generator emits are enforced inside the suite before the artifact is written, and three in-page plant tests strip the rules, break the fragment focus and box the rows to prove each predicate can fail."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-index-evidence.test.ts",
+          "title": "index-rows evidence > refuses stale, incomplete, and unmeasured index evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, the wrong viewport, a missing and an extra surface, an empty rendered page, a surface with no row list, and a missing fragment-keyboard reading, and proves the verdict populations and registry-derived expectations are exact before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -18472,7 +18559,7 @@
         "statement": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
         "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 10,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18481,7 +18568,16 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-DISC-006"
+          "result:VAL-B2-DISC-006:row-rhythm:/manipulation/",
+          "result:VAL-B2-DISC-006:row-rhythm:/rl-sim2real/",
+          "result:VAL-B2-DISC-006:row-rhythm:/world-models/",
+          "result:VAL-B2-DISC-006:row-rhythm:/data-hardware/",
+          "result:VAL-B2-DISC-006:row-rhythm:/classical/",
+          "result:VAL-B2-DISC-006:row-rhythm:/frontier/",
+          "result:VAL-B2-DISC-006:row-rhythm:/adjacent/",
+          "result:VAL-B2-DISC-006:row-rhythm:/a-z/",
+          "result:VAL-B2-DISC-006:row-rhythm:/glossary/",
+          "result:VAL-B2-DISC-006:row-rhythm:/credits/"
         ]
       }
     },
@@ -26715,8 +26811,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
-        "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+        "statement": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
+        "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 73,
         "omissionProof": {
@@ -28349,24 +28445,59 @@
     },
     {
       "assertionId": "VAL-B2-SHELL-008",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-008",
-          "mechanism": "VAL-B2-SHELL-008 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/manipulation/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/rl-sim2real/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/world-models/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/data-hardware/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/classical/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/frontier/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-008:index-surface:/adjacent/",
+          "mechanism": "VAL-B2-SHELL-008 per-member evidence derived from the persisted 1440x900 sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over evidence/brand-v2/index-rows.json#editorialRowSurfaces"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-index-rows.spec.ts",
+          "title": "brand-v2 index rows › measures every index surface, its rules, its inventory and its fragment keyboard, and persists the artifact",
+          "mechanism": "Sweeps the built export at 1440x900 over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring every index run’s separator rules, row rhythm and boxed-card residue, reconciling each inventory and fragment-target census against the module, glossary and image registries, and recording where real fragment navigations left document.activeElement; the verdicts the generator emits are enforced inside the suite before the artifact is written, and three in-page plant tests strip the rules, break the fragment focus and box the rows to prove each predicate can fail."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-index-evidence.test.ts",
+          "title": "index-rows evidence > refuses stale, incomplete, and unmeasured index evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, the wrong viewport, a missing and an extra surface, an empty rendered page, a surface with no row list, and a missing fragment-keyboard reading, and proves the verdict populations and registry-derived expectations are exact before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -28374,7 +28505,7 @@
         "statement": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
         "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 8,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -28383,7 +28514,14 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-008"
+          "result:VAL-B2-SHELL-008:index-surface:/",
+          "result:VAL-B2-SHELL-008:index-surface:/manipulation/",
+          "result:VAL-B2-SHELL-008:index-surface:/rl-sim2real/",
+          "result:VAL-B2-SHELL-008:index-surface:/world-models/",
+          "result:VAL-B2-SHELL-008:index-surface:/data-hardware/",
+          "result:VAL-B2-SHELL-008:index-surface:/classical/",
+          "result:VAL-B2-SHELL-008:index-surface:/frontier/",
+          "result:VAL-B2-SHELL-008:index-surface:/adjacent/"
         ]
       }
     },
