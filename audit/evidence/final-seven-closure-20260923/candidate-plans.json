@@ -1341,13 +1341,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -1467,20 +1467,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters.input.json",
-        "bytes": 46,
-        "sha256": "9106d674f69d76148887f85004ab16a84a20c0cd35f64cf6141e413e894ca7f8"
+        "bytes": 59,
+        "sha256": "980fdfbe417ca83f1b601536ed65ae72b372fb110f0847a28e00a37e2e296335"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters.output.json",
-        "bytes": 973,
-        "sha256": "1a97ba8075e70dd09eb7c8682a74c4a5d2a8485ef9b692ebe401d8aaf1c57d6d"
+        "bytes": 1644,
+        "sha256": "f0623702916cb7a6c7557d4b8803b46957bb0ff984d32d35f9b048ac4c8663d8"
       },
       "inputDigest": "9106d674f69d76148887f85004ab16a84a20c0cd35f64cf6141e413e894ca7f8",
       "outputDigest": "1a97ba8075e70dd09eb7c8682a74c4a5d2a8485ef9b692ebe401d8aaf1c57d6d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1494,8 +1494,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters.receipt.json",
-          "bytes": 2459,
-          "sha256": "9138d7ddf63bd3228c134fb2eadf4004ec61a4e737821c773c5253ef8c181370"
+          "bytes": 3009,
+          "sha256": "a890156139ac1629a5d97209788b978acaea809551e32c2862ff85e21ed226f4"
         }
       },
       "bases": [],
@@ -1553,13 +1553,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -1636,20 +1636,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation.input.json",
-        "bytes": 79,
-        "sha256": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4"
+        "bytes": 113,
+        "sha256": "1e93ef5072fa2274bd948541274b52e52dda7c35d914d2ca41f750f47b1fe4bd"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation.output.json",
-        "bytes": 344,
-        "sha256": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd"
+        "bytes": 582,
+        "sha256": "5a39e682d29ac0dc6530c44ea2f5526deec62e2ecdd0ecd8b1af1afde8312fc6"
       },
       "inputDigest": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4",
       "outputDigest": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1663,8 +1663,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation.receipt.json",
-          "bytes": 2459,
-          "sha256": "755f74d1066f0a09fcc79598f322a41e95d609e58507b07045a05c4cbbc20b9b"
+          "bytes": 3009,
+          "sha256": "f068c1b3b9e1d21868554b26e4c55bf7acd466564d5781284de9a96dd8d0a47c"
         }
       },
       "bases": [
@@ -1744,13 +1744,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -1827,20 +1827,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0.input.json",
-        "bytes": 79,
-        "sha256": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4"
+        "bytes": 113,
+        "sha256": "1e93ef5072fa2274bd948541274b52e52dda7c35d914d2ca41f750f47b1fe4bd"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0.output.json",
-        "bytes": 344,
-        "sha256": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd"
+        "bytes": 582,
+        "sha256": "5a39e682d29ac0dc6530c44ea2f5526deec62e2ecdd0ecd8b1af1afde8312fc6"
       },
       "inputDigest": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4",
       "outputDigest": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1854,8 +1854,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0.receipt.json",
-          "bytes": 5225,
-          "sha256": "df3ed80e70265692c6807813a0ff32d5b07ecd56d27f287207b01a01d3211907"
+          "bytes": 6874,
+          "sha256": "af5879cd7869884931a266ff72fd557bd5377270564f58f60af1f6c72bded5e3"
         }
       },
       "bases": [
@@ -2061,13 +2061,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -2144,20 +2144,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1.input.json",
-        "bytes": 79,
-        "sha256": "721c57a604f0f5ffa01be5c5db4265b5ec6e5e633068ad7e6a6abc30fe032148"
+        "bytes": 113,
+        "sha256": "7595a74efab013f685c18d5167e0a8df7501d402a404eac3a7a12fd53b574bb5"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1.output.json",
-        "bytes": 341,
-        "sha256": "997c597af78090eea8c0b8b075c8dc1d93eea18634caff58eb990815ecd5b20e"
+        "bytes": 579,
+        "sha256": "a93144e6797324db5d8d94bffc23458becce32092334642330ac1ee8966cdc9a"
       },
       "inputDigest": "721c57a604f0f5ffa01be5c5db4265b5ec6e5e633068ad7e6a6abc30fe032148",
       "outputDigest": "997c597af78090eea8c0b8b075c8dc1d93eea18634caff58eb990815ecd5b20e",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2171,8 +2171,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1.receipt.json",
-          "bytes": 3924,
-          "sha256": "f161e9ffe1069682b8486eb630d78fd012d8d32f8925837d52d4be3fbff29578"
+          "bytes": 5025,
+          "sha256": "8d427394913a8a1c8458071a742319fe360a721a8188d6f05aacfe3664feb433"
         }
       },
       "bases": [
@@ -2316,13 +2316,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -2399,20 +2399,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2.input.json",
-        "bytes": 82,
-        "sha256": "17be6313c3e70750e8b86739d7cacebdcdb3a42b0b2ee54d437de22835dc65a1"
+        "bytes": 116,
+        "sha256": "e13613ef84e9e48899fbc91cf6ad96f812f3214304ab8db6827f4ecbbb172eae"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2.output.json",
-        "bytes": 349,
-        "sha256": "91746fd9fb76527e52336e00f625fe2d674bceab3451ef64f70f151c987d0f8b"
+        "bytes": 587,
+        "sha256": "9ad65a9f1c1fc6db872a330fa1004f04f47e7853e1b57ed18fb407b4db970204"
       },
       "inputDigest": "17be6313c3e70750e8b86739d7cacebdcdb3a42b0b2ee54d437de22835dc65a1",
       "outputDigest": "91746fd9fb76527e52336e00f625fe2d674bceab3451ef64f70f151c987d0f8b",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2426,8 +2426,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2.receipt.json",
-          "bytes": 4036,
-          "sha256": "3f0f31c8efa98b67c8baee243ce8193a33bb9768bdca729956ab90d414937b5e"
+          "bytes": 5137,
+          "sha256": "c893152a771407e8e5a5bd1cbd5f2d409cb09c7cf61b2bf658437514e35a12bd"
         }
       },
       "bases": [
@@ -2571,13 +2571,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -2697,20 +2697,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters.input.json",
-        "bytes": 46,
-        "sha256": "9106d674f69d76148887f85004ab16a84a20c0cd35f64cf6141e413e894ca7f8"
+        "bytes": 59,
+        "sha256": "980fdfbe417ca83f1b601536ed65ae72b372fb110f0847a28e00a37e2e296335"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters.output.json",
-        "bytes": 973,
-        "sha256": "1a97ba8075e70dd09eb7c8682a74c4a5d2a8485ef9b692ebe401d8aaf1c57d6d"
+        "bytes": 1644,
+        "sha256": "f0623702916cb7a6c7557d4b8803b46957bb0ff984d32d35f9b048ac4c8663d8"
       },
       "inputDigest": "9106d674f69d76148887f85004ab16a84a20c0cd35f64cf6141e413e894ca7f8",
       "outputDigest": "1a97ba8075e70dd09eb7c8682a74c4a5d2a8485ef9b692ebe401d8aaf1c57d6d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2724,8 +2724,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters.receipt.json",
-          "bytes": 2459,
-          "sha256": "9138d7ddf63bd3228c134fb2eadf4004ec61a4e737821c773c5253ef8c181370"
+          "bytes": 3009,
+          "sha256": "a890156139ac1629a5d97209788b978acaea809551e32c2862ff85e21ed226f4"
         }
       },
       "bases": [],
@@ -2783,13 +2783,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -2866,20 +2866,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation.input.json",
-        "bytes": 79,
-        "sha256": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4"
+        "bytes": 113,
+        "sha256": "1e93ef5072fa2274bd948541274b52e52dda7c35d914d2ca41f750f47b1fe4bd"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation.output.json",
-        "bytes": 344,
-        "sha256": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd"
+        "bytes": 582,
+        "sha256": "5a39e682d29ac0dc6530c44ea2f5526deec62e2ecdd0ecd8b1af1afde8312fc6"
       },
       "inputDigest": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4",
       "outputDigest": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2893,8 +2893,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation.receipt.json",
-          "bytes": 2459,
-          "sha256": "755f74d1066f0a09fcc79598f322a41e95d609e58507b07045a05c4cbbc20b9b"
+          "bytes": 3009,
+          "sha256": "f068c1b3b9e1d21868554b26e4c55bf7acd466564d5781284de9a96dd8d0a47c"
         }
       },
       "bases": [
@@ -2974,13 +2974,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -3057,20 +3057,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0.input.json",
-        "bytes": 79,
-        "sha256": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4"
+        "bytes": 113,
+        "sha256": "1e93ef5072fa2274bd948541274b52e52dda7c35d914d2ca41f750f47b1fe4bd"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0.output.json",
-        "bytes": 344,
-        "sha256": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd"
+        "bytes": 582,
+        "sha256": "5a39e682d29ac0dc6530c44ea2f5526deec62e2ecdd0ecd8b1af1afde8312fc6"
       },
       "inputDigest": "27fe68b40e7d1a2a3504266327f0b5e4e1293c4a75c6167aa6d1614a14a77dd4",
       "outputDigest": "d04625c8bc9d3b83ceb5ecd38a3d8ff2c7feac51ac4214995993c9f2017e21dd",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3084,8 +3084,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0.receipt.json",
-          "bytes": 5225,
-          "sha256": "df3ed80e70265692c6807813a0ff32d5b07ecd56d27f287207b01a01d3211907"
+          "bytes": 6874,
+          "sha256": "af5879cd7869884931a266ff72fd557bd5377270564f58f60af1f6c72bded5e3"
         }
       },
       "bases": [
@@ -3291,13 +3291,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -3374,20 +3374,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1.input.json",
-        "bytes": 79,
-        "sha256": "721c57a604f0f5ffa01be5c5db4265b5ec6e5e633068ad7e6a6abc30fe032148"
+        "bytes": 113,
+        "sha256": "7595a74efab013f685c18d5167e0a8df7501d402a404eac3a7a12fd53b574bb5"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1.output.json",
-        "bytes": 341,
-        "sha256": "997c597af78090eea8c0b8b075c8dc1d93eea18634caff58eb990815ecd5b20e"
+        "bytes": 579,
+        "sha256": "a93144e6797324db5d8d94bffc23458becce32092334642330ac1ee8966cdc9a"
       },
       "inputDigest": "721c57a604f0f5ffa01be5c5db4265b5ec6e5e633068ad7e6a6abc30fe032148",
       "outputDigest": "997c597af78090eea8c0b8b075c8dc1d93eea18634caff58eb990815ecd5b20e",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3401,8 +3401,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1.receipt.json",
-          "bytes": 3924,
-          "sha256": "f161e9ffe1069682b8486eb630d78fd012d8d32f8925837d52d4be3fbff29578"
+          "bytes": 5025,
+          "sha256": "8d427394913a8a1c8458071a742319fe360a721a8188d6f05aacfe3664feb433"
         }
       },
       "bases": [
@@ -3546,13 +3546,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -3629,20 +3629,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2.input.json",
-        "bytes": 82,
-        "sha256": "17be6313c3e70750e8b86739d7cacebdcdb3a42b0b2ee54d437de22835dc65a1"
+        "bytes": 116,
+        "sha256": "e13613ef84e9e48899fbc91cf6ad96f812f3214304ab8db6827f4ecbbb172eae"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2.output.json",
-        "bytes": 349,
-        "sha256": "91746fd9fb76527e52336e00f625fe2d674bceab3451ef64f70f151c987d0f8b"
+        "bytes": 587,
+        "sha256": "9ad65a9f1c1fc6db872a330fa1004f04f47e7853e1b57ed18fb407b4db970204"
       },
       "inputDigest": "17be6313c3e70750e8b86739d7cacebdcdb3a42b0b2ee54d437de22835dc65a1",
       "outputDigest": "91746fd9fb76527e52336e00f625fe2d674bceab3451ef64f70f151c987d0f8b",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3656,8 +3656,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2.receipt.json",
-          "bytes": 4036,
-          "sha256": "3f0f31c8efa98b67c8baee243ce8193a33bb9768bdca729956ab90d414937b5e"
+          "bytes": 5137,
+          "sha256": "c893152a771407e8e5a5bd1cbd5f2d409cb09c7cf61b2bf658437514e35a12bd"
         }
       },
       "bases": [
@@ -3801,13 +3801,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -3877,20 +3877,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-parameters.input.json",
-        "bytes": 52,
-        "sha256": "a7c6de9bfa5dd43159f1fb5b14706f142352a52862d2616d1422aee42e4449e1"
+        "bytes": 65,
+        "sha256": "0183158bf8bd9d9b664805f37c3e717cd8a9220c4408efc1eaec8a17305db9fe"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-parameters.output.json",
-        "bytes": 422,
-        "sha256": "a776659b8e9512090189b21aa3a0add348e77d6df7456bb77bc1408110267828"
+        "bytes": 610,
+        "sha256": "44847688c61bd05d261f5fd759963256b0c9c9498d4190baf595ba3616f3770f"
       },
       "inputDigest": "a7c6de9bfa5dd43159f1fb5b14706f142352a52862d2616d1422aee42e4449e1",
       "outputDigest": "a776659b8e9512090189b21aa3a0add348e77d6df7456bb77bc1408110267828",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3904,8 +3904,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-parameters.receipt.json",
-          "bytes": 2483,
-          "sha256": "9abfe6d467ffb18d3aaf332cf9ab7cc40cf5cc583c610980d83b7786aa3d9777"
+          "bytes": 3033,
+          "sha256": "d8293bac5ebe51743a38612f55039fe6dbe52a8b695ee9770af09b552ba0033c"
         }
       },
       "bases": [],
@@ -3963,13 +3963,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -4025,20 +4025,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-derivation.input.json",
-        "bytes": 103,
-        "sha256": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5"
+        "bytes": 137,
+        "sha256": "9b61c55c2c0df3b981ef792f6340d6ce95d3bfc2633a3622edda19ffc3993278"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-derivation.output.json",
-        "bytes": 346,
-        "sha256": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d"
+        "bytes": 403,
+        "sha256": "d030e5d569edddb9b65878520c77fc22eec92fdb88e9c86bb454397d2808688f"
       },
       "inputDigest": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5",
       "outputDigest": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4052,8 +4052,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-derivation.receipt.json",
-          "bytes": 2483,
-          "sha256": "30d903fb7151e53178f5d676bf99c55d4616fc7cb2b6cb3962ba359ad92e5f66"
+          "bytes": 3033,
+          "sha256": "264b8e5b2da02b7ca340fa68c2e3b68810d94c332916fedea3ffa525b4fb0d15"
         }
       },
       "bases": [
@@ -4133,13 +4133,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -4195,20 +4195,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-0.input.json",
-        "bytes": 100,
-        "sha256": "79f9f2904e8eaafb084b4e36bc48f0932241b9aa2ada253c6d85b998cbdc1af5"
+        "bytes": 134,
+        "sha256": "a2527dea9fc45aa36f5fbc587dbf719016cb676f436a51cb58bcda52d268cd6f"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-0.output.json",
-        "bytes": 353,
-        "sha256": "ad7dbc4a0756c9fbf7dd70fb55438fe73638363ae67e4f06881a2e0bfa3efacb"
+        "bytes": 410,
+        "sha256": "9aac018f84a22d164a9b63d71e5879a83feecef810f099df6b0a58a97ccdf7bc"
       },
       "inputDigest": "79f9f2904e8eaafb084b4e36bc48f0932241b9aa2ada253c6d85b998cbdc1af5",
       "outputDigest": "ad7dbc4a0756c9fbf7dd70fb55438fe73638363ae67e4f06881a2e0bfa3efacb",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4222,8 +4222,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-0.receipt.json",
-          "bytes": 3960,
-          "sha256": "103ea329a4f23b8025ca7089acd8f0e8cf30489c992d864be08c2b552419a542"
+          "bytes": 5061,
+          "sha256": "edc6688d2637b3a9459816ea96bd0a2f426ebb7011138fc4c2548907add66f7b"
         }
       },
       "bases": [
@@ -4367,13 +4367,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -4429,20 +4429,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-1.input.json",
-        "bytes": 103,
-        "sha256": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5"
+        "bytes": 137,
+        "sha256": "9b61c55c2c0df3b981ef792f6340d6ce95d3bfc2633a3622edda19ffc3993278"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-1.output.json",
-        "bytes": 346,
-        "sha256": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d"
+        "bytes": 403,
+        "sha256": "d030e5d569edddb9b65878520c77fc22eec92fdb88e9c86bb454397d2808688f"
       },
       "inputDigest": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5",
       "outputDigest": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4456,8 +4456,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-1.receipt.json",
-          "bytes": 5387,
-          "sha256": "8140497c6e87f2ed04012c936a2d70ba8e8b4402ab0be87d224b9c8db44f1ec4"
+          "bytes": 7036,
+          "sha256": "67f3aad9bb16157291946eb011674b55a83f80b30704bb13ca6cfa8d9543b8f7"
         }
       },
       "bases": [
@@ -4663,13 +4663,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -4725,20 +4725,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-2.input.json",
-        "bytes": 98,
-        "sha256": "d525a416bdb6171437cf21b2ffa05c6825e0d16f2ea0e574683ee1a289685171"
+        "bytes": 132,
+        "sha256": "930b47110020ff2efcc4ad342d7bcda75ac4193f82e8c0d5da86b21e43e2621d"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-2.output.json",
-        "bytes": 336,
-        "sha256": "a92b20e12f8bdbf35199ac1447294ce9737ca628ab64be6a74178958b4323d99"
+        "bytes": 393,
+        "sha256": "54626eba6ac0eb9a383cf8b83fdf42813b4aa4bd4fb552a595aee834510a5b6f"
       },
       "inputDigest": "d525a416bdb6171437cf21b2ffa05c6825e0d16f2ea0e574683ee1a289685171",
       "outputDigest": "a92b20e12f8bdbf35199ac1447294ce9737ca628ab64be6a74178958b4323d99",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4752,8 +4752,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-3-20260923-3-mounted-2.receipt.json",
-          "bytes": 4030,
-          "sha256": "88bb5dffa5b6bacd583fad97296756e9145ac631fbbffb49d34979a72563516e"
+          "bytes": 5131,
+          "sha256": "a9d92639e88e769fcf0534302b092fcdab14b16abcd13dc60a4f1eeb4849b358"
         }
       },
       "bases": [
@@ -4897,13 +4897,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -4973,20 +4973,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-parameters.input.json",
-        "bytes": 52,
-        "sha256": "a7c6de9bfa5dd43159f1fb5b14706f142352a52862d2616d1422aee42e4449e1"
+        "bytes": 65,
+        "sha256": "0183158bf8bd9d9b664805f37c3e717cd8a9220c4408efc1eaec8a17305db9fe"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-parameters.output.json",
-        "bytes": 422,
-        "sha256": "a776659b8e9512090189b21aa3a0add348e77d6df7456bb77bc1408110267828"
+        "bytes": 610,
+        "sha256": "44847688c61bd05d261f5fd759963256b0c9c9498d4190baf595ba3616f3770f"
       },
       "inputDigest": "a7c6de9bfa5dd43159f1fb5b14706f142352a52862d2616d1422aee42e4449e1",
       "outputDigest": "a776659b8e9512090189b21aa3a0add348e77d6df7456bb77bc1408110267828",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5000,8 +5000,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-parameters.receipt.json",
-          "bytes": 2483,
-          "sha256": "9abfe6d467ffb18d3aaf332cf9ab7cc40cf5cc583c610980d83b7786aa3d9777"
+          "bytes": 3033,
+          "sha256": "d8293bac5ebe51743a38612f55039fe6dbe52a8b695ee9770af09b552ba0033c"
         }
       },
       "bases": [],
@@ -5059,13 +5059,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -5121,20 +5121,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-derivation.input.json",
-        "bytes": 103,
-        "sha256": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5"
+        "bytes": 137,
+        "sha256": "9b61c55c2c0df3b981ef792f6340d6ce95d3bfc2633a3622edda19ffc3993278"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-derivation.output.json",
-        "bytes": 346,
-        "sha256": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d"
+        "bytes": 403,
+        "sha256": "d030e5d569edddb9b65878520c77fc22eec92fdb88e9c86bb454397d2808688f"
       },
       "inputDigest": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5",
       "outputDigest": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5148,8 +5148,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-derivation.receipt.json",
-          "bytes": 2483,
-          "sha256": "30d903fb7151e53178f5d676bf99c55d4616fc7cb2b6cb3962ba359ad92e5f66"
+          "bytes": 3033,
+          "sha256": "264b8e5b2da02b7ca340fa68c2e3b68810d94c332916fedea3ffa525b4fb0d15"
         }
       },
       "bases": [
@@ -5229,13 +5229,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -5291,20 +5291,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-0.input.json",
-        "bytes": 100,
-        "sha256": "79f9f2904e8eaafb084b4e36bc48f0932241b9aa2ada253c6d85b998cbdc1af5"
+        "bytes": 134,
+        "sha256": "a2527dea9fc45aa36f5fbc587dbf719016cb676f436a51cb58bcda52d268cd6f"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-0.output.json",
-        "bytes": 353,
-        "sha256": "ad7dbc4a0756c9fbf7dd70fb55438fe73638363ae67e4f06881a2e0bfa3efacb"
+        "bytes": 410,
+        "sha256": "9aac018f84a22d164a9b63d71e5879a83feecef810f099df6b0a58a97ccdf7bc"
       },
       "inputDigest": "79f9f2904e8eaafb084b4e36bc48f0932241b9aa2ada253c6d85b998cbdc1af5",
       "outputDigest": "ad7dbc4a0756c9fbf7dd70fb55438fe73638363ae67e4f06881a2e0bfa3efacb",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5318,8 +5318,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-0.receipt.json",
-          "bytes": 3960,
-          "sha256": "103ea329a4f23b8025ca7089acd8f0e8cf30489c992d864be08c2b552419a542"
+          "bytes": 5061,
+          "sha256": "edc6688d2637b3a9459816ea96bd0a2f426ebb7011138fc4c2548907add66f7b"
         }
       },
       "bases": [
@@ -5463,13 +5463,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -5525,20 +5525,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-1.input.json",
-        "bytes": 103,
-        "sha256": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5"
+        "bytes": 137,
+        "sha256": "9b61c55c2c0df3b981ef792f6340d6ce95d3bfc2633a3622edda19ffc3993278"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-1.output.json",
-        "bytes": 346,
-        "sha256": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d"
+        "bytes": 403,
+        "sha256": "d030e5d569edddb9b65878520c77fc22eec92fdb88e9c86bb454397d2808688f"
       },
       "inputDigest": "39d4d732185ab6997de3ac92fe6a55e2dfedde3972ef631fcf41fadfa61e15f5",
       "outputDigest": "2c7da7a166a62811da92ca39538df88815bf1a425010cb4ab80e52594c9dab3d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5552,8 +5552,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-1.receipt.json",
-          "bytes": 5387,
-          "sha256": "8140497c6e87f2ed04012c936a2d70ba8e8b4402ab0be87d224b9c8db44f1ec4"
+          "bytes": 7036,
+          "sha256": "67f3aad9bb16157291946eb011674b55a83f80b30704bb13ca6cfa8d9543b8f7"
         }
       },
       "bases": [
@@ -5759,13 +5759,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -5821,20 +5821,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-2.input.json",
-        "bytes": 98,
-        "sha256": "d525a416bdb6171437cf21b2ffa05c6825e0d16f2ea0e574683ee1a289685171"
+        "bytes": 132,
+        "sha256": "930b47110020ff2efcc4ad342d7bcda75ac4193f82e8c0d5da86b21e43e2621d"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-2.output.json",
-        "bytes": 336,
-        "sha256": "a92b20e12f8bdbf35199ac1447294ce9737ca628ab64be6a74178958b4323d99"
+        "bytes": 393,
+        "sha256": "54626eba6ac0eb9a383cf8b83fdf42813b4aa4bd4fb552a595aee834510a5b6f"
       },
       "inputDigest": "d525a416bdb6171437cf21b2ffa05c6825e0d16f2ea0e574683ee1a289685171",
       "outputDigest": "a92b20e12f8bdbf35199ac1447294ce9737ca628ab64be6a74178958b4323d99",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5848,8 +5848,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-2.receipt.json",
-          "bytes": 4030,
-          "sha256": "88bb5dffa5b6bacd583fad97296756e9145ac631fbbffb49d34979a72563516e"
+          "bytes": 5131,
+          "sha256": "a9d92639e88e769fcf0534302b092fcdab14b16abcd13dc60a4f1eeb4849b358"
         }
       },
       "bases": [
@@ -5993,13 +5993,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -6062,20 +6062,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters.input.json",
-        "bytes": 53,
-        "sha256": "69c1b1ac34a338d9c6d2c97a4b7babb740a1609e0ce5e0bf1c9a7b6a47124ac1"
+        "bytes": 66,
+        "sha256": "22cc0d97774e07d02fab125bb462f7dbe26b5340fe27c1836f7adecf19a7161b"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters.output.json",
-        "bytes": 340,
-        "sha256": "be5843ab6859fceb5747af53ccfa8901767f694d36af21b9a12fed6f5c20a0a0"
+        "bytes": 465,
+        "sha256": "ba231d8004ec5919efa12220c296c997c06e070c8d882aa84db9d729693c1a1b"
       },
       "inputDigest": "69c1b1ac34a338d9c6d2c97a4b7babb740a1609e0ce5e0bf1c9a7b6a47124ac1",
       "outputDigest": "be5843ab6859fceb5747af53ccfa8901767f694d36af21b9a12fed6f5c20a0a0",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6089,8 +6089,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters.receipt.json",
-          "bytes": 2499,
-          "sha256": "d3fb3fd8d622dedef7d20e60f23878b0987ac30f93fddf2fddc5e8941a435b9b"
+          "bytes": 3049,
+          "sha256": "25f57c984247b15e59a572a2898608926c1f90dd2372bb49357b11e9b5f9477c"
         }
       },
       "bases": [],
@@ -6148,13 +6148,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -6209,20 +6209,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation.input.json",
-        "bytes": 94,
-        "sha256": "d853a4a516b2d0e44235bd184b056b23e8fb7c0a7a4c14af7b3ac2ec80529e69"
+        "bytes": 128,
+        "sha256": "18c7c5233b8174db4ab9ff907b1daff0aaa17402feeea4f975d1c7f2f9b228a4"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation.output.json",
-        "bytes": 316,
-        "sha256": "98fd3318c095e9c1fd6f8767424a05dfe80617d5acff902d4e6fd0eb0c77eb9d"
+        "bytes": 366,
+        "sha256": "c584c277d7c11974c74c8cd3f1729fd420441066947865185df7e85361b96fcb"
       },
       "inputDigest": "d853a4a516b2d0e44235bd184b056b23e8fb7c0a7a4c14af7b3ac2ec80529e69",
       "outputDigest": "98fd3318c095e9c1fd6f8767424a05dfe80617d5acff902d4e6fd0eb0c77eb9d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6236,8 +6236,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation.receipt.json",
-          "bytes": 2499,
-          "sha256": "855a8b10b5d6e2ffd85c2bd94cf72106888ebbbeb7d9aebacec160630007fa4f"
+          "bytes": 3049,
+          "sha256": "307303dea86c08ffb748da6e30aa886399fa0a9470bcab9ab67368f01de8d7c2"
         }
       },
       "bases": [
@@ -6317,13 +6317,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -6378,20 +6378,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0.input.json",
-        "bytes": 94,
-        "sha256": "d853a4a516b2d0e44235bd184b056b23e8fb7c0a7a4c14af7b3ac2ec80529e69"
+        "bytes": 128,
+        "sha256": "18c7c5233b8174db4ab9ff907b1daff0aaa17402feeea4f975d1c7f2f9b228a4"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0.output.json",
-        "bytes": 316,
-        "sha256": "98fd3318c095e9c1fd6f8767424a05dfe80617d5acff902d4e6fd0eb0c77eb9d"
+        "bytes": 366,
+        "sha256": "c584c277d7c11974c74c8cd3f1729fd420441066947865185df7e85361b96fcb"
       },
       "inputDigest": "d853a4a516b2d0e44235bd184b056b23e8fb7c0a7a4c14af7b3ac2ec80529e69",
       "outputDigest": "98fd3318c095e9c1fd6f8767424a05dfe80617d5acff902d4e6fd0eb0c77eb9d",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6405,8 +6405,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0.receipt.json",
-          "bytes": 5227,
-          "sha256": "7487c30ae23333f1b0d2cd702842329933b3321ed6bc81f11611f6c84f642378"
+          "bytes": 6708,
+          "sha256": "8ed3a9990c818b0641d4577aeee8a9e24e3a569190420bf49996151f241c8ca6"
         }
       },
       "bases": [
@@ -6596,13 +6596,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -6657,20 +6657,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1.input.json",
-        "bytes": 95,
-        "sha256": "ae8d54b8849a4fc9587fa62863bbb36e3e30884da1ba512b135b765eac94f398"
+        "bytes": 129,
+        "sha256": "c528e09f39cbcb50a543b1f046d11716f947b3f886213582be1ae8247c331473"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1.output.json",
-        "bytes": 318,
-        "sha256": "a4b65dd1c4d99fb4eeb682bea4d5b19c8f2ae7f78c49add30e5d09103efcf6b4"
+        "bytes": 368,
+        "sha256": "8dd843ffdd68be81d3df54da039b236f1e24ecef159170f719a0e371c8561acb"
       },
       "inputDigest": "ae8d54b8849a4fc9587fa62863bbb36e3e30884da1ba512b135b765eac94f398",
       "outputDigest": "a4b65dd1c4d99fb4eeb682bea4d5b19c8f2ae7f78c49add30e5d09103efcf6b4",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6684,8 +6684,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1.receipt.json",
-          "bytes": 4034,
-          "sha256": "26d1fcf50c910d796d857965cf4bccd956f56183ea3ba193c488c3daffaa92ba"
+          "bytes": 5051,
+          "sha256": "6ed3589d1dcc2d5de45868aa12ac49fd629cbb6065c3a08e3c6f0ee32191fff8"
         }
       },
       "bases": [
@@ -6821,13 +6821,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -6882,20 +6882,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2.input.json",
-        "bytes": 94,
-        "sha256": "04dde03f349cb712c654ccf118d07e3e6165d2c2359a0865e2fd75229f20cfc9"
+        "bytes": 128,
+        "sha256": "5b0b24a29dac97709c960be65f4bd867dda333dbfe5476d1ad96327626df1b84"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2.output.json",
-        "bytes": 317,
-        "sha256": "b29eab1af056a5bfe9ac8f18e3828a04714854d2f34815bd9149911c7f1eaaa1"
+        "bytes": 367,
+        "sha256": "c5b4db4e7cd03ec60dc5ac7b68af6bae65af5417eb21d2f94a4544cfebac71d9"
       },
       "inputDigest": "04dde03f349cb712c654ccf118d07e3e6165d2c2359a0865e2fd75229f20cfc9",
       "outputDigest": "b29eab1af056a5bfe9ac8f18e3828a04714854d2f34815bd9149911c7f1eaaa1",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6909,8 +6909,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2.receipt.json",
-          "bytes": 3908,
-          "sha256": "d6ee1e9febf4c577f7b127e7b28d6259434a1bc0680ff0b204f35138860ac8b6"
+          "bytes": 4925,
+          "sha256": "4994ef3161964f7034e40587cf007fd0e8c49836ebfc6127288514f10a401b61"
         }
       },
       "bases": [
@@ -7057,13 +7057,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -7132,20 +7132,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-parameters.input.json",
-        "bytes": 48,
-        "sha256": "99e4339987f785d00692df532b59a617b0bb22429203d115819ae80106107e01"
+        "bytes": 61,
+        "sha256": "223924a4ed944086463c9abedc1b3e1fa569dc1472f3cd1a880911e3d2849036"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-parameters.output.json",
-        "bytes": 423,
-        "sha256": "7307dc3a29a5cdd2ecf1618f237742fdd4efab776f8b8f00635f3f31ac444829"
+        "bytes": 592,
+        "sha256": "5c7ef4e6dcf2de2e04e3ef8cab4b675842e5e54a33a662fff13ebfe0c4593233"
       },
       "inputDigest": "99e4339987f785d00692df532b59a617b0bb22429203d115819ae80106107e01",
       "outputDigest": "7307dc3a29a5cdd2ecf1618f237742fdd4efab776f8b8f00635f3f31ac444829",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -7159,8 +7159,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-parameters.receipt.json",
-          "bytes": 2773,
-          "sha256": "3056c27977497238fff6d2e313b8a57374a6fff5ed40cba84902e4c427c9ca4e"
+          "bytes": 3410,
+          "sha256": "32e878d08f6ffbd90a3899f6270cdacc68e5453b744b085c1b08ffdc0cf985a1"
         }
       },
       "bases": [],
@@ -7229,13 +7229,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -7309,20 +7309,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-derivation.input.json",
-        "bytes": 125,
-        "sha256": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc"
+        "bytes": 165,
+        "sha256": "32ec44723fd264e93da905bf298c264296f1dc2c6359c396acc2145810a6c71f"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-derivation.output.json",
-        "bytes": 770,
-        "sha256": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb"
+        "bytes": 954,
+        "sha256": "7389eaa314951c3001ec795c1590a05b87921a7e7dbb5b943491e40c781ea1fc"
       },
       "inputDigest": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc",
       "outputDigest": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -7336,8 +7336,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-derivation.receipt.json",
-          "bytes": 2773,
-          "sha256": "ef595067a0726c053ae1256ffe359024e04a78adb4020b6173b6bfc2a61624e5"
+          "bytes": 3410,
+          "sha256": "8f100d1e88a151f6362dbf64adb16ddcfda713754f171e598f3e9d50e92a257d"
         }
       },
       "bases": [
@@ -7435,13 +7435,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -7515,20 +7515,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-0.input.json",
-        "bytes": 125,
-        "sha256": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc"
+        "bytes": 165,
+        "sha256": "32ec44723fd264e93da905bf298c264296f1dc2c6359c396acc2145810a6c71f"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-0.output.json",
-        "bytes": 770,
-        "sha256": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb"
+        "bytes": 954,
+        "sha256": "7389eaa314951c3001ec795c1590a05b87921a7e7dbb5b943491e40c781ea1fc"
       },
       "inputDigest": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc",
       "outputDigest": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -7542,8 +7542,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-0.receipt.json",
-          "bytes": 5577,
-          "sha256": "9deafcba8b6c43fe2152724e89c1219a28aeea9c8b221705f26a1fa25782014f"
+          "bytes": 7145,
+          "sha256": "e83759b61515224cc2eabe19d03e423482ed4046fa58a25f81e1128fb725685f"
         }
       },
       "bases": [
@@ -7751,13 +7751,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -7832,20 +7832,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-1.input.json",
-        "bytes": 120,
-        "sha256": "b9ce0b7a69cdae9cd480bf698b5def1b855bbe487d6b9626de25cd7912625daa"
+        "bytes": 160,
+        "sha256": "11537aca5feefb2b1fbbc29cd272b942383c8f1ef4af5bfd54678986c6163053"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-1.output.json",
-        "bytes": 777,
-        "sha256": "a28bc00659ef59973141335ad9ac9c0a1e729324d221a1904ec8bbc60fa74859"
+        "bytes": 968,
+        "sha256": "606edacf7d6d201d1ba41c578a6cc4ca463eeb8c5c1789c09d1ca812e8631ed5"
       },
       "inputDigest": "b9ce0b7a69cdae9cd480bf698b5def1b855bbe487d6b9626de25cd7912625daa",
       "outputDigest": "a28bc00659ef59973141335ad9ac9c0a1e729324d221a1904ec8bbc60fa74859",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -7859,8 +7859,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-5-20260923-5-mounted-1.receipt.json",
-          "bytes": 4404,
-          "sha256": "8e050a6d606a0aad24d82994247883b0f8843a5189f1a6c8d34584272534c6a4"
+          "bytes": 5592,
+          "sha256": "b716f9958b829f44e352456e15fa398ddea342198b0dca0117ff51e45d7d38ba"
         }
       },
       "bases": [
@@ -8022,13 +8022,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -8097,20 +8097,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-parameters.input.json",
-        "bytes": 48,
-        "sha256": "99e4339987f785d00692df532b59a617b0bb22429203d115819ae80106107e01"
+        "bytes": 61,
+        "sha256": "223924a4ed944086463c9abedc1b3e1fa569dc1472f3cd1a880911e3d2849036"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-parameters.output.json",
-        "bytes": 423,
-        "sha256": "7307dc3a29a5cdd2ecf1618f237742fdd4efab776f8b8f00635f3f31ac444829"
+        "bytes": 592,
+        "sha256": "5c7ef4e6dcf2de2e04e3ef8cab4b675842e5e54a33a662fff13ebfe0c4593233"
       },
       "inputDigest": "99e4339987f785d00692df532b59a617b0bb22429203d115819ae80106107e01",
       "outputDigest": "7307dc3a29a5cdd2ecf1618f237742fdd4efab776f8b8f00635f3f31ac444829",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -8124,8 +8124,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-parameters.receipt.json",
-          "bytes": 2773,
-          "sha256": "3056c27977497238fff6d2e313b8a57374a6fff5ed40cba84902e4c427c9ca4e"
+          "bytes": 3410,
+          "sha256": "32e878d08f6ffbd90a3899f6270cdacc68e5453b744b085c1b08ffdc0cf985a1"
         }
       },
       "bases": [],
@@ -8194,13 +8194,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -8274,20 +8274,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-derivation.input.json",
-        "bytes": 125,
-        "sha256": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc"
+        "bytes": 165,
+        "sha256": "32ec44723fd264e93da905bf298c264296f1dc2c6359c396acc2145810a6c71f"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-derivation.output.json",
-        "bytes": 770,
-        "sha256": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb"
+        "bytes": 954,
+        "sha256": "7389eaa314951c3001ec795c1590a05b87921a7e7dbb5b943491e40c781ea1fc"
       },
       "inputDigest": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc",
       "outputDigest": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 env FINAL_SEVEN_NUMERIC=1 npm run test -- tests/unit/audit-local-basis.test.ts tests/unit/final-seven-closure-evidence.test.ts",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -8301,8 +8301,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-derivation.receipt.json",
-          "bytes": 2773,
-          "sha256": "ef595067a0726c053ae1256ffe359024e04a78adb4020b6173b6bfc2a61624e5"
+          "bytes": 3410,
+          "sha256": "8f100d1e88a151f6362dbf64adb16ddcfda713754f171e598f3e9d50e92a257d"
         }
       },
       "bases": [
@@ -8400,13 +8400,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -8480,20 +8480,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-0.input.json",
-        "bytes": 125,
-        "sha256": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc"
+        "bytes": 165,
+        "sha256": "32ec44723fd264e93da905bf298c264296f1dc2c6359c396acc2145810a6c71f"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-0.output.json",
-        "bytes": 770,
-        "sha256": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb"
+        "bytes": 954,
+        "sha256": "7389eaa314951c3001ec795c1590a05b87921a7e7dbb5b943491e40c781ea1fc"
       },
       "inputDigest": "0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc",
       "outputDigest": "4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -8507,8 +8507,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-0.receipt.json",
-          "bytes": 5577,
-          "sha256": "9deafcba8b6c43fe2152724e89c1219a28aeea9c8b221705f26a1fa25782014f"
+          "bytes": 7145,
+          "sha256": "e83759b61515224cc2eabe19d03e423482ed4046fa58a25f81e1128fb725685f"
         }
       },
       "bases": [
@@ -8716,13 +8716,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 58174,
-            "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 58174,
-          "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+          "sha256": "7646ebf779e8508360460ee0e6744c760f5898e1414c31f1324658c89f8328ed"
         },
         {
           "file": {
@@ -8797,20 +8797,20 @@
       },
       "input": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-1.input.json",
-        "bytes": 120,
-        "sha256": "b9ce0b7a69cdae9cd480bf698b5def1b855bbe487d6b9626de25cd7912625daa"
+        "bytes": 160,
+        "sha256": "11537aca5feefb2b1fbbc29cd272b942383c8f1ef4af5bfd54678986c6163053"
       },
       "output": {
         "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-1.output.json",
-        "bytes": 777,
-        "sha256": "a28bc00659ef59973141335ad9ac9c0a1e729324d221a1904ec8bbc60fa74859"
+        "bytes": 968,
+        "sha256": "606edacf7d6d201d1ba41c578a6cc4ca463eeb8c5c1789c09d1ca812e8631ed5"
       },
       "inputDigest": "b9ce0b7a69cdae9cd480bf698b5def1b855bbe487d6b9626de25cd7912625daa",
       "outputDigest": "a28bc00659ef59973141335ad9ac9c0a1e729324d221a1904ec8bbc60fa74859",
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -8824,8 +8824,8 @@
         },
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-frontier-safety-and-assurance-6-20260923-6-mounted-1.receipt.json",
-          "bytes": 4404,
-          "sha256": "8e050a6d606a0aad24d82994247883b0f8843a5189f1a6c8d34584272534c6a4"
+          "bytes": 5592,
+          "sha256": "b716f9958b829f44e352456e15fa398ddea342198b0dca0117ff51e45d7d38ba"
         }
       },
       "bases": [

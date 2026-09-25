@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r11-20260923:r11-diffs:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Actual derivations for 0-to-0, 0-to-1 and 1-to-2 reconstruct both original code arrays in order from the diff and match separately specified deleted lines and fitness displays. Each generation index points to the same plan authored transcript.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r11-diffs",
-  "inputDigest": "2f199d0a0626b2382257c964bcc4846d41ea83205813df9817748a3140fcc3d0",
+  "inputDigest": "2dbfa13c701ca028a20a273a423683c06f369818dd1d368144281b7ef21f57a0",
   "inventory": [
     {
       "id": "r11-eureka-mechanism",

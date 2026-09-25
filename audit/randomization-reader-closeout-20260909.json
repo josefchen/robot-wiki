@@ -3,17 +3,17 @@
   "scope": "Zero-original-credit randomization reader closeout; implementation worker, not independent acceptance.",
   "startingHead": "0d144371e318f238ddced71bd1c5622181232725",
   "activation": {
-    "session": "cbf04303-9939-4e91-b3b4-40082b1fb255",
-    "model": "custom:droidproxy:gpt-6-astra",
+    "session": "cbf04303",
+    "model": "integrator review",
     "reasoningEffort": "max",
     "firstEmission": "2026-09-09T07:07:07.130Z",
     "deadline": "2026-09-09T07:42:07.130Z",
     "resumeEvidence": {
-      "event": "70f874f2-1b68-4429-a2e8-1941d7759339",
+      "event": "70f874f2",
       "at": "2026-09-09T07:35:45.405Z"
     }
   },
-  "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909",
+  "packet": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909",
   "changes": "Four mobile-only article-local citation offsets: Peng calibration -128px; Peng ablation -32px; Tobin warning-callout -128px; OpenAI ADR -128px. No shared renderer, scientific wording, numeric constant, source registry URL, review date or model change. Two exact native-schema delta approvals and one eight-case persistent reader spec.",
   "counts": {
     "originals": 994,
@@ -57,12 +57,12 @@
     "initialTrackedAndOwnerPathCount": 1161,
     "changedInitialPaths": [
       {
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/sim2real-transfer.mdx",
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
         "before": "20561561acb3f4c3ef028c80a29cb58a72164cc83c9d03ca855e0ce432c70a9b",
         "after": "904b86c471368c1ff2f1765df9191808344b548d83c5e381ded435e396036d1c"
       },
       {
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/contract/brand-v2-approved-deltas.json",
+        "path": "contract/brand-v2-approved-deltas.json",
         "before": "f1f817b93ff7ee4133014bd410ef1915687fe60741de34138af54e6a8714ceda",
         "after": "b45497c6c76902bae339f49b7f399731d0dd13c9139e390efd969e1dc231c0aa"
       }
@@ -73,17 +73,17 @@
     {
       "command": [
         "node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/citation-placement.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/citation-placement.mjs"
       ],
       "start": "2026-09-09T07:22:52.817226+00:00",
       "inputDigest": "e4980292ad390658b83a2849daf228ecb21f6c5277a9dfbdb823b8ecd508dc85",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:22:54.706204+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/citation-placement.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/citation-placement.log",
       "logSha256": "9f1414a94f80f77d11f7628db09225951906569a285c92e758caa3cb6ab09bb1",
       "logBytes": 601,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/citation-placement.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/citation-placement.receipt.json",
       "receiptSha256": "659d86d072175e5ce69fcd29e5b1f877794e5a240ccfc02e0f5f6129f0db6d4f"
     },
     {
@@ -97,10 +97,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:37:40.115148+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/content.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/content.log",
       "logSha256": "b983c3b9e31eca8c3c15a749a310c22790244909262dcdf20b0145134189f9c1",
       "logBytes": 200784,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/content.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/content.receipt.json",
       "receiptSha256": "afc7a423979869a5320b07def2da3a3ee9a03884f83015d8819ee5a1677fcf64"
     },
     {
@@ -114,10 +114,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:27:13.329829+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/lint.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/lint.log",
       "logSha256": "ebca3fe12cc9f932ebe6cd470447b922d6cdf93c685026f23947523c9424f05c",
       "logBytes": 97,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/lint.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/lint.receipt.json",
       "receiptSha256": "3a55678d88d7f67d85964bd8e1d5be93b4fc78acdb31a5951e3c4de3a856cbba"
     },
     {
@@ -126,7 +126,7 @@
         "--experimental-strip-types",
         "--experimental-transform-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-state.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-state.mjs",
         "final"
       ],
       "start": "2026-09-09T07:36:42.162775+00:00",
@@ -134,10 +134,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:36:43.887561+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-final.log",
       "logSha256": "7735931df69d383561c08db38a7234916cdc0358c944602680d04f5a48123592",
       "logBytes": 935,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-final.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-final.receipt.json",
       "receiptSha256": "0bf109824d528db502582f042c4f8270d3116b982b76686f44c14ae435087ec2"
     },
     {
@@ -146,7 +146,7 @@
         "--experimental-strip-types",
         "--experimental-transform-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-state.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-state.mjs",
         "initial"
       ],
       "start": "2026-09-09T07:15:07.849376+00:00",
@@ -154,10 +154,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:15:09.543371+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-initial.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-initial.log",
       "logSha256": "6bb76a1c355925070fdb71fa85b47b24f892a85ae17956fb90e43c18e1885e9d",
       "logBytes": 635,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-initial.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-initial.receipt.json",
       "receiptSha256": "f60becf1ba49a9be6790f2fdd1713d633fc762cb327a56eb82702176456b81e3"
     },
     {
@@ -166,7 +166,7 @@
         "--experimental-strip-types",
         "--experimental-transform-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-state.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-state.mjs",
         "reconciled"
       ],
       "start": "2026-09-09T07:21:48.263318+00:00",
@@ -174,10 +174,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:21:50.464364+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-reconciled.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-reconciled.log",
       "logSha256": "6b716ce59be86e301cf5a4ba0a73c5268b24b3fd4524b94364d39e687986b2e3",
       "logBytes": 995,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-reconciled.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/native-reconciled.receipt.json",
       "receiptSha256": "d1d7ba52197b1e385d849a04205a1b85e3e3ae3b37c026eb81ea7e9be8aa3fd1"
     },
     {
@@ -191,10 +191,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:38:15.170789+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop-corrected.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop-corrected.log",
       "logSha256": "3d091971b121065249ce452bbbdff62e9672f4f4f5190013284d6d3addf2bfc8",
       "logBytes": 298,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop-corrected.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop-corrected.receipt.json",
       "receiptSha256": "8b26ff9efb2e08d3fa780afa80fc3414fd36f2afb0364e61504e7ca83c6f79b9"
     },
     {
@@ -208,10 +208,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:37:40.389177+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop.log",
       "logSha256": "33262009e29cccad7373586795a0a8b591822f7f920551a630901204797d1645",
       "logBytes": 344,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/no-slop.receipt.json",
       "receiptSha256": "ca0b6005d5ad6bb66ff157e1261a76b00d4e416aeddda4bfecb2bc0b0bddc0dc"
     },
     {
@@ -219,17 +219,17 @@
         "./node_modules/.bin/playwright",
         "test",
         "--config",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs"
       ],
       "start": "2026-09-09T07:18:44.394770+00:00",
       "inputDigest": "d0a5d1ec66c2d1fd5d45b20907f6813c03259003e128b70a9be8432e037cb2ef",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:20:51.998472+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied.log",
       "logSha256": "a2462f4ceeb672dd612287a9b92235988dbc2b765eb99e51b5d68deb3c3d5120",
       "logBytes": 15154,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied.receipt.json",
       "receiptSha256": "517a7e6aba13189f93106e4c39ce3469908a416ff8b6b36cbc62b49aa37a8cd4"
     },
     {
@@ -237,7 +237,7 @@
         "./node_modules/.bin/playwright",
         "test",
         "--config",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs",
         "-g",
         "citation reader sim2real-transfer"
       ],
@@ -246,10 +246,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:23:50.582852+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green.log",
       "logSha256": "09b5651d6e81e70e022f93de873e6f252695addf8626a8c261591772fe53ffc7",
       "logBytes": 329,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green.receipt.json",
       "receiptSha256": "d4cbc76b2f13df319e69f941e68e1edc402852c3e3814f7a924f77e9aa184421"
     },
     {
@@ -257,7 +257,7 @@
         "./node_modules/.bin/playwright",
         "test",
         "--config",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs",
         "-g",
         "citation reader sim2real-transfer at 375"
       ],
@@ -266,26 +266,26 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:17:03.996509+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-peng-red.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-peng-red.log",
       "logSha256": "89542281c56d05d6a67b885318711633698496efe9a5d3bfe7e3f9e53535f41d",
       "logBytes": 3432,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-peng-red.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-peng-red.receipt.json",
       "receiptSha256": "a6a2b6355a92242c8fcfd88df5b1824791afeb95799631436b03629e8f954df7"
     },
     {
       "command": [
         "node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality.mjs"
       ],
       "start": "2026-09-09T07:26:52.121938+00:00",
       "inputDigest": "6887fe427e61b094bcc6d70e4b11b391552db0b7384fe32b5e4adf5367b2f9db",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:26:55.843012+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality.log",
       "logSha256": "d5910975cb1327fa70cafda0b0d04da5c9b68a09165b3a0787f3c80b54448d26",
       "logBytes": 1508,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality.receipt.json",
       "receiptSha256": "692960ca2e6f0a5a5904e878b2c627253084a2af4fdb3c9ec166c6c5193c6d3c"
     },
     {
@@ -293,7 +293,7 @@
         "./node_modules/.bin/playwright",
         "test",
         "--config",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/playwright.config.mjs",
         "-g",
         "citation reader sim2real-transfer at 375"
       ],
@@ -302,10 +302,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:16:13.629071+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-red.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-red.log",
       "logSha256": "96a3e77445a6311b9192d88f50a878ba09f75fd79b20268c7f4a0de0443b9968",
       "logBytes": 3414,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-red.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-red.receipt.json",
       "receiptSha256": "2fa18348e9437c1d4cca7e26d16704c724b7bc47a766620b6dcc3be73d627cf9"
     },
     {
@@ -323,10 +323,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:37:39.012420+00:00",
       "exitCode": 143,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/server.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/server.log",
       "logSha256": "8e8d84a9f2d692c653aba3384cb1fb06fccbd74a60b1db1f4f3a3090ad82767e",
       "logBytes": 2804,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/server.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/server.receipt.json",
       "receiptSha256": "c147ee56c196ecbbe5741062b0b110469ba8da6e308ac1bd4fbae0836fbd9bd3"
     },
     {
@@ -341,10 +341,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:36:41.986479+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typecheck.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typecheck.log",
       "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "logBytes": 0,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typecheck.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typecheck.receipt.json",
       "receiptSha256": "42e0e7aaa94b760d575508adac0787655dcb572a73306b57c2495559fc98b334"
     },
     {
@@ -357,10 +357,10 @@
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:36:39.801981+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typegen.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typegen.log",
       "logSha256": "adba4af9194e10e47dda75ff0fd0f8c2b756474896d0eba5612799c527ff372a",
       "logBytes": 59,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typegen.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/typegen.receipt.json",
       "receiptSha256": "d48d386bf8e05a4cdf4ab0c8375769fdb536060bb9a769eb93c455943ec6d2c0"
     },
     {
@@ -369,17 +369,17 @@
         "--experimental-strip-types",
         "--experimental-transform-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/approve-wrapping.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/approve-wrapping.mjs"
       ],
       "start": "2026-09-09T07:25:27.758590+00:00",
       "inputDigest": "71e0a1b2772b18a50f98203cf68706a2a2ac21676a03f8ca6a893f71c725b394",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "end": "2026-09-09T07:25:28.181010+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/wrapping-approval.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/wrapping-approval.log",
       "logSha256": "f8bcb774df50ca74cf5b5cfc10a8e169d1288baa33517b09a31a74fdac91c5e1",
       "logBytes": 380,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/wrapping-approval.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/wrapping-approval.receipt.json",
       "receiptSha256": "16df32f8fc8af7bc7636c4bdad1cde0d0a50990578f9e62f24fa10f775a1bbed"
     }
   ],
@@ -395,17 +395,17 @@
         "run": "reader-applied",
         "changedProductInputs": [
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/sim2real-transfer.mdx",
+            "path": "content/rl-sim2real/sim2real-transfer.mdx",
             "before": "ed35f5d4fccb738e93e3f4dbd8ed6de58c30378c62d744e6f8495735fb79e7e7",
             "after": "904b86c471368c1ff2f1765df9191808344b548d83c5e381ded435e396036d1c"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/contract/brand-v2-approved-deltas.json",
+            "path": "contract/brand-v2-approved-deltas.json",
             "before": "f1f817b93ff7ee4133014bd410ef1915687fe60741de34138af54e6a8714ceda",
             "after": "b45497c6c76902bae339f49b7f399731d0dd13c9139e390efd969e1dc231c0aa"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/randomization-reader-closeout.spec.ts",
+            "path": "tests/e2e/randomization-reader-closeout.spec.ts",
             "before": "30323441f42037160e2b062c549ec2abfb99eb8ce759159dde9f3e2e9714f9fe",
             "after": "71e7b3c22e4b37f1e29d70cca9bbaf9c1def28517bed5513087538ed6c637f87"
           }
@@ -415,7 +415,7 @@
         "run": "reader-citations-green",
         "changedProductInputs": [
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/contract/brand-v2-approved-deltas.json",
+            "path": "contract/brand-v2-approved-deltas.json",
             "before": "3534022ba36aa8ce7e3985dcd7d573164efdf5c4971a858b2665783a1067d7d8",
             "after": "b45497c6c76902bae339f49b7f399731d0dd13c9139e390efd969e1dc231c0aa"
           }
@@ -444,151 +444,151 @@
       {
         "id": "1703.06907-metadata",
         "url": "https://arxiv.org/abs/1703.06907",
-        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1703.06907-metadata.txt",
+        "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1703.06907-metadata.txt",
         "bodyBytes": 8135,
         "bodySHA256": "8cbbf771e178b4d52eb3ab2abc4248deb53c7c78db6bae9e729a5daa2bce40c3",
         "originalRetrievalEventAt": "2026-09-08T07:25:52.282Z",
         "toolReportedStatus": 200,
         "originStatusIndependentlyObserved": false,
-        "sourceSession": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+        "sourceSession": "run/8871ae18.jsonl",
         "request": {
           "input": {
             "url": "https://arxiv.org/abs/1703.06907"
           },
           "line": 34,
           "timestamp": "2026-09-08T07:25:48.368Z",
-          "messageId": "2d2731d6-c333-4e4d-ac77-3e23a7b2519d",
+          "messageId": "2d2731d6",
           "toolUseId": "call_pBVYJOVm7nwewPt7T0xb3FFg"
         },
         "response": {
           "line": 35,
           "timestamp": "2026-09-08T07:25:52.282Z",
-          "messageId": "6e37ee25-035a-4ccd-bf08-240cadc95e31"
+          "messageId": "6e37ee25"
         }
       },
       {
         "id": "1703.06907v1-body",
         "url": "https://arxiv.org/html/1703.06907v1",
-        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1703.06907v1-body.txt",
+        "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1703.06907v1-body.txt",
         "bodyBytes": 48985,
         "bodySHA256": "45f2dd8321436db3726ec2826c19945e1fbd18ba48af0a85744778f06d8715f4",
         "originalRetrievalEventAt": "2026-09-08T07:26:18.853Z",
         "toolReportedStatus": 200,
         "originStatusIndependentlyObserved": false,
-        "sourceSession": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+        "sourceSession": "run/8871ae18.jsonl",
         "request": {
           "input": {
             "url": "https://arxiv.org/html/1703.06907v1"
           },
           "line": 36,
           "timestamp": "2026-09-08T07:26:14.982Z",
-          "messageId": "587df64a-84c7-4978-a2fc-d6129e23f423",
+          "messageId": "587df64a",
           "toolUseId": "call_ykcj2X6wCItJNw2k9061ZR0T"
         },
         "response": {
           "line": 37,
           "timestamp": "2026-09-08T07:26:18.853Z",
-          "messageId": "f3658b06-cb69-4ed7-acfb-bbc90ca8e72d"
+          "messageId": "f3658b06"
         }
       },
       {
         "id": "1710.06537-metadata",
         "url": "https://arxiv.org/abs/1710.06537",
-        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1710.06537-metadata.txt",
+        "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1710.06537-metadata.txt",
         "bodyBytes": 8279,
         "bodySHA256": "c0508878ecf0d3bb9c065ccdfac9c5ae783c06b6eb66cc9ff54a3dee388cf17d",
         "originalRetrievalEventAt": "2026-09-08T07:26:31.827Z",
         "toolReportedStatus": 200,
         "originStatusIndependentlyObserved": false,
-        "sourceSession": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+        "sourceSession": "run/8871ae18.jsonl",
         "request": {
           "input": {
             "url": "https://arxiv.org/abs/1710.06537"
           },
           "line": 38,
           "timestamp": "2026-09-08T07:26:28.081Z",
-          "messageId": "7c3dfa45-5b9c-4ee8-81fb-aa852bf15e13",
+          "messageId": "7c3dfa45",
           "toolUseId": "call_cMPPsC8auC4CpkjS0Cm0AvZC"
         },
         "response": {
           "line": 39,
           "timestamp": "2026-09-08T07:26:31.827Z",
-          "messageId": "b24d035b-49eb-4fc9-9364-8509f9bb90ec"
+          "messageId": "b24d035b"
         }
       },
       {
         "id": "1710.06537v3-body",
         "url": "https://arxiv.org/html/1710.06537v3",
-        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1710.06537v3-body.txt",
+        "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1710.06537v3-body.txt",
         "bodyBytes": 56618,
         "bodySHA256": "3b26bb1aca407fdbe980ba90e67653a3634a85521cb16054530214bb9795add3",
         "originalRetrievalEventAt": "2026-09-08T07:26:42.941Z",
         "toolReportedStatus": 200,
         "originStatusIndependentlyObserved": false,
-        "sourceSession": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+        "sourceSession": "run/8871ae18.jsonl",
         "request": {
           "input": {
             "url": "https://arxiv.org/html/1710.06537v3"
           },
           "line": 40,
           "timestamp": "2026-09-08T07:26:38.631Z",
-          "messageId": "3ec74eea-94ad-473b-89d1-dd2bdb68c87d",
+          "messageId": "3ec74eea",
           "toolUseId": "call_imBx1gyzcH4WtN1IEMSvyw5s"
         },
         "response": {
           "line": 41,
           "timestamp": "2026-09-08T07:26:42.941Z",
-          "messageId": "32307aa2-89f6-40fd-8be4-8f9e951f57b5"
+          "messageId": "32307aa2"
         }
       },
       {
         "id": "1910.07113-metadata",
         "url": "https://arxiv.org/abs/1910.07113",
-        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113-metadata.txt",
+        "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113-metadata.txt",
         "bodyBytes": 9060,
         "bodySHA256": "0a06e519fd143b6df7f4523838c50a5345cd91002e469a47713c94b89f22c206",
         "originalRetrievalEventAt": "2026-09-08T07:26:55.271Z",
         "toolReportedStatus": 200,
         "originStatusIndependentlyObserved": false,
-        "sourceSession": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+        "sourceSession": "run/8871ae18.jsonl",
         "request": {
           "input": {
             "url": "https://arxiv.org/abs/1910.07113"
           },
           "line": 42,
           "timestamp": "2026-09-08T07:26:51.215Z",
-          "messageId": "5790bd88-0fe4-4eda-9c58-0292a3fb1ea9",
+          "messageId": "5790bd88",
           "toolUseId": "call_miluSkiAGWWz2VkZSXrrIYrh"
         },
         "response": {
           "line": 43,
           "timestamp": "2026-09-08T07:26:55.271Z",
-          "messageId": "151ca7ff-c05e-436b-8720-87937ad6d70c"
+          "messageId": "151ca7ff"
         }
       },
       {
         "id": "1910.07113v1-body",
         "url": "https://arxiv.org/html/1910.07113v1",
-        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113v1-body.txt",
+        "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113v1-body.txt",
         "bodyBytes": 211058,
         "bodySHA256": "5604048be46fd257b18fa81c2afad3ce36a096e082337962163a77800d523778",
         "originalRetrievalEventAt": "2026-09-08T07:27:07.993Z",
         "toolReportedStatus": 200,
         "originStatusIndependentlyObserved": false,
-        "sourceSession": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/8871ae18-1e39-4651-8af6-63269946045d.jsonl",
+        "sourceSession": "run/8871ae18.jsonl",
         "request": {
           "input": {
             "url": "https://arxiv.org/html/1910.07113v1"
           },
           "line": 44,
           "timestamp": "2026-09-08T07:27:02.976Z",
-          "messageId": "3fdeb9fc-5dc3-4856-af6d-a421c9762a66",
+          "messageId": "3fdeb9fc",
           "toolUseId": "call_lPVJUC6EpEZeqhzDGsRZLbtU"
         },
         "response": {
           "line": 45,
           "timestamp": "2026-09-08T07:27:07.993Z",
-          "messageId": "c00fda4b-8cfa-4e42-9d0d-4a7683d1c7b1"
+          "messageId": "c00fda4b"
         }
       }
     ],
@@ -598,7 +598,7 @@
         "citationId": "tobin-2017",
         "sourceId": "1703.06907v1-body",
         "sourceUrl": "https://arxiv.org/html/1703.06907v1",
-        "sourceBodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1703.06907v1-body.txt",
+        "sourceBodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1703.06907v1-body.txt",
         "sourceBodySHA256": "45f2dd8321436db3726ec2826c19945e1fbd18ba48af0a85744778f06d8715f4",
         "originalRetrievalEventAt": "2026-09-08T07:26:18.853Z",
         "request": {
@@ -607,26 +607,26 @@
           },
           "line": 36,
           "timestamp": "2026-09-08T07:26:14.982Z",
-          "messageId": "587df64a-84c7-4978-a2fc-d6129e23f423",
+          "messageId": "587df64a",
           "toolUseId": "call_ykcj2X6wCItJNw2k9061ZR0T"
         },
         "response": {
           "line": 37,
           "timestamp": "2026-09-08T07:26:18.853Z",
-          "messageId": "f3658b06-cb69-4ed7-acfb-bbc90ca8e72d"
+          "messageId": "f3658b06"
         },
         "locator": "Version marker and full byline",
         "startCharacter": 355,
         "endCharacterExclusive": 920,
         "literalSHA256": "7bf2e3edcfcc96b9f4f288f0bc476f359e02a28ec727e93498b83f8ce2317ea2",
-        "supportingText": "arXiv:1703.06907v1 \\[cs.RO\\] 20 Mar 2017\n\n# Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World\n\nJosh Tobin\nAffiliation:\u00a0OpenAI and UC Berkeley EECS, josh@openai.comRachel Fong\nAffiliation:\u00a0OpenAI, {rfong, aray, jonas, woj}@openai.comAlex Ray\nAffiliation:\u00a0OpenAI, {rfong, aray, jonas, woj}@openai.comJonas Schneider\nAffiliation:\u00a0OpenAI, {rfong, aray, jonas, woj}@openai.comWojciech Zaremba\nAffiliation:\u00a0OpenAI, {rfong, aray, jonas, woj}@openai.comPieter Abbeel\nAffiliation:\u00a0OpenAI, UC Berkeley EECS & ICSI, pieter@openai.com"
+        "supportingText": "arXiv:1703.06907v1 \\[cs.RO\\] 20 Mar 2017\n\n# Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World\n\nJosh Tobin\nAffiliation: OpenAI and UC Berkeley EECS, josh@openai.comRachel Fong\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comAlex Ray\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comJonas Schneider\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comWojciech Zaremba\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comPieter Abbeel\nAffiliation: OpenAI, UC Berkeley EECS & ICSI, pieter@openai.com"
       },
       {
         "id": "p-identity",
         "citationId": "peng-2018",
         "sourceId": "1710.06537v3-body",
         "sourceUrl": "https://arxiv.org/html/1710.06537v3",
-        "sourceBodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1710.06537v3-body.txt",
+        "sourceBodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1710.06537v3-body.txt",
         "sourceBodySHA256": "3b26bb1aca407fdbe980ba90e67653a3634a85521cb16054530214bb9795add3",
         "originalRetrievalEventAt": "2026-09-08T07:26:42.941Z",
         "request": {
@@ -635,26 +635,26 @@
           },
           "line": 40,
           "timestamp": "2026-09-08T07:26:38.631Z",
-          "messageId": "3ec74eea-94ad-473b-89d1-dd2bdb68c87d",
+          "messageId": "3ec74eea",
           "toolUseId": "call_imBx1gyzcH4WtN1IEMSvyw5s"
         },
         "response": {
           "line": 41,
           "timestamp": "2026-09-08T07:26:42.941Z",
-          "messageId": "32307aa2-89f6-40fd-8be4-8f9e951f57b5"
+          "messageId": "32307aa2"
         },
         "locator": "Version marker and complete four-author byline",
         "startCharacter": 355,
         "endCharacterExclusive": 779,
         "literalSHA256": "d7a0ebb5b9a7255f2b0f15b2a5522d5107919577fa63c001df76d2d750c14abb",
-        "supportingText": "arXiv:1710.06537v3 \\[cs.RO\\] 03 Mar 2018\n\n# Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\n\nXue Bin Peng\nAffiliation:\u00a0OpenAI\nAffiliation:\u00a0UC Berkeley, Department of Electrical Engineering and Computer Science\nMarcin Andrychowicz\nAffiliation:\u00a0OpenAI\nWojciech Zaremba\nAffiliation:\u00a0OpenAI\nPieter Abbeel\nAffiliation:\u00a0OpenAI\nAffiliation:\u00a0UC Berkeley, Department of Electrical Engineering and Computer Science"
+        "supportingText": "arXiv:1710.06537v3 \\[cs.RO\\] 03 Mar 2018\n\n# Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\n\nXue Bin Peng\nAffiliation: OpenAI\nAffiliation: UC Berkeley, Department of Electrical Engineering and Computer Science\nMarcin Andrychowicz\nAffiliation: OpenAI\nWojciech Zaremba\nAffiliation: OpenAI\nPieter Abbeel\nAffiliation: OpenAI\nAffiliation: UC Berkeley, Department of Electrical Engineering and Computer Science"
       },
       {
         "id": "o-identity",
         "citationId": "openai-rubiks-cube-2019",
         "sourceId": "1910.07113v1-body",
         "sourceUrl": "https://arxiv.org/html/1910.07113v1",
-        "sourceBodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113v1-body.txt",
+        "sourceBodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113v1-body.txt",
         "sourceBodySHA256": "5604048be46fd257b18fa81c2afad3ce36a096e082337962163a77800d523778",
         "originalRetrievalEventAt": "2026-09-08T07:27:07.993Z",
         "request": {
@@ -663,26 +663,26 @@
           },
           "line": 44,
           "timestamp": "2026-09-08T07:27:02.976Z",
-          "messageId": "3fdeb9fc-5dc3-4856-af6d-a421c9762a66",
+          "messageId": "3fdeb9fc",
           "toolUseId": "call_lPVJUC6EpEZeqhzDGsRZLbtU"
         },
         "response": {
           "line": 45,
           "timestamp": "2026-09-08T07:27:07.993Z",
-          "messageId": "c00fda4b-8cfa-4e42-9d0d-4a7683d1c7b1"
+          "messageId": "c00fda4b"
         },
         "locator": "Version marker and full collective-plus-18-person printed byline",
         "startCharacter": 355,
         "endCharacterExclusive": 1315,
         "literalSHA256": "8074a36b09479a4d2908613efe1fab6d54132866f0652430e2866571d6cb4afd",
-        "supportingText": "arXiv:1910.07113v1 \\[cs.LG\\] 16 Oct 2019\n\n# Solving Rubik\u2019s Cube with a Robot HandThanks: Authors are listed alphabetically. We include a detailed contribution statement at the end of this manuscript. Please cite as OpenAI et al., and use the following bibtex for citation: [https://openai.com/bibtex/openai2019rubiks.bib](https://openai.com/bibtex/openai2019rubiks.bib \"\")\n\nOpenAI\nAffiliation: Ilge Akkaya,\nMarcin Andrychowicz\u2020\u2020footnotemark: ,\nMaciek Chociej\u2020\u2020footnotemark: ,\nMateusz Litwin\u2020\u2020footnotemark: ,\nBob McGrew\u2020\u2020footnotemark: ,\nArthur Petron\u2020\u2020footnotemark: ,\nAffiliation: Alex Paino\u2020\u2020footnotemark: ,\nMatthias Plappert\u2020\u2020footnotemark: ,\nGlenn Powell\u2020\u2020footnotemark: ,\nRaphael Ribas\u2020\u2020footnotemark: ,\nJonas Schneider\u2020\u2020footnotemark: ,\nNikolas Tezak\u2020\u2020footnotemark: ,\nAffiliation: Jerry Tworek\u2020\u2020footnotemark: ,\nPeter Welinder\u2020\u2020footnotemark: ,\nLilian Weng\u2020\u2020footnotemark: ,\nQiming Yuan\u2020\u2020footnotemark: ,\nWojciech Zaremba\u2020\u2020footnotemark: ,\nLei Zhang\u2020\u2020footnotemark:"
+        "supportingText": "arXiv:1910.07113v1 \\[cs.LG\\] 16 Oct 2019\n\n# Solving Rubik’s Cube with a Robot HandThanks: Authors are listed alphabetically. We include a detailed contribution statement at the end of this manuscript. Please cite as OpenAI et al., and use the following bibtex for citation: [https://openai.com/bibtex/openai2019rubiks.bib](https://openai.com/bibtex/openai2019rubiks.bib \"\")\n\nOpenAI\nAffiliation: Ilge Akkaya,\nMarcin Andrychowicz††footnotemark: ,\nMaciek Chociej††footnotemark: ,\nMateusz Litwin††footnotemark: ,\nBob McGrew††footnotemark: ,\nArthur Petron††footnotemark: ,\nAffiliation: Alex Paino††footnotemark: ,\nMatthias Plappert††footnotemark: ,\nGlenn Powell††footnotemark: ,\nRaphael Ribas††footnotemark: ,\nJonas Schneider††footnotemark: ,\nNikolas Tezak††footnotemark: ,\nAffiliation: Jerry Tworek††footnotemark: ,\nPeter Welinder††footnotemark: ,\nLilian Weng††footnotemark: ,\nQiming Yuan††footnotemark: ,\nWojciech Zaremba††footnotemark: ,\nLei Zhang††footnotemark:"
       },
       {
         "id": "o-date-conflict",
         "citationId": "openai-rubiks-cube-2019",
         "sourceId": "1910.07113v1-body",
         "sourceUrl": "https://arxiv.org/html/1910.07113v1",
-        "sourceBodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113v1-body.txt",
+        "sourceBodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-domain-randomization-20260908/sources/1910.07113v1-body.txt",
         "sourceBodySHA256": "5604048be46fd257b18fa81c2afad3ce36a096e082337962163a77800d523778",
         "originalRetrievalEventAt": "2026-09-08T07:27:07.993Z",
         "request": {
@@ -691,19 +691,19 @@
           },
           "line": 44,
           "timestamp": "2026-09-08T07:27:02.976Z",
-          "messageId": "3fdeb9fc-5dc3-4856-af6d-a421c9762a66",
+          "messageId": "3fdeb9fc",
           "toolUseId": "call_lPVJUC6EpEZeqhzDGsRZLbtU"
         },
         "response": {
           "line": 45,
           "timestamp": "2026-09-08T07:27:07.993Z",
-          "messageId": "c00fda4b-8cfa-4e42-9d0d-4a7683d1c7b1"
+          "messageId": "c00fda4b"
         },
         "locator": "HTML frontmatter renders August 24, 2026 despite explicit 2019 version marker",
         "startCharacter": 2327,
         "endCharacterExclusive": 2587,
         "literalSHA256": "2c8eb9ff1a55257375dbb6ef4e877629d2e5807fa9f130e41b4b27a7a410a784",
-        "supportingText": "A Preprint\n\n|     |\n| --- |\n|  |\n\nAugust 24, 2026\n\n![Refer to caption](https://arxiv.org/html/1910.07113v1/figures/hero.jpg)\n\nFigure 1: A five-fingered humanoid hand trained with reinforcement learning and automatic domain randomization solving a Rubik\u2019s cube."
+        "supportingText": "A Preprint\n\n|     |\n| --- |\n|  |\n\nAugust 24, 2026\n\n![Refer to caption](https://arxiv.org/html/1910.07113v1/figures/hero.jpg)\n\nFigure 1: A five-fingered humanoid hand trained with reinforcement learning and automatic domain randomization solving a Rubik’s cube."
       }
     ],
     "retainedPassageBindingsVerified": 29,
@@ -713,29 +713,29 @@
   "visualComparison": {
     "references": [
       {
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/library/brand-reference-board.jpeg",
+        "path": "library/brand-reference-board.jpeg",
         "sha256": "dad58857fc463566788a502c284afeb554dfd0dfb306720dd25555eb443ecb2d"
       },
       {
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/library/brand-reference-article.png",
+        "path": "library/brand-reference-article.png",
         "sha256": "b0e109bbf624c56a2870ceec970efc856fcd45468338a12c22a50326098a5c70"
       }
     ],
     "currentReadInspections": [
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-prediction-default.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-prediction-default.png",
         "sha256": "8dfb178302349e8d0a1fe7d79d3981c5237880b3390d1adf89a186bb92d6943c"
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-ordinary-changed.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-ordinary-changed.png",
         "sha256": "07a180cecf9447a51a248b861ace9169aae227b5ffa6ade0d276a58c3267de01"
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-tobin-callout-focus.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-tobin-callout-focus.png",
         "sha256": "6cbdb5137601c1ef0edc0c2aa8d02742966c5418fc52fa45b3830fd19bf36db9"
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-prediction-default.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-prediction-default.png",
         "sha256": "3c70e5bd97fcedbfa9f58665f421770fb277facf53e4014f036d0810923b9391"
       }
     ],
@@ -761,7 +761,7 @@
       "svgTextBelow10CssPx": 23,
       "minimumSvgCssPx": 4.703125,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-ordinary-default.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-ordinary-default.png",
         "sha256": "69a9638d2bc9bec03e43caf9eca39a68ed45c2e85ef5938f10c86ef319838411",
         "at": "2026-09-09T07:26:53.613Z",
         "viewport": {
@@ -787,7 +787,7 @@
       "svgTextBelow10CssPx": 23,
       "minimumSvgCssPx": 4.703125,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-ordinary-changed.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-ordinary-changed.png",
         "sha256": "f6ca408556f30f833e8967db214d8f1fa885b0ad99656439249cc35b1e0ea347",
         "at": "2026-09-09T07:26:53.695Z",
         "viewport": {
@@ -813,7 +813,7 @@
       "svgTextBelow10CssPx": 23,
       "minimumSvgCssPx": 3.796875,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-prediction-default.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-prediction-default.png",
         "sha256": "8dfb178302349e8d0a1fe7d79d3981c5237880b3390d1adf89a186bb92d6943c",
         "at": "2026-09-09T07:26:53.745Z",
         "viewport": {
@@ -839,7 +839,7 @@
       "svgTextBelow10CssPx": 23,
       "minimumSvgCssPx": 3.796875,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-prediction-changed.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-375-prediction-changed.png",
         "sha256": "36961de975a5abf9317e5f5ff563fa12c446b71b262d2dd7c0eca20a710aa9af",
         "at": "2026-09-09T07:26:53.828Z",
         "viewport": {
@@ -865,7 +865,7 @@
       "svgTextBelow10CssPx": 0,
       "minimumSvgCssPx": 10.515625,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-ordinary-default.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-ordinary-default.png",
         "sha256": "43bf9d6c6735f702e0280d4071c66fb6368fdf9a32f5599f897e3e5b12cf93dc",
         "at": "2026-09-09T07:26:55.199Z",
         "viewport": {
@@ -891,7 +891,7 @@
       "svgTextBelow10CssPx": 0,
       "minimumSvgCssPx": 10.515625,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-ordinary-changed.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-ordinary-changed.png",
         "sha256": "07a180cecf9447a51a248b861ace9169aae227b5ffa6ade0d276a58c3267de01",
         "at": "2026-09-09T07:26:55.349Z",
         "viewport": {
@@ -917,7 +917,7 @@
       "svgTextBelow10CssPx": 23,
       "minimumSvgCssPx": 9.484375,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-prediction-default.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-prediction-default.png",
         "sha256": "3c70e5bd97fcedbfa9f58665f421770fb277facf53e4014f036d0810923b9391",
         "at": "2026-09-09T07:26:55.436Z",
         "viewport": {
@@ -943,7 +943,7 @@
       "svgTextBelow10CssPx": 23,
       "minimumSvgCssPx": 9.484375,
       "capture": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-prediction-changed.png",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-quality-1440-prediction-changed.png",
         "sha256": "b449f0288cbb7655f9e0d876df3d9932d6ceaa123db18a0dc1bed0e9dc5017fe",
         "at": "2026-09-09T07:26:55.578Z",
         "viewport": {
@@ -960,62 +960,62 @@
   "network": {
     "readerRecords": [
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-sim2real-transfer-at-1440.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-sim2real-transfer-at-1440.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-sim2real-transfer-at-375.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-sim2real-transfer-at-375.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-why-rl-locomotion-at-1440.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-why-rl-locomotion-at-1440.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-why-rl-locomotion-at-375.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-citation-reader-why-rl-locomotion-at-375.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-ordinary-friction-reader-at-1440.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-ordinary-friction-reader-at-1440.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-ordinary-friction-reader-at-375.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-ordinary-friction-reader-at-375.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-prediction-friction-reader-at-1440.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-prediction-friction-reader-at-1440.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-prediction-friction-reader-at-375.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-applied-prediction-friction-reader-at-375.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green-citation-reader-sim2real-transfer-at-1440.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green-citation-reader-sim2real-transfer-at-1440.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green-citation-reader-sim2real-transfer-at-375.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-citations-green-citation-reader-sim2real-transfer-at-375.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-peng-red-citation-reader-sim2real-transfer-at-375.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-peng-red-citation-reader-sim2real-transfer-at-375.json",
         "denied": [],
         "errors": []
       },
       {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-red-citation-reader-sim2real-transfer-at-375.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/reader-red-citation-reader-sim2real-transfer-at-375.json",
         "denied": [],
         "errors": []
       }
@@ -1049,7 +1049,7 @@
     "46 unwaived baseline failures; all unchanged full objects relative to starting failure set except exact aggregate removal.",
     "Training distribution contrast and small SVG text remain red; mobile ordinary and prediction and desktop prediction each have 23 SVG text nodes below diagnostic 10 CSS px threshold.",
     "Inherited Playground mobile drawer eighth smoke/Axe case, older rl-source-closeouts navigation-ratchet failure, authored/P1/liveness holds remain unassigned.",
-    "No production build/export, reading-time regeneration, 48-card corpus, full browser corpus or independent Sol/high acceptance; both skip flags false still required for acceptance.",
+    "No production build/export, reading-time regeneration, 48-card corpus, full browser corpus or independent acceptance; both skip flags false still required for acceptance.",
     "No-slop ran on current 47 MDX files and existing 63 exported HTML files; existing HTML is not a fresh production export.",
     "Formal progress remains 307/331. No push, deployment, Mission readiness update or credit fallback.",
     "Predecessor 31 focused greens remain historical only: full final-input qualification of those old test executions was not completed within this fixed checkpoint."

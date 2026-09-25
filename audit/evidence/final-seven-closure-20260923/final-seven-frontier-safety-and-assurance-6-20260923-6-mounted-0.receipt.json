@@ -1,1 +1,205 @@
-{"schemaVersion":"local-run-v1","command":"NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts","runner":"playwright","cwd":"/home/remy-simpc4/Projects/robot-wiki-droid-continuation","environment":{"NODE_DISABLE_COMPILE_CACHE":"1"},"startedAt":"2026-09-23T21:59:53.477709+00:00","endedAt":"2026-09-23T22:00:04.744024+00:00","exitCode":0,"test":{"path":"tests/e2e/final-seven-closure-evidence.spec.ts","bytes":8563,"sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"},"inputDigest":"0ec57f5b6b3478c9b7c041fc55f0de0a9602fa2675593bf13e6eed6b4c71e1cc","outputDigest":"4d4b1ba79b9021af9ed72732190c87b9b4aa402cd9550e0ce4baab07f44d06bb","dependencies":[{"file":{"path":"lib/safety-modes.ts","bytes":16224,"sha256":"9517bddd2d49d46187c248a1c4a3728d752e77c1cbd1cfa93f8cd69955f272ec"},"id":"file:lib/safety-modes.ts","offset":0,"length":16224,"sha256":"9517bddd2d49d46187c248a1c4a3728d752e77c1cbd1cfa93f8cd69955f272ec"},{"file":{"path":"lib/force-limits.ts","bytes":2176,"sha256":"5cf2bbe8a64753761be8f358fc6a43f4037949b1232e4029c8a2fda1edc47657"},"id":"file:lib/force-limits.ts","offset":0,"length":2176,"sha256":"5cf2bbe8a64753761be8f358fc6a43f4037949b1232e4029c8a2fda1edc47657"},{"file":{"path":"components/interactive/collaborative-operation-modes.tsx","bytes":20171,"sha256":"9c0bd13f8229c37ddb1acaf2f669e597d4326d806c860b90e3dfe2a20bb3d7eb"},"id":"source:components/interactive/collaborative-operation-modes.tsx","offset":0,"length":20171,"sha256":"9c0bd13f8229c37ddb1acaf2f669e597d4326d806c860b90e3dfe2a20bb3d7eb","baseline":{"kind":"interactive-sources-mounts","hash":"7d4393d4b39bf68b08a5f4f2daab058a3fcc4e51303064d6a919095f44db6558"}},{"file":{"path":"content/frontier/safety-and-assurance.mdx","bytes":19566,"sha256":"89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69"},"id":"article:frontier/safety-and-assurance","offset":0,"length":19566,"sha256":"89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69","baseline":{"kind":"prose","hash":"97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55"}},{"file":{"path":"lib/audit-local-basis.ts","bytes":58174,"sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},"id":"file:lib/audit-local-basis.ts","offset":0,"length":58174,"sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},{"file":{"path":"tests/e2e/final-seven-closure-evidence.spec.ts","bytes":8563,"sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"},"id":"file:tests/e2e/final-seven-closure-evidence.spec.ts","offset":0,"length":8563,"sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"}],"observations":[{"mountId":"mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1","caseId":"default","prestate":"unmounted","action":"load","poststate":"distance-r1-h1.6","viewport":{"width":1440,"height":1000},"readouts":[{"selector":"[data-testid=\"separation-readout\"]","text":"1.42 m"}],"dom":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-1440.dom.txt","bytes":26668,"sha256":"2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"},"capture":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-1440.png","bytes":134241,"sha256":"d00c4a7fb093518d3564147d78da3ef989e3babb9cd1f8980c4ebf76672a12a9"}},{"mountId":"mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1","caseId":"reset","prestate":"force-r1-h1.6","action":"reset","poststate":"distance-r1-h1.6","viewport":{"width":1440,"height":1000},"readouts":[{"selector":"[data-testid=\"separation-readout\"]","text":"1.42 m"}],"dom":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-1440.dom.txt","bytes":26668,"sha256":"2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"},"capture":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-1440.png","bytes":134660,"sha256":"9c30e3a54c0f91b9c1e81a3a03b7db89d34b85c88a4b29ffdeed66f608803f4c"}},{"mountId":"mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1","caseId":"default","prestate":"unmounted","action":"load","poststate":"distance-r1-h1.6","viewport":{"width":375,"height":812},"readouts":[{"selector":"[data-testid=\"separation-readout\"]","text":"1.42 m"}],"dom":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-375.dom.txt","bytes":26668,"sha256":"2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"},"capture":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-375.png","bytes":50774,"sha256":"ce65a5fd7a9fd6b3b6ea364115fff55f79055e190dd312cacb2a3d002a8b7597"}},{"mountId":"mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1","caseId":"reset","prestate":"force-r1-h1.6","action":"reset","poststate":"distance-r1-h1.6","viewport":{"width":375,"height":812},"readouts":[{"selector":"[data-testid=\"separation-readout\"]","text":"1.42 m"}],"dom":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-375.dom.txt","bytes":26668,"sha256":"2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"},"capture":{"path":"audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-375.png","bytes":43957,"sha256":"3acbf9373fc94d67e0efb1d7adef8b1631e23a333676b519d3b082ac3827fb68"}}]}
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
+  "runner": "playwright",
+  "cwd": "/srv/robot-wiki",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T21:59:53.477709+00:00",
+  "endedAt": "2026-09-23T22:00:04.744024+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+    "bytes": 8563,
+    "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+  },
+  "inputDigest": "32ec44723fd264e93da905bf298c264296f1dc2c6359c396acc2145810a6c71f",
+  "outputDigest": "7389eaa314951c3001ec795c1590a05b87921a7e7dbb5b943491e40c781ea1fc",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/safety-modes.ts",
+        "bytes": 16224,
+        "sha256": "9517bddd2d49d46187c248a1c4a3728d752e77c1cbd1cfa93f8cd69955f272ec"
+      },
+      "id": "file:lib/safety-modes.ts",
+      "offset": 0,
+      "length": 16224,
+      "sha256": "9517bddd2d49d46187c248a1c4a3728d752e77c1cbd1cfa93f8cd69955f272ec"
+    },
+    {
+      "file": {
+        "path": "lib/force-limits.ts",
+        "bytes": 2176,
+        "sha256": "5cf2bbe8a64753761be8f358fc6a43f4037949b1232e4029c8a2fda1edc47657"
+      },
+      "id": "file:lib/force-limits.ts",
+      "offset": 0,
+      "length": 2176,
+      "sha256": "5cf2bbe8a64753761be8f358fc6a43f4037949b1232e4029c8a2fda1edc47657"
+    },
+    {
+      "file": {
+        "path": "components/interactive/collaborative-operation-modes.tsx",
+        "bytes": 20171,
+        "sha256": "9c0bd13f8229c37ddb1acaf2f669e597d4326d806c860b90e3dfe2a20bb3d7eb"
+      },
+      "id": "source:components/interactive/collaborative-operation-modes.tsx",
+      "offset": 0,
+      "length": 20171,
+      "sha256": "9c0bd13f8229c37ddb1acaf2f669e597d4326d806c860b90e3dfe2a20bb3d7eb",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "7d4393d4b39bf68b08a5f4f2daab058a3fcc4e51303064d6a919095f44db6558"
+      }
+    },
+    {
+      "file": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 19566,
+        "sha256": "89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69"
+      },
+      "id": "article:frontier/safety-and-assurance",
+      "offset": 0,
+      "length": 19566,
+      "sha256": "89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69",
+      "baseline": {
+        "kind": "prose",
+        "hash": "97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 58174,
+        "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 58174,
+      "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+        "bytes": 8563,
+        "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+      },
+      "id": "file:tests/e2e/final-seven-closure-evidence.spec.ts",
+      "offset": 0,
+      "length": 8563,
+      "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-1440.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-1440.png",
+        "bytes": 134241,
+        "sha256": "d00c4a7fb093518d3564147d78da3ef989e3babb9cd1f8980c4ebf76672a12a9"
+      }
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "reset",
+      "prestate": "force-r1-h1.6",
+      "action": "reset",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-1440.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-1440.png",
+        "bytes": 134660,
+        "sha256": "9c30e3a54c0f91b9c1e81a3a03b7db89d34b85c88a4b29ffdeed66f608803f4c"
+      }
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-375.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-default-375.png",
+        "bytes": 50774,
+        "sha256": "ce65a5fd7a9fd6b3b6ea364115fff55f79055e190dd312cacb2a3d002a8b7597"
+      }
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "caseId": "reset",
+      "prestate": "force-r1-h1.6",
+      "action": "reset",
+      "poststate": "distance-r1-h1.6",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"separation-readout\"]",
+          "text": "1.42 m"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-375.dom.txt",
+        "bytes": 26668,
+        "sha256": "2bf85d20ef559d5d6df38fad45fe2df60f38c355c0b7bbd99e2c547e4e8967b1"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/collaborativeoperationmodes-1-reset-375.png",
+        "bytes": 43957,
+        "sha256": "3acbf9373fc94d67e0efb1d7adef8b1631e23a333676b519d3b082ac3827fb68"
+      }
+    }
+  ]
+}

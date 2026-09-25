@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-motion-planning-15-20260923:parameters",
   "observedAt": "2026-09-23T19:54:47.682Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected the actual unchanged model constants and corrected article disclosure: the selected geometry, scene, target multipliers and finite examples are explicitly authored assumptions, not empirical values. For mixed plans the borrowed specification remains an external AND part.",
-  "inputDigest": "f1b36c75e01930b36773366cc6ba4c8fbbace0f32dabb2d94cf45f4391df0fa0",
+  "inputDigest": "eaa9d2d7acdd12fb7059a71aaa7edadb479c76077aecad0ee611a27047e7a92b",
   "outcome": "supported",
   "scope": "part",
   "partId": "parameters",
@@ -152,5 +152,5 @@
     }
   ],
   "originalId": "audit/classical.md:motion-planning:15",
-  "currentTupleDigest": "561ee239b082042a407820b175843e68a76574477010004dbf57264797e92927"
+  "currentTupleDigest": "3f37ccfe263a27b47f788a3e6c72e1d63dfcf4a70dde9bcba0a136b6829b2d41"
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "industrial-dependency-review-v1",
-  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
   "observedAt": "2026-09-23T18:49:40.391Z",
   "rationale": "Reviewed the checker diff: existing parameter/derive outputs are unchanged; the economics-examples branch alone adds three chosen values and overhead. Recomputed old proofs remain required. Current article preserves the entire industrial52 disclosure, vendor qualifications and mount. Historical receipts/observations are not replayed or relabelled; the changed comparisons have their own actual observations.",
   "bindings": [

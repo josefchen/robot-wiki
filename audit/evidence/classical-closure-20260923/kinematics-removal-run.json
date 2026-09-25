@@ -3,7 +3,7 @@
   "startedAt": "2026-09-23T19:50:26.786390+00:00",
   "endedAt": "2026-09-23T19:50:39.412800+00:00",
   "exitCode": 0,
-  "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-integration-20260923/008-current-mounted.log",
+  "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-classical-integration-20260923/008-current-mounted.log",
   "observation": "Current dependency bytes after JSX escaping and truthful equality-label repair; old observations retained separately, not rehashed as new.",
   "runner": "playwright",
   "environment": {

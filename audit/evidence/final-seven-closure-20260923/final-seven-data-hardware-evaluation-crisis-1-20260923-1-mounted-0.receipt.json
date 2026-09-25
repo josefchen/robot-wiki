@@ -1,1 +1,194 @@
-{"command":"NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts","cwd":"/home/remy-simpc4/Projects/robot-wiki-droid-continuation","dependencies":[{"file":{"bytes":1192,"path":"lib/reliability.ts","sha256":"9d4a714fb95c79381a96551962e25d200dcfc33b60d2b5089c20e6e429389481"},"id":"file:lib/reliability.ts","length":1192,"offset":0,"sha256":"9d4a714fb95c79381a96551962e25d200dcfc33b60d2b5089c20e6e429389481"},{"baseline":{"hash":"87193bd97cc8765eb03f0f3bf5dc9d43d5f324726a5cd95070bd79ddfc7d146f","kind":"interactive-sources-mounts"},"file":{"bytes":11433,"path":"components/interactive/reliability-compounding.tsx","sha256":"c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"},"id":"source:components/interactive/reliability-compounding.tsx","length":11433,"offset":0,"sha256":"c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"},{"baseline":{"hash":"1f590be41f904826afc58ec49f47e9754a31388cc791c713a2982e32326c3c54","kind":"prose"},"file":{"bytes":17449,"path":"content/data-hardware/evaluation-crisis.mdx","sha256":"7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8"},"id":"article:data-hardware/evaluation-crisis","length":17449,"offset":0,"sha256":"7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8"},{"file":{"bytes":58174,"path":"lib/audit-local-basis.ts","sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},"id":"file:lib/audit-local-basis.ts","length":58174,"offset":0,"sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},{"file":{"bytes":8563,"path":"tests/e2e/final-seven-closure-evidence.spec.ts","sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"},"id":"file:tests/e2e/final-seven-closure-evidence.spec.ts","length":8563,"offset":0,"sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"}],"endedAt":"2026-09-23T22:00:04.744024+00:00","environment":{"NODE_DISABLE_COMPILE_CACHE":"1"},"exitCode":0,"inputDigest":"d853a4a516b2d0e44235bd184b056b23e8fb7c0a7a4c14af7b3ac2ec80529e69","observations":[{"action":"load","capture":{"bytes":138907,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-1440.png","sha256":"3aaebac2af3c4b5159ff53c02a0091a66d411c4d856daa1ee4662c7943ae1bd9"},"caseId":"default","dom":{"bytes":16960,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-1440.dom.txt","sha256":"8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"},"mountId":"mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1","poststate":"p.95-n30","prestate":"unmounted","readouts":[{"selector":"[data-testid=\"episode-success-readout\"]","text":"21.5%"}],"viewport":{"height":1000,"width":1440}},{"action":"reset","capture":{"bytes":138883,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-1440.png","sha256":"ce0e26a9bddf0e63bc0c7b7dac1c2099e7d483a5e1f0467d8545489b9c2f8a83"},"caseId":"reset","dom":{"bytes":16960,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-1440.dom.txt","sha256":"8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"},"mountId":"mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1","poststate":"p.95-n30","prestate":"p.95-n100","readouts":[{"selector":"[data-testid=\"episode-success-readout\"]","text":"21.5%"}],"viewport":{"height":1000,"width":1440}},{"action":"load","capture":{"bytes":45280,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-375.png","sha256":"a62601031fc6b7aba7d5c8a53d91948a6461cb387ffdafde387b64910845572d"},"caseId":"default","dom":{"bytes":16960,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-375.dom.txt","sha256":"8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"},"mountId":"mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1","poststate":"p.95-n30","prestate":"unmounted","readouts":[{"selector":"[data-testid=\"episode-success-readout\"]","text":"21.5%"}],"viewport":{"height":812,"width":375}},{"action":"reset","capture":{"bytes":45241,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-375.png","sha256":"afb9a0175cc82ab3b99f3cc367f2273b4b2882f5a9a548fbb49e3714257e2f74"},"caseId":"reset","dom":{"bytes":16960,"path":"audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-375.dom.txt","sha256":"8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"},"mountId":"mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1","poststate":"p.95-n30","prestate":"p.95-n100","readouts":[{"selector":"[data-testid=\"episode-success-readout\"]","text":"21.5%"}],"viewport":{"height":812,"width":375}}],"outputDigest":"98fd3318c095e9c1fd6f8767424a05dfe80617d5acff902d4e6fd0eb0c77eb9d","runner":"playwright","schemaVersion":"local-run-v1","startedAt":"2026-09-23T21:59:53.477709+00:00","test":{"bytes":8563,"path":"tests/e2e/final-seven-closure-evidence.spec.ts","sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"}}
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
+  "runner": "playwright",
+  "cwd": "/srv/robot-wiki",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T21:59:53.477709+00:00",
+  "endedAt": "2026-09-23T22:00:04.744024+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+    "bytes": 8563,
+    "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+  },
+  "inputDigest": "18c7c5233b8174db4ab9ff907b1daff0aaa17402feeea4f975d1c7f2f9b228a4",
+  "outputDigest": "c584c277d7c11974c74c8cd3f1729fd420441066947865185df7e85361b96fcb",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/reliability.ts",
+        "bytes": 1192,
+        "sha256": "9d4a714fb95c79381a96551962e25d200dcfc33b60d2b5089c20e6e429389481"
+      },
+      "id": "file:lib/reliability.ts",
+      "offset": 0,
+      "length": 1192,
+      "sha256": "9d4a714fb95c79381a96551962e25d200dcfc33b60d2b5089c20e6e429389481"
+    },
+    {
+      "file": {
+        "path": "components/interactive/reliability-compounding.tsx",
+        "bytes": 11433,
+        "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"
+      },
+      "id": "source:components/interactive/reliability-compounding.tsx",
+      "offset": 0,
+      "length": 11433,
+      "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "87193bd97cc8765eb03f0f3bf5dc9d43d5f324726a5cd95070bd79ddfc7d146f"
+      }
+    },
+    {
+      "file": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17449,
+        "sha256": "7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8"
+      },
+      "id": "article:data-hardware/evaluation-crisis",
+      "offset": 0,
+      "length": 17449,
+      "sha256": "7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8",
+      "baseline": {
+        "kind": "prose",
+        "hash": "1f590be41f904826afc58ec49f47e9754a31388cc791c713a2982e32326c3c54"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 58174,
+        "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 58174,
+      "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+        "bytes": 8563,
+        "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+      },
+      "id": "file:tests/e2e/final-seven-closure-evidence.spec.ts",
+      "offset": 0,
+      "length": 8563,
+      "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-1440.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-1440.png",
+        "bytes": 138907,
+        "sha256": "3aaebac2af3c4b5159ff53c02a0091a66d411c4d856daa1ee4662c7943ae1bd9"
+      }
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "reset",
+      "prestate": "p.95-n100",
+      "action": "reset",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-1440.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-1440.png",
+        "bytes": 138883,
+        "sha256": "ce0e26a9bddf0e63bc0c7b7dac1c2099e7d483a5e1f0467d8545489b9c2f8a83"
+      }
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "default",
+      "prestate": "unmounted",
+      "action": "load",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-375.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-default-375.png",
+        "bytes": 45280,
+        "sha256": "a62601031fc6b7aba7d5c8a53d91948a6461cb387ffdafde387b64910845572d"
+      }
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "caseId": "reset",
+      "prestate": "p.95-n100",
+      "action": "reset",
+      "poststate": "p.95-n30",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"episode-success-readout\"]",
+          "text": "21.5%"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-375.dom.txt",
+        "bytes": 16960,
+        "sha256": "8a94596554d7afd6152d2eafe5bcbbf7e01d42ba2b54332c0f6411f4e5f02c7b"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/reliabilitycompounding-1-reset-375.png",
+        "bytes": 45241,
+        "sha256": "afb9a0175cc82ab3b99f3cc367f2273b4b2882f5a9a548fbb49e3714257e2f74"
+      }
+    }
+  ]
+}

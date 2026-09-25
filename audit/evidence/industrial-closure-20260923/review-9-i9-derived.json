@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "sessionId": "7260b9a1",
   "role": "integrator",
   "eventId": "industrial-9-i9-derived",
   "observedAt": "2026-09-23T18:49:40.394Z",
-  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
   "rationale": "Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
   "outcome": "supported",
   "scope": "part",
   "partId": "i9-derived",
-  "inputDigest": "33ae2a27e3750e3f4615a7d24f56e3f8096abea21bac5359b0b22e2490328bf8",
+  "inputDigest": "6a58448b8b95bdb78c59976165f53e8bf272bac2ec07c4ae9fa7b4ab0e7eca29",
   "inventory": [
     {
       "id": "i9-parameters",

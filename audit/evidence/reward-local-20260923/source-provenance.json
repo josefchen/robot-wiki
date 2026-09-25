@@ -6,7 +6,7 @@
       "citationId": "rudin-2021",
       "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
       "originalRepresentation": {
-        "path": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
+        "path": "artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
         "bytes": 56325,
         "sha256": "17c5090b2284a387165623b05ba6745dea431a27e6217ea393f1bc500bc1586f"
       },
@@ -47,10 +47,10 @@
           "rawPDFBytesRetrievedOrInspectedLocally": false
         },
         "routingEvidence": {
-          "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/9a83dfc1-8d80-4dc4-be4a-340bbf58ed19.jsonl",
+          "sessionPath": "run/9a83dfc1.jsonl",
           "assistantLine": 215,
           "timestamp": "2026-09-06T19:17:51.117Z",
-          "modelId": "custom:droidproxy:gpt-6-astra",
+          "modelId": "integrator review",
           "reasoningEffort": "max",
           "configurationUsedAsEvidence": false
         },
@@ -62,7 +62,7 @@
             "toolUseId": "call_M0gzvODn9q2rKZLLlwVjvoYW",
             "capturePath": null,
             "tier": "metadata-and-abstract-only",
-            "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/9a83dfc1-8d80-4dc4-be4a-340bbf58ed19.jsonl",
+            "sessionPath": "run/9a83dfc1.jsonl",
             "requestRecordedAt": "2026-09-06T19:18:17.944Z",
             "responseRecordedAt": "2026-09-06T19:18:21.832Z",
             "timestampMeaning": "Local tool request/response observation events, not origin-server timestamps",
@@ -75,7 +75,7 @@
             "fullCaptureCharacters": 7759,
             "fullCaptureSha256": "2d173a2e175a517ee9b2ee3a6d2956ccca49a749c88ba3ffb3ca6c22561935e1",
             "captureLocator": {
-              "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/9a83dfc1-8d80-4dc4-be4a-340bbf58ed19.jsonl",
+              "sessionPath": "run/9a83dfc1.jsonl",
               "line": 220,
               "toolUseId": "call_M0gzvODn9q2rKZLLlwVjvoYW"
             },
@@ -86,9 +86,9 @@
             "requestLine": 219,
             "responseLine": 220,
             "toolUseId": "call_TLP3NYisNBnhqC7EwrIk6Ay4",
-            "capturePath": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
+            "capturePath": "artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
             "tier": "full-text-primary-for-this-packet",
-            "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/9a83dfc1-8d80-4dc4-be4a-340bbf58ed19.jsonl",
+            "sessionPath": "run/9a83dfc1.jsonl",
             "requestRecordedAt": "2026-09-06T19:18:17.944Z",
             "responseRecordedAt": "2026-09-06T19:18:21.832Z",
             "timestampMeaning": "Local tool request/response observation events, not origin-server timestamps",
@@ -100,7 +100,7 @@
             "fullCaptureBytes": 56325,
             "fullCaptureCharacters": 55609,
             "fullCaptureSha256": "17c5090b2284a387165623b05ba6745dea431a27e6217ea393f1bc500bc1586f",
-            "captureLocator": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
+            "captureLocator": "artifacts/tool-outputs/fetch_url-call_TLP3NYisNBnhqC7EwrIk6Ay4-22301830.log",
             "bodyDuplicatedInMission": false
           },
           "pdf": {
@@ -108,9 +108,9 @@
             "requestLine": 227,
             "responseLine": 228,
             "toolUseId": "call_TAxkIbSrYTRbDBiCGppBdd80",
-            "capturePath": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_TAxkIbSrYTRbDBiCGppBdd80-22513761.log",
+            "capturePath": "artifacts/tool-outputs/fetch_url-call_TAxkIbSrYTRbDBiCGppBdd80-22513761.log",
             "tier": "full-PDF-text-extraction-secondary; mathematical/layout extraction defects",
-            "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/9a83dfc1-8d80-4dc4-be4a-340bbf58ed19.jsonl",
+            "sessionPath": "run/9a83dfc1.jsonl",
             "requestRecordedAt": "2026-09-06T19:21:41.787Z",
             "responseRecordedAt": "2026-09-06T19:21:53.762Z",
             "timestampMeaning": "Local tool request/response observation events, not origin-server timestamps",
@@ -122,13 +122,13 @@
             "fullCaptureBytes": 46701,
             "fullCaptureCharacters": 46648,
             "fullCaptureSha256": "3da2268a6f52d848d46dce52b658503369f5a91e908eedac3e8c90cb7e81c9af",
-            "captureLocator": "/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_TAxkIbSrYTRbDBiCGppBdd80-22513761.log",
+            "captureLocator": "artifacts/tool-outputs/fetch_url-call_TAxkIbSrYTRbDBiCGppBdd80-22513761.log",
             "bodyDuplicatedInMission": false
           }
         },
         "fullReading": {
-          "html": "Initial tool display plus retained capture lines 149\u2013453 supplied all 574 lines, including methods, results, hardware footnote and appendices.",
-          "pdf": "Initial tool display plus retained capture lines 493\u2013574 supplied all 967 lines. Mathematical/table extraction defects are retained, not silently repaired.",
+          "html": "Initial tool display plus retained capture lines 149–453 supplied all 574 lines, including methods, results, hardware footnote and appendices.",
+          "pdf": "Initial tool display plus retained capture lines 493–574 supplied all 967 lines. Mathematical/table extraction defects are retained, not silently repaired.",
           "articles": "Four newly relevant articles fully read; rl-for-robotics reused from completed full reading, with only exact Rudin anchors extracted for binding."
         },
         "noRawFullSourceDuplication": true,
@@ -139,7 +139,7 @@
       "citationId": "legged-gym-repo-2021",
       "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
       "originalRepresentation": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-legged_robot.py.txt",
         "bytes": 48368,
         "sha256": "1ef47763296c6606051c18486512a54f7a4e1f1bf686ed7a3db5f08aeb3c656c"
       },
@@ -149,7 +149,7 @@
       "originalReceipt": {
         "url": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
         "method": "GET",
-        "fallbackReason": "Connector inventory contains no GitHub connector and no matching GitHub MCP is available. FetchUrl of the supplied repository page recovered README and the initial commit identity but not the two source files; discovered API/file URLs are outside FetchUrl explicit-user-URL scope. One commit response can contain initial-addition patches for both named files.",
+        "fallbackReason": "Connector inventory contains no GitHub connector and no matching GitHub MCP is available. web fetch of the supplied repository page recovered README and the initial commit identity but not the two source files; discovered API/file URLs are outside web fetch explicit-user-URL scope. One commit response can contain initial-addition patches for both named files.",
         "maxBytes": 20971520,
         "timeoutSeconds": 60,
         "redirectsAllowed": false,
@@ -192,7 +192,7 @@
         "elapsedSeconds": 1.0549440691247582,
         "bytes": 695470,
         "sha256": "2d290bf01d9ffaadd03efe98c4807f0069d4b146236486e2a5a1ae71932fbc60",
-        "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-initial-commit.json"
+        "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-rudin-rma-locomotion-20260908/legged-gym-initial-commit.json"
       },
       "actualReconstructionVerified": {
         "apiSha256": "2d290bf01d9ffaadd03efe98c4807f0069d4b146236486e2a5a1ae71932fbc60",
@@ -206,7 +206,7 @@
       "citationId": "eureka-2024",
       "sourceUrl": "https://arxiv.org/pdf/2310.12931v2",
       "originalRepresentation": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/sources/eureka-retained-reading.txt",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/sources/eureka-retained-reading.txt",
         "bytes": 144666,
         "sha256": "91ff5f692c4285dcc538a5dd398b4a0e54b55f350f76fee8cd769885b31b231b"
       },
@@ -217,8 +217,8 @@
         "sourceCount": 1,
         "newRetrievalCount": 0,
         "pdfConvertedThisSession": false,
-        "originalProducerSessionId": "6846c53e-0ee6-44ec-b361-e39e447908bb",
-        "packetPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-grs-eureka-20260908/plan.json",
+        "originalProducerSessionId": "6846c53e",
+        "packetPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-grs-eureka-20260908/plan.json",
         "packetBytes": 13660044,
         "packetSha256": "9526b0d909fb6e6cbb8df185cd3c9cf9338301bfb7340a8c9f3b2a98530a298d",
         "captureJsonPointer": "/captures/1",
@@ -230,7 +230,7 @@
           "copied": false
         },
         "readingText": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/sources/eureka-retained-reading.txt",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/sources/eureka-retained-reading.txt",
           "bytes": 144666,
           "sha256": "91ff5f692c4285dcc538a5dd398b4a0e54b55f350f76fee8cd769885b31b231b"
         },
@@ -245,28 +245,28 @@
           {
             "dependency": {
               "type": "raw-jsonl-event",
-              "path": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/6846c53e-0ee6-44ec-b361-e39e447908bb.jsonl",
+              "path": "run/6846c53e.jsonl",
               "line1Based": 28,
               "bytes": 21528,
               "sha256": "3e558b6b2ded84a026e60c7056c3f659a19934f4dc1b5fbd2d6532a69c89a6b5",
               "hashBasis": "exact original raw line INCLUDING final LF",
-              "eventId": "92ead4a8-9033-4477-aca7-e7417a2758fb",
+              "eventId": "92ead4a8",
               "timestamp": "2026-09-08T04:39:39.727Z"
             },
-            "retainedCopyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/events/eureka-original-line-28.jsonl"
+            "retainedCopyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/events/eureka-original-line-28.jsonl"
           },
           {
             "dependency": {
               "type": "raw-jsonl-event",
-              "path": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/6846c53e-0ee6-44ec-b361-e39e447908bb.jsonl",
+              "path": "run/6846c53e.jsonl",
               "line1Based": 29,
               "bytes": 11952,
               "sha256": "dc195df593da697aea5a15d6cd4e0035a522a959de87885ddb688d6132c76fe3",
               "hashBasis": "exact original raw line INCLUDING final LF",
-              "eventId": "455ecf67-43bd-4664-a156-b5315deb743f",
+              "eventId": "455ecf67",
               "timestamp": "2026-09-08T04:39:42.041Z"
             },
-            "retainedCopyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/events/eureka-original-line-29.jsonl",
+            "retainedCopyPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-reward-evaluation-mpc-20260908/events/eureka-original-line-29.jsonl",
             "visibleResultChecks": [
               "exact requested v2 URL",
               "original GET start",
@@ -291,7 +291,7 @@
         },
         "priorOfflineDerivationIsThisWorkerRun": false,
         "currentVerification": "Embedded PDF bytes, embedded reading/layout text identities, retained reading file, original call/result raw LF event hashes checked; no new GET, PDF conversion, or ownership copy.",
-        "laterSourceProofPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/source-proof.json"
+        "laterSourceProofPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/source-proof.json"
       },
       "embeddedReadingTextMatches": [
         "/readingText"

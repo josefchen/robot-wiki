@@ -37,7 +37,7 @@ assert.equal(originalClaimDigest(selected), 'f17a3fd555b9708f82c3bed9711c059c508
 assert.equal(originalClaimDigest(selected), binding.currentTupleDigest);
 
 const rationale = {
-  'p18-rudin-flat-bound': 'I read the actual retained abstract: flat policies in under four minutes, uneven terrain in twenty. It does not bind the flat run to4096 environments or say4min equality. The flat diamond is explicitly an authored x choice and a plotted upper-bound y. September6 FetchUrl full-body bytes match the original response; unversioned ar5iv is not a v3 body pin or a new retrieval.',
+  'p18-rudin-flat-bound': 'I read the actual retained abstract: flat policies in under four minutes, uneven terrain in twenty. It does not bind the flat run to4096 environments or say4min equality. The flat diamond is explicitly an authored x choice and a plotted upper-bound y. September6 web fetch full-body bytes match the original response; unversioned ar5iv is not a v3 body pin or a new retrieval.',
   'p18-rudin-rough-protocol': 'I read the retained simulation/deployment paragraph and adjacent hardware footnote:4096 robots,98304 batch,1500 updates, under20min, i9-11900k and RTX A6000. The24 steps per robot is the quotient98304/4096, not an invented literal quotation or a configuration transferred to the flat run. The paper budget1500*98304=147456000 differs from the chosen220000000 transitions; independent tests reject treating them as equal.',
   'p18-isaac-measured-anchors': 'I read the actual v1 Section4.1 and4.1.1 text, equation and Figure13 caption. Headless state-only DextrAH grasp/lift and Franka cabinet training exceeds900k/1.6M FPS at eight RTX PRO6000 GPUs and16384 environments. FPS is environment steps/(simulation+learning time), not camera-only or robot-control Hz. The source identifies distributed RTX PRO6000 and dual EPYC9554 hardware. These original anchors remain explicit external obligations, not hidden in notes or borrowed credit from rows8/9.',
   'p18-isaac-cpu-context': 'I read the v1 hardware and comparison paragraphs together: 5090/8-core9800X3D comes close to the two-GPU RTX PRO6000 server on Franka, with distinct DextrAH behavior and task-dependent CPU bottlenecks in PhysX/main loop. Dual EPYC9554 server context remains. This motivates a toy toggle, not the chosen per-environment CPU cost or a universal measured curve.',
@@ -47,7 +47,7 @@ const rationale = {
 for (const part of plan.parts.filter(p => p.kind === 'observed-behavior')) rationale[part.id] =
   `I reviewed this exact output-specific group: ${part.text} Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.`;
 const observedAt = new Date().toISOString();
-const reviewedBy = 'Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max';
+const reviewedBy = 'integrator run f86f6148; integrator review; max';
 function review(partId) {
   const inputDigest = partId === null ? localPlanDigest(plan) : localPartDigest(plan, partId, additions.proofs);
   const reason = partId === null
@@ -55,7 +55,7 @@ function review(partId) {
     : rationale[partId];
   assert(reason);
   const event = save(partId === null ? 'plan.review.json' : `${partId}.review.json`, {
-    schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148-94a8-4312-bf35-13bdf5c6d211',
+    schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148',
     role: 'integrator', eventId: `${plan.id}:${partId ?? 'plan'}:${observedAt}`,
     observedAt, reviewedBy, rationale: reason, outcome: 'supported',
     scope: partId === null ? 'plan' : 'part', partId, inputDigest, inventory: plan.parts,
@@ -93,7 +93,7 @@ assert.notEqual(oldHash, newHash);
 assert.equal(deltas.entries.filter(d => d.manifest === 'prose' && d.memberId === memberId).at(-1).newHash, oldHash);
 const delta = { id: 'parallel-local-20260923-1', manifest: 'prose', memberId, oldHash, newHash,
   reason: 'Only parallel18: distinguish authored220M fixed-budget comparison, chosen costs/defaults/49-point grid and flat-marker x from empirical training measurements. No formulas, controls, geometry or citation IDs changed.',
-  ownerApproval: 'Owner authored-evidence decision and exact bounded parallel18 authorization at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/authorization.md; parent preflight9a78604 rechecked at application.',
+  ownerApproval: 'Owner authored-evidence decision and exact bounded parallel18 authorization at validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-local-integration-20260923/authorization.md; parent preflight9a78604 rechecked at application.',
   responsibleMilestone: 'brand-v2-editorial', affectedAssertions: ['VAL-B2-BASE-010', 'VAL-AUDIT-002', 'VAL-AUDIT-009'], disposition: 'permanent' };
 
 // Find top-level JSON array entries while preserving old serialized bytes.

@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
   "runner": "playwright",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },

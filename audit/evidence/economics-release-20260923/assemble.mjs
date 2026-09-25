@@ -76,13 +76,13 @@ for (const proof of proofs) {
   proof.provenance = { ...provenance, receipt };
 }
 const at = new Date().toISOString();
-const reviewedBy = 'Robot Wiki release steward (GPT 6 Astra), integrator, not independent Mission acceptance';
+const reviewedBy = 'Robot Wiki release steward , integrator, not independent project acceptance';
 function review(partId) {
   const prior = partId === null ? previousPlan.planReview
     : previousPlan.adjudications.find(a => a.partId === partId);
   const inputDigest = partId === null ? localPlanDigest(plan)
     : localPartDigest(plan, partId, proofs);
-  const rationale = `${prior.rationale} Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent Mission acceptance.`;
+  const rationale = `${prior.rationale} Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent project acceptance.`;
   const event = save(`${partId ?? 'plan'}.bound.review.json`, {
     schemaVersion: 'local-review-event-v1',
     sessionId: 'release-steward-20260923T1745Z',

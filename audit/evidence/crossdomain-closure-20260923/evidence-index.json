@@ -4,331 +4,331 @@
   "scope": "Two completed original closures and aggregate accounting; seven dispatched originals remain unchanged and incomplete. Actual local evidence, not external source truth or independent acceptance.",
   "files": [
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/application-result.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/application-result.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/application-result.json",
       "bytes": 382,
       "sha256": "9a0fa70ed3355342b5332acac238a1848980c0b7fee29d23b3780c43131e1658"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/before-audit--manipulation.md.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/before-audit--manipulation.md.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/before-audit--manipulation.md.txt",
-      "bytes": 1305282,
-      "sha256": "715f2af739faf69280a58565455c727f5b8cbaa248f1a180656d87570d49d035"
+      "bytes": 1263785,
+      "sha256": "1fa7e879c3b313f0d474ae9ed03819d4afa5fc3c5e767a8f7cac155899f7d613"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/before-audit--world-models.md.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/before-audit--world-models.md.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/before-audit--world-models.md.txt",
-      "bytes": 247264,
-      "sha256": "627ec82f54d043202e3d90d7b10bca8d46c84941ae3f7fd3ac48e58e4e195981"
+      "bytes": 235561,
+      "sha256": "b6d6073e9428df01f594197d4a14982afb5d56f329a497e9dc72df40379ded44"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/before-components--interactive--generalist-release-timeline.tsx.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/before-components--interactive--generalist-release-timeline.tsx.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/before-components--interactive--generalist-release-timeline.tsx.txt",
       "bytes": 15570,
       "sha256": "43d52a13de2121c57bdae760b32245e8d2631a2a2d9b40a62cbfbfcc4723b3b6"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/before-content--manipulation--generalist-policies.mdx.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/before-content--manipulation--generalist-policies.mdx.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/before-content--manipulation--generalist-policies.mdx.txt",
       "bytes": 17706,
       "sha256": "47cc887fc96965d1b85f0cbeb9bc544c6272fcef26c8f6bdb67bc7ea96f42ca1"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/before-content--world-models--taxonomy.mdx.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/before-content--world-models--taxonomy.mdx.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/before-content--world-models--taxonomy.mdx.txt",
       "bytes": 13597,
       "sha256": "247d91cf1572be80955f96fae0c527817c43fcae661cba9da20cee146f85eec4"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/before-lib--audit-local-basis.ts.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/before-lib--audit-local-basis.ts.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/before-lib--audit-local-basis.ts.txt",
       "bytes": 52393,
       "sha256": "099b03595f3319518ece9613ba6804931d537faa69ab6acb867f344067108791"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/browser-observations.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/browser-observations.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/browser-observations.json",
       "bytes": 3127,
       "sha256": "7554ed5d13a74d3fb62cf65040031cb474be3cd04331ae11acfcc3ddce78f603"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/check-content.mjs",
+      "path": "audit/evidence/crossdomain-closure-20260923/check-content.mjs",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/check-content.mjs",
       "bytes": 2558,
       "sha256": "a296664a751a8184b769933f73bf7def870fcb439b70a02b522d4dc142072770"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/coverage-summary.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/coverage-summary.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/coverage-summary.json",
-      "bytes": 3837,
-      "sha256": "f88a46e3273117dd975607950bd83c9b78f5a1bdab4f9fb70f408f230884e47d"
+      "bytes": 3764,
+      "sha256": "82b3fc1ed6f72df34106b8799d212dd68a6d307fa244fbbbeea741e9706e1bee"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-input.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-input.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-input.json",
       "bytes": 371,
       "sha256": "6120d254081acb28b6c98a28898bc89da8b65ded9661e69598bf90f8235b72d5"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-output.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-output.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-output.json",
       "bytes": 522,
       "sha256": "2c9d6fc8c90b4828deabe092fd07723b70527e3cccfd6196d7868ad45ed4549d"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-receipt.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-receipt.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-receipt.json",
       "bytes": 2932,
       "sha256": "a7dfa3a5763513a127d3b8dc7fc7d0341932509f9d0a8aba85fd4e82712f17ec"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-input.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-input.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-input.json",
       "bytes": 75,
       "sha256": "25dcfd61e7d0b2bdf3c529d2ea6be1c0587bbb6781038b557a4cdfa005577440"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-output.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-output.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-output.json",
       "bytes": 479,
       "sha256": "ccac14de227f49364fe4c5c9eb741b03ab092ae638aa98143944c1e6593e5e43"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-receipt.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-receipt.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-receipt.json",
       "bytes": 2932,
       "sha256": "44cf1175aeef9bf131377c6b6bf5531ebdde5a7a92de653fcf3a8f2cfdeb2b81"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-count.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-count.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-count.json",
-      "bytes": 2364,
-      "sha256": "55f0c5abe6db8ff5751a563e4f867c63393390c48c57fd39c3a496cd934b966a"
+      "bytes": 2323,
+      "sha256": "29b68ff7ec85415d4b798065478e571fba6b8c96758061288ef29d6df5c4001e"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-parameters.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-parameters.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-parameters.json",
-      "bytes": 2374,
-      "sha256": "33e46ec9cc0c8062a8133b036bb5cd01af04acf528c2dd1ea541dcca7d073d5a"
+      "bytes": 2333,
+      "sha256": "3ea3549caceff0a2bab0f13aa34b1c665705f97559133bb9c1f9cb5cb264a3d2"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-plan.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-plan.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-plan.json",
-      "bytes": 2292,
-      "sha256": "a741d4795674e782f6bbce10977f6d2ac325b74764408de0aaa8bfe143aaf11d"
+      "bytes": 2251,
+      "sha256": "548df59939c1c5f5921d0ca7e98dc2c697efc58f2f6832978d4465721f67f33d"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-input.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-input.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-input.json",
       "bytes": 224,
       "sha256": "9ca47b27593fe714eeac42e85a2d3dd9fcff5164adf692bbd97454fea5f7f2c9"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-output.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-output.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-output.json",
       "bytes": 376,
       "sha256": "1f5ecebe6a786b875d1e03077ecfdf15aa37f53d81477bd577adac7f3b02abe6"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-receipt.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-receipt.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-count-receipt.json",
       "bytes": 2874,
       "sha256": "249a7e9eb11fb0fd76efe46543371819b57a67b509a701ef89231e04706825bc"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-input.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-input.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-input.json",
       "bytes": 73,
       "sha256": "16d9e3d53e3d15527a1945890d4bf7e0f07ad7f112249be90c645b5e18131f65"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-output.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-output.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-output.json",
       "bytes": 340,
       "sha256": "989d6d9cc178f4b21feedc6f3d0ec443e4b1009a94f1523c3c7c841874ef11d1"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-receipt.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-receipt.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-parameters-receipt.json",
       "bytes": 2874,
       "sha256": "be51ece398a6491425b0be1a9662fbcddb036851edc26f261a7a9a33be8f7221"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-count.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-count.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-count.json",
-      "bytes": 2141,
-      "sha256": "c24254a792a28205b049982f9b733e8646720c67a86f186b943ca4e20af76e08"
+      "bytes": 2100,
+      "sha256": "91d2ac82aa5e97152aacc63dc7aafb479314126c133bc3404892818d68c0d0b7"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-parameters.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-parameters.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-parameters.json",
-      "bytes": 2151,
-      "sha256": "6907f12a672a5e4aa688875af5b652a252ab7b81ad77dfb68dd1411a0ae03555"
+      "bytes": 2110,
+      "sha256": "2df1dce6f83587f17abfe9fc95e044df7344891f204fb805765626deded31347"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-plan.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-plan.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/crossdomain-taxonomy4-20260923-review-plan.json",
-      "bytes": 2075,
-      "sha256": "e1a20c698fce4d7d1d4d24d0cd97f8dc78824c95f2c41d2fddad9fc529b603b7"
+      "bytes": 2034,
+      "sha256": "ce1aa69a30809f7f357b853b0672895aa45f9c6cf4e205a13e22df12f90a5d72"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/dependency-review.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/dependency-review.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/dependency-review.json",
-      "bytes": 3165,
-      "sha256": "7b402e10b87d589e381de213157ff50d527a43e1267d317ebf94e9ed7b5575af"
+      "bytes": 3158,
+      "sha256": "5e58257d6f68f1289aa30361832cf182e9c91d2acc255ca7df12621658c8f73b"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.dom.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.dom.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.dom.txt",
       "bytes": 21397,
       "sha256": "9d2df9072f3f7bd55195867bc50aa0e2b4cde8b2c38fa7eea443e74fde4f87f5"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.png",
+      "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.png",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/generalist-policies-1440.png",
       "bytes": 133897,
       "sha256": "a2c6476bd9ceea399906ec5f5a54a8a649cd18377bba80ff8a374f6799e38d0c"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/generalist-policies-375.dom.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-375.dom.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/generalist-policies-375.dom.txt",
       "bytes": 21397,
       "sha256": "9d2df9072f3f7bd55195867bc50aa0e2b4cde8b2c38fa7eea443e74fde4f87f5"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/generalist-policies-375.png",
+      "path": "audit/evidence/crossdomain-closure-20260923/generalist-policies-375.png",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/generalist-policies-375.png",
       "bytes": 50224,
       "sha256": "4cf55ada35dc888e8a7a755747f4cbf3bdcf8d4431820bbc33ec72fc439ab85d"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/integrate.ts",
+      "path": "audit/evidence/crossdomain-closure-20260923/integrate.ts",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/integrate.ts",
-      "bytes": 14568,
-      "sha256": "e7600bdd56902490eab457612068bdea720da71e145d9223fc762e3b75a30287"
+      "bytes": 14449,
+      "sha256": "d6d96b10281188185574382c8bafd1070856466d0f31523e15b5061ec5b84601"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/native-verification.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/native-verification.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/native-verification.json",
       "bytes": 1023,
       "sha256": "205f1c0795643a5114ed353a6586ff6d0ea2f5e0bfbafe56d83e250e65d803dc"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/next-env-before.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/next-env-before.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/next-env-before.txt",
       "bytes": 288,
       "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/numeric-results.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/numeric-results.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/numeric-results.json",
       "bytes": 3388,
       "sha256": "ba672413cc4dcdd78723d4ea5ae1eceaf03f1adb2f7a9e56ba3574c2e6511d87"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/original-manipulation.md",
+      "path": "audit/evidence/crossdomain-closure-20260923/original-manipulation.md",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/original-manipulation.md",
       "bytes": 104031,
       "sha256": "4e7c3d6b13ecec46033e5abfa6495bbe2d584988fb935e4c242f3239907a962a"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/original-world-models.md",
+      "path": "audit/evidence/crossdomain-closure-20260923/original-world-models.md",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/original-world-models.md",
       "bytes": 40309,
       "sha256": "06716ace2d6a965940780d2e891ead8a0f55c6fbcf0cbbdf7d99850670e88852"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/playwright-final/.last-run.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/playwright-final/.last-run.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/playwright-final/.last-run.json",
-      "bytes": 45,
-      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      "bytes": 46,
+      "sha256": "fff6299efb51ba9ef550e500ecc967e972c83e86be387042c360caea7fdbae29"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/playwright-output/.last-run.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/playwright-output/.last-run.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/playwright-output/.last-run.json",
-      "bytes": 96,
-      "sha256": "57afd59713c38071177c0acfb334811765191c4b08456f3e7fc9c51ebc3d41c3"
+      "bytes": 97,
+      "sha256": "5e6d2de13828811468c009c2551b787ee0f10cfdb4e3be02b1893e972cfc194a"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/playwright-output/crossdomain-closure-eviden-5890b-moval-at-desktop-and-mobile/error-context.md",
+      "path": "audit/evidence/crossdomain-closure-20260923/playwright-output/crossdomain-closure-eviden-5890b-moval-at-desktop-and-mobile/error-context.md",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/playwright-output/crossdomain-closure-eviden-5890b-moval-at-desktop-and-mobile/error-context.md",
       "bytes": 6271,
       "sha256": "0f112c208e687e5477fce95f470d26409a4e85186568d698445cb2f9bbaa6167"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/playwright.config.ts",
+      "path": "audit/evidence/crossdomain-closure-20260923/playwright.config.ts",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/playwright.config.ts",
-      "bytes": 593,
-      "sha256": "7e7e4aebb5858a4ba4aaa14539827166483149983eac63cbced8f6f5f10c3dff"
+      "bytes": 538,
+      "sha256": "85f9dc0214c36c1028970ba9030bf181f190671a44c7b757ce136c7c906a6566"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/preflight-receipt.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/preflight-receipt.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/preflight-receipt.json",
-      "bytes": 848,
-      "sha256": "25a79158ff26d717b5e590f5e5f265676d912e3c32c5fdff40a7ccfa039be3ea"
+      "bytes": 574,
+      "sha256": "d4345d20ae4ca3c6c200fb18c90710face1bcc5de218eafde4a9bbe2c4b187d5"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/preflight.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/preflight.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/preflight.json",
-      "bytes": 20249,
-      "sha256": "b1ef55dddf7c1669b0d840494f1b64e13e5a63297d05418639ea8151f25070f5"
+      "bytes": 19420,
+      "sha256": "cbc3a3c6b37850144c8ce3904e7c31eed6778a94abf8a80f1cb8e4d75f8aac75"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/preservation-before.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/preservation-before.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/preservation-before.json",
       "bytes": 565266,
-      "sha256": "42736ba6cd1f0279a90824f52bce76f4e64d4cde22b66b7d1ce4e77c4364fce4"
+      "sha256": "1bd4eddc7d7e05e5b0ca4b5006cbacd18b27289b47eb70505062c76779b7bd18"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/row-history.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/row-history.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/row-history.json",
       "bytes": 199732,
       "sha256": "a2bb9c75b70d8510ab9ab41ef8675f4020aad31a0383baad5bd1e6935403afbc"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/run.py",
+      "path": "audit/evidence/crossdomain-closure-20260923/run.py",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/run.py",
-      "bytes": 1476,
-      "sha256": "b3665fa18db49ba0c3a0ca7dbb12571d20e8f921a9e79f417916b509a0dc1c48"
+      "bytes": 1348,
+      "sha256": "574ccdcd8a4d32f53b8c040083d12117d33526dc6c1e65b4ca51ac6a4c3ce212"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/selection.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/selection.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/selection.json",
-      "bytes": 3649,
-      "sha256": "79fd745180fe89b11e955151f8e1356a7a42a313ba98e1d0d20404df73f33dda"
+      "bytes": 2964,
+      "sha256": "86d10a0f80bf9ff80926232c0774bb5eae2483dcd6c0cad594a08c81a67903b3"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/superseded-plans.json",
+      "path": "audit/evidence/crossdomain-closure-20260923/superseded-plans.json",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/superseded-plans.json",
-      "bytes": 5666,
-      "sha256": "fe50d3647c3ad4a5f703c735fac42ea53da0b316ada2ff7aaf741f8c55014d93"
+      "bytes": 5489,
+      "sha256": "141956da513664714f6d0599240a94e49ba3a07eff8baf2d60a0292895679568"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/taxonomy-1440.dom.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-1440.dom.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/taxonomy-1440.dom.txt",
       "bytes": 17740,
       "sha256": "384136ab227c4990c3239904d4617ab0122a8d2f39077c1ca2483072be594a38"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/taxonomy-1440.png",
+      "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-1440.png",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/taxonomy-1440.png",
       "bytes": 137201,
       "sha256": "14c640822e8fd6dbd0cb85461974fd1b164f655a99323550ae956239fe9b9cb2"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/taxonomy-375.dom.txt",
+      "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-375.dom.txt",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/taxonomy-375.dom.txt",
       "bytes": 17740,
       "sha256": "384136ab227c4990c3239904d4617ab0122a8d2f39077c1ca2483072be594a38"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/taxonomy-375.png",
+      "path": "audit/evidence/crossdomain-closure-20260923/taxonomy-375.png",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/taxonomy-375.png",
       "bytes": 47259,
       "sha256": "2a7b1a137f345d4b014f86339b76c9b7aedbef1348a8295d36096bddaee693c9"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/crossdomain-closure-20260923/verify.ts",
+      "path": "audit/evidence/crossdomain-closure-20260923/verify.ts",
       "relativePath": "audit/evidence/crossdomain-closure-20260923/verify.ts",
       "bytes": 5743,
       "sha256": "0fee6282119642afe3b7cb1a1b77b137ac797b95df80f3581a78c2977c04dcbe"

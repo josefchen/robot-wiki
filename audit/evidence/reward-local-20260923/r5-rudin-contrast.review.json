@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r5-20260923:r5-rudin-contrast:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read the retained Results 4.2 paragraph in context: trotting converges with dragging-leg or unreasonable base-height artifacts; reward tuning precedes transfer. It does not establish the local freeze/prance/chatter taxonomy. The old literature claim is corrected, not affirmed.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r5-rudin-contrast",
-  "inputDigest": "23afc0230602b55662246b0ec1481df58f2ca74f3cd6c84617c7550d8475e25f",
+  "inputDigest": "3521b8ce3263a211158ee9b5375acc8ab4cd5345167f682db1df605da99c9bb8",
   "inventory": [
     {
       "id": "r5-rudin-contrast",
@@ -110,5 +110,5 @@
     }
   ],
   "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
-  "currentTupleDigest": "a63b8a9bf8fd0c562711af20c1a55d3dc089f3403783ab9a956b90c73f384db9"
+  "currentTupleDigest": "aad57ba9f9bc0e30f757775231404ba36aed0a9d2833f03273bd53a4bd74355d"
 }

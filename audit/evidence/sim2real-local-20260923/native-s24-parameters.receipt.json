@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
   "runner": "vitest",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -72,13 +72,13 @@
     {
       "file": {
         "path": "tests/unit/sim2real-local-evidence.test.ts",
-        "bytes": 9706,
-        "sha256": "c3678122420b6d6ef1f4bc3becc363fe8b46a4f9577f2342d4fd3324f77a078b"
+        "bytes": 9753,
+        "sha256": "fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c"
       },
       "id": "file:tests/unit/sim2real-local-evidence.test.ts",
       "offset": 0,
-      "length": 9706,
-      "sha256": "c3678122420b6d6ef1f4bc3becc363fe8b46a4f9577f2342d4fd3324f77a078b"
+      "length": 9753,
+      "sha256": "fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c"
     },
     {
       "file": {

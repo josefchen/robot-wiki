@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s24-20260923:s24-authored-terrain-noise:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I checked the24-cell authored sine/step/depression terrain, LCG multiplier48271/modulus2147483647, seeds123456789/987654321, four-decimal fields, sigma3/offsets-6..6 edge-normalized blur,0.06 noise/0.12 same-sign dropout,0.45 input-noise coefficient and0..1 default0.15 control against independent construction and whole-file members. The explicit authored-toy paragraph says not measured robot data and not inference from bars.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s24-authored-terrain-noise",
-  "inputDigest": "0531126807767af57f19fc96c9c4971f42237be5ce8e4d8467a0e0aaea7afd34",
+  "inputDigest": "9919062215ee2143df877392894a6bfac9b80e30ce00ea91045fc2b55f9b8812",
   "inventory": [
     {
       "id": "s24-privileged-context",

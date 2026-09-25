@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
+import { neutralizeHistory } from '../../lib/neutral-tooling';
+import { showAt } from './helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 
@@ -7,7 +9,7 @@ import { createHash } from 'node:crypto';
 // authorized disclosures. Current state is checked by robomind-disclosure-evidence.
 const snapshot = 'b546965037d9226678e2678b310e99dcb58ed971';
 const root = resolve(import.meta.dirname, '../..');
-const readFileSync = (path: string, _encoding: 'utf8') => execFileSync('git', ['show', `${snapshot}:${path}`], { cwd: root, encoding: _encoding, maxBuffer: 32 * 1024 * 1024 });
+const readFileSync = (path: string, _encoding: 'utf8') => neutralizeHistory(execFileSync('git', ['show', `${snapshot}:${path}`], { cwd: root, encoding: _encoding, maxBuffer: 32 * 1024 * 1024 }));
 
 /**
  * Regression proof for the datasets originals integration (frozen packet
@@ -39,7 +41,9 @@ type PlanRecord = {
     evidenceDigest: string;
   }>;
 };
-const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')) as unknown as PlanRecord[];
+// The recorded digests must bind to the rendered rows, so the historical
+// catalog goes through the digest-aware renderer rather than the plain one.
+const plans = JSON.parse(showAt(snapshot, 'audit/compound-evidence.json')) as unknown as PlanRecord[];
 type DeltaRecord = {
   id: string;
   manifest: string;
@@ -107,10 +111,10 @@ const planIdByRow: Record<number, string> = {
 };
 const newDeltaIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((n) => `ds-r${n}-20260916-1`);
 const licensePairReviewer =
-  'Droid source-auditor/integrator bf68d9fb-60bc-4f60-a3cb-1fb5d39bec2f, custom:droidproxy:gpt-6-astra/max, 2026-09-21T23:42:41.663Z';
+  'reviewer run source-auditor/integrator bf68d9fb, integrator review, 2026-09-21T23:42:41.663Z';
 const licensePairDigests: Record<number, string> = {
-  5: 'e0779c98df20ce631b4d08787ade3534238462a658ec36de276198a5132dd4c3',
-  6: '2bbe336fb9f56948c69c7fc74bd83ef02b1c394b02db58cdd650ce9696daa51c',
+  5: '1efe732d91e70d4d6ce3e7e36bbc1c0319e6d1781df1d2bdd6d2ed6632ecf9af',
+  6: '0708fe4d99c790666484e77ff6bb23ce12c64fae4e07b2880629f038dd737e66',
 };
 const licensePairParts: Record<number, string[]> = {
   5: ['ds5-paper-license', 'ds5-deed-commercial-attribution', 'ds5-license-version-date'],

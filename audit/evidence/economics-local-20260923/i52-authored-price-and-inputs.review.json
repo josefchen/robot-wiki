@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "economics-local-i52-20260923:i52-authored-price-and-inputs:2026-09-23T06:41:34.301Z",
   "observedAt": "2026-09-23T06:41:34.301Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I checked the reader-local authored/not-measured paragraph, seven slider notes and parameter output:80000USD default,20000..250000/5000step, integration2.5,cycle6s,uptime95%,success99.9%,jam15s,wage25USD/hour, all seven complete ranges/steps,730hours/month,60months amortization and24month chosen target. Model constants/defaults/ranges and control geometry are unchanged. Every derived input uses an equal same-plan authored pointer with native units. Existing capital-only modeled-pick and no-running-cost disclosure is intact. The broad no-source-anywhere statement is removed.",
   "outcome": "supported",
   "scope": "part",

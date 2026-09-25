@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-59-20260923:derivation",
   "observedAt": "2026-09-23T19:54:47.701Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected current numeric results and independent test arithmetic after real execution. Exactly six distinct selected headings occur once; this is an article inventory, not a universal architecture. Units, range, rounding and counterexamples are explicit; the chosen headings occur once and tangent examples are geometry, not calibration measurements.",
-  "inputDigest": "895f45b3c988b9e34d55a94daae776ad9c2aaf3decab138b080fe8eef171b075",
+  "inputDigest": "2c8d6d49487fc4670f63d8bc2240e0a89e894f141c99f5e183ff01f1770752af",
   "outcome": "supported",
   "scope": "part",
   "partId": "derivation",
@@ -29,5 +29,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:59",
-  "currentTupleDigest": "187de42c6c92dfdfc5d39606ddd202f41a2b56641138c6e23fb97a494869aa19"
+  "currentTupleDigest": "a295ec376041db488ff22a656807c91b320e2feaa5fec7a347b3e9f95d868b81"
 }

@@ -62,12 +62,12 @@
     {
       "originalId": "audit/classical.md:perception:2",
       "rowOrdinal": 2,
-      "currentTupleDigest": "c4f336b0d0b5a3b3afaaa479411784bd88a49c44b4ae2125a6262746bbcc1a6b",
+      "currentTupleDigest": "65cd9a053edbd9f170b6f5314266d98bf777c88c3f96c7c05a238474c7aa7415",
       "currentCells": {
         "claim": "The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established.",
         "sourceChecked": "lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage.",
         "verdict": "UNRESOLVED",
-        "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+        "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
       }
     },
     {
@@ -95,12 +95,12 @@
     {
       "originalId": "audit/classical.md:perception:19",
       "rowOrdinal": 19,
-      "currentTupleDigest": "8b42597183269304a7e94dd2b3d42417cd522fcf173bc7e5c540ccb57f21ee75",
+      "currentTupleDigest": "c7318393b2f7bbc33ba63829065a1fd2742dcc5306915f08c18611c2f83a031b",
       "currentCells": {
         "claim": "The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements.",
         "sourceChecked": "lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples.",
         "verdict": "UNRESOLVED",
-        "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+        "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
       }
     },
     {
@@ -123,23 +123,23 @@
     },
     {
       "path": "audit/classical.md",
-      "bytes": 652402,
-      "sha256": "f771865d5faaabdbc27b60d6c190c836921425f40f13b276326a691d0e0a7b4d"
+      "bytes": 682398,
+      "sha256": "8c0401d614896d1b08cacdc1ae68d0f9e785a868f6e04dea91a4cea916e80e50"
     },
     {
       "path": "audit/compound-evidence.json",
-      "bytes": 11764208,
-      "sha256": "eea12d51f9348fcd1965f019e05886495960e87afce21eb1954558dd72f7bd82"
+      "bytes": 11704002,
+      "sha256": "e93f86efcb1abbc86dfa17f2f21acf2fbe5c3efb42407cd4cbffc9fd84ec29bf"
     },
     {
       "path": "audit/local-basis.json",
-      "bytes": 1065900,
-      "sha256": "0f9b9fb37645421cf7645b99807e35ec65d5bd0e2378bd0577025cddf59aaf8d"
+      "bytes": 2485547,
+      "sha256": "9059536786daaad5f48e2c528bfc07c2483e69da8522997058d2931a5d037e20"
     },
     {
       "path": "contract/brand-v2-approved-deltas.json",
-      "bytes": 1875390,
-      "sha256": "b95f7c5e3184c67be7542f3c1aedf19af0a010374a736fe294f52845202e5026"
+      "bytes": 2506956,
+      "sha256": "44693f9e46b4d4710968e5e8d9d765349d013a028fd29862524f1529695ef82c"
     },
     {
       "path": "lib/ik.ts",
@@ -163,8 +163,8 @@
     },
     {
       "path": "qa/findings.json",
-      "bytes": 11464,
-      "sha256": "28101913c6141a1d807077b1521473f483de8a26aa1afed5c15d00af33632970"
+      "bytes": 11505,
+      "sha256": "8c20bc17a5ab827791f148aafae474147d44bff77b29422f535707e71d5a6b8a"
     }
   ]
 }

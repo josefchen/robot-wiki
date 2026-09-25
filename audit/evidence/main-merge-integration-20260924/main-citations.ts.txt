@@ -4141,7 +4141,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Genie 2 blog, registered by the generative-video integrator. Fetched
-    // live twice by the frozen packet's source session (FetchUrl 200 and
+    // live twice by the frozen packet's source session (web fetch 200 and
     // curl GET 200, 2026-09-16, retained sha-verified at
     // convergence-source-n-generative-video-20260916e/sources/genie2-blog.html);
     // 32-name byline taken verbatim from the page ('Please cite as
@@ -4373,7 +4373,7 @@ export const CITATIONS: Citation[] = [
   {
     // Starchild-1 announcement, registered by the generative-video
     // integrator. Fetched live twice by the frozen packet's source session
-    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // (web fetch 200 and curl GET 200, 2026-09-16, retained sha-verified at
     // convergence-source-n-generative-video-20260916e/sources/starchild.html);
     // byline Oliver Cameron, May 17th, 2026; prints 'synchronized audio and
     // video in real-time'.
@@ -4388,7 +4388,7 @@ export const CITATIONS: Citation[] = [
   {
     // Agora-1 announcement, registered by the generative-video
     // integrator. Fetched live twice by the frozen packet's source session
-    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // (web fetch 200 and curl GET 200, 2026-09-16, retained sha-verified at
     // convergence-source-n-generative-video-20260916e/sources/agora.html);
     // byline Oliver Cameron, May 18th, 2026; prints 'up to four players to
     // interact within the same generated world in real time'.
@@ -4418,7 +4418,7 @@ export const CITATIONS: Citation[] = [
     // Google's own Project Genie blog, registered by the generative-video
     // integrator as a first-party durability addition beside the Ars press
     // citation. Fetched live twice by the frozen packet's source session
-    // (FetchUrl 200 and curl GET 200, 2026-09-16, retained sha-verified at
+    // (web fetch 200 and curl GET 200, 2026-09-16, retained sha-verified at
     // convergence-source-n-generative-video-20260916e/sources/google-project-genie.html);
     // prints the Jan 29, 2026 AI Ultra U.S. rollout and the limitation list
     // 'Limitations in generations to 60 seconds'. Page H1/og:title is the
@@ -6104,7 +6104,7 @@ export const CITATIONS: Citation[] = [
     // IEEE Trans. Robotics 31(5):1147-1163, Crossref read 2026-08-22. The
     // reference feature-based visual SLAM system: ORB features reused
     // across tracking, mapping, relocalisation and loop closing.
-    // IEEE DOI landing metadata returned by FetchUrl on 2026-09-14;
+    // IEEE DOI landing metadata returned by web fetch on 2026-09-14;
     // publisher identity only, not certification of version-of-record body equality.
     // Retained printed arXiv v2 scientific passages keep their original source URLs/history.
     id: 'orb-slam-2015',
@@ -6123,7 +6123,7 @@ export const CITATIONS: Citation[] = [
     // IEEE Trans. Robotics 37(6):1874-1890, Crossref read 2026-08-22. The
     // multi-map, visual-inertial successor, where a lost session becomes a
     // new map that is merged back when the place is recognised again.
-    // IEEE DOI landing metadata returned by FetchUrl on 2026-09-14;
+    // IEEE DOI landing metadata returned by web fetch on 2026-09-14;
     // publisher identity only, not certification of version-of-record body equality.
     // Retained printed arXiv v2 scientific passages keep their original source URLs/history.
     id: 'orb-slam3-2021',
@@ -6709,7 +6709,7 @@ export const CITATIONS: Citation[] = [
     // SOURCE Figure AI Inc.): second-generation humanoid, "4th generation
     // hands" "equipped with 16 degrees of freedom"; the release does not
     // explicitly resolve per-hand versus combined DoF or give an actuator
-    // count. Retained FetchUrl text 2026-09-14, tool-reported 200.
+    // count. Retained web fetch text 2026-09-14, tool-reported 200.
     id: 'figure-02-2024',
     title:
       'Figure unveils Figure 02, its second-generation humanoid, setting new standards in AI and robotics',
@@ -6719,7 +6719,7 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
-    // Retained FetchUrl text (2026-09-14, tool-reported 200): the initial
+    // Retained web fetch text (2026-09-14, tool-reported 200): the initial
     // Go-Big human-video result is navigation (images/language to low-level
     // SE(2) velocity commands, no robot demonstrations for that approach);
     // Brookfield owns 100,000+ residential units (portfolio bound) and

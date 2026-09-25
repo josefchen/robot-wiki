@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 env CROSSDOMAIN_NUMERIC=1 node_modules/.bin/vitest run tests/unit/crossdomain-closure-evidence.test.ts",
   "runner": "vitest",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -58,12 +58,12 @@
       "file": {
         "path": "tests/unit/crossdomain-closure-evidence.test.ts",
         "bytes": 5982,
-        "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+        "sha256": "dad134ee4b31f36461d413da7ac4bedfca06af91b7500e721953d812f4027a9c"
       },
       "id": "file:tests/unit/crossdomain-closure-evidence.test.ts",
       "offset": 0,
       "length": 5982,
-      "sha256": "1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3"
+      "sha256": "dad134ee4b31f36461d413da7ac4bedfca06af91b7500e721953d812f4027a9c"
     },
     {
       "file": {

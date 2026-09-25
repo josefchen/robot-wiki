@@ -27,18 +27,18 @@
   ],
   "numericalRun": {
     "path": "audit/evidence/economics-local-20260923/numeric-run.json",
-    "bytes": 18767,
-    "sha256": "6ff541161513aa20937618109ac6b1e88f5cd2ff6f5444f8e5b486722af07f94"
+    "bytes": 18726,
+    "sha256": "23821048e81d52c8ba2da92c84c6a91e5b57d7b0d238f7521f716d750beee510"
   },
   "browserRun": {
     "path": "audit/evidence/economics-local-20260923/browser-run.json",
-    "bytes": 12154,
-    "sha256": "823943fd4c4418804b0982c9344bd150d6f8909ea3c5956ff1bdf48a460bdbff"
+    "bytes": 12114,
+    "sha256": "499711698062666e49425ce00885e5c8ba3013e676e4d90095748f72b745de43"
   },
   "source": {
     "path": "audit/evidence/economics-local-20260923/source-provenance.json",
-    "bytes": 6972,
-    "sha256": "8d5afd5029a9e1c67cd5ad9a5942754c3ca0b26a56da3eb3d0e8971e70eff240"
+    "bytes": 6598,
+    "sha256": "7c92ebfdc542918110250b090657227daecb5a165e5d35a8704b0aa7c31dba86"
   },
   "qualification": "Exact first Unresolved original and actual source/run bytes retained. Five original obligations, seven native parts. Review not pre-certified."
 }

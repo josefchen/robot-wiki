@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r4-20260923:r4-parameters:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Actual parameter extraction and independent literal checks cover all twelve ordered IDs, labels/signs/magnitudes/defaults, 0..4 in 0.1 increments and stumble label. Article and component disclose chosen teaching parameters, with no learned or empirical provenance.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r4-parameters",
-  "inputDigest": "3628ff316ee667139855e7dca2538bca4a4ac7a4ec1874c724ad13800bda2598",
+  "inputDigest": "8ac309b87f891806581b1ca0f669ff4002622d5fd39e0f73bca9db543238f5f6",
   "inventory": [
     {
       "id": "r4-paper-boundary",
@@ -69,5 +69,5 @@
     }
   ],
   "originalId": "audit/rl-sim2real.md:reward-design-mpc:4",
-  "currentTupleDigest": "35ca4322ed4337af206a8787a2faa82d00e5683c555fc2ac3a281e24ffa929a5"
+  "currentTupleDigest": "9fb3cba790e2d45e28944c2ab065372fefef968d1115be58373b4c2af1cc089e"
 }

@@ -1,6 +1,6 @@
 {
   "schema": "robot-wiki-row-dispatch-result-v1",
-  "sessionId": "fd137388-f254-4d11-97b1-548904d2cad2",
+  "sessionId": "fd137388",
   "commit": "5c48b2eb362be0a7e0fad87855740a208a258647",
   "tree": "ad42a10bac7a4180be041489cd160842590ec065",
   "mode": "current-head-identity-check",
@@ -24,7 +24,7 @@
         "note": "Historical four-cell record retained: {\"claim\":\"Stats block: 13 releases Feb 2025-Jul 2026; 4 open weights (GR00T N1 and N1.7, GO-1, π0.5); 5 arXiv papers; 7 vendor-only; callout's \\\"seven of the thirteen\\\" enumeration\",\"sourceChecked\":\"lib/generalist-policies.ts GENERALIST_RELEASES + release dates verified above\",\"verdict\":\"verified\",\"note\":\"13 entries; openWeights true for exactly gr00t-n1, agibot-go1, pi05-context, gr00t-n17; paper tier for GR1, GR1.5, GR00T N1, AgiBot World (GO-1), π0.5; blog/press tier for both Helix generations, π0.6, π0.7, GR2, GO-2, Skild = 7. Every release month verified against a primary source.\"} Correction rationale: The local source-format enum cannot establish that no external check or replication exists; preserve the selected populations and source-scoped unknowns. This is a local-model/source-format correction, not external source verification or whole-record completion. No primary fetch was performed in preparation."
       },
       "currentTupleDigest": "3446dd52af06853e0a1b4dc9b820560fd44cc6a783f9e94fde0be529ef5728cf",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/0"
     },
@@ -38,7 +38,7 @@
         "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The local constants really are walk 0.75, trot 0.5, bound 0.45 and pronk 0.35, wired to duty-readout. They are nevertheless repo proof placed in a paired item bearing Park's external citation/URL. The purported Park classical passage is a retained row7/legacy-note summary, not recovered primary text: the available 5708-byte response is a 403 challenge. No primary passage recovered in this bounded trail verifies that summary. In addition, the original claim and article sentence remain unchanged, including \"classical and learned alike\"; changing only the verdict/note to call that clause framing is not an actual approved narrower article correction. The no-op approval is routine authority, not a P2 local-evidence exception.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:legged-locomotion:8. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Diagram discloses authored fixed duty factors walk 0.75 / trot 0.50 / bound 0.45 / pronk 0.35 (lib/gait.ts), presented as canonical nominal; Park et al. 2017 supply ONE classical instance of speed-dependent duty-cycle modulation (Sec. 4.3 'Duty cycle modulation via vertical impulse scaling'; §7 speed-dependent stride length below 3 m/s), not a claim about all classical or learned controllers. Learned-side modulation is the article's induction over the air-time reward discussion, kept as framing rather than a Park attribution."
       },
       "currentTupleDigest": "cf0bf31e7172bcba2ff8d509efa7724ac0ceb2954e9c4aa054b25c4734a216d0",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/1"
     },
@@ -52,7 +52,7 @@
         "note": "Values presented as canonical nominal; the disclaimer sentence (verified above) carries the honest-unknown framing."
       },
       "currentTupleDigest": "a2a7ed80b3250d22bb7d5a13764feb736ff8e6227619ae4f9e84b8fa619e32d6",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/2"
     },
@@ -63,10 +63,10 @@
         "claim": "Stat: \"example groups 6, selected in this article\"; the number is the canonical local WM_PARADIGMS inventory, not a count of scientific paradigms.",
         "sourceChecked": "world-model-survey-2026: https://arxiv.org/html/2605.00080",
         "verdict": "unresolved",
-        "note": "PERFORMANCE-WORLDMODELS-taxonomy-4. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception. Retained-source review 2026-09-07T23:31:48.314Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance."
+        "note": "PERFORMANCE-WORLDMODELS-taxonomy-4. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception. Retained-source review 2026-09-07T23:31:48.314Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance."
       },
-      "currentTupleDigest": "7f676ac79371fa09824d1694a4770f4423ff4be0776d717961bafa3e76f229e6",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "currentTupleDigest": "dbbae03d2926a17e4ab3910db5b6f56fb3c0f8ecfbd9851fd7d8520bec90c97b",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/3"
     },
@@ -80,7 +80,7 @@
         "note": "Zero-credit coupled truth repair: unsupported OXE hour estimate and ranking removed from article, numeric data and chart; source-linked unknown duration retained. Neither unknown duration nor hypothetical targets certify an OXE total. Inspected paper/project text is not an exhaustive absence proof: embedded images and linked spreadsheet were not inspected. The original unknown-and-teaching-cut obligation remains mandatory under unchanged P2 and VAL-AUDIT-009. Exact original four cells and V verdict preserved in non-counted history below. No whole-record completion."
       },
       "currentTupleDigest": "bddd9e19f468d2a2bb4adec1d55b1aa5bc04d19ebe855a29c92ea43afa4ca3f7",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/4"
     },
@@ -94,7 +94,7 @@
         "note": "Zero-credit coupled truth repair: article cohort and count context corrected; controls, defaults and arithmetic preserved with explicit authored-hypothetical rate and target labels throughout chart, accessible table, live summary and prediction feedback. Fifty counts collectors, not rigs; 12 months is elapsed collection time, not exposure for every collector or robot. Neither 350/50 nor 350/18 establishes annual rig productivity. The introduction reports 18 research labs whereas Section III reports 13 institutions; these units remain distinct. Abstract-page 84 tasks versus v2 body 86 tasks is not resolved or claimed here. The original derived-not-measured-rate obligation remains mandatory under unchanged P2 and VAL-AUDIT-009. Exact original four cells and V verdict preserved in non-counted history below. No whole-record completion."
       },
       "currentTupleDigest": "341059b74bafbed760981b99d72978575c478c20c3dab832398b911e1a5c3568",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/5"
     },
@@ -108,7 +108,7 @@
         "note": ""
       },
       "currentTupleDigest": "3b8871d3589c571068c9a4165043e4c9707fe512b0812741709bfaea79c00515",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/6"
     },
@@ -117,12 +117,12 @@
       "rowOrdinal": 5,
       "currentCells": {
         "claim": "\"an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams\"",
-        "sourceChecked": "Marvel & Norcross Table 5 + §VII, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (FetchUrl 200 this session, completed by 2026-09-15T23:10Z)",
+        "sourceChecked": "Marvel & Norcross Table 5 + §VII, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (web fetch 200 this session, completed by 2026-09-15T23:10Z)",
         "verdict": "V",
         "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The actual PMC table/example supports 850 mm for the stated setup and the article's added \"at least\" is a genuine correction. The retained source also says the ISO 13855 C applicability to dynamically reconfigurable robots is uncertain and that choosing implementation terms is left to the integrator. The current plan reduces the obligation to table value plus lower-bound qualifier. Article text still calls this an instrument sourced constant; lib/safety-modes.ts fixes INTRUSION_MARGIN_M=0.85 under \"Sourced, not chosen\", and the mounted component uses it. Printed numbers alone do not establish that authored mapping. Source dispatch explicitly said to hold mappings not printed; the later preparer/integrator assertion that no authored dependency remains does not satisfy that condition or supply an owner addendum.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/frontier.md:safety-and-assurance:5. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Verified this session against the PMC full text: Table 5 (\"Decision criteria that determine the value of the intrusion distance, C, from ISO 13855\") prints Direction of Approach → Normal → Multiple Separate Beams → 850 mm (Single-Height Beam 1200 mm), and §VII prose prints \"the value of C must be at least 850 mm\" for that configuration. Article span corrected to carry the source's lower-bound qualifier (\"at least 850 mm\"); the previous span printed the table value without the minimum. Constant lib/safety-modes.ts INTRUSION_MARGIN_M = 0.85 unchanged, already labeled \"Sourced, not chosen\" on this same row."
       },
-      "currentTupleDigest": "0b6acd21bfdfc99a3bf45f77b99ec0cbd74a728735e009ea7d61a5e11c388623",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "currentTupleDigest": "307fa10994158e1dd5c3eadb9310d499d971744425c20d51247ec19adb78f945",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/7"
     },
@@ -131,12 +131,12 @@
       "rowOrdinal": 6,
       "currentCells": {
         "claim": "\"a 1.6 m/s worst-case operator speed used when the operator's approach is not measured directly\"",
-        "sourceChecked": "Marvel & Norcross §III + Discussion velocity-reliability paragraph, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (FetchUrl 200 this session, completed by 2026-09-15T23:10Z; both contradicting passages re-read)",
+        "sourceChecked": "Marvel & Norcross §III + Discussion velocity-reliability paragraph, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (web fetch 200 this session, completed by 2026-09-15T23:10Z; both contradicting passages re-read)",
         "verdict": "S",
         "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The retained PMC response genuinely contains the 1600 mm/s framing, direct-measurement provision, greater-than-500-mm qualification and later prudent-2000 counterpassage; the S verdict correctly retains that inconsistency. However the plan omits the separate authored-speed obligation while asserting that the 1.6 m/s instrument default carries the paper basis. Article text still calls it an instrument sourced constant; DEFAULT_HUMAN_SPEED_M_S=1.6 and the 0-2 slider remain authored settings used by the component. Neither printing both numbers nor recording S proves this particular default/range selection. There was no article correction for row6, and the conditional hold instruction was not an owner authorization to drop the local conjunct.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/frontier.md:safety-and-assurance:6. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Re-verified this session against the PMC full text, both passages. §III: \"the speed of the operator, vH, is assumed to be a worst-case maximum of 1600 mm/s based on the specifications in ISO 13855. ISO 13855 claims a maximum speed of 2000 mm/s for an operator ... with the option for using 1600 mm/s in the case that the separation distance is greater than 500 mm. The new application in Equation 1, however, allows for the provision that vH may be measured directly. If such measurements are not available, vH is typically assumed to be constant and in the direction of the robot.\" Discussion: \"even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the worst-case assumption of 2000 mm/s from ISO 13855 to accommodate instantaneous rapid motions and the uncertainties associated with operator detection.\" Source-internal inconsistency stands recorded (S); the article's wording follows §III, the passage the instrument's constant is drawn from."
       },
-      "currentTupleDigest": "0058b5e1457cd54661ab95097a1eaef1040b34d7e041d42841df1c4ab661cf89",
-      "packet": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+      "currentTupleDigest": "cf7760e83c781595b6c88b46134a3fd8e89177e6ae3a576fb5892200a75822b8",
+      "packet": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
       "packetSha256": "a611a88c9fa8d5aa40da76da073483e141487321d3f8b41cbc4f66b37035b856",
       "pointer": "/rows/8"
     }

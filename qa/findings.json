@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "project": "robot-wiki",
   "updatedAt": "2026-08-23",
-  "observedAgainst": "main plus the active uncommitted Droid worktree",
+  "observedAgainst": "main plus the active uncommitted working tree",
   "policy": {
     "contract": "PRODUCT_QUALITY.md",
-    "implementer": "droid",
-    "reviewer": "codex",
+    "implementer": "implementation",
+    "reviewer": "review",
     "selfApprovalAllowed": false,
     "llmScoresAreAdvisoryOnly": true
   },
   "currentBatch": {
     "id": "RW-BATCH-001",
     "title": "Market map credibility baseline",
-    "status": "ready_for_droid",
+    "status": "ready_for_implementation",
     "objective": "Remove undefined authority signals and false taxonomy structure from the public market map.",
     "scope": [
       "RW-QA-002",
@@ -45,7 +45,7 @@
     {
       "id": "RW-QA-002",
       "severity": "P0",
-      "status": "ready_for_droid",
+      "status": "ready_for_implementation",
       "category": "trust",
       "title": "Public confidence badges imply a methodology the product does not expose",
       "route": "/market-map/",
@@ -75,7 +75,7 @@
         "Do not remove or weaken source links, as-of dates, or honest unknown values."
       ],
       "verification": {
-        "owner": "codex",
+        "owner": "review",
         "status": "pending",
         "evidence": []
       }
@@ -83,7 +83,7 @@
     {
       "id": "RW-QA-001",
       "severity": "P1",
-      "status": "ready_for_droid",
+      "status": "ready_for_implementation",
       "category": "taxonomy",
       "title": "The approach filter exposes generated descriptors as if they were a usable taxonomy",
       "route": "/market-map/",
@@ -113,7 +113,7 @@
         "Do not invent company capabilities or rewrite sourced facts."
       ],
       "verification": {
-        "owner": "codex",
+        "owner": "review",
         "status": "pending",
         "evidence": []
       }
@@ -143,7 +143,7 @@
         "Do not add slogans, adjectives, valuations, or deployment claims for variety."
       ],
       "verification": {
-        "owner": "codex",
+        "owner": "review",
         "status": "pending",
         "evidence": []
       }
@@ -174,7 +174,7 @@
         "Do not treat a resolving URL as proof that the linked source supports the surrounding claim."
       ],
       "verification": {
-        "owner": "codex",
+        "owner": "review",
         "status": "pending",
         "evidence": []
       }
@@ -204,7 +204,7 @@
         "Do not move figures or rewrite technical conclusions in this batch."
       ],
       "verification": {
-        "owner": "codex",
+        "owner": "review",
         "status": "pending",
         "evidence": []
       }
@@ -236,7 +236,7 @@
         "Do not fix visible text while leaving ARIA or ChartDescription copy stale."
       ],
       "verification": {
-        "owner": "codex",
+        "owner": "review",
         "status": "pending",
         "evidence": []
       }

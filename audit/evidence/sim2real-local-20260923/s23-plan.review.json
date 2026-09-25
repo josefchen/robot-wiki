@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:whole-plan:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed the complete original/current AND inventory and exact ordered 9 native parts. The original 7 obligations all survive; one observed obligation is partitioned into three output-specific subparts, not weakened or expanded into a full registry census. All external passages, authored disclosure, independent arithmetic, exact native receipts and genuine observed transitions are required. Source/body/fetch identity, original cells and failed draft history survive. This is integrator adjudication, not independent validation or release acceptance.",
   "outcome": "supported",
   "scope": "plan",

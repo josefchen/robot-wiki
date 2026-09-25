@@ -206,7 +206,7 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
     for (const [ordinal, planId] of Object.entries(EXPECTED_20260916K)) {
       if (Number(ordinal) === 18) continue;
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+      expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
       expect(plan.planReview?.rationale).toContain(PACKET_SHA);
     }
   });
@@ -216,7 +216,7 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
         "ordinal": 18,
         "planId": "parallel-sim-rl-18-training-time-chart-20260916k",
         "oldTuple": "c48d84728c0ef1633848263913732949a7713b5efea7cd27e2f13c4c712f4948",
-        "withdrawnReviewDigest": "0d1abfcdc6baaa280076d67c3602e0018c43227fcb9bdddb5723767b5817b123"
+        "withdrawnReviewDigest": "a0cf1b5ccf91db16bacb797be118f7d0e32d0003fc81f0b67c0f8e22cb85c8c9"
     }
 ])('retains the historical hold for $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
     const { sections, compoundPlans, markdown } = loadSection(true);

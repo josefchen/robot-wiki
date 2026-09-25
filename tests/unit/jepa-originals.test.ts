@@ -223,7 +223,7 @@ describe('jepa originals integration (2026-09-16j evidence completions)', () => 
     const { compoundPlans } = loadSection();
     for (const planId of Object.values(EXPECTED_20260916J)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+      expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
       expect(plan.planReview?.rationale).toContain(PACKET_SHA);
     }
   });

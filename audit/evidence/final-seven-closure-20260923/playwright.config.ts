@@ -10,7 +10,7 @@ export default defineConfig({
   use: { baseURL: 'http://127.0.0.1:3298', browserName: 'chromium' },
   webServer: {
     command: 'NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/next dev --hostname 127.0.0.1 --port 3298',
-    cwd: '/home/remy-simpc4/Projects/robot-wiki-droid-continuation',
+    cwd: '.',
     url: 'http://127.0.0.1:3298',
     reuseExistingServer: false,
     timeout: 120_000,

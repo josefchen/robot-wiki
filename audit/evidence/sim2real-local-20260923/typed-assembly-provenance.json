@@ -3,13 +3,13 @@
   "newReviews": 0,
   "source": {
     "path": "audit/evidence/sim2real-local-20260923/source-provenance.json",
-    "bytes": 12533,
-    "sha256": "23129d8eef3388a69e6531b7efd33e5651ef796b5432448d8a201b5ac33aa791"
+    "bytes": 10545,
+    "sha256": "1ea479832a607cdd911fd82412bb3689456da4b639a69ac79850373b3da6d7c3"
   },
   "numericalRun": {
     "path": "audit/evidence/sim2real-local-20260923/numeric-run-final.json",
-    "bytes": 37362,
-    "sha256": "a14c4a8b67f7b9776d29b83eca8f9370a6aa734713070a80aff3a70b52d21d20"
+    "bytes": 37329,
+    "sha256": "11679e064fbf73a5fef6dfcb3d2c427c32f36226335f74d2d9c28d289ceff207"
   },
   "browserRun": {
     "path": "audit/evidence/sim2real-local-20260923/browser-run.json",

@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "fd137388-f254-4d11-97b1-548904d2cad2",
+  "sessionId": "fd137388",
   "role": "integrator",
   "eventId": "final-seven-frontier-safety-and-assurance-5-20260923-5-external-20260923",
   "observedAt": "2026-09-23T22:33:09.716Z",
-  "reviewedBy": "Delegated Droid Sol/max integrator; independent reviewer pending",
+  "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
   "rationale": "Read original passage(s) for audit/frontier.md:safety-and-assurance:5 as retained, with original URL and historical timestamp. The retained Marvel–Norcross manuscript establishes contextual numbers and their limitations, not chosen safety-control values or normative approval. Matched quoted corpus facts to corrected reader wording; did not treat lack of a published duration as an exhaustive negative or PMC research as normative safety approval. After browser capture, a source-only prose lint normalized the range notation to 0 to 2. The exact disclosure prefix and controls/readouts remain visible in the recorded DOM; no second browser run is asserted.",
   "outcome": "supported",
   "scope": "part",

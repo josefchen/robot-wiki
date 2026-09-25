@@ -1,16 +1,16 @@
 {
   "scope": "Exact retained gate/preparation receipts, not an invented shell history. Read-only exploration and file-tool writes remain in the original session transcript. All gates sequential with NODE_DISABLE_COMPILE_CACHE=1.",
-  "workerSession": "287fe341-c650-474c-b0b5-c623391e0972",
+  "workerSession": "287fe341",
   "receipts": [
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/after-snapshot.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/after-snapshot.receipt.json",
       "sha256": "957ad2d056e4f6c971dd9c48068149e5de0fde76944795b4d2725c64d123794e",
       "receipt": {
         "name": "after-snapshot",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/snapshot.mjs",
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/snapshot.mjs",
           "after"
         ],
         "environment": {
@@ -19,20 +19,20 @@
         "startedAt": "2026-09-08T04:26:41.446498+00:00",
         "endedAt": "2026-09-08T04:26:42.209872+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/after-snapshot.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/after-snapshot.log",
         "logBytes": 57,
         "logSha256": "44466436c387242dec537187276919322dde234caff76b0f4e97843a0c75e66c"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-product.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-product.receipt.json",
       "sha256": "b0a1cbd0433edb42dd69e38709e713f54aa69139a4bc7f508111e3ee0acc5dce",
       "receipt": {
         "name": "apply-product",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "python3",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-proposals.py",
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-proposals.py",
           "product"
         ],
         "environment": {
@@ -41,20 +41,20 @@
         "startedAt": "2026-09-08T04:10:55.134926+00:00",
         "endedAt": "2026-09-08T04:10:55.182491+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-product.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-product.log",
         "logBytes": 623,
         "logSha256": "c526f219f12324cdbb4e0b2c8248dda46254977e343d1dac7abdf958eca9f3a8"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-tests.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-tests.receipt.json",
       "sha256": "8e874eba128c6a72e8fed48c1081ab9e45976ca8c6f198f26ef0adc3db26b4d7",
       "receipt": {
         "name": "apply-tests",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "python3",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-proposals.py",
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-proposals.py",
           "tests"
         ],
         "environment": {
@@ -63,17 +63,17 @@
         "startedAt": "2026-09-08T04:10:31.978195+00:00",
         "endedAt": "2026-09-08T04:10:32.018316+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-tests.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-tests.log",
         "logBytes": 372,
         "logSha256": "37ef8af2148e753616d32c60d53947a85b5c98034c5d3f28c54e9cd37d08274c"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-after-placement.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-after-placement.receipt.json",
       "sha256": "fb4ee50ea5d77f0022ac0fe36697d4ae15d312d33cc767b9379230019a0a5c96",
       "receipt": {
         "name": "baseline-after-placement",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -85,17 +85,17 @@
         "startedAt": "2026-09-08T04:32:42.983038+00:00",
         "endedAt": "2026-09-08T04:32:43.412560+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-after-placement.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-after-placement.log",
         "logBytes": 650934,
         "logSha256": "f462ba5c6527c7041ac9eb3580929aa032a40371d458f631916eac44a3f4b6e4"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-final.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-final.receipt.json",
       "sha256": "ab3b5f136c97db0d3032b637433eadeb5eb82547f3e12ae1c3e90feea123dd6d",
       "receipt": {
         "name": "baseline-final",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -107,17 +107,17 @@
         "startedAt": "2026-09-08T04:22:47.732746+00:00",
         "endedAt": "2026-09-08T04:22:48.188711+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-final.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-final.log",
         "logBytes": 650934,
         "logSha256": "f462ba5c6527c7041ac9eb3580929aa032a40371d458f631916eac44a3f4b6e4"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline.receipt.json",
       "sha256": "9d4ccb56fb35df6770eb89563ad978086fbcd4b8d8f1e94382264e72904c5353",
       "receipt": {
         "name": "baseline",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -129,33 +129,33 @@
         "startedAt": "2026-09-08T04:22:00.915502+00:00",
         "endedAt": "2026-09-08T04:22:01.390159+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline.log",
         "logBytes": 589,
         "logSha256": "00a65c9f39b9011be29b8ee9c239962a9f91445699d94e392d2a8449fbf584c4"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/before-snapshot.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/before-snapshot.receipt.json",
       "sha256": "398e25a6329d7165f8bbfe2e44b703d91e8b05b9a3964a7a3a608cc3a3185e81",
       "receipt": {
-        "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/snapshot.mjs before",
+        "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/snapshot.mjs before",
         "startedAt": "2026-09-08T03:54:49.485649+00:00",
         "finishedAt": "2026-09-08T03:54:50.147534+00:00",
         "exitCode": 0,
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/before-snapshot.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/before-snapshot.log",
         "logSha256": "9868f7c02c7419c1fc88c92577e640e59073324a7eb2b2b94d1fb7dcd639b525",
         "logBytes": 58
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-bounds.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-bounds.receipt.json",
       "sha256": "959583a4aa55e156b0d1cb8d81206d89bf1d6662b5a9eeb71a2a89cbf196e013",
       "receipt": {
         "name": "browser-mobile-bounds",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/@playwright/test/cli.js",
@@ -165,26 +165,26 @@
           "--grep",
           "source focus and expanded model table at 375",
           "--output",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-mobile-diagnostic"
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-mobile-diagnostic"
         ],
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1",
-          "RL_CLOSEOUT_CAPTURE_DIR": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-mobile-diagnostic"
+          "RL_CLOSEOUT_CAPTURE_DIR": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-mobile-diagnostic"
         },
         "startedAt": "2026-09-08T04:29:02.917287+00:00",
         "endedAt": "2026-09-08T04:29:09.275232+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-bounds.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-bounds.log",
         "logBytes": 1479,
         "logSha256": "8ea38b3a51293a3fda31c0f181efb484141754c1e5b72650beaf92152c95ad2e"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-repaired.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-repaired.receipt.json",
       "sha256": "f20bb0fe62e658e6495fdc1f819454f946157b74ef6dd45b12ffa3aa9194652b",
       "receipt": {
         "name": "browser-mobile-repaired",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/@playwright/test/cli.js",
@@ -194,27 +194,27 @@
           "--grep",
           "consumers at 375|inherited Gemini",
           "--output",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-mobile-repaired"
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-mobile-repaired"
         ],
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1",
           "RL_CLOSEOUT_PROOF": "1",
-          "RL_CLOSEOUT_CAPTURE_DIR": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-mobile-repaired"
+          "RL_CLOSEOUT_CAPTURE_DIR": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-mobile-repaired"
         },
         "startedAt": "2026-09-08T04:24:54.597459+00:00",
         "endedAt": "2026-09-08T04:25:02.959007+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-repaired.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-repaired.log",
         "logBytes": 336,
         "logSha256": "dd4cfcc9c9f43624212c4f6d5dadeee6b2b822bda72acc8f40be9cabaece2df2"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-details.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-details.receipt.json",
       "sha256": "6f918a7ad15d9000c7a5063e874948ff5f95f168d268e569679cb16de2477775",
       "receipt": {
         "name": "browser-source-details",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/@playwright/test/cli.js",
@@ -224,26 +224,26 @@
           "--grep",
           "source focus and expanded model table",
           "--output",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-source-details"
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-source-details"
         ],
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1",
-          "RL_CLOSEOUT_CAPTURE_DIR": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-source-details"
+          "RL_CLOSEOUT_CAPTURE_DIR": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-source-details"
         },
         "startedAt": "2026-09-08T04:27:47.871854+00:00",
         "endedAt": "2026-09-08T04:27:55.247441+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-details.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-details.log",
         "logBytes": 1591,
         "logSha256": "7834287f5b30534a6b615f9d8d34e45433cccbf8ce56b85e9cae64db72701211"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-final.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-final.receipt.json",
       "sha256": "fd8a31623c6de4efdff1e4eb6a789a39f745fd4ad12e2228ccce802ec4a4205d",
       "receipt": {
         "name": "browser-source-final",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/@playwright/test/cli.js",
@@ -253,26 +253,26 @@
           "--grep",
           "source focus and expanded model table",
           "--output",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-source-final"
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright-source-final"
         ],
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1",
-          "RL_CLOSEOUT_CAPTURE_DIR": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-source-final"
+          "RL_CLOSEOUT_CAPTURE_DIR": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures-source-final"
         },
         "startedAt": "2026-09-08T04:30:41.864018+00:00",
         "endedAt": "2026-09-08T04:30:51.756777+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-final.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-final.log",
         "logBytes": 301,
         "logSha256": "9ca62fca9c936d5b1e93f6ef14b4b580a6b446db3af17c89d325bb9d44e2cc22"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser.receipt.json",
       "sha256": "f4e8e430e461efa63a603ccd933cce202d084567326bfd263e6a813477a845e2",
       "receipt": {
         "name": "browser",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/@playwright/test/cli.js",
@@ -283,27 +283,27 @@
           "--grep",
           "RL source closeouts|inherited Gemini|offline RL is|reset problem|switching from simulation|every anchor|reset restores|budget slider|wiki apparatus|no horizontal|zero axe",
           "--output",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright"
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/playwright"
         ],
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1",
           "RL_CLOSEOUT_PROOF": "1",
-          "RL_CLOSEOUT_CAPTURE_DIR": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures"
+          "RL_CLOSEOUT_CAPTURE_DIR": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/captures"
         },
         "startedAt": "2026-09-08T04:23:06.001390+00:00",
         "endedAt": "2026-09-08T04:23:54.003027+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser.log",
         "logBytes": 7084,
         "logSha256": "b95e11c425d1f5a82198bb1a0c9667cfced79e9984f36bab0c8d0a97758264dc"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/check-og.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/check-og.receipt.json",
       "sha256": "5414d2df5a501a44059d9e09e6e3fcb79bd5a17cb7a4248c5defabb26316bb37",
       "receipt": {
         "name": "check-og",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -315,17 +315,17 @@
         "startedAt": "2026-09-08T04:25:34.882106+00:00",
         "endedAt": "2026-09-08T04:25:37.112886+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/check-og.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/check-og.log",
         "logBytes": 200,
         "logSha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content-after-placement.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content-after-placement.receipt.json",
       "sha256": "b81fcf1b39ef78d6723ef105053f11b267753e3cbc6ceebdb0eb395890e082c9",
       "receipt": {
         "name": "content-after-placement",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -337,17 +337,17 @@
         "startedAt": "2026-09-08T04:32:31.866762+00:00",
         "endedAt": "2026-09-08T04:32:32.700453+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content-after-placement.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content-after-placement.log",
         "logBytes": 236520,
         "logSha256": "92e3d1ae66bc9d28047ae342c06f78c6b520f1401fef1f62f476ff0077565903"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content.receipt.json",
       "sha256": "9ff11103acaa53de99126212947afa9dc9bc3d20a59500dd679b98e36fbf2070",
       "receipt": {
         "name": "content",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -359,17 +359,17 @@
         "startedAt": "2026-09-08T04:21:49.829118+00:00",
         "endedAt": "2026-09-08T04:21:50.660248+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content.log",
         "logBytes": 236520,
         "logSha256": "92e3d1ae66bc9d28047ae342c06f78c6b520f1401fef1f62f476ff0077565903"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-test-lint.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-test-lint.receipt.json",
       "sha256": "08c7c9dc661616d7f80b2d9ab3fc6e197167169e4d6fafe8493803df57a6a3a4",
       "receipt": {
         "name": "final-test-lint",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/eslint/bin/eslint.js",
@@ -382,17 +382,17 @@
         "startedAt": "2026-09-08T04:33:04.371757+00:00",
         "endedAt": "2026-09-08T04:33:05.729858+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-test-lint.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-test-lint.log",
         "logBytes": 0,
         "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-typescript.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-typescript.receipt.json",
       "sha256": "5aa1d56e0a4f22223ebc89ae8cf3014d253209cec864cb74ad1bf4bc057246bd",
       "receipt": {
         "name": "final-typescript",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node_modules/.bin/tsc",
           "--noEmit",
@@ -405,17 +405,17 @@
         "startedAt": "2026-09-08T04:33:14.358139+00:00",
         "endedAt": "2026-09-08T04:33:16.658759+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-typescript.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-typescript.log",
         "logBytes": 0,
         "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-final.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-final.receipt.json",
       "sha256": "0548b47ff1afff8b9aefe69e6acf521b40ab0aecf17ca74ad1611c061038299b",
       "receipt": {
         "name": "focused-final",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/vitest/vitest.mjs",
@@ -431,17 +431,17 @@
         "startedAt": "2026-09-08T04:16:26.843833+00:00",
         "endedAt": "2026-09-08T04:16:28.576531+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-final.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-final.log",
         "logBytes": 865,
         "logSha256": "cf596758bde1e94bca36535f180cd7bcd0dcfaa0edbb295759e404ee2a929c30"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green-normalized.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green-normalized.receipt.json",
       "sha256": "a1bb09a385fb10ff6723e65ec861a07014e930fbbeac0a0cb7ae144883b7f299",
       "receipt": {
         "name": "focused-green-normalized",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/vitest/vitest.mjs",
@@ -457,17 +457,17 @@
         "startedAt": "2026-09-08T04:13:05.276554+00:00",
         "endedAt": "2026-09-08T04:13:07.219419+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green-normalized.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green-normalized.log",
         "logBytes": 22748,
         "logSha256": "a7a91aab6c89051e010913b38bc774b54b051a38987474f7d5feed8fb0386085"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green.receipt.json",
       "sha256": "52478b2f48822f0eb6ed3fe8b717de426fc37714279b50bfe9405bbeeb263b66",
       "receipt": {
         "name": "focused-green",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/vitest/vitest.mjs",
@@ -483,17 +483,17 @@
         "startedAt": "2026-09-08T04:11:14.703819+00:00",
         "endedAt": "2026-09-08T04:11:16.483191+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green.log",
         "logBytes": 50673,
         "logSha256": "3bd1a3bf63364e5dc745916dae61db22ceb4ea1b8153238358641386d7ea51ea"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-red.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-red.receipt.json",
       "sha256": "ca7b67dea43a00af7e63475521c889635a54ca9c2eea4d2b617268233d07f534",
       "receipt": {
         "name": "focused-red",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
           "node_modules/vitest/vitest.mjs",
@@ -508,17 +508,17 @@
         "startedAt": "2026-09-08T04:10:42.315636+00:00",
         "endedAt": "2026-09-08T04:10:44.261574+00:00",
         "rawExitCode": 1,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-red.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-red.log",
         "logBytes": 74131,
         "logSha256": "d156fd429321904f5c829d3ddd9f2801b854806691f09041cb394c3da9605036"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/generate-og.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/generate-og.receipt.json",
       "sha256": "e30e394285162a86e5f58711884838bae48b28b7040ca41652fc7486b4f4be31",
       "receipt": {
         "name": "generate-og",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -530,20 +530,20 @@
         "startedAt": "2026-09-08T04:25:23.553396+00:00",
         "endedAt": "2026-09-08T04:25:25.813515+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/generate-og.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/generate-og.log",
         "logBytes": 294,
         "logSha256": "7e121b9feb921c62f158e4ea71d48c48a4e6a1b7c31ed0c0e8f943df56b9cebb"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate-native.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate-native.receipt.json",
       "sha256": "0742d71cb2c7ae539ec109d9ddf035d98cf3bbf4822d8c43da93c0a68bc86ba2",
       "receipt": {
         "name": "integrate-native",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "node",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate.mjs"
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate.mjs"
         ],
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
@@ -551,17 +551,17 @@
         "startedAt": "2026-09-08T04:15:59.836830+00:00",
         "endedAt": "2026-09-08T04:16:00.402043+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate-native.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate-native.log",
         "logBytes": 866,
         "logSha256": "9472a75fb412285b96e17d21128a4498eb54a25510c57dad78a92598e0c9eb92"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/lint.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/lint.receipt.json",
       "sha256": "0b34ab0e0af23293461ef17de537d4c4ac8619a0460f151c2d69923b0577a169",
       "receipt": {
         "name": "lint",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -573,84 +573,84 @@
         "startedAt": "2026-09-08T04:20:54.208951+00:00",
         "endedAt": "2026-09-08T04:21:10.994135+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/lint.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/lint.log",
         "logBytes": 97,
         "logSha256": "ebca3fe12cc9f932ebe6cd470447b922d6cdf93c685026f23947523c9424f05c"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-blocks.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-blocks.receipt.json",
       "sha256": "6dd1a372e83ac3e5cc1f57681e0b60f6c2aff4577f3597e0ea9000421185f80a",
       "receipt": {
-        "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
+        "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
         "startedAt": "2026-09-08T03:59:40.825616+00:00",
         "finishedAt": "2026-09-08T03:59:41.814493+00:00",
         "exitCode": 0,
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-blocks.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-blocks.log",
         "logSha256": "01582ab750ecf5569d1cc8207bcb5d1b3a1b4135da415270bdb0afe763161436",
         "logBytes": 121
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-paired.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-paired.receipt.json",
       "sha256": "e409652999495c0ad71cee02732153c753823196739adf77a6e3cf1be918c6df",
       "receipt": {
-        "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
+        "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
         "startedAt": "2026-09-08T03:58:58.210967+00:00",
         "finishedAt": "2026-09-08T03:58:58.824198+00:00",
         "exitCode": 1,
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-paired.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-paired.log",
         "logSha256": "6e08c632ce9ac26b68af255306e26487dcffe30c8b066fa34f51b4c367efce8d",
         "logBytes": 635
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-repaired.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-repaired.receipt.json",
       "sha256": "95d3f52d7b2d093d4954ac4aa96ca3bb43e35fb722ed6b2f40b542c6c09fe9ef",
       "receipt": {
-        "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
+        "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
         "startedAt": "2026-09-08T03:58:00.066156+00:00",
         "finishedAt": "2026-09-08T03:58:00.324520+00:00",
         "exitCode": 1,
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-repaired.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-repaired.log",
         "logSha256": "b5215c498fbf053a83831867e0833ce5e3697bac967eb48b669f7d16bc17efeb",
         "logBytes": 512
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.receipt.json",
       "sha256": "987931503803754b35970bbef9c76bfae95edba6aa83e56282e623f752dc18f4",
       "receipt": {
-        "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
+        "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.py",
         "startedAt": "2026-09-08T03:57:24.664214+00:00",
         "finishedAt": "2026-09-08T03:57:24.803158+00:00",
         "exitCode": 1,
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.log",
         "logSha256": "fbd3bd7654d9225325abbdb5550d2df27ca45151a9685c3e030205abfe678bd5",
         "logBytes": 431
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.receipt.json",
       "sha256": "ac76e6dffb0a8ff75d5d143d32842b81583fc86fab5dd16ef3fe1aab83f72eb1",
       "receipt": {
         "name": "preservation",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "python3",
-          "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.py"
+          "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.py"
         ],
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
@@ -658,17 +658,17 @@
         "startedAt": "2026-09-08T04:33:57.368857+00:00",
         "endedAt": "2026-09-08T04:33:57.644460+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.log",
         "logBytes": 274,
         "logSha256": "9cc9aed20bffe5b8690c007e6242781d83afc63e23c51e94366cbbe8f45d14a2"
       }
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/typecheck.receipt.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/typecheck.receipt.json",
       "sha256": "db01977d4a4ef94bea99909223980c209b43a4ab50f9393398d10d10045f06ea",
       "receipt": {
         "name": "typecheck",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "command": [
           "npm",
           "run",
@@ -683,7 +683,7 @@
         "startedAt": "2026-09-08T04:21:22.901425+00:00",
         "endedAt": "2026-09-08T04:21:25.273234+00:00",
         "rawExitCode": 0,
-        "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/typecheck.log",
+        "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/typecheck.log",
         "logBytes": 271,
         "logSha256": "c0dd2ea3e43ca76d6ba0e83b10c8bab5494586762402471c005b41169fa601eb"
       }
@@ -691,157 +691,157 @@
   ],
   "logs": [
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/after-snapshot.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/after-snapshot.log",
       "bytes": 57,
       "sha256": "44466436c387242dec537187276919322dde234caff76b0f4e97843a0c75e66c"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-product.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-product.log",
       "bytes": 623,
       "sha256": "c526f219f12324cdbb4e0b2c8248dda46254977e343d1dac7abdf958eca9f3a8"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-tests.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/apply-tests.log",
       "bytes": 372,
       "sha256": "37ef8af2148e753616d32c60d53947a85b5c98034c5d3f28c54e9cd37d08274c"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-after-placement.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-after-placement.log",
       "bytes": 650934,
       "sha256": "f462ba5c6527c7041ac9eb3580929aa032a40371d458f631916eac44a3f4b6e4"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-final.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline-final.log",
       "bytes": 650934,
       "sha256": "f462ba5c6527c7041ac9eb3580929aa032a40371d458f631916eac44a3f4b6e4"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/baseline.log",
       "bytes": 589,
       "sha256": "00a65c9f39b9011be29b8ee9c239962a9f91445699d94e392d2a8449fbf584c4"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/before-snapshot.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/before-snapshot.log",
       "bytes": 58,
       "sha256": "9868f7c02c7419c1fc88c92577e640e59073324a7eb2b2b94d1fb7dcd639b525"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-bounds.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-bounds.log",
       "bytes": 1479,
       "sha256": "8ea38b3a51293a3fda31c0f181efb484141754c1e5b72650beaf92152c95ad2e"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-repaired.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-mobile-repaired.log",
       "bytes": 336,
       "sha256": "dd4cfcc9c9f43624212c4f6d5dadeee6b2b822bda72acc8f40be9cabaece2df2"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-details.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-details.log",
       "bytes": 1591,
       "sha256": "7834287f5b30534a6b615f9d8d34e45433cccbf8ce56b85e9cae64db72701211"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-final.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser-source-final.log",
       "bytes": 301,
       "sha256": "9ca62fca9c936d5b1e93f6ef14b4b580a6b446db3af17c89d325bb9d44e2cc22"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/browser.log",
       "bytes": 7084,
       "sha256": "b95e11c425d1f5a82198bb1a0c9667cfced79e9984f36bab0c8d0a97758264dc"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/check-og.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/check-og.log",
       "bytes": 200,
       "sha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content-after-placement.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content-after-placement.log",
       "bytes": 236520,
       "sha256": "92e3d1ae66bc9d28047ae342c06f78c6b520f1401fef1f62f476ff0077565903"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/content.log",
       "bytes": 236520,
       "sha256": "92e3d1ae66bc9d28047ae342c06f78c6b520f1401fef1f62f476ff0077565903"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-test-lint.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-test-lint.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-typescript.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/final-typescript.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-final.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-final.log",
       "bytes": 865,
       "sha256": "cf596758bde1e94bca36535f180cd7bcd0dcfaa0edbb295759e404ee2a929c30"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green-normalized.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green-normalized.log",
       "bytes": 22748,
       "sha256": "a7a91aab6c89051e010913b38bc774b54b051a38987474f7d5feed8fb0386085"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-green.log",
       "bytes": 50673,
       "sha256": "3bd1a3bf63364e5dc745916dae61db22ceb4ea1b8153238358641386d7ea51ea"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-red.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/focused-red.log",
       "bytes": 74131,
       "sha256": "d156fd429321904f5c829d3ddd9f2801b854806691f09041cb394c3da9605036"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/generate-og.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/generate-og.log",
       "bytes": 294,
       "sha256": "7e121b9feb921c62f158e4ea71d48c48a4e6a1b7c31ed0c0e8f943df56b9cebb"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate-native.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/integrate-native.log",
       "bytes": 866,
       "sha256": "9472a75fb412285b96e17d21128a4498eb54a25510c57dad78a92598e0c9eb92"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/lint.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/lint.log",
       "bytes": 97,
       "sha256": "ebca3fe12cc9f932ebe6cd470447b922d6cdf93c685026f23947523c9424f05c"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-blocks.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-blocks.log",
       "bytes": 121,
       "sha256": "01582ab750ecf5569d1cc8207bcb5d1b3a1b4135da415270bdb0afe763161436"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-paired.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-paired.log",
       "bytes": 635,
       "sha256": "6e08c632ce9ac26b68af255306e26487dcffe30c8b066fa34f51b4c367efce8d"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-repaired.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare-repaired.log",
       "bytes": 512,
       "sha256": "b5215c498fbf053a83831867e0833ce5e3697bac967eb48b669f7d16bc17efeb"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/prepare.log",
       "bytes": 431,
       "sha256": "fbd3bd7654d9225325abbdb5550d2df27ca45151a9685c3e030205abfe678bd5"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/preservation.log",
       "bytes": 274,
       "sha256": "9cc9aed20bffe5b8690c007e6242781d83afc63e23c51e94366cbbe8f45d14a2"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/server.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/server.log",
       "bytes": 3928,
       "sha256": "772b3b2ab662a4c275dd9588c8dbb971ef7cc6fffb79bfc4be80df40189fabee"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/typecheck.log",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/typecheck.log",
       "bytes": 271,
       "sha256": "c0dd2ea3e43ca76d6ba0e83b10c8bab5494586762402471c005b41169fa601eb"
     }
@@ -851,9 +851,9 @@
     "originalSessionExists": true,
     "matchingOriginalCalls": [
       {
-        "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/d5f4a40a-225e-4878-96d2-fd3bd8114a76.jsonl",
+        "sessionPath": "run/d5f4a40a.jsonl",
         "line": 111,
-        "recordId": "da568212-c41c-4eb3-bb6b-5624ff75111e",
+        "recordId": "da568212",
         "timestamp": "2026-09-08T03:14:11.260Z",
         "block": {
           "type": "tool_use",
@@ -861,33 +861,33 @@
           "name": "Execute",
           "input": {
             "summary": "Run bounded current reader proof",
-            "command": "sleep 1 && cat /tmp/droid-bg-1788837237080.out && VLA_GENERALIST_CLOSEOUT_PROOF=1 python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/run.py browser node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures",
+            "command": "sleep 1 && cat /tmp/droid-bg-1788837237080.out && VLA_GENERALIST_CLOSEOUT_PROOF=1 python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/run.py browser node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures",
             "timeout": 220,
             "riskLevelReason": "This runs a single bounded Playwright suite in fresh unauthenticated contexts against the owned loopback server and saves only non-sensitive local reader captures and diagnostics.",
             "riskLevel": "medium"
           }
         },
         "blockSha256": "ce4402063adef6aa41e8a63f72c921ec9ebba55d9eeb0a8e61a0cfaac1ec0f18",
-        "rawReceiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.receipt.json",
+        "rawReceiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.receipt.json",
         "rawReceiptSha256": "67c6eabe6741d0a9efb043664f139d8f672efcee7e9b4c6bccc70006ad6f2caf",
         "rawReceipt": {
-          "command": "node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures",
+          "command": "node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures",
           "startedAt": "2026-09-08T03:14:12.312010+00:00",
           "finishedAt": "2026-09-08T03:14:45.751520+00:00",
           "exitCode": 0,
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.log",
+          "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.log",
           "logSha256": "1081b824c58677a56cbd19c0da48fcf6bcd1e868f06b995cc546a4f0d5742e2e",
           "logBytes": 12371
         },
         "distinction": "The old raw receipt omits VLA_GENERALIST_CLOSEOUT_PROOF. The original emitted Execute shell command explicitly sets VLA_GENERALIST_CLOSEOUT_PROOF=1 before the receipt wrapper. Preserve both representations; no old packet overwritten and no old gate rerun."
       },
       {
-        "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/d5f4a40a-225e-4878-96d2-fd3bd8114a76.jsonl",
+        "sessionPath": "run/d5f4a40a.jsonl",
         "line": 127,
-        "recordId": "759fcf63-55a2-4884-a1ac-e9c456d8a68c",
+        "recordId": "759fcf63",
         "timestamp": "2026-09-08T03:19:42.089Z",
         "block": {
           "type": "tool_use",
@@ -895,33 +895,33 @@
           "name": "Execute",
           "input": {
             "summary": "Recapture affected mobile tall elements",
-            "command": "VLA_GENERALIST_CLOSEOUT_PROOF=1 python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/run.py browser-mobile-corrected node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep '(cross-embodiment|generalist-policies) at 375' --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-mobile-corrected",
+            "command": "VLA_GENERALIST_CLOSEOUT_PROOF=1 python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/run.py browser-mobile-corrected node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep '(cross-embodiment|generalist-policies) at 375' --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-mobile-corrected",
             "timeout": 120,
             "riskLevelReason": "This reruns only the two mobile cases affected by a reproduced screenshot occlusion, retaining original captures and full-document crop provenance in fresh local browser contexts.",
             "riskLevel": "medium"
           }
         },
         "blockSha256": "c4e301e9de9f1d0770f0a2d5118b09280f9ce21371ad2fbd14b1113adbd77567",
-        "rawReceiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.receipt.json",
+        "rawReceiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.receipt.json",
         "rawReceiptSha256": "b1b041da895ccded09ef6dd620b2de9af0549514584bb747777777cc7d09a188",
         "rawReceipt": {
-          "command": "node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep '(cross-embodiment|generalist-policies) at 375' --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-mobile-corrected",
+          "command": "node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep '(cross-embodiment|generalist-policies) at 375' --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-mobile-corrected",
           "startedAt": "2026-09-08T03:19:42.133505+00:00",
           "finishedAt": "2026-09-08T03:19:54.452924+00:00",
           "exitCode": 0,
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.log",
+          "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.log",
           "logSha256": "4e953c216cc51cdb59962d524132100af1d5544861005329b7e10af17f19544c",
           "logBytes": 3416
         },
         "distinction": "The old raw receipt omits VLA_GENERALIST_CLOSEOUT_PROOF. The original emitted Execute shell command explicitly sets VLA_GENERALIST_CLOSEOUT_PROOF=1 before the receipt wrapper. Preserve both representations; no old packet overwritten and no old gate rerun."
       },
       {
-        "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/d5f4a40a-225e-4878-96d2-fd3bd8114a76.jsonl",
+        "sessionPath": "run/d5f4a40a.jsonl",
         "line": 135,
-        "recordId": "0ea94779-33b8-4d4e-8c09-97656dfe7a20",
+        "recordId": "0ea94779",
         "timestamp": "2026-09-08T03:21:28.724Z",
         "block": {
           "type": "tool_use",
@@ -929,24 +929,24 @@
           "name": "Execute",
           "input": {
             "summary": "Verify corrected author capture coordinates",
-            "command": "VLA_GENERALIST_CLOSEOUT_PROOF=1 python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/run.py browser-author-corrected node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep 'generalist-policies at 375' --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-author-corrected",
+            "command": "VLA_GENERALIST_CLOSEOUT_PROOF=1 python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/run.py browser-author-corrected node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep 'generalist-policies at 375' --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-author-corrected",
             "timeout": 60,
             "riskLevelReason": "This reruns only the single mobile author case after a verified smooth-scroll crop-coordinate defect, preserving the bad crop as diagnostic evidence.",
             "riskLevel": "medium"
           }
         },
         "blockSha256": "244ea2dd1886d78ffad20d38da37163d379c20a016d3bd46f8b9ef92c59a4069",
-        "rawReceiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.receipt.json",
+        "rawReceiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.receipt.json",
         "rawReceiptSha256": "5fd8c95346e7f21be2821c1438a10b7bae901b4d1844cd4d27f1e777798ecc17",
         "rawReceipt": {
-          "command": "node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep 'generalist-policies at 375' --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-author-corrected",
+          "command": "node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep 'generalist-policies at 375' --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-author-corrected",
           "startedAt": "2026-09-08T03:21:28.771990+00:00",
           "finishedAt": "2026-09-08T03:21:37.231008+00:00",
           "exitCode": 0,
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.log",
+          "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.log",
           "logSha256": "56f5675519485fe91933cfe3a536dd812a7c8f1d777fd7e261902d5b73df294f",
           "logBytes": 1897
         },
@@ -970,11 +970,11 @@
   "serverOwnership": {
     "rootPid": 1529197,
     "childPid": 1529209,
-    "command": "node /home/remy-simpc4/Projects/robot-wiki-droid-continuation/node_modules/next/dist/bin/next dev --hostname 127.0.0.1 --port 3200 ",
+    "command": "node node_modules/next/dist/bin/next dev --hostname 127.0.0.1 --port 3200 ",
     "environment": {
       "NODE_DISABLE_COMPILE_CACHE": "1"
     },
-    "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/server.log",
+    "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/server.log",
     "logSha256": "772b3b2ab662a4c275dd9588c8dbb971ef7cc6fffb79bfc4be80df40189fabee",
     "stoppedAt": "2026-09-08T04:33:46.406991+00:00",
     "port3200Closed": true,

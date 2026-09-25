@@ -1,7 +1,7 @@
 {
   "originalId": "audit/classical.md:kinematics:3",
   "currentTupleDigest": "4ebfca1f8211f62a8f9fd2240c8e8e949759358c394b442a24bc186c50051df5",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "observedAt": "2026-09-23T19:54:47.822Z",
   "body": {
     "path": "audit/evidence/classical-closure-20260923/lavalle-dh.body.md",

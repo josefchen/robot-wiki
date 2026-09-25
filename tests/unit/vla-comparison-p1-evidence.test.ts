@@ -1,15 +1,14 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { METHODS } from '../../data/methods';
 import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
-import { headReanchorFor } from './helpers/continuation-merge-ledger';
+import { headReanchorFor, showAt } from './helpers/continuation-merge-ledger';
 import { currentAuditContext, finalSevenPriorPlans } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedJson, committedText } from '../helpers/editorial-current-context';
@@ -18,7 +17,7 @@ const root = resolve(import.meta.dirname, '../..');
 const base = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
 const transaction = '89cda670f72443e321f3282b256974b4376da0f1';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
+const before = (path: string) => showAt(base, path);
 const articlePath = 'content/manipulation/comparison-matrix.mdx';
 const article = read(articlePath);
 const ledger = read('audit/manipulation.md');
@@ -34,6 +33,14 @@ const intro = 'RT-2’s reported rates depend on the model and serving setup. It
 const oldIntro = before(articlePath).split("import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';\n\n")[1].split('\n\n<ComparisonMatrix')[0];
 
 describe('VLA21 and comparison1 current identity and scoped introduction', () => {
+
+  beforeAll(() => {
+    // Warm the neutral history renders once; each catalog render is expensive
+    // and individual tests must stay under 5s.
+    preservedCompoundPacket('89cda670f72443e321f3282b256974b4376da0f1');
+    void before('audit/manipulation.md');
+    void oldPlans.length;
+  }, 120_000);
   it('changes only the authorized introduction, leaving VLA, registry and metadata unchanged', () => {
     const mainArticle = committedSource(RELEASE_BASE, articlePath);
     expect(mainArticle.split(oldIntro)).toHaveLength(2);
@@ -58,7 +65,7 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
     expect(p.parts).toHaveLength(count);
     expect(p.originalCellsDigest).toBe(originalClaimDigest(r));
     expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
-    expect(p.planReview?.reviewedBy).toContain('1b2baeef-e246-4b4c-a86e-76ff0aa00bf2');
+    expect(p.planReview?.reviewedBy).toContain('1b2baeef');
     expect(p.adjudications).toHaveLength(count);
     for (const part of p.parts) {
       const review = p.adjudications.find(a => a.partId === part.id)!;
@@ -123,7 +130,7 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
     expect(row('comparison-matrix', 1, plans, restored).evidenceFailures).toContain('compound original-cell digest is stale');
   });
 
-  it('preserves unselected rows/plans and archives the exact old selected objects', () => {
+  it('preserves unselected rows/plans and archives the exact old selected objects', { timeout: 60_000 }, () => {
     const chosen = (p: CompoundPlan) => selected.some(([slug, n]) => p.articleSlug === slug && p.rowOrdinal === n && p.ledgerPath === 'audit/manipulation.md');
     const packetPlans = preservedCompoundPacket('89cda67');
     expect(packetPlans).toHaveLength(oldPlans.length + 1);

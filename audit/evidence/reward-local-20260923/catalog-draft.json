@@ -25,7 +25,7 @@
       },
       "currentCells": {
         "claim": "Twelve authored reward terms and labeled weight controls feed an illustrative signed weighted sum and drawn preview, not the full paper or reference-code objective.",
-        "sourceChecked": "Retained Rudin full text (2026-09-06 FetchUrl); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (2026-09-08 API extraction); actual 2026-09-23 typed reward parameter, arithmetic and mounted-browser runs.",
+        "sourceChecked": "Retained Rudin full text (2026-09-06 web fetch); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (2026-09-08 API extraction); actual 2026-09-23 typed reward parameter, arithmetic and mounted-browser runs.",
         "verdict": "C",
         "note": "The original full-term-set assertion is corrected, not verified. Nine paper terms and the reference stumble definition have separate fetched-source evidence; twelve UI terms are authored choices. Default total -5.52 is dimensionless per step. Twelve labeled controls and default/reset are observed, not inferred from code. Original cells, prior held tuple, withdrawn reviews and removed legacy plan remain unchanged in correction history and audit/evidence/reward-local-20260923. Owner-approved authored-local-basis-v1 applies only to disclosed local parts; every external AND local obligation is retained. Historical fetch times are not current liveness. No policy training, independent acceptance or green content gate is claimed."
       },
@@ -123,7 +123,7 @@
           "supportingPassage": "|  | definition | weight |\n| Linear velocity tracking | ϕ⁡(𝐯b,x​y∗−𝐯b,x​y)\\\\phi(\\\\mathbf{v}^{\\*}\\_{b,xy}-\\\\mathbf{v}\\_{b,xy}) | 1​d​t1dt |\n| Angular velocity tracking | ϕ⁡(𝝎b,z∗−𝝎b,z)\\\\phi(\\\\bm{\\\\omega}^{\\*}\\_{b,z}-\\\\bm{\\\\omega}\\_{b,z}) | 0.5​d​t0.5dt |\n| Linear velocity penalty | −𝐯b,z2-\\\\mathbf{v}\\_{b,z}^{2} | 4​d​t4dt |\n| Angular velocity penalty | −‖𝝎b,x​y‖2-\\|\\|\\\\bm{\\\\omega}\\_{b,xy}\\|\\|^{2} | 0.05​d​t0.05dt |\n| Joint motion | −‖𝐪j¨‖2−‖𝐪j˙‖2-\\|\\|\\\\ddot{\\\\mathbf{q}\\_{j}}\\|\\|^{2}-\\|\\|\\\\dot{\\\\mathbf{q}\\_{j}}\\|\\|^{2} | 0.001​d​t0.001dt |\n| Joint torques | −‖𝝉j‖2-\\|\\|\\\\bm{\\\\tau}\\_{j}\\|\\|^{2} | 0.00002​d​t0.00002dt |\n| Action rate | −‖𝐪j∗˙‖2-\\|\\|\\\\dot{\\\\mathbf{q}^{\\*}\\_{j}}\\|\\|^{2} | 0.25​d​t0.25dt |\n| Collisions | −nc​o​l​l​i​s​i​o​n-n\\_{collision} | 0.001​d​t0.001dt |\n| Feet air time | ∑f=04(𝐭a​i​r,f−0.5)\\\\sum\\_{f=0}^{4}(\\\\mathbf{t}\\_{air,f}-0.5) | 2​d​t2dt |\n\nTable 2: Definition of reward terms, with ϕ⁡(x):=exp⁡(−‖x‖20.25)\\\\phi(x):=\\\\exp(-\\\\frac{\\|\\|x\\|\\|^{2}}{0.25}). The z axis is aligned with gravity.\n\n",
           "provenance": {
             "retrievedAt": "2026-09-06T19:18:21.832Z",
-            "tool": "Retained FetchUrl rendered full text; original tool response time",
+            "tool": "Retained web fetch rendered full text; original tool response time",
             "response": {
               "path": "audit/evidence/reward-local-20260923/source-rudin.txt",
               "bytes": 56325,
@@ -196,7 +196,7 @@
       },
       "currentCells": {
         "claim": "Freeze, prance and chatter are authored classifier and pose choices, distinct from Rudin observed artifacts; actual mounted controls select the three previews and Reset restores balanced.",
-        "sourceChecked": "Retained Rudin simulation artifact/tuning paragraph (2026-09-06 FetchUrl); actual 2026-09-23 reward parameter extraction, six independently checked input cases and mounted freeze/prance/chatter/reset observations.",
+        "sourceChecked": "Retained Rudin simulation artifact/tuning paragraph (2026-09-06 web fetch); actual 2026-09-23 reward parameter extraction, six independently checked input cases and mounted freeze/prance/chatter/reset observations.",
         "verdict": "C",
         "note": "The original literature/lab-lore attribution is corrected to a disclosed local taxonomy, not proved by a paper. Chatter actionRate <= 0.2 has priority; otherwise torque >= 2.5 and >= 2*velTrack selects freeze, then the analogous airTime rule selects prance, else balanced. Authored inputs bind default, freeze, prance, chatter, dominance counterexample and priority tie; totals and phase-zero poses are local outputs, not learned optima, physical frequencies or damage predictions. Rudin separately reports a dragging leg and unreasonable base heights before weight tuning and transfer. All prior cells/reviews/plan are archived unchanged; all external AND local parts are required. No new fetch or independent acceptance."
       },
@@ -335,7 +335,7 @@
           "supportingPassage": "Given our relatively simple rewards and action space, the policy is free to adopt any gait and behavior. Interestingly, it always converges to a trotting gait, but there are often artifacts in the behavior, such as a dragging leg or unreasonably high or low base heights. After tuning of the reward weights, we can obtain a policy that respects all our constraints and can be transferred to the physical robot.\n\n",
           "provenance": {
             "retrievedAt": "2026-09-06T19:18:21.832Z",
-            "tool": "Retained FetchUrl rendered full text; original tool response time",
+            "tool": "Retained web fetch rendered full text; original tool response time",
             "response": {
               "path": "audit/evidence/reward-local-20260923/source-rudin.txt",
               "bytes": 56325,
@@ -606,13 +606,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -919,7 +919,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -933,8 +933,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r4-parameters.receipt.json",
-          "bytes": 3806,
-          "sha256": "7eef3e35ad6c3a1145c2456a9c6efff8ce48ff4e035503dcae30039c7fd8c411"
+          "bytes": 3765,
+          "sha256": "24356b9ede522eddd171d52bd80492d5b27ff4f6ba7ef8b659e1d9508a574861"
         }
       },
       "bases": [],
@@ -1003,13 +1003,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1172,7 +1172,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1186,8 +1186,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r4-default.receipt.json",
-          "bytes": 3806,
-          "sha256": "cb004c7172b6d317acc6a5d0af4b8e0f669368e56a126953c33e45c6e64414e8"
+          "bytes": 3765,
+          "sha256": "7400393ec5f48d9b27e394e542fa37a6568b9f6d0faa23465f9d7d3bf78044c5"
         }
       },
       "bases": [
@@ -1271,13 +1271,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1440,7 +1440,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1454,8 +1454,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r4-mounted.receipt.json",
-          "bytes": 5653,
-          "sha256": "2380cd1b5b7148aabfdd813c5ec7ba095bcb17971eb511a7fbf75bfd50a7a5d7"
+          "bytes": 5612,
+          "sha256": "6776cd9396e41f9b5c4b17adff317ec4b4dd85f06237396514a3753d2c00331f"
         }
       },
       "bases": [
@@ -1595,13 +1595,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1908,7 +1908,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1922,8 +1922,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-parameters.receipt.json",
-          "bytes": 3806,
-          "sha256": "7eef3e35ad6c3a1145c2456a9c6efff8ce48ff4e035503dcae30039c7fd8c411"
+          "bytes": 3765,
+          "sha256": "24356b9ede522eddd171d52bd80492d5b27ff4f6ba7ef8b659e1d9508a574861"
         }
       },
       "bases": [],
@@ -1992,13 +1992,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -2161,7 +2161,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2175,8 +2175,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-default.receipt.json",
-          "bytes": 3806,
-          "sha256": "cb004c7172b6d317acc6a5d0af4b8e0f669368e56a126953c33e45c6e64414e8"
+          "bytes": 3765,
+          "sha256": "7400393ec5f48d9b27e394e542fa37a6568b9f6d0faa23465f9d7d3bf78044c5"
         }
       },
       "bases": [
@@ -2260,13 +2260,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -2429,7 +2429,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2443,8 +2443,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-freeze.receipt.json",
-          "bytes": 3806,
-          "sha256": "44428dda883a05f1012f48939351b83ae347adbea33451d70d6bc63d7fabb40a"
+          "bytes": 3765,
+          "sha256": "0b46b955ab0b987e65cd67483154c8d89fefc235131c985f92663d12ef4214b0"
         }
       },
       "bases": [
@@ -2528,13 +2528,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -2697,7 +2697,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2711,8 +2711,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-prance.receipt.json",
-          "bytes": 3806,
-          "sha256": "c35217443e36389809437557d094bba855b4a96fd499a2d8e490c77c6227d4d5"
+          "bytes": 3765,
+          "sha256": "8e31da72bbe7926dea6ddae01f2163cb1d03815ef7d2bcfec9575590f6cf247a"
         }
       },
       "bases": [
@@ -2796,13 +2796,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -2965,7 +2965,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2979,8 +2979,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-chatter.receipt.json",
-          "bytes": 3806,
-          "sha256": "91935cae48aaeddc16ffc26da589ccc6dedc375d6fdafb3ffbb5821a062d3cb3"
+          "bytes": 3765,
+          "sha256": "d00d830a639c923af714b321bf221e92efa9ade172aeb06d07f12d1fbfff86e1"
         }
       },
       "bases": [
@@ -3064,13 +3064,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -3233,7 +3233,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3247,8 +3247,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-dominanceCounterexample.receipt.json",
-          "bytes": 3806,
-          "sha256": "a2270d97841edb3c8b88ee85d89a38e3495c491b7c519c1014ebc4d587ff9a07"
+          "bytes": 3765,
+          "sha256": "2b75200f312fa6d00173494a24b657def44e9b9f8a6cb9cf00a6e406b8b79567"
         }
       },
       "bases": [
@@ -3332,13 +3332,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -3501,7 +3501,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3515,8 +3515,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-priorityTie.receipt.json",
-          "bytes": 3806,
-          "sha256": "926f876a5674bdaf12407d3cf8eeed720f94f91046fe9ff95098ad7c812a95e6"
+          "bytes": 3765,
+          "sha256": "4cca0a108ad47f174d9de118e95e69dc7b90258e83fd224974a97ab4f588ced6"
         }
       },
       "bases": [
@@ -3600,13 +3600,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -3769,7 +3769,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3783,8 +3783,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-freeze.receipt.json",
-          "bytes": 4714,
-          "sha256": "12525ec88ec63b0cc63e1970f5649b56188ef902b25c0e97d6056ae8de93531e"
+          "bytes": 4673,
+          "sha256": "3bdad779829315e7bf8f93f029f0bd0ec6c4caa5fa1f062ac6508a11e03afdde"
         }
       },
       "bases": [
@@ -3897,13 +3897,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -4066,7 +4066,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4080,8 +4080,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-prance.receipt.json",
-          "bytes": 4714,
-          "sha256": "fca05ca3df2989f21c27460164e3e2ea3c50775231b0b000c768c49919694b83"
+          "bytes": 4673,
+          "sha256": "bb2d31289233592e64350a2cfdd57536b1860a53e56293a14c2b8c3fa10d5a31"
         }
       },
       "bases": [
@@ -4194,13 +4194,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -4363,7 +4363,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4377,8 +4377,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-chatter.receipt.json",
-          "bytes": 4723,
-          "sha256": "1de7aa74beb216d1eb210e273d8998020addc2189c4a2b32e3522560876b4f12"
+          "bytes": 4682,
+          "sha256": "8e0954898e346044d26d9a8bab6a3cb74e1759c637519b1a3c703f81e7cb82d6"
         }
       },
       "bases": [
@@ -4491,13 +4491,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -4660,7 +4660,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4674,8 +4674,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-reset.receipt.json",
-          "bytes": 4680,
-          "sha256": "33dc48187f27b8e79dcd7e38b08d4951b009ebc4007f8952593c69d5699dd530"
+          "bytes": 4639,
+          "sha256": "b633c5b4ae13653f3fbbe5a559f390455b00da015c7587362bb5ad643c04202e"
         }
       },
       "bases": [
@@ -4777,13 +4777,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -4967,7 +4967,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -4981,8 +4981,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-parameters.receipt.json",
-          "bytes": 3447,
-          "sha256": "97249f09a14a7d8a6458e47322e29214cdad3467f4b14c5c582f6e5c521a748d"
+          "bytes": 3406,
+          "sha256": "8a28334f29b797b1354c8e158add680294c20eaff2f78da189d419dd86406da1"
         }
       },
       "bases": [],
@@ -5040,13 +5040,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -5201,7 +5201,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5215,8 +5215,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-generation-0.receipt.json",
-          "bytes": 3447,
-          "sha256": "85a8331c4e02804fdb5b2833c12aefd78fa3df63101085c44d44a00bfc95ccb3"
+          "bytes": 3406,
+          "sha256": "3b15eea334a38e833510ea4f80dca06eb25b000f3856543837e58bbf40b9859e"
         }
       },
       "bases": [
@@ -5289,13 +5289,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -5479,7 +5479,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5493,8 +5493,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-generation-1.receipt.json",
-          "bytes": 3447,
-          "sha256": "5873c96b0c4b72a629bda1f5fc0e85930bdaa23a4b2110803b5e727b0c28168f"
+          "bytes": 3406,
+          "sha256": "331abb10bb20966d2ba838ca0cf7859318180054408b59933878787c04c04b69"
         }
       },
       "bases": [
@@ -5567,13 +5567,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -5791,7 +5791,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -5805,8 +5805,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-generation-2.receipt.json",
-          "bytes": 3447,
-          "sha256": "01f7716ccd78547f25ce6867f33c6567050bb4b50510b6a9e78bce458fa89e16"
+          "bytes": 3406,
+          "sha256": "fb5991c3704d301f6ea4ed5381a039480be299b1601a7df469e298a0bfc11f67"
         }
       },
       "bases": [
@@ -5879,13 +5879,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -6040,7 +6040,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6054,8 +6054,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-0.receipt.json",
-          "bytes": 4537,
-          "sha256": "569c0902b643f4eef50787b538985f593b748484da579f49de198abd80e5d058"
+          "bytes": 4496,
+          "sha256": "25c155c4848b6f43e09b70909d48bee1fb387b46616fe1a9b8acfed33427abe0"
         }
       },
       "bases": [
@@ -6161,13 +6161,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -6351,7 +6351,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6365,8 +6365,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-1.receipt.json",
-          "bytes": 4548,
-          "sha256": "33e2491b70fd64b80d339deac4abe07cde39b3d86492fe91e76cfa621ba57077"
+          "bytes": 4507,
+          "sha256": "16e332e6ac1bf41130e6a655c0d0c6fe231a4eeb8c851f45b111677e3d9295a5"
         }
       },
       "bases": [
@@ -6472,13 +6472,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -6696,7 +6696,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6710,8 +6710,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-2.receipt.json",
-          "bytes": 4543,
-          "sha256": "edab1cd28ad09ad17e96e1aaff3b4a39a819d48bd008c68f24eef82a2494e1fd"
+          "bytes": 4502,
+          "sha256": "60396de7f1dc4793c344254bcd6a900b7f78645bb20207e34a9d65d6775dee33"
         }
       },
       "bases": [
@@ -6817,13 +6817,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -6978,7 +6978,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -6992,8 +6992,8 @@
         },
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-reset.receipt.json",
-          "bytes": 4524,
-          "sha256": "5c0ed7543e04d35ac652fd9f7983ed66957b00c2eff010571f645785649aa8a8"
+          "bytes": 4483,
+          "sha256": "9cd30899bb19863c85de942d6b268c480d53a99e56a4700f142009d21251251d"
         }
       },
       "bases": [

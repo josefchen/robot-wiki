@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "economics-local-i52-20260923:i52-price-arithmetic:numeric-refresh:2026-09-23T06:45:42.279Z",
   "observedAt": "2026-09-23T06:45:42.279Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed the independent elapsed-hour oracle, red/producer results and final output values. At robot20000/80000/250000 with fixed other defaults, capital is50000/200000/625000; payback is2.891131939437634/11.564527757750536/36.139149242970426months and capital cost/pick is0.0020077305134983572/0.008030922053993429/0.025096631418729465USD. Throughput568.5785536159602picks per elapsed hour, monthly415062.344139651picks and labour17294.264339152127USD are common. Productive3411.471321695761s + jam8.52867830423892s + downtime180s =3600. All seven input clamps and nonfinite fallbacks were independently checked. Exact formatting yields0.002/2.9,0.008/11.6,0.025/36.1 with the final verdict outside24. This is authored arithmetic, not a deployment forecast. I reviewed the final type-narrowing-only producer change and actual numeric rerun: all four recipes/outputs are deep-equal to their initial values. Only the producing test hash, times and receipts changed; no model or browser dependency changed. Original run and review remain retained.",
   "outcome": "supported",
   "scope": "part",

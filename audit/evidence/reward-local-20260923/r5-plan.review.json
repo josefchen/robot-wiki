@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r5-20260923:whole-plan:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed this exact whole ordered 7-part original/current inventory, actual historical external passages, explicit reader disclosure, independently checked numeric outputs and actual mounted observations. Every external AND local part is required. Original, held and withdrawn history survives; no scientific/P1 obligation is replaced with local proof. This is delegated integrator adjudication, not independent validation or release acceptance.",
   "outcome": "supported",
   "scope": "plan",
   "partId": null,
-  "inputDigest": "4ce619635895161252d821e64070b24796516814994b806e9d98208f0ce76374",
+  "inputDigest": "076ec455c3c1c7b079b277632200b6dccf47f2e2857764fd94be7ed05b94ff54",
   "inventory": [
     {
       "id": "r5-rudin-contrast",
@@ -110,5 +110,5 @@
     }
   ],
   "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
-  "currentTupleDigest": "a63b8a9bf8fd0c562711af20c1a55d3dc089f3403783ab9a956b90c73f384db9"
+  "currentTupleDigest": "aad57ba9f9bc0e30f757775231404ba36aed0a9d2833f03273bd53a4bd74355d"
 }

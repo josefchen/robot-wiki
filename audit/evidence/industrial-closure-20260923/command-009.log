@@ -1,5 +1,5 @@
 
-[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m/home/remy-simpc4/Projects/robot-wiki-droid-continuation[39m
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m.[39m
 
  [31m❯[39m tests/unit/audit-local-basis.test.ts [2m([22m[2m104 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 1320[2mms[22m[39m
 [31m     [31m×[31m accepts only the exact versioned empty envelope[39m[32m 10[2mms[22m[39m

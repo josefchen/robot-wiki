@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-both-mounted-panels-default:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed this exact output-specific transition group: The actual ordinary FrictionTransfer mount starts at mu 0.80/half-width 0.35 and Reset restores those values and the original SVG after a width change. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-both-mounted-panels-default",
-  "inputDigest": "31133ad02d2b43de58efad55416276ff6e26b24c6d610117a2a90fc502ecd5f7",
+  "inputDigest": "9ba059b0f183d6759d48faaedf3f454ef7b55a589d0b493cd934a84366a587f3",
   "inventory": [
     {
       "id": "s23-tobin-framing",

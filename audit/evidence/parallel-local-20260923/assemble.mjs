@@ -51,7 +51,7 @@ for (const passage of read(`${DIRECTORY}/source-passages.json`)) {
   plan.evidence.push({ partId: passage.partId, citationId: source.citationId, sourceUrl: source.sourceUrl,
     supportingPassage: passage.text, provenance: { retrievedAt: source.retrievedAt,
       tool: source.citationId === 'rudin-2021'
-        ? 'Original retained FetchUrl unversioned ar5iv full response; byte-equal to original capture; no new request or body revision pin'
+        ? 'Original retained web fetch unversioned ar5iv full response; byte-equal to original capture; no new request or body revision pin'
         : 'Original retained versioned GET body/receipt; byte-equal to original body; no new request',
       response: artifact(path), passage: member(path, passage.text) } });
 }

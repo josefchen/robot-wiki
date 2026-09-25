@@ -82,7 +82,7 @@ describe('Splat transfer bounded integration', () => {
       expect(p.adjudications).toHaveLength(count);
       expect(record(ordinal).evidenceFailures).toEqual([]);
       expect(record(ordinal).outcome).toBe('passing');
-      expect(p.planReview?.reviewedBy).toBe('agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator');
+      expect(p.planReview?.reviewedBy).toBe('agent:1460e88e/integrator');
       expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
       for (const a of p.adjudications) {
         expect(a.outcome).toBe('supported');

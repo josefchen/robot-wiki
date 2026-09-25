@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r11-20260923:whole-plan:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed this exact whole ordered 7-part original/current inventory, actual historical external passages, explicit reader disclosure, independently checked numeric outputs and actual mounted observations. Every external AND local part is required. Original, held and withdrawn history survives; no scientific/P1 obligation is replaced with local proof. This is delegated integrator adjudication, not independent validation or release acceptance.",
   "outcome": "supported",
   "scope": "plan",

@@ -1,1 +1,148 @@
-{"command":"NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts","cwd":"/home/remy-simpc4/Projects/robot-wiki-droid-continuation","dependencies":[{"file":{"bytes":8712,"path":"lib/data-scaling.ts","sha256":"7dd4a675b029202906eeb18f07f9484e8733e3aa4d2ea2f0d0ebd4f98a1bdf4e"},"id":"file:lib/data-scaling.ts","length":8712,"offset":0,"sha256":"7dd4a675b029202906eeb18f07f9484e8733e3aa4d2ea2f0d0ebd4f98a1bdf4e"},{"baseline":{"hash":"dfb290e04fd8c364f81d89fd966457f02116d74123a2565938d3f98f59eb2bec","kind":"interactive-sources-mounts"},"file":{"bytes":19962,"path":"components/interactive/data-scale-chart.tsx","sha256":"cedc101e3451f47ff18dae62c4c4501548eef6c649cf23beb541cc49fbf83709"},"id":"source:components/interactive/data-scale-chart.tsx","length":19962,"offset":0,"sha256":"cedc101e3451f47ff18dae62c4c4501548eef6c649cf23beb541cc49fbf83709"},{"baseline":{"hash":"8e86414dc345ffe51234adb4bb72533cbbeaf0d46b9045b179d4fb9553acdad9","kind":"prose"},"file":{"bytes":11686,"path":"content/data-hardware/data-bottleneck.mdx","sha256":"2ba75ba38276a879c4e5370c13308b437d56f245ebfa0ecd31f93b1aff1045ce"},"id":"article:data-hardware/data-bottleneck","length":11686,"offset":0,"sha256":"2ba75ba38276a879c4e5370c13308b437d56f245ebfa0ecd31f93b1aff1045ce"},{"file":{"bytes":58174,"path":"lib/audit-local-basis.ts","sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},"id":"file:lib/audit-local-basis.ts","length":58174,"offset":0,"sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},{"file":{"bytes":8563,"path":"tests/e2e/final-seven-closure-evidence.spec.ts","sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"},"id":"file:tests/e2e/final-seven-closure-evidence.spec.ts","length":8563,"offset":0,"sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"}],"endedAt":"2026-09-23T22:00:04.744024+00:00","environment":{"NODE_DISABLE_COMPILE_CACHE":"1"},"exitCode":0,"inputDigest":"d525a416bdb6171437cf21b2ffa05c6825e0d16f2ea0e574683ee1a289685171","observations":[{"action":"select dedicated","capture":{"bytes":133126,"path":"audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-1440.png","sha256":"3f794eb9233fb5199a787049e5b4cb57143053f91698c826fb8955c46d916736"},"caseId":"discrete-options","dom":{"bytes":17814,"path":"audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-1440.dom.txt","sha256":"0375b1084968c23b2270e8835498989751b92dee8171dd39a4b94c5b82d67641"},"mountId":"mount:/data-hardware/data-bottleneck/:DataScaleChart:2","poststate":"10-dedicated","prestate":"10-low-rate","readouts":[{"selector":"[data-testid=\"hours-readout\"]","text":"10,000 h/yr"},{"selector":"[data-testid=\"oxe-years-readout\"]","text":"1.0 yr"}],"viewport":{"height":1000,"width":1440}},{"action":"select dedicated","capture":{"bytes":41681,"path":"audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-375.png","sha256":"52c96f4cebc52014f7544463e825f9e921409c00fb0e9eafa1be798356d9baf6"},"caseId":"discrete-options","dom":{"bytes":17814,"path":"audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-375.dom.txt","sha256":"0375b1084968c23b2270e8835498989751b92dee8171dd39a4b94c5b82d67641"},"mountId":"mount:/data-hardware/data-bottleneck/:DataScaleChart:2","poststate":"10-dedicated","prestate":"10-low-rate","readouts":[{"selector":"[data-testid=\"hours-readout\"]","text":"10,000 h/yr"},{"selector":"[data-testid=\"oxe-years-readout\"]","text":"1.0 yr"}],"viewport":{"height":812,"width":375}}],"outputDigest":"a92b20e12f8bdbf35199ac1447294ce9737ca628ab64be6a74178958b4323d99","runner":"playwright","schemaVersion":"local-run-v1","startedAt":"2026-09-23T21:59:53.477709+00:00","test":{"bytes":8563,"path":"tests/e2e/final-seven-closure-evidence.spec.ts","sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"}}
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
+  "runner": "playwright",
+  "cwd": "/srv/robot-wiki",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T21:59:53.477709+00:00",
+  "endedAt": "2026-09-23T22:00:04.744024+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+    "bytes": 8563,
+    "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+  },
+  "inputDigest": "930b47110020ff2efcc4ad342d7bcda75ac4193f82e8c0d5da86b21e43e2621d",
+  "outputDigest": "54626eba6ac0eb9a383cf8b83fdf42813b4aa4bd4fb552a595aee834510a5b6f",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/data-scaling.ts",
+        "bytes": 8712,
+        "sha256": "7dd4a675b029202906eeb18f07f9484e8733e3aa4d2ea2f0d0ebd4f98a1bdf4e"
+      },
+      "id": "file:lib/data-scaling.ts",
+      "offset": 0,
+      "length": 8712,
+      "sha256": "7dd4a675b029202906eeb18f07f9484e8733e3aa4d2ea2f0d0ebd4f98a1bdf4e"
+    },
+    {
+      "file": {
+        "path": "components/interactive/data-scale-chart.tsx",
+        "bytes": 19962,
+        "sha256": "cedc101e3451f47ff18dae62c4c4501548eef6c649cf23beb541cc49fbf83709"
+      },
+      "id": "source:components/interactive/data-scale-chart.tsx",
+      "offset": 0,
+      "length": 19962,
+      "sha256": "cedc101e3451f47ff18dae62c4c4501548eef6c649cf23beb541cc49fbf83709",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "dfb290e04fd8c364f81d89fd966457f02116d74123a2565938d3f98f59eb2bec"
+      }
+    },
+    {
+      "file": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11686,
+        "sha256": "2ba75ba38276a879c4e5370c13308b437d56f245ebfa0ecd31f93b1aff1045ce"
+      },
+      "id": "article:data-hardware/data-bottleneck",
+      "offset": 0,
+      "length": 11686,
+      "sha256": "2ba75ba38276a879c4e5370c13308b437d56f245ebfa0ecd31f93b1aff1045ce",
+      "baseline": {
+        "kind": "prose",
+        "hash": "8e86414dc345ffe51234adb4bb72533cbbeaf0d46b9045b179d4fb9553acdad9"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 58174,
+        "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 58174,
+      "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+        "bytes": 8563,
+        "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+      },
+      "id": "file:tests/e2e/final-seven-closure-evidence.spec.ts",
+      "offset": 0,
+      "length": 8563,
+      "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "discrete-options",
+      "prestate": "10-low-rate",
+      "action": "select dedicated",
+      "poststate": "10-dedicated",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "10,000 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "1.0 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-1440.dom.txt",
+        "bytes": 17814,
+        "sha256": "0375b1084968c23b2270e8835498989751b92dee8171dd39a4b94c5b82d67641"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-1440.png",
+        "bytes": 133126,
+        "sha256": "3f794eb9233fb5199a787049e5b4cb57143053f91698c826fb8955c46d916736"
+      }
+    },
+    {
+      "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "caseId": "discrete-options",
+      "prestate": "10-low-rate",
+      "action": "select dedicated",
+      "poststate": "10-dedicated",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"hours-readout\"]",
+          "text": "10,000 h/yr"
+        },
+        {
+          "selector": "[data-testid=\"oxe-years-readout\"]",
+          "text": "1.0 yr"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-375.dom.txt",
+        "bytes": 17814,
+        "sha256": "0375b1084968c23b2270e8835498989751b92dee8171dd39a4b94c5b82d67641"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/datascalechart-2-discrete-options-375.png",
+        "bytes": 41681,
+        "sha256": "52c96f4cebc52014f7544463e825f9e921409c00fb0e9eafa1be798356d9baf6"
+      }
+    }
+  ]
+}

@@ -43,7 +43,7 @@ const rationale = {
   'r11-authored-transcript': 'Actual complete extraction covers the 1.0 m/s teaching task, all code/reflection/statistic fixtures and fitness 0.31/0.58/0.86. Exact numeric statistics were checked independently; article and UI explicitly label all of them authored/scripted, not a recorded Eureka or PPO run.',
   'r11-diffs': 'Actual derivations for 0-to-0, 0-to-1 and 1-to-2 reconstruct both original code arrays in order from the diff and match separately specified deleted lines and fitness displays. Each generation index points to the same plan authored transcript.',
 };
-const reviewedBy = 'Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max';
+const reviewedBy = 'integrator run f86f6148; integrator review; max';
 const observedAt = new Date().toISOString();
 function review(plan, partId) {
   const inputDigest = partId === null ? localPlanDigest(plan) : localPartDigest(plan, partId, catalog.proofs);
@@ -60,7 +60,7 @@ function review(plan, partId) {
   }
   if (!reason) throw Error(`Unreviewed part ${partId}`);
   const event = save(partId === null ? `r${plan.rowOrdinal}-plan.review.json` : `${partId}.review.json`, {
-    schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148-94a8-4312-bf35-13bdf5c6d211',
+    schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148',
     role: 'integrator', eventId: `${plan.id}:${partId ?? 'whole-plan'}:${observedAt}`, observedAt,
     reviewedBy, rationale: reason, outcome: 'supported', scope: partId === null ? 'plan' : 'part',
     partId, inputDigest, inventory: plan.parts, originalId: plan.originalId, currentTupleDigest: plan.currentTupleDigest,
@@ -114,7 +114,7 @@ for (const [index, path] of ['content/rl-sim2real/reward-design-mpc.mdx', 'compo
   deltas.entries.push({
     id: `reward-local-20260923-${index + 1}`, manifest, memberId, oldHash: hash(oldSource), newHash: hash(newSource),
     reason: 'Only reward4/5/11: explicit authored-parameter, local weighted-sum/classifier and scripted-transcript disclosures. No formulas, constants, controls, geometry, citations or external scientific results changed.',
-    ownerApproval: 'September 23 authored-evidence owner decision and bounded reward integrator authorization at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-reward-local-integration-20260923/authorization.md; parent preflight commit 2aaf0588f0b577fa5a8ea94f9139d0292d9ab433. This is not independent acceptance.',
+    ownerApproval: 'September 23 authored-evidence owner decision and bounded reward integrator authorization at validation/brand-v2-editorial/source-recovery-20260906/convergence-reward-local-integration-20260923/authorization.md; parent preflight commit 2aaf0588f0b577fa5a8ea94f9139d0292d9ab433. This is not independent acceptance.',
     responsibleMilestone: 'brand-v2-editorial', affectedAssertions: ['VAL-B2-BASE-010', 'VAL-AUDIT-002', 'VAL-AUDIT-009'],
     disposition: 'permanent',
   });

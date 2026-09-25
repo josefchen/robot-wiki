@@ -49,7 +49,7 @@ export function correctedChildDigest(record: ClaimRecord): string {
 const KROGER_ARCHIVE = 'https://web.archive.org/web/20251118224554/https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html';
 const P4_KROGER_CURRENT = {
   path: 'audit/evidence/citation-closeout-20260924/p4-current-children.json',
-  bytes: 2913, sha256: 'b26086c3b3aefe7a810bc80a489a7ebad82976c5a251f81f5836cf7c05619c51',
+  bytes: 2887, sha256: '1675efb94a792749a6e0a4541ed2a73582d593c0c6654ea8a31404f455e2aefa',
 };
 /** A mounted reader observation, not an inferred future outcome or copied article claim. */
 export function verifyKrogerReaderObservation(capture: {
@@ -180,7 +180,7 @@ export function validateCorrectedDisposition(value: CorrectedDisposition, curren
       need(review.schemaVersion === 'p4-kroger-current-children-v1' &&
         review.reviewedBy && review.rationale &&
         Date.parse(review.reviewedAt) <= Date.now() &&
-        review.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt' &&
+        review.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt' &&
         review.sourceBody.sha256 === '1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae' &&
         review.article.path === r.article.path && review.citationRegistry.path === 'data/citations.ts',
       'missing finite current P4 review');

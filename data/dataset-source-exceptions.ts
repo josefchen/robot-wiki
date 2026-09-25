@@ -29,7 +29,7 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     reason:
       'Businesswire serves HTTP 403 to every non-browser client we can run (node fetch and curl, regardless of headers): a bot-wall, not link rot.',
     verifiedBy:
-      'Independent fetch client (FetchUrl, 2026-08-18): HTTP 200, full release text served — "Skild AI Raises $1.4B, Now Valued Over $14B", SoftBank-led round announced Jan 14, 2026, matching the record.',
+      'Independent fetch client (web fetch, 2026-08-18): HTTP 200, full release text served — "Skild AI Raises $1.4B, Now Valued Over $14B", SoftBank-led round announced Jan 14, 2026, matching the record.',
     verifiedOn: '2026-08-18',
   },
   {
@@ -69,7 +69,7 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     reason:
       'Bloomberg serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
     verifiedBy:
-      'Independent fetch client (FetchUrl, 2026-08-18): HTTP 200, article text served — "Dishwashing Home Robot Maker Sunday Hits $1.15 Billion Valuation", $165M Series B led by Coatue, March 12 2026, matching the record.',
+      'Independent fetch client (web fetch, 2026-08-18): HTTP 200, article text served — "Dishwashing Home Robot Maker Sunday Hits $1.15 Billion Valuation", $165M Series B led by Coatue, March 12 2026, matching the record.',
     verifiedOn: '2026-08-18',
   },
   {
@@ -77,7 +77,7 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     reason:
       'Bloomberg serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
     verifiedBy:
-      'Independent fetch client (FetchUrl, 2026-08-18): HTTP 200, article text served — "Cruise Founder Kyle Vogt\'s Robotics Startup Eyes $4 Billion Valuation", The Bot Company raising $250M, Oct 28 2025, matching the record.',
+      'Independent fetch client (web fetch, 2026-08-18): HTTP 200, article text served — "Cruise Founder Kyle Vogt\'s Robotics Startup Eyes $4 Billion Valuation", The Bot Company raising $250M, Oct 28 2025, matching the record.',
     verifiedOn: '2026-08-18',
   },
   {
@@ -85,7 +85,7 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     reason:
       'Quartz serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
     verifiedBy:
-      'Independent fetch client (FetchUrl, 2026-08-18): HTTP 200, full article served — "Robotics startup Generalist AI is raising $400 million at a $2 billion valuation", Radical Ventures led, matching the record.',
+      'Independent fetch client (web fetch, 2026-08-18): HTTP 200, full article served — "Robotics startup Generalist AI is raising $400 million at a $2 billion valuation", Radical Ventures led, matching the record.',
     verifiedOn: '2026-08-18',
   },
   {
@@ -93,7 +93,7 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     reason:
       'kelo.com serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
     verifiedBy:
-      'Independent fetch client (FetchUrl, 2026-08-18): HTTP 200, full Reuters wire text served — "UBTech agrees Airbus deal to expand robot use in aviation manufacturing", Walker S2 purchase and aviation-manufacturing cooperation, Jan 21 2026, matching the record.',
+      'Independent fetch client (web fetch, 2026-08-18): HTTP 200, full Reuters wire text served — "UBTech agrees Airbus deal to expand robot use in aviation manufacturing", Walker S2 purchase and aviation-manufacturing cooperation, Jan 21 2026, matching the record.',
     verifiedOn: '2026-08-18',
   },
   {
@@ -125,7 +125,7 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     reason:
       'coindesk.com serves HTTP 429 to every machine client we can run: a persistent rate-limit bot-wall, not link rot and not transient. First observed 2026-08-18 as an intermittent 429 (2 of 4 runs, exit 0); on 2026-08-18 later the same day it returned 429 on 7 consecutive probes (4 curl + 3 gate runs, gate exit 0 throughout, reported as blocked). The record carries 2 other live sources, so no claim rests on this URL alone; it is retained rather than replaced.',
     verifiedBy:
-      'Independent fetch client (FetchUrl, 2026-08-18): HTTP 200, full article served — "Tether leads $1.4 billion funding round in German robotics company Neura", Jun 11 2026, Tether-led $1.4B round with Qualcomm, Amazon and NVIDIA participation, matching the record.',
+      'Independent fetch client (web fetch, 2026-08-18): HTTP 200, full article served — "Tether leads $1.4 billion funding round in German robotics company Neura", Jun 11 2026, Tether-led $1.4B round with Qualcomm, Amazon and NVIDIA participation, matching the record.',
     verifiedOn: '2026-08-18',
   },
 ];

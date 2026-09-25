@@ -1,7 +1,7 @@
 {
   "schemaVersion": "residual-release-dependency-review-v1",
   "observedAt": "2026-09-24T02:07:23.153615+00:00",
-  "reviewedBy": "Robot Wiki release steward, not independent Mission acceptance",
+  "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
   "rationale": "Exact ba934e6/1626b43 integration. Whole historical files, receipt timestamps, commands, observations and previous reviews are immutable. This dependency review does not assert a new browser execution; current merged reader observations are recorded separately.",
   "bindings": [
     {
@@ -78,7 +78,7 @@
         "bytes": 19271,
         "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
       },
-      "rationale": "Article: exact mission industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately.",
+      "rationale": "Article: exact industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately.",
       "preservedText": [
         "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
       ]
@@ -117,7 +117,7 @@
         "bytes": 19399,
         "sha256": "95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f"
       },
-      "rationale": "Article: exact mission industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately.",
+      "rationale": "Article: exact industrial corrections plus the already released ASCII Stat year-range separator. industrial52 disclosure, model and component are unchanged; new comparisons have their own retained executions. Release integration preserves these actual historical inputs, not a replacement execution. Current whole-file identity is pinned separately.",
       "preservedText": [
         "This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings."
       ]

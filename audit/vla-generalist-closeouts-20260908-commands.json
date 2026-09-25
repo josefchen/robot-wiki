@@ -1,15 +1,15 @@
 {
   "recordedAt": "2026-09-08T03:27:35.198768+00:00",
-  "worktree": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "worktree": ".",
   "baseCommit": "9764820dbccd797ef414a3ac81b8921af68494ff",
-  "role": "delegated Astra/max integrator, not independent acceptance",
+  "role": "delegated integrator review integrator, not independent acceptance",
   "activation": {
-    "session": "d5f4a40a-225e-4878-96d2-fd3bd8114a76",
-    "path": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/d5f4a40a-225e-4878-96d2-fd3bd8114a76.jsonl",
+    "session": "d5f4a40a",
+    "path": "run/d5f4a40a.jsonl",
     "line": 4,
-    "messageId": "f1faf380-dae1-42bc-ab08-8944b2559f69",
+    "messageId": "f1faf380",
     "timestamp": "2026-09-08T02:42:30.478Z",
-    "modelId": "custom:droidproxy:gpt-6-astra",
+    "modelId": "integrator review",
     "reasoningEffort": "max",
     "observedAt": "2026-09-08T02:49:22.756846+00:00"
   },
@@ -18,31 +18,31 @@
   },
   "commands": [
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.py",
       "startedAt": "2026-09-08T02:51:51.428871+00:00",
       "finishedAt": "2026-09-08T02:51:51.645230+00:00",
       "exitCode": 1,
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.log",
       "logSha256": "7c0647f9b7b5959c1b49b20ebd4bf0c9bb8cd6ba5f21fee54432227bf43c7f26",
       "logBytes": 466,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.receipt.json",
       "receiptSha256": "b0a81a32f55b6a739595f9b9d4bc7e1b4492ac97485f02a7d5e991cb005d91fe"
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare.py",
       "startedAt": "2026-09-08T02:52:15.480755+00:00",
       "finishedAt": "2026-09-08T02:52:16.060943+00:00",
       "exitCode": 0,
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare-repaired.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare-repaired.log",
       "logSha256": "5b7834bfec24c137a10a875df7eaf92982eb1ae76f217a7595f624282f9240ec",
       "logBytes": 108,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare-repaired.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/prepare-repaired.receipt.json",
       "receiptSha256": "248577ad2d53d4115da6afc92da512eae7c39e781996e1cf83d6998ee0ddc7eb"
     },
     {
@@ -53,24 +53,24 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-red.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-red.log",
       "logSha256": "d7ac485d641cd2b9f2f0eba129ae0062ba79033b2091b5d864f52033baddfa6b",
       "logBytes": 48884,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-red.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-red.receipt.json",
       "receiptSha256": "b0e032aecec3a00d5a526d847f45446cde1e8793e3d0a4839643d34f18ec6111"
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/integrate.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/integrate.mjs",
       "startedAt": "2026-09-08T03:08:27.460104+00:00",
       "finishedAt": "2026-09-08T03:08:28.693405+00:00",
       "exitCode": 0,
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/integrate.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/integrate.log",
       "logSha256": "d4959e8cbfae44ad6364006c09392ca3055e02d263bd711b5db1fa80bb828f44",
       "logBytes": 1006,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/integrate.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/integrate.receipt.json",
       "receiptSha256": "327cd75cc9deab7357538c8b43a3431fed6a3874e70e2b0ee854133e8bfabf50"
     },
     {
@@ -81,38 +81,38 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-green.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-green.log",
       "logSha256": "99dcd013d33914efe45c3f7b9cc810e91c22534d1853f072c9d3b6bd93be639c",
       "logBytes": 16490,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-green.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-green.receipt.json",
       "receiptSha256": "5c018926098c8c4a50862eb61efe2ef99eb342b391d03a5cfd29ec17319798ba"
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/snapshot.mjs after",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/snapshot.mjs after",
       "startedAt": "2026-09-08T03:09:43.113494+00:00",
       "finishedAt": "2026-09-08T03:09:43.764761+00:00",
       "exitCode": 0,
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/after-snapshot.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/after-snapshot.log",
       "logSha256": "a4f586a34f17d3847d0f14665f28a31fc3a67b98fc6794db3d2f06aaf7eaff77",
       "logBytes": 57,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/after-snapshot.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/after-snapshot.receipt.json",
       "receiptSha256": "085971d2d0b5e0f31c068d7020537fceb95cc46b65e0025e3b20d39e446ee218"
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/deltas.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/deltas.mjs",
       "startedAt": "2026-09-08T03:12:20.256426+00:00",
       "finishedAt": "2026-09-08T03:12:20.634620+00:00",
       "exitCode": 0,
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/approvals.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/approvals.log",
       "logSha256": "90530ace3cc1bef71893ffcae8a4edcf8a5465f82c03af879a4215a4903fde88",
       "logBytes": 25,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/approvals.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/approvals.receipt.json",
       "receiptSha256": "3783c5ba3ceba862a1fd6f5142fe1258bb278fd10d73d514ed3d8ea7e2b5a79a"
     },
     {
@@ -123,10 +123,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-final.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-final.log",
       "logSha256": "d2c7a49240ef04bbdac0a3e93df1c61954f18e87b3e43259283faf21854d31ff",
       "logBytes": 1831,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-final.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/focused-final.receipt.json",
       "receiptSha256": "84e3671ecb17e3832f2d01ee1e67b17fb6266601b2f5b5fbda0eb8c742d46963"
     },
     {
@@ -137,10 +137,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/lint.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/lint.log",
       "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "logBytes": 0,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/lint.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/lint.receipt.json",
       "receiptSha256": "2a18b643340185f835fa1913417ed84e0dbda734dc27340dae92a9d3c36563d1"
     },
     {
@@ -151,10 +151,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/typescript.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/typescript.log",
       "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "logBytes": 0,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/typescript.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/typescript.receipt.json",
       "receiptSha256": "838f2acbb2bd2c21af985e8103f09a80d5c00c8f936a747a6c5a06482b7a8a0e"
     },
     {
@@ -165,10 +165,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content.log",
       "logSha256": "fab95656cb218b086a93b9e6bd90df4e50cd4935f32f3d436adf1c5ba54eb3c0",
       "logBytes": 786,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content.receipt.json",
       "receiptSha256": "e3b2757afb6905e72f81943febae7c21b96075f5c48b1f6fdeee69154aad807e"
     },
     {
@@ -179,14 +179,14 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline.log",
       "logSha256": "f1c9e9628b6891f6c4615fd76f4c813cf6e114ba67149c5e1e11a19d102598ad",
       "logBytes": 670616,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline.receipt.json",
       "receiptSha256": "a477b8de5284546d91acd765fa2e1b2244c9a3ea8e1f1a2dd48f248eb33d22f1"
     },
     {
-      "command": "env VLA_GENERALIST_CLOSEOUT_PROOF=1 node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures",
+      "command": "env VLA_GENERALIST_CLOSEOUT_PROOF=1 node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures",
       "startedAt": "2026-09-08T03:14:12.312010+00:00",
       "finishedAt": "2026-09-08T03:14:45.751520+00:00",
       "exitCode": 0,
@@ -194,10 +194,10 @@
         "NODE_DISABLE_COMPILE_CACHE": "1",
         "VLA_GENERALIST_CLOSEOUT_PROOF": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.log",
       "logSha256": "1081b824c58677a56cbd19c0da48fcf6bcd1e868f06b995cc546a4f0d5742e2e",
       "logBytes": 12371,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser.receipt.json",
       "receiptSha256": "67c6eabe6741d0a9efb043664f139d8f672efcee7e9b4c6bccc70006ad6f2caf"
     },
     {
@@ -208,10 +208,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-generate.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-generate.log",
       "logSha256": "7e121b9feb921c62f158e4ea71d48c48a4e6a1b7c31ed0c0e8f943df56b9cebb",
       "logBytes": 294,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-generate.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-generate.receipt.json",
       "receiptSha256": "923bc1964541abcfb7b73f087ff203748d2c338112d53f0773f33a06fcfa4ad8"
     },
     {
@@ -222,10 +222,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-check.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-check.log",
       "logSha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844",
       "logBytes": 200,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-check.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/cards-check.receipt.json",
       "receiptSha256": "fc9d82f50e0b86d1b7e788d8ee2700d757dcd032e90ed3b562c131d036d72284"
     },
     {
@@ -236,10 +236,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content-final.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content-final.log",
       "logSha256": "b91d0a90e5d1ea9dfcb736642932946bd0aad7951dee1a710f7228f6c2d5cced",
       "logBytes": 242203,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content-final.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/content-final.receipt.json",
       "receiptSha256": "6da96b5714d5c35a58f8005abf50489f4c47417ce2e8bec3b1cd9dcd53d24128"
     },
     {
@@ -250,14 +250,14 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline-final.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline-final.log",
       "logSha256": "f1c9e9628b6891f6c4615fd76f4c813cf6e114ba67149c5e1e11a19d102598ad",
       "logBytes": 670616,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline-final.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/baseline-final.receipt.json",
       "receiptSha256": "739892d4e20e2e29a46b149d851bcfaae6f79fd2064644eab6561b47ca61e2a5"
     },
     {
-      "command": "env VLA_GENERALIST_CLOSEOUT_PROOF=1 node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep '(cross-embodiment|generalist-policies) at 375' --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-mobile-corrected",
+      "command": "env VLA_GENERALIST_CLOSEOUT_PROOF=1 node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep '(cross-embodiment|generalist-policies) at 375' --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-mobile-corrected",
       "startedAt": "2026-09-08T03:19:42.133505+00:00",
       "finishedAt": "2026-09-08T03:19:54.452924+00:00",
       "exitCode": 0,
@@ -265,14 +265,14 @@
         "NODE_DISABLE_COMPILE_CACHE": "1",
         "VLA_GENERALIST_CLOSEOUT_PROOF": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.log",
       "logSha256": "4e953c216cc51cdb59962d524132100af1d5544861005329b7e10af17f19544c",
       "logBytes": 3416,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-mobile-corrected.receipt.json",
       "receiptSha256": "b1b041da895ccded09ef6dd620b2de9af0549514584bb747777777cc7d09a188"
     },
     {
-      "command": "env VLA_GENERALIST_CLOSEOUT_PROOF=1 node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep 'generalist-policies at 375' --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-author-corrected",
+      "command": "env VLA_GENERALIST_CLOSEOUT_PROOF=1 node node_modules/@playwright/test/cli.js test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --grep 'generalist-policies at 375' --output validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/captures-author-corrected",
       "startedAt": "2026-09-08T03:21:28.771990+00:00",
       "finishedAt": "2026-09-08T03:21:37.231008+00:00",
       "exitCode": 0,
@@ -280,10 +280,10 @@
         "NODE_DISABLE_COMPILE_CACHE": "1",
         "VLA_GENERALIST_CLOSEOUT_PROOF": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.log",
       "logSha256": "56f5675519485fe91933cfe3a536dd812a7c8f1d777fd7e261902d5b73df294f",
       "logBytes": 1897,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/browser-author-corrected.receipt.json",
       "receiptSha256": "5fd8c95346e7f21be2821c1438a10b7bae901b4d1844cd4d27f1e777798ecc17"
     },
     {
@@ -294,10 +294,10 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-test-lint.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-test-lint.log",
       "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "logBytes": 0,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-test-lint.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-test-lint.receipt.json",
       "receiptSha256": "598465983eeb861170a38bc099b6dfaa5603a5f7d9ed8071e9f2249b8a6fa675"
     },
     {
@@ -308,30 +308,30 @@
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-typescript.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-typescript.log",
       "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "logBytes": 0,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-typescript.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-typescript.receipt.json",
       "receiptSha256": "97e5a325269a7cd5bf53a78151aac955cf8796043ac9af2539883abb22c47db4"
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/snapshot.mjs final",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/snapshot.mjs final",
       "startedAt": "2026-09-08T03:24:33.663000+00:00",
       "finishedAt": "2026-09-08T03:24:34.314809+00:00",
       "exitCode": 0,
       "environment": {
         "NODE_DISABLE_COMPILE_CACHE": "1"
       },
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-snapshot.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-snapshot.log",
       "logSha256": "fff119ac487b1c6cbc4a23d1ae698b10eea1d5e7fa2cefdab7cd1998a7f75bc3",
       "logBytes": 57,
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-snapshot.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/final-snapshot.receipt.json",
       "receiptSha256": "218d9a9f451c8523c10f8c7c2a5c60d47ddc0ea6ad3f2513173ad0a175b230ff"
     }
   ],
   "inheritedPredecessor": {
     "commit": "9764820dbccd797ef414a3ac81b8921af68494ff",
-    "ledgerPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/command-ledger.json",
+    "ledgerPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/command-ledger.json",
     "ledgerSha256": "ca622139c321341e01729e9524cb82d306e8c21c1905b94d22cde4bb661a9ef5",
     "record": {
       "recordedAt": "2026-09-08T02:33:39.868950+00:00",
@@ -340,33 +340,33 @@
       },
       "commands": [
         {
-          "command": "env GO_HELIX_TRANSFER_PROOF=1 node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-final",
+          "command": "env GO_HELIX_TRANSFER_PROOF=1 node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --workers=1 --output=validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-final",
           "startedAt": "2026-09-08T02:07:05.546694+00:00",
           "finishedAt": "2026-09-08T02:08:13.328768+00:00",
           "elapsedSeconds": 67.78207390476018,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-final.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-final.log",
           "bytes": 25149,
           "sha256": "9f1c37e0687a786bffe45b3ed644bcaf6ec58741b49f938b94fd8c20dace3d7d",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-final.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-final.receipt.json",
           "receiptSha256": "3357d3dabf160ff4b7a9c37c5b267d72179b91ffdd56cdcab0b8b0dcf5eac223"
         },
         {
-          "command": "env GO_HELIX_TRANSFER_PROOF=1 node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --grep 'source reader (reliability-gap|cross-embodiment|generalist-policies|hierarchical) at' --workers=1 --output=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-settled",
+          "command": "env GO_HELIX_TRANSFER_PROOF=1 node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --grep 'source reader (reliability-gap|cross-embodiment|generalist-policies|hierarchical) at' --workers=1 --output=validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-settled",
           "startedAt": "2026-09-08T02:09:35.216758+00:00",
           "finishedAt": "2026-09-08T02:10:04.118736+00:00",
           "elapsedSeconds": 28.901974024251103,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-settled.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-settled.log",
           "bytes": 12573,
           "sha256": "acb3e34890e72e6e18e9349f944f8051f4bd6bff15101726ca88a9f617acfae4",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-settled.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/affected-reader-settled.receipt.json",
           "receiptSha256": "9798bccc8591808f34193c29623010e99432c5b179d79060c4713c6f8a7a5bca"
         },
         {
@@ -375,73 +375,73 @@
           "finishedAt": "2026-09-08T02:00:23.248481+00:00",
           "elapsedSeconds": 0.2116216393187642,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apparatus-derivation.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apparatus-derivation.log",
           "bytes": 5169,
           "sha256": "4fe3d1d0136ecfbdb877e9a2af737009125e7c4cad845d194928a589e3e29e28",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apparatus-derivation.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apparatus-derivation.receipt.json",
           "receiptSha256": "5c90c8f03e59d0ef776a62078630ea26142ee375cab09be95a5422b295899a92"
         },
         {
-          "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apply-tests.py",
+          "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apply-tests.py",
           "startedAt": "2026-09-08T01:58:24.212075+00:00",
           "finishedAt": "2026-09-08T01:58:24.242476+00:00",
           "elapsedSeconds": 0.030393053777515888,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apply-tests.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apply-tests.log",
           "bytes": 33,
           "sha256": "972d19d138fa943e1f376b716d2171d63f575f712db509b8127cf03545a48ed5",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apply-tests.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/apply-tests.receipt.json",
           "receiptSha256": "ce35b17ac1290d77a5c856e4f0f2c4e7a586d6084b5a34acf160e202d471fa20"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/deltas.mjs",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/deltas.mjs",
           "startedAt": "2026-09-08T02:27:27.767555+00:00",
           "finishedAt": "2026-09-08T02:27:28.332173+00:00",
           "elapsedSeconds": 0.5646145166829228,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-final.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-final.log",
           "bytes": 38,
           "sha256": "47a6788dfc4c95afb897cb552b6bdc3b3dcfec8ff9c80d8250b60438e3410bd3",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-final.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-final.receipt.json",
           "receiptSha256": "2aee143b6e607f817e2bc4642335412b450b57eb738ee8ba7b2ece9b52a0a397"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/deltas.mjs",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/deltas.mjs",
           "startedAt": "2026-09-08T02:18:46.127151+00:00",
           "finishedAt": "2026-09-08T02:18:46.479354+00:00",
           "elapsedSeconds": 0.35220265202224255,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-settled.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-settled.log",
           "bytes": 38,
           "sha256": "47a6788dfc4c95afb897cb552b6bdc3b3dcfec8ff9c80d8250b60438e3410bd3",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-settled.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas-settled.receipt.json",
           "receiptSha256": "e32f45b36fe3e7cdf1cd9c7affdcfeb40b0ff8766bd1717074ed24ea7b7f290c"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/deltas.mjs",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/deltas.mjs",
           "startedAt": "2026-09-08T02:14:13.784680+00:00",
           "finishedAt": "2026-09-08T02:14:14.154812+00:00",
           "elapsedSeconds": 0.3701258646324277,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas.log",
           "bytes": 38,
           "sha256": "47a6788dfc4c95afb897cb552b6bdc3b3dcfec8ff9c80d8250b60438e3410bd3",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/approved-deltas.receipt.json",
           "receiptSha256": "8814d0a7168933b195d127011cf1c103db5f3dd7a73945672e93c90bbb8f01c4"
         },
         {
@@ -450,13 +450,13 @@
           "finishedAt": "2026-09-08T02:18:46.785709+00:00",
           "elapsedSeconds": 0.2783703878521919,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/audit-content-final.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/audit-content-final.log",
           "bytes": 4187850,
           "sha256": "bc7d323cf59f8f68fe83b399dda58fcfffecced7f4d1bcd7a34ff38dd544f5f9",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/audit-content-final.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/audit-content-final.receipt.json",
           "receiptSha256": "fbc6d0497b579c06261f4264a6fb863dd647a56f102e2cdba343edbd05bba083"
         },
         {
@@ -465,13 +465,13 @@
           "finishedAt": "2026-09-08T02:27:29.229811+00:00",
           "elapsedSeconds": 0.33754089195281267,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final-verified.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final-verified.log",
           "bytes": 689774,
           "sha256": "03742b1e9ee141656d9e5185f16668a95b5847baaf032347e1ae2dd87dcbf138",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final-verified.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final-verified.receipt.json",
           "receiptSha256": "1e966c2674954716ee5575b54867db7c69aa0d9ee4270bd685e2391e65885d0e"
         },
         {
@@ -480,13 +480,13 @@
           "finishedAt": "2026-09-08T02:16:30.851727+00:00",
           "elapsedSeconds": 0.3639413518831134,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final.log",
           "bytes": 689774,
           "sha256": "03742b1e9ee141656d9e5185f16668a95b5847baaf032347e1ae2dd87dcbf138",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-final.receipt.json",
           "receiptSha256": "3809deaf179584e32ac7999001d878c9bf9e773050e9ea6c6aa8ac3c4f6e74be"
         },
         {
@@ -495,43 +495,43 @@
           "finishedAt": "2026-09-08T02:18:47.198725+00:00",
           "elapsedSeconds": 0.37116869911551476,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-settled.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-settled.log",
           "bytes": 689774,
           "sha256": "03742b1e9ee141656d9e5185f16668a95b5847baaf032347e1ae2dd87dcbf138",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-settled.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/baseline-settled.receipt.json",
           "receiptSha256": "addda4486d1cec99e4a21d6fc5373dc927465d2ee576a273bcb040efe098c053"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs before",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs before",
           "startedAt": "2026-09-08T01:34:58.255975+00:00",
           "finishedAt": "2026-09-08T01:34:58.898612+00:00",
           "elapsedSeconds": 0.6426332574337721,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot-native.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot-native.log",
           "bytes": 58,
           "sha256": "892246a9f932b439aa9b173e0ec04b709a48aa7c52e2244bed7064f7a24ad1d6",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot-native.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot-native.receipt.json",
           "receiptSha256": "789e3f1e7abbe64cb8f624e37c2805542548fe220575424c874f4f2743b6990e"
         },
         {
-          "command": "node --import tsx /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs before",
+          "command": "node --import tsx validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs before",
           "startedAt": "2026-09-08T01:34:23.019252+00:00",
           "finishedAt": "2026-09-08T01:34:23.046689+00:00",
           "elapsedSeconds": 0.02742916438728571,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot.log",
           "bytes": 1006,
           "sha256": "97ed67f8171fb5bc7cd2b16106358f672ae529134e6f606552e4f668f6ceb19e",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/before-snapshot.receipt.json",
           "receiptSha256": "6b803c3a9df5931b3c0df6f95d11d566948425240d505655ed344710beb6239b"
         },
         {
@@ -540,13 +540,13 @@
           "finishedAt": "2026-09-08T02:14:18.322583+00:00",
           "elapsedSeconds": 2.0703889625146985,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-byte-check.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-byte-check.log",
           "bytes": 121,
           "sha256": "1267795aeb4b4b668fd474fdd359e61c86ecee705a05711cb1041eb5653d28a8",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-byte-check.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-byte-check.receipt.json",
           "receiptSha256": "75188d56b928e4c3eb31e5348dc92d392cf8d480c2cb52af17a750c15c210108"
         },
         {
@@ -555,13 +555,13 @@
           "finishedAt": "2026-09-08T02:14:16.221692+00:00",
           "elapsedSeconds": 2.0376496287062764,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-generation.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-generation.log",
           "bytes": 81,
           "sha256": "52d9860d9944022aa54d3b3144d7bd42fd96bef2dd9493ba32b4d4466329d154",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-generation.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/cards-generation.receipt.json",
           "receiptSha256": "b3a0c475143794f5c84b3471ffa8904482974d4fa061cf7e5f5a6d331372c8ec"
         },
         {
@@ -570,43 +570,43 @@
           "finishedAt": "2026-09-08T02:16:30.168703+00:00",
           "elapsedSeconds": 0.1081179603934288,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/chart-check.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/chart-check.log",
           "bytes": 156,
           "sha256": "33d7fbb73ce0a9194cdadb4dbc5c4f8e82905a4c20718a132fc209ab4f2a8d85",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/chart-check.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/chart-check.receipt.json",
           "receiptSha256": "bb1a4b87636c168524253603533fbf64bd8d2daf3b75d2fc28e477b1615dc74e"
         },
         {
-          "command": "git commit -F - <<'COMMIT'\nfix(audit): integrate GO2 Helix and transfer records\n\nCorrect seventeen source-bound manipulation records with preserved history,\nsource-scoped unknowns and unchanged illustrative computations. Reconcile\ncurrent audit accounting, repair the inherited citation reader oracle and\nlocal tooltip placement, and regenerate the cross-embodiment reference card.\n\nKeep the content and baseline gates honestly red. No publication or article\nacceptance; all unselected audit records and previous approvals are retained.\n\nCo-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>\nCOMMIT",
+          "command": "git commit -F - <<'COMMIT'\nfix(audit): integrate GO2 Helix and transfer records\n\nCorrect seventeen source-bound manipulation records with preserved history,\nsource-scoped unknowns and unchanged illustrative computations. Reconcile\ncurrent audit accounting, repair the inherited citation reader oracle and\nlocal tooltip placement, and regenerate the cross-embodiment reference card.\n\nKeep the content and baseline gates honestly red. No publication or article\nacceptance; all unselected audit records and previous approvals are retained.\n\n\nCOMMIT",
           "startedAt": "2026-09-08T02:30:00.837434+00:00",
           "finishedAt": "2026-09-08T02:30:00.868536+00:00",
           "elapsedSeconds": 0.031098891980946064,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/checkpoint-commit.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/checkpoint-commit.log",
           "bytes": 344,
           "sha256": "e1b24d59baa46ff1b4fd5587f636cbcd96eef17857f56cac069395e849bfa87d",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/checkpoint-commit.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/checkpoint-commit.receipt.json",
           "receiptSha256": "d2a39ed5ca992e77a80c9499016254fae14f7b8ace185fa94e9991d6feeac4ea"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs committed",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs committed",
           "startedAt": "2026-09-08T02:30:50.639625+00:00",
           "finishedAt": "2026-09-08T02:30:51.337764+00:00",
           "elapsedSeconds": 0.6981378579512239,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/committed-snapshot.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/committed-snapshot.log",
           "bytes": 61,
           "sha256": "b667e656f4c1937058ab932bc87d39d49a5f4eb3fc615728e4f671f9f598e47a",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/committed-snapshot.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/committed-snapshot.receipt.json",
           "receiptSha256": "13b9178e3af7d227f58f6f4460a12d611ee9b5d4f3716159152ae82e3dca9876"
         },
         {
@@ -615,13 +615,13 @@
           "finishedAt": "2026-09-08T02:16:30.452445+00:00",
           "elapsedSeconds": 0.2478094222024083,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-final.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-final.log",
           "bytes": 110,
           "sha256": "6ae2607e2c9d4d252698acf512c3f6b26f03a55c57912fbe2d2f14b6c8f94a0a",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-final.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-final.receipt.json",
           "receiptSha256": "d481077ace739ad164d4cb8c2f362d5960ca6ba564a6c113e528c6d44698db48"
         },
         {
@@ -630,73 +630,73 @@
           "finishedAt": "2026-09-08T02:24:49.161105+00:00",
           "elapsedSeconds": 0.7935915859416127,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-gate-final.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-gate-final.log",
           "bytes": 251796,
           "sha256": "c2b8d8066ed6cfad9c5647bf20d1e6a8a230fc677ac4c0ae9703e725be626f59",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-gate-final.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/content-gate-final.receipt.json",
           "receiptSha256": "81ef9fc17a7c8afe57cbd7cad64cd85da93d06ee500de021ec831e90861e1586"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/derive-members.mjs",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/derive-members.mjs",
           "startedAt": "2026-09-08T02:11:04.373722+00:00",
           "finishedAt": "2026-09-08T02:11:04.725955+00:00",
           "elapsedSeconds": 0.35222617723047733,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/exact-member-derivation.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/exact-member-derivation.log",
           "bytes": 3305,
           "sha256": "65deb6a69a4a94a4d978388e3368064302e7f9c3039ecde20c64d77526184bac",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/exact-member-derivation.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/exact-member-derivation.receipt.json",
           "receiptSha256": "ed8a4b830b180d3650861f0b41ec76426ecbb494fcfc5ed268a1510f18b2b1c4"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-check.mjs",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-check.mjs",
           "startedAt": "2026-09-08T02:27:28.366379+00:00",
           "finishedAt": "2026-09-08T02:27:28.864820+00:00",
           "elapsedSeconds": 0.4984369957819581,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-check.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-check.log",
           "bytes": 100,
           "sha256": "b337c43526e9ecbe5d7cca9355c54b9d22ced1a8204f9d136bd35313825179ff",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-check.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-check.receipt.json",
           "receiptSha256": "030b5c4ad068dc1a0d6613122cd28c6be14a1cf8053101921f27c90ac425aff7"
         },
         {
-          "command": "env GO_HELIX_TRANSFER_PROOF=1 node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --grep 'source reader (cross-embodiment|generalist-policies|hierarchical) at' --workers=1 --output=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-final-prose",
+          "command": "env GO_HELIX_TRANSFER_PROOF=1 node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --grep 'source reader (cross-embodiment|generalist-policies|hierarchical) at' --workers=1 --output=validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-final-prose",
           "startedAt": "2026-09-08T02:19:34.432317+00:00",
           "finishedAt": "2026-09-08T02:19:58.805117+00:00",
           "elapsedSeconds": 24.37280371133238,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-prose-readers.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-prose-readers.log",
           "bytes": 9792,
           "sha256": "7ee71c483a6875ad190bf3203157b56c62e1e720d8829a82aa4c8d42b81e9d59",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-prose-readers.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-prose-readers.receipt.json",
           "receiptSha256": "db0624762298123e181da9aa84df789c290582e8f401b9e01f652961de29f19b"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs final",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/snapshot.mjs final",
           "startedAt": "2026-09-08T02:18:47.232787+00:00",
           "finishedAt": "2026-09-08T02:18:48.007286+00:00",
           "elapsedSeconds": 0.7744920970872045,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-snapshot.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-snapshot.log",
           "bytes": 57,
           "sha256": "1464d46e9d2e078bb22a7e973910c3f7c579b9cc749aaf0b98e48a0315971c44",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-snapshot.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-snapshot.receipt.json",
           "receiptSha256": "cdaddf02ae427713fc45cbc506919441989bd406ea6196487ce5ac3d7af362a2"
         },
         {
@@ -705,43 +705,43 @@
           "finishedAt": "2026-09-08T02:00:23.009094+00:00",
           "elapsedSeconds": 3.325480967760086,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/focused-unit-green.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/focused-unit-green.log",
           "bytes": 5215,
           "sha256": "b3f3ab73b8d1fbe5d96627ce864799328d966370b1b4822c5949d3732272274b",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/focused-unit-green.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/focused-unit-green.receipt.json",
           "receiptSha256": "6edeb80ba76477779c6c450d8d5c738804dad8a8e6cd8a2b03071c326e196259"
         },
         {
-          "command": "node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --grep 'source reader (comparison-matrix|generalization|reliability-gap) at' --workers=1 --output=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-red",
+          "command": "node_modules/.bin/playwright test tests/e2e/oft-gemini-oxe.spec.ts --grep 'source reader (comparison-matrix|generalization|reliability-gap) at' --workers=1 --output=validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/browser-red",
           "startedAt": "2026-09-08T02:02:09.812257+00:00",
           "finishedAt": "2026-09-08T02:03:11.126493+00:00",
           "elapsedSeconds": 61.314227915368974,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/inherited-reader-red.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/inherited-reader-red.log",
           "bytes": 12583,
           "sha256": "d2ec83dfa8c1dce5ab87805b9ee8a02d2239dcf6c4edd433a8c05a797b74231b",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/inherited-reader-red.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/inherited-reader-red.receipt.json",
           "receiptSha256": "400e77dc1aeae3db055ea1c86c1c9bfe822185828a6218f8df5a37a64b43ba25"
         },
         {
-          "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/integrate.mjs",
+          "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/integrate.mjs",
           "startedAt": "2026-09-08T01:58:37.343317+00:00",
           "finishedAt": "2026-09-08T01:58:38.164076+00:00",
           "elapsedSeconds": 0.8207520702853799,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/integrate.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/integrate.log",
           "bytes": 1191,
           "sha256": "68a1600da421653a7d0d486328b9acaf4e72e891ccf41cc1a076fed2113298aa",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/integrate.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/integrate.receipt.json",
           "receiptSha256": "783724c6a409eabaf986da62697b9d28ecb7cfc9e95b242d424f68b004050fc3"
         },
         {
@@ -750,13 +750,13 @@
           "finishedAt": "2026-09-08T02:15:29.829536+00:00",
           "elapsedSeconds": 17.014271601103246,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/lint.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/lint.log",
           "bytes": 97,
           "sha256": "ebca3fe12cc9f932ebe6cd470447b922d6cdf93c685026f23947523c9424f05c",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/lint.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/lint.receipt.json",
           "receiptSha256": "e3bb0f0c9bb7d00a52247e6c3565d871d8a18331d389725376e699bd409815d5"
         },
         {
@@ -765,13 +765,13 @@
           "finishedAt": "2026-09-08T02:18:46.098921+00:00",
           "elapsedSeconds": 1.0151907140389085,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop-settled.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop-settled.log",
           "bytes": 233,
           "sha256": "e64343c7632c8a8b765abb73848c051129308cdc930c41051b2de84b7453403d",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop-settled.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop-settled.receipt.json",
           "receiptSha256": "9b0ace2a91c91771478fac4f17d4e158c4773dbe0769adecb5e7ddaa10bf02fa"
         },
         {
@@ -780,73 +780,73 @@
           "finishedAt": "2026-09-08T02:16:30.020991+00:00",
           "elapsedSeconds": 1.0490556480363011,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop.log",
           "bytes": 775,
           "sha256": "0196fef534a01765c96916c5823e03703b4c52988f2d2fce7e01d6a101cf4271",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/no-slop.receipt.json",
           "receiptSha256": "c9fce4912bf3eafb959ce44ce4793e93755ff7e346844b312b6925a2183c95a9"
         },
         {
-          "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
+          "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
           "startedAt": "2026-09-08T01:40:15.874779+00:00",
           "finishedAt": "2026-09-08T01:40:16.061827+00:00",
           "elapsedSeconds": 0.18704425636678934,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-literal-html.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-literal-html.log",
           "bytes": 121,
           "sha256": "c3758243a738d166284a0f2f65fa49e2af866248107ade8a00e785bd7f86faff",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-literal-html.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-literal-html.receipt.json",
           "receiptSha256": "41322cef7482a36f9b681b6be00ef730a29030ccfa5daa9aecaba4c179443d17"
         },
         {
-          "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
+          "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
           "startedAt": "2026-09-08T01:39:34.149155+00:00",
           "finishedAt": "2026-09-08T01:39:34.340947+00:00",
           "elapsedSeconds": 0.19179270882159472,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-original-events.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-original-events.log",
           "bytes": 590,
           "sha256": "30367fad4c666e9a2d4c4caaca968dcf62a5d1d01bdb37d29a4f5f728fd83148",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-original-events.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare-original-events.receipt.json",
           "receiptSha256": "58c2ec1854b6601aeed46ac3dc98cb193df3c2a4cb43d09f02eb974f0bf164e6"
         },
         {
-          "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
+          "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
           "startedAt": "2026-09-08T01:38:48.041810+00:00",
           "finishedAt": "2026-09-08T01:38:48.204023+00:00",
           "elapsedSeconds": 0.162211574614048,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.log",
           "bytes": 353,
           "sha256": "c393b60b1e990cda94f28c21a4c610837bff5e4280c61d08f6658b2ca9c9c5a4",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.receipt.json",
           "receiptSha256": "900df812d3c94c9696b9bbeb92197845488c34f169b70d2a44514125e1bfc9f0"
         },
         {
-          "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
+          "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/prepare.py",
           "startedAt": "2026-09-08T01:55:30.422151+00:00",
           "finishedAt": "2026-09-08T01:55:30.619906+00:00",
           "elapsedSeconds": 0.19773999601602554,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-bound.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-bound.log",
           "bytes": 121,
           "sha256": "0e41a098b6ca0e03f528272877120b6f20f67fe5c9153e01b5edbc09955504ad",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-bound.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-bound.receipt.json",
           "receiptSha256": "55f9478fec02ce3fdf63dd59a07f4bc5961e87b1887aa9daa48965e9eaf2795e"
         },
         {
@@ -855,13 +855,13 @@
           "finishedAt": "2026-09-08T01:55:14.817669+00:00",
           "elapsedSeconds": 0.01525093149393797,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-final.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-final.log",
           "bytes": 0,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-final.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-final.receipt.json",
           "receiptSha256": "41f1ac664508ecc981a64064edce33212a976da3c10e27fccb88fe137d6fbfd6"
         },
         {
@@ -870,13 +870,13 @@
           "finishedAt": "2026-09-08T02:07:05.517828+00:00",
           "elapsedSeconds": 1.9872908564284444,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/reader-oracle-unit.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/reader-oracle-unit.log",
           "bytes": 775,
           "sha256": "5f355c56c59e8d2c2424a7b11d49dc0ce343b21f7c0528f701fd189b09b1e1e3",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/reader-oracle-unit.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/reader-oracle-unit.receipt.json",
           "receiptSha256": "7018fe2596e64603d378116fbaf550e32ac77d6014fb48e554062acefc0b674c"
         },
         {
@@ -885,13 +885,13 @@
           "finishedAt": "2026-09-08T02:16:28.943507+00:00",
           "elapsedSeconds": 59.08137256745249,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-check.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-check.log",
           "bytes": 7090,
           "sha256": "69cfba532f249c20aab5130498818ad6182cae2ae09c650b4488551b16651a36",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-check.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-check.receipt.json",
           "receiptSha256": "05bd9136ad6c4148ab4b41d8757356350c3c03ca346519c6a6489febca289f09"
         },
         {
@@ -900,13 +900,13 @@
           "finishedAt": "2026-09-08T01:58:26.220402+00:00",
           "elapsedSeconds": 1.9477679999545217,
           "exitCode": 1,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-scope-red.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-scope-red.log",
           "bytes": 15004,
           "sha256": "18071fb8f1d7deca8b67a83e6f67856949e5e01cd13d2450d9c0973691cd9dea",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-scope-red.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-scope-red.receipt.json",
           "receiptSha256": "446cb48d158ebb886c5e248f0bbe866cf408aaed9c4752e35030933fb473a3be"
         },
         {
@@ -915,18 +915,18 @@
           "finishedAt": "2026-09-08T02:15:12.786001+00:00",
           "elapsedSeconds": 2.5984052820131183,
           "exitCode": 0,
-          "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/typecheck.log",
+          "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/typecheck.log",
           "bytes": 271,
           "sha256": "c0dd2ea3e43ca76d6ba0e83b10c8bab5494586762402471c005b41169fa601eb",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
-          "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/typecheck.receipt.json",
+          "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/typecheck.receipt.json",
           "receiptSha256": "aec4d252e137c1f4320ffbeb36d25cc951500a906455662b7907683ca0d7b0b7"
         }
       ],
       "additionalPreservedCommandFailure": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-first-attempt.log",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/final-member-first-attempt.log",
         "sha256": "f0572d5abfa3e3a6f76c4c384bbe4346243c3e0202702763d423751656a11d48",
         "nodeExit": 1,
         "overallChainedExecuteExit": 0,
@@ -934,11 +934,11 @@
       },
       "nonValidationCommands": "Session metadata reads, staging/review, contact-sheet creation, server start/stop and preservation comparisons are also in emitted session4c165b93. Do not infer missing command timings.",
       "invocationMistake": {
-        "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-final.receipt.json",
+        "receipt": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/provenance-final.receipt.json",
         "description": "Runner was incorrectly given separate argv tokens; command was only python3, exited0 with empty log, and is not counted as validation. Correct invocation provenance-bound supplies the real proof."
       },
       "networkDeviation": {
-        "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-check.receipt.json",
+        "receipt": "validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-check.receipt.json",
         "command": "node --experimental-strip-types scripts/check-dataset-sources.ts",
         "scope": "Live checker reported250dataset URLs across111records:233live,0dead,1blocked,5error,11documented exceptions. It was the wrong command for this no-new-retrieval assignment.",
         "newAuditEvidenceUsed": false,
@@ -999,5 +999,5 @@
     "Tall mobile locator screenshots were occluded by sticky development UI; cross panels have inspected correct full-document crops",
     "Two experimental author document crops were visually wrong despite passing DOM assertions; both rejected, original entry screenshot restored and mobile development-badge limitation retained"
   ],
-  "finalCommitEvidence": "Commit ID, tree, final owned file hashes and card triples are sealed in the Mission handoff after the local commit; no publication or formal Mission progress change."
+  "finalCommitEvidence": "Commit ID, tree, final owned file hashes and card triples are sealed in the program handoff after the local commit; no publication or formal Mission progress change."
 }

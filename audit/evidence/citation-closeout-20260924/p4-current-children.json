@@ -1,8 +1,8 @@
 {
   "schemaVersion": "p4-kroger-current-children-v1",
-  "reviewedBy": "Droid Sol/max integrator 80c2755d-5ee6-41f7-93db-97517ec472f9",
+  "reviewedBy": "implementation integrator 80c2755d",
   "reviewedAt": "2026-09-24T03:50:19.555Z",
-  "rationale": "A separately identified current review for exactly changed industrial originals 22/24. Retained fetched Emily Hawkins November 18 article (source-006.txt SHA-256 1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae) says three January closures were planned and Ocado would receive compensation; the two source passages are quoted separately and current amended claims do not assert completed closures or payment. Existing plans were checked against their newly graded tuples; native one-ID check command-021.log verified the active archived identity, not the source claims. Fresh Playwright DOM, tooltip, references link and 1440/375 screenshots at 2026-09-24T03:43 are bound below. Historical P4 screenshot/receipt and other 49 child hashes remain untouched. The first two contiguous source sentences are separated by their actual blank line in the retained FetchUrl body; the row22 compound part digest was refreshed after a negative verbatim-passage test caught the missing separator.",
+  "rationale": "A separately identified current review for exactly changed industrial originals 22/24. Retained fetched Emily Hawkins November 18 article (source-006.txt SHA-256 1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae) says three January closures were planned and Ocado would receive compensation; the two source passages are quoted separately and current amended claims do not assert completed closures or payment. Existing plans were checked against their newly graded tuples; native one-ID check command-021.log verified the active archived identity, not the source claims. Fresh Playwright DOM, tooltip, references link and 1440/375 screenshots at 2026-09-24T03:43 are bound below. Historical P4 screenshot/receipt and other 49 child hashes remain untouched. The first two contiguous source sentences are separated by their actual blank line in the retained web fetch body; the row22 compound part digest was refreshed after a negative verbatim-passage test caught the missing separator.",
   "article": {
     "path": "content/data-hardware/industrial-deployment.mdx",
     "bytes": 19478,
@@ -10,32 +10,32 @@
   },
   "citationRegistry": {
     "path": "data/citations.ts",
-    "bytes": 301297,
-    "sha256": "40428a52fd74caed8804f7d4e6dbadfd7a6051246545915aa3571b40517eac5a"
+    "bytes": 305677,
+    "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
   },
   "sourceBody": {
-    "path": "audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt",
+    "path": "audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt",
     "bytes": 95187,
     "sha256": "1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae"
   },
   "readerReceipt": {
     "path": "audit/evidence/citation-closeout-20260924/reader-observations.json",
     "bytes": 3328,
-    "sha256": "0831e4a6f7f61d07b717dffb414b4fb0f6d5f4f2327f3813ea402f4064e4999f"
+    "sha256": "8f6da59ecff0168a785daff0e475abb1769e58d4a4d4b3134a48630270a7c850"
   },
   "changedChildren": [
     {
       "rowOrdinal": 22,
       "priorChildDigest": "415302fe95c212cd2f8ee8dd52b30b5aa69406ec352713b8680e694d86e8c949",
-      "currentTupleDigest": "60ebffb1f2ba55039b7b8863013e1d38bfad6eb6f2b3c5ca3409fe222cbe468a",
-      "currentChildDigest": "02732c8b8faf6188c7dcdbc2eafee2c2dfad716671f7515dd2544d3d0e099a2a",
+      "currentTupleDigest": "c8c5beec92c71ecbd95b7586cd04b0ee47cd8e091a32e7f5a89e5ad74540a428",
+      "currentChildDigest": "91b762b29e3794ad840a25916a4e6e72253dc9301c91ffba96091570e59406c8",
       "sourcePassage": "Kroger, which operates supermarkets and department stores in the US, said it will shut sites in Wisconsin, Maryland and Florida in January."
     },
     {
       "rowOrdinal": 24,
       "priorChildDigest": "2c8be5aae8769733be42ca59b7d5eb8797eb1ce720ce03687a00ecced01e711c",
-      "currentTupleDigest": "6b165f2fe4eaa1ca108a5a750637849c4a8153058d14677463ec358c93ae23cf",
-      "currentChildDigest": "0b08989e2d7e502d2744269219b7d52d3f42eb010cb5cb6310712ee37960c22d",
+      "currentTupleDigest": "110226150d4e6ba8660a64bcdb674872839ce067997fbfa7ef667c534712480d",
+      "currentChildDigest": "411a2967fe61cf50e23ea46256c734a1931f475997f166cc194e2846350f5bda",
       "sourcePassage": "Ocado said it would receive compensation of around £190million for closing the sites."
     }
   ]

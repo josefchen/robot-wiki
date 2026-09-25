@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s24-20260923:s24-input-mismatch:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read the actual Isaac Lab v1 RGB-distillation paragraph: partial versus privileged inputs can produce a performance drop, particularly with camera occlusion. It does not establish this illustration coefficients, numeric discrepancy or a universal no-training-budget error floor. The unsupported empirical interpretation is corrected.",
   "outcome": "supported",
   "scope": "part",

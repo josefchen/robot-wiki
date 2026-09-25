@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "parallel-local-p18-20260923:p18-isaac-cpu-context:2026-09-23T06:12:45.812Z",
   "observedAt": "2026-09-23T06:12:45.812Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read the v1 hardware and comparison paragraphs together: 5090/8-core9800X3D comes close to the two-GPU RTX PRO6000 server on Franka, with distinct DextrAH behavior and task-dependent CPU bottlenecks in PhysX/main loop. Dual EPYC9554 server context remains. This motivates a toy toggle, not the chosen per-environment CPU cost or a universal measured curve.",
   "outcome": "supported",
   "scope": "part",

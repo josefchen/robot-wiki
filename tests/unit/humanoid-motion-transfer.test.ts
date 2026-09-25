@@ -80,7 +80,7 @@ describe('H2O and ASAP source-backed corrections', () => {
       const p = selected(slug, ordinal);
       expect(p.parts).toHaveLength(parts);
       expect(p.evidence).toHaveLength(parts);
-      expect(p.planReview!.reviewedBy).toBe('agent:daf8738d-c462-4afa-82ce-9ab57455ccb8/integrator');
+      expect(p.planReview!.reviewedBy).toBe('agent:daf8738d/integrator');
       expect(p.planReview!.planDigest).toBe(compoundPlanDigest(p));
       for (const a of p.adjudications) expect(a.evidenceDigest).toBe(compoundPartDigest(p, a.partId));
       expect(failures(p)).toEqual([]);

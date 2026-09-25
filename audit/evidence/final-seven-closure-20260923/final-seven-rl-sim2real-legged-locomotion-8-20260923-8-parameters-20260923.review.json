@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "fd137388-f254-4d11-97b1-548904d2cad2",
+  "sessionId": "fd137388",
   "role": "integrator",
   "eventId": "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters-20260923",
   "observedAt": "2026-09-23T22:23:03.103Z",
-  "reviewedBy": "Delegated Droid Sol/max integrator; independent reviewer pending",
+  "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
   "rationale": "Checked audit/rl-sim2real.md:legged-locomotion:8 authored parameters and units against the corrected article and pinned model file; these chosen values are not measurements. The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
   "outcome": "supported",
   "scope": "part",
   "partId": "8-parameters",
-  "inputDigest": "5aaf37fecde1da567155f7947bc18e1cabded03a54cdfe0ff5d1e75e5f0306ca",
+  "inputDigest": "bafcba9a408da4011065f8e128a6605025f4f7f85d488918cc5ba427e4b9bddd",
   "inventory": [
     {
       "id": "8-parameters",

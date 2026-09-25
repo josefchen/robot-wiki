@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-motion-planning-15-20260923:whole",
   "observedAt": "2026-09-23T19:54:47.682Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Reviewed the whole ordered AND inventory against the corrected claim and reader disclosure. Authored RRT demo: 2D 100×64 scene with five obstacles, seed 19981001, maximum step 2 world units, goal-sampling probability 0.015 and cap 900 accepted extensions; the iteration control reveals accepted nodes of this fixed-seed tree, with Step/Run/scrub and Reset behavior observed on its existing mount. External specifications, authored choices, derivations and mounted behavior remain distinct. No original is dropped, no UI state below its slider range is invented, and no source-only preparation is counted as execution.",
-  "inputDigest": "75032e56d7ee9cc315213a2aa5d3b2ee89d1e7bedd3c9fd9f3b8011139ff542d",
+  "inputDigest": "559a293da5be9094317aed9c2153ec49660c54aef654733e92c893c1b8a8beaa",
   "outcome": "supported",
   "scope": "plan",
   "partId": null,
@@ -152,5 +152,5 @@
     }
   ],
   "originalId": "audit/classical.md:motion-planning:15",
-  "currentTupleDigest": "561ee239b082042a407820b175843e68a76574477010004dbf57264797e92927"
+  "currentTupleDigest": "3f37ccfe263a27b47f788a3e6c72e1d63dfcf4a70dde9bcba0a136b6829b2d41"
 }

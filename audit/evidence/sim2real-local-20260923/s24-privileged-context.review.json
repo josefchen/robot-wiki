@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s24-20260923:s24-privileged-context:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
-  "rationale": "I read Lee Section4.1: privileged terrain/contact teacher trained by RL, then action/latent supervision of a proprioceptive-history TCN deployed on physical machines. The preserved unversioned ar5iv body equals its actual original FetchUrl capture at2026-09-08T08:14:45.521Z; no v1 pin or fresh retrieval is asserted.",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
+  "rationale": "I read Lee Section4.1: privileged terrain/contact teacher trained by RL, then action/latent supervision of a proprioceptive-history TCN deployed on physical machines. The preserved unversioned ar5iv body equals its actual original web fetch capture at2026-09-08T08:14:45.521Z; no v1 pin or fresh retrieval is asserted.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s24-privileged-context",
-  "inputDigest": "142e9c717763d16fd7674077258f2c09b1c5a3b67a4c9fd5a4260f5cebb0f1f4",
+  "inputDigest": "691514642ae060d615c3211aabe65e61623dcf3c1ee003a2bfb2cd89e8b9433d",
   "inventory": [
     {
       "id": "s24-privileged-context",

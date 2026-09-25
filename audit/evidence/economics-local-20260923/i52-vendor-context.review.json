@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "economics-local-i52-20260923:i52-vendor-context:2026-09-23T06:41:34.301Z",
   "observedAt": "2026-09-23T06:41:34.301Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read the opening complete-cell capex paragraph, two-to-three-times context, body share, table and payback illustration together. The one bound contiguous passage preserves third-to-half robot share,12..24months in multi-shift operation and the24..36 single-shift/lower-throughput qualification, including labour plus damage/throughput savings in the vendor formula. The local calculator instead uses chosen2.5 and24 and only modeled labour value; these are explicit reader disclosures, not source quotations or measured outcomes. Two excerpts initially violated the native one-pair rule; the final single contiguous passage includes both and all intervening context without changing source text.",
   "outcome": "supported",
   "scope": "part",

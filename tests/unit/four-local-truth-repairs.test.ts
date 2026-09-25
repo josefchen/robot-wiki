@@ -5,7 +5,7 @@ import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-hist
 import type { LocalPlan } from '../../lib/audit-local-basis';
 import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { loadLocalBasisContext } from '../../lib/audit-local-basis';
@@ -56,6 +56,12 @@ const newComment = ` * Provenance tiers record the source format selected for ea
  *   press: company announcement; technical disclosure varies by source`;
 
 describe('four bounded local truth repairs without completion credit', () => {
+
+  beforeAll(() => {
+    // Warm the historical-render caches once; the first neutralized catalog
+    // render is expensive and individual tests must stay under 5s.
+    preservedCompoundPacket(CONTINUATION_CHECKPOINT);
+  }, 120_000);
   it('retains the authored inventory and does not turn unknown availability into false', () => {
     expect(GENERALIST_RELEASES).toHaveLength(13);
     expect(GENERALIST_RELEASES.filter(({ openWeights }) => openWeights === true)
@@ -227,7 +233,7 @@ describe('four bounded local truth repairs without completion credit', () => {
   it('does not create synthetic local-code plans or modify the existing native catalog', () => {
     expect(preservedCompoundPacket(CONTINUATION_CHECKPOINT)).toHaveLength(863);
     expect(hash(committedSource(CONTINUATION_CHECKPOINT, 'audit/compound-evidence.json')))
-      .toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+      .toBe('6c1289de546d4bfc08fb66769da6ebb7ad809e92c950de1fdbaf2782bae75ee9');
   });
 
   it.each(['missing-survivor', 'changed-survivor', 'reordered-survivors', 'duplicate-survivor',

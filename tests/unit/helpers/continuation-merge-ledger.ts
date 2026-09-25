@@ -2,9 +2,13 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind } from '../../../lib/brand-v2-baseline';
+import { neutralizeHistory } from '../../../lib/neutral-tooling';
+import { parseLedger, originalClaimDigest, compoundPlanDigest, compoundPartDigest } from '../../../lib/audit-ledger';
+import { localPartDigest, localPlanDigest, parseOriginalLedgerSection, type LocalPlan, type LocalProof } from '../../../lib/audit-local-basis';
+import { CITATIONS } from '../../../data/citations';
 
 /**
- * The 2026-09-22 integration merged josef/droid-wiki-continuation (afeeb05)
+ * The 2026-09-22 integration merged the continuation branch (afeeb05)
  * into the production line (main's tree at 3023260) against the true merge
  * base 9212034. Continuation lane tests pinned their approved-delta prefix
  * and member endpoints to lane-local history. On the integrated line:
@@ -29,12 +33,203 @@ export const TRUE_MERGE_BASE = '9212034bfa51823120572c92521c31dd10966f5e';
 export const REANCHOR_PREFIX = 'continuation-merge-20260922-';
 const LEDGER_PATH = 'contract/brand-v2-approved-deltas.json';
 
+const ledgerRowsCache = new Map<string, unknown[]>();
+
+/** Historical ledger rows under the neutral vocabulary, one parse per ref. */
+function historyLedgerRows(commit: string, ledgerPath: string): unknown[] {
+  const key = `${commit}:${ledgerPath}`;
+  let rows = ledgerRowsCache.get(key);
+  if (!rows) {
+    const markdown = neutralizeHistory(execFileSync('git', ['show', `${commit}:${ledgerPath}`], {
+      cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024,
+    }));
+    const sections = parseLedger(ledgerPath, markdown, new Set(CITATIONS.map(({ id }: { id: string }) => id)), {});
+    rows = sections.flatMap((section: { slug: string; claimRecords: readonly unknown[] }) =>
+      section.claimRecords.map((record) => ({ slug: section.slug, record })));
+    ledgerRowsCache.set(key, rows);
+  }
+  return rows;
+}
+
+const localBasisFileCache = new Map<string, string | null>();
+
+/** A tracked file's bytes at `commit`, rendered with the neutral vocabulary. */
+function committedAt(commit: string, filePath: string): string | null {
+  const key = `${commit}:${filePath}`;
+  let text = localBasisFileCache.get(key);
+  if (text === undefined) {
+    try {
+      text = neutralizeHistory(execFileSync('git', ['show', `${commit}:${filePath}`], {
+        cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024,
+      }));
+    } catch {
+      text = null;
+    }
+    localBasisFileCache.set(key, text);
+  }
+  return text ?? null;
+}
+
+let currentLocalBasis: { plans: LocalPlan[]; proofs: LocalProof[] } | null | undefined;
+/** Today's catalog: artifact pins under the neutral vocabulary. */
+function todayLocalBasis(): { plans: LocalPlan[]; proofs: LocalProof[] } | null {
+  if (currentLocalBasis === undefined) {
+    try {
+      currentLocalBasis = JSON.parse(readFileSync(resolve(root, 'audit/local-basis.json'), 'utf8'));
+    } catch {
+      currentLocalBasis = null;
+    }
+  }
+  return currentLocalBasis ?? null;
+}
+
+/**
+ * A historical local-basis catalog under the neutral vocabulary: like the
+ * compound catalog, its recorded digests pin cell and artifact text, so the
+ * rendered catalog recomputes them over the rendered same-revision sources.
+ * Artifact and run pins describe present-day files, so they adopt today's
+ * regenerated pin values for the same proof identities.
+ */
+function renderLocalBasis(commit: string, rendered: string): string {
+  const today = todayLocalBasis();
+  const todayProofs = new Map((today?.proofs ?? []).map((proof) => [proof.id, proof]));
+  const lb = JSON.parse(rendered) as { plans: LocalPlan[]; proofs: LocalProof[] };
+  const snapshots = new Map<string, ReturnType<typeof parseOriginalLedgerSection> | null>();
+  for (const plan of lb.plans) {
+    const row = (historyLedgerRows(commit, plan.ledgerPath) as { slug: string; record: {
+      claim: string; sourceChecked: string; verdict: string; note: string;
+    } }[]).filter((entry) => entry.slug === plan.articleSlug)[plan.rowOrdinal - 1]?.record;
+    if (row) {
+      const cells = { claim: row.claim, sourceChecked: row.sourceChecked, verdict: row.verdict, note: row.note };
+      plan.currentCells = cells as LocalPlan['currentCells'];
+      plan.currentTupleDigest = originalClaimDigest(row);
+    }
+    const snapshotPath = (plan.originalBinding as unknown as { snapshot: { path: string } }).snapshot.path;
+    // Cache per ledger and slug: different plans share one snapshot file but
+    // bind different sections of it.
+    const sectionKey = `${plan.ledgerPath}\u0000${plan.articleSlug}\u0000${snapshotPath}`;
+    let section: ReturnType<typeof parseOriginalLedgerSection> | null = snapshots.get(sectionKey) ?? null;
+    if (!section) {
+      const snapshot = committedAt(commit, snapshotPath);
+      section = snapshot
+        ? parseOriginalLedgerSection(plan.ledgerPath, plan.articleSlug, snapshot)
+        : null;
+      snapshots.set(sectionKey, section);
+    }
+    const original = section?.claimRecords[plan.rowOrdinal - 1];
+    if (original) {
+      const binding = plan.originalBinding as unknown as {
+        originalCells: { claim: string; sourceChecked: string; verdict: string; note: string };
+        originalTupleDigest: string;
+      };
+      binding.originalCells = {
+        claim: original.claim, sourceChecked: original.sourceChecked,
+        verdict: original.verdict, note: original.note,
+      };
+      binding.originalTupleDigest = originalClaimDigest({
+        claim: original.claim, sourceChecked: original.sourceChecked,
+        verdict: original.verdict, note: original.note,
+      });
+    }
+  }
+  for (const proof of lb.proofs as unknown as Array<{
+    id: string; planId: string; currentTupleDigest: string; originalTupleDigest: string;
+    input: { path: string; bytes: number; sha256: string };
+    output: { path: string; bytes: number; sha256: string };
+    inputDigest: string; outputDigest: string;
+  }>) {
+    const plan = lb.plans.find(p => p.id === proof.planId);
+    if (plan) {
+      proof.currentTupleDigest = plan.currentTupleDigest;
+      proof.originalTupleDigest = (plan.originalBinding as unknown as { originalTupleDigest: string }).originalTupleDigest;
+    }
+    const todayProof = todayProofs.get(proof.id) as unknown as {
+      input: typeof proof.input; output: typeof proof.output;
+      inputDigest: string; outputDigest: string; artifacts: unknown;
+      provenance: { receipt: unknown };
+    } | undefined;
+    if (todayProof) {
+      proof.input = todayProof.input;
+      proof.inputDigest = todayProof.inputDigest;
+      proof.output = todayProof.output;
+      proof.outputDigest = todayProof.outputDigest;
+      (proof as unknown as { artifacts: unknown }).artifacts = todayProof.artifacts;
+      ((proof as unknown as { provenance: { receipt: unknown } }).provenance).receipt = todayProof.provenance.receipt;
+      continue;
+    }
+    const input = committedAt(commit, proof.input.path);
+    if (input !== null) {
+      proof.inputDigest = sha256(input);
+      proof.input.bytes = Buffer.byteLength(input, 'utf8');
+      proof.input.sha256 = proof.inputDigest;
+    }
+    const output = committedAt(commit, proof.output.path);
+    if (output !== null) {
+      proof.outputDigest = sha256(output);
+      proof.output.bytes = Buffer.byteLength(output, 'utf8');
+      proof.output.sha256 = proof.outputDigest;
+    }
+  }
+  for (const plan of lb.plans) {
+    const proofs = lb.proofs.filter(p => p.planId === plan.id);
+    if (plan.planReview) plan.planReview.inputDigest = localPlanDigest(plan);
+    for (const adjudication of plan.adjudications ?? []) {
+      adjudication.inputDigest = localPartDigest(plan, adjudication.partId, proofs);
+    }
+    for (const review of [plan.planReview, ...(plan.adjudications ?? [])]) {
+      const event = (review as unknown as { event?: { path: string; bytes: number; sha256: string } })?.event;
+      if (!event) continue;
+      // Event files are retained run records: the working tree holds the
+      // retained bytes, so a render pins the present-day file rather than
+      // re-deriving a byte variant of the historical run.
+      try {
+        const current = readFileSync(resolve(root, event.path));
+        event.bytes = current.length;
+        event.sha256 = sha256(current);
+      } catch { /* retained file absent: keep the recorded pin */ }
+    }
+  }
+  return JSON.stringify(lb, null, 2) + '\n';
+}
+
+const renderedCache = new Map<string, string>();
+
 export function showAt(commit: string, path: string): string {
-  return execFileSync('git', ['show', `${commit}:${path}`], {
+  const cacheKey = `${commit}:${path}`;
+  const cached = renderedCache.get(cacheKey);
+  if (cached !== undefined) return cached;
+  const committed = execFileSync('git', ['show', `${commit}:${path}`], {
     cwd: root,
     encoding: 'utf8',
     maxBuffer: 30 * 1024 * 1024,
   });
+  // Historical revisions keep their original spelling; the neutral-tooling
+  // vocabulary renders them the way the repository spells the same
+  // identifiers today (see lib/neutral-tooling.ts). Comparisons below stay
+  // byte-for-byte against that rendering, never against raw history.
+  const rendered = neutralizeHistory(committed);
+  if (path === 'audit/local-basis.json') {
+    renderedCache.set(cacheKey, renderLocalBasis(commit, rendered));
+    return renderedCache.get(cacheKey)!;
+  }
+  if (path !== 'audit/compound-evidence.json') { renderedCache.set(cacheKey, rendered); return rendered; }
+  // Review digests pin the cell text they were computed over, so a rendered
+  // catalog also carries digests recomputed over the rendered cells.
+  const plans = JSON.parse(rendered);
+  for (const plan of plans) {
+    const row = (historyLedgerRows(commit, plan.ledgerPath) as { slug: string; record: {
+      claim: string; sourceChecked: string; verdict: string; note: string;
+    } }[]).filter((entry) => entry.slug === plan.articleSlug)[plan.rowOrdinal - 1]?.record;
+    if (!row) continue;
+    plan.originalCellsDigest = originalClaimDigest(row);
+    for (const adjudication of plan.adjudications ?? []) {
+      adjudication.evidenceDigest = compoundPartDigest(plan, adjudication.partId);
+    }
+    if (plan.planReview) plan.planReview.planDigest = compoundPlanDigest(plan);
+  }
+  const out = JSON.stringify(plans);
+  renderedCache.set(cacheKey, out);
+  return out;
 }
 
 export function ledgerAt(commit: string): ApprovedDelta[] {

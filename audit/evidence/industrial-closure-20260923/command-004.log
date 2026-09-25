@@ -25,7 +25,7 @@ Running 1 test using 1 worker
       391 |     await expect(page.locator('#main-content')).toContainText('not a measured intervention rate');
       392 |     await expect(page.locator('#main-content')).toContainText('no published success rate');
       393 |     checkedText.push('not a measured intervention rate', 'no published success rate');
-        at /home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/industrial-deployment.spec.ts:390:106
+        at tests/e2e/industrial-deployment.spec.ts:390:106
 
     Error Context: audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/error-context.md
 

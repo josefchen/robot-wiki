@@ -16,7 +16,7 @@ const selected = [
   ['parallel-sim-rl', 14, 2], ['parallel-sim-rl', 15, 1],
   ['parallel-sim-rl', 17, 1], ['sim2real-transfer', 20, 1],
 ] as const;
-const reviewer = 'agent:14bec1ba-6368-4110-9037-8456239b335e/integrator';
+const reviewer = 'agent:14bec1ba/integrator';
 function planFor(slug: string, ordinal: number) {
   const p = catalog().find(p => p.id === `source-newton-engine-20260908-${slug}-${ordinal}`);
   expect(p, 'The original needs an actually reviewed whole plan').toBeDefined();

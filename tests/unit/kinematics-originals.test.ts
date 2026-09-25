@@ -229,7 +229,7 @@ describe('kinematics originals: 20260917a paywall row 10 (iterative IK citation 
     expect(plan.evidence[0].sourceUrl).toBe(
       'https://modernrobotics.northwestern.edu/nu-gm-book-resource/6-2-numerical-inverse-kinematics-part-2-of-2/',
     );
-    expect(plan.planReview.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+    expect(plan.planReview.reviewedBy).toContain('paywall integrator efa5d1e4');
     expect(plan.planReview.rationale).toContain('6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0');
   });
 

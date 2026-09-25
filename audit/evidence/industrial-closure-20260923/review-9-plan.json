@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "sessionId": "7260b9a1",
   "role": "integrator",
   "eventId": "industrial-9-plan",
   "observedAt": "2026-09-23T18:49:40.393Z",
-  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
   "rationale": "Reviewed whole original/current inventory and exact corrected article. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. External parts, if present, remain separate AND obligations; no generic internal truth category.",
   "outcome": "supported",
   "scope": "plan",

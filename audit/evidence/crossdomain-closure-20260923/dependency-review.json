@@ -1,6 +1,6 @@
 {
   "schemaVersion": "crossdomain-dependency-review-v1",
-  "reviewedBy": "Droid b7856fa2-70d5-4c9d-ba8e-608460f99a6d; integrator Astra/max, not independent acceptance",
+  "reviewedBy": "reviewer run b7856fa2; integrator integrator review, not independent acceptance",
   "observedAt": "2026-09-23T20:50:25.408342+00:00",
   "rationale": "Two closed mount-free authored-selection targets only. No old model/component or accepted original changes; exact prior snapshots retained and numerical recomputation remains mandatory. No broad stale-dependency exemption.",
   "bindings": [

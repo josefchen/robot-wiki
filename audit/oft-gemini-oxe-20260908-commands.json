@@ -1,13 +1,13 @@
 {
   "scope": "17 original OFT/Gemini/Skild/OXE manipulation records; local implementation checkpoint, not release acceptance",
   "predecessorCommit": "d469f1d3041a78afe780040b5fbf856dfcae7569",
-  "evidenceDirectory": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908",
+  "evidenceDirectory": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908",
   "modelActivation": {
-    "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/cc2d5a3e-b790-4ae4-b62d-77fc059d0160.jsonl",
+    "sessionPath": "run/cc2d5a3e.jsonl",
     "line": 4,
-    "recordId": "10c090ae-23c5-4f0b-b1d9-7c484aa19b0b",
+    "recordId": "10c090ae",
     "timestamp": "2026-09-08T00:27:51.761Z",
-    "modelId": "custom:droidproxy:gpt-6-astra",
+    "modelId": "integrator review",
     "reasoningEffort": "max",
     "observedAt": "2026-09-08T00:30:51.862572+00:00"
   },
@@ -16,12 +16,12 @@
   },
   "commands": [
     {
-      "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/snapshot.mjs before",
+      "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/snapshot.mjs before",
       "startedAt": "2026-09-08T00:30:51.895498+00:00",
       "finishedAt": "2026-09-08T00:30:52.507887+00:00",
       "elapsedSeconds": 0.6123844897374511,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/before-snapshot.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/before-snapshot.log",
       "bytes": 58,
       "sha256": "6a129a4678d95b79469b0f71d743466142a80cbc01b9e802d8c4e0acde2e3520",
       "environment": {
@@ -29,12 +29,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
       "startedAt": "2026-09-08T00:34:42.322354+00:00",
       "finishedAt": "2026-09-08T00:34:42.453926+00:00",
       "elapsedSeconds": 0.1315713059157133,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.log",
       "bytes": 711,
       "sha256": "58304f1e0471a1e6c032251b84523dd7c02a085603eb298686e3cb83f8988adb",
       "environment": {
@@ -42,12 +42,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
       "startedAt": "2026-09-08T00:35:10.817830+00:00",
       "finishedAt": "2026-09-08T00:35:10.957315+00:00",
       "elapsedSeconds": 0.13948081992566586,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-corrected.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-corrected.log",
       "bytes": 600,
       "sha256": "1a912823d749fcf796494760119cc65bf10ea797bc826bcd091537127d0df6cb",
       "environment": {
@@ -55,12 +55,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
       "startedAt": "2026-09-08T00:35:26.570228+00:00",
       "finishedAt": "2026-09-08T00:35:26.707781+00:00",
       "elapsedSeconds": 0.13755308464169502,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-indexed.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-indexed.log",
       "bytes": 461,
       "sha256": "529957f20da23f43705b4e4381cd527b775406952e6baa7c2638ea65505a134e",
       "environment": {
@@ -68,12 +68,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
       "startedAt": "2026-09-08T00:36:10.313378+00:00",
       "finishedAt": "2026-09-08T00:36:10.490153+00:00",
       "elapsedSeconds": 0.17677056789398193,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-literal.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-literal.log",
       "bytes": 461,
       "sha256": "cdccd7fdb143fc22d7e5ca43ae4e3f20c07091c3dd1909f643a7b371461c7751",
       "environment": {
@@ -81,12 +81,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare.py",
       "startedAt": "2026-09-08T00:36:24.147690+00:00",
       "finishedAt": "2026-09-08T00:36:24.331395+00:00",
       "elapsedSeconds": 0.18370265141129494,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-bound.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/prepare-bound.log",
       "bytes": 1016,
       "sha256": "d7ab497adf20428ede969d7b2f862bc00d6ebd0dfaf211abc63ffcce43f69491",
       "environment": {
@@ -99,7 +99,7 @@
       "finishedAt": "2026-09-08T00:40:02.969122+00:00",
       "elapsedSeconds": 2.439196912571788,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/source-red.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/source-red.log",
       "bytes": 156097,
       "sha256": "d16d0f4e7b59ec6d62cb98bc5f6ea3418b263458891ca3cdf1eded03b1140c91",
       "environment": {
@@ -107,12 +107,12 @@
       }
     },
     {
-      "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate.mjs",
+      "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate.mjs",
       "startedAt": "2026-09-08T00:41:28.364543+00:00",
       "finishedAt": "2026-09-08T00:41:28.483782+00:00",
       "elapsedSeconds": 0.11923724226653576,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate.log",
       "bytes": 828,
       "sha256": "4802191d8c959b30bbf3df653d593dac00bcffa8362a7542b8e1ef7442990ec9",
       "environment": {
@@ -120,12 +120,12 @@
       }
     },
     {
-      "command": "node --experimental-strip-types /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate.mjs",
+      "command": "node --experimental-strip-types validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate.mjs",
       "startedAt": "2026-09-08T00:52:36.128701+00:00",
       "finishedAt": "2026-09-08T00:52:36.878059+00:00",
       "elapsedSeconds": 0.7493557445704937,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate-bound.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/integrate-bound.log",
       "bytes": 1121,
       "sha256": "cbb6625356100f4031a2c4d31ed33e30d982413d29367ec7148f3b7d56517702",
       "environment": {
@@ -138,7 +138,7 @@
       "finishedAt": "2026-09-08T00:53:26.269320+00:00",
       "elapsedSeconds": 2.2946438184008002,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/focused.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/focused.log",
       "bytes": 1227,
       "sha256": "1eaca14b829e747d96b66389d4b75fea221b8c15bb3372b639479469d07702c6",
       "environment": {
@@ -151,7 +151,7 @@
       "finishedAt": "2026-09-08T00:54:41.803210+00:00",
       "elapsedSeconds": 2.0050063729286194,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/bibliography-tests.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/bibliography-tests.log",
       "bytes": 839,
       "sha256": "de3ade5bba2811b6e7e9e3de49b5025812a8426d6c80397c477e19acfb888232",
       "environment": {
@@ -164,7 +164,7 @@
       "finishedAt": "2026-09-08T00:54:43.948685+00:00",
       "elapsedSeconds": 2.1153322206810117,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/typescript.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/typescript.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -172,12 +172,12 @@
       }
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/snapshot.mjs candidate",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/snapshot.mjs candidate",
       "startedAt": "2026-09-08T00:55:13.141561+00:00",
       "finishedAt": "2026-09-08T00:55:13.780426+00:00",
       "elapsedSeconds": 0.6388623984530568,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/candidate-snapshot.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/candidate-snapshot.log",
       "bytes": 61,
       "sha256": "886f9dfa0c3e57c2783e1dd3cabd7bb11ca397eda1947029c75bc89a5e99a7a8",
       "environment": {
@@ -185,12 +185,12 @@
       }
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/identity-check.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/identity-check.mjs",
       "startedAt": "2026-09-08T00:56:04.661957+00:00",
       "finishedAt": "2026-09-08T00:56:04.798448+00:00",
       "elapsedSeconds": 0.13648662623018026,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/identity-proof.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/identity-proof.log",
       "bytes": 2882,
       "sha256": "3bfb4eb53776d01d6a5fabc2960db7f42a0bde6df709141079adad596053d1ed",
       "environment": {
@@ -203,7 +203,7 @@
       "finishedAt": "2026-09-08T00:56:55.225878+00:00",
       "elapsedSeconds": 17.355362857691944,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/lint.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/lint.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -216,7 +216,7 @@
       "finishedAt": "2026-09-08T00:56:57.262198+00:00",
       "elapsedSeconds": 2.008331603370607,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/cards-generate.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/cards-generate.log",
       "bytes": 81,
       "sha256": "52d9860d9944022aa54d3b3144d7bd42fd96bef2dd9493ba32b4d4466329d154",
       "environment": {
@@ -224,12 +224,12 @@
       }
     },
     {
-      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/playwright.config.mjs",
+      "command": "node node_modules/@playwright/test/cli.js test --config validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/playwright.config.mjs",
       "startedAt": "2026-09-08T00:59:12.188864+00:00",
       "finishedAt": "2026-09-08T01:02:25.005618+00:00",
       "elapsedSeconds": 192.81675122585148,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/browser.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/browser.log",
       "bytes": 47736,
       "sha256": "4e0656819605dfbbc081373fe9103313d0638657d5c3ed95837a2db602891feb",
       "environment": {
@@ -242,7 +242,7 @@
       "finishedAt": "2026-09-08T01:03:02.174779+00:00",
       "elapsedSeconds": 2.081569766625762,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/cards-bytes.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/cards-bytes.log",
       "bytes": 200,
       "sha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844",
       "environment": {
@@ -250,12 +250,12 @@
       }
     },
     {
-      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/playwright.config.mjs --grep \"reader (generalization|comparison-matrix|cross-embodiment|generalist-policies|vla-models) at\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/captures-corrected",
+      "command": "node node_modules/@playwright/test/cli.js test --config validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/playwright.config.mjs --grep \"reader (generalization|comparison-matrix|cross-embodiment|generalist-policies|vla-models) at\" --output validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/captures-corrected",
       "startedAt": "2026-09-08T01:05:18.239061+00:00",
       "finishedAt": "2026-09-08T01:07:04.830504+00:00",
       "elapsedSeconds": 106.59143645316362,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/browser-corrected.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/browser-corrected.log",
       "bytes": 31131,
       "sha256": "bd6f89702d0c5e92192764fdc2772ee07cb516abfb28b4afddb043ec345a1336",
       "environment": {
@@ -263,12 +263,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/provenance-check.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/provenance-check.py",
       "startedAt": "2026-09-08T01:08:36.694641+00:00",
       "finishedAt": "2026-09-08T01:08:36.761670+00:00",
       "elapsedSeconds": 0.06702395901083946,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/provenance-check.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/provenance-check.log",
       "bytes": 98,
       "sha256": "53958cb91ea18f772ee684b47641fef01bd4a8c81fa08553cdc5082a282e169a",
       "environment": {
@@ -276,12 +276,12 @@
       }
     },
     {
-      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/playwright.config.mjs --grep \"reader comparison-matrix at\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/captures-matrix-final",
+      "command": "node node_modules/@playwright/test/cli.js test --config validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/playwright.config.mjs --grep \"reader comparison-matrix at\" --output validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/captures-matrix-final",
       "startedAt": "2026-09-08T01:09:21.026310+00:00",
       "finishedAt": "2026-09-08T01:09:57.775531+00:00",
       "elapsedSeconds": 36.74921915400773,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/browser-matrix-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/browser-matrix-final.log",
       "bytes": 8396,
       "sha256": "2b8e83087f9a60f9ab51e0485f61a870e9135494ded2d5b9dc76026068751b0d",
       "environment": {
@@ -289,12 +289,12 @@
       }
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/deltas.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/deltas.mjs",
       "startedAt": "2026-09-08T01:12:02.044164+00:00",
       "finishedAt": "2026-09-08T01:12:02.430621+00:00",
       "elapsedSeconds": 0.38645322248339653,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/exact-deltas.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/exact-deltas.log",
       "bytes": 38,
       "sha256": "f4a20523045312143ccd8d57e73fdbb23f631f70d0910f2960e7b6b6741d17f8",
       "environment": {
@@ -307,7 +307,7 @@
       "finishedAt": "2026-09-08T01:12:29.713348+00:00",
       "elapsedSeconds": 4.17160683684051,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/matrix-tests.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/matrix-tests.log",
       "bytes": 5416,
       "sha256": "498f164f32c41b97b8f65423c38ec9e411c30a10409b8e527b1d8a7078cf8234",
       "environment": {
@@ -320,7 +320,7 @@
       "finishedAt": "2026-09-08T01:12:31.982277+00:00",
       "elapsedSeconds": 2.2408508667722344,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/typescript-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/typescript-final.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -333,7 +333,7 @@
       "finishedAt": "2026-09-08T01:12:48.294988+00:00",
       "elapsedSeconds": 16.279719553887844,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/lint-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/lint-final.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -346,7 +346,7 @@
       "finishedAt": "2026-09-08T01:12:49.206928+00:00",
       "elapsedSeconds": 0.8843482444062829,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/content-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/content-final.log",
       "bytes": 258234,
       "sha256": "470cfc8973c46139f4bb51d7ab9249bbd7df29fa344dc5ac458f596ba338d2a0",
       "environment": {
@@ -359,7 +359,7 @@
       "finishedAt": "2026-09-08T01:12:49.836564+00:00",
       "elapsedSeconds": 0.5952485995367169,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/baseline-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/baseline-final.log",
       "bytes": 702194,
       "sha256": "0a04ac1356329a0e9a7a5ddd7031e9c76d9f51d8e92509720f9767497f1c3b5b",
       "environment": {
@@ -367,12 +367,12 @@
       }
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/snapshot.mjs final",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/snapshot.mjs final",
       "startedAt": "2026-09-08T01:14:54.412033+00:00",
       "finishedAt": "2026-09-08T01:14:55.166509+00:00",
       "elapsedSeconds": 0.7544693890959024,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-snapshot.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-snapshot.log",
       "bytes": 57,
       "sha256": "3b6ce8c5293b5434890a760313a84db22bf7c6cedd614b7fbf24b8ae566885db",
       "environment": {
@@ -380,12 +380,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preserve.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preserve.py",
       "startedAt": "2026-09-08T01:14:55.202940+00:00",
       "finishedAt": "2026-09-08T01:14:55.397932+00:00",
       "elapsedSeconds": 0.19498973712325096,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preservation.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preservation.log",
       "bytes": 721,
       "sha256": "8c124561d06fd205bec6c31f70b340cacf07c55670481aa8c53fb8020717473d",
       "environment": {
@@ -398,7 +398,7 @@
       "finishedAt": "2026-09-08T01:14:59.933945+00:00",
       "elapsedSeconds": 4.504533817060292,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/matrix-tests-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/matrix-tests-final.log",
       "bytes": 1009,
       "sha256": "dd1e189b104fa3532c6ac68d9fb30d628a2c7766881e8fd4601b4a4bbfc2c4d7",
       "environment": {
@@ -406,12 +406,12 @@
       }
     },
     {
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preserve.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preserve.py",
       "startedAt": "2026-09-08T01:16:58.500459+00:00",
       "finishedAt": "2026-09-08T01:16:58.619795+00:00",
       "elapsedSeconds": 0.11933181993663311,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preservation-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/preservation-final.log",
       "bytes": 30929,
       "sha256": "5f57b2f0c5482e589126a9abc3db89c39b0e41574dd0fa02beb0694ca8064333",
       "environment": {
@@ -419,12 +419,12 @@
       }
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection.mjs",
       "startedAt": "2026-09-08T01:16:58.647537+00:00",
       "finishedAt": "2026-09-08T01:16:58.675550+00:00",
       "elapsedSeconds": 0.02800921071320772,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection-sheets.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection-sheets.log",
       "bytes": 1300,
       "sha256": "14185fa0452fc2ed224e28b83d06070c6a7625fa38e378fc99f0c52de1d48d91",
       "environment": {
@@ -432,12 +432,12 @@
       }
     },
     {
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection.mjs",
       "startedAt": "2026-09-08T01:17:40.075504+00:00",
       "finishedAt": "2026-09-08T01:17:40.665680+00:00",
       "elapsedSeconds": 0.5901728766039014,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection-sheets-bound.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/inspection-sheets-bound.log",
       "bytes": 858,
       "sha256": "05136445d431dacfc401c47d73d694284286d9355d37f9e49142b5dc1799e33e",
       "environment": {
@@ -450,7 +450,7 @@
       "finishedAt": "2026-09-08T01:17:42.901063+00:00",
       "elapsedSeconds": 2.2073835488408804,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-test-types.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-test-types.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -463,7 +463,7 @@
       "finishedAt": "2026-09-08T01:17:44.162646+00:00",
       "elapsedSeconds": 1.233581444248557,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-test-lint.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-test-lint.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -476,7 +476,7 @@
       "finishedAt": "2026-09-08T01:17:45.234718+00:00",
       "elapsedSeconds": 1.0441463645547628,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-source-regressions.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908/final-source-regressions.log",
       "bytes": 518,
       "sha256": "b5068673e719778eb79f011bd9a4a8c1bc1749d6875eb953d23d125e4cbf7806",
       "environment": {

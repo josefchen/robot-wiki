@@ -1,83 +1,83 @@
 [
-  {
-    "id": "reward-design-mpc-original-4-20260916",
-    "ledgerPath": "audit/rl-sim2real.md",
-    "articleSlug": "reward-design-mpc",
-    "rowOrdinal": 4,
-    "originalCellsDigest": "44c8769365d7eb2a93a5367ce8baab5eb04af8840b141d83c7023ee280fc94e2",
-    "kind": "explicit-parts",
-    "parts": [
-      {
-        "id": "r4-local",
-        "text": "LOCAL-AND part (integrator proves from the repo at application time): the RewardShaping interactive exposes exactly twelve weight sliders from lib/reward-shaping.ts TERMS, the component prints a live 'Terms: 12' readout, and the article says twelve terms sit on the illustrative preview; the lib header discloses the model as twelve illustrative terms, not the paper reward or a runnable pinned legged_gym configuration.",
-        "requiredCitationIds": [
-          "legged-gym-repo-2021"
-        ]
-      }
-    ],
-    "evidence": [
-      {
-        "partId": "r4-local",
-        "citationId": "legged-gym-repo-2021",
-        "sourceUrl": "https://github.com/leggedrobotics/legged_gym",
-        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/reward-shaping.ts header prints 'This local teaching model uses twelve illustrative terms and weights, not the paper reward or a runnable pinned legged_gym configuration.' and 'maps weights to illustrative failure attractors (freeze, prance, chatter)'; the TERMS array holds exactly twelve entries (velTrack, yawTrack, torque, jointAccel, actionRate, jointLimit, collision, baseHeight, orientation, airTime, stumble, termination). components/interactive/reward-shaping.tsx maps TERMS to one range slider per entry (line 418) and prints a live 'Terms: <span>{TERMS.length}</span>' readout (line 246). content/rl-sim2real/reward-design-mpc.mdx prints 'Twelve weighted terms sit on the illustrative behavior preview below. Its weights, per-term magnitudes and freeze/prance/chatter categories are teaching choices, not the paper's nine-term objective or a runnable `legged_gym` configuration.'"
-      }
-    ],
-    "planReview": null,
-    "adjudications": []
-  },
-  {
-    "id": "reward-design-mpc-original-5-20260916",
-    "ledgerPath": "audit/rl-sim2real.md",
-    "articleSlug": "reward-design-mpc",
-    "rowOrdinal": 5,
-    "originalCellsDigest": "213f3f6c6ab625c0d916ca532c473239bda95be515d92441786c4dc10bf6d91c",
-    "kind": "explicit-parts",
-    "parts": [
-      {
-        "id": "r5-local",
-        "text": "LOCAL-AND part (integrator proves from the repo at application time): freeze, prance and chatter are declared an illustrative teaching taxonomy in the article prose and the lib header, and the contrasting Rudin-observed artifacts sentence carries its own rudin-2021 citation bound by the row-2 plan.",
-        "requiredCitationIds": [
-          "rudin-2021"
-        ]
-      }
-    ],
-    "evidence": [
-      {
-        "partId": "r5-local",
-        "citationId": "rudin-2021",
-        "sourceUrl": "https://arxiv.org/abs/2109.11978",
-        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): content/rl-sim2real/reward-design-mpc.mdx prints 'The preview maps weight settings to three illustrative categories: freeze, prance, and chatter. Those classifications and the displayed motion are outputs of this local teaching model, not policies trained in the cited simulator. Rudin and colleagues report different observed artifacts, including a dragging leg and unusually high or low base height, and describe tuning reward weights before transferring their policy to hardware <Cite id=\"rudin-2021\" />.' lib/reward-shaping.ts header prints 'maps weights to illustrative failure attractors (freeze, prance, chatter)' and 'an illustrative teaching model, not measured simulator output'."
-      }
-    ],
-    "planReview": null,
-    "adjudications": []
-  },
-  {
-    "id": "reward-design-mpc-original-11-20260916",
-    "ledgerPath": "audit/rl-sim2real.md",
-    "articleSlug": "reward-design-mpc",
-    "rowOrdinal": 11,
-    "originalCellsDigest": "3826f5284c7776b629bc1e16c3517c077cf36a0c6339459ddcd3c7d9b6e672d7",
-    "kind": "explicit-parts",
-    "parts": [
-      {
-        "id": "r11-local",
-        "text": "LOCAL-AND part (integrator proves from the repo at application time): the EurekaLoop panel is captioned 'Scripted replay of the Eureka loop' in the UI, its component doc comment discloses that the generations are a scripted illustration rather than a recording of a real Eureka run, and the article prose frames the panel as replay.",
-        "requiredCitationIds": [
-          "eureka-2024"
-        ]
-      }
-    ],
-    "evidence": [
-      {
-        "partId": "r11-local",
-        "citationId": "eureka-2024",
-        "sourceUrl": "https://arxiv.org/abs/2310.12931",
-        "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): components/interactive/eureka-loop.tsx prints at line 215 'Scripted replay of the Eureka loop (propose reward code, train, select on fitness, reflect on reward statistics, mutate). The code, statistics, and reflections are an illustration of the mechanism, not a recording of a real run.' and its doc comment at lines 21-22 prints 'The generations are a scripted illustration of the mechanism, labeled as such, not a recording of a real Eureka run.' The generations come from EUREKA_GENERATIONS in lib/eureka.ts."
-      }
-    ],
-    "planReview": null,
-    "adjudications": []
-  }
+ {
+  "id": "reward-design-mpc-original-4-20260916",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "reward-design-mpc",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "44c8769365d7eb2a93a5367ce8baab5eb04af8840b141d83c7023ee280fc94e2",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "r4-local",
+    "text": "LOCAL-AND part (integrator proves from the repo at application time): the RewardShaping interactive exposes exactly twelve weight sliders from lib/reward-shaping.ts TERMS, the component prints a live 'Terms: 12' readout, and the article says twelve terms sit on the illustrative preview; the lib header discloses the model as twelve illustrative terms, not the paper reward or a runnable pinned legged_gym configuration.",
+    "requiredCitationIds": [
+     "legged-gym-repo-2021"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "r4-local",
+    "citationId": "legged-gym-repo-2021",
+    "sourceUrl": "https://github.com/leggedrobotics/legged_gym",
+    "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/reward-shaping.ts header prints 'This local teaching model uses twelve illustrative terms and weights, not the paper reward or a runnable pinned legged_gym configuration.' and 'maps weights to illustrative failure attractors (freeze, prance, chatter)'; the TERMS array holds exactly twelve entries (velTrack, yawTrack, torque, jointAccel, actionRate, jointLimit, collision, baseHeight, orientation, airTime, stumble, termination). components/interactive/reward-shaping.tsx maps TERMS to one range slider per entry (line 418) and prints a live 'Terms: <span>{TERMS.length}</span>' readout (line 246). content/rl-sim2real/reward-design-mpc.mdx prints 'Twelve weighted terms sit on the illustrative behavior preview below. Its weights, per-term magnitudes and freeze/prance/chatter categories are teaching choices, not the paper's nine-term objective or a runnable `legged_gym` configuration.'"
+   }
+  ],
+  "planReview": null,
+  "adjudications": []
+ },
+ {
+  "id": "reward-design-mpc-original-5-20260916",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "reward-design-mpc",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "213f3f6c6ab625c0d916ca532c473239bda95be515d92441786c4dc10bf6d91c",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "r5-local",
+    "text": "LOCAL-AND part (integrator proves from the repo at application time): freeze, prance and chatter are declared an illustrative teaching taxonomy in the article prose and the lib header, and the contrasting Rudin-observed artifacts sentence carries its own rudin-2021 citation bound by the row-2 plan.",
+    "requiredCitationIds": [
+     "rudin-2021"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "r5-local",
+    "citationId": "rudin-2021",
+    "sourceUrl": "https://arxiv.org/abs/2109.11978",
+    "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): content/rl-sim2real/reward-design-mpc.mdx prints 'The preview maps weight settings to three illustrative categories: freeze, prance, and chatter. Those classifications and the displayed motion are outputs of this local teaching model, not policies trained in the cited simulator. Rudin and colleagues report different observed artifacts, including a dragging leg and unusually high or low base height, and describe tuning reward weights before transferring their policy to hardware <Cite id=\"rudin-2021\" />.' lib/reward-shaping.ts header prints 'maps weights to illustrative failure attractors (freeze, prance, chatter)' and 'an illustrative teaching model, not measured simulator output'."
+   }
+  ],
+  "planReview": null,
+  "adjudications": []
+ },
+ {
+  "id": "reward-design-mpc-original-11-20260916",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "reward-design-mpc",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "3826f5284c7776b629bc1e16c3517c077cf36a0c6339459ddcd3c7d9b6e672d7",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "r11-local",
+    "text": "LOCAL-AND part (integrator proves from the repo at application time): the EurekaLoop panel is captioned 'Scripted replay of the Eureka loop' in the UI, its component doc comment discloses that the generations are a scripted illustration rather than a recording of a real Eureka run, and the article prose frames the panel as replay.",
+    "requiredCitationIds": [
+     "eureka-2024"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "r11-local",
+    "citationId": "eureka-2024",
+    "sourceUrl": "https://arxiv.org/abs/2310.12931",
+    "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): components/interactive/eureka-loop.tsx prints at line 215 'Scripted replay of the Eureka loop (propose reward code, train, select on fitness, reflect on reward statistics, mutate). The code, statistics, and reflections are an illustration of the mechanism, not a recording of a real run.' and its doc comment at lines 21-22 prints 'The generations are a scripted illustration of the mechanism, labeled as such, not a recording of a real Eureka run.' The generations come from EUREKA_GENERATIONS in lib/eureka.ts."
+   }
+  ],
+  "planReview": null,
+  "adjudications": []
+ }
 ]

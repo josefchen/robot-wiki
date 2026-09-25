@@ -113,7 +113,7 @@ describe('Boston Dynamics control source corrections', () => {
       const p = selected(slug, ordinal);
       expect(p.parts).toHaveLength(parts);
       expect(p.evidence).toHaveLength(parts);
-      expect(p.planReview!.reviewedBy).toBe('agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator');
+      expect(p.planReview!.reviewedBy).toBe('agent:0d32fee8/integrator');
       expect(p.planReview!.planDigest).toBe(compoundPlanDigest(p));
       for (const a of p.adjudications) expect(a.evidenceDigest).toBe(compoundPartDigest(p, a.partId));
       expect(failures(p)).toEqual([]);

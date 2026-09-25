@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-arithmetic:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Fresh native extraction agrees with independently implemented Gaussian, plateau and tail arithmetic at (0.8,0.35), (0.8,0.65), (1.5,0.35). Peaks0.7375 and0.5725 display74% and57%. Every mu/range input has an exact same-plan authored pointer/value, not an ungrounded numeric literal.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-arithmetic",
-  "inputDigest": "2b581a31c9e2891ea28d8eacfe65cbeaf2f60dbaaf3eb1e189853fbc20ec6130",
+  "inputDigest": "6c29729e7ceaca8e5658a3f5d24cbff54b5637d106b81590e60fd11c4fdd55be",
   "inventory": [
     {
       "id": "s23-tobin-framing",

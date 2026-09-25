@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "sessionId": "7260b9a1",
   "role": "integrator",
   "eventId": "industrial-32-i32-lei-cycle-time-definition",
   "observedAt": "2026-09-23T18:49:40.399Z",
-  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
   "rationale": "Measured time to produce a part or complete a process; official undated LEI definition. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
   "outcome": "supported",
   "scope": "part",

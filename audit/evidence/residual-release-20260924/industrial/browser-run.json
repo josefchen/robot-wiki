@@ -1,7 +1,7 @@
 {
-  "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test --config /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-runs/20260924-0140-browser.config.mjs",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test --config steward-runs/20260924-0140-browser.config.mjs",
   "runner": "playwright",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -10,8 +10,8 @@
   "exitCode": 0,
   "test": {
     "path": "tests/e2e/residual-release-industrial.spec.ts",
-    "bytes": 7781,
-    "sha256": "7a1cc879c1d80506b6205fbb65faac25acb2d68f9890459131949301421d0202"
+    "bytes": 7716,
+    "sha256": "dded1f61f2d75c0a8b49e922c5eabf4fce7707f71d8bf012def88533c540ea49"
   },
   "dependencies": [
     {
@@ -26,8 +26,8 @@
     },
     {
       "path": "data/citations.ts",
-      "bytes": 305533,
-      "sha256": "f8cf033b20cadf57e5de20ccfd20388e8582b035865f5b44888bb3da988d56aa"
+      "bytes": 305677,
+      "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
     },
     {
       "path": "data/schemas/citation.ts",
@@ -71,8 +71,8 @@
     },
     {
       "path": "tests/e2e/residual-release-industrial.spec.ts",
-      "bytes": 7781,
-      "sha256": "7a1cc879c1d80506b6205fbb65faac25acb2d68f9890459131949301421d0202"
+      "bytes": 7716,
+      "sha256": "dded1f61f2d75c0a8b49e922c5eabf4fce7707f71d8bf012def88533c540ea49"
     },
     {
       "path": "audit/evidence/residual-release-20260924/support.ts",
@@ -125,13 +125,13 @@
     {
       "file": {
         "path": "lib/audit-local-basis.ts",
-        "bytes": 63361,
-        "sha256": "e27027d58547113ded3222dbf4ba8d15a0bf3a70864fd8645c5089d16e8e554a"
+        "bytes": 100888,
+        "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
       },
       "id": "file:lib/audit-local-basis.ts",
       "offset": 0,
       "length": 63361,
-      "sha256": "e27027d58547113ded3222dbf4ba8d15a0bf3a70864fd8645c5089d16e8e554a"
+      "sha256": "3542764d9e37411531976889559a6b23dc7d96ed8220479d6e8621e61519cfd4"
     },
     {
       "file": {

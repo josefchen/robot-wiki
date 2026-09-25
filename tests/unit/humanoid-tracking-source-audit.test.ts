@@ -67,7 +67,7 @@ describe('PHC, OmniH2O and HumanPlus source corrections', () => {
       expect(p.parts.every(part => JSON.stringify(part.requiredCitationIds) === JSON.stringify([citationId]))).toBe(true);
       expect(p.evidence.every(e => e.citationId === citationId && e.sourceUrl.startsWith('https://arxiv.org/html/'))).toBe(true);
       expect(p.originalCellsDigest).toBe(originalClaimDigest(row));
-      expect(p.planReview!.reviewedBy).toBe('agent:cf70d662-e6ba-47a0-bbfd-010ce9debc92/integrator');
+      expect(p.planReview!.reviewedBy).toBe('agent:cf70d662/integrator');
       expect(p.planReview!.planDigest).toBe(compoundPlanDigest(p));
       expect(p.adjudications).toHaveLength(3);
       for (const a of p.adjudications) expect(a.evidenceDigest).toBe(compoundPartDigest(p, a.partId));

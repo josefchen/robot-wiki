@@ -1,5 +1,4 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -10,14 +9,14 @@ import { GENERALIST_RELEASES } from '../../lib/generalist-policies';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
-import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
+import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { committedSource } from '../helpers/continuation-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
 const attributionCommit = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
+const before = (path: string) => showAt(base, path);
 const articlePath = 'content/manipulation/generalist-policies.mdx';
 const article = read(articlePath);
 const attributionArticle = committedSource(attributionCommit, articlePath);
@@ -146,7 +145,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     expect(committedSource('d928b6b', articlePath)).toBe(expected);
     // The current article may differ only by the two explicitly approved aggregate removals.
     const removals = JSON.parse(read('audit/evidence/crossdomain-closure-20260923/row-history.json'))
-      .rows[0].exactChanges.filter((change: { path: string }) => change.path.endsWith('/' + articlePath));
+      .rows[0].exactChanges.filter((change: { path: string }) => change.path === articlePath || change.path.endsWith('/' + articlePath));
     expect(removals).toHaveLength(2);
     let corrected = expected;
     for (const change of removals) {
@@ -183,7 +182,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     expect(row.evidenceFailures).toEqual([]);
     expect(p.originalCellsDigest).toBe(originalClaimDigest(row));
     expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
-    expect(p.planReview?.reviewedBy).toContain('43c1134d-d536-47b9-9e71-dcb03dff8271');
+    expect(p.planReview?.reviewedBy).toContain('43c1134d');
     expect(p.parts).toHaveLength(ordinal === 15 ? 4 : 15);
     expect(p.adjudications).toHaveLength(p.parts.length);
     for (const part of p.parts) {
@@ -229,7 +228,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     const declared = { ...citations, 'generalist-policies': citations['generalist-policies'].slice(0, -1) };
     expect(parse(plans, ledger, declared)[20].evidenceFailures.length).toBeGreaterThan(0);
   });
-  it('preserves the historical plan prefix and current generalist records except the exact original19 correction', () => {
+  it('preserves the historical plan prefix and current generalist records except the exact original19 correction', { timeout: 60_000 }, () => {
     // Preserve the original integration's global prefix at its own endpoint.
     // Later corrections elsewhere do not authorize changing generalist plans.
     expect(attributionPlans.slice(0, oldPlans.length)).toEqual(oldPlans);

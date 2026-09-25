@@ -1,8 +1,8 @@
 {
   "scope": "35 original manipulation/RL rows; implementation only",
   "beforeHead": "ec4ddde794a13c9b29d294e90f8756fccb50afbf",
-  "activationEvidence": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/activation.json",
-  "sourceProof": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/source-proof.json",
+  "activationEvidence": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/activation.json",
+  "sourceProof": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/source-proof.json",
   "preservation": {
     "rows": 994,
     "complete": 170,
@@ -222,12 +222,12 @@
         "scripts/brand-v2-baseline.ts",
         "--check"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:56:06.345975+00:00",
       "finished": "2026-09-07T19:56:06.857147+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/baseline.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/baseline.log"
     },
     {
       "command": [
@@ -235,16 +235,16 @@
         "node_modules/@playwright/test/cli.js",
         "test",
         "--config",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/browser.config.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/browser.config.mjs",
         "--output",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/captures"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/captures"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:56:09.217835+00:00",
       "finished": "2026-09-07T19:56:19.545325+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/browser.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/browser.log"
     },
     {
       "command": [
@@ -252,12 +252,12 @@
         "run",
         "check:og-card-bytes"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:57:37.577405+00:00",
       "finished": "2026-09-07T19:57:39.664536+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/card-bytes.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/card-bytes.log"
     },
     {
       "command": [
@@ -265,12 +265,12 @@
         "run",
         "generate:og-cards"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:56:06.891071+00:00",
       "finished": "2026-09-07T19:56:09.190608+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/cards.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/cards.log"
     },
     {
       "command": [
@@ -279,12 +279,12 @@
         "run",
         "tests/unit/comparison-current-audit.test.ts"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:56:03.304342+00:00",
       "finished": "2026-09-07T19:56:05.438555+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/comparison-final.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/comparison-final.log"
     },
     {
       "command": [
@@ -293,12 +293,12 @@
         "run",
         "tests/unit/comparison-current-audit.test.ts"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:55:12.334133+00:00",
       "finished": "2026-09-07T19:55:21.699685+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/comparison-rebound.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/comparison-rebound.log"
     },
     {
       "command": [
@@ -306,12 +306,12 @@
         "run",
         "validate:content"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:59:30.383358+00:00",
       "finished": "2026-09-07T19:59:31.130128+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/content-canonical-final.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/content-canonical-final.log"
     },
     {
       "command": [
@@ -319,12 +319,12 @@
         "run",
         "validate:content"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:57:36.803556+00:00",
       "finished": "2026-09-07T19:57:37.549205+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/content-summary-final.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/content-summary-final.log"
     },
     {
       "command": [
@@ -332,41 +332,41 @@
         "run",
         "validate:content"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:56:05.466053+00:00",
       "finished": "2026-09-07T19:56:06.308786+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/content.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/content.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/deltas.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/deltas.mjs"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:53:44.746671+00:00",
       "finished": "2026-09-07T19:53:45.084293+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/deltas.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/deltas.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/snapshot.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/snapshot.mjs",
         "final"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:59:31.156515+00:00",
       "finished": "2026-09-07T19:59:31.742452+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/final-recount.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/final-recount.log"
     },
     {
       "command": [
@@ -377,111 +377,111 @@
         "tests/unit/control-loop.test.ts",
         "tests/component/control-loop-budget.test.tsx"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:51:35.316767+00:00",
       "finished": "2026-09-07T19:51:38.714877+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/focused-green.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/focused-green.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/snapshot.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/snapshot.mjs",
         "before"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:30:50.201035+00:00",
       "finished": "2026-09-07T19:30:50.782247+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/freeze.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/freeze.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:50:58.261294+00:00",
       "finished": "2026-09-07T19:50:59.661547+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-cut-context.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-cut-context.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:50:16.726555+00:00",
       "finished": "2026-09-07T19:50:18.057633+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-final.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-final.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:48:55.871008+00:00",
       "finished": "2026-09-07T19:48:57.027775+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-native.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-native.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:49:50.700811+00:00",
       "finished": "2026-09-07T19:49:51.764230+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-rebound.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-rebound.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:51:22.827699+00:00",
       "finished": "2026-09-07T19:51:24.291473+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-validated.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate-validated.log"
     },
     {
       "command": [
         "node",
         "--import",
         "tsx",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.mjs"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:48:36.730939+00:00",
       "finished": "2026-09-07T19:48:36.755329+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/integrate.log"
     },
     {
       "command": [
@@ -489,27 +489,27 @@
         "node_modules/eslint/bin/eslint.js",
         "."
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:55:23.656107+00:00",
       "finished": "2026-09-07T19:55:40.798046+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/lint.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/lint.log"
     },
     {
       "command": [
         "node",
         "--experimental-strip-types",
         "--experimental-specifier-resolution=node",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/snapshot.mjs",
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/snapshot.mjs",
         "after"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:52:50.399391+00:00",
       "finished": "2026-09-07T19:52:50.980522+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/recount.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/recount.log"
     },
     {
       "command": [
@@ -520,24 +520,24 @@
         "tests/unit/control-loop.test.ts",
         "tests/component/control-loop-budget.test.tsx"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:37:18.287990+00:00",
       "finished": "2026-09-07T19:37:20.446668+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/red-first.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/red-first.log"
     },
     {
       "command": [
         "python3",
-        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/verify-sources.py"
+        "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/verify-sources.py"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:32:49.821836+00:00",
       "finished": "2026-09-07T19:32:50.030042+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/source-proof.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/source-proof.log"
     },
     {
       "command": [
@@ -552,12 +552,12 @@
         "tests/unit/methods.test.ts",
         "tests/unit/manipulation-rl-integration.test.ts"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:53:45.110164+00:00",
       "finished": "2026-09-07T19:53:49.154748+00:00",
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/strict-and-affected.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/strict-and-affected.log"
     },
     {
       "command": [
@@ -567,12 +567,12 @@
         "--incremental",
         "false"
       ],
-      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "cwd": "/srv/robot-wiki",
       "NODE_DISABLE_COMPILE_CACHE": "1",
       "started": "2026-09-07T19:55:21.726254+00:00",
       "finished": "2026-09-07T19:55:23.629923+00:00",
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/typescript.log"
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907/typescript.log"
     }
   ],
   "finalResults": {

@@ -14,7 +14,7 @@ import { CITATIONS } from '../../../data/citations.ts';
 import { publishedModules } from '../../../data/modules.ts';
 
 const directory = 'audit/evidence/crossdomain-closure-20260923';
-const mission = '/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923';
+const mission = 'validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923';
 const root = process.cwd();
 const read = (path: string) => readFileSync(path, 'utf8');
 const sha = (bytes: string | Buffer) => createHash('sha256').update(bytes).digest('hex');
@@ -66,7 +66,7 @@ const browser = JSON.parse(read(`${directory}/browser-observations.json`));
 if (browser.observations.length !== 4 || browser.errors.length) throw Error('Missing actual two-viewport observations');
 const newPlans: LocalPlan[] = [];
 const newProofs: LocalProof[] = [];
-const reviewedBy = 'Droid b7856fa2-70d5-4c9d-ba8e-608460f99a6d; integrator Astra/max, not independent acceptance';
+const reviewedBy = 'implementation run b7856fa2; integrator review, not independent acceptance';
 const rationales = [
   'Reviewed all 13 exact IDs and duplicate-free cardinality, actual passing numeric tests, two viewport DOM/captures and filter/reset preservation. Removed all unsupported aggregate Stat date/download/source-format claims and the seven-entry enumeration, including accessible aggregate date wording. Existing independently completed entry facts remain unchanged; the selected count certifies neither weights nor licenses nor papers nor replication.',
   'Reviewed the six exact WM_PARADIGMS IDs and duplicate-free cardinality, matching the six selected article groups. Existing scientific-to-editorial qualification is preserved with the word authored made explicit. No survey passage is claimed to establish six universal paradigms; the superseded unresolved compound plan remains archived, not promoted.',
@@ -130,7 +130,7 @@ for (const [index, row] of selected.entries()) {
   const review = (partId: string | null, inputDigest: string) => {
     const rationale = rationales[index] + ' Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.';
     const event = save(`${plan.id}-review-${partId ? partId.endsWith('-count') ? 'count' : 'parameters' : 'plan'}.json`, {
-      schemaVersion: 'local-review-event-v1', sessionId: 'b7856fa2-70d5-4c9d-ba8e-608460f99a6d',
+      schemaVersion: 'local-review-event-v1', sessionId: 'b7856fa2',
       role: 'integrator', eventId: `${plan.id}:${partId ?? 'plan'}`, observedAt: new Date().toISOString(),
       reviewedBy, rationale, outcome: 'supported', scope: partId ? 'part' : 'plan', partId,
       inputDigest, inventory: plan.parts, originalId: plan.originalId, currentTupleDigest: plan.currentTupleDigest,

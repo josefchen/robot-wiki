@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { showAt } from './helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -15,9 +15,7 @@ const root = resolve(import.meta.dirname, '../..');
 const base = '328ae3600521c094c464b3ddc7ba62c159f95882';
 const checkpoint = '9a5ed060c65721201674bbd2bb1e59f58e5c637a';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
-  cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
-});
+const before = (path: string) => showAt(base, path);
 const cases = [
   { path: 'content/classical/scene-representation.mdx', blocks: 14, breaks: 0 },
   { path: 'content/world-models/generative-sim.mdx', blocks: 0, breaks: 2 },

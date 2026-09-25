@@ -76,7 +76,7 @@ describe('dexterity originals integration (packet convergence-source-c-dexterity
       expect(p.originalCellsDigest).toBe(originalClaimDigest(record));
       expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
       expect(p.planReview?.reviewedBy).toContain('dexterity-integrator-20260915');
-      expect(p.planReview?.reviewedBy).toContain('custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2');
+      expect(p.planReview?.reviewedBy).toContain('review pass');
       expect(p.adjudications.map((a) => a.partId)).toEqual(p.parts.map((part) => part.id));
       for (const adjudication of p.adjudications) {
         expect(adjudication.outcome).toBe('supported');

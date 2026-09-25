@@ -223,15 +223,15 @@ describe('safety-and-assurance 2026-09-15 integration', () => {
         "originalId": "audit/frontier.md:safety-and-assurance:5",
         "ordinal": 5,
         "planId": "safety-remainder-20260916-safety-and-assurance-5",
-        "oldTuple": "55b4336db6d3c9828d07b4d3b3d1a324a520f90be0232779e90fb3ce61b6fd87",
-        "withdrawnReviewDigest": "46dd278c6d35e614d3c86e92e8265edea3a0c8c3c9e92a3e4d61eb0b6e2bce52"
+        "oldTuple": "2811bba3f097fefe9aa4a2a5cb52f5fd9a02ea75b82cc1437a916c4614aed8f9",
+        "withdrawnReviewDigest": "1b580c84fb60969345b999dff645b231b24775458d431a74f5cf40958d507994"
     },
     {
         "originalId": "audit/frontier.md:safety-and-assurance:6",
         "ordinal": 6,
         "planId": "safety-remainder-20260916-safety-and-assurance-6",
-        "oldTuple": "a0b6b670f57a2b1afb510811fdea1200e585ce19c66784b0ec5358302aa15ba6",
-        "withdrawnReviewDigest": "895f6e01d8b13d82b2161e9267ccb8b7383a1ad2a044f7721fc6245a1d84a995"
+        "oldTuple": "9bdc2ac48fb21191f667b3fc7676a94348bdd4f33df329233c0424b9b0d32d13",
+        "withdrawnReviewDigest": "5ea854f0f9c18c2ee4f2355b48f5f4ccfc81c88c60f6671fae2f7bb4c46b41ca"
     }
 ])('preserves the former hold $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
     const markdown = priorLedger, compoundPlans = priorPlans;

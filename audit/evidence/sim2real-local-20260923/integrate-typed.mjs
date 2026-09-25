@@ -40,18 +40,18 @@ const observedText = {
   's24-mounted-degradation-high': 'Changing the actual teacher control from degradation 0.15 to 1 alters input/reconstruction panels, occludes 24/24 channels and displays MAE 0.17 m and discrepancy 0.38.',
 };
 const rationale = {
-  's23-tobin-framing': 'I read the exact retained Tobin abstract in context: simulated-image rendering randomization and nonrealistic textures motivate visual transfer. It does not supply these friction curves, coefficients or percentages. Versioned v1 URL and original September 8 FetchUrl response identity remain distinct from this review.',
+  's23-tobin-framing': 'I read the exact retained Tobin abstract in context: simulated-image rendering randomization and nonrealistic textures motivate visual transfer. It does not supply these friction curves, coefficients or percentages. Versioned v1 URL and original September 8 web fetch response identity remain distinct from this review.',
   's23-peng-framing': 'I read retained v3 Section IV through IV-C, including expected return over a distribution of dynamics and the concrete mass/damping/friction/timing/noise examples. The Fetch pushing experiment is not this illustrative Gaussian/plateau model or a universal width-versus-peak law.',
   's23-adr': 'I read the actual performance-threshold definition and ADR boundary-sampling paragraph: high and low thresholds adjust the distribution with training progress. This supports the original ADR anchor; it is not inferred from a source label or replaced by local calculations.',
   's23-isaac-plumbing': 'I read Isaac Lab v1 Section5.3: runtime parameter changes versus pre-play mesh scale/collider changes, CPU APIs for masses/friction/contact offsets/armature, and the adjacent configurable ADR curriculum with dexsuite references. This preserves both CPU/GPU qualification and original ADR attribution.',
   's23-curves-and-mount-defaults': 'Whole model/component/article members disclose all curve constants and ranges as authored. Fresh native extraction independently checked mu0.8, ranges0.2..1.5 and0.1..0.65, point peak0.97/sigma0.09 and edge sigma0.1. The 0.93-0.55*range formula and mount props0.35/0.65 are fixed choices, not uncertainty intervals or empirical success rates.',
   's23-arithmetic': 'Fresh native extraction agrees with independently implemented Gaussian, plateau and tail arithmetic at (0.8,0.35), (0.8,0.65), (1.5,0.35). Peaks0.7375 and0.5725 display74% and57%. Every mu/range input has an exact same-plan authored pointer/value, not an ungrounded numeric literal.',
-  's24-privileged-context': 'I read Lee Section4.1: privileged terrain/contact teacher trained by RL, then action/latent supervision of a proprioceptive-history TCN deployed on physical machines. The preserved unversioned ar5iv body equals its actual original FetchUrl capture at2026-09-08T08:14:45.521Z; no v1 pin or fresh retrieval is asserted.',
+  's24-privileged-context': 'I read Lee Section4.1: privileged terrain/contact teacher trained by RL, then action/latent supervision of a proprioceptive-history TCN deployed on physical machines. The preserved unversioned ar5iv body equals its actual original web fetch capture at2026-09-08T08:14:45.521Z; no v1 pin or fresh retrieval is asserted.',
   's24-input-mismatch': 'I read the actual Isaac Lab v1 RGB-distillation paragraph: partial versus privileged inputs can produce a performance drop, particularly with camera occlusion. It does not establish this illustration coefficients, numeric discrepancy or a universal no-training-budget error floor. The unsupported empirical interpretation is corrected.',
   's24-authored-terrain-noise': 'I checked the24-cell authored sine/step/depression terrain, LCG multiplier48271/modulus2147483647, seeds123456789/987654321, four-decimal fields, sigma3/offsets-6..6 edge-normalized blur,0.06 noise/0.12 same-sign dropout,0.45 input-noise coefficient and0..1 default0.15 control against independent construction and whole-file members. The explicit authored-toy paragraph says not measured robot data and not inference from bars.',
   's24-reconstruction': 'Independent per-cell reconstruction/readings/occlusion and native outputs agree at0,0.15,1. MAE uses unrounded errors; rounding reconstructed cells first is a tested negative control. Divergence is exactly2.2*MAE; default/high MAE0.009894210242181204/0.1709614016145414 and discrepancy0.02176726253279865/0.37611508355199114 are constructed values, not learned action error.',
 };
-const reviewedBy = 'Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max';
+const reviewedBy = 'integrator run f86f6148; integrator review; max';
 const observedAt = new Date().toISOString();
 for (const plan of additions.plans) {
   for (const part of plan.parts) {
@@ -67,7 +67,7 @@ for (const plan of additions.plans) {
       : rationale[partId];
     assert(reason, `Unreviewed part ${partId}`);
     const event = save(partId === null ? `s${plan.rowOrdinal}-plan.review.json` : `${partId}.review.json`, {
-      schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148-94a8-4312-bf35-13bdf5c6d211', role: 'integrator',
+      schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148', role: 'integrator',
       eventId: `${plan.id}:${partId ?? 'whole-plan'}:${observedAt}`, observedAt, reviewedBy, rationale: reason,
       outcome: 'supported', scope: partId === null ? 'plan' : 'part', partId, inputDigest, inventory: plan.parts,
       originalId: plan.originalId, currentTupleDigest: plan.currentTupleDigest,
@@ -113,7 +113,7 @@ for (const [index, path] of ['content/rl-sim2real/sim2real-transfer.mdx', 'compo
   deltas.entries.push({ id: `sim2real-local-20260923-${index + 1}`, manifest, memberId,
     oldHash: hash(oldSource), newHash: hash(source),
     reason: 'Only sim2real23/24: disclose authored terrain/noise/direct reconstruction and normalized discrepancy, remove unsupported empirical distillation-floor inference, and correct high-terrain color explanation. No formulas, constants, controls, geometry or citation IDs changed.',
-    ownerApproval: 'September23 authored-evidence decision and bounded sim2real integrator authorization, including same-assignment round2 at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/authorization.md. Parent current-HEAD preflight3a2903eff31e7ece7eb713cf6cd3f7b856e3a779; not independent acceptance.',
+    ownerApproval: 'September23 authored-evidence decision and bounded sim2real integrator authorization, including same-assignment round2 at validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-local-integration-20260923/authorization.md. Parent current-HEAD preflight3a2903eff31e7ece7eb713cf6cd3f7b856e3a779; not independent acceptance.',
     responsibleMilestone: 'brand-v2-editorial', affectedAssertions: ['VAL-B2-BASE-010', 'VAL-AUDIT-002', 'VAL-AUDIT-009'], disposition: 'permanent',
   });
 }

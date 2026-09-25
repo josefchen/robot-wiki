@@ -1,211 +1,211 @@
 {
- "schema": "technology-withdrawal-prior-tuples-v1",
- "recordedOn": "2026-09-24",
- "note": "Lossless preservation of the twelve superseded four-cell ledger tuples exactly as preflighted at HEAD 714cf3a8701f94db0abd815635b86adaaf4bd852 (tree 0bcffc5); digests are the originalClaimDigest values of those cells.",
- "tuples": [
-  {
-   "originalId": "audit/data-hardware.md:industrial-deployment:5",
-   "rowOrdinal": 5,
-   "ledgerPath": "audit/data-hardware.md",
-   "articleSlug": "industrial-deployment",
-   "previousCells": {
-    "claim": "Unitree shipped roughly 5,500 humanoid units across 2025",
-    "sourceChecked": "technology-org-deployed-2026 (fetched live: \"Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025\")",
-    "verdict": "V",
-    "note": "Current integration review 2026-09-17T14:32:46Z by agent:fd137388-f254-4d11-97b1-548904d2cad2-as0917a/integrator. Both mandatory passages glyph-verified. technology.org fetch: FetchUrl live in the 2026-09-17T13:3x-13:5xZ source-packet fetch window, tool-reported 200, final URL identical to the requested URL (no redirect observed). The ~5,500 figure is Unitree's own shipment claim as reported by technology.org, cross-printed by the same page's scorecard row; no independent shipment audit exists. No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Unitree shipped roughly 5,500 humanoid units across 2025\",\"sourceChecked\":\"technology-org-deployed-2026 (fetched live: \\\"Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025\\\")\",\"verdict\":\"V\",\"note\":\"\"}"
-   },
-   "previousTupleDigest": "5015f418792ab36f5a44fa1c5c686d2ce83144ea43fa08bfa030822b95c6a1ef",
-   "supersededPlanId": "industrial-unitree-5500-20260917a",
-   "supersededByPlanId": "industrial-unitree-shipment-cut-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/data-hardware.md:industrial-deployment:6",
-   "rowOrdinal": 6,
-   "ledgerPath": "audit/data-hardware.md",
-   "articleSlug": "industrial-deployment",
-   "previousCells": {
-    "claim": "Unitree is \"the volume leader\"",
-    "sourceChecked": "technology-org-deployed-2026 says only \"ships more humanoids than any Western competitor\"; unitree-profit-2026 calls Unitree \"the world's leading humanoid shipper\" (32.4% estimated global share); robozaps-humanoids-2026 (fetched live) records the counter-position: \"Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first\"",
-    "verdict": "C (P5: the ranking is disputed by a named analyst house and the article asserted it flat. Now \"the volume leader on its own numbers\", with Omdia's ~4,200 count and AgiBot-first ranking named and cited; `robozaps-humanoids-2026` added to frontmatter)",
-    "note": "Current integration review 2026-09-17T14:32:46Z by agent:fd137388-f254-4d11-97b1-548904d2cad2-as0917a/integrator. All three cited sources fetched live in the source window (technology.org, TechTimes, RoboZaps; each tool-reported 200, no redirect); per-part passages glyph-verified. Tension carried explicitly: the live RoboZaps page still prints the retained sentence (Omdia counts ~4,200, ranks AgiBot first) and now also prints updated figures (“Omdia ranks it #1 for 2025 shipments (5,168 units, 39% share), a ranking Unitree disputes”; “roughly 13,000 humanoids shipped in 2025 (per Omdia)”). This page-internal ~4,200-vs-5,168 count tension, with its corresponding AgiBot-first vs Unitree-#1 ranking tension, is recorded, not resolved; the P5 disputed-ranking framing and the article wording (“claims roughly 5,500 ... a count Omdia puts nearer 4,200 while ranking AgiBot first”) are unaffected. robozaps-humanoids-2026 is in the article frontmatter. No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Unitree is \\\"the volume leader\\\"\",\"sourceChecked\":\"technology-org-deployed-2026 says only \\\"ships more humanoids than any Western competitor\\\"; unitree-profit-2026 calls Unitree \\\"the world's leading humanoid shipper\\\" (32.4% estimated global share); robozaps-humanoids-2026 (fetched live) records the counter-position: \\\"Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first\\\"\",\"verdict\":\"C (P5: the ranking is disputed by a named analyst house and the article asserted it flat. Now \\\"the volume leader on its own numbers\\\", with Omdia's ~4,200 count and AgiBot-first ranking named and cited; `robozaps-humanoids-2026` added to frontmatter)\",\"note\":\"\"}"
-   },
-   "previousTupleDigest": "0afb00befa8ba989ba410fd9d1be873f4e5f0d3a2aeb75e97f84ba64cf1dc869",
-   "supersededPlanId": "industrial-volume-leader-20260917a",
-   "supersededByPlanId": "industrial-volume-leader-cut-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/data-hardware.md:industrial-deployment:7",
-   "rowOrdinal": 7,
-   "ledgerPath": "audit/data-hardware.md",
-   "articleSlug": "industrial-deployment",
-   "previousCells": {
-    "claim": "Industrial market installs \"a hundred times that every year\"",
-    "sourceChecked": "Int: 542,076 / 5,500 = 98.6; against Omdia's ~4,200 the multiple is 129, so the article now says \"a hundred times either figure\"",
-    "verdict": "V",
-    "note": "Current integration review 2026-09-17T14:32:46Z by agent:fd137388-f254-4d11-97b1-548904d2cad2-as0917a/integrator. Internal arithmetic re-verified read-only this session: 542,076 / 5,500 = 98.56 (“a hundred times”) and 542,076 / 4,200 = 129.06 (the article's 129). No external source states the multiple; the operands are certified by bound evidence: 542,076 installed in 2024 (ifr-industrial-2-20260912, IFR WR 2025 Executive Summary PDF), and this lane's glyph-verified technology.org passage (5,500, Unitree self-reported) and RoboZaps passage (~4,200, Omdia). No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Industrial market installs \\\"a hundred times that every year\\\"\",\"sourceChecked\":\"Int: 542,076 / 5,500 = 98.6; against Omdia's ~4,200 the multiple is 129, so the article now says \\\"a hundred times either figure\\\"\",\"verdict\":\"V\",\"note\":\"\"}"
-   },
-   "previousTupleDigest": "a1ecb24c51243fb071cd6998383e7caf44aa1afd78a23e5bf9658f4b50a7fbbf",
-   "supersededPlanId": "industrial-hundredfold-20260917a",
-   "supersededByPlanId": "industrial-hundredfold-ratio-cut-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/data-hardware.md:industrial-deployment:8",
-   "rowOrdinal": 8,
-   "ledgerPath": "audit/data-hardware.md",
-   "articleSlug": "industrial-deployment",
-   "previousCells": {
-    "claim": "Stat cards: 4.66M operational stock, 542,076 installations, 54% China share, ~5,500 humanoid units",
-    "sourceChecked": "Int + the same IFR and technology.org passages above; the humanoid card's note changed from \"the volume leader\" to \"its own figure\" to match the corrected prose",
-    "verdict": "V",
-    "note": "Current integration review 2026-09-17T14:32:46Z by agent:fd137388-f254-4d11-97b1-548904d2cad2-as0917a/integrator. Composite stat-card row: every operand is certified by bound evidence — 4,663,698 operational stock 2024 (ifr-industrial-1-20260912), 542,076 installations 2024 (ifr-industrial-2-20260912), 54% China share of 2024 installations (ifr-industrial-4-20260912), ~5,500 humanoid units 2025 (this lane's technology.org passage; Unitree's own figure). The humanoid card's note wording (“Unitree, its own figure”) is internal wording matching row 6's corrected prose; no numeric operand is internal. No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Stat cards: 4.66M operational stock, 542,076 installations, 54% China share, ~5,500 humanoid units\",\"sourceChecked\":\"Int + the same IFR and technology.org passages above; the humanoid card's note changed from \\\"the volume leader\\\" to \\\"its own figure\\\" to match the corrected prose\",\"verdict\":\"V\",\"note\":\"\"}"
-   },
-   "previousTupleDigest": "1ccb37f7f7bbcc0fa4a1c75c8f0333d35fed32440b07f7296a5b41054c4ead8b",
-   "supersededPlanId": "industrial-stat-cards-20260917a",
-   "supersededByPlanId": "industrial-stat-cards-ifr-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:reliability-gap:6",
-   "rowOrdinal": 6,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "reliability-gap",
-   "previousCells": {
-    "claim": "\">1,000h solved bar (this wiki’s proposal): documented MTBF; none of the deployed systems surveyed publishes one\" (corrected Stat note; the bar is now marked as the article’s own yardstick and the negative is scoped to the article’s survey)",
-    "sourceChecked": "negative claim (editorial): no registered source documents the absence (registry read-only; technology.org deployment sweep recorded no contradicting deployment record and prints no MTBF-absence statement); external evidence of a universal negative cannot exist in printable primaries",
-    "verdict": "C",
-    "note": "Corrected the Stat so the \">1,000h documented MTBF\" bar is presented as this wiki’s own proposed yardstick, not an industry metric, and the negative is scoped to \"the deployed systems we surveyed\" (basis: the technology.org deployment sweep this article records). Uncertainty stays honest: nothing claims a vendor-standard MTBF bar exists."
-   },
-   "previousTupleDigest": "5ce34513303a36e6333ca8e71e30400124eff42c7bfb71867c6f091271053d6d",
-   "supersededPlanId": "reliability-gap-r6-editorial-solvedbar-20260917a",
-   "supersededByPlanId": "reliability-gap-r6-editorial-yardstick-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:reliability-gap:9",
-   "rowOrdinal": 9,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "reliability-gap",
-   "previousCells": {
-    "claim": "Deployment record: circulating \"tens of thousands\" Tesla / \"above ten thousand\" Figure; Tesla never published a count; Agility 65,000+ h across nine facilities (GXO, Schaeffler, Toyota Motor Manufacturing Canada, Mercado Libre); Figure BMW 1,250+ h eleven-month pilot",
-    "sourceChecked": "technology.org sweep, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; FetchUrl tool-reported 200, fetched 2026-09-15T18:26:15.456Z",
-    "verdict": "V",
-    "note": "All elements verified in the sweep fetched 2026-09-15T18:26:15.456Z: circulating 'Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments'; 'Tesla has never published an Optimus production count, audited or otherwise'; Agility 'more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre'; Figure BMW eleven-month pilot, 'more than 1,250 operating hours, loaded over 90,000 sheet-metal parts... holding above 99 percent placement accuracy per shift and meeting an 84-second cycle time' per Figure's November 2025 report; Unitree 'targets 10,000 to 20,000 units in 2026'. Claim unchanged; evidence fields completed."
-   },
-   "previousTupleDigest": "2f30371c6dfead1eab7d9d4017523fbe8a4dc322f8882161fe1fa3c469dc6dfe",
-   "supersededPlanId": "reliability-gap-r9-deployment-record-20260915",
-   "supersededByPlanId": "reliability-gap-r9-deployment-record-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:reliability-gap:10",
-   "rowOrdinal": 10,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "reliability-gap",
-   "previousCells": {
-    "claim": "\"Unitree shipped roughly 5,500 humanoid units in 2025 at a price near \\$16,000\"",
-    "sourceChecked": "technology.org sweep, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; FetchUrl tool-reported 200, fetched 2026-09-15T18:26:15.456Z",
-    "verdict": "C",
-    "note": "Verified in the sweep fetched 2026-09-15T18:26:15.456Z: 'shipped approximately 5,500 humanoid units across its product line in 2025' (bear-case-registered b4-volume passage, reused verbatim) and 'Its G1 humanoid starts around $16,000' - the $16,000 figure is the G1's starting price, not the price of the whole 2025 G1/H1/H2 line, exactly as the recorded correction states. Article span already reads 'with its G1 starting near $16,000'; no further change; evidence fields completed."
-   },
-   "previousTupleDigest": "c8adccdacf49ed649874ad79903755ce795e0054fe1994b391b34b938a99ae05",
-   "supersededPlanId": "reliability-gap-r10-unitree-g1-price-20260915",
-   "supersededByPlanId": "reliability-gap-r10-g1-price-cut-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:reliability-gap:13",
-   "rowOrdinal": 13,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "reliability-gap",
-   "previousCells": {
-    "claim": "\"Figure's private valuation of \\$39B (September 2025) exceeds Goldman Sachs' projection for the entire humanoid market in 2035, \\$38B\"",
-    "sourceChecked": "technology.org sweep, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; FetchUrl tool-reported 200, fetched 2026-09-15T18:26:15.456Z",
-    "verdict": "V",
-    "note": "Both figures verified in the sweep fetched 2026-09-15T18:26:15.456Z, reusing the bear-case-registered passages verbatim: 'Figure held a $39 billion private valuation as of September 2025 - higher than Goldman's projection for the entire humanoid market nine years out.' and 'Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040.' Claim unchanged; evidence fields completed."
-   },
-   "previousTupleDigest": "c8e2b636a39c39ecdd8456cd5c3442f28ae8b0a282c709eae82feaf7a282ef99",
-   "supersededPlanId": "reliability-gap-r13-figure-goldman-20260915",
-   "supersededByPlanId": "reliability-gap-r13-valuation-comparison-cut-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:bear-case:4",
-   "rowOrdinal": 4,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "bear-case",
-   "previousCells": {
-    "claim": "Unitree: ~5,500 shipped in 2025, \"more than any Western competitor\"; \"Q1 2026 net profit fell 52% year over year\"",
-    "sourceChecked": "technology.org, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ (FetchUrl tool-reported 200, received 2026-09-15T16:30:21Z; plain curl GET 403 at 16:29:35Z and 16:29:55Z, all logged) + TechTimes, https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm (curl GET 200 on 2026-09-15T16:29:35Z, 349,261 bytes)",
-    "verdict": "C",
-    "note": "Volume verified: 'Unitree ships more humanoids than any Western competitor' (key takeaways) and 'shipped approximately 5,500 humanoid units across its product line in 2025 - more than Figure has shipped in its entire history' (technology.org). Profit verified as previously corrected: 'The latest financial data in Unitree's prospectus covers Q1 2026' and 'Adjusted net profit fell to 40.25 million yuan (approximately $5.9 million) from 84.84 million yuan in the same quarter last year, a year-on-year decline of 52.55%' (TechTimes). Article prose and stat box already carry adjusted net profit -52.55%; no further article change; evidence fields completed on the two fetched sources."
-   },
-   "previousTupleDigest": "a3cf4fdf6ab98712eee314863262246a481b3ba61d0df03a04d241879c99a52d",
-   "supersededPlanId": "bear-case-b4-unitree-20260915",
-   "supersededByPlanId": "bear-case-b4-unitree-profit-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:bear-case:5",
-   "rowOrdinal": 5,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "bear-case",
-   "previousCells": {
-    "claim": "\"Figure's private valuation of \\$39B (September 2025) exceeds Goldman Sachs' projection for the entire humanoid market in 2035, \\$38B\"",
-    "sourceChecked": "technology.org, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; FetchUrl tool-reported 200, received 2026-09-15T16:30:21Z (plain curl GET 403 at 16:29:35Z and 16:29:55Z, all logged); rendered text read this session",
-    "verdict": "V",
-    "note": "Verified against the fetched page: 'Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040' and 'Figure held a $39 billion private valuation as of September 2025 – higher than Goldman's projection for the entire humanoid market nine years out.' Claim unchanged; evidence fields completed."
-   },
-   "previousTupleDigest": "ccd5fa004b7eabb84d5dddcf9eefbaa02996b0bc2448e2aa7d3e45d5e97661a0",
-   "supersededPlanId": "bear-case-b5-figure-goldman-20260915",
-   "supersededByPlanId": "bear-case-b5-valuation-cut-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:bear-case:14",
-   "rowOrdinal": 14,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "bear-case",
-   "previousCells": {
-    "claim": "Watchlist rows: π0.5 unseen homes (partial); >1,000 documented units none / Agility 65,000+ h / Unitree ~5,500 (not-met); RoboArena/RoboChallenge/ManipulationNet standardized tasks or kits (partial); RL-100 100% + π*0.6 >90% per-task (partial); Sparsh-X ~1M interactions + TouchWorld, outside every major VLA pipeline (not-met); EgoScale law on validation loss (partial)",
-    "sourceChecked": "pi05 PDF https://arxiv.org/pdf/2504.16054 (curl GET 200 + pdftotext 2026-09-15T16:33:27Z, 16,213,397 bytes); pi*0.6 PDF https://www.pi.website/download/pistar06.pdf (curl GET 200 + pdftotext 2026-09-15T16:33:28Z, 6,043,825 bytes); arXiv abs pages (all curl GET 200 on 2026-09-15T16:30:21-22Z): 2510.14830 RL-100, 2506.18123 RoboArena, 2510.17950 RoboChallenge, 2603.04363 ManipulationNet, 2506.14754 Sparsh-X, 2607.07287 TouchWorld, 2602.16710 EgoScale; technology.org https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ (FetchUrl tool-reported 200, received 2026-09-15T16:30:21Z; plain curl 403, logged)",
-    "verdict": "C",
-    "note": "All eight milestone status bases evidenced this pass (passages recorded per plan part). One precise correction applied 2026-09-15: lib/bear-case.ts open-benchmark statusDetail read 'RoboArena, RoboChallenge, and ManipulationNet all launched with standardized tasks or hardware kits', but RoboArena's abstract states 'Instead of standardizing evaluations around fixed tasks, environments, or locations, we propose to crowd-source evaluations across a distributed network of evaluators'; the statusDetail now distinguishes the three benchmarks (RoboArena crowd-sourced double-blind pairwise evaluation; RoboChallenge a reproducible online evaluation system; ManipulationNet reproducible task setups through standardized hardware kits). The 'none has yet drawn convergent numbers from multiple independent labs' clause and the article's 'converging on shared evaluation infrastructure' sentence stand. The EgoScale R² = 0.9983 constant is not re-verified here (retained base holds the abs page only); it stands on the same-day generalization lane's PDF verification. 'Outside every major VLA pipeline' is the milestone's own editorial status call, not a source-certified absence."
-   },
-   "previousTupleDigest": "d5c5c16ed2d46755e238543ead77e47642281c16f5d54762ccb866a7529950cc",
-   "supersededPlanId": "bear-case-b14-watchlist-legs-20260915",
-   "supersededByPlanId": "bear-case-b14-watchlist-legs-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  },
-  {
-   "originalId": "audit/frontier.md:bear-case:15",
-   "rowOrdinal": 15,
-   "ledgerPath": "audit/frontier.md",
-   "articleSlug": "bear-case",
-   "previousCells": {
-    "claim": "\"the board reads four not met, four partial, zero met\"",
-    "sourceChecked": "local integrator re-verification of lib/bear-case.ts at HEAD 7ebd7af38ff16da55dce6d31f4315ef3c6b4397a (node import of MILESTONES re-run by the integrator session at application time, 2026-09-15); no fetch - status-call bases are the fetched sources recorded under rows 13 and 14",
-    "verdict": "V",
-    "note": "Local-basis row: MILESTONES array statuses counted at application time are partial, not-met, partial, partial, not-met, not-met, not-met, partial = four partial, four not-met, zero met, matching the article's \"four not met, four partial, zero met\" and the stat box \"0 of 8\". No HTTP source states the count; it is local arithmetic over the schema-validated array, paired (local-AND) with the fetched status bases of rows 13-14."
-   },
-   "previousTupleDigest": "6f8fa05b4f9b498083bddd67e95ea5d001b5e1ebf061dfab35c2d77e97a6f541",
-   "supersededPlanId": "bear-case-b15-board-count-20260915",
-   "supersededByPlanId": "bear-case-b15-board-count-20260924",
-   "supersededOn": "2026-09-24",
-   "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
-  }
- ]
+  "schema": "technology-withdrawal-prior-tuples-v1",
+  "recordedOn": "2026-09-24",
+  "note": "Lossless preservation of the twelve superseded four-cell ledger tuples exactly as preflighted at HEAD 714cf3a8701f94db0abd815635b86adaaf4bd852 (tree 0bcffc5); digests are the originalClaimDigest values of those cells.",
+  "tuples": [
+    {
+      "originalId": "audit/data-hardware.md:industrial-deployment:5",
+      "rowOrdinal": 5,
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "previousCells": {
+        "claim": "Unitree shipped roughly 5,500 humanoid units across 2025",
+        "sourceChecked": "technology-org-deployed-2026 (fetched live: \"Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025\")",
+        "verdict": "V",
+        "note": "Current integration review 2026-09-17T14:32:46Z by agent:as0917a/integrator. Both mandatory passages glyph-verified. technology.org fetch: web fetch live in the 2026-09-17T13:3x-13:5xZ source-packet fetch window, tool-reported 200, final URL identical to the requested URL (no redirect observed). The ~5,500 figure is Unitree's own shipment claim as reported by technology.org, cross-printed by the same page's scorecard row; no independent shipment audit exists. No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Unitree shipped roughly 5,500 humanoid units across 2025\",\"sourceChecked\":\"technology-org-deployed-2026 (fetched live: \\\"Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025\\\")\",\"verdict\":\"V\",\"note\":\"\"}"
+      },
+      "previousTupleDigest": "5015f418792ab36f5a44fa1c5c686d2ce83144ea43fa08bfa030822b95c6a1ef",
+      "supersededPlanId": "industrial-unitree-5500-20260917a",
+      "supersededByPlanId": "industrial-unitree-shipment-cut-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/data-hardware.md:industrial-deployment:6",
+      "rowOrdinal": 6,
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "previousCells": {
+        "claim": "Unitree is \"the volume leader\"",
+        "sourceChecked": "technology-org-deployed-2026 says only \"ships more humanoids than any Western competitor\"; unitree-profit-2026 calls Unitree \"the world's leading humanoid shipper\" (32.4% estimated global share); robozaps-humanoids-2026 (fetched live) records the counter-position: \"Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first\"",
+        "verdict": "C (P5: the ranking is disputed by a named analyst house and the article asserted it flat. Now \"the volume leader on its own numbers\", with Omdia's ~4,200 count and AgiBot-first ranking named and cited; `robozaps-humanoids-2026` added to frontmatter)",
+        "note": "Current integration review 2026-09-17T14:32:46Z by agent:as0917a/integrator. All three cited sources fetched live in the source window (technology.org, TechTimes, RoboZaps; each tool-reported 200, no redirect); per-part passages glyph-verified. Tension carried explicitly: the live RoboZaps page still prints the retained sentence (Omdia counts ~4,200, ranks AgiBot first) and now also prints updated figures (“Omdia ranks it #1 for 2025 shipments (5,168 units, 39% share), a ranking Unitree disputes”; “roughly 13,000 humanoids shipped in 2025 (per Omdia)”). This page-internal ~4,200-vs-5,168 count tension, with its corresponding AgiBot-first vs Unitree-#1 ranking tension, is recorded, not resolved; the P5 disputed-ranking framing and the article wording (“claims roughly 5,500 ... a count Omdia puts nearer 4,200 while ranking AgiBot first”) are unaffected. robozaps-humanoids-2026 is in the article frontmatter. No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Unitree is \\\"the volume leader\\\"\",\"sourceChecked\":\"technology-org-deployed-2026 says only \\\"ships more humanoids than any Western competitor\\\"; unitree-profit-2026 calls Unitree \\\"the world's leading humanoid shipper\\\" (32.4% estimated global share); robozaps-humanoids-2026 (fetched live) records the counter-position: \\\"Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first\\\"\",\"verdict\":\"C (P5: the ranking is disputed by a named analyst house and the article asserted it flat. Now \\\"the volume leader on its own numbers\\\", with Omdia's ~4,200 count and AgiBot-first ranking named and cited; `robozaps-humanoids-2026` added to frontmatter)\",\"note\":\"\"}"
+      },
+      "previousTupleDigest": "0afb00befa8ba989ba410fd9d1be873f4e5f0d3a2aeb75e97f84ba64cf1dc869",
+      "supersededPlanId": "industrial-volume-leader-20260917a",
+      "supersededByPlanId": "industrial-volume-leader-cut-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/data-hardware.md:industrial-deployment:7",
+      "rowOrdinal": 7,
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "previousCells": {
+        "claim": "Industrial market installs \"a hundred times that every year\"",
+        "sourceChecked": "Int: 542,076 / 5,500 = 98.6; against Omdia's ~4,200 the multiple is 129, so the article now says \"a hundred times either figure\"",
+        "verdict": "V",
+        "note": "Current integration review 2026-09-17T14:32:46Z by agent:as0917a/integrator. Internal arithmetic re-verified read-only this session: 542,076 / 5,500 = 98.56 (“a hundred times”) and 542,076 / 4,200 = 129.06 (the article's 129). No external source states the multiple; the operands are certified by bound evidence: 542,076 installed in 2024 (ifr-industrial-2-20260912, IFR WR 2025 Executive Summary PDF), and this lane's glyph-verified technology.org passage (5,500, Unitree self-reported) and RoboZaps passage (~4,200, Omdia). No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Industrial market installs \\\"a hundred times that every year\\\"\",\"sourceChecked\":\"Int: 542,076 / 5,500 = 98.6; against Omdia's ~4,200 the multiple is 129, so the article now says \\\"a hundred times either figure\\\"\",\"verdict\":\"V\",\"note\":\"\"}"
+      },
+      "previousTupleDigest": "a1ecb24c51243fb071cd6998383e7caf44aa1afd78a23e5bf9658f4b50a7fbbf",
+      "supersededPlanId": "industrial-hundredfold-20260917a",
+      "supersededByPlanId": "industrial-hundredfold-ratio-cut-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/data-hardware.md:industrial-deployment:8",
+      "rowOrdinal": 8,
+      "ledgerPath": "audit/data-hardware.md",
+      "articleSlug": "industrial-deployment",
+      "previousCells": {
+        "claim": "Stat cards: 4.66M operational stock, 542,076 installations, 54% China share, ~5,500 humanoid units",
+        "sourceChecked": "Int + the same IFR and technology.org passages above; the humanoid card's note changed from \"the volume leader\" to \"its own figure\" to match the corrected prose",
+        "verdict": "V",
+        "note": "Current integration review 2026-09-17T14:32:46Z by agent:as0917a/integrator. Composite stat-card row: every operand is certified by bound evidence — 4,663,698 operational stock 2024 (ifr-industrial-1-20260912), 542,076 installations 2024 (ifr-industrial-2-20260912), 54% China share of 2024 installations (ifr-industrial-4-20260912), ~5,500 humanoid units 2025 (this lane's technology.org passage; Unitree's own figure). The humanoid card's note wording (“Unitree, its own figure”) is internal wording matching row 6's corrected prose; no numeric operand is internal. No new retrieval by this integrator; all passages glyph-verified against the retained, sha256-pinned lane packet bytes. Original four-cell history: {\"claim\":\"Stat cards: 4.66M operational stock, 542,076 installations, 54% China share, ~5,500 humanoid units\",\"sourceChecked\":\"Int + the same IFR and technology.org passages above; the humanoid card's note changed from \\\"the volume leader\\\" to \\\"its own figure\\\" to match the corrected prose\",\"verdict\":\"V\",\"note\":\"\"}"
+      },
+      "previousTupleDigest": "1ccb37f7f7bbcc0fa4a1c75c8f0333d35fed32440b07f7296a5b41054c4ead8b",
+      "supersededPlanId": "industrial-stat-cards-20260917a",
+      "supersededByPlanId": "industrial-stat-cards-ifr-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:reliability-gap:6",
+      "rowOrdinal": 6,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "reliability-gap",
+      "previousCells": {
+        "claim": "\">1,000h solved bar (this wiki’s proposal): documented MTBF; none of the deployed systems surveyed publishes one\" (corrected Stat note; the bar is now marked as the article’s own yardstick and the negative is scoped to the article’s survey)",
+        "sourceChecked": "negative claim (editorial): no registered source documents the absence (registry read-only; technology.org deployment sweep recorded no contradicting deployment record and prints no MTBF-absence statement); external evidence of a universal negative cannot exist in printable primaries",
+        "verdict": "C",
+        "note": "Corrected the Stat so the \">1,000h documented MTBF\" bar is presented as this wiki’s own proposed yardstick, not an industry metric, and the negative is scoped to \"the deployed systems we surveyed\" (basis: the technology.org deployment sweep this article records). Uncertainty stays honest: nothing claims a vendor-standard MTBF bar exists."
+      },
+      "previousTupleDigest": "5ce34513303a36e6333ca8e71e30400124eff42c7bfb71867c6f091271053d6d",
+      "supersededPlanId": "reliability-gap-r6-editorial-solvedbar-20260917a",
+      "supersededByPlanId": "reliability-gap-r6-editorial-yardstick-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:reliability-gap:9",
+      "rowOrdinal": 9,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "reliability-gap",
+      "previousCells": {
+        "claim": "Deployment record: circulating \"tens of thousands\" Tesla / \"above ten thousand\" Figure; Tesla never published a count; Agility 65,000+ h across nine facilities (GXO, Schaeffler, Toyota Motor Manufacturing Canada, Mercado Libre); Figure BMW 1,250+ h eleven-month pilot",
+        "sourceChecked": "technology.org sweep, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; web fetch tool-reported 200, fetched 2026-09-15T18:26:15.456Z",
+        "verdict": "V",
+        "note": "All elements verified in the sweep fetched 2026-09-15T18:26:15.456Z: circulating 'Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments'; 'Tesla has never published an Optimus production count, audited or otherwise'; Agility 'more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre'; Figure BMW eleven-month pilot, 'more than 1,250 operating hours, loaded over 90,000 sheet-metal parts... holding above 99 percent placement accuracy per shift and meeting an 84-second cycle time' per Figure's November 2025 report; Unitree 'targets 10,000 to 20,000 units in 2026'. Claim unchanged; evidence fields completed."
+      },
+      "previousTupleDigest": "2f30371c6dfead1eab7d9d4017523fbe8a4dc322f8882161fe1fa3c469dc6dfe",
+      "supersededPlanId": "reliability-gap-r9-deployment-record-20260915",
+      "supersededByPlanId": "reliability-gap-r9-deployment-record-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:reliability-gap:10",
+      "rowOrdinal": 10,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "reliability-gap",
+      "previousCells": {
+        "claim": "\"Unitree shipped roughly 5,500 humanoid units in 2025 at a price near \\$16,000\"",
+        "sourceChecked": "technology.org sweep, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; web fetch tool-reported 200, fetched 2026-09-15T18:26:15.456Z",
+        "verdict": "C",
+        "note": "Verified in the sweep fetched 2026-09-15T18:26:15.456Z: 'shipped approximately 5,500 humanoid units across its product line in 2025' (bear-case-registered b4-volume passage, reused verbatim) and 'Its G1 humanoid starts around $16,000' - the $16,000 figure is the G1's starting price, not the price of the whole 2025 G1/H1/H2 line, exactly as the recorded correction states. Article span already reads 'with its G1 starting near $16,000'; no further change; evidence fields completed."
+      },
+      "previousTupleDigest": "c8adccdacf49ed649874ad79903755ce795e0054fe1994b391b34b938a99ae05",
+      "supersededPlanId": "reliability-gap-r10-unitree-g1-price-20260915",
+      "supersededByPlanId": "reliability-gap-r10-g1-price-cut-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:reliability-gap:13",
+      "rowOrdinal": 13,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "reliability-gap",
+      "previousCells": {
+        "claim": "\"Figure's private valuation of \\$39B (September 2025) exceeds Goldman Sachs' projection for the entire humanoid market in 2035, \\$38B\"",
+        "sourceChecked": "technology.org sweep, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; web fetch tool-reported 200, fetched 2026-09-15T18:26:15.456Z",
+        "verdict": "V",
+        "note": "Both figures verified in the sweep fetched 2026-09-15T18:26:15.456Z, reusing the bear-case-registered passages verbatim: 'Figure held a $39 billion private valuation as of September 2025 - higher than Goldman's projection for the entire humanoid market nine years out.' and 'Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040.' Claim unchanged; evidence fields completed."
+      },
+      "previousTupleDigest": "c8e2b636a39c39ecdd8456cd5c3442f28ae8b0a282c709eae82feaf7a282ef99",
+      "supersededPlanId": "reliability-gap-r13-figure-goldman-20260915",
+      "supersededByPlanId": "reliability-gap-r13-valuation-comparison-cut-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:bear-case:4",
+      "rowOrdinal": 4,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "bear-case",
+      "previousCells": {
+        "claim": "Unitree: ~5,500 shipped in 2025, \"more than any Western competitor\"; \"Q1 2026 net profit fell 52% year over year\"",
+        "sourceChecked": "technology.org, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ (web fetch tool-reported 200, received 2026-09-15T16:30:21Z; plain curl GET 403 at 16:29:35Z and 16:29:55Z, all logged) + TechTimes, https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm (curl GET 200 on 2026-09-15T16:29:35Z, 349,261 bytes)",
+        "verdict": "C",
+        "note": "Volume verified: 'Unitree ships more humanoids than any Western competitor' (key takeaways) and 'shipped approximately 5,500 humanoid units across its product line in 2025 - more than Figure has shipped in its entire history' (technology.org). Profit verified as previously corrected: 'The latest financial data in Unitree's prospectus covers Q1 2026' and 'Adjusted net profit fell to 40.25 million yuan (approximately $5.9 million) from 84.84 million yuan in the same quarter last year, a year-on-year decline of 52.55%' (TechTimes). Article prose and stat box already carry adjusted net profit -52.55%; no further article change; evidence fields completed on the two fetched sources."
+      },
+      "previousTupleDigest": "a3cf4fdf6ab98712eee314863262246a481b3ba61d0df03a04d241879c99a52d",
+      "supersededPlanId": "bear-case-b4-unitree-20260915",
+      "supersededByPlanId": "bear-case-b4-unitree-profit-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:bear-case:5",
+      "rowOrdinal": 5,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "bear-case",
+      "previousCells": {
+        "claim": "\"Figure's private valuation of \\$39B (September 2025) exceeds Goldman Sachs' projection for the entire humanoid market in 2035, \\$38B\"",
+        "sourceChecked": "technology.org, https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/; web fetch tool-reported 200, received 2026-09-15T16:30:21Z (plain curl GET 403 at 16:29:35Z and 16:29:55Z, all logged); rendered text read this session",
+        "verdict": "V",
+        "note": "Verified against the fetched page: 'Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040' and 'Figure held a $39 billion private valuation as of September 2025 – higher than Goldman's projection for the entire humanoid market nine years out.' Claim unchanged; evidence fields completed."
+      },
+      "previousTupleDigest": "ccd5fa004b7eabb84d5dddcf9eefbaa02996b0bc2448e2aa7d3e45d5e97661a0",
+      "supersededPlanId": "bear-case-b5-figure-goldman-20260915",
+      "supersededByPlanId": "bear-case-b5-valuation-cut-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:bear-case:14",
+      "rowOrdinal": 14,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "bear-case",
+      "previousCells": {
+        "claim": "Watchlist rows: π0.5 unseen homes (partial); >1,000 documented units none / Agility 65,000+ h / Unitree ~5,500 (not-met); RoboArena/RoboChallenge/ManipulationNet standardized tasks or kits (partial); RL-100 100% + π*0.6 >90% per-task (partial); Sparsh-X ~1M interactions + TouchWorld, outside every major VLA pipeline (not-met); EgoScale law on validation loss (partial)",
+        "sourceChecked": "pi05 PDF https://arxiv.org/pdf/2504.16054 (curl GET 200 + pdftotext 2026-09-15T16:33:27Z, 16,213,397 bytes); pi*0.6 PDF https://www.pi.website/download/pistar06.pdf (curl GET 200 + pdftotext 2026-09-15T16:33:28Z, 6,043,825 bytes); arXiv abs pages (all curl GET 200 on 2026-09-15T16:30:21-22Z): 2510.14830 RL-100, 2506.18123 RoboArena, 2510.17950 RoboChallenge, 2603.04363 ManipulationNet, 2506.14754 Sparsh-X, 2607.07287 TouchWorld, 2602.16710 EgoScale; technology.org https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/ (web fetch tool-reported 200, received 2026-09-15T16:30:21Z; plain curl 403, logged)",
+        "verdict": "C",
+        "note": "All eight milestone status bases evidenced this pass (passages recorded per plan part). One precise correction applied 2026-09-15: lib/bear-case.ts open-benchmark statusDetail read 'RoboArena, RoboChallenge, and ManipulationNet all launched with standardized tasks or hardware kits', but RoboArena's abstract states 'Instead of standardizing evaluations around fixed tasks, environments, or locations, we propose to crowd-source evaluations across a distributed network of evaluators'; the statusDetail now distinguishes the three benchmarks (RoboArena crowd-sourced double-blind pairwise evaluation; RoboChallenge a reproducible online evaluation system; ManipulationNet reproducible task setups through standardized hardware kits). The 'none has yet drawn convergent numbers from multiple independent labs' clause and the article's 'converging on shared evaluation infrastructure' sentence stand. The EgoScale R² = 0.9983 constant is not re-verified here (retained base holds the abs page only); it stands on the same-day generalization lane's PDF verification. 'Outside every major VLA pipeline' is the milestone's own editorial status call, not a source-certified absence."
+      },
+      "previousTupleDigest": "d5c5c16ed2d46755e238543ead77e47642281c16f5d54762ccb866a7529950cc",
+      "supersededPlanId": "bear-case-b14-watchlist-legs-20260915",
+      "supersededByPlanId": "bear-case-b14-watchlist-legs-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    },
+    {
+      "originalId": "audit/frontier.md:bear-case:15",
+      "rowOrdinal": 15,
+      "ledgerPath": "audit/frontier.md",
+      "articleSlug": "bear-case",
+      "previousCells": {
+        "claim": "\"the board reads four not met, four partial, zero met\"",
+        "sourceChecked": "local integrator re-verification of lib/bear-case.ts at HEAD 7ebd7af38ff16da55dce6d31f4315ef3c6b4397a (node import of MILESTONES re-run by the integrator session at application time, 2026-09-15); no fetch - status-call bases are the fetched sources recorded under rows 13 and 14",
+        "verdict": "V",
+        "note": "Local-basis row: MILESTONES array statuses counted at application time are partial, not-met, partial, partial, not-met, not-met, not-met, partial = four partial, four not-met, zero met, matching the article's \"four not met, four partial, zero met\" and the stat box \"0 of 8\". No HTTP source states the count; it is local arithmetic over the schema-validated array, paired (local-AND) with the fetched status bases of rows 13-14."
+      },
+      "previousTupleDigest": "6f8fa05b4f9b498083bddd67e95ea5d001b5e1ebf061dfab35c2d77e97a6f541",
+      "supersededPlanId": "bear-case-b15-board-count-20260915",
+      "supersededByPlanId": "bear-case-b15-board-count-20260924",
+      "supersededOn": "2026-09-24",
+      "reason": "technology-org-deployed-2026 withdrawn (direct-origin HTTP 403 2026-09-23; registry withdrawal 2026-09-24); row corrected or cut to inspected first-party sources only."
+    }
+  ]
 }

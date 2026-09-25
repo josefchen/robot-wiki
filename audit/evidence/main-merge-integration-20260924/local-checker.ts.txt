@@ -523,7 +523,7 @@ const KROGER_REGISTRY = 'data/citations.ts';
 const KROGER_LIVE_URL = 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html';
 const KROGER_ARCHIVE_URL = `https://web.archive.org/web/20251118224554/${KROGER_LIVE_URL}`;
 const CONTROL_REGISTRY_SNAPSHOT = 'audit/evidence/control-citation-closeout-20260924/before-citations.ts.txt';
-const CONTROL_REGISTRY_SNAPSHOT_SHA = '40428a52fd74caed8804f7d4e6dbadfd7a6051246545915aa3571b40517eac5a';
+const CONTROL_REGISTRY_SNAPSHOT_SHA = '1299890987e8dc1c49c50d773ab96dd00a8a89e1a0469560835fac79fafb3362';
 const ASTROM_ENTRY = `  {
     // Verified against the free second-edition PDF on the book site
     // (2026-08-11): chapter 1 states "More than 95% of all industrial
@@ -574,7 +574,7 @@ function readKrogerContinuity(root: string): RelevantContinuity {
     value.checkerAfter.path === INDUSTRIAL_CHECKER &&
     value.citationBefore.path === 'audit/evidence/citation-closeout-20260924/before-citations.ts.txt' &&
     value.citationAfter.path === KROGER_REGISTRY &&
-    value.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt' &&
+    value.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt' &&
     value.sourceBody.sha256 === '1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae',
   'wrong relevant continuity paths');
   const catalog = JSON.parse(readBoundedLocalFile(root, 'audit/local-basis.json').toString()) as {
@@ -633,7 +633,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   const current = readBoundedLocalFile(root, ref.path);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
   if (ref.path === KROGER_REGISTRY && ref.sha256 === CONTROL_REGISTRY_SNAPSHOT_SHA &&
-      ref.bytes === 301297) {
+      ref.bytes === 301305) {
     const continuity = readKrogerContinuity(root);
     const old = readBoundedLocalFile(root, CONTROL_REGISTRY_SNAPSHOT);
     const original = readBoundedLocalFile(root, continuity.citationBefore.path);
@@ -645,8 +645,8 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     return old;
   }
   if (ref.path === KROGER_REGISTRY &&
-      ref.sha256 === 'f6df373b74920df7e37620f80d83855b0c540e3e65bb421ea5bb17b504f77405' &&
-      ref.bytes === 301131) {
+      ref.sha256 === '23cc7a08ea940819eed563ce7ff95b174246d4d023032c5c3c221a8082baca85' &&
+      ref.bytes === 301139) {
     const continuity = readKrogerContinuity(root);
     const old = readBoundedLocalFile(root, continuity.citationBefore.path);
     const source = readBoundedLocalFile(root, continuity.sourceBody.path);

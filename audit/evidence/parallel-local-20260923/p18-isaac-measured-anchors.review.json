@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "parallel-local-p18-20260923:p18-isaac-measured-anchors:2026-09-23T06:12:45.812Z",
   "observedAt": "2026-09-23T06:12:45.812Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read the actual v1 Section4.1 and4.1.1 text, equation and Figure13 caption. Headless state-only DextrAH grasp/lift and Franka cabinet training exceeds900k/1.6M FPS at eight RTX PRO6000 GPUs and16384 environments. FPS is environment steps/(simulation+learning time), not camera-only or robot-control Hz. The source identifies distributed RTX PRO6000 and dual EPYC9554 hardware. These original anchors remain explicit external obligations, not hidden in notes or borrowed credit from rows8/9.",
   "outcome": "supported",
   "scope": "part",

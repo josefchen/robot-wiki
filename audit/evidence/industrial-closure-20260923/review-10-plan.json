@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "sessionId": "7260b9a1",
   "role": "integrator",
   "eventId": "industrial-10-plan",
   "observedAt": "2026-09-23T18:49:40.396Z",
-  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
   "rationale": "Reviewed whole original/current inventory and exact corrected article. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. External parts, if present, remain separate AND obligations; no generic internal truth category.",
   "outcome": "supported",
   "scope": "plan",

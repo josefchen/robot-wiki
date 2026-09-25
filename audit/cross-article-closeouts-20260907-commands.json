@@ -6,12 +6,12 @@
   "commandsRun": [
     {
       "name": "prepare-1",
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/prepare.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/prepare.py",
       "startedAt": "2026-09-07T21:20:43.832880+00:00",
       "finishedAt": "2026-09-07T21:20:43.945100+00:00",
       "elapsedSeconds": 0.11221799626946449,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/prepare-1.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/prepare-1.log",
       "bytes": 232,
       "sha256": "b76a56a0de3fb21c875f4a385560f1cf91ce927ecdd340fe0f522d3ed6f7d204",
       "environment": {
@@ -25,7 +25,7 @@
       "finishedAt": "2026-09-07T21:22:21.772775+00:00",
       "elapsedSeconds": 1.2477464703842998,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/citation-oracle-red.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/citation-oracle-red.log",
       "bytes": 2861,
       "sha256": "ca5cfa13d05548d691294b02080e6b2aec8b591b34c395953837f1d87b19244e",
       "environment": {
@@ -34,12 +34,12 @@
     },
     {
       "name": "provenance-1",
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/verify-provenance.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/verify-provenance.py",
       "startedAt": "2026-09-07T21:24:46.071569+00:00",
       "finishedAt": "2026-09-07T21:24:46.388901+00:00",
       "elapsedSeconds": 0.3173304833471775,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/provenance-1.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/provenance-1.log",
       "bytes": 128,
       "sha256": "bc3a1fc7aa280b5c3f74af3a11917f379e6c388b2617377b15c9375a6cd1d8cd",
       "environment": {
@@ -53,7 +53,7 @@
       "finishedAt": "2026-09-07T21:26:48.602913+00:00",
       "elapsedSeconds": 1.7543834168463945,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/affected-red.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/affected-red.log",
       "bytes": 120501,
       "sha256": "5a2946535a239045f67155b08010225739aca5fc62d5eb0a6d60287e08940116",
       "environment": {
@@ -62,12 +62,12 @@
     },
     {
       "name": "integrate-1",
-      "command": "node --import tsx /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
+      "command": "node --import tsx validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
       "startedAt": "2026-09-07T21:40:44.974008+00:00",
       "finishedAt": "2026-09-07T21:40:44.998073+00:00",
       "elapsedSeconds": 0.024060621857643127,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-1.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-1.log",
       "bytes": 1006,
       "sha256": "97ed67f8171fb5bc7cd2b16106358f672ae529134e6f606552e4f668f6ceb19e",
       "environment": {
@@ -76,12 +76,12 @@
     },
     {
       "name": "integrate-2",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
       "startedAt": "2026-09-07T21:41:16.354969+00:00",
       "finishedAt": "2026-09-07T21:41:17.035271+00:00",
       "elapsedSeconds": 0.6802986422553658,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-2.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-2.log",
       "bytes": 954,
       "sha256": "68e9aa5ff1678bf0b51fb9d0c6ce1feee23cea7bff38bbff1224aead2e87b93d",
       "environment": {
@@ -90,12 +90,12 @@
     },
     {
       "name": "integrate-3",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
       "startedAt": "2026-09-07T21:43:23.164436+00:00",
       "finishedAt": "2026-09-07T21:43:23.890496+00:00",
       "elapsedSeconds": 0.726057605817914,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-3.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-3.log",
       "bytes": 872,
       "sha256": "1a140be393cbc363452f622ae33a9d07376b59e56685909437b48eb766bf1b43",
       "environment": {
@@ -104,12 +104,12 @@
     },
     {
       "name": "integrate-4",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
       "startedAt": "2026-09-07T21:44:07.695728+00:00",
       "finishedAt": "2026-09-07T21:44:08.337591+00:00",
       "elapsedSeconds": 0.6418605102226138,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-4.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-4.log",
       "bytes": 5676,
       "sha256": "b1550e08d4a4881ee3b791c3034ce03470e7c98b5c91be8ac7a4ee45983897b6",
       "environment": {
@@ -118,12 +118,12 @@
     },
     {
       "name": "integrate-5",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate.mjs",
       "startedAt": "2026-09-07T21:44:25.854336+00:00",
       "finishedAt": "2026-09-07T21:44:26.580466+00:00",
       "elapsedSeconds": 0.7261270172894001,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-5.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/integrate-5.log",
       "bytes": 1592,
       "sha256": "3ba870bfbbacaab798043b34498878e4a99dba79f502d11b0fc77e7ca8f73373",
       "environment": {
@@ -137,7 +137,7 @@
       "finishedAt": "2026-09-07T21:49:20.907063+00:00",
       "elapsedSeconds": 5.568711709231138,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/focused-1.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/focused-1.log",
       "bytes": 9354,
       "sha256": "76a92bb656d9fb9444d13b676836db8759fe224ffcce3e868d20a5175fe86c4c",
       "environment": {
@@ -151,7 +151,7 @@
       "finishedAt": "2026-09-07T21:51:45.471021+00:00",
       "elapsedSeconds": 0.6170184779912233,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/content-1.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/content-1.log",
       "bytes": 789,
       "sha256": "ab201130d0d1ccf168657e9b56447153409928056ff77f5b710a6c96bb1f2276",
       "environment": {
@@ -165,7 +165,7 @@
       "finishedAt": "2026-09-07T21:53:01.475760+00:00",
       "elapsedSeconds": 3.5858869226649404,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/focused-rebound.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/focused-rebound.log",
       "bytes": 11857,
       "sha256": "c8f994acb11a627af6d5cd00fb58a34b1946634e8a9c8567b8f0aa6cd6136418",
       "environment": {
@@ -179,7 +179,7 @@
       "finishedAt": "2026-09-07T21:53:03.984148+00:00",
       "elapsedSeconds": 2.4792172545567155,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/typescript.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/typescript.log",
       "bytes": 792,
       "sha256": "a62c64dfefee49ab9a6fe92bb5a96d43a6d48ef67530af9f947f2611cc040fc0",
       "environment": {
@@ -193,7 +193,7 @@
       "finishedAt": "2026-09-07T21:53:42.979404+00:00",
       "elapsedSeconds": 3.6399052878841758,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/comparison-filter-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/comparison-filter-final.log",
       "bytes": 46584,
       "sha256": "a652716dbf6b02423a78c5ea75b34d4d25d2d3e69fc81a340840c7f6d4f0409b",
       "environment": {
@@ -207,7 +207,7 @@
       "finishedAt": "2026-09-07T21:53:45.590094+00:00",
       "elapsedSeconds": 2.581317536532879,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/typescript-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/typescript-final.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -221,7 +221,7 @@
       "finishedAt": "2026-09-07T21:55:09.883618+00:00",
       "elapsedSeconds": 1.841142650693655,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/comparison-filter-bound.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/comparison-filter-bound.log",
       "bytes": 803,
       "sha256": "46dd1266edef8f324ec88c72a0e7391c84dd7f05be4833107a3929b2133f8b00",
       "environment": {
@@ -230,12 +230,12 @@
     },
     {
       "name": "approvals",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
       "startedAt": "2026-09-07T21:59:42.827951+00:00",
       "finishedAt": "2026-09-07T21:59:43.362169+00:00",
       "elapsedSeconds": 0.5342136453837156,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/approvals.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/approvals.log",
       "bytes": 804,
       "sha256": "ba17d930d55712cf521ae8d6983f0a0f54a6c2332cc8a1b8923970fa9724b931",
       "environment": {
@@ -249,7 +249,7 @@
       "finishedAt": "2026-09-07T21:59:44.013558+00:00",
       "elapsedSeconds": 0.6024996805936098,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/content-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/content-final.log",
       "bytes": 680,
       "sha256": "8afd2f1f93b7f727c8c5eb3c80c81068edb34882716cfdd3e364dc35beb8d622",
       "environment": {
@@ -258,12 +258,12 @@
     },
     {
       "name": "approvals-bound",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
       "startedAt": "2026-09-07T22:01:17.609407+00:00",
       "finishedAt": "2026-09-07T22:01:18.008590+00:00",
       "elapsedSeconds": 0.39917177706956863,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/approvals-bound.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/approvals-bound.log",
       "bytes": 25,
       "sha256": "736b18188c042f43d0966c86cffbfc71a224989fb6be5376d6bfb41959a82880",
       "environment": {
@@ -277,7 +277,7 @@
       "finishedAt": "2026-09-07T22:01:19.139721+00:00",
       "elapsedSeconds": 1.0923296082764864,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/content-accounting.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/content-accounting.log",
       "bytes": 270595,
       "sha256": "7d6b4ac20da504a01e4ab0bac19a9ca6fcd901ad071c900b89cefdd652fa419f",
       "environment": {
@@ -291,7 +291,7 @@
       "finishedAt": "2026-09-07T22:01:35.749589+00:00",
       "elapsedSeconds": 16.57702613156289,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/lint.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/lint.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -300,12 +300,12 @@
     },
     {
       "name": "browser",
-      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs",
+      "command": "node node_modules/@playwright/test/cli.js test --config validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs",
       "startedAt": "2026-09-07T22:02:04.615630+00:00",
       "finishedAt": "2026-09-07T22:03:25.182674+00:00",
       "elapsedSeconds": 80.56703830044717,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser.log",
       "bytes": 64151,
       "sha256": "421123d809549cae459ad24013eff501f0911668f0d587e65231da8262d940f8",
       "environment": {
@@ -314,12 +314,12 @@
     },
     {
       "name": "browser-render-repair",
-      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs --grep-invert \"no horizontal page scroll\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/captures-render-repair --reporter=list",
+      "command": "node node_modules/@playwright/test/cli.js test --config validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs --grep-invert \"no horizontal page scroll\" --output validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/captures-render-repair --reporter=list",
       "startedAt": "2026-09-07T22:05:37.602999+00:00",
       "finishedAt": "2026-09-07T22:06:34.676477+00:00",
       "elapsedSeconds": 57.07347349449992,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-render-repair.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-render-repair.log",
       "bytes": 18948,
       "sha256": "7c1ef5baf0c4d7b13cbe7c547cd7a31b6b358493fbed9ade92665b7b5e52ce48",
       "environment": {
@@ -328,12 +328,12 @@
     },
     {
       "name": "browser-affected",
-      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs --grep \"final source closeout (comparison-matrix|rl-finetuning|latent-dynamics)|no horizontal page scroll\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/captures-affected --reporter=list",
+      "command": "node node_modules/@playwright/test/cli.js test --config validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs --grep \"final source closeout (comparison-matrix|rl-finetuning|latent-dynamics)|no horizontal page scroll\" --output validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/captures-affected --reporter=list",
       "startedAt": "2026-09-07T22:09:22.188277+00:00",
       "finishedAt": "2026-09-07T22:09:45.327974+00:00",
       "elapsedSeconds": 23.13969312608242,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-affected.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-affected.log",
       "bytes": 864,
       "sha256": "5f26cf12fd4fa25fdd13f7a058db54877aa04193d17fc9adab1b11395abcdbd7",
       "environment": {
@@ -347,7 +347,7 @@
       "finishedAt": "2026-09-07T22:11:42.412215+00:00",
       "elapsedSeconds": 2.326794657856226,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/cards-generate.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/cards-generate.log",
       "bytes": 294,
       "sha256": "4c9cc16dda5909787a6a072c3ddb40622e616d0e0eeef38584a00d1dd7427967",
       "environment": {
@@ -361,7 +361,7 @@
       "finishedAt": "2026-09-07T22:11:44.508596+00:00",
       "elapsedSeconds": 2.067864667624235,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/cards-check.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/cards-check.log",
       "bytes": 200,
       "sha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844",
       "environment": {
@@ -370,12 +370,12 @@
     },
     {
       "name": "final-bindings",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/finalize.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/finalize.mjs",
       "startedAt": "2026-09-07T22:18:09.031420+00:00",
       "finishedAt": "2026-09-07T22:18:09.801865+00:00",
       "elapsedSeconds": 0.7704407628625631,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-bindings.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-bindings.log",
       "bytes": 115,
       "sha256": "de0b35f446f82ba43e0b6a2a1bf0dca369989023634c855955e70ec63c8ba99d",
       "environment": {
@@ -384,12 +384,12 @@
     },
     {
       "name": "final-approvals",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
       "startedAt": "2026-09-07T22:18:09.858581+00:00",
       "finishedAt": "2026-09-07T22:18:10.278122+00:00",
       "elapsedSeconds": 0.4195387875661254,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-approvals.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-approvals.log",
       "bytes": 25,
       "sha256": "2a3cadd61ea6f0e3c57553dd459b65df070b13f2c1d66dbda89d6fa2492a8271",
       "environment": {
@@ -403,7 +403,7 @@
       "finishedAt": "2026-09-07T22:18:10.753976+00:00",
       "elapsedSeconds": 0.44364500883966684,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/baseline.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/baseline.log",
       "bytes": 745122,
       "sha256": "6def7b15ae5f63a0ae2ab4694a65bd83ff90cbe34a2c722eb91194beab1d422c",
       "environment": {
@@ -417,7 +417,7 @@
       "finishedAt": "2026-09-07T22:21:18.442445+00:00",
       "elapsedSeconds": 4.447430874221027,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-focused.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-focused.log",
       "bytes": 4669,
       "sha256": "5f8935613a39bff3a65f8be6375f6c9a8086d7f5430c7bbe837703887cf4af11",
       "environment": {
@@ -431,7 +431,7 @@
       "finishedAt": "2026-09-07T22:21:20.544375+00:00",
       "elapsedSeconds": 2.072800640948117,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-typescript.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-typescript.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -440,12 +440,12 @@
     },
     {
       "name": "final-bindings-v2",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/finalize.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/finalize.mjs",
       "startedAt": "2026-09-07T22:23:31.703982+00:00",
       "finishedAt": "2026-09-07T22:23:32.444489+00:00",
       "elapsedSeconds": 0.7405028995126486,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-bindings-v2.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-bindings-v2.log",
       "bytes": 115,
       "sha256": "7161c6c396170b839b6cf8a345a8f9118d9d81b7b6eb7ba807f16017c9039602",
       "environment": {
@@ -454,12 +454,12 @@
     },
     {
       "name": "final-approvals-v2",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/deltas.mjs",
       "startedAt": "2026-09-07T22:23:32.488912+00:00",
       "finishedAt": "2026-09-07T22:23:32.928707+00:00",
       "elapsedSeconds": 0.4397909613326192,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-approvals-v2.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-approvals-v2.log",
       "bytes": 25,
       "sha256": "89435174a52c4338cea89e035879c07e7a74fd1c03574ac0685cb3075f4c5ffb",
       "environment": {
@@ -473,7 +473,7 @@
       "finishedAt": "2026-09-07T22:23:34.621943+00:00",
       "elapsedSeconds": 1.6597030879929662,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/toy-description-final.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/toy-description-final.log",
       "bytes": 767,
       "sha256": "175cb0f8cdc9b80529d915861cbec731362072f97eb0e6ebb99b33eb280662fe",
       "environment": {
@@ -482,12 +482,12 @@
     },
     {
       "name": "final-snapshot",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/snapshot.mjs final",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/snapshot.mjs final",
       "startedAt": "2026-09-07T22:23:34.650746+00:00",
       "finishedAt": "2026-09-07T22:23:35.290977+00:00",
       "elapsedSeconds": 0.6402305737137794,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-snapshot.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/final-snapshot.log",
       "bytes": 57,
       "sha256": "fe77a2c059849f5af72ac0fd46f8e5d3c29ac44dee6bc1a108b2e28d6ea04388",
       "environment": {
@@ -496,12 +496,12 @@
     },
     {
       "name": "preservation",
-      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/preserve.py",
+      "command": "python3 validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/preserve.py",
       "startedAt": "2026-09-07T22:37:41.852266+00:00",
       "finishedAt": "2026-09-07T22:37:41.957480+00:00",
       "elapsedSeconds": 0.10520825441926718,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/preservation.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/preservation.log",
       "bytes": 2928,
       "sha256": "90e23c5eba04bc021305bfc122b0375096b80b4a90ec83e1e5e48264fa6ba9be",
       "environment": {
@@ -515,7 +515,7 @@
       "finishedAt": "2026-09-07T22:38:37.826098+00:00",
       "elapsedSeconds": 5.867152720689774,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-tests.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-tests.log",
       "bytes": 4499,
       "sha256": "da8a4b775d979e7e80afb8a988b87ccdb2a8c0aaed261370307e02eebd8a1d42",
       "environment": {
@@ -529,7 +529,7 @@
       "finishedAt": "2026-09-07T22:38:38.625220+00:00",
       "elapsedSeconds": 0.7704810407012701,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-content.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-content.log",
       "bytes": 270595,
       "sha256": "7d6b4ac20da504a01e4ab0bac19a9ca6fcd901ad071c900b89cefdd652fa419f",
       "environment": {
@@ -543,7 +543,7 @@
       "finishedAt": "2026-09-07T22:38:39.079454+00:00",
       "elapsedSeconds": 0.4236364718526602,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-baseline.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-baseline.log",
       "bytes": 745121,
       "sha256": "ac33430dafe37dfbeef04725297a2d5d6d96722ce496003e8020913e4eaebf4f",
       "environment": {
@@ -557,7 +557,7 @@
       "finishedAt": "2026-09-07T22:38:55.761904+00:00",
       "elapsedSeconds": 16.6510153375566,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-lint.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-lint.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -571,7 +571,7 @@
       "finishedAt": "2026-09-07T22:38:57.794938+00:00",
       "elapsedSeconds": 2.0044057751074433,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-typescript.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-typescript.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -580,12 +580,12 @@
     },
     {
       "name": "checkpoint-browser",
-      "command": "env PLAYWRIGHT_JSON_OUTPUT_NAME=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-browser-result.json node node_modules/@playwright/test/cli.js test --config=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs --grep=\"final source closeout (pi-line|rl-finetuning)\" --reporter=list,json --output=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/captures-current",
+      "command": "env PLAYWRIGHT_JSON_OUTPUT_NAME=validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-browser-result.json node node_modules/@playwright/test/cli.js test --config=validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/playwright.config.mjs --grep=\"final source closeout (pi-line|rl-finetuning)\" --reporter=list,json --output=validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/captures-current",
       "startedAt": "2026-09-07T22:41:10.756252+00:00",
       "finishedAt": "2026-09-07T22:41:29.854443+00:00",
       "elapsedSeconds": 19.098184420727193,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-browser.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-browser.log",
       "bytes": 483,
       "sha256": "47bb7a98554fccb4681a725dd9ea89c758579ad2150af3e170d0e9ae155b84ef",
       "environment": {
@@ -599,7 +599,7 @@
       "finishedAt": "2026-09-07T22:42:13.567453+00:00",
       "elapsedSeconds": 1.257761557586491,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-proof-lint.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-proof-lint.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -613,7 +613,7 @@
       "finishedAt": "2026-09-07T22:42:15.687339+00:00",
       "elapsedSeconds": 2.0910606076940894,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-proof-typescript.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/browser-proof-typescript.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "environment": {
@@ -627,7 +627,7 @@
       "finishedAt": "2026-09-07T22:50:21.921934+00:00",
       "elapsedSeconds": 2.3412965666502714,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-cards.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-cards.log",
       "bytes": 200,
       "sha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844",
       "environment": {
@@ -636,12 +636,12 @@
     },
     {
       "name": "checkpoint-snapshot",
-      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/snapshot.mjs checkpoint",
+      "command": "node validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/snapshot.mjs checkpoint",
       "startedAt": "2026-09-07T22:53:53.495815+00:00",
       "finishedAt": "2026-09-07T22:53:54.099211+00:00",
       "elapsedSeconds": 0.6033939337357879,
       "exitCode": 0,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-snapshot.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-snapshot.log",
       "bytes": 62,
       "sha256": "01bed6d111e17fb768e363f21c85145ac50061e441d36b481228628d3364baa0",
       "environment": {
@@ -655,7 +655,7 @@
       "finishedAt": "2026-09-07T22:53:54.911083+00:00",
       "elapsedSeconds": 0.782825849018991,
       "exitCode": 1,
-      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-doc-content.log",
+      "log": "validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/checkpoint-doc-content.log",
       "bytes": 270595,
       "sha256": "7d6b4ac20da504a01e4ab0bac19a9ca6fcd901ad071c900b89cefdd652fa419f",
       "environment": {

@@ -23,7 +23,7 @@ function source(partId, citationId, name, start, end) {
     partId, citationId, sourceUrl: p.sourceUrl, supportingPassage,
     provenance: {
       retrievedAt: p.retrievedAt,
-      tool: citationId === 'rudin-2021' ? 'Retained FetchUrl rendered full text; original tool response time'
+      tool: citationId === 'rudin-2021' ? 'Retained web fetch rendered full text; original tool response time'
         : citationId === 'legged-gym-repo-2021' ? 'Retained initial-commit API GET; exact addition reconstructed and upstream Git blob verified'
           : 'Retained original PDF GET and pdftotext reading extraction; matched embedded original capture, no new fetch or conversion',
       response: artifact(file), passage: member(file, supportingPassage),
@@ -33,13 +33,13 @@ function source(partId, citationId, name, start, end) {
 const current = {
   4: {
     claim: 'Twelve authored reward terms and labeled weight controls feed an illustrative signed weighted sum and drawn preview, not the full paper or reference-code objective.',
-    sourceChecked: 'Retained Rudin full text (2026-09-06 FetchUrl); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (2026-09-08 API extraction); actual 2026-09-23 typed reward parameter, arithmetic and mounted-browser runs.',
+    sourceChecked: 'Retained Rudin full text (2026-09-06 web fetch); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (2026-09-08 API extraction); actual 2026-09-23 typed reward parameter, arithmetic and mounted-browser runs.',
     verdict: 'C',
     note: 'The original full-term-set assertion is corrected, not verified. Nine paper terms and the reference stumble definition have separate fetched-source evidence; twelve UI terms are authored choices. Default total -5.52 is dimensionless per step. Twelve labeled controls and default/reset are observed, not inferred from code. Original cells, prior held tuple, withdrawn reviews and removed legacy plan remain unchanged in correction history and audit/evidence/reward-local-20260923. Owner-approved authored-local-basis-v1 applies only to disclosed local parts; every external AND local obligation is retained. Historical fetch times are not current liveness. No policy training, independent acceptance or green content gate is claimed.',
   },
   5: {
     claim: 'Freeze, prance and chatter are authored classifier and pose choices, distinct from Rudin observed artifacts; actual mounted controls select the three previews and Reset restores balanced.',
-    sourceChecked: 'Retained Rudin simulation artifact/tuning paragraph (2026-09-06 FetchUrl); actual 2026-09-23 reward parameter extraction, six independently checked input cases and mounted freeze/prance/chatter/reset observations.',
+    sourceChecked: 'Retained Rudin simulation artifact/tuning paragraph (2026-09-06 web fetch); actual 2026-09-23 reward parameter extraction, six independently checked input cases and mounted freeze/prance/chatter/reset observations.',
     verdict: 'C',
     note: 'The original literature/lab-lore attribution is corrected to a disclosed local taxonomy, not proved by a paper. Chatter actionRate <= 0.2 has priority; otherwise torque >= 2.5 and >= 2*velTrack selects freeze, then the analogous airTime rule selects prance, else balanced. Authored inputs bind default, freeze, prance, chatter, dominance counterexample and priority tie; totals and phase-zero poses are local outputs, not learned optima, physical frequencies or damage predictions. Rudin separately reports a dragging leg and unreasonable base heights before weight tuning and transfer. All prior cells/reviews/plan are archived unchanged; all external AND local parts are required. No new fetch or independent acceptance.',
   },

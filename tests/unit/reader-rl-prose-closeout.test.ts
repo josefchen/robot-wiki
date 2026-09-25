@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { showAt } from './helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -15,9 +15,7 @@ const root = resolve(import.meta.dirname, '../..');
 const base = '280d8661a49feb16e45ef337e7cb46a794211004';
 const checkpoint = 'f880e137e9f0c35fd383cb9cdafe5a38ec25d29d';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
-  cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
-});
+const before = (path: string) => showAt(base, path);
 const paths = [
   'content/manipulation/rl-finetuning.mdx',
   'content/rl-sim2real/why-rl-locomotion.mdx',

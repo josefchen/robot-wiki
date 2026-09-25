@@ -1,1 +1,13 @@
-{"formula":"throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput","precision":"hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round","units":"rigs:count; target:h; throughput:h/year; duration:years","values":{"display":["70 h/yr","143 yr"],"perYear":70,"years":142.85714285714286}}
+{
+  "formula": "throughput=rigs*chosen hoursPerRigYear; years=targetHours/throughput",
+  "precision": "hours:Math.round or 1 decimal at millions; years:<1 nearest month,1..100 toFixed(1),>=100 Math.round",
+  "units": "rigs:count; target:h; throughput:h/year; duration:years",
+  "values": {
+    "display": [
+      "70 h/yr",
+      "143 yr"
+    ],
+    "perYear": 70,
+    "years": 142.85714285714286
+  }
+}
