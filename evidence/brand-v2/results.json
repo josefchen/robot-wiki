@@ -80972,6 +80972,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/search/search-interface.tsx:aria-label:2",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/search/search-interface.tsx:aria-label:2",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/search/search-interface.tsx:aria-label:2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/search/search-interface.tsx:aria-label:2 moved from null to 402bb968b16eff30191b925fce4757f6577e2ad3770f9d682274412863187f6a exactly as approved delta brand-v2-search-clear-control-name permits: Fact-preserving accessible-name addition. `components/search/search-interface.tsx` gained the labelled clear control the search state machine was missing: the second aria-label in that file names the button \"Clear search\" so the reset action is operable and announced without the visible glyph carrying the meaning. The name restates the control's own printed label; no result, index, citation or attribution text changed. Added by brand-v2-search-states-facets-and-results.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/search/search-interface.tsx:aria-label:2",
+          "baselineHash": null,
+          "currentHash": "402bb968b16eff30191b925fce4757f6577e2ad3770f9d682274412863187f6a",
+          "status": "approved-addition",
+          "approvedDelta": "brand-v2-search-clear-control-name"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/search/type-facet-bar.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:literal:components/search/type-facet-bar.tsx:aria-label:1",
@@ -120906,6 +120934,118 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-COMP-012:semantic-use:components/search/results-group.tsx#error",
+      "assertionId": "VAL-B2-COMP-012",
+      "populationMemberId": "semantic-use:components/search/results-group.tsx#error",
+      "coveredPopulationMemberIds": [
+        "semantic-use:components/search/results-group.tsx#error"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
+      "actual": "components/search/results-group.tsx uses error through border-err, text-err on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 73 swept public routes",
+      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "semantic-use:components/search/results-group.tsx#error",
+          "token": "error",
+          "module": "components/search/results-group.tsx",
+          "forms": [
+            "border-err",
+            "text-err"
+          ],
+          "references": 2,
+          "viaAlias": "err",
+          "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/search/results-group.tsx#76:p:error",
+              "element": "p",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
+          "routesResolved": 73,
+          "evidence": [
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-012:semantic-use:components/search/search-interface.tsx#error",
+      "assertionId": "VAL-B2-COMP-012",
+      "populationMemberId": "semantic-use:components/search/search-interface.tsx#error",
+      "coveredPopulationMemberIds": [
+        "semantic-use:components/search/search-interface.tsx#error"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
+      "actual": "components/search/search-interface.tsx uses error through border-err, text-err on 3 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 73 swept public routes",
+      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "semantic-use:components/search/search-interface.tsx#error",
+          "token": "error",
+          "module": "components/search/search-interface.tsx",
+          "forms": [
+            "border-err",
+            "text-err"
+          ],
+          "references": 4,
+          "viaAlias": "err",
+          "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/search/search-interface.tsx#387:p:error",
+              "element": "p",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/search/search-interface.tsx#390:code:error",
+              "element": "code",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/search/search-interface.tsx#394:code:error",
+              "element": "code",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
+          "routesResolved": 73,
+          "evidence": [
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ]
+        }
+      }
+    },
+    {
       "resultId": "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
       "assertionId": "VAL-B2-COMP-012",
       "populationMemberId": "semantic-use:components/three/ik-target-form.tsx#error",
@@ -123061,370 +123201,746 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-DISC-001",
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:default-idle",
       "assertionId": "VAL-B2-DISC-001",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "search-state:state:default-idle",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "search-state:state:default-idle"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "search-state:state:default-idle holds on the built /search export: {\"statusText\":\"\",\"loadingRowCount\":0,\"idleCopyVisible\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "statusText": "",
+          "loadingRowCount": 0,
+          "idleCopyVisible": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
         }
       }
     },
     {
-      "resultId": "result:VAL-B2-DISC-002",
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:loading-first-query",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:loading-first-query",
+      "coveredPopulationMemberIds": [
+        "search-state:state:loading-first-query"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:loading-first-query holds on the built /search export: {\"statusText\":\"Searching for \\\"action chunking\\\"\",\"loadingRowCount\":2,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "Searching for \"action chunking\"",
+          "loadingRowCount": 2,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:results-both-groups",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:results-both-groups",
+      "coveredPopulationMemberIds": [
+        "search-state:state:results-both-groups"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"statusText\":\"14 modules, 6 entities match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules, 6 entities match \"action chunking\"",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:facet-method",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:facet-method",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-method"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:facet-method holds on the built /search export: {\"statusText\":\"14 modules, 4 entities match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules, 4 entities match \"action chunking\"",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:facet-company",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:facet-company",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-company"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:facet-company holds on the built /search export: {\"statusText\":\"14 modules, 2 entities match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules, 2 entities match \"action chunking\"",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:facet-dataset",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:facet-dataset",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-dataset"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:facet-dataset holds on the built /search export: {\"statusText\":\"14 modules match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules match \"action chunking\"",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:no-results",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:no-results",
+      "coveredPopulationMemberIds": [
+        "search-state:state:no-results"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:no-results holds on the built /search export: {\"statusText\":\"No article prose and no method, company or dataset entity matches \\\"quartz-lantern-7319\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "No article prose and no method, company or dataset entity matches \"quartz-lantern-7319\"",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:partial-error-prose",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:partial-error-prose",
+      "coveredPopulationMemberIds": [
+        "search-state:state:partial-error-prose"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:partial-error-prose holds on the built /search export: {\"statusText\":\"6 entities match \\\"action chunking\\\"; the module index is unavailable\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "6 entities match \"action chunking\"; the module index is unavailable",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:partial-error-structured",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:partial-error-structured",
+      "coveredPopulationMemberIds": [
+        "search-state:state:partial-error-structured"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:partial-error-structured holds on the built /search export: {\"statusText\":\"1 module matches \\\"action chunking\\\"; the entity index is unavailable\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "1 module matches \"action chunking\"; the entity index is unavailable",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:total-error",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:total-error",
+      "coveredPopulationMemberIds": [
+        "search-state:state:total-error"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:total-error holds on the built /search export: {\"statusText\":\"The search index is unavailable\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "The search index is unavailable",
+          "loadingRowCount": 0,
+          "idleCopyVisible": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-001:search-state:state:cleared-to-idle",
+      "assertionId": "VAL-B2-DISC-001",
+      "populationMemberId": "search-state:state:cleared-to-idle",
+      "coveredPopulationMemberIds": [
+        "search-state:state:cleared-to-idle"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
+      "actual": "search-state:state:cleared-to-idle holds on the built /search export: {\"statusText\":\"\",\"loadingRowCount\":0,\"idleCopyVisible\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "",
+          "loadingRowCount": 0,
+          "idleCopyVisible": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-002:search-state:state:results-both-groups",
       "assertionId": "VAL-B2-DISC-002",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "search-state:state:results-both-groups",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "search-state:state:results-both-groups"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"counts\":[\"14 results\",\"6 results\"],\"proseTitleCount\":14}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#resultStates",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "counts": [
+            "14 results",
+            "6 results"
+          ],
+          "proseTitleCount": 14,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
         }
       }
     },
     {
-      "resultId": "result:VAL-B2-DISC-003",
+      "resultId": "result:VAL-B2-DISC-002:search-state:state:facet-method",
+      "assertionId": "VAL-B2-DISC-002",
+      "populationMemberId": "search-state:state:facet-method",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-method"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
+      "actual": "search-state:state:facet-method holds on the built /search export: {\"counts\":[\"14 results\",\"4 results\"],\"proseTitleCount\":14}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#resultStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "counts": [
+            "14 results",
+            "4 results"
+          ],
+          "proseTitleCount": 14,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-002:search-state:state:facet-company",
+      "assertionId": "VAL-B2-DISC-002",
+      "populationMemberId": "search-state:state:facet-company",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-company"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
+      "actual": "search-state:state:facet-company holds on the built /search export: {\"counts\":[\"14 results\",\"2 results\"],\"proseTitleCount\":14}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#resultStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "counts": [
+            "14 results",
+            "2 results"
+          ],
+          "proseTitleCount": 14,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-002:search-state:state:facet-dataset",
+      "assertionId": "VAL-B2-DISC-002",
+      "populationMemberId": "search-state:state:facet-dataset",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-dataset"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
+      "actual": "search-state:state:facet-dataset holds on the built /search export: {\"counts\":[\"14 results\",\"0 results\"],\"proseTitleCount\":14}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#resultStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "counts": [
+            "14 results",
+            "0 results"
+          ],
+          "proseTitleCount": 14,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-003:search-facet:all",
       "assertionId": "VAL-B2-DISC-003",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "search-facet:all",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "search-facet:all"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "search-facet:all holds on the built /search export: {\"selected\":\"all\",\"selectedBackgroundRgb\":\"rgb(198, 255, 25)\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#facetOptions",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "selected": "all",
+          "selectedBackgroundRgb": "rgb(198, 255, 25)",
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
         }
       }
     },
     {
-      "resultId": "result:VAL-B2-DISC-004",
-      "assertionId": "VAL-B2-DISC-004",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "resultId": "result:VAL-B2-DISC-003:search-facet:method",
+      "assertionId": "VAL-B2-DISC-003",
+      "populationMemberId": "search-facet:method",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "search-facet:method"
       ],
-      "coverageKind": "population-wide",
-      "expected": "Search status updates are announced without moving focus unexpectedly.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "coverageKind": "per-member",
+      "expected": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
+      "actual": "search-facet:method holds on the built /search export: {\"selected\":\"method\",\"selectedBackgroundRgb\":\"rgb(198, 255, 25)\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#facetOptions",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "selected": "method",
+          "selectedBackgroundRgb": "rgb(198, 255, 25)",
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-003:search-facet:company",
+      "assertionId": "VAL-B2-DISC-003",
+      "populationMemberId": "search-facet:company",
+      "coveredPopulationMemberIds": [
+        "search-facet:company"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
+      "actual": "search-facet:company holds on the built /search export: {\"selected\":\"company\",\"selectedBackgroundRgb\":\"rgb(198, 255, 25)\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#facetOptions",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "selected": "company",
+          "selectedBackgroundRgb": "rgb(198, 255, 25)",
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-003:search-facet:dataset",
+      "assertionId": "VAL-B2-DISC-003",
+      "populationMemberId": "search-facet:dataset",
+      "coveredPopulationMemberIds": [
+        "search-facet:dataset"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
+      "actual": "search-facet:dataset holds on the built /search export: {\"selected\":\"dataset\",\"selectedBackgroundRgb\":\"rgb(198, 255, 25)\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#facetOptions",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "selected": "dataset",
+          "selectedBackgroundRgb": "rgb(198, 255, 25)",
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:default-idle",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:default-idle",
+      "coveredPopulationMemberIds": [
+        "search-state:state:default-idle"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:default-idle holds on the built /search export: {\"statusText\":\"\",\"inputFocused\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "",
+          "inputFocused": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:loading-first-query",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:loading-first-query",
+      "coveredPopulationMemberIds": [
+        "search-state:state:loading-first-query"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:loading-first-query holds on the built /search export: {\"statusText\":\"Searching for \\\"action chunking\\\"\",\"inputFocused\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "Searching for \"action chunking\"",
+          "inputFocused": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:results-both-groups",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:results-both-groups",
+      "coveredPopulationMemberIds": [
+        "search-state:state:results-both-groups"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"statusText\":\"14 modules, 6 entities match \\\"action chunking\\\"\",\"inputFocused\":true,\"focusRetainedOnInputThroughSettle\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules, 6 entities match \"action chunking\"",
+          "inputFocused": true,
+          "focusRetainedOnInputThroughSettle": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:facet-method",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:facet-method",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-method"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:facet-method holds on the built /search export: {\"statusText\":\"14 modules, 4 entities match \\\"action chunking\\\"\",\"inputFocused\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules, 4 entities match \"action chunking\"",
+          "inputFocused": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:facet-company",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:facet-company",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-company"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:facet-company holds on the built /search export: {\"statusText\":\"14 modules, 2 entities match \\\"action chunking\\\"\",\"inputFocused\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules, 2 entities match \"action chunking\"",
+          "inputFocused": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:facet-dataset",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:facet-dataset",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-dataset"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:facet-dataset holds on the built /search export: {\"statusText\":\"14 modules match \\\"action chunking\\\"\",\"inputFocused\":false}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "14 modules match \"action chunking\"",
+          "inputFocused": false,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:no-results",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:no-results",
+      "coveredPopulationMemberIds": [
+        "search-state:state:no-results"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:no-results holds on the built /search export: {\"statusText\":\"No article prose and no method, company or dataset entity matches \\\"quartz-lantern-7319\\\"\",\"inputFocused\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "No article prose and no method, company or dataset entity matches \"quartz-lantern-7319\"",
+          "inputFocused": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:partial-error-prose",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:partial-error-prose",
+      "coveredPopulationMemberIds": [
+        "search-state:state:partial-error-prose"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:partial-error-prose holds on the built /search export: {\"statusText\":\"6 entities match \\\"action chunking\\\"; the module index is unavailable\",\"inputFocused\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "6 entities match \"action chunking\"; the module index is unavailable",
+          "inputFocused": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:partial-error-structured",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:partial-error-structured",
+      "coveredPopulationMemberIds": [
+        "search-state:state:partial-error-structured"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:partial-error-structured holds on the built /search export: {\"statusText\":\"1 module matches \\\"action chunking\\\"; the entity index is unavailable\",\"inputFocused\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "1 module matches \"action chunking\"; the entity index is unavailable",
+          "inputFocused": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:total-error",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:total-error",
+      "coveredPopulationMemberIds": [
+        "search-state:state:total-error"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:total-error holds on the built /search export: {\"statusText\":\"The search index is unavailable\",\"inputFocused\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "The search index is unavailable",
+          "inputFocused": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-004:search-state:state:cleared-to-idle",
+      "assertionId": "VAL-B2-DISC-004",
+      "populationMemberId": "search-state:state:cleared-to-idle",
+      "coveredPopulationMemberIds": [
+        "search-state:state:cleared-to-idle"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search status updates are announced without moving focus unexpectedly.",
+      "actual": "search-state:state:cleared-to-idle holds on the built /search export: {\"statusText\":\"\",\"inputFocused\":true}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "statusText": "",
+          "inputFocused": true,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
         }
       }
     },
@@ -123975,94 +124491,50 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-DISC-007",
+      "resultId": "result:VAL-B2-DISC-007:search-state:state:results-both-groups",
       "assertionId": "VAL-B2-DISC-007",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "search-state:state:results-both-groups",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "search-state:state:results-both-groups"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "At 375px, result titles, excerpts, filter controls, and clear/reset actions fit without document overflow.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"scrollWidth\":375,\"clientWidth\":375}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#mobileStates",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-007:search-state:state:facet-method",
+      "assertionId": "VAL-B2-DISC-007",
+      "populationMemberId": "search-state:state:facet-method",
+      "coveredPopulationMemberIds": [
+        "search-state:state:facet-method"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, result titles, excerpts, filter controls, and clear/reset actions fit without document overflow.",
+      "actual": "search-state:state:facet-method holds on the built /search export: {\"scrollWidth\":375,\"clientWidth\":375}",
+      "selectorOrRegistryId": "evidence/brand-v2/search-states.json#mobileStates",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "evidence": [
+            "evidence/brand-v2/search-states.json"
+          ]
         }
       }
     },
@@ -133774,7 +134246,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 11 comment-free use(s) across 9 first-party runtime file(s) and 6650 use(s) across 299 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 12 comment-free use(s) across 10 first-party runtime file(s) and 6650 use(s) across 299 shipped .html/.js/.txt/.xml file(s) of the built export, including 131 measured destination(s), and renders nowhere as visible product identity across 73 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133782,13 +134254,14 @@
         "kind": "browser-state",
         "computed": {
           "literal": "robot-wiki",
-          "occurrences": 11,
+          "occurrences": 12,
           "files": [
             "components/analytics/anonymous-analytics.tsx",
             "lib/brand-v2-figure-evidence.ts",
             "lib/brand-v2-identity-evidence.ts",
             "lib/brand-v2-link-safety.ts",
             "lib/brand-v2-reference-rubric.ts",
+            "lib/brand-v2-search-evidence.ts",
             "lib/crossref-client.ts",
             "lib/identity.ts",
             "lib/og-cards.ts",
@@ -189504,7 +189977,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "Newsreader resolves as the computed head \"newsreader\" on 62 of 74 swept routes, in 248 of 296 route x width documents; walking every element of those documents resolved 13 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
+      "actual": "Newsreader resolves as the computed head \"newsreader\" on 63 of 74 swept routes, in 252 of 296 route x width documents; walking every element of those documents resolved 13 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -189518,8 +189991,8 @@
           "declaredStacks": [
             "--font-serif: \"Newsreader\", \"Newsreader Fallback\", ui-serif, Georgia, serif"
           ],
-          "observationsResolvingFamily": 248,
-          "routesResolvingFamily": 62,
+          "observationsResolvingFamily": 252,
+          "routesResolvingFamily": 63,
           "routesMeasured": 74,
           "observationsMeasured": 296,
           "distinctHeadsMeasured": [
@@ -189686,7 +190159,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "the checked-in WOFF2 is delivered from 1 framework-bundled same-origin path(s) whose payload hashes to 19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1, and the 16 font request(s) the sweep captured over 296 route states (74 routes x 4 declared widths) are all same-origin with no request left unclassified",
+      "actual": "the checked-in WOFF2 is delivered from 1 framework-bundled same-origin path(s) whose payload hashes to 19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1, and the 17 font request(s) the sweep captured over 296 route states (74 routes x 4 declared widths) are all same-origin with no request left unclassified",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -189753,6 +190226,19 @@
               "payloadSignature": "774f4632",
               "payloadFormat": "WOFF2",
               "sha256": "2a69ec1c0fb79a464de0e19957cdb3a65b5f626d85fffd164f9de557d3a64878"
+            },
+            {
+              "url": "/_next/static/media/750c737482d9de2f-s.3ex3j6ahhvjry.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "fe52554ab1cd7dd9704db81572f45ef0eb122679c35bbbbc728baf701033b727"
             },
             {
               "url": "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
@@ -189931,7 +190417,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "the checked-in TTF is consumed only by the offline card renderer: none of the 16 font payloads captured over 296 route states (74 routes x 4 declared widths) hashes to d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8, and none came from another origin",
+      "actual": "the checked-in TTF is consumed only by the offline card renderer: none of the 17 font payloads captured over 296 route states (74 routes x 4 declared widths) hashes to d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8, and none came from another origin",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -189996,6 +190482,19 @@
               "payloadSignature": "774f4632",
               "payloadFormat": "WOFF2",
               "sha256": "2a69ec1c0fb79a464de0e19957cdb3a65b5f626d85fffd164f9de557d3a64878"
+            },
+            {
+              "url": "/_next/static/media/750c737482d9de2f-s.3ex3j6ahhvjry.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "fe52554ab1cd7dd9704db81572f45ef0eb122679c35bbbbc728baf701033b727"
             },
             {
               "url": "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
@@ -229578,6 +230077,7 @@
             "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
             "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
             "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+            "/_next/static/media/750c737482d9de2f-s.3ex3j6ahhvjry.woff2",
             "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
             "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
             "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",

@@ -1,6 +1,6 @@
 'use client';
 
-import { MagnifyingGlass } from '@phosphor-icons/react';
+import { MagnifyingGlass, X } from '@phosphor-icons/react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
@@ -28,6 +28,15 @@ import { ResultsGroup } from './results-group';
 import { TypeFacetBar } from './type-facet-bar';
 
 type SearchStatus = 'idle' | 'searching' | 'done' | 'unavailable';
+
+/** What one settled query produced, including which surfaces failed. */
+type SearchOutcome = {
+  query: string;
+  hits: SearchHit[];
+  structured: StructuredHit[];
+  proseFailed: boolean;
+  structuredFailed: boolean;
+};
 
 type SearchInterfaceProps = {
   /** Test seam: override the production Pagefind loader. */
@@ -58,6 +67,11 @@ const ENTITY_TYPE_LABEL: Record<EntityType, string> = {
  * into newer results; clearing the query returns to the idle state;
  * ArrowDown/ArrowUp move focus between the input and the result links
  * across both groups.
+ *
+ * A surface whose index failed reports the failure in its own group note
+ * and in the status line; it never renders the no-results wording, because
+ * an index that could not load has not answered the query
+ * (VAL-B2-DISC-001).
  */
 export function SearchInterface({
   loadClient = createPagefindClient,
@@ -69,12 +83,7 @@ export function SearchInterface({
   const [query, setQuery] = useState(
     () => searchParams.get('q')?.trim() ?? '',
   );
-  const [result, setResult] = useState<{
-    query: string;
-    hits: SearchHit[];
-    structured: StructuredHit[];
-  } | null>(null);
-  const [unavailable, setUnavailable] = useState(false);
+  const [result, setResult] = useState<SearchOutcome | null>(null);
   const [facetType, setFacetType] = useState<EntityType | 'all'>('all');
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -103,15 +112,16 @@ export function SearchInterface({
   const trimmed = query.trim();
 
   // Status is derived, never mirrored: idle when the query is empty,
-  // searching until the result for exactly this query lands, then done (or
-  // unavailable if the index failed to load). While a new query is in
+  // searching until the result for exactly this query lands, then done, or
+  // unavailable when both indexes failed to load. While a new query is in
   // flight the previous result list stays on screen and is replaced
   // atomically when the new one arrives.
   let status: SearchStatus;
   if (!trimmed) status = 'idle';
   else if (result?.query !== trimmed) status = 'searching';
-  else if (unavailable) status = 'unavailable';
-  else status = 'done';
+  else if (result.proseFailed && result.structuredFailed) {
+    status = 'unavailable';
+  } else status = 'done';
 
   const hits =
     status === 'searching' || status === 'done' ? (result?.hits ?? []) : [];
@@ -129,15 +139,24 @@ export function SearchInterface({
   const resultCount = hits.length + structuredHits.length;
 
   const settled = status === 'done';
+  const proseFailed = settled && (result?.proseFailed ?? false);
+  const structuredFailed = settled && (result?.structuredFailed ?? false);
   const facetNarrowing =
     settled &&
     facetType !== 'all' &&
     structuredHits.length === 0 &&
     structuredAll.length > 0;
   // The site-wide message may only claim the wiki has nothing on a query
-  // when neither surface has anything, unfiltered. Anything narrower is a
-  // group-level or facet-level fact and is reported where it belongs.
-  const siteEmpty = settled && hits.length === 0 && structuredAll.length === 0;
+  // when neither surface has anything, unfiltered, AND both surfaces
+  // actually answered. A surface whose index failed has not answered: its
+  // emptiness is reported as an error in its own group, never as a verdict
+  // on the query.
+  const siteEmpty =
+    settled &&
+    !proseFailed &&
+    !structuredFailed &&
+    hits.length === 0 &&
+    structuredAll.length === 0;
 
   // Debounced search. Every state write happens inside the timer callback;
   // the sequencer token guarantees only the latest query can apply results.
@@ -153,15 +172,15 @@ export function SearchInterface({
       void (async () => {
         let found: SearchHit[] = [];
         let structured: StructuredHit[] = [];
-        let proseFailed = false;
-        let structuredFailed = false;
+        let proseLoadFailed = false;
+        let structuredLoadFailed = false;
         await Promise.all([
           (async () => {
             try {
               clientRef.current ??= await loadClient();
               found = await clientRef.current.search(trimmed);
             } catch {
-              proseFailed = true;
+              proseLoadFailed = true;
             }
           })(),
           (async () => {
@@ -169,26 +188,30 @@ export function SearchInterface({
               structuredRef.current ??= await loadStructured();
               structured = await structuredRef.current.search(trimmed);
             } catch {
-              structuredFailed = true;
+              structuredLoadFailed = true;
             }
           })(),
         ]);
         if (!seq.isCurrent(token)) return;
-        if (proseFailed && structuredFailed) {
-          setResult({ query: trimmed, hits: [], structured: [] });
-          setUnavailable(true);
-          return;
-        }
         setResult({
           query: trimmed,
-          hits: proseFailed ? [] : found,
-          structured: structuredFailed ? [] : structured,
+          hits: proseLoadFailed ? [] : found,
+          structured: structuredLoadFailed ? [] : structured,
+          proseFailed: proseLoadFailed,
+          structuredFailed: structuredLoadFailed,
         });
-        setUnavailable(false);
       })();
     }, debounceMs);
     return () => clearTimeout(timer);
   }, [trimmed, debounceMs, loadClient, loadStructured, router]);
+
+  function resetToIdle() {
+    sequencerRef.current.invalidate();
+    setQuery('');
+    setLastPushed('');
+    setFacetType('all');
+    router.replace('/search', { scroll: false });
+  }
 
   function onQueryChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -196,11 +219,15 @@ export function SearchInterface({
     if (!value.trim()) {
       // Clearing returns to the idle state immediately and drops any
       // in-flight search.
-      sequencerRef.current.invalidate();
-      setLastPushed('');
-      setFacetType('all');
-      router.replace('/search', { scroll: false });
+      resetToIdle();
     }
+  }
+
+  function onClearClick() {
+    resetToIdle();
+    // The reader's next action is almost always another query, so focus
+    // returns to the input rather than dropping to the body.
+    inputRef.current?.focus();
   }
 
   function focusResult(index: number) {
@@ -236,7 +263,19 @@ export function SearchInterface({
   } else if (status === 'done') {
     const proseCount = hits.length;
     const entityCount = structuredHits.length;
-    if (entityCount === 0) {
+    if (proseFailed) {
+      // The module surface did not answer, so the status names its failure
+      // alongside whatever the entity surface did answer.
+      statusText =
+        entityCount > 0
+          ? `${entityCount} ${entityCount === 1 ? 'entity matches' : 'entities match'} "${trimmed}"; the module index is unavailable`
+          : `No method, company or dataset entity matches "${trimmed}"; the module index is unavailable`;
+    } else if (structuredFailed) {
+      statusText =
+        proseCount > 0
+          ? `${proseCount} ${proseCount === 1 ? 'module matches' : 'modules match'} "${trimmed}"; the entity index is unavailable`
+          : `No article prose matches "${trimmed}"; the entity index is unavailable`;
+    } else if (entityCount === 0) {
       statusText =
         proseCount > 0
           ? `${proseCount} ${proseCount === 1 ? 'module matches' : 'modules match'} "${trimmed}"`
@@ -254,6 +293,14 @@ export function SearchInterface({
   } else if (status === 'unavailable') {
     statusText = 'The search index is unavailable';
   }
+
+  // The prose group's settled note: an index failure reads as an error,
+  // never as "nothing matched" (VAL-B2-DISC-001/002).
+  const proseNote: string | undefined = proseFailed
+    ? 'The module index is unavailable, so module results could not be loaded for this query. This is a load failure, not a verdict on the query.'
+    : status === 'done' && hits.length === 0
+      ? `No module prose matches "${trimmed}". Check the spelling, or try a broader term.`
+      : undefined;
 
   return (
     <div className="mt-8">
@@ -282,6 +329,22 @@ export function SearchInterface({
             aria-describedby="search-page-hint"
             className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim"
           />
+          {/* Functional clear action: keyboard operable, labelled, and
+              present exactly while there is a query to clear. It shares
+              the input's height so the control row stays one line at
+              375px, and it is absent when the input is empty, so the
+              placeholder keeps the full content box it is measured in. */}
+          {query.length > 0 ? (
+            <button
+              data-brand-control-id="control:secondary-action"
+              type="button"
+              aria-label="Clear search"
+              onClick={onClearClick}
+              className="flex cursor-pointer items-center rounded-sm border border-border bg-surface-2 px-2 text-text-dim transition-colors hover:border-border-strong hover:text-text"
+            >
+              <X aria-hidden="true" size={16} />
+            </button>
+          ) : null}
           <span
             aria-hidden
             className="flex items-center pr-1 text-text-dim"
@@ -316,15 +379,19 @@ export function SearchInterface({
       ) : null}
 
       {status === 'unavailable' ? (
-        <div className="mt-8 border-t border-border pt-6" role="note">
-          <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
+        <div
+          className="mt-8 border-t border-border pt-6"
+          role="note"
+          data-search-unavailable
+        >
+          <p className="max-w-[65ch] border-l-2 border-err pl-3 text-sm leading-relaxed text-err">
             The search index is unavailable in this environment. It is
             generated during the production build; run{' '}
-            <code className="rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-text">
+            <code className="rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
               npm run build
             </code>{' '}
             and serve the{' '}
-            <code className="rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-text">
+            <code className="rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
               out/
             </code>{' '}
             directory to search locally.
@@ -364,14 +431,12 @@ export function SearchInterface({
             id="prose"
             heading="Modules"
             count={status === 'done' ? hits.length : undefined}
-            note={
-              status === 'done' && hits.length === 0
-                ? `No module prose matches "${trimmed}". Check the spelling, or try a broader term.`
-                : undefined
-            }
+            note={proseNote}
+            noteIsError={proseFailed}
+            loading={status === 'searching' && hits.length === 0}
           >
             {hits.length > 0 ? (
-              <ul className="divide-y divide-border">
+              <ul className="mt-4 divide-y divide-border border-t border-border">
                 {hits.map((entry, index) => (
                   <li key={entry.url}>
                     <IntentLink
@@ -381,7 +446,10 @@ export function SearchInterface({
                       onKeyDown={(event) => onResultKeyDown(event, index)}
                       className="group block px-1 py-3"
                     >
-                      <span className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent">
+                      <span
+                        data-result-title
+                        className="font-sans text-sm font-medium text-text underline-offset-2 decoration-accent group-hover:text-accent group-hover:underline group-focus-visible:text-accent group-focus-visible:underline"
+                      >
                         {entry.title}
                       </span>
                       {entry.excerpt ? (
@@ -402,7 +470,9 @@ export function SearchInterface({
             heading="Structured"
             count={status === 'done' ? structuredHits.length : undefined}
             note={
-              !settled || structuredHits.length > 0 ? undefined : facetNarrowing ? (
+              !settled || structuredHits.length > 0 ? undefined : structuredFailed ? (
+                'The entity index is unavailable, so method, company and dataset results could not be loaded for this query. This is a load failure, not a verdict on the query.'
+              ) : facetNarrowing ? (
                 <>
                   {`The ${ENTITY_TYPE_LABEL[facetType as EntityType]} filter is hiding ${structuredAll.length} ${structuredAll.length === 1 ? 'entity that matches' : 'entities that match'} "${trimmed}".`}{' '}
                   <button
@@ -418,6 +488,8 @@ export function SearchInterface({
                 `No structured entities match "${trimmed}". Try another term.`
               )
             }
+            noteIsError={structuredFailed}
+            loading={status === 'searching' && structuredHits.length === 0}
           >
             {status === 'done' || structuredHits.length > 0 ? (
               <TypeFacetBar
@@ -427,7 +499,7 @@ export function SearchInterface({
               />
             ) : null}
             {structuredHits.length > 0 ? (
-              <ul className="divide-y divide-border">
+              <ul className="mt-4 divide-y divide-border border-t border-border">
                 {structuredHits.map((entry, index) => (
                   <li key={entry.id}>
                     {/* Native anchor: next/link in the test env strips the
@@ -449,7 +521,7 @@ export function SearchInterface({
                             re-pointed at the title/label wrapper. */}
                         <span
                           data-entity-title
-                          className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent"
+                          className="font-sans text-sm font-medium text-text underline-offset-2 decoration-accent group-hover:text-accent group-hover:underline group-focus-visible:text-accent group-focus-visible:underline"
                         >
                           {entry.title}
                         </span>

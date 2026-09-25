@@ -7,6 +7,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { BrandDevice } from '@/components/ui/brand-device';
 import { SkipLink } from '@/components/ui/skip-link';
+import { HistoryFocus } from './history-focus';
 import { NavTree } from './nav-tree';
 import { SearchBox } from './search-box';
 import { SiteFooter } from './site-footer';
@@ -139,6 +140,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <>
+      {/* History focus restoration lives in the shell (not the layout) so
+          it can stand down while the drawer owns focus. */}
+      <HistoryFocus suspended={drawerOpen} />
       <SkipLink inert={drawerOpen} />
       <div className="flex min-h-[100dvh] flex-col lg:flex-row">
         {/* Mobile top bar (drawer pattern below lg). */}

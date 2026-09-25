@@ -2,6 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { SearchClient, SearchHit } from '@/lib/search';
+import type { StructuredHit } from '@/lib/structured-search';
 
 const mockReplace = vi.fn();
 const mockRouter = { replace: mockReplace };
@@ -28,6 +29,12 @@ function hit(overrides: Partial<SearchHit> = {}): SearchHit {
 function clientWith(
   search: (query: string) => Promise<SearchHit[]>,
 ): () => Promise<SearchClient> {
+  return () => Promise.resolve({ search });
+}
+
+function structuredClientWith(
+  search: (query: string) => Promise<StructuredHit[]>,
+): () => Promise<{ search: (query: string) => Promise<StructuredHit[]> }> {
   return () => Promise.resolve({ search });
 }
 
@@ -228,6 +235,130 @@ describe('SearchInterface', () => {
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
     await waitFor(() =>
       expect(mockReplace).toHaveBeenCalledWith('/search?q=act', { scroll: false }),
+    );
+  });
+
+  it('shows one non-animated loading row per group while the first query resolves', async () => {
+    const user = userEvent.setup();
+    const pending: Array<(hits: SearchHit[]) => void> = [];
+    const loadClient = () =>
+      Promise.resolve({
+        search: () => new Promise<SearchHit[]>((resolve) => pending.push(resolve)),
+      });
+    const loadStructured = structuredClientWith(
+      () => new Promise<StructuredHit[]>((resolve) => pending.push(resolve as never)),
+    );
+    render(
+      <SearchInterface loadClient={loadClient} loadStructured={loadStructured} debounceMs={0} />,
+    );
+    await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
+
+    await waitFor(() =>
+      expect(document.querySelectorAll('[data-search-loading]').length).toBe(2),
+    );
+    for (const row of document.querySelectorAll('[data-search-loading]')) {
+      expect(row.getAttribute('aria-hidden')).toBe('true');
+    }
+    expect(document.querySelector('.animate-spin')).toBeNull();
+
+    pending.forEach((resolve) => resolve([]));
+    await waitFor(() =>
+      expect(screen.queryByText(/searching/i)).not.toBeInTheDocument(),
+    );
+  });
+
+  it('reports a failed prose index per group instead of an empty result', async () => {
+    const user = userEvent.setup();
+    render(
+      <SearchInterface
+        loadClient={() => Promise.reject(new Error('no prose index'))}
+        loadStructured={structuredClientWith(async () => [
+          {
+            id: 'method:act',
+            entityId: 'act',
+            type: 'method',
+            title: 'ACT',
+            url: '/manipulation/comparison-matrix/#method-act',
+            facet: 'continuous',
+            snippet: 'An action-chunking method row.',
+          },
+        ])}
+        debounceMs={0}
+      />,
+    );
+    await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
+
+    const prose = await screen.findByRole('region', { name: 'Modules' });
+    await waitFor(() =>
+      expect(
+        prose.querySelector('[data-search-group-error="prose"]'),
+      ).not.toBeNull(),
+    );
+    expect(prose).not.toHaveTextContent(/no module prose matches/i);
+    expect(
+      await screen.findByRole('link', { name: /^ACT/ }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent(
+      /module index is unavailable/i,
+    );
+    expect(screen.queryByText(/nothing matches/i)).not.toBeInTheDocument();
+  });
+
+  it('reports a failed structured index per group instead of an empty result', async () => {
+    const user = userEvent.setup();
+    render(
+      <SearchInterface
+        loadClient={clientWith(() => Promise.resolve([hit()]))}
+        loadStructured={() => Promise.reject(new Error('no entity index'))}
+        debounceMs={0}
+      />,
+    );
+    await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
+
+    const structured = await screen.findByRole('region', { name: 'Structured' });
+    await waitFor(() =>
+      expect(
+        structured.querySelector('[data-search-group-error="structured"]'),
+      ).not.toBeNull(),
+    );
+    expect(structured).not.toHaveTextContent(
+      /no structured (entities|results) match/i,
+    );
+    expect(
+      await screen.findByRole('link', { name: ACT_RESULT }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent(
+      /entity index is unavailable/i,
+    );
+  });
+
+  it('clears through the labelled clear control back to idle with focus held', async () => {
+    const user = userEvent.setup();
+    render(
+      <SearchInterface
+        loadClient={clientWith(() => Promise.resolve([hit()]))}
+        debounceMs={0}
+      />,
+    );
+    const input = screen.getByRole('searchbox', { name: INPUT_NAME });
+    await user.type(input, 'chunk');
+    await screen.findByRole('link', { name: ACT_RESULT });
+
+    const clear = screen.getByRole('button', { name: 'Clear search' });
+    await user.click(clear);
+    await waitFor(() =>
+      expect(screen.getByText(/type a query to search/i)).toBeInTheDocument(),
+    );
+    expect(
+      screen.queryByRole('link', { name: ACT_RESULT }),
+    ).not.toBeInTheDocument();
+    expect(input).toHaveValue('');
+    expect(input).toHaveFocus();
+    expect(
+      screen.queryByRole('button', { name: 'Clear search' }),
+    ).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(mockReplace).toHaveBeenCalledWith('/search', { scroll: false }),
     );
   });
 });

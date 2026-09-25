@@ -1,0 +1,719 @@
+{
+  "version": 1,
+  "fingerprint": "46b15fafd96dac624c9b34a9478958c70c592fe71fb249e83f5d723e2f4a4895",
+  "desktopViewport": "1440x900",
+  "mobileViewport": "375x812",
+  "states": [
+    {
+      "stateId": "state:default-idle",
+      "viewport": "1440x900",
+      "statusText": "",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": false,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": true,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": false,
+      "proseTitles": [],
+      "structuredRowTypes": [],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": null
+    },
+    {
+      "stateId": "state:loading-first-query",
+      "viewport": "1440x900",
+      "statusText": "Searching for \"action chunking\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 2,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [],
+      "structuredRowTypes": [],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": null
+    },
+    {
+      "stateId": "state:partial-error-structured",
+      "viewport": "1440x900",
+      "statusText": "1 module matches \"action chunking\"; the entity index is unavailable",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [
+        "Action Chunking"
+      ],
+      "structuredRowTypes": [],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 1,
+          "countText": "1 result",
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 0,
+          "countText": "0 results",
+          "errorNote": true,
+          "emptyNote": false
+        }
+      ],
+      "facet": {
+        "selected": "all",
+        "pressedByOption": {
+          "all": true,
+          "company": false,
+          "method": false,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": []
+      }
+    },
+    {
+      "stateId": "state:results-both-groups",
+      "viewport": "1440x900",
+      "statusText": "14 modules, 6 entities match \"action chunking\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [
+        "Action Chunking (ACT and ALOHA)",
+        "Real-Time Execution",
+        "Comparison Matrix",
+        "Vision-Language-Action Models",
+        "Behavior Cloning Foundations",
+        "Robot Wiki",
+        "Kinematics",
+        "RL Fine-Tuning of Policies",
+        "Autonomous Vehicles",
+        "Action Spaces for Robot Learning",
+        "Diffusion Policy",
+        "Manipulation & Learned Policies",
+        "The Pi Line",
+        "Drones and Aerial Robotics"
+      ],
+      "structuredRowTypes": [
+        "method",
+        "company",
+        "method",
+        "method",
+        "company",
+        "method"
+      ],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 14,
+          "countText": "14 results",
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 6,
+          "countText": "6 results",
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": {
+        "selected": "all",
+        "pressedByOption": {
+          "all": true,
+          "company": false,
+          "method": false,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": [
+          "method",
+          "company",
+          "method",
+          "method",
+          "company",
+          "method"
+        ]
+      }
+    },
+    {
+      "stateId": "state:facet-method",
+      "viewport": "1440x900",
+      "statusText": "14 modules, 4 entities match \"action chunking\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": false,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [
+        "Action Chunking (ACT and ALOHA)",
+        "Real-Time Execution",
+        "Comparison Matrix",
+        "Vision-Language-Action Models",
+        "Behavior Cloning Foundations",
+        "Robot Wiki",
+        "Kinematics",
+        "RL Fine-Tuning of Policies",
+        "Autonomous Vehicles",
+        "Action Spaces for Robot Learning",
+        "Diffusion Policy",
+        "Manipulation & Learned Policies",
+        "The Pi Line",
+        "Drones and Aerial Robotics"
+      ],
+      "structuredRowTypes": [
+        "method",
+        "method",
+        "method",
+        "method"
+      ],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 14,
+          "countText": "14 results",
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 4,
+          "countText": "4 results",
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": {
+        "selected": "method",
+        "pressedByOption": {
+          "all": false,
+          "company": false,
+          "method": true,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": [
+          "method",
+          "method",
+          "method",
+          "method"
+        ]
+      }
+    },
+    {
+      "stateId": "state:facet-company",
+      "viewport": "1440x900",
+      "statusText": "14 modules, 2 entities match \"action chunking\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": false,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [
+        "Action Chunking (ACT and ALOHA)",
+        "Real-Time Execution",
+        "Comparison Matrix",
+        "Vision-Language-Action Models",
+        "Behavior Cloning Foundations",
+        "Robot Wiki",
+        "Kinematics",
+        "RL Fine-Tuning of Policies",
+        "Autonomous Vehicles",
+        "Action Spaces for Robot Learning",
+        "Diffusion Policy",
+        "Manipulation & Learned Policies",
+        "The Pi Line",
+        "Drones and Aerial Robotics"
+      ],
+      "structuredRowTypes": [
+        "company",
+        "company"
+      ],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 14,
+          "countText": "14 results",
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 2,
+          "countText": "2 results",
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": {
+        "selected": "company",
+        "pressedByOption": {
+          "all": false,
+          "company": true,
+          "method": false,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": [
+          "company",
+          "company"
+        ]
+      }
+    },
+    {
+      "stateId": "state:facet-dataset",
+      "viewport": "1440x900",
+      "statusText": "14 modules match \"action chunking\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": false,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [
+        "Action Chunking (ACT and ALOHA)",
+        "Real-Time Execution",
+        "Comparison Matrix",
+        "Vision-Language-Action Models",
+        "Behavior Cloning Foundations",
+        "Robot Wiki",
+        "Kinematics",
+        "RL Fine-Tuning of Policies",
+        "Autonomous Vehicles",
+        "Action Spaces for Robot Learning",
+        "Diffusion Policy",
+        "Manipulation & Learned Policies",
+        "The Pi Line",
+        "Drones and Aerial Robotics"
+      ],
+      "structuredRowTypes": [],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 14,
+          "countText": "14 results",
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 0,
+          "countText": "0 results",
+          "errorNote": false,
+          "emptyNote": true
+        }
+      ],
+      "facet": {
+        "selected": "dataset",
+        "pressedByOption": {
+          "all": false,
+          "company": false,
+          "method": false,
+          "dataset": true
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": []
+      }
+    },
+    {
+      "stateId": "state:no-results",
+      "viewport": "1440x900",
+      "statusText": "No article prose and no method, company or dataset entity matches \"quartz-lantern-7319\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 1,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [],
+      "structuredRowTypes": [],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 0,
+          "countText": "0 results",
+          "errorNote": false,
+          "emptyNote": true
+        },
+        {
+          "id": "structured",
+          "rowCount": 0,
+          "countText": "0 results",
+          "errorNote": false,
+          "emptyNote": true
+        }
+      ],
+      "facet": {
+        "selected": "all",
+        "pressedByOption": {
+          "all": true,
+          "company": false,
+          "method": false,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": []
+      }
+    },
+    {
+      "stateId": "state:partial-error-prose",
+      "viewport": "1440x900",
+      "statusText": "6 entities match \"action chunking\"; the module index is unavailable",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [],
+      "structuredRowTypes": [
+        "method",
+        "company",
+        "method",
+        "method",
+        "company",
+        "method"
+      ],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 0,
+          "countText": "0 results",
+          "errorNote": true,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 6,
+          "countText": "6 results",
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": {
+        "selected": "all",
+        "pressedByOption": {
+          "all": true,
+          "company": false,
+          "method": false,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": [
+          "method",
+          "company",
+          "method",
+          "method",
+          "company",
+          "method"
+        ]
+      }
+    },
+    {
+      "stateId": "state:total-error",
+      "viewport": "1440x900",
+      "statusText": "The search index is unavailable",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 1,
+      "clearControlVisible": true,
+      "proseTitles": [],
+      "structuredRowTypes": [],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": null
+    },
+    {
+      "stateId": "state:cleared-to-idle",
+      "viewport": "1440x900",
+      "statusText": "",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "idleCopyVisible": true,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": false,
+      "proseTitles": [],
+      "structuredRowTypes": [],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 0,
+          "countText": null,
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": null
+    },
+    {
+      "stateId": "state:results-both-groups",
+      "viewport": "375x812",
+      "statusText": "14 modules, 6 entities match \"action chunking\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": true,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [
+        "Action Chunking (ACT and ALOHA)",
+        "Real-Time Execution",
+        "Comparison Matrix",
+        "Vision-Language-Action Models",
+        "Behavior Cloning Foundations",
+        "Robot Wiki",
+        "Kinematics",
+        "RL Fine-Tuning of Policies",
+        "Autonomous Vehicles",
+        "Action Spaces for Robot Learning",
+        "Diffusion Policy",
+        "Manipulation & Learned Policies",
+        "The Pi Line",
+        "Drones and Aerial Robotics"
+      ],
+      "structuredRowTypes": [
+        "method",
+        "company",
+        "method",
+        "method",
+        "company",
+        "method"
+      ],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 14,
+          "countText": "14 results",
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 6,
+          "countText": "6 results",
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": {
+        "selected": "all",
+        "pressedByOption": {
+          "all": true,
+          "company": false,
+          "method": false,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": [
+          "method",
+          "company",
+          "method",
+          "method",
+          "company",
+          "method"
+        ]
+      }
+    },
+    {
+      "stateId": "state:facet-method",
+      "viewport": "375x812",
+      "statusText": "14 modules, 4 entities match \"action chunking\"",
+      "liveRegionRole": "status",
+      "liveRegionAriaLive": "polite",
+      "inputFocused": false,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "idleCopyVisible": false,
+      "loadingRowCount": 0,
+      "siteEmptyNodeCount": 0,
+      "unavailableNoteCount": 0,
+      "clearControlVisible": true,
+      "proseTitles": [
+        "Action Chunking (ACT and ALOHA)",
+        "Real-Time Execution",
+        "Comparison Matrix",
+        "Vision-Language-Action Models",
+        "Behavior Cloning Foundations",
+        "Robot Wiki",
+        "Kinematics",
+        "RL Fine-Tuning of Policies",
+        "Autonomous Vehicles",
+        "Action Spaces for Robot Learning",
+        "Diffusion Policy",
+        "Manipulation & Learned Policies",
+        "The Pi Line",
+        "Drones and Aerial Robotics"
+      ],
+      "structuredRowTypes": [
+        "method",
+        "method",
+        "method",
+        "method"
+      ],
+      "groups": [
+        {
+          "id": "prose",
+          "rowCount": 14,
+          "countText": "14 results",
+          "errorNote": false,
+          "emptyNote": false
+        },
+        {
+          "id": "structured",
+          "rowCount": 4,
+          "countText": "4 results",
+          "errorNote": false,
+          "emptyNote": false
+        }
+      ],
+      "facet": {
+        "selected": "method",
+        "pressedByOption": {
+          "all": false,
+          "company": false,
+          "method": true,
+          "dataset": false
+        },
+        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedHasCheckMarker": true,
+        "rowTypes": [
+          "method",
+          "method",
+          "method",
+          "method"
+        ]
+      }
+    }
+  ],
+  "facetKeyboard": {
+    "optionActivatedByKeyboard": {
+      "all": true,
+      "method": true,
+      "company": true,
+      "dataset": true
+    },
+    "resetByKeyboard": true,
+    "focusRetainedOnInputThroughSettle": true
+  }
+}

@@ -45,7 +45,7 @@ export default function SearchPage() {
       >
         Search
       </h1>
-      <p className="mt-3 leading-relaxed text-text-dim">
+      <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
         Search article prose together with the structured data layer of
         methods, companies, and datasets. Queries run locally in your browser.
       </p>
