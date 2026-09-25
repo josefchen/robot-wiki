@@ -33,10 +33,7 @@ public/search-index.json
 
 # `next dev`/`next build` maintains only the marked Next.js block inside the
 # root AGENTS.md and preserves the project instructions around it. AGENTS.md
-# is now tracked because it carries the Robot Wiki design-system contract for
-# Factory Droid and other coding agents. The generated one-line CLAUDE.md
-# pointer remains local-only.
-/CLAUDE.md
+# is tracked because it carries the Robot Wiki design-system contract.
 
 # Crossref author-sweep response cache (scripts/check-crossref-authors.ts);
 # regenerated on demand, never committed.
