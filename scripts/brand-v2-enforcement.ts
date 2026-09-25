@@ -120,6 +120,28 @@ import {
   rowRhythmVerdicts,
 } from '../lib/brand-v2-index-evidence.ts';
 import {
+  SEARCH_DESKTOP_VIEWPORT,
+  SEARCH_FACET_OPTIONS,
+  SEARCH_FACET_POPULATION_SOURCE,
+  SEARCH_MOBILE_STATE_IDS,
+  SEARCH_MOBILE_STATE_POPULATION_SOURCE,
+  SEARCH_MOBILE_VIEWPORT,
+  SEARCH_RESULT_STATE_IDS,
+  SEARCH_RESULT_STATE_POPULATION_SOURCE,
+  SEARCH_STATE_IDS,
+  SEARCH_STATE_POPULATION_SOURCE,
+  SEARCH_STATES_EVIDENCE_PATH,
+  searchAnnouncementVerdicts,
+  searchDataDerivationVerdicts,
+  searchFacetMemberId,
+  searchFacetSelectionVerdicts,
+  searchMobileFitVerdicts,
+  searchStateMemberId,
+  searchStateTreatmentVerdicts,
+  searchStatesEvidenceFingerprint,
+  readSearchStatesEvidence,
+} from '../lib/brand-v2-search-evidence.ts';
+import {
   ARTICLE_RUNTIME_EVIDENCE_PATH,
   ARTICLE_VIEWPORTS,
   articleEvidenceFingerprint,
@@ -342,7 +364,8 @@ function isMeasured(id: string): boolean {
     FIGURE_RECORD_ASSERTIONS.has(id) ||
     TABLE_MATH_ASSERTIONS.has(id) ||
     ARTICLE_TRUTH_ASSERTIONS.has(id) ||
-    LINK_SAFETY_ASSERTIONS.has(id)
+    LINK_SAFETY_ASSERTIONS.has(id) ||
+    SEARCH_ASSERTIONS.has(id)
   );
 }
 
@@ -1125,6 +1148,112 @@ const INDEX_READER_TARGET = {
     'Proves the fail-closed reader throws on a stale fingerprint, the wrong viewport, a missing and an extra surface, an empty rendered page, a surface with no row list, and a missing fragment-keyboard reading, and proves the verdict populations and registry-derived expectations are exact before any result row may be generated from the artifact.',
 };
 
+/**
+ * The five search-state assertions this feature converts from pending
+ * rollout rows, decided by the persisted search-states sweep. The state
+ * machine, the facet options and the mobile members are all derived: the
+ * sweep cannot record a member the interface does not expose, and the
+ * reader refuses any gap or extra member, so a converted row is a
+ * measurement that passed on the built export.
+ */
+const SEARCH_ASSERTION_POPULATION_SOURCES: Readonly<Record<string, string>> = {
+  'VAL-B2-DISC-001': SEARCH_STATE_POPULATION_SOURCE,
+  'VAL-B2-DISC-002': SEARCH_RESULT_STATE_POPULATION_SOURCE,
+  'VAL-B2-DISC-003': SEARCH_FACET_POPULATION_SOURCE,
+  'VAL-B2-DISC-004': SEARCH_STATE_POPULATION_SOURCE,
+  'VAL-B2-DISC-007': SEARCH_MOBILE_STATE_POPULATION_SOURCE,
+};
+
+const SEARCH_ASSERTIONS = new Set(
+  Object.keys(SEARCH_ASSERTION_POPULATION_SOURCES),
+);
+
+const SEARCH_EVIDENCE = readSearchStatesEvidence({
+  artifact: readJson(join(ROOT, SEARCH_STATES_EVIDENCE_PATH)),
+  fingerprint: searchStatesEvidenceFingerprint({ root: ROOT }),
+});
+
+const SEARCH_TREATMENT_VERDICTS = new Map(
+  searchStateTreatmentVerdicts(SEARCH_EVIDENCE).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const SEARCH_DERIVATION_VERDICTS = new Map(
+  searchDataDerivationVerdicts(SEARCH_EVIDENCE).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const SEARCH_FACET_VERDICTS = new Map(
+  searchFacetSelectionVerdicts(SEARCH_EVIDENCE).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const SEARCH_ANNOUNCEMENT_VERDICTS = new Map(
+  searchAnnouncementVerdicts(SEARCH_EVIDENCE).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const SEARCH_MOBILE_VERDICTS = new Map(
+  searchMobileFitVerdicts(SEARCH_EVIDENCE).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+
+function searchVerdictsFor(
+  assertionId: string,
+): Map<string, { id: string; failures: string[]; observed: Record<string, unknown> }> {
+  switch (assertionId) {
+    case 'VAL-B2-DISC-001':
+      return SEARCH_TREATMENT_VERDICTS;
+    case 'VAL-B2-DISC-002':
+      return SEARCH_DERIVATION_VERDICTS;
+    case 'VAL-B2-DISC-003':
+      return SEARCH_FACET_VERDICTS;
+    case 'VAL-B2-DISC-004':
+      return SEARCH_ANNOUNCEMENT_VERDICTS;
+    case 'VAL-B2-DISC-007':
+      return SEARCH_MOBILE_VERDICTS;
+    default:
+      throw new Error(`${assertionId} is not a search-states assertion`);
+  }
+}
+
+const SEARCH_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [SEARCH_STATE_POPULATION_SOURCE]: SEARCH_STATE_IDS.map(searchStateMemberId),
+  [SEARCH_RESULT_STATE_POPULATION_SOURCE]: SEARCH_RESULT_STATE_IDS.map(
+    searchStateMemberId,
+  ),
+  [SEARCH_FACET_POPULATION_SOURCE]: SEARCH_FACET_OPTIONS.map(
+    searchFacetMemberId,
+  ),
+  [SEARCH_MOBILE_STATE_POPULATION_SOURCE]: SEARCH_MOBILE_STATE_IDS.map(
+    searchStateMemberId,
+  ),
+};
+
+/** The sweep that writes the artifact, and the reader gate that guards it. */
+const SEARCH_SWEEP_TARGET = {
+  kind: 'test' as const,
+  file: 'tests/e2e/brand-v2-search-states.spec.ts',
+  title:
+    'brand-v2 search states sweep › measures every search state at both viewports and persists the artifact',
+  mechanism:
+    'Drives the built export through every deterministic /search state, idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure, and the clear-to-idle return, at 1440x900, and the results and Methods states again at 375x812; it records the live-region announcement, the computed lime of the selected facet, per-group counts and notes against their rendered rows, focus retention through settle, and keyboard activation and reset of every facet option, enforces every verdict the generator emits inside the suite before the artifact is written, and proves each of the five assertions can fail with in-page plants that strip the loading rows, lie the counts, wash out the lime, remove the announcement politeness, and overflow the 375px document.',
+};
+const SEARCH_READER_TARGET = {
+  kind: 'test' as const,
+  file: 'tests/unit/brand-v2-search-evidence.test.ts',
+  title:
+    'search-states evidence > refuses stale, incomplete, and malformed search evidence',
+  mechanism:
+    'Proves the fail-closed reader throws on a stale fingerprint, a missing and an extra and a duplicate member, a missing 375px member, a settled state that announced nothing, and a malformed artifact, and proves the state machine, facet options and verdict populations are the derived ones before any result row may be generated from the artifact.',
+};
+
 const FIGURE_EVIDENCE = readFigureRuntimeEvidence({
   artifact: readJson(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH)),
   fingerprint: figureEvidenceFingerprint({ root: ROOT }),
@@ -1239,6 +1368,7 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
     [ARTICLE_TRUTH_POPULATION_SOURCE]: ARTICLE_TRUTH_MEMBERS,
     [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembers(LINK_SAFETY_CENSUS),
     ...INDEX_POPULATIONS,
+    ...SEARCH_POPULATIONS,
   };
 }
 
@@ -1251,6 +1381,8 @@ function populationSourceFor(id: string): string {
   if (homeSource) return homeSource;
   const indexSource = INDEX_ASSERTION_POPULATION_SOURCES[id];
   if (indexSource) return indexSource;
+  const searchSource = SEARCH_ASSERTION_POPULATION_SOURCES[id];
+  if (searchSource) return searchSource;
   const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
   if (articleSource) return articleSource;
   const apparatusSource = APPARATUS_ASSERTION_POPULATION_SOURCES[id];
@@ -1855,6 +1987,9 @@ function testTargetsFor(id: string): TestTarget[] {
   }
   if (INDEX_ASSERTIONS.has(id)) {
     return [INDEX_SWEEP_TARGET, INDEX_READER_TARGET];
+  }
+  if (SEARCH_ASSERTIONS.has(id)) {
+    return [SEARCH_SWEEP_TARGET, SEARCH_READER_TARGET];
   }
   if (HOME_TOOLS_ASSERTIONS.has(id)) {
     return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
@@ -3452,6 +3587,33 @@ function resultFor(
       },
     };
   }
+  if (SEARCH_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = searchVerdictsFor(assertionId).get(member);
+    if (!verdict) {
+      throw new Error(
+        `${assertionId}: the search-states sweep decided no member ${member}`,
+      );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    return {
+      ...common,
+      actual: `${member} holds on the built /search export: ${JSON.stringify(verdict.observed)}`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          ...verdict.observed,
+          evidence: [SEARCH_STATES_EVIDENCE_PATH],
+        },
+      },
+    };
+  }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -3618,6 +3780,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
               : INDEX_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${INDEX_VIEWPORT.id} sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over ${canonicalPopulationSource}`
+              : SEARCH_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at ${SEARCH_DESKTOP_VIEWPORT.id} with the results and Methods states again at ${SEARCH_MOBILE_VIEWPORT.id}, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)

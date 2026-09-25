@@ -9262,6 +9262,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/search/search-interface.tsx:aria-label:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/search/type-facet-bar.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13192,7 +13197,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1023,
+        "populationSize": 1024,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13440,6 +13445,7 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/nav/site-shell.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/nav/site-shell.tsx:aria-label:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/search/search-interface.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/search/search-interface.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/search/type-facet-bar.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:2",
@@ -17557,6 +17563,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/search/results-group.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/search/search-interface.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
           "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
@@ -17659,7 +17675,7 @@
         "statement": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
         "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 66,
+        "populationSize": 68,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -17724,6 +17740,8 @@
           "result:VAL-B2-COMP-012:semantic-use:components/mdx/cite-ref.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/mdx/image-ref.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/mdx/term-ref.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/search/results-group.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/search/search-interface.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#ok",
@@ -18247,24 +18265,74 @@
     },
     {
       "assertionId": "VAL-B2-DISC-001",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/search-states.json#searchStates",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-DISC-001",
-          "mechanism": "VAL-B2-DISC-001 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:default-idle",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:loading-first-query",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:results-both-groups",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:facet-method",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:facet-company",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:facet-dataset",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:no-results",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:partial-error-prose",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:partial-error-structured",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:total-error",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-001:search-state:state:cleared-to-idle",
+          "mechanism": "VAL-B2-DISC-001 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-search-states.spec.ts",
+          "title": "brand-v2 search states sweep › measures every search state at both viewports and persists the artifact",
+          "mechanism": "Drives the built export through every deterministic /search state, idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure, and the clear-to-idle return, at 1440x900, and the results and Methods states again at 375x812; it records the live-region announcement, the computed lime of the selected facet, per-group counts and notes against their rendered rows, focus retention through settle, and keyboard activation and reset of every facet option, enforces every verdict the generator emits inside the suite before the artifact is written, and proves each of the five assertions can fail with in-page plants that strip the loading rows, lie the counts, wash out the lime, remove the announcement politeness, and overflow the 375px document."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-search-evidence.test.ts",
+          "title": "search-states evidence > refuses stale, incomplete, and malformed search evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, a missing and an extra and a duplicate member, a missing 375px member, a settled state that announced nothing, and a malformed artifact, and proves the state machine, facet options and verdict populations are the derived ones before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -18272,7 +18340,7 @@
         "statement": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
         "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 11,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18281,30 +18349,55 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-DISC-001"
+          "result:VAL-B2-DISC-001:search-state:state:default-idle",
+          "result:VAL-B2-DISC-001:search-state:state:loading-first-query",
+          "result:VAL-B2-DISC-001:search-state:state:results-both-groups",
+          "result:VAL-B2-DISC-001:search-state:state:facet-method",
+          "result:VAL-B2-DISC-001:search-state:state:facet-company",
+          "result:VAL-B2-DISC-001:search-state:state:facet-dataset",
+          "result:VAL-B2-DISC-001:search-state:state:no-results",
+          "result:VAL-B2-DISC-001:search-state:state:partial-error-prose",
+          "result:VAL-B2-DISC-001:search-state:state:partial-error-structured",
+          "result:VAL-B2-DISC-001:search-state:state:total-error",
+          "result:VAL-B2-DISC-001:search-state:state:cleared-to-idle"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-DISC-002",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/search-states.json#resultStates",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-DISC-002",
-          "mechanism": "VAL-B2-DISC-002 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-DISC-002:search-state:state:results-both-groups",
+          "mechanism": "VAL-B2-DISC-002 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#resultStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-002:search-state:state:facet-method",
+          "mechanism": "VAL-B2-DISC-002 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#resultStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-002:search-state:state:facet-company",
+          "mechanism": "VAL-B2-DISC-002 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#resultStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-002:search-state:state:facet-dataset",
+          "mechanism": "VAL-B2-DISC-002 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#resultStates"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-search-states.spec.ts",
+          "title": "brand-v2 search states sweep › measures every search state at both viewports and persists the artifact",
+          "mechanism": "Drives the built export through every deterministic /search state, idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure, and the clear-to-idle return, at 1440x900, and the results and Methods states again at 375x812; it records the live-region announcement, the computed lime of the selected facet, per-group counts and notes against their rendered rows, focus retention through settle, and keyboard activation and reset of every facet option, enforces every verdict the generator emits inside the suite before the artifact is written, and proves each of the five assertions can fail with in-page plants that strip the loading rows, lie the counts, wash out the lime, remove the announcement politeness, and overflow the 375px document."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-search-evidence.test.ts",
+          "title": "search-states evidence > refuses stale, incomplete, and malformed search evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, a missing and an extra and a duplicate member, a missing 375px member, a settled state that announced nothing, and a malformed artifact, and proves the state machine, facet options and verdict populations are the derived ones before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -18312,7 +18405,7 @@
         "statement": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
         "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 4,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18321,30 +18414,48 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-DISC-002"
+          "result:VAL-B2-DISC-002:search-state:state:results-both-groups",
+          "result:VAL-B2-DISC-002:search-state:state:facet-method",
+          "result:VAL-B2-DISC-002:search-state:state:facet-company",
+          "result:VAL-B2-DISC-002:search-state:state:facet-dataset"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-DISC-003",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/search-states.json#facetOptions",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-DISC-003",
-          "mechanism": "VAL-B2-DISC-003 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-DISC-003:search-facet:all",
+          "mechanism": "VAL-B2-DISC-003 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#facetOptions"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-003:search-facet:method",
+          "mechanism": "VAL-B2-DISC-003 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#facetOptions"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-003:search-facet:company",
+          "mechanism": "VAL-B2-DISC-003 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#facetOptions"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-003:search-facet:dataset",
+          "mechanism": "VAL-B2-DISC-003 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#facetOptions"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-search-states.spec.ts",
+          "title": "brand-v2 search states sweep › measures every search state at both viewports and persists the artifact",
+          "mechanism": "Drives the built export through every deterministic /search state, idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure, and the clear-to-idle return, at 1440x900, and the results and Methods states again at 375x812; it records the live-region announcement, the computed lime of the selected facet, per-group counts and notes against their rendered rows, focus retention through settle, and keyboard activation and reset of every facet option, enforces every verdict the generator emits inside the suite before the artifact is written, and proves each of the five assertions can fail with in-page plants that strip the loading rows, lie the counts, wash out the lime, remove the announcement politeness, and overflow the 375px document."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-search-evidence.test.ts",
+          "title": "search-states evidence > refuses stale, incomplete, and malformed search evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, a missing and an extra and a duplicate member, a missing 375px member, a settled state that announced nothing, and a malformed artifact, and proves the state machine, facet options and verdict populations are the derived ones before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -18352,7 +18463,7 @@
         "statement": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
         "expected": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 4,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18361,30 +18472,83 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-DISC-003"
+          "result:VAL-B2-DISC-003:search-facet:all",
+          "result:VAL-B2-DISC-003:search-facet:method",
+          "result:VAL-B2-DISC-003:search-facet:company",
+          "result:VAL-B2-DISC-003:search-facet:dataset"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-DISC-004",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/search-states.json#searchStates",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-DISC-004",
-          "mechanism": "VAL-B2-DISC-004 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:default-idle",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:loading-first-query",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:results-both-groups",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:facet-method",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:facet-company",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:facet-dataset",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:no-results",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:partial-error-prose",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:partial-error-structured",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:total-error",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-004:search-state:state:cleared-to-idle",
+          "mechanism": "VAL-B2-DISC-004 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#searchStates"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-search-states.spec.ts",
+          "title": "brand-v2 search states sweep › measures every search state at both viewports and persists the artifact",
+          "mechanism": "Drives the built export through every deterministic /search state, idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure, and the clear-to-idle return, at 1440x900, and the results and Methods states again at 375x812; it records the live-region announcement, the computed lime of the selected facet, per-group counts and notes against their rendered rows, focus retention through settle, and keyboard activation and reset of every facet option, enforces every verdict the generator emits inside the suite before the artifact is written, and proves each of the five assertions can fail with in-page plants that strip the loading rows, lie the counts, wash out the lime, remove the announcement politeness, and overflow the 375px document."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-search-evidence.test.ts",
+          "title": "search-states evidence > refuses stale, incomplete, and malformed search evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, a missing and an extra and a duplicate member, a missing 375px member, a settled state that announced nothing, and a malformed artifact, and proves the state machine, facet options and verdict populations are the derived ones before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -18392,7 +18556,7 @@
         "statement": "Search status updates are announced without moving focus unexpectedly.",
         "expected": "Search status updates are announced without moving focus unexpectedly.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 11,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18401,7 +18565,17 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-DISC-004"
+          "result:VAL-B2-DISC-004:search-state:state:default-idle",
+          "result:VAL-B2-DISC-004:search-state:state:loading-first-query",
+          "result:VAL-B2-DISC-004:search-state:state:results-both-groups",
+          "result:VAL-B2-DISC-004:search-state:state:facet-method",
+          "result:VAL-B2-DISC-004:search-state:state:facet-company",
+          "result:VAL-B2-DISC-004:search-state:state:facet-dataset",
+          "result:VAL-B2-DISC-004:search-state:state:no-results",
+          "result:VAL-B2-DISC-004:search-state:state:partial-error-prose",
+          "result:VAL-B2-DISC-004:search-state:state:partial-error-structured",
+          "result:VAL-B2-DISC-004:search-state:state:total-error",
+          "result:VAL-B2-DISC-004:search-state:state:cleared-to-idle"
         ]
       }
     },
@@ -18583,24 +18757,29 @@
     },
     {
       "assertionId": "VAL-B2-DISC-007",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/search-states.json#mobileStates",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-DISC-007",
-          "mechanism": "VAL-B2-DISC-007 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-DISC-007:search-state:state:results-both-groups",
+          "mechanism": "VAL-B2-DISC-007 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#mobileStates"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-DISC-007:search-state:state:facet-method",
+          "mechanism": "VAL-B2-DISC-007 per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at 1440x900 with the results and Methods states again at 375x812, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over evidence/brand-v2/search-states.json#mobileStates"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-search-states.spec.ts",
+          "title": "brand-v2 search states sweep › measures every search state at both viewports and persists the artifact",
+          "mechanism": "Drives the built export through every deterministic /search state, idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure, and the clear-to-idle return, at 1440x900, and the results and Methods states again at 375x812; it records the live-region announcement, the computed lime of the selected facet, per-group counts and notes against their rendered rows, focus retention through settle, and keyboard activation and reset of every facet option, enforces every verdict the generator emits inside the suite before the artifact is written, and proves each of the five assertions can fail with in-page plants that strip the loading rows, lie the counts, wash out the lime, remove the announcement politeness, and overflow the 375px document."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-search-evidence.test.ts",
+          "title": "search-states evidence > refuses stale, incomplete, and malformed search evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, a missing and an extra and a duplicate member, a missing 375px member, a settled state that announced nothing, and a malformed artifact, and proves the state machine, facet options and verdict populations are the derived ones before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -18608,7 +18787,7 @@
         "statement": "At 375px, result titles, excerpts, filter controls, and clear/reset actions fit without document overflow.",
         "expected": "At 375px, result titles, excerpts, filter controls, and clear/reset actions fit without document overflow.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 2,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18617,7 +18796,8 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-DISC-007"
+          "result:VAL-B2-DISC-007:search-state:state:results-both-groups",
+          "result:VAL-B2-DISC-007:search-state:state:facet-method"
         ]
       }
     },

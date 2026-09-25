@@ -83,16 +83,22 @@ const techWithdrawalAppends = [
   'continuation-merge-2026-09-24-tech-withdrawal-citation-technology-org-deployed-2026',
   'continuation-merge-2026-09-24-tech-withdrawal-citation-tesla-q1-2026-update',
 ] as const;
+// The search-states treatment of 2026-09-25 then registered the labelled
+// clear control's accessible name, the one literal that treatment added to
+// the search interface.
+const searchStatesAppends = [
+  'brand-v2-search-clear-control-name',
+] as const;
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval in order and appends exactly seven local-only approvals', () => {
     const mainIds = new Set(main.map(x => x.id));
     const localOnly = local.filter(x => !mainIds.has(x.id));
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1606]);
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1607]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends]);
     expect(new Set(merged.map(x => x.id)).size).toBe(merged.length);
     expect(validateApprovedDeltas(merged)).toEqual([]);
   });

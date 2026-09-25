@@ -2342,7 +2342,7 @@
       "routeId": "route:/search/",
       "owner": "route:/search/",
       "ownerPath": "app/search/page.tsx",
-      "ownerSourceFingerprint": "c6f526be0ef08936e9c9d9143d983c2daf62a60f01eed5e0964fd03a48c0cf68",
+      "ownerSourceFingerprint": "0371059f960f6105f145bc712a7d9af9a18d46423e335ca31226204353a50d8e",
       "canonical": "https://robot-wiki.com/search/",
       "title": "Search",
       "description": "Search Robot Wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).",
@@ -2362,7 +2362,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "913d2d3e18bbc5cc0d9d5e94f1336820724ff7bad43ab8bd162d9fb9158e948f"
+      "fingerprint": "5fdadb93204f976da49f41aec8202d6a081ea0f29c40008ca3fddcfb4079098d"
     },
     {
       "id": "metadata:/world-models/",
@@ -12419,5 +12419,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "4fb4b9b46c22f4e560dd4deed604953264a39b94336bae8e14ce6c577feb9c33"
+  "rootFingerprint": "12ff174f2c7f6eeb17d52522e51350a2de15ff2a3bedfcbdc7994e5e5daa3100"
 }

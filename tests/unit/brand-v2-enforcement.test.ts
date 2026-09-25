@@ -87,6 +87,18 @@ import {
   indexSurfaceMemberId,
   rowRhythmMemberId,
 } from '@/lib/brand-v2-index-evidence';
+import {
+  SEARCH_FACET_OPTIONS,
+  SEARCH_FACET_POPULATION_SOURCE,
+  SEARCH_MOBILE_STATE_IDS,
+  SEARCH_MOBILE_STATE_POPULATION_SOURCE,
+  SEARCH_RESULT_STATE_IDS,
+  SEARCH_RESULT_STATE_POPULATION_SOURCE,
+  SEARCH_STATE_IDS,
+  SEARCH_STATE_POPULATION_SOURCE,
+  searchFacetMemberId,
+  searchStateMemberId,
+} from '@/lib/brand-v2-search-evidence';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -551,6 +563,23 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
           ),
           [INDEX_ROW_RHYTHM_POPULATION_SOURCE]: ROW_RHYTHM_ROUTES.map(
             rowRhythmMemberId,
+          ),
+          // The five search-state rows the generator merges the same way,
+          // outside the shared builder: the eleven-state machine for
+          // DISC-001/004, its result-bearing subset for DISC-002, the
+          // shipped facet options for DISC-003, and the two 375px fit
+          // members for DISC-007.
+          [SEARCH_STATE_POPULATION_SOURCE]: SEARCH_STATE_IDS.map(
+            searchStateMemberId,
+          ),
+          [SEARCH_RESULT_STATE_POPULATION_SOURCE]: SEARCH_RESULT_STATE_IDS.map(
+            searchStateMemberId,
+          ),
+          [SEARCH_FACET_POPULATION_SOURCE]: SEARCH_FACET_OPTIONS.map(
+            searchFacetMemberId,
+          ),
+          [SEARCH_MOBILE_STATE_POPULATION_SOURCE]: SEARCH_MOBILE_STATE_IDS.map(
+            searchStateMemberId,
           ),
         },
         map,
