@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-peng-framing:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read retained v3 Section IV through IV-C, including expected return over a distribution of dynamics and the concrete mass/damping/friction/timing/noise examples. The Fetch pushing experiment is not this illustrative Gaussian/plateau model or a universal width-versus-peak law.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-peng-framing",
-  "inputDigest": "cb2b9cdac682d0db77b3908ff55d8ce6e5ccc31e156979d2ca5ac1ec0ff6479f",
+  "inputDigest": "87ba3acc7d901ffc9f1846fd088f532dbe3d5022b38c896413645d840ea92431",
   "inventory": [
     {
       "id": "s23-tobin-framing",

@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-7-20260923:depth-spec",
   "observedAt": "2026-09-23T19:54:47.696Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Verified the literal Table 4-15 passage and factory/test notes inside the hash-matched retained D400 extraction and PDF provenance. It supports only the named ±2% conditions, not statistical independence, material floors, authored nominal distance or real grasp outcomes.",
-  "inputDigest": "57ff16f2e0c88d8bb53ee4f7ba5bce5eeca92ae0df93d4f9ba450c0c298364f3",
+  "inputDigest": "1bc87d0f77818093eb4444ce9a23f38239690d866141fa6605843ea90b2e6ba4",
   "outcome": "supported",
   "scope": "part",
   "partId": "depth-spec",
@@ -235,5 +235,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:7",
-  "currentTupleDigest": "560ba238ab6509e0a9bf5714b7a2474ac90de24f2fc2134cafdf9f57572d4e24"
+  "currentTupleDigest": "346c84ff8518f5154591f1a6e5c10ca42131f697d2b3ec68e17077e0e9da4081"
 }

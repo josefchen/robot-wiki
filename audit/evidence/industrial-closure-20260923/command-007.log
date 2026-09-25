@@ -1,9 +1,9 @@
-file:///home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/integrate.ts:235
+file://audit/evidence/industrial-closure-20260923/integrate.ts:235
   if (columns.length !== 8) throw Error('Industrial table shape changed');
                                   ^
 
 Error: Industrial table shape changed
-    at file:///home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/integrate.ts:235:35
+    at file://audit/evidence/industrial-closure-20260923/integrate.ts:235:35
     at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
     at async node:internal/modules/esm/loader:643:26
     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)

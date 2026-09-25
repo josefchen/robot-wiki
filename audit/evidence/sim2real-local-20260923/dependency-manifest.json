@@ -31,52 +31,52 @@
   ],
   "dependencies": [
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/sim2real-transfer.mdx",
+      "path": "content/rl-sim2real/sim2real-transfer.mdx",
       "bytes": 21915,
       "sha256": "4e89e687c0b3bff26e808d8247e91eaff9e518b58afd96ec8cfc22429ba95d37"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/sim2real.ts",
+      "path": "lib/sim2real.ts",
       "bytes": 9575,
       "sha256": "7aa3b7b3bc726108f16faffa06be6d14b4d624642804fe26448eddbf534adb9b"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/audit-local-basis.ts",
-      "bytes": 40817,
-      "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+      "path": "lib/audit-local-basis.ts",
+      "bytes": 100888,
+      "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/friction-transfer.tsx",
+      "path": "components/interactive/friction-transfer.tsx",
       "bytes": 16495,
       "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/teacher-student.tsx",
+      "path": "components/interactive/teacher-student.tsx",
       "bytes": 10601,
       "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/article/commit-to-reveal.tsx",
+      "path": "components/article/commit-to-reveal.tsx",
       "bytes": 12571,
       "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/slider.ts",
+      "path": "tests/e2e/slider.ts",
       "bytes": 1130,
       "sha256": "951aada5315920bf5a890239064ae1e8a15503f1d9ecfe9a2efdb0b87bec1c98"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/sim2real-local-evidence.test.ts",
+      "path": "tests/unit/sim2real-local-evidence.test.ts",
       "bytes": 5171,
       "sha256": "ca0e665cf099a1aebdee249251f2383bc6e0cbb22c3a06d885aa509fe5d79645"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/sim2real-local-evidence.spec.ts",
+      "path": "tests/e2e/sim2real-local-evidence.spec.ts",
       "bytes": 9005,
       "sha256": "0afead0aefc22d8df66923f179121a6e7a454eff69695c33df295d1ac2c65ad2"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/sim2real-local-20260923/proof-support.ts",
+      "path": "audit/evidence/sim2real-local-20260923/proof-support.ts",
       "bytes": 2972,
       "sha256": "38eaae5747bdcb2022f9fa3188049a995ae0aadc04a5015b66226e28e016fee9"
     }

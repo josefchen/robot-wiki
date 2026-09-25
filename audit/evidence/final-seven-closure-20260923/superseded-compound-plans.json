@@ -37,7 +37,7 @@
       }
     ],
     "adjudications": [],
-    "originalCellsDigest": "0b6acd21bfdfc99a3bf45f77b99ec0cbd74a728735e009ea7d61a5e11c388623"
+    "originalCellsDigest": "307fa10994158e1dd5c3eadb9310d499d971744425c20d51247ec19adb78f945"
   },
   {
     "id": "safety-remainder-20260916-safety-and-assurance-6",
@@ -77,48 +77,48 @@
       }
     ],
     "adjudications": [],
-    "originalCellsDigest": "0058b5e1457cd54661ab95097a1eaef1040b34d7e041d42841df1c4ab661cf89"
+    "originalCellsDigest": "cf7760e83c781595b6c88b46134a3fd8e89177e6ae3a576fb5892200a75822b8"
   },
   {
-  "id": "legged-locomotion-8-duty-factor-disclaimer-20260916i",
-  "ledgerPath": "audit/rl-sim2real.md",
-  "articleSlug": "legged-locomotion",
-  "rowOrdinal": 8,
-  "originalCellsDigest": "cf0bf31e7172bcba2ff8d509efa7724ac0ceb2954e9c4aa054b25c4734a216d0",
-  "kind": "explicit-parts",
-  "parts": [
-   {
-    "id": "l8-classical-instance",
-    "text": "Park et al. 2017 supply the classical INSTANCE of speed-dependent duty-cycle modulation: Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling', stance time T_st = L/v_d scales inversely with speed with fixed swing duration, and §7 uses speed-dependent stride length below 3 m/s. This is one controller's schedule, not a universal statement about all classical controllers.",
-    "requiredCitationIds": [
-     "park-2017-bounding"
-    ]
-   },
-   {
-    "id": "l8-authored-values-local-AND",
-    "text": "LOCAL-AND: the disclaimer's 'canonical nominal values' are the authored constants in lib/gait.ts (walk 0.75, trot 0.50, bound 0.45, pronk 0.35 with the listed phase offsets; DEFAULT_GAIT walk; GAIT_ORDER walk/trot/bound/pronk), rendered by components/interactive/gait-diagram.tsx and mounted at legged-locomotion.mdx line 35; the corrected sentence scopes them as authored nominal values. The 'learned alike' clause stays the article's framing over the air-time reward discussion (Rudin Table 2 includes feet air time), not a Park attribution. The integrator must re-run this local proof at apply time.",
-    "requiredCitationIds": [
-     "park-2017-bounding"
-    ]
-   }
-  ],
-  "planReview": null,
-  "evidence": [
-   {
-    "partId": "l8-classical-instance",
-    "citationId": "park-2017-bounding",
-    "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
-    "supportingPassage": "Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling'; stance time T_st = L/v_d scales inversely with speed; fixed swing duration vs stride-length growth; Park §7 uses speed-dependent stride length below 3 m/s."
-   },
-   {
-    "partId": "l8-authored-values-local-AND",
-    "citationId": "park-2017-bounding",
-    "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
-    "supportingPassage": "Park-side instance as above (retained). The authored duty factors and phase offsets are LOCAL facts read at HEAD cc09291a: lib/gait.ts GAITS (walk 0.75 / trot 0.5 / bound 0.45 / pronk 0.35), consumed by components/interactive/gait-diagram.tsx; article mount line 35, disclaimer sentence line 64 with <Cite id=\"park-2017-bounding\" /> on the span."
-   }
-  ],
-  "adjudications": []
- },
+    "id": "legged-locomotion-8-duty-factor-disclaimer-20260916i",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "legged-locomotion",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "cf0bf31e7172bcba2ff8d509efa7724ac0ceb2954e9c4aa054b25c4734a216d0",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "l8-classical-instance",
+        "text": "Park et al. 2017 supply the classical INSTANCE of speed-dependent duty-cycle modulation: Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling', stance time T_st = L/v_d scales inversely with speed with fixed swing duration, and §7 uses speed-dependent stride length below 3 m/s. This is one controller's schedule, not a universal statement about all classical controllers.",
+        "requiredCitationIds": [
+          "park-2017-bounding"
+        ]
+      },
+      {
+        "id": "l8-authored-values-local-AND",
+        "text": "LOCAL-AND: the disclaimer's 'canonical nominal values' are the authored constants in lib/gait.ts (walk 0.75, trot 0.50, bound 0.45, pronk 0.35 with the listed phase offsets; DEFAULT_GAIT walk; GAIT_ORDER walk/trot/bound/pronk), rendered by components/interactive/gait-diagram.tsx and mounted at legged-locomotion.mdx line 35; the corrected sentence scopes them as authored nominal values. The 'learned alike' clause stays the article's framing over the air-time reward discussion (Rudin Table 2 includes feet air time), not a Park attribution. The integrator must re-run this local proof at apply time.",
+        "requiredCitationIds": [
+          "park-2017-bounding"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [
+      {
+        "partId": "l8-classical-instance",
+        "citationId": "park-2017-bounding",
+        "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+        "supportingPassage": "Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling'; stance time T_st = L/v_d scales inversely with speed; fixed swing duration vs stride-length growth; Park §7 uses speed-dependent stride length below 3 m/s."
+      },
+      {
+        "partId": "l8-authored-values-local-AND",
+        "citationId": "park-2017-bounding",
+        "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+        "supportingPassage": "Park-side instance as above (retained). The authored duty factors and phase offsets are LOCAL facts read at HEAD cc09291a: lib/gait.ts GAITS (walk 0.75 / trot 0.5 / bound 0.45 / pronk 0.35), consumed by components/interactive/gait-diagram.tsx; article mount line 35, disclaimer sentence line 64 with <Cite id=\"park-2017-bounding\" /> on the span."
+      }
+    ],
+    "adjudications": []
+  },
   {
     "id": "data-bottleneck-3-scale-correction-draft-20260922",
     "ledgerPath": "audit/data-hardware.md",

@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-motion-planning-15-20260923:derivation",
   "observedAt": "2026-09-23T19:54:47.683Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected current numeric results and independent test arithmetic after real execution. Deterministic fixed-seed tree and finite reveal states; sampled segment rejection and step cap are not an external completeness or optimality theorem. Units, range, rounding and counterexamples are explicit; the chosen headings occur once and tangent examples are geometry, not calibration measurements.",
-  "inputDigest": "c41fba0e41fbebf6596c8f2f7a5270d9720f91702cf4276ecaefb9d189177456",
+  "inputDigest": "a330a4cc9857a619299dfff868975fb4c6f30d0570d97cb1106050d5dbcf0ca6",
   "outcome": "supported",
   "scope": "part",
   "partId": "derivation",
@@ -152,5 +152,5 @@
     }
   ],
   "originalId": "audit/classical.md:motion-planning:15",
-  "currentTupleDigest": "561ee239b082042a407820b175843e68a76574477010004dbf57264797e92927"
+  "currentTupleDigest": "3f37ccfe263a27b47f788a3e6c72e1d63dfcf4a70dde9bcba0a136b6829b2d41"
 }

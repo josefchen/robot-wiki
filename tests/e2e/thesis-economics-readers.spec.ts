@@ -3,7 +3,7 @@ import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 
-// Match existing thesis readers: strict input-bound/offline mode only in the Mission lane.
+// Match existing thesis readers: strict input-bound/offline mode only in the program lane.
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 
 const route = '/frontier/competing-theses/';

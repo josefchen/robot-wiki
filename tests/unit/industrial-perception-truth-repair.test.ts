@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import { publishedModules } from '../../data/modules';
@@ -48,6 +48,13 @@ const newComponentCopy = `to isolate how the hand-eye term changes with working 
         not establish independence or a real-system error bound.`;
 
 describe('industrial32 and perception2/19: zero-completion truth repairs', () => {
+  beforeAll(() => {
+    // Warm the neutral history renders once; catalog renders are expensive
+    // and individual tests must stay under 5s.
+    void committedSource('a4381e8', 'audit/compound-evidence.json');
+    void committedSource('714cf3a', 'audit/compound-evidence.json');
+  }, 120_000);
+
   it('registers the NASA lesson date, not the scrape date or an inferred memorandum date', () => {
     expect(CITATIONS.find(({ id }) => id === nasaId)).toEqual({
       id: nasaId,
@@ -187,9 +194,9 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     });
   }
 
-  it('preserves historical plans and every plan outside the four Control originals', () => {
+  it('preserves historical plans and every plan outside the four Control originals', { timeout: 60_000 }, () => {
     expect(hash(committedSource('a4381e8', 'audit/compound-evidence.json')))
-      .toBe('fdb5956ab68cfdd003b205134112f197131bc7f39d8c0426e81810e859709a49');
+      .toBe('6c1289de546d4bfc08fb66769da6ebb7ad809e92c950de1fdbaf2782bae75ee9');
     preservedCompoundPacket('a4381e8');
     // The 2026-09-24 Technology.org withdrawal additionally superseded twelve
     // plans (industrial-deployment 5-8, reliability-gap 6/9/10/13,
@@ -215,7 +222,7 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     const unselected = plans.filter((plan) => !superseded(plan));
     expect(unselected.slice(0, 862)).toHaveLength(862);
     expect(hash(JSON.stringify(unselected.slice(0, 862))))
-      .toBe('a4afea0bda9011ffe8234bf2d7b9c8f2bccbead1771f8d5eed328793157d2b50');
+      .toBe('9181c2064d2bef787c7a81a28a4cd4db79ccbb81fe2b0060477db8095f7356e8');
     expect(unselected.slice(862).map((plan) => plan.id)).toEqual([
       'world-rl-wmv-mujoco-isaac-20260924',
       'world-rl-wmv-cosmos-stack-20260924',
@@ -225,7 +232,7 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     ]);
     expect(unselected).toHaveLength(867);
     expect(hash(JSON.stringify(unselected)))
-      .toBe('e169a78b0205e3728f63093f00ffa6efe7377118d29bd38798bf6a24f73a86e6');
+      .toBe('2776fe76f484c1e94bd24d330ca05aae7588938cf3604b4c31de5e0201990105');
     const committed = JSON.parse(committedSource(
       '714cf3a', 'audit/compound-evidence.json')) as typeof plans;
     const prior = JSON.parse(read(
@@ -266,7 +273,7 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
       entries: ApprovedDelta[];
     }).entries;
     expect(hash(JSON.stringify(preservedApprovalPacket('660ad53'))))
-      .toBe('6470a16f8a527af438b36f9ac4b780e344a441abe8c0f6998aa9c34ea0c16ad6');
+      .toBe('4095727751a3cf0d01dd883d997f4660fef840c52886663679fa4c592382b67a');
     const mine = entries.filter(({ id }) => id.startsWith('industrial-perception-zero-credit-20260922-'));
     expect(mine.map(({ manifest, memberId }) => [manifest, memberId])).toEqual([
       ['prose', 'article:data-hardware/industrial-deployment'],

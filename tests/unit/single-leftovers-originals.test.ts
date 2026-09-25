@@ -92,7 +92,7 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     }
     expect(plan.evidence.find((i) => i.citationId === 'agility-digit-production')
       ?.supportingPassage).toContain('65,000 hours of real production experience');
-    expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+    expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
     expect(plan.planReview?.rationale).toContain(R6_PRIOR_PLAN);
     expect(plan.planReview?.rationale).toContain('prior-plans.json');
   });

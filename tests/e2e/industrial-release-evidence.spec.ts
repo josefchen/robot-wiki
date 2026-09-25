@@ -108,7 +108,7 @@ test('industrial closure paired cases and complete reader surfaces', async ({ pa
   const dashboardLinkStatus = (await page.request.get('/frontier/reliability-gap/')).status();
   expect(dashboardLinkStatus).toBe(200); expect(errors).toEqual([]);
   if (producing) save('browser-run.json', {
-    command: 'NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test --config /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-industrial-20260923-1940.config.mjs',
+    command: 'NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test --config steward-industrial-20260923-1940.config.mjs',
     runner: 'playwright', cwd: process.cwd(), environment: { NODE_DISABLE_COMPILE_CACHE: '1' },
     startedAt, endedAt: new Date().toISOString(), exitCode: 0, test: artifact(BROWSER),
     dependencies: surfacePaths.map(artifact), proofDependencies: dependencies(true),

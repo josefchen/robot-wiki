@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "b7856fa2-70d5-4c9d-ba8e-608460f99a6d",
+  "sessionId": "b7856fa2",
   "role": "integrator",
   "eventId": "crossdomain-generalist19-20260923:crossdomain-generalist19-20260923-count",
   "observedAt": "2026-09-23T20:54:41.424Z",
-  "reviewedBy": "Droid b7856fa2-70d5-4c9d-ba8e-608460f99a6d; integrator Astra/max, not independent acceptance",
+  "reviewedBy": "reviewer run b7856fa2; integrator integrator review, not independent acceptance",
   "rationale": "Reviewed all 13 exact IDs and duplicate-free cardinality, actual passing numeric tests, two viewport DOM/captures and filter/reset preservation. Removed all unsupported aggregate Stat date/download/source-format claims and the seven-entry enumeration, including accessible aggregate date wording. Existing independently completed entry facts remain unchanged; the selected count certifies neither weights nor licenses nor papers nor replication. Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.",
   "outcome": "supported",
   "scope": "part",
   "partId": "crossdomain-generalist19-20260923-count",
-  "inputDigest": "98e808d30cf209f54328bdd96900a706d569c04eec590f030766c06028cc89a6",
+  "inputDigest": "b0fe4789f9fb3af63dd6b4c8f5341fe2f53a62753ce0d2a43cdb93321bf77737",
   "inventory": [
     {
       "id": "crossdomain-generalist19-20260923-parameters",

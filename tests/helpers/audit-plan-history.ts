@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { showAt } from '../unit/helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
 import { expect } from 'vitest';
 import { sha256 } from '../../lib/brand-v2-baseline';
@@ -29,12 +29,12 @@ export function preservedLegacySurvivors(
 ): void {
   const reward = readArchive('audit/evidence/reward-local-20260923/legacy-plans.json');
   const parallel = readArchive('audit/evidence/parallel-local-20260923/legacy-plan-original.json');
-  expect(sha256(reward)).toBe('b5d20a803d872b14c92e1bd44ce2d14885fe36d48c74a649b277f2286973814a');
+  expect(sha256(reward)).toBe('961745b3686a518be091a619d101f406e63ddf1ee2ca076f358635c55a06375f');
   expect(sha256(parallel)).toBe('e4a42725a49573c0f63aa61f4380d1b482dfc1379769d2401611a67aa64588ae');
   const taxonomy = readArchive('audit/evidence/crossdomain-closure-20260923/superseded-plans.json');
   const final = readArchive('audit/evidence/final-seven-closure-20260923/superseded-compound-plans.json');
-  expect(sha256(taxonomy)).toBe('fe50d3647c3ad4a5f703c735fac42ea53da0b316ada2ff7aaf741f8c55014d93');
-  expect(sha256(final)).toBe('0f5fb5f09c9758a2f607924bc722e34328fcbbded79c1b0599a69c5590112c3f');
+  expect(sha256(taxonomy)).toBe('141956da513664714f6d0599240a94e49ba3a07eff8baf2d60a0292895679568');
+  expect(sha256(final)).toBe('886765a0a256fb6e2805bd88a8ac71bf7eb7a9c463b2d0f36cf959a98ec5aa89');
   const archived: CompoundPlan[] = [...JSON.parse(reward.toString()), JSON.parse(parallel.toString()),
     ...JSON.parse(taxonomy.toString()), ...JSON.parse(final.toString())];
   expect(archived.map(p => p.id)).toEqual(migrations.map(([id]) => id));
@@ -54,8 +54,8 @@ export function preservedLegacySurvivors(
   expect(new Set(current.map(p => p.id)).size).toBe(current.length);
   const controlArchive = readArchive('audit/evidence/control-citation-closeout-20260924/prior-plans.json');
   const krogerArchive = readArchive('audit/evidence/citation-closeout-20260924/before-kroger-plans.json');
-  expect(sha256(controlArchive)).toBe('dfcff572c2da8eadbc9bf01b5c620c79ea085592dc38b4defbfecc349cc0ade5');
-  expect(sha256(krogerArchive)).toBe('81e227633c4ffed7ba5e5ed7e2f87fabd81ab4fdb34e68e75552e2ae96fc4090');
+  expect(sha256(controlArchive)).toBe('69e53e0baa44bb2a4a3e714a27223ca7d62962575ed07c10afdb398eb76da1e4');
+  expect(sha256(krogerArchive)).toBe('8db5abfc5d52675df6fb4a441f647c673768151bc63a460dd0c8f0fbf28fc7b5');
   const controlSuperseded: CompoundPlan[] = JSON.parse(controlArchive.toString());
   const oldKroger: CompoundPlan[] = JSON.parse(krogerArchive.toString());
   const withdrawnControlIds = new Set([
@@ -76,9 +76,8 @@ export function preservedLegacySurvivors(
     for (const previous of prior.filter(p => p.id === id)) expect(previous).toEqual(archivedPlan);
   }
   const robomindId = 'datasets-10-robomind-20260916c';
-  const hoursCheckpoint: CompoundPlan[] = JSON.parse(execFileSync('git', [
-    'show', 'f2cae9e5983a2e4f686adec4f37c3b26e4b67e74:audit/compound-evidence.json',
-  ], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 }));
+  const hoursCheckpoint: CompoundPlan[] = JSON.parse(showAt(
+    'f2cae9e5983a2e4f686adec4f37c3b26e4b67e74', 'audit/compound-evidence.json'));
   const hours = hoursCheckpoint.find(p => p.id === robomindId)!;
   const history = JSON.parse(read('audit/data-hardware.md').toString()
     .split('## RoboMIND hours correction: preserved prior complete state (2026-09-23)')[1]

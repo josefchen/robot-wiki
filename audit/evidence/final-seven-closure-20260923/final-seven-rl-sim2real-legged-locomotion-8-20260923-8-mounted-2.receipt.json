@@ -1,1 +1,148 @@
-{"command":"NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts","cwd":"/home/remy-simpc4/Projects/robot-wiki-droid-continuation","dependencies":[{"file":{"bytes":5631,"path":"lib/gait.ts","sha256":"ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"},"id":"file:lib/gait.ts","length":5631,"offset":0,"sha256":"ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"},{"baseline":{"hash":"932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2","kind":"interactive-sources-mounts"},"file":{"bytes":16735,"path":"components/interactive/gait-diagram.tsx","sha256":"a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"},"id":"source:components/interactive/gait-diagram.tsx","length":16735,"offset":0,"sha256":"a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"},{"baseline":{"hash":"1354cb035dab064e54d3595b701ba66a940332a5593b716f7c58fda74198650b","kind":"prose"},"file":{"bytes":15209,"path":"content/rl-sim2real/legged-locomotion.mdx","sha256":"7dc98b117c3ab4907c273dbfd7bf206d9fd057b483dd8f9e153d0c2facca1de4"},"id":"article:rl-sim2real/legged-locomotion","length":15209,"offset":0,"sha256":"7dc98b117c3ab4907c273dbfd7bf206d9fd057b483dd8f9e153d0c2facca1de4"},{"file":{"bytes":58174,"path":"lib/audit-local-basis.ts","sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},"id":"file:lib/audit-local-basis.ts","length":58174,"offset":0,"sha256":"f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"},{"file":{"bytes":8563,"path":"tests/e2e/final-seven-closure-evidence.spec.ts","sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"},"id":"file:tests/e2e/final-seven-closure-evidence.spec.ts","length":8563,"offset":0,"sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"}],"endedAt":"2026-09-23T22:00:04.744024+00:00","environment":{"NODE_DISABLE_COMPILE_CACHE":"1"},"exitCode":0,"inputDigest":"17be6313c3e70750e8b86739d7cacebdcdb3a42b0b2ee54d437de22835dc65a1","observations":[{"action":"step forward on 5% grid","capture":{"bytes":124800,"path":"audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-1440.png","sha256":"ce0eb7c496817bd8495375dd92196c520ae633bfab7490c4ac6d187919044429"},"caseId":"slider-boundaries-and-anchors","dom":{"bytes":18283,"path":"audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-1440.dom.txt","sha256":"6c1e865408efe767fe2758b0544146ab48250abbabc53581d976f9bf843d978c"},"mountId":"mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1","poststate":"trot@25%","prestate":"trot@20%","readouts":[{"selector":"[data-testid=\"phase-readout\"]","text":"25%"},{"selector":"[data-testid=\"duty-readout\"]","text":"0.50"}],"viewport":{"height":1000,"width":1440}},{"action":"step forward on 5% grid","capture":{"bytes":43104,"path":"audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-375.png","sha256":"b04ca77602e517266f6ec60488e93e245c58ca79a15356beeb22d81be22ff35e"},"caseId":"slider-boundaries-and-anchors","dom":{"bytes":18283,"path":"audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-375.dom.txt","sha256":"6c1e865408efe767fe2758b0544146ab48250abbabc53581d976f9bf843d978c"},"mountId":"mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1","poststate":"trot@25%","prestate":"trot@20%","readouts":[{"selector":"[data-testid=\"phase-readout\"]","text":"25%"},{"selector":"[data-testid=\"duty-readout\"]","text":"0.50"}],"viewport":{"height":812,"width":375}}],"outputDigest":"91746fd9fb76527e52336e00f625fe2d674bceab3451ef64f70f151c987d0f8b","runner":"playwright","schemaVersion":"local-run-v1","startedAt":"2026-09-23T21:59:53.477709+00:00","test":{"bytes":8563,"path":"tests/e2e/final-seven-closure-evidence.spec.ts","sha256":"4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"}}
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 node_modules/.bin/playwright test --config audit/evidence/final-seven-closure-20260923/playwright.config.ts tests/e2e/final-seven-closure-evidence.spec.ts",
+  "runner": "playwright",
+  "cwd": "/srv/robot-wiki",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-09-23T21:59:53.477709+00:00",
+  "endedAt": "2026-09-23T22:00:04.744024+00:00",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+    "bytes": 8563,
+    "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+  },
+  "inputDigest": "e13613ef84e9e48899fbc91cf6ad96f812f3214304ab8db6827f4ecbbb172eae",
+  "outputDigest": "9ad65a9f1c1fc6db872a330fa1004f04f47e7853e1b57ed18fb407b4db970204",
+  "dependencies": [
+    {
+      "file": {
+        "path": "lib/gait.ts",
+        "bytes": 5631,
+        "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+      },
+      "id": "file:lib/gait.ts",
+      "offset": 0,
+      "length": 5631,
+      "sha256": "ab19d9d32ce0e13fd824e1ff3a9f6cefaac40d3735a5e91eb5c8dcc044f8d133"
+    },
+    {
+      "file": {
+        "path": "components/interactive/gait-diagram.tsx",
+        "bytes": 16735,
+        "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+      },
+      "id": "source:components/interactive/gait-diagram.tsx",
+      "offset": 0,
+      "length": 16735,
+      "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+      }
+    },
+    {
+      "file": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15209,
+        "sha256": "7dc98b117c3ab4907c273dbfd7bf206d9fd057b483dd8f9e153d0c2facca1de4"
+      },
+      "id": "article:rl-sim2real/legged-locomotion",
+      "offset": 0,
+      "length": 15209,
+      "sha256": "7dc98b117c3ab4907c273dbfd7bf206d9fd057b483dd8f9e153d0c2facca1de4",
+      "baseline": {
+        "kind": "prose",
+        "hash": "1354cb035dab064e54d3595b701ba66a940332a5593b716f7c58fda74198650b"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 58174,
+        "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 58174,
+      "sha256": "f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+        "bytes": 8563,
+        "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+      },
+      "id": "file:tests/e2e/final-seven-closure-evidence.spec.ts",
+      "offset": 0,
+      "length": 8563,
+      "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+    }
+  ],
+  "observations": [
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "trot@20%",
+      "action": "step forward on 5% grid",
+      "poststate": "trot@25%",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "25%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.50"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-1440.dom.txt",
+        "bytes": 18283,
+        "sha256": "6c1e865408efe767fe2758b0544146ab48250abbabc53581d976f9bf843d978c"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-1440.png",
+        "bytes": 124800,
+        "sha256": "ce0eb7c496817bd8495375dd92196c520ae633bfab7490c4ac6d187919044429"
+      }
+    },
+    {
+      "mountId": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "caseId": "slider-boundaries-and-anchors",
+      "prestate": "trot@20%",
+      "action": "step forward on 5% grid",
+      "poststate": "trot@25%",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "readouts": [
+        {
+          "selector": "[data-testid=\"phase-readout\"]",
+          "text": "25%"
+        },
+        {
+          "selector": "[data-testid=\"duty-readout\"]",
+          "text": "0.50"
+        }
+      ],
+      "dom": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-375.dom.txt",
+        "bytes": 18283,
+        "sha256": "6c1e865408efe767fe2758b0544146ab48250abbabc53581d976f9bf843d978c"
+      },
+      "capture": {
+        "path": "audit/evidence/final-seven-closure-20260923/gaitdiagram-1-slider-boundaries-and-anchors-375.png",
+        "bytes": 43104,
+        "sha256": "b04ca77602e517266f6ec60488e93e245c58ca79a15356beeb22d81be22ff35e"
+      }
+    }
+  ]
+}

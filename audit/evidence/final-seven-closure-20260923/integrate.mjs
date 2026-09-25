@@ -14,7 +14,7 @@ import { buildManifest, sha256, stableJson } from '../../../lib/brand-v2-baselin
 
 const root = resolve(fileURLToPath(new URL('../../../', import.meta.url)));
 const here = 'audit/evidence/final-seven-closure-20260923';
-const mission = '/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906';
+const mission = 'validation/brand-v2-editorial/source-recovery-20260906';
 const packetPath = `${mission}/closure-crossdomain-ready-20260923/rows.json`;
 const dispatchPath = `${mission}/closure-final-seven-integration-20260923`;
 const read = p => readFileSync(join(root, p));
@@ -418,10 +418,10 @@ if (process.argv[2] === 'seed') {
     const review = (partId, inputDigest, rationale, scope) => {
       const event = {
         schemaVersion: 'local-review-event-v1',
-        sessionId: 'fd137388-f254-4d11-97b1-548904d2cad2',
+        sessionId: 'fd137388',
         role: 'integrator', eventId: `${plan.id}-${partId ?? 'whole'}-20260923`,
         observedAt: new Date().toISOString(),
-        reviewedBy: 'Delegated Droid Sol/max integrator; independent reviewer pending',
+        reviewedBy: 'Delegated implementation integrator; independent reviewer pending',
         rationale, outcome: 'supported', scope, partId, inputDigest,
         inventory: plan.parts, originalId: plan.originalId, currentTupleDigest: plan.currentTupleDigest,
       };

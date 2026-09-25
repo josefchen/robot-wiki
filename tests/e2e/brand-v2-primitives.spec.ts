@@ -181,7 +181,7 @@ async function observe(
 }
 
 /**
- * One sweep per file (the brand-v2 config runs a single worker), so the five
+ * One sweep per file (the brand-v2 config runs a single writer), so the five
  * gates below all read the same measured population instead of each paying
  * for its own 63-document walk.
  */

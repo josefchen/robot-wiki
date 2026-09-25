@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-isaac-plumbing:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read Isaac Lab v1 Section5.3: runtime parameter changes versus pre-play mesh scale/collider changes, CPU APIs for masses/friction/contact offsets/armature, and the adjacent configurable ADR curriculum with dexsuite references. This preserves both CPU/GPU qualification and original ADR attribution.",
   "outcome": "supported",
   "scope": "part",

@@ -193,7 +193,7 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
     reason:
       "Published title of the IEEE T-RO paper, rendered verbatim in the scene-representation module's References entry. The en dash in 'Visual–Inertial' is the journal's own title punctuation, not our prose; titles are never reworded.",
     verifiedBy:
-      'The citation registry records IEEE DOI landing metadata fetched via FetchUrl on 2026-09-14 for doi:10.1109/TRO.2021.3075644, which returns the title with U+2013 in "Visual–Inertial" exactly where this entry has it.',
+      'The citation registry records IEEE DOI landing metadata fetched via web fetch on 2026-09-14 for doi:10.1109/TRO.2021.3075644, which returns the title with U+2013 in "Visual–Inertial" exactly where this entry has it.',
     verifiedOn: '2026-09-16',
   },
   {

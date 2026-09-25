@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r5-20260923:r5-classifier-parameters:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "The authored classifier is priority-ordered: <=0.2 action-rate chatter first, then torque absolute 2.5 and relative 2x velocity freeze, then analogous air-time prance, else balanced. Threshold boundary/priority checks and full dependency hashes accompany explicit non-empirical disclosure.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r5-classifier-parameters",
-  "inputDigest": "cb6eb4dabdaaf4a2f70e61719ff4a0ccb86441ff4bdaef0753a13e1030d82441",
+  "inputDigest": "d7a6ab9967acad23131cf52ab14095105f014a51dc385feb528e1eb5f1347c46",
   "inventory": [
     {
       "id": "r5-rudin-contrast",
@@ -110,5 +110,5 @@
     }
   ],
   "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
-  "currentTupleDigest": "a63b8a9bf8fd0c562711af20c1a55d3dc089f3403783ab9a956b90c73f384db9"
+  "currentTupleDigest": "aad57ba9f9bc0e30f757775231404ba36aed0a9d2833f03273bd53a4bd74355d"
 }

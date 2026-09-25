@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-adr:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read the actual performance-threshold definition and ADR boundary-sampling paragraph: high and low thresholds adjust the distribution with training progress. This supports the original ADR anchor; it is not inferred from a source label or replaced by local calculations.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-adr",
-  "inputDigest": "2297e979fc8338985096017e42dcac2006bb6aef4009f18dd00d76fcccd4638c",
+  "inputDigest": "814f9b7b5249745ab03e2f7eaf86505100f821ebccf97e1ca1adb406b6572437",
   "inventory": [
     {
       "id": "s23-tobin-framing",

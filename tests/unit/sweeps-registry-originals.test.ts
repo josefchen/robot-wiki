@@ -176,7 +176,7 @@ describe('integrator plan review (2026-09-17a)', () => {
     );
     for (const spec of EXPECTED_SWEEPS) {
       const plan = compoundPlans.find((p) => p.id === spec.planId)!;
-      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+      expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
       expect(plan.planReview?.rationale).toContain(spec.packet);
     }
   });

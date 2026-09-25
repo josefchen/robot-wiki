@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/parallel-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
   "runner": "vitest",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -83,13 +83,13 @@
     {
       "file": {
         "path": "tests/unit/parallel-local-evidence.test.ts",
-        "bytes": 5364,
-        "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+        "bytes": 5383,
+        "sha256": "3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef"
       },
       "id": "file:tests/unit/parallel-local-evidence.test.ts",
       "offset": 0,
-      "length": 5364,
-      "sha256": "959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb"
+      "length": 5383,
+      "sha256": "3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef"
     }
   ],
   "observations": []

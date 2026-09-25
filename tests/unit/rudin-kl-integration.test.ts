@@ -84,7 +84,7 @@ describe('Rudin KL mechanism is not a reward-retuning guarantee', () => {
   it('binds actual writer review, not the source-only review identity', () => {
     const plan = selected();
     if (!plan.planReview) throw new Error('KL plan review is required');
-    expect(plan.planReview.reviewedBy).toBe('agent:68812493-b567-4ff7-971a-8dbda9aa95e7/integrator');
+    expect(plan.planReview.reviewedBy).toBe('agent:68812493/integrator');
     expect(plan.planReview.planDigest).toBe(compoundPlanDigest(plan));
     for (const review of plan.adjudications) {
       expect(review.evidenceDigest).toBe(compoundPartDigest(plan, review.partId));

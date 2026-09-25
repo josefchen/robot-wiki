@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r11-20260923:r11-mounted-replay-1:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Actual registered EurekaLoop observation 1 binds its own generation/fitness/code/statistics/reflection, DOM and screenshot. Keyboard activation advances the script; generation 2 disables Next; Reset re-enables it and returns 0 without a diff. The disclosure is present in actual DOM. This witnesses these transitions, not all focus cases or a real training experiment.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r11-mounted-replay-1",
-  "inputDigest": "a9b08192cc0d38d200c85e8e23a77f399132c974d5ac4c0f1ee8b2c24d4e4e3e",
+  "inputDigest": "a5081c580dd482284e9afecdab7b7ebdbc1db41eff41326aa406aeb5ca863da4",
   "inventory": [
     {
       "id": "r11-eureka-mechanism",

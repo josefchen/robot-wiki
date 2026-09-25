@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-1-20260923:whole",
   "observedAt": "2026-09-23T19:54:47.684Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Reviewed the whole ordered AND inventory against the corrected claim and reader disclosure. The illustrative model has three authored contributions: a ray-to-plane angle term, a depth magnitude evaluated at fixed nominal0.5m, and a direct pose magnitude. Only in this model are the latter two held constant during a distance sweep; it is not a universal positioning-error decomposition. External specifications, authored choices, derivations and mounted behavior remain distinct. No original is dropped, no UI state below its slider range is invented, and no source-only preparation is counted as execution.",
-  "inputDigest": "1c10088d5162907984b57d3046d2b1361d4eb006b76b89caaa3913ace7c9a89f",
+  "inputDigest": "2a0429e4f41eaa925ec613dfdb0c339c567770346af29e8c2bc0e8562e4ac521",
   "outcome": "supported",
   "scope": "plan",
   "partId": null,
@@ -235,5 +235,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:1",
-  "currentTupleDigest": "72a21ed94fe2906706863894583116b6fbd47274307105ae34133976364557c0"
+  "currentTupleDigest": "3dc25b7606146769df613dd204a04b9ab36e3abdad626df485af4d3bfd675945"
 }

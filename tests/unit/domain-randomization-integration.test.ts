@@ -77,7 +77,7 @@ describe('Domain randomization source integration', () => {
       expect(p.evidence.length).toBe(parts.length);
       expect(row(p).evidenceFailures).toEqual([]);
       expect(row(p).outcome).toBe('passing');
-      expect(p.planReview?.reviewedBy).toBe('agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator');
+      expect(p.planReview?.reviewedBy).toBe('agent:d43f66d4/integrator');
       expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
       for (const a of p.adjudications) expect(a.evidenceDigest).toBe(compoundPartDigest(p, a.partId));
     });

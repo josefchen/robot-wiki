@@ -520,7 +520,7 @@ The field is responding with crowd-sourced evaluation (RoboArena) [40], sequenti
 - [1] Open X-Embodiment Collaboration, "RT-X: Open X-Embodiment Robot Datasets," `robotics-transformer-x.github.io`, Oct 2023. Accessed Aug 2026.
 - [2] DROID Collaboration, "DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset," `droid-dataset.github.io`. Accessed Aug 2026. arXiv 2403.12945.
 - [3] AgiBot World Team, "AgiBot World: A Large-Scale Robotic Manipulation Dataset," `github.com/Agibot-World/Agibot-World`, 2025. Accessed Aug 2026.
-- [4] RoboMIND, 2025. 107k trajectories, 479 tasks, 96 objects. [Further details from WebSearch, Aug 2026.]
+- [4] RoboMIND, 2025. 107k trajectories, 479 tasks, 96 objects. [Further details from web search, Aug 2026.]
 - [5] AgiBot World Team, "AgiBot World 2026," `huggingface.co/datasets/agibot-world/AgiBotWorld2026`, 2026. Accessed Aug 2026. Total file size: 13.2 TB. License: CC BY-NC-SA 4.0.
 - [6] AgiBot, "GO-1 / GO-1-Pro Foundation Models," `agibot-world.com`, 2025–2026. GO-1 inference ~7 GB VRAM; full fine-tune ~70 GB. GO-1-Pro +15% with ~2.5× pretraining data. Accessed Aug 2026.
 - [7] Penedo et al., "The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale," arXiv 2406.17557, NeurIPS 2024. 15T tokens from 96 Common Crawl snapshots.
@@ -548,7 +548,7 @@ The field is responding with crowd-sourced evaluation (RoboArena) [40], sequenti
 - [29] NVIDIA, "Jetson Thor Product Page," `nvidia.com/en-us/autonomous-machines/embedded-systems/jetson/`. T5000: 2070 FP4 TFLOPS sparse, 128 GB LPDDR5X, 273 GB/s, 14-core Neoverse-V3AE, 40–130 W, 7.5× perf / 3.5× efficiency vs AGX Orin. T4000: 1200 TFLOPS, 64 GB. Accessed Aug 2026.
 - [30] NVIDIA Research, "VLA-Perf: Performance Analysis of Vision-Language-Action Models," arXiv 2602.18397, Feb 2026.
 - [31] Luo, Lepora, Yuan, Althoefer, Cheng, Dahiya, "Tactile Robotics: An Outlook," arXiv 2508.11261, accepted to IEEE Transactions on Robotics, Aug 2025.
-- [32] Meta FAIR / GelSight, "Digit 360" and related tactile sensor releases, Oct/Nov 2024. GelSight Mini, DIGIT, ReSkin/AnySkin. [Compiled from WebSearch results, Aug 2026.]
+- [32] Meta FAIR / GelSight, "Digit 360" and related tactile sensor releases, Oct/Nov 2024. GelSight Mini, DIGIT, ReSkin/AnySkin. [Compiled from web search results, Aug 2026.]
 - [33] Wu et al., "GELLO: A General, Low-Cost, and Intuitive Teleoperation Framework," arXiv 2309.13037, 2023. <$300 BOM.
 - [34] "Bunny-VisionPro: Real-Time Bimanual Teleoperation," arXiv 2407.03162, 2024.
 - [35] Toyota Research Institute (TRI), "Learning Before Moving (LBM)," arXiv 2507.05331, Science Robotics 2026. ~1,700 h data, 1,800 real rollouts, 47,000+ sim rollouts. Clopper-Pearson CI at 50 rollouts ≈ 20–30% absolute width.

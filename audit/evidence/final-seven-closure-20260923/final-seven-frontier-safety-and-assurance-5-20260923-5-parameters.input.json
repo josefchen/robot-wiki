@@ -1,1 +1,5 @@
-{"id":"safety","inputs":{},"mode":"parameters"}
+{
+  "id": "safety",
+  "inputs": {},
+  "mode": "parameters"
+}

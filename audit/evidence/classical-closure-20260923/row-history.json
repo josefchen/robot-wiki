@@ -8,8 +8,8 @@
     },
     {
       "path": "audit/evidence/classical-closure-20260923/classical-before.md",
-      "bytes": 652402,
-      "sha256": "f771865d5faaabdbc27b60d6c190c836921425f40f13b276326a691d0e0a7b4d"
+      "bytes": 639919,
+      "sha256": "7de3ef4df39a58f3b1c9425e2bc19a30bfedec5addae7b6f0ee1893014a1c90b"
     }
   ],
   "rows": [
@@ -34,7 +34,7 @@
         "claim": "LaValle Section 3.3.2 describes a revolute chain using four DH parameters: an axial offset, angle about the rotation axis, inter-axis distance and inter-axis angle. Its displayed parameter list and distance-definition sentence use different a subscripts; the article does not attribute its matrix convention to that page.",
         "sourceChecked": "lavalle-2006; https://lavalle.pl/planning/node109.html; actual rune___web_scrape response 2026-09-23T18:29:41.239Z; origin HTTP status not exposed.",
         "verdict": "C",
-        "note": "Re-sourced and narrowed to the actual retrieved definitions. Original 1955 attribution, link/joint split and theta-only proposition remain in original history, not the active claim. LaValle indexing discrepancy is explicit. The separately supported displayed matrix, planar table and interactives are preserved. This record requires the full passage and application review, not a source-summary label. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "Re-sourced and narrowed to the actual retrieved definitions. Original 1955 attribution, link/joint split and theta-only proposition remain in original history, not the active claim. LaValle indexing discrepancy is explicit. The separately supported displayed matrix, planar table and interactives are preserved. This record requires the full passage and application review, not a source-summary label. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "4ebfca1f8211f62a8f9fd2240c8e8e949759358c394b442a24bc186c50051df5",
       "originalHistory": {
@@ -47,7 +47,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/rows.json",
             "record": {
               "originalId": "audit/classical.md:kinematics:3",
               "rowOrdinal": 3,
@@ -60,16 +60,16 @@
               },
               "disposition": "held",
               "review": null,
-              "adjudicationSummary": "Fetchable-source row; the EXACT registered URL was fetched this session. https://doi.org/10.1115/1.4011045 resolves (via FetchUrl, Status 200; plain curl GET is bot-walled HTTP 403, logged) to the ASME Digital Collection article page 'A Kinematic Notation for Lower-Pair Mechanisms Based on Matrices' (article-abstract 22/2/215/1110292). P1 verified read-only against the rendered page: title, authors 'J. Denavit' and 'R. S. Hartenberg' (both The Technological Institute, Northwestern University), venue 'J. Appl. Mech. Jun 1955, 22(2): 215-221' and DOI all match the registry entry (denavit-hartenberg-1955, ASME J. Applied Mechanics, 1955) exactly. The page prints the full abstract verbatim (see passages) and then 'This content is only available via PDF.' with a $25.00 purchase wall - the body is paywalled at uncredentialed scope, reconfirming the 2026-09-15 prior-lane finding with this session's own fetch. ADJUDICATION: the abstract certifies that the 1955 paper introduced 'a symbolic notation which permits the complete description of the kinematic properties of all lower-pair mechanisms by means of equations' and 'a method for studying lower-pair mechanisms by means of matrix algebra' - the origin/lineage conjunct of the article span (content/classical/kinematics.mdx line 72, 'Denavit and Hartenberg gave the standard answer in 1955 <Cite id=\"denavit-hartenberg-1955\" />') is supported at abstract scope. The load-bearing convention content - 'exactly four scalars describe the geometry from one joint to the next', the a_i/alpha_i-link vs d_i/theta_i-joint split, and 'For a revolute joint only theta_i varies' - is printed NOWHERE on the fetched page; an abstract proves only what it prints. No alternative registered citation states it either, checked this session: data/citations.ts (read-only) contains no other DH-describing source, and the modern-robotics-2017 fetchable surface (the authors' official companion site at the registered domain) has NO Denavit-Hartenberg pages at all - the site index lists exactly two chapter-4 resources, 4-1-1 and 4-1-2, both product-of-exponentials (measured on the fetched 65,858-byte index; zero 'dh' resources), and the full-book PDF at https://modernrobotics.northwestern.edu/modernrobotics.pdf returns HTTP 404 (re-probed this session). The 1955 body has no lawful public mirror (ASME copyright); per the no-paywall/no-mirror rule the row is held rather than certified from an unfetched body or an unregistered tertiary source.",
+              "adjudicationSummary": "Fetchable-source row; the EXACT registered URL was fetched this session. https://doi.org/10.1115/1.4011045 resolves (via web fetch, Status 200; plain curl GET is bot-walled HTTP 403, logged) to the ASME Digital Collection article page 'A Kinematic Notation for Lower-Pair Mechanisms Based on Matrices' (article-abstract 22/2/215/1110292). P1 verified read-only against the rendered page: title, authors 'J. Denavit' and 'R. S. Hartenberg' (both The Technological Institute, Northwestern University), venue 'J. Appl. Mech. Jun 1955, 22(2): 215-221' and DOI all match the registry entry (denavit-hartenberg-1955, ASME J. Applied Mechanics, 1955) exactly. The page prints the full abstract verbatim (see passages) and then 'This content is only available via PDF.' with a $25.00 purchase wall - the body is paywalled at uncredentialed scope, reconfirming the 2026-09-15 prior-lane finding with this session's own fetch. ADJUDICATION: the abstract certifies that the 1955 paper introduced 'a symbolic notation which permits the complete description of the kinematic properties of all lower-pair mechanisms by means of equations' and 'a method for studying lower-pair mechanisms by means of matrix algebra' - the origin/lineage conjunct of the article span (content/classical/kinematics.mdx line 72, 'Denavit and Hartenberg gave the standard answer in 1955 <Cite id=\"denavit-hartenberg-1955\" />') is supported at abstract scope. The load-bearing convention content - 'exactly four scalars describe the geometry from one joint to the next', the a_i/alpha_i-link vs d_i/theta_i-joint split, and 'For a revolute joint only theta_i varies' - is printed NOWHERE on the fetched page; an abstract proves only what it prints. No alternative registered citation states it either, checked this session: data/citations.ts (read-only) contains no other DH-describing source, and the modern-robotics-2017 fetchable surface (the authors' official companion site at the registered domain) has NO Denavit-Hartenberg pages at all - the site index lists exactly two chapter-4 resources, 4-1-1 and 4-1-2, both product-of-exponentials (measured on the fetched 65,858-byte index; zero 'dh' resources), and the full-book PDF at https://modernrobotics.northwestern.edu/modernrobotics.pdf returns HTTP 404 (re-probed this session). The 1955 body has no lawful public mirror (ASME copyright); per the no-paywall/no-mirror rule the row is held rather than certified from an unfetched body or an unregistered tertiary source.",
               "hold": "Held: ASME body paywalled (purchase wall $25.00, 'This content is only available via PDF', uncredentialed scope refused at the fetched page this session); the fetched abstract prints the notation's existence, its complete-description purpose and its matrix-algebra method, but does NOT print the row's four-scalars-per-joint claim, the link/joint parameter split, or revolute-varies-theta-only. Same disposition and same evidence boundary as the 2026-09-15 prior pass (convergence-source-a-kinematics-20260915), now reconfirmed by this session's own fetches; 'D-H convention is standard' is not a fetchable scope.",
               "catalogueEvidence": [
                 {
                   "citationId": "denavit-hartenberg-1955",
                   "sourceUrl": "https://doi.org/10.1115/1.4011045",
-                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 403 probe at window start; FetchUrl 200 inside the window bracketed by adjacent Execute clock reads)",
+                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 403 probe at window start; web fetch 200 inside the window bracketed by adjacent Execute clock reads)",
                   "finalUrl": "https://asmedigitalcollection.asme.org/appliedmechanics/article-abstract/22/2/215/1110292/A-Kinematic-Notation-for-Lower-Pair-Mechanisms",
                   "httpStatus": 200,
-                  "fetchTool": "FetchUrl (rendered page; plain curl GET bot-walled 403, logged identically)",
+                  "fetchTool": "web fetch (rendered page; plain curl GET bot-walled 403, logged identically)",
                   "supportingPassage": "A symbolic notation devised by Reuleaux to describe mechanisms did not recognize the necessary number of variables needed for complete description. A reconsideration of the problem leads to a symbolic notation which permits the complete description of the kinematic properties of all lower-pair mechanisms by means of equations. The symbolic notation also yields a method for studying lower-pair mechanisms by means of matrix algebra; two examples of application to space mechanisms are given. [Abstract section; the page then prints:] This content is only available via PDF."
                 }
               ],
@@ -81,10 +81,10 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-kinematics-20260915/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-kinematics-20260915/rows.json",
             "record": {
               "disposition": "held",
-              "adjudicationSummary": "Held: paywalled beyond the row's claimed scope. The exact cited URL (doi.org 10.1115/1.4011045 -> ASME Digital Collection) was fetched 2026-09-15T18:14:52Z (FetchUrl 200) and shows title, authors (J. Denavit, R. S. Hartenberg), venue (J. Appl. Mech. 22(2):215-221, June 1955) and the abstract. The body is paywalled ('This content is only available via PDF', purchase $25.00). The abstract certifies that a symbolic notation for complete kinematic description of lower-pair mechanisms via matrix algebra exists, but does NOT state the row's body-level claims: exactly four scalars per joint, the a/alpha link vs d/theta joint split, or that a revolute joint varies theta only.",
+              "adjudicationSummary": "Held: paywalled beyond the row's claimed scope. The exact cited URL (doi.org 10.1115/1.4011045 -> ASME Digital Collection) was fetched 2026-09-15T18:14:52Z (web fetch 200) and shows title, authors (J. Denavit, R. S. Hartenberg), venue (J. Appl. Mech. 22(2):215-221, June 1955) and the abstract. The body is paywalled ('This content is only available via PDF', purchase $25.00). The abstract certifies that a symbolic notation for complete kinematic description of lower-pair mechanisms via matrix algebra exists, but does NOT state the row's body-level claims: exactly four scalars per joint, the a/alpha link vs d/theta joint split, or that a revolute joint varies theta only.",
               "heldReason": "ASME body paywalled (purchase wall, uncredentialed access refused 2026-09-15T18:14:52Z); abstract at fetched scope does not state the four-parameter-per-joint claim or the link/joint parameter split; row claims body content beyond catalogue scope. Hold rather than claim the body.",
               "catalogueEvidence": [
                 {
@@ -143,7 +143,7 @@
         },
         "originalTupleDigest": "2a937e02dea1624796dcbc19a63e71f4b98519bb859e3d4de8442a7bdf99a98c",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -176,7 +176,7 @@
         "claim": "Removed: the Wampler-attributed DLS equation, single-scalar account and associated general conditioning guarantees are no longer asserted by this article or its inverse-kinematics glossary entry.",
         "sourceChecked": "Exact before/after article, metadata and glossary removal proof; Wampler DOI and unavailable-body history retained, not used as proof of the removed formula.",
         "verdict": "Cut",
-        "note": "Original identity and four cells are preserved. No external passage establishing the removed assertion is required or invented. Approved solver, controls, supported tolerance and iterative-IK context remain unchanged. Record completion only after actual removal checks and review of the remaining text. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "Original identity and four cells are preserved. No external passage establishing the removed assertion is required or invented. Approved solver, controls, supported tolerance and iterative-IK context remain unchanged. Record completion only after actual removal checks and review of the remaining text. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "fcf1101b18556fcbac844c512db36c295cfbe7da441ec177161a3de1fda67ee2",
       "originalHistory": {
@@ -189,7 +189,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/rows.json",
             "record": {
               "originalId": "audit/classical.md:kinematics:11",
               "rowOrdinal": 11,
@@ -202,16 +202,16 @@
               },
               "disposition": "held",
               "review": null,
-              "adjudicationSummary": "Fetchable-source row; the EXACT registered URL was fetched this session. https://doi.org/10.1109/TSMC.1986.289285 resolves to IEEE Xplore document 4075580 (plain curl GET is bot-walled: HTTP 202, zero-byte body, logged; FetchUrl renders the page, Status 200 - the same access pattern the t-taxonomy lane recorded for IEEE). P1 verified read-only against the rendered page: the title 'Manipulator Inverse Kinematic Solutions Based on Vector Formulations and Damped Least-Squares Methods' matches the registry entry (wampler-1986, IEEE Trans. Systems, Man, and Cybernetics, 1986) exactly. CRITICAL SCOPE FACT, observed this session: the rendered IEEE page prints the title and site boilerplate and NOTHING ELSE - no abstract, no metadata block, no body; the abstract is elided at uncredentialed scope (consistent with the prior pass's Semantic Scholar API finding: abstract null with the publisher's elision notice, openAccessPdf status CLOSED - recorded context from 2026-09-15, corroborating but not substituted for this session's own fetch). ADJUDICATION: the claim's load-bearing content - the exact recursion dq = J^T(JJ^T + lambda^2 I)^-1 dx and its governance by the single scalar lambda (article span content/classical/kinematics.mdx lines 135-141, citing wampler-1986) - is printed NOWHERE on any fetchable surface. The title alone certifies only that the paper concerns damped least-squares methods for manipulator inverse kinematics (a lineage fact, already used as the row-13 lineage basis); a title cannot certify a formula. No alternative registered source states it either, checked this session: the Modern Robotics numerical-IK companion pages 6-2-1 and 6-2-2 (both fetched, 200) contain ZERO occurrences of 'damp', 'lambda', 'Levenberg' or 'Marquardt', and data/citations.ts (read-only) holds no other DLS-stating citation. Per the no-paywall rule the IEEE body is not accessible, and an unregistered tutorial page would not carry this load-bearing numeric claim anyway. Row held rather than certified from an unfetched body.",
-              "hold": "Held: IEEE Xplore renders the article page at uncredentialed scope with the title ONLY - no abstract (elided by publisher; also confirmed via the public Semantic Scholar API on 2026-09-15 by the prior pass), and the body is paywalled; the exact DLS recursion and the single-scalar-lambda governance are body claims visible on no fetchable surface, and no alternative registered source states them. Same disposition and evidence boundary as the 2026-09-15 prior pass, reconfirmed by this session's own FetchUrl of the exact registered DOI.",
+              "adjudicationSummary": "Fetchable-source row; the EXACT registered URL was fetched this session. https://doi.org/10.1109/TSMC.1986.289285 resolves to IEEE Xplore document 4075580 (plain curl GET is bot-walled: HTTP 202, zero-byte body, logged; web fetch renders the page, Status 200 - the same access pattern the t-taxonomy lane recorded for IEEE). P1 verified read-only against the rendered page: the title 'Manipulator Inverse Kinematic Solutions Based on Vector Formulations and Damped Least-Squares Methods' matches the registry entry (wampler-1986, IEEE Trans. Systems, Man, and Cybernetics, 1986) exactly. CRITICAL SCOPE FACT, observed this session: the rendered IEEE page prints the title and site boilerplate and NOTHING ELSE - no abstract, no metadata block, no body; the abstract is elided at uncredentialed scope (consistent with the prior pass's Semantic Scholar API finding: abstract null with the publisher's elision notice, openAccessPdf status CLOSED - recorded context from 2026-09-15, corroborating but not substituted for this session's own fetch). ADJUDICATION: the claim's load-bearing content - the exact recursion dq = J^T(JJ^T + lambda^2 I)^-1 dx and its governance by the single scalar lambda (article span content/classical/kinematics.mdx lines 135-141, citing wampler-1986) - is printed NOWHERE on any fetchable surface. The title alone certifies only that the paper concerns damped least-squares methods for manipulator inverse kinematics (a lineage fact, already used as the row-13 lineage basis); a title cannot certify a formula. No alternative registered source states it either, checked this session: the Modern Robotics numerical-IK companion pages 6-2-1 and 6-2-2 (both fetched, 200) contain ZERO occurrences of 'damp', 'lambda', 'Levenberg' or 'Marquardt', and data/citations.ts (read-only) holds no other DLS-stating citation. Per the no-paywall rule the IEEE body is not accessible, and an unregistered tutorial page would not carry this load-bearing numeric claim anyway. Row held rather than certified from an unfetched body.",
+              "hold": "Held: IEEE Xplore renders the article page at uncredentialed scope with the title ONLY - no abstract (elided by publisher; also confirmed via the public Semantic Scholar API on 2026-09-15 by the prior pass), and the body is paywalled; the exact DLS recursion and the single-scalar-lambda governance are body claims visible on no fetchable surface, and no alternative registered source states them. Same disposition and evidence boundary as the 2026-09-15 prior pass, reconfirmed by this session's own web fetch of the exact registered DOI.",
               "catalogueEvidence": [
                 {
                   "citationId": "wampler-1986",
                   "sourceUrl": "https://doi.org/10.1109/TSMC.1986.289285",
-                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 202 probe at window start; FetchUrl 200 inside the window bracketed by adjacent Execute clock reads)",
+                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 202 probe at window start; web fetch 200 inside the window bracketed by adjacent Execute clock reads)",
                   "finalUrl": "https://ieeexplore.ieee.org/document/4075580/",
                   "httpStatus": 200,
-                  "fetchTool": "FetchUrl (rendered page; plain curl GET bot-walled HTTP 202 / zero bytes, logged identically)",
+                  "fetchTool": "web fetch (rendered page; plain curl GET bot-walled HTTP 202 / zero bytes, logged identically)",
                   "supportingPassage": "Manipulator Inverse Kinematic Solutions Based on Vector Formulations and Damped Least-Squares Methods | IEEE Journals & Magazine | IEEE Xplore (title as rendered; the page prints no abstract - the document's Abstract section is absent at uncredentialed scope, only account/purchase/boilerplate links follow)."
                 }
               ],
@@ -223,10 +223,10 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-kinematics-20260915/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-kinematics-20260915/rows.json",
             "record": {
               "disposition": "held",
-              "adjudicationSummary": "Held: the exact formula is a body claim and the body is paywalled. The DOI page for wampler-1986 (fetched 2026-09-15T18:15:49Z, FetchUrl 200) confirms the paper's identity and venue but renders no abstract; Semantic Scholar (2026-09-15T18:18:09Z) confirms the publisher elided the abstract and that no open-access PDF exists (status CLOSED). The title certifies the paper concerns damped least-squares IK solutions, but the specific recursion dq = J^T(JJ^T + lambda^2 I)^-1 dx and the single-scalar-lambda governance are not visible at any fetched scope. Note also: a guessed IEEE document URL (ieeexplore.ieee.org/document/4078284, fetched 2026-09-15T18:16:34Z) rendered an unrelated 2006 power-electronics paper and is NOT evidence for this row; it is recorded here only so the fetch log stays honest.",
+              "adjudicationSummary": "Held: the exact formula is a body claim and the body is paywalled. The DOI page for wampler-1986 (fetched 2026-09-15T18:15:49Z, web fetch 200) confirms the paper's identity and venue but renders no abstract; Semantic Scholar (2026-09-15T18:18:09Z) confirms the publisher elided the abstract and that no open-access PDF exists (status CLOSED). The title certifies the paper concerns damped least-squares IK solutions, but the specific recursion dq = J^T(JJ^T + lambda^2 I)^-1 dx and the single-scalar-lambda governance are not visible at any fetched scope. Note also: a guessed IEEE document URL (ieeexplore.ieee.org/document/4078284, fetched 2026-09-15T18:16:34Z) rendered an unrelated 2006 power-electronics paper and is NOT evidence for this row; it is recorded here only so the fetch log stays honest.",
               "heldReason": "IEEE body paywalled and abstract elided by publisher (verified at the DOI page and the Semantic Scholar API, 2026-09-15); the row's exact DLS formula and single-scalar-lambda governance cannot be certified at catalogue scope. Hold rather than claim the body.",
               "catalogueEvidence": [
                 {
@@ -285,7 +285,7 @@
         },
         "originalTupleDigest": "796d3393946b44d597c19858b15a388d4aec5966908281921ab15093dae6f0f5",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -318,7 +318,7 @@
         "claim": "Removed: the named Levenberg–Marquardt acceptance schedule and universal monotonic/no-oscillation/unreachable-target guarantee are no longer asserted in the article.",
         "sourceChecked": "Exact article/frontmatter correction and removal proof. Historical Levenberg/Marquardt references and failed retrievals remain retained; no external passage is invented.",
         "verdict": "Cut",
-        "note": "The removed scientific/source-attribution proposition is resolved by its actual removal, not by code comments. lib/ik.ts and the approved playground remain unchanged. In particular, internal escape nudges and displayed best-so-far residuals must not be conflated with universal monotonic trial iterates. Original and intermediate four-cell identities remain in history. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "The removed scientific/source-attribution proposition is resolved by its actual removal, not by code comments. lib/ik.ts and the approved playground remain unchanged. In particular, internal escape nudges and displayed best-so-far residuals must not be conflated with universal monotonic trial iterates. Original and intermediate four-cell identities remain in history. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "9fbf61495edc92093aa322923e3020a3f54418e5b1348506c0f8f90bc83f44d3",
       "originalHistory": {
@@ -331,7 +331,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/rows.json",
             "record": {
               "originalId": "audit/classical.md:kinematics:12",
               "rowOrdinal": 12,
@@ -344,25 +344,25 @@
               },
               "disposition": "held",
               "review": null,
-              "adjudicationSummary": "Fetchable-source row; BOTH exact cited URLs were fetched this session, plus a fresh attempt on the one genuinely free body (Levenberg's AMS free-archive PDF). (a) marquardt-1963: https://doi.org/10.1137/0111030 resolves to epubs.siam.org (plain curl GET 403, logged; FetchUrl Status 200). The rendered SIAM page prints full bibliographic identity - 'Journal of the Society for Industrial and Applied Mathematics, Volume 11, Issue 2, June 1963, Pages: 431 - 441', author Donald W. Marquardt, submitted 13 June 1962, published online 13 July 2006, DOI 10.1137/0111030 - which matches the registry entry exactly (P1 pass at catalogue scope), and its reference list prints reference 8: 'Kenneth Levenberg, A method for the solution of certain non-linear problems in least squares, Quart. Appl. Math., 2 (1944), 164-168'. But the page renders NO abstract ('Get full access to this article', 'Article Pay-Per-View') and the body is paywalled; the acceptance/lambda rule is printed nowhere on the page. (b) levenberg-1944: https://doi.org/10.1090/qam/10666 resolves to the AMS article page (plain curl GET 403, logged; FetchUrl Status 200), which prints the full entry - 'A method for the solution of certain non-linear problems in least squares, by Kenneth Levenberg, Quart. Appl. Math. 2 (1944), 164-168, DOI: https://doi.org/10.1090/qam/10666' (P1 pass at catalogue scope) - and the page's own policy line: 'Free Digital Archive: Full article PDFs in all volumes older than five years are available electronically free of charge', with the PDF link https://www.ams.org/journals/qam/1944-02-02/S0033-569X-1944-10666-0/S0033-569X-1944-10666-0.pdf. However the page itself prints NO abstract and no body text for the 1944 article. (c) The free PDF was attempted THREE ways this session: plain curl GET (HTTP 403, 5,947-byte HTML error), curl with browser User-Agent and referer set to the article page (HTTP 403 again, identical refusal - retained at sources/levenberg-1944-pdf-403.html), and FetchUrl (refused: 'Cannot process binary files', HTTP 400). The AMS bot wall refuses uncredentialed non-browser retrieval exactly as the prior pass recorded (two attempts 2026-09-15; this session adds a third and fourth refusal). No TLS weakening or credential use is permitted. ADJUDICATION: the row's content - 'take a trial step, keep it only if the residual shrinks, decrease lambda after success and increase it after failure' (article span content/classical/kinematics.mdx line 143, citing levenberg-1944 and marquardt-1963) - is body-level content in both papers, and neither body is readable at uncredentialed scope (Marquardt paywalled with no abstract; Levenberg PDF bot-walled). No alternative registered source states the rule (MR companion pages fetched this session: zero occurrences of 'Levenberg' or 'Marquardt'; data/citations.ts read-only: no other LM-stating citation). Row held rather than certified from unfetched bodies.",
-              "hold": "Held: both cited bodies are inaccessible at uncredentialed scope - Marquardt 1963 (SIAM paywall, no abstract rendered on the page) and Levenberg 1944 (AMS free-archive PDF refuses uncredentialed GET with 403 across plain curl, browser-UA+referer curl, and FetchUrl binary refusal; the article page itself prints no abstract) - and the accept-on-residual-decrease / lambda-down-on-success / lambda-up-on-failure rule is printed on no fetchable surface. Same disposition as the prior pass; this session re-probed every route and added the browser-UA+referer refusal.",
+              "adjudicationSummary": "Fetchable-source row; BOTH exact cited URLs were fetched this session, plus a fresh attempt on the one genuinely free body (Levenberg's AMS free-archive PDF). (a) marquardt-1963: https://doi.org/10.1137/0111030 resolves to epubs.siam.org (plain curl GET 403, logged; web fetch Status 200). The rendered SIAM page prints full bibliographic identity - 'Journal of the Society for Industrial and Applied Mathematics, Volume 11, Issue 2, June 1963, Pages: 431 - 441', author Donald W. Marquardt, submitted 13 June 1962, published online 13 July 2006, DOI 10.1137/0111030 - which matches the registry entry exactly (P1 pass at catalogue scope), and its reference list prints reference 8: 'Kenneth Levenberg, A method for the solution of certain non-linear problems in least squares, Quart. Appl. Math., 2 (1944), 164-168'. But the page renders NO abstract ('Get full access to this article', 'Article Pay-Per-View') and the body is paywalled; the acceptance/lambda rule is printed nowhere on the page. (b) levenberg-1944: https://doi.org/10.1090/qam/10666 resolves to the AMS article page (plain curl GET 403, logged; web fetch Status 200), which prints the full entry - 'A method for the solution of certain non-linear problems in least squares, by Kenneth Levenberg, Quart. Appl. Math. 2 (1944), 164-168, DOI: https://doi.org/10.1090/qam/10666' (P1 pass at catalogue scope) - and the page's own policy line: 'Free Digital Archive: Full article PDFs in all volumes older than five years are available electronically free of charge', with the PDF link https://www.ams.org/journals/qam/1944-02-02/S0033-569X-1944-10666-0/S0033-569X-1944-10666-0.pdf. However the page itself prints NO abstract and no body text for the 1944 article. (c) The free PDF was attempted THREE ways this session: plain curl GET (HTTP 403, 5,947-byte HTML error), curl with browser User-Agent and referer set to the article page (HTTP 403 again, identical refusal - retained at sources/levenberg-1944-pdf-403.html), and web fetch (refused: 'Cannot process binary files', HTTP 400). The AMS bot wall refuses uncredentialed non-browser retrieval exactly as the prior pass recorded (two attempts 2026-09-15; this session adds a third and fourth refusal). No TLS weakening or credential use is permitted. ADJUDICATION: the row's content - 'take a trial step, keep it only if the residual shrinks, decrease lambda after success and increase it after failure' (article span content/classical/kinematics.mdx line 143, citing levenberg-1944 and marquardt-1963) - is body-level content in both papers, and neither body is readable at uncredentialed scope (Marquardt paywalled with no abstract; Levenberg PDF bot-walled). No alternative registered source states the rule (MR companion pages fetched this session: zero occurrences of 'Levenberg' or 'Marquardt'; data/citations.ts read-only: no other LM-stating citation). Row held rather than certified from unfetched bodies.",
+              "hold": "Held: both cited bodies are inaccessible at uncredentialed scope - Marquardt 1963 (SIAM paywall, no abstract rendered on the page) and Levenberg 1944 (AMS free-archive PDF refuses uncredentialed GET with 403 across plain curl, browser-UA+referer curl, and web fetch binary refusal; the article page itself prints no abstract) - and the accept-on-residual-decrease / lambda-down-on-success / lambda-up-on-failure rule is printed on no fetchable surface. Same disposition as the prior pass; this session re-probed every route and added the browser-UA+referer refusal.",
               "catalogueEvidence": [
                 {
                   "citationId": "marquardt-1963",
                   "sourceUrl": "https://doi.org/10.1137/0111030",
-                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 403 probe at window start; FetchUrl 200 inside the window bracketed by adjacent Execute clock reads)",
+                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 403 probe at window start; web fetch 200 inside the window bracketed by adjacent Execute clock reads)",
                   "finalUrl": "https://epubs.siam.org/doi/10.1137/0111030",
                   "httpStatus": 200,
-                  "fetchTool": "FetchUrl (rendered page; plain curl GET 403, logged identically)",
+                  "fetchTool": "web fetch (rendered page; plain curl GET 403, logged identically)",
                   "supportingPassage": "Journal of the Society for Industrial and Applied Mathematics, Volume 11, Issue 2, June 1963. Pages: 431 - 441. DOI: 10.1137/0111030. Author: Donald W. Marquardt. [Page also prints:] Get full access to this article ... Article Pay-Per-View. Reference 8: Kenneth Levenberg, A method for the solution of certain non-linear problems in least squares, Quart. Appl. Math., 2 (1944), 164-168. (No abstract rendered on the page.)"
                 },
                 {
                   "citationId": "levenberg-1944",
                   "sourceUrl": "https://doi.org/10.1090/qam/10666",
-                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 403 probe at window start; FetchUrl 200 inside the window bracketed by adjacent Execute clock reads)",
+                  "fetchedAtUtc": "2026-09-16T14:29:04Z-14:31:42Z (curl 403 probe at window start; web fetch 200 inside the window bracketed by adjacent Execute clock reads)",
                   "finalUrl": "https://pubs.ams.org/QAM/1944-02-02/S0033-569X-1944-10666-0/",
                   "httpStatus": 200,
-                  "fetchTool": "FetchUrl (rendered page; plain curl GET 403 toward www.ams.org, logged identically)",
+                  "fetchTool": "web fetch (rendered page; plain curl GET 403 toward www.ams.org, logged identically)",
                   "supportingPassage": "A method for the solution of certain non-linear problems in least squares, by Kenneth Levenberg, Quart. Appl. Math. 2 (1944), 164-168, DOI: https://doi.org/10.1090/qam/10666. [Page policy line:] Free Digital Archive: Full article PDFs in all volumes older than five years are available electronically free of charge. [PDF link on page:] https://www.ams.org/journals/qam/1944-02-02/S0033-569X-1944-10666-0/S0033-569X-1944-10666-0.pdf (no abstract or body text printed on the page itself)."
                 },
                 {
@@ -372,7 +372,7 @@
                   "finalUrl": "https://www.ams.org/journals/qam/1944-02-02/S0033-569X-1944-10666-0/S0033-569X-1944-10666-0.pdf",
                   "httpStatus": 403,
                   "fetchTool": "curl -sS -L -m 50 with browser User-Agent and Referer set to the article page (plain uncredentialed GET)",
-                  "supportingPassage": "HTTP 403, text/html error body of 5,947 bytes (retained at sources/levenberg-1944-pdf-403.html) - the nominally free archive PDF refuses uncredentialed non-browser retrieval. FetchUrl on the same URL was separately refused ('Cannot process binary files', HTTP 400)."
+                  "supportingPassage": "HTTP 403, text/html error body of 5,947 bytes (retained at sources/levenberg-1944-pdf-403.html) - the nominally free archive PDF refuses uncredentialed non-browser retrieval. web fetch on the same URL was separately refused ('Cannot process binary files', HTTP 400)."
                 }
               ],
               "missingDependencies": [
@@ -382,10 +382,10 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-kinematics-20260915/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-a-kinematics-20260915/rows.json",
             "record": {
               "disposition": "held",
-              "adjudicationSummary": "Held: both cited bodies are inaccessible at uncredentialed scope and the acceptance rule is not visible anywhere at catalogue scope. Marquardt 1963: SIAM page (doi.org 10.1137/0111030, fetched 2026-09-15T18:16:34Z, FetchUrl 200) shows title, journal, volume 11 issue 2, pages 431-441, and the reference list, with 'Get full access' / 'Article Pay-Per-View' walls and no abstract on the page. Levenberg 1944: the AMS listing (doi.org 10.1090/qam/10666, fetched 2026-09-15T18:16:34Z, FetchUrl 200) shows the article entry (Quart. Appl. Math. 2 (1944), 164-168) and a free-archive PDF link, but the PDF itself refused uncredentialed GET (HTTP 403 at 2026-09-15T18:18:09Z and again with a browser UA + referer at 2026-09-15T18:20:01Z; FetchUrl refused binary at 2026-09-15T18:19:34Z). The specific rule (accept only on residual decrease; lambda down on success, up on failure) is body content in both papers.",
+              "adjudicationSummary": "Held: both cited bodies are inaccessible at uncredentialed scope and the acceptance rule is not visible anywhere at catalogue scope. Marquardt 1963: SIAM page (doi.org 10.1137/0111030, fetched 2026-09-15T18:16:34Z, web fetch 200) shows title, journal, volume 11 issue 2, pages 431-441, and the reference list, with 'Get full access' / 'Article Pay-Per-View' walls and no abstract on the page. Levenberg 1944: the AMS listing (doi.org 10.1090/qam/10666, fetched 2026-09-15T18:16:34Z, web fetch 200) shows the article entry (Quart. Appl. Math. 2 (1944), 164-168) and a free-archive PDF link, but the PDF itself refused uncredentialed GET (HTTP 403 at 2026-09-15T18:18:09Z and again with a browser UA + referer at 2026-09-15T18:20:01Z; web fetch refused binary at 2026-09-15T18:19:34Z). The specific rule (accept only on residual decrease; lambda down on success, up on failure) is body content in both papers.",
               "heldReason": "Marquardt body paywalled with no abstract at the SIAM page; Levenberg free-archive PDF returns HTTP 403 to uncredentialed non-browser clients despite the archive being nominally free; the acceptance/lambda rule is uncertified at fetched scope.",
               "catalogueEvidence": [
                 {
@@ -452,7 +452,7 @@
         },
         "originalTupleDigest": "21c53319e6e4a424fce0d79c2ac5f0fd12fd392a7a662bd65e41c94a2433fbde",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -485,7 +485,7 @@
         "claim": "Authored RRT demo: 2D 100×64 scene with five obstacles, seed 19981001, maximum step 2 world units, goal-sampling probability 0.015 and cap 900 accepted extensions; the iteration control reveals accepted nodes of this fixed-seed tree, with Step/Run/scrub and Reset behavior observed on its existing mount.",
         "sourceChecked": "Typed authored-parameter, derived-result and observed-behavior proof bound to lib/rrt.ts, components/interactive/rrt-explorer.tsx and the current article disclosure; no source passage is claimed for local fixtures.",
         "verdict": "C",
-        "note": "The article and component distinguish authored scene/settings and sampled collision checks from external RRT theorems. Original and intermediate cells retained. Completion requires actual bounded recomputation and mounted observations, not the source-code reading in this packet. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "The article and component distinguish authored scene/settings and sampled collision checks from external RRT theorems. Original and intermediate cells retained. Completion requires actual bounded recomputation and mounted observations, not the source-code reading in this packet. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "561ee239b082042a407820b175843e68a76574477010004dbf57264797e92927",
       "originalHistory": {
@@ -498,7 +498,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
             "record": {
               "originalId": "audit/classical.md:motion-planning:15",
               "rowOrdinal": 15,
@@ -513,19 +513,19 @@
                 {
                   "kind": "authored-parameter",
                   "obligation": "Authored 100×64 2D scene, five obstacles, seed19981001,stepSize2,goalBias.015,maxIterations900.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/rrt.ts#RRT_SCENE,RRT_DEFAULTS",
+                  "existingImplementation": "lib/rrt.ts#RRT_SCENE,RRT_DEFAULTS",
                   "evidenceNeeded": "Extract chosen fixtures, bind the article/component disclosure and imported model; do not assert a textbook mandates these values."
                 },
                 {
                   "kind": "derived-result",
                   "obligation": "For this fixed scene/seed, each accepted extension adds one node; nodes/edges/path are deterministic.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/rrt.ts#buildRrt,nodesUpTo,edgesUpTo,pathIfReached,formatLength",
+                  "existingImplementation": "lib/rrt.ts#buildRrt,nodesUpTo,edgesUpTo,pathIfReached,formatLength",
                   "evidenceNeeded": "New bounded seeded-RRT adapter, exact input/output artifacts and independent structural assertions. The implementation may stop on no accepted extension; do not claim an unconditional arbitrary-scene iteration guarantee."
                 },
                 {
                   "kind": "observed-behavior",
                   "obligation": "Observe Run/Step or iteration scrub and Reset on the existing demo.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/rrt-explorer.tsx#RrtExplorer",
+                  "existingImplementation": "components/interactive/rrt-explorer.tsx#RrtExplorer",
                   "evidenceNeeded": "mount:/classical/motion-planning/:RrtExplorer:1; existing motion-planning reader cases cover tree/path/reset. Retain actual readouts/captures, not source code as an observation."
                 }
               ],
@@ -544,7 +544,7 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
             "record": {
               "originalId": "audit/classical.md:motion-planning:15",
               "rowOrdinal": 15,
@@ -560,7 +560,7 @@
               "sourceEvidence": [
                 {
                   "kind": "local-authored-material-not-external-primary",
-                  "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/rrt.ts",
+                  "path": "lib/rrt.ts",
                   "commit": "660ad53daa5edd7c4d3102c214bcde148a899ac8",
                   "sha256": "3b7f3ab7234c342e9762bd987306492b09e0c62b82a827b4b369b00d56ead4ad",
                   "literalPassages": [
@@ -604,7 +604,7 @@
                 },
                 {
                   "kind": "local-authored-material-not-external-primary",
-                  "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/rrt-explorer.tsx",
+                  "path": "components/interactive/rrt-explorer.tsx",
                   "commit": "660ad53daa5edd7c4d3102c214bcde148a899ac8",
                   "sha256": "7ea71ca479e18a398417296a2723959a0c3f13df80eb6d43252b72025ca8f126",
                   "literalPassages": [
@@ -638,21 +638,21 @@
                 "completionCredit": 0,
                 "productSpans": [
                   {
-                    "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/classical/motion-planning.mdx",
+                    "path": "content/classical/motion-planning.mdx",
                     "old": "Nothing in it knows where the goal is.",
                     "new": "Sampling is mostly uniform, with a small bias toward the known goal.",
                     "occurrences": 1,
                     "frozenFileSha256": "e44144cd9ef47738b710408c54d338d01413c87d97900a0fb66e9a3e886aa5d2"
                   },
                   {
-                    "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/rrt-explorer.tsx",
+                    "path": "components/interactive/rrt-explorer.tsx",
                     "old": "Each step samples a random point (2% of",
                     "new": "Each step samples a random point (1.5% of",
                     "occurrences": 1,
                     "frozenFileSha256": "7ea71ca479e18a398417296a2723959a0c3f13df80eb6d43252b72025ca8f126"
                   }
                 ],
-                "ledgerPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/classical.md",
+                "ledgerPath": "audit/classical.md",
                 "ledgerCells": [
                   {
                     "field": "verdict",
@@ -672,9 +672,9 @@
               ],
               "requiredNextAction": "Sole integrator may apply the exact two explanation spans, preserving seed, scene, controls and algorithm, then retain the local-proof hold. This is not a new RRT assurance audit.",
               "identityEvidence": {
-                "nativeCoveragePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
+                "nativeCoveragePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
                 "nativeCoveragePointer": "/sectionsByDomain/classical/1/claimRecords/14",
-                "frozenLedgerPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/classical.md",
+                "frozenLedgerPath": "audit/classical.md",
                 "frozenLedgerLine": 208,
                 "fourCellsEqualFrozenGitLine": true
               }
@@ -689,7 +689,7 @@
         },
         "originalTupleDigest": "7049772574aeca8ddf3b9e4d8f56849a29290353d81501e7cf5943ce052e94d6",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -722,7 +722,7 @@
         "claim": "The illustrative model has three authored contributions: a ray-to-plane angle term, a depth magnitude evaluated at fixed nominal0.5m, and a direct pose magnitude. Only in this model are the latter two held constant during a distance sweep; it is not a universal positioning-error decomposition.",
         "sourceChecked": "Typed authored settings/derivation and applicable current mount observations; separate retained RealSense Table4-15 evidence supports only the borrowed ±2% input and its conditions.",
         "verdict": "C",
-        "note": "General three-stage/fixed-offset claims are qualified to the actual authored model in prose, component and basis. Every retained local and external input part must be supported and adjudicated. The approved interactive, formulas and defaults remain intact; original history is preserved. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "General three-stage/fixed-offset claims are qualified to the actual authored model in prose, component and basis. Every retained local and external input part must be supported and adjudicated. The approved interactive, formulas and defaults remain intact; original history is preserved. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "72a21ed94fe2906706863894583116b6fbd47274307105ae34133976364557c0",
       "originalHistory": {
@@ -735,7 +735,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:1",
               "rowOrdinal": 1,
@@ -750,19 +750,19 @@
                 {
                   "kind": "authored-parameter",
                   "obligation": "Bind illustrative NOMINAL_RANGE_M=.5,pose=3 mm,handEye=.5 degrees,opaque target,chosen model/ranges/thresholds; keep the sourced depth reference distinct.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#DEFAULT_PARAMS,SLIDER_SPECS,TARGET_CLASSES,CLEARANCE_MM",
+                  "existingImplementation": "lib/perception-error.ts#DEFAULT_PARAMS,SLIDER_SPECS,TARGET_CLASSES,CLEARANCE_MM",
                   "evidenceNeeded": "New finite perception recipe separates authored settings from required external depth-reference input."
                 },
                 {
                   "kind": "derived-result",
                   "obligation": "Exactly three authored model contributions; depth at fixed nominal .5 m and pose are range-independent, while hand-eye uses d*tan(theta). This is not a universal three-source model of positioning uncertainty.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#composeBudget,depthErrorMm,handEyeErrorMm,classifyVerdict",
+                  "existingImplementation": "lib/perception-error.ts#composeBudget,depthErrorMm,handEyeErrorMm,classifyVerdict",
                   "evidenceNeeded": "Actual recomputation with input units (degrees,m,mm,percent), rounding/display policy and independent oracle; no independence inference from quadrature."
                 },
                 {
                   "kind": "observed-behavior",
                   "obligation": "Only the applicable current component readouts: distance sweep and default/zero-angle/reset cases where claimed.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/perception-error-budget.tsx#PerceptionErrorBudget",
+                  "existingImplementation": "components/interactive/perception-error-budget.tsx#PerceptionErrorBudget",
                   "evidenceNeeded": "mount:/classical/perception/:PerceptionErrorBudget:1; existing perception.spec.ts and component tests cover the relevant behavior. DOM and capture must show the disclosure and actual changed/readout states."
                 }
               ],
@@ -782,7 +782,7 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:1",
               "rowOrdinal": 1,
@@ -798,7 +798,7 @@
               "sourceEvidence": [
                 {
                   "kind": "local-authored-material-not-external-primary",
-                  "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts",
+                  "path": "lib/perception-error.ts",
                   "commit": "660ad53daa5edd7c4d3102c214bcde148a899ac8",
                   "sha256": "507921fc3dba73c60fbc2632ef5c2b7a043279360345771d3c263e589d6ca28f",
                   "literalPassages": [
@@ -822,7 +822,7 @@
                 },
                 {
                   "kind": "local-authored-material-not-external-primary",
-                  "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/perception-error-budget.tsx",
+                  "path": "components/interactive/perception-error-budget.tsx",
                   "commit": "660ad53daa5edd7c4d3102c214bcde148a899ac8",
                   "sha256": "f80245399a8015a30a7946f2c304541e97edbc84de6f67dfff7fd8787b3977c7",
                   "literalPassages": [
@@ -861,9 +861,9 @@
               ],
               "requiredNextAction": "No new public correction is demonstrated for this exact local-property claim. Preserve the existing disclosure and route only its proof type to the owner boundary; do not overlap the other worker’s perception2/19 changes.",
               "identityEvidence": {
-                "nativeCoveragePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
+                "nativeCoveragePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
                 "nativeCoveragePointer": "/sectionsByDomain/classical/5/claimRecords/0",
-                "frozenLedgerPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/classical.md",
+                "frozenLedgerPath": "audit/classical.md",
                 "frozenLedgerLine": 282,
                 "fourCellsEqualFrozenGitLine": true
               }
@@ -878,7 +878,7 @@
         },
         "originalTupleDigest": "b9581a68aaab7207f3b7deeab2346981c777ae0e7b2675ee7d0b1fe910dd3fca",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -904,19 +904,19 @@
         "claim": "The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established.",
         "sourceChecked": "lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage.",
         "verdict": "UNRESOLVED",
-        "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+        "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
       },
       "currentTupleDigest": "c4f336b0d0b5a3b3afaaa479411784bd88a49c44b4ae2125a6262746bbcc1a6b",
       "appliedCells": {
         "claim": "The instrument combines three authored magnitudes by root-sum-of-squares. No statistical independence, zero-mean distribution, variance interpretation or real-system error bound is asserted.",
         "sourceChecked": "Typed authored RSS rule and reproducible derivation from current inputs; retained RealSense specification is a separate external-input part, not a standard deviation or independence proof.",
         "verdict": "C",
-        "note": "Preserves the existing independence withdrawal and removes remaining variance/real-error claims from accessible readouts; the model file is preserved. Completion requires full typed proof and actual semantic review; no NIST snippet or article self-citation is promoted. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "Preserves the existing independence withdrawal and removes remaining variance/real-error claims from accessible readouts; the model file is preserved. Completion requires full typed proof and actual semantic review; no NIST snippet or article self-citation is promoted. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "54d9f409623bad00cec0b9f9f93e142906c2e61fb7330aca4726ca65ce5e02db",
       "originalHistory": {
         "currentNativeLine": 283,
-        "currentNativeLedgerSpan": "| The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established. | lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage. | UNRESOLVED |  |  |  | Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance. |  |",
+        "currentNativeLedgerSpan": "| The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established. | lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage. | UNRESOLVED |  |  |  | Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance. |  |",
         "currentEvidenceFields": {
           "citationId": "",
           "sourceUrl": "",
@@ -924,7 +924,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:2",
               "rowOrdinal": 2,
@@ -933,25 +933,25 @@
                 "claim": "The interactive combines three authored input magnitudes by root-sum-of-squares; their statistical independence and a real-system positioning-error bound are not established.",
                 "sourceChecked": "lib/perception-error.ts composeBudget and its current input definitions (internal); a targeted NIST search returned discovery snippets only, not a fetched supporting manual passage.",
                 "verdict": "UNRESOLVED",
-                "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+                "note": "Applied truth repair withdraws the unsupported independence claim while retaining the authored calculator. A specification tolerance, a systematic calibration residual and an authored pose magnitude have not been established as independent zero-mean random variables or commensurate standard uncertainties. No local-proof/P2/VAL-AUDIT-009 exception is authorized; do not count this record complete. Original four-cell tuple (JSON): {\"claim\":\"The three errors are independent and compose in quadrature rather than adding\",\"sourceChecked\":\"lib/perception-error.ts (`e_total = sqrt(handEye^2 + depth^2 + pose^2)`) (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
               },
               "eligibleParts": [
                 {
                   "kind": "authored-parameter",
                   "obligation": "Bind illustrative NOMINAL_RANGE_M=.5,pose=3 mm,handEye=.5 degrees,opaque target,chosen model/ranges/thresholds; keep the sourced depth reference distinct.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#DEFAULT_PARAMS,SLIDER_SPECS,TARGET_CLASSES,CLEARANCE_MM",
+                  "existingImplementation": "lib/perception-error.ts#DEFAULT_PARAMS,SLIDER_SPECS,TARGET_CLASSES,CLEARANCE_MM",
                   "evidenceNeeded": "New finite perception recipe separates authored settings from required external depth-reference input."
                 },
                 {
                   "kind": "derived-result",
                   "obligation": "The retained square-root-of-sum-of-squares formula combines three authored magnitudes. Original assertion of statistical independence is withdrawn, not proven locally; current output is neither a certified uncertainty nor a real-system bound.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#composeBudget,depthErrorMm,handEyeErrorMm,classifyVerdict",
+                  "existingImplementation": "lib/perception-error.ts#composeBudget,depthErrorMm,handEyeErrorMm,classifyVerdict",
                   "evidenceNeeded": "Actual recomputation with input units (degrees,m,mm,percent), rounding/display policy and independent oracle; no independence inference from quadrature."
                 },
                 {
                   "kind": "observed-behavior",
                   "obligation": "Only the applicable current component readouts: distance sweep and default/zero-angle/reset cases where claimed.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/perception-error-budget.tsx#PerceptionErrorBudget",
+                  "existingImplementation": "components/interactive/perception-error-budget.tsx#PerceptionErrorBudget",
                   "evidenceNeeded": "mount:/classical/perception/:PerceptionErrorBudget:1; existing perception.spec.ts and component tests cover the relevant behavior. DOM and capture must show the disclosure and actual changed/readout states."
                 }
               ],
@@ -979,7 +979,7 @@
         },
         "originalTupleDigest": "ff0857820d7640fb63c0cdf7f8d3f78f63c79f9fed512e9ac45aac298be75221",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -1012,7 +1012,7 @@
         "claim": "An authored centred90mm opening/60mm part example gives15mm per-side slack. Bands at15mm and30mm classify only the toy RSS magnitude; no empirical grasp success/collision threshold or general vision accuracy limit is asserted.",
         "sourceChecked": "Typed authored geometry/thresholds and derived (90−60)/2=15mm, with actual rendered band labels. Borrowed depth-specification input remains separately externally supported when used in observed calculator outputs.",
         "verdict": "C",
-        "note": "Removes the general pipeline-accuracy and grasp-outcome propositions while preserving the source-backed0.5mm assembly example as a distinct setting. Internal thresholds and interactive controls remain unchanged. Original cells and correction history preserved. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "Removes the general pipeline-accuracy and grasp-outcome propositions while preserving the source-backed0.5mm assembly example as a distinct setting. Internal thresholds and interactive controls remain unchanged. Original cells and correction history preserved. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "5d4236caa8eee8f4216121f5b7071dd9fcdfc8fe241a2c431053b464f645e26c",
       "originalHistory": {
@@ -1025,7 +1025,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:3",
               "rowOrdinal": 3,
@@ -1040,13 +1040,13 @@
                 {
                   "kind": "authored-parameter",
                   "obligation": "Choose a centered 90 mm opening around a60 mm part in the illustrative lateral-clearance geometry.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#CLEARANCE_MM",
+                  "existingImplementation": "lib/perception-error.ts#CLEARANCE_MM",
                   "evidenceNeeded": "Bind the actual chosen geometry/disclosure;90 and60 occur in the model comment, not as measured hardware specs."
                 },
                 {
                   "kind": "derived-result",
                   "obligation": "Symmetric per-side lateral slack=(90−60)/2=15 mm.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#CLEARANCE_MM",
+                  "existingImplementation": "lib/perception-error.ts#CLEARANCE_MM",
                   "evidenceNeeded": "Finite geometry derivation, units and centering assumptions; independently check15 mm. No physical-grasp guarantee follows."
                 }
               ],
@@ -1065,7 +1065,7 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:3",
               "rowOrdinal": 3,
@@ -1081,7 +1081,7 @@
               "sourceEvidence": [
                 {
                   "kind": "local-authored-material-not-external-primary",
-                  "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts",
+                  "path": "lib/perception-error.ts",
                   "commit": "660ad53daa5edd7c4d3102c214bcde148a899ac8",
                   "sha256": "507921fc3dba73c60fbc2632ef5c2b7a043279360345771d3c263e589d6ca28f",
                   "literalPassages": [
@@ -1120,9 +1120,9 @@
               ],
               "requiredNextAction": "Keep the illustrative geometry and band; hold the local derivation for the existing owner/contract decision. Do not invent a gripper datasheet or recast the band as a measured universal clearance.",
               "identityEvidence": {
-                "nativeCoveragePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
+                "nativeCoveragePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
                 "nativeCoveragePointer": "/sectionsByDomain/classical/5/claimRecords/2",
-                "frozenLedgerPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/classical.md",
+                "frozenLedgerPath": "audit/classical.md",
                 "frozenLedgerLine": 284,
                 "fourCellsEqualFrozenGitLine": true
               }
@@ -1137,7 +1137,7 @@
         },
         "originalTupleDigest": "9112cb1bb0fab4a4ed79efe8d774b0c7a8ca1ff388994682472a08c329c83b3e",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -1170,7 +1170,7 @@
         "claim": "At authored angle0.5deg, opaque target, depth input2% at nominal0.5m and pose3mm, the model hand-eye term rises from1.3090301686138184mm at0.15m to13.090301686138185mm at1.5m; RSS totals are10.522051130000325mm and16.74383463350353mm, with the latter in the marginal model band, not a real grasp forecast.",
         "sourceChecked": "Typed local derivation and genuinely observed distance-sweep readouts on PerceptionErrorBudget; retained RealSense input evidence stays a separate required external part.",
         "verdict": "C",
-        "note": "Preserve the previously applied marginal-not-jam correction, replacing the old invisible/domination phrasing only where still generalized. Article and component state the authored inputs. The prescribed values were independently recomputed and matched actual current desktop/mobile readouts. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "Preserve the previously applied marginal-not-jam correction, replacing the old invisible/domination phrasing only where still generalized. Article and component state the authored inputs. The prescribed values were independently recomputed and matched actual current desktop/mobile readouts. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "560ba238ab6509e0a9bf5714b7a2474ac90de24f2fc2134cafdf9f57572d4e24",
       "originalHistory": {
@@ -1183,7 +1183,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:7",
               "rowOrdinal": 7,
@@ -1198,19 +1198,19 @@
                 {
                   "kind": "authored-parameter",
                   "obligation": "Bind illustrative NOMINAL_RANGE_M=.5,pose=3 mm,handEye=.5 degrees,opaque target,chosen model/ranges/thresholds; keep the sourced depth reference distinct.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#DEFAULT_PARAMS,SLIDER_SPECS,TARGET_CLASSES,CLEARANCE_MM",
+                  "existingImplementation": "lib/perception-error.ts#DEFAULT_PARAMS,SLIDER_SPECS,TARGET_CLASSES,CLEARANCE_MM",
                   "evidenceNeeded": "New finite perception recipe separates authored settings from required external depth-reference input."
                 },
                 {
                   "kind": "derived-result",
                   "obligation": "At handEye=.5 degrees with default opaque/depth/pose inputs, compare .15 m and1.5 m: hand-eye becomes the largest modeled contribution; the far-end verdict is marginal, not will jam. The recorded total16.74383463350353 mm is a prior result to recompute, not an execution here.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#composeBudget,depthErrorMm,handEyeErrorMm,classifyVerdict",
+                  "existingImplementation": "lib/perception-error.ts#composeBudget,depthErrorMm,handEyeErrorMm,classifyVerdict",
                   "evidenceNeeded": "Actual recomputation with input units (degrees,m,mm,percent), rounding/display policy and independent oracle; no independence inference from quadrature."
                 },
                 {
                   "kind": "observed-behavior",
                   "obligation": "Only the applicable current component readouts: distance sweep and default/zero-angle/reset cases where claimed.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/perception-error-budget.tsx#PerceptionErrorBudget",
+                  "existingImplementation": "components/interactive/perception-error-budget.tsx#PerceptionErrorBudget",
                   "evidenceNeeded": "mount:/classical/perception/:PerceptionErrorBudget:1; existing perception.spec.ts and component tests cover the relevant behavior. DOM and capture must show the disclosure and actual changed/readout states."
                 }
               ],
@@ -1230,7 +1230,7 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:7",
               "rowOrdinal": 7,
@@ -1246,7 +1246,7 @@
               "sourceEvidence": [
                 {
                   "kind": "local-authored-material-not-external-primary",
-                  "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts",
+                  "path": "lib/perception-error.ts",
                   "commit": "660ad53daa5edd7c4d3102c214bcde148a899ac8",
                   "sha256": "507921fc3dba73c60fbc2632ef5c2b7a043279360345771d3c263e589d6ca28f",
                   "literalPassages": [
@@ -1300,14 +1300,14 @@
                 "completionCredit": 0,
                 "productSpans": [
                   {
-                    "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/classical/perception.mdx",
+                    "path": "content/classical/perception.mdx",
                     "old": "Set the hand-eye slider to half a degree and drag the working distance out, and a term that was invisible at 15 cm becomes the one that jams the grasp.",
                     "new": "With the default opaque target and depth and pose settings, set the hand-eye slider to half a degree and drag the working distance out: a small contribution at 15 cm becomes the largest modeled contribution, while the far-end verdict is marginal, not will jam.",
                     "occurrences": 1,
                     "frozenFileSha256": "995b16ccbaeb0c5d957142d99cedc6db28ab3412346b86916e955b909a15fb3c"
                   }
                 ],
-                "ledgerPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/classical.md",
+                "ledgerPath": "audit/classical.md",
                 "ledgerCells": [
                   {
                     "field": "verdict",
@@ -1327,9 +1327,9 @@
               ],
               "requiredNextAction": "Sole integrator may replace only the exact misleading half-degree instruction below and preserve the historical verdict explanation. Keep zero completion credit and the local-proof hold; do not change thresholds or controls.",
               "identityEvidence": {
-                "nativeCoveragePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
+                "nativeCoveragePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
                 "nativeCoveragePointer": "/sectionsByDomain/classical/5/claimRecords/6",
-                "frozenLedgerPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/classical.md",
+                "frozenLedgerPath": "audit/classical.md",
                 "frozenLedgerLine": 288,
                 "fourCellsEqualFrozenGitLine": true
               }
@@ -1344,7 +1344,7 @@
         },
         "originalTupleDigest": "3e8a46f782828ec39eb4293a5215b2a7ffbba7cc4b32006a0acf53e6bc0a8e1d",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -1370,19 +1370,19 @@
         "claim": "The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements.",
         "sourceChecked": "lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples.",
         "verdict": "UNRESOLVED",
-        "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+        "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
       },
       "currentTupleDigest": "8b42597183269304a7e94dd2b3d42417cd522fcf173bc7e5c540ccb57f21ee75",
       "appliedCells": {
         "claim": "The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements.",
         "sourceChecked": "Typed authored ray-to-plane geometry and pure tangent derivation; no Tsai–Lenz passage is asserted for this toy formula or its numerical examples.",
         "verdict": "C",
-        "note": "The earlier a4381e8 article correction is retained, not reapplied. Prove d*1000*tan(theta*pi/180) with explicit units and rounding. The0.1m example is offline arithmetic below the UI minimum0.15m, not a claimed slider state. Preserve original and intermediate cells. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "The earlier a4381e8 article correction is retained, not reapplied. Prove d*1000*tan(theta*pi/180) with explicit units and rounding. The0.1m example is offline arithmetic below the UI minimum0.15m, not a claimed slider state. Preserve original and intermediate cells. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "df105c1f7f66121036d30bf89d9297abbcad5acef7837cc2542b03f2222cb952",
       "originalHistory": {
         "currentNativeLine": 300,
-        "currentNativeLedgerSpan": "| The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements. | lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples. | UNRESOLVED |  |  |  | The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance. |  |",
+        "currentNativeLedgerSpan": "| The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements. | lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples. | UNRESOLVED |  |  |  | The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance. |  |",
         "currentEvidenceFields": {
           "citationId": "",
           "sourceUrl": "",
@@ -1390,7 +1390,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:19",
               "rowOrdinal": 19,
@@ -1399,19 +1399,19 @@
                 "claim": "The instrument uses the illustrative ray-to-plane model $e_\\theta(d) = d \\tan \\theta$, where d is axial plane separation; the about 1.7 mm at 10 cm and 17 mm at 1 m examples for 1 deg are local arithmetic, not reported hand-eye-calibration measurements.",
                 "sourceChecked": "lib/perception-error.ts handEyeErrorMm (internal); inspected retained Tsai–Lenz abstract describes a calibration method but supplies neither this ray-to-plane construction nor the two numerical examples.",
                 "verdict": "UNRESOLVED",
-                "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+                "note": "The general hand-eye rigid-transform error must not be identified with this ray-to-plane proxy without a geometric model. A small-angle approximation, an exact ray-plane offset and displacement of a rotated 3D point are different quantities. No external passage for the complete formula-and-two-examples conjunction was recovered; P2 and VAL-AUDIT-009 remain unchanged. Original four-cell tuple (JSON): {\"claim\":\"Hand-eye rotation costs $e_\\\\theta(d) = d \\\\tan \\\\theta$; 1 deg is about 1.7 mm at 10 cm and 17 mm at 1 m\",\"sourceChecked\":\"Checked symbolically (tan 1 deg = 0.017455; x100 mm = 1.75 mm, x1000 mm = 17.45 mm); matches lib/perception-error.ts `handEyeErrorMm` (internal)\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
               },
               "eligibleParts": [
                 {
                   "kind": "authored-parameter",
                   "obligation": "Choose the explicitly disclosed ray-to-plane geometry: normal/axial plane separation d and ray inclination theta, not a full rigid-transform error norm. Example theta=1 degree,d=.1 m or1 m.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#handEyeErrorMm",
+                  "existingImplementation": "lib/perception-error.ts#handEyeErrorMm",
                   "evidenceNeeded": "Bind the existing article model disclosure and exact example units."
                 },
                 {
                   "kind": "derived-result",
                   "obligation": "d*1000*tan(theta*pi/180) mm, yielding the article’s approximately1.7 mm at10 cm and17 mm at1 m under its stated rounding.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/perception-error.ts#handEyeErrorMm",
+                  "existingImplementation": "lib/perception-error.ts#handEyeErrorMm",
                   "evidenceNeeded": "New bounded formula adapter and independent trig/unit oracle; allow the prose-only .1 m derivation without pretending the UI distance slider (min .15 m) can select it."
                 }
               ],
@@ -1438,7 +1438,7 @@
         },
         "originalTupleDigest": "f44359936c1c85d67c959bad349a60a7ed2f1db49d9832a703e056f11321ad1a",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"
@@ -1471,7 +1471,7 @@
         "claim": "This article selects six named explanatory stages: camera calibration, hand-eye calibration, depth, detection, segmentation and pose estimation. Six is the cardinality of that authored selection, not a universal or exhaustive perception architecture.",
         "sourceChecked": "Typed authored selection and pure cardinality derivation over the six exact named headings in the current article; no external source or interactive observation is claimed.",
         "verdict": "C",
-        "note": "The opening, transition and closing count are explicitly editorial. Bind exact selected section identities and assert uniqueness/presence; do not count every heading or invent a PerceptionErrorBudget mount for article structure. Original inventory/history remains intact. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+        "note": "The opening, transition and closing count are explicitly editorial. Bind exact selected section identities and assert uniqueness/presence; do not count every heading or invent a PerceptionErrorBudget mount for article structure. Original inventory/history remains intact. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
       },
       "appliedTupleDigest": "187de42c6c92dfdfc5d39606ddd202f41a2b56641138c6e23fb97a494869aa19",
       "originalHistory": {
@@ -1484,7 +1484,7 @@
         },
         "retainedPreparation": [
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:59",
               "rowOrdinal": 59,
@@ -1499,7 +1499,7 @@
                 {
                   "kind": "derived-result",
                   "obligation": "Cardinality of the six author-selected section stages: camera calibration,hand-eye calibration,depth,detection,segmentation,pose estimation. Not a count of every heading or every possible perception subsystem.",
-                  "existingImplementation": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/classical/perception.mdx#six named stage sections",
+                  "existingImplementation": "content/classical/perception.mdx#six named stage sections",
                   "evidenceNeeded": "Bounded literal section-selector recipe against exact prose/member bytes; retain selected heading identities and count output. Reject an omitted/duplicate selected section rather than using every ## heading."
                 }
               ],
@@ -1518,7 +1518,7 @@
             }
           },
           {
-            "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+            "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
             "record": {
               "originalId": "audit/classical.md:perception:59",
               "rowOrdinal": 59,
@@ -1534,7 +1534,7 @@
               "sourceEvidence": [
                 {
                   "kind": "local-authored-material-not-external-primary",
-                  "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/classical/perception.mdx",
+                  "path": "content/classical/perception.mdx",
                   "commit": "660ad53daa5edd7c4d3102c214bcde148a899ac8",
                   "sha256": "995b16ccbaeb0c5d957142d99cedc6db28ab3412346b86916e955b909a15fb3c",
                   "literalPassages": [
@@ -1573,9 +1573,9 @@
               ],
               "requiredNextAction": "Preserve the article organization. Hold only the local editorial-count proof requirement at the existing owner/contract boundary; no extra source hunt or new six-stage scientific criterion.",
               "identityEvidence": {
-                "nativeCoveragePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
+                "nativeCoveragePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-scene-tsdf-integration-20260922/coverage.json",
                 "nativeCoveragePointer": "/sectionsByDomain/classical/5/claimRecords/58",
-                "frozenLedgerPath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/classical.md",
+                "frozenLedgerPath": "audit/classical.md",
                 "frozenLedgerLine": 340,
                 "fourCellsEqualFrozenGitLine": true
               }
@@ -1590,7 +1590,7 @@
         },
         "originalTupleDigest": "412d9a257597a831fc9b01ae6d76813c9a27e2f13760ab013fc7dfc6cf4cf002",
         "snapshot": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
           "bytes": 67494,
           "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc",
           "recordedGitBlob": "cb9f24d7c06c24256dfdced57f26bced7d247f5e"

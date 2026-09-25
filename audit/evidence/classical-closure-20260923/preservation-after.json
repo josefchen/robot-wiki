@@ -41,8 +41,8 @@
     },
     {
       "path": "qa/findings.json",
-      "bytes": 11464,
-      "sha256": "28101913c6141a1d807077b1521473f483de8a26aa1afed5c15d00af33632970"
+      "bytes": 11505,
+      "sha256": "8c20bc17a5ab827791f148aafae474147d44bff77b29422f535707e71d5a6b8a"
     }
   ],
   "unscopedTrackedFilesPreserved": 2115,

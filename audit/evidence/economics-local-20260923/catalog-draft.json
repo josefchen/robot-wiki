@@ -295,13 +295,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -418,7 +418,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -432,8 +432,8 @@
         },
         "receipt": {
           "path": "audit/evidence/economics-local-20260923/i52-parameters.receipt.json",
-          "bytes": 3521,
-          "sha256": "1455e7cfe4c678a48624392ff284387f48e3ab6c95a9407bfc78266a8fd67dd2"
+          "bytes": 3481,
+          "sha256": "3296dddaa31af342b1c10e750b1380c6c47e9ec1bfb386e4b1f5dad494253e75"
         }
       },
       "bases": [],
@@ -491,13 +491,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -602,7 +602,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -616,8 +616,8 @@
         },
         "receipt": {
           "path": "audit/evidence/economics-local-20260923/i52-20000.receipt.json",
-          "bytes": 3521,
-          "sha256": "708981b80649873e8f44d8428b0c01303058c1931eb9faa1c38f48f0fa33e6dc"
+          "bytes": 3481,
+          "sha256": "5bde72f60f898128537cb9f5f078b478c9b8bd89a6afed6e6331f45f4b8d0f2a"
         }
       },
       "bases": [
@@ -725,13 +725,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -836,7 +836,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -850,8 +850,8 @@
         },
         "receipt": {
           "path": "audit/evidence/economics-local-20260923/i52-80000.receipt.json",
-          "bytes": 3521,
-          "sha256": "08b43179410aa541f8778b5cab9d0831120c7570e60220742e9a753a3806a742"
+          "bytes": 3481,
+          "sha256": "821ad8dab0ad719edc9ba19768ed55cf8d600cc7cb49837555715f0de43c224b"
         }
       },
       "bases": [
@@ -959,13 +959,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1070,7 +1070,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1084,8 +1084,8 @@
         },
         "receipt": {
           "path": "audit/evidence/economics-local-20260923/i52-250000.receipt.json",
-          "bytes": 3521,
-          "sha256": "e71a8203a41ed21952251335ad27d417c0024df7c3356e22de3814379197320d"
+          "bytes": 3481,
+          "sha256": "8ea0c9225dd2c345fab42460886e0c08db60fc29b1ea67c18759ad0d961cecf5"
         }
       },
       "bases": [
@@ -1193,13 +1193,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1326,7 +1326,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1340,8 +1340,8 @@
         },
         "receipt": {
           "path": "audit/evidence/economics-local-20260923/i52-observed-20000.receipt.json",
-          "bytes": 5454,
-          "sha256": "e1255924ffa9fcc82dc01f0476d561e1b518f1f77f629141d5ec2a59a700748e"
+          "bytes": 5414,
+          "sha256": "5eb9efd0776882f87c6bd7a832a1df985bcfe091c7375eb60ff6fb8f88149e73"
         }
       },
       "bases": [
@@ -1482,13 +1482,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1615,7 +1615,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1629,8 +1629,8 @@
         },
         "receipt": {
           "path": "audit/evidence/economics-local-20260923/i52-observed-80000.receipt.json",
-          "bytes": 7806,
-          "sha256": "0a3f95c2ca8ecd33a966dacff137d05246bca7073091132e3053c8f57a63aae2"
+          "bytes": 7766,
+          "sha256": "a413f12fa5a33272130396ce2b53054af6ab255b09769f4e9e717622bdd81f47"
         }
       },
       "bases": [
@@ -1833,13 +1833,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1966,7 +1966,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1980,8 +1980,8 @@
         },
         "receipt": {
           "path": "audit/evidence/economics-local-20260923/i52-observed-250000.receipt.json",
-          "bytes": 5458,
-          "sha256": "1b85bfd3b2dcd1028eb9157a39302511d72222176ea948dd37f6678f578fd6b6"
+          "bytes": 5418,
+          "sha256": "d624b1cfa81da9df80b540d97a488917085168eccc1f265db6a6302f8a37eeeb"
         }
       },
       "bases": [

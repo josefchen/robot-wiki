@@ -1,7 +1,7 @@
 {
   "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_RELEASE_BROWSER=1 node_modules/.bin/playwright test --config=playwright.economics-release.config.ts tests/e2e/economics-release-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-release-20260923/playwright-final",
   "runner": "playwright",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -58,13 +58,13 @@
     {
       "file": {
         "path": "lib/audit-local-basis.ts",
-        "bytes": 44206,
-        "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+        "bytes": 100888,
+        "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
       },
       "id": "file:lib/audit-local-basis.ts",
       "offset": 0,
       "length": 44206,
-      "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
+      "sha256": "8d2e2fe53e9331d97483b26916b9ad70978fe7d84ada1469a1456db13da9c101"
     },
     {
       "file": {

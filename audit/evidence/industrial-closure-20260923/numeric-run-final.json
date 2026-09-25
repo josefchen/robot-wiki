@@ -1,7 +1,7 @@
 {
   "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/industrial-closure-evidence.test.ts tests/unit/undated-citations.test.ts --no-file-parallelism",
   "runner": "vitest",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -123,13 +123,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 44430,
-            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 44430,
-          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          "sha256": "37ef4e95fded8a77956b397f18dfa9c2204f0125f697e7960af46e3a42444b13"
         },
         {
           "file": {
@@ -260,13 +260,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 44430,
-            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 44430,
-          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          "sha256": "37ef4e95fded8a77956b397f18dfa9c2204f0125f697e7960af46e3a42444b13"
         },
         {
           "file": {
@@ -397,13 +397,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 44430,
-            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 44430,
-          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          "sha256": "37ef4e95fded8a77956b397f18dfa9c2204f0125f697e7960af46e3a42444b13"
         },
         {
           "file": {
@@ -534,13 +534,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 44430,
-            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 44430,
-          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          "sha256": "37ef4e95fded8a77956b397f18dfa9c2204f0125f697e7960af46e3a42444b13"
         },
         {
           "file": {
@@ -671,13 +671,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 44430,
-            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 44430,
-          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          "sha256": "37ef4e95fded8a77956b397f18dfa9c2204f0125f697e7960af46e3a42444b13"
         },
         {
           "file": {
@@ -808,13 +808,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 44430,
-            "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 44430,
-          "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+          "sha256": "37ef4e95fded8a77956b397f18dfa9c2204f0125f697e7960af46e3a42444b13"
         },
         {
           "file": {

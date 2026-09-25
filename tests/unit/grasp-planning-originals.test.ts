@@ -148,7 +148,7 @@ describe('grasp-planning originals: ledger rows complete', () => {
     );
     expect(row(7)[1]).toContain(SAGE);
     expect(row(7)[1]).toContain(SPRINGER_MSS);
-    expect(row(7)[1]).toContain('FetchUrl 200 by 2026-09-16T04:07Z');
+    expect(row(7)[1]).toContain('web fetch 200 by 2026-09-16T04:07Z');
     expect(row(7)[1]).toContain('murray-li-sastry-1994 Table 5.3 NOT re-fetched');
     expect(row(7)[6]).toContain('Reuleaux (1875) / Somoff (1897) / Lakshminarayana (1978) lower bounds');
     expect(row(7)[6]).toContain('at least four wrenches planar, at least seven spatial');
@@ -319,7 +319,7 @@ describe('grasp-planning originals: compound plans', () => {
         digest([row(plan.rowOrdinal)[0], row(plan.rowOrdinal)[1], row(plan.rowOrdinal)[2], row(plan.rowOrdinal)[6]]),
       );
       expect(plan.planReview.planDigest).toBe(planDigestOf(plan));
-      expect(plan.planReview.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+      expect(plan.planReview.reviewedBy).toContain('paywall integrator efa5d1e4');
       expect(plan.planReview.rationale).toContain('6f279b9314e546c2800e1f54295c00fc6d3ca174186241d586f367e8a0f844f0');
       for (const review of plan.adjudications) {
         expect(review.outcome).toBe('supported');

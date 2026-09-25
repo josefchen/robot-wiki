@@ -5,7 +5,7 @@
       "startedAt": "2026-09-23T18:27:15.881939+00:00",
       "endedAt": "2026-09-23T18:27:17.866976+00:00",
       "exitCode": 1,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/001.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/001.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-001.log"
     },
@@ -14,7 +14,7 @@
       "startedAt": "2026-09-23T18:40:10.394125+00:00",
       "endedAt": "2026-09-23T18:40:12.229813+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/002.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/002.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-002.log"
     },
@@ -23,7 +23,7 @@
       "startedAt": "2026-09-23T18:40:22.400156+00:00",
       "endedAt": "2026-09-23T18:40:24.720909+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/003.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/003.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-003.log"
     },
@@ -32,7 +32,7 @@
       "startedAt": "2026-09-23T18:43:50.870422+00:00",
       "endedAt": "2026-09-23T18:44:03.409765+00:00",
       "exitCode": 1,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/004.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/004.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-004.log"
     },
@@ -41,7 +41,7 @@
       "startedAt": "2026-09-23T18:44:31.075374+00:00",
       "endedAt": "2026-09-23T18:44:40.000777+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/005.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/005.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-005.log"
     },
@@ -50,7 +50,7 @@
       "startedAt": "2026-09-23T18:44:49.812388+00:00",
       "endedAt": "2026-09-23T18:44:51.636765+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/006.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/006.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-006.log"
     },
@@ -59,7 +59,7 @@
       "startedAt": "2026-09-23T18:49:40.109369+00:00",
       "endedAt": "2026-09-23T18:49:40.627257+00:00",
       "exitCode": 1,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/007.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/007.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-007.log"
     },
@@ -68,7 +68,7 @@
       "startedAt": "2026-09-23T18:50:24.287058+00:00",
       "endedAt": "2026-09-23T18:50:25.269728+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/008.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/008.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-008.log"
     },
@@ -77,7 +77,7 @@
       "startedAt": "2026-09-23T18:54:20.899099+00:00",
       "endedAt": "2026-09-23T18:54:30.808522+00:00",
       "exitCode": 1,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/009.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/009.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-009.log"
     },
@@ -86,7 +86,7 @@
       "startedAt": "2026-09-23T18:57:08.657800+00:00",
       "endedAt": "2026-09-23T18:57:09.757506+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/010.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/010.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-010.log"
     },
@@ -95,7 +95,7 @@
       "startedAt": "2026-09-23T18:57:29.495662+00:00",
       "endedAt": "2026-09-23T18:57:31.925007+00:00",
       "exitCode": 1,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/011.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/011.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-011.log"
     },
@@ -104,7 +104,7 @@
       "startedAt": "2026-09-23T18:57:48.550610+00:00",
       "endedAt": "2026-09-23T18:57:50.837274+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/012.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/012.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-012.log"
     },
@@ -113,7 +113,7 @@
       "startedAt": "2026-09-23T18:58:02.957033+00:00",
       "endedAt": "2026-09-23T18:58:05.210661+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/013.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/013.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-013.log"
     },
@@ -122,7 +122,7 @@
       "startedAt": "2026-09-23T18:59:26.987853+00:00",
       "endedAt": "2026-09-23T18:59:27.393215+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/014.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/014.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-014.log"
     },
@@ -131,7 +131,7 @@
       "startedAt": "2026-09-23T18:59:39.109126+00:00",
       "endedAt": "2026-09-23T18:59:39.306216+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/015.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/015.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-015.log"
     },
@@ -140,7 +140,7 @@
       "startedAt": "2026-09-23T18:59:59.179721+00:00",
       "endedAt": "2026-09-23T19:00:01.335478+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/016.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/016.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-016.log"
     },
@@ -149,7 +149,7 @@
       "startedAt": "2026-09-23T19:00:18.442899+00:00",
       "endedAt": "2026-09-23T19:00:19.944724+00:00",
       "exitCode": 1,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/017.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/017.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-017.log"
     },
@@ -158,7 +158,7 @@
       "startedAt": "2026-09-23T19:03:13.339007+00:00",
       "endedAt": "2026-09-23T19:03:14.566246+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/018.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/018.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-018.log"
     },
@@ -167,7 +167,7 @@
       "startedAt": "2026-09-23T19:06:42.441397+00:00",
       "endedAt": "2026-09-23T19:06:44.751435+00:00",
       "exitCode": 0,
-      "logPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/019.log",
+      "logPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-integration-20260923/019.log",
       "observation": "Actual process output retained verbatim.",
       "retainedProductLog": "audit/evidence/industrial-closure-20260923/command-019.log"
     }

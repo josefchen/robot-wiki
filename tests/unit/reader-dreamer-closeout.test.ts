@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { showAt } from './helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '@/data/citations';
 import { originalClaimDigest, parseLedger } from '@/lib/audit-ledger';
 import {
@@ -21,9 +21,7 @@ const base = '90c8a0f4c958c42750711082bfb54960cac7d5e8';
 const checkpoint = '280d8661a49feb16e45ef337e7cb46a794211004';
 const readerCommit = '280d8661a49feb16e45ef337e7cb46a794211004';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
-  cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
-});
+const before = (path: string) => showAt(base, path);
 const atReader = (path: string) => committedText(readerCommit, path);
 const paths = ['latent-dynamics', 'taxonomy'].map(slug => `content/world-models/${slug}.mdx`);
 const [latent, taxonomy] = paths.map(read);
@@ -70,6 +68,16 @@ function approvalBundle(old: boolean): BaselineBundle {
 }
 
 describe('bounded Dreamer reader closeout, zero original completions', () => {
+
+  beforeAll(() => {
+    // Warm the neutral history renders once; catalog renders are expensive
+    // and individual tests must stay under 5s.
+    void committedSource(checkpoint, 'audit/local-basis.json');
+    void committedSource(checkpoint, 'audit/compound-evidence.json');
+    void committedSource(checkpoint, 'audit/world-models.md');
+    void committedJson(readerCommit, 'audit/local-basis.json');
+    void before('audit/world-models.md');
+  }, 120_000);
   it.each(paths)('uses reader wording instead of reconciliation process jargon in %s', path => {
     expect(read(path)).not.toMatch(/not reconciled(?: here)?/);
   });
@@ -152,7 +160,7 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     ).replace('<SelfCheck', () => taxonomyAddition + '<SelfCheck'));
   });
 
-  it('preserves native original four cells and every typed plan/proof dependency', () => {
+  it('preserves native original four cells and every typed plan/proof dependency', { timeout: 60_000 }, () => {
     const ids = new Set(CITATIONS.map(c => c.id));
     const path = 'audit/world-models.md';
     const historical = parseLedger(path, committedSource(checkpoint, path), ids);

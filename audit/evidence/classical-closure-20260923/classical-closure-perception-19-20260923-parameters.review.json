@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-19-20260923:parameters",
   "observedAt": "2026-09-23T19:54:47.700Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected the actual unchanged model constants and corrected article disclosure: the selected geometry, scene, target multipliers and finite examples are explicitly authored assumptions, not empirical values. For mixed plans the borrowed specification remains an external AND part.",
-  "inputDigest": "79b602f91a7b4d817034916eec5b59aba69ff0e45db911a59141086c1349210f",
+  "inputDigest": "25dbba8a39dc2b26839cf3d6582f9022b48a193acf0fb3164403c28baa5b5ec8",
   "outcome": "supported",
   "scope": "part",
   "partId": "parameters",
@@ -31,5 +31,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:19",
-  "currentTupleDigest": "df105c1f7f66121036d30bf89d9297abbcad5acef7837cc2542b03f2222cb952"
+  "currentTupleDigest": "60fb584339944d954ac16776b70692f5e533bede5ede94082ee113e688e15da3"
 }

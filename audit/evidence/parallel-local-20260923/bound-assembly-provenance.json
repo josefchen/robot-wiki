@@ -27,18 +27,18 @@
   ],
   "numericalRun": {
     "path": "audit/evidence/parallel-local-20260923/numeric-run.json",
-    "bytes": 53479,
-    "sha256": "e148662cc4f7d1cb671c1d439e5a605e70c0814d24e28e076e88025752b0c984"
+    "bytes": 53438,
+    "sha256": "3c121190c6ab0e332cc38a7a12ff5a072117e82ccb02dab0fcc4092ab1b82863"
   },
   "browserRun": {
     "path": "audit/evidence/parallel-local-20260923/browser-run.json",
-    "bytes": 16233,
-    "sha256": "dbbfc2ff595e4dddf45d15f09ec6f076dd553e2530d5bc9ac5678d1ed9bb4934"
+    "bytes": 16193,
+    "sha256": "daf7e55b956b40c9f0aad9ada08d618c8fdde2491258bf4faa31b0c1074206b5"
   },
   "source": {
     "path": "audit/evidence/parallel-local-20260923/source-provenance.json",
-    "bytes": 12655,
-    "sha256": "52c4e5d0e93dce0a4e6381c09d8a04b75ef982441793ac0a2d6f28125498dde7"
+    "bytes": 11456,
+    "sha256": "713d8b36bc88aa4e183544b7918051f49b4c728958a02b736ccf5dec7d9c7798"
   },
   "qualification": "Exact original source identity and actual run dependencies verified; no semantic review pre-certified."
 }

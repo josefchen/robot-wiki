@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-2-20260923:whole",
   "observedAt": "2026-09-23T19:54:47.688Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Reviewed the whole ordered AND inventory against the corrected claim and reader disclosure. The instrument combines three authored magnitudes by root-sum-of-squares. No statistical independence, zero-mean distribution, variance interpretation or real-system error bound is asserted. External specifications, authored choices, derivations and mounted behavior remain distinct. No original is dropped, no UI state below its slider range is invented, and no source-only preparation is counted as execution.",
-  "inputDigest": "5be498535215eabd499a4c2899c91d4689bda20a9118b72abe0edfb1f1722b29",
+  "inputDigest": "8cc33c9cfe132c0ce3ec3aef1a62bcbc849c3d5dcc75f7b63f9daee81cc4e526",
   "outcome": "supported",
   "scope": "plan",
   "partId": null,
@@ -235,5 +235,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:2",
-  "currentTupleDigest": "54d9f409623bad00cec0b9f9f93e142906c2e61fb7330aca4726ca65ce5e02db"
+  "currentTupleDigest": "a38026abdc93e061eb67f7e07b65c21a842964f2450bdb4e6714274f094bbc91"
 }

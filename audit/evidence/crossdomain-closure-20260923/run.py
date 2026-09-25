@@ -6,8 +6,8 @@ import pathlib
 import subprocess
 import sys
 
-ROOT = pathlib.Path("/home/remy-simpc4/Projects/robot-wiki-droid-continuation")
-MISSION = pathlib.Path("/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923")
+ROOT = pathlib.Path(".")
+MISSION = pathlib.Path("validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923")
 receipt = MISSION / "command-receipts.json"
 data = json.loads(receipt.read_text()) if receipt.exists() else {"commands": []}
 number = len(data["commands"]) + 1

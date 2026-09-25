@@ -23,8 +23,8 @@ const targets = [
   {
     slug: 'motion-planning', ordinal: 5, planId: 'rrt-hierarchy-20260914-motion-5',
     verdict: 'C', oldVerdict: 'unresolved',
-    oldDigest: 'd1f55e47a299ad6bf08d4ca63f6c4705d79b4004263450d12455015ef5bd99c7',
-    newDigest: 'd0d18e630d22c05c29d6775ba12dbb3d5147bde93e9a5d0c555375e80844d22c',
+    oldDigest: 'f26fcfa567d6325117c455935705558cec0443efcee3c2886a08fd780e8529c8',
+    newDigest: 'b5b8a0f6c96f82e6c801e5821006f452c6a68389d2e8c4d41b27d44e8881e220',
     parts: ['report-identity', 'report-date', 'sample-nearest-control',
       'local-feasibility', 'equation-correction', 'book-formulation-difference',
       'state-glossary-coupling'],
@@ -32,8 +32,8 @@ const targets = [
   {
     slug: 'perception', ordinal: 24, planId: 'perception-depth-specifications-24-source-20260913',
     verdict: 'C (evidence-limited cut)', oldVerdict: 'X',
-    oldDigest: '869cdf2bc65ce9b28d5f7e9f16d17ea264ca7da3592834b79f924c8043366fba',
-    newDigest: '083c80a17ff5c846245ac61e1aa9e0071abfec69555b9dab6be7aa684d6c63e2',
+    oldDigest: '5d7c41597e4e37d03ff23cf21c0b480693fdb09f21e923c2d7edd94f1075f1c6',
+    newDigest: 'a1eb1c73e08402f5de11957ce3771978b3f53cbb0657feea6329be284a9681df',
     parts: ['cut-unsupported-page-attribution'],
   },
 ] as const;

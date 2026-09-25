@@ -185,7 +185,7 @@
           "supportingPassage": "Bridging the ‘reality gap’ that separates simulated robotics from experiments on hardware could accelerate robotic research through improved data availability. This paper explores _domain randomization_,\na simple technique for training models on simulated images that transfer to real images by randomizing rendering in the simulator. With enough variability in the simulator, the real world may appear to the model as just another variation. We focus on the task of object localization, which is a stepping stone to general robotic manipulation skills. We find that it is possible to train a real-world object detector that is accurate to 1.5cm1.5\\\\text{\\\\,}\\\\mathrm{cm} and robust to distractors and partial occlusions using only data from a simulator with non-realistic random textures.",
           "provenance": {
             "retrievedAt": "2026-09-08T07:26:18.853Z",
-            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "tool": "Retained web fetch full-body representation, exact original capture/event verified; no new request",
             "response": {
               "path": "audit/evidence/sim2real-local-20260923/tobin-body.txt",
               "bytes": 48985,
@@ -211,7 +211,7 @@
           "supportingPassage": "## IV METHOD\n\nOur objective is to train policies that can perform a task under the dynamics of the real world p∗​(st+1\\|st,at)p^{\\*}(s\\_{t+1}\\|s\\_{t},a\\_{t}). Since sampling from the real world dynamics can be prohibitive, we instead train a policy using an approximate dynamics model p^​(st+1\\|st,at)≈p∗​(st+1\\|st,at)\\\\hat{p}(s\\_{t+1}\\|s\\_{t},a\\_{t})\\\\approx p^{\\*}(s\\_{t+1}\\|s\\_{t},a\\_{t}) that is easier to sample from. For all of our experiments, p^\\\\hat{p} assumes the form of a physics simulation. Due to modeling and other forms of calibration error, behaviours that successfully accomplish a task in simulation may not be successful once deployed in the real world. Furthermore, it has been observed that DeepRL policies are prone to exploiting idiosyncrasies of the simulator to realize behaviours that are infeasible in the real world \\[ [2](https://arxiv.org/html/1710.06537v3#bib.bib2 \"\"), [7](https://arxiv.org/html/1710.06537v3#bib.bib7 \"\")\\]. Therefore, instead of training a policy under one particular dynamics model, we train a policy that can perform a task under a variety of different dynamics models. First we introduce a set of dynamics parameters μ\\\\mu that parameterizes the dynamics of the simulation p^​(st+1\\|st,at,μ)\\\\hat{p}(s\\_{t+1}\\|s\\_{t},a\\_{t},\\\\mu). The objective is then modified to maximize the expected return across a distribution of dynamics models ρμ\\\\rho\\_{\\\\mu},\n\n|     |     |     |\n| --- | --- | --- |\n|  | 𝔼μ∼ρμ\\[𝔼τ∼p⁡(τ\\|π,μ)​\\[∑t=0T−1r⁡(st,at)\\]\\]\\\\mathop{\\\\mathbb{E}}\\_{\\\\mu\\\\sim\\\\rho\\_{\\\\mu}}\\\\left\\[\\\\mathbb{E}\\_{\\\\tau\\\\sim p(\\\\tau\\|\\\\pi,\\\\mu)}\\\\left\\[\\\\sum\\_{t=0}^{T-1}r(s\\_{t},a\\_{t})\\\\right\\]\\\\right\\] |  |\n\nBy training policies to adapt to variability in the dynamics of the environment, the resulting policy might then better generalize to the dynamics of real world.\n\n### IV-ATasks\n\nOur experiments are conducted on a puck pushing task using a 7-DOF Fetch Robotics arm. Images of the real robot and simulated model is available in Figure [2](https://arxiv.org/html/1710.06537v3#S4.F2 \"Fig. 2 ‣ IV-A Tasks ‣ IV METHOD ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\"). The goal gg for each episode specifies a random target position on the table that the puck should be moved to. The reward is binary with rt=0r\\_{t}=0 if the puck is within a given distance of the target, and rt=−1r\\_{t}=-1 otherwise. At the start of each episode, the arm is initialized to a default pose and the initial location of the puck is randomly placed within a fixed bound on the table.\n\n![Refer to caption](https://arxiv.org/html/1710.06537v3/figures/fetch_real.png)\n\n![Refer to caption](https://arxiv.org/html/1710.06537v3/figures/fetch_sim.png)\n\nFig. 2: Our experiments are conducted on a 7-DOF Fetch Robotics arm. Left: Real robot. Right: Simulated MuJoCo model.\n\n### IV-BState and Action\n\nThe state is represented using the joint positions and velocities of the arm, the position of the gripper, as well as the puck’s position, orientation, linear and angular velocities. The combined features result in a 52D state space. Actions from the policy specify target joint angles for a position controller. Target angles are specified as relative offsets from the current joint rotations. This yields a 7D action space.\n\n### IV-CDynamics Randomization\n\nDuring training, rollouts are organized into episodes of a fixed length. At the start of each episode, a random set of dynamics parameters μ\\\\mu are sampled according to ρμ\\\\rho\\_{\\\\mu} and held fixed for the duration of the episode. The parameters which we randomize include:\n\n- •\n\n\nMass of each link in the robot’s body\n\n- •\n\n\nDamping of each joint\n\n- •\n\n\nMass, friction, and damping of the puck\n\n- •\n\n\nHeight of the table\n\n- •\n\n\nGains for the position controller\n\n- •\n\n\nTimestep between actions\n\n- •\n\n\nObservation noise\n\n\nwhich results in a total of 95 randomized parameters. The timestep between actions specifies the amount of time an action is applied before the policy is queried again to sample a new action. This serves as a simple model of the latency exhibited by the physical controller. The observation noise models uncertainty in the sensors and is implemented as independent Gaussian noise applied to each state feature. While parameters such as mass and damping are constant over the course of an episode, the action timestep and the observation noise varies randomly each timestep.",
           "provenance": {
             "retrievedAt": "2026-09-08T07:26:42.941Z",
-            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "tool": "Retained web fetch full-body representation, exact original capture/event verified; no new request",
             "response": {
               "path": "audit/evidence/sim2real-local-20260923/peng-body.txt",
               "bytes": 56618,
@@ -237,7 +237,7 @@
           "supportingPassage": "Acceptable performance is defined by _performance thresholds_. For policy training, they are configured as the lower and upper bounds on the number of successes in an episode. For vision training, we first configure target performance thresholds for each output (e.g. position, orientation). During evaluation, we then compute the percentage of samples which achieve these targets for all outputs; if the resulting percentage is above the upper threshold or below the lower threshold, the distribution is adjusted accordingly.\n\n### 5.2 Algorithm\n\nEach environment eλe\\_{\\\\lambda} is parameterized by λ∈ℝd\\\\lambda\\\\in\\\\mathbb{R}^{d}, where dd is the number of parameters we can randomize in simulation. In domain randomization (DR), the environment parameter λ\\\\lambda comes from a _fixed_ distribution PϕP\\_{\\\\phi} parameterized by ϕ∈ℝd′\\\\phi\\\\in\\\\mathbb{R}^{d^{\\\\prime}}. However, in automatic domain randomization (ADR), ϕ\\\\phi is _changing_ dynamically with training progress. The sampling process in [Figure 10](https://arxiv.org/html/1910.07113v1#S5.F10 \"Figure 10 ‣ 5.1 ADR Overview ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\") works out as λ∼Pϕ\\\\lambda\\\\sim P\\_{\\\\phi}, resulting in one randomized environment instance eλe\\_{\\\\lambda}.\n\nTo quantify the amount of ADR expansion, we define _ADR entropy_ as ℋ(Pϕ)=−1d∫Pϕ(λ)logPϕ(λ)dλ\\\\mathcal{H}(P\\_{\\\\phi})=-\\\\frac{1}{d}\\\\int P\\_{\\\\phi}(\\\\lambda)\\\\log P\\_{\\\\phi}(\\\\lambda)d\\\\lambda\nin units of nats/dimension. The higher the ADR entropy, the broader the randomization sampling distribution. The normalization allows us to compare between different environment parameterizations.\n\nIn this work, we use a factorized distribution parameterized by d′=2​dd^{\\\\prime}=2d parameters. To simplify notation, let ϕL,ϕH∈ℝd\\\\phi^{L},\\\\phi^{H}\\\\in\\\\mathbb{R}^{d} be a certain partition of ϕ\\\\phi. For the ii-th ADR parameter λi\\\\lambda\\_{i}, i=1,…,di=1,\\\\dots,d, the pair (ϕiL,ϕiH)(\\\\phi^{L}\\_{i},\\\\,\\\\phi^{H}\\_{i}) is used to describe a uniform distribution for sampling λi\\\\lambda\\_{i} such that λi∼U⁡(ϕiL,ϕiH)\\\\lambda\\_{i}\\\\sim U(\\\\phi^{L}\\_{i},\\\\,\\\\phi^{H}\\_{i}). Note that the boundary values are inclusive. The overall distribution is given by\n\n|     |     |     |\n| --- | --- | --- |\n|  | Pϕ​(λ)=∏i=1dU⁡(ϕiL,ϕiH)P\\_{\\\\phi}(\\\\lambda)=\\\\prod\\_{i=1}^{d}U(\\\\phi^{L}\\_{i},\\\\,\\\\phi^{H}\\_{i}) |  |\n\nwith ADR entropy\n\n|     |     |     |\n| --- | --- | --- |\n|  | ℋ⁡(Pϕ)=1d​∑i=1dlog⁡(ϕiH−ϕiL).\\\\mathcal{H}(P\\_{\\\\phi})=\\\\frac{1}{d}\\\\sum\\_{i=1}^{d}\\\\log(\\\\phi^{H}\\_{i}-\\\\phi^{L}\\_{i}). |  |\n\nThe ADR algorithm is listed in Algorithm [1](https://arxiv.org/html/1910.07113v1#alg1 \"Algorithm 1 ‣ 5.2 Algorithm ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\"). For the factorized distribution, Algorithm [1](https://arxiv.org/html/1910.07113v1#alg1 \"Algorithm 1 ‣ 5.2 Algorithm ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\") is applied to ϕL\\\\phi^{L} and ϕH\\\\phi^{H} separately.\n\nAt each iteration, the ADR algorithm randomly selects a dimension of the environment λi\\\\lambda\\_{i} to fix to a boundary value ϕiL\\\\phi^{L}\\_{i} or ϕiH\\\\phi^{H}\\_{i} (we call this “boundary sampling”), while the other parameters are sampled as per PϕP\\_{\\\\phi}. Model performance for the sampled environment is then evaluated and appended to the buffer associated with the selected boundary of the selected parameter. Once enough performance data is collected, it is averaged and compared to thresholds. If the average model performance is better than the high threshold tHt\\_{H}, the parameter for the chosen dimension is increased. It is decreased if the average model performance is worse than the low threshold tLt\\_{L}.",
           "provenance": {
             "retrievedAt": "2026-09-08T07:27:07.993Z",
-            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "tool": "Retained web fetch full-body representation, exact original capture/event verified; no new request",
             "response": {
               "path": "audit/evidence/sim2real-local-20260923/adr-body.txt",
               "bytes": 211058,
@@ -426,7 +426,7 @@
           "supportingPassage": "### 4.1 Overview\n\nThe main objective of the presented controller is to locomote over rough terrain following a command.\nThe command is given either by a human operator or by a higher-level navigation controller.\nIn our formulation, unlike many existing works \\[ [12](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib12 \"\"), [16](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib16 \"\"), [14](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib14 \"\")\\] that focus on tracking the target velocity of the base (vTI​BB{}^{B}\\_{IB}v\\_{T}), only the direction (v^TI​BB{}^{B}\\_{IB}\\\\hat{v}\\_{T}) is given to the controller.\nThe reason is that the feasible range of target speeds is often unclear on challenging terrain. For example, the robot can walk faster downhill than uphill.\n\nThe command vector is defined as ⟨(I​BBv^T)x​y,(ω^T)z⟩\\\\langle(^{B}\\_{IB}\\\\hat{v}\\_{T})\\_{xy},(\\\\hat{\\\\omega}\\_{T})\\_{z}\\\\rangle.\nThe first part is the target horizontal direction in base frame (I​BBv^T)x​y≔⟨cos(ψT),sin(ψT)⟩(^{B}\\_{IB}\\\\hat{v}\\_{T})\\_{xy}\\\\coloneqq\\\\langle\\\\cos(\\\\psi\\_{T}),\\\\sin(\\\\psi\\_{T})\\\\rangle, where ψT\\\\psi\\_{T} is the yaw angle to command direction in the base frame. The stop command is defined as ⟨0.0,0.0⟩\\\\langle 0.0,0.0\\\\rangle. The second part is the turning direction (ω^T)z∈{−1,0,1}(\\\\hat{\\\\omega}\\_{T})\\_{z}\\\\in\\\\{-1,0,1\\\\}. 1 refers to counter-clockwise rotation along the base zz-axis.\n\nAn overview of our method is given in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\").\nWe use a privileged learning strategy inspired by “learning by cheating” \\[ [23](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib23 \"\")\\] (Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") A).\nWe first train a teacher policy that has access to privileged information concerning the terrain. This teacher policy is then distilled into a proprioceptive student policy that does not rely on privileged information. The privileged teacher policy is confined to simulation, but the student policy is deployed on physical machines. One difference of our methodology from that of Chen et al. \\[ [23](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib23 \"\")\\] is that we do not rely on expert demonstrations to train the privileged policy; rather, the teacher policy is trained via reinforcement learning.\n\nThe privileged teacher model is based on multi-layer perceptrons (MLPs) that receive information on the current state of the robot, properties of the terrain, and the robot’s contact with the terrain. The model computes a latent embedding l¯t\\\\bar{l}\\_{t} that represents the current state, and an action a¯t\\\\bar{a}\\_{t}.\nThe training objective rewards locomotion in prescribed directions.\n\nAfter the teacher policy is trained, it is used to supervise a proprioceptive student policy. The student model is a temporal convolutional network (TCN) \\[ [22](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib22 \"\")\\] that receives a sequence of NN proprioceptive observations as input. The student policy is trained by imitation. The vectors l¯t\\\\bar{l}\\_{t} and a¯t\\\\bar{a}\\_{t} computed by the teacher policy are used to supervise the student. This is illustrated in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") A.\n\nTraining is conducted on procedurally generated terrains in simulation. The terrains are synthesized adaptively, to facilitate learning according to the skill level of the trained policies at any given time. We define a traversability measure for terrain and develop a sampling-based method to select terrains with the appropriate difficulty during the course of training. We use particle filtering to maintain an appropriate distribution of terrain parameters. This is illustrated in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") B.\nThe terrain curriculum is applied during both teacher and student training.\n\nOur control architecture is shown in Fig. [4](https://ar5iv.labs.arxiv.org/html/2010.11251#S4.F4 \"Figure 4 ‣ 4 Materials and Methods ‣ Learning Quadrupedal Locomotion over Challenging Terrain\") C.\nWe employ the Policies Modulating Trajectory Generators (PMTG) architecture \\[ [34](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib34 \"\")\\] to provide priors on motion generation.\nThe neural network policy modulates leg phases and motion primitives by synthesizing residual position commands.\n\nThe simulation uses a learned dynamics model of the robot’s joint PD controller \\[ [12](https://ar5iv.labs.arxiv.org/html/2010.11251#bib.bib12 \"\")\\]. This facilitates the transfer of policies from simulation to reality. After training in simulation, the proprioceptive controller is deployed directly on physical legged machines, with no fine-tuning.",
           "provenance": {
             "retrievedAt": "2026-09-08T08:14:45.521Z",
-            "tool": "Retained FetchUrl full-body representation, exact original capture/event verified; no new request",
+            "tool": "Retained web fetch full-body representation, exact original capture/event verified; no new request",
             "response": {
               "path": "audit/evidence/sim2real-local-20260923/lee-body.txt",
               "bytes": 115542,
@@ -529,13 +529,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -629,7 +629,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -643,8 +643,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s23-parameters.receipt.json",
-          "bytes": 3909,
-          "sha256": "fb99aabe1708ce38ad28b33ffeb795b905fb47a502805208cd0807dac548fea7"
+          "bytes": 3869,
+          "sha256": "cd49e19d887cae9f4f41d7b3e31deaee2c8146dafcfd61c2827a2e2663159d68"
         }
       },
       "bases": [],
@@ -702,13 +702,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -800,7 +800,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -814,8 +814,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s23-default.receipt.json",
-          "bytes": 3909,
-          "sha256": "d09314cd47d6163b88ec0b860178b80113f43897af5cf16bbf17c97298e793fb"
+          "bytes": 3869,
+          "sha256": "5a95fe45a461b7e95463191b6a3900d84e5d80d9850762a87eeb9a18c4dcb314"
         }
       },
       "bases": [
@@ -888,13 +888,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -986,7 +986,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1000,8 +1000,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s23-wide.receipt.json",
-          "bytes": 3909,
-          "sha256": "91cea094d9ebd294e42df82ff24264f7b70b5a8b6c84d6a6264ab705ddcfd14b"
+          "bytes": 3869,
+          "sha256": "cd2248ee4760921176ee042bba9bb19c1e3cac28be300927010abdea675de9c0"
         }
       },
       "bases": [
@@ -1074,13 +1074,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1172,7 +1172,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1186,8 +1186,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s23-tail.receipt.json",
-          "bytes": 3909,
-          "sha256": "cc490390ebfaf1aa5f7f33319744d0e377bf1d1a2b3425d32f3a45193bec6909"
+          "bytes": 3869,
+          "sha256": "ab17975ee52a344a7c50289842c08057e829801f03b4c0e0e74a21af1b9279c9"
         }
       },
       "bases": [
@@ -1245,13 +1245,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1380,7 +1380,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1394,8 +1394,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-default.receipt.json",
-          "bytes": 6992,
-          "sha256": "26b672c763066fa3116a7193aa23b21657f269fd337a98a70bacb093dce5a16e"
+          "bytes": 6952,
+          "sha256": "dcb0dc72d57aacfaaf98759b6a2630661cf46ab49ec288edb8f6ab43130f2564"
         }
       },
       "bases": [
@@ -1525,13 +1525,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1660,7 +1660,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1674,8 +1674,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-wide.receipt.json",
-          "bytes": 8260,
-          "sha256": "e608ca593760fbb54a0bfb44836c34f3d7e6a46f2e66553baa4f4580d22c123f"
+          "bytes": 8220,
+          "sha256": "e3c4b9b415edc9fa53a3ad4d145b8c8b82886143b69f90f378689d0ba29bfc4e"
         }
       },
       "bases": [
@@ -1840,13 +1840,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -1975,7 +1975,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1989,8 +1989,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s23-observed-tail.receipt.json",
-          "bytes": 7067,
-          "sha256": "47d1d2dd93cd582a3e53d566b620e92929398e2df4f93955d04f4a6de753ed35"
+          "bytes": 7027,
+          "sha256": "9581535d64737d6957dbce85b7ab0e2016778b19de4ed9a12d317a79d813a9c4"
         }
       },
       "bases": [
@@ -2135,13 +2135,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -2254,7 +2254,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2268,8 +2268,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s24-parameters.receipt.json",
-          "bytes": 3905,
-          "sha256": "6e027662921a9090c8d6309a9932a11ef9b0bb9103512e4278acb174f7b381d2"
+          "bytes": 3865,
+          "sha256": "dee9ed68fa5c04ebe98dc9eca982641cfe4542a57527e7498f0c936b28785a4a"
         }
       },
       "bases": [],
@@ -2327,13 +2327,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -2500,7 +2500,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2514,8 +2514,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s24-zero.receipt.json",
-          "bytes": 3905,
-          "sha256": "b63bfc333b01624eb8dd7bc628eb71840991764b5dcfce85a0890319d96828a3"
+          "bytes": 3865,
+          "sha256": "09815f203f504a729ea685e233a0f9432274a649538afa259cef8b13eb980194"
         }
       },
       "bases": [
@@ -2581,13 +2581,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -2754,7 +2754,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2768,8 +2768,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s24-default.receipt.json",
-          "bytes": 3905,
-          "sha256": "6bf03cf2e4e734cf839cc6aba4e83b89e65392cede6497dd3c00dd8c3e640db6"
+          "bytes": 3865,
+          "sha256": "7d9a42e51970ff04b684d176feaf6029bc40d0f62f7b0489bae18b8395e7d0df"
         }
       },
       "bases": [
@@ -2835,13 +2835,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -3008,7 +3008,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_TYPED_CAPTURE=1 node_modules/.bin/vitest run tests/unit/sim2real-local-evidence.test.ts -t \"refreshes exact native numeric\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3022,8 +3022,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s24-high.receipt.json",
-          "bytes": 3905,
-          "sha256": "c7359a1889979a78aa4d1a9e32d54df90a3bc39dae4ae38dc54df471d1db4805"
+          "bytes": 3865,
+          "sha256": "1a88eaa957bb0dc1c7cbfd798b3945f3ca617beb54b4e91074e6087d17020e3c"
         }
       },
       "bases": [
@@ -3074,13 +3074,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -3284,7 +3284,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3298,8 +3298,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-default.receipt.json",
-          "bytes": 6863,
-          "sha256": "42fbba08967603c823783c125754de899e075120853d06a2da7d13844cdcd613"
+          "bytes": 6823,
+          "sha256": "873eed4d35f03c9ddd21c798a9df86a54ce0d7dc03beeaea9b681cc3deaf07f3"
         }
       },
       "bases": [
@@ -3414,13 +3414,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -3624,7 +3624,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3638,8 +3638,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-zero.receipt.json",
-          "bytes": 5792,
-          "sha256": "6236c7195a24556c064a97774e9c0ec099555584bf63c986522e01cfff619b30"
+          "bytes": 5752,
+          "sha256": "5898457a557391b551af8bed9e4696ca1cbbf69f251f827aa91a2d02bad33b0a"
         }
       },
       "bases": [
@@ -3723,13 +3723,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 100888,
+            "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
           "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "sha256": "af1f2439949759a7dd0ee24eaf827b92804617902e8e005720272d4a6dbb8bf6"
         },
         {
           "file": {
@@ -3933,7 +3933,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 SIM2REAL_WRITE_EVIDENCE=1 SIM2REAL_FINAL_CAPTURE=1 node_modules/.bin/playwright test tests/e2e/sim2real-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/sim2real-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -3947,8 +3947,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/final-s24-observed-high.receipt.json",
-          "bytes": 5794,
-          "sha256": "7245e60d38b93d3037220871939c5e98a9ddb3334cb7decfb511a4cacbf5f040"
+          "bytes": 5754,
+          "sha256": "2b4da2cbedb9a4d895b86c64f7f56ad27d242d132cf1606d8e1e138376d670f3"
         }
       },
       "bases": [

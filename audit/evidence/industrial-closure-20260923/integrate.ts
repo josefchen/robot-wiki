@@ -30,7 +30,7 @@ const routes = publishedModules().map(m => `/${m.domain}/${m.slug}/`);
 const disclosureText = read(ARTICLE).split('\n').find(s => s.startsWith('This calculator is an authored worked example'))!;
 const disclosure = { text: disclosureText, member: member(ARTICLE, disclosureText) };
 const i52 = catalog.plans.find(p => p.rowOrdinal === 52 && p.articleSlug === 'industrial-deployment')!;
-const reviewedBy = 'Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)';
+const reviewedBy = 'integrator run 7260b9a1 (integrator review; not independent acceptance)';
 const now = () => new Date().toISOString();
 const resume = process.env.INDUSTRIAL_RESUME_APPLICATION === '1';
 const current = new Map<number, { claim: string; sourceChecked: string; verdict: string; note: string }>();
@@ -165,7 +165,7 @@ for (const ordinal of resume ? [] : [9, 10, 32, 33]) {
   }
   const reviewEvent = (partId: string | null, inputDigest: string, rationale: string) => {
     const event = save(`review-${ordinal}-${partId ?? 'plan'}.json`, {
-      schemaVersion: 'local-review-event-v1', sessionId: '7260b9a1-d769-4cbc-8c09-e911c4a5ea17',
+      schemaVersion: 'local-review-event-v1', sessionId: '7260b9a1',
       role: 'integrator', eventId: `industrial-${ordinal}-${partId ?? 'plan'}`, observedAt: now(),
       reviewedBy, rationale, outcome: 'supported', scope: partId ? 'part' : 'plan', partId,
       inputDigest, inventory: plan.parts, originalId: plan.originalId, currentTupleDigest: plan.currentTupleDigest,

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r4-20260923:r4-mounted-controls:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Actual Playwright on the article found exactly twelve individually labeled sliders with correct min/default/max/step. Initial and post-chatter Reset show -5.52, balanced and the original phase-zero SVG. Retained DOM/PNG and hashes bind those observations, not a screenshot prediction.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r4-mounted-controls",
-  "inputDigest": "6ed53385e1e5b312db0841ee20dc7a97e4442843061d6af2ee86db740dbc8f9c",
+  "inputDigest": "6682552c9730090ce23fa2625c2eaa251cd6d49d9f2ac08676c655499ba7397c",
   "inventory": [
     {
       "id": "r4-paper-boundary",
@@ -69,5 +69,5 @@
     }
   ],
   "originalId": "audit/rl-sim2real.md:reward-design-mpc:4",
-  "currentTupleDigest": "35ca4322ed4337af206a8787a2faa82d00e5683c555fc2ac3a281e24ffa929a5"
+  "currentTupleDigest": "9fb3cba790e2d45e28944c2ab065372fefef968d1115be58373b4c2af1cc089e"
 }

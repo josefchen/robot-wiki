@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "parallel-local-p18-20260923:p18-authored-cost-model:2026-09-23T06:12:45.812Z",
   "observedAt": "2026-09-23T06:12:45.812Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I checked the explicit reader-local authored/not-benchmark disclosure against whole model/component/article members and fresh native parameter extraction.220M target,24 rollout, default4096/CPUoff,64..16384 endpoints,49samples, cost seconds[.02,.000004,.04,.03,.000022], and both marker x values4096 are chosen inputs. Paper time bounds are not recast as authored measurements. Every derived input has an exact same-plan parameter pointer, including both CPU booleans and endpoint domains.",
   "outcome": "supported",
   "scope": "part",
   "partId": "p18-authored-cost-model",
-  "inputDigest": "ed65be5be1271c48d323a3890b1f11fd29e176799d3b33a85754f665b780942d",
+  "inputDigest": "0643dcc7e8c34ad41666905d42f1c4b5440a87b441302cb4d1a7cc624e4cfcb1",
   "inventory": [
     {
       "id": "p18-rudin-flat-bound",

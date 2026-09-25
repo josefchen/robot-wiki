@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-curves-and-mount-defaults:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Whole model/component/article members disclose all curve constants and ranges as authored. Fresh native extraction independently checked mu0.8, ranges0.2..1.5 and0.1..0.65, point peak0.97/sigma0.09 and edge sigma0.1. The 0.93-0.55*range formula and mount props0.35/0.65 are fixed choices, not uncertainty intervals or empirical success rates.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-curves-and-mount-defaults",
-  "inputDigest": "7689cfe30708a4690afd23937d87ae1d444e5a5b348cb526ef7fab5805fa8058",
+  "inputDigest": "fcc6e0fb2ff593c0f4d4e021020ac36a8c21ef9bf689bf1a40e4dcfd569e5d93",
   "inventory": [
     {
       "id": "s23-tobin-framing",

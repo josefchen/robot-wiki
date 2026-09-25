@@ -1,9 +1,9 @@
 {
-  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_CAPTURE=1 INDUSTRIAL_WRITE_BROWSER=1 npx playwright test --config /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-runs/20260924-0140-browser.config.mjs",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_CAPTURE=1 INDUSTRIAL_WRITE_BROWSER=1 npx playwright test --config steward-runs/20260924-0140-browser.config.mjs",
   "startedAt": "2026-09-24T01:11:44.298Z",
   "endedAt": "2026-09-24T01:11:49.691Z",
   "exitCode": 0,
-  "logPath": "/home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-runs/20260924-0305-reader.log",
+  "logPath": "steward-runs/20260924-0305-reader.log",
   "observation": "Fresh static-export reader execution on merged release9d05b53. Historical observations and correction records remain unchanged.",
   "runner": "playwright",
   "environment": {

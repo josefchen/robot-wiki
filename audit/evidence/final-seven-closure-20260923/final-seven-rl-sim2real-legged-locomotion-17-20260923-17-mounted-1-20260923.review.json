@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "fd137388-f254-4d11-97b1-548904d2cad2",
+  "sessionId": "fd137388",
   "role": "integrator",
   "eventId": "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1-20260923",
   "observedAt": "2026-09-23T22:23:03.107Z",
-  "reviewedBy": "Delegated Droid Sol/max integrator; independent reviewer pending",
+  "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
   "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows discrete-options controls, disclosure and model-specific readouts after real state transitions.",
   "outcome": "supported",
   "scope": "part",
   "partId": "17-mounted-1",
-  "inputDigest": "c944fd060a19986bbd29e93a406f2f25934dcf722a628f0b65a74f66d552a37d",
+  "inputDigest": "cf19f2a228951cb821da0c8ff07f91b555e46f6cd00e45d76e899345f484f911",
   "inventory": [
     {
       "id": "17-parameters",

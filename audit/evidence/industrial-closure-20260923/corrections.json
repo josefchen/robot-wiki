@@ -93,7 +93,7 @@
     },
     "children": [],
     "review": {
-      "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+      "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
       "rationale": "Inspected before/current article: exact numbered assertion removed; unnumbered cross-reference retained and actual link200. This does not prove the old count.",
       "observedAt": "2026-09-23T18:50:24.781Z",
       "inputDigest": "0ec0deb27c8bbe06986c437e8d05647d5567487faaf72c062499227aaa577bc3"
@@ -189,7 +189,7 @@
     },
     "children": [],
     "review": {
-      "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+      "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
       "rationale": "Historical glossary/old validate:content certification is ledger-only and withdrawn, not external truth or a fictitious article removal. Actual current term inventory, registry IDs and every tooltip were checked at both viewports.",
       "observedAt": "2026-09-23T18:50:24.782Z",
       "inputDigest": "e362783fdf6aa247c964eccc5a31ebef45d432581f923b19b5408e663d810258"
@@ -494,7 +494,7 @@
       }
     ],
     "review": {
-      "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+      "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
       "rationale": "Reviewed the whole P4 population: four external Stat values and scoped numeric prose use the complete other-row AND; seven controls and calculated outputs are explicitly authored; glossary and references match canonical registries. Figure success remains unpublished, not filled with an estimate; no inapplicable field is inferred. n.d. is limited to the two undated LEI entries with actual access dates.",
       "observedAt": "2026-09-23T18:50:24.782Z",
       "inputDigest": "354cf721a57d0e8e36cba4a370ef96f2c3502c04c95821c85757c2fdd4793e3e"

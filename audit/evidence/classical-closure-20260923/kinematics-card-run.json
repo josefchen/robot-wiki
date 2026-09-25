@@ -6,13 +6,13 @@
   "unchangedOtherPublicCards": 47,
   "writes": [
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/public/og/classical/kinematics.png",
+      "path": "public/og/classical/kinematics.png",
       "beforeSha256": "f43f31032a455181cf32e96c06178eea6ee748bb75481dba1b9081a9a91bb9c4",
       "bytes": 29865,
       "sha256": "b7e0b3283cbebebb071715273ce4ede89669961619337af1764cb748ba71fd8e"
     },
     {
-      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/out/og/classical/kinematics.png",
+      "path": "out/og/classical/kinematics.png",
       "beforeSha256": "f43f31032a455181cf32e96c06178eea6ee748bb75481dba1b9081a9a91bb9c4",
       "bytes": 29865,
       "sha256": "b7e0b3283cbebebb071715273ce4ede89669961619337af1764cb748ba71fd8e"

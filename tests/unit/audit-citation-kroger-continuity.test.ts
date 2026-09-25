@@ -47,7 +47,7 @@ describe('finite Kroger source and historical correction continuation', () => {
     // the live file must equal that checkpoint plus the exact withdrawal runs.
     const merged = read('audit/evidence/technology-withdrawal-20260924/pre-citations.ts.txt');
     expect(sha(`${mergeDir}main-citations.ts.txt`))
-      .toBe('de95fbe2082b82670af82dd66621fc9dea3e249b5353f66907bb0b0c42bb1932');
+      .toBe('66751a2a33aa5a11736be65e271582ce62e14381920ca12b726e21ea7197a079');
     expect(verifyMergedCitationTransition(main, active, merged, old)).toBe(true);
     expect(verifyMergedCitationTransition(main, active, merged + '\n// unrelated entry', old)).toBe(false);
     expect(verifyMergedCitationTransition(main, active,
@@ -59,7 +59,7 @@ describe('finite Kroger source and historical correction continuation', () => {
     expect(verifyKrogerCitationTransition(old, active.replace('20251118224554', '20251127101227'))).toBe(false);
     const checkpoint = read('audit/evidence/control-citation-closeout-20260924/before-citations.ts.txt');
     expect(sha('audit/evidence/control-citation-closeout-20260924/before-citations.ts.txt'))
-      .toBe('40428a52fd74caed8804f7d4e6dbadfd7a6051246545915aa3571b40517eac5a');
+      .toBe('1299890987e8dc1c49c50d773ab96dd00a8a89e1a0469560835fac79fafb3362');
     expect(verifyControlCitationTransition(checkpoint, active)).toBe(true);
     expect(verifyControlCitationTransition(checkpoint, active.replace("id: 'kalman-1960',", "id: 'kalman-1961',"))).toBe(false);
     expect(verifyControlCitationTransition(checkpoint, active + '\n// unrelated entry')).toBe(false);

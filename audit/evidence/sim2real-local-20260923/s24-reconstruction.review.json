@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s24-20260923:s24-reconstruction:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Independent per-cell reconstruction/readings/occlusion and native outputs agree at0,0.15,1. MAE uses unrounded errors; rounding reconstructed cells first is a tested negative control. Divergence is exactly2.2*MAE; default/high MAE0.009894210242181204/0.1709614016145414 and discrepancy0.02176726253279865/0.37611508355199114 are constructed values, not learned action error.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s24-reconstruction",
-  "inputDigest": "a0021d493f864b6bf64d09a3b4737c1ad62e66b64b4254157dfed1ad36cc31eb",
+  "inputDigest": "23361c7415a686492f2d59c06806c7d48027eca735b75225208b7923556c194d",
   "inventory": [
     {
       "id": "s24-privileged-context",

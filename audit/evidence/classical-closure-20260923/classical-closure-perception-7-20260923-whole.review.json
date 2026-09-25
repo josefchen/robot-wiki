@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-7-20260923:whole",
   "observedAt": "2026-09-23T19:54:47.696Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Reviewed the whole ordered AND inventory against the corrected claim and reader disclosure. At authored angle0.5deg, opaque target, depth input2% at nominal0.5m and pose3mm, the model hand-eye term rises from1.3090301686138184mm at0.15m to13.090301686138185mm at1.5m; RSS totals are10.522051130000325mm and16.74383463350353mm, with the latter in the marginal model band, not a real grasp forecast. External specifications, authored choices, derivations and mounted behavior remain distinct. No original is dropped, no UI state below its slider range is invented, and no source-only preparation is counted as execution.",
-  "inputDigest": "0aa2b0f0514274a48bd4f5cb9c024b971e46634be2fb1e32a5a4307a34af7f3b",
+  "inputDigest": "175f520ec18b43508780a7e1fa2815e8371e9f8dee9563e3a6e9c2e0eb9f47e8",
   "outcome": "supported",
   "scope": "plan",
   "partId": null,
@@ -235,5 +235,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:7",
-  "currentTupleDigest": "560ba238ab6509e0a9bf5714b7a2474ac90de24f2fc2134cafdf9f57572d4e24"
+  "currentTupleDigest": "346c84ff8518f5154591f1a6e5c10ca42131f697d2b3ec68e17077e0e9da4081"
 }

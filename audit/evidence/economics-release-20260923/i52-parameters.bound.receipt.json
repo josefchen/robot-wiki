@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_RELEASE_WRITE=1 node_modules/.bin/vitest run tests/unit/economics-release-evidence.test.ts --no-file-parallelism",
   "runner": "vitest",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },

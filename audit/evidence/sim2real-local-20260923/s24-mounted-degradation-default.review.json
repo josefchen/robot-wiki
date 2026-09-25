@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s24-20260923:s24-mounted-degradation-default:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed this exact output-specific transition group: The actual teacher mount starts at degradation 0.15 and Reset returns the original input/reconstruction markup, MAE 0.01 m, discrepancy 0.02 and 3/24 occluded channels. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s24-mounted-degradation-default",
-  "inputDigest": "ea0ca521acd8dfc57d4ddca4738c403b534f228a2b17a450641ad2776752cfd3",
+  "inputDigest": "4df24aae493f57b469d9b15d698e8dc8b69b0851b349ba2b0f181a585169a97d",
   "inventory": [
     {
       "id": "s24-privileged-context",

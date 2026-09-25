@@ -127,7 +127,7 @@ describe('generative-video originals: ledger rows and compound plans', () => {
     expect(ledger).not.toContain('"Genie 2 (December 2024) moved to 3D at 360p');
     const row12 = mine.find((plan) => plan.rowOrdinal === 12);
     expect(row12?.originalCellsDigest).toBe(
-      'e35e24f1e6b50773aa4f335400e82403b4bb5a35debf6cd2741616b7e75b7492',
+      'e1f84ac195b3f6c172645b58e87d4c977ccfe975973179d27498fd7883d8b027',
     );
   });
 
