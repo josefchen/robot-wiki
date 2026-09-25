@@ -633,6 +633,44 @@ test.describe('brand-v2 home composition', () => {
   });
 
   /**
+   * Regression for the owner decision of 2026-09-25: the `Robot Wiki`
+   * wordmark never carries the lime active-interval rail or any other
+   * accent device, on any route — including `/`, where the home wordmark
+   * and the sidebar shell-wordmark both render. Any brand device at all
+   * inside either lockup fails, so a highlight reintroduced under another
+   * device id is caught here too.
+   */
+  test('the home and shell wordmarks carry no brand device on /', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.setViewportSize({
+      width: HOME_VIEWPORT.width,
+      height: HOME_VIEWPORT.height,
+    });
+    const response = await page.goto(`${staticBase}${HOME_ROUTE}`);
+    expect(response?.status(), HOME_ROUTE).toBe(200);
+    await page.waitForLoadState('networkidle');
+
+    for (const lockup of [
+      'h1[data-tektur-role="home-wordmark"]',
+      'aside [data-tektur-role="shell-wordmark"]',
+      'header [data-tektur-role="shell-wordmark"]',
+      'footer [data-tektur-role="shell-wordmark"]',
+    ]) {
+      await expect(page.locator(lockup), lockup).toHaveCount(1);
+      await expect(
+        page.locator(`${lockup} [data-brand-device-id]`),
+        lockup,
+      ).toHaveCount(0);
+      await expect(
+        page.locator(`${lockup} [data-registration-device]`),
+        lockup,
+      ).toHaveCount(0);
+    }
+  });
+
+  /**
    * The plant proof for the anchor that carries this feature's product
    * change. A page that renders no black action has to fail the black-action
    * anchor and only that one, which is what makes the six anchors

@@ -489,6 +489,7 @@ Requirements:
 - The shell MUST present `Robot Wiki`, not the technical identifier.
 - Desktop navigation uses a disciplined structural rail and preserves existing route hierarchy.
 - Active navigation uses ink and/or lime selection with an independent rule, weight, or marker.
+- The `Robot Wiki` wordmark itself is exempt from that treatment: no wordmark lockup — home hero, desktop sidebar, mobile header, mobile drawer, or footer — ever renders the lime active-interval rail or any other accent bar or highlight, including on `/` where the wordmark is the current-route item. `aria-current="page"` on the wordmark link is unaffected. Owner decision of 2026-09-25 (`owner-decision-no-wordmark-rail-20260925.md`); taxonomy and standalone navigation entries keep their rail exactly as before.
 - Signal blue is reserved for keyboard focus and link behavior, not a default full navigation fill.
 - Navigation group labels use mono registration style sparingly.
 - The mobile header remains compact and keeps the wordmark legible.

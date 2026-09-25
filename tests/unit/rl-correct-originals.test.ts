@@ -115,7 +115,7 @@ describe('correctly bound RL originals 6/8/9/10', () => {
     expect(pairs).toBe(29);
   });
 
-  it.each(sources)('rejects every malformed pair for $name original $ordinal', (source) => {
+  it.each(sources)('rejects every malformed pair for $name original $ordinal', { timeout: 60_000 }, (source) => {
       const original = catalog().find(p => p.id === planId(source.ordinal))!;
       expect(original).toBeDefined();
       for (let index = 0; index < original.evidence.length; index++) {

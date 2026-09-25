@@ -191,9 +191,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <div className="sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5">
             <div>
               {/* The lockup is the navigation item for "/", so on home it
-                  carries the same current-route treatment every taxonomy entry
-                  gets: aria-current plus the lime active-interval rail, marked
-                  at the shared rail depth rather than at the text indent. */}
+                  keeps aria-current exactly as every taxonomy entry does.
+                  The lime active-interval rail is wordmark-excluded by the
+                  owner decision of 2026-09-25: no wordmark lockup ever
+                  renders that rail or any other accent bar, on any route. */}
               <Link
                 href="/"
                 aria-current={pathname === '/' ? 'page' : undefined}
@@ -201,15 +202,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 data-brand-control-id="control:link-focus"
                 className="relative block rounded-sm px-2 py-0.5 font-display-shell text-[17px] tracking-[-0.025em] text-text"
               >
-                {pathname === '/' ? (
-                  <BrandDevice
-                    device="active-interval-rail"
-                    anchorSelector="#sidebar-taxonomy"
-                    deviceEdge="left"
-                    anchorEdge="left"
-                    className="left-0 top-0 h-full"
-                  />
-                ) : null}
                 {PUBLIC_IDENTITY}
               </Link>
             </div>
@@ -264,10 +256,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
               className="relative flex h-full w-[85vw] max-w-80 flex-col bg-bg"
             >
               <div className="flex items-center justify-between border-b border-border px-3 py-2.5">
-                {/* Same current-route treatment as the sidebar lockup: the
-                    drawer is the taxonomy at mobile widths, so its lockup is
-                    the navigation item for "/" and takes aria-current plus the
-                    lime active-interval rail at the shared rail depth. */}
+                {/* Same wordmark treatment as the sidebar lockup: the drawer
+                    is the taxonomy at mobile widths, so its lockup is the
+                    navigation item for "/" and keeps aria-current on home,
+                    while the lime active-interval rail stays
+                    wordmark-excluded by the owner decision of 2026-09-25. */}
                 <Link
                   href="/"
                   aria-current={pathname === '/' ? 'page' : undefined}
@@ -276,15 +269,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
                   data-brand-control-id="control:link-focus"
                   className="relative block rounded-sm px-2 py-0.5 font-display-shell text-[15px] tracking-[-0.02em] text-text"
                 >
-                  {pathname === '/' ? (
-                    <BrandDevice
-                      device="active-interval-rail"
-                      anchorSelector="#drawer-taxonomy"
-                      deviceEdge="left"
-                      anchorEdge="left"
-                      className="left-0 top-0 h-full"
-                    />
-                  ) : null}
                   {PUBLIC_IDENTITY}
                 </Link>
                 <button

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "40c41c0e8bfdbc680b76e45b69d304caabf317799ac1a7c29421e46999015d1a",
+  "fingerprint": "1eea5c2482a989889c5dbe449858dcce66c7fd4a9c12bb0a31395011a0be9ad9",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -236,9 +236,9 @@
             "accessibleName": "Robot Wiki"
           }
         ],
-        "markerDeviceId": "device:active-interval-rail",
-        "markerColour": "rgb(198, 255, 25)",
-        "markerAlignmentErrorPx": 0
+        "markerDeviceId": null,
+        "markerColour": null,
+        "markerAlignmentErrorPx": null
       }
     },
     {
@@ -8385,7 +8385,7 @@
     },
     {
       "route": "/market-map/",
-      "visibleTextLength": 49960,
+      "visibleTextLength": 49986,
       "header": {
         "present": true,
         "display": "flex",

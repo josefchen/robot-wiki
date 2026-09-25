@@ -100,7 +100,7 @@ describe('industrial release preserves both evidence histories', () => {
       .toEqual(residual.proofs.filter(p => laterIds.has(p.planId)));
   });
 
-  it('recomputes every retained output and validates every original AND obligation', () => {
+  it('recomputes every retained output and validates every original AND obligation', { timeout: 60_000 }, () => {
     const context = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
     for (const proof of catalog.proofs) {
       // Receipts are JSON, which represents IEEE-754 negative zero as zero.

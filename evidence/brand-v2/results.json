@@ -123429,186 +123429,548 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-DISC-005",
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:deep-links",
       "assertionId": "VAL-B2-DISC-005",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "discovery-anchor:/a-z/:deep-links",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "discovery-anchor:/a-z/:deep-links"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "discovery-anchor:/a-z/:deep-links holds on the built export at 1440x900: {\"route\":\"/a-z/\",\"expectedCount\":23,\"missing\":[]}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "viewport": "1440x900",
+          "route": "/a-z/",
+          "expectedCount": 23,
+          "missing": [],
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
         }
       }
     },
     {
-      "resultId": "result:VAL-B2-DISC-006",
-      "assertionId": "VAL-B2-DISC-006",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:keyboard-reachability",
+      "assertionId": "VAL-B2-DISC-005",
+      "populationMemberId": "discovery-anchor:/a-z/:keyboard-reachability",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "discovery-anchor:/a-z/:keyboard-reachability"
       ],
-      "coverageKind": "population-wide",
-      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "coverageKind": "per-member",
+      "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
+      "actual": "discovery-anchor:/a-z/:keyboard-reachability holds on the built export at 1440x900: {\"readings\":[{\"initiator\":\"direct-url\",\"targetReceivedFocus\":true,\"nextTabContinuesAtTarget\":true,\"targetScrolledIntoView\":true},{\"initiator\":\"in-page-jump\",\"targetReceivedFocus\":false,\"nextTabContinuesAtTarget\":false,\"targetScrolledIntoView\":true}]}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "viewport": "1440x900",
+          "readings": [
+            {
+              "initiator": "direct-url",
+              "targetReceivedFocus": true,
+              "nextTabContinuesAtTarget": true,
+              "targetScrolledIntoView": true
+            },
+            {
+              "initiator": "in-page-jump",
+              "targetReceivedFocus": false,
+              "nextTabContinuesAtTarget": false,
+              "targetScrolledIntoView": true
+            }
+          ],
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:source-wording",
+      "assertionId": "VAL-B2-DISC-005",
+      "populationMemberId": "discovery-anchor:/a-z/:source-wording",
+      "coveredPopulationMemberIds": [
+        "discovery-anchor:/a-z/:source-wording"
+      ],
+      "coverageKind": "per-member",
+      "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
+      "actual": "discovery-anchor:/a-z/:source-wording holds on the built export at 1440x900: {\"route\":\"/a-z/\",\"rowCount\":176,\"monoMetadataCount\":178}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/a-z/",
+          "rowCount": 176,
+          "monoMetadataCount": 178,
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/a-z/:shared-index-treatment",
+      "assertionId": "VAL-B2-DISC-005",
+      "populationMemberId": "discovery-anchor:/a-z/:shared-index-treatment",
+      "coveredPopulationMemberIds": [
+        "discovery-anchor:/a-z/:shared-index-treatment"
+      ],
+      "coverageKind": "per-member",
+      "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
+      "actual": "discovery-anchor:/a-z/:shared-index-treatment holds on the built export at 1440x900: {\"h1FontFamilyHead\":\"tektur\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "h1FontFamilyHead": "tektur",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:deep-links",
+      "assertionId": "VAL-B2-DISC-005",
+      "populationMemberId": "discovery-anchor:/glossary/:deep-links",
+      "coveredPopulationMemberIds": [
+        "discovery-anchor:/glossary/:deep-links"
+      ],
+      "coverageKind": "per-member",
+      "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
+      "actual": "discovery-anchor:/glossary/:deep-links holds on the built export at 1440x900: {\"route\":\"/glossary/\",\"expectedCount\":119,\"missing\":[]}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/glossary/",
+          "expectedCount": 119,
+          "missing": [],
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:keyboard-reachability",
+      "assertionId": "VAL-B2-DISC-005",
+      "populationMemberId": "discovery-anchor:/glossary/:keyboard-reachability",
+      "coveredPopulationMemberIds": [
+        "discovery-anchor:/glossary/:keyboard-reachability"
+      ],
+      "coverageKind": "per-member",
+      "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
+      "actual": "discovery-anchor:/glossary/:keyboard-reachability holds on the built export at 1440x900: {\"readings\":[{\"initiator\":\"direct-url\",\"targetReceivedFocus\":true,\"nextTabContinuesAtTarget\":true,\"targetScrolledIntoView\":true},{\"initiator\":\"cross-route-link\",\"targetReceivedFocus\":false,\"nextTabContinuesAtTarget\":true,\"targetScrolledIntoView\":true}]}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "readings": [
+            {
+              "initiator": "direct-url",
+              "targetReceivedFocus": true,
+              "nextTabContinuesAtTarget": true,
+              "targetScrolledIntoView": true
+            },
+            {
+              "initiator": "cross-route-link",
+              "targetReceivedFocus": false,
+              "nextTabContinuesAtTarget": true,
+              "targetScrolledIntoView": true
+            }
+          ],
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:source-wording",
+      "assertionId": "VAL-B2-DISC-005",
+      "populationMemberId": "discovery-anchor:/glossary/:source-wording",
+      "coveredPopulationMemberIds": [
+        "discovery-anchor:/glossary/:source-wording"
+      ],
+      "coverageKind": "per-member",
+      "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
+      "actual": "discovery-anchor:/glossary/:source-wording holds on the built export at 1440x900: {\"route\":\"/glossary/\",\"rowCount\":119,\"monoMetadataCount\":193}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/glossary/",
+          "rowCount": 119,
+          "monoMetadataCount": 193,
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-005:discovery-anchor:/glossary/:shared-index-treatment",
+      "assertionId": "VAL-B2-DISC-005",
+      "populationMemberId": "discovery-anchor:/glossary/:shared-index-treatment",
+      "coveredPopulationMemberIds": [
+        "discovery-anchor:/glossary/:shared-index-treatment"
+      ],
+      "coverageKind": "per-member",
+      "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
+      "actual": "discovery-anchor:/glossary/:shared-index-treatment holds on the built export at 1440x900: {\"h1FontFamilyHead\":\"tektur\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#discoveryIndexAnchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "h1FontFamilyHead": "tektur",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/manipulation/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/manipulation/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/manipulation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/manipulation/ holds on the built export at 1440x900: {\"route\":\"/manipulation/\",\"rowPaddingTopPx\":[16],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/manipulation/",
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/rl-sim2real/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/rl-sim2real/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/rl-sim2real/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/rl-sim2real/ holds on the built export at 1440x900: {\"route\":\"/rl-sim2real/\",\"rowPaddingTopPx\":[16],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/rl-sim2real/",
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/world-models/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/world-models/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/world-models/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/world-models/ holds on the built export at 1440x900: {\"route\":\"/world-models/\",\"rowPaddingTopPx\":[16],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/world-models/",
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/data-hardware/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/data-hardware/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/data-hardware/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/data-hardware/ holds on the built export at 1440x900: {\"route\":\"/data-hardware/\",\"rowPaddingTopPx\":[16],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/data-hardware/",
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/classical/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/classical/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/classical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/classical/ holds on the built export at 1440x900: {\"route\":\"/classical/\",\"rowPaddingTopPx\":[16],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/classical/",
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/frontier/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/frontier/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/frontier/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/frontier/ holds on the built export at 1440x900: {\"route\":\"/frontier/\",\"rowPaddingTopPx\":[16],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/frontier/",
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/adjacent/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/adjacent/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/adjacent/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/adjacent/ holds on the built export at 1440x900: {\"route\":\"/adjacent/\",\"rowPaddingTopPx\":[16],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/adjacent/",
+          "rowPaddingTopPx": [
+            16
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/a-z/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/a-z/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/a-z/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/a-z/ holds on the built export at 1440x900: {\"route\":\"/a-z/\",\"rowPaddingTopPx\":[12],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/a-z/",
+          "rowPaddingTopPx": [
+            12
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/glossary/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/glossary/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/glossary/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/glossary/ holds on the built export at 1440x900: {\"route\":\"/glossary/\",\"rowPaddingTopPx\":[24],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/glossary/",
+          "rowPaddingTopPx": [
+            24
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-DISC-006:row-rhythm:/credits/",
+      "assertionId": "VAL-B2-DISC-006",
+      "populationMemberId": "row-rhythm:/credits/",
+      "coveredPopulationMemberIds": [
+        "row-rhythm:/credits/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
+      "actual": "row-rhythm:/credits/ holds on the built export at 1440x900: {\"route\":\"/credits/\",\"rowPaddingTopPx\":[32],\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#rowRhythmSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/credits/",
+          "rowPaddingTopPx": [
+            32
+          ],
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
         }
       }
     },
@@ -126006,7 +126368,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
-      "actual": "rendered on 72 of 75 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 71 of 75 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -126032,7 +126394,6 @@
           "alignmentTolerancePx": 2,
           "mountState": "production",
           "renderedOn": [
-            "/",
             "/a-z/",
             "/adjacent/",
             "/adjacent/autonomous-vehicles/",
@@ -132343,7 +132704,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/market-map/ rendered no v1 identity spelling and no v1 descriptor in 104533 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/market-map/ rendered no v1 identity spelling and no v1 descriptor in 104585 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -167655,8 +168016,8 @@
         "route:/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
-      "actual": "/ matches the navigation entry /, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 600 against idle siblings at no idle sibling",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
+      "actual": "/ matches the navigation entry /, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and carries no rail device, because the owner decision of 2026-09-25 excludes the wordmark from every accent bar, at weight 600 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -167668,9 +168029,9 @@
           "hasNavigationItem": true,
           "ariaCurrentCount": 1,
           "ariaCurrentOnNonLink": [],
-          "markerDeviceId": "device:active-interval-rail",
-          "markerColour": "rgb(198, 255, 25)",
-          "markerAlignmentErrorPx": 0,
+          "markerDeviceId": null,
+          "markerColour": null,
+          "markerAlignmentErrorPx": null,
           "activeFontWeight": 600,
           "idleFontWeight": null,
           "evidence": [
@@ -167687,7 +168048,7 @@
         "route:/a-z/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/a-z/ matches the navigation entry /a-z/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 600 against idle siblings at 500",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167719,7 +168080,7 @@
         "route:/adjacent/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/adjacent/ matches the navigation entry /adjacent/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167751,7 +168112,7 @@
         "route:/adjacent/autonomous-vehicles/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/adjacent/autonomous-vehicles/ matches the navigation entry /adjacent/autonomous-vehicles/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167783,7 +168144,7 @@
         "route:/adjacent/drones/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/adjacent/drones/ matches the navigation entry /adjacent/drones/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167815,7 +168176,7 @@
         "route:/adjacent/space/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/adjacent/space/ matches the navigation entry /adjacent/space/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167847,7 +168208,7 @@
         "route:/adjacent/surgical/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/adjacent/surgical/ matches the navigation entry /adjacent/surgical/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167879,7 +168240,7 @@
         "route:/classical/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/ matches the navigation entry /classical/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167911,7 +168272,7 @@
         "route:/classical/calibration/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/calibration/ matches the navigation entry /classical/calibration/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167943,7 +168304,7 @@
         "route:/classical/control/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/control/ matches the navigation entry /classical/control/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -167975,7 +168336,7 @@
         "route:/classical/grasp-planning/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/grasp-planning/ matches the navigation entry /classical/grasp-planning/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168007,7 +168368,7 @@
         "route:/classical/kinematics/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/kinematics/ matches the navigation entry /classical/kinematics/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168039,7 +168400,7 @@
         "route:/classical/motion-planning/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/motion-planning/ matches the navigation entry /classical/motion-planning/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168071,7 +168432,7 @@
         "route:/classical/perception/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/perception/ matches the navigation entry /classical/perception/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168103,7 +168464,7 @@
         "route:/classical/ros2-for-ml-engineers/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/ros2-for-ml-engineers/ matches the navigation entry /classical/ros2-for-ml-engineers/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168135,7 +168496,7 @@
         "route:/classical/scene-representation/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/scene-representation/ matches the navigation entry /classical/scene-representation/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168167,7 +168528,7 @@
         "route:/classical/state-estimation/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/classical/state-estimation/ matches the navigation entry /classical/state-estimation/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168199,7 +168560,7 @@
         "route:/credits/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/credits/ matches the navigation entry /credits/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 600 against idle siblings at 500",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168231,7 +168592,7 @@
         "route:/data-hardware/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/ matches the navigation entry /data-hardware/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168263,7 +168624,7 @@
         "route:/data-hardware/data-bottleneck/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/data-bottleneck/ matches the navigation entry /data-hardware/data-bottleneck/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168295,7 +168656,7 @@
         "route:/data-hardware/datasets/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/datasets/ matches the navigation entry /data-hardware/datasets/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168327,7 +168688,7 @@
         "route:/data-hardware/evaluation-crisis/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/evaluation-crisis/ matches the navigation entry /data-hardware/evaluation-crisis/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168359,7 +168720,7 @@
         "route:/data-hardware/hardware-taxonomy/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/hardware-taxonomy/ matches the navigation entry /data-hardware/hardware-taxonomy/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168391,7 +168752,7 @@
         "route:/data-hardware/industrial-deployment/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/industrial-deployment/ matches the navigation entry /data-hardware/industrial-deployment/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168423,7 +168784,7 @@
         "route:/data-hardware/robot-learning-stack/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/robot-learning-stack/ matches the navigation entry /data-hardware/robot-learning-stack/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168455,7 +168816,7 @@
         "route:/data-hardware/teleop-rigs/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/data-hardware/teleop-rigs/ matches the navigation entry /data-hardware/teleop-rigs/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168487,7 +168848,7 @@
         "route:/editorial-policy/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/editorial-policy/ exposes no navigation entry and no aria-current node, so no heading or unrelated element carries the state to satisfy a count",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168519,7 +168880,7 @@
         "route:/frontier/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/frontier/ matches the navigation entry /frontier/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168551,7 +168912,7 @@
         "route:/frontier/bear-case/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/frontier/bear-case/ matches the navigation entry /frontier/bear-case/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168583,7 +168944,7 @@
         "route:/frontier/competing-theses/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/frontier/competing-theses/ matches the navigation entry /frontier/competing-theses/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168615,7 +168976,7 @@
         "route:/frontier/dexterity/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/frontier/dexterity/ matches the navigation entry /frontier/dexterity/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168647,7 +169008,7 @@
         "route:/frontier/generalization/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/frontier/generalization/ matches the navigation entry /frontier/generalization/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168679,7 +169040,7 @@
         "route:/frontier/reliability-gap/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/frontier/reliability-gap/ matches the navigation entry /frontier/reliability-gap/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168711,7 +169072,7 @@
         "route:/frontier/safety-and-assurance/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/frontier/safety-and-assurance/ matches the navigation entry /frontier/safety-and-assurance/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168743,7 +169104,7 @@
         "route:/glossary/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/glossary/ matches the navigation entry /glossary/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 600 against idle siblings at 500",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168775,7 +169136,7 @@
         "route:/manipulation/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/ matches the navigation entry /manipulation/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168807,7 +169168,7 @@
         "route:/manipulation/action-chunking/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/action-chunking/ matches the navigation entry /manipulation/action-chunking/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168839,7 +169200,7 @@
         "route:/manipulation/action-spaces/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/action-spaces/ matches the navigation entry /manipulation/action-spaces/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168871,7 +169232,7 @@
         "route:/manipulation/bc-foundations/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/bc-foundations/ matches the navigation entry /manipulation/bc-foundations/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168903,7 +169264,7 @@
         "route:/manipulation/comparison-matrix/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/comparison-matrix/ matches the navigation entry /manipulation/comparison-matrix/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168935,7 +169296,7 @@
         "route:/manipulation/cross-embodiment/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/cross-embodiment/ matches the navigation entry /manipulation/cross-embodiment/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168967,7 +169328,7 @@
         "route:/manipulation/diffusion-policy/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/diffusion-policy/ matches the navigation entry /manipulation/diffusion-policy/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -168999,7 +169360,7 @@
         "route:/manipulation/foundation-models/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/foundation-models/ matches the navigation entry /manipulation/foundation-models/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169031,7 +169392,7 @@
         "route:/manipulation/generalist-policies/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/generalist-policies/ matches the navigation entry /manipulation/generalist-policies/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169063,7 +169424,7 @@
         "route:/manipulation/hierarchical/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/hierarchical/ matches the navigation entry /manipulation/hierarchical/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169095,7 +169456,7 @@
         "route:/manipulation/knowledge-insulation/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/knowledge-insulation/ matches the navigation entry /manipulation/knowledge-insulation/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169127,7 +169488,7 @@
         "route:/manipulation/pi-line/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/pi-line/ matches the navigation entry /manipulation/pi-line/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169159,7 +169520,7 @@
         "route:/manipulation/realtime-execution/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/realtime-execution/ matches the navigation entry /manipulation/realtime-execution/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169191,7 +169552,7 @@
         "route:/manipulation/rl-finetuning/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/rl-finetuning/ matches the navigation entry /manipulation/rl-finetuning/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169223,7 +169584,7 @@
         "route:/manipulation/robot-learning-roadmap/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/robot-learning-roadmap/ matches the navigation entry /manipulation/robot-learning-roadmap/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169255,7 +169616,7 @@
         "route:/manipulation/vla-models/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/manipulation/vla-models/ matches the navigation entry /manipulation/vla-models/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169287,7 +169648,7 @@
         "route:/market-map/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/market-map/ matches the navigation entry /market-map/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 600 against idle siblings at 500",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169319,7 +169680,7 @@
         "route:/playground/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/playground/ matches the navigation entry /playground/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 600 against idle siblings at 500",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169351,7 +169712,7 @@
         "route:/privacy/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/privacy/ exposes no navigation entry and no aria-current node, so no heading or unrelated element carries the state to satisfy a count",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169383,7 +169744,7 @@
         "route:/rl-sim2real/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/ matches the navigation entry /rl-sim2real/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169415,7 +169776,7 @@
         "route:/rl-sim2real/humanoid-wbc/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/humanoid-wbc/ matches the navigation entry /rl-sim2real/humanoid-wbc/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169447,7 +169808,7 @@
         "route:/rl-sim2real/legged-locomotion/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/legged-locomotion/ matches the navigation entry /rl-sim2real/legged-locomotion/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169479,7 +169840,7 @@
         "route:/rl-sim2real/offline-rl/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/offline-rl/ matches the navigation entry /rl-sim2real/offline-rl/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169511,7 +169872,7 @@
         "route:/rl-sim2real/parallel-sim-rl/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/parallel-sim-rl/ matches the navigation entry /rl-sim2real/parallel-sim-rl/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169543,7 +169904,7 @@
         "route:/rl-sim2real/reward-design-mpc/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/reward-design-mpc/ matches the navigation entry /rl-sim2real/reward-design-mpc/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169575,7 +169936,7 @@
         "route:/rl-sim2real/rl-for-robotics/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/rl-for-robotics/ matches the navigation entry /rl-sim2real/rl-for-robotics/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169607,7 +169968,7 @@
         "route:/rl-sim2real/sim2real-transfer/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/sim2real-transfer/ matches the navigation entry /rl-sim2real/sim2real-transfer/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169639,7 +170000,7 @@
         "route:/rl-sim2real/why-rl-locomotion/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/rl-sim2real/why-rl-locomotion/ matches the navigation entry /rl-sim2real/why-rl-locomotion/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169671,7 +170032,7 @@
         "route:/search/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/search/ exposes no navigation entry and no aria-current node, so no heading or unrelated element carries the state to satisfy a count",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169703,7 +170064,7 @@
         "route:/world-models/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/ matches the navigation entry /world-models/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at no idle sibling",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169735,7 +170096,7 @@
         "route:/world-models/evaluation/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/evaluation/ matches the navigation entry /world-models/evaluation/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169767,7 +170128,7 @@
         "route:/world-models/generative-sim/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/generative-sim/ matches the navigation entry /world-models/generative-sim/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169799,7 +170160,7 @@
         "route:/world-models/generative-video/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/generative-video/ matches the navigation entry /world-models/generative-video/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169831,7 +170192,7 @@
         "route:/world-models/jepa/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/jepa/ matches the navigation entry /world-models/jepa/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169863,7 +170224,7 @@
         "route:/world-models/latent-dynamics/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/latent-dynamics/ matches the navigation entry /world-models/latent-dynamics/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169895,7 +170256,7 @@
         "route:/world-models/model-based-robot-learning/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/model-based-robot-learning/ matches the navigation entry /world-models/model-based-robot-learning/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169927,7 +170288,7 @@
         "route:/world-models/taxonomy/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/taxonomy/ matches the navigation entry /world-models/taxonomy/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -169959,7 +170320,7 @@
         "route:/world-models/world-models-vs-simulators/"
       ],
       "coverageKind": "per-member",
-      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
+      "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
       "actual": "/world-models/world-models-vs-simulators/ matches the navigation entry /world-models/world-models-vs-simulators/, which alone carries aria-current=\"page\" at 1 node(s) document-wide, paints rgb(11, 11, 12), and is marked by device:active-interval-rail in rgb(198, 255, 25) 0px from its registered rail anchor, at weight 500 against idle siblings at 400",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -184132,94 +184493,250 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-SHELL-008",
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/",
       "assertionId": "VAL-B2-SHELL-008",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "index-surface:/",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/calibration/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/ros2-for-ml-engineers/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/robot-learning-stack/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/editorial-policy/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/action-spaces/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/foundation-models/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/robot-learning-roadmap/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/privacy/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/offline-rl/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/evaluation/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/model-based-robot-learning/",
-        "route:/world-models/taxonomy/",
-        "route:/world-models/world-models-vs-simulators/"
+        "index-surface:/"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "index-surface:/ holds on the built export at 1440x900: {\"route\":\"/\",\"primaryRowKey\":\"home-domain-index\",\"rowCount\":7,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "viewport": "1440x900",
+          "route": "/",
+          "primaryRowKey": "home-domain-index",
+          "rowCount": 7,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/manipulation/",
+      "assertionId": "VAL-B2-SHELL-008",
+      "populationMemberId": "index-surface:/manipulation/",
+      "coveredPopulationMemberIds": [
+        "index-surface:/manipulation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
+      "actual": "index-surface:/manipulation/ holds on the built export at 1440x900: {\"route\":\"/manipulation/\",\"primaryRowKey\":\"domain-article\",\"rowCount\":15,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/manipulation/",
+          "primaryRowKey": "domain-article",
+          "rowCount": 15,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/rl-sim2real/",
+      "assertionId": "VAL-B2-SHELL-008",
+      "populationMemberId": "index-surface:/rl-sim2real/",
+      "coveredPopulationMemberIds": [
+        "index-surface:/rl-sim2real/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
+      "actual": "index-surface:/rl-sim2real/ holds on the built export at 1440x900: {\"route\":\"/rl-sim2real/\",\"primaryRowKey\":\"domain-article\",\"rowCount\":8,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/rl-sim2real/",
+          "primaryRowKey": "domain-article",
+          "rowCount": 8,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/world-models/",
+      "assertionId": "VAL-B2-SHELL-008",
+      "populationMemberId": "index-surface:/world-models/",
+      "coveredPopulationMemberIds": [
+        "index-surface:/world-models/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
+      "actual": "index-surface:/world-models/ holds on the built export at 1440x900: {\"route\":\"/world-models/\",\"primaryRowKey\":\"domain-article\",\"rowCount\":8,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/world-models/",
+          "primaryRowKey": "domain-article",
+          "rowCount": 8,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/data-hardware/",
+      "assertionId": "VAL-B2-SHELL-008",
+      "populationMemberId": "index-surface:/data-hardware/",
+      "coveredPopulationMemberIds": [
+        "index-surface:/data-hardware/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
+      "actual": "index-surface:/data-hardware/ holds on the built export at 1440x900: {\"route\":\"/data-hardware/\",\"primaryRowKey\":\"domain-article\",\"rowCount\":7,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/data-hardware/",
+          "primaryRowKey": "domain-article",
+          "rowCount": 7,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/classical/",
+      "assertionId": "VAL-B2-SHELL-008",
+      "populationMemberId": "index-surface:/classical/",
+      "coveredPopulationMemberIds": [
+        "index-surface:/classical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
+      "actual": "index-surface:/classical/ holds on the built export at 1440x900: {\"route\":\"/classical/\",\"primaryRowKey\":\"domain-article\",\"rowCount\":9,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/classical/",
+          "primaryRowKey": "domain-article",
+          "rowCount": 9,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/frontier/",
+      "assertionId": "VAL-B2-SHELL-008",
+      "populationMemberId": "index-surface:/frontier/",
+      "coveredPopulationMemberIds": [
+        "index-surface:/frontier/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
+      "actual": "index-surface:/frontier/ holds on the built export at 1440x900: {\"route\":\"/frontier/\",\"primaryRowKey\":\"domain-article\",\"rowCount\":6,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/frontier/",
+          "primaryRowKey": "domain-article",
+          "rowCount": 6,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-008:index-surface:/adjacent/",
+      "assertionId": "VAL-B2-SHELL-008",
+      "populationMemberId": "index-surface:/adjacent/",
+      "coveredPopulationMemberIds": [
+        "index-surface:/adjacent/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
+      "actual": "index-surface:/adjacent/ holds on the built export at 1440x900: {\"route\":\"/adjacent/\",\"primaryRowKey\":\"domain-article\",\"rowCount\":4,\"separatorRuleWidthPx\":[1],\"boxedRowCount\":0,\"containerDisplay\":\"block\"}",
+      "selectorOrRegistryId": "evidence/brand-v2/index-rows.json#editorialRowSurfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "viewport": "1440x900",
+          "route": "/adjacent/",
+          "primaryRowKey": "domain-article",
+          "rowCount": 4,
+          "separatorRuleWidthPx": [
+            1
+          ],
+          "boxedRowCount": 0,
+          "containerDisplay": "block",
+          "evidence": [
+            "evidence/brand-v2/index-rows.json"
+          ]
         }
       }
     },

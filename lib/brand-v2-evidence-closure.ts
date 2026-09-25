@@ -62,6 +62,7 @@ export const EVIDENCE_CLOSURE_FILES = [
   'tests/e2e/brand-v2-home.spec.ts',
   'tests/e2e/brand-v2-home-tools.spec.ts',
   'tests/e2e/brand-v2-identity.spec.ts',
+  'tests/e2e/brand-v2-index-rows.spec.ts',
   'tests/e2e/brand-v2-mobile-shell.spec.ts',
   'tests/e2e/brand-v2-shell.spec.ts',
 ] as const;

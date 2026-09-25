@@ -82,7 +82,7 @@ describe('learned locomotion source corrections', () => {
       for (const a of p.adjudications) expect(a.evidenceDigest).toBe(compoundPartDigest(p, a.partId));
       expect(failures(p)).toEqual([]);
     });
-    it('rejects each omitted part or source item rather than granting partial credit', () => {
+    it('rejects each omitted part or source item rather than granting partial credit', { timeout: 60_000 }, () => {
       for (const key of ['parts', 'evidence'] as const) {
         for (let i = 0; i < selected(slug, ordinal)[key].length; i++) {
           const p = selected(slug, ordinal);

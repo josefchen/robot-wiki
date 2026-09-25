@@ -406,6 +406,16 @@ export type CurrentRouteVerdict = {
  * marker contributing nothing to the accessible name. A route without an
  * entry must expose none at all. Colour alone never carries the state, and
  * signal blue never carries it.
+ *
+ * The one exemption is the wordmark. The owner decision of 2026-09-25
+ * (owner-decision-no-wordmark-rail-20260925.md) excludes every `Robot Wiki`
+ * wordmark lockup — the sidebar and drawer entries this sweep records as
+ * the `lockup` category — from the rail and from any other accent bar,
+ * including on `/`, where the lockup is the matching entry. Its
+ * `aria-current` still has to sit on it alone, so the decision removes the
+ * highlight without touching the semantics; and the exemption fails
+ * closed in the other direction too: a lockup that renders a rail device
+ * at all is a failure here, so the removed mark cannot quietly return.
  */
 export function currentRouteVerdicts(
   evidence: ShellRuntimeEvidence,
@@ -461,7 +471,16 @@ export function currentRouteVerdicts(
       ? Math.max(...siblings.map(({ fontWeight }) => fontWeight))
       : null;
     if (matchingEntry) {
-      if (!marker) {
+      if (matchingEntry.category === 'lockup') {
+        // The wordmark exemption: the lockup is the wordmark, and the owner
+        // decision of 2026-09-25 forbids every accent bar on it. Any device
+        // at all inside the lockup — the rail included — fails the route.
+        if (marker) {
+          failures.push(
+            `${route} renders ${marker.deviceId ?? 'an unregistered device'} on the wordmark lockup, which the owner decision of 2026-09-25 excludes from every accent bar`,
+          );
+        }
+      } else if (!marker) {
         failures.push(`${route} marks the current entry with no rail device`);
       } else {
         if (marker.deviceId === null) {

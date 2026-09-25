@@ -109,26 +109,38 @@ export default function AzIndexPage() {
         </ul>
       </nav>
 
-      <div className="mt-10 border-t border-border">
+      <div className="mt-10">
         {groups.map((group) => (
           <section
             key={group.letter}
             aria-labelledby={letterAnchorId(group.letter)}
-            className="border-b border-border py-6"
+            className="py-6 first:pt-0"
           >
+            {/* The jump-link and deep-link target for this letter group.
+                tabIndex={-1} makes fragment navigation move focus to the
+                heading (VAL-B2-DISC-005), so a keyboard reader arriving at
+                /a-z/#letter-m starts inside that group rather than on the
+                body with no context. */}
             <h2
               id={letterAnchorId(group.letter)}
+              tabIndex={-1}
               className="scroll-mt-16 font-sans text-lg font-semibold tracking-tight text-text lg:scroll-mt-4"
             >
               {group.letter}
             </h2>
-            <ul className="mt-4 list-none space-y-3">
+            {/* The same rule rhythm the glossary and the domain landings
+                use: one hairline above the run and one under every entry,
+                so the alphabetical run reads as ruled index rows rather
+                than an unbounded stack of links (VAL-B2-DISC-006). The
+                section rule this replaces drew one line per letter group
+                only; the entries inside carried no rhythm of their own. */}
+            <ul className="mt-4 list-none border-t border-border">
               {group.entries.map((entry) => (
                 <li
                   key={entry.href}
                   data-az-entry
                   data-az-group={entry.group}
-                  className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5"
+                  className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border-b border-border py-3"
                 >
                   <IntentLink
                     data-brand-control-id="control:link-focus"

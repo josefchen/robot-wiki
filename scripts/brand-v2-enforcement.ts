@@ -100,6 +100,26 @@ import {
   readHomeCompositionEvidence,
 } from '../lib/brand-v2-home-evidence.ts';
 import {
+  DISCOVERY_ANCHORS,
+  DISCOVERY_ROUTES,
+  DOMAIN_LANDING_ROUTES,
+  HOME_ROUTE as INDEX_HOME_ROUTE,
+  INDEX_DISCOVERY_ANCHOR_POPULATION_SOURCE,
+  INDEX_EDITORIAL_SURFACE_POPULATION_SOURCE,
+  INDEX_ROW_RHYTHM_POPULATION_SOURCE,
+  INDEX_ROWS_EVIDENCE_PATH,
+  INDEX_VIEWPORT,
+  ROW_RHYTHM_ROUTES,
+  discoveryAnchorMemberId,
+  discoveryIndexVerdicts,
+  editorialRowSurfaceVerdicts,
+  indexRowsEvidenceFingerprint,
+  indexSurfaceMemberId,
+  readIndexRowsEvidence,
+  rowRhythmMemberId,
+  rowRhythmVerdicts,
+} from '../lib/brand-v2-index-evidence.ts';
+import {
   ARTICLE_RUNTIME_EVIDENCE_PATH,
   ARTICLE_VIEWPORTS,
   articleEvidenceFingerprint,
@@ -315,6 +335,7 @@ function isMeasured(id: string): boolean {
     MOBILE_SHELL_ASSERTIONS.has(id) ||
     HOME_ASSERTIONS.has(id) ||
     HOME_TOOLS_ASSERTIONS.has(id) ||
+    INDEX_ASSERTIONS.has(id) ||
     ARTICLE_ASSERTIONS.has(id) ||
     APPARATUS_ASSERTIONS.has(id) ||
     FIGURE_RUNTIME_ASSERTIONS.has(id) ||
@@ -1038,6 +1059,72 @@ const HOME_POPULATIONS: Readonly<Record<string, string[]>> = {
   ),
 };
 
+/**
+ * The three discovery-index assertions this feature converted from pending
+ * rollout rows, decided by the persisted index-rows sweep. Membership grants
+ * nothing: the reader throws on a stale fingerprint, a missing surface, an
+ * empty page, a surface with no row list, or a missing fragment-keyboard
+ * reading, and each verdict throws on its own failures, so a converted row
+ * is a measurement that passed, never a status the generator awarded.
+ */
+const INDEX_ASSERTION_POPULATION_SOURCES: Readonly<Record<string, string>> = {
+  'VAL-B2-SHELL-008': INDEX_EDITORIAL_SURFACE_POPULATION_SOURCE,
+  'VAL-B2-DISC-005': INDEX_DISCOVERY_ANCHOR_POPULATION_SOURCE,
+  'VAL-B2-DISC-006': INDEX_ROW_RHYTHM_POPULATION_SOURCE,
+};
+
+const INDEX_ASSERTIONS = new Set(Object.keys(INDEX_ASSERTION_POPULATION_SOURCES));
+
+const INDEX_EVIDENCE = readIndexRowsEvidence({
+  artifact: readJson(join(ROOT, INDEX_ROWS_EVIDENCE_PATH)),
+  fingerprint: indexRowsEvidenceFingerprint({ root: ROOT }),
+});
+
+const INDEX_EDITORIAL_VERDICTS = new Map(
+  editorialRowSurfaceVerdicts(INDEX_EVIDENCE).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const INDEX_DISCOVERY_VERDICTS = new Map(
+  discoveryIndexVerdicts(INDEX_EVIDENCE).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const INDEX_RHYTHM_VERDICTS = new Map(
+  rowRhythmVerdicts(INDEX_EVIDENCE).map((verdict) => [verdict.id, verdict]),
+);
+
+const INDEX_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [INDEX_EDITORIAL_SURFACE_POPULATION_SOURCE]: [
+    INDEX_HOME_ROUTE,
+    ...DOMAIN_LANDING_ROUTES,
+  ].map(indexSurfaceMemberId),
+  [INDEX_DISCOVERY_ANCHOR_POPULATION_SOURCE]: DISCOVERY_ROUTES.flatMap((route) =>
+    DISCOVERY_ANCHORS.map((anchor) => discoveryAnchorMemberId(route, anchor)),
+  ),
+  [INDEX_ROW_RHYTHM_POPULATION_SOURCE]: ROW_RHYTHM_ROUTES.map(rowRhythmMemberId),
+};
+
+/** The sweep that writes the artifact, and the reader gate that guards it. */
+const INDEX_SWEEP_TARGET = {
+  kind: 'test' as const,
+  file: 'tests/e2e/brand-v2-index-rows.spec.ts',
+  title:
+    'brand-v2 index rows › measures every index surface, its rules, its inventory and its fragment keyboard, and persists the artifact',
+  mechanism:
+    'Sweeps the built export at 1440x900 over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring every index run\u2019s separator rules, row rhythm and boxed-card residue, reconciling each inventory and fragment-target census against the module, glossary and image registries, and recording where real fragment navigations left document.activeElement; the verdicts the generator emits are enforced inside the suite before the artifact is written, and three in-page plant tests strip the rules, break the fragment focus and box the rows to prove each predicate can fail.',
+};
+const INDEX_READER_TARGET = {
+  kind: 'test' as const,
+  file: 'tests/unit/brand-v2-index-evidence.test.ts',
+  title:
+    'index-rows evidence > refuses stale, incomplete, and unmeasured index evidence',
+  mechanism:
+    'Proves the fail-closed reader throws on a stale fingerprint, the wrong viewport, a missing and an extra surface, an empty rendered page, a surface with no row list, and a missing fragment-keyboard reading, and proves the verdict populations and registry-derived expectations are exact before any result row may be generated from the artifact.',
+};
+
 const FIGURE_EVIDENCE = readFigureRuntimeEvidence({
   artifact: readJson(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH)),
   fingerprint: figureEvidenceFingerprint({ root: ROOT }),
@@ -1151,6 +1238,7 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
     ...populationSources(assertionIds),
     [ARTICLE_TRUTH_POPULATION_SOURCE]: ARTICLE_TRUTH_MEMBERS,
     [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembers(LINK_SAFETY_CENSUS),
+    ...INDEX_POPULATIONS,
   };
 }
 
@@ -1161,6 +1249,8 @@ function populationSourceFor(id: string): string {
   if (shellSource) return shellSource;
   const homeSource = HOME_ASSERTION_POPULATION_SOURCES[id];
   if (homeSource) return homeSource;
+  const indexSource = INDEX_ASSERTION_POPULATION_SOURCES[id];
+  if (indexSource) return indexSource;
   const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
   if (articleSource) return articleSource;
   const apparatusSource = APPARATUS_ASSERTION_POPULATION_SOURCES[id];
@@ -1263,6 +1353,9 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // viewport a browser gave it, on every public route, so it is the same
   // kind of reading at four widths.
   if (HOME_TOOLS_ASSERTIONS.has(id)) return 'browser-state';
+  // The three discovery-index rows are decided by what the built export
+  // laid out and where a real fragment navigation left focus.
+  if (INDEX_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -1759,6 +1852,9 @@ function testTargetsFor(id: string): TestTarget[] {
   }
   if (HOME_ASSERTIONS.has(id)) {
     return [HOME_SWEEP_TARGET, HOME_READER_TARGET];
+  }
+  if (INDEX_ASSERTIONS.has(id)) {
+    return [INDEX_SWEEP_TARGET, INDEX_READER_TARGET];
   }
   if (HOME_TOOLS_ASSERTIONS.has(id)) {
     return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
@@ -2535,9 +2631,14 @@ function shellAssertionEvidence(
         `${assertionId}: ${verdict.failures.join('; ')}`,
       );
     }
+    // The wordmark lockup is the one current-route entry without a rail: the
+    // owner decision of 2026-09-25 excludes the wordmark from the
+    // active-interval rail and from every other accent bar, so its row says
+    // that outright rather than printing nulls for a mark that must not exist.
+    const wordmarkEntry = verdict.matchingEntry?.category === 'lockup';
     return {
       actual: verdict.hasNavigationItem
-        ? `${route} matches the navigation entry ${verdict.matchingEntry?.href}, which alone carries aria-current="page" at ${verdict.ariaCurrentCount} node(s) document-wide, paints ${verdict.matchingEntry?.colour}, and is marked by ${verdict.markerDeviceId} in ${verdict.markerColour} ${verdict.markerAlignmentErrorPx}px from its registered rail anchor, at weight ${verdict.activeWeight} against idle siblings at ${verdict.idleWeight ?? 'no idle sibling'}`
+        ? `${route} matches the navigation entry ${verdict.matchingEntry?.href}, which alone carries aria-current="page" at ${verdict.ariaCurrentCount} node(s) document-wide, paints ${verdict.matchingEntry?.colour}, ${wordmarkEntry ? `and carries no rail device, because the owner decision of 2026-09-25 excludes the wordmark from every accent bar` : `and is marked by ${verdict.markerDeviceId} in ${verdict.markerColour} ${verdict.markerAlignmentErrorPx}px from its registered rail anchor`}, at weight ${verdict.activeWeight} against idle siblings at ${verdict.idleWeight ?? 'no idle sibling'}`
         : `${route} exposes no navigation entry and no aria-current node, so no heading or unrelated element carries the state to satisfy a count`,
       computed: {
         route,
@@ -3317,6 +3418,40 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (INDEX_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdicts =
+      assertionId === 'VAL-B2-SHELL-008'
+        ? INDEX_EDITORIAL_VERDICTS
+        : assertionId === 'VAL-B2-DISC-005'
+          ? INDEX_DISCOVERY_VERDICTS
+          : INDEX_RHYTHM_VERDICTS;
+    const verdict = verdicts.get(member);
+    if (!verdict) {
+      throw new Error(
+        `${assertionId}: the index-rows sweep decided no member ${member}`,
+      );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    return {
+      ...common,
+      actual: `${member} holds on the built export at ${INDEX_VIEWPORT.id}: ${JSON.stringify(verdict.observed)}`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          viewport: INDEX_VIEWPORT.id,
+          ...verdict.observed,
+          evidence: [INDEX_ROWS_EVIDENCE_PATH],
+        },
+      },
+    };
+  }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -3481,6 +3616,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
+              : INDEX_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${INDEX_VIEWPORT.id} sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)

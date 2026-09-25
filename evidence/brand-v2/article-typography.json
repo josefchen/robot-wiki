@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5845ec4c4205c52f96792c7303f8e538f15c0d316283f43d7d6e107280e069a9",
+  "fingerprint": "860c1056f613c0be9f7123ae5a4f8694c37aaf16998736b5d351efc58b233579",
   "viewports": [
     "375x812",
     "1440x900"
@@ -36974,7 +36974,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 49960,
+      "visibleTextLength": 49986,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89526,7 +89526,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 54573,
+      "visibleTextLength": 54599,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

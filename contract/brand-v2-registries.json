@@ -556,7 +556,7 @@
       "routeId": "route:/a-z/",
       "owner": "route:/a-z/",
       "ownerPath": "app/a-z/page.tsx",
-      "ownerSourceFingerprint": "c48d3431667f84b1fc803e2659c0f61f6eb2852007b3f9d55f1514132a1ee7dc",
+      "ownerSourceFingerprint": "ad9f1848513dc0fcc4a87aac11e9499e66bad9bf40ae1562f77ff7618e1a1c7e",
       "canonical": "https://robot-wiki.com/a-z/",
       "title": "A-Z Index",
       "description": "Every published Robot Wiki article and glossary term in one alphabetical list.",
@@ -578,7 +578,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b615ddca36986b81253cf332a1a03c2e6bafed405d38cbd9614e526e2ecb23e6"
+      "fingerprint": "a1382bbb8539de73f7c727a7c0c9bcae0bf6c739e54762da313cc5c00100eeac"
     },
     {
       "id": "metadata:/adjacent/",
@@ -1509,7 +1509,7 @@
       "routeId": "route:/glossary/",
       "owner": "route:/glossary/",
       "ownerPath": "app/glossary/page.tsx",
-      "ownerSourceFingerprint": "3599db3d999fce7a5c8b3c5ce941c6f0e8be3f1571ed8f9aab5d819f6fb880d6",
+      "ownerSourceFingerprint": "73391a00edde12d0eb5df344258beacaef6a5771b855f4158c600bce1d9dd5df",
       "canonical": "https://robot-wiki.com/glossary/",
       "title": "Glossary",
       "description": "Cited definitions of the robotics and machine-learning terms used across Robot Wiki.",
@@ -1529,7 +1529,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a02c47719975ce793045e5780438411087090d4e5e881b57cd159a7ba267aaa8"
+      "fingerprint": "6fa6953a0de9706ee54df9db37e48234440fd6c9ba7aa2519de507b19d0633cd"
     },
     {
       "id": "metadata:/manipulation/",
@@ -12419,5 +12419,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "d01fba80b0a7d30906663a640520d5378607f900b1fbf0c54696ea217bb94b81"
+  "rootFingerprint": "4fb4b9b46c22f4e560dd4deed604953264a39b94336bae8e14ce6c577feb9c33"
 }

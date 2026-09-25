@@ -16,7 +16,7 @@ import {
   type DrawerTabStop,
   type MobileRouteObservation,
 } from '../../lib/brand-v2-mobile-shell-evidence';
-import { PUBLIC_DESCRIPTOR } from '../../lib/identity';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { installRenderedTextProbe } from './rendered-text-probe';
 
 const ROOT = process.cwd();
@@ -611,6 +611,10 @@ test.describe('brand-v2 mobile header and drawer', () => {
     // position exactly as the sidebar does: one aria-current="page" on the
     // matching link when the drawer has an entry for the route, none when it
     // does not, and the mark is the registered lime rail on its rail anchor.
+    // The one exception is the wordmark: on `/` the matching entry is the
+    // drawer's own lockup, and the owner decision of 2026-09-25 excludes the
+    // wordmark from the rail and from every other accent bar — so there the
+    // reading has to be that no device rendered on it at all.
     const currentRouteFailures = observations.flatMap(
       ({ route, currentRoute }) => {
         const problems: string[] = [];
@@ -630,6 +634,18 @@ test.describe('brand-v2 mobile header and drawer', () => {
         }
         if (!exposed.every(({ insideDrawer }) => insideDrawer)) {
           problems.push(`${route} exposes aria-current outside the open drawer`);
+        }
+        const wordmarkCarriesIt =
+          exposed.length === 1 &&
+          exposed[0]?.href === '/' &&
+          exposed[0]?.accessibleName === PUBLIC_IDENTITY;
+        if (wordmarkCarriesIt) {
+          if (currentRoute.markerDeviceId !== null) {
+            problems.push(
+              `${route} renders ${String(currentRoute.markerDeviceId)} on the drawer wordmark, which the owner decision of 2026-09-25 excludes from every accent bar`,
+            );
+          }
+          return problems;
         }
         if (currentRoute.markerDeviceId !== 'device:active-interval-rail') {
           problems.push(

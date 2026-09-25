@@ -65,6 +65,13 @@ export default function GlossaryPage() {
               key={term.id}
               id={term.id}
               data-glossary-term={term.id}
+              // The deep-link target for every inline <Term> and every A-Z
+              // glossary entry. tabIndex={-1} makes the fragment navigation
+              // move focus here (VAL-B2-DISC-005): without it, following
+              // /glossary/#<id> leaves focus on <body>, so a keyboard
+              // reader lands mid-page with no focus context and a screen
+              // reader announces nothing about the term it arrived at.
+              tabIndex={-1}
               className="scroll-mt-16 border-b border-border py-6 lg:scroll-mt-4"
             >
               <h2 className="font-sans text-lg font-semibold tracking-tight text-text">
