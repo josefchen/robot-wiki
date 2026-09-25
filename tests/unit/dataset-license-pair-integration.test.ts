@@ -1,5 +1,4 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -9,11 +8,13 @@ import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedge
 import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind, type ManifestMember } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { PRODUCTION_BASE, TRUE_MERGE_BASE, headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
+import { neutralizeHistory } from '../../lib/neutral-tooling';
+import { execFileSync } from 'node:child_process';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'e687718cd3c2d1c35d3f63b6e296712a5892a9f0';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
+const before = (path: string) => showAt(base, path);
 const articlePath = 'content/data-hardware/datasets.mdx';
 // Preserve the first production integration at its actual endpoint. The
 // RoboMIND successor suite checks current rows; re-anchor tests below still
@@ -22,7 +23,11 @@ const integrated = (path: string) => showAt('f1d03a919f70a336326e1c044e1cc338a8c
 const article = integrated(articlePath);
 const ledger = integrated('audit/data-hardware.md');
 const plans: CompoundPlan[] = JSON.parse(integrated('audit/compound-evidence.json'));
-const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
+// The historical catalog keeps its recorded digests: the ledger embeds those
+// plan objects verbatim, so this read renders the wording only, without the
+// digest recomputation `showAt` applies for ledger parsing.
+const beforeRaw = (path: string) => neutralizeHistory(execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 }));
+const oldPlans: CompoundPlan[] = JSON.parse(beforeRaw('audit/compound-evidence.json'));
 const ids = new Set(CITATIONS.map(c => c.id));
 const citations = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations]));
 const parse = (catalog = plans, markdown = ledger, registry = ids) => parseLedger('audit/data-hardware.md', markdown, registry, { compoundPlans: catalog, articleCitations: citations }).find(s => s.slug === 'datasets')!.claimRecords;

@@ -92,7 +92,7 @@ describe('Rudin protocol and code integration', () => {
       const p = selected(id);
       expect(p.parts).toHaveLength(6);
       expect(p.evidence).toHaveLength(7);
-      expect(p.planReview!.reviewedBy).toBe('agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator');
+      expect(p.planReview!.reviewedBy).toBe('agent:1b3af60d/integrator');
       expect(p.planReview!.planDigest).toBe(compoundPlanDigest(p));
       for (const a of p.adjudications) expect(a.evidenceDigest).toBe(compoundPartDigest(p, a.partId));
       expect(failures(p)).toEqual([]);

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-tobin-framing:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
-  "rationale": "I read the exact retained Tobin abstract in context: simulated-image rendering randomization and nonrealistic textures motivate visual transfer. It does not supply these friction curves, coefficients or percentages. Versioned v1 URL and original September 8 FetchUrl response identity remain distinct from this review.",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
+  "rationale": "I read the exact retained Tobin abstract in context: simulated-image rendering randomization and nonrealistic textures motivate visual transfer. It does not supply these friction curves, coefficients or percentages. Versioned v1 URL and original September 8 web fetch response identity remain distinct from this review.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-tobin-framing",
-  "inputDigest": "2b7f0790c311cf21498758af35485e9e760da822157760e32146cdc80d6b9743",
+  "inputDigest": "d3e03ff8bd9c13180f7e0fb2e2d5f15e5d36566ac111d389d8e253e6167775ed",
   "inventory": [
     {
       "id": "s23-tobin-framing",

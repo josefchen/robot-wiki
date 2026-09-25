@@ -168,7 +168,7 @@ const article = readFileSync(articlePath, 'utf8');
 const oldSpan = 'The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, surveyed the same evidence and concluded that a robot-driven jobs apocalypse is not imminent: technology displaces tasks rather than whole occupations, and the outcome depends on policy and the institutions shaping deployment <Cite id="mit-work-future-2020" />.';
 const newSpan = 'The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, reported in 2020 that it found no compelling evidence of technological advances driving a jobless future. It describes automation displacing human labour from some tasks while creating new work, with the jobs available and the skills they demand shaped by economic incentives, policy choices and institutional forces <Cite id="mit-work-future-2020" />.';
 const approvalId = 'mit-industrial-43-prose-20260921';
-const authorizationPath = '/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-mit-adjacent-integration-20260921/authorization.json';
+const authorizationPath = 'validation/brand-v2-editorial/source-recovery-20260906/convergence-mit-adjacent-integration-20260921/authorization.json';
 const oldProseHash = '6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d';
 const newProseHash = '125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba';
 const approvals = JSON.parse(
@@ -337,7 +337,7 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     const old = ledgerAt(laneLedgerBefore);
     expect(old).toHaveLength(996);
     expect(sha256(JSON.stringify(old)))
-      .toBe('ba543843eda437da7e6031ad52fd0e84069e8c0a48e7cfd9596a962c4f640907');
+      .toBe('ca81b6d5ee9a74500a05212b0317f962eff9cc5b82e09f46429fc1b20133ae6c');
     // Integrated line: the production ledger is an exact prefix, entries it
     // shares with the lane keep their identity, and the lane-only block
     // follows unchanged in lane order with this approval right after it.

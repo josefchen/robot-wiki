@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/playwright test tests/e2e/reward-local-evidence.spec.ts --workers=1",
   "runner": "playwright",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },

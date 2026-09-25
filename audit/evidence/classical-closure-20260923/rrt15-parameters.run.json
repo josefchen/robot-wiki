@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 CLASSICAL_CLOSURE_NUMERIC=1 npx vitest run tests/unit/classical-closure-evidence.test.ts -t 'classical closure recipes'",
   "runner": "vitest",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -72,13 +72,13 @@
     {
       "file": {
         "path": "tests/unit/classical-closure-evidence.test.ts",
-        "bytes": 12839,
-        "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+        "bytes": 16267,
+        "sha256": "42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38"
       },
       "id": "file:tests/unit/classical-closure-evidence.test.ts",
       "offset": 0,
-      "length": 12839,
-      "sha256": "9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7"
+      "length": 16267,
+      "sha256": "42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38"
     }
   ],
   "observations": []

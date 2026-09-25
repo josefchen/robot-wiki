@@ -1,8 +1,8 @@
 {
   "schemaVersion": "residual-safety-range-execution-v1",
   "sourceCommit": "e2cb28c5dbee15388464840f68d1635f3a84110b",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
-  "command": "RESIDUAL_SAFETY_RANGE_CAPTURE=1 npx playwright test --config /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/steward-runs/20260924-0140-browser.config.mjs residual-release-final-seven.spec.ts --workers=1",
+  "cwd": "/srv/robot-wiki",
+  "command": "RESIDUAL_SAFETY_RANGE_CAPTURE=1 npx playwright test --config steward-runs/20260924-0140-browser.config.mjs residual-release-final-seven.spec.ts --workers=1",
   "startedAt": "2026-09-24T02:14:10.526Z",
   "endedAt": "2026-09-24T02:14:16.088Z",
   "result": "passed",
@@ -48,5 +48,5 @@
     "bytes": 31358,
     "sha256": "d3c5429b1f955ddc7c93c70c276ee12dab18106cf807b3af668d963a71a2c83a"
   },
-  "scope": "Actual separate execution after the exact range-separator correction, 30 desktop/mobile observations including six safety default/mode/reset states. Historical receipts and numeric proofs are unchanged; not independent Mission acceptance."
+  "scope": "Actual separate execution after the exact range-separator correction, 30 desktop/mobile observations including six safety default/mode/reset states. Historical receipts and numeric proofs are unchanged; not independent project acceptance."
 }

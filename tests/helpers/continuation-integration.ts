@@ -33,7 +33,7 @@ export function preservedCompoundPacket(ref: string): CompoundPlan[] {
   const archive = readFileSync(resolve(root,
     'audit/evidence/control-citation-closeout-20260924/prior-plans.json'));
   expect(createHash('sha256').update(archive).digest('hex'))
-    .toBe('dfcff572c2da8eadbc9bf01b5c620c79ea085592dc38b4defbfecc349cc0ade5');
+    .toBe('69e53e0baa44bb2a4a3e714a27223ca7d62962575ed07c10afdb398eb76da1e4');
   const superseded: CompoundPlan[] = JSON.parse(archive.toString());
   expect(superseded.map(p => p.id)).toEqual([
     'control-1-astrom-20260916f', 'control-2-astrom-20260916f',
@@ -47,7 +47,7 @@ export function preservedCompoundPacket(ref: string): CompoundPlan[] {
   const krogerArchive = readFileSync(resolve(root,
     'audit/evidence/citation-closeout-20260924/before-kroger-plans.json'));
   expect(createHash('sha256').update(krogerArchive).digest('hex'))
-    .toBe('81e227633c4ffed7ba5e5ed7e2f87fabd81ab4fdb34e68e75552e2ae96fc4090');
+    .toBe('8db5abfc5d52675df6fb4a441f647c673768151bc63a460dd0c8f0fbf28fc7b5');
   const oldKroger: CompoundPlan[] = JSON.parse(krogerArchive.toString());
   expect(oldKroger.map(p => [p.id, p.rowOrdinal])).toEqual([
     ['industrial-kroger-closures-20260917a', 22],

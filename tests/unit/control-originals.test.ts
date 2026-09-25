@@ -165,7 +165,7 @@ describe('control originals integration (2026-09-16 evidence completions)', () =
     );
     for (const planId of Object.values(EXPECTED_20260917A)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+      expect(plan.planReview?.reviewedBy).toContain('paywall integrator efa5d1e4');
       expect(plan.planReview?.rationale).toContain('af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d');
     }
   });
@@ -177,10 +177,10 @@ describe('control originals integration (2026-09-16 evidence completions)', () =
     for (const planId of Object.values(EXPECTED_20260916F)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
       if (planId === 'control-3-zn-effects-20260924') {
-        expect(plan.planReview?.reviewedBy).toContain('Droid Sol/max integrator');
+        expect(plan.planReview?.reviewedBy).toContain('implementation integrator');
         expect(plan.planReview?.rationale).toContain('1942 reproduction');
       } else {
-        expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+        expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
         expect(plan.planReview?.rationale).toContain('7a796795a9ca1684460f332bfc05f9f10950b87067eabe667afd3210a7b0e4e3');
       }
     }
@@ -218,10 +218,10 @@ describe('control originals integration (2026-09-15)', () => {
     for (const planId of Object.values(EXPECTED)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
       if (planId === 'control-c7-lqr-riccati-20260915') {
-        expect(plan.planReview?.reviewedBy).toContain('Droid Sol/max integrator');
+        expect(plan.planReview?.reviewedBy).toContain('implementation integrator');
         expect(plan.planReview?.rationale).toContain('Tedrake chapter 8');
       } else {
-        expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+        expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
         expect(plan.planReview?.rationale).toContain('9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af');
       }
     }

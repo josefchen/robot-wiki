@@ -21,4 +21,4 @@ Browser attempts first found a missing Chromium executable, then a missing
 static-base URL. The installed-browser, explicit-static-base run passed.
 The bridge's `steward-runs/20260923-1745-*` logs retain those failures.
 
-Reviews are release-integrator reviews, not independent Mission acceptance.
+Reviews are release-integrator reviews, not independent project acceptance.

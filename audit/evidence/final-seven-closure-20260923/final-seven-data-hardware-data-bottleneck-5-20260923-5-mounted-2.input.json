@@ -1,1 +1,9 @@
-{"id":"data-scale","inputs":{"rateId":"dedicated","rigs":10,"targetHours":10000},"mode":"derive"}
+{
+  "id": "data-scale",
+  "inputs": {
+    "rateId": "dedicated",
+    "rigs": 10,
+    "targetHours": 10000
+  },
+  "mode": "derive"
+}

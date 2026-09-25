@@ -5,7 +5,7 @@
   "registryTitle": "MuJoCo: A physics engine for model-based control",
   "fetchedUrl": "https://www.roboti.us/lab/papers/TodorovIROS12.pdf",
   "fetch": {
-    "method": "uncredentialed curl GET after WebSearch located the author-hosted copy at roboti.us (the official MuJoCo site's publications page domain)",
+    "method": "uncredentialed curl GET after web search located the author-hosted copy at roboti.us (the official MuJoCo site's publications page domain)",
     "observedTime": "2026-09-24T12:00:00Z",
     "outcome": "HTTP 200, application/pdf, 447792 bytes"
   },

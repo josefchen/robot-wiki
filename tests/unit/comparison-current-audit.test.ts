@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { showAt } from './helpers/continuation-merge-ledger';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '@/data/citations';
@@ -9,7 +9,7 @@ const ledger = readFileSync('audit/manipulation.md', 'utf8');
 const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')));
 const ids = new Set(CITATIONS.map(c => c.id));
 const base = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
+const before = (path: string) => showAt(base, path);
 const previous = parseLedger('audit/manipulation.md', before('audit/manipulation.md'), ids, {
   compoundPlans: JSON.parse(before('audit/compound-evidence.json')),
 }).find(section => section.slug === 'comparison-matrix')!.claimRecords;

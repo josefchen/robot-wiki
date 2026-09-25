@@ -1,10 +1,10 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "economics-local-i52-20260923:i52-mounted-20000:2026-09-23T06:41:34.301Z",
   "observedAt": "2026-09-23T06:41:34.301Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost20000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:min. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.",
   "outcome": "supported",
   "scope": "part",

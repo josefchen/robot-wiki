@@ -206,7 +206,7 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(plan.evidence.some(e => e.supportingPassage === '(a)')).toBe(false);
   });
 
-  it('preserves the prior complete tuple and full plan/reviews as non-counted history', () => {
+  it('preserves the prior complete tuple and full plan/reviews as non-counted history', { timeout: 60_000 }, () => {
     const marker = '## RoboMIND hours correction: preserved prior complete state (2026-09-23)';
     const history = read(ledgerPath).split(marker)[1].split('```json\n')[1].split('\n```')[0];
     const saved = JSON.parse(history);

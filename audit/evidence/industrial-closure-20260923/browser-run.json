@@ -1,7 +1,7 @@
 {
   "command": "NODE_DISABLE_COMPILE_CACHE=1 INDUSTRIAL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/industrial-deployment.spec.ts --grep \"industrial closure paired\" --workers=1 --retries=0 --reporter=line --output=audit/evidence/industrial-closure-20260923/playwright-final",
   "runner": "playwright",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -26,8 +26,8 @@
     },
     {
       "path": "data/citations.ts",
-      "bytes": 301131,
-      "sha256": "f6df373b74920df7e37620f80d83855b0c540e3e65bb421ea5bb17b504f77405"
+      "bytes": 305677,
+      "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
     },
     {
       "path": "data/schemas/citation.ts",
@@ -115,13 +115,13 @@
     {
       "file": {
         "path": "lib/audit-local-basis.ts",
-        "bytes": 44430,
-        "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+        "bytes": 100888,
+        "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
       },
       "id": "file:lib/audit-local-basis.ts",
       "offset": 0,
       "length": 44430,
-      "sha256": "398bb5ffe7a375ed4e61cb5d953f197bda427ca110f1f8b8c819979829a55c37"
+      "sha256": "37ef4e95fded8a77956b397f18dfa9c2204f0125f697e7960af46e3a42444b13"
     },
     {
       "file": {

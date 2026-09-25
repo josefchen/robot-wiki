@@ -89,7 +89,7 @@ describe('taxonomy originals integration (2026-09-16h evidence completions)', ()
     expect(r18.note).toContain('without using instance and map supervision');
     expect(r18.note).toContain("'occupancy grid' is the article's term");
 
-    // Row 19: MuJoCo DOI via the FetchUrl-rendered IEEE public abstract page;
+    // Row 19: MuJoCo DOI via the web fetch-rendered IEEE public abstract page;
     // boundary verdict stays the article's argument, no 'not learned' clause claimed.
     const r19 = taxonomy.claimRecords[18];
     expect(r19.sourceChecked).toContain('mujoco-2012');
@@ -182,7 +182,7 @@ describe('taxonomy originals integration (2026-09-16h evidence completions)', ()
     );
     for (const planId of Object.values(EXPECTED_20260916H)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+      expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
       expect(plan.planReview?.rationale).toContain(PACKET_SHA);
     }
   });

@@ -9,18 +9,18 @@
       "verdict": "UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)",
       "note": "Historical four-cell record retained: {\"claim\":\"Dragging per-pick success 99.9 -> 99 with cheap jam clearing \\\"barely moves\\\" the payback readout\",\"sourceChecked\":\"Int: lib/deployment-economics.ts at defaults (robot \\\\$80k, 2.5x, 6 s cycle, 95% uptime, 15 s jam, \\\\$25/h, 730 h/month): payback 11.56 -> 11.82 months (+0.26), i.e. +2.3%\",\"verdict\":\"V\",\"note\":\"\"} Correction rationale: Static arithmetic from frozen defaults gives +2.2443890274314926%, so the one-decimal ledger percentage is +2.2%, not +2.3%. This is a local-model/source-format correction, not external source verification or whole-record completion. No primary fetch was performed in preparation."
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "authored-proof",
     "exactChanges": [
       {
         "changeId": "industrial-economics-comparison",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "replace-exact-span",
         "old": "Before the survey, hold the economics in your hands: every section below argues about one ratio or another. Drag the **per-pick success** slider from 99.9 down to 99 percent and watch the payback readout barely move. Now drag **jam-clearing time** toward five minutes and do it again: the same 0.9 point drop adds five months to the payback and cuts the cell's hourly output by nearly a third. That asymmetry, not the success rate itself, decides deployment, and no paragraph teaches it as fast as the dial.",
         "new": "Use the sliders to compare two cases in this authored model. Keep robot cost at 80,000 USD, integration at 2.5 times, cycle time at 6 seconds, uptime at 95 percent and hourly wage at 25 USD. With 15-second jam clearing, lowering per-pick success from 99.9 to 99 percent changes calculated payback from 11.56 to 11.82 months: an increase of 0.26 months, or 2.2 percent. Repeat the comparison with jam clearing set to 300 seconds: calculated payback rises from 12.11 to 17.30 months, and modeled output falls from 542.9 to 380.0 picks per elapsed hour, a 30 percent decrease. Both paybacks remain within the model's chosen 24-month horizon. These are calculations from assumed inputs, not measured deployments; the payback readout rounds to one decimal place.",
@@ -37,35 +37,35 @@
       {
         "kind": "local-implementation-and-retained-execution",
         "implementation": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/deployment-economics.ts",
+          "path": "lib/deployment-economics.ts",
           "bytes": 7602,
           "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
         },
         "component": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/deployment-economics.tsx",
+          "path": "components/interactive/deployment-economics.tsx",
           "bytes": 9866,
           "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
         },
         "retainedArtifacts": [
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.input.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.input.json",
             "bytes": 255,
             "sha256": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.output.json",
             "bytes": 963,
             "sha256": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-parameters.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-parameters.output.json",
             "bytes": 1098,
             "sha256": "5aa5f0f26721c6d103f441c081bcb08e5dfba295bd6902b778f3fd56e36c686d"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
-            "bytes": 3521,
-            "sha256": "70118edf618b6120099fcbe3ff02624cf2dffb7557368c5b7f28489d59324d88"
+            "path": "audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
+            "bytes": 3481,
+            "sha256": "29174b274f6034dfa60f9667cd9372c81ce7c0a6c47ad02629386b7da55ce9da"
           }
         ],
         "retainedDefaultOutput": {
@@ -105,7 +105,7 @@
         "retainedExecution": {
           "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
           "runner": "vitest",
-          "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+          "cwd": "/srv/robot-wiki",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
@@ -136,12 +136,12 @@
       },
       "originalTupleDigest": "5b4a5dd9a12609375c98b63ba4e10c242f5cae5edae7ea20fe22f1765da7cb97",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "Dragging per-pick success 99.9 -> 99 with cheap jam clearing \"barely moves\" the payback readout",
         "sourceChecked": "Int: lib/deployment-economics.ts at defaults (robot \\$80k, 2.5x, 6 s cycle, 95% uptime, 15 s jam, \\$25/h, 730 h/month): payback 11.56 -> 11.82 months (+0.26), i.e. +2.2%",
@@ -161,7 +161,7 @@
     "finalPlanReview": null,
     "finalAdjudications": [],
     "preparationOnly": true,
-    "correctedClaim": "In the explicitly authored calculator model, reducing success from 99.9% to 99% at 15-second jam clearing, with the other stated defaults unchanged, changes payback 11.56\u219211.82 months (+0.26 months; +2.2%); the displayed readout rounds to 11.6\u219211.8 months.",
+    "correctedClaim": "In the explicitly authored calculator model, reducing success from 99.9% to 99% at 15-second jam clearing, with the other stated defaults unchanged, changes payback 11.56→11.82 months (+0.26 months; +2.2%); the displayed readout rounds to 11.6→11.8 months.",
     "requiredParts": [
       {
         "kind": "authored-parameter",
@@ -173,7 +173,7 @@
       },
       {
         "kind": "observed-behavior",
-        "text": "Actual success-slider transition 99.9\u219299 with jam clearing=15 on the existing mount, and its one-decimal readouts."
+        "text": "Actual success-slider transition 99.9→99 with jam clearing=15 on the existing mount, and its one-decimal readouts."
       }
     ],
     "requiredCases": [
@@ -209,7 +209,7 @@
     "proposedLedgerTransition": {
       "originalId": "audit/data-hardware.md:industrial-deployment:9",
       "currentTupleDigestPrecondition": "2e44d7aa4a6e816136415ac71e677eb6dea0dafa5c1bc362903b5149fd747520",
-      "claim": "In the explicitly authored calculator model, reducing success from 99.9% to 99% at 15-second jam clearing, with the other stated defaults unchanged, changes payback 11.56\u219211.82 months (+0.26 months; +2.2%); the displayed readout rounds to 11.6\u219211.8 months.",
+      "claim": "In the explicitly authored calculator model, reducing success from 99.9% to 99% at 15-second jam clearing, with the other stated defaults unchanged, changes payback 11.56→11.82 months (+0.26 months; +2.2%); the displayed readout rounds to 11.6→11.8 months.",
       "sourceCheckedPolicy": "External passages only for external parts; typed records for eligible local parts; narrowly validated correction/aggregate metadata for withdrawn audit assertions. No invented citation or article self-URL.",
       "verdictPolicy": "Remain unresolved until the actual scoped correction, required proof/checks and semantic review exist; then record corrected/cut with full history.",
       "historyPolicy": "Append original snapshot tuple plus exact pre-application four cells and correction rationale, preserving every earlier history block. Retain exactly one current row for this original."
@@ -225,18 +225,18 @@
       "verdict": "C (rewritten to the model's own numbers: \"adds five months to the payback and cuts the cell's hourly output by nearly a third\")",
       "note": ""
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "authored-proof",
     "exactChanges": [
       {
         "changeId": "industrial-economics-comparison",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "reuse-shared-change",
         "applyOnceWithOriginal": 9
       }
@@ -245,35 +245,35 @@
       {
         "kind": "local-implementation-and-retained-execution",
         "implementation": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/deployment-economics.ts",
+          "path": "lib/deployment-economics.ts",
           "bytes": 7602,
           "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
         },
         "component": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/deployment-economics.tsx",
+          "path": "components/interactive/deployment-economics.tsx",
           "bytes": 9866,
           "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
         },
         "retainedArtifacts": [
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.input.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.input.json",
             "bytes": 255,
             "sha256": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.output.json",
             "bytes": 963,
             "sha256": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-parameters.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-parameters.output.json",
             "bytes": 1098,
             "sha256": "5aa5f0f26721c6d103f441c081bcb08e5dfba295bd6902b778f3fd56e36c686d"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
-            "bytes": 3521,
-            "sha256": "70118edf618b6120099fcbe3ff02624cf2dffb7557368c5b7f28489d59324d88"
+            "path": "audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
+            "bytes": 3481,
+            "sha256": "29174b274f6034dfa60f9667cd9372c81ce7c0a6c47ad02629386b7da55ce9da"
           }
         ],
         "retainedDefaultOutput": {
@@ -313,7 +313,7 @@
         "retainedExecution": {
           "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
           "runner": "vitest",
-          "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+          "cwd": "/srv/robot-wiki",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
@@ -344,12 +344,12 @@
       },
       "originalTupleDigest": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "The same 0.9-point drop with five-minute jam clearing \"collapses the cell\"",
         "sourceChecked": "Int: at jamClearSeconds = 300 the same move gives payback 12.11 -> 17.30 months (+5.19) and net output 542.9 -> 380.0 picks/h (-30%). Large, but inside PAYBACK_TARGET_MONTHS = 24, so the verdict readout does not flip and nothing \"collapses\"",
@@ -369,7 +369,7 @@
     "finalPlanReview": null,
     "finalAdjudications": [],
     "preparationOnly": true,
-    "correctedClaim": "In the same authored model at 300-second clearing, the 99.9%\u219299% comparison increases payback 12.11\u219217.30 months (+5.19) and lowers modeled output 542.9\u2192380.0 picks per elapsed hour (30%); both paybacks stay within the chosen 24-month horizon, not a real cell-collapse claim.",
+    "correctedClaim": "In the same authored model at 300-second clearing, the 99.9%→99% comparison increases payback 12.11→17.30 months (+5.19) and lowers modeled output 542.9→380.0 picks per elapsed hour (30%); both paybacks stay within the chosen 24-month horizon, not a real cell-collapse claim.",
     "requiredParts": [
       {
         "kind": "authored-parameter",
@@ -421,7 +421,7 @@
     "proposedLedgerTransition": {
       "originalId": "audit/data-hardware.md:industrial-deployment:10",
       "currentTupleDigestPrecondition": "7080e39e39cdb13982c33e431a6115a7e46c3256235f2c9a8bca3e723c66e405",
-      "claim": "In the same authored model at 300-second clearing, the 99.9%\u219299% comparison increases payback 12.11\u219217.30 months (+5.19) and lowers modeled output 542.9\u2192380.0 picks per elapsed hour (30%); both paybacks stay within the chosen 24-month horizon, not a real cell-collapse claim.",
+      "claim": "In the same authored model at 300-second clearing, the 99.9%→99% comparison increases payback 12.11→17.30 months (+5.19) and lowers modeled output 542.9→380.0 picks per elapsed hour (30%); both paybacks stay within the chosen 24-month horizon, not a real cell-collapse claim.",
       "sourceCheckedPolicy": "External passages only for external parts; typed records for eligible local parts; narrowly validated correction/aggregate metadata for withdrawn audit assertions. No invented citation or article self-URL.",
       "verdictPolicy": "Remain unresolved until the actual scoped correction, required proof/checks and semantic review exist; then record corrected/cut with full history.",
       "historyPolicy": "Append original snapshot tuple plus exact pre-application four cells and correction rationale, preserving every earlier history block. Retain exactly one current row for this original."
@@ -437,17 +437,17 @@
       "verdict": "V",
       "note": ""
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial31-disposition-20260923/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/rows.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial31-disposition-20260923/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/rows.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "replace-source",
     "exactChanges": [
       {
         "changeId": "industrial31-takt",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "replace-exact-span",
         "old": "<Term id=\"takt-time\">Takt time</Term>, from Ohno's Toyota Production System, is the demand rate the line must match, available time divided by required units; a cell slower than takt starves the line no matter how elegant its policy <Cite id=\"ohno-tps-1988\" />.",
         "new": "<Term id=\"takt-time\">Takt time</Term> is available production time divided by customer demand over the same period, expressed as time per unit. Its purpose is to match production with demand <Cite id=\"lei-takt-time-definition\" />.",
@@ -455,7 +455,7 @@
       },
       {
         "changeId": "industrial31-takt-glossary",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/glossary.ts",
+        "path": "data/glossary.ts",
         "operation": "replace-exact-span",
         "old": "The rate of production a line must hold to match customer demand: available production time divided by the quantity demanded in that time. Taiichi Ohno made it the pacing heartbeat of the Toyota Production System, borrowing the German word Takt for the beat a conductor holds. A cell whose cycle time is slower than takt starves the line; a cell faster than takt needs a buffer, because the point is the match, not the speed.",
         "new": "Available production time divided by customer demand over the same period, expressed as time per unit. Its purpose is to match production with demand.",
@@ -464,7 +464,7 @@
       },
       {
         "changeId": "industrial31-takt-glossary-citation",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/glossary.ts",
+        "path": "data/glossary.ts",
         "operation": "replace-entry-field",
         "entryId": "takt-time",
         "field": "citations",
@@ -477,7 +477,7 @@
       },
       {
         "changeId": "industrial31-frontmatter",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "replace-exact-span",
         "old": "  - ohno-tps-1988\n",
         "new": "  - lei-takt-time-definition\n",
@@ -485,7 +485,7 @@
       },
       {
         "changeId": "industrial31-citation",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/citations.ts",
+        "path": "data/citations.ts",
         "operation": "add-entry-after-undated-tooling",
         "entry": {
           "id": "lei-takt-time-definition",
@@ -507,7 +507,7 @@
         "kind": "external-source",
         "citationId": "lei-takt-time-definition",
         "registrationState": "proposed-unregistered",
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/source-1.txt",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/source-1.txt",
         "bytes": 7726,
         "sha256": "ae3277b46d7121c471c0334268312e7ef38f073192856cf9b5bf1ccd61d78abb",
         "sourceUrl": "https://www.lean.org/lexicon-terms/takt-time",
@@ -523,12 +523,12 @@
           "requestedAt": "2026-09-22T22:27:58.094Z",
           "observedAt": "2026-09-22T22:28:00.411Z",
           "originHttpStatus": null,
-          "responseEventId": "874b13c4-65ea-4bd9-9fe6-3b58bd947f52",
+          "responseEventId": "874b13c4",
           "representation": "exact UTF-8 tool-result JSON text, preserving complete envelope and its markdown; not raw origin HTTP or HTML",
           "truncated": false,
           "markdownSha256": "be57fa4c5f49b8fe4f793d9e4bcf9af5ba25881bfcbe2bc70a686d4fb3e1338e"
         },
-        "reviewScope": "Actual complete returned markdown inspected in this worker; full file and markdown hashes and literal passages matched retained retrievals. Not a new fetch, origin-status proof or final product adjudication.",
+        "reviewScope": "Actual complete returned markdown inspected in this run; full file and markdown hashes and literal passages matched retained retrievals. Not a new fetch, origin-status proof or final product adjudication.",
         "limitations": [
           "No definition publication/update date in inspected representation; cite n.d., accessed 2026-09-22.",
           "No proof of Ohno attribution.",
@@ -545,12 +545,12 @@
       },
       "originalTupleDigest": "3d109b71beb515d904cbd88a2ae37a87a567cbaa55d2df17bce7943ef0d74e4a",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "Takt time, from Ohno's Toyota Production System, is available time divided by required units",
         "sourceChecked": "ohno-tps-1988 (English translation full text located and read): \"Cycle time is computed by dividing operating hours by the quantity required per day\"; and \"eliminating waste from the tact time which is calculated from the required number\". Terminology note, not a wiki error: Ohno's English text calls this quantity \"cycle time\" and uses \"tact time\" once; the article's separate, uncited definition of cycle time is the modern per-repetition sense",
@@ -600,19 +600,19 @@
       "claim": "Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions",
       "sourceChecked": "NASA LLIS Lesson841 retained primary markdown, observed 2026-09-22T22:28:18.417Z via rune___web_scrape; LessonDate1994-12-01. Text distinguishes inherent/operational availability and operable uptime. Equations/images were not retrieved. lib/deployment-economics.ts is a local implementation lead, not external proof. LEI cycle/year and row31 remain untouched.",
       "verdict": "UNRESOLVED",
-      "note": "Applied only the NASA textual availability/MTBF and capital-only calculator disclosures, plus the dated NASA citation. Original cycle-time, exact MTBF/(MTBF+MTTR), failure-count estimator, general costing and local-model obligations remain unresolved; unseen equation images are not proof. LEI year is not invented and cycle/takt spans are not changed. Original four-cell tuple (JSON): {\"claim\":\"Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions\",\"sourceChecked\":\"Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: 5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+      "note": "Applied only the NASA textual availability/MTBF and capital-only calculator disclosures, plus the dated NASA citation. Original cycle-time, exact MTBF/(MTBF+MTTR), failure-count estimator, general costing and local-model obligations remain unresolved; unseen equation images are not proof. LEI year is not invented and cycle/takt spans are not changed. Original four-cell tuple (JSON): {\"claim\":\"Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions\",\"sourceChecked\":\"Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: 5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/coverage.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-perception-truth-repair-20260922/coverage.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "authored-proof",
     "exactChanges": [
       {
         "changeId": "industrial32-cycle",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "replace-exact-span",
         "old": "<Term id=\"cycle-time\">Cycle time</Term> is the elapsed time of one complete repetition of the task, start of one pick to start of the next, and it is the denominator of throughput.",
         "new": "<Term id=\"cycle-time\">Cycle time</Term> is the time required to produce a part or complete a process, measured for that operation <Cite id=\"lei-cycle-time-definition\" />.",
@@ -620,7 +620,7 @@
       },
       {
         "changeId": "industrial32-cycle-glossary",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/glossary.ts",
+        "path": "data/glossary.ts",
         "operation": "replace-exact-span",
         "old": "The elapsed time for one complete repetition of a automated task: from the start of one pick, weld, or load to the start of the next, including every move in between. It is the denominator of a cell\\'s throughput and one of the two numbers an operations buyer asks for first; the other is takt time, which decides whether that cycle is fast enough. Vendor cycle times are quoted at the cell\\'s designed pace with known parts, so an unmodelled failure mode lengthens the real one.",
         "new": "The time required to produce a part or complete a process, as timed by actual measurement.",
@@ -629,7 +629,7 @@
       },
       {
         "changeId": "industrial32-cycle-glossary-citation",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/glossary.ts",
+        "path": "data/glossary.ts",
         "operation": "replace-entry-field",
         "entryId": "cycle-time",
         "field": "citations",
@@ -642,14 +642,14 @@
       },
       {
         "changeId": "industrial32-frontmatter",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "insert-frontmatter-citation-once",
         "after": "lei-takt-time-definition",
         "value": "lei-cycle-time-definition"
       },
       {
         "changeId": "industrial32-citation",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/citations.ts",
+        "path": "data/citations.ts",
         "operation": "add-entry-after-undated-tooling",
         "entry": {
           "id": "lei-cycle-time-definition",
@@ -671,7 +671,7 @@
         "kind": "external-source",
         "citationId": "lei-cycle-time-definition",
         "registrationState": "proposed-unregistered",
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/source-2.txt",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/source-2.txt",
         "bytes": 4552,
         "sha256": "f62e78b4d3648a001072a8c50f96b2066bc30f9b36c0672e94aa5fbc784fa8a5",
         "sourceUrl": "https://www.lean.org/lexicon-terms/cycle-time",
@@ -687,12 +687,12 @@
           "requestedAt": "2026-09-22T22:28:04.877Z",
           "observedAt": "2026-09-22T22:28:10.392Z",
           "originHttpStatus": null,
-          "responseEventId": "90db7511-08a5-4d50-b9a4-800dbad048ee",
+          "responseEventId": "90db7511",
           "representation": "exact UTF-8 tool-result JSON text, preserving complete envelope and its markdown; not raw origin HTTP or HTML",
           "truncated": false,
           "markdownSha256": "71d2b53a46e15833e9b0657135ebd9245d63de6129dcf91b53364eb0d0ca0b36"
         },
-        "reviewScope": "Actual complete returned markdown inspected in this worker; full file and markdown hashes and literal passages matched retained retrievals. Not a new fetch, origin-status proof or final product adjudication.",
+        "reviewScope": "Actual complete returned markdown inspected in this run; full file and markdown hashes and literal passages matched retained retrievals. Not a new fetch, origin-status proof or final product adjudication.",
         "limitations": [
           "No definition publication/update date in inspected representation; cite n.d., accessed 2026-09-22.",
           "No proof of Ohno attribution.",
@@ -703,7 +703,7 @@
         "kind": "external-source",
         "citationId": "nasa-availability-prediction-analysis",
         "registrationState": "already-registered",
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/source-3.txt",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-primary-bodies-20260922/source-3.txt",
         "bytes": 15358,
         "sha256": "40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6",
         "sourceUrl": "https://llis.nasa.gov/lesson/841",
@@ -722,12 +722,12 @@
           "requestedAt": "2026-09-22T22:28:15.061Z",
           "observedAt": "2026-09-22T22:28:18.417Z",
           "originHttpStatus": null,
-          "responseEventId": "4fea48b3-a0e4-4376-ada9-d89f054fce8f",
+          "responseEventId": "4fea48b3",
           "representation": "exact UTF-8 tool-result JSON text, preserving complete envelope and its markdown; not raw origin HTTP or HTML",
           "truncated": false,
           "markdownSha256": "27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae"
         },
-        "reviewScope": "Actual complete returned markdown inspected in this worker; full file and markdown hashes and literal passages matched retained retrievals. Not a new fetch, origin-status proof or final product adjudication.",
+        "reviewScope": "Actual complete returned markdown inspected in this run; full file and markdown hashes and literal passages matched retained retrievals. Not a new fetch, origin-status proof or final product adjudication.",
         "limitations": [
           "Equation/table images and their linked descriptions were not retrieved. Do not claim their formulas.",
           "Lesson date 1994-12-01 is not the retrieval date or an inferred date for TM4628.",
@@ -737,35 +737,35 @@
       {
         "kind": "local-implementation-and-retained-execution",
         "implementation": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/deployment-economics.ts",
+          "path": "lib/deployment-economics.ts",
           "bytes": 7602,
           "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
         },
         "component": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/deployment-economics.tsx",
+          "path": "components/interactive/deployment-economics.tsx",
           "bytes": 9866,
           "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
         },
         "retainedArtifacts": [
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.input.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.input.json",
             "bytes": 255,
             "sha256": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.output.json",
             "bytes": 963,
             "sha256": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-parameters.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-parameters.output.json",
             "bytes": 1098,
             "sha256": "5aa5f0f26721c6d103f441c081bcb08e5dfba295bd6902b778f3fd56e36c686d"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
-            "bytes": 3521,
-            "sha256": "70118edf618b6120099fcbe3ff02624cf2dffb7557368c5b7f28489d59324d88"
+            "path": "audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
+            "bytes": 3481,
+            "sha256": "29174b274f6034dfa60f9667cd9372c81ce7c0a6c47ad02629386b7da55ce9da"
           }
         ],
         "retainedDefaultOutput": {
@@ -805,7 +805,7 @@
         "retainedExecution": {
           "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
           "runner": "vitest",
-          "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+          "cwd": "/srv/robot-wiki",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
@@ -836,17 +836,17 @@
       },
       "originalTupleDigest": "5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions",
         "sourceChecked": "NASA LLIS Lesson841 retained primary markdown, observed 2026-09-22T22:28:18.417Z via rune___web_scrape; LessonDate1994-12-01. Text distinguishes inherent/operational availability and operable uptime. Equations/images were not retrieved. lib/deployment-economics.ts is a local implementation lead, not external proof. LEI cycle/year and row31 remain untouched.",
         "verdict": "UNRESOLVED",
-        "note": "Applied only the NASA textual availability/MTBF and capital-only calculator disclosures, plus the dated NASA citation. Original cycle-time, exact MTBF/(MTBF+MTTR), failure-count estimator, general costing and local-model obligations remain unresolved; unseen equation images are not proof. LEI year is not invented and cycle/takt spans are not changed. Original four-cell tuple (JSON): {\"claim\":\"Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions\",\"sourceChecked\":\"Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: 5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, Droid 74fd3a8e-6c0f-4ede-8ab2-e89c8815a864, actual custom:droidproxy:gpt-6-astra/max. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
+        "note": "Applied only the NASA textual availability/MTBF and capital-only calculator disclosures, plus the dated NASA citation. Original cycle-time, exact MTBF/(MTBF+MTTR), failure-count estimator, general costing and local-model obligations remain unresolved; unseen equation images are not proof. LEI year is not invented and cycle/takt spans are not changed. Original four-cell tuple (JSON): {\"claim\":\"Cycle time, uptime/availability, MTBF over MTBF plus MTTR, cost per pick definitions\",\"sourceChecked\":\"Int: definitional prose, uncited, each backed by a glossary entry in data/glossary.ts; no numeric claim attached\",\"verdict\":\"V\",\"note\":\"\"}. Original tuple SHA256: 5fcd56e813852a8ea8d58750e61e040f38d44b78f1da4bf446d2f3926133a3e4. This is a bounded truth repair with zero completion credit; all missing whole-claim obligations remain. P2, local-proof authority and VAL-AUDIT-009 are unchanged. Review 2026-09-22T23:08:51.584Z, run 74fd3a8e, actual integrator review. No native plan or scalar evidence is manufactured; exact history below. Not independent acceptance."
       },
       "currentTupleDigestBefore": "c7ff40093828585412ec5f30f5f615f3d3e349d56fc456919761ee1c53d91bd4",
       "preserveAllExistingHistory": true,
@@ -908,21 +908,21 @@
       "verdict": "V",
       "note": ""
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "authored-proof",
     "exactChanges": [
       {
         "changeId": "industrial33-jam-assumption",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "replace-exact-span",
         "old": "The calculator exists for one argument. A picker that succeeds on 99 percent of picks fails on one pick in a hundred, and every failure needs a human to clear it. If clearing takes ten seconds, the failures cost a tenth of a second per pick of extra labour, and the cell is comfortably economic at a success rate a paper would call unusable. If clearing takes ten minutes, because the jam wedges a tote, drops an item into the track, or faults the fleet manager, the same 99 percent is ruinous.",
-        "new": "Here is a separate authored arithmetic example, not a measured intervention rate: assume a 99 percent per-pick success rate and that every failed attempt needs clearing. At ten seconds per clearing, the expected overhead under those assumptions is (1 \u2212 0.99) \u00d7 10 = 0.1 seconds per attempted pick. This calculation alone does not establish profitability.",
+        "new": "Here is a separate authored arithmetic example, not a measured intervention rate: assume a 99 percent per-pick success rate and that every failed attempt needs clearing. At ten seconds per clearing, the expected overhead under those assumptions is (1 − 0.99) × 10 = 0.1 seconds per attempted pick. This calculation alone does not establish profitability.",
         "applicationState": "not-applied"
       }
     ],
@@ -930,35 +930,35 @@
       {
         "kind": "local-implementation-and-retained-execution",
         "implementation": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/deployment-economics.ts",
+          "path": "lib/deployment-economics.ts",
           "bytes": 7602,
           "sha256": "ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e"
         },
         "component": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/deployment-economics.tsx",
+          "path": "components/interactive/deployment-economics.tsx",
           "bytes": 9866,
           "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
         },
         "retainedArtifacts": [
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.input.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.input.json",
             "bytes": 255,
             "sha256": "a0ce82b12bd6f3f9f6c5522aff4f89facdc1715db490119244eba63898a44226"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-80000.output.json",
             "bytes": 963,
             "sha256": "edd4c953562a7dd369f70adc35450eadbd1d460d4d30ded312ef77dee69dc2b8"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-parameters.output.json",
+            "path": "audit/evidence/economics-local-20260923/i52-parameters.output.json",
             "bytes": 1098,
             "sha256": "5aa5f0f26721c6d103f441c081bcb08e5dfba295bd6902b778f3fd56e36c686d"
           },
           {
-            "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
-            "bytes": 3521,
-            "sha256": "70118edf618b6120099fcbe3ff02624cf2dffb7557368c5b7f28489d59324d88"
+            "path": "audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
+            "bytes": 3481,
+            "sha256": "29174b274f6034dfa60f9667cd9372c81ce7c0a6c47ad02629386b7da55ce9da"
           }
         ],
         "retainedDefaultOutput": {
@@ -998,7 +998,7 @@
         "retainedExecution": {
           "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
           "runner": "vitest",
-          "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+          "cwd": "/srv/robot-wiki",
           "environment": {
             "NODE_DISABLE_COMPILE_CACHE": "1"
           },
@@ -1029,12 +1029,12 @@
       },
       "originalTupleDigest": "5427032eefc9620fdf00d97cebc4af837fd511c376462dac2d5dd8751f5d84d1",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "99% success with ten-second clearing costs a tenth of a second per pick",
         "sourceChecked": "Int: 0.01 x 10 s = 0.1 s per pick, matching jamOverheadPerPick in lib/deployment-economics.ts",
@@ -1054,7 +1054,7 @@
     "finalPlanReview": null,
     "finalAdjudications": [],
     "preparationOnly": true,
-    "correctedClaim": "For the explicitly illustrative assumption of 99% success and ten seconds to clear every failed attempt, expected clearing overhead is (1\u22120.99)\u00d710 = 0.1 seconds per attempted pick; this is not evidence of profitability.",
+    "correctedClaim": "For the explicitly illustrative assumption of 99% success and ten seconds to clear every failed attempt, expected clearing overhead is (1−0.99)×10 = 0.1 seconds per attempted pick; this is not evidence of profitability.",
     "requiredParts": [
       {
         "kind": "authored-parameter",
@@ -1062,7 +1062,7 @@
       },
       {
         "kind": "derived-result",
-        "text": "0.01 \u00d7 10 seconds = 0.1 seconds per attempt; units and denominator are explicit."
+        "text": "0.01 × 10 seconds = 0.1 seconds per attempt; units and denominator are explicit."
       }
     ],
     "requiredCases": [
@@ -1078,7 +1078,7 @@
     "proposedLedgerTransition": {
       "originalId": "audit/data-hardware.md:industrial-deployment:33",
       "currentTupleDigestPrecondition": "5427032eefc9620fdf00d97cebc4af837fd511c376462dac2d5dd8751f5d84d1",
-      "claim": "For the explicitly illustrative assumption of 99% success and ten seconds to clear every failed attempt, expected clearing overhead is (1\u22120.99)\u00d710 = 0.1 seconds per attempted pick; this is not evidence of profitability.",
+      "claim": "For the explicitly illustrative assumption of 99% success and ten seconds to clear every failed attempt, expected clearing overhead is (1−0.99)×10 = 0.1 seconds per attempted pick; this is not evidence of profitability.",
       "sourceCheckedPolicy": "External passages only for external parts; typed records for eligible local parts; narrowly validated correction/aggregate metadata for withdrawn audit assertions. No invented citation or article self-URL.",
       "verdictPolicy": "Remain unresolved until the actual scoped correction, required proof/checks and semantic review exist; then record corrected/cut with full history.",
       "historyPolicy": "Append original snapshot tuple plus exact pre-application four cells and correction rationale, preserving every earlier history block. Retain exactly one current row for this original."
@@ -1094,17 +1094,17 @@
       "verdict": "C (now \"six-row\"; a stale comment in tests/e2e/industrial-deployment.spec.ts still says seven, and tests are out of my edit scope)",
       "note": ""
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "remove",
     "exactChanges": [
       {
         "changeId": "industrial37-remove-count",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+        "path": "content/data-hardware/industrial-deployment.mdx",
         "operation": "replace-exact-span",
         "old": "The six-row deployment dashboard at [The Reliability Gap](/frontier/reliability-gap) tracks exactly those pilots; this page deliberately does not repeat it.",
         "new": "The deployment dashboard at [The Reliability Gap](/frontier/reliability-gap) collects the site's selected deployment examples; this page deliberately does not repeat it.",
@@ -1115,14 +1115,14 @@
       {
         "kind": "correction-removal-basis",
         "article": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+          "path": "content/data-hardware/industrial-deployment.mdx",
           "bytes": 19273,
           "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
         },
         "oldSpan": "The six-row deployment dashboard at [The Reliability Gap](/frontier/reliability-gap) tracks exactly those pilots; this page deliberately does not repeat it.",
         "newSpan": "The deployment dashboard at [The Reliability Gap](/frontier/reliability-gap) collects the site's selected deployment examples; this page deliberately does not repeat it.",
         "localInventoryLead": {
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/deployment-reality.ts",
+          "path": "lib/deployment-reality.ts",
           "ids": [
             "agility-digit",
             "figure-bmw",
@@ -1133,7 +1133,7 @@
           ],
           "scope": "Inspected finite IDs, not a scientific deployment/source audit or executed derivation."
         },
-        "authority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md#editorial-rule-1"
+        "authority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md#editorial-rule-1"
       }
     ],
     "originalHistory": {
@@ -1145,12 +1145,12 @@
       },
       "originalTupleDigest": "8e990de370bbadea0b87d00864629d22a22c6814254451dd46ea281ab199fb18",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "\"The seven-row deployment dashboard at The Reliability Gap\"",
         "sourceChecked": "Int: lib/deployment-reality.ts DEPLOYMENT_ROWS holds six rows (agility-digit, figure-bmw, unitree-2025, tesla-optimus, optimus-50k-claim, figure-8hr-shift)",
@@ -1190,17 +1190,17 @@
       "verdict": "V",
       "note": ""
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "remove",
     "exactChanges": [
       {
         "changeId": "industrial47-withdraw-certification",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/data-hardware.md",
+        "path": "audit/data-hardware.md",
         "operation": "correct-existing-row-preserving-original-history",
         "originalId": "audit/data-hardware.md:industrial-deployment:47",
         "proposedClaim": "Withdrawn historical blanket audit certification: the old glossary-resolution and historical validate:content pass statement is not a current sourced article claim. Current glossary/link checks remain mandatory and are not certified by this withdrawal.",
@@ -1237,12 +1237,12 @@
       },
       "originalTupleDigest": "3c69b7f092c1a02d8ec8d78e6ef7c574b016708eccf88d80d3c03703e3f2475b",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "Every `<Term>` id used resolves in the glossary",
         "sourceChecked": "Int: takt-time, cycle-time, mean-time-between-failures, systems-integrator, brownfield-deployment, automated-storage-and-retrieval, autonomous-mobile-robot, goods-to-person, payback-period, intervention-rate all present in data/glossary.ts; `npm run validate:content` passes (47 modules, 412 citations, 119 terms)",
@@ -1284,17 +1284,17 @@
       "verdict": "V",
       "note": ""
     },
-    "articlePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/industrial-deployment.mdx",
+    "articlePath": "content/data-hardware/industrial-deployment.mdx",
     "retainedPackets": [
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
-      "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json"
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+      "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-obligation-triage-20260922/rows.json"
     ],
     "group": "data-hardware/industrial-deployment",
     "disposition": "qualify",
     "exactChanges": [
       {
         "changeId": "industrial48-correct-aggregate",
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/data-hardware.md",
+        "path": "audit/data-hardware.md",
         "operation": "correct-existing-row-preserving-original-history",
         "originalId": "audit/data-hardware.md:industrial-deployment:48",
         "proposedClaim": "External figures retain their source-specific scope; calculator inputs and worked examples are explicitly authored, not stand-ins for unknown measurements. Any applicable unpublished real-world field must retain its canonical not disclosed disposition; n/a requires genuine inapplicability. The two undated LEI bibliographic entries use n.d. and their actual 2026-09-22 access date.",
@@ -1308,7 +1308,7 @@
       {
         "kind": "aggregate-evidence-routing-not-new-proof",
         "retainedCoverage": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-hours-integration-20260923/coverage.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-robomind-hours-integration-20260923/coverage.json",
           "bytes": 10193298,
           "sha256": "66cd378851d3571d2b1b29a01cc4d60db5bb5a2231e6d0c27b76f02d07476d97"
         },
@@ -1326,12 +1326,12 @@
       },
       "originalTupleDigest": "e41e2b17f1328b2ac08b015de0e6bee424122dde1d2afc8282df17ae3e0ac3eb",
       "snapshot": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/original-data-hardware.md",
         "bytes": 63957,
         "sha256": "261710a75e937e3b7b1b8a89ba3c5ae408c4ebb5c086bc2f4a05a99f19435c1e",
         "sourceCommit": "20f32c04cbfc35c2dba56845954b7fabcd10f37b"
       },
-      "preparationProvenance": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
+      "preparationProvenance": "validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-g1-originals-20260923/bindings.json",
       "currentCellsBefore": {
         "claim": "P4 absence semantics: no absent value is rendered as a guessed, rounded or inferred stand-in",
         "sourceChecked": "Int: the article carries no `not disclosed` or `n/a` field renders; every figure in prose and in the four Stat cards is a published number from a cited source, and the calculator's unpublished inputs are labelled assumptions under their own sliders rather than presented as measurements",

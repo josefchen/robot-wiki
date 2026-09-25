@@ -1,7 +1,7 @@
 {
   "schemaVersion": "final-seven-dependency-review-v1",
   "observedAt": "2026-09-23T22:22:09.706518+00:00",
-  "reviewedBy": "Droid ee2c8727-4654-42df-8d02-9b916a4629da; delegated Sol/max integrator, not independent acceptance",
+  "reviewedBy": "reviewer run ee2c8727; delegated integrator review integrator, not independent acceptance",
   "rationale": "Four concrete historical checker versions preserved by exact source byte snapshots. New branch additions do not turn old provenance into a new run; existing formula, identity and fail-closed semantics remain executable; old objects are left unchanged. Safety display changes only the two currently incomplete safety originals, with no previous completed safety typed plan. Refreshed after the last focused-test parameter-case additions; four historical snapshots each re-hash to their original identity. Existing 20 plans and 154 proof objects remain byte-identical to HEAD. No old producer re-run is asserted.",
   "bindings": [
     {

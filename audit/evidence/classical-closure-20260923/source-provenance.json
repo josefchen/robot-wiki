@@ -5,23 +5,23 @@
       "resolvedUrl": "https://lavalle.pl/planning/node109.html",
       "tool": "rune___web_scrape",
       "observedAt": "2026-09-23T18:29:41.239Z",
-      "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/e781d819-64a0-43b9-a76c-984d300b1b4f.jsonl",
+      "sessionPath": "run/e781d819.jsonl",
       "sessionLine": 35,
-      "toolMessageId": "06117fb9-0dc5-48b3-ac8f-30c20a563642",
+      "toolMessageId": "06117fb9",
       "observedStatus": "Successful tool result; HTML markdown, truncated=false; no origin HTTP status exposed",
       "httpStatus": null,
-      "bodyPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
-      "responsePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
+      "bodyPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
+      "responsePath": "validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
       "chars": 8268,
       "kind": "external-source",
       "citationId": "lavalle-2006",
       "bodyArtifact": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
         "bytes": 8269,
         "sha256": "f4744be4ea7cfc57ea2738493bd382c608c1301721549c716fbe941ff18bae24"
       },
       "responseArtifact": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
         "bytes": 8782,
         "sha256": "a0d4a5c9add188dd68321a2910a2d2b0ae1841e0d76fbe9540e34cf7ffc93ad0"
       },
@@ -59,19 +59,19 @@
       "retrievedAt": "2026-09-13T08:25:29.954227+00:00",
       "retrievalStartedAt": "2026-09-13T08:25:28.547454+00:00",
       "tool": "historical curl, recorded in actual retained receipt; no new network request",
-      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/fetch-d400.receipt.json",
+      "receiptPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/fetch-d400.receipt.json",
       "bodyArtifact": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
         "bytes": 5417349,
         "sha256": "96cb5706bd879479bab36648bd3ec67f6338b4616d696dda55007f898182454f"
       },
       "textArtifact": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.text.txt",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.text.txt",
         "bytes": 377030,
         "sha256": "29e230ab9e344a52a865c7a2193d2074aee10c59d29a2fdb6a1a497a7cdfd6d4"
       },
       "transportArtifact": {
-        "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.transport.txt",
+        "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.transport.txt",
         "bytes": 14475,
         "sha256": "9dafd442c2b64104aca3fa949375c611c7aad851bb01b2a483b71d3ee8e2b81d"
       },
@@ -116,61 +116,61 @@
   ],
   "verifiedCopies": [
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/orchestration-rrt-grasp-source-inputs-20260913/2cf7d6b__audit__classical.md",
       "path": "audit/evidence/classical-closure-20260923/classical-original-2cf7d6b.md",
       "bytes": 67494,
       "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.body.md",
       "path": "audit/evidence/classical-closure-20260923/lavalle-dh.body.md",
       "bytes": 8269,
       "sha256": "f4744be4ea7cfc57ea2738493bd382c608c1301721549c716fbe941ff18bae24"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/closure-classical-ready-20260923/lavalle-dh.response.json",
       "path": "audit/evidence/classical-closure-20260923/lavalle-dh.response.json",
       "bytes": 8782,
       "sha256": "a0d4a5c9add188dd68321a2910a2d2b0ae1841e0d76fbe9540e34cf7ffc93ad0"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.response.bin",
       "path": "audit/evidence/classical-closure-20260923/d400.pdf",
       "bytes": 5417349,
       "sha256": "96cb5706bd879479bab36648bd3ec67f6338b4616d696dda55007f898182454f"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.text.txt",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.text.txt",
       "path": "audit/evidence/classical-closure-20260923/d400.text.txt",
       "bytes": 377030,
       "sha256": "29e230ab9e344a52a865c7a2193d2074aee10c59d29a2fdb6a1a497a7cdfd6d4"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.transport.txt",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-a-depth-specifications-20260913/d400.transport.txt",
       "path": "audit/evidence/classical-closure-20260923/d400.transport.txt",
       "bytes": 14475,
       "sha256": "9dafd442c2b64104aca3fa949375c611c7aad851bb01b2a483b71d3ee8e2b81d"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/asme-dh1955.html",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/asme-dh1955.html",
       "path": "audit/evidence/classical-closure-20260923/asme-dh1955.html",
       "bytes": 5856,
       "sha256": "87e4ee91b34b45d151d69068585ad9388a0d66e6148f07270786db08d964a0d5"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/wampler-doi.html",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/wampler-doi.html",
       "path": "audit/evidence/classical-closure-20260923/wampler-doi.html",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/levenberg-1944-pdf-403.html",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/levenberg-1944-pdf-403.html",
       "path": "audit/evidence/classical-closure-20260923/levenberg-1944-pdf-403.html",
       "bytes": 5947,
       "sha256": "f5b13c9bf5fc78ed37fe2c7840c7b601b086ee34d05a4bccd335b8fc9f669e3b"
     },
     {
-      "sourcePath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/marquardt-siam.html",
+      "sourcePath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-v-kinematics-20260916i/sources/marquardt-siam.html",
       "path": "audit/evidence/classical-closure-20260923/marquardt-siam.html",
       "bytes": 5547,
       "sha256": "3eda2b2c338e95f8b680dc971eced0d9108759c5e5d842c9b4d0b4ee7cce2a0a"

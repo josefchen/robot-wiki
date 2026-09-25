@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r5-20260923:r5-mounted-preview-reset:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Actual registered-mount Playwright transition for reset: keyboard min/max input (or Reset) changed the named status, displayed total and actual SVG state. Retained DOM and PNG match the derivation. Reset restored the original pose. This is an observed toy UI state at phase zero, not a trained policy, measured vibration frequency or complete registry-state acceptance.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r5-mounted-preview-reset",
-  "inputDigest": "b88373236ee56982f74abd6d65032a980ea95049f487e72a90b1c15d49da0af9",
+  "inputDigest": "ab7544e1c2e01a192694d11b77e448165a7a3bfa1681715778c6b227582a3d0f",
   "inventory": [
     {
       "id": "r5-rudin-contrast",
@@ -110,5 +110,5 @@
     }
   ],
   "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
-  "currentTupleDigest": "a63b8a9bf8fd0c562711af20c1a55d3dc089f3403783ab9a956b90c73f384db9"
+  "currentTupleDigest": "aad57ba9f9bc0e30f757775231404ba36aed0a9d2833f03273bd53a4bd74355d"
 }

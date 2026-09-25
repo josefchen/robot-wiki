@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
-import { execFileSync } from 'node:child_process';
+import { showAt } from './helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -24,12 +24,8 @@ const root = resolve(import.meta.dirname, '../..');
 const base = '1e07db26e614dd24e9f1c0c79a651df26cdec88b';
 const disclosureCommit = '8f7508bf39961ed00f5fd027bbf491b7a84bb0f6';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], {
-  cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
-});
-const atDisclosure = (path: string) => execFileSync('git', ['show', `${disclosureCommit}:${path}`], {
-  cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
-});
+const before = (path: string) => showAt(base, path);
+const atDisclosure = (path: string) => showAt(disclosureCommit, path);
 const articlePath = 'content/data-hardware/datasets.mdx';
 const ledgerPath = 'audit/data-hardware.md';
 const article = read(articlePath);
@@ -160,7 +156,7 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
     expect(row().evidenceFailures).toEqual([]);
     expect(p.originalCellsDigest).toBe(originalClaimDigest(row()));
     expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
-    expect(p.planReview?.reviewedBy).toContain('custom:droidproxy:gpt-6-astra/max');
+    expect(p.planReview?.reviewedBy).toContain('integrator review');
     for (const part of p.parts) {
       expect(part.requiredCitationIds).toEqual(['robomind-2024']);
       const review = p.adjudications.find(a => a.partId === part.id)!;

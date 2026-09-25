@@ -5,7 +5,7 @@ import { originalClaimDigest } from '../../../lib/audit-ledger.ts';
 import { parseLocalBasisCatalog } from '../../../lib/audit-local-basis.ts';
 import { ARTICLE, DIRECTORY, BROWSER, artifact, member, save, sha } from './typed-support.ts';
 
-const MISSION = '/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906';
+const MISSION = 'validation/brand-v2-editorial/source-recovery-20260906';
 const read = path => JSON.parse(fs.readFileSync(path, 'utf8'));
 const packetPath = `${MISSION}/convergence-first-ten-originals-20260923/bindings.json`;
 assert.equal(sha(fs.readFileSync(packetPath)), '3fcaaa8b866268238b134390fc3b73eebfbf6afa07b0ed0cb3ec22818b00cb0c');
@@ -94,7 +94,7 @@ function source(partId, citationId, start, end) {
   return { partId, citationId, sourceUrl: p.sourceUrl, supportingPassage,
     provenance: { retrievedAt: p.retrievedAt, tool: citationId === 'isaac-lab-2025'
       ? 'Retained original versioned GET body/receipt/headers, hash verified; no new request'
-      : 'Retained FetchUrl full-body representation, exact original capture/event verified; no new request',
+      : 'Retained web fetch full-body representation, exact original capture/event verified; no new request',
     response: artifact(path), passage: member(path, supportingPassage) } };
 }
 for (const binding of bindings) {

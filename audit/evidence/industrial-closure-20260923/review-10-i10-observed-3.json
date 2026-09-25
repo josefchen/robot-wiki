@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "sessionId": "7260b9a1",
   "role": "integrator",
   "eventId": "industrial-10-i10-observed-3",
   "observedAt": "2026-09-23T18:49:40.398Z",
-  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
   "rationale": "Actual existing mount at success99% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
   "outcome": "supported",
   "scope": "part",
   "partId": "i10-observed-3",
-  "inputDigest": "e64b66bbadde0fdf9f7b28d4ab0622ae69a5f0a44212c45bf9672d7e2dc5111f",
+  "inputDigest": "a38aee68d838bce1449081803a7677be93fbd9dff2807c0f67d4b72fb25a6e12",
   "inventory": [
     {
       "id": "i10-parameters",

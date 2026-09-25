@@ -77,7 +77,7 @@ describe('learned locomotion source corrections', () => {
       const p = selected(slug, ordinal);
       expect(p.parts).toHaveLength(parts);
       expect(p.evidence).toHaveLength(items);
-      expect(p.planReview!.reviewedBy).toBe('agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator');
+      expect(p.planReview!.reviewedBy).toBe('agent:36dfbf8e/integrator');
       expect(p.planReview!.planDigest).toBe(compoundPlanDigest(p));
       for (const a of p.adjudications) expect(a.evidenceDigest).toBe(compoundPartDigest(p, a.partId));
       expect(failures(p)).toEqual([]);

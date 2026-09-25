@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { showAt } from './helpers/continuation-merge-ledger';
 import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import { publishedModules } from '../../data/modules';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger';
@@ -44,7 +44,7 @@ function frontmatterCitations(): Record<string, readonly string[]> {
 
 const BEFORE_LOCAL = '2aaf0588f0b577fa5a8ea94f9139d0292d9ab433';
 function historicalFile(path: string): string {
-  return execFileSync('git', ['show', `${BEFORE_LOCAL}:${path}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+  return showAt(BEFORE_LOCAL, path);
 }
 
 function sectionRows(historical = false) {
@@ -195,21 +195,21 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
         "ordinal": 4,
         "planId": "reward-design-mpc-original-4-20260916",
         "oldTuple": "4dc019817ebed19709a17b36b9d1f51ea8e10383a3f184d1d753ac7a04423807",
-        "withdrawnReviewDigest": "068cde5e2d92e66d1374e3e1e84e6241935ad266a047505fd3d80af120a9ee1e"
+        "withdrawnReviewDigest": "a86d7bbed44ba2778800fcd50c90c582323f23c4190c8c5868332ec84744b7e7"
     },
     {
         "originalId": "audit/rl-sim2real.md:reward-design-mpc:5",
         "ordinal": 5,
         "planId": "reward-design-mpc-original-5-20260916",
         "oldTuple": "3c8db752a64be1f2d3a7ee547338a104494cb3756600d0c3ae5b245f1bddf842",
-        "withdrawnReviewDigest": "a92d42798b6ede5fdf91e84e64f16312625cd949bc9dce83fe8db94d7b9cc0a8"
+        "withdrawnReviewDigest": "1c32710cdb05d9fec0b3a741008e9e13bc8fef4f78ddfbe962b38297d5890837"
     },
     {
         "originalId": "audit/rl-sim2real.md:reward-design-mpc:11",
         "ordinal": 11,
         "planId": "reward-design-mpc-original-11-20260916",
         "oldTuple": "da15c80d90a840bd40ff65f0eea90065fb9ef6d3f3bb55bd106da9254d90bef2",
-        "withdrawnReviewDigest": "d0c00e345e5d5b43f948a306702d0eeb7def4f088fb8ce3a01fa8594a4072775"
+        "withdrawnReviewDigest": "6132b2b0f5a6316eb5456c57f070785ec6983a079201f0195dcba695b69889f8"
     }
 ])('preserves the historical hold for $originalId and its withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
     const article = { claimRecords: sectionRows(true) };

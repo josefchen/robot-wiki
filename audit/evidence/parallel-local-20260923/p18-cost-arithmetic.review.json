@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "parallel-local-p18-20260923:p18-cost-arithmetic:2026-09-23T06:12:45.812Z",
   "observedAt": "2026-09-23T06:12:45.812Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Independent closed-form time=(220M/24)*(.09/envs+marginal) and FPS=24/(.09/envs+marginal) agree at64/4096/16384 in both CPU modes; every one of49 samples matches an independent sixth-octave grid. Raw time*FPS=220M; rounded readouts alone are not the oracle. Default238.08268229166666s/924048.7291322002FPS and max-off87.02067057291667s versus max-on288.6873372395833s are local results. Crossover12500 exists only CPUoff. Rounding, iteration/bucket displays and exact SVG coordinates were also checked in the actual mounted producer.",
   "outcome": "supported",
   "scope": "part",
   "partId": "p18-cost-arithmetic",
-  "inputDigest": "03793a34b314e9c8cdf53d982f45a8500d5e1ac10b36c8d85459b60141ef6536",
+  "inputDigest": "979e2a146553909c38b7521743ae090403809f848b093280cf64f8e665bddf17",
   "inventory": [
     {
       "id": "p18-rudin-flat-bound",

@@ -87,7 +87,7 @@ describe('content integration of 2026-09-23', () => {
       expect(entry).toEqual(ledgerAt(CONTINUATION_RELEASE_BASE).find(prior => prior.id === entry.id));
       expect(headReanchorFor(approvals, entry.manifest, entry.memberId)?.newHash)
         .toBe(currentHash(entry.manifest, entry.memberId));
-      expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the Claude release session on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
+      expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
       .toBe('continuation-merge-2026-09-24-tech-withdrawal-citation-rendering');

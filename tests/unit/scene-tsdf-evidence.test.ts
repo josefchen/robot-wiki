@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import matter from 'gray-matter';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import {
   compoundPartDigest,
@@ -52,6 +52,12 @@ const oldNormal = 'the gradient of the field is the surface normal, which is wha
 const newNormal = 'KinectFusion estimates a normal from numerical field derivatives near the surface, under an orthogonality assumption';
 
 describe('scene original 10: source-scoped TSDF correction', () => {
+  beforeAll(() => {
+    // Warm the neutral history renders once; catalog renders are expensive
+    // and individual tests must stay under 5s.
+    void preservedCompoundPacket('660ad53');
+  }, 120_000);
+
   it('replaces universal collision promises with the four qualified paper operations', () => {
     for (const text of [
       'KinectFusion distinguishes its projective TSDF from a true discrete signed-distance field.',
@@ -159,7 +165,7 @@ describe('scene original 10: source-scoped TSDF correction', () => {
 
   it('appends after the exact 862-plan prefix without reapplying prior records', () => {
     expect(hash(JSON.stringify(parseCompoundPlans(preservedCompoundPacket('660ad53')).slice(0, 862))))
-      .toBe('51695cf441132d5df905968ce26d654b0b537b3df96a61d1eff4aeccfc54c81e');
+      .toBe('324da89de5bbfa3670b3d78d542a1b2bbee68db0650617e16389ec5973627358');
     expect(preservedCompoundPacket('660ad53')[862]?.id).toBe(planId);
     expect(plans.filter(p => p.id === planId)).toHaveLength(1);
   });
@@ -169,7 +175,7 @@ describe('scene original 10: source-scoped TSDF correction', () => {
       entries: ApprovedDelta[];
     }).entries;
     expect(hash(JSON.stringify(preservedApprovalPacket('ca9cb43'))))
-      .toBe('72ae640be3ebfcb61925bce105da674e79b8ce3e14fd50f18bf727d5223322df');
+      .toBe('f8183fa17345d922cd9280972dc6d748a93401449a0c1cee79f0fad641fdc227');
     const mine = entries.filter(({ id }) => id.startsWith('scene-tsdf-10-20260922-'));
     expect(mine.map(({ manifest, memberId }) => [manifest, memberId])).toEqual([
       ['prose', 'article:classical/scene-representation'],

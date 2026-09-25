@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "parallel-local-p18-20260923:p18-mounted-16384-off:2026-09-23T06:12:45.812Z",
   "observedAt": "2026-09-23T06:12:45.812Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed this exact output-specific group: The actual mounted chart at16384 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
   "outcome": "supported",
   "scope": "part",
   "partId": "p18-mounted-16384-off",
-  "inputDigest": "2e61fb8512de60feb03c2474232ed99216244bba8343e5b48e3c231dd8d11786",
+  "inputDigest": "2339267b1736aae5c36a9e902d03d0ed8594ba0e83162b5200b5835ebaca80d3",
   "inventory": [
     {
       "id": "p18-rudin-flat-bound",

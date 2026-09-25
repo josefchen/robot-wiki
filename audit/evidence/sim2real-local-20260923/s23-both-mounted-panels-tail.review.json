@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "sim2real-local-s23-20260923:s23-both-mounted-panels-tail:2026-09-23T05:29:54.001Z",
   "observedAt": "2026-09-23T05:29:54.001Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I reviewed this exact output-specific transition group: Setting mu 1.50 at half-width 0.35 moves the real-friction line in both mounted panels and displays the separately recomputed tail percentages. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-both-mounted-panels-tail",
-  "inputDigest": "9da7ea36ae70ed327f72593d3ff5577f79efe454b97ce2d933afce157df2c28c",
+  "inputDigest": "287fd0e4b52890d9fff4e3e3da9fc3030f282166334dda1440e833a4cb539d4b",
   "inventory": [
     {
       "id": "s23-tobin-framing",

@@ -1,1 +1,34 @@
-{"formula":"gait:derive:v1","precision":"IEEE-754; existing model rounding only","units":"dimensionless unless explicitly keyed","values":{"display":["25%","0.50"],"legs":[{"id":"lf","phase":0.25,"stance":true},{"id":"rf","phase":0.75,"stance":false},{"id":"lh","phase":0.75,"stance":false},{"id":"rh","phase":0.25,"stance":true}],"nextPhase":0.3}}
+{
+  "formula": "gait:derive:v1",
+  "precision": "IEEE-754; existing model rounding only",
+  "units": "dimensionless unless explicitly keyed",
+  "values": {
+    "display": [
+      "25%",
+      "0.50"
+    ],
+    "legs": [
+      {
+        "id": "lf",
+        "phase": 0.25,
+        "stance": true
+      },
+      {
+        "id": "rf",
+        "phase": 0.75,
+        "stance": false
+      },
+      {
+        "id": "lh",
+        "phase": 0.75,
+        "stance": false
+      },
+      {
+        "id": "rh",
+        "phase": 0.25,
+        "stance": true
+      }
+    ],
+    "nextPhase": 0.3
+  }
+}

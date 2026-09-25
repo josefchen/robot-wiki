@@ -1,12 +1,12 @@
 {
-  "missionId": "mis_2b1673fa",
-  "workerSessionId": "b7856fa2-70d5-4c9d-ba8e-608460f99a6d",
+  "missionId": "2b1673fa",
+  "workerSessionId": "b7856fa2",
   "routingEvidence": {
-    "sessionPath": "/home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/b7856fa2-70d5-4c9d-ba8e-608460f99a6d.jsonl",
+    "sessionPath": "run/b7856fa2.jsonl",
     "assistantLine": 6,
-    "eventId": "3f271710-6c75-403a-a756-a3fe236d9049",
+    "eventId": "3f271710",
     "timestamp": "2026-09-23T18:24:32.907Z",
-    "modelId": "custom:droidproxy:gpt-6-astra",
+    "modelId": "integrator review",
     "reasoningEffort": "max",
     "basis": "Actual assistant message metadata, not settings or display label."
   },
@@ -20,34 +20,34 @@
       "rowOrdinal": 19,
       "currentTupleDigest": "3446dd52af06853e0a1b4dc9b820560fd44cc6a783f9e94fde0be529ef5728cf",
       "currentCells": {
-        "claim": "Local timeline inventory: 13 entries with report/announcement dates from Feb 2025 to Jul 2026; 4 marked downloadable (GR00T N1 and N1.7, GO-1, \u03c00.5), not a license classification; 5 selected arXiv sources, 1 repository source and 7 selected blog/press sources. The seven-entry enumeration is not a census of external replication.",
+        "claim": "Local timeline inventory: 13 entries with report/announcement dates from Feb 2025 to Jul 2026; 4 marked downloadable (GR00T N1 and N1.7, GO-1, π0.5), not a license classification; 5 selected arXiv sources, 1 repository source and 7 selected blog/press sources. The seven-entry enumeration is not a census of external replication.",
         "sourceChecked": "lib/generalist-policies.ts GENERALIST_RELEASES + release dates verified above",
         "verdict": "UNRESOLVED (bounded local-text correction only; external-passage requirement remains unmet)",
-        "note": "Historical four-cell record retained: {\"claim\":\"Stats block: 13 releases Feb 2025-Jul 2026; 4 open weights (GR00T N1 and N1.7, GO-1, \u03c00.5); 5 arXiv papers; 7 vendor-only; callout's \\\"seven of the thirteen\\\" enumeration\",\"sourceChecked\":\"lib/generalist-policies.ts GENERALIST_RELEASES + release dates verified above\",\"verdict\":\"verified\",\"note\":\"13 entries; openWeights true for exactly gr00t-n1, agibot-go1, pi05-context, gr00t-n17; paper tier for GR1, GR1.5, GR00T N1, AgiBot World (GO-1), \u03c00.5; blog/press tier for both Helix generations, \u03c00.6, \u03c00.7, GR2, GO-2, Skild = 7. Every release month verified against a primary source.\"} Correction rationale: The local source-format enum cannot establish that no external check or replication exists; preserve the selected populations and source-scoped unknowns. This is a local-model/source-format correction, not external source verification or whole-record completion. No primary fetch was performed in preparation."
+        "note": "Historical four-cell record retained: {\"claim\":\"Stats block: 13 releases Feb 2025-Jul 2026; 4 open weights (GR00T N1 and N1.7, GO-1, π0.5); 5 arXiv papers; 7 vendor-only; callout's \\\"seven of the thirteen\\\" enumeration\",\"sourceChecked\":\"lib/generalist-policies.ts GENERALIST_RELEASES + release dates verified above\",\"verdict\":\"verified\",\"note\":\"13 entries; openWeights true for exactly gr00t-n1, agibot-go1, pi05-context, gr00t-n17; paper tier for GR1, GR1.5, GR00T N1, AgiBot World (GO-1), π0.5; blog/press tier for both Helix generations, π0.6, π0.7, GR2, GO-2, Skild = 7. Every release month verified against a primary source.\"} Correction rationale: The local source-format enum cannot establish that no external check or replication exists; preserve the selected populations and source-scoped unknowns. This is a local-model/source-format correction, not external source verification or whole-record completion. No primary fetch was performed in preparation."
       },
       "disposition": "qualify",
       "exactChanges": [
         {
           "id": "gp19-remove-aggregate-source-and-access-stats",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/manipulation/generalist-policies.mdx",
+          "path": "content/manipulation/generalist-policies.mdx",
           "operation": "replace-exact-once",
-          "old": "<div className=\"my-6 grid grid-cols-2 gap-4 sm:grid-cols-4\">\n  <Stat label=\"timeline entries\" value=\"13\" note=\"report and announcement dates, Feb 2025 to Jul 2026\" accent />\n  <Stat label=\"marked downloadable\" value=\"4\" note=\"GR00T N1 and N1.7, GO-1, \u03c00.5; not license classifications\" />\n  <Stat label=\"arXiv papers\" value=\"5\" note=\"selected sources in this timeline\" />\n  <Stat label=\"blog/press sources\" value=\"7\" note=\"selected formats, not a replication census\" />\n</div>",
-          "new": "The timeline contains 13 selected records, an authored selection rather than a census of the field. Read each record\u2019s source and access note on its own; a timeline count does not establish a license or independent replication.",
+          "old": "<div className=\"my-6 grid grid-cols-2 gap-4 sm:grid-cols-4\">\n  <Stat label=\"timeline entries\" value=\"13\" note=\"report and announcement dates, Feb 2025 to Jul 2026\" accent />\n  <Stat label=\"marked downloadable\" value=\"4\" note=\"GR00T N1 and N1.7, GO-1, π0.5; not license classifications\" />\n  <Stat label=\"arXiv papers\" value=\"5\" note=\"selected sources in this timeline\" />\n  <Stat label=\"blog/press sources\" value=\"7\" note=\"selected formats, not a replication census\" />\n</div>",
+          "new": "The timeline contains 13 selected records, an authored selection rather than a census of the field. Read each record’s source and access note on its own; a timeline count does not establish a license or independent replication.",
           "rationale": "Remove the mixed aggregate date/download/source-format claims rather than manufacture thirteen-source proof for a summary; keep the approved timeline, its records and independently audited per-entry facts.",
           "execution": "UNEXECUTED; writer must fresh-read and verify the exact span at application."
         },
         {
           "id": "gp19-remove-seven-of-thirteen",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/manipulation/generalist-policies.mdx",
+          "path": "content/manipulation/generalist-policies.mdx",
           "operation": "replace-exact-once",
-          "old": "Seven of the thirteen timeline entries use a lab blog or press release as their selected source: both Helix generations, \u03c00.6, \u03c00.7, Gemini Robotics 2, GO-2, and Skild. This describes the sources selected here, not whether later papers or independent replications exist. Attribute numerical claims in those sources to their vendors; an announcement is not independent verification.",
-          "new": "The timeline is a selected reading list, not a census of papers or independent replications. Attribute an announcement\u2019s numerical claims to its issuer; an announcement is not independent verification.",
+          "old": "Seven of the thirteen timeline entries use a lab blog or press release as their selected source: both Helix generations, π0.6, π0.7, Gemini Robotics 2, GO-2, and Skild. This describes the sources selected here, not whether later papers or independent replications exist. Attribute numerical claims in those sources to their vendors; an announcement is not independent verification.",
+          "new": "The timeline is a selected reading list, not a census of papers or independent replications. Attribute an announcement’s numerical claims to its issuer; an announcement is not independent verification.",
           "rationale": "Cut the aggregate 7/13 and its external format enumeration; preserve the reader warning without claiming a replication census.",
           "execution": "UNEXECUTED; writer must fresh-read and verify the exact span at application."
         },
         {
           "id": "gp19-remove-aria-date-aggregate",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/generalist-release-timeline.tsx",
+          "path": "components/interactive/generalist-release-timeline.tsx",
           "operation": "replace-exact-once",
           "old": "Release timeline of generalist robot policies from ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel}.",
           "new": "Selected generalist robot policy records.",
@@ -56,7 +56,7 @@
         },
         {
           "id": "gp19-remove-accessible-date-aggregate",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/generalist-release-timeline.tsx",
+          "path": "components/interactive/generalist-release-timeline.tsx",
           "operation": "replace-exact-once",
           "old": "${visible.length} of ${GENERALIST_RELEASES.length} generalist policies sit on a ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel} axis; selected is",
           "new": "${visible.length} of ${GENERALIST_RELEASES.length} selected generalist policy records are shown; selected is",
@@ -67,7 +67,7 @@
       "evidence": [
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/generalist-policies.ts",
+          "path": "lib/generalist-policies.ts",
           "bytes": 9479,
           "sha256": "52d0426d8cd45fbccdf15126a628215bc5918ece2c1e894d4e50b6a9524037b0",
           "member": "GENERALIST_RELEASES",
@@ -78,7 +78,7 @@
         },
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/generalist-release-timeline.tsx",
+          "path": "components/interactive/generalist-release-timeline.tsx",
           "bytes": 15570,
           "sha256": "43d52a13de2121c57bdae760b32245e8d2631a2a2d9b40a62cbfbfcc4723b3b6",
           "member": "visible.length / GENERALIST_RELEASES.length",
@@ -94,16 +94,16 @@
         "originalLedgerBytes": 104031,
         "originalLedgerSha256": "4e7c3d6b13ecec46033e5abfa6495bbe2d584988fb935e4c242f3239907a962a",
         "originalCells": {
-          "claim": "Stats block: 13 releases Feb 2025-Jul 2026; 4 open weights (GR00T N1 and N1.7, GO-1, \u03c00.5); 5 arXiv papers; 7 vendor-only; callout's \"seven of the thirteen\" enumeration",
+          "claim": "Stats block: 13 releases Feb 2025-Jul 2026; 4 open weights (GR00T N1 and N1.7, GO-1, π0.5); 5 arXiv papers; 7 vendor-only; callout's \"seven of the thirteen\" enumeration",
           "sourceChecked": "lib/generalist-policies.ts GENERALIST_RELEASES + release dates verified above",
           "verdict": "verified",
-          "note": "13 entries; openWeights true for exactly gr00t-n1, agibot-go1, pi05-context, gr00t-n17; paper tier for GR1, GR1.5, GR00T N1, AgiBot World (GO-1), \u03c00.5; blog/press tier for both Helix generations, \u03c00.6, \u03c00.7, GR2, GO-2, Skild = 7. Every release month verified against a primary source."
+          "note": "13 entries; openWeights true for exactly gr00t-n1, agibot-go1, pi05-context, gr00t-n17; paper tier for GR1, GR1.5, GR00T N1, AgiBot World (GO-1), π0.5; blog/press tier for both Helix generations, π0.6, π0.7, GR2, GO-2, Skild = 7. Every release month verified against a primary source."
         },
         "originalTupleDigest": "3e64bca94fb54e81c4aeb3a400fc37f7c51a87aea1934531a279d0defa21f36e",
         "method": "native full-ledger parse",
         "originalParserError": null,
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -118,7 +118,7 @@
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
           "bytes": 73277,
           "sha256": "39734ff6280f252675a7603cbeac26786dacb1f79781781bf0d3b076cf1d3216",
           "pointer": "/rows/18",
@@ -168,8 +168,8 @@
         "scope": "Small finite derived-result adapter/test for this count only; do not create a general internal-truth category or re-certify source fields."
       },
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/generalist-policies.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts",
+        "tests/unit/generalist-policies.test.ts",
+        "tests/unit/audit-local-basis.test.ts",
         "Affected rendered article/citation and existing timeline cases only when writer executes; no browser run here."
       ]
     },
@@ -181,22 +181,22 @@
         "claim": "\"The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed\"",
         "sourceChecked": "park-2017-bounding, https://journals.sagepub.com/doi/10.1177/0278364917694244 (registered URL; live uncredentialed GET 403 at 2026-09-16T14:29:07Z, sha256 5b5e17bd...; classical-instance facts retained read-only from the applied row-7 plan locomotion-park7-20260915-legged-locomotion-7 at HEAD cc09291a) + local AND: lib/gait.ts authored constants (integrator local proof)",
         "verdict": "**corrected**",
-        "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The local constants really are walk 0.75, trot 0.5, bound 0.45 and pronk 0.35, wired to duty-readout. They are nevertheless repo proof placed in a paired item bearing Park's external citation/URL. The purported Park classical passage is a retained row7/legacy-note summary, not recovered primary text: the available 5708-byte response is a 403 challenge. No primary passage recovered in this bounded trail verifies that summary. In addition, the original claim and article sentence remain unchanged, including \"classical and learned alike\"; changing only the verdict/note to call that clause framing is not an actual approved narrower article correction. The no-op approval is routine authority, not a P2 local-evidence exception.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:legged-locomotion:8. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Diagram discloses authored fixed duty factors walk 0.75 / trot 0.50 / bound 0.45 / pronk 0.35 (lib/gait.ts), presented as canonical nominal; Park et al. 2017 supply ONE classical instance of speed-dependent duty-cycle modulation (Sec. 4.3 'Duty cycle modulation via vertical impulse scaling'; \u00a77 speed-dependent stride length below 3 m/s), not a claim about all classical or learned controllers. Learned-side modulation is the article's induction over the air-time reward discussion, kept as framing rather than a Park attribution."
+        "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The local constants really are walk 0.75, trot 0.5, bound 0.45 and pronk 0.35, wired to duty-readout. They are nevertheless repo proof placed in a paired item bearing Park's external citation/URL. The purported Park classical passage is a retained row7/legacy-note summary, not recovered primary text: the available 5708-byte response is a 403 challenge. No primary passage recovered in this bounded trail verifies that summary. In addition, the original claim and article sentence remain unchanged, including \"classical and learned alike\"; changing only the verdict/note to call that clause framing is not an actual approved narrower article correction. The no-op approval is routine authority, not a P2 local-evidence exception.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/rl-sim2real.md:legged-locomotion:8. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Diagram discloses authored fixed duty factors walk 0.75 / trot 0.50 / bound 0.45 / pronk 0.35 (lib/gait.ts), presented as canonical nominal; Park et al. 2017 supply ONE classical instance of speed-dependent duty-cycle modulation (Sec. 4.3 'Duty cycle modulation via vertical impulse scaling'; §7 speed-dependent stride length below 3 m/s), not a claim about all classical or learned controllers. Learned-side modulation is the article's induction over the air-time reward discussion, kept as framing rather than a Park attribution."
       },
       "disposition": "qualify",
       "exactChanges": [
         {
           "id": "gait-shared-authored-disclaimer",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/legged-locomotion.mdx",
+          "path": "content/rl-sim2real/legged-locomotion.mdx",
           "operation": "replace-exact-once",
           "old": "The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id=\"park-2017-bounding\" />.",
-          "new": "The diagram fixes authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35. Its phase offsets and support readouts describe those chosen timing examples, not a universal gait law or a measured controller\u2019s response to speed.",
+          "new": "The diagram fixes authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35. Its phase offsets and support readouts describe those chosen timing examples, not a universal gait law or a measured controller’s response to speed.",
           "rationale": "Remove the unsupported classical-and-learned generalization and its Park attribution on this sentence. Retain the separate already-completed Park row7 and its citation; do not retry the unavailable manuscript.",
           "execution": "UNEXECUTED; writer must fresh-read and verify the exact span at application."
         },
         {
           "id": "gait-shared-canonical-framing",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/legged-locomotion.mdx",
+          "path": "content/rl-sim2real/legged-locomotion.mdx",
           "operation": "replace-exact-once",
           "old": "The diagram at the top of this module shows the four canonical patterns.",
           "new": "The diagram at the top of this module uses four authored timing examples.",
@@ -207,14 +207,14 @@
       "evidence": [
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/gait.ts",
+          "path": "lib/gait.ts",
           "member": "GAITS/legPhase/inStance/stepPhase/formatDuty",
           "finding": "Actual code and chosen constants read in full; hash and executed outputs must be bound by integrator after the comment/disclosure edit.",
           "proofExecuted": false
         },
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/gait-diagram.tsx",
+          "path": "components/interactive/gait-diagram.tsx",
           "bytes": 16735,
           "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
           "member": "GaitDiagram",
@@ -239,7 +239,7 @@
         "method": "native full-ledger parse",
         "originalParserError": null,
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -254,7 +254,7 @@
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/bindings.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/bindings.json",
           "bytes": 502083,
           "sha256": "3fcaaa8b866268238b134390fc3b73eebfbf6afa07b0ed0cb3ec22818b00cb0c",
           "pointer": "/rows/9"
@@ -330,10 +330,10 @@
       },
       "sourceGapDisposition": "Park broad-modulation/textbook-canonical obligations are removed from these originals by explicit reader correction, not proved by local presets. The historical403 response and withdrawn reviews remain; no new retrieval or retry.",
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/gait.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/gait-diagram.test.tsx",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/legged-locomotion.spec.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/gait.test.ts",
+        "tests/component/gait-diagram.test.tsx",
+        "tests/e2e/legged-locomotion.spec.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     },
     {
@@ -350,16 +350,16 @@
       "exactChanges": [
         {
           "id": "gait-shared-authored-disclaimer",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/legged-locomotion.mdx",
+          "path": "content/rl-sim2real/legged-locomotion.mdx",
           "operation": "replace-exact-once",
           "old": "The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id=\"park-2017-bounding\" />.",
-          "new": "The diagram fixes authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35. Its phase offsets and support readouts describe those chosen timing examples, not a universal gait law or a measured controller\u2019s response to speed.",
+          "new": "The diagram fixes authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35. Its phase offsets and support readouts describe those chosen timing examples, not a universal gait law or a measured controller’s response to speed.",
           "rationale": "Remove the unsupported classical-and-learned generalization and its Park attribution on this sentence. Retain the separate already-completed Park row7 and its citation; do not retry the unavailable manuscript.",
           "execution": "UNEXECUTED; writer must fresh-read and verify the exact span at application."
         },
         {
           "id": "gait-shared-canonical-framing",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/rl-sim2real/legged-locomotion.mdx",
+          "path": "content/rl-sim2real/legged-locomotion.mdx",
           "operation": "replace-exact-once",
           "old": "The diagram at the top of this module shows the four canonical patterns.",
           "new": "The diagram at the top of this module uses four authored timing examples.",
@@ -370,14 +370,14 @@
       "evidence": [
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/gait.ts",
+          "path": "lib/gait.ts",
           "member": "GAITS/legPhase/inStance/stepPhase/formatDuty",
           "finding": "Actual code and chosen constants read in full; hash and executed outputs must be bound by integrator after the comment/disclosure edit.",
           "proofExecuted": false
         },
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/gait-diagram.tsx",
+          "path": "components/interactive/gait-diagram.tsx",
           "bytes": 16735,
           "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
           "member": "GaitDiagram",
@@ -402,7 +402,7 @@
         "method": "native full-ledger parse",
         "originalParserError": null,
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -417,7 +417,7 @@
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
           "bytes": 73277,
           "sha256": "39734ff6280f252675a7603cbeac26786dacb1f79781781bf0d3b076cf1d3216",
           "pointer": "/rows/0",
@@ -494,27 +494,27 @@
       },
       "sourceGapDisposition": "Park broad-modulation/textbook-canonical obligations are removed from these originals by explicit reader correction, not proved by local presets. The historical403 response and withdrawn reviews remain; no new retrieval or retry.",
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/gait.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/gait-diagram.test.tsx",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/legged-locomotion.spec.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/gait.test.ts",
+        "tests/component/gait-diagram.test.tsx",
+        "tests/e2e/legged-locomotion.spec.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     },
     {
       "originalId": "audit/world-models.md:taxonomy:4",
       "rowOrdinal": 4,
-      "currentTupleDigest": "7f676ac79371fa09824d1694a4770f4423ff4be0776d717961bafa3e76f229e6",
+      "currentTupleDigest": "dbbae03d2926a17e4ab3910db5b6f56fb3c0f8ecfbd9851fd7d8520bec90c97b",
       "currentCells": {
         "claim": "Stat: \"example groups 6, selected in this article\"; the number is the canonical local WM_PARADIGMS inventory, not a count of scientific paradigms.",
         "sourceChecked": "world-model-survey-2026: https://arxiv.org/html/2605.00080",
         "verdict": "unresolved",
-        "note": "PERFORMANCE-WORLDMODELS-taxonomy-4. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception. Retained-source review 2026-09-07T23:31:48.314Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance."
+        "note": "PERFORMANCE-WORLDMODELS-taxonomy-4. The reader-facing count is six selected local WM_PARADIGMS examples. The actual survey passages do not assert that number. The proposed single survey part omits a load-bearing local-count conjunct; preserve an explicit unresolved part with no fabricated passage or checker exception. Retained-source review 2026-09-07T23:31:48.314Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance."
       },
       "disposition": "authored-proof",
       "exactChanges": [
         {
           "id": "taxonomy4-preserve-already-corrected-disclosure",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/world-models/taxonomy.mdx",
+          "path": "content/world-models/taxonomy.mdx",
           "operation": "preserve-existing-no-reapply",
           "requiredText": [
             "The six example groups below are this article's selection, not an exhaustive or universally agreed scientific taxonomy.",
@@ -526,7 +526,7 @@
       "evidence": [
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/world-model-taxonomy.ts",
+          "path": "lib/world-model-taxonomy.ts",
           "bytes": 5658,
           "sha256": "ef98b513afef31763c4ce5ec179b3583446421dd86b725a49152659a410c5c89",
           "member": "WM_PARADIGMS",
@@ -537,7 +537,7 @@
         },
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/mdx/wm-taxonomy-table.tsx",
+          "path": "components/mdx/wm-taxonomy-table.tsx",
           "bytes": 3098,
           "sha256": "5630bbfbb2a4a86e6e292c6fb9118073b0fb0fff178fcdc989e2db768faff41d",
           "member": "WM_PARADIGMS.map",
@@ -562,7 +562,7 @@
         "method": "native full-ledger parse",
         "originalParserError": null,
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -576,7 +576,7 @@
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
           "bytes": 73277,
           "sha256": "39734ff6280f252675a7603cbeac26786dacb1f79781781bf0d3b076cf1d3216",
           "pointer": "/rows/17",
@@ -589,7 +589,7 @@
         "semanticAdjudications": 0,
         "independentReviews": 0
       },
-      "proposedFinalClaim": "The article selects six example groups, counted from WM_PARADIGMS; six is an editorial inventory count, not the survey\u2019s number of scientific paradigms.",
+      "proposedFinalClaim": "The article selects six example groups, counted from WM_PARADIGMS; six is an editorial inventory count, not the survey’s number of scientific paradigms.",
       "wholeRemainingParts": [
         {
           "kind": "derived-result",
@@ -613,9 +613,9 @@
         "notRequired": "No new browser behavior claim or all-state census; retain WmDisambiguator/WmTaxonomyTable unchanged."
       },
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/world-model-taxonomy.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/taxonomy-originals.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/world-model-taxonomy.test.ts",
+        "tests/unit/taxonomy-originals.test.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     },
     {
@@ -632,7 +632,7 @@
       "exactChanges": [
         {
           "id": "db3-no-absence-generalization",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/data-bottleneck.mdx",
+          "path": "content/data-hardware/data-bottleneck.mdx",
           "operation": "replace-exact-once",
           "old": "Its total duration is unknown in the inspected paper and project-page text; trajectory count alone does not establish hours.",
           "new": "The chart assigns it no hour estimate: trajectory count alone does not establish duration.",
@@ -641,7 +641,7 @@
         },
         {
           "id": "db3-article-chart-status",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/data-bottleneck.mdx",
+          "path": "content/data-hardware/data-bottleneck.mdx",
           "operation": "replace-exact-once",
           "old": "Open X-Embodiment remains listed as unknown duration and is not plotted or ranked by hours.",
           "new": "Open X-Embodiment is listed without an hour estimate and is not plotted or ranked by hours.",
@@ -650,16 +650,16 @@
         },
         {
           "id": "db3-local-plot-status",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/data-scaling.ts",
+          "path": "lib/data-scaling.ts",
           "operation": "replace-exact-once",
           "old": "value: 'Unknown in inspected sources',",
           "new": "value: 'No hour estimate plotted',",
-          "rationale": "This is the chart\u2019s plotting decision, not a claim that the dataset has no duration. Keep status/technical IDs, numeric population and source link unchanged.",
+          "rationale": "This is the chart’s plotting decision, not a claim that the dataset has no duration. Keep status/technical IDs, numeric population and source link unchanged.",
           "execution": "UNEXECUTED; writer must fresh-read and verify the exact span at application."
         },
         {
           "id": "db3-chart-caption",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/data-scale-chart.tsx",
+          "path": "components/interactive/data-scale-chart.tsx",
           "operation": "replace-exact-once",
           "old": "{' '}1M+ trajectories across 22 robot embodiments. Total duration is\n        unknown in inspected sources; not plotted on the hours axis.",
           "new": "{' '}1M+ trajectories across 22 robot embodiments. This chart supplies\n        no hour estimate and does not plot OXE on the hours axis.",
@@ -668,7 +668,7 @@
         },
         {
           "id": "db3-accessible-chart-description",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/data-scale-chart.tsx",
+          "path": "components/interactive/data-scale-chart.tsx",
           "operation": "replace-exact-once",
           "old": "{' '}OXE duration is unknown in inspected sources and is not plotted.",
           "new": "{' '}No OXE hour estimate is supplied or plotted here.",
@@ -680,7 +680,7 @@
         {
           "citationId": "open-x-embodiment-2023",
           "url": "https://arxiv.org/html/2310.08864v9",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/oxe-html-v9.html",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/oxe-html-v9.html",
           "sha256": "5af2c0b4c263b1734a3651e7b46e3ba855d62c5ba1b89e380e1d71a5ef8ea90a",
           "supportingPassage": "The Open X-Embodiment Dataset contains 1M+ real robot trajectories spanning 22 robot embodiments, from single robot arms to bi-manual robots and quadrupeds. The dataset was constructed by pooling 60 existing robot datasets from 34 robotic research labs around the world and converting them into a consistent data format for easy download and usage. We use the RLDS data format [119], which saves data in serialized tfrecord files and accommodates the various action spaces and input modalities of different robot setups, such as differing numbers of RGB cameras, depth cameras and point clouds. It also supports efficient, parallelized data loading in all major deep learning frameworks. For more details about the data storage format and a breakdown of all 60 datasets, see robotics-transformer-x.github.io.",
           "locator": "S3.SS1.p1.1",
@@ -688,7 +688,7 @@
             "observedAt": "2026-09-16T04:09:18Z",
             "status": 200,
             "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
-            "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+            "retrievalRecordPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
             "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
             "reviewedAt": "2026-09-22T20:57:02.215322Z",
             "bytes": 221753,
@@ -702,7 +702,7 @@
         {
           "citationId": "open-x-embodiment-2023",
           "url": "https://robotics-transformer-x.github.io/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/source-2.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/source-2.txt",
           "sha256": "18180d2b27ed6c24142087f7047437ac7addae14ec8db0384bb338288416a143",
           "supportingPassage": "**It contains 1M+ real robot trajectories spanning 22 robot embodiments,**\n**from single robot arms to bi-manual robots and quadrupeds.**",
           "locator": "Dataset Overview",
@@ -711,8 +711,8 @@
             "status": null,
             "basis": "Actual rune___web_scrape tool response; no origin HTTP status exposed. Tool-reported complete markdown, not raw origin HTML or image inspection.",
             "tool": "rune___web_scrape",
-            "requestEventId": "4ea27e19-7b46-4b3e-90d3-313612e6200a",
-            "responseEventId": "140a866a-e036-4123-8516-724d6cc6390a",
+            "requestEventId": "4ea27e19",
+            "responseEventId": "140a866a",
             "requestedAt": "2026-09-22T20:50:33.504Z",
             "finalUrl": "https://robotics-transformer-x.github.io/",
             "truncated": false,
@@ -741,7 +741,7 @@
         "method": "native parse of exact unchanged matching article-heading slices; unrelated malformed historical rows excluded",
         "originalParserError": "audit/data-hardware.md: extra unheaded evidence cells",
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -755,14 +755,14 @@
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
           "bytes": 73277,
           "sha256": "39734ff6280f252675a7603cbeac26786dacb1f79781781bf0d3b076cf1d3216",
           "pointer": "/rows/8",
           "reuse": "Retained preparation, not a source passage or executed proof; old owner/security holds are superseded only by the controlling decisions."
         },
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/rows.json",
           "bytes": 69371,
           "sha256": "87783c4a745cfa2562b0603cada2acc7d4b9d70f9db2207d43368a9590d31db1",
           "pointer": "/records/0",
@@ -783,7 +783,7 @@
         },
         {
           "kind": "authored-parameter",
-          "obligation": "10000/1000000-hour targets;7/1000 productive h per rig-year;1000 corresponds to the chosen4h\u00d7250day schedule; rig controls1..500/default15 and prediction10."
+          "obligation": "10000/1000000-hour targets;7/1000 productive h per rig-year;1000 corresponds to the chosen4h×250day schedule; rig controls1..500/default15 and prediction10."
         },
         {
           "kind": "derived-result",
@@ -832,19 +832,19 @@
         "authoredSchedule": {
           "hoursPerDay": 4,
           "daysPerYear": 250,
-          "formula": "4 h/day \u00d7 250 days/year = 1,000 h/year",
+          "formula": "4 h/day × 250 days/year = 1,000 h/year",
           "status": "Chosen illustrative schedule, not measured farm productivity; producer/review unexecuted."
         }
       },
       "sourceLimitations": [
         "OXE project markup and retained paper text are not an inspection of embedded images or linked spreadsheet. Proposed reader text makes no exhaustive publication-absence claim.",
         "DROID introduction says18 research labs, SectionIII says13 institutions/18 robots. Retain those distinct units in evidence; do not invent equivalence. The historic abs84/body86 task difference is not resolved or claimed.",
-        "Do not repeat ca9cb43\u2019s already-applied count/plot/rate-label corrections; this packet only supplies the minimal later changes and missing typed closure."
+        "Do not repeat ca9cb43’s already-applied count/plot/rate-label corrections; this packet only supplies the minimal later changes and missing typed closure."
       ],
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/data-scaling.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/data-bottleneck.spec.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/data-scaling.test.ts",
+        "tests/e2e/data-bottleneck.spec.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     },
     {
@@ -861,10 +861,10 @@
       "exactChanges": [
         {
           "id": "db5-remove-collector-quotient-as-rate-lead",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/data-bottleneck.mdx",
+          "path": "content/data-hardware/data-bottleneck.mdx",
           "operation": "replace-exact-once",
           "old": "DROID's 350 hours divided by 50 collectors happens to equal seven, but that quotient is not a measured annual rate per rig: the source does not report each collector's or robot's working exposure.",
-          "new": "The seven-hour rate is an authored teaching choice, not a measured annual rate per rig. The reported collector count and elapsed collection period do not establish each robot\u2019s annual working exposure.",
+          "new": "The seven-hour rate is an authored teaching choice, not a measured annual rate per rig. The reported collector count and elapsed collection period do not establish each robot’s annual working exposure.",
           "rationale": "Remove the unnecessary external-input quotient rather than turn350/50 or350/18 into a rate. Preserve the existing hypothetical controls and arithmetic.",
           "execution": "UNEXECUTED; writer must fresh-read and verify the exact span at application."
         }
@@ -873,7 +873,7 @@
         {
           "citationId": "droid-2024",
           "url": "https://arxiv.org/html/2403.12945v2",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
           "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
           "supportingPassage": "The creation of large, diverse, high-quality robot manipulation datasets is an important stepping stone on the path toward more capable and robust robotic manipulation policies. However, creating such datasets is challenging: collecting robot manipulation data in diverse environments poses logistical and safety challenges and requires substantial investments in hardware and human labour. As a result, even the most general robot manipulation policies today are mostly trained on data collected in a small number of environments with limited scene and task diversity. In this work, we introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 86 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months. We demonstrate that training with DROID leads to policies with higher performance and improved generalization ability. We open source the full dataset, policy learning code, and a detailed guide for reproducing our robot hardware setup.",
           "locator": "abstract1.1",
@@ -881,7 +881,7 @@
             "observedAt": "2026-09-16T04:09:18Z",
             "status": 200,
             "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
-            "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+            "retrievalRecordPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
             "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
             "reviewedAt": "2026-09-22T20:57:02.215322Z",
             "bytes": 258370,
@@ -895,7 +895,7 @@
         {
           "citationId": "droid-2024",
           "url": "https://arxiv.org/html/2403.12945v2",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
           "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
           "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), an open-source robot manipulation dataset that provides for very high diversity and variability of scenes, tasks, and objects (see Table I). Diverse and high-quality data is a key ingredient for training generalizable policies, and DROID is designed to deliver both quantity and quality: it contains 76k robot demonstration trajectories, spanning 86 tasks and 564 scenes. It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions. All data is collected on a shared, open-source robot platform.",
           "locator": "S3.p1.1",
@@ -903,7 +903,7 @@
             "observedAt": "2026-09-16T04:09:18Z",
             "status": 200,
             "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
-            "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+            "retrievalRecordPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
             "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
             "reviewedAt": "2026-09-22T20:57:02.215322Z",
             "bytes": 258370,
@@ -917,15 +917,15 @@
         {
           "citationId": "droid-2024",
           "url": "https://arxiv.org/html/2403.12945v2",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
           "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
-          "supportingPassage": "Every data collection session starts with moving the robot to a new scene. Data collectors were encouraged to choose scenes that include multiple interesting tasks, numerous interaction objects, and a healthy amount of clutter (see example scenes in Fig. 10). After setting up the robot in the new scene, the data collector chooses views for the 3rd person cameras that can capture a wide range of interesting behaviors in the scene. Then they perform extrinsic camera calibration using a checkerboard and the OpenCV calibration algorithm. Next, the data collector will enter all potential tasks for the current scene into a data collection GUI on the laptop attached to the robot, either by selecting from a list of task options or by typing in free-from task instructions (see Fig. 9 for screenshots of the GUI). During data collection the GUI will prompt the data collector with a randomly sampled task from this list for each new episode. This way we ensure that there is high coverage of diverse tasks and collection is not biased to easier tasks or closer objects. Additionally, the GUI periodically prompts the data collector to perform randomly sampled \u201cscene augmentations\u201d like nudges to the mobile base, moving and re-calibrating the 3rd person cameras, changing the room lighting, and adding or removing items within the scene. For each trajectory, we record the output of all RGB cameras, relevant low level state information from the robot, equivalent robot control commands from various popular action spaces, a data collector ID, and the metadata entered in the GUI (see Appendix B for a detailed list of all features we record). The data collector also marks whether the collected sequence was a success, which we log as part of the metadata. DROID consists of 76k successful episodes; roughly 16k trajectories in our data collection were labeled as \u201cnot successful\u201d, which we include in our dataset release but do not count towards the size of DROID. A data collector will typically collect up to 100 trajectories or about 20 minutes of interaction data per scene before moving on to a new scene.",
+          "supportingPassage": "Every data collection session starts with moving the robot to a new scene. Data collectors were encouraged to choose scenes that include multiple interesting tasks, numerous interaction objects, and a healthy amount of clutter (see example scenes in Fig. 10). After setting up the robot in the new scene, the data collector chooses views for the 3rd person cameras that can capture a wide range of interesting behaviors in the scene. Then they perform extrinsic camera calibration using a checkerboard and the OpenCV calibration algorithm. Next, the data collector will enter all potential tasks for the current scene into a data collection GUI on the laptop attached to the robot, either by selecting from a list of task options or by typing in free-from task instructions (see Fig. 9 for screenshots of the GUI). During data collection the GUI will prompt the data collector with a randomly sampled task from this list for each new episode. This way we ensure that there is high coverage of diverse tasks and collection is not biased to easier tasks or closer objects. Additionally, the GUI periodically prompts the data collector to perform randomly sampled “scene augmentations” like nudges to the mobile base, moving and re-calibrating the 3rd person cameras, changing the room lighting, and adding or removing items within the scene. For each trajectory, we record the output of all RGB cameras, relevant low level state information from the robot, equivalent robot control commands from various popular action spaces, a data collector ID, and the metadata entered in the GUI (see Appendix B for a detailed list of all features we record). The data collector also marks whether the collected sequence was a success, which we log as part of the metadata. DROID consists of 76k successful episodes; roughly 16k trajectories in our data collection were labeled as “not successful”, which we include in our dataset release but do not count towards the size of DROID. A data collector will typically collect up to 100 trajectories or about 20 minutes of interaction data per scene before moving on to a new scene.",
           "locator": "S3.SS2.p2.1",
           "provenance": {
             "observedAt": "2026-09-16T04:09:18Z",
             "status": 200,
             "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
-            "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+            "retrievalRecordPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
             "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
             "reviewedAt": "2026-09-22T20:57:02.215322Z",
             "bytes": 258370,
@@ -939,7 +939,7 @@
         {
           "citationId": "droid-2024",
           "url": "https://arxiv.org/html/2403.12945v2",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/sources/droid-html-v2.html",
           "sha256": "dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897",
           "supportingPassage": "In this work, we introduce DROID (Distributed Robot Interaction Dataset), a robot manipulation dataset of unprecedented diversity (see ). DROID consist of 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes, 52 buildings and 86 tasks. DROID was collected by 18 research labs in North America, Asia, and Europe over the course of 12 months. To streamline distributed data collection and ensure applicability of the final dataset to a wide range of research settings, all data is collected on the same robot hardware stack based on the popular Franka Panda robot arm. Each episode contains three camera views, depth information, camera calibration, and language annotations.",
           "locator": "S1.p3.1",
@@ -947,7 +947,7 @@
             "observedAt": "2026-09-16T04:09:18Z",
             "status": 200,
             "basis": "Historical preparation-report.json fetchLog, not a fresh request or independently reconstructed origin receipt.",
-            "retrievalRecordPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
+            "retrievalRecordPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-source-i-datasets-20260916c/preparation-report.json",
             "retrievalRecordSha256": "e311df7cbd3e690ca3a739b8f71b968d1393e8f3e59adc6a415be0f66a423261",
             "reviewedAt": "2026-09-22T20:57:02.215322Z",
             "bytes": 258370,
@@ -974,7 +974,7 @@
         "method": "native parse of exact unchanged matching article-heading slices; unrelated malformed historical rows excluded",
         "originalParserError": "audit/data-hardware.md: extra unheaded evidence cells",
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -988,14 +988,14 @@
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
           "bytes": 73277,
           "sha256": "39734ff6280f252675a7603cbeac26786dacb1f79781781bf0d3b076cf1d3216",
           "pointer": "/rows/9",
           "reuse": "Retained preparation, not a source passage or executed proof; old owner/security holds are superseded only by the controlling decisions."
         },
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/rows.json",
           "bytes": 69371,
           "sha256": "87783c4a745cfa2562b0603cada2acc7d4b9d70f9db2207d43368a9590d31db1",
           "pointer": "/records/1",
@@ -1016,7 +1016,7 @@
         },
         {
           "kind": "authored-parameter",
-          "obligation": "10000/1000000-hour targets;7/1000 productive h per rig-year;1000 corresponds to the chosen4h\u00d7250day schedule; rig controls1..500/default15 and prediction10."
+          "obligation": "10000/1000000-hour targets;7/1000 productive h per rig-year;1000 corresponds to the chosen4h×250day schedule; rig controls1..500/default15 and prediction10."
         },
         {
           "kind": "derived-result",
@@ -1065,19 +1065,19 @@
         "authoredSchedule": {
           "hoursPerDay": 4,
           "daysPerYear": 250,
-          "formula": "4 h/day \u00d7 250 days/year = 1,000 h/year",
+          "formula": "4 h/day × 250 days/year = 1,000 h/year",
           "status": "Chosen illustrative schedule, not measured farm productivity; producer/review unexecuted."
         }
       },
       "sourceLimitations": [
         "OXE project markup and retained paper text are not an inspection of embedded images or linked spreadsheet. Proposed reader text makes no exhaustive publication-absence claim.",
         "DROID introduction says18 research labs, SectionIII says13 institutions/18 robots. Retain those distinct units in evidence; do not invent equivalence. The historic abs84/body86 task difference is not resolved or claimed.",
-        "Do not repeat ca9cb43\u2019s already-applied count/plot/rate-label corrections; this packet only supplies the minimal later changes and missing typed closure."
+        "Do not repeat ca9cb43’s already-applied count/plot/rate-label corrections; this packet only supplies the minimal later changes and missing typed closure."
       ],
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/data-scaling.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/data-bottleneck.spec.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/data-scaling.test.ts",
+        "tests/e2e/data-bottleneck.spec.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     },
     {
@@ -1094,7 +1094,7 @@
       "exactChanges": [
         {
           "id": "eval1-qualify-intro-comparison",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/evaluation-crisis.mdx",
+          "path": "content/data-hardware/evaluation-crisis.mdx",
           "operation": "replace-exact-once",
           "old": "Two policies can both report 80% and sit an order of magnitude apart in real capability, because one number was earned over five decisions and the other over thirty.",
           "new": "An episode success rate alone does not specify the probability of success at each decision; the illustrative horizon model below makes its assumptions explicit.",
@@ -1103,7 +1103,7 @@
         },
         {
           "id": "eval1-explicit-model-basis",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/evaluation-crisis.mdx",
+          "path": "content/data-hardware/evaluation-crisis.mdx",
           "operation": "replace-exact-once",
           "old": "A success rate is an episode-level outcome, and an episode is a chain of decisions. A policy that must make 30 correct decisions in a row, each succeeding 95% of the time, completes the whole task 0.95 to the power 30 of the time, which is 21.5%. The per-step number sounded strong; the task-level number is a coin flip weighted toward failure. The product is the deployment metric, because users experience whole tasks, and it is not what most tables report. Drag the episode length slider below out to 100 steps and watch the same 95% policy fall to 0.6%.",
           "new": "This is an illustrative probability model, not a measured robot policy. Assume every decision has the same probability p of success conditional on all earlier decisions succeeding. The probability of completing n decisions without failure is then p^n. Choosing p = 0.95 and n = 30 gives 21.5% after rounding to one decimal place; choosing n = 100 gives 0.6%. Drag the episode-length slider to compare those derived examples. Real tasks need not satisfy the constant conditional-probability assumption.",
@@ -1112,7 +1112,7 @@
         },
         {
           "id": "eval1-inverse-model-only",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/evaluation-crisis.mdx",
+          "path": "content/data-hardware/evaluation-crisis.mdx",
           "operation": "replace-exact-once",
           "old": "The inverse reading matters too. Two tasks that both report 80% episode success demand different per-step reliabilities: over five steps, 80% implies about 95.6% per step, while over thirty steps it implies about 99.3%. Without the step count, the two results are not comparable, and the step count is frequently absent from the report.",
           "new": "Within the same illustrative model, solving p^n = q gives p = q^(1/n). For the chosen episode target q = 0.8, n = 5 gives 95.6% and n = 30 gives 99.3%, rounded to one decimal place. These are model-dependent derivations, not per-step reliabilities inferred from real benchmark results.",
@@ -1121,7 +1121,7 @@
         },
         {
           "id": "eval1-prediction-assumption",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/evaluation-crisis.mdx",
+          "path": "content/data-hardware/evaluation-crisis.mdx",
           "operation": "replace-exact-once",
           "old": "prompt=\"A policy gets each decision right 95% of the time. Roughly how many decisions in a row can it make before the whole task succeeds only half the time?\"",
           "new": "prompt=\"In this illustrative model, each decision succeeds with probability 95% conditional on all earlier decisions succeeding. Roughly how many consecutive decisions bring episode success below one half?\"",
@@ -1130,10 +1130,10 @@
         },
         {
           "id": "eval1-reading-question-scope",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/data-hardware/evaluation-crisis.mdx",
+          "path": "content/data-hardware/evaluation-crisis.mdx",
           "operation": "replace-exact-once",
           "old": "How long is the task, because the same episode success implies different per-step reliabilities at different horizons, and the calculator above shows the arithmetic.",
-          "new": "How long is the task, and what assumptions connect its steps? The calculator illustrates one explicit model; it does not infer a real policy\u2019s per-step reliability.",
+          "new": "How long is the task, and what assumptions connect its steps? The calculator illustrates one explicit model; it does not infer a real policy’s per-step reliability.",
           "rationale": "Do not retain the removed empirical inverse inference elsewhere in the same article.",
           "execution": "UNEXECUTED; writer must fresh-read and verify the exact span at application."
         }
@@ -1141,13 +1141,13 @@
       "evidence": [
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/reliability.ts",
+          "path": "lib/reliability.ts",
           "member": "compoundedSuccessRate",
           "finding": "Code clamps probability and rounds nonnegative steps, then returns p**n; read only, not executed proof."
         },
         {
           "kind": "local-basis-static-read",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/reliability-compounding.tsx",
+          "path": "components/interactive/reliability-compounding.tsx",
           "bytes": 11433,
           "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd",
           "member": "ReliabilityCompounding",
@@ -1172,7 +1172,7 @@
         "method": "native parse of exact unchanged matching article-heading slices; unrelated malformed historical rows excluded",
         "originalParserError": "audit/data-hardware.md: extra unheaded evidence cells",
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -1186,7 +1186,7 @@
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
           "bytes": 73277,
           "sha256": "39734ff6280f252675a7603cbeac26786dacb1f79781781bf0d3b076cf1d3216",
           "pointer": "/rows/1",
@@ -1249,7 +1249,7 @@
             "result": 7.7
           }
         ],
-        "rounding": "100\u00d7probability then toFixed(1), percent",
+        "rounding": "100×probability then toFixed(1), percent",
         "mounts": [
           "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
           "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2"
@@ -1257,28 +1257,28 @@
         "boundaries": "Main mount0..100% with n>=1; test0%,100%,n=1 and named examples. Prediction mount defaults .95/14. No inverse UI and no unrelated home/reliability-gap replay."
       },
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/reliability.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/evaluation-crisis.spec.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/reliability.test.ts",
+        "tests/e2e/evaluation-crisis.spec.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     },
     {
       "originalId": "audit/frontier.md:safety-and-assurance:5",
       "rowOrdinal": 5,
-      "currentTupleDigest": "0b6acd21bfdfc99a3bf45f77b99ec0cbd74a728735e009ea7d61a5e11c388623",
+      "currentTupleDigest": "307fa10994158e1dd5c3eadb9310d499d971744425c20d51247ec19adb78f945",
       "currentCells": {
         "claim": "\"an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams\"",
-        "sourceChecked": "Marvel & Norcross Table 5 + \u00a7VII, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (FetchUrl 200 this session, completed by 2026-09-15T23:10Z)",
+        "sourceChecked": "Marvel & Norcross Table 5 + §VII, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (web fetch 200 this session, completed by 2026-09-15T23:10Z)",
         "verdict": "V",
-        "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The actual PMC table/example supports 850 mm for the stated setup and the article's added \"at least\" is a genuine correction. The retained source also says the ISO 13855 C applicability to dynamically reconfigurable robots is uncertain and that choosing implementation terms is left to the integrator. The current plan reduces the obligation to table value plus lower-bound qualifier. Article text still calls this an instrument sourced constant; lib/safety-modes.ts fixes INTRUSION_MARGIN_M=0.85 under \"Sourced, not chosen\", and the mounted component uses it. Printed numbers alone do not establish that authored mapping. Source dispatch explicitly said to hold mappings not printed; the later preparer/integrator assertion that no authored dependency remains does not satisfy that condition or supply an owner addendum.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/frontier.md:safety-and-assurance:5. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Verified this session against the PMC full text: Table 5 (\"Decision criteria that determine the value of the intrusion distance, C, from ISO 13855\") prints Direction of Approach \u2192 Normal \u2192 Multiple Separate Beams \u2192 850 mm (Single-Height Beam 1200 mm), and \u00a7VII prose prints \"the value of C must be at least 850 mm\" for that configuration. Article span corrected to carry the source's lower-bound qualifier (\"at least 850 mm\"); the previous span printed the table value without the minimum. Constant lib/safety-modes.ts INTRUSION_MARGIN_M = 0.85 unchanged, already labeled \"Sourced, not chosen\" on this same row."
+        "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The actual PMC table/example supports 850 mm for the stated setup and the article's added \"at least\" is a genuine correction. The retained source also says the ISO 13855 C applicability to dynamically reconfigurable robots is uncertain and that choosing implementation terms is left to the integrator. The current plan reduces the obligation to table value plus lower-bound qualifier. Article text still calls this an instrument sourced constant; lib/safety-modes.ts fixes INTRUSION_MARGIN_M=0.85 under \"Sourced, not chosen\", and the mounted component uses it. Printed numbers alone do not establish that authored mapping. Source dispatch explicitly said to hold mappings not printed; the later preparer/integrator assertion that no authored dependency remains does not satisfy that condition or supply an owner addendum.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/frontier.md:safety-and-assurance:5. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Verified this session against the PMC full text: Table 5 (\"Decision criteria that determine the value of the intrusion distance, C, from ISO 13855\") prints Direction of Approach → Normal → Multiple Separate Beams → 850 mm (Single-Height Beam 1200 mm), and §VII prose prints \"the value of C must be at least 850 mm\" for that configuration. Article span corrected to carry the source's lower-bound qualifier (\"at least 850 mm\"); the previous span printed the table value without the minimum. Constant lib/safety-modes.ts INTRUSION_MARGIN_M = 0.85 unchanged, already labeled \"Sourced, not chosen\" on this same row."
       },
       "disposition": "qualify",
       "exactChanges": [
         {
           "id": "article-context-and-choices",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/frontier/safety-and-assurance.mdx",
+          "path": "content/frontier/safety-and-assurance.mdx",
           "old": "Their paper is also where the instrument's sourced constants come from: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, and a 1.6 m/s worst-case operator speed used when the operator's approach is not measured directly.",
-          "new": "Marvel and Norcross supply context, not universal instrument constants. Their Table 5 reproduces ISO 13855:2010 decision criteria: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, compared with 1200 mm for a single-height beam. In the accompanying normal-approach example, a two-handed control device may reduce the margin to 250 mm. The authors exclude typical two-handed teach pendants from that exception and question the transfer of stationary-machinery criteria to dynamically reconfigurable robots <Cite id=\"marvel-norcross-2017\" />.\n\nFor operator approach, their \u00a7III calls 1600 mm/s a worst-case assumption in the approximate equation, but also reports a 2000 mm/s stationary-machinery maximum, with the 1600 mm/s option only when separation is greater than 500 mm. They allow direct measurement; without it, approach is typically assumed constant and directed toward the robot. Later, they say 2000 mm/s may be more prudent for rapid motions and detection uncertainty, and question whether the 1600 mm/s special case applies to robots. A risk assessment may call for a faster approach. Selecting 1.6 m/s here does not resolve those qualifications or make it a universal worst case <Cite id=\"marvel-norcross-2017\" />.\n\nThe instrument is an authored teaching model. It chooses C = 0.85 m at that context-specific minimum, robot speed 1 m/s and operator approach 1.6 m/s by default, and a 0\u20132 m/s range in 0.05 m/s steps for each slider; these controls are not certified operating limits. It chooses a constant 10 m/s\u00b2 deceleration by reusing the magnitude of the paper's acceleration example, not a measured braking profile; T_R = 0.1 s as an assumed reaction delay; combined position uncertainty 0.1 m; and a 1.6 m workcell separation. A 100 Hz update period is 0.01 s, not the selected 0.1 s delay, and update frequency is not a measured detect-to-command latency. The contact illustration additionally chooses 4 kg effective mass and 25 kN/m stiffness. The paper calls its early-draft equation a rough approximation and requires traceable stopping-time and braking-distance measurements for a real robot system <Cite id=\"marvel-norcross-2017\" />. The model's distance, inverse speed and force calculations are neither measurements nor a safety certification.",
+          "new": "Marvel and Norcross supply context, not universal instrument constants. Their Table 5 reproduces ISO 13855:2010 decision criteria: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, compared with 1200 mm for a single-height beam. In the accompanying normal-approach example, a two-handed control device may reduce the margin to 250 mm. The authors exclude typical two-handed teach pendants from that exception and question the transfer of stationary-machinery criteria to dynamically reconfigurable robots <Cite id=\"marvel-norcross-2017\" />.\n\nFor operator approach, their §III calls 1600 mm/s a worst-case assumption in the approximate equation, but also reports a 2000 mm/s stationary-machinery maximum, with the 1600 mm/s option only when separation is greater than 500 mm. They allow direct measurement; without it, approach is typically assumed constant and directed toward the robot. Later, they say 2000 mm/s may be more prudent for rapid motions and detection uncertainty, and question whether the 1600 mm/s special case applies to robots. A risk assessment may call for a faster approach. Selecting 1.6 m/s here does not resolve those qualifications or make it a universal worst case <Cite id=\"marvel-norcross-2017\" />.\n\nThe instrument is an authored teaching model. It chooses C = 0.85 m at that context-specific minimum, robot speed 1 m/s and operator approach 1.6 m/s by default, and a 0–2 m/s range in 0.05 m/s steps for each slider; these controls are not certified operating limits. It chooses a constant 10 m/s² deceleration by reusing the magnitude of the paper's acceleration example, not a measured braking profile; T_R = 0.1 s as an assumed reaction delay; combined position uncertainty 0.1 m; and a 1.6 m workcell separation. A 100 Hz update period is 0.01 s, not the selected 0.1 s delay, and update frequency is not a measured detect-to-command latency. The contact illustration additionally chooses 4 kg effective mass and 25 kN/m stiffness. The paper calls its early-draft equation a rough approximation and requires traceable stopping-time and braking-distance measurements for a real robot system <Cite id=\"marvel-norcross-2017\" />. The model's distance, inverse speed and force calculations are neither measurements nor a safety certification.",
           "basis": "Retained Marvel/Norcross lines 70-82,111,232,294-296,324-356,367-370,389; existing model constants and independent 1/100-second unit conversion. No unseen standard clause or measured machine performance.",
           "appliesToRowOrdinals": [
             5,
@@ -1290,7 +1290,7 @@
         },
         {
           "id": "model-honesty-ceiling",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": " * from the technical specification itself. Every equation and every\n * traceable constant comes from Marvel and Norcross, \"Implementing speed\n * and separation monitoring in collaborative robot workcells\" (Robotics\n * and Computer-Integrated Manufacturing, 2017,\n * doi:10.1016/j.rcim.2016.08.001), a NIST paper published open access,\n * which restates the separation model and its terms in public. Constants\n * that paper does NOT supply are marked `modelled` in the term list the\n * component renders, so a reader can tell a sourced number from a chosen\n * one at a glance.",
           "new": " * from the technical specification itself. The separation equation and\n * source context come from Marvel and Norcross, \"Implementing speed and\n * separation monitoring in collaborative robot workcells\" (Robotics and\n * Computer-Integrated Manufacturing, 2017,\n * doi:10.1016/j.rcim.2016.08.001), the NIST-authored paper archived by PMC.\n * The equation is a rough early-draft approximation, not certification.\n * This teaching model chooses all of its parameter settings, including\n * its mapping of a context-specific intrusion minimum and operator-speed\n * assumption. A printed source number does not certify that selection.\n * Article and component disclosures distinguish source context from\n * authored choices; real stopping time and braking distance need measured\n * evidence for the robot system under test.",
           "basis": "Correct the blanket sourced-constant description without changing code or certifying adjacent force/standards claims.",
@@ -1304,7 +1304,7 @@
         },
         {
           "id": "comment-intrusion_margin_m",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "/**\n * Intrusion-distance safety margin C, in metres. Marvel and Norcross\n * reproduce the ISO 13855 decision table and give 850 mm for a normal\n * direction of approach protected by multiple separate beams; this is\n * that row. Sourced, not chosen.\n */\nexport const INTRUSION_MARGIN_M = 0.85;",
           "new": "/**\n * Chosen intrusion margin C, in metres. The teaching model selects 0.85 m\n * at Marvel and Norcross's context-specific minimum for a normal approach\n * protected by multiple separate beams (Table 5 and its discussion).\n * Their single-height-beam value is 1200 mm; the accompanying example\n * permits 250 mm with a two-handed control device, not a typical teach\n * pendant. The paper questions transfer to reconfigurable robots. This\n * selected mapping is not a universally prescribed or certified margin.\n */\nexport const INTRUSION_MARGIN_M = 0.85;",
           "basis": "Retained Table 5 plus following applicability/exception discussion, lines 324-356; unchanged selected 0.85 m.",
@@ -1317,7 +1317,7 @@
         },
         {
           "id": "comment-robot_deceleration_m_per_s2",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "/**\n * Robot deceleration used to derive the stopping time T_S and braking\n * distance B, in m/s^2. Marvel and Norcross work their update-rate\n * example with a robot at a constant acceleration rate of 10.0 m/s^2, and\n * this reuses that figure rather than inventing a braking profile. A real\n * cell measures T_S and B on the machine under test.\n */\nexport const ROBOT_DECELERATION_M_PER_S2 = 10;",
           "new": "/**\n * Authored constant deceleration for stopping time T_S and braking\n * distance B, in m/s^2. This teaching model reuses the magnitude of the\n * paper's 10.0 m/s^2 acceleration example as a deceleration assumption;\n * that example is not a measured braking profile. A real robot system\n * needs traceable measurements of T_S and B on the machine under test.\n */\nexport const ROBOT_DECELERATION_M_PER_S2 = 10;",
           "basis": "Retained lines 81 and 367; preserve 10 and all stopping/braking formulas.",
@@ -1330,7 +1330,7 @@
         },
         {
           "id": "comment-reaction_time_s",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "/**\n * Safety-system reaction time T_R, in seconds. MODELLED. Marvel and\n * Norcross argue a 100 Hz update rate from the operator-locating sensor\n * is not unreasonable for even aged computer hardware; 0.1 s is one\n * update interval at that rate, used here as a round stand-in for the\n * detect-to-command latency a real integrator measures.\n */\nexport const REACTION_TIME_S = 0.1;",
           "new": "/**\n * Authored safety-system reaction delay T_R, in seconds. The selected\n * 0.1 s is a teaching assumption, not a measured detect-to-command latency.\n * The paper discusses a 100 Hz update rate; its period is 0.01 s, not\n * 0.1 s. Update frequency alone does not establish end-to-end latency.\n * A real integrator must evaluate the reaction time of the actual system.\n */\nexport const REACTION_TIME_S = 0.1;",
           "basis": "Retained lines 294-296 and 370; 1/100 = 0.01 s independently; keep selected delay 0.1 s.",
@@ -1343,7 +1343,7 @@
         },
         {
           "id": "authored-control-ranges",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "export const ROBOT_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;\nexport const HUMAN_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;",
           "new": "// Authored teaching controls, not sourced or certified operating limits.\nexport const ROBOT_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;\nexport const HUMAN_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;",
           "basis": "Both existing 0..2 m/s controls with 0.05 m/s step; no behavior/range change.",
@@ -1357,9 +1357,9 @@
         },
         {
           "id": "component-source-versus-choice-caption",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/collaborative-operation-modes.tsx",
-          "old": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S), the\n        linear form restated by Marvel and Norcross. Sourced terms: C ={' '}\n        {formatMetres(INTRUSION_MARGIN_M)} for a normal approach on multiple beams,\n        robot deceleration {ROBOT_DECELERATION_M_PER_S2} m/s\u00b2, operator worst case{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}. Modelled: T_R = {REACTION_TIME_S} s,\n        Z_R + Z_S = {formatMetres(POSITION_UNCERTAINTY_M)}, and the impact force,\n        an energy balance for a 4 kg effective mass against a 25 kN/m body contact\n        stiffness. The force limit is {CONTACT_LIMIT_LABEL}.\n      </p>",
-          "new": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S),\n        the rough early-draft approximation restated by Marvel and Norcross.\n        Teaching choices: C = {formatMetres(INTRUSION_MARGIN_M)}, selected at the\n        normal-multibeam minimum, not a universal margin (the paper also gives\n        1200 mm for a single-height beam and a conditional two-handed-control\n        reduction to 250 mm); constant robot deceleration{' '}\n        {ROBOT_DECELERATION_M_PER_S2} m/s\u00b2, reusing an acceleration example rather\n        than a measured braking profile; robot default{' '}\n        {formatSpeed(DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0\u20132 m/s\n        in 0.05 m/s steps. The paper records both 1600 and 2000 mm/s, qualifies\n        the 1600 option by separation greater than 500 mm, allows direct\n        measurement, and later urges considering 2000 mm/s; this choice does\n        not resolve that context. Also chosen: T_R = {REACTION_TIME_S} s (a\n        100 Hz period is 0.01 s, not this delay), Z_R + Z_S ={' '}\n        {formatMetres(POSITION_UNCERTAINTY_M)}, workcell separation{' '}\n        {formatMetres(WORKCELL_SEPARATION_M)}, and an energy-balance contact\n        model with 4 kg effective mass and 25 kN/m stiffness. The existing\n        force-limit label is {CONTACT_LIMIT_LABEL}. These calculations are\n        illustrative, not measurements or safety certification.\n      </p>",
+          "path": "components/interactive/collaborative-operation-modes.tsx",
+          "old": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S), the\n        linear form restated by Marvel and Norcross. Sourced terms: C ={' '}\n        {formatMetres(INTRUSION_MARGIN_M)} for a normal approach on multiple beams,\n        robot deceleration {ROBOT_DECELERATION_M_PER_S2} m/s², operator worst case{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}. Modelled: T_R = {REACTION_TIME_S} s,\n        Z_R + Z_S = {formatMetres(POSITION_UNCERTAINTY_M)}, and the impact force,\n        an energy balance for a 4 kg effective mass against a 25 kN/m body contact\n        stiffness. The force limit is {CONTACT_LIMIT_LABEL}.\n      </p>",
+          "new": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S),\n        the rough early-draft approximation restated by Marvel and Norcross.\n        Teaching choices: C = {formatMetres(INTRUSION_MARGIN_M)}, selected at the\n        normal-multibeam minimum, not a universal margin (the paper also gives\n        1200 mm for a single-height beam and a conditional two-handed-control\n        reduction to 250 mm); constant robot deceleration{' '}\n        {ROBOT_DECELERATION_M_PER_S2} m/s², reusing an acceleration example rather\n        than a measured braking profile; robot default{' '}\n        {formatSpeed(DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0–2 m/s\n        in 0.05 m/s steps. The paper records both 1600 and 2000 mm/s, qualifies\n        the 1600 option by separation greater than 500 mm, allows direct\n        measurement, and later urges considering 2000 mm/s; this choice does\n        not resolve that context. Also chosen: T_R = {REACTION_TIME_S} s (a\n        100 Hz period is 0.01 s, not this delay), Z_R + Z_S ={' '}\n        {formatMetres(POSITION_UNCERTAINTY_M)}, workcell separation{' '}\n        {formatMetres(WORKCELL_SEPARATION_M)}, and an energy-balance contact\n        model with 4 kg effective mass and 25 kN/m stiffness. The existing\n        force-limit label is {CONTACT_LIMIT_LABEL}. These calculations are\n        illustrative, not measurements or safety certification.\n      </p>",
           "basis": "Use already imported constants; retain formulas, ranges, mode behavior, geometry and shared force dependency. Source qualifications and selected settings must be visible; do not invent a permitted-speed readout.",
           "appliesToRowOrdinals": [
             5,
@@ -1371,7 +1371,7 @@
         },
         {
           "id": "inverse-documentation-human-reaction-term",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "/**\n * The fastest robot speed whose protective separation distance still fits\n * inside the drawn workcell, in m/s.\n *\n * S is quadratic in v_R with all-positive coefficients, so inverting it is\n * the positive root of\n *\n *   v^2 / (2a) + (v_H / a + T_R) v + (C + Z - separation) = 0.\n *\n * Returns 0 when even a stationary robot violates the distance, which is\n * the honest answer: the margin terms alone already exceed the cell, and\n * speed-and-separation monitoring cannot be used in that geometry at all.\n */",
           "new": "/**\n * The modeled robot speed at which the computed protective separation\n * reaches the supplied workcell separation, in m/s; not a certified limit.\n *\n * For nonnegative approach speed, solve the increasing quadratic\n *\n *   v^2 / (2a) + (v_H / a + T_R) v\n *     + (v_H * T_R + C + Z - separation) = 0.\n *\n * Returns 0 when the stationary modeled distance already reaches or\n * exceeds the supplied separation. The human reaction-travel term is\n * included in the constant, as it is in the implementation below.\n */",
           "basis": "Concrete adjacent documentation discrepancy: existing code includes v_H*T_R but its displayed polynomial omits it. Comment-only optional correction requires explicitly including this span in the later bounded scope; do not change the implementation.",
@@ -1390,10 +1390,10 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
-          "supportingPassage": " S ( t 0 ) \u2265 ( \u222b \u03c4 = t 0 \u03c4 = t 0 + T R + T S v H ( \u03c4 ) d \u03c4 ) + ( \u222b \u03c4 = t 0 \u03c4 = t 0 + T R v R ( \u03c4 ) d \u03c4 ) + ( \u222b \u03c4 = t 0 + t R \u03c4 = t 0 + T R + T S v S ( \u03c4 ) d \u03c4 ) + ( C + Z S + Z R ) , \n 1 \n Where \u03bd H is the \u201cdirected speed\u201d of the operator (i.e., the rate of travel of the operator toward the robot), v R is the directed speed of the robot in the direction of the operator, and v s is the directed speed of the robot in the course of stopping. T R is the time for the robot system to respond to the operator's presence, while T S is the time to bring the robot to a safe, controlled stop. Note that T S is a function of the robot's speed and load. The remaining terms capture measurement uncertainty, where C is an intrusion distance safety margin based on the expected human reach, Z R is the robot position uncertainty, and Z S is the operator position (sensor) uncertainty. For all practical safety purposes, the time, t 0 , is considered the current time . \n Operator safety is maintained via an external observer system integrated into a robotic workcell. The observer system monitors the regions surrounding the robot, and issues commands to slow or stop the robot as humans (\u201coperators\u201d) approach. If the distance between the robot and a detected operator (i.e., the separation distance) is less than the value of S at time t 0 , the safety system initiates a safety-rated, controlled stop. The robot may then resume moving once the separation distance is greater than S . \n Equation 1 is derived from a the equation specified in ISO 13855 [ 4 ], which specifies the minimum protective distance for stationary machine tools: \n S = v T + C . \n 2 \n In Equation 2 , v is the approach speed of human body parts, and is analogous to the value of \u03bd H . The value T is the system stopping performance, and is the combination of the time between sensing actuation (i.e., T R ) and the response time of the machine (i.e., T S ). For the sake of comparison, early drafts of ISO/TS 15066 computed S using the linear function, \n S = ( v H T R + v H T S ) + ( v R T R ) + ( B ) + ( C + Z R + Z S ) , \n 3 \n where B is the distance traveled by the robot while braking. We have put parentheses around the different terms to highlight the one-to-one correlation between Equation 1 and Equation 3 . However, it is important to note that Equation 3 assumes a linear relationship, and is thus only a rough approximation of the computation of Equation 1 . The first term in parentheses describes the distance the human travels in the time necessary to bring the robot to a full stop from its current speed. The second term describes the distance the robot travels before it initiates the braking sequence. The third term describes the distance the robot travels while it is braking (in Equation 3 , this is summarized by the single variable, B ). And the fourth term describes the possible distance of intrusion into the robot's work volume as a function of operator reach and the uncertainty of sensors and robot kinematics. \n The values of v H , T S , B , and C are traceable to existing safety standards. The values of \u03bd H and C are given in ISO 13855, while provisions for evaluating T S and B are given in ISO 10218-1 [ 5 ] (see Section II-A for a brief discussion of the scope of ISO 10218-1). Moreover, T S and B result from traceable measurements that tie directly back to the robot system under test. The details and responsibility of selecting or otherwise calculating the remaining terms are left to the integrator. \n In a previous study [ 6 ], we presented a mechanism for evaluating the impact of the SSM threshold on safety and task performance. During simulated and physical trials, it was noted that even a relatively simple SSM algorithm may improve the robot system's safety, but will not provide safety in all circumstances. This illustrates the necessity for validating the collision-avoidance algorithms, models, and sensor systems before relying on them for operator safety. In this study, we decompose and assess the performance of the ISO/TS 15066 SSM minimum protective distance metric, and provide guidance for the implementation and integration of SSM into collaborative robot workcells. ",
+          "supportingPassage": " S ( t 0 ) ≥ ( ∫ τ = t 0 τ = t 0 + T R + T S v H ( τ ) d τ ) + ( ∫ τ = t 0 τ = t 0 + T R v R ( τ ) d τ ) + ( ∫ τ = t 0 + t R τ = t 0 + T R + T S v S ( τ ) d τ ) + ( C + Z S + Z R ) , \n 1 \n Where ν H is the “directed speed” of the operator (i.e., the rate of travel of the operator toward the robot), v R is the directed speed of the robot in the direction of the operator, and v s is the directed speed of the robot in the course of stopping. T R is the time for the robot system to respond to the operator's presence, while T S is the time to bring the robot to a safe, controlled stop. Note that T S is a function of the robot's speed and load. The remaining terms capture measurement uncertainty, where C is an intrusion distance safety margin based on the expected human reach, Z R is the robot position uncertainty, and Z S is the operator position (sensor) uncertainty. For all practical safety purposes, the time, t 0 , is considered the current time . \n Operator safety is maintained via an external observer system integrated into a robotic workcell. The observer system monitors the regions surrounding the robot, and issues commands to slow or stop the robot as humans (“operators”) approach. If the distance between the robot and a detected operator (i.e., the separation distance) is less than the value of S at time t 0 , the safety system initiates a safety-rated, controlled stop. The robot may then resume moving once the separation distance is greater than S . \n Equation 1 is derived from a the equation specified in ISO 13855 [ 4 ], which specifies the minimum protective distance for stationary machine tools: \n S = v T + C . \n 2 \n In Equation 2 , v is the approach speed of human body parts, and is analogous to the value of ν H . The value T is the system stopping performance, and is the combination of the time between sensing actuation (i.e., T R ) and the response time of the machine (i.e., T S ). For the sake of comparison, early drafts of ISO/TS 15066 computed S using the linear function, \n S = ( v H T R + v H T S ) + ( v R T R ) + ( B ) + ( C + Z R + Z S ) , \n 3 \n where B is the distance traveled by the robot while braking. We have put parentheses around the different terms to highlight the one-to-one correlation between Equation 1 and Equation 3 . However, it is important to note that Equation 3 assumes a linear relationship, and is thus only a rough approximation of the computation of Equation 1 . The first term in parentheses describes the distance the human travels in the time necessary to bring the robot to a full stop from its current speed. The second term describes the distance the robot travels before it initiates the braking sequence. The third term describes the distance the robot travels while it is braking (in Equation 3 , this is summarized by the single variable, B ). And the fourth term describes the possible distance of intrusion into the robot's work volume as a function of operator reach and the uncertainty of sensors and robot kinematics. \n The values of v H , T S , B , and C are traceable to existing safety standards. The values of ν H and C are given in ISO 13855, while provisions for evaluating T S and B are given in ISO 10218-1 [ 5 ] (see Section II-A for a brief discussion of the scope of ISO 10218-1). Moreover, T S and B result from traceable measurements that tie directly back to the robot system under test. The details and responsibility of selecting or otherwise calculating the remaining terms are left to the integrator. \n In a previous study [ 6 ], we presented a mechanism for evaluating the impact of the SSM threshold on safety and task performance. During simulated and physical trials, it was noted that even a relatively simple SSM algorithm may improve the robot system's safety, but will not provide safety in all circumstances. This illustrates the necessity for validating the collision-avoidance algorithms, models, and sensor systems before relying on them for operator safety. In this study, we decompose and assess the performance of the ISO/TS 15066 SSM minimum protective distance metric, and provide guidance for the implementation and integration of SSM into collaborative robot workcells. ",
           "locator": "1-based lines 70-82, retained readable extraction; contiguous verbatim text",
           "provenance": {
             "citationId": "marvel-norcross-2017",
@@ -1403,10 +1403,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1419,10 +1419,10 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
-          "supportingPassage": " ISO/TS 15066 defers to ISO 13855 for the valuation of an intrusion distance safety margin for separation, C . ISO 13855 defines necessary separation distances for stationary machinery based on expected approach speeds and biomechanical limitations of human operators. In this sense, stationary machinery is identified as mechanical tools that do not have a set work volume defined by the profile of the machine, e.g., the cabinet of a band saw. The value of C is chosen based on the decision rules outlined in Table 5 . Here, d is the detection capability of the presence-identifying sensor in mm, and H is the height of the detection zone. The detection capability, as described by ISO 13855, is a functional limit of sensing that causes the protective equipment to signal the presence of an object. For example, a light curtain's detection capability is measured as the distance between light beams, and a LADAR's detection capability is measured as the disparity of the laser beams at a function of safeguarding distance. ISO 13855 further specifies the lowest value, \n Table 5. \n Decision criteria that determine the value of the intrusion distance, C, from ISO 13855. Choosing to provide safety by limiting the direction of approach, relying on the placement of sensors, or requiring a specific control device determines the safety buffer. \n Decision Criteria \n Conditions \n C \n Direction of Approach \n Normal \n d < 40 mm \n max(8( d \u2013 14), 0) mm \n 40 mm < d < 70 mm \n 850 mm \n Multiple Separate Beams \n 850 mm \n Single-Height Beam \n 1200 mm \n Parallel/Angled \n max((1200 \u2013 0.4 H ), 850) mm \n Sensor Mounting \n General/Step \n 1200 mm \u2013 0.4 H \n Floor \n 1200 mm \n Control Device \n Two-Handed \n 250 mm \n Open in a new tab \n H = 15 ( d \u2212 50 ) mm . \n 10 \n The safety buffer is determined by the selection sensors and by which safety is provided. Limiting the direction of approach, relying on the placement of position-identifying sensors (relative to the floor), or mandating specific safety controlling devices designed for machinery will result in different values for C . For example, if the integrator chooses to ensure safety by limiting the direction of approach to be normal to the machinery and protects the region by multiple laser-based sensors, the value of C must be at least 850 mm. If the operator also requires a two-handed control device, the value of C may be reduced to 250 mm. \n As applied to ISO/TS 15066, it is expected that when a protective stop is issued, the robot will come to a halt when the operator is no closer than C mm away. However, given the configuration of the robot system, the applicability of C from ISO 13855 to the robot system is not certain. Namely, because ISO 13855 applies specifically to stationary machinery, it is unclear whether its expectations of operator safety are also applicable to dynamically reconfigurable platforms such as industrial robots. For example, does the mounting location of a sensor for a robot cell really hold the same level of importance as it does for stationary machinery? \n One may argue that the considerations given for C from ISO 13855 are not applicable to the SSM equation as defined in ISO/TS 15066. Specifically, because of the dynamic and reconfigurable nature of industrial robots, the direction of approach is ambiguous, and distinctions between \u201cnormal\u201d and \u201cparallel/angled\u201d are inconsistent. Further, given the varied nature of sensor types considered for supervising large robot cells, next-generation safety sensors such as ceiling-mounted cameras may not fit concisely within the bounds of the mounting limitations for stationary machinery. Finally, per the scope of ISO 13855, the controlling devices most frequently used for industrial robots (i.e., two-handed teach pendants) are not applicable for consideration when determining the value of C . \n Depending on the application, it may therefore be prudent to evaluate the value of C based on a task-based risk assessment that includes factors such as tooling, robot reach, sensor resolution and update rate, and potential regions of operator approach. One possible solution is to assume the worst-case approach angle from ISO 13855 and then add an extra buffer based on the precision of the monitoring sensor system, for example: ",
+          "supportingPassage": " ISO/TS 15066 defers to ISO 13855 for the valuation of an intrusion distance safety margin for separation, C . ISO 13855 defines necessary separation distances for stationary machinery based on expected approach speeds and biomechanical limitations of human operators. In this sense, stationary machinery is identified as mechanical tools that do not have a set work volume defined by the profile of the machine, e.g., the cabinet of a band saw. The value of C is chosen based on the decision rules outlined in Table 5 . Here, d is the detection capability of the presence-identifying sensor in mm, and H is the height of the detection zone. The detection capability, as described by ISO 13855, is a functional limit of sensing that causes the protective equipment to signal the presence of an object. For example, a light curtain's detection capability is measured as the distance between light beams, and a LADAR's detection capability is measured as the disparity of the laser beams at a function of safeguarding distance. ISO 13855 further specifies the lowest value, \n Table 5. \n Decision criteria that determine the value of the intrusion distance, C, from ISO 13855. Choosing to provide safety by limiting the direction of approach, relying on the placement of sensors, or requiring a specific control device determines the safety buffer. \n Decision Criteria \n Conditions \n C \n Direction of Approach \n Normal \n d < 40 mm \n max(8( d – 14), 0) mm \n 40 mm < d < 70 mm \n 850 mm \n Multiple Separate Beams \n 850 mm \n Single-Height Beam \n 1200 mm \n Parallel/Angled \n max((1200 – 0.4 H ), 850) mm \n Sensor Mounting \n General/Step \n 1200 mm – 0.4 H \n Floor \n 1200 mm \n Control Device \n Two-Handed \n 250 mm \n Open in a new tab \n H = 15 ( d − 50 ) mm . \n 10 \n The safety buffer is determined by the selection sensors and by which safety is provided. Limiting the direction of approach, relying on the placement of position-identifying sensors (relative to the floor), or mandating specific safety controlling devices designed for machinery will result in different values for C . For example, if the integrator chooses to ensure safety by limiting the direction of approach to be normal to the machinery and protects the region by multiple laser-based sensors, the value of C must be at least 850 mm. If the operator also requires a two-handed control device, the value of C may be reduced to 250 mm. \n As applied to ISO/TS 15066, it is expected that when a protective stop is issued, the robot will come to a halt when the operator is no closer than C mm away. However, given the configuration of the robot system, the applicability of C from ISO 13855 to the robot system is not certain. Namely, because ISO 13855 applies specifically to stationary machinery, it is unclear whether its expectations of operator safety are also applicable to dynamically reconfigurable platforms such as industrial robots. For example, does the mounting location of a sensor for a robot cell really hold the same level of importance as it does for stationary machinery? \n One may argue that the considerations given for C from ISO 13855 are not applicable to the SSM equation as defined in ISO/TS 15066. Specifically, because of the dynamic and reconfigurable nature of industrial robots, the direction of approach is ambiguous, and distinctions between “normal” and “parallel/angled” are inconsistent. Further, given the varied nature of sensor types considered for supervising large robot cells, next-generation safety sensors such as ceiling-mounted cameras may not fit concisely within the bounds of the mounting limitations for stationary machinery. Finally, per the scope of ISO 13855, the controlling devices most frequently used for industrial robots (i.e., two-handed teach pendants) are not applicable for consideration when determining the value of C . \n Depending on the application, it may therefore be prudent to evaluate the value of C based on a task-based risk assessment that includes factors such as tooling, robot reach, sensor resolution and update rate, and potential regions of operator approach. One possible solution is to assume the worst-case approach angle from ISO 13855 and then add an extra buffer based on the precision of the monitoring sensor system, for example: ",
           "locator": "1-based lines 324-356, retained readable extraction; contiguous verbatim text",
           "provenance": {
             "citationId": "marvel-norcross-2017",
@@ -1432,10 +1432,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1448,7 +1448,7 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
           "supportingPassage": " When a monitoring system reports the position of a human operator, it is vital to have an estimate as to how much time has actually passed since the human was at the reported location. If there is a sufficiently long lag between the times when an event occurs and when the event is reported, the delay presents a significant safety risk regardless of the accuracy and precision of the reported data. For instance, if a human walking at 2000 mm/s is reported half a second late, the separation distance between the robot and the human may be 1000 mm shorter than indicated. This delay directly impacts the measurement uncertainty of the human detection/tracking system and affects the robot's reaction time, T R . To compensate for this larger uncertainty, the separation buffer may be increased. Alternatively, if the effects on measurement uncertainty can be characterized, the effects on the reaction time may be negated by means of predictive filtering (e.g., in Vasquez, Fraichard, and Laugier [ 33 ], the authors produce statistical models to predict human and vehicle motions). \n Currently, there is no standardized methodology for measuring the reaction time of a human-detecting sensor. Rather, it is treated as a constant value that the integrator must provide. Given the nonlinearity of the human tracking problem, accurately predicting the reaction time of a human-detection system is difficult. Contact-based limit sensors such as pressure-sensitive mats provide rapid notice that a human is present, but suffer from poor resolution, offer little to no tracking capacity, and are easily bypassed or confused. Non-contact human-detection systems such as camera- and laser-based solutions offer higher resolution and the potential for better tracking capabilities, but performance is affected by factors including lighting, processing time, capture frequency, occlusions, and sensor and scene uncertainty. \n To measure the reaction time, it is necessary to give a controlled signal to the safety system and then measure the latency of the response. For camera-based systems the stimulus may be a sequence of recorded images showing a person entering a protected space, while laser-based systems may require the use of a controlled physical avatar that can be moved into the work zone using repeatable trajectories. Ultimately, the tester should be able to provide both a ground truth and control triggering of the event. Embedded safety systems that perform the acquisition and processing of signal data based on internal or multimodal triggers in a closed manner are difficult to evaluate as these triggers are not always controllable. For such situations, a second system (e.g., a pressure-sensitive mat) that monitors the boundary of the protected zone will be required to start a timer that is then stopped when the signal from the safety system is received. Multiple repetitions 3 are required for statistical significance, as are the reaction time averages, standard deviations, and maximum reported values for assessing the expected and worst-case performances. ",
@@ -1461,10 +1461,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1477,7 +1477,7 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
           "supportingPassage": " Fidelity of distance updates and tightness of control loop also drive the robot's performance as a function of S . For instance, assuming a tight control loop with regard to updates from the operator locator, the separation distance and commanded robot velocity are directly influenced by the rate at which updates are presented to the system. As an example, let the robot have a constant acceleration rate of 10.0 m/s 2 . Assume that a human operator maintains a constant separation distance of 1.6 m between himself and the closest point of potential contact, the robot's TCP (i.e., the operator moves at the same speed and in the same direction as the robot's trajectory). As the robot's velocity increases linearly, the minimum protective distance increases proportionately, as seen in Fig.10 . Results for both the current SSM equation ( Eq. 1 ) and the original SSM equation ( Eq. 3 ) are provided in Fig. 10 to illustrate differences in the equations' impacts on v H and S . \n Fig. 10. \n Open in a new tab \n Given identical behaviors and initial parameters, the performance of a robot system may be adversely affected by reduced update rates from the safety system. Here, as the update rate slows, the closer the robot's reactive drop in velocity approaches 0 as a human maintaining a constant separation distance is detected as the minimum protective distance grows with increases in the robot's velocity. As the update rate from the operator locator decreases, the robot's velocity fluctuates more when the minimum protective distance is violated, the average velocity of the robot decreases, and the amount of time the robot spends recovering increases. At steady state with a 1000 Hz update rate, the robot has an average velocity of 1.6 m/s, whereas the average robot velocities for update rates of 100 Hz and 30 Hz are closer to 1.5 m/s. It is therefore preferable to have as high an update frequency as possible to optimize performance. Given the capabilities of even aged computer technology, rapid responses to a minimum update rate of 100 Hz is not unreasonable, particularly when one considers that the separation distance of an operator and a robot, each moving at 1.0 m/s directly toward one another, can close by over 0.06 m between updates presented at 33 Hz. B. Verification and Validation ",
@@ -1490,10 +1490,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1506,10 +1506,10 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
-          "supportingPassage": " 4. International Organization for Standardization. ISO 13855 \u2014 Safety of machinery \u2014 Positioning of safeguards with respect to the approach speeds of parts of the human body. 2010 [ Google Scholar ] ",
+          "supportingPassage": " 4. International Organization for Standardization. ISO 13855 — Safety of machinery — Positioning of safeguards with respect to the approach speeds of parts of the human body. 2010 [ Google Scholar ] ",
           "locator": "1-based lines 389-389, retained readable extraction; contiguous verbatim text",
           "provenance": {
             "citationId": "marvel-norcross-2017",
@@ -1519,10 +1519,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1541,13 +1541,13 @@
           "claim": "\"an 850 mm intrusion margin for a normal approach protected by multiple separate beams\"",
           "sourceChecked": "Marvel & Norcross Table 5 (fetched)",
           "verdict": "V",
-          "note": "Table 5, \"Decision criteria that determine the value of the intrusion distance, C, from ISO 13855\": Direction of Approach \u2192 Normal \u2192 **Multiple Separate Beams \u2192 850 mm** (Single-Height Beam 1200 mm). Prose confirms: \"if the integrator chooses to ensure safety by limiting the direction of approach to be normal to the machinery and protects the region by multiple laser-based sensors, the value of C must be at least 850 mm\""
+          "note": "Table 5, \"Decision criteria that determine the value of the intrusion distance, C, from ISO 13855\": Direction of Approach → Normal → **Multiple Separate Beams → 850 mm** (Single-Height Beam 1200 mm). Prose confirms: \"if the integrator chooses to ensure safety by limiting the direction of approach to be normal to the machinery and protects the region by multiple laser-based sensors, the value of C must be at least 850 mm\""
         },
         "originalTupleDigest": "09919f055affcda5f9805670e89036bf6ff7d87e22dc53f7d6d6bfb79a096668",
         "method": "native full-ledger parse",
         "originalParserError": null,
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -1555,14 +1555,14 @@
         "Writer: preserve exact original/current four-cell identities and all non-counted correction/withdrawn-review history; apply the listed active-reader changes, not merely a catalog/verdict label. Preserve all completed originals and approved interactive mounts.",
         "Writer: bind only the eligible authored-parameter, derived-result and actually observed-behavior parts; retain immutable applicable file/member/input/output identities, actual commands/context/times/results and genuine semantic review of the whole claim and every required part. External AND local obligations must all be supported.",
         "Writer: run the stated proportional checks sequentially with NODE_DISABLE_COMPILE_CACHE=1, retain failures and exact scoped approvals, then update native evidence/ledger only after real proof and review. No new run, observation, adjudication, commit, completion or independent acceptance is supplied by this packet.",
-        "Reuse the complete retained safety preparation; apply9 unique shared span replacements once across the two originals. Preserve850/1200/conditional250 contexts,1600/2000 disagreement with S history,100Hz=.01s vs chosen.1s reaction delay, and10m/s\u00b2 as illustrative deceleration reusing an acceleration example.",
+        "Reuse the complete retained safety preparation; apply9 unique shared span replacements once across the two originals. Preserve850/1200/conditional250 contexts,1600/2000 disagreement with S history,100Hz=.01s vs chosen.1s reaction delay, and10m/s² as illustrative deceleration reusing an acceleration example.",
         "Migrate only SA5/6 active legacy bindings after real proof; preserve withdrawn reviews and explicit S history. State-specific observed-output adapter repair is required, but it is ordinary bounded integration work, not an owner wait or permission for a new UI."
       ],
       "unresolved": [],
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
           "bytes": 111987,
           "sha256": "44f83ef5ce928b49ac65d2223e8770fe2754e959d43df85c23b383fa7e10c929",
           "pointer": "/rows/0",
@@ -1591,7 +1591,7 @@
         {
           "id": "sa5-authored-settings",
           "kind": "authored-parameter",
-          "text": "Explicit choices: C .85 m, deceleration 10 m/s\u00b2, reaction .1 s, uncertainty .1 m, workcell 1.6 m, robot default 1 m/s, human default 1.6 m/s and both 0..2/.05 ranges; bind imported force dependency and authored 4 kg/25000 N/m contact settings.",
+          "text": "Explicit choices: C .85 m, deceleration 10 m/s², reaction .1 s, uncertainty .1 m, workcell 1.6 m, robot default 1 m/s, human default 1.6 m/s and both 0..2/.05 ranges; bind imported force dependency and authored 4 kg/25000 N/m contact settings.",
           "requiredEvidence": "safety/parameters; explicit article/component disclosure; lib/safety-modes.ts plus force-limits.ts dependencies. Correct 100 Hz period to .01 s without changing .1 s delay."
         },
         {
@@ -1607,10 +1607,10 @@
           "requiredEvidence": "Actual future mounted producer, honest state-specific visible readouts, real DOM/PNG and reviews. Current missing permitted-speed display blocks strict observed proof."
         }
       ],
-      "proposedFinalClaim": "Marvel/Norcross give at least 850 mm for the stated normal-multibeam configuration, with the retained conditional alternatives and applicability cautions. The instrument\u2019s 0.85 m mapping, other settings and outputs are disclosed authored choices/derivations, not certified operating limits.",
+      "proposedFinalClaim": "Marvel/Norcross give at least 850 mm for the stated normal-multibeam configuration, with the retained conditional alternatives and applicability cautions. The instrument’s 0.85 m mapping, other settings and outputs are disclosed authored choices/derivations, not certified operating limits.",
       "preservedPreparedProofPlan": {
         "sourcePacket": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
           "bytes": 111987,
           "sha256": "44f83ef5ce928b49ac65d2223e8770fe2754e959d43df85c23b383fa7e10c929",
           "pointer": "/rows/0",
@@ -1626,37 +1626,37 @@
         "scope": "Keep inverse speed under numeric proof only; no new UI. Preserve force-limits dependency and existing255N behavior without newly certifying adjacent SA8."
       },
       "stateSpecificAdapterRequirement": {
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/audit-local-basis.ts",
+        "path": "lib/audit-local-basis.ts",
         "criterion": "VAL-FRONT-028",
         "rule": "Observation assertions depend on actual mode. Speed-separation: main distance and its four terms; power-force: force replaces distance; monitored-stop/hand-guiding: their implemented constraints. Open Current workcell settings before claiming its dt/dd values are visible. Numeric inverse speed is not a required mounted readout anywhere.",
         "implementationBoundary": "Narrow backward-compatible adapter repair, separate tooling commit; preserve actual calculations and imported data identities. Do not add inverse-speed UI, hidden readouts, a fourth evidence category or mass56-proof replay.",
         "negativeCases": "Reject wrong-mode readouts, missing required visible distance/force for that mode, stale fingerprints and fabricated/unobserved output. Inverse numeric errors must still fail."
       },
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/safety-modes.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/collaborative-operation-modes.test.tsx",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/safety-assurance-sa-source.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/safety-and-assurance.spec.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/safety-modes.test.ts",
+        "tests/component/collaborative-operation-modes.test.tsx",
+        "tests/unit/safety-assurance-sa-source.test.ts",
+        "tests/e2e/safety-and-assurance.spec.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     },
     {
       "originalId": "audit/frontier.md:safety-and-assurance:6",
       "rowOrdinal": 6,
-      "currentTupleDigest": "0058b5e1457cd54661ab95097a1eaef1040b34d7e041d42841df1c4ab661cf89",
+      "currentTupleDigest": "cf7760e83c781595b6c88b46134a3fd8e89177e6ae3a576fb5892200a75822b8",
       "currentCells": {
         "claim": "\"a 1.6 m/s worst-case operator speed used when the operator's approach is not measured directly\"",
-        "sourceChecked": "Marvel & Norcross \u00a7III + Discussion velocity-reliability paragraph, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (FetchUrl 200 this session, completed by 2026-09-15T23:10Z; both contradicting passages re-read)",
+        "sourceChecked": "Marvel & Norcross §III + Discussion velocity-reliability paragraph, https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/ (web fetch 200 this session, completed by 2026-09-15T23:10Z; both contradicting passages re-read)",
         "verdict": "S",
-        "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The retained PMC response genuinely contains the 1600 mm/s framing, direct-measurement provision, greater-than-500-mm qualification and later prudent-2000 counterpassage; the S verdict correctly retains that inconsistency. However the plan omits the separate authored-speed obligation while asserting that the 1.6 m/s instrument default carries the paper basis. Article text still calls it an instrument sourced constant; DEFAULT_HUMAN_SPEED_M_S=1.6 and the 0-2 slider remain authored settings used by the component. Neither printing both numbers nor recording S proves this particular default/range selection. There was no article correction for row6, and the conditional hold instruction was not an owner authorization to drop the local conjunct.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/frontier.md:safety-and-assurance:6. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Re-verified this session against the PMC full text, both passages. \u00a7III: \"the speed of the operator, vH, is assumed to be a worst-case maximum of 1600 mm/s based on the specifications in ISO 13855. ISO 13855 claims a maximum speed of 2000 mm/s for an operator ... with the option for using 1600 mm/s in the case that the separation distance is greater than 500 mm. The new application in Equation 1, however, allows for the provision that vH may be measured directly. If such measurements are not available, vH is typically assumed to be constant and in the direction of the robot.\" Discussion: \"even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the worst-case assumption of 2000 mm/s from ISO 13855 to accommodate instantaneous rapid motions and the uncertainties associated with operator detection.\" Source-internal inconsistency stands recorded (S); the article's wording follows \u00a7III, the passage the instrument's constant is drawn from."
+        "note": "HELD: restored named authored-evidence hold (2026-09-21); the prior completion review/adjudications are withdrawn, not source-certified. The retained PMC response genuinely contains the 1600 mm/s framing, direct-measurement provision, greater-than-500-mm qualification and later prudent-2000 counterpassage; the S verdict correctly retains that inconsistency. However the plan omits the separate authored-speed obligation while asserting that the 1.6 m/s instrument default carries the paper basis. Article text still calls it an instrument sourced constant; DEFAULT_HUMAN_SPEED_M_S=1.6 and the 0-2 slider remain authored settings used by the component. Neither printing both numbers nor recording S proves this particular default/range selection. There was no article correction for row6, and the conditional hold instruction was not an owner authorization to drop the local conjunct.<br>Genuine product corrections and partial source/countercontext are preserved; local agreement is not an authorized fetched-passage evidence type. The existing plan binding stays in place with planReview null and adjudications empty. Exact prior four cells and withdrawn reviews are archived after the original tables under audit/frontier.md:safety-and-assurance:6. No new source retrieval, owner addendum, criteria exception or independent acceptance is claimed.<br><br>Prior note retained verbatim as historical completion context, not a renewed verification: Re-verified this session against the PMC full text, both passages. §III: \"the speed of the operator, vH, is assumed to be a worst-case maximum of 1600 mm/s based on the specifications in ISO 13855. ISO 13855 claims a maximum speed of 2000 mm/s for an operator ... with the option for using 1600 mm/s in the case that the separation distance is greater than 500 mm. The new application in Equation 1, however, allows for the provision that vH may be measured directly. If such measurements are not available, vH is typically assumed to be constant and in the direction of the robot.\" Discussion: \"even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the worst-case assumption of 2000 mm/s from ISO 13855 to accommodate instantaneous rapid motions and the uncertainties associated with operator detection.\" Source-internal inconsistency stands recorded (S); the article's wording follows §III, the passage the instrument's constant is drawn from."
       },
       "disposition": "qualify",
       "exactChanges": [
         {
           "id": "article-context-and-choices",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/content/frontier/safety-and-assurance.mdx",
+          "path": "content/frontier/safety-and-assurance.mdx",
           "old": "Their paper is also where the instrument's sourced constants come from: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, and a 1.6 m/s worst-case operator speed used when the operator's approach is not measured directly.",
-          "new": "Marvel and Norcross supply context, not universal instrument constants. Their Table 5 reproduces ISO 13855:2010 decision criteria: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, compared with 1200 mm for a single-height beam. In the accompanying normal-approach example, a two-handed control device may reduce the margin to 250 mm. The authors exclude typical two-handed teach pendants from that exception and question the transfer of stationary-machinery criteria to dynamically reconfigurable robots <Cite id=\"marvel-norcross-2017\" />.\n\nFor operator approach, their \u00a7III calls 1600 mm/s a worst-case assumption in the approximate equation, but also reports a 2000 mm/s stationary-machinery maximum, with the 1600 mm/s option only when separation is greater than 500 mm. They allow direct measurement; without it, approach is typically assumed constant and directed toward the robot. Later, they say 2000 mm/s may be more prudent for rapid motions and detection uncertainty, and question whether the 1600 mm/s special case applies to robots. A risk assessment may call for a faster approach. Selecting 1.6 m/s here does not resolve those qualifications or make it a universal worst case <Cite id=\"marvel-norcross-2017\" />.\n\nThe instrument is an authored teaching model. It chooses C = 0.85 m at that context-specific minimum, robot speed 1 m/s and operator approach 1.6 m/s by default, and a 0\u20132 m/s range in 0.05 m/s steps for each slider; these controls are not certified operating limits. It chooses a constant 10 m/s\u00b2 deceleration by reusing the magnitude of the paper's acceleration example, not a measured braking profile; T_R = 0.1 s as an assumed reaction delay; combined position uncertainty 0.1 m; and a 1.6 m workcell separation. A 100 Hz update period is 0.01 s, not the selected 0.1 s delay, and update frequency is not a measured detect-to-command latency. The contact illustration additionally chooses 4 kg effective mass and 25 kN/m stiffness. The paper calls its early-draft equation a rough approximation and requires traceable stopping-time and braking-distance measurements for a real robot system <Cite id=\"marvel-norcross-2017\" />. The model's distance, inverse speed and force calculations are neither measurements nor a safety certification.",
+          "new": "Marvel and Norcross supply context, not universal instrument constants. Their Table 5 reproduces ISO 13855:2010 decision criteria: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, compared with 1200 mm for a single-height beam. In the accompanying normal-approach example, a two-handed control device may reduce the margin to 250 mm. The authors exclude typical two-handed teach pendants from that exception and question the transfer of stationary-machinery criteria to dynamically reconfigurable robots <Cite id=\"marvel-norcross-2017\" />.\n\nFor operator approach, their §III calls 1600 mm/s a worst-case assumption in the approximate equation, but also reports a 2000 mm/s stationary-machinery maximum, with the 1600 mm/s option only when separation is greater than 500 mm. They allow direct measurement; without it, approach is typically assumed constant and directed toward the robot. Later, they say 2000 mm/s may be more prudent for rapid motions and detection uncertainty, and question whether the 1600 mm/s special case applies to robots. A risk assessment may call for a faster approach. Selecting 1.6 m/s here does not resolve those qualifications or make it a universal worst case <Cite id=\"marvel-norcross-2017\" />.\n\nThe instrument is an authored teaching model. It chooses C = 0.85 m at that context-specific minimum, robot speed 1 m/s and operator approach 1.6 m/s by default, and a 0–2 m/s range in 0.05 m/s steps for each slider; these controls are not certified operating limits. It chooses a constant 10 m/s² deceleration by reusing the magnitude of the paper's acceleration example, not a measured braking profile; T_R = 0.1 s as an assumed reaction delay; combined position uncertainty 0.1 m; and a 1.6 m workcell separation. A 100 Hz update period is 0.01 s, not the selected 0.1 s delay, and update frequency is not a measured detect-to-command latency. The contact illustration additionally chooses 4 kg effective mass and 25 kN/m stiffness. The paper calls its early-draft equation a rough approximation and requires traceable stopping-time and braking-distance measurements for a real robot system <Cite id=\"marvel-norcross-2017\" />. The model's distance, inverse speed and force calculations are neither measurements nor a safety certification.",
           "basis": "Retained Marvel/Norcross lines 70-82,111,232,294-296,324-356,367-370,389; existing model constants and independent 1/100-second unit conversion. No unseen standard clause or measured machine performance.",
           "appliesToRowOrdinals": [
             5,
@@ -1668,7 +1668,7 @@
         },
         {
           "id": "model-honesty-ceiling",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": " * from the technical specification itself. Every equation and every\n * traceable constant comes from Marvel and Norcross, \"Implementing speed\n * and separation monitoring in collaborative robot workcells\" (Robotics\n * and Computer-Integrated Manufacturing, 2017,\n * doi:10.1016/j.rcim.2016.08.001), a NIST paper published open access,\n * which restates the separation model and its terms in public. Constants\n * that paper does NOT supply are marked `modelled` in the term list the\n * component renders, so a reader can tell a sourced number from a chosen\n * one at a glance.",
           "new": " * from the technical specification itself. The separation equation and\n * source context come from Marvel and Norcross, \"Implementing speed and\n * separation monitoring in collaborative robot workcells\" (Robotics and\n * Computer-Integrated Manufacturing, 2017,\n * doi:10.1016/j.rcim.2016.08.001), the NIST-authored paper archived by PMC.\n * The equation is a rough early-draft approximation, not certification.\n * This teaching model chooses all of its parameter settings, including\n * its mapping of a context-specific intrusion minimum and operator-speed\n * assumption. A printed source number does not certify that selection.\n * Article and component disclosures distinguish source context from\n * authored choices; real stopping time and braking distance need measured\n * evidence for the robot system under test.",
           "basis": "Correct the blanket sourced-constant description without changing code or certifying adjacent force/standards claims.",
@@ -1682,7 +1682,7 @@
         },
         {
           "id": "comment-default_human_speed_m_s",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "/**\n * Default operator approach speed, m/s. Marvel and Norcross state that\n * v_H is assumed to be a worst-case maximum of 1600 mm/s from ISO 13855\n * when it is not measured directly, and that is this default.\n */\nexport const DEFAULT_HUMAN_SPEED_M_S = 1.6;",
           "new": "/**\n * Authored default operator approach speed, m/s. The paper frames\n * 1600 mm/s as a worst-case assumption in its approximate equation, but\n * also gives 2000 mm/s for stationary machinery and permits 1600 mm/s\n * only for separation greater than 500 mm. Direct measurement is allowed.\n * Its later discussion favors considering 2000 mm/s for rapid motions\n * and detection uncertainty and questions transfer of the 1600 mm/s\n * special case to robots. Choosing 1.6 here does not resolve that context\n * or establish a universal worst case; the slider range is authored too.\n */\nexport const DEFAULT_HUMAN_SPEED_M_S = 1.6;",
           "basis": "Both actual velocity passages, lines 111 and 232; preserve 1.6 and verdict S history.",
@@ -1695,7 +1695,7 @@
         },
         {
           "id": "authored-control-ranges",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "export const ROBOT_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;\nexport const HUMAN_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;",
           "new": "// Authored teaching controls, not sourced or certified operating limits.\nexport const ROBOT_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;\nexport const HUMAN_SPEED_RANGE = { min: 0, max: 2, step: 0.05 } as const;",
           "basis": "Both existing 0..2 m/s controls with 0.05 m/s step; no behavior/range change.",
@@ -1709,9 +1709,9 @@
         },
         {
           "id": "component-source-versus-choice-caption",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/components/interactive/collaborative-operation-modes.tsx",
-          "old": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S), the\n        linear form restated by Marvel and Norcross. Sourced terms: C ={' '}\n        {formatMetres(INTRUSION_MARGIN_M)} for a normal approach on multiple beams,\n        robot deceleration {ROBOT_DECELERATION_M_PER_S2} m/s\u00b2, operator worst case{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}. Modelled: T_R = {REACTION_TIME_S} s,\n        Z_R + Z_S = {formatMetres(POSITION_UNCERTAINTY_M)}, and the impact force,\n        an energy balance for a 4 kg effective mass against a 25 kN/m body contact\n        stiffness. The force limit is {CONTACT_LIMIT_LABEL}.\n      </p>",
-          "new": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S),\n        the rough early-draft approximation restated by Marvel and Norcross.\n        Teaching choices: C = {formatMetres(INTRUSION_MARGIN_M)}, selected at the\n        normal-multibeam minimum, not a universal margin (the paper also gives\n        1200 mm for a single-height beam and a conditional two-handed-control\n        reduction to 250 mm); constant robot deceleration{' '}\n        {ROBOT_DECELERATION_M_PER_S2} m/s\u00b2, reusing an acceleration example rather\n        than a measured braking profile; robot default{' '}\n        {formatSpeed(DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0\u20132 m/s\n        in 0.05 m/s steps. The paper records both 1600 and 2000 mm/s, qualifies\n        the 1600 option by separation greater than 500 mm, allows direct\n        measurement, and later urges considering 2000 mm/s; this choice does\n        not resolve that context. Also chosen: T_R = {REACTION_TIME_S} s (a\n        100 Hz period is 0.01 s, not this delay), Z_R + Z_S ={' '}\n        {formatMetres(POSITION_UNCERTAINTY_M)}, workcell separation{' '}\n        {formatMetres(WORKCELL_SEPARATION_M)}, and an energy-balance contact\n        model with 4 kg effective mass and 25 kN/m stiffness. The existing\n        force-limit label is {CONTACT_LIMIT_LABEL}. These calculations are\n        illustrative, not measurements or safety certification.\n      </p>",
+          "path": "components/interactive/collaborative-operation-modes.tsx",
+          "old": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S), the\n        linear form restated by Marvel and Norcross. Sourced terms: C ={' '}\n        {formatMetres(INTRUSION_MARGIN_M)} for a normal approach on multiple beams,\n        robot deceleration {ROBOT_DECELERATION_M_PER_S2} m/s², operator worst case{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}. Modelled: T_R = {REACTION_TIME_S} s,\n        Z_R + Z_S = {formatMetres(POSITION_UNCERTAINTY_M)}, and the impact force,\n        an energy balance for a 4 kg effective mass against a 25 kN/m body contact\n        stiffness. The force limit is {CONTACT_LIMIT_LABEL}.\n      </p>",
+          "new": "      <p className=\"mt-3 font-mono text-[11px] leading-relaxed text-text-dim\">\n        Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S),\n        the rough early-draft approximation restated by Marvel and Norcross.\n        Teaching choices: C = {formatMetres(INTRUSION_MARGIN_M)}, selected at the\n        normal-multibeam minimum, not a universal margin (the paper also gives\n        1200 mm for a single-height beam and a conditional two-handed-control\n        reduction to 250 mm); constant robot deceleration{' '}\n        {ROBOT_DECELERATION_M_PER_S2} m/s², reusing an acceleration example rather\n        than a measured braking profile; robot default{' '}\n        {formatSpeed(DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}\n        {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0–2 m/s\n        in 0.05 m/s steps. The paper records both 1600 and 2000 mm/s, qualifies\n        the 1600 option by separation greater than 500 mm, allows direct\n        measurement, and later urges considering 2000 mm/s; this choice does\n        not resolve that context. Also chosen: T_R = {REACTION_TIME_S} s (a\n        100 Hz period is 0.01 s, not this delay), Z_R + Z_S ={' '}\n        {formatMetres(POSITION_UNCERTAINTY_M)}, workcell separation{' '}\n        {formatMetres(WORKCELL_SEPARATION_M)}, and an energy-balance contact\n        model with 4 kg effective mass and 25 kN/m stiffness. The existing\n        force-limit label is {CONTACT_LIMIT_LABEL}. These calculations are\n        illustrative, not measurements or safety certification.\n      </p>",
           "basis": "Use already imported constants; retain formulas, ranges, mode behavior, geometry and shared force dependency. Source qualifications and selected settings must be visible; do not invent a permitted-speed readout.",
           "appliesToRowOrdinals": [
             5,
@@ -1723,7 +1723,7 @@
         },
         {
           "id": "inverse-documentation-human-reaction-term",
-          "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/safety-modes.ts",
+          "path": "lib/safety-modes.ts",
           "old": "/**\n * The fastest robot speed whose protective separation distance still fits\n * inside the drawn workcell, in m/s.\n *\n * S is quadratic in v_R with all-positive coefficients, so inverting it is\n * the positive root of\n *\n *   v^2 / (2a) + (v_H / a + T_R) v + (C + Z - separation) = 0.\n *\n * Returns 0 when even a stationary robot violates the distance, which is\n * the honest answer: the margin terms alone already exceed the cell, and\n * speed-and-separation monitoring cannot be used in that geometry at all.\n */",
           "new": "/**\n * The modeled robot speed at which the computed protective separation\n * reaches the supplied workcell separation, in m/s; not a certified limit.\n *\n * For nonnegative approach speed, solve the increasing quadratic\n *\n *   v^2 / (2a) + (v_H / a + T_R) v\n *     + (v_H * T_R + C + Z - separation) = 0.\n *\n * Returns 0 when the stationary modeled distance already reaches or\n * exceeds the supplied separation. The human reaction-travel term is\n * included in the constant, as it is in the implementation below.\n */",
           "basis": "Concrete adjacent documentation discrepancy: existing code includes v_H*T_R but its displayed polynomial omits it. Comment-only optional correction requires explicitly including this span in the later bounded scope; do not change the implementation.",
@@ -1742,7 +1742,7 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
           "supportingPassage": " Validating the speed estimates of the operator and robot is a difficult task. In Equation 3 , the speed of the operator, v H , is assumed to be a worst-case maximum of 1600 mm/s based on the specifications in ISO 13855. ISO 13855 claims a maximum speed of 2000 mm/s for an operator when calculating the minimum protective distance for stationary machinery with the option for using 1600 mm/s in the case that the separation distance is greater than 500 mm. The new application in Equation 1 , however, allows for the provision that v H may be measured directly. If such measurements are not available, v H is typically assumed to be constant and in the direction of the robot, though more realistic acceleration profiles may be adopted. ",
@@ -1755,10 +1755,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1771,7 +1771,7 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
           "supportingPassage": " Open in a new tab Improving the reliability of the velocity measurements is a matter of establishing conventions. For instance, regarding the assumed value of the operator velocity, v H , even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the worst-case assumption of 2000 mm/s from ISO 13855 to accommodate instantaneous rapid motions and the uncertainties associated with operator detection. Although this worst-case assumption is not necessarily accurate at all times, it is clearly safer to assume than the special case average currently chosen, particularly given that it is not clear that the special circumstances involved with selecting 1600 mm/s over 2000 mm/s for stationary machinery is applicable with robot systems. ISO 13855 also explicitly states that the approach of an operator towards the machine will be at a walking speed, and that a faster rate may be used if a risk assessment deems it necessary. ",
@@ -1784,10 +1784,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1800,10 +1800,10 @@
           "kind": "retained-external-source",
           "citationId": "marvel-norcross-2017",
           "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5117641/",
-          "retainedPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
+          "retainedPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.txt",
           "bytes": 72967,
           "sha256": "fc014e383f1037af165a21871797e801ff8b3957fe5267ede3741fd905dfd57e",
-          "supportingPassage": " 4. International Organization for Standardization. ISO 13855 \u2014 Safety of machinery \u2014 Positioning of safeguards with respect to the approach speeds of parts of the human body. 2010 [ Google Scholar ] ",
+          "supportingPassage": " 4. International Organization for Standardization. ISO 13855 — Safety of machinery — Positioning of safeguards with respect to the approach speeds of parts of the human body. 2010 [ Google Scholar ] ",
           "locator": "1-based lines 389-389, retained readable extraction; contiguous verbatim text",
           "provenance": {
             "citationId": "marvel-norcross-2017",
@@ -1813,10 +1813,10 @@
               "result": "2026-09-06T00:34:25.849Z"
             },
             "historicalStatus": "curl final HTTP200 only; no origin headers/redirect chain preserved",
-            "metadataPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
+            "metadataPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/sources.json",
             "metadataBytes": 6035,
             "metadataSha256": "7cf66461b367126e50ae44ff3548bfb068ffd2b3b4535afe68295a517a269b19",
-            "rawPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
+            "rawPath": "validation/brand-v2-editorial/source-recovery-20260906/convergence-lane-b-industrial-safety-context-20260908/marvel-norcross.html",
             "rawBytes": 210038,
             "rawSha256": "ef864b0e80fa47ae6183be7a3623e6f9fc73b45f59bc3f421249b9fa2f536839",
             "readableBytes": 72967,
@@ -1833,15 +1833,15 @@
         "originalLedgerSha256": "be7b5d4741b776b4c6f9042ef43b7f56e15df5f7161e404d2a06d174c70a4df5",
         "originalCells": {
           "claim": "\"a 1.6 m/s worst-case operator speed used when the operator's approach is not measured directly\"",
-          "sourceChecked": "Marvel & Norcross \u00a7III and \u00a7\"Improving the reliability of the velocity measurements\" (fetched)",
+          "sourceChecked": "Marvel & Norcross §III and §\"Improving the reliability of the velocity measurements\" (fetched)",
           "verdict": "S",
-          "note": "The article's wording is verbatim the paper's \u00a7III: \"the speed of the operator, v_H, is assumed to be a **worst-case maximum of 1600 mm/s** based on the specifications in ISO 13855\", followed by \"Equation 1 \u2026 allows for the provision that v_H may be measured directly. If such measurements are not available, v_H is typically assumed to be constant and in the direction of the robot.\" The same paper later contradicts that label: \"even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the **worst-case assumption of 2000 mm/s** from ISO 13855\". Source-internal inconsistency, recorded, not fixed: the article follows the paper's own \u00a7III framing, which is the passage the instrument's constant is drawn from"
+          "note": "The article's wording is verbatim the paper's §III: \"the speed of the operator, v_H, is assumed to be a **worst-case maximum of 1600 mm/s** based on the specifications in ISO 13855\", followed by \"Equation 1 … allows for the provision that v_H may be measured directly. If such measurements are not available, v_H is typically assumed to be constant and in the direction of the robot.\" The same paper later contradicts that label: \"even though the 1600 mm/s is an accurate assessment of normal walking speeds, it may be more prudent to instead use the **worst-case assumption of 2000 mm/s** from ISO 13855\". Source-internal inconsistency, recorded, not fixed: the article follows the paper's own §III framing, which is the passage the instrument's constant is drawn from"
         },
         "originalTupleDigest": "2cfe9ea2a10d3546078b3deb354f9310fb27475181fd62f880915245e33005e5",
         "method": "native full-ledger parse",
         "originalParserError": null,
         "preserve": "Keep exact original/current tuples, every non-counted correction history and withdrawn plan/review. No acceptance is implied.",
-        "controllingCorrectionAuthority": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+        "controllingCorrectionAuthority": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
         "priorSourceCheckedIsNotProof": true
       },
       "remainingImplementation": [
@@ -1849,14 +1849,14 @@
         "Writer: preserve exact original/current four-cell identities and all non-counted correction/withdrawn-review history; apply the listed active-reader changes, not merely a catalog/verdict label. Preserve all completed originals and approved interactive mounts.",
         "Writer: bind only the eligible authored-parameter, derived-result and actually observed-behavior parts; retain immutable applicable file/member/input/output identities, actual commands/context/times/results and genuine semantic review of the whole claim and every required part. External AND local obligations must all be supported.",
         "Writer: run the stated proportional checks sequentially with NODE_DISABLE_COMPILE_CACHE=1, retain failures and exact scoped approvals, then update native evidence/ledger only after real proof and review. No new run, observation, adjudication, commit, completion or independent acceptance is supplied by this packet.",
-        "Reuse the complete retained safety preparation; apply9 unique shared span replacements once across the two originals. Preserve850/1200/conditional250 contexts,1600/2000 disagreement with S history,100Hz=.01s vs chosen.1s reaction delay, and10m/s\u00b2 as illustrative deceleration reusing an acceleration example.",
+        "Reuse the complete retained safety preparation; apply9 unique shared span replacements once across the two originals. Preserve850/1200/conditional250 contexts,1600/2000 disagreement with S history,100Hz=.01s vs chosen.1s reaction delay, and10m/s² as illustrative deceleration reusing an acceleration example.",
         "Migrate only SA5/6 active legacy bindings after real proof; preserve withdrawn reviews and explicit S history. State-specific observed-output adapter repair is required, but it is ordinary bounded integration work, not an owner wait or permission for a new UI."
       ],
       "unresolved": [],
       "status": "ready-for-bounded-implementation-not-complete",
       "preparedPacketReferences": [
         {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
           "bytes": 111987,
           "sha256": "44f83ef5ce928b49ac65d2223e8770fe2754e959d43df85c23b383fa7e10c929",
           "pointer": "/rows/1",
@@ -1873,7 +1873,7 @@
         {
           "id": "sa6-section-iii-and-exception",
           "kind": "external-source",
-          "text": "Keep \u00a7III 1600 mm/s framing, 2000 mm/s stationary-machinery maximum, 1600 option only for separation greater than 500 mm, direct measurement provision and constant-directed fallback.",
+          "text": "Keep §III 1600 mm/s framing, 2000 mm/s stationary-machinery maximum, 1600 option only for separation greater than 500 mm, direct measurement provision and constant-directed fallback.",
           "requiredEvidence": "marvel-norcross-2017, entire actual line 111, not a truncated 1600-only excerpt."
         },
         {
@@ -1904,7 +1904,7 @@
       "proposedFinalClaim": "Marvel/Norcross state the 1600 mm/s assumption, the 2000 mm/s maximum with the greater-than-500 mm exception and direct-measurement provision, then favor considering 2000 mm/s for rapid motion and uncertainty. The chosen 1.6 m/s default does not resolve this disagreement or establish a universal worst case.",
       "preservedPreparedProofPlan": {
         "sourcePacket": {
-          "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
+          "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
           "bytes": 111987,
           "sha256": "44f83ef5ce928b49ac65d2223e8770fe2754e959d43df85c23b383fa7e10c929",
           "pointer": "/rows/1",
@@ -1920,24 +1920,24 @@
         "scope": "Keep inverse speed under numeric proof only; no new UI. Preserve force-limits dependency and existing255N behavior without newly certifying adjacent SA8."
       },
       "stateSpecificAdapterRequirement": {
-        "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/lib/audit-local-basis.ts",
+        "path": "lib/audit-local-basis.ts",
         "criterion": "VAL-FRONT-028",
         "rule": "Observation assertions depend on actual mode. Speed-separation: main distance and its four terms; power-force: force replaces distance; monitored-stop/hand-guiding: their implemented constraints. Open Current workcell settings before claiming its dt/dd values are visible. Numeric inverse speed is not a required mounted readout anywhere.",
         "implementationBoundary": "Narrow backward-compatible adapter repair, separate tooling commit; preserve actual calculations and imported data identities. Do not add inverse-speed UI, hidden readouts, a fourth evidence category or mass56-proof replay.",
         "negativeCases": "Reject wrong-mode readouts, missing required visible distance/force for that mode, stale fingerprints and fabricated/unobserved output. Inverse numeric errors must still fail."
       },
       "testScope": [
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/safety-modes.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/component/collaborative-operation-modes.test.tsx",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/safety-assurance-sa-source.test.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/e2e/safety-and-assurance.spec.ts",
-        "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/tests/unit/audit-local-basis.test.ts"
+        "tests/unit/safety-modes.test.ts",
+        "tests/component/collaborative-operation-modes.test.tsx",
+        "tests/unit/safety-assurance-sa-source.test.ts",
+        "tests/e2e/safety-and-assurance.spec.ts",
+        "tests/unit/audit-local-basis.test.ts"
       ]
     }
   ],
   "filesWritten": [
-    "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
-    "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/notes.md"
+    "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/rows.json",
+    "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-ready-20260923/notes.md"
   ],
   "packetStatus": "9 closure paths ready for bounded integration; 0 applied and 0 completions",
   "readyCount": 9,
@@ -1989,17 +1989,17 @@
     "reset": false
   },
   "authority": {
-    "controllingDecision": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
-    "contentAuditorLoadedFrom": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/skills/content-auditor/SKILL.md",
-    "contract": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/contract/content-audit.md",
-    "preflightInstruction": "/home/remy-simpc4/.local/share/robot-wiki-codex-bridge/row-dispatch-preflight-20260908.md"
+    "controllingDecision": "validation/brand-v2-editorial/source-recovery-20260906/owner-decision-clear-all-holds-20260923.md",
+    "contentAuditorLoadedFrom": "skills/content-auditor/SKILL.md",
+    "contract": "contract/content-audit.md",
+    "preflightInstruction": "row-dispatch-preflight-20260908.md"
   },
   "dispatchInventory": {
-    "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-ready-20260923/inventory.json",
+    "path": "validation/brand-v2-editorial/source-recovery-20260906/closure-industrial-ready-20260923/inventory.json",
     "observedHead": "41ffef2f801fce7c85de96f803014c2f744d3221",
     "observedTree": "5556872c105e598b7f4c7cd5501bcb36554e430e",
     "observedAt": "2026-09-23T18:07:11.216Z",
-    "nativeCurrentIdentityResult": "All994 tuples matched retained coverage at inventory preparation; nine selected native digests rechecked in this worker and matched. No proof/gate evaluation.",
+    "nativeCurrentIdentityResult": "All994 tuples matched retained coverage at inventory preparation; nine selected native digests rechecked in this run and matched. No proof/gate evaluation.",
     "parentDispatchPreflight": null,
     "applicationRequirement": "Parent creates current-HEAD selected preflight; writer rechecks. Never dispatch/reapply any completed record."
   },
@@ -2038,7 +2038,7 @@
   "limitations": [
     "No scientific truth is established by static source code, a stored label, a count, a hash or this packet. Each remaining local claim still needs its genuine future proof and semantic adjudication.",
     "No current parent dispatch preflight was supplied; the inventory explicitly contains null. Native identity-only checks here succeeded for all9, but product HEAD can advance before application.",
-    "The retained safety packet\u2019s economics security wait is superseded by the controlling owner checkpoint; its unrun tests and withheld reviews do not become executed.",
+    "The retained safety packet’s economics security wait is superseded by the controlling owner checkpoint; its unrun tests and withheld reviews do not become executed.",
     "No new source retrieval was needed. Retained network failures/status limits are preserved in currentCells and original packets; no fetch date/status is invented.",
     "Source-only output is not article/milestone completion. Retained967/27/994 accounting is parent inventory, not a newly executed coverage gate."
   ],
@@ -2065,22 +2065,22 @@
   "preparedAt": "2026-09-23T18:45:58.265549+00:00",
   "retainedPacketIndex": [
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-remaining-local-scope-20260923/rows.json",
       "bytes": 73277,
       "sha256": "39734ff6280f252675a7603cbeac26786dacb1f79781781bf0d3b076cf1d3216"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/bindings.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-first-ten-originals-20260923/bindings.json",
       "bytes": 502083,
       "sha256": "3fcaaa8b866268238b134390fc3b73eebfbf6afa07b0ed0cb3ec22818b00cb0c"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-local-ready-20260923/rows.json",
       "bytes": 111987,
       "sha256": "44f83ef5ce928b49ac65d2223e8770fe2754e959d43df85c23b383fa7e10c929"
     },
     {
-      "path": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/rows.json",
+      "path": "validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-scale-recovery-20260922/rows.json",
       "bytes": 69371,
       "sha256": "87783c4a745cfa2562b0603cada2acc7d4b9d70f9db2207d43368a9590d31db1"
     }

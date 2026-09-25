@@ -159,7 +159,7 @@ describe('surgical originals: ledger rows and compound plans', () => {
     for (const plan of surgicalPlans) {
       expect(plan.planReview.planDigest).toBe(compoundPlanDigest(plan));
       const reviewer = plan.id === SURGICAL_20260917A_PLAN_ID
-        ? 'paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa'
+        ? 'paywall integrator efa5d1e4'
         : 'surgical-integrator-20260916';
       expect(plan.planReview.reviewedBy).toContain(reviewer);
       for (const review of plan.adjudications) {

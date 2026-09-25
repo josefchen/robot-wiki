@@ -228,8 +228,8 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
     expect(p.originalCellsDigest).toBe(originalClaimDigest(row()));
     expect(p.originalCellsDigest).not.toBe(originalClaimDigest(oldCells));
     expect(p.planReview?.planDigest).toBe(compoundPlanDigest(p));
-    expect(p.planReview?.reviewedBy).toContain('cabba322-3087-4e1a-a633-ae4022af946c');
-    expect(p.planReview?.reviewedBy).toContain('custom:droidproxy:gpt-6-astra');
+    expect(p.planReview?.reviewedBy).toContain('cabba322');
+    expect(p.planReview?.reviewedBy).toContain('integrator review');
     expect(p.planReview?.reviewedBy).toContain('max');
     expect(p.adjudications.map(a => a.partId)).toEqual(expectedParts.map(p => p.id));
     for (const a of p.adjudications) {
@@ -280,7 +280,7 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
   it('preserves prior original14 and every preceding/following article byte', () => {
     expect(article.split(prior14Span)).toHaveLength(2);
     expect(originalClaimDigest(section().claimRecords[13])).toBe(
-      '1ffddfee218f90234e2704b81ccbaabc74f2f001d03ec5135a6cc4e73d96ede0',
+      '71d65a99cee4fb164624759b14b1a41f46c1565a57663b317645cc1c769a5598',
     );
     expect(section().claimRecords).toHaveLength(16);
     expect(section().claimRecords[13].evidenceFailures).toEqual([]);

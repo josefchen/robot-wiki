@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 REWARD_LOCAL_CAPTURE=1 ./node_modules/.bin/vitest run tests/unit/reward-local-evidence.test.ts -t discloses|independently --no-file-parallelism",
   "runner": "vitest",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
@@ -72,13 +72,13 @@
     {
       "file": {
         "path": "tests/unit/reward-local-evidence.test.ts",
-        "bytes": 7995,
-        "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+        "bytes": 8394,
+        "sha256": "5a3c6d529e0fc3ec006aad3a075ac02540ec3476e3f391193b998b89d78b8488"
       },
       "id": "file:tests/unit/reward-local-evidence.test.ts",
       "offset": 0,
-      "length": 7995,
-      "sha256": "adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05"
+      "length": 8394,
+      "sha256": "5a3c6d529e0fc3ec006aad3a075ac02540ec3476e3f391193b998b89d78b8488"
     },
     {
       "file": {

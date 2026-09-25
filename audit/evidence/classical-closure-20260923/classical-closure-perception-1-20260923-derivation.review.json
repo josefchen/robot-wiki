@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-1-20260923:derivation",
   "observedAt": "2026-09-23T19:54:47.685Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected current numeric results and independent test arithmetic after real execution. RSS, squared-input shares, (90-60)/2=15mm and 15/30mm bands for the authored finite inputs; no variance, error-bound or collision interpretation. Units, range, rounding and counterexamples are explicit; the chosen headings occur once and tangent examples are geometry, not calibration measurements.",
-  "inputDigest": "ba1958de1a90cefccbe246a3f57cb8f8a3121975ded482e09ac616d1f6f2fdfd",
+  "inputDigest": "6c17fad52fb20dba887cccf96ec8b064d0f451a83326f0b0035c2fe86cee3aa8",
   "outcome": "supported",
   "scope": "part",
   "partId": "derivation",
@@ -235,5 +235,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:1",
-  "currentTupleDigest": "72a21ed94fe2906706863894583116b6fbd47274307105ae34133976364557c0"
+  "currentTupleDigest": "3dc25b7606146769df613dd204a04b9ab36e3abdad626df485af4d3bfd675945"
 }

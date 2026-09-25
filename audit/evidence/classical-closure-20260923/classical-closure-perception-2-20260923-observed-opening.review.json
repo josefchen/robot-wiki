@@ -1,12 +1,12 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "e781d819-64a0-43b9-a76c-984d300b1b4f",
+  "sessionId": "e781d819",
   "role": "integrator",
   "eventId": "classical-closure-perception-2-20260923:observed-opening",
   "observedAt": "2026-09-23T19:54:47.690Z",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
+  "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted opening readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
-  "inputDigest": "9709bc5b4e09e2874072a6c4fcb28a404ce6e91c2638e18a7a3f30147e0552af",
+  "inputDigest": "85d667207a52f4231c0cc619787a644090cffc3377e965eb084cf79908a36d1d",
   "outcome": "supported",
   "scope": "part",
   "partId": "observed-opening",
@@ -235,5 +235,5 @@
     }
   ],
   "originalId": "audit/classical.md:perception:2",
-  "currentTupleDigest": "54d9f409623bad00cec0b9f9f93e142906c2e61fb7330aca4726ca65ce5e02db"
+  "currentTupleDigest": "a38026abdc93e061eb67f7e07b65c21a842964f2450bdb4e6714274f094bbc91"
 }

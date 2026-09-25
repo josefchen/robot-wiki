@@ -14,11 +14,11 @@
   },
   "citationRegistry": {
     "path": "data/citations.ts",
-    "bytes": 301297,
-    "sha256": "40428a52fd74caed8804f7d4e6dbadfd7a6051246545915aa3571b40517eac5a"
+    "bytes": 305677,
+    "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
   },
   "sourceBody": {
-    "path": "audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt",
+    "path": "audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt",
     "bytes": 95187,
     "sha256": "1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae"
   },

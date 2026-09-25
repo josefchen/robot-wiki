@@ -68,7 +68,7 @@ describe('autonomous-vehicles originals integration (2026-09-15)', () => {
     );
     for (const planId of Object.values(EXPECTED)) {
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toMatch(/GLM-5\.3\/max integrator/);
+      expect(plan.planReview?.reviewedBy).toMatch(/^integrator (?:[0-9a-f]{8}|techwithdraw-20260924)\b/);
       expect(plan.planReview?.rationale).toContain('78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a');
     }
   });

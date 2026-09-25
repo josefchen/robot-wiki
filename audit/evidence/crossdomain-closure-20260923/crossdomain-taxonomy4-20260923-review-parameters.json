@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "b7856fa2-70d5-4c9d-ba8e-608460f99a6d",
+  "sessionId": "b7856fa2",
   "role": "integrator",
   "eventId": "crossdomain-taxonomy4-20260923:crossdomain-taxonomy4-20260923-parameters",
   "observedAt": "2026-09-23T20:54:41.433Z",
-  "reviewedBy": "Droid b7856fa2-70d5-4c9d-ba8e-608460f99a6d; integrator Astra/max, not independent acceptance",
+  "reviewedBy": "reviewer run b7856fa2; integrator integrator review, not independent acceptance",
   "rationale": "Reviewed the six exact WM_PARADIGMS IDs and duplicate-free cardinality, matching the six selected article groups. Existing scientific-to-editorial qualification is preserved with the word authored made explicit. No survey passage is claimed to establish six universal paradigms; the superseded unresolved compound plan remains archived, not promoted. Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.",
   "outcome": "supported",
   "scope": "part",
   "partId": "crossdomain-taxonomy4-20260923-parameters",
-  "inputDigest": "899b57049829b79b5d69224be954a693b2f6e7ca90872e93f0be7c27940f610f",
+  "inputDigest": "c54ecef3894a2fdd31be8ba6c56ec068574b41a2088fc607109a87ba5f176a18",
   "inventory": [
     {
       "id": "crossdomain-taxonomy4-20260923-parameters",

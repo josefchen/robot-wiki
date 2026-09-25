@@ -211,96 +211,96 @@
       }
     ],
     "planReview": {
-      "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
-      "rationale": "I reviewed the exact whole original/current five-obligation AND inventory: two external parts, authored parameters, all three independent price calculations, and five real mounted states. Seven native parts partition only the mounted obligation by output price; none is dropped. The genuine first historical Unresolved snapshot/tuple and full prior C/HELD correction history remain intact. Exact source identity, historical retrieval limitations, chosen assumptions, capital-only units and actual browser outputs are distinguished. This is one integration review, not independent Sol/high validation, whole-article cleanliness or release acceptance.",
+      "reviewedBy": "integrator run f86f6148; integrator review; max",
+      "rationale": "I reviewed the exact whole original/current five-obligation AND inventory: two external parts, authored parameters, all three independent price calculations, and five real mounted states. Seven native parts partition only the mounted obligation by output price; none is dropped. The genuine first historical Unresolved snapshot/tuple and full prior C/HELD correction history remain intact. Exact source identity, historical retrieval limitations, chosen assumptions, capital-only units and actual browser outputs are distinguished. This is one integration review, not independent validation, whole-article cleanliness or release acceptance.",
       "inputDigest": "6050f101a0cfd84fe19afa89974f1eb6a2a19c35df5d5c7f48ac00dc0a61b988",
       "event": {
         "path": "audit/evidence/economics-local-20260923/plan.review.json",
-        "bytes": 6738,
-        "sha256": "c2c90bbb2bae94a85eface65e407dd9e6b9424728af6bcf9a88c74fb4e366441"
+        "bytes": 6659,
+        "sha256": "cf3fe8fc648e697cdc237a5bb16b2ee2d06beeed7359a7adabd2b0e315b49030"
       }
     },
     "adjudications": [
       {
-        "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+        "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I read the complete retained21932-byte EVST readable representation and verified it and the236502-byte raw HTML against original provenance hashes. The actual payload-section text expressly defines complete-cell budgets, including robot, EOAT, safety, integration and programming, not robot-only list prices. The footnote states no fixed list prices and points to a configuration-specific quote; the FAQ is consistent but has different wording. Neither gives the invented25000..80000 arm-price range. The corrected note says not a sourced quote, not universal absence of arm prices. EVST is a commercial vendor speaking for its own guide, not independent pricing research. September6 final curl200 is historical; no headers/redirect chain or new request is claimed.",
         "inputDigest": "c8d77dde19fff9b6f0dd96c5eb5b2ae90407b365ef23ec0795747c9bcd65ade5",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-evst-scope.review.json",
-          "bytes": 6876,
-          "sha256": "3c01696a578544044d245d2416c41d61ee6bee29a5c35b1f6a5a410ebd07582d"
+          "bytes": 6806,
+          "sha256": "dc7bd5736f5096b65135f9f117f46228ee29ea2200abc42f182cc322fd645529"
         },
         "partId": "i52-evst-scope",
         "outcome": "supported"
       },
       {
-        "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+        "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I read the opening complete-cell capex paragraph, two-to-three-times context, body share, table and payback illustration together. The one bound contiguous passage preserves third-to-half robot share,12..24months in multi-shift operation and the24..36 single-shift/lower-throughput qualification, including labour plus damage/throughput savings in the vendor formula. The local calculator instead uses chosen2.5 and24 and only modeled labour value; these are explicit reader disclosures, not source quotations or measured outcomes. Two excerpts initially violated the native one-pair rule; the final single contiguous passage includes both and all intervening context without changing source text.",
         "inputDigest": "cd1a2df8cb7374632aea9996383f129bc99ab3c07ad2c877461c8a9ed1954d92",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-vendor-context.review.json",
-          "bytes": 6816,
-          "sha256": "bb4cfd650c40f3cc7567f0de0ecbb4e7a13c7958fe81f5652b330d1b8470b4ca"
+          "bytes": 6746,
+          "sha256": "77b8a7ba62b901a16c5069bf57dbff8a90342dc4956b9d1f440a814e9a055e79"
         },
         "partId": "i52-vendor-context",
         "outcome": "supported"
       },
       {
-        "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+        "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I checked the reader-local authored/not-measured paragraph, seven slider notes and parameter output:80000USD default,20000..250000/5000step, integration2.5,cycle6s,uptime95%,success99.9%,jam15s,wage25USD/hour, all seven complete ranges/steps,730hours/month,60months amortization and24month chosen target. Model constants/defaults/ranges and control geometry are unchanged. Every derived input uses an equal same-plan authored pointer with native units. Existing capital-only modeled-pick and no-running-cost disclosure is intact. The broad no-source-anywhere statement is removed. I reviewed the final type-narrowing-only producer change and actual numeric rerun: all four recipes/outputs are deep-equal to their initial values. Only the producing test hash, times and receipts changed; no model or browser dependency changed. Original run and review remain retained.",
-        "inputDigest": "fe94421583f88dff7d1255fdcf3739e6f547db236c221cb2d2604b9cdb5739c1",
+        "inputDigest": "4d79e5673b4fe57b1e05d75aeda2d973163546e5bffd429d6914f185f623c759",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-authored-price-and-inputs.final.review.json",
-          "bytes": 7024,
-          "sha256": "73ea922f2764334794046e3cb30ecdeb86fee9834b5e81d3352e9e2c1f13cd94"
+          "bytes": 6954,
+          "sha256": "4542a21bf8a5eda6571824642b76426d9e493dea8d4fff9d64ee3e0e5377921a"
         },
         "partId": "i52-authored-price-and-inputs",
         "outcome": "supported"
       },
       {
-        "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+        "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the independent elapsed-hour oracle, red/producer results and final output values. At robot20000/80000/250000 with fixed other defaults, capital is50000/200000/625000; payback is2.891131939437634/11.564527757750536/36.139149242970426months and capital cost/pick is0.0020077305134983572/0.008030922053993429/0.025096631418729465USD. Throughput568.5785536159602picks per elapsed hour, monthly415062.344139651picks and labour17294.264339152127USD are common. Productive3411.471321695761s + jam8.52867830423892s + downtime180s =3600. All seven input clamps and nonfinite fallbacks were independently checked. Exact formatting yields0.002/2.9,0.008/11.6,0.025/36.1 with the final verdict outside24. This is authored arithmetic, not a deployment forecast. I reviewed the final type-narrowing-only producer change and actual numeric rerun: all four recipes/outputs are deep-equal to their initial values. Only the producing test hash, times and receipts changed; no model or browser dependency changed. Original run and review remain retained.",
-        "inputDigest": "3294ea223c7ae3497a99f302adae9856740870577d31f41edfd994a4e194061b",
+        "inputDigest": "1b87d4b5ef15bc7c5e7c6c44fcd9abf1724bea234a2ed988bafb334703218ca4",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-price-arithmetic.final.review.json",
-          "bytes": 7186,
-          "sha256": "0345cbe7e25e4063d504b36b66d8eba558ac5550a067929e0a5f52b3fb4777c5"
+          "bytes": 7116,
+          "sha256": "c24efcc22c74385b8d2fec8e095aa1d497eb104bc646c6d8ef751e6af5c3d0f6"
         },
         "partId": "i52-price-arithmetic",
         "outcome": "supported"
       },
       {
-        "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+        "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost20000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:min. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.",
-        "inputDigest": "18b92e188c9e6a3e9eca860b0a840e4545032498e6e01473c4f066b59e1fa407",
+        "inputDigest": "f8a9b8b602547eb803b83030829235027f81b9771bcc87001b8230e7ed1c92dc",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-mounted-20000.review.json",
-          "bytes": 7329,
-          "sha256": "8572d9d3ed72147ca481c1ac5aff6f017f837d8d92b68093cc89e1603d6e5708"
+          "bytes": 7259,
+          "sha256": "553fbc3e38f8dfe12285c4cdaf3d6e83e255a72bbd6e2ce4ae6755fa0d49bdcd"
         },
         "partId": "i52-mounted-20000",
         "outcome": "supported"
       },
       {
-        "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+        "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost80000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:default,reset,mobile-default. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.",
-        "inputDigest": "97e6de5e74a012823437665b1f76ff0ac59f0982ec95b258ae9cfb2cdc0a87cc",
+        "inputDigest": "d2028c301d958f36791ab52145224e3b0a0ed7fbb1dc72a11aaa32000107eb61",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-mounted-80000.review.json",
-          "bytes": 7354,
-          "sha256": "9075e62e2010946a755b47a588147b7b6f14914caad5aa570ba7c81ec8d3d104"
+          "bytes": 7284,
+          "sha256": "cd0d7f995a554f85798c9c2031bddf900cd28753144f5f31676ec28be27aff3e"
         },
         "partId": "i52-mounted-80000",
         "outcome": "supported"
       },
       {
-        "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+        "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost250000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:max. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.",
-        "inputDigest": "c928f836b4a95b67ca15d40d76950b8be736919d46203f1681af134de1ddf1a3",
+        "inputDigest": "17daedbd8580c67db2512ce0ca5726af572b1dad3e9329bf9dc4bfd83274fd4e",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-mounted-250000.review.json",
-          "bytes": 7332,
-          "sha256": "8b6e30eea4c3d461846edce1ce0e798fa47d03370faecacfdfa1c9c43f3b16c3"
+          "bytes": 7262,
+          "sha256": "846e901137fbf41f4dac4358934d4fb48b84e699bd2355f68abacd33dc67e185"
         },
         "partId": "i52-mounted-250000",
         "outcome": "supported"
@@ -319,16 +319,16 @@
         {
           "file": {
             "path": "content/data-hardware/industrial-deployment.mdx",
-            "bytes": 19273,
-            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+            "bytes": 19271,
+            "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
           },
           "id": "article:data-hardware/industrial-deployment",
           "offset": 0,
-          "length": 19273,
-          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "length": 19271,
+          "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
           "baseline": {
             "kind": "prose",
-            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+            "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
           }
         },
         {
@@ -360,13 +360,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 44206,
+            "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
-          "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "length": 44206,
+          "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
         },
         {
           "file": {
@@ -381,14 +381,25 @@
         },
         {
           "file": {
-            "path": "tests/unit/economics-local-evidence.test.ts",
-            "bytes": 6294,
-            "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+            "path": "audit/evidence/economics-release-20260923/support.ts",
+            "bytes": 1256,
+            "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
           },
-          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "id": "file:audit/evidence/economics-release-20260923/support.ts",
           "offset": 0,
-          "length": 6294,
-          "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+          "length": 1256,
+          "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-release-evidence.test.ts",
+            "bytes": 2265,
+            "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
+          },
+          "id": "file:tests/unit/economics-release-evidence.test.ts",
+          "offset": 0,
+          "length": 2265,
+          "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
         }
       ],
       "disclosure": {
@@ -483,7 +494,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -496,9 +507,9 @@
           "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
         },
         "receipt": {
-          "path": "audit/evidence/economics-local-20260923/i52-parameters.final.receipt.json",
-          "bytes": 3521,
-          "sha256": "06723cc251b40b38c352d0b39659bd8eeec486202199e667ee5424ff5e7c9e3a"
+          "path": "audit/evidence/economics-release-20260923/i52-parameters.bound.receipt.json",
+          "bytes": 3867,
+          "sha256": "3f318c636719be1cd8579a125bb123e7edc59a9ed1606fd9dd54813e7fa787e8"
         }
       },
       "bases": [],
@@ -515,16 +526,16 @@
         {
           "file": {
             "path": "content/data-hardware/industrial-deployment.mdx",
-            "bytes": 19273,
-            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+            "bytes": 19271,
+            "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
           },
           "id": "article:data-hardware/industrial-deployment",
           "offset": 0,
-          "length": 19273,
-          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "length": 19271,
+          "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
           "baseline": {
             "kind": "prose",
-            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+            "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
           }
         },
         {
@@ -556,13 +567,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 44206,
+            "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
-          "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "length": 44206,
+          "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
         },
         {
           "file": {
@@ -577,14 +588,25 @@
         },
         {
           "file": {
-            "path": "tests/unit/economics-local-evidence.test.ts",
-            "bytes": 6294,
-            "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+            "path": "audit/evidence/economics-release-20260923/support.ts",
+            "bytes": 1256,
+            "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
           },
-          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "id": "file:audit/evidence/economics-release-20260923/support.ts",
           "offset": 0,
-          "length": 6294,
-          "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+          "length": 1256,
+          "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-release-evidence.test.ts",
+            "bytes": 2265,
+            "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
+          },
+          "id": "file:tests/unit/economics-release-evidence.test.ts",
+          "offset": 0,
+          "length": 2265,
+          "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
         }
       ],
       "disclosure": {
@@ -667,7 +689,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -680,9 +702,9 @@
           "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
         },
         "receipt": {
-          "path": "audit/evidence/economics-local-20260923/i52-20000.final.receipt.json",
-          "bytes": 3521,
-          "sha256": "c0c75c548acd6c4302053ae4f68936945f853f574f9422f1e8f760b9b4944306"
+          "path": "audit/evidence/economics-release-20260923/i52-20000.bound.receipt.json",
+          "bytes": 3867,
+          "sha256": "5fad9281d3f0c076f22065bbef02c97673ebadf1ef66cc269c51079ddee40333"
         }
       },
       "bases": [
@@ -749,16 +771,16 @@
         {
           "file": {
             "path": "content/data-hardware/industrial-deployment.mdx",
-            "bytes": 19273,
-            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+            "bytes": 19271,
+            "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
           },
           "id": "article:data-hardware/industrial-deployment",
           "offset": 0,
-          "length": 19273,
-          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "length": 19271,
+          "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
           "baseline": {
             "kind": "prose",
-            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+            "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
           }
         },
         {
@@ -790,13 +812,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 44206,
+            "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
-          "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "length": 44206,
+          "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
         },
         {
           "file": {
@@ -811,14 +833,25 @@
         },
         {
           "file": {
-            "path": "tests/unit/economics-local-evidence.test.ts",
-            "bytes": 6294,
-            "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+            "path": "audit/evidence/economics-release-20260923/support.ts",
+            "bytes": 1256,
+            "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
           },
-          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "id": "file:audit/evidence/economics-release-20260923/support.ts",
           "offset": 0,
-          "length": 6294,
-          "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+          "length": 1256,
+          "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-release-evidence.test.ts",
+            "bytes": 2265,
+            "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
+          },
+          "id": "file:tests/unit/economics-release-evidence.test.ts",
+          "offset": 0,
+          "length": 2265,
+          "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
         }
       ],
       "disclosure": {
@@ -901,7 +934,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -914,9 +947,9 @@
           "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
         },
         "receipt": {
-          "path": "audit/evidence/economics-local-20260923/i52-80000.final.receipt.json",
-          "bytes": 3521,
-          "sha256": "70118edf618b6120099fcbe3ff02624cf2dffb7557368c5b7f28489d59324d88"
+          "path": "audit/evidence/economics-release-20260923/i52-80000.bound.receipt.json",
+          "bytes": 3867,
+          "sha256": "839d96eaabf2d8208ff4b9991df3201238ccecb8f40db0cdac1e7aab582eb612"
         }
       },
       "bases": [
@@ -983,16 +1016,16 @@
         {
           "file": {
             "path": "content/data-hardware/industrial-deployment.mdx",
-            "bytes": 19273,
-            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+            "bytes": 19271,
+            "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
           },
           "id": "article:data-hardware/industrial-deployment",
           "offset": 0,
-          "length": 19273,
-          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "length": 19271,
+          "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
           "baseline": {
             "kind": "prose",
-            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+            "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
           }
         },
         {
@@ -1024,13 +1057,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 44206,
+            "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
-          "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "length": 44206,
+          "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
         },
         {
           "file": {
@@ -1045,14 +1078,25 @@
         },
         {
           "file": {
-            "path": "tests/unit/economics-local-evidence.test.ts",
-            "bytes": 6294,
-            "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+            "path": "audit/evidence/economics-release-20260923/support.ts",
+            "bytes": 1256,
+            "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
           },
-          "id": "file:tests/unit/economics-local-evidence.test.ts",
+          "id": "file:audit/evidence/economics-release-20260923/support.ts",
           "offset": 0,
-          "length": 6294,
-          "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
+          "length": 1256,
+          "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+        },
+        {
+          "file": {
+            "path": "tests/unit/economics-release-evidence.test.ts",
+            "bytes": 2265,
+            "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
+          },
+          "id": "file:tests/unit/economics-release-evidence.test.ts",
+          "offset": 0,
+          "length": 2265,
+          "sha256": "a4a3b8a0be58f8620adcd48f146e7e0f49941b84ba15c33b79ef2a0ec646bfc6"
         }
       ],
       "disclosure": {
@@ -1135,7 +1179,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/economics-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
         "runner": "vitest",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1148,9 +1192,9 @@
           "sha256": "b7f5ee3076d1bfe8ee8948bf7629bffe895fb077471af3a11af47dbcda6d8428"
         },
         "receipt": {
-          "path": "audit/evidence/economics-local-20260923/i52-250000.final.receipt.json",
-          "bytes": 3521,
-          "sha256": "e1cc4722b4b52159631690b51fa60fa25eeaa03211885b80e834fac9837a1f23"
+          "path": "audit/evidence/economics-release-20260923/i52-250000.bound.receipt.json",
+          "bytes": 3867,
+          "sha256": "1903b973d5453f9fb6faa742cd989f76263b1f1093c39a7f093626e0d7f33a8d"
         }
       },
       "bases": [
@@ -1217,16 +1261,16 @@
         {
           "file": {
             "path": "content/data-hardware/industrial-deployment.mdx",
-            "bytes": 19273,
-            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+            "bytes": 19271,
+            "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
           },
           "id": "article:data-hardware/industrial-deployment",
           "offset": 0,
-          "length": 19273,
-          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "length": 19271,
+          "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
           "baseline": {
             "kind": "prose",
-            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+            "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
           }
         },
         {
@@ -1258,13 +1302,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 44206,
+            "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
-          "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "length": 44206,
+          "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
         },
         {
           "file": {
@@ -1279,14 +1323,25 @@
         },
         {
           "file": {
-            "path": "tests/e2e/economics-local-evidence.spec.ts",
-            "bytes": 6789,
-            "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+            "path": "audit/evidence/economics-release-20260923/support.ts",
+            "bytes": 1256,
+            "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
           },
-          "id": "file:tests/e2e/economics-local-evidence.spec.ts",
+          "id": "file:audit/evidence/economics-release-20260923/support.ts",
           "offset": 0,
-          "length": 6789,
-          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+          "length": 1256,
+          "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/economics-release-evidence.spec.ts",
+            "bytes": 6921,
+            "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
+          },
+          "id": "file:tests/e2e/economics-release-evidence.spec.ts",
+          "offset": 0,
+          "length": 6921,
+          "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
         },
         {
           "file": {
@@ -1309,6 +1364,28 @@
           "offset": 0,
           "length": 176,
           "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/brand-v2-static-fixture.ts",
+            "bytes": 3357,
+            "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+          },
+          "id": "file:tests/e2e/brand-v2-static-fixture.ts",
+          "offset": 0,
+          "length": 3357,
+          "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/static-export-server.ts",
+            "bytes": 4801,
+            "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
+          },
+          "id": "file:tests/e2e/static-export-server.ts",
+          "offset": 0,
+          "length": 4801,
+          "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
         }
       ],
       "disclosure": {
@@ -1391,7 +1468,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1404,9 +1481,9 @@
           "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
         },
         "receipt": {
-          "path": "audit/evidence/economics-local-20260923/i52-observed-20000.receipt.json",
-          "bytes": 5454,
-          "sha256": "e1255924ffa9fcc82dc01f0476d561e1b518f1f77f629141d5ec2a59a700748e"
+          "path": "audit/evidence/economics-release-20260923/i52-observed-20000.bound.receipt.json",
+          "bytes": 6652,
+          "sha256": "3493d358a86ddd54a3e758e671af792cb2724d9fe28dacb33db8ca93564ab061"
         }
       },
       "bases": [
@@ -1506,16 +1583,16 @@
         {
           "file": {
             "path": "content/data-hardware/industrial-deployment.mdx",
-            "bytes": 19273,
-            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+            "bytes": 19271,
+            "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
           },
           "id": "article:data-hardware/industrial-deployment",
           "offset": 0,
-          "length": 19273,
-          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "length": 19271,
+          "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
           "baseline": {
             "kind": "prose",
-            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+            "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
           }
         },
         {
@@ -1547,13 +1624,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 44206,
+            "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
-          "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "length": 44206,
+          "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
         },
         {
           "file": {
@@ -1568,14 +1645,25 @@
         },
         {
           "file": {
-            "path": "tests/e2e/economics-local-evidence.spec.ts",
-            "bytes": 6789,
-            "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+            "path": "audit/evidence/economics-release-20260923/support.ts",
+            "bytes": 1256,
+            "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
           },
-          "id": "file:tests/e2e/economics-local-evidence.spec.ts",
+          "id": "file:audit/evidence/economics-release-20260923/support.ts",
           "offset": 0,
-          "length": 6789,
-          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+          "length": 1256,
+          "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/economics-release-evidence.spec.ts",
+            "bytes": 6921,
+            "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
+          },
+          "id": "file:tests/e2e/economics-release-evidence.spec.ts",
+          "offset": 0,
+          "length": 6921,
+          "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
         },
         {
           "file": {
@@ -1598,6 +1686,28 @@
           "offset": 0,
           "length": 176,
           "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/brand-v2-static-fixture.ts",
+            "bytes": 3357,
+            "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+          },
+          "id": "file:tests/e2e/brand-v2-static-fixture.ts",
+          "offset": 0,
+          "length": 3357,
+          "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/static-export-server.ts",
+            "bytes": 4801,
+            "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
+          },
+          "id": "file:tests/e2e/static-export-server.ts",
+          "offset": 0,
+          "length": 4801,
+          "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
         }
       ],
       "disclosure": {
@@ -1680,7 +1790,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -1693,9 +1803,9 @@
           "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
         },
         "receipt": {
-          "path": "audit/evidence/economics-local-20260923/i52-observed-80000.receipt.json",
-          "bytes": 7806,
-          "sha256": "0a3f95c2ca8ecd33a966dacff137d05246bca7073091132e3053c8f57a63aae2"
+          "path": "audit/evidence/economics-release-20260923/i52-observed-80000.bound.receipt.json",
+          "bytes": 9012,
+          "sha256": "f922db3dd2ecaeecdeaf4306c1b2f5f5ff841c3ab490657e315c51b7d4c86383"
         }
       },
       "bases": [
@@ -1857,16 +1967,16 @@
         {
           "file": {
             "path": "content/data-hardware/industrial-deployment.mdx",
-            "bytes": 19273,
-            "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
+            "bytes": 19271,
+            "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d"
           },
           "id": "article:data-hardware/industrial-deployment",
           "offset": 0,
-          "length": 19273,
-          "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea",
+          "length": 19271,
+          "sha256": "f1c084c97a58956bd0b3e5c620d19ff7fb52185c9c43dc25510a94e1f113e72d",
           "baseline": {
             "kind": "prose",
-            "hash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+            "hash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
           }
         },
         {
@@ -1898,13 +2008,13 @@
         {
           "file": {
             "path": "lib/audit-local-basis.ts",
-            "bytes": 40817,
-            "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+            "bytes": 44206,
+            "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
           },
           "id": "file:lib/audit-local-basis.ts",
           "offset": 0,
-          "length": 40817,
-          "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
+          "length": 44206,
+          "sha256": "3df9a1debe4982ba40bb72f1a03802a615b158c5deff53ebfd270686aca01281"
         },
         {
           "file": {
@@ -1919,14 +2029,25 @@
         },
         {
           "file": {
-            "path": "tests/e2e/economics-local-evidence.spec.ts",
-            "bytes": 6789,
-            "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+            "path": "audit/evidence/economics-release-20260923/support.ts",
+            "bytes": 1256,
+            "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
           },
-          "id": "file:tests/e2e/economics-local-evidence.spec.ts",
+          "id": "file:audit/evidence/economics-release-20260923/support.ts",
           "offset": 0,
-          "length": 6789,
-          "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
+          "length": 1256,
+          "sha256": "64855a09785b3b6a5328a88f56a5e24507be45ab821377fbf33d23cfdb9be336"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/economics-release-evidence.spec.ts",
+            "bytes": 6921,
+            "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
+          },
+          "id": "file:tests/e2e/economics-release-evidence.spec.ts",
+          "offset": 0,
+          "length": 6921,
+          "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
         },
         {
           "file": {
@@ -1949,6 +2070,28 @@
           "offset": 0,
           "length": 176,
           "sha256": "81a4d50e5a2232dc93672922a8486ff5365d4c285766e174666ae0cecd3c4588"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/brand-v2-static-fixture.ts",
+            "bytes": 3357,
+            "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+          },
+          "id": "file:tests/e2e/brand-v2-static-fixture.ts",
+          "offset": 0,
+          "length": 3357,
+          "sha256": "4cb7cb3675a62011e030be311d03f060243b90881f869b72439c574b3082b294"
+        },
+        {
+          "file": {
+            "path": "tests/e2e/static-export-server.ts",
+            "bytes": 4801,
+            "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
+          },
+          "id": "file:tests/e2e/static-export-server.ts",
+          "offset": 0,
+          "length": 4801,
+          "sha256": "d7d906f5e6b0db021d139592ef741df4d93c108d9a029d0341c94d83b479f52d"
         }
       ],
       "disclosure": {
@@ -2031,7 +2174,7 @@
       "provenance": {
         "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/economics-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-local-20260923/playwright-final",
         "runner": "playwright",
-        "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+        "cwd": "/srv/robot-wiki",
         "environment": {
           "NODE_DISABLE_COMPILE_CACHE": "1"
         },
@@ -2044,9 +2187,9 @@
           "sha256": "e6bea39995241df11ad75885a04579951546fb805152e0d7e1bdf75b4742b321"
         },
         "receipt": {
-          "path": "audit/evidence/economics-local-20260923/i52-observed-250000.receipt.json",
-          "bytes": 5458,
-          "sha256": "1b85bfd3b2dcd1028eb9157a39302511d72222176ea948dd37f6678f578fd6b6"
+          "path": "audit/evidence/economics-release-20260923/i52-observed-250000.bound.receipt.json",
+          "bytes": 6656,
+          "sha256": "f111455fdd919ffa549d34587b9603818bed9699821676f67e7ef83077d0dd5d"
         }
       },
       "bases": [

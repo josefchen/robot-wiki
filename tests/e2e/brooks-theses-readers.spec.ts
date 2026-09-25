@@ -5,7 +5,7 @@ import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { getCitation, citationMeta } from '../../data/citations';
 import { THESES } from '../../lib/competing-theses';
 
-// Normal E2E remains runnable without Mission-only evidence inputs.
+// Normal E2E remains runnable without program-only evidence inputs.
 // Guarded Mission runs retain the strict input-bound offline fixture.
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 

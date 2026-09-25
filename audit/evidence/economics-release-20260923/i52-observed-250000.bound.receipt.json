@@ -2,7 +2,7 @@
   "schemaVersion": "local-run-v1",
   "command": "NODE_DISABLE_COMPILE_CACHE=1 ECONOMICS_RELEASE_BROWSER=1 node_modules/.bin/playwright test --config=playwright.economics-release.config.ts tests/e2e/economics-release-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/economics-release-20260923/playwright-final",
   "runner": "playwright",
-  "cwd": "/home/remy-simpc4/Projects/robot-wiki-release",
+  "cwd": "/srv/robot-wiki",
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },

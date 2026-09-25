@@ -45,14 +45,14 @@ const rationale = {
 for (const part of plan.parts.filter(p => p.kind === 'observed-behavior')) rationale[part.id] =
  `I reviewed the exact real observation group: ${part.text} Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.`;
 const observedAt = read(`${DIRECTORY}/plan.review.json`).observedAt;
-const reviewedBy = 'Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max';
+const reviewedBy = 'integrator run f86f6148; integrator review; max';
 function review(partId) {
  const inputDigest = partId === null ? localPlanDigest(plan) : localPartDigest(plan, partId, additions.proofs);
- const reason = partId === null ? 'I reviewed the exact whole original/current five-obligation AND inventory: two external parts, authored parameters, all three independent price calculations, and five real mounted states. Seven native parts partition only the mounted obligation by output price; none is dropped. The genuine first historical Unresolved snapshot/tuple and full prior C/HELD correction history remain intact. Exact source identity, historical retrieval limitations, chosen assumptions, capital-only units and actual browser outputs are distinguished. This is one integration review, not independent Sol/high validation, whole-article cleanliness or release acceptance.' : rationale[partId];
+ const reason = partId === null ? 'I reviewed the exact whole original/current five-obligation AND inventory: two external parts, authored parameters, all three independent price calculations, and five real mounted states. Seven native parts partition only the mounted obligation by output price; none is dropped. The genuine first historical Unresolved snapshot/tuple and full prior C/HELD correction history remain intact. Exact source identity, historical retrieval limitations, chosen assumptions, capital-only units and actual browser outputs are distinguished. This is one integration review, not independent validation, whole-article cleanliness or release acceptance.' : rationale[partId];
  assert(reason);
  const name = partId === null ? 'plan.review.json' : `${partId}.review.json`;
  const expected = {
-  schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148-94a8-4312-bf35-13bdf5c6d211', role: 'integrator',
+  schemaVersion: 'local-review-event-v1', sessionId: 'f86f6148', role: 'integrator',
   eventId: `${plan.id}:${partId ?? 'plan'}:${observedAt}`, observedAt, reviewedBy, rationale: reason, outcome: 'supported',
   scope: partId === null ? 'plan' : 'part', partId, inputDigest, inventory: plan.parts,
   originalId: plan.originalId, currentTupleDigest: plan.currentTupleDigest,
@@ -80,7 +80,7 @@ const newDeltas = [ARTICLE,COMPONENT].map((path,i)=>{
  const previous=deltas.entries.filter(d=>d.manifest===manifest&&d.memberId===memberId).at(-1);if(previous)assert.equal(previous.newHash,oldHash);
  return {id:`economics-local-20260923-${i+1}`,manifest,memberId,oldHash,newHash,
   reason:'Only industrial52: disclose chosen robot cost, full authored model assumptions and vendor-context limits; label throughput per elapsed hour. Preserve capital-only modeled picks. No formula, default, range, control, geometry, citation or other article-claim changes.',
-  ownerApproval:'Owner authored-evidence decision and bounded economics52 authorization at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-economics-local-integration-20260923/authorization.md; parent9e4441e identity rechecked at application.',
+  ownerApproval:'Owner authored-evidence decision and bounded economics52 authorization at validation/brand-v2-editorial/source-recovery-20260906/convergence-economics-local-integration-20260923/authorization.md; parent9e4441e identity rechecked at application.',
   responsibleMilestone:'brand-v2-editorial',affectedAssertions:['VAL-B2-BASE-010','VAL-AUDIT-004','VAL-AUDIT-009'],disposition:'permanent'};
 });
 // Find top-level JSON array entries while preserving old serialized bytes.

@@ -523,7 +523,7 @@ const KROGER_REGISTRY = 'data/citations.ts';
 const KROGER_LIVE_URL = 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html';
 const KROGER_ARCHIVE_URL = `https://web.archive.org/web/20251118224554/${KROGER_LIVE_URL}`;
 const CONTROL_REGISTRY_SNAPSHOT = 'audit/evidence/control-citation-closeout-20260924/before-citations.ts.txt';
-const CONTROL_REGISTRY_SNAPSHOT_SHA = '40428a52fd74caed8804f7d4e6dbadfd7a6051246545915aa3571b40517eac5a';
+const CONTROL_REGISTRY_SNAPSHOT_SHA = '1299890987e8dc1c49c50d773ab96dd00a8a89e1a0469560835fac79fafb3362';
 const ASTROM_ENTRY = `  {
     // Verified against the free second-edition PDF on the book site
     // (2026-08-11): chapter 1 states "More than 95% of all industrial
@@ -560,9 +560,9 @@ const MERGE_INPUTS = 'audit/evidence/main-merge-integration-20260924/';
 const MAIN_ARTICLE_HASH = '799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61';
 const LOCAL_ARTICLE_HASH = '79101c6ca602ae19be6f9549d678d7b1366531bb3ab864ba3ccc905f5bd0f525';
 const MAIN_CHECKER_HASH = '19b456216e2629af5b68f86df25cf580ff8f4037b10be01c2deeac2289b40cad';
-const LOCAL_CHECKER_HASH = 'b25bbf3bf647c859cc164a37a97e0e468b857f179e451c94f1d3800ff0e9b449';
-const MAIN_REGISTRY_HASH = 'de95fbe2082b82670af82dd66621fc9dea3e249b5353f66907bb0b0c42bb1932';
-const LOCAL_REGISTRY_HASH = '114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8';
+const LOCAL_CHECKER_HASH = 'c6d92a9d7567ec47ac3762b818c9b9586ac65e8c2915eecb8a3d29a8ac605ffb';
+const MAIN_REGISTRY_HASH = '66751a2a33aa5a11736be65e271582ce62e14381920ca12b726e21ea7197a079';
+const LOCAL_REGISTRY_HASH = '1869507fda2714c119267d3f0090c0db06f258d6f706fc233ad6c0336c8d4667';
 const CONTROL_ARTICLE = 'content/classical/control.mdx';
 const MAIN_CONTROL_HASH = 'a8339aec6e9bcd6d7f39e689f9582d1a4b62e403e6fa7055dc408cf431c32f89';
 const LOCAL_CONTROL_HASH = 'f51112180bbd196de53d4d6ddabec8e62eac7709051c971b0d84c3f2f970a618';
@@ -601,7 +601,7 @@ export function verifyTechnologyWithdrawalArticleTransition(before: string, curr
     current.includes('4,663,698') &&
     current.includes('542,076');
 }
-const WITHDRAWAL_REGISTRY_HASH = 'f70273b67ba8432a839b3ec9cdb995c446e1893f83bcb62272d2468f305cb334';
+const WITHDRAWAL_REGISTRY_HASH = '991c07b97791dc7fea202c65e739a7d22f2a85103ab6513a4fc8b6a0ed5d021e';
 /** Technology.org withdrawal 2026-09-24: the exact two-run registry transition, each run unique in its input. */
 export const WITHDRAWAL_REGISTRY_RUNS: readonly (readonly [string, string])[] = [
   ["    // Press source: the deployment figures cross-check company statements,\n    // earnings calls, and filings; no first-party aggregate of verified\n    // humanoid deployment hours exists.\n    id: 'technology-org-deployed-2026',\n    title: 'Humanoid Robots in 2026: What Is Actually Deployed',\n    authors: ['Alius Noreika'],\n",
@@ -634,8 +634,8 @@ function verifyCurrentRegistryAfterWithdrawal(main: string, current: string): bo
 }
 const WITHDRAWAL_E2E_SPEC_HASH = '339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8';
 const WITHDRAWAL_E2E_SPEC_BYTES = 19923;
-const WITHDRAWAL_REFRESH_SPEC_HASH = '42f70d6f18cbc8e975655be3f3a26b19392bb775e03aaa834ce4c59e6a632893';
-const WITHDRAWAL_REFRESH_SPEC_BYTES = 7786;
+const WITHDRAWAL_REFRESH_SPEC_HASH = '83409d6c7a3bdc7b7263641bf9e811ce7396a8b869ec65b7e9e8e41ae78f6833';
+const WITHDRAWAL_REFRESH_SPEC_BYTES = 7731;
 /** Technology.org withdrawal 2026-09-24: the exact one-run citation-refresh spec transition. */
 const WITHDRAWAL_REFRESH_SPEC_RUNS: readonly (readonly [string, string])[] = [
   ["    for (const value of ['4,663,698', '542,076', '54%', '~5,500']) {\n",
@@ -691,7 +691,7 @@ function readKrogerContinuity(root: string): RelevantContinuity {
     value.checkerAfter.path === INDUSTRIAL_CHECKER &&
     value.citationBefore.path === 'audit/evidence/citation-closeout-20260924/before-citations.ts.txt' &&
     value.citationAfter.path === KROGER_REGISTRY &&
-    value.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-fetchurl.txt' &&
+    value.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt' &&
     value.sourceBody.sha256 === '1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae',
   'wrong relevant continuity paths');
   const catalog = JSON.parse(readBoundedLocalFile(root, 'audit/local-basis.json').toString()) as {
@@ -860,7 +860,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   if (ref.path === CONTROL_ARTICLE && ref.sha256 === LOCAL_CONTROL_HASH && ref.bytes === 20291) {
     return verifyMergedControlArticle(root, current);
   }
-  if (ref.path === KROGER_REGISTRY && ref.sha256 === LOCAL_REGISTRY_HASH && ref.bytes === 300669) {
+  if (ref.path === KROGER_REGISTRY && ref.sha256 === LOCAL_REGISTRY_HASH && ref.bytes === 300677) {
     const continuity = readKrogerContinuity(root);
     const main = mergeSnapshot(root, 'main-citations.ts.txt', MAIN_REGISTRY_HASH);
     const local = mergeSnapshot(root, 'local-citations.ts.txt', LOCAL_REGISTRY_HASH);
@@ -880,7 +880,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     'local registry dependency or merged citation drift');
     return local;
   }
-  if (ref.path === KROGER_REGISTRY && ref.sha256 === MAIN_REGISTRY_HASH && ref.bytes === 305669) {
+  if (ref.path === KROGER_REGISTRY && ref.sha256 === MAIN_REGISTRY_HASH && ref.bytes === 305677) {
     const continuity = readKrogerContinuity(root);
     const main = mergeSnapshot(root, 'main-citations.ts.txt', MAIN_REGISTRY_HASH);
     const local = mergeSnapshot(root, 'local-citations.ts.txt', LOCAL_REGISTRY_HASH);
@@ -921,9 +921,9 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     return main;
   }
   if (ref.path === KROGER_REGISTRY && (
-    (ref.sha256 === CONTROL_REGISTRY_SNAPSHOT_SHA && ref.bytes === 301297) ||
-    (ref.sha256 === 'f6df373b74920df7e37620f80d83855b0c540e3e65bb421ea5bb17b504f77405' &&
-      ref.bytes === 301131)
+    (ref.sha256 === CONTROL_REGISTRY_SNAPSHOT_SHA && ref.bytes === 301305) ||
+    (ref.sha256 === '23cc7a08ea940819eed563ce7ff95b174246d4d023032c5c3c221a8082baca85' &&
+      ref.bytes === 301139)
   )) {
     const continuity = readKrogerContinuity(root);
     const old = readBoundedLocalFile(root, ref.sha256 === CONTROL_REGISTRY_SNAPSHOT_SHA

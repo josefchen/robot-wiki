@@ -56,7 +56,7 @@ describe('fresh release economics proof preserves immutable history', () => {
         Date.parse(previous.proofs.find(p => p.id === proof.id)!.provenance.endedAt),
       );
     }
-    expect(plan.planReview?.reviewedBy).toContain('not independent Mission acceptance');
+    expect(plan.planReview?.reviewedBy).toContain('not independent project acceptance');
   });
 
   it.each(['disclosure', 'old-proof', 'missing-proof', 'changed-recipe', 'lost-review'])(

@@ -1,1 +1,9 @@
-{"id":"gait","inputs":{"direction":1,"gait":"trot","phase":0.25},"mode":"derive"}
+{
+  "id": "gait",
+  "inputs": {
+    "direction": 1,
+    "gait": "trot",
+    "phase": 0.25
+  },
+  "mode": "derive"
+}

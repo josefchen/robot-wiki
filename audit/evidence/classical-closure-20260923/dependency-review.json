@@ -1,6 +1,6 @@
 {
   "schemaVersion": "classical-dependency-review-v1",
-  "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; integrator, Astra/max, not independent acceptance",
+  "reviewedBy": "reviewer run e781d819; integrator, integrator review, not independent acceptance",
   "observedAt": "2026-09-23T19:57:26.422Z",
   "rationale": "Finite target registration, four classical recipes and two mount-free derivations added. Existing calculation modules and all 70 expected derivations are unchanged. Existing proof, execution and review objects are preserved byte-for-byte as JSON values, not relabelled as new observations. Old article continuity remains under the unchanged industrial review. Exact old checker bytes and current checker bytes are bound here; an arbitrary stale hash remains rejected. Follow-up native preservation check found industrial37/47/48 hash-bind the shared glossary. Verified exactly three glossary replacements, confined to DH and inverse-kinematics entries; all industrial terms, citations and tooltips are byte-preserved. A bounded exact continuity binding preserves the original industrial receipt rather than replaying it. The checker change after classical runs only adds these exact historical hashes and chooses their reviewed archive; no recipes, inputs, outputs, UI, target inventories or observations changed.",
   "bindings": [

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "parallel-local-p18-20260923:p18-rudin-rough-protocol:2026-09-23T06:12:45.812Z",
   "observedAt": "2026-09-23T06:12:45.812Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "I read the retained simulation/deployment paragraph and adjacent hardware footnote:4096 robots,98304 batch,1500 updates, under20min, i9-11900k and RTX A6000. The24 steps per robot is the quotient98304/4096, not an invented literal quotation or a configuration transferred to the flat run. The paper budget1500*98304=147456000 differs from the chosen220000000 transitions; independent tests reject treating them as equal.",
   "outcome": "supported",
   "scope": "part",
   "partId": "p18-rudin-rough-protocol",
-  "inputDigest": "b326bf101502fc20e00ff9f234999be65e0c4c2330438cd74c7e05976a5138cd",
+  "inputDigest": "bd46ef9179c7acc6e4c4e8a2eb04bc40eb6279f64eaf5de1d3bf11683b287199",
   "inventory": [
     {
       "id": "p18-rudin-flat-bound",

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "f86f6148-94a8-4312-bf35-13bdf5c6d211",
+  "sessionId": "f86f6148",
   "role": "integrator",
   "eventId": "reward-local-r11-20260923:r11-authored-transcript:2026-09-23T04:12:57.411Z",
   "observedAt": "2026-09-23T04:12:57.411Z",
-  "reviewedBy": "Droid integrator f86f6148-94a8-4312-bf35-13bdf5c6d211; custom:droidproxy:gpt-6-astra; max",
+  "reviewedBy": "integrator run f86f6148; integrator review; max",
   "rationale": "Actual complete extraction covers the 1.0 m/s teaching task, all code/reflection/statistic fixtures and fitness 0.31/0.58/0.86. Exact numeric statistics were checked independently; article and UI explicitly label all of them authored/scripted, not a recorded Eureka or PPO run.",
   "outcome": "supported",
   "scope": "part",
   "partId": "r11-authored-transcript",
-  "inputDigest": "744043460116600e331c51c433adc4d15533006e8a17da273c0a15e4395c1812",
+  "inputDigest": "853d9c2b4354a6264a2a4da06629f509746846b6c933ea65997a9f64607ce98d",
   "inventory": [
     {
       "id": "r11-eureka-mechanism",

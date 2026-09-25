@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "7260b9a1-d769-4cbc-8c09-e911c4a5ea17",
+  "sessionId": "7260b9a1",
   "role": "integrator",
   "eventId": "industrial-33-i33-derived",
   "observedAt": "2026-09-23T18:49:40.401Z",
-  "reviewedBy": "Droid integrator 7260b9a1-d769-4cbc-8c09-e911c4a5ea17 (Astra/max; not independent acceptance)",
+  "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
   "rationale": "Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. No new retrieval, historical replay or independent acceptance is claimed.",
   "outcome": "supported",
   "scope": "part",
   "partId": "i33-derived",
-  "inputDigest": "a3862ab1deda5c3cbbf333a25ceb1f4794e1bcf3554e76730c694bbf6ba56575",
+  "inputDigest": "a520d205e6a354498635d269cb0619e0e6ceaa356f8c70a1d8a83c0d0844f662",
   "inventory": [
     {
       "id": "i33-parameters",

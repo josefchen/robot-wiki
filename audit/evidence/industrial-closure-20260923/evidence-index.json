@@ -4,723 +4,723 @@
   "files": [
     {
       "path": "audit/evidence/industrial-closure-20260923/approval-records.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/approval-records.json",
-      "bytes": 8701,
-      "sha256": "29977be9e9d3978b04dfa7d497440c0efdabd4f9f2a5265ee3e588e95a59bcc2"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/approval-records.json",
+      "bytes": 8666,
+      "sha256": "44e3e1fd901321ea035d60b0c68eed745e68f4c28a552b5c6037228f9c260891"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/before-article.mdx",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/before-article.mdx",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/before-article.mdx",
       "bytes": 19273,
       "sha256": "f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/before-glossary.ts.txt",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/before-glossary.ts.txt",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/before-glossary.ts.txt",
       "bytes": 84138,
       "sha256": "a8bb05ef67e8b3bbb107707694275c7805c898b4dc32501d5607bd981fe14efc"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/before-ledger.md",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/before-ledger.md",
-      "bytes": 500820,
-      "sha256": "1eb00293a6efe3b08b475653e5f183991d55f9e0ed886fbdb40ab69716e5895e"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/before-ledger.md",
+      "bytes": 488920,
+      "sha256": "a3c9f6a66d04494d6169aedc3323fc5c69190ab1f58657dbe8571307c8b97a50"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/browser-run.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/browser-run.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/browser-run.json",
       "bytes": 22914,
       "sha256": "43334e4d4b963c3486c593822acc7780aef9fe48df24af22d312dc74425a1a7e"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99-15.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99-15.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99-15.dom.json",
       "bytes": 343700,
       "sha256": "801a7414742b0aabbac9cbc6b0a2283499eccc4fec6fc7ac9260480d37f75e6c"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99-15.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99-15.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99-15.png",
       "bytes": 129154,
       "sha256": "bc82d2f476edfdd8438ddf2e0af6e9973b2385ae655355b8e8132422eb1d7438"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99-300.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99-300.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99-300.dom.json",
       "bytes": 343713,
       "sha256": "d744b1e9868d26cdb81a4f32c192bc3d903cb8e43187a8c2bc31f6d7365f0b31"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99-300.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99-300.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99-300.png",
       "bytes": 128952,
       "sha256": "ddb94410ddc67e86ec394077955a7288b07e9c938f3648003b39c10bc4c6d706"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99.9-15.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99.9-15.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99.9-15.dom.json",
       "bytes": 343618,
       "sha256": "4cc9b42c8d6de5a8de1b62d4c002fd995e57e12157d1428331795ac9c8492bc3"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99.9-15.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99.9-15.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99.9-15.png",
       "bytes": 129091,
       "sha256": "eb608d349e4ae275ebd360bd956cb6c2c9acd2df144bc83b4e188df948c37c7c"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99.9-300.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99.9-300.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99.9-300.dom.json",
       "bytes": 343710,
       "sha256": "6d68f1b91b77335b9de5647d55d5248372fb6c1314536e3eb0b175b38c984c9f"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/case-99.9-300.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/case-99.9-300.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/case-99.9-300.png",
       "bytes": 129325,
       "sha256": "577ee9500b32f817e7dc3fb49f695be0802a935e5a5edea3340d14897ee6fad6"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/check-article.mjs",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/check-article.mjs",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/check-article.mjs",
       "bytes": 2125,
       "sha256": "a7876243d8ca98c58fef4e71eeab49207598bb8d7d13101357cd0ad70eb3dcfe"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-001.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-001.log",
-      "bytes": 33835,
-      "sha256": "a5db569e15e5e33654917bfe02979cc8c0fdd728f30079eaa2146ee040755fc8"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-001.log",
+      "bytes": 33780,
+      "sha256": "114baa032c91164a348f4407b22443299344a4a76b744d874a11da970c846b03"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-002.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-002.log",
-      "bytes": 634,
-      "sha256": "98b36f6b4985336fe7f97f82fd91cf169b866a3c3f4605ab8ff898b4d5fa2c8c"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-002.log",
+      "bytes": 579,
+      "sha256": "f4d6aa346fe9056f9ff7f274b9069247f52177ec1a5b2c7988b9c623394d5b04"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-003.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-003.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-003.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-004.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-004.log",
-      "bytes": 2312,
-      "sha256": "a7a956efd5df537f12de8f4a2b9cc83b60842c1c333a8e9a857eec69bcfcd6e5"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-004.log",
+      "bytes": 2255,
+      "sha256": "a244b5605da5429ea446a8d72109ef25ab76807b736e3424ac0fe6dda026b3be"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-005.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-005.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-005.log",
       "bytes": 182,
       "sha256": "013d874ff6c4a951a6af9ef7ac295af8e3a582951e598be80f8b37d5705dcc02"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-006.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-006.log",
-      "bytes": 634,
-      "sha256": "6d345b21ab457ee81ea6e9fd88d83f80b4ad9fa3fbf989e0db0c027569326d00"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-006.log",
+      "bytes": 579,
+      "sha256": "0a8ad517b9d2f70bade4b204dcf080d73d7e995867f6a3c88a56834af8294e46"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-007.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-007.log",
-      "bytes": 630,
-      "sha256": "b1b3025b265ddde5837c7ad2f459090f133863970d4d563a25c196473a4048cc"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-007.log",
+      "bytes": 516,
+      "sha256": "d87f97c03a2af8910a68d553b535531d9ded5854338a3bb928138f48aa15718a"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-008.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-008.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-008.log",
       "bytes": 133,
       "sha256": "5960e5f567d8004ba1109654a37ed835eecf46f02a64d57ee1cebb43cf02b26c"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-009.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-009.log",
-      "bytes": 20858,
-      "sha256": "570633b3c289416b529b42ae7a4382adacd51301e05aa18a68e0d038a93772cb"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-009.log",
+      "bytes": 20803,
+      "sha256": "2a5ef88dcd8d0f4a89fcef762da088a7d888073a0c3e65a1c9cd0eb52fb798c4"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-010.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-010.log",
-      "bytes": 576,
-      "sha256": "014efba680f7ecb4fb019fd3076c88c56484a1f8530cd5d1d2efc4f7ca0dfe28"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-010.log",
+      "bytes": 521,
+      "sha256": "b33f5aec0e11e097e776307836c7cb519caa03af96a80c4a27aa2821fa103b17"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-011.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-011.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-011.log",
       "bytes": 1580,
       "sha256": "d43bd456d0544c2d82e23190f6d8cf35d7360b4feeebdbec4aeb8dd512459f00"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-012.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-012.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-012.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-013.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-013.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-013.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-014.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-014.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-014.log",
       "bytes": 170,
       "sha256": "6e685c04d85b904b9a93aec46987b3478335846fbf806a745ca79bc4a60e9e03"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-015.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-015.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-015.log",
       "bytes": 244,
       "sha256": "afc6e75dc288097d6abafd2859b78e386e0d363292279450580ab3fc48d50bdd"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-016.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-016.log",
-      "bytes": 523,
-      "sha256": "187aea54329d2c484835f7fa0914f4d437674f29e2a0a9adf7a09768f6ebd5aa"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-016.log",
+      "bytes": 468,
+      "sha256": "1476dfd5663408b9c78c9dc5f394d32037acd51a8d5d675f29e442292c536746"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-017.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-017.log",
-      "bytes": 10181557,
-      "sha256": "cac04407ce4700e680ec6254384c40a1292f7a6ed3544ea150beeed37fa2e1e2"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-017.log",
+      "bytes": 10129664,
+      "sha256": "8d3fd22af518a4a56849cf32e6010c1089d005fcd62702db5ee0af56dfd11397"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-018.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-018.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-018.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/command-019.log",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/command-019.log",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/command-019.log",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/corrections.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/corrections.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/corrections.json",
       "bytes": 21917,
       "sha256": "8c1aa1412e79727d304a26b16df64b02feccd371a7410b56b81d001a5aadf866"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/dependency-review.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/dependency-review.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/dependency-review.json",
       "bytes": 3491,
       "sha256": "d5ed440ef0adc44dc667166d953e940b9c8e26015d3580b981831fea2417fdcb"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99-15.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99-15.dom.json",
       "bytes": 343700,
       "sha256": "0d3e50095b44fd9f6b6aa9ce577469be3d9764e1704df62b17a76eda6cde2b0b"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99-15.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99-15.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99-15.png",
       "bytes": 129154,
       "sha256": "bc82d2f476edfdd8438ddf2e0af6e9973b2385ae655355b8e8132422eb1d7438"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99-300.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99-300.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99-300.dom.json",
       "bytes": 343713,
       "sha256": "6cc0e87c0c93771c60b0f42b042691e6b31c720ec0b9ac2b7db6da95447b9e16"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99-300.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99-300.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99-300.png",
       "bytes": 128952,
       "sha256": "ddb94410ddc67e86ec394077955a7288b07e9c938f3648003b39c10bc4c6d706"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99.9-15.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.dom.json",
       "bytes": 343618,
       "sha256": "ed0d4dad8f6414f4cfeb94775e08a601141f097b65e21aa1da3008e7a881a4d6"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99.9-15.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99.9-15.png",
       "bytes": 129091,
       "sha256": "eb608d349e4ae275ebd360bd956cb6c2c9acd2df144bc83b4e188df948c37c7c"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99.9-300.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.dom.json",
       "bytes": 343710,
       "sha256": "c611d7eb44e0e991099a13d8cb78f839c6e747068de0a6a1502697f240e6e7d7"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-case-99.9-300.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-case-99.9-300.png",
       "bytes": 129325,
       "sha256": "577ee9500b32f817e7dc3fb49f695be0802a935e5a5edea3340d14897ee6fad6"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-surfaces-1440.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-surfaces-1440.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-surfaces-1440.dom.json",
       "bytes": 346336,
       "sha256": "db3c4703479f559265fb52f2c90661e8a7d2124fee3ad754c586abc4f1a40988"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-surfaces-1440.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-surfaces-1440.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-surfaces-1440.png",
       "bytes": 213291,
       "sha256": "d05cdb3da0250216922a4156c38eae956b6fff468ca5e14488910e110a753abc"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-surfaces-375.dom.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-surfaces-375.dom.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-surfaces-375.dom.json",
       "bytes": 345960,
       "sha256": "58090acc79b3160ef7578cd3f3c97b62785a08997a8193346af2bc7682823c65"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/final-surfaces-375.png",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/final-surfaces-375.png",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/final-surfaces-375.png",
       "bytes": 71223,
       "sha256": "406e930644307d0af604f8c9ad7fe1cecc48bcc06758eddcee448a29e401d2f8"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-derived-3-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-derived-3-input.json",
       "bytes": 265,
       "sha256": "dffce0c4d96a3b6aa18a9c74e04ced2ebd684b4252a60621209b3512d9e3d0f3"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-derived-3-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-derived-3-output.json",
       "bytes": 1024,
       "sha256": "101157775dd0c4e05c4cb2cf528e5e400e19eb8547547f60e49734f8cd1281e6"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-derived-3-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-derived-3-receipt.json",
       "bytes": 3952,
       "sha256": "92c63c35e2a760b0c4a1712ae7ab75d2023d8dc70033eb7d4b1c4b630374c0ec"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-derived-4-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-derived-4-input.json",
       "bytes": 263,
       "sha256": "349e2a67225b1f1061466e86ed9a3787b541dc4a53bb4e77a92a022cda21b251"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-derived-4-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-derived-4-output.json",
       "bytes": 916,
       "sha256": "4b59a410d44ac6cecb0f56e6cddce0e00a2616bded174095e8ebc1c6af9d9d31"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-derived-4-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-derived-4-receipt.json",
       "bytes": 3952,
       "sha256": "d14608511c55069b9229b4526e3f4a55d5534cb77251b0481e82693b81f56f8c"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-observed-2-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-observed-2-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-observed-2-receipt.json",
       "bytes": 5575,
       "sha256": "f255ba4c4a3d6c1039b83d193fcdfc8d49099c6b1fad3ec3cc07749ab47988c0"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-observed-3-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-observed-3-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-observed-3-receipt.json",
       "bytes": 5572,
       "sha256": "3c1e894ce3aab5f47c739375bff5c76a33729ccd76e96101972d7578ea056026"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-parameters-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-parameters-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-parameters-input.json",
       "bytes": 73,
       "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-parameters-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-parameters-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-parameters-output.json",
       "bytes": 1279,
       "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i10-parameters-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i10-parameters-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i10-parameters-receipt.json",
       "bytes": 3952,
       "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i32-derived-1-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i32-derived-1-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i32-derived-1-input.json",
       "bytes": 264,
       "sha256": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i32-derived-1-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i32-derived-1-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i32-derived-1-output.json",
       "bytes": 1020,
       "sha256": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i32-derived-1-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i32-derived-1-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i32-derived-1-receipt.json",
       "bytes": 3952,
       "sha256": "a7b27e7acec696da1cd4dd11f100eba7ab12c82071a1249735e4f0aeb3ad9939"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i32-parameters-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i32-parameters-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i32-parameters-input.json",
       "bytes": 73,
       "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i32-parameters-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i32-parameters-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i32-parameters-output.json",
       "bytes": 1279,
       "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i32-parameters-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i32-parameters-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i32-parameters-receipt.json",
       "bytes": 3952,
       "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i33-derived-5-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i33-derived-5-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i33-derived-5-input.json",
       "bytes": 262,
       "sha256": "7dc09ed587f8743cc7a55dc15ea34950a3ce276d2746198c19ef4dcb9c8d1904"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i33-derived-5-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i33-derived-5-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i33-derived-5-output.json",
       "bytes": 969,
       "sha256": "f1f70651de28cec982e322ac3f743ea663bdef3099f3e1a7f559a43a1c7948c6"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i33-derived-5-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i33-derived-5-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i33-derived-5-receipt.json",
       "bytes": 3952,
       "sha256": "471bb1493d615223150462de6d5651ee5e60471d8c8804a37e0a1a09367bab90"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i33-parameters-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i33-parameters-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i33-parameters-input.json",
       "bytes": 73,
       "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i33-parameters-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i33-parameters-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i33-parameters-output.json",
       "bytes": 1279,
       "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i33-parameters-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i33-parameters-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i33-parameters-receipt.json",
       "bytes": 3952,
       "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-derived-1-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-derived-1-input.json",
       "bytes": 264,
       "sha256": "a3d92eff59282cf921ff98970f1b930fbd77b9e94d26c43f552e75dc92d1770b"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-derived-1-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-derived-1-output.json",
       "bytes": 1020,
       "sha256": "e978a185286685c2ee50854b14551a2823e6ce648c6f7d41537d602794bcaa22"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-derived-1-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-derived-1-receipt.json",
       "bytes": 3952,
       "sha256": "a7b27e7acec696da1cd4dd11f100eba7ab12c82071a1249735e4f0aeb3ad9939"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-derived-2-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-derived-2-input.json",
       "bytes": 262,
       "sha256": "c8d0539a08e62bef2327e363d2d9096c9c3ea59e1cf02d7c8243e307b8affb3b"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-derived-2-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-derived-2-output.json",
       "bytes": 975,
       "sha256": "d55f9c3d75a4b6e67f761d9a2bfb5d1ad4f212d9cb46160a18e94d301c306a54"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-derived-2-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-derived-2-receipt.json",
       "bytes": 3952,
       "sha256": "2b5e71ed9758441dc3001de35f71d916ff917753319aefb0a262ebc1ef79e3a9"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-observed-0-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-observed-0-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-observed-0-receipt.json",
       "bytes": 5574,
       "sha256": "cde83b493675937501e6c34b12f6f83a583fa4a36204fdf61f801aa8a034515b"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-observed-1-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-observed-1-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-observed-1-receipt.json",
       "bytes": 5568,
       "sha256": "f309eb483fd9908ab3906ad76a8e48f1da1950ce8740b22765d66268fd5ffdba"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-parameters-input.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-parameters-input.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-parameters-input.json",
       "bytes": 73,
       "sha256": "fad98172f534b6f4b844b0e7e83e103fcd3b9de2975993ab0b648ec670e3cd3d"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-parameters-output.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-parameters-output.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-parameters-output.json",
       "bytes": 1279,
       "sha256": "77bbbc7381f59b7f1d5fc3ac17c46e46b262c6aab2bb7d32b5cd1dd800458ae1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/i9-parameters-receipt.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/i9-parameters-receipt.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/i9-parameters-receipt.json",
       "bytes": 3952,
       "sha256": "998a3fd2135d47c82d51329cc06f55a2bd8507152cb1de6a625eef2d1775dec0"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/integrate.ts",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/integrate.ts",
-      "bytes": 21393,
-      "sha256": "494535a889632d71c387072080443b73ef07b8cc1986799eaf460af721b7ebcb"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/integrate.ts",
+      "bytes": 21343,
+      "sha256": "aef090fa0ea68774aea2a0b24e6a8e3f19ee4f8f6c86be381f22d1036ac0ea0a"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/integration-result.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/integration-result.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/integration-result.json",
       "bytes": 834,
       "sha256": "c7b0953d86f43ca64731b31da7e82beaabe1413571f7c1e0440d489fea69afe3"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.md",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.md",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.md",
       "bytes": 4062,
       "sha256": "71d2b53a46e15833e9b0657135ebd9245d63de6129dcf91b53364eb0d0ca0b36"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.response.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.response.json",
-      "bytes": 4552,
-      "sha256": "f62e78b4d3648a001072a8c50f96b2066bc30f9b36c0672e94aa5fbc784fa8a5"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/lei-cycle-time-definition.response.json",
+      "bytes": 4553,
+      "sha256": "314bef9e14481e75d4a282d209bd1994448da36de20f42561ca13c901e9787b9"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/lei-takt-time-definition.md",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/lei-takt-time-definition.md",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/lei-takt-time-definition.md",
       "bytes": 7223,
       "sha256": "be57fa4c5f49b8fe4f793d9e4bcf9af5ba25881bfcbe2bc70a686d4fb3e1338e"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/lei-takt-time-definition.response.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/lei-takt-time-definition.response.json",
-      "bytes": 7726,
-      "sha256": "ae3277b46d7121c471c0334268312e7ef38f073192856cf9b5bf1ccd61d78abb"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/lei-takt-time-definition.response.json",
+      "bytes": 7727,
+      "sha256": "661c195dbb50583982bfe0108a90a41fa996da0c0344d3ebe8f48d9b1774b236"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.md",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.md",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.md",
       "bytes": 14844,
       "sha256": "27b4ccd2a68179b1b8a23adb6d9f0fe65f4281652c71ac459b0d78d30a2e8cae"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.response.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.response.json",
-      "bytes": 15358,
-      "sha256": "40f19efe4b87d4195a4e1a31257c8b5b30391019038f6b9a96e94769d0c483f6"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/nasa-availability-prediction-analysis.response.json",
+      "bytes": 15359,
+      "sha256": "4dde9bcdf885a278b65c1aa3d2e7dddf93725525e349355cc1acface46607832"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/numeric-run-final.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/numeric-run-final.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/numeric-run-final.json",
       "bytes": 30840,
       "sha256": "ca2ecfc60a2eae34792fa979d08a3ab716bf99af7dce2eb7b04d339946970d10"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/numeric-run.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/numeric-run.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/numeric-run.json",
       "bytes": 30840,
       "sha256": "59aaa5f3ca0186da08a0b2629aaf379b23c78bb921756ff95d8aaa84cb4fb35e"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/original-checker.ts.txt",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/original-checker.ts.txt",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/original-checker.ts.txt",
       "bytes": 40817,
       "sha256": "99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/playwright/.last-run.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/playwright/.last-run.json",
-      "bytes": 96,
-      "sha256": "39af4b1d99787077f2845adfb23bff1f14491763323873eb0fd6135f00e857f6"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/playwright/.last-run.json",
+      "bytes": 97,
+      "sha256": "b2d2cf31395d4da76a8255d971e74212b07595aabee3de5f3c01aab8f49e2b7e"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/error-context.md",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/error-context.md",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/error-context.md",
       "bytes": 10188,
       "sha256": "fed657a7cc85c2ba71ba00d01ce158192565aa0da131c4af94318fb5fb51e07a"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/offline-requests.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/offline-requests.json",
-      "bytes": 18,
-      "sha256": "41dfed777d7f276f1917358c88ddf6f73bce129f6cbb09a534a67014ead0d6ce"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/playwright/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/offline-requests.json",
+      "bytes": 19,
+      "sha256": "e5e3518e772b3f717282f664f587d0bac664de244979690950bd21a55115e0d1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/playwright-final/.last-run.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/playwright-final/.last-run.json",
-      "bytes": 45,
-      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/playwright-final/.last-run.json",
+      "bytes": 46,
+      "sha256": "fff6299efb51ba9ef550e500ecc967e972c83e86be387042c360caea7fdbae29"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/playwright-final/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/offline-requests.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/playwright-final/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/offline-requests.json",
-      "bytes": 18,
-      "sha256": "41dfed777d7f276f1917358c88ddf6f73bce129f6cbb09a534a67014ead0d6ce"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/playwright-final/industrial-deployment-indu-1b7ce-nd-complete-reader-surfaces-chromium/offline-requests.json",
+      "bytes": 19,
+      "sha256": "e5e3518e772b3f717282f664f587d0bac664de244979690950bd21a55115e0d1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/preservation.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/preservation.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/preservation.json",
       "bytes": 1465,
       "sha256": "53828db9e0b84e95f2906c314bf6f328db2691d2960604c0b06361cb2d60aca7"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-10-i10-derived.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-10-i10-derived.json",
-      "bytes": 3593,
-      "sha256": "140699640507be8e02589f34190642a13c740955bebca4771d06e3774711665a"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-10-i10-derived.json",
+      "bytes": 3543,
+      "sha256": "3fb7f7f12fc47a5e009a97e5d7033f4fba7a4782b6f76cc18dfa6c48036e275c"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-2.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-10-i10-observed-2.json",
-      "bytes": 3510,
-      "sha256": "6d24aec33eebe4dca084fdebd5c3ef2683f40400e46a6a29ab59dd110e32d862"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-2.json",
+      "bytes": 3460,
+      "sha256": "8dbad8bb13d2c6c96e36a1d5fe83e8aa168e1499ffc7c0c651712c596ff62047"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-3.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-10-i10-observed-3.json",
-      "bytes": 3508,
-      "sha256": "3389e8bbe5f4304d807b8e874bf8d94c5d6ec06f6483899267eaba3bd592ee17"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-3.json",
+      "bytes": 3458,
+      "sha256": "43e2d9a06ba8e44b6b2b7eacd3225e3263c8d0f1432ae6164019565392baa5d5"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-10-i10-parameters.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-10-i10-parameters.json",
-      "bytes": 3516,
-      "sha256": "8e1e4506c1d607ddf144dcfe8a66c93a0aa703059f5c28f832b5c8c5ae74076c"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-10-i10-parameters.json",
+      "bytes": 3466,
+      "sha256": "dd598d3aa7511589270eeb6c5b4177f8d355a52a93fea3d45970513c70eb84e9"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-10-plan.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-10-plan.json",
-      "bytes": 3332,
-      "sha256": "35168209281b1feb99e398fbb6025891976189812963f116cefd0caa0018dbfc"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-10-plan.json",
+      "bytes": 3282,
+      "sha256": "743ae3a17ce15361eb1bfd6524c33d0c3496f82e335550e5698a8c68101d679f"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-32-i32-derived.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-32-i32-derived.json",
-      "bytes": 2938,
-      "sha256": "006f1ba9e800eb20b358c48759b692034fac4d4575adedda0ad116a030a6b456"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-32-i32-derived.json",
+      "bytes": 2888,
+      "sha256": "5e093909126ae0ff8acd15560d7535fd31bc6bbd18d4a17aaff976cbfc08499e"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-32-i32-lei-cycle-time-definition.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-32-i32-lei-cycle-time-definition.json",
-      "bytes": 2733,
-      "sha256": "4527b2bb32d6dcd5a727a297639b862c58796676862a55fbe26ea7fc04bc63b6"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-32-i32-lei-cycle-time-definition.json",
+      "bytes": 2683,
+      "sha256": "b499cfdb6372ca19ea22b5178903f00058204c7fc6d98fcbda2c3af25d3a6aba"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-32-i32-nasa-availability-prediction-analysis.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-32-i32-nasa-availability-prediction-analysis.json",
-      "bytes": 2826,
-      "sha256": "af2bd8cea266cd2af7a129e73b694f36e6b96e7afbc8d381c4e2209aab9ae572"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-32-i32-nasa-availability-prediction-analysis.json",
+      "bytes": 2776,
+      "sha256": "2836185f645f6f21d1283796b1ead58f8c403ae54c4dffefa720a6c2a20a8b9f"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-32-i32-parameters.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-32-i32-parameters.json",
-      "bytes": 2755,
-      "sha256": "f8699d1be73f21d3a1520c9c240b31a5fc6dd4f15e818633fb3531b674836f40"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-32-i32-parameters.json",
+      "bytes": 2705,
+      "sha256": "cbb7ae458c61613596a9de55db4a1efb2da5467d44ac7434c455ab6d37dba95a"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-32-plan.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-32-plan.json",
-      "bytes": 2571,
-      "sha256": "5059b0f70461b49525b679a1e0a99e0a1d234d8f162be5d8aedfb9861ccb77fe"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-32-plan.json",
+      "bytes": 2521,
+      "sha256": "9458eb4cd6fe701d89adab323cdc811b0ddc1e13c245266d957800ecc826eb25"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-33-i33-derived.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-33-i33-derived.json",
-      "bytes": 1865,
-      "sha256": "7a98d4f59a86d30937123efee82937fdfe66eb81685ac5afc7df9178a15fc7fd"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-33-i33-derived.json",
+      "bytes": 1815,
+      "sha256": "b6eb6d247cad973cbb2ae0b6092bf2f2c899c1e94eff0053619319386fa51d7d"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-33-i33-parameters.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-33-i33-parameters.json",
-      "bytes": 1828,
-      "sha256": "657ebbfb4e6d0b397b03044ea2ab4fe432e519212099ce3d0aa0302ba37a65fd"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-33-i33-parameters.json",
+      "bytes": 1778,
+      "sha256": "9d1d9ed93d360ff6a02e99df89b54fb98a593003ceecf5b1128a281f929d2433"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-33-plan.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-33-plan.json",
-      "bytes": 1644,
-      "sha256": "a40425078a7ebc0433536813e3afe93b83c15ec368dc8a2ad1656d2293aff455"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-33-plan.json",
+      "bytes": 1594,
+      "sha256": "9e50ea734faef45fa1f4fcffeb09e4d499695500ec58d2f118d6a97345bee583"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-9-i9-derived.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-9-i9-derived.json",
-      "bytes": 3550,
-      "sha256": "82a405589e8eb7ba8acebe44693bdee11020e35450db4198c26afe1023580ee6"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-9-i9-derived.json",
+      "bytes": 3500,
+      "sha256": "7227fb05472db086ba7422708b240dabdc1f6e3e38ffcc58db5d560ae59a65e8"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-0.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-9-i9-observed-0.json",
-      "bytes": 3475,
-      "sha256": "62559c552257530c0363ecc33dd6a5371703f8e8e8e5145bc67985bcb95796d9"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-0.json",
+      "bytes": 3425,
+      "sha256": "2ef515fe80632fa957571ff752b2882e2d6ce10cf6738e6ed09dec6ebc1a0088"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-1.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-9-i9-observed-1.json",
-      "bytes": 3473,
-      "sha256": "77ebb7e18beabd3637de23ab5a232a1cc589f5c66ad64f2a13aaa63f8013d15b"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-1.json",
+      "bytes": 3423,
+      "sha256": "bbfc6f7a5574a6f5050a66bef981bd0fbcae633887584939738db63d8bf8e9d3"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-9-i9-parameters.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-9-i9-parameters.json",
-      "bytes": 3482,
-      "sha256": "184ba10a9b408102b22beb501c9d5ce2bc839adb5cd9b855d8c4c6c0be715ab5"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-9-i9-parameters.json",
+      "bytes": 3432,
+      "sha256": "5f6527744e8dfaf84683e7ffe38909f97fc9a2a996b3045acd72ab402cc0ad50"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/review-9-plan.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/review-9-plan.json",
-      "bytes": 3300,
-      "sha256": "ac56015335b55a6991547464736dfc29ade68b5717c70df9de9da92b97d2c5c1"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/review-9-plan.json",
+      "bytes": 3250,
+      "sha256": "419ad484f2a16a700483ec7c23ab916f32b67de688a07d652cc2aa6b87cab088"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/row-history.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/row-history.json",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/row-history.json",
       "bytes": 98892,
       "sha256": "99d6d8ee3b0c868820dfb71fe1676e0fb1757dd29a917b4cc30bf0711d83f6d5"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/sources.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/sources.json",
-      "bytes": 7835,
-      "sha256": "6bb58b403ad8bfc4236bf048ca63d00cffccacb7b5a5bc5b79f8634b834f728b"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/sources.json",
+      "bytes": 7523,
+      "sha256": "591786d1d053b5ab734ca174ee90f7aa95474227ec0d78e1de79d146c9d1b6a1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/support.ts",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/support.ts",
+      "absolutePath": "audit/evidence/industrial-closure-20260923/support.ts",
       "bytes": 2740,
       "sha256": "21dd1163b6b129d7f54a31062535ab3b76f2f78ae915b4e0236f539d2ab20ef1"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/verification.json",
-      "absolutePath": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/audit/evidence/industrial-closure-20260923/verification.json",
-      "bytes": 15068,
-      "sha256": "5bd4cff8b41b1131f3d0accd88f9a27792255d6689e374428f03daee38346b76"
+      "absolutePath": "audit/evidence/industrial-closure-20260923/verification.json",
+      "bytes": 13681,
+      "sha256": "648bd68ac7b84d03566ba047a7459775e58d9d92aaf0f3dfac7d966f554455a6"
     }
   ],
   "selfIndex": "This index lists every other evidence artifact. It cannot contain its own recursive byte hash; Git pins the index itself."

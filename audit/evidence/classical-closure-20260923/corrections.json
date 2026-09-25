@@ -20,13 +20,13 @@
       "claim": "Removed: the Wampler-attributed DLS equation, single-scalar account and associated general conditioning guarantees are no longer asserted by this article or its inverse-kinematics glossary entry.",
       "sourceChecked": "Exact before/after article, metadata and glossary removal proof; Wampler DOI and unavailable-body history retained, not used as proof of the removed formula.",
       "verdict": "Cut",
-      "note": "Original identity and four cells are preserved. No external passage establishing the removed assertion is required or invented. Approved solver, controls, supported tolerance and iterative-IK context remain unchanged. Record completion only after actual removal checks and review of the remaining text. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+      "note": "Original identity and four cells are preserved. No external passage establishing the removed assertion is required or invented. Approved solver, controls, supported tolerance and iterative-IK context remain unchanged. Record completion only after actual removal checks and review of the remaining text. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
     },
-    "currentTupleDigest": "fcf1101b18556fcbac844c512db36c295cfbe7da441ec177161a3de1fda67ee2",
+    "currentTupleDigest": "a4015d3e263060f054f204ba42271217779c7bfe5c273063bbf784adb841be82",
     "article": {
       "path": "content/classical/kinematics.mdx",
-      "bytes": 10927,
-      "sha256": "c4aa496590be6e78e0007efe4b4f0e3081457bf71bd7fdb9484344f65121b7fe"
+      "bytes": 12030,
+      "sha256": "cbe5049818b17aa9e1ef546e2fe71806fc8735fed30d6d08a2158b6f1e5f3551"
     },
     "dependencies": [
       {
@@ -54,7 +54,7 @@
       "<PlanarFkArm",
       "<DhParameterTable",
       "/playground",
-      "±0.5mm",
+      "\u00b10.5mm",
       "product-of-exponentials",
       "A_i = \\begin{bmatrix}"
     ],
@@ -68,16 +68,16 @@
       "marquardt-1963"
     ],
     "execution": {
-      "path": "audit/evidence/classical-closure-20260923/kinematics-removal-run.json",
-      "bytes": 5682,
-      "sha256": "e4896f21e5213bdc3600e696686c6a0124d8dbb6a6d66994e2cdc7d8e189d53d"
+      "path": "audit/evidence/residual-release-20260924/kinematics-removal-run.json",
+      "bytes": 5473,
+      "sha256": "8caa49ae4060392a3e4816033f45f14cbda21a984fcd61815238e5d1a2f4436c"
     },
     "children": [],
     "review": {
-      "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
-      "rationale": "Inspected actual article, inverse-kinematics glossary definition, current desktop/mobile DOM and screenshots. Unsupported formula/attribution, schedule and universal guarantees are absent; six current citation identities resolve. The supported DH matrix/table, existing FK controls, playground link and 0.5mm solver target remain. lib/ik.ts is unchanged. Removal evidence does not pretend the unavailable sources prove their former assertions.",
-      "observedAt": "2026-09-23T19:54:47.701Z",
-      "inputDigest": "1866cc82d89cd3025920b87c0bc64ded899eb9d55be098a4ee2a65544ec38622"
+      "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
+      "rationale": "Inspected fresh desktop/mobile captures, current article and glossary, retained DH matrix and FK controls, real playground link, absence of unsupported attribution and formula, and unchanged solver. Source histories and all older execution records are preserved. This binds current merged dependencies to genuine new reader observations, not a relabelled earlier execution.",
+      "observedAt": "2026-09-24T01:17:16.306Z",
+      "inputDigest": "74938fff85e43537640c54080669758668f5dbb66481534c1044bc61c6140d2e"
     }
   },
   {
@@ -98,16 +98,16 @@
       "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc"
     },
     "currentCells": {
-      "claim": "Removed: the named Levenberg–Marquardt acceptance schedule and universal monotonic/no-oscillation/unreachable-target guarantee are no longer asserted in the article.",
+      "claim": "Removed: the named Levenberg\u2013Marquardt acceptance schedule and universal monotonic/no-oscillation/unreachable-target guarantee are no longer asserted in the article.",
       "sourceChecked": "Exact article/frontmatter correction and removal proof. Historical Levenberg/Marquardt references and failed retrievals remain retained; no external passage is invented.",
       "verdict": "Cut",
-      "note": "The removed scientific/source-attribution proposition is resolved by its actual removal, not by code comments. lib/ik.ts and the approved playground remain unchanged. In particular, internal escape nudges and displayed best-so-far residuals must not be conflated with universal monotonic trial iterates. Original and intermediate four-cell identities remain in history. Applied and reviewed by Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
+      "note": "The removed scientific/source-attribution proposition is resolved by its actual removal, not by code comments. lib/ik.ts and the approved playground remain unchanged. In particular, internal escape nudges and displayed best-so-far residuals must not be conflated with universal monotonic trial iterates. Original and intermediate four-cell identities remain in history. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
     },
-    "currentTupleDigest": "9fbf61495edc92093aa322923e3020a3f54418e5b1348506c0f8f90bc83f44d3",
+    "currentTupleDigest": "55cb7d73216ba54f8e4efdd45a377eaae2038dcc787d4fab4087710197df99b5",
     "article": {
       "path": "content/classical/kinematics.mdx",
-      "bytes": 10927,
-      "sha256": "c4aa496590be6e78e0007efe4b4f0e3081457bf71bd7fdb9484344f65121b7fe"
+      "bytes": 12030,
+      "sha256": "cbe5049818b17aa9e1ef546e2fe71806fc8735fed30d6d08a2158b6f1e5f3551"
     },
     "dependencies": [
       {
@@ -135,7 +135,7 @@
       "<PlanarFkArm",
       "<DhParameterTable",
       "/playground",
-      "±0.5mm",
+      "\u00b10.5mm",
       "product-of-exponentials",
       "A_i = \\begin{bmatrix}"
     ],
@@ -149,16 +149,16 @@
       "marquardt-1963"
     ],
     "execution": {
-      "path": "audit/evidence/classical-closure-20260923/kinematics-removal-run.json",
-      "bytes": 5682,
-      "sha256": "e4896f21e5213bdc3600e696686c6a0124d8dbb6a6d66994e2cdc7d8e189d53d"
+      "path": "audit/evidence/residual-release-20260924/kinematics-removal-run.json",
+      "bytes": 5473,
+      "sha256": "8caa49ae4060392a3e4816033f45f14cbda21a984fcd61815238e5d1a2f4436c"
     },
     "children": [],
     "review": {
-      "reviewedBy": "Droid e781d819-64a0-43b9-a76c-984d300b1b4f; custom:droidproxy:gpt-6-astra/max; integrator, not independent validator",
-      "rationale": "Inspected actual article, inverse-kinematics glossary definition, current desktop/mobile DOM and screenshots. Unsupported formula/attribution, schedule and universal guarantees are absent; six current citation identities resolve. The supported DH matrix/table, existing FK controls, playground link and 0.5mm solver target remain. lib/ik.ts is unchanged. Removal evidence does not pretend the unavailable sources prove their former assertions.",
-      "observedAt": "2026-09-23T19:54:47.702Z",
-      "inputDigest": "1b7913e598cef5af14e2062fefff3b972e772d41716eeec79085230e0069cc69"
+      "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
+      "rationale": "Inspected fresh desktop/mobile captures, current article and glossary, retained DH matrix and FK controls, real playground link, absence of unsupported attribution and formula, and unchanged solver. Source histories and all older execution records are preserved. This binds current merged dependencies to genuine new reader observations, not a relabelled earlier execution.",
+      "observedAt": "2026-09-24T01:17:16.307Z",
+      "inputDigest": "09e2fbf2b070a769bcbd20dd27e6cacf435571df54b61896173e8bb09c12398d"
     }
   },
   {
@@ -175,12 +175,12 @@
     "originalTupleDigest": "c9d0558165af68e49d0efb30fdeaa6bf0f0e2e9c51f5c7615b0e9120d40abbe2",
     "snapshot": {
       "path": "audit/evidence/control-citation-closeout-20260924/before-classical.md",
-      "bytes": 672801,
-      "sha256": "43e2907b0a5bc6879ecf3db0b7e56de190e4f527f8de76e909e3bec16b8956c6"
+      "bytes": 659821,
+      "sha256": "c74419ace030235f403a71a053ce6f7949cab251a5ad62bfde6686e735cab87e"
     },
     "currentCells": {
       "claim": "Removed: the industrial PID prevalence percentage is no longer asserted in Control prose, Stat or SelfCheck feedback.",
-      "sourceChecked": "Article/frontmatter and desktop/mobile reader absence proof; historical Åström chapter text retained, not a live citation.",
+      "sourceChecked": "Article/frontmatter and desktop/mobile reader absence proof; historical \u00c5str\u00f6m chapter text retained, not a live citation.",
       "verdict": "Cut",
       "note": "Original four cells preserved in audit/evidence/control-citation-closeout-20260924/before-classical.md (digest c9d0558165af68e49d0efb30fdeaa6bf0f0e2e9c51f5c7615b0e9120d40abbe2). The old chapter attributed the >95% sentence to [DM02]. No external passage is invented for removal."
     },
@@ -193,8 +193,8 @@
     "dependencies": [
       {
         "path": "data/citations.ts",
-        "bytes": 300669,
-        "sha256": "114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8"
+        "bytes": 305677,
+        "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
       },
       {
         "path": "tests/e2e/control.spec.ts",
@@ -231,14 +231,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "7ce3daa05c8c934fb26d4e7b25c05c5c9f93fa84c08b638638cb8c46a735b85c"
+      "sha256": "2fd41610b663dcb0f0987c1e31b04c5537a1fffe2512ffc54b1932a914fb28a9"
     },
     "children": [],
     "review": {
-      "reviewedBy": "Droid Sol/max integrator 30d764da-f317-4aa8-9853-63022d2b1701; not independent validator",
-      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
+      "reviewedBy": "implementation integrator 30d764da; not independent validator",
+      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible \u00c5str\u00f6m chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-24T04:31:13.796Z",
-      "inputDigest": "70e57c6fcaa4934f269866cb5a9c7f1ced29469506d27158c5c4f7ea4fcba13a"
+      "inputDigest": "36db5bf95199da7d1ae328884498662f4784c03497db050d2eb1e9f0c161d31a"
     }
   },
   {
@@ -255,8 +255,8 @@
     "originalTupleDigest": "13bbe6740034bb003fa2cb2b7e6ddda56ad4fd8b86f656af8ef2545d18394dbb",
     "snapshot": {
       "path": "audit/evidence/control-citation-closeout-20260924/before-classical.md",
-      "bytes": 672801,
-      "sha256": "43e2907b0a5bc6879ecf3db0b7e56de190e4f527f8de76e909e3bec16b8956c6"
+      "bytes": 659821,
+      "sha256": "c74419ace030235f403a71a053ce6f7949cab251a5ad62bfde6686e735cab87e"
     },
     "currentCells": {
       "claim": "Removed: the dependent many-without-D prevalence qualifier is no longer asserted in Control.",
@@ -273,8 +273,8 @@
     "dependencies": [
       {
         "path": "data/citations.ts",
-        "bytes": 300669,
-        "sha256": "114fea38045c5095e8cad899934c01ed0b31f49746b306335a4385f5017b80f8"
+        "bytes": 305677,
+        "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
       },
       {
         "path": "tests/e2e/control.spec.ts",
@@ -311,14 +311,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "7ce3daa05c8c934fb26d4e7b25c05c5c9f93fa84c08b638638cb8c46a735b85c"
+      "sha256": "2fd41610b663dcb0f0987c1e31b04c5537a1fffe2512ffc54b1932a914fb28a9"
     },
     "children": [],
     "review": {
-      "reviewedBy": "Droid Sol/max integrator 30d764da-f317-4aa8-9853-63022d2b1701; not independent validator",
-      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
+      "reviewedBy": "implementation integrator 30d764da; not independent validator",
+      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible \u00c5str\u00f6m chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-24T04:31:13.798Z",
-      "inputDigest": "93d30d967b00b69bdc9d0155c1c32961459c72cefe089dd89afe9edbeeba5bac"
+      "inputDigest": "05c8c65d685c29232c54f3464ff44ad242cee396a86c1a1f8acd1d47f40acbbc"
     }
   }
 ]

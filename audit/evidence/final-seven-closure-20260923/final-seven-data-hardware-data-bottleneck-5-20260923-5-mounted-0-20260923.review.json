@@ -1,15 +1,15 @@
 {
   "schemaVersion": "local-review-event-v1",
-  "sessionId": "fd137388-f254-4d11-97b1-548904d2cad2",
+  "sessionId": "fd137388",
   "role": "integrator",
   "eventId": "final-seven-data-hardware-data-bottleneck-5-20260923-5-mounted-0-20260923",
   "observedAt": "2026-09-23T22:23:03.110Z",
-  "reviewedBy": "Delegated Droid Sol/max integrator; independent reviewer pending",
+  "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
   "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default controls, disclosure and model-specific readouts after real state transitions.",
   "outcome": "supported",
   "scope": "part",
   "partId": "5-mounted-0",
-  "inputDigest": "5ba2ed83726342bc2c3821916ef2fde98ade8f7737f003baabcd77766b85cb7c",
+  "inputDigest": "13696c3becdd8703be9c77f0ef419ee129ff96483988663a09b698904c8fab82",
   "inventory": [
     {
       "id": "5-external",

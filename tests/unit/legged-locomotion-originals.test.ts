@@ -164,7 +164,7 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
       expect(record.compound?.adjudicationFailures ?? ['missing']).toEqual([]);
       expect(record.evidenceFailures).toEqual([]);
       const plan = compoundPlans.find((p) => p.id === planId)!;
-      expect(plan.planReview?.reviewedBy).toContain('paywall integrator efa5d1e4-a1b6-4874-b933-8492ceab17fa');
+      expect(plan.planReview?.reviewedBy).toContain('paywall integrator efa5d1e4');
       expect(plan.planReview?.rationale).toContain('af50da65fc93392238e2c9c7cf2d170dfa0955e283cf7fb9dcff60eacc7d187d');
       for (const review of plan.adjudications) expect(review.outcome).toBe('supported');
     }
@@ -302,7 +302,7 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
         "ordinal": 8,
         "planId": "legged-locomotion-8-duty-factor-disclaimer-20260916i",
         "oldTuple": "100f787b1aa8c18b7b9e21c822c4868c3a9888b38737b3d235ef6bcb3bf9025f",
-        "withdrawnReviewDigest": "f4946f4ac52e6887639272648c1e729d6fc174f217c6d74bf1cda6784c534644"
+        "withdrawnReviewDigest": "36e124e6e36b2a09789194c6033bf77eba46c63d1100d1425e6e6928475cf237"
     }
 ])('preserves the former hold $originalId without losing its tuple or withdrawn review history', ({ originalId, ordinal, planId, oldTuple, withdrawnReviewDigest }) => {
     const { sections, compoundPlans, markdown } = loadSection(true);
