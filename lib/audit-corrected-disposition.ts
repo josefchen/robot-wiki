@@ -49,7 +49,9 @@ export function correctedChildDigest(record: ClaimRecord): string {
 const KROGER_ARCHIVE = 'https://web.archive.org/web/20251118224554/https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html';
 const P4_KROGER_CURRENT = {
   path: 'audit/evidence/citation-closeout-20260924/p4-current-children.json',
-  bytes: 2887, sha256: '1675efb94a792749a6e0a4541ed2a73582d593c0c6654ea8a31404f455e2aefa',
+  // Re-pinned 2026-09-25: the review now binds the live registry after the
+  // EXPO-FT intake additions; the file length is unchanged.
+  bytes: 2887, sha256: '0b487bf37ee3ca0512916483697a9ad01c5624d251a03a76ef1e747c62213716',
 };
 /** A mounted reader observation, not an inferred future outcome or copied article claim. */
 export function verifyKrogerReaderObservation(capture: {

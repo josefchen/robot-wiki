@@ -9,8 +9,8 @@ describe('ACT current source qualifications', () => {
     expect(article).toContain('7+7=14');
   });
   it('represents the paper L1 versus MSE inconsistency rather than a universal objective', () => {
-    expect(article).toContain('Section IV-C specifies L1 reconstruction');
-    expect(article).toContain('Algorithm 1 prints MSE');
+    expect(article).toContain('the experiments specify L1 reconstruction');
+    expect(article).toContain('the printed algorithm uses MSE');
   });
   it('separates added delay, base model latency and experiment scope', () => {
     expect(article).toContain('76 ms for the baselines and 97 ms for RTC');

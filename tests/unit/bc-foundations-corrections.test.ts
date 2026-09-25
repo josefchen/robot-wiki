@@ -41,7 +41,7 @@ describe('BC source-backed corrections', () => {
     expect(article).toContain('\\hat{\\varepsilon}_N');
     expect(article).toContain('infinite-sample');
     expect(article).toContain('strongly convex');
-    expect(article).toContain('not a promise that every iterate improves');
+    expect(article).toContain('it promises no improvement for any particular iterate');
     expect(article).toContain('$u$ can be $O(T)$');
     expect(article).not.toContain('mismatch that drives compounding error shrinks each iteration');
   });
@@ -57,7 +57,7 @@ describe('BC source-backed corrections', () => {
     expect(component).toContain('not a task-cost theorem');
     expect(component).not.toContain('analytic regret bounds');
     expect(component).toContain('illustrative reference curves');
-    expect(article).toContain('not a source benchmark');
+    expect(article).toContain('neither a source benchmark nor a task-cost theorem');
     const params = { epsilon: 0.05, mode: 'per-step' as const, chunkSize: 25, dagger: false };
     const cost = (steps: number) => accumulatedCost(simulateDeviation({ ...params, steps }));
     expect(Math.round(cost(120))).toBe(370);

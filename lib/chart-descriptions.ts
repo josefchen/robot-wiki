@@ -30,6 +30,13 @@ import type { ChartDescriptionEntry } from './chart-description-rules.ts';
 
 export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
   {
+    component: 'ExpoFtResults',
+    file: 'components/interactive/expo-ft-results.tsx',
+    route: '/manipulation/rl-finetuning/',
+    quantityNames: ['successes', 'trials'],
+    text: 'On the four shared comparison tasks EXPO-FT completes 30 of 30 trials on every task, against average successes of 18.8 for supervised finetuning, 20.5 for HG-DAgger, 19 for DSRL and 5.5 for HIL-SERL; the same paper notes HIL-SERL is highly reliable in its original evaluations and that this suite randomizes a substantially larger initial-state space, and with extra training samples HIL-SERL reaches 27 of 30 on Cube Pick and 13 of 30 on Pool Shot.',
+  },
+  {
     // Derived, not authored: the preview builds this sentence from the
     // shipped URDF, so a model change fails the registry comparison instead
     // of leaving a stale claim under a redrawn schematic.

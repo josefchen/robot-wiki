@@ -53,6 +53,13 @@ export function preservedPreIndustrialCitations(ref: string): void {
     .replace(archiveUrl, liveUrl)
     .replace(kalmanNew, kalmanOld)
     .replace(additions, '')
+    // The EXPO-FT intake (owner decision 20260925) appended five citations
+    // after act-reference-2023; strip them for the pre-industrial
+    // reconstruction, the same way the LEI additions are stripped above.
+    .replace(/  \{\n    \/\/ arXiv abs page and HTML v2 full text both fetched 2026-09-25;[\s\S]*?id: 'perry-dong-post-training-2026',[\s\S]*?type: 'blog',\n  \},\n/, '')
+    // The Where2Place Table 2 locator note moved into this registry entry
+    // with the same intake; strip it for the pre-industrial bytes too.
+    .replace(/  \{\n    \/\/ Where2Place point-in-mask accuracies[\s\S]*?id: 'robopoint-2024',/, "  {\n    id: 'robopoint-2024',")
     .replace("typeof citation.year === 'number' && (citation.venue?.includes(String(citation.year)) ?? false)",
       'citation.venue?.includes(String(citation.year)) ?? false')
     .replace("${citation.year}${citation.year === 'n.d.' ? `; accessed ${citation.accessedOn}` : ''}",

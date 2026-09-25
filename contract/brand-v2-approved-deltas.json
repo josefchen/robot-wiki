@@ -30805,6 +30805,848 @@
         "VAL-B2-DISC-007"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-action-chunking",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
+      "newHash": "f5176397b03c912dff965b2f0c91354f59723076730a1522ae16b537d005e49e",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in action-chunking was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-action-spaces",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "87561a2725e8d8b0dca5ee0eb8b5a6e837f8332a7f570c68986f7f1350d9b432",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in action-spaces was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20",
+      "newHash": "484ec5e9380b54c65b3f22285f2e11aad6be452d05bb958f58d42d41a434f4b2",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in bc-foundations was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-comparison-matrix",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322",
+      "newHash": "0d16e24e51e27fde3c5399f093dc2a24436e0724c1cc417e4191adad709d2073",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in comparison-matrix was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-cross-embodiment",
+      "manifest": "prose",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "4113ccb348552a70f33b0c159dd51f3179d07ec4d5cb5d5fcabf282ab5c59eef",
+      "newHash": "f1a517054daac12f2ab03dde79cd2eeb043c1398c78bf620ddd0773f44b64582",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in cross-embodiment was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-diffusion-policy",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2",
+      "newHash": "7932540a25e93c7658edeaebd3c69d1f4c7c2368d913034d679daa0601b9d687",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in diffusion-policy was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-foundation-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "624e23e95e1880d63757572dc622be9e4510578e7cf275084a38ce5f32917a62",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in foundation-models was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-generalist-policies",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe",
+      "reason": "Resolution entry for the article:manipulation/generalist-policies approval graph after the humanizer v3 manipulation pass. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that pass; it selects no different fact, source, route or rendering, and any removed, altered or newly added edge invalidates it.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-3",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "b0d9127ac3bef7bed9b28c8f87905c443ff2f58a2daf92f1892b8895b59d0e3b"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-5",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "68840092b1fedab94737f684e08a280476ed11a1f7103453aa0766cc7bfb761f"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-2",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-1",
+          "oldHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "four-local-truth-repairs-20260922-1",
+          "oldHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "crossdomain-closure-20260923-1",
+          "oldHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        }
+      ]
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-hierarchical",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b",
+      "reason": "Resolution entry for the article:manipulation/hierarchical approval graph after the humanizer v3 manipulation pass. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that pass; it selects no different fact, source, route or rendering, and any removed, altered or newly added edge invalidates it.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-4",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "e61d22c100e301219e0ad92bda2456f5c899cc6077d308a8206a37650ed9b9f3"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-6",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "f4d1b9e437d94d44d254a03d431af63d12c388f4514e15cba00a1f07f86a791e"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-3",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "6653d1cddb175e5405614b0877b7847f059164ea06eb3205d17feeeafe271d4b"
+        },
+        {
+          "id": "keypoint-hierarchy-20260913-2",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "1ad8d672a630982ea64b781bcc37605f6ed105e32519b81dd2fc518fbcec95a6"
+        },
+        {
+          "id": "saycan-cap-two-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142"
+        },
+        {
+          "id": "hierarchical-ecot-hirobot-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223"
+        },
+        {
+          "id": "hierarchy14-box-web-correction-20260921",
+          "oldHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+          "newHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7"
+        },
+        {
+          "id": "hierarchy15-bounded-synthesis-correction-20260921",
+          "oldHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        }
+      ]
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-knowledge-insulation",
+      "manifest": "prose",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "39f6a1b5787df41b1c085b5e04bd2682a607817c7623eaf75f08a4bb19727732",
+      "newHash": "b719b144619a378b3fd5c12cdc9c37a58e82fc496956299caf1234017905d9dd",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in knowledge-insulation was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-pi-line",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "3910469cc8ac7ac69cb70bc8936b8092dc1bc5fdd5c8df17c2eb8e6ac120b20d",
+      "newHash": "6ba3093209f07abab39d6d8669e1e9cbaaff27cc982d1ff4b17da87ecadc75f1",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in pi-line was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-realtime-execution",
+      "manifest": "prose",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902",
+      "newHash": "675c1dd56324fa7ce37a49385669cb2fcbe1c5e99649ae5c6092c7e80d8706ca",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in realtime-execution was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-rl-finetuning",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "9cd86548ec63a88ef26aa27fb724b7a74cb6b6a895112e9278c6c1b968786363",
+      "reason": "Resolution entry for the article:manipulation/rl-finetuning approval graph after the humanizer v3 manipulation pass and the EXPO-FT intake. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that pass; it selects no different fact, source, route or rendering, and any removed, altered or newly added edge invalidates it.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval. Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-KOL-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-rl-finetuning-display-math-delimiters",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "8a0f433c78e6aedaa4b5e0c2729fd6f36cf4141af498cb19042a663b41ebdb87"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-4",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "4483c83f0ab4302e38386b794c017a09a8ecdcf63fecb006c13bef8966e01b1b"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "5424024e10a7e82ad997df5eb7988b12b0b04e127dfcc3f53bdbb9e0b4fe67c0"
+        },
+        {
+          "id": "brand-v2-rl-reader-citation-placement-20260908",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "120deb06728a78d1969b84b131812bb5d8c78e152a1df1589ec6b7b0b3dbe834"
+        },
+        {
+          "id": "rl-correct-originals-20260908-prose",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "f3eeff488db5b1d89c05e6ac2348ed84d323d983546ebcd45966ea815032e03c"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "58266d3f46c78229772028ac412853551ca8252b6137772d21b40b27cbc809cf"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f"
+        },
+        {
+          "id": "reader-rl-prose-20260923-1",
+          "oldHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        }
+      ]
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-robot-learning-roadmap",
+      "manifest": "prose",
+      "memberId": "article:manipulation/robot-learning-roadmap",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b186c4dd62ba177442c4f51143c9dba7d02a4074e6f8ce6cbff11ae524488b50",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in robot-learning-roadmap was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanizer-manipulation-v3-20260925-prose-vla-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290",
+      "newHash": "18bfc062356bf3bde25c157d462f2d40e8d43afe92fb512c614210ac72ef46d6",
+      "reason": "Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in vla-models was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925: state what is true plainly once, move paper-internal Appendix/Section/Table locators and bare revision markers out of reader prose into citation notes, keep every audited fact, number and citation unchanged, and guard the domain with a structural-tell report-mode floor of 2 tells per 1,000 words after each article pass. Prose approval only, not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-relationships-rl-finetuning",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "1394c86b31ad1ba8c5face5adea3c0d80b0ffc6c1bcf8f7736aae2934953cc66",
+      "reason": "Resolution entry for the article:manipulation/rl-finetuning approval graph after the humanizer v3 manipulation pass and the EXPO-FT intake. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that pass; it selects no different fact, source, route or rendering, and any removed, altered or newly added edge invalidates it.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cross-article-closeouts-20260907-13",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "0b61e313d835e95eac8a7dfc47273d2c3d3f0173f3db0da5b2abd40dec67b8f8"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-2",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "6a2a8eebcd9e36011ca58d06a1afaa75bb2812c5986c477c21462d0460d1fc0c"
+        },
+        {
+          "id": "rl-correct-originals-20260908-relationships",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "6f6e93db5e6b361cdf37d42f53e6484fb6e0b54e290f4fcc0d45b119f7a81d9f"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-3",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "ee8e5ecb41721ad37d66394732c5f66028a71febf86046815145b3a6accfb609"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-2",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886"
+        },
+        {
+          "id": "reader-rl-prose-20260923-3",
+          "oldHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-relationships-article-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-relationships-article-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        }
+      ]
+    },
+    {
+      "id": "expo-ft-intake-20260925-frontmatter-rl-finetuning",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/rl-finetuning",
+      "oldHash": "352e6726856b62f49d39d9fcedadbe871af8c1eb7b5c53a92f4efa43aab54dfd",
+      "newHash": "e1d2b55a113f5339c3b8fea407d1e53e8d7c414ae1dd1919a3e7e86490c20369",
+      "reason": "rl-finetuning frontmatter gains the five EXPO-FT-intake citation ids (12 to 17) and a description that names EXPO-FT; title, slug, order, status, lastReviewed and seeAlso are unchanged.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-ART-010",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-metadata-rl-finetuning",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/rl-finetuning",
+      "oldHash": "a270d87539a786fe8611a11efe122b67034d5a86e2997c3418d4c605e699201d",
+      "newHash": "6a130c65d09aed71470d49414812570c17b0dd435a449c935b5a7081f33d1730",
+      "reason": "rl-finetuning parsed metadata changes with the five new citation records and the EXPO-FT description wording; every earlier field is unchanged.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-ART-010",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-citation-rendering",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "dc3c6a368d704a0fc06005dd34dd7985b3fc1e36fa68f4fa81a84d6c9b89d96f",
+      "reason": "Resolution entry for the citation-rendering:label-and-meta approval graph after the humanizer v3 manipulation pass and the EXPO-FT intake. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that pass; it selects no different fact, source, route or rendering, and any removed, altered or newly added edge invalidates it.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-citation-rendering-seal-added",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8"
+        },
+        {
+          "id": "current-dp-td3-20260907-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259"
+        },
+        {
+          "id": "act-convention-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8"
+        },
+        {
+          "id": "bc-foundations-20260907-6",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33"
+        },
+        {
+          "id": "act-current-claims-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571"
+        },
+        {
+          "id": "act-five-sources-20260907-18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf"
+        },
+        {
+          "id": "oft-gemini-oxe-20260908-39",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-7-20260908",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e"
+        },
+        {
+          "id": "neural-scene-originals-12-16-20260908-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6"
+        },
+        {
+          "id": "classical-slam-cadena-25-20260908-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af"
+        },
+        {
+          "id": "randomization-citation-rendering-reconciliation-20260909",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205"
+        },
+        {
+          "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ad43c3cc6acae54840e4bb247b68fd857c46e4ebea2bde03d12ac9be86fb30cd"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "71f7df8ba7ae919b5e2049f73fb4fb4d1d36d969368d856a073a79bbf5181a46"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5570fa96d9961e65be4a31f072b16d1ec616bfbbaa1e00e599686bd829e6c446"
+        },
+        {
+          "id": "perception-foundations-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195"
+        },
+        {
+          "id": "perception-depth-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76"
+        },
+        {
+          "id": "optimal-sampling-ompl-20260913-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3"
+        },
+        {
+          "id": "orb-scene-four-20260914-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e"
+        },
+        {
+          "id": "seo-merge-20260916-article-metadata-143",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "079a39b797d139832e982ce57f899d1bbe5ac8c1dc7d266e34d96952a49702a2"
+        },
+        {
+          "id": "seo-merge-20260916-b3-article-metadata-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223"
+        },
+        {
+          "id": "seo-merge-20260916-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1"
+        },
+        {
+          "id": "wm-cost-labelmeta-20260917-1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5"
+        },
+        {
+          "id": "round5-closeout-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6aec4b2772e8d4a5cb9c9ad1c462534912f9a8b01958c39e6fb9069e27c00cc7"
+        },
+        {
+          "id": "aq0917a-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507"
+        },
+        {
+          "id": "dataset-license-pair-20260921-2",
+          "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+          "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-4",
+          "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+          "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef"
+        },
+        {
+          "id": "continuation-merge-20260922-article-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb"
+        },
+        {
+          "id": "content-integration-20260923-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-6",
+          "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+          "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f"
+        },
+        {
+          "id": "industrial-closure-20260923-3",
+          "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+          "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2"
+        },
+        {
+          "id": "control-citation-20260924-rendering-inventory",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4eef21fee12072861cf36b8849218a09714aace4ee4199f2da71fa6cfebcf7b6"
+        },
+        {
+          "id": "main-merge-20260924-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03de761700f6c1776eeeb9336c009832040f21d39951916c7a20c6025b1e9e53"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2822722c660d8405d900c39dadeeb0e6efc72016bf5ea756a61211ea049ee6a0"
+        }
+      ]
+    },
+    {
+      "id": "expo-ft-intake-20260925-citation-dsrl-2025",
+      "manifest": "article-metadata",
+      "memberId": "citation:dsrl-2025",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b479580937ea70438b8ca34cc1f841a1154dafcbee98121c4ce76236bb870871",
+      "reason": "New citation record dsrl-2025, added for the Perry Dong EXPO-FT intake. Its numbers and quotes were verified against the fetched primary document before encoding; the fetch and verified passages are recorded in audit/citations.md.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-citation-expo-2025",
+      "manifest": "article-metadata",
+      "memberId": "citation:expo-2025",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1b5b6cee9e291200224d135352b69fad55299fa9cb3d0d0517a56e74c417f987",
+      "reason": "New citation record expo-2025, added for the Perry Dong EXPO-FT intake. Its numbers and quotes were verified against the fetched primary document before encoding; the fetch and verified passages are recorded in audit/citations.md.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-citation-expo-ft-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:expo-ft-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "802c371371a3663e62efbabebf9d7ad47c65fb8f1133deb1fb14f7d1100f68e3",
+      "reason": "New citation record expo-ft-2026, added for the Perry Dong EXPO-FT intake. Its numbers and quotes were verified against the fetched primary document before encoding; the fetch and verified passages are recorded in audit/citations.md.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-citation-perry-dong-post-training-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:perry-dong-post-training-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "57b857ba39faedd5036ba2705b1042f268bea3eba2ae3f229858b798967efbd4",
+      "reason": "New citation record perry-dong-post-training-2026, added for the Perry Dong EXPO-FT intake. Its numbers and quotes were verified against the fetched primary document before encoding; the fetch and verified passages are recorded in audit/citations.md.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-citation-realtime-expo-ft-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:realtime-expo-ft-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a69242f5d686dc4f8de4bcdc8ea0bd9c7f229db0fb8edb3a33453a9646f02ccf",
+      "reason": "New citation record realtime-expo-ft-2026, added for the Perry Dong EXPO-FT intake. Its numbers and quotes were verified against the fetched primary document before encoding; the fetch and verified passages are recorded in audit/citations.md.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "expo-ft-intake-20260925-chart-aria-label",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/expo-ft-results.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "75c984cdd408806f90e253a917536e383f09183e60a3d40cf9a557c0d4ea7c32",
+      "reason": "The new ExpoFtResults bar chart names its groups axis for screen readers; the label restates the visible axis legend (\"Tasks\") and carries no fact beyond it.",
+      "ownerApproval": "Owner decision owner-decision-kol-coverage-and-evidence-standards-20260924: verify every reported number against the primary paper before encoding it, attribute the named position with affiliation, date and a link, add the method to the comparison table with a simple bar chart of the paper own task table, and register the prose change in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "brand-v2-hygiene",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

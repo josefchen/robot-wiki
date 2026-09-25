@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import {
   BASELINE_KINDS, buildManifest, compareBaseline, sha256,
@@ -58,6 +59,21 @@ describe('merged reader corrections preserve production additions and exact appr
       expect(read(path)).toContain('lastReviewed: "2026-09-24"');
       expect(read(path)).toContain('agility-digit-production');
       expect(read(path)).not.toContain('technology-org-deployed-2026');
+    } else if (path === 'content/manipulation/rl-finetuning.mdx') {
+      // The merged endpoint from ebf13b4 is preserved; the manipulation
+      // humanizer pass with the EXPO-FT intake (owner decision 20260925)
+      // carries the article to its current text through its approved-deltas
+      // entry.
+      const hashOf = (text: string) => buildManifest('prose', [{
+        id: 'article:manipulation/rl-finetuning',
+        value: { path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const mergeEndpoint = integrated.find(a =>
+        a.manifest === 'prose' && a.memberId === 'article:manipulation/rl-finetuning')!.newHash;
+      expect(hashOf(committedSource('ebf13b4', path))).toBe(mergeEndpoint);
+      const pass = approvals.find(a => a.id === 'humanizer-manipulation-v3-20260925-prose-rl-finetuning')!;
+      expect(hashOf(read(path))).toBe(pass.newHash);
+      expect(read(path)).toContain('EXPO-FT');
     } else expect(read(path)).toBe(committedSource('ebf13b4', path));
   });
 

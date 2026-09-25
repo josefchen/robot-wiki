@@ -49,6 +49,7 @@ export {
   EgoScaleScaling,
   EurekaLoop,
   ExecutionModes,
+  ExpoFtResults,
   FlowMatchingTrajectory,
   FrictionTransfer,
   GaitDiagram,

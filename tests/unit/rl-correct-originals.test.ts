@@ -83,7 +83,7 @@ describe('correctly bound RL originals 6/8/9/10', () => {
     const prose = read('content/manipulation/rl-finetuning.mdx');
     for (const value of ['SFT wins', 'January 2026', 'multi-receptacle',
       'sensitivity-only', 'target-pose success', 'in-distribution',
-      'does not isolate reward design', 'real-world transfer remains untested']) expect(prose).toContain(value);
+      'leaves reward design unisolated', 'real-world transfer remains untested']) expect(prose).toContain(value);
     expect(prose).not.toContain('can become newly fragile');
     expect(prose).not.toContain('because the task reward says nothing');
     // Registry landing URLs retain their existing citation-ledger audit.

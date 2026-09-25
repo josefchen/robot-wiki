@@ -24,11 +24,11 @@ seeAlso:
 ---
 import { FoundationModelFamiliesTable } from '@/components/mdx/text-tables';
 
-“Foundation model” is a claim about reuse, not a synonym for a large neural network. In robotics, the useful test is whether one pretrained model supports materially different downstream tasks, environments or embodiments after bounded adaptation. Parameter count alone does not establish that property, and a model trained across many tasks can still be a closed, fixed policy rather than a foundation for new ones.
+“Foundation model” is a claim about reuse, and a large neural network alone earns nothing by the label. In robotics, the useful test is whether one pretrained model supports materially different downstream tasks, environments or embodiments after bounded adaptation. Parameter count alone does not establish that property, and a model trained across many tasks can still be a closed, fixed policy with no foundation role for new ones.
 
 Three families currently carry the label: <Term id="vision-language-action-model">vision-language-action models</Term> that emit controls, predictive world models used for planning or representation learning, and multimodal backbones adapted into either. They share pretraining scale and diverge at the output interface.
 
-Try the check below and choose the evidence that actually supports the foundation claim. The correct option requires transfer to a downstream setting rather than only a large training run.
+Try the check below and choose the evidence that actually supports the foundation claim. The correct option requires transfer to a downstream setting; a large training run alone earns nothing.
 
 <SelfCheck
   prompt="Which result is the strongest evidence that a robot model is functioning as a foundation model?"
@@ -50,7 +50,7 @@ Try the check below and choose the evidence that actually supports the foundatio
     }
   ]}
   answer="bounded-adaptation"
-  takeaway="Judge foundation models by the breadth and cost of downstream reuse, not by parameter count or branding."
+  takeaway="Judge foundation models by the breadth and cost of downstream reuse; parameter count and branding are weak selectors."
 />
 
 ## What must be specified
@@ -82,7 +82,7 @@ That distinction matters. A foundation can be domain-specific. Protein models, c
 
 ## Predictive foundations: represent or simulate the future
 
-World-model families pretrain a different capability. V-JEPA 2 uses over 1M hours of internet video for representation learning; its action-conditioned stage uses fewer than 62 hours of unlabeled DROID robot video <Cite id="vjepa2-2025" />. The transferable asset is a representation in which future states can be predicted and compared, not a direct language-to-action map.
+World-model families pretrain a different capability. V-JEPA 2 uses over 1M hours of internet video for representation learning; its action-conditioned stage uses fewer than 62 hours of unlabeled DROID robot video <Cite id="vjepa2-2025" />. The transferable asset is a representation in which future states can be predicted and compared; no direct language-to-action map comes with it.
 
 Cosmos 3 unifies understanding, generation, forward dynamics, inverse dynamics and policy-oriented outputs in an omnimodal model for physical AI <Cite id="cosmos-3-2026" />. Its scale supports several downstream roles, but each role still needs an evaluation suited to that output. A visually convincing future is not automatically a useful control model; inspect action sensitivity and policy-ranking evidence when evaluating one.
 
@@ -117,7 +117,7 @@ Compare systems within the same row before comparing across rows. A VLA success 
 
 ## How to evaluate a foundation claim
 
-Look for a matrix, not a highlight. Rows should vary tasks and environments; columns should vary embodiment, adaptation data and evaluation shift. Report the pretrained checkpoint, every tuned component and the amount of new robot interaction. Include a from-scratch baseline under the same data budget.
+Look for a matrix instead of a highlight. Rows should vary tasks and environments; columns should vary embodiment, adaptation data and evaluation shift. Report the pretrained checkpoint, every tuned component and the amount of new robot interaction. Include a from-scratch baseline under the same data budget.
 
 Then ask what failed. If transfer collapses when camera placement changes, the representation is less foundational than the task list suggests. If a new arm needs full retraining on a large dataset, the model may be a strong multi-task policy with a narrow embodiment boundary. If a small adapter works across genuinely new tasks, the foundation description has earned useful meaning.
 

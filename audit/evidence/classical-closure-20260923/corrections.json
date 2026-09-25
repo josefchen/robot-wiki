@@ -54,7 +54,7 @@
       "<PlanarFkArm",
       "<DhParameterTable",
       "/playground",
-      "\u00b10.5mm",
+      "±0.5mm",
       "product-of-exponentials",
       "A_i = \\begin{bmatrix}"
     ],
@@ -98,7 +98,7 @@
       "sha256": "88c910413bbb18c57148eb074dc3e73dd9d9483355158439992966205ba137bc"
     },
     "currentCells": {
-      "claim": "Removed: the named Levenberg\u2013Marquardt acceptance schedule and universal monotonic/no-oscillation/unreachable-target guarantee are no longer asserted in the article.",
+      "claim": "Removed: the named Levenberg–Marquardt acceptance schedule and universal monotonic/no-oscillation/unreachable-target guarantee are no longer asserted in the article.",
       "sourceChecked": "Exact article/frontmatter correction and removal proof. Historical Levenberg/Marquardt references and failed retrievals remain retained; no external passage is invented.",
       "verdict": "Cut",
       "note": "The removed scientific/source-attribution proposition is resolved by its actual removal, not by code comments. lib/ik.ts and the approved playground remain unchanged. In particular, internal escape nudges and displayed best-so-far residuals must not be conflated with universal monotonic trial iterates. Original and intermediate four-cell identities remain in history. Applied and reviewed in run e781d819; integrator review; integrator, not independent validator. Exact original/current history and actual proof receipts: audit/evidence/classical-closure-20260923/row-history.json."
@@ -135,7 +135,7 @@
       "<PlanarFkArm",
       "<DhParameterTable",
       "/playground",
-      "\u00b10.5mm",
+      "±0.5mm",
       "product-of-exponentials",
       "A_i = \\begin{bmatrix}"
     ],
@@ -180,7 +180,7 @@
     },
     "currentCells": {
       "claim": "Removed: the industrial PID prevalence percentage is no longer asserted in Control prose, Stat or SelfCheck feedback.",
-      "sourceChecked": "Article/frontmatter and desktop/mobile reader absence proof; historical \u00c5str\u00f6m chapter text retained, not a live citation.",
+      "sourceChecked": "Article/frontmatter and desktop/mobile reader absence proof; historical Åström chapter text retained, not a live citation.",
       "verdict": "Cut",
       "note": "Original four cells preserved in audit/evidence/control-citation-closeout-20260924/before-classical.md (digest c9d0558165af68e49d0efb30fdeaa6bf0f0e2e9c51f5c7615b0e9120d40abbe2). The old chapter attributed the >95% sentence to [DM02]. No external passage is invented for removal."
     },
@@ -193,8 +193,8 @@
     "dependencies": [
       {
         "path": "data/citations.ts",
-        "bytes": 305677,
-        "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
+        "bytes": 307790,
+        "sha256": "d0800833562f29fd8dcab5d26cffd5990e0e4026b0ace134006a6ca40d86346c"
       },
       {
         "path": "tests/e2e/control.spec.ts",
@@ -231,14 +231,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "2fd41610b663dcb0f0987c1e31b04c5537a1fffe2512ffc54b1932a914fb28a9"
+      "sha256": "2c87a962a3896468a2ff0d48788826514b3b8e91cacdabfb779f6e1e8961305e"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
-      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible \u00c5str\u00f6m chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
-      "observedAt": "2026-09-24T04:31:13.796Z",
-      "inputDigest": "36db5bf95199da7d1ae328884498662f4784c03497db050d2eb1e9f0c161d31a"
+      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
+      "observedAt": "2026-09-25T15:11:07.752Z",
+      "inputDigest": "40cd95871b92ca77492d9a6332338537027054502db6c7de90e133b6fcaf7ab3"
     }
   },
   {
@@ -273,8 +273,8 @@
     "dependencies": [
       {
         "path": "data/citations.ts",
-        "bytes": 305677,
-        "sha256": "198b00856d5b853a17340912597b2e135ea045eca639eb525b42947085bcb9cb"
+        "bytes": 307790,
+        "sha256": "d0800833562f29fd8dcab5d26cffd5990e0e4026b0ace134006a6ca40d86346c"
       },
       {
         "path": "tests/e2e/control.spec.ts",
@@ -311,14 +311,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "2fd41610b663dcb0f0987c1e31b04c5537a1fffe2512ffc54b1932a914fb28a9"
+      "sha256": "2c87a962a3896468a2ff0d48788826514b3b8e91cacdabfb779f6e1e8961305e"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
-      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible \u00c5str\u00f6m chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
-      "observedAt": "2026-09-24T04:31:13.798Z",
-      "inputDigest": "05c8c65d685c29232c54f3464ff44ad242cee396a86c1a1f8acd1d47f40acbbc"
+      "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
+      "observedAt": "2026-09-25T15:11:07.753Z",
+      "inputDigest": "73d80f8ab1435a1bb73dba304da85a3a4d034d26fb1a9d038adf1ce5c68cc957"
     }
   }
 ]

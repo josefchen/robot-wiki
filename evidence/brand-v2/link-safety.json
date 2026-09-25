@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "2bd782359fbc9e0aeb283ca6a67d838f3b73eb33c7d263d2a9577983960ad954",
+  "fingerprint": "6bdbefee8014a28492cf7729eb9d3f6598fbda9ad12dd94e26065ac902a30460",
   "source": "out/ static export",
   "routes": [
     {
@@ -521,8 +521,8 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "outboundAnchors": 64,
-      "distinctHrefs": 15,
+      "outboundAnchors": 81,
+      "distinctHrefs": 20,
       "shapes": [
         "citation-chip",
         "footer",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3114,
-  "distinctOutboundHrefs": 852,
+  "outboundAnchors": 3131,
+  "distinctOutboundHrefs": 857,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1370,
-    "reference-entry": 746,
+    "citation-chip": 1382,
+    "reference-entry": 751,
     "other": 604
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2579,
+  "anchorsWithNoreferrer": 2596,
   "keyboard": [
     {
       "route": "/",
@@ -1183,15 +1183,15 @@
       "reachedByTab": 36,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 131
+      "tabStops": 132
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "outboundInDom": 64,
-      "reachedByTab": 64,
+      "outboundInDom": 81,
+      "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 200
+      "tabStops": 233
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",

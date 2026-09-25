@@ -20,13 +20,13 @@
       "claim": "The unsupported-as-evidence numbered dashboard assertion is withdrawn; the unnumbered link to the existing deployment dashboard remains.",
       "sourceChecked": "Finite correction record; actual desktop/mobile mounted glossary, reference, field and cross-link checks with complete original history.",
       "verdict": "C",
-      "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Correction does not certify the superseded assertion. Retained retrieval times are not today\u2019s review times. No independent acceptance."
+      "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Correction does not certify the superseded assertion. Retained retrieval times are not today’s review times. No independent acceptance."
     },
     "currentTupleDigest": "0f26d174aaa43feb7948b8aff7a1cc181a347834a84110e42bd14fce24e778ac",
     "article": {
       "path": "content/data-hardware/industrial-deployment.mdx",
-      "bytes": 19397,
-      "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      "bytes": 19278,
+      "sha256": "8637896eef510c187a236f6ba5d0bcfb72e06adc42b7e7e42cef905b550f67da"
     },
     "dependencies": [
       {
@@ -36,8 +36,8 @@
       },
       {
         "path": "data/citations.ts",
-        "bytes": 305677,
-        "sha256": "66751a2a33aa5a11736be65e271582ce62e14381920ca12b726e21ea7197a079"
+        "bytes": 307790,
+        "sha256": "d0800833562f29fd8dcab5d26cffd5990e0e4026b0ace134006a6ca40d86346c"
       },
       {
         "path": "data/schemas/citation.ts",
@@ -93,15 +93,15 @@
     ],
     "execution": {
       "path": "audit/evidence/industrial-release-20260924/browser-run.json",
-      "bytes": 22943,
-      "sha256": "c4b16ca235da2f22e4dc2ddbdec1ea368cd417e4ca2a68e255ec9a3cec1367e6"
+      "bytes": 22908,
+      "sha256": "81701cf22e53dc6673f21ac094fbe475a9b918dfc72f51822871870030f8a9bb"
     },
     "children": [],
     "review": {
       "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
       "rationale": "Fresh desktop/mobile observation after the exact Kroger citation comment correction. The article and citation fields are unchanged; all glossary, bibliography, authored-input and dashboard checks ran again. Both industrial-closure-20260923 and industrial-release-20260923 remain immutable. Rebind the complete P4 child conjunction without claiming independent project acceptance.",
-      "observedAt": "2026-09-24T04:17:15.709Z",
-      "inputDigest": "fdd59e8c1b63a48978306e28a11fb84681ca14aa3cb538a27fac9dad3196ea94"
+      "observedAt": "2026-09-25T15:11:07.744Z",
+      "inputDigest": "862b13a00eb7d9f2d614950ac2fb77df8dddbcd887a12d6f68ed1a01d2cb44d2"
     }
   },
   {
@@ -125,13 +125,13 @@
       "claim": "Withdrawn historical blanket audit certification: the old glossary-resolution and historical validate:content pass statement is not a current sourced article claim. Current glossary/link checks remain mandatory and are not certified by this withdrawal.",
       "sourceChecked": "Finite correction record; actual desktop/mobile mounted glossary, reference, field and cross-link checks with complete original history.",
       "verdict": "Cut (historical ledger certification withdrawn)",
-      "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. No article-removal span is claimed; current glossary observations are separate from the withdrawn historical audit assertion. Retained retrieval times are not today\u2019s review times. No independent acceptance."
+      "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. No article-removal span is claimed; current glossary observations are separate from the withdrawn historical audit assertion. Retained retrieval times are not today’s review times. No independent acceptance."
     },
     "currentTupleDigest": "4bfcc59b7eaf2823df127de29d47dd540ebd54744723207f03c841adb32c9495",
     "article": {
       "path": "content/data-hardware/industrial-deployment.mdx",
-      "bytes": 19397,
-      "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      "bytes": 19278,
+      "sha256": "8637896eef510c187a236f6ba5d0bcfb72e06adc42b7e7e42cef905b550f67da"
     },
     "dependencies": [
       {
@@ -141,8 +141,8 @@
       },
       {
         "path": "data/citations.ts",
-        "bytes": 305677,
-        "sha256": "66751a2a33aa5a11736be65e271582ce62e14381920ca12b726e21ea7197a079"
+        "bytes": 307790,
+        "sha256": "d0800833562f29fd8dcab5d26cffd5990e0e4026b0ace134006a6ca40d86346c"
       },
       {
         "path": "data/schemas/citation.ts",
@@ -194,15 +194,15 @@
     "requiredAbsent": [],
     "execution": {
       "path": "audit/evidence/industrial-release-20260924/browser-run.json",
-      "bytes": 22943,
-      "sha256": "c4b16ca235da2f22e4dc2ddbdec1ea368cd417e4ca2a68e255ec9a3cec1367e6"
+      "bytes": 22908,
+      "sha256": "81701cf22e53dc6673f21ac094fbe475a9b918dfc72f51822871870030f8a9bb"
     },
     "children": [],
     "review": {
       "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
       "rationale": "Fresh desktop/mobile observation after the exact Kroger citation comment correction. The article and citation fields are unchanged; all glossary, bibliography, authored-input and dashboard checks ran again. Both industrial-closure-20260923 and industrial-release-20260923 remain immutable. Rebind the complete P4 child conjunction without claiming independent project acceptance.",
-      "observedAt": "2026-09-24T04:17:15.709Z",
-      "inputDigest": "47452d3f2f0d0ed3ed2657d51200fd7ef7cebee44390b56affafa501507b2095"
+      "observedAt": "2026-09-25T15:11:07.744Z",
+      "inputDigest": "7d1ab0fe90ea780feb256da4f013813802ee26a7a6234db9268c0dd0429027b2"
     }
   },
   {
@@ -226,13 +226,13 @@
       "claim": "External figures retain their source-specific scope; calculator inputs and worked examples are explicitly authored, not stand-ins for unknown measurements. Any applicable unpublished real-world field must retain its canonical not disclosed disposition; n/a requires genuine inapplicability. The two undated LEI bibliographic entries use n.d. and their actual 2026-09-22 access date.",
       "sourceChecked": "Finite correction record; actual desktop/mobile mounted glossary, reference, field and cross-link checks with complete original history.",
       "verdict": "C",
-      "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Every other industrial original is a required AND child, with actual registry/render comparison; not certification by calculator proof alone. Retained retrieval times are not today\u2019s review times. No independent acceptance."
+      "note": "Original and immediately preceding four-cell tuples retained verbatim in audit/evidence/industrial-closure-20260923/row-history.json; earliest raw snapshot audit/evidence/economics-local-20260923/original-data-hardware.md. Every other industrial original is a required AND child, with actual registry/render comparison; not certification by calculator proof alone. Retained retrieval times are not today’s review times. No independent acceptance."
     },
     "currentTupleDigest": "8d7e51aa523a44e7f3d3f3ef8b9f55b042a28cfb4b58089e2e363e5318e64369",
     "article": {
       "path": "content/data-hardware/industrial-deployment.mdx",
-      "bytes": 19397,
-      "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      "bytes": 19278,
+      "sha256": "8637896eef510c187a236f6ba5d0bcfb72e06adc42b7e7e42cef905b550f67da"
     },
     "dependencies": [
       {
@@ -242,8 +242,8 @@
       },
       {
         "path": "data/citations.ts",
-        "bytes": 305677,
-        "sha256": "66751a2a33aa5a11736be65e271582ce62e14381920ca12b726e21ea7197a079"
+        "bytes": 307790,
+        "sha256": "d0800833562f29fd8dcab5d26cffd5990e0e4026b0ace134006a6ca40d86346c"
       },
       {
         "path": "data/schemas/citation.ts",
@@ -299,8 +299,8 @@
     "requiredAbsent": [],
     "execution": {
       "path": "audit/evidence/industrial-release-20260924/browser-run.json",
-      "bytes": 22943,
-      "sha256": "c4b16ca235da2f22e4dc2ddbdec1ea368cd417e4ca2a68e255ec9a3cec1367e6"
+      "bytes": 22908,
+      "sha256": "81701cf22e53dc6673f21ac094fbe475a9b918dfc72f51822871870030f8a9bb"
     },
     "children": [
       {
@@ -511,8 +511,8 @@
     "review": {
       "reviewedBy": "integrator techwithdraw-20260924",
       "rationale": "Technology.org withdrawal rebind 2026-09-24: industrial-deployment rows 5-8 were cut/corrected to inspected first-party sources (audit/evidence/technology-withdrawal-20260924/), so their child digests are rebound to the current parsed rows; the prior complete record is preserved verbatim in prior-corrections-industrial-release.json. Original cells, snapshot, currentCells, dependencies, execution receipt and the Kroger changed-children review are unchanged; no independent project acceptance is claimed.",
-      "observedAt": "2026-09-24T09:10:49.143Z",
-      "inputDigest": "017699f9262356059edb1cc571a1b981582af6f460c1e8c4f969b7b5c2483dc7"
+      "observedAt": "2026-09-25T15:11:07.744Z",
+      "inputDigest": "5f6fea7b55145c7de9917170c48be60659fe31453b6e01817c2125d41eb9cbbc"
     }
   }
 ]

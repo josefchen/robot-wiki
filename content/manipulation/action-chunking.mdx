@@ -68,13 +68,13 @@ Action Chunking with Transformers (ACT), introduced together with the ALOHA bima
   />
 </Card>
 
-The 14 action coordinates are six arm joints and one gripper coordinate per arm. The ACT hardware section names two six-DoF ViperX arms, while Section IV-C uses the shorthand “7+7=14 DoF”; that notation must not be read as seven arm joints <Cite id="act-aloha-2023" />. Mobile ALOHA explicitly describes its 14 arm-action coordinates as including two continuous gripper actions <Cite id="mobile-aloha-2024" />.
+The 14 action coordinates are six arm joints and one gripper coordinate per arm. The ACT hardware description names two six-DoF ViperX arms; the paper's “7+7=14 DoF” shorthand counts the gripper coordinates too, so it never means seven arm joints <Cite id="act-aloha-2023" />. Mobile ALOHA explicitly describes its 14 arm-action coordinates as including two continuous gripper actions <Cite id="mobile-aloha-2024" />.
 
-The objective in the card follows ACT's implementation description: Section IV-C specifies L1 reconstruction, but Algorithm 1 prints MSE, with a weighted KL regularizer in both accounts <Cite id="act-aloha-2023" />. The paper is internally inconsistent here; the card states the Section IV-C choice, not a universal ACT objective.
+The objective in the card follows ACT's implementation description: the experiments specify L1 reconstruction, while the printed algorithm uses MSE, with a weighted KL regularizer in both accounts <Cite id="act-aloha-2023" />. The paper is internally inconsistent here; the card pins the L1 choice for this implementation and claims nothing about a universal ACT objective.
 
 ### The chunk-size dial
 
-Chunk size is a real bias/variance dial, not a hyperparameter footnote. The curve above comes from the paper's two simulated MuJoCo tasks (Cube Transfer and Bimanual Insertion), averaged over four settings (each task trained on scripted and on human demonstrations, temporal ensembling disabled): ACT measures 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and <Term id="compounding-error">compounding error</Term> returns; too large and the policy stops reacting to the world mid-chunk.
+Chunk size is a real bias/variance dial. The curve above comes from the paper's two simulated MuJoCo tasks (Cube Transfer and Bimanual Insertion), averaged over four settings (each task trained on scripted and on human demonstrations, temporal ensembling disabled): ACT measures 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and <Term id="compounding-error">compounding error</Term> returns; too large and the policy stops reacting to the world mid-chunk.
 
 <Callout variant="info">
   Chunking does not reduce the per-decision error ε. It reduces the number of decisions, T divided by k, over which that error compounds. The bias you pay is commitment: the world can change inside a chunk, and the policy will not notice until the next inference.
@@ -82,7 +82,7 @@ Chunk size is a real bias/variance dial, not a hyperparameter footnote. The curv
 
 ## Temporal ensembling and its limits
 
-The pinned ACT reference implementation uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy at every timestep and averages the retained predictions for the current action in oldest-to-newest order <Cite id="act-reference-2023" />. Its weights are $w_i = \exp(-m \cdot i)$, where $i = 0$ is the earliest retained prediction and $m = 0.01$. Thus the oldest retained prediction has the largest weight; increasing $m$ reduces the relative weight of newer predictions. The example below starts with already-selected predictions: it illustrates the weighted average, not the reference code's nonzero-buffer selection rule.
+The pinned ACT reference implementation uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy at every timestep and averages the retained predictions for the current action in oldest-to-newest order <Cite id="act-reference-2023" />. Its weights are $w_i = \exp(-m \cdot i)$, where $i = 0$ is the earliest retained prediction and $m = 0.01$. Thus the oldest retained prediction has the largest weight; increasing $m$ reduces the relative weight of newer predictions. The example below starts with already-selected predictions and illustrates the weighted average; the reference code's nonzero-buffer selection rule stays outside it.
 
 <Image id="temporal-ensembling" />
 
@@ -100,7 +100,7 @@ def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
 For an illustrative scalar example **after selection**, oldest-to-newest predictions `[0, 10, 20]` at $m = 0.01$ receive normalized weights approximately `[0.33667217, 0.33332222, 0.33000561]` and yield `9.93333444`. This does not exercise the reference occupancy filter, which would discard a literal zero scalar in the raw buffer.
 
 <Callout variant="warn">
-  The RTC experiment used π0.5 with five denoising steps: model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. The tested temporal-ensembling variants triggered protective stops at **an additional 100 or 200 ms** of injected delay, not at those values of total latency <Cite id="real-time-chunking-2025" />. The accompanying blog reports averages over six tasks, ten episodes per task; this is an experimental result, not a universal failure threshold <Cite id="pi-real-time-chunking-blog-2025" />.
+  The RTC experiment used π0.5 with five denoising steps: model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. The tested temporal-ensembling variants triggered protective stops at **an additional 100 or 200 ms** of injected delay, measured on top of the existing model and network latency <Cite id="real-time-chunking-2025" />. The accompanying blog reports averages over six tasks, ten episodes per task; this is an experimental result and carries no universal failure threshold <Cite id="pi-real-time-chunking-blog-2025" />.
 </Callout>
 
 <Callout variant="error" title="Failure mode: neither left nor right">
@@ -108,12 +108,12 @@ For an illustrative scalar example **after selection**, oldest-to-newest predict
 </Callout>
 
 <Aside title="Why idle segments freeze single-step policies">
-  Demonstrations contain pauses that are unpredictable from a Markovian single-step state. Both ACT and [Diffusion Policy](/manipulation/diffusion-policy) document robots freezing when the policy cannot represent the pause <Cite id="diffusion-policy-2023" />. Temporal context, not a bigger backbone, is what fixes it.
+  Demonstrations contain pauses that are unpredictable from a Markovian single-step state. Both ACT and [Diffusion Policy](/manipulation/diffusion-policy) document robots freezing when the policy cannot represent the pause <Cite id="diffusion-policy-2023" />. Temporal context is the fix; the backbone's size is beside the point.
 </Aside>
 
 <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. In the reported π0.5 experiment, RTC showed no degradation in average task throughput through +200 ms of injected delay, without retraining <Cite id="real-time-chunking-2025" />. This evaluates RTC on a <Term id="flow-matching">flow-matching</Term> policy; it does not establish adoption by later generations of [the pi line](/manipulation/pi-line).
 
-The dial below is a deterministic toy of a cross-mode hand-off, not a reproduction of the RTC benchmark. Its percentages are a normalized toy score: the collapse curve, the fixed RTC line, and the interpolation between measured delay settings are assumptions. The paper reports average task throughput, not these percentages; the slider also extends beyond the experiment’s +200 ms endpoint <Cite id="real-time-chunking-2025" />.
+The dial below is a deterministic toy of a cross-mode hand-off; it does not reproduce the RTC benchmark. Its percentages are a normalized toy score: the collapse curve, the fixed RTC line, and the interpolation between measured delay settings are assumptions. The paper reports average task throughput, and these percentages are the toy's own; the slider also extends beyond the experiment’s +200 ms endpoint <Cite id="real-time-chunking-2025" />.
 
 <LatencyComparison className="my-6" />
 
@@ -133,41 +133,41 @@ The dial below is a deterministic toy of a cross-mode hand-off, not a reproducti
     {
       value: 'hundred',
       label: '+100 ms, added to the existing model and network latency',
-      why: 'Both tested variants triggered protective stops at +100 ms and +200 ms. RTC maintained average task throughput across the tested delays. The panel below illustrates one possible cross-mode failure; its 0% and 100% are toy scores, not measured task throughput.',
+      why: 'Both tested variants triggered protective stops at +100 ms and +200 ms. RTC maintained average task throughput across the tested delays. The panel below illustrates one possible cross-mode failure; its 0% and 100% are toy scores, distinct from measured task throughput.',
       cite: 'pi-real-time-chunking-blog-2025'
     }
   ]}
   answer="hundred"
-  revealHint="Both panels start at +100 ms: the toy assigns ensembling 0% and RTC 100%. Drag the slider to inspect the assumed transition, not to estimate a measured failure threshold."
-  takeaway="Keep added delay separate from total latency. These π0.5 results support RTC under the tested conditions, not a universal 100 ms limit or a guaranteed flat curve for every task."
+  revealHint="Both panels start at +100 ms: the toy assigns ensembling 0% and RTC 100%. Drag the slider to inspect the assumed transition; it estimates no measured failure threshold."
+  takeaway="Keep added delay separate from total latency. These π0.5 results support RTC under the tested conditions; a universal 100 ms limit or a guaranteed flat curve for every task is a stronger claim than they make."
 >
   <LatencyComparison defaultDelayMs={100} className="mt-3" />
 </PredictThenReveal>
 
 ## The lineage in numbers
 
-The table compares reported prediction horizons and control settings, not universal deployment defaults. Weights describe download availability, not license openness; an unverified release is `not disclosed`, not evidence of a closed license. Applicable unpublished horizons and rates also read `not disclosed`, never `n/a` or zero.
+The table compares reported prediction horizons and control settings and makes no claim about universal deployment defaults. Weights describe download availability; license openness is a separate question. An unverified release reads `not disclosed`, which records silence in the checked source and says nothing about a closed license. Applicable unpublished horizons and rates also read `not disclosed`, never `n/a` or zero.
 
 <Cite id="openpi-repo-2024" /> Physical Intelligence’s openpi README lists base checkpoints for π0, π0-FAST, and π0.5 with download locations, as observed on 7 September 2026. The cited repository snapshot is dated 24 August 2026; the README was last edited 21 November 2025. This catalogue is not a global latest-release claim, and absence from it does not establish another model’s license.
 
 <PolicyChunkingTable className="my-6" />
 
-Octo v2's ALOHA finetuning example predicts 64 actions and executes 12 before replanning. Its other reported setups include Franka action prediction at 15 Hz, a coffee-task controller at 10 Hz, and ViperX end-effector control at 5 Hz. These are separate examples, not one universal Octo control rate or horizon. The action head uses diffusion <Cite id="octo-2024" />.
+Octo's ALOHA finetuning example predicts 64 actions and executes 12 before replanning. Its other reported setups include Franka action prediction at 15 Hz, a coffee-task controller at 10 Hz, and ViperX end-effector control at 5 Hz. These are separate examples; the paper reports no single universal Octo control rate or horizon. The action head uses diffusion <Cite id="octo-2024" />.
 
-<Cite id="pi0-2024" /> π0 v4 predicts 50 actions. In its reported execution setup, UR5e and Franka run at 20 Hz and execute 16 actions before replanning; the other evaluated robots run at 50 Hz and execute 25. The table's 20 Hz entry names the UR5e/Franka reference, while the paper describes operation at up to 50 Hz. Its continuous action outputs are trained with conditional flow matching.
+<Cite id="pi0-2024" /> π0 predicts 50 actions. In its reported execution setup, UR5e and Franka run at 20 Hz and execute 16 actions before replanning; the other evaluated robots run at 50 Hz and execute 25. The table's 20 Hz entry names the UR5e/Franka reference, while the paper describes operation at up to 50 Hz. Its continuous action outputs are trained with conditional flow matching.
 
 
-<Cite id="rt1-2022" /> RT-1 predicts one robot action per timestep and commands the Everyday Robots mobile manipulator at 3 Hz. Each action dimension is mapped to one of 256 uniformly distributed bins within that variable’s bounds. Six input frames are observation history, not a six-action horizon. The paper announces open code; pretrained-weight availability is not disclosed in that statement.
+<Cite id="rt1-2022" /> RT-1 predicts one robot action per timestep and commands the Everyday Robots mobile manipulator at 3 Hz. Each action dimension is mapped to one of 256 uniformly distributed bins within that variable’s bounds. Six input frames are observation history; the action horizon is a single step. The paper announces open code; pretrained-weight availability is not disclosed in that statement.
 
-<Cite id="pi05-2025" /> The π0.5 v1 paper predicts 50 action entries (inclusive indexing, H=49) and sends targets at 50 Hz in its two-mobile-platform setup. That does not establish how many actions execute before replanning. The paper combines FAST-token prediction with flow matching; the cited openpi README supports only the flow-matching head for π0.5 training and inference.
+<Cite id="pi05-2025" /> The π0.5 paper predicts 50 action entries (inclusive indexing, H=49) and sends targets at 50 Hz in its two-mobile-platform setup. That does not establish how many actions execute before replanning. The paper combines FAST-token prediction with flow matching; the cited openpi README supports only the flow-matching head for π0.5 training and inference.
 
-<Cite id="pi06-model-card-2025" /> The November 17, 2025 π0.6 model card describes a continuous-action flow-matching expert; FAST tokens supervise the VLM backbone during training. The card does not specify predicted or executed chunk length, robot-control rate, or model-specific weight-release and licensing terms. Its 63 ms action-chunk latency uses five denoising steps and three camera inputs on one H100; this is inference latency, not a control frequency. The card’s openpi release statement concerns the π0.5 comparator, not π0.6.
+<Cite id="pi06-model-card-2025" /> The November 17, 2025 π0.6 model card describes a continuous-action flow-matching expert; FAST tokens supervise the VLM backbone during training. The card does not specify predicted or executed chunk length, robot-control rate, or model-specific weight-release and licensing terms. Its 63 ms action-chunk latency uses five denoising steps and three camera inputs on one H100; it is an inference latency, and it carries no control-frequency claim. The card’s openpi release statement concerns the π0.5 comparator; π0.6 sits outside it.
 
-<Cite id="pi07-2026" /> In the π0.7 paper’s experiments, the continuous-action flow-matching expert predicts 50-step chunks with five denoising steps and executes either 15 or 25 steps. UR5e robots run at 20 Hz; the other tested robots run at 50 Hz. The paper does not assign either execution choice to a particular robot. FAST tokens supervise the backbone during training, not the runtime action output. The model distills experience from RL-trained π*0.6; evaluation without task-specific post-training does not mean training without RL-derived data. Model-specific weight-release and licensing terms are not disclosed in this paper.
+<Cite id="pi07-2026" /> In the π0.7 paper’s experiments, the continuous-action flow-matching expert predicts 50-step chunks with five denoising steps and executes either 15 or 25 steps. UR5e robots run at 20 Hz; the other tested robots run at 50 Hz. The paper does not assign either execution choice to a particular robot. FAST tokens supervise the backbone during training; the runtime action output is continuous. The model distills experience from RL-trained π*0.6, so evaluation without task-specific post-training still reflects RL-derived data from that distillation. Model-specific weight-release and licensing terms are not disclosed in this paper.
 
 <Cite id="isaac-gr00t-repo-2026" /> The NVIDIA Isaac GR00T README describes the N1.7 GA release: a predicted horizon of 40, a flow-matching DiT head, relative-end-effector support, and downloadable weights. Relative EEF is not its only embodiment interface; it also describes SONIC latent-action output. No single robot-control frequency is disclosed there; inference throughput is a different quantity. Its overview says Apache 2.0, but its License section distinguishes Apache 2.0 code from weights under the NVIDIA Open Model License. Download availability does not resolve that licensing discrepancy.
 
-<Cite id="helix-02-2026" /> Figure’s January 27, 2026 Helix 02 announcement reports S1 full-body joint targets at 200 Hz, tracked by S0 actuator commands at 1 kHz. These are separate layers, not interchangeable control rates. Chunk length and weight-release/licensing terms are not disclosed in this announcement; neither absence establishes inapplicability or closed licensing.
+<Cite id="helix-02-2026" /> Figure’s January 27, 2026 Helix 02 announcement reports S1 full-body joint targets at 200 Hz, tracked by S0 actuator commands at 1 kHz. These are separate layers, so the two rates answer different questions. Chunk length and weight-release/licensing terms are not disclosed in this announcement; neither absence establishes inapplicability or closed licensing.
 
 
 ## Where the idea travels next

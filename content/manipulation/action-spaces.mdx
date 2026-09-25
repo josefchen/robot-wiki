@@ -58,7 +58,7 @@ Try the check below and choose the Cartesian interface only if the controller un
 
 ## The contract has four parts
 
-An action is not only a vector. A complete action contract specifies:
+An action is more than a vector. A complete action contract specifies:
 
 1. **Coordinates:** joint, Cartesian, object-relative or another frame.
 2. **Semantics:** absolute target, delta, velocity, force, torque or controller parameter.
@@ -73,7 +73,7 @@ Two papers can both report a seven-dimensional action while meaning different th
 
 The advantage is repeatability on one mechanism. The controller can interpolate targets, enforce joint limits and close a high-rate loop below the policy. The cost is embodiment specificity. A shoulder angle on one arm does not describe the same end-effector motion on another.
 
-**Joint velocity targets** encode increments rather than absolute configurations. Integrating them requires current joint state and can drift; equal velocities can produce different Cartesian motion on different robots.
+**Joint velocity targets** encode increments instead of absolute configurations. Integrating them requires current joint state and can drift; equal velocities can produce different Cartesian motion on different robots.
 
 Both representations require an accurate kinematic model. The [kinematics module](/classical/kinematics) derives the forward map and Jacobian that connect joint motion to the hand <Cite id="modern-robotics-2017" />.
 
@@ -85,7 +85,7 @@ The simplicity is above the waterline. Underneath, each robot needs inverse kine
 
 Rotation needs special care. Euler-angle deltas have discontinuities and depend on axis order. Axis-angle and exponential coordinates are compact but must define whether the increment is expressed in the tool or world frame. A six-number action is not portable until that convention is written down.
 
-NVIDIA says GR00T N1.7 adopts relative end-effector deltas shared across robot and human embodiments <Cite id="isaac-gr00t-repo-2026" />. That is a representation choice, not merely a preprocessing detail: it determines which non-robot data can become a useful target.
+NVIDIA says GR00T N1.7 adopts relative end-effector deltas shared across robot and human embodiments <Cite id="isaac-gr00t-repo-2026" />. That is a representation choice with consequences beyond preprocessing: it determines which non-robot data can become a useful target.
 
 ## Torque and impedance actions
 

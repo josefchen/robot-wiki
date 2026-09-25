@@ -115,7 +115,12 @@ for (const width of [375, 1440]) {
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
         await expect(slider).toHaveValue(before);
         await page.screenshot({ path: info.outputPath('scrubber-controls.png') });
-        const description = page.locator('[data-chart-description]');
+        // rl-finetuning now ships two described charts (the advantage
+        // scrubber and the EXPO-FT comparison); scope to the scrubber's
+        // description panel, which is the one this block exercises.
+        const description = page
+          .locator('[data-chart-description]', { hasText: 'stage' })
+          .first();
         await expect(description).toContainText('tinted stage blocks');
         await page.getByRole('button', { name: /training data/i }).click();
         await expect(description).toContainText('transitions between fictional stage endpoints');

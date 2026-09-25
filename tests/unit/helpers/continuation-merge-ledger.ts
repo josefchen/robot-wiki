@@ -299,6 +299,8 @@ export const LATER_REANCHOR_PREFIXES = [
   'continuation-merge-2026-09-23-',
   'continuation-merge-2026-09-24-',
   'main-merge-20260924-',
+  'humanizer-manipulation-v3-20260925-',
+  'expo-ft-intake-20260925-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

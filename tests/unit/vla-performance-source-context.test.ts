@@ -10,7 +10,7 @@ const hardware = () => article('content/data-hardware/hardware-taxonomy.mdx');
 describe('VLA-Perf source context', () => {
   it('distinguishes analytical predictions from empirical profiling in both articles', () => {
     expect(realtime()).toContain('roofline-based analytical model');
-    expect(realtime()).toContain('not a hardware-wide profiling campaign');
+    expect(realtime()).toContain('no hardware-wide profiling campaign behind it');
     expect(realtime()).toContain('hypothetical variant');
     expect(realtime()).toContain('baseline is 2.7B parameters');
     expect(hardware()).toContain('batch-one analytical predictions');
@@ -64,11 +64,11 @@ describe('VLA-Perf source context', () => {
     const text = realtime();
     expect(text).toContain('RTX 4090 over 5G is slower at 55.7 ms');
     expect(text).toContain('not an FP4/FP8 2 to 4× speedup result or an accuracy-loss validation');
-    expect(text).toContain('not universal robot-control requirements');
+    expect(text).toContain('bind no universal robot-control requirement');
     expect(text).toContain('defaultParamsB={1.1}');
     expect(text).toContain('answer="one-b"');
     expect(text).toContain('deliberately chosen 3.0B reference coordinate');
     expect(text).toContain('five-tick linear blend');
-    expect(text).toContain('not physical jerk');
+    expect(text).toContain('a discontinuity proxy standing in for physical jerk');
   });
 });

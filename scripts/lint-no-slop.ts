@@ -34,15 +34,24 @@ import {
   findBannedVocabulary,
   findPlaceholderMarkers,
   findStaleQuotationExceptions,
+  findStructuralTells,
   ruleOfThreeResult,
   RULE_OF_THREE_MIN_WORDS,
   RULE_OF_THREE_LIMIT,
+  STRUCTURAL_TELL_LIMIT,
+  structuralTellReport,
   validateQuotationExceptions,
 } from '../lib/no-slop.ts';
 import { NO_SLOP_EXCEPTIONS } from '../data/no-slop-exceptions.ts';
 import { CITATIONS } from '../data/citations.ts';
 
 const sourceOnly = process.argv.includes('--source-only');
+// Report mode (VAL-HUMAN-001): print the structural-tell rate for every
+// manipulation-domain article and fail any article above the 2/1k floor.
+// The same sweep also runs inside every normal invocation, so postbuild
+// keeps enforcing the floor; the flag exists so the report can be asked
+// for on its own.
+const reportOnly = process.argv.includes('--report-structural');
 const root = join(import.meta.dirname, '..');
 const problems: string[] = [];
 
@@ -62,7 +71,9 @@ const scannedTexts: string[] = [];
 // --- 1. Placeholder sweep over the export, ---
 // --- plus the rendered-prose marker lint. ---
 const outDir = join(root, 'out');
-if (sourceOnly) {
+if (reportOnly) {
+  console.log('no-slop: report-structural run, export and marker sweeps skipped');
+} else if (sourceOnly) {
   console.log('no-slop: source-only run, export sweeps skipped (postbuild gates the fresh export)');
 } else if (existsSync(outDir)) {
   const htmlFiles: string[] = [];
@@ -121,45 +132,98 @@ if (sourceOnly) {
 // --- 2. AI-writing markers over MDX prose. ---
 const contentDir = join(root, 'content');
 const mdxFiles: string[] = [];
-(function walk(dir: string) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) walk(full);
-    else if (/\.mdx?$/.test(entry.name)) mdxFiles.push(full);
-  }
-})(contentDir);
+if (!reportOnly) {
+  (function walk(dir: string) {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (/\.mdx?$/.test(entry.name)) mdxFiles.push(full);
+    }
+  })(contentDir);
 
-for (const file of mdxFiles) {
-  const rel = file.replace(contentDir, '');
-  const body = readFileSync(file, 'utf8');
-  scannedTexts.push(body);
+  for (const file of mdxFiles) {
+    const rel = file.replace(contentDir, '');
+    const body = readFileSync(file, 'utf8');
+    scannedTexts.push(body);
 
-  for (const finding of findBannedVocabulary(body, NO_SLOP_EXCEPTIONS)) {
-    problems.push(`${rel}:${finding.line}: ${finding.message}`);
+    for (const finding of findBannedVocabulary(body, NO_SLOP_EXCEPTIONS)) {
+      problems.push(`${rel}:${finding.line}: ${finding.message}`);
+    }
+    for (const line of dashLines(body, NO_SLOP_EXCEPTIONS)) {
+      problems.push(`${rel}:${line}: em or en dash in prose (rewrite with a comma, colon, or period)`);
+    }
+    const result = ruleOfThreeResult(body);
+    if (result.measured && result.density > RULE_OF_THREE_LIMIT) {
+      problems.push(
+        `${rel}: rule-of-three density ${result.density.toFixed(1)} per 1000 words exceeds ${RULE_OF_THREE_LIMIT}`,
+      );
+    }
+    if (result.subFloor) {
+      console.log(
+        `  [SUB-FLOOR] ${rel}: ${result.words} words (below the ${RULE_OF_THREE_MIN_WORDS}-word measurement floor), rule-of-three density ${result.density.toFixed(1)} per 1000 words reported informationally`,
+      );
+    }
   }
-  for (const line of dashLines(body, NO_SLOP_EXCEPTIONS)) {
-    problems.push(`${rel}:${line}: em or en dash in prose (rewrite with a comma, colon, or period)`);
-  }
-  const result = ruleOfThreeResult(body);
-  if (result.measured && result.density > RULE_OF_THREE_LIMIT) {
-    problems.push(
-      `${rel}: rule-of-three density ${result.density.toFixed(1)} per 1000 words exceeds ${RULE_OF_THREE_LIMIT}`,
-    );
-  }
-  if (result.subFloor) {
+  console.log(`no-slop: AI-writing lint over ${mdxFiles.length} MDX files`);
+}
+
+// --- 2b. Structural-tell report over the manipulation domain (VAL-HUMAN-001).
+// Counts humanizer v3 §1 not-X disclaimers and paper-internal locators per
+// 1,000 words of MDX source prose, prints the rate for every manipulation
+// article, and fails any article above the 2/1k floor. Runs in every mode
+// (source-only, full, report-structural-only) so the floor binds wherever
+// the lint runs, including postbuild.
+{
+  const manipulationDir = join(contentDir, 'manipulation');
+  const manipulationFiles: string[] = [];
+  (function walk(dir: string) {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (/\.mdx?$/.test(entry.name)) manipulationFiles.push(full);
+    }
+  })(manipulationDir);
+
+  const rows = manipulationFiles
+    .map((file) => {
+      const rel = file.replace(manipulationDir, '');
+      const body = readFileSync(file, 'utf8');
+      const report = structuralTellReport(body, NO_SLOP_EXCEPTIONS);
+      const findings = findStructuralTells(body, NO_SLOP_EXCEPTIONS);
+      return { rel, report, findings };
+    })
+    .sort((a, b) => b.report.density - a.report.density);
+
+  console.log(
+    `no-slop: structural-tell report over ${rows.length} manipulation articles (floor ${STRUCTURAL_TELL_LIMIT}/1k; counted: not-X disclaimers, paper-internal locators)`,
+  );
+  for (const { rel, report } of rows) {
+    const rate = report.density.toFixed(1);
+    const state = !report.measured
+      ? 'sub-floor (informational)'
+      : report.density > STRUCTURAL_TELL_LIMIT
+        ? 'FAIL'
+        : 'ok';
     console.log(
-      `  [SUB-FLOOR] ${rel}: ${result.words} words (below the ${RULE_OF_THREE_MIN_WORDS}-word measurement floor), rule-of-three density ${result.density.toFixed(1)} per 1000 words reported informationally`,
+      `  ${rel}: ${rate} tells/1k (${report.words} words; ${report.notX} not-X + ${report.paperLocator} locators) ${state}`,
     );
+  }
+  for (const { rel, report, findings } of rows) {
+    if (!report.measured || report.density <= STRUCTURAL_TELL_LIMIT) continue;
+    for (const finding of findings) {
+      problems.push(
+        `${rel}:${finding.line}: structural tell ${finding.kind} [${finding.label}] "${finding.match}" (article rate ${report.density.toFixed(1)}/1k exceeds ${STRUCTURAL_TELL_LIMIT}/1k; state the finding plainly once and move the locator into the citation note)`,
+      );
+    }
   }
 }
-console.log(`no-slop: AI-writing lint over ${mdxFiles.length} MDX files`);
 
 // --- 3. Stale exception entries keep the registry honest. ---
 // Only meaningful when the export was scanned too: an exception whose
 // quote lives only in rendered prose (a bibliography title, a market-map
 // source title) is invisible to a source-only run, which must not report
 // it stale on evidence it never collected.
-if (!sourceOnly) {
+if (!sourceOnly && !reportOnly) {
   const stale = findStaleQuotationExceptions(NO_SLOP_EXCEPTIONS, scannedTexts);
   for (const exception of stale) {
     console.log(

@@ -152,9 +152,20 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
       expect(corrected.split(change.old)).toHaveLength(2);
       corrected = corrected.replace(change.old, () => change.new);
     }
-    expect(read(articlePath)).toBe(corrected);
-    expect(article.split(newSpan)).toHaveLength(2);
-    expect(article).toBe(corrected);
+    // The humanizer manipulation pass (owner decision 20260925) rewrote
+    // not-X disclaimers and paper-version locators across the domain. Its
+    // endpoint for this article is the humanizer-manipulation-v3-20260925
+    // re-anchor in the approved-deltas ledger: the chain above reproduces
+    // the pre-pass bytes, and the ledger entry carries the member from
+    // those bytes to the current article.
+    const humanizer = approvals.find(a => a.id === 'humanizer-manipulation-v3-20260925-prose-generalist-policies')!;
+    const hashOf = (text: string) => buildManifest('prose', [{ id: 'article:manipulation/generalist-policies', value: { path: articlePath, body: matter(text).content.trim() } }]).members[0].hash;
+    const lastPrePassAnchor = approvals
+      .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies' && !a.id.startsWith('humanizer-manipulation-v3-'))
+      .at(-1)!.newHash;
+    expect(hashOf(corrected)).toBe(lastPrePassAnchor);
+    expect(hashOf(article)).toBe(humanizer.newHash);
+    expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
   });

@@ -30,6 +30,9 @@ const parse = (catalog = plans, md = ledger, citations = declared) => parseLedge
 const row = (slug: string, ordinal: number, catalog = plans, md = ledger, citations = declared) => parse(catalog, md, citations).find(s => s.slug === slug)!.claimRecords[ordinal - 1];
 const plan = (slug: string, ordinal: number, catalog = plans) => catalog.find(p => p.articleSlug === slug && p.rowOrdinal === ordinal && p.ledgerPath === 'audit/manipulation.md')!;
 const intro = 'RT-2’s reported rates depend on the model and serving setup. Its 55B PaLI-X variant runs at 1 to 3 Hz, while the 5B variant runs at around 5 Hz, using a multi-TPU cloud service queried over the network. <Cite id="rt2-2023" />\n\nOpenVLA v3 reports approximately 6 Hz inference on one NVIDIA RTX 4090 in bfloat16, without compilation, speculative decoding, or other inference speed-up tricks. <Cite id="openvla-2024" />';
+// The manipulation humanizer pass (owner decision 20260925) later moved the
+// paper-edition locator out of the prose; the facts are unchanged.
+const currentIntro = intro.replace('OpenVLA v3 reports', 'OpenVLA reports');
 const oldIntro = before(articlePath).split("import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';\n\n")[1].split('\n\n<ComparisonMatrix')[0];
 
 describe('VLA21 and comparison1 current identity and scoped introduction', () => {
@@ -44,9 +47,25 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
   it('changes only the authorized introduction, leaving VLA, registry and metadata unchanged', () => {
     const mainArticle = committedSource(RELEASE_BASE, articlePath);
     expect(mainArticle.split(oldIntro)).toHaveLength(2);
-    expect(article).toBe(mainArticle.replace(oldIntro, intro));
+    // The release-base article with only the authorized introduction is the
+    // transaction endpoint; the humanizer pass carries it to the current
+    // article through its approved-deltas re-anchor.
+    const truthManifests = collectArticleTruthManifests();
+    const passEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'humanizer-manipulation-v3-20260925-prose-comparison-matrix');
+    expect(passEntry).toBeDefined();
+    expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
+      .toBe(passEntry.newHash);
+    expect(article).toContain(currentIntro);
+    expect(article).not.toContain(oldIntro);
     expect(matter(article).data).toEqual(matter(mainArticle).data);
-    expect(read('content/manipulation/vla-models.mdx')).toBe(committedSource(RELEASE_BASE, 'content/manipulation/vla-models.mdx'));
+    // The VLA article is likewise carried forward by the humanizer pass;
+    // its endpoint is the head re-anchor for the member.
+    const vlaPass = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'humanizer-manipulation-v3-20260925-prose-vla-models');
+    expect(vlaPass).toBeDefined();
+    expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
+      .toBe(vlaPass.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));
@@ -104,7 +123,7 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
     for (const text of ['bfloat16', 'approximately 6Hz', '4090', 'without compilation, speculative decoding']) expect(ov.supportingPassage).toContain(text);
     expect(rt.sourceUrl).toBe('https://arxiv.org/html/2307.15818v1');
     expect(ov.sourceUrl).toBe('https://arxiv.org/html/2406.09246v3');
-    expect(article).toContain(intro);
+    expect(article).toContain(currentIntro);
   });
 
   it.each(selected)('fails on every missing part, absent review or changed tuple for %s', (slug, ordinal) => {
@@ -193,7 +212,11 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
       expect(a.oldHash).toBe(oldHash);
       const merged = current.findLast((entry: { id: string; manifest: string; memberId: string }) =>
         entry.id.startsWith('continuation-merge-2026-09-23-') && entry.manifest === manifest && entry.memberId === memberId);
-      expect(merged.newHash).toBe(Object.values(truth).find(m => m.kind === manifest)?.members.find(m => m.id === memberId)?.hash);
+      expect(merged).toBeDefined();
+      // Later approved work (the 20260925 humanizer pass among others) may
+      // re-anchor this member; the head re-anchor must hold the live hash.
+      const head = headReanchorFor(current, manifest as 'prose', memberId);
+      expect(head?.newHash).toBe(Object.values(truth).find(m => m.kind === manifest)?.members.find(m => m.id === memberId)?.hash);
       expect(a.ownerApproval).toContain('convergence-vla-comparison-p1-integration-20260922/authorization.json');
     }
   });
