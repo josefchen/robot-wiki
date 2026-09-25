@@ -75,6 +75,18 @@ import {
   HOME_WORDMARK_ROLE_POPULATION_SOURCE,
   SECTION_HEADING_POPULATION_SOURCE,
 } from '@/lib/article-populations';
+import {
+  DISCOVERY_ANCHORS,
+  DISCOVERY_ROUTES,
+  DOMAIN_LANDING_ROUTES,
+  INDEX_DISCOVERY_ANCHOR_POPULATION_SOURCE,
+  INDEX_EDITORIAL_SURFACE_POPULATION_SOURCE,
+  INDEX_ROW_RHYTHM_POPULATION_SOURCE,
+  ROW_RHYTHM_ROUTES,
+  discoveryAnchorMemberId,
+  indexSurfaceMemberId,
+  rowRhythmMemberId,
+} from '@/lib/brand-v2-index-evidence';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -522,6 +534,23 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
                 'utf8',
               ),
             ),
+          ),
+          // The three discovery-index rows the generator merges the same
+          // way, outside the shared builder: home plus the seven domain
+          // landings for SHELL-008, both discovery routes' four anchors for
+          // DISC-005, and the full index family for DISC-006.
+          [INDEX_EDITORIAL_SURFACE_POPULATION_SOURCE]: [
+            '/',
+            ...DOMAIN_LANDING_ROUTES,
+          ].map(indexSurfaceMemberId),
+          [INDEX_DISCOVERY_ANCHOR_POPULATION_SOURCE]: DISCOVERY_ROUTES.flatMap(
+            (route) =>
+              DISCOVERY_ANCHORS.map((anchor) =>
+                discoveryAnchorMemberId(route, anchor),
+              ),
+          ),
+          [INDEX_ROW_RHYTHM_POPULATION_SOURCE]: ROW_RHYTHM_ROUTES.map(
+            rowRhythmMemberId,
           ),
         },
         map,

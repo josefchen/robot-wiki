@@ -246,14 +246,86 @@ describe('SiteShell', () => {
     }
   });
 
-  it('marks the drawer lockup as the current route on home', async () => {
+  it('marks the drawer lockup as the current route on home, carrying no device', async () => {
     const user = userEvent.setup();
     renderShell();
     const dialog = await openDrawer(user);
     const lockup = within(dialog).getByRole('link', { name: PUBLIC_IDENTITY });
     expect(lockup).toHaveAttribute('aria-current', 'page');
+    // The owner decision of 2026-09-25 keeps aria-current on the wordmark
+    // but excludes it from the lime active-interval rail and every other
+    // accent device, so no brand device may render inside it at all.
+    expect(lockup.querySelector('[data-brand-device-id]')).toBeNull();
+  });
+
+  it('keeps every wordmark lockup free of brand devices on home', async () => {
+    // Regression for the owner decision of 2026-09-25: the wordmark never
+    // carries the lime active-interval rail or any other accent bar. Every
+    // lockup the shell renders — mobile header, desktop sidebar, drawer and
+    // footer — carries the shell-wordmark role, and each is checked for any
+    // brand device descendant, so a highlight reintroduced under another
+    // device id fails here too, not only the removed rail.
+    const user = userEvent.setup();
+    const { container } = renderShell();
+    // Opening the drawer mounts its lockup inside the same container.
+    await openDrawer(user);
+    const lockups = [
+      ...container.querySelectorAll('[data-tektur-role="shell-wordmark"]'),
+    ];
+    expect(lockups.length).toBe(4);
+    for (const lockup of lockups) {
+      expect(
+        lockup.querySelector('[data-brand-device-id], [data-registration-device]'),
+      ).toBeNull();
+    }
+    // On home the lockup is still the current-route item, semantics intact:
+    // the sidebar and drawer lockups alone carry aria-current, and the
+    // collapsed taxonomy carries none.
+    const marked = lockups.filter((lockup) =>
+      lockup.hasAttribute('aria-current'),
+    );
+    expect(marked).toHaveLength(2);
     expect(
-      lockup.querySelector('[data-brand-device-id="device:active-interval-rail"]'),
+      container.querySelectorAll('aside nav a[aria-current="page"]'),
+    ).toHaveLength(0);
+  });
+
+  it('keeps every wordmark lockup free of brand devices on an inner route, while the taxonomy entry keeps its rail', async () => {
+    // The same regression one route deep: the wordmark exemption holds when
+    // the lockup is not the current-route item, and it must not bleed into
+    // the taxonomy — there the matching entry still carries the registered
+    // lime active-interval rail exactly as before the decision.
+    mockPathname = '/manipulation/action-chunking/';
+    const user = userEvent.setup();
+    const { container } = renderShell();
+    const dialog = await openDrawer(user);
+    const lockups = [
+      ...container.querySelectorAll('[data-tektur-role="shell-wordmark"]'),
+    ];
+    expect(lockups.length).toBe(4);
+    for (const lockup of lockups) {
+      expect(lockup.hasAttribute('aria-current')).toBe(false);
+      expect(
+        lockup.querySelector('[data-brand-device-id], [data-registration-device]'),
+      ).toBeNull();
+    }
+    const activeSidebarEntry = container.querySelector(
+      'aside nav a[aria-current="page"]',
+    );
+    expect(activeSidebarEntry).not.toBeNull();
+    expect(
+      activeSidebarEntry?.querySelector(
+        '[data-brand-device-id="device:active-interval-rail"]',
+      ),
+    ).not.toBeNull();
+    const activeDrawerEntry = dialog.querySelector(
+      'nav a[aria-current="page"]',
+    );
+    expect(activeDrawerEntry).not.toBeNull();
+    expect(
+      activeDrawerEntry?.querySelector(
+        '[data-brand-device-id="device:active-interval-rail"]',
+      ),
     ).not.toBeNull();
   });
 

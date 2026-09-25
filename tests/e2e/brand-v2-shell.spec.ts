@@ -339,6 +339,12 @@ test.describe('brand-v2 desktop shell and navigation', () => {
     // VAL-DESIGN-017: one indent depth. Every category marks at the same
     // offset from the taxonomy rail, so the reader reads depth from the text
     // indent and never from where the current-route rail sits.
+    //
+    // The lockup is deliberately absent: it is the wordmark, and the owner
+    // decision of 2026-09-25 excludes the wordmark from the rail and from
+    // every other accent bar. `currentRouteVerdicts` above fails any route
+    // where a lockup renders a device at all, so the wordmark cannot regain
+    // the mark without failing this sweep first.
     const markerLefts = observations.flatMap(({ route, navEntries }) =>
       navEntries
         .filter(({ marker }) => marker !== null)
@@ -351,8 +357,8 @@ test.describe('brand-v2 desktop shell and navigation', () => {
     const markedCategories = new Set(markerLefts.map(({ category }) => category));
     expect(
       [...markedCategories].sort(),
-      'every entry category has to be observed carrying the current-route rail',
-    ).toEqual(['domain-overview', 'lockup', 'module', 'standalone']);
+      'every taxonomy entry category has to be observed carrying the current-route rail',
+    ).toEqual(['domain-overview', 'module', 'standalone']);
     const lefts = markerLefts.map(({ left }) => left);
     expect(
       Math.max(...lefts) - Math.min(...lefts),
