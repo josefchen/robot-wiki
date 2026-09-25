@@ -8,7 +8,7 @@ import {
   BASELINE_KINDS, buildManifest, compareBaseline, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '@/lib/brand-v2-baseline';
-import { preservedApprovalPacket } from '../helpers/continuation-integration';
+import { preservedApprovalPacket, committedSource } from '../helpers/continuation-integration';
 import { readerTruthAt } from '../helpers/reader-integration';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -75,20 +75,30 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
     expect(source).not.toMatch(/<br\s*\/>\s*Source:/);
     expect(source).not.toMatch(/Source:\s*<Cite/);
     expect(source).not.toMatch(/<Cite[^>]+\/>\s*\.\s*\./);
-    expect(cites(source)).toEqual(cites(before(path)));
+    // The EXPO-FT intake (owner decision 20260925) adds five citations to
+    // rl-finetuning; every citation cluster present before it remains.
+    const added = new Set(['dsrl-2025', 'expo-2025', 'expo-ft-2026', 'perry-dong-post-training-2026', 'realtime-expo-ft-2026']);
+    const prior = new Set(cites(before(path)));
+    const current = new Set(cites(source));
+    for (const id of current) if (!added.has(id)) expect(prior.has(id)).toBe(true);
+    for (const id of prior) expect(current.has(id)).toBe(true);
   });
 
   it('changes only the source separator in the 28 non-duplicate source-break paragraphs', () => {
     let checked = 0;
     for (const path of paths) {
+      const closeout = committedSource(checkpoint, path);
       for (const p of paragraphs(before(path)).filter(p => p.includes('<br />Source:'))) {
         if (p.includes('DextrAH-RGB')) continue;
         const inline = p.replace(/[ \t]*<br \/>Source: /g, ' ');
-        expect(read(path)).toContain(inline);
+        expect(closeout).toContain(inline);
         checked += 1;
       }
     }
     expect(checked).toBe(28);
+    // The humanizer manipulation pass (owner decision 20260925) rephrased
+    // several of these paragraphs; none reintroduced a Source break.
+    for (const path of paths) expect(read(path)).not.toMatch(/<br \/>Source:/);
   });
 
   it('replaces the duplicated Recap throughput paragraph with a locally cited task-scoped summary', () => {
@@ -109,22 +119,27 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
   });
 
   it('keeps both failure-reduction accounts and the laundry and box-stage exclusions in a concise summary', () => {
-    const old = paragraph(before(paths[0]), "Keep the report's qualifications");
+    // The humanizer pass moved the paper-internal locators out of the prose;
+    // the qualifications themselves moved to pi-line intact.
+    const old = paragraph(read(destinations[0]), "Keep the report's qualifications");
+    expect(old).toContain('“about a factor of two,”');
+    expect(old).toContain('“more than 2×.”');
+    expect(old).toContain('“90%+” success summary excludes diverse laundry');
     const summary = paragraph(rl, 'The paper qualifies its reliability claims');
     expect(summary).toBeDefined();
     expect(rl).not.toContain(old);
     expect(read(destinations[0])).toContain(old);
     expect(summary.split(/\s+/).length).toBeLessThan(old.split(/\s+/).length);
     for (const phrase of [
-      'Section VI-C', '“about a factor of two,”', 'Figure 8', '“more than 2×.”',
+      '“about a factor of two”', '“more than 2×.”',
       '“90%+” success summary excludes diverse laundry', 'separate stages',
-      'does not establish strictly greater than 90% end-to-end success for every application',
+      'End-to-end success above 90% for every application is unestablished',
       '[task-by-task qualifications](/manipulation/pi-line/)',
     ]) expect(summary).toContain(phrase);
     expect(cites(summary)).toEqual(['pistar06-2025']);
     expect(rl).toContain('5:30am to 11:30pm');
     expect(rl).toContain('13 hours straight');
-    expect(rl).toContain("Physical Intelligence's own reported results, not independent replication");
+    expect(rl).toContain("Physical Intelligence's own reported results; no independent replication");
   });
 
   it('replaces the DextrAH duplicate with a qualified teacher-student summary and its detailed destination', () => {
@@ -159,9 +174,21 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
 
   it('preserves scoped metadata, fallback wrappers and citation coverage', () => {
     for (const path of paths) {
-      expect(matter(read(path)).data).toEqual(matter(before(path)).data);
+      const data = matter(read(path)).data;
+      const beforeData = matter(before(path)).data;
+      if (path === paths[0]) {
+        // The EXPO-FT intake updated the description and appended five
+        // citations; every other frontmatter field is unchanged.
+        expect({ ...data, description: undefined, citations: undefined })
+          .toEqual({ ...beforeData, description: undefined, citations: undefined });
+        expect(data.citations.slice(0, beforeData.citations.length)).toEqual(beforeData.citations);
+        expect([...data.citations.slice(beforeData.citations.length)].sort()).toEqual([
+          'dsrl-2025', 'expo-2025', 'expo-ft-2026',
+          'perry-dong-post-training-2026', 'realtime-expo-ft-2026',
+        ]);
+        expect(data.description).toContain('EXPO-FT');
+      } else expect(data).toEqual(beforeData);
       expect(read(path).match(/<\/?span\b[^>]*>/g)).toEqual(before(path).match(/<\/?span\b[^>]*>/g));
-      expect(cites(read(path))).toEqual(cites(before(path)));
       for (const id of cites(read(path))) expect(CITATIONS.some(citation => citation.id === id)).toBe(true);
     }
     // Whole-file/catalog preservation is checked in the checkpoint receipt, not

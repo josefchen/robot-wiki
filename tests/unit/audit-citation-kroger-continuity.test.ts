@@ -52,7 +52,15 @@ describe('finite Kroger source and historical correction continuation', () => {
     expect(verifyMergedCitationTransition(main, active, merged + '\n// unrelated entry', old)).toBe(false);
     expect(verifyMergedCitationTransition(main, active,
       merged.replace('20251118224554', '20251127101227'), old)).toBe(false);
-    expect(verifyTechnologyWithdrawalRegistryTransition(merged, read('data/citations.ts'))).toBe(true);
+    // The live registry now also carries the 2026-09-25 EXPO-FT intake
+    // additions (five citations after act-reference-2023 plus the RoboPoint
+    // Table 2 note); strip them before the exact-withdrawal comparison.
+    const intakeAdditions = /  \{\n    \/\/ arXiv abs page and HTML v2 full text both fetched 2026-09-25;[\s\S]*?id: 'perry-dong-post-training-2026',[\s\S]*?type: 'blog',\n  \},\n/;
+    const robopointNote = /    \/\/ Where2Place point-in-mask accuracies[\s\S]*?\n(?=    id: 'robopoint-2024',)/;
+    const withoutIntake = read('data/citations.ts')
+      .replace(intakeAdditions, '').replace(robopointNote, '');
+    expect(verifyTechnologyWithdrawalRegistryTransition(merged, withoutIntake)).toBe(true);
+    expect(verifyTechnologyWithdrawalRegistryTransition(merged, read('data/citations.ts'))).toBe(false);
     expect(verifyKrogerCitationTransition(old, active)).toBe(true);
     expect(verifyKrogerSourceBody(source)).toBe(true);
     expect(verifyKrogerCitationTransition(old, active.replace('type: \'press\'', 'type: \'docs\''))).toBe(false);

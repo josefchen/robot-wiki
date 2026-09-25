@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { committedSource } from '../helpers/continuation-integration';
 import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger,
   type CompoundPlan,
@@ -20,7 +21,7 @@ const oldCells = {
 const corrections = [
   {
     "oldSpan": "First: **separate-planner architectures of the SayCan type have been superseded by internalized hierarchy in the 2026 frontier systems.** No single source states this. It is a synthesis, the consistent reading across π0.5, π0.6, π0.7, Gemini Robotics 1.5, and GO-2, every one of which generates its subtasks, thinking traces, or intents inside (or asynchronously alongside) the same learned stack that produces actions <Cite id=\"pi05-2025\" /> <Cite id=\"gemini-robotics-15-2025\" /> <Cite id=\"agibot-go2-2026\" />. The reasons are structural rather than ideological: a separate planner cannot share representations with the policy, re-planning through a dispatch loop is slow, and a fixed skill library caps what the system can express. Gemini Robotics is the partial exception: Google keeps ER as a separate orchestrator for multi-minute, multi-robot coordination while the per-robot hierarchy stays internal <Cite id=\"gemini-robotics-15-2025\" />.",
-    "newSpan": "First: **the five cited examples place high-level guidance at different interfaces.** π0.5 uses the same model to infer a language subtask and actions conditioned on it <Cite id=\"pi05-2025\" />. The π0.6-MEM report describes a high-level policy that predicts the next subtask and updated language memory, with a low-level policy conditioned on that subtask and recent observations <Cite id=\"mem-2026\" />. π0.7 can use subgoal images from a BAGEL-initialized world model; when those images are used, subtask and image generation run asynchronously in separate threads <Cite id=\"pi07-2026\" />. With thinking enabled, Gemini Robotics 1.5 appends natural-language reasoning to the VLA context before actions, while its agentic system retains a separate GR-ER 1.5 orchestrator <Cite id=\"gemini-robotics-15-2025\" />. AgiBot describes GO-2 as a lower-frequency semantic planning module paired with a higher-frequency action-following module <Cite id=\"agibot-go2-2026\" />. This is a comparison of reported mechanisms, not evidence that separate planners have been superseded across the field."
+    "newSpan": "First: **the five cited examples place high-level guidance at different interfaces.** π0.5 uses the same model to infer a language subtask and actions conditioned on it <Cite id=\"pi05-2025\" />. The π0.6-MEM report describes a high-level policy that predicts the next subtask and updated language memory, with a low-level policy conditioned on that subtask and recent observations <Cite id=\"mem-2026\" />. π0.7 can use subgoal images from a BAGEL-initialized world model; when those images are used, subtask and image generation run asynchronously in separate threads <Cite id=\"pi07-2026\" />. With thinking enabled, Gemini Robotics 1.5 appends natural-language reasoning to the VLA context before actions, while its agentic system retains a separate GR-ER 1.5 orchestrator <Cite id=\"gemini-robotics-15-2025\" />. AgiBot describes GO-2 as a lower-frequency semantic planning module paired with a higher-frequency action-following module <Cite id=\"agibot-go2-2026\" />. This is a comparison of reported mechanisms; it supplies no evidence that separate planners have been superseded across the field."
   },
   {
     "oldSpan": "Second: **the keypoint and affordance methods did not die; they moved from runtime pipelines into training data.**",
@@ -28,14 +29,14 @@ const corrections = [
   },
   {
     "oldSpan": "The 2024 papers remain the clearest statement of why geometric intermediate representations help, and their runtime incarnations are still reasonable for a research prototype with a frozen VLM. But no 2026 frontier system routes its control loop through a runtime keypoint interface.",
-    "newSpan": "Gemini Robotics-ER 1.5 also reports complex pointing, including point sequences that can represent motion trajectories and paths <Cite id=\"gemini-robotics-15-2025\" />. That is evidence of a geometric reasoning capability, not proof that a specific deployed controller uses a keypoint loop. The scope here is those reported mechanisms, not an exhaustive inventory of 2026 frontier systems; no field-wide absence of runtime keypoint interfaces is claimed."
+    "newSpan": "Gemini Robotics-ER 1.5 also reports complex pointing, including point sequences that can represent motion trajectories and paths <Cite id=\"gemini-robotics-15-2025\" />. That is evidence of a geometric reasoning capability; it proves nothing about a specific deployed controller using a keypoint loop. The scope here is those reported mechanisms, short of an exhaustive inventory of 2026 frontier systems; no field-wide absence of runtime keypoint interfaces is claimed."
   },
   {
     "oldSpan": "  The supersession claim in this section is this wiki's own reading across five systems, not a quote from any one of them. The per-system facts underneath it (subtask prediction in π0.5, interleaved thinking in Gemini Robotics 1.5, the asynchronous split in GO-2, the S0/S1/S2 rates in Helix 02) are each cited to their primary source. If a 2027 system ships a competitive separate planner, this section is where the retraction goes.",
     "newSpan": "  This comparison is the wiki's synthesis of the five cited examples: π0.5, π0.6-MEM, π0.7, Gemini Robotics 1.5 and GO-2. It distinguishes same-model inference, separate policies or models, and vendor-described modules; it does not assume shared weights, equate their intermediate representations, or establish a universal architecture. Claims about training data, model capabilities and deployed control loops require different evidence."
   }
 ];
-const prior14Span = "π0.5’s v1 paper describes training the model to predict relevant bounding boxes before subtask labels, and adding indoor-scene and household-object data with bounding-box annotations to its web-data mixture <Cite id=\"pi05-2025\" />.";
+const prior14Span = "π0.5’s paper describes training the model to predict relevant bounding boxes before subtask labels, and adding indoor-scene and household-object data with bounding-box annotations to its web-data mixture <Cite id=\"pi05-2025\" />.";
 const correctedVerdict = "C (the synthesis is narrowed to the five cited mechanisms, with π0.6 scoped to π0.6-MEM; universal separate-planner supersession and field-wide runtime-keypoint migration/absence claims were withdrawn)";
 const expectedParts = [
   {
@@ -136,6 +137,8 @@ const planId = 'hierarchy15-bounded-five-system-20260921';
 const deltaId = 'hierarchy15-bounded-synthesis-correction-20260921';
 const oldHash = 'e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7';
 const newHash = '50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c';
+// Endpoint of the later manipulation humanizer pass (owner decision 20260925).
+const passHash = '73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b';
 const selectedPlan = () => plans.find(p => p.id === planId)!;
 const section = (catalog = plans) => parseLedger('audit/manipulation.md', ledger, registry, {
   compoundPlans: catalog,
@@ -151,7 +154,7 @@ const prose = (source: string) => buildManifest('prose', [{
 }]);
 // Isolated native member comparison, never a replacement migration baseline.
 const bundle = (source: string) => ({ manifests: { prose: prose(source) } }) as BaselineBundle;
-const before = () => corrections.reduce((text, c) => text.replace(c.newSpan, c.oldSpan), article);
+const before = () => committedSource('79807c7', articlePath);
 const mutatedCatalog = (mutate: (p: CompoundPlan) => void) => {
   const copy = structuredClone(plans);
   const p = copy.find(p => p.id === planId)!;
@@ -173,7 +176,7 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
       expect(article.split(c.newSpan)).toHaveLength(2);
       expect(article).not.toContain(c.oldSpan);
     }
-    expect(prose(article).members[0].hash).toBe(newHash);
+    expect(prose(article).members[0].hash).toBe(passHash);
     expect(prose(before()).members[0].hash).toBe(oldHash);
     expect(matter(article).data).toEqual(matter(before()).data);
   });
@@ -186,9 +189,9 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
       'separate threads', 'With thinking enabled', 'separate GR-ER 1.5 orchestrator',
       'AgiBot describes GO-2', 'lower-frequency', 'higher-frequency',
       "wiki's synthesis", 'does not assume shared weights',
-      'not evidence that separate planners have been superseded across the field',
+      'it supplies no evidence that separate planners have been superseded across the field',
       'no field-wide absence of runtime keypoint interfaces is claimed',
-      'not proof that a specific deployed controller uses a keypoint loop',
+      'it proves nothing about a specific deployed controller using a keypoint loop',
       'training data, model capabilities and deployed control loops require different evidence',
     ]) expect(verdict).toContain(phrase);
     expect(verdict).not.toMatch(/Helix|π0\.6,/);
@@ -302,11 +305,21 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
   it('passes exact approval and rejects missing, wrong-hash and broadened corrections', () => {
     const matches = approvals.filter(d => d.id === deltaId);
     expect(matches).toHaveLength(1);
-    expect(compareBaseline(bundle(before()), bundle(article), matches)).toMatchObject({
+    const after15 = bundle(committedSource('e6232a2', articlePath));
+    expect(compareBaseline(bundle(before()), after15, matches)).toMatchObject({
       ok: true, failures: [], approvedDifferences: [deltaId],
     });
-    expect(compareBaseline(bundle(before()), bundle(article), []).ok).toBe(false);
-    expect(compareBaseline(bundle(before()), bundle(article), [{ ...matches[0], newHash: '0'.repeat(64) }]).ok).toBe(false);
-    expect(compareBaseline(bundle(before()), bundle(article + '\nUnapproved extra assertion.'), matches).ok).toBe(false);
+    expect(compareBaseline(bundle(before()), after15, []).ok).toBe(false);
+    expect(compareBaseline(bundle(before()), after15, [{ ...matches[0], newHash: '0'.repeat(64) }]).ok).toBe(false);
+    expect(compareBaseline(bundle(before()), bundle(before() + '\nUnapproved extra assertion.'), matches).ok).toBe(false);
+    // The manipulation humanizer pass carries after15 to the current article.
+    const pass = approvals.filter(d => d.id === 'humanizer-manipulation-v3-20260925-prose-hierarchical');
+    expect(pass).toHaveLength(1);
+    expect(pass[0].newHash).toBe(passHash);
+    expect(compareBaseline(after15, bundle(article), [{ ...pass[0], oldHash: newHash, reconciles: undefined }])).toMatchObject({
+      ok: true, failures: [], approvedDifferences: [pass[0].id],
+    });
+    expect(compareBaseline(after15, bundle(article + '\nUnapproved extra assertion.'),
+      [{ ...pass[0], oldHash: newHash, reconciles: undefined }]).ok).toBe(false);
   });
 });

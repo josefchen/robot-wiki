@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "da57327410c4ffb0015702d0e75b2353274477c6ee0d756c58585a085ed5882a",
+  "fingerprint": "8b5226eb667fa81b7eb61241dbe22875d9de84b0a2b1648bd1a66954613de2d2",
   "viewports": [
     "375x812",
     "1440x900"
@@ -23875,7 +23875,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22393,
+      "visibleTextLength": 22659,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24070,7 +24070,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Chunk size is a real bias/variance dial, not a hyperparamete"
+          "text": "Chunk size is a real bias/variance dial. The curve above com"
         },
         {
           "familyHead": "ibm plex sans",
@@ -24295,7 +24295,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Octo v2's ALOHA finetuning example predicts 64 actions and e"
+          "text": "Octo's ALOHA finetuning example predicts 64 actions and exec"
         },
         {
           "familyHead": "newsreader",
@@ -24908,7 +24908,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12529,
+      "visibleTextLength": 12533,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25062,7 +25062,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action is not only a vector. A complete action contract s"
+          "text": "An action is more than a vector. A complete action contract "
         },
         {
           "familyHead": "newsreader",
@@ -25098,7 +25098,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Joint velocity targets encode increments rather than absolut"
+          "text": "Joint velocity targets encode increments instead of absolute"
         },
         {
           "familyHead": "newsreader",
@@ -25639,7 +25639,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14030,
+      "visibleTextLength": 14135,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25761,7 +25761,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This deterministic toy illustrates persistent drift, not a s"
+          "text": "This deterministic toy illustrates persistent drift; it is n"
         },
         {
           "familyHead": "ibm plex sans",
@@ -26031,7 +26031,7 @@
           "widthPx": 277,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Compounding error is a distribution problem, not a data-quan"
+          "text": "Compounding error is a distribution problem first and a data"
         }
       ],
       "sectionLinks": [
@@ -26497,7 +26497,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28432,
+      "visibleTextLength": 28671,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26564,11 +26564,11 @@
           "Comparison Matrix"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 21,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min",
+        "readingTimeText": "17 min",
         "citationCountText": "21",
         "bibliographyIds": [
           "rt1-2022",
@@ -26625,7 +26625,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "OpenVLA v3 reports approximately 6 Hz inference on one NVIDI"
+          "text": "OpenVLA reports approximately 6 Hz inference on one NVIDIA R"
         },
         {
           "familyHead": "ibm plex mono",
@@ -26841,7 +26841,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Start with elimination, not ranking. Remove models whose wei"
+          "text": "Start with elimination and leave ranking for the end. Remove"
         },
         {
           "familyHead": "newsreader",
@@ -27420,7 +27420,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15214,
+      "visibleTextLength": 15342,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27487,11 +27487,11 @@
           "Cross-Embodiment Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 10,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "10",
         "bibliographyIds": [
           "act-aloha-2023",
@@ -27528,7 +27528,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action vector is a control interface, not a hardware DoF "
+          "text": "An action vector is a control interface; the hardware DoF co"
         },
         {
           "familyHead": "newsreader",
@@ -27672,7 +27672,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The disclosure is partial, not absent. The v3 model card spe"
+          "text": "The disclosure is partial. The model card specifies continuo"
         },
         {
           "familyHead": "newsreader",
@@ -27690,7 +27690,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The separate EgoScale v1 paper makes the motion representati"
+          "text": "The separate EgoScale paper makes the motion representation "
         },
         {
           "familyHead": "newsreader",
@@ -27744,7 +27744,7 @@
           "widthPx": 300,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The slot layouts are original illustrations, not published a"
+          "text": "The slot layouts are original illustrations; no published ar"
         }
       ],
       "sectionLinks": [
@@ -28135,7 +28135,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14060,
+      "visibleTextLength": 14094,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28909,7 +28909,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11702,
+      "visibleTextLength": 11741,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29015,7 +29015,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "“Foundation model” is a claim about reuse, not a synonym for"
+          "text": "“Foundation model” is a claim about reuse, and a large neura"
         },
         {
           "familyHead": "newsreader",
@@ -29204,7 +29204,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Look for a matrix, not a highlight. Rows should vary tasks a"
+          "text": "Look for a matrix instead of a highlight. Rows should vary t"
         },
         {
           "familyHead": "newsreader",
@@ -29659,7 +29659,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21631,
+      "visibleTextLength": 21818,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29898,7 +29898,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Disclosure is partial, not absent. The Gemini Robotics 1.5 v"
+          "text": "Disclosure is partial. The Gemini Robotics 1.5 report descri"
         },
         {
           "familyHead": "newsreader",
@@ -30042,7 +30042,7 @@
           "widthPx": 300,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The timeline is a selected reading list, not a census of pap"
+          "text": "The timeline is a selected reading list; its records are iss"
         },
         {
           "familyHead": "newsreader",
@@ -30825,7 +30825,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19097,
+      "visibleTextLength": 19232,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31202,7 +31202,7 @@
           }
         },
         {
-          "headingId": "the-keypoint-turn-vlms-emit-geometry-not-skill-names",
+          "headingId": "the-keypoint-turn-vlms-emit-geometry-instead-of-skill-names",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -31212,7 +31212,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The keypoint turn: VLMs emit geometry, not skill names",
+            "accessibleName": "Copy link to this section, The keypoint turn: VLMs emit geometry instead of skill names",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -31615,7 +31615,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12084,
+      "visibleTextLength": 12183,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31810,7 +31810,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure 2 illustrates the problem with π0: instructed to bus "
+          "text": "One qualitative example illustrates the problem with π0: ins"
         },
         {
           "familyHead": "newsreader",
@@ -32361,7 +32361,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25300,
+      "visibleTextLength": 25571,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32589,7 +32589,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "π0.5 targeted generalization rather than speed Black 2025↓π0"
+          "text": "π0.5 targeted generalization, with speed a secondary concern"
         },
         {
           "familyHead": "newsreader",
@@ -32679,7 +32679,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Keep the report's qualifications with those results. Section"
+          "text": "Keep the report's qualifications with those results. The rep"
         },
         {
           "familyHead": "newsreader",
@@ -33543,7 +33543,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16985,
+      "visibleTextLength": 17255,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33800,7 +33800,7 @@
           "widthPx": 277,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "A synchronous-inference budget is a useful arithmetic check,"
+          "text": "A synchronous-inference budget is a useful arithmetic check;"
         },
         {
           "familyHead": "newsreader",
@@ -33854,7 +33854,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The comparison below is an illustrative hand-off model, not "
+          "text": "The comparison below is an illustrative hand-off model; it i"
         },
         {
           "familyHead": "ibm plex mono",
@@ -33917,7 +33917,7 @@
           "widthPx": 300,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "VLA-Perf’s values are analytical roofline predictions, not f"
+          "text": "VLA-Perf’s values are analytical roofline predictions; no fi"
         },
         {
           "familyHead": "newsreader",
@@ -34316,7 +34316,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31438,
+      "visibleTextLength": 38103,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34383,12 +34383,12 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 20,
-        "citationCount": 12,
+        "readingMinutes": 25,
+        "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "20 min",
-        "citationCountText": "12",
+        "readingTimeText": "25 min",
+        "citationCountText": "17",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -34401,7 +34401,12 @@
           "pld-2026",
           "rldg-2024",
           "rl-vla-generalization-2025",
-          "pair-vla-2026"
+          "pair-vla-2026",
+          "expo-ft-2026",
+          "expo-2025",
+          "dsrl-2025",
+          "realtime-expo-ft-2026",
+          "perry-dong-post-training-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -34543,7 +34548,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The v3 comparisons are specific to their benchmarks and prot"
+          "text": "The comparisons are specific to their benchmarks and protoco"
         },
         {
           "familyHead": "newsreader",
@@ -34570,7 +34575,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Do not confuse training noise levels with inference steps. A"
+          "text": "Keep training noise levels and inference steps separate. The"
         },
         {
           "familyHead": "newsreader",
@@ -34579,7 +34584,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In v2, Table I reports 96.3% mean success ratesuccess rateTh"
+          "text": "The paper reports 96.3% mean success ratesuccess rateThe sta"
         },
         {
           "familyHead": "newsreader",
@@ -34597,7 +34602,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "pi_RL (Chen et al., 2026; v3) fine-tunes flow-based policies"
+          "text": "pi_RL (Chen et al., 2026) fine-tunes flow-based policies wit"
         },
         {
           "familyHead": "newsreader",
@@ -34606,7 +34611,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The main experiments use pi0 and pi0.5. Appendix B.2 reports"
+          "text": "The main experiments use pi0 and pi0.5. One configuration fi"
         },
         {
           "familyHead": "newsreader",
@@ -34624,7 +34629,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two setup descriptions disagree within v3. Section 4.3.2 put"
+          "text": "Two setup descriptions disagree inside the paper itself. One"
         },
         {
           "familyHead": "newsreader",
@@ -34669,7 +34674,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section III first recalls the exponential solution for a KL-"
+          "text": "The relevant KL-regularized objective has the exponential so"
         },
         {
           "familyHead": "newsreader",
@@ -34696,7 +34701,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This avoids a PPO-style policy-extraction objective, not tra"
+          "text": "This avoids a PPO-style policy-extraction objective while st"
         },
         {
           "familyHead": "newsreader",
@@ -34705,7 +34710,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The scrubber is a deterministic teaching example, not a reco"
+          "text": "The scrubber is a deterministic teaching example. Its forty-"
         },
         {
           "familyHead": "newsreader",
@@ -34723,7 +34728,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The paper qualifies its reliability claims: Section VI-C des"
+          "text": "The paper qualifies its reliability claims: one passage desc"
         },
         {
           "familyHead": "newsreader",
@@ -34741,7 +34746,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These are Physical Intelligence's own reported results, not "
+          "text": "These are Physical Intelligence's own reported results; no i"
         },
         {
           "familyHead": "newsreader",
@@ -34759,7 +34764,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Table 1a reports 100% observed success in 100 evaluation tri"
+          "text": "In evaluation, HIL-SERL completes 100% of observed trials, a"
         },
         {
           "familyHead": "newsreader",
@@ -34795,7 +34800,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Table 1 reports 99.2% average success for the model labelled"
+          "text": "The reported averages are 99.2% success for the model labell"
         },
         {
           "familyHead": "newsreader",
@@ -34849,7 +34854,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Read these as source-specific reports, not a cross-paper ran"
+          "text": "Perry Dong, Kuo-Han Hung, Tian Gao, Dorsa Sadigh and Chelsea"
         },
         {
           "familyHead": "newsreader",
@@ -34858,7 +34863,97 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DPPO, ConRFT, HIL-SERL and pi_RL state that code is availabl"
+          "text": "EXPO-FT turns that algorithm into a full fine-tuning system "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The headline result: 30/30 successes on every evaluated task"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "lineHeightRatio": 1.7,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "EXPO-FT four-task comparison, successes out of 30 trials"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "HIL-SERL (M), trained with additional samples on the two tas"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "On the four shared comparison tasks EXPO-FT completes 30 of "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Read the HIL-SERL column with the paper's own caveat: HIL-SE"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "DSRL represents a third position in the same comparison: kee"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Dong and Finn's September 2026 position, stated in a joint b"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A September 2026 follow-up from the same group, Real-Time EX"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Read these as source-specific reports; the protocols differ "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "DPPO, ConRFT, EXPO-FT, HIL-SERL and pi_RL state that code is"
         },
         {
           "familyHead": "newsreader",
@@ -34971,7 +35066,7 @@
           }
         },
         {
-          "headingId": "the-six-methods-side-by-side",
+          "headingId": "expo-ft-value-guided-edits-on-a-frontier-vla",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -34981,7 +35076,25 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The six methods side by side",
+            "accessibleName": "Copy link to this section, EXPO-FT: value-guided edits on a frontier VLA",
+            "widthPx": 24,
+            "heightPx": 24,
+            "opacity": 1,
+            "visibility": "visible"
+          }
+        },
+        {
+          "headingId": "the-methods-side-by-side",
+          "headingTag": "h2",
+          "linked": true,
+          "colour": "rgb(11, 11, 12)",
+          "decorationLine": "underline",
+          "decorationColour": "rgb(36, 95, 255)",
+          "decorationThicknessPx": 2,
+          "keyboardFocusable": true,
+          "affordance": {
+            "tag": "button",
+            "accessibleName": "Copy link to this section, The methods side by side",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -35010,7 +35123,7 @@
       "linkTreatments": [
         {
           "kind": "section",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(11, 11, 12)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35020,7 +35133,7 @@
           "variants": [
             {
               "signature": "rgb(11, 11, 12)|underline|solid|rgb(36, 95, 255)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(11, 11, 12)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35032,7 +35145,7 @@
         },
         {
           "kind": "reference",
-          "count": 12,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35042,7 +35155,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 12,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35054,7 +35167,7 @@
         },
         {
           "kind": "citation",
-          "count": 98,
+          "count": 122,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35064,7 +35177,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 98,
+              "count": 122,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35109,7 +35222,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 4,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35119,7 +35232,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35153,6 +35266,12 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "EXPO-FT four-task comparison, su",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -35263,6 +35382,14 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Per-task successes out of 30",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Method",
           "familyHead": "ibm plex sans",
@@ -35361,7 +35488,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 10724,
+      "visibleTextLength": 10777,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35512,7 +35639,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Start with kinematics, not because every learner will implem"
+          "text": "Start with kinematics; the reason is that observations and a"
         },
         {
           "familyHead": "newsreader",
@@ -35530,7 +35657,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Robot data is a coupled record, not a folder of images. Each"
+          "text": "Robot data is a coupled record; a folder of images carries n"
         },
         {
           "familyHead": "newsreader",
@@ -35629,7 +35756,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Open-loop loss is a diagnostic, not the result. A useful eva"
+          "text": "Open-loop loss is a diagnostic; the result sits elsewhere. A"
         },
         {
           "familyHead": "newsreader",
@@ -36080,7 +36207,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19819,
+      "visibleTextLength": 19903,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36376,7 +36503,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The v3 paper’s headline comparison reports a 16.5-percentage"
+          "text": "The paper’s headline comparison reports a 16.5-percentage-po"
         },
         {
           "familyHead": "newsreader",
@@ -36439,7 +36566,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "This is evidence about these fine-tuning experiments, not a "
+          "text": "This is evidence about these fine-tuning experiments; it dem"
         },
         {
           "familyHead": "newsreader",
@@ -36466,7 +36593,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Treat “VLA” as two decisions, not one model category. The fi"
+          "text": "Treat “VLA” as two decisions behind one label. The first is "
         },
         {
           "familyHead": "newsreader",
@@ -76427,7 +76554,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23020,
+      "visibleTextLength": 23286,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76622,7 +76749,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Chunk size is a real bias/variance dial, not a hyperparamete"
+          "text": "Chunk size is a real bias/variance dial. The curve above com"
         },
         {
           "familyHead": "ibm plex sans",
@@ -76847,7 +76974,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Octo v2's ALOHA finetuning example predicts 64 actions and e"
+          "text": "Octo's ALOHA finetuning example predicts 64 actions and exec"
         },
         {
           "familyHead": "newsreader",
@@ -77460,7 +77587,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 13156,
+      "visibleTextLength": 13160,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77614,7 +77741,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action is not only a vector. A complete action contract s"
+          "text": "An action is more than a vector. A complete action contract "
         },
         {
           "familyHead": "newsreader",
@@ -77650,7 +77777,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Joint velocity targets encode increments rather than absolut"
+          "text": "Joint velocity targets encode increments instead of absolute"
         },
         {
           "familyHead": "newsreader",
@@ -78191,7 +78318,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14657,
+      "visibleTextLength": 14762,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78313,7 +78440,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This deterministic toy illustrates persistent drift, not a s"
+          "text": "This deterministic toy illustrates persistent drift; it is n"
         },
         {
           "familyHead": "ibm plex sans",
@@ -78583,7 +78710,7 @@
           "widthPx": 649,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Compounding error is a distribution problem, not a data-quan"
+          "text": "Compounding error is a distribution problem first and a data"
         }
       ],
       "sectionLinks": [
@@ -79049,7 +79176,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29059,
+      "visibleTextLength": 29298,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79116,11 +79243,11 @@
           "Comparison Matrix"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 21,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min",
+        "readingTimeText": "17 min",
         "citationCountText": "21",
         "bibliographyIds": [
           "rt1-2022",
@@ -79177,7 +79304,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "OpenVLA v3 reports approximately 6 Hz inference on one NVIDI"
+          "text": "OpenVLA reports approximately 6 Hz inference on one NVIDIA R"
         },
         {
           "familyHead": "ibm plex mono",
@@ -79393,7 +79520,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Start with elimination, not ranking. Remove models whose wei"
+          "text": "Start with elimination and leave ranking for the end. Remove"
         },
         {
           "familyHead": "newsreader",
@@ -79972,7 +80099,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15841,
+      "visibleTextLength": 15969,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80039,11 +80166,11 @@
           "Cross-Embodiment Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 10,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "10",
         "bibliographyIds": [
           "act-aloha-2023",
@@ -80080,7 +80207,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action vector is a control interface, not a hardware DoF "
+          "text": "An action vector is a control interface; the hardware DoF co"
         },
         {
           "familyHead": "newsreader",
@@ -80224,7 +80351,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The disclosure is partial, not absent. The v3 model card spe"
+          "text": "The disclosure is partial. The model card specifies continuo"
         },
         {
           "familyHead": "newsreader",
@@ -80242,7 +80369,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The separate EgoScale v1 paper makes the motion representati"
+          "text": "The separate EgoScale paper makes the motion representation "
         },
         {
           "familyHead": "newsreader",
@@ -80296,7 +80423,7 @@
           "widthPx": 680,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The slot layouts are original illustrations, not published a"
+          "text": "The slot layouts are original illustrations; no published ar"
         }
       ],
       "sectionLinks": [
@@ -80687,7 +80814,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14687,
+      "visibleTextLength": 14721,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81461,7 +81588,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12329,
+      "visibleTextLength": 12368,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81567,7 +81694,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "“Foundation model” is a claim about reuse, not a synonym for"
+          "text": "“Foundation model” is a claim about reuse, and a large neura"
         },
         {
           "familyHead": "newsreader",
@@ -81756,7 +81883,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Look for a matrix, not a highlight. Rows should vary tasks a"
+          "text": "Look for a matrix instead of a highlight. Rows should vary t"
         },
         {
           "familyHead": "newsreader",
@@ -82211,7 +82338,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22258,
+      "visibleTextLength": 22445,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82450,7 +82577,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Disclosure is partial, not absent. The Gemini Robotics 1.5 v"
+          "text": "Disclosure is partial. The Gemini Robotics 1.5 report descri"
         },
         {
           "familyHead": "newsreader",
@@ -82594,7 +82721,7 @@
           "widthPx": 680,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The timeline is a selected reading list, not a census of pap"
+          "text": "The timeline is a selected reading list; its records are iss"
         },
         {
           "familyHead": "newsreader",
@@ -83377,7 +83504,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19724,
+      "visibleTextLength": 19859,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83754,7 +83881,7 @@
           }
         },
         {
-          "headingId": "the-keypoint-turn-vlms-emit-geometry-not-skill-names",
+          "headingId": "the-keypoint-turn-vlms-emit-geometry-instead-of-skill-names",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -83764,7 +83891,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The keypoint turn: VLMs emit geometry, not skill names",
+            "accessibleName": "Copy link to this section, The keypoint turn: VLMs emit geometry instead of skill names",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -84167,7 +84294,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12711,
+      "visibleTextLength": 12810,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84362,7 +84489,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure 2 illustrates the problem with π0: instructed to bus "
+          "text": "One qualitative example illustrates the problem with π0: ins"
         },
         {
           "familyHead": "newsreader",
@@ -84913,7 +85040,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25927,
+      "visibleTextLength": 26198,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85141,7 +85268,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "π0.5 targeted generalization rather than speed Black 2025↓π0"
+          "text": "π0.5 targeted generalization, with speed a secondary concern"
         },
         {
           "familyHead": "newsreader",
@@ -85231,7 +85358,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Keep the report's qualifications with those results. Section"
+          "text": "Keep the report's qualifications with those results. The rep"
         },
         {
           "familyHead": "newsreader",
@@ -86095,7 +86222,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17612,
+      "visibleTextLength": 17882,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86352,7 +86479,7 @@
           "widthPx": 649,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "A synchronous-inference budget is a useful arithmetic check,"
+          "text": "A synchronous-inference budget is a useful arithmetic check;"
         },
         {
           "familyHead": "newsreader",
@@ -86406,7 +86533,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The comparison below is an illustrative hand-off model, not "
+          "text": "The comparison below is an illustrative hand-off model; it i"
         },
         {
           "familyHead": "ibm plex mono",
@@ -86469,7 +86596,7 @@
           "widthPx": 680,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "VLA-Perf’s values are analytical roofline predictions, not f"
+          "text": "VLA-Perf’s values are analytical roofline predictions; no fi"
         },
         {
           "familyHead": "newsreader",
@@ -86868,7 +86995,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32065,
+      "visibleTextLength": 38730,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86935,12 +87062,12 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 20,
-        "citationCount": 12,
+        "readingMinutes": 25,
+        "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "20 min",
-        "citationCountText": "12",
+        "readingTimeText": "25 min",
+        "citationCountText": "17",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -86953,7 +87080,12 @@
           "pld-2026",
           "rldg-2024",
           "rl-vla-generalization-2025",
-          "pair-vla-2026"
+          "pair-vla-2026",
+          "expo-ft-2026",
+          "expo-2025",
+          "dsrl-2025",
+          "realtime-expo-ft-2026",
+          "perry-dong-post-training-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -87095,7 +87227,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The v3 comparisons are specific to their benchmarks and prot"
+          "text": "The comparisons are specific to their benchmarks and protoco"
         },
         {
           "familyHead": "newsreader",
@@ -87122,7 +87254,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Do not confuse training noise levels with inference steps. A"
+          "text": "Keep training noise levels and inference steps separate. The"
         },
         {
           "familyHead": "newsreader",
@@ -87131,7 +87263,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In v2, Table I reports 96.3% mean success ratesuccess rateTh"
+          "text": "The paper reports 96.3% mean success ratesuccess rateThe sta"
         },
         {
           "familyHead": "newsreader",
@@ -87149,7 +87281,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "pi_RL (Chen et al., 2026; v3) fine-tunes flow-based policies"
+          "text": "pi_RL (Chen et al., 2026) fine-tunes flow-based policies wit"
         },
         {
           "familyHead": "newsreader",
@@ -87158,7 +87290,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The main experiments use pi0 and pi0.5. Appendix B.2 reports"
+          "text": "The main experiments use pi0 and pi0.5. One configuration fi"
         },
         {
           "familyHead": "newsreader",
@@ -87176,7 +87308,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two setup descriptions disagree within v3. Section 4.3.2 put"
+          "text": "Two setup descriptions disagree inside the paper itself. One"
         },
         {
           "familyHead": "newsreader",
@@ -87221,7 +87353,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section III first recalls the exponential solution for a KL-"
+          "text": "The relevant KL-regularized objective has the exponential so"
         },
         {
           "familyHead": "newsreader",
@@ -87248,7 +87380,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This avoids a PPO-style policy-extraction objective, not tra"
+          "text": "This avoids a PPO-style policy-extraction objective while st"
         },
         {
           "familyHead": "newsreader",
@@ -87257,7 +87389,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The scrubber is a deterministic teaching example, not a reco"
+          "text": "The scrubber is a deterministic teaching example. Its forty-"
         },
         {
           "familyHead": "newsreader",
@@ -87275,7 +87407,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The paper qualifies its reliability claims: Section VI-C des"
+          "text": "The paper qualifies its reliability claims: one passage desc"
         },
         {
           "familyHead": "newsreader",
@@ -87293,7 +87425,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These are Physical Intelligence's own reported results, not "
+          "text": "These are Physical Intelligence's own reported results; no i"
         },
         {
           "familyHead": "newsreader",
@@ -87311,7 +87443,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Table 1a reports 100% observed success in 100 evaluation tri"
+          "text": "In evaluation, HIL-SERL completes 100% of observed trials, a"
         },
         {
           "familyHead": "newsreader",
@@ -87347,7 +87479,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Table 1 reports 99.2% average success for the model labelled"
+          "text": "The reported averages are 99.2% success for the model labell"
         },
         {
           "familyHead": "newsreader",
@@ -87401,7 +87533,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Read these as source-specific reports, not a cross-paper ran"
+          "text": "Perry Dong, Kuo-Han Hung, Tian Gao, Dorsa Sadigh and Chelsea"
         },
         {
           "familyHead": "newsreader",
@@ -87410,7 +87542,97 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DPPO, ConRFT, HIL-SERL and pi_RL state that code is availabl"
+          "text": "EXPO-FT turns that algorithm into a full fine-tuning system "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The headline result: 30/30 successes on every evaluated task"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "lineHeightRatio": 1.7,
+          "widthPx": 673,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "EXPO-FT four-task comparison, successes out of 30 trials"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 673,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "HIL-SERL (M), trained with additional samples on the two tas"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 673,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "On the four shared comparison tasks EXPO-FT completes 30 of "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Read the HIL-SERL column with the paper's own caveat: HIL-SE"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "DSRL represents a third position in the same comparison: kee"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Dong and Finn's September 2026 position, stated in a joint b"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A September 2026 follow-up from the same group, Real-Time EX"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Read these as source-specific reports; the protocols differ "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "DPPO, ConRFT, EXPO-FT, HIL-SERL and pi_RL state that code is"
         },
         {
           "familyHead": "newsreader",
@@ -87523,7 +87745,7 @@
           }
         },
         {
-          "headingId": "the-six-methods-side-by-side",
+          "headingId": "expo-ft-value-guided-edits-on-a-frontier-vla",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -87533,7 +87755,25 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The six methods side by side",
+            "accessibleName": "Copy link to this section, EXPO-FT: value-guided edits on a frontier VLA",
+            "widthPx": 24,
+            "heightPx": 24,
+            "opacity": 1,
+            "visibility": "visible"
+          }
+        },
+        {
+          "headingId": "the-methods-side-by-side",
+          "headingTag": "h2",
+          "linked": true,
+          "colour": "rgb(11, 11, 12)",
+          "decorationLine": "underline",
+          "decorationColour": "rgb(36, 95, 255)",
+          "decorationThicknessPx": 2,
+          "keyboardFocusable": true,
+          "affordance": {
+            "tag": "button",
+            "accessibleName": "Copy link to this section, The methods side by side",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -87562,7 +87802,7 @@
       "linkTreatments": [
         {
           "kind": "section",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(11, 11, 12)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87572,7 +87812,7 @@
           "variants": [
             {
               "signature": "rgb(11, 11, 12)|underline|solid|rgb(36, 95, 255)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(11, 11, 12)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -87584,7 +87824,7 @@
         },
         {
           "kind": "reference",
-          "count": 12,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87594,7 +87834,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 12,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -87606,7 +87846,7 @@
         },
         {
           "kind": "citation",
-          "count": 98,
+          "count": 122,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87616,7 +87856,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 98,
+              "count": 122,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -87661,7 +87901,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 4,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87671,7 +87911,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -87705,6 +87945,12 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "EXPO-FT four-task comparison, su",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -87815,6 +88061,14 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Per-task successes out of 30",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Method",
           "familyHead": "ibm plex sans",
@@ -87913,7 +88167,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11351,
+      "visibleTextLength": 11404,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88064,7 +88318,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Start with kinematics, not because every learner will implem"
+          "text": "Start with kinematics; the reason is that observations and a"
         },
         {
           "familyHead": "newsreader",
@@ -88082,7 +88336,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Robot data is a coupled record, not a folder of images. Each"
+          "text": "Robot data is a coupled record; a folder of images carries n"
         },
         {
           "familyHead": "newsreader",
@@ -88181,7 +88435,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Open-loop loss is a diagnostic, not the result. A useful eva"
+          "text": "Open-loop loss is a diagnostic; the result sits elsewhere. A"
         },
         {
           "familyHead": "newsreader",
@@ -88632,7 +88886,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20446,
+      "visibleTextLength": 20530,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88928,7 +89182,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The v3 paper’s headline comparison reports a 16.5-percentage"
+          "text": "The paper’s headline comparison reports a 16.5-percentage-po"
         },
         {
           "familyHead": "newsreader",
@@ -88991,7 +89245,7 @@
           "widthPx": 681,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "This is evidence about these fine-tuning experiments, not a "
+          "text": "This is evidence about these fine-tuning experiments; it dem"
         },
         {
           "familyHead": "newsreader",
@@ -89018,7 +89272,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Treat “VLA” as two decisions, not one model category. The fi"
+          "text": "Treat “VLA” as two decisions behind one label. The first is "
         },
         {
           "familyHead": "newsreader",

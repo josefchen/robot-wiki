@@ -24,7 +24,7 @@ describe('SayCan and Code as Policies exact source conjunctions', () => {
   });
   it('distinguishes selected skills, calibrated values and mixed implementations', () => {
     expect(article).toContain('appends the selected skill description');
-    expect(article).toContain('not a separately trained model for every skill');
+    expect(article).toContain('skill selection runs through those value functions, with no separately trained model per skill');
     expect(article).toContain('require empirical calibration');
     expect(article).toContain('not confirmation that it succeeded');
     expect(article).not.toContain('The affordance half is the contribution that survived');

@@ -21,7 +21,9 @@ describe('source-scoped keypoint interfaces', () => {
     expect(hierarchyBlock.includes('21.8% gain')).toBe(false);
   });
   it('keeps the Where2Place point metric and protocol distinct from robot success', () => {
-    for (const phrase of ['Where2Place', '100 real-world images', 'Table 2', '46.77%', '29.06%', 'means over three runs', 'not robot grasp success']) {
+    // The Table 2 locator moved from prose into the citation note with the
+    // 20260925 humanizer pass; the numbers and protocol stay in prose.
+    for (const phrase of ['Where2Place', '100 real-world images', '46.77%', '29.06%', 'means over three runs', 'robot grasp success is a separate quantity']) {
       expect(hierarchyBlock.includes(phrase), phrase).toBe(true);
     }
     expect(perceptionBlock.includes('does not require an external detector at test time')).toBe(true);

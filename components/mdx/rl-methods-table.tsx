@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { Badge, Table, type Column } from '@/components/ui';
 
 /**
- * Six RL fine-tuning rows; sourceIds and opennessNote bind each row to the
+ * Eight RL fine-tuning rows; sourceIds and opennessNote bind each row to the
  * retained primary-source scope. Results use source-specific protocols.
  * Source publication type is not evidence of independent replication.
  * 'use client' is required because the Table columns carry render functions.
@@ -99,6 +99,32 @@ const ROWS: MethodRow[] = [
     sourceIds: ["hil-serl-2024"],
     opennessNote: "The retained HIL-SERL body points to accompanying videos and code; its body revision, repository contents, weights and license terms are not independently established here.",
   },
+  {
+    method: 'EXPO-FT',
+    year: 2026,
+    mechanism:
+      'On-the-fly selection of the value-maximizing candidate between π0.5 action chunks and lightweight Gaussian edits, with human teleoperation corrections during online training',
+    result:
+      '30/30 successes on every evaluated task, average 19.1 minutes of online robot data (eight task variants); on the four-task comparison, baselines average 5.5-20.5/30',
+    evidence: 'preprint',
+    // The paper's abstract states an open-source codebase release;
+    // repository contents, weights and license terms were not inspected.
+    open: true,
+    sourceIds: ["expo-ft-2026"],
+    opennessNote: "The EXPO-FT paper states an open-source codebase release; repository contents, weights and license terms were not inspected.",
+  },
+  {
+    method: 'DSRL',
+    year: 2025,
+    mechanism:
+      'RL over a frozen diffusion policy\'s latent-noise space with black-box access to the base policy; base weights stay fixed',
+    result:
+      "19/30 average on EXPO-FT's four-task comparison; its own evaluation demonstrates real-world autonomous improvement of diffusion policies and pretrained generalists",
+    evidence: 'preprint',
+    open: null,
+    sourceIds: ["dsrl-2025"],
+    opennessNote: "The inspected DSRL abstract does not state a code or weight release.",
+  },
 ];
 
 const EVIDENCE_BADGE: Record<EvidenceClass, ReactNode> = {
@@ -142,7 +168,7 @@ export function RlMethodsTable({ className }: { className?: string }) {
   return (
     <Table
       className={className}
-      caption="Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row."
+      caption="Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}

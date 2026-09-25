@@ -5243,6 +5243,50 @@
         "fingerprint": "411e43ec8f84ddbc2bb3b1d93a9468045e5159eb44986209cfaf667fed1d926a"
       },
       {
+        "id": "interactive:ExpoFtResults",
+        "component": "ExpoFtResults",
+        "sourcePath": "components/interactive/expo-ft-results.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "933c0e566232935c9a284466d40dd2d8cfab3594e1126c769a5895427bfdedf9"
+      },
+      {
         "id": "interactive:FlowMatchingTrajectory",
         "component": "FlowMatchingTrajectory",
         "sourcePath": "components/interactive/flow-matching-trajectory.tsx",
@@ -10046,6 +10090,54 @@
         "fingerprint": "7d606c4461784c6a277a14bcafd911298009fa29cb8df46fec5f50b8b545fd58"
       },
       {
+        "id": "mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
+        "sourceId": "interactive:ExpoFtResults",
+        "route": "/manipulation/rl-finetuning/",
+        "ownerPath": "content/manipulation/rl-finetuning.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "b792f78f05d7f9f5c28403eecfc1fc6f5f51615979d8499bce1964d16d7c6e98"
+      },
+      {
         "id": "mount:/manipulation/vla-models/:ActionTokenization:1",
         "sourceId": "interactive:ActionTokenization",
         "route": "/manipulation/vla-models/",
@@ -11395,6 +11487,7 @@
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/expo-ft-results.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/friction-transfer.tsx",
         "components/interactive/gait-diagram.tsx",
@@ -11480,6 +11573,7 @@
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/expo-ft-results.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/friction-transfer.tsx",
         "components/interactive/gait-diagram.tsx",
@@ -11539,7 +11633,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "672b15d9041c9384d94375bbd6c291f4865974bb45e4291c9f684ed0fd17c603"
+      "fingerprint": "70ace635d251a35f94ab4c2eb8880a1136c848ccb4efcda7ce721fccda19a11b"
     },
     {
       "id": "surface:raised",
@@ -12419,5 +12513,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "12ff174f2c7f6eeb17d52522e51350a2de15ff2a3bedfcbdc7994e5e5daa3100"
+  "rootFingerprint": "2544476b866c81a7e3afb340a5af2a55ba91bff9ced788402ed3742149772f28"
 }

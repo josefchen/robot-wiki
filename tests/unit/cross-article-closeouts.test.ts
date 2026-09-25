@@ -13,7 +13,7 @@ describe('source-scoped cross-article corrections', () => {
   it('separates KI toy outputs, language-model size and complete VLM size', () => {
     const text = article('manipulation/knowledge-insulation');
     expect(text).toContain('256 uniform bins');
-    expect(text).toContain('not measured architecture depth or a published score curve');
+    expect(text).toContain('show neither measured architecture depth nor a published score curve');
     expect(text).toContain('2B language-model backbone');
     expect(text).not.toContain('paper (NeurIPS 2025)');
   });
@@ -66,7 +66,7 @@ describe('source-scoped cross-article corrections', () => {
 
   it('does not turn MEM semantic memory into dense video or an invented date', () => {
     const text = article('manipulation/pi-line');
-    expect(text).toContain('not a fifteen-minute dense-video input');
+    expect(text).toContain('no fifteen-minute dense-video input sits behind it');
     expect(text).toContain('targeted corrections');
     expect(text).not.toContain('A March 2026 variant');
     expect(PI_GENERATIONS.find((g) => g.id === 'pi06-mem')?.released).toBeNull();

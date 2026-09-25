@@ -412,6 +412,169 @@ export function ruleOfThreeDensity(body: string): number {
 export const RULE_OF_THREE_LIMIT = 22;
 
 /**
+ * Structural-tell patterns for the humanizer v3 floor (VAL-HUMAN-001).
+ *
+ * The owner-measured slop in this corpus is structural, not vocabulary: the
+ * audit process wrote §1 not-X disclaimers ("This is not a universal
+ * efficiency ranking") and paper-internal locators ("Appendix D reports",
+ * "Section 4.3.2 puts") into reader prose. Two counted classes, each a
+ * small nameable pattern set, so the floor stays auditable:
+ *
+ * - `not-x`: the humanizer v3 §1 contrast constructions. Plain negation
+ *   ("the paper does not report a denominator") and registry vocabulary
+ *   ("not disclosed") are not contrast constructions and pass.
+ * - `paper-locator`: references to a position inside a cited paper
+ *   (Table/Figure/Equation/Appendix/Section locators and bare version
+ *   markers like "v2"). The finding belongs in the prose; the locator
+ *   belongs in the citation note or audit ledger.
+ */
+export type StructuralTellKind = 'not-x' | 'paper-locator';
+
+const STRUCTURAL_TELL_PATTERNS: ReadonlyArray<{
+  kind: StructuralTellKind;
+  label: string;
+  pattern: RegExp;
+}> = [
+  // --- not-X disclaimers (humanizer v3 §1) ---
+  { kind: 'not-x', label: 'not just/only/merely', pattern: /\bnot\s+(?:just|only|merely)\b/i },
+  {
+    kind: 'not-x',
+    label: 'not X but Y',
+    // The negative half and "but" must share one clause: no sentence
+    // boundary between them, and at most ~60 characters of bridge.
+    pattern: /\bnot\b[^.;:!?]{0,60}?\bbut\b/i,
+  },
+  { kind: 'not-x', label: 'rather than', pattern: /\brather\s+than\b/i },
+  {
+    kind: 'not-x',
+    label: ', not X',
+    // Appositive disclaimer: "..., not a leaderboard." The comma (or a
+    // semicolon before "not") is what makes it a contrast rider.
+    pattern: /[,;]\s*not\s+(?=[A-Za-z0-9"'(])/i,
+  },
+  { kind: 'not-x', label: 'does not mean', pattern: /\bdo(?:es)?\s+not\s+mean\b/i },
+  // --- paper-internal locators ---
+  {
+    kind: 'paper-locator',
+    label: 'table/figure/equation locator',
+    pattern:
+      /\b(?:Tables?|Tab\.|Figures?|Fig\.|Equation|Eq\.)\s*\(?\s*(?:[0-9]+(?:\.[0-9]+)*[a-z]?|[IVXL]+)(?:['’]s)?\b/i,
+  },
+  { kind: 'paper-locator', label: 'appendix locator', pattern: /\bAppendix\s+[A-Z](?:[0-9]+)?(?:\.[0-9]+)?\b/ },
+  {
+    kind: 'paper-locator',
+    label: 'section locator',
+    pattern: /\bSections?\s+(?:(?:[A-Z]\.?)?[0-9]+(?:\.[0-9]+)*|[IVXL]+(?:-[A-Z0-9]+)?)\b/,
+  },
+  // Bare paper-version markers ("the v3 comparisons", "v2 changed the
+  // tables"). Audit meta about which revision was inspected.
+  { kind: 'paper-locator', label: 'paper version marker', pattern: /\bv[0-9]+\b/ },
+];
+
+export type StructuralTellFinding = SlopFinding & {
+  kind: StructuralTellKind;
+  label: string;
+  match: string;
+};
+
+/**
+ * Blank a leading MDX frontmatter block, keeping line numbers intact.
+ * Frontmatter is YAML metadata (title, citation ids like
+ * "diffusion-policy-2023-v1", seeAlso slugs), never reader prose, so the
+ * structural-tell floor must not count it.
+ */
+function maskMdxFrontmatter(body: string): string {
+  if (!body.startsWith('---\n')) return body;
+  const end = body.indexOf('\n---', 4);
+  if (end === -1) return body;
+  const blank = (m: string) => m.replace(/[^\n]/g, ' ');
+  return blank(body.slice(0, end + 4)) + body.slice(end + 4);
+}
+
+/** Find every structural tell in one body of prose, prose only. */
+export function findStructuralTells(
+  body: string,
+  exceptions: readonly SlopQuotationException[] = [],
+): StructuralTellFinding[] {
+  const masked = maskRegisteredQuotes(maskNonProse(maskMdxFrontmatter(body)), exceptions);
+  const findings: StructuralTellFinding[] = [];
+  const lines = masked.split('\n');
+  lines.forEach((line, i) => {
+    // One tell per text span, strongest pattern first: "not merely a
+    // policy, not only a plan" is two tells, while "not just X but Y" is
+    // one construction seen by two patterns, counted once.
+    const taken: Array<[number, number]> = [];
+    for (const { kind, label, pattern } of STRUCTURAL_TELL_PATTERNS) {
+      const global = new RegExp(pattern.source, pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`);
+      for (const match of line.matchAll(global)) {
+        const span: [number, number] = [match.index ?? 0, (match.index ?? 0) + match[0].length];
+        if (taken.some(([start, end]) => span[0] < end && span[1] > start)) continue;
+        taken.push(span);
+        findings.push({
+          file: '',
+          line: i + 1,
+          kind,
+          label,
+          match: match[0],
+          message: `${label} structural tell "${match[0]}"`,
+        });
+      }
+    }
+  });
+  return findings;
+}
+
+/** Density threshold for the manipulation structural-tell floor (per 1000 words). */
+export const STRUCTURAL_TELL_LIMIT = 2;
+
+/** Measurement floor for the structural-tell rate, in masked prose words. */
+export const STRUCTURAL_TELL_MIN_WORDS = 100;
+
+export interface StructuralTellReport {
+  /** Masked prose word count the measurement ran over. */
+  words: number;
+  /** Total counted tells (not-X plus paper-locators). */
+  tells: number;
+  /** Counted §1 not-X disclaimers. */
+  notX: number;
+  /** Counted paper-internal locators. */
+  paperLocator: number;
+  /** Tells per 1,000 words, computed whenever words > 0 (never a silent 0). */
+  density: number;
+  /** True when words meet the measurement floor and the limit applies. */
+  measured: boolean;
+  /** True when words > 0 but below the floor: informational, not passing. */
+  subFloor: boolean;
+}
+
+/**
+ * Measure the structural-tell rate for one article body. Same measured /
+ * sub-floor discipline as ruleOfThreeResult: a short body reports its true
+ * ratio informationally instead of scoring as a clean zero.
+ */
+export function structuralTellReport(
+  body: string,
+  exceptions: readonly SlopQuotationException[] = [],
+): StructuralTellReport {
+  const findings = findStructuralTells(body, exceptions);
+  const words = maskNonProse(maskMdxFrontmatter(body)).split(/\s+/).filter((w) => w.length > 0).length;
+  const notX = findings.filter((f) => f.kind === 'not-x').length;
+  const paperLocator = findings.filter((f) => f.kind === 'paper-locator').length;
+  const tells = findings.length;
+  const density = words > 0 ? (tells / words) * 1000 : 0;
+  return {
+    words,
+    tells,
+    notX,
+    paperLocator,
+    density,
+    measured: words >= STRUCTURAL_TELL_MIN_WORDS,
+    subFloor: words > 0 && words < STRUCTURAL_TELL_MIN_WORDS,
+  };
+}
+
+
+/**
  * Extract the reader-visible prose from an exported HTML document:
  * text content of the body, the <title>, and the description metadata
  * (meta description, og:description, og:title, twitter:description).

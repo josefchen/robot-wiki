@@ -62,14 +62,14 @@ describe('ECoT and Hi Robot whole-current-claim corrections', () => {
 
   it('distinguishes physical data, percentage points, matched baseline, and separate recipes', () => {
     expect(article).toContain('synthetic reasoning annotations to existing Bridge V2');
-    expect(article).toContain('not new physical robot trajectories');
+    expect(article).toContain('brings no new physical robot trajectories');
     expect(article).toContain('28-percentage-point absolute');
     expect(article).toContain('66% versus 44%');
     expect(article).toContain('64% versus 30%');
     expect(article).toContain('314 trials per approach');
     expect(article).toContain('one standard error');
     expect(article).toContain('fixed for five steps');
-    expect(article).toContain('not the recipe behind the main Table 1');
+    expect(article).toContain('the main evaluation follows the recipe above, and this variant stays outside it');
     expect(article).not.toContain('Making that internal reasoning cheap is what the 2025-2026 systems figured out');
     const score = selected[0].plan.evidence.find(e => e.partId === 'score-and-baseline')!;
     expect(score.supportingPassage).toContain('by 28% across challenging generalization tasks');

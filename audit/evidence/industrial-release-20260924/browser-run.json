@@ -5,8 +5,8 @@
   "environment": {
     "NODE_DISABLE_COMPILE_CACHE": "1"
   },
-  "startedAt": "2026-09-24T04:17:11.463Z",
-  "endedAt": "2026-09-24T04:17:15.519Z",
+  "startedAt": "2026-09-25T15:04:22.543Z",
+  "endedAt": "2026-09-25T15:04:28.167Z",
   "exitCode": 0,
   "test": {
     "path": "tests/e2e/industrial-citation-refresh.spec.ts",
@@ -16,8 +16,8 @@
   "dependencies": [
     {
       "path": "content/data-hardware/industrial-deployment.mdx",
-      "bytes": 19397,
-      "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+      "bytes": 19278,
+      "sha256": "8637896eef510c187a236f6ba5d0bcfb72e06adc42b7e7e42cef905b550f67da"
     },
     {
       "path": "data/glossary.ts",
@@ -26,8 +26,8 @@
     },
     {
       "path": "data/citations.ts",
-      "bytes": 305677,
-      "sha256": "66751a2a33aa5a11736be65e271582ce62e14381920ca12b726e21ea7197a079"
+      "bytes": 307790,
+      "sha256": "d0800833562f29fd8dcab5d26cffd5990e0e4026b0ace134006a6ca40d86346c"
     },
     {
       "path": "data/schemas/citation.ts",
@@ -79,16 +79,16 @@
     {
       "file": {
         "path": "content/data-hardware/industrial-deployment.mdx",
-        "bytes": 19397,
-        "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61"
+        "bytes": 19278,
+        "sha256": "8637896eef510c187a236f6ba5d0bcfb72e06adc42b7e7e42cef905b550f67da"
       },
       "id": "article:data-hardware/industrial-deployment",
       "offset": 0,
-      "length": 19397,
-      "sha256": "799451487a3f7a2a3fb1309f3cf9b9ca1ac2991f487a0bfa7e5b91ac548a6f61",
+      "length": 19278,
+      "sha256": "8637896eef510c187a236f6ba5d0bcfb72e06adc42b7e7e42cef905b550f67da",
       "baseline": {
         "kind": "prose",
-        "hash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc"
+        "hash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a"
       }
     },
     {
@@ -125,8 +125,8 @@
       },
       "id": "file:lib/audit-local-basis.ts",
       "offset": 0,
-      "length": 63493,
-      "sha256": "18ecde1aed09c79c8c6831701512c21d82c887e5c0b6ced6cc521e1769ec8111"
+      "length": 100888,
+      "sha256": "74220436697ab8d75b05c2aff4da8955ce6e9e4a28941be62302ca5c7d07be8d"
     },
     {
       "file": {
@@ -153,13 +153,13 @@
     {
       "file": {
         "path": "tests/e2e/industrial-deployment.spec.ts",
-        "bytes": 19923,
-        "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+        "bytes": 19936,
+        "sha256": "68507097ee09a5598fc3eff5b4da29d9dd61b3620a00a35a52aa9140e282aecb"
       },
       "id": "file:tests/e2e/industrial-deployment.spec.ts",
       "offset": 0,
-      "length": 19923,
-      "sha256": "339eb0375c5b41aa7468e3979a206d9951a3f8432f19dcc0f68b5740f6b7a5d8"
+      "length": 19936,
+      "sha256": "68507097ee09a5598fc3eff5b4da29d9dd61b3620a00a35a52aa9140e282aecb"
     },
     {
       "file": {
@@ -205,13 +205,13 @@
       },
       "dom": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99.9-15.dom.json",
-        "bytes": 332306,
-        "sha256": "471914740b22cf4cce6145dc23a9511e5221a17019ada1625bc7787747eac784"
+        "bytes": 349254,
+        "sha256": "89f6c3bd47341ee11509a8b41867611aa5daef7d759c3fa48e2df2e66d5408d8"
       },
       "capture": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99.9-15.png",
-        "bytes": 127802,
-        "sha256": "bec7bd49fb3985e2bcb3000cdc2877e5205d7100988b4c717561c18f43d4d4c2"
+        "bytes": 130518,
+        "sha256": "dd80c5d03388004d1f888fb12bb633efb68f7bd077e619218ef952ecdea8c26a"
       }
     },
     {
@@ -245,13 +245,13 @@
       },
       "dom": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99-15.dom.json",
-        "bytes": 332388,
-        "sha256": "20c4d23d0bde8dca030de4cf8e03b9674d6ac609a80dfd33099ba6fab6f29cf4"
+        "bytes": 349336,
+        "sha256": "08685c0ee0e520ef3c4248d3da7fbab049130287d04f73b74d1c33cb76e18c89"
       },
       "capture": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99-15.png",
-        "bytes": 127810,
-        "sha256": "b553ec15643b34336c92d3fae12e6bd101bc2aaf072431ac5f33597b56aceaab"
+        "bytes": 130552,
+        "sha256": "b294522c86e0964754357e46574214dddf04015dfcbe8856db5180fc20b7d2c1"
       }
     },
     {
@@ -285,13 +285,13 @@
       },
       "dom": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99.9-300.dom.json",
-        "bytes": 332398,
-        "sha256": "d4c7af8e96b6556b6d89c5966e3d038a7c717fe2f13a8840fe0e43d911a94509"
+        "bytes": 349346,
+        "sha256": "1991508bbcafeca8e53cbd0edb2c4a5b78287e1d4db7152f9dfb3670cfd50e32"
       },
       "capture": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99.9-300.png",
-        "bytes": 127981,
-        "sha256": "1990e48874a7695873318ecf707607861237a4f39c6c53749e1a2a827ac0cd6e"
+        "bytes": 130747,
+        "sha256": "996a0a143c557df514895ec8c139bd03204120c99b892696422f3919b8b3b833"
       }
     },
     {
@@ -325,13 +325,13 @@
       },
       "dom": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99-300.dom.json",
-        "bytes": 332401,
-        "sha256": "03d979990aed3bd3668c8cae2fe97cf81a22b3e4d8aa38eccd7248bd206d4d7c"
+        "bytes": 349349,
+        "sha256": "bf3edf07a6d37a3b8467d762eb291749d6a09a14a5b067d5c35bd31cdc842569"
       },
       "capture": {
         "path": "audit/evidence/industrial-release-20260924/final-case-99-300.png",
-        "bytes": 127660,
-        "sha256": "5f9688fe320ecf815b3c8ef19df593baf5eb1de79acce34dcdb1065546577238"
+        "bytes": 130351,
+        "sha256": "709a6ca07288af1c95264f6ad863ba9bf532c96d88026823e3958dd8c740934e"
       }
     }
   ],
@@ -355,7 +355,6 @@
         "4,663,698",
         "542,076",
         "54%",
-        "~5,500",
         "not a measured intervention rate",
         "no published success rate"
       ],
@@ -365,13 +364,13 @@
       },
       "dom": {
         "path": "audit/evidence/industrial-release-20260924/final-surfaces-1440.dom.json",
-        "bytes": 335024,
-        "sha256": "2664ca866e9d3c52ecd8a3a59a016cad5dd5f904e036d57ce3e7da43abe07950"
+        "bytes": 351969,
+        "sha256": "e9f7abc13c70ac48e9f0ea424d435f4bc75278639dc42a4984ee4d6f30eecdcf"
       },
       "capture": {
         "path": "audit/evidence/industrial-release-20260924/final-surfaces-1440.png",
-        "bytes": 206973,
-        "sha256": "e84105cc3710152cc76c3bb6f9cf21f4862303d1f446408786e700ec415f49ae"
+        "bytes": 214681,
+        "sha256": "774fe838a2aee2e509a7d25f8524a543f914e0f4be37002805b7a98907b25341"
       },
       "axeViolations": []
     },
@@ -394,7 +393,6 @@
         "4,663,698",
         "542,076",
         "54%",
-        "~5,500",
         "not a measured intervention rate",
         "no published success rate"
       ],
@@ -404,13 +402,13 @@
       },
       "dom": {
         "path": "audit/evidence/industrial-release-20260924/final-surfaces-375.dom.json",
-        "bytes": 334622,
-        "sha256": "1ab71604ff69bd4de7d12c65a09c8ebeea87da10b94e0ba6bd7114f390e6c62a"
+        "bytes": 351571,
+        "sha256": "c4c4080e5f5c04782f4ff7638687bc14be470f202a5fcb7a8ebb8d41b8062309"
       },
       "capture": {
         "path": "audit/evidence/industrial-release-20260924/final-surfaces-375.png",
-        "bytes": 66363,
-        "sha256": "adf67d72a06ba0cdc231370ee3f7c6d5f4c7bbce1e130c91ed2168a4cf21b1ce"
+        "bytes": 70666,
+        "sha256": "13a5195a5a5e9f21d5ca20859dc76fbe5781a49f69c6a065f453b24e9cc67bac"
       },
       "axeViolations": []
     }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "cc8b1bd68e7ba9d1ae1ea591e0a18cb0ab44aef68c79c98f46f85195195cc0bd",
+  "fingerprint": "6f726d50ca02d0dad5d2bb1b991b662c1d2450c61da7cc29bd673a5cbf9c47c4",
   "viewports": [
     "375x812",
     "1440x900"
@@ -22554,7 +22554,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 22393,
+      "visibleTextLength": 22659,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -23466,7 +23466,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 12529,
+      "visibleTextLength": 12533,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -24076,7 +24076,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14030,
+      "visibleTextLength": 14135,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -24618,7 +24618,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 28432,
+      "visibleTextLength": 28671,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -25667,7 +25667,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 15214,
+      "visibleTextLength": 15342,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -26365,7 +26365,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14060,
+      "visibleTextLength": 14094,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -26999,7 +26999,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 11702,
+      "visibleTextLength": 11741,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -27454,7 +27454,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 21631,
+      "visibleTextLength": 21818,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -28280,7 +28280,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 19097,
+      "visibleTextLength": 19232,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -29082,7 +29082,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 12084,
+      "visibleTextLength": 12183,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -29703,7 +29703,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 25300,
+      "visibleTextLength": 25571,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -30679,7 +30679,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 16985,
+      "visibleTextLength": 17255,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -30723,7 +30723,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 109,
+      "focusableCount": 110,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -30816,6 +30816,7 @@
         "keys": [
           "manipulation/action-chunking",
           "manipulation/pi-line",
+          "manipulation/rl-finetuning",
           "data-hardware/hardware-taxonomy"
         ]
       },
@@ -31217,8 +31218,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/data-hardware/hardware-taxonomy/",
-          "text": "Hardware Taxonomy",
+          "href": "/manipulation/rl-finetuning/",
+          "text": "RL Fine-Tuning of Policies",
           "documentOrder": 94,
           "tabStop": 86,
           "tabPresses": 100,
@@ -31227,9 +31228,9 @@
           "focusVisible": true
         },
         {
-          "section": "references",
-          "href": "https://arxiv.org/abs/2304.13705",
-          "text": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+          "section": "linked-from",
+          "href": "/data-hardware/hardware-taxonomy/",
+          "text": "Hardware Taxonomy",
           "documentOrder": 95,
           "tabStop": 87,
           "tabPresses": 100,
@@ -31239,8 +31240,8 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2410.24164",
-          "text": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+          "href": "https://arxiv.org/abs/2304.13705",
+          "text": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
           "documentOrder": 96,
           "tabStop": 88,
           "tabPresses": 100,
@@ -31250,10 +31251,10 @@
         },
         {
           "section": "references",
-          "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
-          "text": "π0.6 Model Card",
-          "documentOrder": 98,
-          "tabStop": 90,
+          "href": "https://arxiv.org/abs/2410.24164",
+          "text": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+          "documentOrder": 97,
+          "tabStop": 89,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -31261,8 +31262,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.pi.website/download/pi07.pdf",
-          "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
+          "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+          "text": "π0.6 Model Card",
           "documentOrder": 99,
           "tabStop": 91,
           "tabPresses": 100,
@@ -31272,10 +31273,21 @@
         },
         {
           "section": "references",
+          "href": "https://www.pi.website/download/pi07.pdf",
+          "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
+          "documentOrder": 100,
+          "tabStop": 92,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
           "href": "https://arxiv.org/abs/2506.07339",
           "text": "Real-Time Execution of Action Chunking Flow Policies",
-          "documentOrder": 101,
-          "tabStop": 93,
+          "documentOrder": 102,
+          "tabStop": 94,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -31285,8 +31297,8 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2602.18397",
           "text": "How Fast Can I Run My VLA? Demystifying VLA Inference Performance with VLA-Perf",
-          "documentOrder": 102,
-          "tabStop": 94,
+          "documentOrder": 103,
+          "tabStop": 95,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -31299,7 +31311,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 31438,
+      "visibleTextLength": 38103,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -31343,7 +31355,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 170,
+      "focusableCount": 204,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -31486,6 +31498,66 @@
             "index": 11,
             "sourceHref": "https://arxiv.org/abs/2605.13105",
             "title": "What to Ignore, What to React: Visually Robust RL Fine-Tuning of VLA Models",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "expo-ft-2026",
+            "index": 12,
+            "sourceHref": "https://arxiv.org/abs/2605.25477",
+            "title": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "expo-2025",
+            "index": 13,
+            "sourceHref": "https://arxiv.org/abs/2507.07986",
+            "title": "EXPO: Stable Reinforcement Learning with Expressive Policies",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "dsrl-2025",
+            "index": 14,
+            "sourceHref": "https://arxiv.org/abs/2506.15799",
+            "title": "Steering Your Diffusion Policy with Latent Space Reinforcement Learning",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "realtime-expo-ft-2026",
+            "index": 15,
+            "sourceHref": "https://arxiv.org/abs/2609.18207",
+            "title": "Reinforcement Learning for Real-Time Vision-Language-Action Policies",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "perry-dong-post-training-2026",
+            "index": 16,
+            "sourceHref": "https://pd-perry.github.io/posts/post-training.html",
+            "title": "Towards Universal Post-Training for Robotics",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -31907,6 +31979,106 @@
           "inProse": true
         },
         {
+          "id": "expo-2025",
+          "label": "Dong 2025",
+          "href": "https://arxiv.org/abs/2507.07986",
+          "opensExternally": true,
+          "tooltipText": "EXPO: Stable Reinforcement Learning with Expressive PoliciesPerry Dong, Qiyang Li, Dorsa Sadigh et al., 2025",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-2025",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "hil-serl-2024",
+          "label": "Luo 2024",
+          "href": "https://arxiv.org/abs/2410.21845",
+          "opensExternally": true,
+          "tooltipText": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement LearningJianlan Luo, Charles Xu, Jeffrey Wu et al., 2024",
+          "describedByResolves": true,
+          "referenceHref": "#ref-hil-serl-2024",
+          "inProse": true
+        },
+        {
+          "id": "dsrl-2025",
+          "label": "Wagenmaker 2025",
+          "href": "https://arxiv.org/abs/2506.15799",
+          "opensExternally": true,
+          "tooltipText": "Steering Your Diffusion Policy with Latent Space Reinforcement LearningAndrew Wagenmaker, Mitsuhiko Nakamoto, Yunchu Zhang et al., 2025",
+          "describedByResolves": true,
+          "referenceHref": "#ref-dsrl-2025",
+          "inProse": true
+        },
+        {
+          "id": "perry-dong-post-training-2026",
+          "label": "Dong 2026",
+          "href": "https://pd-perry.github.io/posts/post-training.html",
+          "opensExternally": true,
+          "tooltipText": "Towards Universal Post-Training for RoboticsPerry Dong, Chelsea Finn, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-perry-dong-post-training-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "perry-dong-post-training-2026",
+          "label": "Dong 2026",
+          "href": "https://pd-perry.github.io/posts/post-training.html",
+          "opensExternally": true,
+          "tooltipText": "Towards Universal Post-Training for RoboticsPerry Dong, Chelsea Finn, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-perry-dong-post-training-2026",
+          "inProse": true
+        },
+        {
+          "id": "realtime-expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2609.18207",
+          "opensExternally": true,
+          "tooltipText": "Reinforcement Learning for Real-Time Vision-Language-Action PoliciesPerry Dong, Kuo-Han Hung, Dorsa Sadigh et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-realtime-expo-ft-2026",
+          "inProse": true
+        },
+        {
           "id": "dppo-2024",
           "label": "Ren 2024",
           "href": "https://arxiv.org/abs/2409.00588",
@@ -31984,6 +32156,26 @@
           "tooltipText": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RLWenli Xiao, Haotian Lin, Andy Peng et al., 2025",
           "describedByResolves": true,
           "referenceHref": "#ref-pld-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "dsrl-2025",
+          "label": "Wagenmaker 2025",
+          "href": "https://arxiv.org/abs/2506.15799",
+          "opensExternally": true,
+          "tooltipText": "Steering Your Diffusion Policy with Latent Space Reinforcement LearningAndrew Wagenmaker, Mitsuhiko Nakamoto, Yunchu Zhang et al., 2025",
+          "describedByResolves": true,
+          "referenceHref": "#ref-dsrl-2025",
           "inProse": true
         },
         {
@@ -32071,7 +32263,7 @@
           "text": "Home",
           "documentOrder": 3,
           "tabStop": 3,
-          "tabPresses": 175,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32082,7 +32274,7 @@
           "text": "Manipulation & Learned Policies",
           "documentOrder": 4,
           "tabStop": 4,
-          "tabPresses": 175,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32091,9 +32283,9 @@
           "section": "see-also",
           "href": "/manipulation/pi-line/",
           "text": "The Pi Line",
-          "documentOrder": 136,
-          "tabStop": 136,
-          "tabPresses": 175,
+          "documentOrder": 165,
+          "tabStop": 164,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32102,9 +32294,9 @@
           "section": "see-also",
           "href": "/manipulation/bc-foundations/",
           "text": "Behavior Cloning Foundations",
-          "documentOrder": 137,
-          "tabStop": 137,
-          "tabPresses": 175,
+          "documentOrder": 166,
+          "tabStop": 165,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32113,9 +32305,9 @@
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "documentOrder": 138,
-          "tabStop": 138,
-          "tabPresses": 175,
+          "documentOrder": 167,
+          "tabStop": 166,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32124,9 +32316,9 @@
           "section": "see-also",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "documentOrder": 139,
-          "tabStop": 139,
-          "tabPresses": 175,
+          "documentOrder": 168,
+          "tabStop": 167,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32135,9 +32327,9 @@
           "section": "linked-from",
           "href": "/manipulation/bc-foundations/",
           "text": "Behavior Cloning Foundations",
-          "documentOrder": 140,
-          "tabStop": 140,
-          "tabPresses": 175,
+          "documentOrder": 169,
+          "tabStop": 168,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32146,9 +32338,9 @@
           "section": "linked-from",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "documentOrder": 141,
-          "tabStop": 141,
-          "tabPresses": 175,
+          "documentOrder": 170,
+          "tabStop": 169,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32157,9 +32349,9 @@
           "section": "linked-from",
           "href": "/rl-sim2real/offline-rl/",
           "text": "Offline Reinforcement Learning for Robotics",
-          "documentOrder": 142,
-          "tabStop": 142,
-          "tabPresses": 175,
+          "documentOrder": 171,
+          "tabStop": 170,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32168,9 +32360,9 @@
           "section": "linked-from",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "documentOrder": 143,
-          "tabStop": 143,
-          "tabPresses": 175,
+          "documentOrder": 172,
+          "tabStop": 171,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32179,9 +32371,9 @@
           "section": "linked-from",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "documentOrder": 144,
-          "tabStop": 144,
-          "tabPresses": 175,
+          "documentOrder": 173,
+          "tabStop": 172,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32190,9 +32382,9 @@
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "documentOrder": 145,
-          "tabStop": 145,
-          "tabPresses": 175,
+          "documentOrder": 174,
+          "tabStop": 173,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32201,9 +32393,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/1011.0686",
           "text": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
-          "documentOrder": 146,
-          "tabStop": 146,
-          "tabPresses": 175,
+          "documentOrder": 175,
+          "tabStop": 174,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32212,9 +32404,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2409.00588",
           "text": "Diffusion Policy Policy Optimization",
-          "documentOrder": 147,
-          "tabStop": 147,
-          "tabPresses": 175,
+          "documentOrder": 176,
+          "tabStop": 175,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32223,9 +32415,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2502.05450",
           "text": "ConRFT: A Reinforced Fine-tuning Method for VLA Models via Consistency Policy",
-          "documentOrder": 149,
-          "tabStop": 149,
-          "tabPresses": 175,
+          "documentOrder": 178,
+          "tabStop": 177,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32234,9 +32426,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2510.25889",
           "text": "π_RL: Online RL Fine-tuning for Flow-based Vision-Language-Action Models",
-          "documentOrder": 150,
-          "tabStop": 150,
-          "tabPresses": 175,
+          "documentOrder": 179,
+          "tabStop": 178,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32245,9 +32437,9 @@
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "documentOrder": 152,
-          "tabStop": 152,
-          "tabPresses": 175,
+          "documentOrder": 181,
+          "tabStop": 180,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32256,9 +32448,9 @@
           "section": "references",
           "href": "https://www.pi.website/blog/pistar06",
           "text": "π*0.6: a VLA that Learns from Experience",
-          "documentOrder": 154,
-          "tabStop": 154,
-          "tabPresses": 175,
+          "documentOrder": 183,
+          "tabStop": 182,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32267,9 +32459,9 @@
           "section": "references",
           "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
           "text": "π0.6 Model Card",
-          "documentOrder": 156,
-          "tabStop": 156,
-          "tabPresses": 175,
+          "documentOrder": 185,
+          "tabStop": 184,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32278,9 +32470,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2410.21845",
           "text": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning",
-          "documentOrder": 157,
-          "tabStop": 157,
-          "tabPresses": 175,
+          "documentOrder": 186,
+          "tabStop": 185,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32289,9 +32481,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2511.00091",
           "text": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RL",
-          "documentOrder": 158,
-          "tabStop": 158,
-          "tabPresses": 175,
+          "documentOrder": 187,
+          "tabStop": 186,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32300,9 +32492,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2412.09858",
           "text": "RLDG: Robotic Generalist Policy Distillation via Reinforcement Learning",
-          "documentOrder": 160,
-          "tabStop": 160,
-          "tabPresses": 175,
+          "documentOrder": 189,
+          "tabStop": 188,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32311,9 +32503,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2505.19789",
           "text": "What Can RL Bring to VLA Generalization? An Empirical Study",
-          "documentOrder": 161,
-          "tabStop": 161,
-          "tabPresses": 175,
+          "documentOrder": 190,
+          "tabStop": 189,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32322,9 +32514,64 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2605.13105",
           "text": "What to Ignore, What to React: Visually Robust RL Fine-Tuning of VLA Models",
-          "documentOrder": 162,
-          "tabStop": 162,
-          "tabPresses": 175,
+          "documentOrder": 191,
+          "tabStop": 190,
+          "tabPresses": 200,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "text": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models",
+          "documentOrder": 193,
+          "tabStop": 192,
+          "tabPresses": 200,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2507.07986",
+          "text": "EXPO: Stable Reinforcement Learning with Expressive Policies",
+          "documentOrder": 194,
+          "tabStop": 193,
+          "tabPresses": 200,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2506.15799",
+          "text": "Steering Your Diffusion Policy with Latent Space Reinforcement Learning",
+          "documentOrder": 195,
+          "tabStop": 194,
+          "tabPresses": 200,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2609.18207",
+          "text": "Reinforcement Learning for Real-Time Vision-Language-Action Policies",
+          "documentOrder": 196,
+          "tabStop": 195,
+          "tabPresses": 200,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://pd-perry.github.io/posts/post-training.html",
+          "text": "Towards Universal Post-Training for Robotics",
+          "documentOrder": 197,
+          "tabStop": 196,
+          "tabPresses": 200,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -32336,7 +32583,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 10724,
+      "visibleTextLength": 10777,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -32779,7 +33026,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 19819,
+      "visibleTextLength": 19903,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -67390,7 +67637,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 23020,
+      "visibleTextLength": 23286,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -68302,7 +68549,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 13156,
+      "visibleTextLength": 13160,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -68912,7 +69159,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 14657,
+      "visibleTextLength": 14762,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -69454,7 +69701,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 29059,
+      "visibleTextLength": 29298,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -70503,7 +70750,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15841,
+      "visibleTextLength": 15969,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -71201,7 +71448,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 14687,
+      "visibleTextLength": 14721,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -71835,7 +72082,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 12329,
+      "visibleTextLength": 12368,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -72290,7 +72537,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 22258,
+      "visibleTextLength": 22445,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -73116,7 +73363,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 19724,
+      "visibleTextLength": 19859,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -73918,7 +74165,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 12711,
+      "visibleTextLength": 12810,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -74539,7 +74786,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 25927,
+      "visibleTextLength": 26198,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -75515,7 +75762,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 17612,
+      "visibleTextLength": 17882,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -75559,7 +75806,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 138,
+      "focusableCount": 139,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -75652,6 +75899,7 @@
         "keys": [
           "manipulation/action-chunking",
           "manipulation/pi-line",
+          "manipulation/rl-finetuning",
           "data-hardware/hardware-taxonomy"
         ]
       },
@@ -76053,8 +76301,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/data-hardware/hardware-taxonomy/",
-          "text": "Hardware Taxonomy",
+          "href": "/manipulation/rl-finetuning/",
+          "text": "RL Fine-Tuning of Policies",
           "documentOrder": 123,
           "tabStop": 115,
           "tabPresses": 125,
@@ -76063,9 +76311,9 @@
           "focusVisible": true
         },
         {
-          "section": "references",
-          "href": "https://arxiv.org/abs/2304.13705",
-          "text": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+          "section": "linked-from",
+          "href": "/data-hardware/hardware-taxonomy/",
+          "text": "Hardware Taxonomy",
           "documentOrder": 124,
           "tabStop": 116,
           "tabPresses": 125,
@@ -76075,8 +76323,8 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2410.24164",
-          "text": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+          "href": "https://arxiv.org/abs/2304.13705",
+          "text": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
           "documentOrder": 125,
           "tabStop": 117,
           "tabPresses": 125,
@@ -76086,10 +76334,10 @@
         },
         {
           "section": "references",
-          "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
-          "text": "π0.6 Model Card",
-          "documentOrder": 127,
-          "tabStop": 119,
+          "href": "https://arxiv.org/abs/2410.24164",
+          "text": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+          "documentOrder": 126,
+          "tabStop": 118,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -76097,8 +76345,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.pi.website/download/pi07.pdf",
-          "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
+          "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+          "text": "π0.6 Model Card",
           "documentOrder": 128,
           "tabStop": 120,
           "tabPresses": 125,
@@ -76108,10 +76356,21 @@
         },
         {
           "section": "references",
+          "href": "https://www.pi.website/download/pi07.pdf",
+          "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
+          "documentOrder": 129,
+          "tabStop": 121,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
           "href": "https://arxiv.org/abs/2506.07339",
           "text": "Real-Time Execution of Action Chunking Flow Policies",
-          "documentOrder": 130,
-          "tabStop": 122,
+          "documentOrder": 131,
+          "tabStop": 123,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -76121,8 +76380,8 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2602.18397",
           "text": "How Fast Can I Run My VLA? Demystifying VLA Inference Performance with VLA-Perf",
-          "documentOrder": 131,
-          "tabStop": 123,
+          "documentOrder": 132,
+          "tabStop": 124,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -76135,7 +76394,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 32065,
+      "visibleTextLength": 38730,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -76179,7 +76438,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 199,
+      "focusableCount": 233,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -76322,6 +76581,66 @@
             "index": 11,
             "sourceHref": "https://arxiv.org/abs/2605.13105",
             "title": "What to Ignore, What to React: Visually Robust RL Fine-Tuning of VLA Models",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "expo-ft-2026",
+            "index": 12,
+            "sourceHref": "https://arxiv.org/abs/2605.25477",
+            "title": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "expo-2025",
+            "index": 13,
+            "sourceHref": "https://arxiv.org/abs/2507.07986",
+            "title": "EXPO: Stable Reinforcement Learning with Expressive Policies",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "dsrl-2025",
+            "index": 14,
+            "sourceHref": "https://arxiv.org/abs/2506.15799",
+            "title": "Steering Your Diffusion Policy with Latent Space Reinforcement Learning",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "realtime-expo-ft-2026",
+            "index": 15,
+            "sourceHref": "https://arxiv.org/abs/2609.18207",
+            "title": "Reinforcement Learning for Real-Time Vision-Language-Action Policies",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "perry-dong-post-training-2026",
+            "index": 16,
+            "sourceHref": "https://pd-perry.github.io/posts/post-training.html",
+            "title": "Towards Universal Post-Training for Robotics",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -76743,6 +77062,106 @@
           "inProse": true
         },
         {
+          "id": "expo-2025",
+          "label": "Dong 2025",
+          "href": "https://arxiv.org/abs/2507.07986",
+          "opensExternally": true,
+          "tooltipText": "EXPO: Stable Reinforcement Learning with Expressive PoliciesPerry Dong, Qiyang Li, Dorsa Sadigh et al., 2025",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-2025",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "hil-serl-2024",
+          "label": "Luo 2024",
+          "href": "https://arxiv.org/abs/2410.21845",
+          "opensExternally": true,
+          "tooltipText": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement LearningJianlan Luo, Charles Xu, Jeffrey Wu et al., 2024",
+          "describedByResolves": true,
+          "referenceHref": "#ref-hil-serl-2024",
+          "inProse": true
+        },
+        {
+          "id": "dsrl-2025",
+          "label": "Wagenmaker 2025",
+          "href": "https://arxiv.org/abs/2506.15799",
+          "opensExternally": true,
+          "tooltipText": "Steering Your Diffusion Policy with Latent Space Reinforcement LearningAndrew Wagenmaker, Mitsuhiko Nakamoto, Yunchu Zhang et al., 2025",
+          "describedByResolves": true,
+          "referenceHref": "#ref-dsrl-2025",
+          "inProse": true
+        },
+        {
+          "id": "perry-dong-post-training-2026",
+          "label": "Dong 2026",
+          "href": "https://pd-perry.github.io/posts/post-training.html",
+          "opensExternally": true,
+          "tooltipText": "Towards Universal Post-Training for RoboticsPerry Dong, Chelsea Finn, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-perry-dong-post-training-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "perry-dong-post-training-2026",
+          "label": "Dong 2026",
+          "href": "https://pd-perry.github.io/posts/post-training.html",
+          "opensExternally": true,
+          "tooltipText": "Towards Universal Post-Training for RoboticsPerry Dong, Chelsea Finn, 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-perry-dong-post-training-2026",
+          "inProse": true
+        },
+        {
+          "id": "realtime-expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2609.18207",
+          "opensExternally": true,
+          "tooltipText": "Reinforcement Learning for Real-Time Vision-Language-Action PoliciesPerry Dong, Kuo-Han Hung, Dorsa Sadigh et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-realtime-expo-ft-2026",
+          "inProse": true
+        },
+        {
           "id": "dppo-2024",
           "label": "Ren 2024",
           "href": "https://arxiv.org/abs/2409.00588",
@@ -76820,6 +77239,26 @@
           "tooltipText": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RLWenli Xiao, Haotian Lin, Andy Peng et al., 2025",
           "describedByResolves": true,
           "referenceHref": "#ref-pld-2026",
+          "inProse": true
+        },
+        {
+          "id": "expo-ft-2026",
+          "label": "Dong 2026",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "opensExternally": true,
+          "tooltipText": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action ModelsPerry Dong, Kuo-Han Hung, Tian Gao et al., 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-expo-ft-2026",
+          "inProse": true
+        },
+        {
+          "id": "dsrl-2025",
+          "label": "Wagenmaker 2025",
+          "href": "https://arxiv.org/abs/2506.15799",
+          "opensExternally": true,
+          "tooltipText": "Steering Your Diffusion Policy with Latent Space Reinforcement LearningAndrew Wagenmaker, Mitsuhiko Nakamoto, Yunchu Zhang et al., 2025",
+          "describedByResolves": true,
+          "referenceHref": "#ref-dsrl-2025",
           "inProse": true
         },
         {
@@ -76907,7 +77346,7 @@
           "text": "Home",
           "documentOrder": 32,
           "tabStop": 32,
-          "tabPresses": 200,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76918,7 +77357,7 @@
           "text": "Manipulation & Learned Policies",
           "documentOrder": 33,
           "tabStop": 33,
-          "tabPresses": 200,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76927,9 +77366,9 @@
           "section": "see-also",
           "href": "/manipulation/pi-line/",
           "text": "The Pi Line",
-          "documentOrder": 165,
-          "tabStop": 164,
-          "tabPresses": 200,
+          "documentOrder": 194,
+          "tabStop": 192,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76938,9 +77377,9 @@
           "section": "see-also",
           "href": "/manipulation/bc-foundations/",
           "text": "Behavior Cloning Foundations",
-          "documentOrder": 166,
-          "tabStop": 165,
-          "tabPresses": 200,
+          "documentOrder": 195,
+          "tabStop": 193,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76949,9 +77388,9 @@
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "documentOrder": 167,
-          "tabStop": 166,
-          "tabPresses": 200,
+          "documentOrder": 196,
+          "tabStop": 194,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76960,9 +77399,9 @@
           "section": "see-also",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "documentOrder": 168,
-          "tabStop": 167,
-          "tabPresses": 200,
+          "documentOrder": 197,
+          "tabStop": 195,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76971,9 +77410,9 @@
           "section": "linked-from",
           "href": "/manipulation/bc-foundations/",
           "text": "Behavior Cloning Foundations",
-          "documentOrder": 169,
-          "tabStop": 168,
-          "tabPresses": 200,
+          "documentOrder": 198,
+          "tabStop": 196,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76982,9 +77421,9 @@
           "section": "linked-from",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "documentOrder": 170,
-          "tabStop": 169,
-          "tabPresses": 200,
+          "documentOrder": 199,
+          "tabStop": 197,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -76993,9 +77432,9 @@
           "section": "linked-from",
           "href": "/rl-sim2real/offline-rl/",
           "text": "Offline Reinforcement Learning for Robotics",
-          "documentOrder": 171,
-          "tabStop": 170,
-          "tabPresses": 200,
+          "documentOrder": 200,
+          "tabStop": 198,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77004,9 +77443,9 @@
           "section": "linked-from",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "documentOrder": 172,
-          "tabStop": 171,
-          "tabPresses": 200,
+          "documentOrder": 201,
+          "tabStop": 199,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77015,9 +77454,9 @@
           "section": "linked-from",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "documentOrder": 173,
-          "tabStop": 172,
-          "tabPresses": 200,
+          "documentOrder": 202,
+          "tabStop": 200,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77026,9 +77465,9 @@
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "documentOrder": 174,
-          "tabStop": 173,
-          "tabPresses": 200,
+          "documentOrder": 203,
+          "tabStop": 201,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77037,9 +77476,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/1011.0686",
           "text": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
-          "documentOrder": 175,
-          "tabStop": 174,
-          "tabPresses": 200,
+          "documentOrder": 204,
+          "tabStop": 202,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77048,9 +77487,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2409.00588",
           "text": "Diffusion Policy Policy Optimization",
-          "documentOrder": 176,
-          "tabStop": 175,
-          "tabPresses": 200,
+          "documentOrder": 205,
+          "tabStop": 203,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77059,9 +77498,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2502.05450",
           "text": "ConRFT: A Reinforced Fine-tuning Method for VLA Models via Consistency Policy",
-          "documentOrder": 178,
-          "tabStop": 177,
-          "tabPresses": 200,
+          "documentOrder": 207,
+          "tabStop": 205,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77070,9 +77509,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2510.25889",
           "text": "π_RL: Online RL Fine-tuning for Flow-based Vision-Language-Action Models",
-          "documentOrder": 179,
-          "tabStop": 178,
-          "tabPresses": 200,
+          "documentOrder": 208,
+          "tabStop": 206,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77081,9 +77520,9 @@
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "documentOrder": 181,
-          "tabStop": 180,
-          "tabPresses": 200,
+          "documentOrder": 210,
+          "tabStop": 208,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77092,9 +77531,9 @@
           "section": "references",
           "href": "https://www.pi.website/blog/pistar06",
           "text": "π*0.6: a VLA that Learns from Experience",
-          "documentOrder": 183,
-          "tabStop": 182,
-          "tabPresses": 200,
+          "documentOrder": 212,
+          "tabStop": 210,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77103,9 +77542,9 @@
           "section": "references",
           "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
           "text": "π0.6 Model Card",
-          "documentOrder": 185,
-          "tabStop": 184,
-          "tabPresses": 200,
+          "documentOrder": 214,
+          "tabStop": 212,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77114,9 +77553,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2410.21845",
           "text": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning",
-          "documentOrder": 186,
-          "tabStop": 185,
-          "tabPresses": 200,
+          "documentOrder": 215,
+          "tabStop": 213,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77125,9 +77564,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2511.00091",
           "text": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RL",
-          "documentOrder": 187,
-          "tabStop": 186,
-          "tabPresses": 200,
+          "documentOrder": 216,
+          "tabStop": 214,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77136,9 +77575,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2412.09858",
           "text": "RLDG: Robotic Generalist Policy Distillation via Reinforcement Learning",
-          "documentOrder": 189,
-          "tabStop": 188,
-          "tabPresses": 200,
+          "documentOrder": 218,
+          "tabStop": 216,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77147,9 +77586,9 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2505.19789",
           "text": "What Can RL Bring to VLA Generalization? An Empirical Study",
-          "documentOrder": 190,
-          "tabStop": 189,
-          "tabPresses": 200,
+          "documentOrder": 219,
+          "tabStop": 217,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77158,9 +77597,64 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2605.13105",
           "text": "What to Ignore, What to React: Visually Robust RL Fine-Tuning of VLA Models",
-          "documentOrder": 191,
-          "tabStop": 190,
-          "tabPresses": 200,
+          "documentOrder": 220,
+          "tabStop": 218,
+          "tabPresses": 225,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2605.25477",
+          "text": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models",
+          "documentOrder": 222,
+          "tabStop": 220,
+          "tabPresses": 225,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2507.07986",
+          "text": "EXPO: Stable Reinforcement Learning with Expressive Policies",
+          "documentOrder": 223,
+          "tabStop": 221,
+          "tabPresses": 225,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2506.15799",
+          "text": "Steering Your Diffusion Policy with Latent Space Reinforcement Learning",
+          "documentOrder": 224,
+          "tabStop": 222,
+          "tabPresses": 225,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2609.18207",
+          "text": "Reinforcement Learning for Real-Time Vision-Language-Action Policies",
+          "documentOrder": 225,
+          "tabStop": 223,
+          "tabPresses": 225,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://pd-perry.github.io/posts/post-training.html",
+          "text": "Towards Universal Post-Training for Robotics",
+          "documentOrder": 226,
+          "tabStop": 224,
+          "tabPresses": 225,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
           "focusVisible": true
@@ -77172,7 +77666,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 11351,
+      "visibleTextLength": 11404,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -77615,7 +78109,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 20446,
+      "visibleTextLength": 20530,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",

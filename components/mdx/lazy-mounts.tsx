@@ -83,6 +83,9 @@ export const EurekaLoop = dynamic(() =>
 export const ExecutionModes = dynamic(() =>
   import('@/components/interactive/execution-modes').then((m) => m.ExecutionModes),
 );
+export const ExpoFtResults = dynamic(() =>
+  import('@/components/interactive/expo-ft-results').then((m) => m.ExpoFtResults),
+);
 export const FlowMatchingTrajectory = dynamic(() =>
   import('@/components/interactive/flow-matching-trajectory').then((m) => m.FlowMatchingTrajectory),
 );

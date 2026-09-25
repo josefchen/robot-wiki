@@ -925,6 +925,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Where2Place point-in-mask accuracies (46.77% RoboPoint, 29.06%
+    // GPT-4o, means over three runs) are reported in Table 2 of the paper.
     id: 'robopoint-2024',
     title:
       'RoboPoint: A Vision-Language Model for Spatial Affordance Prediction for Robotics',
@@ -2074,6 +2076,65 @@ export const CITATIONS: Citation[] = [
     arxiv: '2410.21845',
     url: 'https://arxiv.org/abs/2410.21845',
     type: 'paper',
+  },
+  {
+    // arXiv abs page and HTML v2 full text both fetched 2026-09-25; the
+    // five-author byline is printed on both. v2 is the cited revision
+    // (Table 1/Table 2 numbers verified against its HTML).
+    id: 'expo-ft-2026',
+    title:
+      'EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models',
+    authors: ['Perry Dong', 'Kuo-Han Hung', 'Tian Gao', 'Dorsa Sadigh', 'Chelsea Finn'],
+    year: 2026,
+    arxiv: '2605.25477',
+    url: 'https://arxiv.org/abs/2605.25477',
+    type: 'paper',
+  },
+  {
+    id: 'expo-2025',
+    title: 'EXPO: Stable Reinforcement Learning with Expressive Policies',
+    authors: ['Perry Dong', 'Qiyang Li', 'Dorsa Sadigh', 'Chelsea Finn'],
+    year: 2025,
+    arxiv: '2507.07986',
+    url: 'https://arxiv.org/abs/2507.07986',
+    type: 'paper',
+  },
+  {
+    id: 'realtime-expo-ft-2026',
+    title: 'Reinforcement Learning for Real-Time Vision-Language-Action Policies',
+    authors: ['Perry Dong', 'Kuo-Han Hung', 'Dorsa Sadigh', 'Chelsea Finn'],
+    year: 2026,
+    arxiv: '2609.18207',
+    url: 'https://arxiv.org/abs/2609.18207',
+    type: 'paper',
+  },
+  {
+    id: 'dsrl-2025',
+    title: 'Steering Your Diffusion Policy with Latent Space Reinforcement Learning',
+    authors: [
+      'Andrew Wagenmaker',
+      'Mitsuhiko Nakamoto',
+      'Yunchu Zhang',
+      'Seohong Park',
+      'Waleed Yagoub',
+      'Anusha Nagabandi',
+      'Abhishek Gupta',
+      'Sergey Levine',
+    ],
+    year: 2025,
+    arxiv: '2506.15799',
+    url: 'https://arxiv.org/abs/2506.15799',
+    type: 'paper',
+  },
+  {
+    // Personal blog post by Perry Dong with Chelsea Finn, published
+    // September 2026 and fetched 2026-09-25 for the dated attribution.
+    id: 'perry-dong-post-training-2026',
+    title: 'Towards Universal Post-Training for Robotics',
+    authors: ['Perry Dong', 'Chelsea Finn'],
+    year: 2026,
+    url: 'https://pd-perry.github.io/posts/post-training.html',
+    type: 'blog',
   },
   {
     id: 'pld-2026',

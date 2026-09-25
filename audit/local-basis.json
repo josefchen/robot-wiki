@@ -5330,16 +5330,16 @@
         "member": {
           "file": {
             "path": "content/manipulation/generalist-policies.mdx",
-            "bytes": 17278,
-            "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5"
+            "bytes": 17465,
+            "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13"
           },
           "id": "article:manipulation/generalist-policies",
-          "offset": 1863,
+          "offset": 1871,
           "length": 229,
           "sha256": "ac709f7db6b3c59b8b476c5b94ffaa0cd5e263ab014940450fee2a6cf9c51225",
           "baseline": {
             "kind": "prose",
-            "hash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+            "hash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
           }
         }
       },
@@ -5365,11 +5365,11 @@
       "planReview": {
         "reviewedBy": "reviewer run b7856fa2; integrator integrator review, not independent acceptance",
         "rationale": "Reviewed all 13 exact IDs and duplicate-free cardinality, actual passing numeric tests, two viewport DOM/captures and filter/reset preservation. Removed all unsupported aggregate Stat date/download/source-format claims and the seven-entry enumeration, including accessible aggregate date wording. Existing independently completed entry facts remain unchanged; the selected count certifies neither weights nor licenses nor papers nor replication. Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.",
-        "inputDigest": "9a7388ab4c336fd23afcfcce8e71983bcbfcc2f4093d0c1b9deefa93d5325dd5",
+        "inputDigest": "eaa3490adfb3b6f31741846fddc1b50094066fbab5c8b3faa9cac91d6329d42a",
         "event": {
           "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-plan.json",
           "bytes": 2251,
-          "sha256": "548df59939c1c5f5921d0ca7e98dc2c697efc58f2f6832978d4465721f67f33d"
+          "sha256": "905588cdab53f20d9789512b0da38834678854407070f97ddec5a5867458e8b5"
         }
       },
       "adjudications": [
@@ -5378,11 +5378,11 @@
           "outcome": "supported",
           "reviewedBy": "reviewer run b7856fa2; integrator integrator review, not independent acceptance",
           "rationale": "Reviewed all 13 exact IDs and duplicate-free cardinality, actual passing numeric tests, two viewport DOM/captures and filter/reset preservation. Removed all unsupported aggregate Stat date/download/source-format claims and the seven-entry enumeration, including accessible aggregate date wording. Existing independently completed entry facts remain unchanged; the selected count certifies neither weights nor licenses nor papers nor replication. Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.",
-          "inputDigest": "72118967aca2c1fb389edc5f66dfcc00199cbf1fa14729c877504cad22f9cee3",
+          "inputDigest": "18d766a4c7f6395f870165c1f8e49318fd3544d5c6825a36941ed41a9287e60a",
           "event": {
             "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-parameters.json",
             "bytes": 2333,
-            "sha256": "4d283737402c5f0cf3f210d40e2e58682f6f0f52aa0ac4ff06e08752c7ebffcd"
+            "sha256": "fbe16b5e498c14ba779bf8cc59ffb601eba727e9213ffceb9dc8f3b15d6a78f1"
           }
         },
         {
@@ -5390,11 +5390,11 @@
           "outcome": "supported",
           "reviewedBy": "reviewer run b7856fa2; integrator integrator review, not independent acceptance",
           "rationale": "Reviewed all 13 exact IDs and duplicate-free cardinality, actual passing numeric tests, two viewport DOM/captures and filter/reset preservation. Removed all unsupported aggregate Stat date/download/source-format claims and the seven-entry enumeration, including accessible aggregate date wording. Existing independently completed entry facts remain unchanged; the selected count certifies neither weights nor licenses nor papers nor replication. Reviewed every original/current conjunct, actual command outcomes, removal, reader disclosure, model selection and proof dependency identity after execution. Authored input selection and count derivation are separate AND parts.",
-          "inputDigest": "b0fe4789f9fb3af63dd6b4c8f5341fe2f53a62753ce0d2a43cdb93321bf77737",
+          "inputDigest": "bc982419b6123f7c6c55685396080069b3b59936f495cd1b33da700944c5d579",
           "event": {
             "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-review-count.json",
             "bytes": 2323,
-            "sha256": "da298ac5ee557bc4d755b3bcf502732ac09e7ca8a96896593dd8c3fd4a538086"
+            "sha256": "56bb009b2b6b1232855e935321f2d8460b5a949094cb59bd0229d57d40759d3a"
           }
         }
       ]
@@ -47012,16 +47012,16 @@
         {
           "file": {
             "path": "content/manipulation/generalist-policies.mdx",
-            "bytes": 17278,
-            "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5"
+            "bytes": 17465,
+            "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13"
           },
           "id": "article:manipulation/generalist-policies",
           "offset": 0,
-          "length": 17278,
-          "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5",
+          "length": 17465,
+          "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13",
           "baseline": {
             "kind": "prose",
-            "hash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+            "hash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
           }
         },
         {
@@ -47074,16 +47074,16 @@
         "member": {
           "file": {
             "path": "content/manipulation/generalist-policies.mdx",
-            "bytes": 17278,
-            "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5"
+            "bytes": 17465,
+            "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13"
           },
           "id": "article:manipulation/generalist-policies",
-          "offset": 1863,
+          "offset": 1871,
           "length": 229,
           "sha256": "ac709f7db6b3c59b8b476c5b94ffaa0cd5e263ab014940450fee2a6cf9c51225",
           "baseline": {
             "kind": "prose",
-            "hash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+            "hash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
           }
         }
       },
@@ -47144,7 +47144,7 @@
         "receipt": {
           "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-parameters-receipt.json",
           "bytes": 2891,
-          "sha256": "8151bc3996ca68d0e77df813161b3078d815b7c6840cb90d11a4ba27b8fa2c59"
+          "sha256": "c8ede0d3d5842822cd0a4bfe599bfdb8211fe153562980e391dfeeef958f708c"
         }
       },
       "bases": []
@@ -47161,16 +47161,16 @@
         {
           "file": {
             "path": "content/manipulation/generalist-policies.mdx",
-            "bytes": 17278,
-            "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5"
+            "bytes": 17465,
+            "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13"
           },
           "id": "article:manipulation/generalist-policies",
           "offset": 0,
-          "length": 17278,
-          "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5",
+          "length": 17465,
+          "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13",
           "baseline": {
             "kind": "prose",
-            "hash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+            "hash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
           }
         },
         {
@@ -47223,16 +47223,16 @@
         "member": {
           "file": {
             "path": "content/manipulation/generalist-policies.mdx",
-            "bytes": 17278,
-            "sha256": "9ac2f1b49a45e974ddcd9e3234120de51199a1e71205b6e559561e2692f9ace5"
+            "bytes": 17465,
+            "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13"
           },
           "id": "article:manipulation/generalist-policies",
-          "offset": 1863,
+          "offset": 1871,
           "length": 229,
           "sha256": "ac709f7db6b3c59b8b476c5b94ffaa0cd5e263ab014940450fee2a6cf9c51225",
           "baseline": {
             "kind": "prose",
-            "hash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+            "hash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
           }
         }
       },
@@ -47310,7 +47310,7 @@
         "receipt": {
           "path": "audit/evidence/crossdomain-closure-20260923/crossdomain-generalist19-20260923-count-receipt.json",
           "bytes": 2891,
-          "sha256": "f63a7d8fabe55def6c272b76e0613433899cffe9f37c36efbf313a1fe3930d8c"
+          "sha256": "34f172ffeb01be774b42ddb2158d82568a77f26b53748e3dde51edeb16b08efd"
         }
       },
       "bases": [
