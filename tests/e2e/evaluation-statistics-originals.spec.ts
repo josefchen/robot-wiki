@@ -167,7 +167,7 @@ for (const width of [375, 1440]) {
       await expect(prose).not.toContainText('Only the 50-trial number');
       await page.getByRole('heading', { name: 'Small samples limit comparison' }).scrollIntoViewIfNeeded();
       await capture(page, `science-${width}`);
-      const mount = page.locator('div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"])');
+      const mount = page.locator('div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"]), div.prose > div.rounded-none:has(svg[aria-label^="Line chart of episode success"])');
       await setSlider(mount.getByRole('slider', { name: /per-step success/i }), 95);
       await setSlider(mount.getByRole('slider', { name: /episode length/i }), 30);
       await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');

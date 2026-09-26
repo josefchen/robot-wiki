@@ -3,6 +3,7 @@
 import { useId, useMemo, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
+import { InstrumentFrame, InstrumentReset } from '@/components/ui/instrument';
 import {
   DEFAULT_HAND_SORT,
   DEXTEROUS_HANDS,
@@ -131,14 +132,7 @@ export function HandComparison({ className }: { className?: string }) {
   }${selected.length > 0 ? `, ${selected.length} selected` : ''}`;
 
   return (
-    <div
-      data-testid="hand-comparison"
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame data-testid="hand-comparison" className={className}>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
         <p
           data-testid="hand-comparison-readout"
@@ -147,15 +141,7 @@ export function HandComparison({ className }: { className?: string }) {
         >
           {readout}
         </p>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="ml-auto rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} className="ml-auto" />
       </div>
 
       <TableScroll labelledBy={captionId} className="mt-4">
@@ -331,6 +317,6 @@ export function HandComparison({ className }: { className?: string }) {
           </ul>
         )}
       </div>
-    </div>
+    </InstrumentFrame>
   );
 }

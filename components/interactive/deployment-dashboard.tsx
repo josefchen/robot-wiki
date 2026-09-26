@@ -3,6 +3,7 @@
 import { useId, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { Badge, TableScroll } from '@/components/ui';
+import { InstrumentFrame, InstrumentReset } from '@/components/ui/instrument';
 import {
   DEPLOYMENT_ROWS,
   filterDeployments,
@@ -50,14 +51,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
   const citationFor = useCitationLookup();
 
   return (
-    <div
-      data-testid="deployment-dashboard"
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame data-testid="deployment-dashboard" className={className}>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
         <div
           role="group"
@@ -90,15 +84,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
         >
           {rows.length} of {deploymentRows.length} rows
         </p>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => setFilter('all')}
-          className="rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={() => setFilter('all')} />
       </div>
 
       <TableScroll labelledBy={captionId} className="mt-4">
@@ -190,6 +176,6 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
           </tbody>
         </table>
       </TableScroll>
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -4,6 +4,14 @@ import { useEffect, useId, useMemo, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   DEFAULT_SEED,
   DEFAULT_SETTINGS,
   INITIAL_STEP,
@@ -244,19 +252,17 @@ export function KalmanTracker({ className }: { className?: string }) {
     'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-2">
         {SLIDERS.map((spec) => (
           <div key={spec.id}>
-            <label
+            <ControlLabel
               htmlFor={`kalman-${spec.id}`}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              value={
+                <span data-testid={`kalman-${spec.id.toLowerCase()}-value`}>
+                  {settings[spec.id].toFixed(2)}
+                </span>
+              }
             >
               <span>
                 <span className="normal-case tracking-normal">
@@ -264,13 +270,7 @@ export function KalmanTracker({ className }: { className?: string }) {
                 </span>{' '}
                 {spec.label}
               </span>
-              <span
-                className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-                data-testid={`kalman-${spec.id.toLowerCase()}-value`}
-              >
-                {settings[spec.id].toFixed(2)}
-              </span>
-            </label>
+            </ControlLabel>
             <input
               id={`kalman-${spec.id}`}
               type="range"
@@ -297,15 +297,14 @@ export function KalmanTracker({ className }: { className?: string }) {
         ))}
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Kalman filter tracking a wandering target, step ${step} of ${lastStep}. Position uncertainty sigma ${frame.sigma.toFixed(
           2,
         )}, Kalman gain ${frame.gain.toFixed(2)}.`}
         aria-describedby={descriptionId}
         data-testid="kalman-scene"
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Horizontal grid and tick labels */}
         {[-Y_SPAN, -Y_SPAN / 2, 0, Y_SPAN / 2, Y_SPAN].map((v) => (
@@ -420,10 +419,10 @@ export function KalmanTracker({ className }: { className?: string }) {
           r={3.5}
           fill="var(--color-accent)"
         />
-      </svg>
+      </PlotStage>
 
       {/* Legend */}
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-text-dim">
+      <InstrumentLegend className="mt-2">
         <span className="inline-flex items-center gap-1.5">
           <span
             className="inline-block h-[2px] w-4"
@@ -455,7 +454,7 @@ export function KalmanTracker({ className }: { className?: string }) {
           />
           ±2σ band
         </span>
-      </div>
+      </InstrumentLegend>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
@@ -493,19 +492,13 @@ export function KalmanTracker({ className }: { className?: string }) {
         >
           Reseed
         </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
+        <InstrumentReset
           onClick={reset}
           aria-label="Reset: restore the default world, settings, and opening step"
-          className={buttonBase}
-        >
-          Reset
-        </button>
+        />
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">step</span>{' '}
         <span data-testid="kalman-step-readout" className="text-text">
           {step} / {lastStep}
@@ -526,7 +519,7 @@ export function KalmanTracker({ className }: { className?: string }) {
         <span data-testid="kalman-rms-readout" className="text-text">
           {rms.toFixed(2)}
         </span>
-      </p>
+      </InstrumentReadout>
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         A constant-velocity Kalman filter tracking a wandering target from a
@@ -557,6 +550,6 @@ export function KalmanTracker({ className }: { className?: string }) {
         rows={sampleRows}
         description={descriptionText}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

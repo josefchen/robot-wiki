@@ -14,7 +14,7 @@ const ROUTE = '/rl-sim2real/sim2real-transfer/';
  */
 function friction(page: Page) {
   return page
-    .locator('div.prose > div.rounded-md:has([data-testid="real-mu-readout"])')
+    .locator('div.prose > div.rounded-md:has([data-testid="real-mu-readout"]), div.prose > div.rounded-none:has([data-testid="real-mu-readout"])')
     .first();
 }
 

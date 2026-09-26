@@ -76,8 +76,16 @@ describe('industrial release preserves both evidence histories', () => {
     const before = readFileSync('audit/evidence/residual-release-20260924/collaborative-operation-modes-before-range.tsx.txt', 'utf8');
     expect(before).toBe(committedSource('c069031', 'components/interactive/collaborative-operation-modes.tsx'));
     expect(before.split('0–2 m/s')).toHaveLength(2);
-    expect(readFileSync('components/interactive/collaborative-operation-modes.tsx', 'utf8'))
+    // The residual release left exactly the one separator change; the
+    // 2026-09-26 frontier instrument migration later re-rendered the
+    // component's presentation chrome only, so the single-change guarantee
+    // stays pinned between these two commits rather than against the live
+    // file. The migrated component carries the separator forward.
+    expect(committedSource('9a0a25a', 'components/interactive/collaborative-operation-modes.tsx'))
       .toBe(before.replace('0–2 m/s', '0 to 2 m/s'));
+    const migrated = readFileSync('components/interactive/collaborative-operation-modes.tsx', 'utf8');
+    expect(migrated).toContain('0 to 2 m/s');
+    expect(migrated).not.toContain('0–2 m/s');
   });
   it('retains every released plan and proof and appends only the four industrial plans', () => {
     // The 2026-09-25 manipulation humanizer pass rewrote the generalist

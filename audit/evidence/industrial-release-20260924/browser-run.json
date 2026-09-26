@@ -56,8 +56,8 @@
     },
     {
       "path": "components/interactive/deployment-economics.tsx",
-      "bytes": 9866,
-      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+      "bytes": 9226,
+      "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
     },
     {
       "path": "audit/evidence/industrial-closure-20260923/support.ts",

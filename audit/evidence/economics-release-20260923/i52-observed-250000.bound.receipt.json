@@ -35,16 +35,16 @@
     {
       "file": {
         "path": "components/interactive/deployment-economics.tsx",
-        "bytes": 9866,
-        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+        "bytes": 9226,
+        "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
       },
       "id": "source:components/interactive/deployment-economics.tsx",
       "offset": 0,
-      "length": 9866,
-      "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+      "length": 9226,
+      "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+        "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
       }
     },
     {

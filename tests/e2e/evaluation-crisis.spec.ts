@@ -17,7 +17,7 @@ const HORIZON = { name: /episode length/i };
  */
 function calculator(page: import('@playwright/test').Page) {
   return page.locator(
-    'div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"])',
+    'div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"]), div.prose > div.rounded-none:has(svg[aria-label^="Line chart of episode success"])',
   );
 }
 

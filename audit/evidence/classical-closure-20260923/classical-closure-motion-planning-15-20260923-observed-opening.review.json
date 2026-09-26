@@ -6,7 +6,7 @@
   "observedAt": "2026-09-23T19:54:47.683Z",
   "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted opening readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
-  "inputDigest": "8361ecd9f9d20278b1beef30e33b7b2af0c3aeab59d30ba897d7c386f51ea5ea",
+  "inputDigest": "a8f01dcb3eee5abf4e79fbcd93b6850281b2c485d4562f7cb449c4d8783ed55e",
   "outcome": "supported",
   "scope": "part",
   "partId": "observed-opening",

@@ -6,7 +6,7 @@
   "observedAt": "2026-09-23T19:54:47.682Z",
   "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected the actual unchanged model constants and corrected article disclosure: the selected geometry, scene, target multipliers and finite examples are explicitly authored assumptions, not empirical values. For mixed plans the borrowed specification remains an external AND part.",
-  "inputDigest": "eaa9d2d7acdd12fb7059a71aaa7edadb479c76077aecad0ee611a27047e7a92b",
+  "inputDigest": "d099c37bcdaf8851638003bc10b7a1c0a373046233bfe8bddb3a1f10bb308dc2",
   "outcome": "supported",
   "scope": "part",
   "partId": "parameters",
