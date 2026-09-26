@@ -583,12 +583,29 @@ const WITHDRAWAL_ARTICLE_RUNS: readonly (readonly [string, string])[] = [
   ["What robots do to jobs is a live empirical fight, and this page takes no side. Daron Acemoglu and Pascual Restrepo, in the Journal of Political Economy, find that one additional robot per thousand workers reduces the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent, with the losses concentrated in commuting zones exposed to industrial automation <Cite id=\"acemoglu-restrepo-2020\" />. The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, reported in 2020 that it found no compelling evidence of technological advances driving a jobless future. It describes automation displacing human labour from some tasks while creating new work, with the jobs available and the skills they demand shaped by economic incentives, policy choices and institutional forces <Cite id=\"mit-work-future-2020\" />. Both positions are named and both are serious; the field has not converged. What neither side disputes is the scale mismatch in the current cycle: the industrial installed base grew over decades, and the humanoid fleet being pitched as the next one is, so far, a rounding error against it, with even the volume leader's revenue growth decelerating from 332 to 68 percent and its Q1 2026 adjusted net profit down 52.55 percent year on year <Cite id=\"unitree-profit-2026\" />.\n",
    "What robots do to jobs is a live empirical fight, and this page takes no side. Daron Acemoglu and Pascual Restrepo, in the Journal of Political Economy, find that one additional robot per thousand workers reduces the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent, with the losses concentrated in commuting zones exposed to industrial automation <Cite id=\"acemoglu-restrepo-2020\" />. The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, reported in 2020 that it found no compelling evidence of technological advances driving a jobless future. It describes automation displacing human labour from some tasks while creating new work, with the jobs available and the skills they demand shaped by economic incentives, policy choices and institutional forces <Cite id=\"mit-work-future-2020\" />. Both positions are named and both are serious; the field has not converged. The industrial installed base grew over decades. A separate financial caution from the humanoid cycle is that Unitree's reported revenue growth slowed from 332 to 68 percent and its Q1 2026 adjusted net profit fell 52.55 percent year on year <Cite id=\"unitree-profit-2026\" />. Those figures do not establish a humanoid shipment rank or a comparable installed-fleet size.\n"],
 ];
+const WITHDRAWAL_OUTPUT_HASH = '8637896eef510c187a236f6ba5d0bcfb72e06adc42b7e7e42cef905b550f67da';
+/** Educational relocation 2026-09-26: the exact one-run article transition
+ * that lifts the DeploymentEconomics interactive above the prediction prose
+ * and adds its one-line operating cue. Every withdrawal sentence is preserved
+ * byte-for-byte; the pre-relocation bytes are archived at
+ * pre-educational-relocation-article.mdx and pinned by the hash above. */
+const EDUCATIONAL_RELOCATION_RUNS: readonly (readonly [string, string])[] = [
+  ["Use the sliders to compare two cases in this authored model. Keep robot cost at 80,000 USD, integration at 2.5 times, cycle time at 6 seconds, uptime at 95 percent and hourly wage at 25 USD. With 15-second jam clearing, lowering per-pick success from 99.9 to 99 percent changes calculated payback from 11.56 to 11.82 months: an increase of 0.26 months, or 2.2 percent. Repeat the comparison with jam clearing set to 300 seconds: calculated payback rises from 12.11 to 17.30 months, and modeled output falls from 542.9 to 380.0 picks per elapsed hour, a 30 percent decrease. Both paybacks remain within the model's chosen 24-month horizon. These are calculations from assumed inputs, not measured deployments; the payback readout rounds to one decimal place.\n\n<DeploymentEconomics className=\"my-6\" />",
+   "Drag a slider such as jam-clearing time or per-pick success and the payback readout updates.\n\n<DeploymentEconomics className=\"my-6\" />\n\nUse the sliders to compare two cases in this authored model. Keep robot cost at 80,000 USD, integration at 2.5 times, cycle time at 6 seconds, uptime at 95 percent and hourly wage at 25 USD. With 15-second jam clearing, lowering per-pick success from 99.9 to 99 percent changes calculated payback from 11.56 to 11.82 months: an increase of 0.26 months, or 2.2 percent. Repeat the comparison with jam clearing set to 300 seconds: calculated payback rises from 12.11 to 17.30 months, and modeled output falls from 542.9 to 380.0 picks per elapsed hour, a 30 percent decrease. Both paybacks remain within the model's chosen 24-month horizon. These are calculations from assumed inputs, not measured deployments; the payback readout rounds to one decimal place."],
+];
 
 /** The withdrawal checkpoint must be the merged article both parents still recognise exactly. */
 export function verifyTechnologyWithdrawalArticleTransition(before: string, current: string): boolean {
   if (sha256(Buffer.from(before, 'utf8')) !== WITHDRAWAL_ARTICLE_HASH) return false;
   let acc = before;
   for (const [from, to] of WITHDRAWAL_ARTICLE_RUNS) {
+    if (acc.split(from).length !== 2) return false;
+    acc = acc.replace(from, to);
+  }
+  // The withdrawal output is pinned to the archived relocation checkpoint,
+  // so the relocation run continues from exactly the withdrawal's bytes.
+  if (sha256(Buffer.from(acc, 'utf8')) !== WITHDRAWAL_OUTPUT_HASH) return false;
+  for (const [from, to] of EDUCATIONAL_RELOCATION_RUNS) {
     if (acc.split(from).length !== 2) return false;
     acc = acc.replace(from, to);
   }
@@ -768,6 +785,12 @@ function verifyMergedArticle(root: string, current: Buffer, continuity: Relevant
   // exactly, now against the archived withdrawal checkpoint article, and the
   // current article must equal that checkpoint plus the six exact withdrawal runs.
   const withdrawalBefore = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-article.mdx`);
+  // 2026-09-26 educational relocation: the archived checkpoint below pins the
+  // exact bytes the withdrawal produced, so the relocation run inside the
+  // transition above cannot silently continue from a drifted intermediate.
+  const relocationBefore = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-educational-relocation-article.mdx`);
+  requireThat(relocationBefore.length === 19278 &&
+    sha256(relocationBefore) === WITHDRAWAL_OUTPUT_HASH, 'educational relocation checkpoint drift');
   requireThat(old.length === continuity.articleBefore.bytes &&
     sha256(old) === continuity.articleBefore.sha256 &&
     sha256(Buffer.from(local)) === continuity.articleAfter.sha256 &&
@@ -914,6 +937,19 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
       sha256(local) === continuity.articleAfter.sha256, 'local article checkpoint drift');
     return local;
   }
+  if (ref.path === INDUSTRIAL_ARTICLE && ref.sha256 === WITHDRAWAL_OUTPUT_HASH && ref.bytes === 19278) {
+    // 2026-09-26 educational relocation: the corrected-disposition records and
+    // the citation-refresh browser run pin the exact bytes the technology
+    // withdrawal produced. The relocation run is the only recorded
+    // continuation of those bytes, so the reader verifies the live article
+    // through the full merged-article equation and returns the archived
+    // withdrawal output those runs actually observed.
+    verifyMergedArticle(root, current, readKrogerContinuity(root));
+    const withdrawalOutput = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-educational-relocation-article.mdx`);
+    requireThat(withdrawalOutput.length === ref.bytes && sha256(withdrawalOutput) === ref.sha256,
+      'withdrawal output article dependency drift');
+    return withdrawalOutput;
+  }
   if (ref.path === INDUSTRIAL_CHECKER && ref.sha256 === MAIN_CHECKER_HASH && ref.bytes === 63495) {
     verifyMergedChecker(root, current, readKrogerContinuity(root));
     const main = mergeSnapshot(root, 'main-checker.ts.txt', MAIN_CHECKER_HASH);
@@ -967,6 +1003,8 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     'data/glossary.ts': ['8de5ceeed550244ccc7e83e27056d2721b26723e94dff0cf77548c3fe465adf0'],
     'content/data-hardware/industrial-deployment.mdx': ['f7f4e579833af55f222644e9b37619553929956134404b72f0e03658785cf6ea',
       '95ec93a3454fe4a2b1d9556299f9d3544d6a1d837d5e0f711f110143daa4423f'],
+    'content/rl-sim2real/sim2real-transfer.mdx': ['c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c'],
+    'content/data-hardware/data-bottleneck.mdx': ['2ba75ba38276a879c4e5370c13308b437d56f245ebfa0ecd31f93b1aff1045ce'],
   };
   const residual: Record<string, string> = {
     'lib/audit-local-basis.ts': 'f67285e273c1920ed3d6b4591b8a498898851aec7021643b1ccf7ed030084360',

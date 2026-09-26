@@ -66,9 +66,7 @@ The figure draws a point-trained-policy toy curve and a distribution-trained-pol
     {
       value: 'both-ways',
       label: 'The plateau widens and its peak falls because the formula makes it do so',
-      why: 'The local formula is peak = 0.93 - 0.55 × half-width. It gives 0.7375 at half-width 0.35 and 0.5725 at 0.65, displayed as 74% and 57%. These are authored values, not Peng paper results.',
-      anchorHref: '#domain-randomization-train-on-a-distribution-of-simulators',
-      anchorLabel: 'the authored formula',
+      why: 'The local formula is peak = 0.93 - 0.55 × half-width. It gives 0.7375 at half-width 0.35 and 0.5725 at 0.65, displayed as 74% and 57%. These are authored values, not Peng paper results.'
     },
     {
       value: 'monotone-up',
@@ -82,7 +80,7 @@ The figure draws a point-trained-policy toy curve and a distribution-trained-pol
     }
   ]}
   answer="both-ways"
-  revealHint="This panel starts at friction 0.80 and half-width 0.65, where the authored DR height rounds to 57%. Reset restores those starting values."
+  revealHint="This panel starts at friction 0.80 and half-width 0.65, where the authored DR height rounds to 57%. Reset restores those starting values; the earlier panel resets its half-width to 0.35."
   takeaway="The slider demonstrates an assumed peak-versus-width relationship, not a measured law of domain randomization."
 >
   <FrictionTransfer defaultRange={0.65} className="mt-3" />

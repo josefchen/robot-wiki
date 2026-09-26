@@ -53,20 +53,18 @@ The chart at the top of this module plots both universes. Robot and human demons
   options={[
     {
       value: 'few-decades',
-      label: 'Around two decades, which needs roughly 500 farm-hours a year rather than 70',
-      why: 'Twenty years would require 500 hours a year across the whole farm. This scenario produces only 10 times 7, or 70 hours a year, so it takes much longer.'
+      label: 'A couple of decades',
+      why: 'Twenty years would require 500 hours a year. This scenario produces only 10 times 7, or 70 hours a year, so it takes much longer.'
     },
     {
       value: 'few-years',
-      label: 'Only a few years, on the assumption that each rig collects hundreds of hours a year',
+      label: 'A few years',
       why: 'That assumes a higher collection rate than the question supplies. The dedicated-farm hypothetical uses 1,000 hours per rig-year; at 10 rigs, it reaches 10,000 hours in one year.'
     },
     {
       value: 'century-plus',
       label: 'Well over a century, on the order of 140 years at that throughput',
-      why: 'The arithmetic is 10,000 hours divided by 70 hours a year, roughly 143 years. Both the rate and target are authored hypothetical inputs, not measurements of DROID productivity or OXE duration.',
-      anchorHref: '#two-data-universes-nine-orders-of-magnitude-apart',
-      anchorLabel: 'the hours axis',
+      why: 'The arithmetic is 10,000 hours divided by 70 hours a year, roughly 143 years. Both the rate and target are authored hypothetical inputs, not measurements of DROID productivity or OXE duration.'
     }
   ]}
   answer="century-plus"

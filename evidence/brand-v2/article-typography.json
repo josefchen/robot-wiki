@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6661619c0881f6b9b61a5b017064cc6ee82af25a7417626a65cb0c335bb52d67",
+  "fingerprint": "0eeb4049ce20d0ec220d4210912cfe9c52abb7ad29c73bf92319a96ecc54d5b9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -7217,7 +7217,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27625,
+      "visibleTextLength": 27709,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8163,7 +8163,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42403,
+      "visibleTextLength": 42492,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12354,7 +12354,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15305,
+      "visibleTextLength": 15434,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12862,7 +12862,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -12872,7 +12872,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -15643,7 +15643,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23613,
+      "visibleTextLength": 23707,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15772,7 +15772,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Use the sliders to compare two cases in this authored model."
+          "text": "Drag a slider such as jam-clearing time or per-pick success "
         },
         {
           "familyHead": "newsreader",
@@ -15926,6 +15926,15 @@
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "One elapsed hour is 3600 seconds; the three shares sum to it"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Use the sliders to compare two cases in this authored model."
         },
         {
           "familyHead": "newsreader",
@@ -17276,7 +17285,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14666,
+      "visibleTextLength": 14736,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26257,14 +26266,24 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "newsreader",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex mono",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
               "count": 2,
@@ -26515,7 +26534,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28671,
+      "visibleTextLength": 28772,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27438,7 +27457,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15342,
+      "visibleTextLength": 15429,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29677,7 +29696,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21818,
+      "visibleTextLength": 21915,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30843,7 +30862,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19232,
+      "visibleTextLength": 19305,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33561,7 +33580,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17255,
+      "visibleTextLength": 17346,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34141,14 +34160,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 1,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -36216,7 +36246,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19903,
+      "visibleTextLength": 19997,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45130,7 +45160,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -45140,7 +45170,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48895,7 +48925,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16190,
+      "visibleTextLength": 16258,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50983,7 +51013,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19366,
+      "visibleTextLength": 19481,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59905,7 +59935,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28046,
+      "visibleTextLength": 28130,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60851,7 +60881,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42817,
+      "visibleTextLength": 42906,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65042,7 +65072,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15684,
+      "visibleTextLength": 15813,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65550,7 +65580,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -65560,7 +65590,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68331,7 +68361,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23992,
+      "visibleTextLength": 24086,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68460,7 +68490,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Use the sliders to compare two cases in this authored model."
+          "text": "Drag a slider such as jam-clearing time or per-pick success "
         },
         {
           "familyHead": "newsreader",
@@ -68614,6 +68644,15 @@
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "One elapsed hour is 3600 seconds; the three shares sum to it"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Use the sliders to compare two cases in this authored model."
         },
         {
           "familyHead": "newsreader",
@@ -69964,7 +70003,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15045,
+      "visibleTextLength": 15115,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78945,14 +78984,24 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "newsreader",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex mono",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
               "count": 2,
@@ -79203,7 +79252,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29298,
+      "visibleTextLength": 29399,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80126,7 +80175,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15969,
+      "visibleTextLength": 16056,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82365,7 +82414,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22445,
+      "visibleTextLength": 22542,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83531,7 +83580,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19859,
+      "visibleTextLength": 19932,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86249,7 +86298,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17882,
+      "visibleTextLength": 17973,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86829,14 +86878,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 1,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -88904,7 +88964,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20530,
+      "visibleTextLength": 20624,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97818,7 +97878,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -97828,7 +97888,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -101583,7 +101643,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16674,
+      "visibleTextLength": 16742,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103671,7 +103731,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19850,
+      "visibleTextLength": 19965,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

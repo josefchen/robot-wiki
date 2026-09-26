@@ -123,19 +123,51 @@ const humanizerAppends = [
 const instrumentMigrationAppends = [
   'instrument-migration-20260926-rrt-source',
 ] as const;
+// The educational convergence pass of 2026-09-26 carried four prediction-step
+// articles to their current text: sim2real-transfer and data-bottleneck for
+// hint accuracy, option shape and answer traceability; bc-foundations and
+// realtime-execution for answer traceability alone.
+const educationalConvergenceAppends = [
+  'educational-convergence-20260926-prose-sim2real-transfer',
+  'educational-convergence-20260926-prose-data-bottleneck',
+  'educational-convergence-20260926-prose-bc-foundations',
+  'educational-convergence-20260926-prose-realtime-execution',
+] as const;
+// The educational relocation pass of 2026-09-26 lifted the
+// industrial-deployment calculator above its prose.
+const educationalRelocationAppends = [
+  'educational-relocation-20260926-prose-industrial-deployment',
+] as const;
+// The educational cue pass of 2026-09-26 added one VAL-EDU-045 clause (d)
+// operating cue sentence to each of eleven article paragraphs.
+const educationalCueAppends = [
+  'educational-cue-20260926-prose-vla-models',
+  'educational-cue-20260926-prose-generalist-policies',
+  'educational-cue-20260926-prose-comparison-matrix',
+  'educational-cue-20260926-prose-hierarchical',
+  'educational-cue-20260926-prose-realtime-execution',
+  'educational-cue-20260926-prose-cross-embodiment',
+  'educational-cue-20260926-prose-taxonomy',
+  'educational-cue-20260926-prose-jepa',
+  'educational-cue-20260926-prose-teleop-rigs',
+  'educational-cue-20260926-prose-motion-planning',
+  'educational-cue-20260926-prose-perception',
+] as const;
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval in order and appends exactly seven local-only approvals', () => {
     const mainIds = new Set(main.map(x => x.id));
     const localOnly = local.filter(x => !mainIds.has(x.id));
     // The 20260925 manipulation humanizer pass and EXPO-FT intake appended
-    // 25 more approvals after the merge, and the 20260926 instrument
-    // migration appended one more.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1633]);
+    // 25 more approvals after the merge, the 20260926 instrument
+    // migration appended one more, the 20260926 educational convergence
+    // pass appended four more, the educational relocation pass appended
+    // one more, and the educational cue pass appended eleven more.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1649]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends]);
     expect(new Set(merged.map(x => x.id)).size).toBe(merged.length);
     expect(validateApprovedDeltas(merged)).toEqual([]);
   });
@@ -187,7 +219,7 @@ describe('two-parent exact approval reconciliation', () => {
     }
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:data-hardware/industrial-deployment').at(-1)?.id)
-      .toBe('continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment');
+      .toBe('educational-relocation-20260926-prose-industrial-deployment');
     // citation-rendering was later re-anchored by the 20260925 EXPO-FT
     // intake; the merge entry stays the last LOCAL merge for the member.
     expect(merged.filter(x => x.manifest === 'article-metadata'

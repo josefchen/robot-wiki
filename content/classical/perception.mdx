@@ -50,7 +50,7 @@ This article groups an explicit perception pipeline into six stages for explanat
 
 ## An illustrative positioning budget
 
-The instrument combines three authored input magnitudes labelled hand-eye, depth and pose. In this model only, depth is evaluated at a fixed 0.5 m nominal distance and the pose input is held constant during a distance sweep. The hand-eye proxy uses the ray-to-plane geometry defined below; it is not the full error of a rigid transform. With the default opaque-target, depth and pose settings and a half-degree angle, the hand-eye contribution is small at 15 cm and largest at 1.5 m. The far-end readout falls in the marginal model band; it is not a prediction that a real grasp will succeed or jam.
+The instrument combines three authored input magnitudes labelled hand-eye, depth and pose. In this model only, depth is evaluated at a fixed 0.5 m nominal distance and the pose input is held constant during a distance sweep. The hand-eye proxy uses the ray-to-plane geometry defined below; it is not the full error of a rigid transform. With the default opaque-target, depth and pose settings and a half-degree angle, the hand-eye contribution is small at 15 cm and largest at 1.5 m. The far-end readout falls in the marginal model band; it is not a prediction that a real grasp will succeed or jam. Slide the working-distance control and the hand-eye term grows toward its 1.5 m maximum.
 
 <PerceptionErrorBudget className="my-6" />
 

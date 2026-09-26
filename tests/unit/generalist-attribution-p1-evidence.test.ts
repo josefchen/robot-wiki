@@ -157,14 +157,21 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     // endpoint for this article is the humanizer-manipulation-v3-20260925
     // re-anchor in the approved-deltas ledger: the chain above reproduces
     // the pre-pass bytes, and the ledger entry carries the member from
-    // those bytes to the current article.
+    // those bytes to the humanizer endpoint. The educational cue pass
+    // (2026-09-26) then appends the first-screen operating cue sentence;
+    // its re-anchor carries the member to the current article.
     const humanizer = approvals.find(a => a.id === 'humanizer-manipulation-v3-20260925-prose-generalist-policies')!;
+    const cue = approvals.find(a => a.id === 'educational-cue-20260926-prose-generalist-policies')!;
     const hashOf = (text: string) => buildManifest('prose', [{ id: 'article:manipulation/generalist-policies', value: { path: articlePath, body: matter(text).content.trim() } }]).members[0].hash;
     const lastPrePassAnchor = approvals
-      .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies' && !a.id.startsWith('humanizer-manipulation-v3-'))
+      .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies'
+        && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-'))
       .at(-1)!.newHash;
     expect(hashOf(corrected)).toBe(lastPrePassAnchor);
-    expect(hashOf(article)).toBe(humanizer.newHash);
+    // The cue re-anchor is a sealed resolution that binds every prior
+    // approval for this member, the humanizer endpoint included.
+    expect(cue.reconciles?.some(binding => binding.id === humanizer.id)).toBe(true);
+    expect(hashOf(article)).toBe(cue.newHash);
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
