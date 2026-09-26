@@ -6,6 +6,7 @@ import {
   ControlLabel,
   InstrumentFrame,
   InstrumentLegend,
+  LegendItem,
   InstrumentReadout,
   InstrumentReset,
   PlotStage,
@@ -80,7 +81,7 @@ const SCORE_MAX = 1;
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
-function xFor(hours: number): number {
+export function xFor(hours: number): number {
   const t =
     (Math.log10(hours) - HOURS_LOG_MIN) / (HOURS_LOG_MAX - HOURS_LOG_MIN);
   return f(PLOT.left + t * (PLOT.right - PLOT.left));
@@ -375,12 +376,14 @@ export function EgoScaleScaling({
               fillOpacity={0.55}
             />
             <path
+              data-series="loss-law"
               data-testid="uncertainty-band"
               d={lossBandPath ?? ''}
               fill="var(--color-accent)"
               fillOpacity={0.13}
             />
             <path
+              data-series="completion-fit"
               data-testid="completion-band"
               d={completionBandPath ?? ''}
               fill="var(--color-text-dim)"
@@ -434,6 +437,7 @@ export function EgoScaleScaling({
 
         {/* Measured series: solid lines, five scales each. */}
         <path
+          data-series="loss-law"
           data-testid="measured-loss-law"
           d={measuredLossPath}
           fill="none"
@@ -441,15 +445,20 @@ export function EgoScaleScaling({
           strokeWidth={2}
         />
         <path
+          data-series="completion-fit"
           data-testid="measured-completion-fit"
           d={measuredFitPath}
           fill="none"
           stroke="var(--color-text-dim)"
           strokeWidth={1.5}
+          // Dashed so the completion fit and the loss law stay
+          // distinguishable with the colour removed (VAL-B2-VIZ-002).
+          strokeDasharray="4 3"
         />
         {COMPLETION_POINTS.map((p) => (
           <circle
             key={`loss-${p.hours}`}
+            data-series="measured"
             data-testid={`loss-point-${p.hours}`}
             cx={xFor(p.hours)}
             cy={yLoss(validationLoss(p.hours))}
@@ -462,6 +471,7 @@ export function EgoScaleScaling({
         {COMPLETION_POINTS.map((p) => (
           <circle
             key={`completion-${p.hours}`}
+            data-series="measured"
             data-testid={`completion-point-${p.hours}`}
             cx={xFor(p.hours)}
             cy={yScore(p.score)}
@@ -475,6 +485,7 @@ export function EgoScaleScaling({
         {/* Extrapolated series: dashed, the completion fit stops at 100%. */}
         {extrapolatedLossPath && (
           <path
+            data-series="loss-law"
             data-testid="extrapolated-loss-law"
             d={extrapolatedLossPath}
             fill="none"
@@ -485,6 +496,7 @@ export function EgoScaleScaling({
         )}
         {extrapolatedFitPath && (
           <path
+            data-series="completion-fit"
             data-testid="extrapolated-completion-fit"
             d={extrapolatedFitPath}
             fill="none"
@@ -520,27 +532,46 @@ export function EgoScaleScaling({
       </PlotStage>
 
       <InstrumentLegend className="mt-2">
-        <span className="flex items-center gap-1.5">
-          <span
-            className="inline-block h-0.5 w-4"
-            style={{ background: 'var(--color-accent)' }}
-          />
+        <LegendItem
+          series="loss-law"
+          swatch={
+            <span
+              className="inline-block h-0.5 w-4"
+              style={{ background: 'var(--color-accent)' }}
+            />
+          }
+        >
           loss law (R² = {R_SQUARED})
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span
-            className="inline-block h-0.5 w-4"
-            style={{ background: 'var(--color-text-dim)' }}
-          />
+        </LegendItem>
+        <LegendItem
+          series="completion-fit"
+          swatch={
+            <svg width={16} height={4} aria-hidden className="shrink-0">
+              <line
+                x1={0}
+                y1={2}
+                x2={16}
+                y2={2}
+                stroke="var(--color-text-dim)"
+                strokeWidth={1.5}
+                strokeDasharray="4 3"
+              />
+            </svg>
+          }
+        >
           completion fit ({PUBLIC_IDENTITY}, R² = {COMPLETION_FIT.rSquared.toFixed(2)})
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span
-            className="inline-block h-2 w-2 rounded-full border"
-            style={{ borderColor: 'var(--color-text)' }}
-          />
+        </LegendItem>
+        <LegendItem
+          series="measured"
+          swatch={
+            <span
+              className="inline-block h-2 w-2 rounded-full border"
+              style={{ borderColor: 'var(--color-text)' }}
+            />
+          }
+        >
           measured (1k-20k h)
-        </span>
+        </LegendItem>
         <span>shaded: scenario band, not a confidence interval</span>
       </InstrumentLegend>
 

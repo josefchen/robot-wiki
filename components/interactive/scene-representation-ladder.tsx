@@ -575,6 +575,8 @@ export function SceneRepresentationLadder({
         ))}
       </ul>
 
+      {/* Self-label: this instrument is a schematic, not a measurement. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Synthetic scene: one fixed scene redrawn as each representation would store it.</p>
       <ChartDescription
         id={descriptionId}
         className="mt-3"

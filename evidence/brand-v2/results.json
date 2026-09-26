@@ -61322,10 +61322,10 @@
                   "role": "region",
                   "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
                   "clientWidth": 301,
-                  "scrollWidth": 543,
+                  "scrollWidth": 561,
                   "scrolledBy": 40
                 },
-                "tableWidth": 542.73,
+                "tableWidth": 561.33,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -118139,7 +118139,7 @@
               ]
             },
             {
-              "id": "components/interactive/appearance-physics-push.tsx#505:line:ok",
+              "id": "components/interactive/appearance-physics-push.tsx#508:line:ok",
               "element": "line",
               "binding": "class-constant",
               "via": "OK",
@@ -118647,7 +118647,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/cross-embodiment-strategies.tsx#220:span:ok",
+              "id": "components/interactive/cross-embodiment-strategies.tsx#222:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -118692,7 +118692,7 @@
           "authored": "#8A5A00",
           "marks": [
             {
-              "id": "components/interactive/cross-embodiment-strategies.tsx#220:span:warn",
+              "id": "components/interactive/cross-embodiment-strategies.tsx#222:span:warn",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -118701,7 +118701,7 @@
               ]
             },
             {
-              "id": "components/interactive/cross-embodiment-strategies.tsx#279:p:warn",
+              "id": "components/interactive/cross-embodiment-strategies.tsx#352:p:warn",
               "element": "p",
               "binding": "inline",
               "via": null,
@@ -118746,7 +118746,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/egoscale-scaling.tsx#497:text:error",
+              "id": "components/interactive/egoscale-scaling.tsx#509:text:error",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119273,7 +119273,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#367:circle:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#370:circle:error",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119282,7 +119282,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#382:text:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#385:text:error",
               "element": "text",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119291,7 +119291,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#415:circle:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#418:circle:error",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119300,7 +119300,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#466:span:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#469:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119346,7 +119346,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#367:circle:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#370:circle:ok",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119355,7 +119355,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#382:text:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#385:text:ok",
               "element": "text",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119364,7 +119364,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#415:circle:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#418:circle:ok",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119373,7 +119373,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#466:span:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#469:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119574,7 +119574,7 @@
               ]
             },
             {
-              "id": "components/interactive/jepa-planning.tsx#468:span:ok",
+              "id": "components/interactive/jepa-planning.tsx#471:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119882,7 +119882,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/mot-insulation.tsx uses error through border-err, text-err, var(--color-err) on 9 marks, each carrying its own non-colour cue (assistive-state, semantic-rule, stroke-pattern, text-carrier), and the token resolved on all 73 swept public routes",
+      "actual": "components/interactive/mot-insulation.tsx uses error through border-err, var(--color-err) on 9 marks, each carrying its own non-colour cue (assistive-state, semantic-rule, stroke-pattern, text-carrier), and the token resolved on all 73 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -119894,7 +119894,6 @@
           "module": "components/interactive/mot-insulation.tsx",
           "forms": [
             "border-err",
-            "text-err",
             "var(--color-err)"
           ],
           "references": 9,
@@ -119902,7 +119901,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/mot-insulation.tsx#175:button:error",
+              "id": "components/interactive/mot-insulation.tsx#176:button:error",
               "element": "button",
               "binding": "inline",
               "via": null,
@@ -119913,7 +119912,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#226:path:error",
+              "id": "components/interactive/mot-insulation.tsx#227:path:error",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119922,7 +119921,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#303:line:error",
+              "id": "components/interactive/mot-insulation.tsx#304:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119931,7 +119930,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#369:rect:error",
+              "id": "components/interactive/mot-insulation.tsx#370:rect:error",
               "element": "rect",
               "binding": "inline",
               "via": null,
@@ -119940,7 +119939,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#407:line:error",
+              "id": "components/interactive/mot-insulation.tsx#408:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119949,7 +119948,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#447:line:error",
+              "id": "components/interactive/mot-insulation.tsx#448:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119958,7 +119957,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#493:span:error",
+              "id": "components/interactive/mot-insulation.tsx#494:span:error",
               "element": "span",
               "binding": "class-constant",
               "via": "meterColor",
@@ -119967,7 +119966,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#525:line:error",
+              "id": "components/interactive/mot-insulation.tsx#526:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119976,12 +119975,12 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#585:span:error",
-              "element": "span",
+              "id": "components/interactive/mot-insulation.tsx#617:line:error",
+              "element": "line",
               "binding": "inline",
               "via": null,
               "cues": [
-                "text-carrier"
+                "stroke-pattern"
               ]
             }
           ],
@@ -120003,7 +120002,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/mot-insulation.tsx uses ok through border-ok, text-ok, var(--color-ok) on 7 marks, each carrying its own non-colour cue (assistive-state, semantic-rule, stroke-pattern, text-carrier), and the token resolved on all 73 swept public routes",
+      "actual": "components/interactive/mot-insulation.tsx uses ok through border-ok, var(--color-ok) on 7 marks, each carrying its own non-colour cue (assistive-state, semantic-rule, stroke-pattern, text-carrier), and the token resolved on all 73 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -120015,7 +120014,6 @@
           "module": "components/interactive/mot-insulation.tsx",
           "forms": [
             "border-ok",
-            "text-ok",
             "var(--color-ok)"
           ],
           "references": 7,
@@ -120023,7 +120021,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/mot-insulation.tsx#175:button:ok",
+              "id": "components/interactive/mot-insulation.tsx#176:button:ok",
               "element": "button",
               "binding": "inline",
               "via": null,
@@ -120034,7 +120032,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#243:path:ok",
+              "id": "components/interactive/mot-insulation.tsx#244:path:ok",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -120043,7 +120041,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#303:line:ok",
+              "id": "components/interactive/mot-insulation.tsx#304:line:ok",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -120052,7 +120050,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#314:text:ok",
+              "id": "components/interactive/mot-insulation.tsx#315:text:ok",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -120061,7 +120059,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#341:line:ok",
+              "id": "components/interactive/mot-insulation.tsx#342:line:ok",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -120070,7 +120068,7 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#350:text:ok",
+              "id": "components/interactive/mot-insulation.tsx#351:text:ok",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -120079,12 +120077,12 @@
               ]
             },
             {
-              "id": "components/interactive/mot-insulation.tsx#589:span:ok",
-              "element": "span",
+              "id": "components/interactive/mot-insulation.tsx#634:line:ok",
+              "element": "line",
               "binding": "inline",
               "via": null,
               "cues": [
-                "text-carrier"
+                "stroke-pattern"
               ]
             }
           ],
@@ -131521,7 +131519,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 34477 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 34631 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131756,7 +131754,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 57261 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 57423 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131803,7 +131801,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/state-estimation/ rendered no v1 identity spelling and no v1 descriptor in 40003 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/state-estimation/ rendered no v1 identity spelling and no v1 descriptor in 40213 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132461,7 +132459,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 41469 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 41483 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132743,7 +132741,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 45945 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 46093 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132931,7 +132929,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/cross-embodiment/ rendered no v1 identity spelling and no v1 descriptor in 31485 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/cross-embodiment/ rendered no v1 identity spelling and no v1 descriptor in 31593 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132978,7 +132976,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 28815 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 28957 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133166,7 +133164,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/knowledge-insulation/ rendered no v1 identity spelling and no v1 descriptor in 24993 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/knowledge-insulation/ rendered no v1 identity spelling and no v1 descriptor in 25099 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133636,7 +133634,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 42039 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 42205 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134153,7 +134151,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 34546 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 34652 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134247,7 +134245,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 33000 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 33188 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134388,7 +134386,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39446 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39580 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -204800,7 +204798,7 @@
               "id": "/classical/grasp-planning/",
               "observed": {
                 "paragraphCount": 42,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -204985,7 +204983,7 @@
               "id": "/classical/scene-representation/",
               "observed": {
                 "paragraphCount": 74,
-                "registeredFrameParagraphCount": 8,
+                "registeredFrameParagraphCount": 10,
                 "offendingFamilies": []
               }
             }
@@ -205022,7 +205020,7 @@
               "id": "/classical/state-estimation/",
               "observed": {
                 "paragraphCount": 52,
-                "registeredFrameParagraphCount": 10,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }
@@ -205688,7 +205686,7 @@
               "id": "/manipulation/cross-embodiment/",
               "observed": {
                 "paragraphCount": 34,
-                "registeredFrameParagraphCount": 16,
+                "registeredFrameParagraphCount": 18,
                 "offendingFamilies": []
               }
             }
@@ -205725,7 +205723,7 @@
               "id": "/manipulation/diffusion-policy/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 24,
+                "registeredFrameParagraphCount": 26,
                 "offendingFamilies": []
               }
             }
@@ -205873,7 +205871,7 @@
               "id": "/manipulation/knowledge-insulation/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -206095,7 +206093,7 @@
               "id": "/rl-sim2real/humanoid-wbc/",
               "observed": {
                 "paragraphCount": 34,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -206428,7 +206426,7 @@
               "id": "/world-models/generative-sim/",
               "observed": {
                 "paragraphCount": 44,
-                "registeredFrameParagraphCount": 6,
+                "registeredFrameParagraphCount": 8,
                 "offendingFamilies": []
               }
             }
@@ -206502,7 +206500,7 @@
               "id": "/world-models/jepa/",
               "observed": {
                 "paragraphCount": 34,
-                "registeredFrameParagraphCount": 6,
+                "registeredFrameParagraphCount": 8,
                 "offendingFamilies": []
               }
             }
@@ -206613,7 +206611,7 @@
               "id": "/world-models/taxonomy/",
               "observed": {
                 "paragraphCount": 42,
-                "registeredFrameParagraphCount": 8,
+                "registeredFrameParagraphCount": 10,
                 "offendingFamilies": []
               }
             }

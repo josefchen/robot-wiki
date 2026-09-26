@@ -8,6 +8,7 @@ import {
   InstrumentFrame,
   InstrumentLegend,
   InstrumentReadout,
+  LegendItem,
   InstrumentReset,
   PlotStage,
 } from '@/components/ui';
@@ -577,19 +578,79 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
       />
 
       <InstrumentLegend className="mt-2">
-        <span>
-          <span className="text-accent">blue</span>: token and activation flow
-        </span>
-        <span>dashed blue: sideways attention (forward)</span>
-        <span>
-          <span className="text-err">dash-dot arrow</span>: corrupting gradient
-          (backward)
-        </span>
-        <span>
-          <span className="text-ok">long-dashed vertical line</span>: gradient
-          barrier
-        </span>
+        <LegendItem
+          swatch={
+            <svg width={16} height={8} aria-hidden className="shrink-0">
+              <line
+                x1={0}
+                y1={4}
+                x2={16}
+                y2={4}
+                stroke="var(--color-accent)"
+                strokeWidth={1.75}
+              />
+            </svg>
+          }
+        >
+          token and activation flow
+        </LegendItem>
+        <LegendItem
+          swatch={
+            <svg width={16} height={8} aria-hidden className="shrink-0">
+              <line
+                x1={0}
+                y1={4}
+                x2={16}
+                y2={4}
+                stroke="var(--color-accent)"
+                strokeWidth={1.75}
+                strokeDasharray="3 3"
+              />
+            </svg>
+          }
+        >
+          sideways attention (forward)
+        </LegendItem>
+        <LegendItem
+          swatch={
+            <svg width={16} height={8} aria-hidden className="shrink-0">
+              <line
+                x1={0}
+                y1={4}
+                x2={16}
+                y2={4}
+                stroke="var(--color-err)"
+                strokeWidth={1.75}
+                strokeDasharray="9 3 2 3"
+              />
+            </svg>
+          }
+        >
+          corrupting gradient (backward)
+        </LegendItem>
+        <LegendItem
+          swatch={
+            <svg width={16} height={8} aria-hidden className="shrink-0">
+              <line
+                x1={0}
+                y1={4}
+                x2={16}
+                y2={4}
+                stroke="var(--color-ok)"
+                strokeWidth={2}
+                strokeDasharray="6 4"
+              />
+            </svg>
+          }
+        >
+          gradient barrier
+        </LegendItem>
       </InstrumentLegend>
+        <p className="mt-1 font-sans text-xs text-text-dim">
+          Signal <span className="text-accent">blue</span> carries the token
+          and activation flow in this schematic; each swatch above repeats
+          its rendered mark.
+        </p>
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
         Schematic: {LAYER_COUNT} layers drawn per stack for legibility, and

@@ -556,7 +556,7 @@
       "routeId": "route:/a-z/",
       "owner": "route:/a-z/",
       "ownerPath": "app/a-z/page.tsx",
-      "ownerSourceFingerprint": "ad9f1848513dc0fcc4a87aac11e9499e66bad9bf40ae1562f77ff7618e1a1c7e",
+      "ownerSourceFingerprint": "739baa41916f6a13b1e285ef8bebc463805e7f071cee8e94c9f617d9a399f7d3",
       "canonical": "https://robot-wiki.com/a-z/",
       "title": "A-Z Index",
       "description": "Every published Robot Wiki article and glossary term in one alphabetical list.",
@@ -578,7 +578,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a1382bbb8539de73f7c727a7c0c9bcae0bf6c739e54762da313cc5c00100eeac"
+      "fingerprint": "23a479f7de185fd100045327624c065027b5c4a3d481cde3ea2f395e11c39b85"
     },
     {
       "id": "metadata:/adjacent/",
@@ -12365,5 +12365,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "7d0b3f19a1385711a293bb40d1cf22b2083a9503bf751153e742326f0786a02e"
+  "rootFingerprint": "bf2196957411814c123fd55d664ad33b830f828e9c89a52cd06bb9feb422a3ba"
 }

@@ -9,8 +9,8 @@
   },
   "test": {
     "path": "tests/e2e/control.spec.ts",
-    "bytes": 24248,
-    "sha256": "0d2bd55a1ac1c6657bcc2852a6db9bd4b058832bdff35b4d4529c618f138dafd"
+    "bytes": 24950,
+    "sha256": "880e59fc67247ba0fcaab03f110bcb0008d1ce336375e926adca044325efb5fb"
   },
   "dependencies": [
     {
@@ -25,8 +25,8 @@
     },
     {
       "path": "tests/e2e/control.spec.ts",
-      "bytes": 24248,
-      "sha256": "0d2bd55a1ac1c6657bcc2852a6db9bd4b058832bdff35b4d4529c618f138dafd"
+      "bytes": 24950,
+      "sha256": "880e59fc67247ba0fcaab03f110bcb0008d1ce336375e926adca044325efb5fb"
     },
     {
       "path": "components/interactive/pendulum-controller.tsx",

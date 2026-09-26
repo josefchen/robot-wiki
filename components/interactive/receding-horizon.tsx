@@ -236,6 +236,9 @@ export function RecedingHorizon({
         </text>
       </PlotStage>
 
+      {/* Self-label: this instrument is a schematic or an authored model, not a measured result. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Schematic: the predict-execute-replan cycle, not a traced controller.</p>
+
       <InstrumentReadout>
         <span className="text-text-dim">T_p = {clamped.tp},</span>{' '}
         <span className="text-text-dim">T_a = {clamped.ta}:</span>{' '}

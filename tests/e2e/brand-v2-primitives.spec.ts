@@ -2,8 +2,6 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { Page } from '@playwright/test';
 import {
-  archivedExpectedRed,
-  archivedExpectedRedRoutes,
   test,
   expect,
   brandV2Registry,
@@ -40,7 +38,6 @@ const VIEWPORT = { width: 1440, height: 900 } as const;
  * tokens; a variable there makes every row in this file unreachable from the
  * enforcement map.
  */
-const SUITE = 'brand-v2 shared primitive registry';
 const SOURCE_SCAN = scanAnnotationAssignments(join(process.cwd()));
 const RECONCILIATION_PATH = join(
   process.cwd(),
@@ -453,9 +450,10 @@ test.describe('brand-v2 shared primitive registry', () => {
   }) => {
     test.setTimeout(600_000);
     // Sweeping every registered route surfaces undersized targets the
-    // two-route audit never reached. They are real SC 2.5.8 defects, so the
-    // measurement stays exact and the archive pins which routes carry them.
-    test.fail(true, archivedExpectedRed(SUITE, 'VAL-B2-COMP-014'));
+    // two-route audit never reached. They are real SC 2.5.8 defects; the
+    // letter-rail, source-link and dense-cluster bubble defects were fixed
+    // in the interactive-semantics convergence, so the row enforces zero
+    // offenders with no expected-red archive behind it.
     const swept = await sweep(page, staticBase);
     const exercised = new Map<string, Set<string>>();
     const offenders: string[] = [];
@@ -515,9 +513,9 @@ test.describe('brand-v2 shared primitive registry', () => {
       }
     }
     expect(
-      offendingRoutes.sort(),
-      'archived undersized-target routes must stay exact',
-    ).toEqual([...archivedExpectedRedRoutes(SUITE, 'VAL-B2-COMP-014')].sort());
+      offendingRoutes,
+      'undersized targets over the swept routes (per route)',
+    ).toEqual([]);
     expect(offenders, 'undersized targets over the swept routes').toEqual([]);
   });
 

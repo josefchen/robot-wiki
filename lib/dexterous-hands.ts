@@ -114,7 +114,7 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     dofDisplay: '21',
     dofSort: 21,
     actuation: 'Hydraulic, miniaturized valves',
-    tactileDisplay: '~5 mN',
+    tactileDisplay: 'approx. 5 mN',
     tactileSort: 5,
     costDisplay: null,
     costSort: null,

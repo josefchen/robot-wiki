@@ -79,7 +79,9 @@ function SourceLink({ id, label }: { id: string; label: string }) {
       href={citation.url}
       target="_blank"
       rel="noopener"
-      className="text-text-dim underline decoration-border underline-offset-2 transition-colors hover:text-text"
+      /* The link stands alone in its cell, so no inline-text exception
+          applies; the anchor itself carries the 24px minimum target. */
+      className="inline-flex min-h-6 items-center text-text-dim underline decoration-border underline-offset-2 transition-colors hover:text-text"
     >
       {label}
     </a>

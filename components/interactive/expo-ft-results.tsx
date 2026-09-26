@@ -26,14 +26,14 @@ import { ChartDescription } from '@/components/ui/chart-description';
  * of human-in-the-loop RL.
  */
 
-const WIDTH = 640;
-const HEIGHT = 340;
-const PLOT = { left: 40, right: 632, top: 44, bottom: 292 } as const;
-const GROUPS = ['Egg Flip', 'Cube Pick', 'Pool Shot', 'Flower Insertion'] as const;
-const MAX_TRIALS = 30;
+export const WIDTH = 640;
+export const HEIGHT = 340;
+export const PLOT = { left: 40, right: 632, top: 44, bottom: 292 } as const;
+export const GROUPS = ['Egg Flip', 'Cube Pick', 'Pool Shot', 'Flower Insertion'] as const;
+export const MAX_TRIALS = 30;
 
 /** Verified successes out of 30 per method and task (arXiv:2605.25477v2). */
-const METHODS = [
+export const METHODS = [
   { id: 'sft', label: 'SFT on π0.5', values: [16, 22, 23, 14] },
   { id: 'hg-dagger', label: 'HG-DAgger', values: [18, 26, 14, 24] },
   { id: 'dsrl', label: 'DSRL', values: [15, 24, 25, 12] },
@@ -49,7 +49,14 @@ const BARS_WIDTH = METHODS.length * BAR_WIDTH + (METHODS.length - 1) * BAR_GAP; 
 /** Bar bottom y for a trials count; SSR-stable to 2 decimals. */
 const f = (v: number) => Number(v.toFixed(2));
 
-function yFor(trials: number): number {
+/** The x origin of one method's bar inside one task group. */
+export function barX(groupIndex: number, methodIndex: number): number {
+  const groupX =
+    PLOT.left + groupIndex * GROUP_WIDTH + (GROUP_WIDTH - BARS_WIDTH) / 2;
+  return f(groupX + methodIndex * (BAR_WIDTH + BAR_GAP));
+}
+
+export function yFor(trials: number): number {
   const t = trials / MAX_TRIALS;
   return f(PLOT.bottom - t * (PLOT.bottom - PLOT.top));
 }
@@ -138,12 +145,16 @@ export function ExpoFtResults({ className }: { className?: string }) {
                     : method.id === 'hil-serl'
                       ? `url(#${hatchTileId})`
                       : method.id === 'expo-ft'
-                        ? 'var(--color-text)'
+                        ? 'var(--color-accent)'
                         : method.id === 'hg-dagger'
                           ? 'var(--color-border-strong)'
                           : 'var(--color-text-dim)';
                 return (
-                  <g key={method.id} data-testid={`expo-ft-bar-${method.id}-${gi}`}>
+                  <g
+                    key={method.id}
+                    data-series={method.id}
+                    data-testid={`expo-ft-bar-${method.id}-${gi}`}
+                  >
                     <rect
                       x={x}
                       y={y}
@@ -157,7 +168,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
                       x={f(x + BAR_WIDTH / 2)}
                       y={f(y - 5)}
                       textAnchor="middle"
-                      fill={method.id === 'expo-ft' ? 'var(--color-text)' : 'var(--color-text-dim)'}
+                      fill={method.id === 'expo-ft' ? 'var(--color-accent)' : 'var(--color-text-dim)'}
                       fontSize={9}
                       fontFamily="var(--font-mono)"
                     >
@@ -187,6 +198,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
         {METHODS.map((method) => (
           <LegendItem
             key={method.id}
+            series={method.id}
             swatch={
               <svg width={10} height={10} aria-hidden className="shrink-0">
                 <rect
@@ -198,7 +210,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
                       : method.id === 'hil-serl'
                         ? `url(#${hatchTileId})`
                         : method.id === 'expo-ft'
-                          ? 'var(--color-text)'
+                          ? 'var(--color-accent)'
                           : method.id === 'hg-dagger'
                             ? 'var(--color-border-strong)'
                             : 'var(--color-text-dim)'

@@ -372,6 +372,9 @@ export function JepaPlanning({
         </text>
       </PlotStage>
 
+      {/* Self-label: this instrument is a schematic or an authored model, not a measured result. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Teaching schematic: synthetic points and Euclidean distance, not learned V-JEPA 2 features.</p>
+
       <PlotStage
         viewBox={`0 0 ${TRACE_W} ${TRACE_H}`}
         aria-label={`Goal-embedding distance per planning step. The distance falls from ${formatDistance(initialDistance)} at step 0 to ${formatDistance(distance)} at step ${steps}.`}

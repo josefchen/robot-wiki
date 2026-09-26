@@ -300,66 +300,92 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
             />
           ) : null}
           <g clipPath={`url(#${clipId})`}>
-            {geometry.placed.map((point) => (
-              <circle
-                key={point.id}
-                data-company-id={point.id}
-                data-brand-control-id="control:selection"
-                cx={point.cx}
-                cy={point.cy}
-                r={selectedId === point.id ? 6 : 4.5}
-                className={
-                  selectedId === point.id ? 'fill-accent' : 'fill-text'
-                }
-                // Custom focus treatment (the ring circle above): the
-                // browser default outline renders inconsistently on SVG
-                // shapes, so it is removed here, not styled.
-                style={{ outline: 'none' }}
-                tabIndex={rovingId === point.id ? 0 : -1}
-                role="button"
-                aria-label={`${point.name}, founded ${point.founded}, ${
-                  point.yKind === 'valuation' ? 'valuation' : 'total raised'
-                } ${formatUsd(point.yUsd)}`}
-                onMouseEnter={() => setHoveredId(point.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                onFocus={() => {
-                  setFocusedId(point.id);
-                  setRovingStopId(point.id);
-                }}
-                // Blur ends the focus treatment (label and ring clear)
-                // but keeps the roving stop: WAI-ARIA roving tabindex
-                // keeps the position on blur, so Tab re-enters the chart
-                // on the mark the reader last focused.
-                onBlur={() => setFocusedId(null)}
-                onClick={() =>
-                  setSelectedId((current) =>
-                    current === point.id ? null : point.id,
-                  )
-                }
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    setSelectedId((current) =>
-                      current === point.id ? null : point.id,
-                    );
-                    return;
-                  }
-                  if (isBubbleArrowKey(event.key)) {
-                    event.preventDefault();
-                    if (!geometry) return;
-                    const next = stepMark(geometry.placed, point.id, event.key);
-                    if (next === point.id) return;
-                    setFocusedId(next);
-                    setRovingStopId(next);
-                    document
-                      .querySelector<SVGCircleElement>(
-                        `circle[data-company-id="${next}"]`,
+            {geometry.placed.map((point) => {
+              const isSelected = selectedId === point.id;
+              return (
+                <g key={point.id}>
+                  {/* The visible mark: chart ink sized to the mark language
+                      (4.5 units, 6 when selected). It is decorative geometry
+                      of the control next to it, never a pointer target. */}
+                  <circle
+                    data-mark-ink
+                    cx={point.cx}
+                    cy={point.cy}
+                    r={isSelected ? 6 : 4.5}
+                    className={isSelected ? 'fill-accent' : 'fill-text'}
+                    aria-hidden="true"
+                    style={{ pointerEvents: 'none' }}
+                  />
+                  {/* The control. Its hit geometry is 24 units wide (36px and
+                      up at the registered desktop viewport), and a transparent
+                      non-scaling 24px stroke keeps the outer hit radius at
+                      least 12 screen px at every render width, so the WCAG
+                      2.2 SC 2.5.8 minimum survives the responsive chart
+                      without moving data-encoded marks. The stroke never
+                      paints; only the pointer target changes. Dense stacks
+                      keep their data positions — the hover label names the
+                      company the ring under the pointer will select. */}
+                  <circle
+                    data-company-id={point.id}
+                    data-brand-control-id="control:selection"
+                    cx={point.cx}
+                    cy={point.cy}
+                    r={12}
+                    fill="transparent"
+                    stroke="transparent"
+                    strokeWidth={24}
+                    vectorEffect="non-scaling-stroke"
+                    // Custom focus treatment (the ring circle above): the
+                    // browser default outline renders inconsistently on SVG
+                    // shapes, so it is removed here, not styled.
+                    style={{ outline: 'none' }}
+                    tabIndex={rovingId === point.id ? 0 : -1}
+                    role="button"
+                    aria-label={`${point.name}, founded ${point.founded}, ${
+                      point.yKind === 'valuation' ? 'valuation' : 'total raised'
+                    } ${formatUsd(point.yUsd)}`}
+                    onMouseEnter={() => setHoveredId(point.id)}
+                    onMouseLeave={() => setHoveredId(null)}
+                    onFocus={() => {
+                      setFocusedId(point.id);
+                      setRovingStopId(point.id);
+                    }}
+                    // Blur ends the focus treatment (label and ring clear)
+                    // but keeps the roving stop: WAI-ARIA roving tabindex
+                    // keeps the position on blur, so Tab re-enters the chart
+                    // on the mark the reader last focused.
+                    onBlur={() => setFocusedId(null)}
+                    onClick={() =>
+                      setSelectedId((current) =>
+                        current === point.id ? null : point.id,
                       )
-                      ?.focus();
-                  }
-                }}
-              />
-            ))}
+                    }
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        setSelectedId((current) =>
+                          current === point.id ? null : point.id,
+                        );
+                        return;
+                      }
+                      if (isBubbleArrowKey(event.key)) {
+                        event.preventDefault();
+                        if (!geometry) return;
+                        const next = stepMark(geometry.placed, point.id, event.key);
+                        if (next === point.id) return;
+                        setFocusedId(next);
+                        setRovingStopId(next);
+                        document
+                          .querySelector<SVGCircleElement>(
+                            `circle[data-company-id="${next}"]`,
+                          )
+                          ?.focus();
+                      }
+                    }}
+                  />
+                </g>
+              );
+            })}
           </g>
         </svg>
       ) : (

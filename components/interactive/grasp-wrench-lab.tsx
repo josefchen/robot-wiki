@@ -299,6 +299,9 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           ))}
         </PlotStage>
 
+      {/* Self-label: this instrument is a schematic or an authored model, not a measured result. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Schematic lab: computed wrench geometry on an idealized two-contact grasp.</p>
+
         <PlotStage
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
           aria-label={`Grasp wrench space: the convex hull of the primitive contact wrenches. Force closure ${analysis.forceClosure ? 'yes' : 'no'}, quality epsilon ${analysis.epsilon.toFixed(3)}.`}
