@@ -47,11 +47,9 @@ IFR's World Robotics 2025 reports a global operational stock of 4,663,698 indust
 
 ## The economics you can drag
 
-Drag a slider such as jam-clearing time or per-pick success and the payback readout updates.
+Use the sliders to compare two cases in this authored model. Keep robot cost at 80,000 USD, integration at 2.5 times, cycle time at 6 seconds, uptime at 95 percent and hourly wage at 25 USD. With 15-second jam clearing, lowering per-pick success from 99.9 to 99 percent changes calculated payback from 11.56 to 11.82 months: an increase of 0.26 months, or 2.2 percent. Repeat the comparison with jam clearing set to 300 seconds: calculated payback rises from 12.11 to 17.30 months, and modeled output falls from 542.9 to 380.0 picks per elapsed hour, a 30 percent decrease. Both paybacks remain within the model's chosen 24-month horizon. These are calculations from assumed inputs, not measured deployments; the payback readout rounds to one decimal place.
 
 <DeploymentEconomics className="my-6" />
-
-Use the sliders to compare two cases in this authored model. Keep robot cost at 80,000 USD, integration at 2.5 times, cycle time at 6 seconds, uptime at 95 percent and hourly wage at 25 USD. With 15-second jam clearing, lowering per-pick success from 99.9 to 99 percent changes calculated payback from 11.56 to 11.82 months: an increase of 0.26 months, or 2.2 percent. Repeat the comparison with jam clearing set to 300 seconds: calculated payback rises from 12.11 to 17.30 months, and modeled output falls from 542.9 to 380.0 picks per elapsed hour, a 30 percent decrease. Both paybacks remain within the model's chosen 24-month horizon. These are calculations from assumed inputs, not measured deployments; the payback readout rounds to one decimal place.
 
 This calculator is an authored worked example, not a measured deployment or financial forecast. Its 80,000 USD robot cost is not a sourced arm-price quote; the 20,000 to 250,000 USD range and 5,000 USD step are chosen controls. All seven defaults, ranges and steps are authored assumptions: a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and 25 USD hourly wage accompany that robot cost. The model also chooses 730 hours per month, a 60-month amortization period and a chosen 24-month verdict horizon. Throughput is modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value; it does not add damage or throughput savings.
 

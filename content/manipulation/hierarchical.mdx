@@ -30,7 +30,7 @@ import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescal
 
 Every long-horizon robot system has to answer the same organizational question: what decides *what* to do next, and what decides *how* to move? The modules so far covered the how (chunks, diffusion, flow matching, action tokens). This module is about the what, and about a structural shift that is easy to miss if you only read 2026 model cards. In 2022 the what lived outside the policy, in a separate planner that dispatched to a library of skills. In 2026 the what lives inside the network, as a low-frequency inference pass in the same weights that emit actions. The separate-planner architecture is the lineage that lost.
 
-The interactive below draws four 2025 to 2026 systems on a schematic two-second timeline. It combines source-reported output rates with explicitly labelled drawing assumptions. Dragging the playhead counts events in that illustration; it does not replay a measured robot schedule. A task-instruction pulse is an initial condition; no arrival rate is reported for it.
+The interactive below draws four 2025 to 2026 systems on a schematic two-second timeline. It combines source-reported output rates with explicitly labelled drawing assumptions. Dragging the playhead counts events in that illustration; it does not replay a measured robot schedule. A task-instruction pulse is an initial condition; no arrival rate is reported for it. Drag the playhead across the two seconds and the fired ticks accumulate.
 
 <HierarchyTimescales className="my-6" />
 

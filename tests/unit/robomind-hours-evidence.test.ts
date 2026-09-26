@@ -160,7 +160,24 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
       'Robot data is different. Every hour of it',
       'Real-world robot data is different. Every hour of it',
     ));
-    expect(read(adjacentPath)).toBe(committedSource('ba934e6', adjacentPath));
+    // The hours-correction transaction still ends at the ba934e6 merged
+    // endpoint; the educational convergence pass of 2026-09-26 carries the
+    // article on through its approved-deltas entry, so the live pin is the
+    // prose-member hash of that entry rather than the historical blob.
+    const convergence = JSON.parse(
+      read('contract/brand-v2-approved-deltas.json'),
+    ).entries.find((a: { id: string }) =>
+      a.id === 'educational-convergence-20260926-prose-data-bottleneck')!;
+    const adjacentHash = (text: string) => buildManifest('prose', [{
+      id: 'article:data-hardware/data-bottleneck',
+      value: { path: adjacentPath, body: matter(text).content.trim() },
+    }]).members[0].hash;
+    expect(adjacentHash(committedSource('ba934e6', adjacentPath))).toBe(
+      JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.find(
+        (a: { id: string }) => a.id === 'final-seven-closure-20260923-2',
+      ).newHash,
+    );
+    expect(adjacentHash(read(adjacentPath))).toBe(convergence.newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
     expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
     expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));

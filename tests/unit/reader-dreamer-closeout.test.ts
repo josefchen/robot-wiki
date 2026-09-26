@@ -154,9 +154,16 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     expect(releasedTaxonomy.split(taxonomyHeading)).toHaveLength(2);
     const taxonomyAddition = taxonomyHeading + releasedTaxonomy.split(taxonomyHeading)[1].split('<SelfCheck')[0];
     expect(matter(atReader(paths[1])).content.split('<SelfCheck')).toHaveLength(2);
+    // The educational cue pass (2026-09-26) appended the first-screen
+    // operating cue sentence to the panel paragraph; it is the only text
+    // this closeout preserves beyond the released reconstruction.
+    const taxonomyCue = ' Try each group in turn and the panel swaps what it predicts; the JEPA group carries an explicit no-decoder marker.';
     expect(matter(read(paths[1])).content).toBe(matter(atReader(paths[1])).content.replace(
       "The six example groups below are this article's selection",
       "The six example groups below are this article's authored selection",
+    ).replace(
+      'selecting a panel is not a benchmark comparison between the named systems.',
+      `selecting a panel is not a benchmark comparison between the named systems.${taxonomyCue}`,
     ).replace('<SelfCheck', () => taxonomyAddition + '<SelfCheck'));
   });
 
