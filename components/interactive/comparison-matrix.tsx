@@ -2,7 +2,13 @@
 
 import { useMemo, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
-import { Badge, Table, type Column } from '@/components/ui';
+import {
+  Badge,
+  InstrumentFrame,
+  InstrumentReset,
+  Table,
+  type Column,
+} from '@/components/ui';
 import { METHODS, type Method } from '@/data/methods';
 import {
   methodConditioningText,
@@ -245,13 +251,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
         <div className="flex flex-col gap-1">
           <label
@@ -323,15 +323,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           <p aria-live="polite" className="font-mono text-xs text-text-dim">
             {rows.length} of {METHODS.length} methods
           </p>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={reset}
-            className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} className="cursor-pointer" />
         </div>
       </div>
 
@@ -369,6 +361,6 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           highlightedAnchor={highlightedAnchor}
         />
       )}
-    </div>
+    </InstrumentFrame>
   );
 }

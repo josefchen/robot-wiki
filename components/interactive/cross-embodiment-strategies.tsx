@@ -2,7 +2,15 @@
 
 import { useId, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  InstrumentFrame,
+  InstrumentHeader,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   EEF_SPACE_DIMS,
   EMBODIMENT_ORDER,
@@ -108,12 +116,11 @@ function EmbodimentRow({
           {summary.note}
         </span>
       </div>
-      <svg
+      <PlotStage
         viewBox={`0 0 ${STRIP.width} ${STRIP.height}`}
-        role="img"
         aria-label={`Action-space slot strip for ${body.label} under the ${STRATEGIES[strategy].label} strategy. ${summary.note}.`}
         aria-describedby={describedBy}
-        className="mt-1 block w-full"
+        className="mt-1"
       >
         <defs>
           <pattern
@@ -156,7 +163,7 @@ function EmbodimentRow({
             <title>{`dim ${slot.index + 1}: ${slotAria(slot.state)}`}</title>
           </rect>
         ))}
-      </svg>
+      </PlotStage>
     </div>
   );
 }
@@ -181,17 +188,12 @@ export function CrossEmbodimentStrategies({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
-      <div
+    <InstrumentFrame className={className}>
+      <InstrumentHeader
         role="group"
         aria-label="Select a cross-embodiment strategy"
-        className="flex flex-wrap items-center gap-1.5"
+        className="gap-1.5"
+        meta={strategy.proponent}
       >
         {STRATEGY_ORDER.map((id) => (
           <button
@@ -210,21 +212,10 @@ export function CrossEmbodimentStrategies({
             {STRATEGIES[id].label}
           </button>
         ))}
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
-        <span className="ml-auto font-mono text-[10px] text-text-dim">
-          {strategy.proponent}
-        </span>
-      </div>
+        <InstrumentReset onClick={reset} />
+      </InstrumentHeader>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">{strategy.label}:</span>{' '}
         <span
           data-testid="human-video-readout"
@@ -234,7 +225,7 @@ export function CrossEmbodimentStrategies({
         >
           {strategy.humanVideoVerdict}
         </span>
-      </p>
+      </InstrumentReadout>
 
       <div className="mt-2 divide-y divide-border">
         {EMBODIMENT_ORDER.map((id) => (
@@ -247,20 +238,14 @@ export function CrossEmbodimentStrategies({
         ))}
       </div>
 
-      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
-        <span className="font-mono text-[10px] text-text-dim">
+      <InstrumentLegend className="mt-2">
+        <span>
           <span className="text-accent">blue</span>: dims this source drives
         </span>
-        <span className="font-mono text-[10px] text-text-dim">
-          dashed outline: zero-padding
-        </span>
-        <span className="font-mono text-[10px] text-text-dim">
-          hatched: illustrative link, not model dimensions
-        </span>
-        <span className="font-mono text-[10px] text-text-dim">
-          faint outline: unused
-        </span>
-      </div>
+        <span>dashed outline: zero-padding</span>
+        <span>hatched: illustrative link, not model dimensions</span>
+        <span>faint outline: unused</span>
+      </InstrumentLegend>
 
       <ChartDescription
         id={descriptionId}
@@ -340,6 +325,6 @@ export function CrossEmbodimentStrategies({
         and reports 20K hours of EgoScale human video. It does not turn the
         29-coordinate toy into a humanoid DoF specification.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

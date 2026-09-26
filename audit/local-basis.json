@@ -207,11 +207,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual parameter extraction and independent literal checks cover all twelve ordered IDs, labels/signs/magnitudes/defaults, 0..4 in 0.1 increments and stumble label. Article and component disclose chosen teaching parameters, with no learned or empirical provenance.",
-          "inputDigest": "8ac309b87f891806581b1ca0f669ff4002622d5fd39e0f73bca9db543238f5f6",
+          "inputDigest": "d587785e52e51330fdba7d0e2f626856aa439f23a09cabc50c49d378485bee5a",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r4-parameters.review.json",
             "bytes": 3113,
-            "sha256": "75a38c3959f657e42c4029940a929dc31c6463dca2a4234f286b4cd18f194469"
+            "sha256": "fd0e783d96d5d1ae1b38ac6b7f26033dd16b217b2fea80e022663bd8fe38bd98"
           },
           "partId": "r4-parameters",
           "outcome": "supported"
@@ -219,11 +219,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "The separately written twelve-term signed dot product gives -5.52; the actual recipe output and browser show the same two-decimal total. Units are dimensionless per step, not measured policy quality. Inputs point to this plan authored weights and phase.",
-          "inputDigest": "fede815a9c3e3afdb12267b83e913415274165194f25cb102fd409174c9126c8",
+          "inputDigest": "6abe8725dcf56923bb9235256f9fc4b26b6af23c21744d4e764e1a64d8139b90",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r4-total.review.json",
             "bytes": 3092,
-            "sha256": "44e3abd6d60c00da444bcf84789608a1ed648e54b9ad9afa09547bd242a139b3"
+            "sha256": "521d8f852ee62d6a4b46f038df2203e827d9b635d8559c8af1238b230ca66713"
           },
           "partId": "r4-total",
           "outcome": "supported"
@@ -231,11 +231,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual Playwright on the article found exactly twelve individually labeled sliders with correct min/default/max/step. Initial and post-chatter Reset show -5.52, balanced and the original phase-zero SVG. Retained DOM/PNG and hashes bind those observations, not a screenshot prediction.",
-          "inputDigest": "6682552c9730090ce23fa2625c2eaa251cd6d49d9f2ac08676c655499ba7397c",
+          "inputDigest": "9c1e006ba5bbd61effc1257ee037c8be503b20b14b185153bedec190bb8ee62f",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r4-mounted-controls.review.json",
             "bytes": 3145,
-            "sha256": "fbee8f633828adda45a1925419e674227a3856a46d602d2005138886632e4f89"
+            "sha256": "ac1c93e7b3eea848bc769599ec4af4315ae5725552967ed068196f0f98aefe69"
           },
           "partId": "r4-mounted-controls",
           "outcome": "supported"
@@ -451,11 +451,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "The authored classifier is priority-ordered: <=0.2 action-rate chatter first, then torque absolute 2.5 and relative 2x velocity freeze, then analogous air-time prance, else balanced. Threshold boundary/priority checks and full dependency hashes accompany explicit non-empirical disclosure.",
-          "inputDigest": "d7a6ab9967acad23131cf52ab14095105f014a51dc385feb528e1eb5f1347c46",
+          "inputDigest": "20ad586c5cd85d86adcff603f9a65d4b563271d9935831c5aedfb1922b125580",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r5-classifier-parameters.review.json",
             "bytes": 5134,
-            "sha256": "1e478a80ac9bd6d2345798478a7b219c8200a96b9e56076ad97ae84d78252d56"
+            "sha256": "ed3023b6089c8065b49f573f05db4e76e4c9af5951363be766fc322eff60dd56"
           },
           "partId": "r5-classifier-parameters",
           "outcome": "supported"
@@ -463,11 +463,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Six actual bound inputs produce balanced/frozen/prancing/chatter/balanced/frozen with independently checked totals -5.52/-8.72/-3.48/-4.72/-5.72/-6.68. Default and admitted authored-case pointers bind every weight object; phase 0 is authored. Pose outputs remain deterministic drawn geometry, not learned trajectories or physical measurements.",
-          "inputDigest": "ac563d03e710216f832b9f97f9ef9172b61155447c2e27d9eb6c74ac2649c1c4",
+          "inputDigest": "84d018f3ff537654fcb4f22764284265f6804707fc7c6afb0a28f15b6bb1f98a",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r5-classifier-and-pose.review.json",
             "bytes": 5184,
-            "sha256": "7a774fadbc115259fdd306d6eaa833098da3a90a9f2bad321be32d1bde43f64e"
+            "sha256": "206301a4f886efd27f95e20bafc43efc0f282d948be148cf8e1c572022013127"
           },
           "partId": "r5-classifier-and-pose",
           "outcome": "supported"
@@ -475,11 +475,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered-mount Playwright transition for freeze: keyboard min/max input (or Reset) changed the named status, displayed total and actual SVG state. Retained DOM and PNG match the derivation. Reset restored the original pose. This is an observed toy UI state at phase zero, not a trained policy, measured vibration frequency or complete registry-state acceptance.",
-          "inputDigest": "f687ba23fba4038e8f78afd40640d5d5a4a4a4a95257d6b08d111f87b56b724f",
+          "inputDigest": "4443cc7edabeeba24604d46e77014ea26a129832055fca8dea5a76c8b520154b",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r5-mounted-preview-freeze.review.json",
             "bytes": 5217,
-            "sha256": "eea4ce472c455cefb435eda3715c3c30eee9b7779462d4fccad6b68c8c6c4ca2"
+            "sha256": "4e8097225e946349ce2bd7589cf783f9706833aa22926981d71bd4707d140dd4"
           },
           "partId": "r5-mounted-preview-freeze",
           "outcome": "supported"
@@ -487,11 +487,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered-mount Playwright transition for prance: keyboard min/max input (or Reset) changed the named status, displayed total and actual SVG state. Retained DOM and PNG match the derivation. Reset restored the original pose. This is an observed toy UI state at phase zero, not a trained policy, measured vibration frequency or complete registry-state acceptance.",
-          "inputDigest": "2f1b84a8f30a6de3cc9bf923c97125bb8ab2514c9575eaab7fee676a2f0bb724",
+          "inputDigest": "c180ccec1452a71f92b2f027464b832767a301438b41e302d00f0fe206b3e782",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r5-mounted-preview-prance.review.json",
             "bytes": 5217,
-            "sha256": "ba426a83a0691e378a7d81c0cd12102ac0f6448cd16e9af812fc3c0640b4f1cb"
+            "sha256": "1c9a98bbd382b518f72ba361c4183e5ea0e125143f1b9d976bdf6e8a873eb30a"
           },
           "partId": "r5-mounted-preview-prance",
           "outcome": "supported"
@@ -499,11 +499,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered-mount Playwright transition for chatter: keyboard min/max input (or Reset) changed the named status, displayed total and actual SVG state. Retained DOM and PNG match the derivation. Reset restored the original pose. This is an observed toy UI state at phase zero, not a trained policy, measured vibration frequency or complete registry-state acceptance.",
-          "inputDigest": "f8760b00d6496a1f3361847ec647f9a210e6c8e05f71cfdaeb70d97939d72cd9",
+          "inputDigest": "75063c5d7e3d4b90447db078dd2416cfab527efe345335b8061ed8f862ad610f",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r5-mounted-preview-chatter.review.json",
             "bytes": 5220,
-            "sha256": "20c0f28d3a415f1705c215f3673c033d283387b44737acb6611150cc72b4569b"
+            "sha256": "b839cbf3667e2868a8d9f528a0a895f780a597cfb81e4bab643de89d1ba6adf0"
           },
           "partId": "r5-mounted-preview-chatter",
           "outcome": "supported"
@@ -511,11 +511,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered-mount Playwright transition for reset: keyboard min/max input (or Reset) changed the named status, displayed total and actual SVG state. Retained DOM and PNG match the derivation. Reset restored the original pose. This is an observed toy UI state at phase zero, not a trained policy, measured vibration frequency or complete registry-state acceptance.",
-          "inputDigest": "ab7544e1c2e01a192694d11b77e448165a7a3bfa1681715778c6b227582a3d0f",
+          "inputDigest": "96b16f7a233c5ebf3dd76907729038f2582fb385fc64fa2a9919cd4917e53631",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r5-mounted-preview-reset.review.json",
             "bytes": 5214,
-            "sha256": "1ae549e59323f3912e037224f78c94e237d205d0a89a2073f50d1f42416cd3ff"
+            "sha256": "45162086e2ec8ff66d958cf48c5eca086d6a6c1450b435b2b2d53260259311c7"
           },
           "partId": "r5-mounted-preview-reset",
           "outcome": "supported"
@@ -728,11 +728,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual complete extraction covers the 1.0 m/s teaching task, all code/reflection/statistic fixtures and fitness 0.31/0.58/0.86. Exact numeric statistics were checked independently; article and UI explicitly label all of them authored/scripted, not a recorded Eureka or PPO run.",
-          "inputDigest": "853d9c2b4354a6264a2a4da06629f509746846b6c933ea65997a9f64607ce98d",
+          "inputDigest": "efbf36e92902cfef36c1f8abceb1b5687a269b098ab2ac087ad87a4043c1111b",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r11-authored-transcript.review.json",
             "bytes": 5023,
-            "sha256": "02f8fd032b83bba1b23749b6ed4ef990b91e85a86ab870a198070941afd93c15"
+            "sha256": "96363922f851447ec320f45a9eef93585e65bbe1089e1766f1e6c7a682389f0a"
           },
           "partId": "r11-authored-transcript",
           "outcome": "supported"
@@ -740,11 +740,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual derivations for 0-to-0, 0-to-1 and 1-to-2 reconstruct both original code arrays in order from the diff and match separately specified deleted lines and fitness displays. Each generation index points to the same plan authored transcript.",
-          "inputDigest": "2dbfa13c701ca028a20a273a423683c06f369818dd1d368144281b7ef21f57a0",
+          "inputDigest": "ecb6e1175fcfab030c7df7e82e00979d08d1dfc763b905631f0c543b38623574",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r11-diffs.review.json",
             "bytes": 4961,
-            "sha256": "4d363e4790fdcbebe0392d062f3a5b9bbc66399826ef2400d10f45d4432593df"
+            "sha256": "857ffb1182a83a73704a98f66fa5eacc1813ca6ec06b8ee4dba798b00a4f0b95"
           },
           "partId": "r11-diffs",
           "outcome": "supported"
@@ -752,11 +752,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered EurekaLoop observation 0 binds its own generation/fitness/code/statistics/reflection, DOM and screenshot. Keyboard activation advances the script; generation 2 disables Next; Reset re-enables it and returns 0 without a diff. The disclosure is present in actual DOM. This witnesses these transitions, not all focus cases or a real training experiment.",
-          "inputDigest": "fc9595051d12983b3aba4f95efa35401c43f57d4547cd4cc33097945d34da17d",
+          "inputDigest": "308285838815ef05b3f01a2c3ae3956b7b9a6919aa3769b5ebf8a75717428e8d",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r11-mounted-replay-0.review.json",
             "bytes": 5108,
-            "sha256": "57ed98a5161956a85c9518f3baafc87b043d8b154d4d15a7065ef4730611dfa8"
+            "sha256": "01abc2b7460fa627dc299e09253c408120006ec11c9183c2ef232599b1d93f3d"
           },
           "partId": "r11-mounted-replay-0",
           "outcome": "supported"
@@ -764,11 +764,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered EurekaLoop observation 1 binds its own generation/fitness/code/statistics/reflection, DOM and screenshot. Keyboard activation advances the script; generation 2 disables Next; Reset re-enables it and returns 0 without a diff. The disclosure is present in actual DOM. This witnesses these transitions, not all focus cases or a real training experiment.",
-          "inputDigest": "a5081c580dd482284e9afecdab7b7ebdbc1db41eff41326aa406aeb5ca863da4",
+          "inputDigest": "75b738d034986c6e0c358f204deb45f9744a554182dbf9fa1fc0d13941578af5",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r11-mounted-replay-1.review.json",
             "bytes": 5108,
-            "sha256": "ebbef705cec5bfc57e19dba0f9067a821650c46e83097787f790a21860ecccaf"
+            "sha256": "b8ebb8ef9a2b6fbde8f4f0bf3f03b22bd3f8f904c1043cea7a736f6bbfb4f5d3"
           },
           "partId": "r11-mounted-replay-1",
           "outcome": "supported"
@@ -776,11 +776,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered EurekaLoop observation 2 binds its own generation/fitness/code/statistics/reflection, DOM and screenshot. Keyboard activation advances the script; generation 2 disables Next; Reset re-enables it and returns 0 without a diff. The disclosure is present in actual DOM. This witnesses these transitions, not all focus cases or a real training experiment.",
-          "inputDigest": "dc8fd97d70d88efbddda9870d7858f085d70fafbddf60422288965656bdca39c",
+          "inputDigest": "2a10b25fc444864c34f5e59cc9094287119d4254b55a4b6ed023fcf7333040a2",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r11-mounted-replay-2.review.json",
             "bytes": 5108,
-            "sha256": "e3d0c45fd471bb74a42efbfe7cf15f175b29afdd281b7ccb1bbf1f99f3346f10"
+            "sha256": "29890830dfc683a9d5e2eb1f206b3264bef113064730f10e0fa19667e271098e"
           },
           "partId": "r11-mounted-replay-2",
           "outcome": "supported"
@@ -788,11 +788,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Actual registered EurekaLoop observation reset binds its own generation/fitness/code/statistics/reflection, DOM and screenshot. Keyboard activation advances the script; generation 2 disables Next; Reset re-enables it and returns 0 without a diff. The disclosure is present in actual DOM. This witnesses these transitions, not all focus cases or a real training experiment.",
-          "inputDigest": "15d25464d7bbae25fc79bd2ca0c8843463636f416c1b9ce3d232a89254aa2822",
+          "inputDigest": "d7d3541a0a9ce6e8e9a250552d4536d942771d087dd336491decf675b415f93f",
           "event": {
             "path": "audit/evidence/reward-local-20260923/r11-mounted-replay-reset.review.json",
             "bytes": 5120,
-            "sha256": "a9e00c4ce4385f7bfc3f1435cb49b1b715be0a22ee8df0bdbb5986b61457a72b"
+            "sha256": "e101cb65ec4d4b90d96b241d8fd068e0f3c691b923282024e7b239607e192610"
           },
           "partId": "r11-mounted-replay-reset",
           "outcome": "supported"
@@ -1161,11 +1161,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Whole model/component/article members disclose all curve constants and ranges as authored. Fresh native extraction independently checked mu0.8, ranges0.2..1.5 and0.1..0.65, point peak0.97/sigma0.09 and edge sigma0.1. The 0.93-0.55*range formula and mount props0.35/0.65 are fixed choices, not uncertainty intervals or empirical success rates.",
-          "inputDigest": "fcc6e0fb2ff593c0f4d4e021020ac36a8c21ef9bf689bf1a40e4dcfd569e5d93",
+          "inputDigest": "3c0315bbc9a949634d79c9c83a280568784751b9e41175b1ddc669514a637c20",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s23-curves-and-mount-defaults.review.json",
             "bytes": 6222,
-            "sha256": "727a7503a60ed029398f66ae27bfb7eb80ff63008ad6214bfa9083021c8ecfb7"
+            "sha256": "9d9c3eeae2de3c5caaeb8df1dd50f9973b6aa776d105b5796a7da547232f33cd"
           },
           "partId": "s23-curves-and-mount-defaults",
           "outcome": "supported"
@@ -1173,11 +1173,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Fresh native extraction agrees with independently implemented Gaussian, plateau and tail arithmetic at (0.8,0.35), (0.8,0.65), (1.5,0.35). Peaks0.7375 and0.5725 display74% and57%. Every mu/range input has an exact same-plan authored pointer/value, not an ungrounded numeric literal.",
-          "inputDigest": "6c29729e7ceaca8e5658a3f5d24cbff54b5637d106b81590e60fd11c4fdd55be",
+          "inputDigest": "672c42f86c4a32a4a3642541b96a5b01ff00be722c9bea90eafd5a8b78236a40",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s23-arithmetic.review.json",
             "bytes": 6132,
-            "sha256": "548d669f3072101cb1470d405d6951b3c82b3a01eb35f9677b37177a6d04f0fb"
+            "sha256": "8ba6bf7b5dbd47e97a1f67b5c3210139a466fef623e28253cd021c8e8173e435"
           },
           "partId": "s23-arithmetic",
           "outcome": "supported"
@@ -1185,11 +1185,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific transition group: The actual ordinary FrictionTransfer mount starts at mu 0.80/half-width 0.35 and Reset restores those values and the original SVG after a width change. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
-          "inputDigest": "9ba059b0f183d6759d48faaedf3f454ef7b55a589d0b493cd934a84366a587f3",
+          "inputDigest": "8e47198c8c420b06aec15ccc07a9739506ae55b0d550e8d05dcb619605a1cd78",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s23-both-mounted-panels-default.review.json",
             "bytes": 6607,
-            "sha256": "79569a9cc174c3ef76ae800dd38780b2279e18551e893be916a60deae8c05370"
+            "sha256": "7b7327f50d2370805c5fb1c00ff45b76f8c1f0fc2d00dea6773eadd158e514ed"
           },
           "partId": "s23-both-mounted-panels-default",
           "outcome": "supported"
@@ -1197,11 +1197,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific transition group: The ordinary mount redraws at half-width 0.65; selecting the prediction reveals mount two at half-width 0.65, and its Reset restores 0.65 independently of the ordinary 0.35 default. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
-          "inputDigest": "b7e0ea2c8ddd4c6246f4d7fc178e527c01bce5b76c2a36ba616378854c935684",
+          "inputDigest": "a2609e333614c4462b679750d8e27886e049a81bcbc12562ee7835dc286409a1",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s23-both-mounted-panels-wide.review.json",
             "bytes": 6631,
-            "sha256": "4e7c42128091aee77b302616a2118b9b68c40a387c07f0eef963d1bc948bf860"
+            "sha256": "59705cdb3323e41c81a78b86f10d06b5edea5915fbbe663520358663d2bc69b7"
           },
           "partId": "s23-both-mounted-panels-wide",
           "outcome": "supported"
@@ -1209,11 +1209,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific transition group: Setting mu 1.50 at half-width 0.35 moves the real-friction line in both mounted panels and displays the separately recomputed tail percentages. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
-          "inputDigest": "287fd0e4b52890d9fff4e3e3da9fc3030f282166334dda1440e833a4cb539d4b",
+          "inputDigest": "d3da020beb9a144f4a6c4e84429b1470a88b439dbc15c11d71b2b10a23340c86",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s23-both-mounted-panels-tail.review.json",
             "bytes": 6593,
-            "sha256": "3e65f13c7fb47afbf8099da369289caac670616d6b98bfe7dbeb83fcca357535"
+            "sha256": "7d78d04e17a8b4ae03e03853a1775ce3e342f9f7a317ebf6562680d187359056"
           },
           "partId": "s23-both-mounted-panels-tail",
           "outcome": "supported"
@@ -1462,11 +1462,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I checked the24-cell authored sine/step/depression terrain, LCG multiplier48271/modulus2147483647, seeds123456789/987654321, four-decimal fields, sigma3/offsets-6..6 edge-normalized blur,0.06 noise/0.12 same-sign dropout,0.45 input-noise coefficient and0..1 default0.15 control against independent construction and whole-file members. The explicit authored-toy paragraph says not measured robot data and not inference from bars.",
-          "inputDigest": "9919062215ee2143df877392894a6bfac9b80e30ce00ea91045fc2b55f9b8812",
+          "inputDigest": "8fd5d89523a70ea51bc14978558d47eb7b54fe22a3cc9d38bedf0e17d9ed68ed",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s24-authored-terrain-noise.review.json",
             "bytes": 4875,
-            "sha256": "d5c6347a9d82e04faf60f4187b59dfcd3973b48da84943b64fe4a570103c17a9"
+            "sha256": "896877c7d5dc4f9a75f9e1f355a1b8db683a4e73b1e936980b69c9f4cec5c1b7"
           },
           "partId": "s24-authored-terrain-noise",
           "outcome": "supported"
@@ -1474,11 +1474,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Independent per-cell reconstruction/readings/occlusion and native outputs agree at0,0.15,1. MAE uses unrounded errors; rounding reconstructed cells first is a tested negative control. Divergence is exactly2.2*MAE; default/high MAE0.009894210242181204/0.1709614016145414 and discrepancy0.02176726253279865/0.37611508355199114 are constructed values, not learned action error.",
-          "inputDigest": "23361c7415a686492f2d59c06806c7d48027eca735b75225208b7923556c194d",
+          "inputDigest": "f8d67f86ba502808d5947aa4cc1b15b2a496c7855a5169ea0c3e17ed6e1013e1",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s24-reconstruction.review.json",
             "bytes": 4805,
-            "sha256": "7c71419286c8c65d9aad19ac7f4dde9b3d9dd77954f346885cdfde66c8062375"
+            "sha256": "396922939b8a3e69a980884221e2386a345a8564ac6138d325c653f0eed58888"
           },
           "partId": "s24-reconstruction",
           "outcome": "supported"
@@ -1486,11 +1486,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific transition group: The actual teacher mount starts at degradation 0.15 and Reset returns the original input/reconstruction markup, MAE 0.01 m, discrepancy 0.02 and 3/24 occluded channels. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
-          "inputDigest": "4df24aae493f57b469d9b15d698e8dc8b69b0851b349ba2b0f181a585169a97d",
+          "inputDigest": "56b1bd5dd30499066154befacba49a97d1ea9388e5b37241bc5e8acc12f71856",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s24-mounted-degradation-default.review.json",
             "bytes": 5197,
-            "sha256": "ea2633938a7802c94164e988fc492507bd20fa265119aff0f1e3a764ad46be76"
+            "sha256": "1decd8c69b21d0115cac3f4dd4969916b4ac30431c582167a659a02f577641d3"
           },
           "partId": "s24-mounted-degradation-default",
           "outcome": "supported"
@@ -1498,11 +1498,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific transition group: Changing the actual teacher control from degradation 1 to 0 restores exact terrain colors, unoccluded input, MAE 0.00 m and discrepancy 0.00. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
-          "inputDigest": "4361eaaa1ac94d7025b5a60b73251f68c8b15b4e31fe65cdb68160030125b2cc",
+          "inputDigest": "3e055a5fb9f98902040c9825ccdc343b55b3b6358c5096244cc13ad67be48408",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s24-mounted-degradation-zero.review.json",
             "bytes": 5164,
-            "sha256": "c3260337196a272f04a7b3f560b7d56857c1e56dd86afa7bd01cb604afb6243e"
+            "sha256": "5d6a6be4a1601276bc88b2d521c2da5fd0b868b95269a313e233ce461dd679a9"
           },
           "partId": "s24-mounted-degradation-zero",
           "outcome": "supported"
@@ -1510,11 +1510,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific transition group: Changing the actual teacher control from degradation 0.15 to 1 alters input/reconstruction panels, occludes 24/24 channels and displays MAE 0.17 m and discrepancy 0.38. Actual guarded-port Playwright executed the actions; full rendered DOM text includes the local disclosure and matching readouts, and1440x1000 PNGs have the true viewport dimensions. Inputs bind this same plan parameters. All sibling observation groups remain AND requirements, preserving both mounts and reset defaults. Four final images were manually inspected (friction-wide, reveal-reset, teacher-high, teacher-reset); other states were programmatically checked and captured, not claimed manually image-reviewed.",
-          "inputDigest": "cbef4eec95a7d641fa98ceea8698804d21c94c080312def67379f97e80ee4c41",
+          "inputDigest": "549788eb619490ce4e86ea1043239693eeb4a62f4a853889fbd3cd05b68f8d29",
           "event": {
             "path": "audit/evidence/sim2real-local-20260923/s24-mounted-degradation-high.review.json",
             "bytes": 5191,
-            "sha256": "4126203faf74a3c2cbfda1f971927f7a34c9ad61119079caea8b21f96360b3c0"
+            "sha256": "a4bd640f30bd89db720363b00866fb3a35487c83e2c505c761a1192cbdb91b1e"
           },
           "partId": "s24-mounted-degradation-high",
           "outcome": "supported"
@@ -1916,11 +1916,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I checked the explicit reader-local authored/not-benchmark disclosure against whole model/component/article members and fresh native parameter extraction.220M target,24 rollout, default4096/CPUoff,64..16384 endpoints,49samples, cost seconds[.02,.000004,.04,.03,.000022], and both marker x values4096 are chosen inputs. Paper time bounds are not recast as authored measurements. Every derived input has an exact same-plan parameter pointer, including both CPU booleans and endpoint domains.",
-          "inputDigest": "0643dcc7e8c34ad41666905d42f1c4b5440a87b441302cb4d1a7cc624e4cfcb1",
+          "inputDigest": "e770afcb7ad1fa81d02922cf3f3d5d4a6ddc6d330186bfa4070977668fb05c1e",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-authored-cost-model.review.json",
             "bytes": 9499,
-            "sha256": "6c02c0cc118e9aad175afb6458fb3e983a651b9f712f84cb34435da5c6cb1e69"
+            "sha256": "bb7dfc75a4ed832dd59355d69eb8cdc18201a818be134b47be1216cc068629eb"
           },
           "partId": "p18-authored-cost-model",
           "outcome": "supported"
@@ -1928,11 +1928,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "Independent closed-form time=(220M/24)*(.09/envs+marginal) and FPS=24/(.09/envs+marginal) agree at64/4096/16384 in both CPU modes; every one of49 samples matches an independent sixth-octave grid. Raw time*FPS=220M; rounded readouts alone are not the oracle. Default238.08268229166666s/924048.7291322002FPS and max-off87.02067057291667s versus max-on288.6873372395833s are local results. Crossover12500 exists only CPUoff. Rounding, iteration/bucket displays and exact SVG coordinates were also checked in the actual mounted producer.",
-          "inputDigest": "979e2a146553909c38b7521743ae090403809f848b093280cf64f8e665bddf17",
+          "inputDigest": "4792d7572f274d6b21da89bc4c52319e8c52e8ff9003a486478a5812b078af06",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-cost-arithmetic.review.json",
             "bytes": 9535,
-            "sha256": "a1968c06f2361afefc0e85a460d241edaa36432058184d983c14cb2cb34fba3f"
+            "sha256": "b3d72ed7afc10553b6f8cf07beb6eab6b827a4b8bb1445a53465991919cb6e46"
           },
           "partId": "p18-cost-arithmetic",
           "outcome": "supported"
@@ -1940,11 +1940,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific group: The actual mounted chart at64 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
-          "inputDigest": "2c97cdcdbb060e798e20f9b4ccb1ba66c349a38eac6d9d496433c8c9f05ad70c",
+          "inputDigest": "7893163ae1c2e980ad3e1b01cfa494603504b10dbf3108d869cbac6282ea481b",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-mounted-64-off.review.json",
             "bytes": 9950,
-            "sha256": "6bffe781f92df8123d89a2fc2fc8490d527d76783849cbfcbbff05373697496c"
+            "sha256": "fb3665b18eead30801c2d9a1631badff534e612b48f033eb84590b75a74a398e"
           },
           "partId": "p18-mounted-64-off",
           "outcome": "supported"
@@ -1952,11 +1952,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific group: The actual mounted chart at64 environments with CPUon displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
-          "inputDigest": "ddf3921b9a83dc35191856587ee2e5e524ef09d518e8ce3e83827e3d13bf7abe",
+          "inputDigest": "913c7485c34b6e05e83c7f365fafed8287d88c179d5f50e55163633448fcf5aa",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-mounted-64-on.review.json",
             "bytes": 9947,
-            "sha256": "7e8f02721009b9e1693c6d5f6eebb8d22f5fa90cc8931880d72663e83932c5f6"
+            "sha256": "8a8b6cdd930062b84d37bc4eaa842edc007f6d39653e84cee93826f948ec64d2"
           },
           "partId": "p18-mounted-64-on",
           "outcome": "supported"
@@ -1964,11 +1964,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific group: The actual mounted chart at4096 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. Default, Reset and375px viewport retain default4096/CPU-off state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
-          "inputDigest": "03212381c4e56fb563d4628f986a13b88b964a8b9d25b864f4ad3548e71b7ff8",
+          "inputDigest": "9a2273f8ace883ad0f9aea39efd42fd4eff51f20370558bc12e7f493fb43f18c",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-mounted-4096-off.review.json",
             "bytes": 9972,
-            "sha256": "9fd4d97968284a2c2f3221798c4997f1aba084657e38b6ebe20af1081447aab0"
+            "sha256": "5941e75b28d13465c0dc5b7c7da712bed31b539268501aa546daff3b42f1da2c"
           },
           "partId": "p18-mounted-4096-off",
           "outcome": "supported"
@@ -1976,11 +1976,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific group: The actual mounted chart at4096 environments with CPUon displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
-          "inputDigest": "5989b79078e9b04d77254c0461fbfe21a0bea3419eb3456fb42f3400de206ab7",
+          "inputDigest": "1974c3d6592888afb95374869e8d540fdcf6ac49d3b7f32a9fa85d65ca333eb1",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-mounted-4096-on.review.json",
             "bytes": 9953,
-            "sha256": "e4c0a95db9c102027e5ddf78d23b5da799969ff19f6cb04d12101dbb9bb4188f"
+            "sha256": "91624e4ad4c8cfdefce23c2cf8f9bc4ef9021348e93edba62bba7955b1490f5b"
           },
           "partId": "p18-mounted-4096-on",
           "outcome": "supported"
@@ -1988,11 +1988,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific group: The actual mounted chart at16384 environments with CPUoff displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
-          "inputDigest": "2339267b1736aae5c36a9e902d03d0ed8594ba0e83162b5200b5835ebaca80d3",
+          "inputDigest": "f0e3e88bacd73eaf821bed41a93b42b6b947c4b24618ad62fb95bacdf9f82a62",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-mounted-16384-off.review.json",
             "bytes": 9959,
-            "sha256": "a3fc3345d937a25ebd24742c48bf278cc37aeff73e240e800c6dbf9bfe138ffe"
+            "sha256": "e971fc9e53a18acc5ae5d797e6bf5f5851f02fa72b2d9ea8d9f78a69474b5476"
           },
           "partId": "p18-mounted-16384-off",
           "outcome": "supported"
@@ -2000,11 +2000,11 @@
         {
           "reviewedBy": "integrator run f86f6148; integrator review; max",
           "rationale": "I reviewed this exact output-specific group: The actual mounted chart at16384 environments with CPUon displays the independently recomputed wall time, throughput, iterations, bucket shares and49-point curve. The named slider/toggle action reaches this state. Both Rudin markers retain separate bound labels; all sibling input combinations remain required. Real Playwright actions and DOM captures witness all its named transitions, matching the independent numeric output and same-plan input bases. Full rendered DOM includes the disclosure, both bound labels and readouts; true viewport PNG dimensions are retained. Default, max-on and mobile-default screenshots were manually inspected; other captures were programmatically checked, not claimed manually inspected. Mobile chart/control/readouts are visible; lower explanatory prose continues below the viewport, so this is not a full-mobile-page visibility claim. All sibling groups remain mandatory.",
-          "inputDigest": "76efdb6a17d64bc8be45f183f6d0a6b849b341ab3d010569c3b017ef76b27ffd",
+          "inputDigest": "d32f2e5eb9a54dcb06e0cef81e4e5070b73c9382701233ed6f47d5aa1363f6cc",
           "event": {
             "path": "audit/evidence/parallel-local-20260923/p18-mounted-16384-on.review.json",
             "bytes": 9956,
-            "sha256": "a79984505338c517b6d458977dd3331bf8314600ee99f409a20f84cc54508334"
+            "sha256": "63982269dc0e09e52b55345739a6354d36826c7181416e047c7495d6761c6b03"
           },
           "partId": "p18-mounted-16384-on",
           "outcome": "supported"
@@ -5678,11 +5678,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Checked audit/rl-sim2real.md:legged-locomotion:8 authored parameters and units against the corrected article and pinned model file; these chosen values are not measurements. The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
-          "inputDigest": "bafcba9a408da4011065f8e128a6605025f4f7f85d488918cc5ba427e4b9bddd",
+          "inputDigest": "3d47ef614873a2702cd1046447f3dbc237e09f17594289d7051ff2eef0c517d4",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters-20260923.review.json",
             "bytes": 4742,
-            "sha256": "36bbb1eda4381ca4db427a99c549d8d93d307ccbea4e45b3537f655113ba3175"
+            "sha256": "5090e9faf6f4d2bfd42e4951d28c687ab668ab15c24b6d3c8aeab142aec41cd7"
           },
           "partId": "8-parameters",
           "outcome": "supported"
@@ -5690,11 +5690,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Compared exact finite numeric result, units and rounding for audit/rl-sim2real.md:legged-locomotion:8 with independently calculated arithmetic; this remains a bounded illustrative model. The finite calculation and display rounding follow the explicit model inputs; numerical agreement is not a source truth claim.",
-          "inputDigest": "153d195b59ff164d6ed299b12c09d82bc93a87b161df68383237e6bee88d701a",
+          "inputDigest": "4694cb9414b5f2df6fc40e83ca69ed2017a19a2f547ca637851267299f946cb6",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation-20260923.review.json",
             "bytes": 4742,
-            "sha256": "c538a0642dbfa9c66a2f1aeb778d73486ba7c8105cfa2df049d074f612c2c787"
+            "sha256": "195121cc4a4ba8f0dbce36e68645a0d4cb1d2d1798fa3c3f05c4353e8223d2cb"
           },
           "partId": "8-derivation",
           "outcome": "supported"
@@ -5702,11 +5702,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 4 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "a3b67c7ca76bb6825768643552338f6a422007e43347df1d8af1c5181befd63e",
+          "inputDigest": "889a36b650658e366eff6580f61200af49b304bafac921f39c33dbcb736f6536",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0-20260923.review.json",
             "bytes": 4710,
-            "sha256": "41b716a89c806b14c25774ca08a1b1321c2a2683311fc074f6e6cbf948200997"
+            "sha256": "da1a3089ec9afbef66c2f6214cd111cadbde0b17a5200aa5031c479551c497ac"
           },
           "partId": "8-mounted-0",
           "outcome": "supported"
@@ -5714,11 +5714,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows discrete-options controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "a3be74a381d7e2de5baa5e625a4ad84cfb7151b74faca95bca293043248ac36c",
+          "inputDigest": "9734b87987f928e45b5ca5cc32163ce52e47ccc21be69ef623d77b41e3c8c22c",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1-20260923.review.json",
             "bytes": 4712,
-            "sha256": "c3cf17f097375d428e360631cc6c776093d442d2d282a74ef369c89fbed0d8c7"
+            "sha256": "f987754b8be8f07c42b594044bfb35b1ba0c12400f73f3a1dd40ac04bbd75005"
           },
           "partId": "8-mounted-1",
           "outcome": "supported"
@@ -5726,11 +5726,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows slider-boundaries-and-anchors controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "9b60b95de9ac219d61106a42db3c0bba9d4df52d67e7a165f5a79a738c7a8ca7",
+          "inputDigest": "a518b409f0eec982b52adf8f606aa7dd020addc74bc5d2b052be132082119209",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2-20260923.review.json",
             "bytes": 4725,
-            "sha256": "13c074445f7cbd5003d46538936d4ef271cba92e84cea8c59592d77548f09ab3"
+            "sha256": "3da51f0513efe3a38d620aadf41c64b92a58df76160ebf64339c29640870735d"
           },
           "partId": "8-mounted-2",
           "outcome": "supported"
@@ -5912,11 +5912,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Checked audit/rl-sim2real.md:legged-locomotion:17 authored parameters and units against the corrected article and pinned model file; these chosen values are not measurements. The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
-          "inputDigest": "6612c6f07aabff2944f12ed54ef0e6ce232410ca4b0c12dc13acc9aab0a9d53a",
+          "inputDigest": "ee5dca06efcf6870bd750950a3a4ea92c26ecf5f129f16672de05e678654de15",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters-20260923.review.json",
             "bytes": 4762,
-            "sha256": "ac27f938948c3b5ad249cf181e1bc30f08528a766223bef006b815d4634238fc"
+            "sha256": "7a64ad8577a0767bee1b4dba10fa0fb0e9443fd53e33aa041172d846a48b2c87"
           },
           "partId": "17-parameters",
           "outcome": "supported"
@@ -5924,11 +5924,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Compared exact finite numeric result, units and rounding for audit/rl-sim2real.md:legged-locomotion:17 with independently calculated arithmetic; this remains a bounded illustrative model. The finite calculation and display rounding follow the explicit model inputs; numerical agreement is not a source truth claim.",
-          "inputDigest": "7c01d4d15a86cd03cb575f1b091fea3c47fa0b41812d061ada23e6597a9af934",
+          "inputDigest": "8f69795112073d92d6b9a58d505b1360216c240c1e47930287defe6029cace46",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation-20260923.review.json",
             "bytes": 4762,
-            "sha256": "98c6c32d554c819d440385f3116e81127535c97a4457bcede873365e5f2528a9"
+            "sha256": "5b3841769f42ff97716775d3e01d5f0556a0180ca9bef8e43b71814f540ffa7b"
           },
           "partId": "17-derivation",
           "outcome": "supported"
@@ -5936,11 +5936,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 4 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "7c624f00fc81b3edd9f7eb9a82fa1e002fc00c46cc281be8517ebe9ecd11c831",
+          "inputDigest": "b4bda9a61b25d475e15534636b0918f666bc04f97165512d498dbff2c7500762",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0-20260923.review.json",
             "bytes": 4729,
-            "sha256": "052129265295eda6f43f5f1349c9a0f3c902a0b3fa0ce9f750c588fdc9c20421"
+            "sha256": "d42e8eeb168d6f1c7cdd719a0d2540847dfdb05038a580e98ec8a83ebcc122ae"
           },
           "partId": "17-mounted-0",
           "outcome": "supported"
@@ -5948,11 +5948,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows discrete-options controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "cf19f2a228951cb821da0c8ff07f91b555e46f6cd00e45d76e899345f484f911",
+          "inputDigest": "7b6f417144227acbcafc045e41ebd5eee90010b017ca2f4f2c2b794131202c13",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1-20260923.review.json",
             "bytes": 4731,
-            "sha256": "fcc9aa90ecd23750f7c55f5fbee17c2e65c1001d343f7d12d56c7d98cc669a3d"
+            "sha256": "7106793a74631681326ce9c15cfc1dc50f2f72c817fdbd0734d16a94e78dd2b7"
           },
           "partId": "17-mounted-1",
           "outcome": "supported"
@@ -5960,11 +5960,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows slider-boundaries-and-anchors controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "24b437815757acfa8f9e580009c7d60ca2c81a476db2742e4355e3b39fcb3cd4",
+          "inputDigest": "222c3f36f401ea71eb350dd7cc39f379bd08700398051b211a59237fbb85e6c0",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2-20260923.review.json",
             "bytes": 4744,
-            "sha256": "feb917abedae949860119a38798a6e07afb4e9fa8049e4d4c3a704d76826870c"
+            "sha256": "27a9679336aa0661b2187fbb7393a237d32da5aa9622e9fe34caee99e7c5089c"
           },
           "partId": "17-mounted-2",
           "outcome": "supported"
@@ -7332,16 +7332,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -7697,7 +7697,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r4-parameters.receipt.json",
           "bytes": 3765,
-          "sha256": "24356b9ede522eddd171d52bd80492d5b27ff4f6ba7ef8b659e1d9508a574861"
+          "sha256": "c1a1a8726b5d1dfb4a212d9cef469fff7174f6ca841382306ee89d1f32af1fff"
         }
       },
       "bases": [],
@@ -7729,16 +7729,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -7950,7 +7950,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r4-default.receipt.json",
           "bytes": 3765,
-          "sha256": "7400393ec5f48d9b27e394e542fa37a6568b9f6d0faa23465f9d7d3bf78044c5"
+          "sha256": "47431e80c4d1aa28e47577511d0d6fb70f405380a21bf20280689009a83d7b49"
         }
       },
       "bases": [
@@ -7997,16 +7997,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -8218,7 +8218,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r4-mounted.receipt.json",
           "bytes": 5612,
-          "sha256": "6776cd9396e41f9b5c4b17adff317ec4b4dd85f06237396514a3753d2c00331f"
+          "sha256": "79da99829933827b5e02cec468ff1a6b40bf5ac8c52a4f5ae8dd2b98ec44ce10"
         }
       },
       "bases": [
@@ -8321,16 +8321,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -8686,7 +8686,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-parameters.receipt.json",
           "bytes": 3765,
-          "sha256": "24356b9ede522eddd171d52bd80492d5b27ff4f6ba7ef8b659e1d9508a574861"
+          "sha256": "c1a1a8726b5d1dfb4a212d9cef469fff7174f6ca841382306ee89d1f32af1fff"
         }
       },
       "bases": [],
@@ -8718,16 +8718,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -8939,7 +8939,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-default.receipt.json",
           "bytes": 3765,
-          "sha256": "7400393ec5f48d9b27e394e542fa37a6568b9f6d0faa23465f9d7d3bf78044c5"
+          "sha256": "47431e80c4d1aa28e47577511d0d6fb70f405380a21bf20280689009a83d7b49"
         }
       },
       "bases": [
@@ -8986,16 +8986,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -9207,7 +9207,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-freeze.receipt.json",
           "bytes": 3765,
-          "sha256": "0b46b955ab0b987e65cd67483154c8d89fefc235131c985f92663d12ef4214b0"
+          "sha256": "2a1ca3213da73fa73ecb5705050e7dc23596939ba26f41d40904f604fa4e3751"
         }
       },
       "bases": [
@@ -9254,16 +9254,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -9475,7 +9475,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-prance.receipt.json",
           "bytes": 3765,
-          "sha256": "8e31da72bbe7926dea6ddae01f2163cb1d03815ef7d2bcfec9575590f6cf247a"
+          "sha256": "d10698058856e1770fa8afed578d9c3eba277e43d74bdc7d9d0c100b07986402"
         }
       },
       "bases": [
@@ -9522,16 +9522,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -9743,7 +9743,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-chatter.receipt.json",
           "bytes": 3765,
-          "sha256": "d00d830a639c923af714b321bf221e92efa9ade172aeb06d07f12d1fbfff86e1"
+          "sha256": "f1be68587e010799a900a677e4f52e1415cfe593f1387cabcf0a28ae1a86c0c8"
         }
       },
       "bases": [
@@ -9790,16 +9790,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -10011,7 +10011,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-dominanceCounterexample.receipt.json",
           "bytes": 3765,
-          "sha256": "2b75200f312fa6d00173494a24b657def44e9b9f8a6cb9cf00a6e406b8b79567"
+          "sha256": "982b6123f1f4306bc0316c451a504c2b912cf609e1f03c2641ddcc22298dbc34"
         }
       },
       "bases": [
@@ -10058,16 +10058,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -10279,7 +10279,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-priorityTie.receipt.json",
           "bytes": 3765,
-          "sha256": "4cca0a108ad47f174d9de118e95e69dc7b90258e83fd224974a97ab4f588ced6"
+          "sha256": "33245261ce50d305ce086570bb47b57b73091187041c5fdb2135b16bb3e45b29"
         }
       },
       "bases": [
@@ -10326,16 +10326,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -10547,7 +10547,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-freeze.receipt.json",
           "bytes": 4673,
-          "sha256": "3bdad779829315e7bf8f93f029f0bd0ec6c4caa5fa1f062ac6508a11e03afdde"
+          "sha256": "2654038bd9e1028b52d65063896066bbc473753a688953fa36b86d535efe02a3"
         }
       },
       "bases": [
@@ -10623,16 +10623,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -10844,7 +10844,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-prance.receipt.json",
           "bytes": 4673,
-          "sha256": "bb2d31289233592e64350a2cfdd57536b1860a53e56293a14c2b8c3fa10d5a31"
+          "sha256": "5ec68ca762dee3fe7b96beebc124e092bcf90cce3187b0c712e0ff59b91c20f6"
         }
       },
       "bases": [
@@ -10920,16 +10920,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -11141,7 +11141,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-chatter.receipt.json",
           "bytes": 4682,
-          "sha256": "8e0954898e346044d26d9a8bab6a3cb74e1759c637519b1a3c703f81e7cb82d6"
+          "sha256": "4f181e665bb80e3431d5bac5f0cb4ec128ac2e302c83d829bfaedb2cc5572cde"
         }
       },
       "bases": [
@@ -11217,16 +11217,16 @@
         {
           "file": {
             "path": "components/interactive/reward-shaping.tsx",
-            "bytes": 16272,
-            "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+            "bytes": 15814,
+            "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
           },
           "id": "source:components/interactive/reward-shaping.tsx",
           "offset": 0,
-          "length": 16272,
-          "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+          "length": 15814,
+          "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+            "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
           }
         },
         {
@@ -11438,7 +11438,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r5-observed-reset.receipt.json",
           "bytes": 4639,
-          "sha256": "b633c5b4ae13653f3fbbe5a559f390455b00da015c7587362bb5ad643c04202e"
+          "sha256": "7be408e25f8381594753a95dfb3f7af86b6a3a2125f2ab10b57e6f93ce51e896"
         }
       },
       "bases": [
@@ -11514,16 +11514,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -11745,7 +11745,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-parameters.receipt.json",
           "bytes": 3406,
-          "sha256": "8a28334f29b797b1354c8e158add680294c20eaff2f78da189d419dd86406da1"
+          "sha256": "aecc3fbba3545ea1432a675a73a8b8facde89d3baf3c3aef803b8a8614f77ef7"
         }
       },
       "bases": [],
@@ -11777,16 +11777,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -11979,7 +11979,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-generation-0.receipt.json",
           "bytes": 3406,
-          "sha256": "3b15eea334a38e833510ea4f80dca06eb25b000f3856543837e58bbf40b9859e"
+          "sha256": "e153858cb0f3d931cdfff476f171aecf3cc932de8a97306965b388985da0bc5e"
         }
       },
       "bases": [
@@ -12026,16 +12026,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -12257,7 +12257,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-generation-1.receipt.json",
           "bytes": 3406,
-          "sha256": "331abb10bb20966d2ba838ca0cf7859318180054408b59933878787c04c04b69"
+          "sha256": "98053e590c2b9050730bb1b1cc4243d4786c3bfa3c3b72342c0854d8a1683cb0"
         }
       },
       "bases": [
@@ -12304,16 +12304,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -12569,7 +12569,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-generation-2.receipt.json",
           "bytes": 3406,
-          "sha256": "fb5991c3704d301f6ea4ed5381a039480be299b1601a7df469e298a0bfc11f67"
+          "sha256": "bd02eff43e4d5297399a59d8a61c9742c454bad24736519c33fe3c932d7c852e"
         }
       },
       "bases": [
@@ -12616,16 +12616,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -12818,7 +12818,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-0.receipt.json",
           "bytes": 4496,
-          "sha256": "25c155c4848b6f43e09b70909d48bee1fb387b46616fe1a9b8acfed33427abe0"
+          "sha256": "c0b16d0266017d05d3f07044cf0e376d8785797b98622e956f25ff50f6b6d0d2"
         }
       },
       "bases": [
@@ -12898,16 +12898,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -13129,7 +13129,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-1.receipt.json",
           "bytes": 4507,
-          "sha256": "16e332e6ac1bf41130e6a655c0d0c6fe231a4eeb8c851f45b111677e3d9295a5"
+          "sha256": "e104c89283fbc2712a814064d9f9928f92b64a9ce4689203715f2c5d529d2833"
         }
       },
       "bases": [
@@ -13209,16 +13209,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -13474,7 +13474,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-2.receipt.json",
           "bytes": 4502,
-          "sha256": "60396de7f1dc4793c344254bcd6a900b7f78645bb20207e34a9d65d6775dee33"
+          "sha256": "42b5cfc28698015ba245cae81ad318af6885f069ca4abed914eec3ea752e467b"
         }
       },
       "bases": [
@@ -13554,16 +13554,16 @@
         {
           "file": {
             "path": "components/interactive/eureka-loop.tsx",
-            "bytes": 8062,
-            "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+            "bytes": 7697,
+            "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
           },
           "id": "source:components/interactive/eureka-loop.tsx",
           "offset": 0,
-          "length": 8062,
-          "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+          "length": 7697,
+          "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+            "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
           }
         },
         {
@@ -13756,7 +13756,7 @@
         "receipt": {
           "path": "audit/evidence/reward-local-20260923/r11-observed-reset.receipt.json",
           "bytes": 4483,
-          "sha256": "9cd30899bb19863c85de942d6b268c480d53a99e56a4700f142009d21251251d"
+          "sha256": "10e5426b1b26a6e536d532484bc9347a3a04f3a69c2003e0e34ed4c44facef8a"
         }
       },
       "bases": [
@@ -13836,16 +13836,16 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "source:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+            "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
           }
         },
         {
@@ -13977,7 +13977,7 @@
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s23-parameters.receipt.json",
           "bytes": 3868,
-          "sha256": "a8fc1a8d8d74f5861ee0ab6c01119ff3650aa4d66c9a443db475a32d4f36b688"
+          "sha256": "12d8d5574e20a478f361043f69a77d6a4302311eb0ca1ff4fdaba6127191c3a2"
         }
       },
       "bases": [],
@@ -14009,16 +14009,16 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "source:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+            "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
           }
         },
         {
@@ -14148,7 +14148,7 @@
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s23-default.receipt.json",
           "bytes": 3868,
-          "sha256": "1b3ec2a0d7acede3a4c34a16ddd158329489803d998c6cc2f3491b4fed84d0b8"
+          "sha256": "f79c2214016141562b699e8ae532f784489c0bafcf013d3a17884a72d63d6281"
         }
       },
       "bases": [
@@ -14195,16 +14195,16 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "source:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+            "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
           }
         },
         {
@@ -14334,7 +14334,7 @@
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s23-wide.receipt.json",
           "bytes": 3868,
-          "sha256": "40b3aaf2d635361262ac0f617f80327c10235a96c7ecd6ee782a9b551bc13127"
+          "sha256": "61be68fdbcf4b7b7488c54a58c7d90a8c0ccdeb22d5862f7848b6ab120c440ca"
         }
       },
       "bases": [
@@ -14381,16 +14381,16 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "source:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+            "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
           }
         },
         {
@@ -14520,7 +14520,7 @@
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s23-tail.receipt.json",
           "bytes": 3868,
-          "sha256": "b3b71d8a15492172a9136aee07e37e874709233d82d639a9080d97af4b76ed55"
+          "sha256": "82e2b62f82addaaed484818f4b01b55e2fecccdd574112be383ea852eafaac37"
         }
       },
       "bases": [
@@ -14589,28 +14589,28 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "source:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+            "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
           }
         },
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "file:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
         },
         {
           "file": {
@@ -14727,8 +14727,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s23-observed-default.receipt.json",
-          "bytes": 6944,
-          "sha256": "df0cd01ec9ff4dcf31ee7d3653989ea0bf9dece47ff92be33edf22a180cfe1e2"
+          "bytes": 6942,
+          "sha256": "eb97e7c48d678c0a9b4c4f870fd1ffe9ff567e9811aa72d37cd63f69b7d41dda"
         }
       },
       "bases": [
@@ -14869,28 +14869,28 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "source:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+            "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
           }
         },
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "file:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
         },
         {
           "file": {
@@ -15007,8 +15007,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s23-observed-wide.receipt.json",
-          "bytes": 8208,
-          "sha256": "c34d127da6d808dcd862366c2e1b09be726ea519228edfb01100d278c9d14817"
+          "bytes": 8206,
+          "sha256": "26c4936552c79fd9258aec2e999f3473ed65ece5d8bfaec5f490b4a3d745b067"
         }
       },
       "bases": [
@@ -15184,28 +15184,28 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "source:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+            "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
           }
         },
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "file:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
         },
         {
           "file": {
@@ -15322,8 +15322,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s23-observed-tail.receipt.json",
-          "bytes": 7019,
-          "sha256": "68f6ecdc8c73062ec3e8cba8e6c691058ca23d5bf03f8e2e74b779fe9f686752"
+          "bytes": 7017,
+          "sha256": "60c93050457ad730cb357f896e739841eb5df062729409280b0893688f196d9e"
         }
       },
       "bases": [
@@ -15442,16 +15442,16 @@
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "source:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+            "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
           }
         },
         {
@@ -15601,8 +15601,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s24-parameters.receipt.json",
-          "bytes": 3864,
-          "sha256": "bbc26b02b0c76df8c92418306071afce0c32863082abad06a6f32e60bdf086a7"
+          "bytes": 3862,
+          "sha256": "5cae35be643f77c59d1099253b289a1780bd7cd6e102c65a59ff573b25a09d5a"
         }
       },
       "bases": [],
@@ -15634,16 +15634,16 @@
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "source:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+            "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
           }
         },
         {
@@ -15847,8 +15847,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s24-zero.receipt.json",
-          "bytes": 3864,
-          "sha256": "fec7addd0587dc661a6ff335afe3630e599710e552019b0ddbf6d0ed828133da"
+          "bytes": 3862,
+          "sha256": "e57c12adbc163572f6c7e6a06d5f434a4cf91461d94f1f3fc3c01de7d166e316"
         }
       },
       "bases": [
@@ -15888,16 +15888,16 @@
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "source:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+            "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
           }
         },
         {
@@ -16101,8 +16101,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s24-default.receipt.json",
-          "bytes": 3864,
-          "sha256": "d6c3943e04bdf5b6dfea20751a3ab72dbcac5644e25e7d1f32b4324adf94d246"
+          "bytes": 3862,
+          "sha256": "875d991948bbe4f6164d0ac831e60f5a532afd6d2f054502ab5cb269cbf6a6f7"
         }
       },
       "bases": [
@@ -16142,16 +16142,16 @@
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "source:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+            "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
           }
         },
         {
@@ -16355,8 +16355,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s24-high.receipt.json",
-          "bytes": 3864,
-          "sha256": "71c53d642b82376de77d946d22e0aeb7c0cec69978a831ca3d58396980333871"
+          "bytes": 3862,
+          "sha256": "576fa4ae16f591e8a66fc067652b013560778cfb6d053a3914a4eef8ae56d262"
         }
       },
       "bases": [
@@ -16418,27 +16418,27 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "file:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
         },
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "source:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+            "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
           }
         },
         {
@@ -16631,8 +16631,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s24-observed-default.receipt.json",
-          "bytes": 6815,
-          "sha256": "1fc1d1a54fde76e78ddf542b6c4c9b28a0f5efb7709fac79ad222823af9b6915"
+          "bytes": 6813,
+          "sha256": "0d8685e8d3ade82cfd54cf89d2944b390cde2019fcb82e7096c15acf09e30328"
         }
       },
       "bases": [
@@ -16758,27 +16758,27 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "file:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
         },
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "source:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+            "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
           }
         },
         {
@@ -16971,8 +16971,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s24-observed-zero.receipt.json",
-          "bytes": 5748,
-          "sha256": "628fd07dcaac1672e41a58a5c136e25d8fb97a0c6f17cf3c01daec36d7d67f28"
+          "bytes": 5746,
+          "sha256": "ca0ef614aa799167a3874771aae275ccbf5b867d3665e6010cb785d548282b18"
         }
       },
       "bases": [
@@ -17067,27 +17067,27 @@
         {
           "file": {
             "path": "components/interactive/friction-transfer.tsx",
-            "bytes": 16495,
-            "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+            "bytes": 15549,
+            "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
           },
           "id": "file:components/interactive/friction-transfer.tsx",
           "offset": 0,
-          "length": 16495,
-          "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+          "length": 15549,
+          "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
         },
         {
           "file": {
             "path": "components/interactive/teacher-student.tsx",
-            "bytes": 10601,
-            "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+            "bytes": 9905,
+            "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
           },
           "id": "source:components/interactive/teacher-student.tsx",
           "offset": 0,
-          "length": 10601,
-          "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+          "length": 9905,
+          "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+            "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
           }
         },
         {
@@ -17280,8 +17280,8 @@
         },
         "receipt": {
           "path": "audit/evidence/sim2real-local-20260923/native-s24-observed-high.receipt.json",
-          "bytes": 5750,
-          "sha256": "5a75251598d1d5401665f61d5021b6e59fe3a13389641998ba2c8d0fd903eab5"
+          "bytes": 5748,
+          "sha256": "a7223f8b2c2f211e7af34d99396f9e4c81c5454da5b0b0e4713e65a051e1dede"
         }
       },
       "bases": [
@@ -17354,16 +17354,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -17504,7 +17504,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-parameters.receipt.json",
           "bytes": 3441,
-          "sha256": "15b9d85cb761b66af1fd52e8ffb2520f0dbb993e2d5f0c9221edbad7edc40aad"
+          "sha256": "0a14969164f1fa1c79d6a40d904aeb600a4d8058a7fdd6ca55721aa254e4cccb"
         }
       },
       "bases": [],
@@ -17536,16 +17536,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -17870,7 +17870,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-64-off.receipt.json",
           "bytes": 3441,
-          "sha256": "ba4d1a9b93ea86310d80104b31bbfbf724d5e799d9704e8d3765ac12b4875948"
+          "sha256": "03a1b0d9aac02236cac13417d4a71e464adc4c579536d0046b31747c5091b181"
         }
       },
       "bases": [
@@ -17924,16 +17924,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -18258,7 +18258,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-64-on.receipt.json",
           "bytes": 3441,
-          "sha256": "edfc1df031b288ca982c8e2e7f4072145e840eb1ff245dc3c3153f8b635fea7a"
+          "sha256": "042405028d8ea702aac28fb21bb641f7b82e07b44d32600503509288cb67c8a9"
         }
       },
       "bases": [
@@ -18312,16 +18312,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -18646,7 +18646,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-4096-off.receipt.json",
           "bytes": 3441,
-          "sha256": "e28f691ff98a53010bdddfe7fc9df6f0d3c2e2886fdc0f546dde7bf5d5175b19"
+          "sha256": "9e6148f79b3442dc52fd801d77190a0bc9e1cb9daa375c37c0f65188937768e9"
         }
       },
       "bases": [
@@ -18700,16 +18700,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -19034,7 +19034,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-4096-on.receipt.json",
           "bytes": 3441,
-          "sha256": "863a0380a0dfe5d7593943ffbc6c3c0f3d5e6ba92927639cac0bb91da0dfc788"
+          "sha256": "0183d793e25a974d2a279f383ef671975f0d0f7bc3071ac9ff48ea401e1df7c7"
         }
       },
       "bases": [
@@ -19088,16 +19088,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -19422,7 +19422,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-16384-off.receipt.json",
           "bytes": 3441,
-          "sha256": "b09e0a8828f4fc104f8b3e2f0bab5f41f7b125b229492d9beda6ba4f9bb1b620"
+          "sha256": "02832039b9c711e05a4c008cbe22c91fe7a9fb0c293dd3b8d562c616ce3317fd"
         }
       },
       "bases": [
@@ -19476,16 +19476,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -19810,7 +19810,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-16384-on.receipt.json",
           "bytes": 3441,
-          "sha256": "4b362d8ba6c192f3cc2ae91b84712d9f5ed4303eefb9dbdf074f55cf2ef0e6b6"
+          "sha256": "c781c637ee053058b528fde5f2b72e2cbf16f632988e5314e51be649f03759ae"
         }
       },
       "bases": [
@@ -19864,16 +19864,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -20209,7 +20209,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-observed-64-off.receipt.json",
           "bytes": 5224,
-          "sha256": "6f17ea5d5d7c76f1e4fc764bce0b2f6b9e92e618b3b304caab3bc803e5246c04"
+          "sha256": "38b45807027b77f4393bef65e3a1f048aa3cfa69041d2e4af5ca91c943966b7f"
         }
       },
       "bases": [
@@ -20304,16 +20304,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -20649,7 +20649,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-observed-64-on.receipt.json",
           "bytes": 5221,
-          "sha256": "a6e93be0497294f6b6a0ded7c41f5dfb974941d8ea2b3a53adf611774ac483c2"
+          "sha256": "1d1beb526ede5bea1663eeafde1858f894634ba722e2c26ca1578c65ec296ef8"
         }
       },
       "bases": [
@@ -20744,16 +20744,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -21089,7 +21089,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-observed-4096-off.receipt.json",
           "bytes": 7856,
-          "sha256": "1a7531bb29374098cc36ffec90f532153bcd50db4f33a3f0bba39e5678bb97cf"
+          "sha256": "b00a9ff8fc77b2d559273e7d5a44f2c3da49e2553460041c7d46eda9407df5e1"
         }
       },
       "bases": [
@@ -21262,16 +21262,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -21607,7 +21607,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-observed-4096-on.receipt.json",
           "bytes": 5237,
-          "sha256": "fdb8ca83529cd8f6941ca8f3d71e1b233291e06e35d163096097aff196fd8cce"
+          "sha256": "9d313e60fab19c7366befed3c5dfa949a6f4f21744d8d73d321e7a4971900dd1"
         }
       },
       "bases": [
@@ -21702,16 +21702,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -22047,7 +22047,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-observed-16384-off.receipt.json",
           "bytes": 5231,
-          "sha256": "b86125692b3e286fe5ea625107f269f94e407b28c618e04342a927b91edbf9e5"
+          "sha256": "e0a0d6815a667bee7490744a1be56823a6006c61eb5be16b245433ad1f7fd0a6"
         }
       },
       "bases": [
@@ -22142,16 +22142,16 @@
         {
           "file": {
             "path": "components/interactive/training-time-chart.tsx",
-            "bytes": 18483,
-            "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+            "bytes": 17843,
+            "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
           },
           "id": "source:components/interactive/training-time-chart.tsx",
           "offset": 0,
-          "length": 18483,
-          "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+          "length": 17843,
+          "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+            "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
           }
         },
         {
@@ -22487,7 +22487,7 @@
         "receipt": {
           "path": "audit/evidence/parallel-local-20260923/bound-p18-observed-16384-on.receipt.json",
           "bytes": 5207,
-          "sha256": "8aa0c40d468c05bb728240597f7600f71930d4213a9d5293b4afdd725560d703"
+          "sha256": "55583934169387720ea56996d99971ab20dc1cf854a82561878e0832e47d2fac"
         }
       },
       "bases": [
@@ -47647,16 +47647,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -47831,7 +47831,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters.receipt.json",
           "bytes": 3009,
-          "sha256": "a890156139ac1629a5d97209788b978acaea809551e32c2862ff85e21ed226f4"
+          "sha256": "0721145991508170cf64821ea8c7cc3a3af040337777c8f296e40be4642f2c58"
         }
       },
       "bases": [],
@@ -47859,16 +47859,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -48000,7 +48000,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation.receipt.json",
           "bytes": 3009,
-          "sha256": "f068c1b3b9e1d21868554b26e4c55bf7acd466564d5781284de9a96dd8d0a47c"
+          "sha256": "73403267c0f5c525dafb3cd02e11f8ab787ca87ab39c8f7c032c27595550925e"
         }
       },
       "bases": [
@@ -48050,16 +48050,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -48191,7 +48191,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0.receipt.json",
           "bytes": 6874,
-          "sha256": "af5879cd7869884931a266ff72fd557bd5377270564f58f60af1f6c72bded5e3"
+          "sha256": "5f7a12539db2e7b60872fe063269e258a483cf54ff94adc23ec659c55eb0f127"
         }
       },
       "bases": [
@@ -48367,16 +48367,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -48508,7 +48508,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1.receipt.json",
           "bytes": 5025,
-          "sha256": "8d427394913a8a1c8458071a742319fe360a721a8188d6f05aacfe3664feb433"
+          "sha256": "6e835992b3aca68d42ff2c220a2dfb76d825c9c2c34120177d216814d755403d"
         }
       },
       "bases": [
@@ -48622,16 +48622,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -48763,7 +48763,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2.receipt.json",
           "bytes": 5137,
-          "sha256": "c893152a771407e8e5a5bd1cbd5f2d409cb09c7cf61b2bf658437514e35a12bd"
+          "sha256": "ddf36508a2ccd2ede29ad42e5ce6f79a33fe88db06dc2d70bfdff6b468b188ff"
         }
       },
       "bases": [
@@ -48877,16 +48877,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -49061,7 +49061,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters.receipt.json",
           "bytes": 3009,
-          "sha256": "a890156139ac1629a5d97209788b978acaea809551e32c2862ff85e21ed226f4"
+          "sha256": "0721145991508170cf64821ea8c7cc3a3af040337777c8f296e40be4642f2c58"
         }
       },
       "bases": [],
@@ -49089,16 +49089,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -49230,7 +49230,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation.receipt.json",
           "bytes": 3009,
-          "sha256": "f068c1b3b9e1d21868554b26e4c55bf7acd466564d5781284de9a96dd8d0a47c"
+          "sha256": "73403267c0f5c525dafb3cd02e11f8ab787ca87ab39c8f7c032c27595550925e"
         }
       },
       "bases": [
@@ -49280,16 +49280,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -49421,7 +49421,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0.receipt.json",
           "bytes": 6874,
-          "sha256": "af5879cd7869884931a266ff72fd557bd5377270564f58f60af1f6c72bded5e3"
+          "sha256": "5f7a12539db2e7b60872fe063269e258a483cf54ff94adc23ec659c55eb0f127"
         }
       },
       "bases": [
@@ -49597,16 +49597,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -49738,7 +49738,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1.receipt.json",
           "bytes": 5025,
-          "sha256": "8d427394913a8a1c8458071a742319fe360a721a8188d6f05aacfe3664feb433"
+          "sha256": "6e835992b3aca68d42ff2c220a2dfb76d825c9c2c34120177d216814d755403d"
         }
       },
       "bases": [
@@ -49852,16 +49852,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16735,
-            "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+            "bytes": 16220,
+            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16735,
-          "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+          "length": 16220,
+          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
           }
         },
         {
@@ -49993,7 +49993,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2.receipt.json",
           "bytes": 5137,
-          "sha256": "c893152a771407e8e5a5bd1cbd5f2d409cb09c7cf61b2bf658437514e35a12bd"
+          "sha256": "ddf36508a2ccd2ede29ad42e5ce6f79a33fe88db06dc2d70bfdff6b468b188ff"
         }
       },
       "bases": [

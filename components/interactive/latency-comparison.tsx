@@ -3,6 +3,13 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   HANDOFF_TICK,
   MAX_DELAY_MS,
   MIN_DELAY_MS,
@@ -19,7 +26,6 @@ import {
   type ExecutionStatus,
 } from '@/lib/latency-chunking';
 import { EDGE_DASH, SERIES_DASH } from '@/lib/semantic-mark-cues';
-import { cx } from '@/lib/utils';
 
 /**
  * LatencyComparison: why temporal ensembling breaks under inference delay
@@ -185,24 +191,12 @@ export function LatencyComparison({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
-            htmlFor={delayId}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor={delayId} value={`d = ${formatMs(delayMs)}`}>
             Injected inference delay
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              d = {formatMs(delayMs)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={delayId}
             type="range"
@@ -216,24 +210,15 @@ export function LatencyComparison({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       {/* Panel 1: task throughput against injected delay. */}
-      <svg
+      <PlotStage
         viewBox={`0 0 ${CHART.width} ${CHART.height}`}
-        role="img"
         aria-label={`Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls to zero while RTC is fixed at 100 percent by assumption. Current delay ${formatMs(delayMs)}.`}
         aria-describedby={`${delayId}-throughput-description`}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Documented TE failure window. */}
         <rect
@@ -393,7 +378,7 @@ export function LatencyComparison({
             real-time chunking
           </text>
         </g>
-      </svg>
+      </PlotStage>
 
       <ChartDescription
         id={`${delayId}-throughput-description`}
@@ -412,12 +397,11 @@ export function LatencyComparison({
       />
 
       {/* Panel 2: executed action across one chunk hand-off. */}
-      <svg
+      <PlotStage
         viewBox={`0 0 ${TRACE.width} ${TRACE.height}`}
-        role="img"
         aria-label={`Trace of the executed action across a chunk hand-off at ${formatMs(delayMs)} delay. The temporal ensembling trace ${offMode ? 'leaves both valid modes' : 'stays on the committed mode'}; the real-time chunking trace stays flat on the committed mode.`}
         aria-describedby={`${delayId}-trace-description`}
-        className="mt-2 block w-full"
+        className="mt-2"
       >
         {/* Invalid middle band: between the two valid modes. */}
         <rect
@@ -575,7 +559,7 @@ export function LatencyComparison({
             </text>
           </g>
         )}
-      </svg>
+      </PlotStage>
 
       <ChartDescription
         id={`${delayId}-trace-description`}
@@ -592,7 +576,7 @@ export function LatencyComparison({
         description={traceDescription}
       />
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">d = {formatMs(delayMs)}:</span>{' '}
         <span className="text-text-dim">temporal ensembling</span>{' '}
         <span data-testid="te-throughput-readout" className="text-accent">
@@ -606,7 +590,7 @@ export function LatencyComparison({
           {Math.round(rtc * 100)}%
         </span>{' '}
         <span className="text-ok">holding</span>
-      </p>
+      </InstrumentReadout>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Deterministic toy, not measured throughput. This qualitative model
         illustrates a possible cross-mode hand-off; its percentages, transition
@@ -614,6 +598,6 @@ export function LatencyComparison({
         average task throughput across six tasks at +0, +100, and +200 ms of
         added delay. The slider extends beyond those tested settings.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

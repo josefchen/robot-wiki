@@ -1,7 +1,13 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   ACTIONS,
   INITIAL_STATE,
@@ -210,12 +216,11 @@ export function ActionConditioning({
           Rollout {panel.toUpperCase()}: {actionLabel(action).toLowerCase()}
           <span> ({actionDescription(action)})</span>
         </div>
-        <svg
+        <PlotStage
           viewBox={`0 0 ${width} ${SCENE_H + 16}`}
-          role="img"
           aria-label={`Rollout ${panel.toUpperCase()}: predicted frames under the action ${actionLabel(action)}, ${conditioning} conditioning.`}
           aria-describedby={descriptionId}
-          className="mt-1.5 block w-full"
+          className="mt-1.5"
         >
           {frames.slice(1).map((state, i) => {
             const k = i + 1;
@@ -235,16 +240,13 @@ export function ActionConditioning({
               </g>
             );
           })}
-        </svg>
+        </PlotStage>
       </div>
     );
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx('rounded-md border border-border bg-surface p-4 sm:p-5', className)}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div role="group" aria-label="Conditioning strength">
           <div className="font-mono text-[11px] text-text-dim">
@@ -271,15 +273,7 @@ export function ActionConditioning({
             </button>
           </div>
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -291,15 +285,14 @@ export function ActionConditioning({
         <div className="font-mono text-[11px] text-text-dim">
           Shared initial frame
         </div>
-        <svg
+        <PlotStage
           viewBox={`0 0 ${SCENE_W} ${SCENE_H}`}
-          role="img"
           aria-label="Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left."
           aria-describedby={descriptionId}
-          className="mt-1.5 block w-full max-w-[240px]"
+          className="mt-1.5 max-w-[240px]"
         >
           <Scene state={INITIAL_STATE} />
-        </svg>
+        </PlotStage>
       </div>
 
       <div className="mt-4 grid gap-4">
@@ -307,7 +300,7 @@ export function ActionConditioning({
         {rolloutPanel('b', actionB, framesB)}
       </div>
 
-      <p className="mt-4 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">action sensitivity S =</span>{' '}
         <span data-testid="sensitivity-readout" className="text-accent">
           {sensitivity.toFixed(3)}
@@ -317,7 +310,7 @@ export function ActionConditioning({
         </span>{' '}
         <span data-testid="realism-readout">{realism.toFixed(2)}</span>{' '}
         <span className="text-text-dim">in both modes</span>
-      </p>
+      </InstrumentReadout>
       <p className="mt-1.5 font-sans text-xs leading-relaxed text-text-dim">
         {verdict}. S is the mean per-frame distance between the two predicted
         futures. Realism is reported separately because a weakly conditioned
@@ -342,6 +335,6 @@ export function ActionConditioning({
           { label: 'realism', value: realism.toFixed(2) },
         ]}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

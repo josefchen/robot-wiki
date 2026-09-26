@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "p18-cost-arithmetic",
-  "inputDigest": "979e2a146553909c38b7521743ae090403809f848b093280cf64f8e665bddf17",
+  "inputDigest": "4792d7572f274d6b21da89bc4c52319e8c52e8ff9003a486478a5812b078af06",
   "inventory": [
     {
       "id": "p18-rudin-flat-bound",

@@ -3,6 +3,14 @@
 import { useId, useMemo, useRef, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   DEFAULT_DR_RANGE,
   DEFAULT_REAL_MU,
   DR_RANGE_MAX,
@@ -19,7 +27,6 @@ import {
   pointCurvePoints,
   pointSuccess,
 } from '@/lib/sim2real';
-import { cx } from '@/lib/utils';
 
 /**
  * FrictionTransfer draws authored success curves, not trained policies.
@@ -118,24 +125,12 @@ export function FrictionTransfer({
   const labelX = labelAnchor === 'end' ? f(lineX - 8) : f(lineX + 8);
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_1fr_auto] lg:items-end">
         <div>
-          <label
-            htmlFor={`${uid}-real-mu`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor={`${uid}-real-mu`} value={formatMu(realMu)}>
             Real robot mu
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {formatMu(realMu)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-real-mu`}
             type="range"
@@ -150,15 +145,12 @@ export function FrictionTransfer({
           />
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-range`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`+/- ${formatMu(range)}`}
           >
             DR half-width
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              +/- {formatMu(range)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-range`}
             type="range"
@@ -172,15 +164,7 @@ export function FrictionTransfer({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
@@ -212,13 +196,12 @@ export function FrictionTransfer({
         </span>
       </div>
 
-      <svg
+      <PlotStage
         ref={svgRef}
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Task success against ground friction. Point policy ${formatPct(point)} vs DR policy ${formatPct(dr)} at mu ${formatMu(realMu)}.`}
         aria-describedby={`${uid}-ft-description`}
-        className="mt-3 block w-full"
+        className="mt-3"
         onPointerMove={(e) => {
           if (dragging) setRealMu(muFromPointer(e.clientX));
         }}
@@ -428,9 +411,9 @@ export function FrictionTransfer({
           stroke="var(--color-bg)"
           strokeWidth={1.5}
         />
-      </svg>
+      </PlotStage>
 
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-text-dim">
+      <InstrumentLegend className="mt-2">
         <span className="flex items-center gap-1.5">
           <span
             className="inline-block h-2 w-2 rounded-[1px]"
@@ -446,14 +429,14 @@ export function FrictionTransfer({
           trained over uniform mu in [{formatMu(MU_TRAIN - range)},{' '}
           {formatMu(MU_TRAIN + range)}]
         </span>
-      </div>
+      </InstrumentLegend>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">real mu {formatMu(realMu)}:</span>{' '}
         <span className="text-text">point {formatPct(point)}</span>{' '}
         <span className="text-text-dim">vs</span>{' '}
         <span className="text-accent">DR {formatPct(dr)}</span>
-      </p>
+      </InstrumentReadout>
       <p
         data-testid="ft-explanation"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
@@ -480,6 +463,6 @@ export function FrictionTransfer({
         rows={sampleRows}
         description={descriptionText}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -31,16 +31,16 @@
     {
       "file": {
         "path": "components/interactive/gait-diagram.tsx",
-        "bytes": 16735,
-        "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f"
+        "bytes": 16220,
+        "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
       },
       "id": "source:components/interactive/gait-diagram.tsx",
       "offset": 0,
-      "length": 16735,
-      "sha256": "a88f75292258ed13512c8771bc08e8c10ec9fc75d64d76f656d86789c6e8328f",
+      "length": 16220,
+      "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "932992ddaab8fe68c02aea9392827bb00e96ad6ee0b12df70d81507b7c1b53c2"
+        "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
       }
     },
     {

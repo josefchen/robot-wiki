@@ -35,16 +35,16 @@
     {
       "file": {
         "path": "components/interactive/eureka-loop.tsx",
-        "bytes": 8062,
-        "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376"
+        "bytes": 7697,
+        "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
       },
       "id": "source:components/interactive/eureka-loop.tsx",
       "offset": 0,
-      "length": 8062,
-      "sha256": "08e9609daffb1b96ae8a179069175cc46307786208dfaf96959fcaaeffa27376",
+      "length": 7697,
+      "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "71a9146c4f7b3ad85dee7377d1995b3e4f41e9c57ba10173dcae89c24f55d7ce"
+        "hash": "c55f273716fcbff4795a388dd25b8947cfc5a681f6c62ef8084188eed1e3c3ef"
       }
     },
     {

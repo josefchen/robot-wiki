@@ -3,6 +3,13 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   DENOISING_STEPS,
   MODE_CENTERS,
   convergenceAlpha,
@@ -10,7 +17,6 @@ import {
   meanDistanceToMode,
   samplesAtStep,
 } from '@/lib/denoising';
-import { cx } from '@/lib/utils';
 
 /**
  * DenoisingLoop: a step-through of diffusion sampling in action space.
@@ -85,24 +91,15 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="dl-step"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`k = ${step} / ${DENOISING_STEPS}`}
           >
             Denoising step
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              k = {step} / {DENOISING_STEPS}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="dl-step"
             type="range"
@@ -123,7 +120,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             type="button"
             onClick={() => move(-1)}
             disabled={step <= 0}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Step back
           </button>
@@ -133,28 +130,19 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             type="button"
             onClick={() => move(1)}
             disabled={step >= DENOISING_STEPS}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Step forward
           </button>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={() => setStep(defaultStep)}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={() => setStep(defaultStep)} />
         </div>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Scatter plot of 60 action samples in a 2D action space at denoising step ${step} of ${DENOISING_STEPS}. The cloud is ${statusLabel(step)}. Two target modes are marked with crosses.`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Axes */}
         <line
@@ -226,9 +214,9 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             </text>
           </g>
         ))}
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span data-testid="denoise-step-readout" className="text-accent">
           step {step} of {DENOISING_STEPS} ({statusLabel(step)})
         </span>{' '}
@@ -236,7 +224,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
         <span data-testid="denoise-dispersion-readout" className="text-accent">
           {dispersion.toFixed(2)}
         </span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -258,6 +246,6 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
         dimensions. An MSE policy would land between the modes; the diffusion
         policy commits each sample to one.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

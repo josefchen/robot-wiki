@@ -2,6 +2,7 @@
 
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
+import { InstrumentFrame, InstrumentReset, PlotStage } from '@/components/ui/instrument';
 import {
   APPLY_STEP,
   CONTROLLERS,
@@ -98,13 +99,7 @@ export function MpcVsRl({ className }: { className?: string }) {
   const buttonActive = 'border-accent bg-surface-2 text-accent';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <div role="group" aria-label="Perturbation" className="flex flex-wrap gap-1">
           {PERTURBATIONS.map((p) => (
@@ -123,24 +118,15 @@ export function MpcVsRl({ className }: { className?: string }) {
             </button>
           ))}
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => setSelected(DEFAULT_PERTURBATION)}
-          className={cx(buttonBase, buttonIdle)}
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={() => setSelected(DEFAULT_PERTURBATION)} />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         data-testid="perturbation-chart"
         aria-label={`Base-height deviation after a ${perturbation.label}. MPC: ${STATUS_META[perturbation.mpc.status].label}. RL policy: ${STATUS_META[perturbation.rl.status].label}.`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         <text
           x={PLOT.left}
@@ -274,7 +260,7 @@ export function MpcVsRl({ className }: { className?: string }) {
             {CONTROLLERS.rl.short}
           </text>
         </g>
-      </svg>
+      </PlotStage>
 
       <div className="mt-3 grid gap-4 lg:grid-cols-2">
         {(['mpc', 'rl'] as ControllerId[]).map((id) => {
@@ -337,6 +323,6 @@ export function MpcVsRl({ className }: { className?: string }) {
         rows={sampleRows}
         description={descriptionText}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

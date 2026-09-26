@@ -35,16 +35,16 @@
     {
       "file": {
         "path": "components/interactive/reward-shaping.tsx",
-        "bytes": 16272,
-        "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2"
+        "bytes": 15814,
+        "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
       },
       "id": "source:components/interactive/reward-shaping.tsx",
       "offset": 0,
-      "length": 16272,
-      "sha256": "5233d7a55958dbf6369e3859b264601f5677f543873c05a925296374a9ef0fb2",
+      "length": 15814,
+      "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "c1f1ce98c673a5dd0b22b9cdc28ad7fdb8a3919678d4f5968e43c975bf466190"
+        "hash": "1b3bc8c8727720e972911b27e2fc5e43de0c71238b713214145974b145531144"
       }
     },
     {

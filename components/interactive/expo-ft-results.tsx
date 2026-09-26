@@ -1,8 +1,14 @@
 'use client';
 
 import { useId } from 'react';
+import {
+  InstrumentFrame,
+  InstrumentHeader,
+  InstrumentLegend,
+  LegendItem,
+  PlotStage,
+} from '@/components/ui/instrument';
 import { ChartDescription } from '@/components/ui/chart-description';
-import { cx } from '@/lib/utils';
 
 /**
  * ExpoFtResults: grouped bar chart of the EXPO-FT paper's four-task
@@ -57,22 +63,13 @@ export function ExpoFtResults({ className }: { className?: string }) {
   const hatchTileId = `${uid}-hatch-tile`;
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
-      <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
-        EXPO-FT four-task comparison, successes out of 30 trials
-      </p>
-      <svg
+    <InstrumentFrame className={className}>
+      <InstrumentHeader label="EXPO-FT four-task comparison, successes out of 30 trials" />
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label="Successful trials out of 30 for five methods across four manipulation tasks"
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         <defs>
           <pattern
@@ -182,36 +179,40 @@ export function ExpoFtResults({ className }: { className?: string }) {
             </g>
           );
         })}
-      </svg>
+      </PlotStage>
 
       {/* Legend; swatches repeat the exact bar fills and tiles so the
           mapping survives desaturation. */}
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-text-dim">
+      <InstrumentLegend className="mt-2">
         {METHODS.map((method) => (
-          <span key={method.id} className="flex items-center gap-1.5">
-            <svg width={10} height={10} aria-hidden className="shrink-0">
-              <rect
-                width={10}
-                height={10}
-                fill={
-                  method.id === 'dsrl'
-                    ? `url(#${dotTileId})`
-                    : method.id === 'hil-serl'
-                      ? `url(#${hatchTileId})`
-                      : method.id === 'expo-ft'
-                        ? 'var(--color-text)'
-                        : method.id === 'hg-dagger'
-                          ? 'var(--color-border-strong)'
-                          : 'var(--color-text-dim)'
-                }
-                stroke="var(--color-border)"
-                strokeWidth={0.5}
-              />
-            </svg>
+          <LegendItem
+            key={method.id}
+            swatch={
+              <svg width={10} height={10} aria-hidden className="shrink-0">
+                <rect
+                  width={10}
+                  height={10}
+                  fill={
+                    method.id === 'dsrl'
+                      ? `url(#${dotTileId})`
+                      : method.id === 'hil-serl'
+                        ? `url(#${hatchTileId})`
+                        : method.id === 'expo-ft'
+                          ? 'var(--color-text)'
+                          : method.id === 'hg-dagger'
+                            ? 'var(--color-border-strong)'
+                            : 'var(--color-text-dim)'
+                  }
+                  stroke="var(--color-border)"
+                  strokeWidth={0.5}
+                />
+              </svg>
+            }
+          >
             {method.label}
-          </span>
+          </LegendItem>
         ))}
-      </div>
+      </InstrumentLegend>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         HIL-SERL (M), trained with additional samples on the two tasks where the
         standard budget was too small for learning to start, reaches 27/30 on
@@ -239,6 +240,6 @@ export function ExpoFtResults({ className }: { className?: string }) {
         }))}
         description="On the four shared comparison tasks EXPO-FT completes 30 of 30 trials on every task, against average successes of 18.8 for supervised finetuning, 20.5 for HG-DAgger, 19 for DSRL and 5.5 for HIL-SERL; the same paper notes HIL-SERL is highly reliable in its original evaluations and that this suite randomizes a substantially larger initial-state space, and with extra training samples HIL-SERL reaches 27 of 30 on Cube Pick and 13 of 30 on Pool Shot."
       />
-    </div>
+    </InstrumentFrame>
   );
 }

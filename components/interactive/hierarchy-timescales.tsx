@@ -2,7 +2,14 @@
 
 import { useId, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentHeader,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   HIERARCHY_SYSTEMS,
   HORIZON_MS,
@@ -94,17 +101,12 @@ export function HierarchyTimescales({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
-      <div
+    <InstrumentFrame className={className}>
+      <InstrumentHeader
         role="group"
         aria-label="Select a system overlay"
-        className="flex flex-wrap items-center gap-1.5"
+        className="gap-1.5"
+        meta={system.org}
       >
         {HIERARCHY_SYSTEMS.map((s) => (
           <button
@@ -123,34 +125,20 @@ export function HierarchyTimescales({
             {s.name}
           </button>
         ))}
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
-        <span className="ml-auto font-mono text-[10px] text-text-dim">
-          {system.org}
-        </span>
-      </div>
+        <InstrumentReset onClick={reset} />
+      </InstrumentHeader>
 
       <div className="mt-3">
-        <label
+        <ControlLabel
           htmlFor="hierarchy-playhead"
-          className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+          value={
+            <span data-testid="playhead-readout" aria-live="polite">
+              t = {playhead} ms
+            </span>
+          }
         >
           Playhead
-          <span
-            data-testid="playhead-readout"
-            aria-live="polite"
-            className="font-mono text-xs normal-case tracking-normal text-text"
-          >
-            t = {playhead} ms
-          </span>
-        </label>
+        </ControlLabel>
         <input
           id="hierarchy-playhead"
           type="range"
@@ -166,12 +154,11 @@ export function HierarchyTimescales({
         />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${height}`}
-        role="img"
         aria-label={`Schematic timescale lanes for ${system.name} by ${system.org}. Four drawn lanes combine reported output rates with illustrative cadences and a task-instruction initial condition. The playhead is at ${playhead} of ${HORIZON_MS} milliseconds; lanes light up only when their own update rate has elapsed.`}
         aria-describedby={descriptionId}
-        className="mt-2 block w-full"
+        className="mt-2"
       >
         {/* Lane baselines, labels, and update ticks. */}
         {system.lanes.map((lane, i) => {
@@ -255,7 +242,7 @@ export function HierarchyTimescales({
             {t === 0 ? '0 ms' : t === HORIZON_MS ? '2000 ms' : `${t}`}
           </text>
         ))}
-      </svg>
+      </PlotStage>
 
       <p className="mt-1 font-mono text-[10px] text-text-dim">
         blue ticks: updates fired at or before the playhead. dim ticks:
@@ -342,6 +329,6 @@ export function HierarchyTimescales({
           </p>
         )}
       </div>
-    </div>
+    </InstrumentFrame>
   );
 }

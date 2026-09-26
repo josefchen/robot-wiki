@@ -1,7 +1,14 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   DEFAULT_CANDIDATES,
   GOALS,
@@ -159,24 +166,15 @@ export function JepaPlanning({
     'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto_auto] sm:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="jp-budget"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`${candidateCount} sequences`}
           >
             Search budget
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              {candidateCount} sequences
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="jp-budget"
             type="range"
@@ -220,24 +218,15 @@ export function JepaPlanning({
           >
             Plan step
           </button>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={reset}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} />
         </div>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${PLANE_W} ${PLANE_H}`}
-        role="img"
         aria-label={`Latent space planning view. The current latent is at distance ${formatDistance(distance)} from the goal latent after ${steps} planning steps toward ${goal.label}.`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         <text x={PLANE_PAD} y={16} fill={DIM} fontSize={10} fontFamily={MONO}>
           synthetic 2-D teaching space: goal and state points
@@ -381,14 +370,13 @@ export function JepaPlanning({
         >
           z_t
         </text>
-      </svg>
+      </PlotStage>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${TRACE_W} ${TRACE_H}`}
-        role="img"
         aria-label={`Goal-embedding distance per planning step. The distance falls from ${formatDistance(initialDistance)} at step 0 to ${formatDistance(distance)} at step ${steps}.`}
         aria-describedby={descriptionId}
-        className="mt-2 block w-full"
+        className="mt-2"
       >
         <text
           x={TRACE_PAD.left}
@@ -454,7 +442,7 @@ export function JepaPlanning({
           stroke={ACCENT}
           strokeWidth={2}
         />
-      </svg>
+      </PlotStage>
 
       <div data-testid="no-decoder-note" className="mt-3 flex items-start gap-3">
         <CrossedFrame />
@@ -467,7 +455,7 @@ export function JepaPlanning({
         </p>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">d(z_t, z_goal) =</span>{' '}
         <span data-testid="distance-readout" className="text-accent">
           {formatDistance(distance)}
@@ -482,7 +470,7 @@ export function JepaPlanning({
             </span>
           </>
         )}
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -496,6 +484,6 @@ export function JepaPlanning({
           { label: 'distance', value: formatDistance(distance) },
         ]}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

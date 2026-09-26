@@ -2,7 +2,13 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import { type LegId } from '@/lib/gait';
 import {
   ATTRACTOR_DOMINANCE_RATIO,
@@ -185,13 +191,7 @@ export function RewardShaping({ className }: { className?: string }) {
   const hipY = f(bodyY + 10);
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
           data-brand-control-id="control:secondary-action"
@@ -218,15 +218,7 @@ export function RewardShaping({ className }: { className?: string }) {
         >
           Step
         </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className={cx(buttonBase, buttonIdle)}
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
         <span
           data-testid="behavior-status"
           className={cx('font-mono text-xs', TONE_TEXT[behavior.tone])}
@@ -251,13 +243,12 @@ export function RewardShaping({ className }: { className?: string }) {
         </span>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         data-testid="quad-preview"
         aria-label={`Rollout preview: ${behavior.status}. ${behavior.description}`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         {/* Status annotation in the guaranteed-empty sky region */}
         <text
@@ -412,20 +403,17 @@ export function RewardShaping({ className }: { className?: string }) {
         >
           illustrative terms and weights, not a source configuration
         </text>
-      </svg>
+      </PlotStage>
 
       <div className="mt-4 grid grid-cols-1 gap-x-5 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
         {TERMS.map((term) => (
           <div key={term.id}>
-            <label
+            <ControlLabel
               htmlFor={`rs-${term.id}`}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
+              value={formatWeight(weights[term.id])}
             >
               {term.label}
-              <span className="whitespace-nowrap font-mono text-xs text-text">
-                {formatWeight(weights[term.id])}
-              </span>
-            </label>
+            </ControlLabel>
             <input
               id={`rs-${term.id}`}
               type="range"
@@ -463,6 +451,6 @@ export function RewardShaping({ className }: { className?: string }) {
           { label: 'action-rate', value: formatWeight(weights.actionRate) },
         ]}
       />
-    </div>
+    </InstrumentFrame>
   );
 }
