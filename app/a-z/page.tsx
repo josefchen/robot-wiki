@@ -100,7 +100,10 @@ export default function AzIndexPage() {
               <Link
                 data-brand-control-id="control:link-focus"
                 href={`/a-z/#${letterAnchorId(group.letter)}`}
-                className="text-text-dim transition-colors hover:text-accent"
+                /* One letter is a small glyph, but the jump target a reader
+                    points at is the whole chip: a 24px box keeps the letter
+                    rail on the WCAG 2.2 minimum without inflating the type. */
+                className="flex h-6 min-w-6 items-center justify-center text-text-dim transition-colors hover:text-accent"
               >
                 {group.letter}
               </Link>

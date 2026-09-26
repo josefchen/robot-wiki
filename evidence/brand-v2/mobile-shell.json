@@ -1710,7 +1710,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 17028,
+      "visibleTextLength": 17105,
       "header": {
         "present": true,
         "display": "flex",
@@ -2525,7 +2525,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28420,
+      "visibleTextLength": 28501,
       "header": {
         "present": true,
         "display": "flex",
@@ -2688,7 +2688,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 19792,
+      "visibleTextLength": 19897,
       "header": {
         "present": true,
         "display": "flex",
@@ -4962,7 +4962,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 20567,
+      "visibleTextLength": 20574,
       "header": {
         "present": true,
         "display": "flex",
@@ -5940,7 +5940,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22659,
+      "visibleTextLength": 22733,
       "header": {
         "present": true,
         "display": "flex",
@@ -6592,7 +6592,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 15429,
+      "visibleTextLength": 15483,
       "header": {
         "present": true,
         "display": "flex",
@@ -6755,7 +6755,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 14094,
+      "visibleTextLength": 14165,
       "header": {
         "present": true,
         "display": "flex",
@@ -7407,7 +7407,7 @@
     },
     {
       "route": "/manipulation/knowledge-insulation/",
-      "visibleTextLength": 12183,
+      "visibleTextLength": 12236,
       "header": {
         "present": true,
         "display": "flex",
@@ -9029,7 +9029,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 20782,
+      "visibleTextLength": 20865,
       "header": {
         "present": true,
         "display": "flex",
@@ -10814,7 +10814,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 17031,
+      "visibleTextLength": 17084,
       "header": {
         "present": true,
         "display": "flex",
@@ -11140,7 +11140,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 16258,
+      "visibleTextLength": 16352,
       "header": {
         "present": true,
         "display": "flex",
@@ -11629,7 +11629,7 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "visibleTextLength": 19481,
+      "visibleTextLength": 19548,
       "header": {
         "present": true,
         "display": "flex",

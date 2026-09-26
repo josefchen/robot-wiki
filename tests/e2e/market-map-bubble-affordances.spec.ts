@@ -269,12 +269,15 @@ test.describe('bubble view hover/focus affordances', () => {
       if (msg.type() === 'error') errors.push(msg.text());
     });
     // country=CN excludes Figure AI (US); the deep link relaxes the
-    // filter and the bubble mark carries the highlight treatment.
+    // filter and the bubble mark carries the highlight treatment. The
+    // selected ink lives on the mark's decorative dot; the control circle
+    // beside it is the transparent pointer target.
     await page.goto(`${ROUTE}?view=bubble&country=CN#company-figure-ai`);
     const figure = mark(page, 'figure-ai');
     await expect(figure).toBeVisible();
-    await expect(figure).toHaveCSS('fill', 'rgb(36, 95, 255)');
-    await expect(figure).toHaveAttribute('r', '6');
+    const figureInk = figure.locator('xpath=preceding-sibling::*[1]');
+    await expect(figureInk).toHaveCSS('fill', 'rgb(36, 95, 255)');
+    await expect(figureInk).toHaveAttribute('r', '6');
     // Selection state falls out naturally: the detail panel shows the
     // hashed company.
     await expect(page.locator('[data-bubble-detail]')).toContainText('Figure AI');

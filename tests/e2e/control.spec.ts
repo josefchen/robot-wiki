@@ -338,7 +338,19 @@ test.describe('classical control module', () => {
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
     await page.goto(ROUTE);
-    await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
+    // A click that lands between first paint and hydration is swallowed
+    // and the simulation never starts, so the click is replayed until the
+    // paused→running toggle is observable as the button's swapped
+    // accessible name. The label check runs before every replay, so a
+    // registered click is never toggled back off.
+    const runButton = pendulum(page).getByRole('button', { name: /run the simulation/i });
+    const pauseButton = pendulum(page).getByRole('button', { name: 'Pause the simulation' });
+    for (let attempt = 0; attempt < 60; attempt += 1) {
+      if ((await pauseButton.count()) === 1) break;
+      if ((await runButton.count()) === 1) await runButton.click();
+      await page.waitForTimeout(30);
+    }
+    await expect(pauseButton).toHaveCount(1);
     // Coarse ticks at 320 ms: within 4 s the pole has visibly moved in from
     // the 12-degree release.
     await expect

@@ -473,6 +473,9 @@ export function AppearancePhysicsPush({
         </text>
       </PlotStage>
 
+      {/* Self-label: this instrument is a schematic or an authored model, not a measured result. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Schematic: one scene redrawn per abstraction layer.</p>
+
       <ChartDescription
         id={descriptionId}
         className="mt-3"

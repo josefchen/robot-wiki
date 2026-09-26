@@ -390,6 +390,8 @@ export function WmDisambiguator({
           .join(', ')}
         . Representative systems: {selected.systems}.
       </p>
+      {/* Self-label: this instrument is a schematic, not a measurement. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Schematic panels: each paradigm drawn as it represents the world.</p>
       <ChartDescription
         id={descriptionId}
         className="mt-3"

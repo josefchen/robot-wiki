@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0eeb4049ce20d0ec220d4210912cfe9c52abb7ad29c73bf92319a96ecc54d5b9",
+  "fingerprint": "ef9aecfa31cf5d5c1acc08b1e35ceae86c9f7ed8e2f5a98a0b7c08b493b772f7",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5716,7 +5716,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17028,
+      "visibleTextLength": 17105,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5861,6 +5861,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Position along the perimeter: 0.00 at the top-right corner, "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: computed wrench geometry on an idealized two-"
         },
         {
           "familyHead": "ibm plex mono",
@@ -10166,7 +10175,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28420,
+      "visibleTextLength": 28501,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10334,6 +10343,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "An occupancy grid stores: One occupancy probability per voxe"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Synthetic scene: one fixed scene redrawn as each representat"
         },
         {
           "familyHead": "ibm plex sans",
@@ -11103,7 +11121,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19792,
+      "visibleTextLength": 19897,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11250,6 +11268,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "What the filter assumes about the sensor’s scatter. Raise it"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Generated world: every reseed generates a new true path and "
         },
         {
           "familyHead": "ibm plex mono",
@@ -20219,7 +20246,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20567,
+      "visibleTextLength": 20574,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23902,7 +23929,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22659,
+      "visibleTextLength": 22733,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27457,7 +27484,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15429,
+      "visibleTextLength": 15483,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27584,6 +27611,15 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Padded shared vector: human video: no adapter modelled in th"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Signal blue carries the dims a source drives; the swatches a"
         },
         {
           "familyHead": "ibm plex sans",
@@ -28172,7 +28208,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14094,
+      "visibleTextLength": 14165,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28379,6 +28415,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the predict-execute-replan cycle, not a traced co"
         },
         {
           "familyHead": "ibm plex mono",
@@ -31652,7 +31697,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12183,
+      "visibleTextLength": 12236,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31812,6 +31857,15 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Forward pass at depth 8 of 8 keeps backbone supervision on n"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Signal blue carries the token and activation flow in this sc"
         },
         {
           "familyHead": "ibm plex sans",
@@ -39185,7 +39239,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20782,
+      "visibleTextLength": 20865,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39308,6 +39362,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Where task-level intelligence plugs into that is unsettled, "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic control stacks; the loop rates beside each layer a"
         },
         {
           "familyHead": "ibm plex mono",
@@ -47302,7 +47365,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17031,
+      "visibleTextLength": 17084,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47427,6 +47490,15 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "mug displacement = 0.0 cm after 0 effective pushes"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one scene redrawn per abstraction layer."
         },
         {
           "familyHead": "ibm plex sans",
@@ -48925,7 +48997,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16258,
+      "visibleTextLength": 16352,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49042,6 +49114,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The interactive below illustrates goal-directed replanning w"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Teaching schematic: synthetic points and Euclidean distance,"
         },
         {
           "familyHead": "ibm plex sans",
@@ -51013,7 +51094,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19481,
+      "visibleTextLength": 19548,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51151,6 +51232,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Latent-dynamics world model (Dreamer-style): a latent vector"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic panels: each paradigm drawn as it represents the w"
         },
         {
           "familyHead": "ibm plex sans",
@@ -58434,7 +58524,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17449,
+      "visibleTextLength": 17526,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58579,6 +58669,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Position along the perimeter: 0.00 at the top-right corner, "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 324.5,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: computed wrench geometry on an idealized two-"
         },
         {
           "familyHead": "ibm plex mono",
@@ -62884,7 +62983,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28841,
+      "visibleTextLength": 28922,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63052,6 +63151,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "An occupancy grid stores: One occupancy probability per voxe"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Synthetic scene: one fixed scene redrawn as each representat"
         },
         {
           "familyHead": "ibm plex sans",
@@ -63821,7 +63929,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20211,
+      "visibleTextLength": 20316,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63968,6 +64076,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "What the filter assumes about the sensor’s scatter. Raise it"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Generated world: every reseed generates a new true path and "
         },
         {
           "familyHead": "ibm plex mono",
@@ -72937,7 +73054,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20902,
+      "visibleTextLength": 20909,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73083,7 +73200,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 152.84,
+          "widthPx": 151.16,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Sanctuary AI · Hydraulic, miniaturized valves"
@@ -73092,7 +73209,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 152.84,
+          "widthPx": 151.16,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Figure AI · Actuation not disclosed"
@@ -73101,7 +73218,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 152.84,
+          "widthPx": 151.16,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Tesla · Tendon-driven electric, motors in the forearm"
@@ -73110,7 +73227,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 152.84,
+          "widthPx": 151.16,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Shadow Robot · Tendon-driven electric, 20 DC motors, 24 join"
@@ -73119,7 +73236,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 152.84,
+          "widthPx": 151.16,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Unitree · Electric"
@@ -76620,7 +76737,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23286,
+      "visibleTextLength": 23360,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80175,7 +80292,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16056,
+      "visibleTextLength": 16110,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80302,6 +80419,15 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Padded shared vector: human video: no adapter modelled in th"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Signal blue carries the dims a source drives; the swatches a"
         },
         {
           "familyHead": "ibm plex sans",
@@ -80890,7 +81016,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14721,
+      "visibleTextLength": 14792,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81097,6 +81223,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the predict-execute-replan cycle, not a traced co"
         },
         {
           "familyHead": "ibm plex mono",
@@ -84370,7 +84505,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12810,
+      "visibleTextLength": 12863,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84530,6 +84665,15 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Forward pass at depth 8 of 8 keeps backbone supervision on n"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Signal blue carries the token and activation flow in this sc"
         },
         {
           "familyHead": "ibm plex sans",
@@ -91903,7 +92047,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21257,
+      "visibleTextLength": 21340,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92026,6 +92170,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Where task-level intelligence plugs into that is unsettled, "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic control stacks; the loop rates beside each layer a"
         },
         {
           "familyHead": "ibm plex mono",
@@ -100020,7 +100173,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17515,
+      "visibleTextLength": 17568,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100145,6 +100298,15 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "mug displacement = 0.0 cm after 0 effective pushes"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one scene redrawn per abstraction layer."
         },
         {
           "familyHead": "ibm plex sans",
@@ -101643,7 +101805,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16742,
+      "visibleTextLength": 16836,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101760,6 +101922,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The interactive below illustrates goal-directed replanning w"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Teaching schematic: synthetic points and Euclidean distance,"
         },
         {
           "familyHead": "ibm plex sans",
@@ -103731,7 +103902,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19965,
+      "visibleTextLength": 20032,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103869,6 +104040,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Latent-dynamics world model (Dreamer-style): a latent vector"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic panels: each paradigm drawn as it represents the w"
         },
         {
           "familyHead": "ibm plex sans",

@@ -147,17 +147,23 @@ describe('BubbleView deep-link highlight parity', () => {
   it('treats the hashed company as selected: accent mark plus detail panel', () => {
     render(<BubbleView companies={COMPANIES} highlightedId="figure-ai" />);
     const figure = mark('figure-ai');
-    // The same treatment a click produces: accent fill, larger radius.
-    expect(figure.getAttribute('class')).toContain('fill-accent');
-    expect(figure.getAttribute('r')).toBe('6');
+    // The same treatment a click produces: the selected mark's decorative
+    // dot grows to r=6 and takes the accent fill. The control circle
+    // itself stays transparent — its geometry is the pointer target, the
+    // dot is the chart ink.
+    const figureInk = figure.parentElement?.querySelector('[data-mark-ink]');
+    expect(figureInk).not.toBeNull();
+    expect(figureInk!.getAttribute('class')).toContain('fill-accent');
+    expect(figureInk!.getAttribute('r')).toBe('6');
     const detail = detailEl();
     expect(detail).not.toBeNull();
     expect(detail).toHaveTextContent('Figure AI');
     expect(detail).toHaveTextContent('$39B');
     // Other marks are not highlighted.
-    expect(mark('physical-intelligence').getAttribute('class')).not.toContain(
-      'fill-accent',
+    const piInk = mark('physical-intelligence').parentElement?.querySelector(
+      '[data-mark-ink]',
     );
+    expect(piInk!.getAttribute('class')).not.toContain('fill-accent');
   }, TIMEOUT);
 
   it('keeps a manual selection after the highlight changes', () => {

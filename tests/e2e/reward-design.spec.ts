@@ -52,7 +52,19 @@ test.describe('RL reward-design and MPC module', () => {
       .locator('span', { hasText: 'Preview phase:' })
       .locator('span');
     await expect(phaseReadout).toHaveText('0%');
-    await page.getByRole('button', { name: /play rollout preview/i }).click();
+    // A click that lands between first paint and hydration is swallowed
+    // and playback never starts, so the click is replayed until the
+    // paused→playing toggle is observable as the button's swapped
+    // accessible name. The label check runs before every replay, so a
+    // registered click is never toggled back off.
+    const playButton = page.getByRole('button', { name: /play rollout preview/i });
+    const pauseButton = page.getByRole('button', { name: 'Pause rollout preview' });
+    for (let attempt = 0; attempt < 60; attempt += 1) {
+      if ((await pauseButton.count()) === 1) break;
+      if ((await playButton.count()) === 1) await playButton.click();
+      await page.waitForTimeout(30);
+    }
+    await expect(pauseButton).toHaveCount(1);
     // Immediate read, then one short wait still inside the 200 ms coarse
     // tick. A 120 ms wait under a long suite can overshoot the first
     // reduced-motion tick and land on 13%, which is the coarse step, not

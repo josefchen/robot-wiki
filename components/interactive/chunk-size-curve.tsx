@@ -5,6 +5,8 @@ import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlLabel,
   InstrumentFrame,
+  InstrumentLegend,
+  LegendItem,
   InstrumentReadout,
   InstrumentReset,
   PlotStage,
@@ -44,6 +46,21 @@ const PAD = { top: 14, right: 18, bottom: 30, left: 48 };
 
 /** Y axis tops out at 50% so the 44% peak uses most of the plot. */
 const MAX_SUCCESS = 0.5;
+
+/**
+ * The plot scale, exported so the source/render parity gate can recompute
+ * expected user-unit coordinates from the same constants the chart uses
+ * (VAL-B2-VIZ-013). Pure: no hooks, no state.
+ */
+export function chunkScaleX(k: number): number {
+  const plotWidth = WIDTH - PAD.left - PAD.right;
+  return Number((PAD.left + ((k - MIN_CHUNK) / (MAX_CHUNK - MIN_CHUNK)) * plotWidth).toFixed(2));
+}
+
+export function chunkScaleY(success: number): number {
+  const plotHeight = HEIGHT - PAD.top - PAD.bottom;
+  return Number((HEIGHT - PAD.bottom - (success / MAX_SUCCESS) * plotHeight).toFixed(2));
+}
 
 function formatPercent(value: number): string {
   const percent = value * 100;
@@ -209,12 +226,14 @@ export function ChunkSizeCurve({
         />
         {/* Measured rise (solid) and illustrative taper (dashed). */}
         <path
+          data-series="measured-rise"
           d={risePath}
           fill="none"
           stroke="var(--color-accent)"
           strokeWidth={2}
         />
         <path
+          data-series="illustrative-taper"
           d={taperPath}
           fill="none"
           stroke="var(--color-accent)"
@@ -246,6 +265,39 @@ export function ChunkSizeCurve({
           strokeWidth={2}
         />
       </PlotStage>
+
+      <InstrumentLegend className="mt-2">
+        <LegendItem
+          series="measured-rise"
+          swatch={
+            <span
+              className="inline-block h-[2px] w-4"
+              style={{ background: 'var(--color-accent)' }}
+            />
+          }
+        >
+          measured rise (k = 1 to 100)
+        </LegendItem>
+        <LegendItem
+          series="illustrative-taper"
+          swatch={
+            <svg width={16} height={4} aria-hidden className="shrink-0">
+              <line
+                x1={0}
+                y1={2}
+                x2={16}
+                y2={2}
+                stroke="var(--color-accent)"
+                strokeWidth={2}
+                strokeDasharray="5 4"
+                opacity={0.65}
+              />
+            </svg>
+          }
+        >
+          illustrative taper (past the measured range)
+        </LegendItem>
+      </InstrumentLegend>
 
       <InstrumentReadout>
         <span className="text-text-dim">k = {chunkSize}:</span>{' '}

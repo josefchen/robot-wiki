@@ -166,7 +166,10 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
               href={link.url}
               target="_blank"
               rel="noopener"
-              className="font-mono text-xs text-accent underline-offset-2 hover:underline"
+              /* Source links sit alone in their cell rather than inside a
+                  sentence, so the inline-text exception cannot cover them;
+                  each link is its own 24px target. */
+              className="inline-flex min-h-6 items-center font-mono text-xs text-accent underline-offset-2 hover:underline"
             >
               {link.label}
             </a>

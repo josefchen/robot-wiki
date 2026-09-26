@@ -7,6 +7,7 @@ import {
   ControlLabel,
   InstrumentFrame,
   InstrumentLegend,
+  LegendItem,
   InstrumentReadout,
   InstrumentReset,
   PlotStage,
@@ -362,6 +363,7 @@ export function KalmanTracker({ className }: { className?: string }) {
 
         {/* Uncertainty band: the filter's own +/-2 sigma position spread */}
         <polygon
+          data-series="band"
           data-testid="kalman-band"
           points={bandPoints}
           fill="var(--color-accent)"
@@ -370,16 +372,20 @@ export function KalmanTracker({ className }: { className?: string }) {
 
         {/* True path */}
         <polyline
+          data-series="true-path"
           data-testid="kalman-truth-line"
           points={truthPoints}
           fill="none"
           stroke="var(--color-text)"
           strokeWidth={1.5}
           strokeLinejoin="round"
+          // Dashed so the generated truth and the filter estimate stay
+          // distinguishable with the colour removed (VAL-B2-VIZ-002).
+          strokeDasharray="5 4"
         />
 
         {/* Sensor readings (skip dropouts) */}
-        <g data-testid="kalman-measurements">
+        <g data-series="measurements" data-testid="kalman-measurements">
           {visible.map((fr) => {
             const z = episode.measurements[fr.t];
             if (z === null) return null;
@@ -397,6 +403,7 @@ export function KalmanTracker({ className }: { className?: string }) {
 
         {/* Filter estimate */}
         <polyline
+          data-series="estimate"
           data-testid="kalman-estimate-line"
           points={estPoints}
           fill="none"
@@ -421,39 +428,65 @@ export function KalmanTracker({ className }: { className?: string }) {
         />
       </PlotStage>
 
+      {/* Self-label: this instrument is a schematic or an authored model, not a measured result. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Generated world: every reseed generates a new true path and its measurements; the filter math is real.</p>
+
       {/* Legend */}
       <InstrumentLegend className="mt-2">
-        <span className="inline-flex items-center gap-1.5">
-          <span
-            className="inline-block h-[2px] w-4"
-            style={{ backgroundColor: 'var(--color-text)' }}
-          />
+        <LegendItem
+          series="true-path"
+          swatch={
+            <svg width={16} height={4} aria-hidden className="shrink-0">
+              <line
+                x1={0}
+                y1={2}
+                x2={16}
+                y2={2}
+                stroke="var(--color-text)"
+                strokeWidth={1.5}
+                strokeDasharray="5 4"
+              />
+            </svg>
+          }
+        >
           true path
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span
-            className="inline-block h-2 w-2 rounded-full"
-            style={{ backgroundColor: 'var(--color-text-dim)' }}
-          />
+        </LegendItem>
+        <LegendItem
+          series="measurements"
+          swatch={
+            <span
+              className="inline-block h-2 w-2 rounded-full"
+              style={{ backgroundColor: 'var(--color-text-dim)' }}
+            />
+          }
+        >
           measurements
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span
-            className="inline-block h-[2px] w-4"
-            style={{ backgroundColor: 'var(--color-accent)' }}
-          />
+        </LegendItem>
+        <LegendItem
+          series="estimate"
+          swatch={
+            <span
+              className="inline-block h-[2px] w-4"
+              style={{ backgroundColor: 'var(--color-accent)' }}
+            />
+          }
+        >
           estimate
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span
-            className="inline-block h-2.5 w-4"
-            style={{
-              backgroundColor:
-                'color-mix(in srgb, var(--color-accent) 13%, transparent)',
-            }}
-          />
+        </LegendItem>
+        <LegendItem
+          series="band"
+          swatch={
+            <span
+              className="inline-block h-2.5 w-4"
+              style={{
+                backgroundColor:
+                  'color-mix(in srgb, var(--color-accent) 13%, transparent)',
+              }}
+            />
+          }
+        >
           ±2σ band
-        </span>
+        </LegendItem>
       </InstrumentLegend>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
