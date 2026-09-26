@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0c44ccd83bd417251f813e30130b3847e823ce3f208451e57039873439e87b44",
+  "fingerprint": "019059ddf314188bc1486a1b4be004a29fa13d5dc194ef455a6bf10ee17aef76",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -252,7 +252,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 5627,
+      "visibleTextLength": 5718,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1395,7 +1395,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25645,
+      "visibleTextLength": 25837,
       "route": "/classical/control/",
       "viewport": "1440x900"
     },
@@ -1649,7 +1649,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15411,
+      "visibleTextLength": 15498,
       "route": "/classical/kinematics/",
       "viewport": "1440x900"
     },
@@ -2919,7 +2919,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17818,
+      "visibleTextLength": 17909,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "1440x900"
     },
@@ -4316,7 +4316,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14470,
+      "visibleTextLength": 14561,
       "route": "/frontier/reliability-gap/",
       "viewport": "1440x900"
     },
@@ -7364,7 +7364,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18898,
+      "visibleTextLength": 19012,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -9569,7 +9569,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 5405,
+      "visibleTextLength": 5496,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10712,7 +10712,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25224,
+      "visibleTextLength": 25416,
       "route": "/classical/control/",
       "viewport": "375x812"
     },
@@ -10966,7 +10966,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14990,
+      "visibleTextLength": 15077,
       "route": "/classical/kinematics/",
       "viewport": "375x812"
     },
@@ -12236,7 +12236,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17439,
+      "visibleTextLength": 17530,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "375x812"
     },
@@ -13633,7 +13633,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14135,
+      "visibleTextLength": 14226,
       "route": "/frontier/reliability-gap/",
       "viewport": "375x812"
     },
@@ -16681,7 +16681,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18423,
+      "visibleTextLength": 18537,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },

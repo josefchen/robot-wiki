@@ -450,6 +450,12 @@ export function GaitDiagram({
         })}
       </PlotStage>
 
+      {/* Self-label: this instrument is an authored model, not measured data. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">
+        Authored gait set: the duty factors and footfall offsets are chosen
+        teaching values, not measured footfall data.
+      </p>
+
       <InstrumentReadout>
         <span className="text-text-dim">{gait.name.toLowerCase()} at</span>{' '}
         <span className="text-accent">{formatPhase(phase)}</span>{' '}

@@ -258,6 +258,12 @@ export function ReliabilityCompounding({
         />
       </PlotStage>
 
+      {/* Self-label: this instrument is an authored model, not measured data. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">
+        Illustrative probability model: computed compounding curves, not a
+        measured robot policy.
+      </p>
+
       <InstrumentReadout>
         <span className="text-text-dim">
           ({perStep.toFixed(3)})^{steps} =

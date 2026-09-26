@@ -2,9 +2,11 @@ import { act, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 let mockPathname = '/';
+let mockSearch = '';
 
 vi.mock('next/navigation', () => ({
   usePathname: () => mockPathname,
+  useSearchParams: () => new URLSearchParams(mockSearch),
 }));
 
 import { HistoryFocus } from '@/components/nav/history-focus';
@@ -51,7 +53,8 @@ function activeElementId(): string {
  */
 function navigateTo(path: string) {
   window.history.pushState({}, '', path);
-  mockPathname = path;
+  mockPathname = new URL(path, window.location.href).pathname;
+  mockSearch = new URL(path, window.location.href).search.replace(/^\?/, '');
 }
 
 /**
@@ -83,6 +86,7 @@ async function rerenderAt(
 describe('HistoryFocus', () => {
   beforeEach(() => {
     mockPathname = '/';
+    mockSearch = '';
     window.history.replaceState({}, '', '/');
   });
 
@@ -170,6 +174,108 @@ describe('HistoryFocus', () => {
     expect(activeElementId()).toBe('BODY');
     // A later click navigation must also not fire the stale armed step.
     navigateTo('/');
+    await rerenderAt(rerender);
+    expect(activeElementId()).toBe('BODY');
+  });
+
+  it('restores heading focus when Back changes only the query', async () => {
+    // VAL-NAV-028: the shell search box pushes one history entry per
+    // submit, so Back between two /search?q= entries changes only the
+    // query. The pathname never changes, so a commit effect keyed on the
+    // pathname alone never re-runs, and focus is left on BODY.
+    const { rerender } = render(<Harness />);
+    navigateTo('/search/');
+    await rerenderAt(rerender);
+    navigateTo('/search/?q=aloha');
+    await rerenderAt(rerender);
+    navigateTo('/search/?q=chunk');
+    await rerenderAt(rerender);
+    expect(activeElementId()).toBe('BODY');
+    // Back to the first query: same path, different query.
+    traverseTo('/search/?q=aloha');
+    mockSearch = 'q=aloha';
+    await rerenderAt(rerender);
+    expect(activeElementId()).not.toBe('BODY');
+    expect(document.activeElement).toBe(
+      document.querySelector('main h1'),
+    );
+  });
+
+  it('leaves a still-focused result alone on a query-only Back', async () => {
+    // VAL-NAV-028: "or the previously focused result if it is still
+    // mounted". A control that owns focus after the step is never
+    // disturbed, even when the query is the only thing that changed.
+    const { rerender } = render(<Harness />);
+    navigateTo('/search/?q=aloha');
+    await rerenderAt(rerender);
+    navigateTo('/search/?q=chunk');
+    await rerenderAt(rerender);
+    document.getElementById('outside-stop')?.focus();
+    traverseTo('/search/?q=aloha');
+    mockSearch = 'q=aloha';
+    await rerenderAt(rerender);
+    expect(activeElementId()).toBe('outside-stop');
+  });
+
+  it('fires the move in the popstate handler when the restored commit flushed first', async () => {
+    // Real-browser order: the router's own popstate listener runs before
+    // this helper's and can flush the restored commit inside that
+    // dispatch, so the commit effect runs while nothing is armed yet.
+    // The handler must then fire the armed move itself, because no later
+    // commit will come to fire it (VAL-NAV-028).
+    const { rerender } = render(<Harness />);
+    navigateTo('/search/?q=aloha');
+    await rerenderAt(rerender);
+    navigateTo('/search/?q=chunk');
+    await rerenderAt(rerender);
+    // The restored commit lands before this helper's popstate handler.
+    mockSearch = 'q=aloha';
+    await rerenderAt(rerender);
+    expect(activeElementId()).toBe('BODY');
+    traverseTo('/search/?q=aloha');
+    expect(activeElementId()).not.toBe('BODY');
+    expect(document.activeElement).toBe(
+      document.querySelector('main h1'),
+    );
+  });
+
+  it('does not arm on a hash-only Back from the first page', async () => {
+    // VAL-NAV-029: the document loads on '/', a reader jumps to an in-page
+    // anchor (no router push is observed), then presses Back. The entry
+    // the document loaded on must already count as the shell's own key, so
+    // the hash Back does not arm a heading move that a later click fires.
+    const { rerender } = render(<Harness />);
+    await rerenderAt(rerender);
+    // An in-page hash jump the router never pushed (native anchor link).
+    History.prototype.pushState.call(window.history, {}, '', '/#references');
+    act(() => {
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    });
+    // Back: the URL returns to '/', then a click navigates inside the
+    // two-second window.
+    traverseTo('/');
+    navigateTo('/market-map/');
+    await rerenderAt(rerender);
+    expect(activeElementId()).toBe('BODY');
+  });
+
+  it('discards a query-only Back arm when a click commits another route first', async () => {
+    // VAL-NAV-029: a query-only Back arms the move, but the restored
+    // commit can be beaten by a click navigation. The arm must be bound to
+    // the restored path+query so the click cannot fire it at the heading.
+    const { rerender } = render(<Harness />);
+    navigateTo('/search/?q=aloha');
+    await rerenderAt(rerender);
+    navigateTo('/search/?q=chunk');
+    await rerenderAt(rerender);
+    traverseTo('/search/?q=aloha');
+    // Before the restored query commits, the reader clicks a nav link.
+    navigateTo('/market-map/');
+    await rerenderAt(rerender);
+    expect(activeElementId()).toBe('BODY');
+    // The discarded arm must not fire later either: reaching the armed
+    // route again by click is a click navigation, not a traversal.
+    navigateTo('/search/?q=aloha');
     await rerenderAt(rerender);
     expect(activeElementId()).toBe('BODY');
   });

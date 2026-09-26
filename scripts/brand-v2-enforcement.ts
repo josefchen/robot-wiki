@@ -1568,7 +1568,7 @@ const INTERACTIVE_DATA_TARGETS: Readonly<Record<string, TestTarget>> = {
   'VAL-B2-VIZ-006': testTarget(
     'tests/e2e/brand-v2-interactive-data.spec.ts',
     'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-006 schematics and generated signals label what they are',
-    'Requires the status vocabulary in every non-source-data frame, with the audit-frozen boundary reported exactly as recorded.',
+    'Requires the status vocabulary in every non-source-data frame; the recorded audit-frozen exception set is empty, so zero frozen unlabeled frames are tolerated.',
   ),
   'VAL-B2-VIZ-013': testTarget(
     'tests/e2e/brand-v2-interactive-data.spec.ts',
