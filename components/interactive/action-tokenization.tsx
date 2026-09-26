@@ -3,6 +3,13 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   ACTION_DIMS,
   BIN_COUNT,
   CHUNK_STEPS,
@@ -119,24 +126,15 @@ export function ActionTokenization({
   const descriptionText = `Along the ${ACTION_DIMS[dim].label} action lane of the ${CHUNK_STEPS}-step chunk, the continuous command runs from ${chunk[dim][0].toFixed(3)} at t = 0 to ${chunk[dim][CHUNK_STEPS - 1].toFixed(3)} at t = ${CHUNK_STEPS - 1}, and at the current step ${step} the value ${value.toFixed(3)} falls in bin ${bin} of ${BIN_COUNT - 1}; the ${ACTION_DIMS.length} dashed rules are each dimension's zero line, and the chunk is a fixed synthetic example rather than measured robot data.`;
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="at-step"
-            className="flex items-baseline justify-between gap-2 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`t = ${step} / ${CHUNK_STEPS - 1}`}
           >
             Control step
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              t = {step} / {CHUNK_STEPS - 1}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="at-step"
             type="range"
@@ -174,28 +172,21 @@ export function ActionTokenization({
               </button>
             ))}
           </div>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
+          <InstrumentReset
             onClick={() => {
               setStep(defaultStep);
               setDim(defaultDim);
             }}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          />
         </div>
       </div>
 
       {/* Continuous action chunk, one lane per dimension */}
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${CHART_H}`}
-        role="img"
         aria-label={`Continuous action chunk: ${ACTION_DIMS.length} dimensions over ${CHUNK_STEPS} control steps. The marker at step ${step} selects the action vector being tokenized.`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {ACTION_DIMS.map((d, i) => {
           const top = CHART_TOP + i * LANE_H;
@@ -262,7 +253,7 @@ export function ActionTokenization({
             t={t}
           </text>
         ))}
-      </svg>
+      </PlotStage>
 
       <ChartDescription
         id={descriptionId}
@@ -280,12 +271,11 @@ export function ActionTokenization({
       />
 
       {/* Binning detail: 256-bin strip plus zoom window for the selected dim */}
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${DETAIL_H}`}
-        role="img"
         aria-label={`Binning detail for ${ACTION_DIMS[dim].label}: the value ${value.toFixed(3)} at step ${step} falls into bin ${bin} of 255 on a uniform grid of 256 bins per dimension. A zoomed window shows individual bins around the assigned bin.`}
         aria-describedby={binDescriptionId}
-        className="mt-2 block w-full"
+        className="mt-2"
       >
         <text
           x={PAD.left}
@@ -405,7 +395,7 @@ export function ActionTokenization({
           stroke="var(--color-border-strong)"
           strokeWidth={1}
         />
-      </svg>
+      </PlotStage>
 
       <ChartDescription
         id={binDescriptionId}
@@ -456,7 +446,7 @@ export function ActionTokenization({
         </p>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span data-testid="tok-value-readout" className="text-accent">
           {ACTION_DIMS[dim].label} = {value.toFixed(3)}
         </span>{' '}
@@ -472,7 +462,7 @@ export function ActionTokenization({
           reconstructs to {center.toFixed(4)} (error {error >= 0 ? '+' : ''}
           {error.toFixed(4)})
         </span>
-      </p>
+      </InstrumentReadout>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Illustrative seven-coordinate sequence: fixed [-1, 1] bounds and
         synthetic token labels, not a recorded rollout or literal vocabulary.
@@ -482,6 +472,6 @@ export function ActionTokenization({
         overwrites least-used tokens. The toy’s delta labels and 16-step
         sequence do not specify a universal robot controller.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

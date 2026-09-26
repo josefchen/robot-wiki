@@ -1,7 +1,14 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   DEFAULT_ERROR_MM,
   FOOT_XS,
@@ -336,13 +343,7 @@ export function ContactGeometry({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_1fr_auto] lg:items-end">
         <div>
           <span
@@ -376,15 +377,12 @@ export function ContactGeometry({
           </div>
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor="cg-error"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
+            value={`ε = ${errorMm.toFixed(1)} mm`}
           >
             Contact-model error
-            <span className="font-mono text-xs text-text">
-              ε = {errorMm.toFixed(1)} mm
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="cg-error"
             type="range"
@@ -398,15 +396,7 @@ export function ContactGeometry({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
@@ -430,21 +420,20 @@ export function ContactGeometry({
         </span>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`${spec.label} contact geometry. ${spec.sceneCaption} Injected contact-model error ${errorMm.toFixed(1)} millimeters. Outcome: ${outcomeText}.`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         {scenarioId === 'locomotion' ? (
           <LocomotionScene errorMm={errorMm} />
         ) : (
           <ManipulationScene errorMm={errorMm} />
         )}
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">{spec.label}:</span>{' '}
         <span data-testid="error-readout" className="text-accent">
           ε = {errorMm.toFixed(1)} mm
@@ -456,7 +445,7 @@ export function ContactGeometry({
         >
           {outcomeText}
         </span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -478,6 +467,6 @@ export function ContactGeometry({
         centimeter-scale contact error through feedback, while a 0.5 mm
         insertion clearance makes the same error fatal.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

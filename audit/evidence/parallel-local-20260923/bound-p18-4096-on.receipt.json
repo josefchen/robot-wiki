@@ -35,16 +35,16 @@
     {
       "file": {
         "path": "components/interactive/training-time-chart.tsx",
-        "bytes": 18483,
-        "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0"
+        "bytes": 17843,
+        "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
       },
       "id": "source:components/interactive/training-time-chart.tsx",
       "offset": 0,
-      "length": 18483,
-      "sha256": "959e703ec467768d53cef8435bffac7ff5e2e694c29506404e7e014819d075a0",
+      "length": 17843,
+      "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c"
+        "hash": "572794e6747bef2161b9ff10f3ebb327fdc49d9f1740283a18548ad4f95e0975"
       }
     },
     {

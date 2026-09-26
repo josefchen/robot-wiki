@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "38e988dd14fd3755fbaf01ee869c93fb833d261e2864e38d2a4cfbd7c392468b",
+  "fingerprint": "82a4f54f6c0ef2694668fe51c09f4872666593d06dfe83d4622416c390971d49",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -6348,7 +6348,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 38730,
+      "visibleTextLength": 38729,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "1440x900"
     },
@@ -15665,7 +15665,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 38103,
+      "visibleTextLength": 38102,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "375x812"
     },

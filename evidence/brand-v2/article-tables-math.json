@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2a72c29b831138ccbf2104273a92825ba8c2296959a22826985cd0fcba4ca2df",
+  "fingerprint": "1dca8dadb0c09b4ec72644f0f72d5d13171537bb589e0de7224c72e56fc37f66",
   "viewports": [
     "375x812",
     "1440x900"
@@ -6562,7 +6562,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 38103,
+      "visibleTextLength": 38102,
       "tables": [
         {
           "index": 0,
@@ -12314,11 +12314,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled success rate and decision count by chunk size",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12338,11 +12338,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12362,11 +12362,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12386,11 +12386,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12410,11 +12410,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12560,8 +12560,8 @@
           "role": "region",
           "accessibleName": "Sampled success rate and decision count by chunk size",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -12582,8 +12582,8 @@
           "role": "region",
           "accessibleName": "Sampled toy throughput scores by added delay",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -12593,8 +12593,8 @@
           "role": "region",
           "accessibleName": "Sampled executed action across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -12604,8 +12604,8 @@
           "role": "region",
           "accessibleName": "Sampled toy throughput scores by added delay",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         },
         {
@@ -12615,8 +12615,8 @@
           "role": "region",
           "accessibleName": "Sampled executed action across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         },
         {
@@ -12710,11 +12710,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12734,11 +12734,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -13217,8 +13217,8 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -13228,8 +13228,8 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         },
         {
@@ -13294,7 +13294,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-            "clientWidth": 1060,
+            "clientWidth": 1052,
             "scrollWidth": 1185,
             "scrolledBy": 40
           },
@@ -13345,7 +13345,7 @@
           "role": "region",
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
           "tabIndex": 0,
-          "clientWidth": 1060,
+          "clientWidth": 1052,
           "scrollWidth": 1185,
           "scrolledBy": 40
         }
@@ -13938,11 +13938,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -13962,11 +13962,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -13986,11 +13986,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled commanded velocity across the hand-off",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14069,8 +14069,8 @@
           "role": "region",
           "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -14080,8 +14080,8 @@
           "role": "region",
           "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         },
         {
@@ -14091,8 +14091,8 @@
           "role": "region",
           "accessibleName": "Sampled commanded velocity across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -14106,7 +14106,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 38730,
+      "visibleTextLength": 38729,
       "tables": [
         {
           "index": 0,
@@ -14124,11 +14124,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Toy value along the fictional espresso episode",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14148,11 +14148,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Per-task successes out of 30",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14239,8 +14239,8 @@
           "role": "region",
           "accessibleName": "Toy value along the fictional espresso episode",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -14272,8 +14272,8 @@
           "role": "region",
           "accessibleName": "Per-task successes out of 30",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -14330,11 +14330,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled action value along the selected dimension",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14348,8 +14348,8 @@
           "role": "region",
           "accessibleName": "Sampled action value along the selected dimension",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -14432,11 +14432,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Footfall timing for the walk",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14483,8 +14483,8 @@
           "role": "region",
           "accessibleName": "Footfall timing for the walk",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -14530,11 +14530,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled wall-clock by parallel environment count",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14548,8 +14548,8 @@
           "role": "region",
           "accessibleName": "Sampled wall-clock by parallel environment count",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -14605,11 +14605,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled base-height deviation for both controllers",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14623,8 +14623,8 @@
           "role": "region",
           "accessibleName": "Proposed reward code",
           "tabIndex": 0,
-          "clientWidth": 400,
-          "scrollWidth": 400,
+          "clientWidth": 395,
+          "scrollWidth": 395,
           "scrolledBy": 0
         },
         {
@@ -14645,8 +14645,8 @@
           "role": "region",
           "accessibleName": "Sampled base-height deviation for both controllers",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -14678,11 +14678,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Modelled wall-clock cost of this budget under each source",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14696,8 +14696,8 @@
           "role": "region",
           "accessibleName": "Modelled wall-clock cost of this budget under each source",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -14729,11 +14729,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14753,11 +14753,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14771,8 +14771,8 @@
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -14782,8 +14782,8 @@
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         }
       ],
@@ -14976,11 +14976,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled latent deviation by imagination step",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14994,8 +14994,8 @@
           "role": "region",
           "accessibleName": "Sampled latent deviation by imagination step",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],

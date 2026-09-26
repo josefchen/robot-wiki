@@ -11,6 +11,16 @@ export { CodeBlock } from './code-block';
 export { Figure } from './figure';
 export { Icon } from './icon';
 export { InputField } from './input-field';
+export {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentHeader,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  LegendItem,
+  PlotStage,
+} from './instrument';
 export { KeyValue } from './key-value';
 export { Material } from './material';
 export { SkipLink } from './skip-link';

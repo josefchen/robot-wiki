@@ -332,7 +332,81 @@ function sourceComponentName(text: string, path: string): string {
   return match[1];
 }
 
-function stateCases(text: string): StateCase[] {
+/**
+ * Instrument primitives that render native controls, with the control
+ * markup a mount of each contributes to the interactive's own source text.
+ *
+ * The state-case derivation reads control shapes (a literal `<button`, a
+ * `type="range"`, a discrete-option element) out of the interactive's own
+ * file. Shared chrome moves that markup into
+ * `components/ui/instrument.tsx`, so a mount of a control-bearing
+ * primitive has to contribute the same shapes or the plan silently loses
+ * the hover and reset cases the rendered DOM still exposes. Only
+ * control-SHAPE markers are inherited: the `reset` case and the
+ * implemented-state witnesses stay bound to the interactive's own source,
+ * because the runner re-checks those against that exact file.
+ *
+ * A name mounted as JSX but missing from this classification throws, so a
+ * future control-bearing primitive cannot quietly shrink the plan.
+ */
+const INSTRUMENT_CONTROL_PRIMITIVES: Record<string, readonly string[]> = {
+  InstrumentFrame: [],
+  InstrumentHeader: [],
+  ControlLabel: [],
+  InstrumentReadout: [],
+  InstrumentLegend: [],
+  LegendItem: [],
+  InstrumentReset: ['<button'],
+  PlotStage: [],
+};
+
+/** Names the instrument family actually exports, so a barrel co-import such
+ *  as ChartDescription is never mistaken for an instrument primitive. */
+const INSTRUMENT_EXPORTS = new Set(
+  [
+    ...source('components/ui/instrument.tsx').matchAll(
+      /^export function ([A-Z][A-Za-z0-9]*)/gm,
+    ),
+  ].map((match) => match[1]),
+);
+
+/** Control markup contributed by instrument primitives this text mounts. */
+function inheritedInstrumentControlText(text: string): string {
+  const importedNames = [
+    ...text.matchAll(
+      /import\s+\{([^}]+)\}\s+from\s+['"]@\/components\/ui(?:\/instrument)?['"]/g,
+    ),
+  ].flatMap((match) =>
+    match[1]
+      .split(',')
+      .map((part) => part.trim().split(/\s+as\s+/)[0].trim())
+      .filter(Boolean),
+  );
+  const markers: string[] = [];
+  for (const name of importedNames) {
+    // The barrel `@/components/ui` also re-exports non-instrument UI such
+    // as ChartDescription; only the instrument family inherits controls.
+    if (!INSTRUMENT_EXPORTS.has(name)) continue;
+    if (!new RegExp(`<${name}\\b`).test(text)) continue;
+    const contributed = INSTRUMENT_CONTROL_PRIMITIVES[name];
+    if (!contributed) {
+      throw new Error(
+        `${name} is mounted from components/ui/instrument.tsx but is not classified in INSTRUMENT_CONTROL_PRIMITIVES; the interactive-state plan cannot derive the controls it renders. Record the control markup it renders, or an empty list if it renders none.`,
+      );
+    }
+    markers.push(...contributed);
+  }
+  return markers.join('\n');
+}
+
+function stateCases(text: string, inheritedControlText = ''): StateCase[] {
+  // Control shapes may live in the shared instrument primitives the
+  // interactive mounts; everything below that is a fact about this file
+  // (the reset action it names, the states it implements) stays read from
+  // `text` alone.
+  const controlText = inheritedControlText
+    ? `${text}\n${inheritedControlText}`
+    : text;
   const cases: StateCase[] = [
     { id: 'default', kind: 'default' },
     {
@@ -342,7 +416,7 @@ function stateCases(text: string): StateCase[] {
       expectedEnumeration: 'every rendered enabled control independently',
     },
   ];
-  if (/<button\b/.test(text)) {
+  if (/<button\b/.test(controlText)) {
     cases.push({
       id: 'meaningful-hover',
       kind: 'hover',
@@ -356,7 +430,7 @@ function stateCases(text: string): StateCase[] {
       notApplicableReason: 'No button or registered hover target is implemented.',
     });
   }
-  if (/type=["']range["']/.test(text)) {
+  if (/type=["']range["']/.test(controlText)) {
     cases.push({
       id: 'slider-boundaries-and-anchors',
       kind: 'slider-boundaries',
@@ -365,7 +439,7 @@ function stateCases(text: string): StateCase[] {
         'each slider at min, documented default, max, source anchors, and registered discontinuities',
     });
   }
-  if (/aria-(?:pressed|selected)|type=["'](?:radio|checkbox)["']|<select\b|<details\b/.test(text)) {
+  if (/aria-(?:pressed|selected)|type=["'](?:radio|checkbox)["']|<select\b|<details\b/.test(controlText)) {
     cases.push({
       id: 'discrete-options',
       kind: 'discrete-options',
@@ -376,8 +450,8 @@ function stateCases(text: string): StateCase[] {
   }
   if (/reset/i.test(text)) cases.push({ id: 'reset', kind: 'reset' });
   const independentControlKinds = [
-    /type=["']range["']/.test(text),
-    /aria-(?:pressed|selected)|type=["'](?:radio|checkbox)["']|<select\b/.test(text),
+    /type=["']range["']/.test(controlText),
+    /aria-(?:pressed|selected)|type=["'](?:radio|checkbox)["']|<select\b/.test(controlText),
   ].filter(Boolean).length;
   if (independentControlKinds > 1) {
     cases.push({
@@ -620,7 +694,7 @@ function interactiveRegistry() {
       const relativePath = relative(ROOT, path);
       const text = readFileSync(path, 'utf8');
       const component = sourceComponentName(text, relativePath);
-      const cases = stateCases(text);
+      const cases = stateCases(text, inheritedInstrumentControlText(text));
       return stableRecord({
         id: `interactive:${component}`,
         component,

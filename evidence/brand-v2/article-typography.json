@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8b5226eb667fa81b7eb61241dbe22875d9de84b0a2b1648bd1a66954613de2d2",
+  "fingerprint": "ca310dbc312aff97412dd729d301dc9845707effc0e492b01e3eaa6c3c61f344",
   "viewports": [
     "375x812",
     "1440x900"
@@ -34316,7 +34316,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38103,
+      "visibleTextLength": 38102,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34875,15 +34875,6 @@
           "text": "The headline result: 30/30 successes on every evaluated task"
         },
         {
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "lineHeightRatio": 1.7,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "EXPO-FT four-task comparison, successes out of 30 trials"
-        },
-        {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
@@ -35271,7 +35262,7 @@
         {
           "text": "EXPO-FT four-task comparison, su",
           "familyHead": "ibm plex mono",
-          "sizePx": 11,
+          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -76692,7 +76683,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "k = 100: 44% success, 4 decisions per 400-step episode"
@@ -76701,7 +76692,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Solid points are the measured ACT ablation values (1% at k=1"
@@ -76710,7 +76701,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Task success rises from 1% at chunk size k = 1 to the measur"
@@ -76863,7 +76854,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Deterministic toy, not measured throughput: at 0 ms of added"
@@ -76872,7 +76863,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Across the 24-tick hand-off at 0 ms of delay the real-time c"
@@ -76881,7 +76872,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "d = 0 ms: temporal ensembling 100% nominal, real-time chunki"
@@ -76890,7 +76881,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Deterministic toy, not measured throughput. This qualitative"
@@ -76908,7 +76899,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Deterministic toy, not measured throughput: at 100 ms of add"
@@ -76917,7 +76908,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Across the 24-tick hand-off at 100 ms of delay the real-time"
@@ -76926,7 +76917,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "d = 100 ms: temporal ensembling 0% failed, real-time chunkin"
@@ -76935,7 +76926,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Deterministic toy, not measured throughput. This qualitative"
@@ -78446,7 +78437,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Deterministic illustration, not a task-cost theorem: the err"
@@ -78455,7 +78446,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "accumulated deviation = 370 units over 120 steps, final devi"
@@ -78464,7 +78455,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "reference scalings at T = 120: εT(T+1)/2 = 363, εT = 6.0"
@@ -78473,7 +78464,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Per-timestep prediction at 5.0 percent per-step error over 1"
@@ -78482,7 +78473,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "With toy error 5.0% over 120 steps, summed deviation is 370 "
@@ -78518,7 +78509,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Deterministic illustration, not a task-cost theorem: the err"
@@ -78527,7 +78518,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "accumulated deviation = 1505 units over 240 steps, final dev"
@@ -78536,7 +78527,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "reference scalings at T = 240: εT(T+1)/2 = 1446, εT = 12.0"
@@ -78545,7 +78536,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The doubled-horizon figure keeps per-timestep prediction at "
@@ -78554,7 +78545,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The prediction-step reference panel starts at 240 steps. Its"
@@ -80222,7 +80213,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Padded shared vector: human video: no adapter modelled in th"
@@ -80231,7 +80222,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Padded shared vector is an illustrative 32-slot layout acros"
@@ -80240,7 +80231,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "This toy puts each robot row in the leading coordinates of a"
@@ -80249,7 +80240,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The toy does not define a human hand-to-action adapter. Its "
@@ -80258,7 +80249,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Source context: Octo Model Team 2024"
@@ -80267,7 +80258,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Every strip width is illustrative, not a published architect"
@@ -80936,7 +80927,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "step 0 of 10 (pure Gaussian noise) mean distance to mode 1.7"
@@ -80945,7 +80936,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At denoising step 0 of 10 the 60-sample cloud is pure Gaussi"
@@ -80954,7 +80945,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative model: 60 samples with a fixed seed, transporte"
@@ -81026,7 +81017,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
@@ -81035,7 +81026,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunk"
@@ -81044,7 +81035,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Solid segments are executed; outlined tails are revised away"
@@ -82466,7 +82457,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Helix Figure Feb 2025 weights: not disclosed"
@@ -82475,7 +82466,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Provenance: lab blog, vendor-reported"
@@ -82484,7 +82475,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Figure reports S2 latent task representations and S1 control"
@@ -82493,7 +82484,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The February 20, 2025 announcement identifies an open-weight"
@@ -82502,7 +82493,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Source: Figure AI 2025 (vendor-reported)"
@@ -82511,7 +82502,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "13 of 13 selected generalist policy records are shown; selec"
@@ -83630,7 +83621,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "lineHeightRatio": 1.7,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "blue ticks: updates fired at or before the playhead. dim tic"
@@ -83639,7 +83630,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms ha"
@@ -83648,7 +83639,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "One task instruction at t=0 is the schematic starting condit"
@@ -83657,7 +83648,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "High-level inference inside the same network emits the next "
@@ -83666,7 +83657,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The paper predicts 50 actions and reports 50 Hz target comma"
@@ -83675,7 +83666,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Paper-reported mobile-manipulator target poses and base velo"
@@ -83684,7 +83675,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The same model performs high-level subtask inference and low"
@@ -83693,7 +83684,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Source: Black 2025"
@@ -84432,7 +84423,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "backbone supervision: no gradients (inference)"
@@ -84441,7 +84432,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "measured effect: 7.5x fewer training steps π0.5 + KI general"
@@ -84450,7 +84441,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Forward pass at depth 8 of 8 keeps backbone supervision on n"
@@ -84459,7 +84450,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Schematic: 8 layers drawn per stack for legibility, and the "
@@ -85166,7 +85157,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "k = 10 Euler steps mean endpoint error 0.05"
@@ -85175,7 +85166,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "With 10 Euler steps the 48 samples travel near-straight from"
@@ -85184,7 +85175,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative model: 48 samples with a fixed seed, transporte"
@@ -85427,7 +85418,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "MEM is selectable below but not plotted: its source month is"
@@ -85436,7 +85427,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "π0 Oct 2024 weights downloadable"
@@ -85445,7 +85436,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "PaliGemma 3B + 300M action expert"
@@ -85454,7 +85445,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Flow-matching action expert grafted onto a pretrained VLM; 5"
@@ -85463,7 +85454,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 647,
+          "widthPx": 639,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Source: Black 2024"
@@ -85472,7 +85463,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The π line contains 7 generations, with established source m"
@@ -86341,7 +86332,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Synchronous toy: does not close at 50 Hz: 19 Hz reciprocal i"
@@ -86350,7 +86341,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative teaching model, not hardware profiling. VLA-Per"
@@ -86359,7 +86350,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this toy, the 3.0B coordinate gives 52.6 ms of inference "
@@ -86449,7 +86440,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Synchronous toy: closes at 50 Hz: 52 Hz reciprocal inference"
@@ -86458,7 +86449,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative teaching model, not hardware profiling. VLA-Per"
@@ -86467,7 +86458,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this toy, the 1.1B coordinate gives 19.3 ms of inference "
@@ -86539,7 +86530,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "d = 0 ms: all three toy traces stay below the proxy limit; Δ"
@@ -86548,7 +86539,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative hand-off traces, not an RTC solver or measured "
@@ -86557,7 +86548,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 0 ms of inference delay the synchronous velocity trace st"
@@ -86995,7 +86986,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38730,
+      "visibleTextLength": 38729,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87125,7 +87116,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Teaching toy, not a measured Recap episode: the 40 s timelin"
@@ -87134,7 +87125,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "lineHeightRatio": 1.7,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "solid outline: value rises, high advantage. dashed outline: "
@@ -87143,7 +87134,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Current segment: Reach: high advantage (+8.0)"
@@ -87152,7 +87143,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The arm approaches the portafilter and pre-shapes the hand."
@@ -87161,7 +87152,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "In this toy, the portafilter is grasped at a bad angle and t"
@@ -87170,7 +87161,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Grounds are dosed and tamped. Locally competent, but the gra"
@@ -87179,7 +87170,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The misaligned portafilter will not seat. The failure is obs"
@@ -87188,7 +87179,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 651,
+          "widthPx": 643,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "No extraction. The episode ends in failure and every transit"
@@ -87197,7 +87188,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At t = 0.0 s this teaching toy shows an arbitrary value scor"
@@ -87554,19 +87545,10 @@
           "text": "The headline result: 30/30 successes on every evaluated task"
         },
         {
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "lineHeightRatio": 1.7,
-          "widthPx": 673,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "EXPO-FT four-task comparison, successes out of 30 trials"
-        },
-        {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "HIL-SERL (M), trained with additional samples on the two tas"
@@ -87575,7 +87557,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "On the four shared comparison tasks EXPO-FT completes 30 of "
@@ -87950,7 +87932,7 @@
         {
           "text": "EXPO-FT four-task comparison, su",
           "familyHead": "ibm plex mono",
-          "sizePx": 11,
+          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -89008,7 +88990,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Along the Δx action lane of the 16-step chunk, the continuou"
@@ -89017,7 +88999,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "On the Δx axis the continuous action -0.056 at step 7 falls "
@@ -89026,7 +89008,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Serialized action tokens at t = 7"
@@ -89035,7 +89017,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "7 sequential decodes per control step: token n+1 cannot star"
@@ -89044,7 +89026,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Δx = -0.056 → bin 120 of 255 → <a120> reconstructs to -0.058"
@@ -89053,7 +89035,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative seven-coordinate sequence: fixed [-1, 1] bounds"
@@ -91953,7 +91935,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Motion-tracking RL: Figure Helix 02 S0 Layers 3 Fastest loop"
@@ -91962,7 +91944,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Motion-tracking RL, represented by Figure Helix 02 S0, stack"
@@ -91971,7 +91953,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "One reinforcement-learned policy tracks a retargeted human r"
@@ -92720,7 +92702,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "walk at 0% feet down RF + LH + RH duty 0.75"
@@ -92729,7 +92711,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In the walk, always 3 feet down at duty factor 0.75, and the"
@@ -94517,7 +94499,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "4,096 envs: 4.0 min to target reward at 924k FPS"
@@ -94526,7 +94508,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "At low env counts the fixed per-iteration costs (learning up"
@@ -94535,7 +94517,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Wall-clock to the target reward falls steeply from 3.6 h at "
@@ -95252,7 +95234,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Local teaching model: twelve illustrative terms and weights,"
@@ -95261,7 +95243,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "balanced gait. This toy selects a balanced trot when none of"
@@ -95270,7 +95252,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The 12 weighted reward terms give an illustrative total of -"
@@ -95396,7 +95378,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Task: quadruped forward walking at 1.0 m/s"
@@ -95405,7 +95387,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 401.5,
+          "widthPx": 396.61,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Proposed reward code"
@@ -95414,7 +95396,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 255.5,
+          "widthPx": 252.39,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Scripted reward statistics"
@@ -95423,7 +95405,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 255.5,
+          "widthPx": 252.39,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Scripted reflection on the statistics"
@@ -95432,7 +95414,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Scripted replay of the Eureka loop (propose reward code, tra"
@@ -95558,7 +95540,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 302.5,
+          "widthPx": 298.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The push is inside the model's assumptions, so the next re-s"
@@ -95567,7 +95549,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 302.5,
+          "widthPx": 298.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Compute per step: re-solves iLQR against the current state a"
@@ -95585,7 +95567,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 302.5,
+          "widthPx": 298.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Pushes were in the randomization distribution, so a recovery"
@@ -95594,7 +95576,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 302.5,
+          "widthPx": 298.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Compute per step: one network forward pass, weights fixed at"
@@ -95603,7 +95585,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Same robot, same perturbation, two controllers. The traces a"
@@ -95612,7 +95594,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "After a lateral push at step 4 the MPC base-height deviation"
@@ -96312,7 +96294,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "model wall clock 21.5 min slower than sim 1.0x toy band toy "
@@ -96321,7 +96303,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "In this toy, 158M steps through massively parallel simulatio"
@@ -96330,7 +96312,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "What is modelled rather than measured: the three lanes use c"
@@ -96339,7 +96321,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In the constant-rate toy, 158M environment steps take 21.5 m"
@@ -96348,7 +96330,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Paper-reported durations, with different settings and units:"
@@ -97267,7 +97249,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "real mu 0.80: point 97% vs DR 74%"
@@ -97276,7 +97258,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "In this authored toy, the point curve is higher at the selec"
@@ -97285,7 +97267,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Authored toy, not measured robot data. At selected friction "
@@ -97357,7 +97339,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "real mu 0.80: point 97% vs DR 57%"
@@ -97366,7 +97348,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "In this authored toy, the point curve is higher at the selec"
@@ -97375,7 +97357,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Authored toy, not measured robot data. At selected friction "
@@ -97447,7 +97429,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "degradation 15%: MAE 0.01 m divergence 0.02"
@@ -97456,7 +97438,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 15 percent proprioceptive degradation the student reconst"
@@ -97465,7 +97447,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Darker cells are higher terrain. This deterministic toy draw"
@@ -98156,7 +98138,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Locomotion: ε = 2.0 mm -> stable: all 4 feet loaded"
@@ -98165,7 +98147,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Locomotion at 2.0 mm of injected contact-model error stays s"
@@ -98174,7 +98156,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Quadruped stance: four near-point foot-ground contacts on a "
@@ -100063,7 +100045,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "mug displacement = 0.0 cm after 0 effective pushes"
@@ -100072,7 +100054,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Appearance is on and simulation is on, physics proxy is off,"
@@ -100081,7 +100063,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 565,
+          "widthPx": 557,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Nothing moves. The appearance layer renders the mug but has "
@@ -100863,7 +100845,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "action sensitivity S = 0.419 (threshold 0.30), visual realis"
@@ -100872,7 +100854,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "futures diverge: the model responds to the action. S is the "
@@ -100881,7 +100863,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Under strong conditioning, push left and lift gripper diverg"
@@ -101687,7 +101669,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 565,
+          "widthPx": 557,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "No pixel decoder is used to select V-JEPA 2-AC control actio"
@@ -101696,7 +101678,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "d(z_t, z_goal) = 0.813 after planning step 0"
@@ -101705,7 +101687,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Synthetic teaching model, not learned embeddings or measured"
@@ -102383,7 +102365,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured model performance. The 3-15-s"
@@ -102392,7 +102374,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "latent deviation Δ(15) = 0.301 units at one-step error 2.0%"
@@ -102401,7 +102383,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this deterministic toy latent rollout view the solid imag"
@@ -102410,7 +102392,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this deterministic toy, latent deviation grows from 0 at "
@@ -103787,7 +103769,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Latent-dynamics world model (Dreamer-style): a latent vector"
@@ -103796,7 +103778,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Latent-dynamics (Dreamer-style) predicts the next latent, a "

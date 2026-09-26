@@ -2,7 +2,13 @@
 
 import { useId, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  InstrumentFrame,
+  InstrumentHeader,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   PI_GENERATIONS,
   generationsBehind,
@@ -94,19 +100,11 @@ export function PiGenerationTimeline({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
-      <svg
+    <InstrumentFrame className={className}>
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Timeline of dated Physical Intelligence sources from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}. The pinned checkpoint catalogue ends at ${frontier.name}; ${behind} other model entries have unverified weight availability. MEM has no established month and is not plotted.`}
         aria-describedby={descriptionId}
-        className="block w-full"
       >
         {/* Entries outside the inspected checkpoint catalogue */}
         <rect
@@ -238,18 +236,18 @@ export function PiGenerationTimeline({
             </g>
           );
         })}
-      </svg>
+      </PlotStage>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         MEM is selectable below but not plotted: its source month is unverified.
         Downloadable means listed in the inspected openpi catalogue, not an
         open-source licence. Non-listing leaves availability unverified.
       </p>
 
-      <div
+      <InstrumentHeader
         data-testid="generation-track"
         role="group"
         aria-label="Select a generation"
-        className="mt-3 flex flex-wrap gap-1.5"
+        className="mt-3 gap-1.5"
       >
         {PI_GENERATIONS.map((g, i) => (
           <button
@@ -291,16 +289,12 @@ export function PiGenerationTimeline({
             </span>
           </button>
         ))}
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => select(PI_GENERATIONS.findIndex((g) => g.id === defaultSelected))}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
-      </div>
+        <InstrumentReset
+          onClick={() =>
+            select(PI_GENERATIONS.findIndex((g) => g.id === defaultSelected))
+          }
+        />
+      </InstrumentHeader>
 
       <div
         data-testid="generation-detail"
@@ -354,6 +348,6 @@ export function PiGenerationTimeline({
           { label: 'not in pinned catalogue', value: String(behind) },
         ]}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

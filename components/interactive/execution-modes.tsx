@@ -3,6 +3,12 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+} from '@/components/ui/instrument';
+import {
   HANDOFF_TICK,
   JERK_LIMIT,
   MAX_DELAY_MS,
@@ -131,6 +137,9 @@ function ModePanel({
           </span>
         )}
       </div>
+      {/* Kept as a literal svg, not a PlotStage mount: the aria label names
+          the mode constant that also holds the panel's semantic hues, and
+          the sealed token scan reads the inline role= cue from this tag. */}
       <svg
         viewBox={`0 0 ${PANEL.width} ${PANEL.height}`}
         role="img"
@@ -318,24 +327,12 @@ export function ExecutionModes({ className }: { className?: string }) {
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
-            htmlFor="em-delay"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor="em-delay" value={`d = ${delayMs} ms`}>
             Inference delay
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              d = {delayMs} ms
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="em-delay"
             type="range"
@@ -350,18 +347,10 @@ export function ExecutionModes({ className }: { className?: string }) {
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">d = {delayMs} ms:</span>{' '}
         {naiveFails ? (
           <span className="text-err">
@@ -373,7 +362,7 @@ export function ExecutionModes({ className }: { className?: string }) {
         <span className="text-text-dim">
           ; Δv proxy limit {JERK_LIMIT.toFixed(2)} per 20 ms tick
         </span>
-      </p>
+      </InstrumentReadout>
 
       <div className="mt-3 grid gap-4">
         {MODE_ORDER.map((mode) => (
@@ -410,6 +399,6 @@ export function ExecutionModes({ className }: { className?: string }) {
         rows={sampleRows}
         description={descriptionText}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

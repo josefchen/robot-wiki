@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-curves-and-mount-defaults",
-  "inputDigest": "fcc6e0fb2ff593c0f4d4e021020ac36a8c21ef9bf689bf1a40e4dcfd569e5d93",
+  "inputDigest": "3c0315bbc9a949634d79c9c83a280568784751b9e41175b1ddc669514a637c20",
   "inventory": [
     {
       "id": "s23-tobin-framing",
