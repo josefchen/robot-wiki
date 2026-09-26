@@ -270,6 +270,9 @@ export function WbcDecomposition({
         </g>
       </PlotStage>
 
+      {/* Self-label: schematic stack drawing. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">Schematic control stacks; the loop rates beside each layer are published values.</p>
+
       <div
         data-testid="wbc-stats"
         className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 font-mono text-xs sm:grid-cols-4"

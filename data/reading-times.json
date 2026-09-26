@@ -4,11 +4,11 @@
     "minutes": 9
   },
   "manipulation/action-chunking": {
-    "words": 2806,
+    "words": 2819,
     "minutes": 14
   },
   "manipulation/diffusion-policy": {
-    "words": 1738,
+    "words": 1746,
     "minutes": 9
   },
   "manipulation/vla-models": {
@@ -40,11 +40,11 @@
     "minutes": 12
   },
   "manipulation/cross-embodiment": {
-    "words": 1727,
+    "words": 1736,
     "minutes": 9
   },
   "manipulation/knowledge-insulation": {
-    "words": 1391,
+    "words": 1398,
     "minutes": 7
   },
   "manipulation/robot-learning-roadmap": {
@@ -80,7 +80,7 @@
     "minutes": 11
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 2405,
+    "words": 2417,
     "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
@@ -92,7 +92,7 @@
     "minutes": 8
   },
   "world-models/taxonomy": {
-    "words": 2149,
+    "words": 2159,
     "minutes": 11
   },
   "world-models/latent-dynamics": {
@@ -104,11 +104,11 @@
     "minutes": 11
   },
   "world-models/jepa": {
-    "words": 1854,
+    "words": 1866,
     "minutes": 9
   },
   "world-models/generative-sim": {
-    "words": 2045,
+    "words": 2052,
     "minutes": 10
   },
   "world-models/model-based-robot-learning": {
@@ -164,11 +164,11 @@
     "minutes": 17
   },
   "classical/state-estimation": {
-    "words": 2851,
+    "words": 2868,
     "minutes": 14
   },
   "classical/grasp-planning": {
-    "words": 2424,
+    "words": 2434,
     "minutes": 12
   },
   "classical/perception": {
@@ -176,7 +176,7 @@
     "minutes": 28
   },
   "classical/scene-representation": {
-    "words": 3380,
+    "words": 3392,
     "minutes": 17
   },
   "classical/calibration": {
@@ -192,7 +192,7 @@
     "minutes": 8
   },
   "frontier/dexterity": {
-    "words": 2420,
+    "words": 2421,
     "minutes": 12
   },
   "frontier/generalization": {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "7d3176fdc29907c9692f6106a1fa5e9c91d1ff8cc229ec5dd1f6319c68b085f0",
+  "fingerprint": "4259a305138d3d9410927db3ad07652c8ac302de22189d4e365b1337bb9ba03b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -800,7 +800,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17028,
+      "visibleTextLength": 17105,
       "tables": [],
       "equations": [
         {
@@ -3233,7 +3233,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28420,
+      "visibleTextLength": 28501,
       "tables": [],
       "equations": [
         {
@@ -3328,7 +3328,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19792,
+      "visibleTextLength": 19897,
       "tables": [
         {
           "index": 0,
@@ -4417,7 +4417,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20567,
+      "visibleTextLength": 20574,
       "tables": [
         {
           "index": 0,
@@ -4436,10 +4436,10 @@
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
             "clientWidth": 301,
-            "scrollWidth": 543,
+            "scrollWidth": 561,
             "scrolledBy": 40
           },
-          "tableWidth": 542.73,
+          "tableWidth": 561.33,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4454,7 +4454,7 @@
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
           "tabIndex": 0,
           "clientWidth": 301,
-          "scrollWidth": 543,
+          "scrollWidth": 561,
           "scrolledBy": 40
         }
       ],
@@ -4752,7 +4752,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22659,
+      "visibleTextLength": 22733,
       "tables": [
         {
           "index": 0,
@@ -5816,7 +5816,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15429,
+      "visibleTextLength": 15483,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -5830,7 +5830,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14094,
+      "visibleTextLength": 14165,
       "tables": [],
       "equations": [
         {
@@ -6235,7 +6235,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12183,
+      "visibleTextLength": 12236,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6819,7 +6819,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20782,
+      "visibleTextLength": 20865,
       "tables": [
         {
           "index": 0,
@@ -7355,7 +7355,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17031,
+      "visibleTextLength": 17084,
       "tables": [],
       "equations": [
         {
@@ -7400,7 +7400,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16258,
+      "visibleTextLength": 16352,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7479,7 +7479,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19481,
+      "visibleTextLength": 19548,
       "tables": [
         {
           "index": 0,
@@ -8344,7 +8344,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17449,
+      "visibleTextLength": 17526,
       "tables": [],
       "equations": [
         {
@@ -10777,7 +10777,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28841,
+      "visibleTextLength": 28922,
       "tables": [],
       "equations": [
         {
@@ -10872,7 +10872,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20211,
+      "visibleTextLength": 20316,
       "tables": [
         {
           "index": 0,
@@ -11961,7 +11961,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20902,
+      "visibleTextLength": 20909,
       "tables": [
         {
           "index": 0,
@@ -12296,7 +12296,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23286,
+      "visibleTextLength": 23360,
       "tables": [
         {
           "index": 0,
@@ -13360,7 +13360,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16056,
+      "visibleTextLength": 16110,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13374,7 +13374,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14721,
+      "visibleTextLength": 14792,
       "tables": [],
       "equations": [
         {
@@ -13779,7 +13779,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12810,
+      "visibleTextLength": 12863,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14363,7 +14363,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21257,
+      "visibleTextLength": 21340,
       "tables": [
         {
           "index": 0,
@@ -14899,7 +14899,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17515,
+      "visibleTextLength": 17568,
       "tables": [],
       "equations": [
         {
@@ -14944,7 +14944,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16742,
+      "visibleTextLength": 16836,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -15023,7 +15023,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19965,
+      "visibleTextLength": 20032,
       "tables": [
         {
           "index": 0,

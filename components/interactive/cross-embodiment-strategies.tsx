@@ -8,6 +8,7 @@ import {
   InstrumentHeader,
   InstrumentLegend,
   InstrumentReadout,
+  LegendItem,
   InstrumentReset,
   PlotStage,
 } from '@/components/ui';
@@ -143,6 +144,7 @@ function EmbodimentRow({
         {slots.map((slot) => (
           <rect
             key={slot.index}
+            data-series={slot.state}
             x={x(slot.index)}
             y={3}
             width={slotW}
@@ -239,13 +241,84 @@ export function CrossEmbodimentStrategies({
       </div>
 
       <InstrumentLegend className="mt-2">
-        <span>
-          <span className="text-accent">blue</span>: dims this source drives
-        </span>
-        <span>dashed outline: zero-padding</span>
-        <span>hatched: illustrative link, not model dimensions</span>
-        <span>faint outline: unused</span>
+        <LegendItem
+          series="active"
+          swatch={
+            <svg width={10} height={10} aria-hidden className="shrink-0">
+              <rect
+                width={10}
+                height={10}
+                fill="var(--color-accent)"
+                fillOpacity={0.85}
+              />
+            </svg>
+          }
+        >
+          driven by this source
+        </LegendItem>
+        <LegendItem
+          series="zeroed"
+          swatch={
+            <svg width={10} height={10} aria-hidden className="shrink-0">
+              <rect
+                width={9}
+                height={9}
+                x={0.5}
+                y={0.5}
+                fill="none"
+                stroke="var(--color-border-strong)"
+                strokeWidth={1}
+                strokeDasharray="2 2"
+              />
+            </svg>
+          }
+        >
+          zero-padding
+        </LegendItem>
+        <LegendItem
+          series="latent"
+          swatch={
+            <svg width={10} height={10} aria-hidden className="shrink-0">
+              <defs>
+                <pattern
+                  id="legend-latent-hatch"
+                  width={4}
+                  height={4}
+                  patternUnits="userSpaceOnUse"
+                  patternTransform="rotate(45)"
+                >
+                  <line x1={0} y1={0} x2={0} y2={4} stroke="var(--color-text-dim)" strokeWidth={1} />
+                </pattern>
+              </defs>
+              <rect width={10} height={10} fill="url(#legend-latent-hatch)" />
+            </svg>
+          }
+        >
+          hatched: illustrative link, not model dimensions
+        </LegendItem>
+        <LegendItem
+          series="blocked"
+          swatch={
+            <svg width={10} height={10} aria-hidden className="shrink-0">
+              <rect
+                width={9}
+                height={9}
+                x={0.5}
+                y={0.5}
+                fill="none"
+                stroke="var(--color-border)"
+                strokeWidth={1}
+              />
+            </svg>
+          }
+        >
+          unused
+        </LegendItem>
       </InstrumentLegend>
+        <p className="mt-1 font-sans text-xs text-text-dim">
+          Signal <span className="text-accent">blue</span> carries the dims a
+          source drives; the swatches above repeat each rendered mark.
+        </p>
 
       <ChartDescription
         id={descriptionId}

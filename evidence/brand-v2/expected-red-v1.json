@@ -47,19 +47,6 @@
         "material-treatment"
       ],
       "rolloutMilestone": "brand-v2-social-convergence"
-    },
-    {
-      "suite": "brand-v2 shared primitive registry",
-      "assertionId": "VAL-B2-COMP-014",
-      "expected": "every rendered control reaches the registered 24px minimum or satisfies a registered SC 2.5.8 exception",
-      "actual": "undersized controls with no satisfiable SC 2.5.8 exception remain on the routes listed below; the round-5 closeout enlarged the heading-permalink hit area to 24px and stopped measuring controls hidden behind closed disclosures, which cleared evaluation-crisis, realtime-execution, and sim2real-transfer",
-      "failedRoutes": [
-        "/a-z/",
-        "/data-hardware/teleop-rigs/",
-        "/frontier/dexterity/",
-        "/market-map/?view=bubble"
-      ],
-      "rolloutMilestone": "brand-v2-foundations"
     }
   ]
 }

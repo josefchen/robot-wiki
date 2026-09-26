@@ -168,7 +168,8 @@ type InstrumentLegendProps = HTMLAttributes<HTMLDivElement> & {
 /**
  * The legend band. Entries name the series or state they mark; the swatch
  * repeats the exact rendered mark so the mapping survives desaturation and
- * forced colours.
+ * forced colours. The band carries `data-instrument-legend` so the
+ * data/legend gates can find every legend without a class-name selector.
  */
 export function InstrumentLegend({
   className,
@@ -177,6 +178,7 @@ export function InstrumentLegend({
 }: InstrumentLegendProps) {
   return (
     <div
+      data-instrument-legend
       className={cx(
         'flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] text-text-dim',
         className,
@@ -191,13 +193,23 @@ export function InstrumentLegend({
 type LegendItemProps = {
   /** The swatch node repeating the rendered mark for this entry. */
   swatch: ReactNode;
+  /**
+   * Stable series id when this entry names a plotted series; the mark
+   * group in the plot carries the same id on `data-series` so the
+   * legend-to-mark mapping is checkable (VAL-B2-VIZ-004).
+   */
+  series?: string;
   children: ReactNode;
 };
 
 /** One legend entry: the swatch followed by the series or state name. */
-export function LegendItem({ swatch, children }: LegendItemProps) {
+export function LegendItem({ swatch, series, children }: LegendItemProps) {
   return (
-    <span className="flex items-center gap-2">
+    <span
+      data-legend-item
+      {...(series ? { 'data-legend-series': series } : {})}
+      className="flex items-center gap-2"
+    >
       {swatch}
       {children}
     </span>

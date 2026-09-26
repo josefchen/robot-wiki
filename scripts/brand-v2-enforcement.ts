@@ -1538,6 +1538,64 @@ const INTERACTIVE_STATE_TARGET = testTarget(
   'brand-v2 interactive-state runner › reconciles non-empty registry sources, production mounts, controls, and exact cases',
   'Accounts for every registered interactive case and exercises or explicitly classifies its current milestone-1 mechanism; later visual convergence remains pending.',
 );
+
+/**
+ * The interactive data/legend gates (brand-v2-interactive-data.spec.ts).
+ * Each target names the browser test that enforces its assertion's own
+ * predicate over the registry-derived mount population.
+ */
+const INTERACTIVE_DATA_TARGETS: Readonly<Record<string, TestTarget>> = {
+  'VAL-B2-VIZ-002': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-002 every plotted series stays distinguishable without colour',
+    'Sweeps every registry mount and requires each tagged series pair to differ in geometry, dash, pattern or an in-plot label.',
+  ),
+  'VAL-B2-VIZ-003': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-003 the lead series carries the signal paint and lime stays selection-only',
+    'Resolves the lead series computed paint against the registered lead paints and rejects highlight lime without selection semantics.',
+  ),
+  'VAL-B2-VIZ-004': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-004 legends map bijectively to marks and name things, not colours',
+    'Requires legend entries to name the state they mark and to biject with the data-series marks across the exercised control states.',
+  ),
+  'VAL-B2-VIZ-005': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-005 unknowns stay unknown and estimates stay qualified',
+    'Reconciles the rendered n/a set with the registered families in both directions and requires tilde-marked estimates to stay qualified.',
+  ),
+  'VAL-B2-VIZ-006': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-006 schematics and generated signals label what they are',
+    'Requires the status vocabulary in every non-source-data frame, with the audit-frozen boundary reported exactly as recorded.',
+  ),
+  'VAL-B2-VIZ-013': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-013 rendered coordinates recompute from the source scales',
+    'Recomputes expected bar, anchor and measured-point coordinates from the scales the components export and compares rendered geometry.',
+  ),
+  'VAL-B2-VIZ-015': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-015 canvas semantics stay registered and instrument frames stay canvas-free',
+    'Derives the canvas population across the swept routes and the playground, requires frames canvas-free and textual alternatives present.',
+  ),
+  'VAL-B2-COL-010': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-COL-010 legend swatches repeat the rendered marks exactly',
+    'Compares each legend swatch resolved paint and dash against the marks of the series it names.',
+  ),
+  'VAL-B2-COMP-009': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-COMP-009 instrument tables expose scope, sort state, and numeric alignment',
+    'Checks header scope and numeric alignment on every instrument table in the sweep; the companion sort test announces the active column.',
+  ),
+  'VAL-B2-COMP-010': testTarget(
+    'tests/e2e/brand-v2-interactive-data.spec.ts',
+    'brand-v2 interactive data legends and render parity › VAL-B2-COMP-010 sorting announces itself and n/a never substitutes for a value',
+    'Reconciles the honest n/a families, refuses blank cells and columns that mix n/a with not disclosed.',
+  ),
+};
 const PRIMITIVE_REGISTRY_TARGET = testTarget(
   'tests/unit/brand-v2-census.test.ts',
   'brand-v2 canonical census > registers complete grid, surface, and control primitive contracts',
@@ -1792,6 +1850,9 @@ const TOKEN_FOUNDATION_TARGET = testTarget(
 );
 
 function tokenTargetsFor(id: string): TestTarget[] {
+  const interactiveData = INTERACTIVE_DATA_TARGETS[id]
+    ? [INTERACTIVE_DATA_TARGETS[id]]
+    : [];
   // The renderer-parity walk measures the corpus tree. It is decisive for
   // the shipped cards only while the painted tree is that same tree, so
   // every row reading a renderer number also names the two gates that hold
@@ -1817,6 +1878,7 @@ function tokenTargetsFor(id: string): TestTarget[] {
     id === 'VAL-B2-COL-003' ? TOKEN_FOUNDATION_TARGET : TOKEN_ACCENT_TARGET,
     ...renderer,
     TOKEN_EVIDENCE_READER_TARGET,
+    ...interactiveData,
   ];
 }
 
@@ -2042,7 +2104,11 @@ function testTargetsFor(id: string): TestTarget[] {
   if (area === 'CONT') return [CENSUS_ROUTE_TARGET];
   if (area === 'IMG') return [ASSET_TARGET];
   if (area === 'VIZ') {
-    return [CENSUS_INTERACTIVE_TARGET, INTERACTIVE_STATE_TARGET];
+    return [
+      CENSUS_INTERACTIVE_TARGET,
+      INTERACTIVE_STATE_TARGET,
+      ...(INTERACTIVE_DATA_TARGETS[id] ? [INTERACTIVE_DATA_TARGETS[id]] : []),
+    ];
   }
   if (area === 'GOV' || ['VAL-B2-EVID-014', 'VAL-B2-EVID-016'].includes(id)) {
     return [ENFORCEMENT_TARGET];
@@ -2129,7 +2195,15 @@ function testTargetsFor(id: string): TestTarget[] {
     return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET, PRIMITIVE_TARGET_SIZE_TARGET];
   }
   if (id === 'VAL-B2-COMP-009') {
-    return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET, PRIMITIVE_TABLE_REGION_TARGET];
+    return [
+      CENSUS_ROUTE_TARGET,
+      ROUTE_FLOW_TARGET,
+      PRIMITIVE_TABLE_REGION_TARGET,
+      INTERACTIVE_DATA_TARGETS[id],
+    ];
+  }
+  if (INTERACTIVE_DATA_TARGETS[id]) {
+    return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET, INTERACTIVE_DATA_TARGETS[id]];
   }
   return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET];
 }
