@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4259a305138d3d9410927db3ad07652c8ac302de22189d4e365b1337bb9ba03b",
+  "fingerprint": "b35bddbb6627c1e5df4c3b06a9197f7ed81c50995707d01992eaeebd9d4aa423",
   "viewports": [
     "375x812",
     "1440x900"
@@ -339,7 +339,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25224,
+      "visibleTextLength": 25416,
       "tables": [],
       "equations": [
         {
@@ -1191,7 +1191,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14990,
+      "visibleTextLength": 15077,
       "tables": [
         {
           "index": 0,
@@ -4099,7 +4099,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17439,
+      "visibleTextLength": 17530,
       "tables": [
         {
           "index": 0,
@@ -4603,7 +4603,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14135,
+      "visibleTextLength": 14226,
       "tables": [
         {
           "index": 0,
@@ -6870,7 +6870,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18423,
+      "visibleTextLength": 18537,
       "tables": [
         {
           "index": 0,
@@ -7883,7 +7883,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25645,
+      "visibleTextLength": 25837,
       "tables": [],
       "equations": [
         {
@@ -8735,7 +8735,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15411,
+      "visibleTextLength": 15498,
       "tables": [
         {
           "index": 0,
@@ -11643,7 +11643,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17818,
+      "visibleTextLength": 17909,
       "tables": [
         {
           "index": 0,
@@ -12147,7 +12147,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14470,
+      "visibleTextLength": 14561,
       "tables": [
         {
           "index": 0,
@@ -14414,7 +14414,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18898,
+      "visibleTextLength": 19012,
       "tables": [
         {
           "index": 0,

@@ -362,3 +362,51 @@ describe('SearchInterface', () => {
     );
   });
 });
+
+describe('VAL-SEARCH-027: facet narrowing is announced before index-failure emptiness', () => {
+  it('names the active filter when the module index failed and a facet hides real hits', async () => {
+    // The module index failed AND a type facet is hiding real structured
+    // hits. What a screen reader hears must agree with the visible
+    // filter-hiding recovery note: the filter is named, never a total
+    // miss, even though the prose surface has nothing to report.
+    const user = userEvent.setup();
+    render(
+      <SearchInterface
+        loadClient={() => Promise.reject(new Error('no prose index'))}
+        loadStructured={structuredClientWith(async () => [
+          {
+            id: 'company:figure-ai',
+            entityId: 'figure-ai',
+            type: 'company',
+            title: 'Figure AI',
+            url: '/market-map/#company-figure-ai',
+            facet: 'humanoids',
+            snippet: 'Builds general-purpose humanoid robots for commercial work.',
+          },
+        ])}
+        debounceMs={0}
+      />,
+    );
+    await user.type(
+      screen.getByRole('searchbox', { name: INPUT_NAME }),
+      'figure',
+    );
+    await screen.findByRole('link', { name: /^Figure AI/ });
+    // Narrow to methods: the company hit is now hidden by the filter.
+    await user.click(screen.getByRole('button', { name: /^Methods$/ }));
+
+    const status = screen.getByRole('status');
+    await waitFor(() =>
+      expect(status).toHaveTextContent(/under the active type filter/i),
+    );
+    // The total-miss verdict must not be announced while unfiltered entity
+    // matches exist behind the facet.
+    expect(status).not.toHaveTextContent(/entity matches/i);
+    // The module surface failure is still named alongside the filter.
+    expect(status).toHaveTextContent(/module index is unavailable/i);
+    // And the visible recovery copy the announcement agrees with.
+    expect(
+      screen.getByRole('button', { name: /clear the type filter/i }),
+    ).toBeInTheDocument();
+  });
+});

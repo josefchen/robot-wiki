@@ -41,8 +41,8 @@
       },
       {
         "path": "components/interactive/planar-fk-arm.tsx",
-        "bytes": 8577,
-        "sha256": "dd1348a8454f95885e086aa221f8ec0f566fdb1d5dbae0e10ada20c278fd73ae"
+        "bytes": 8827,
+        "sha256": "ad94ec5712bd2e1208466d90da56d625193895de509c731c97fef8f23a9cb055"
       },
       {
         "path": "components/mdx/dh-parameter-table.tsx",
@@ -70,14 +70,14 @@
     "execution": {
       "path": "audit/evidence/residual-release-20260924/kinematics-removal-run.json",
       "bytes": 5473,
-      "sha256": "c9825de2c7788bfe37b09ca87fdfe714c067a5d85da91f7c668ef2dccd55eca7"
+      "sha256": "ee93e0499e1a2b3feeac600015046073b135f02fd8c1588ef900aa5e0264367d"
     },
     "children": [],
     "review": {
       "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
       "rationale": "Inspected fresh desktop/mobile captures, current article and glossary, retained DH matrix and FK controls, real playground link, absence of unsupported attribution and formula, and unchanged solver. Source histories and all older execution records are preserved. This binds current merged dependencies to genuine new reader observations, not a relabelled earlier execution.",
       "observedAt": "2026-09-24T01:17:16.306Z",
-      "inputDigest": "d567b71413afb8b81f212a31c82f2c635a260c815a5ffdae8bcd005ffdce4dda"
+      "inputDigest": "c5bd2123409145c5b6f5845986af908be18814a794075e0040968fdfca7b9640"
     }
   },
   {
@@ -122,8 +122,8 @@
       },
       {
         "path": "components/interactive/planar-fk-arm.tsx",
-        "bytes": 8577,
-        "sha256": "dd1348a8454f95885e086aa221f8ec0f566fdb1d5dbae0e10ada20c278fd73ae"
+        "bytes": 8827,
+        "sha256": "ad94ec5712bd2e1208466d90da56d625193895de509c731c97fef8f23a9cb055"
       },
       {
         "path": "components/mdx/dh-parameter-table.tsx",
@@ -151,14 +151,14 @@
     "execution": {
       "path": "audit/evidence/residual-release-20260924/kinematics-removal-run.json",
       "bytes": 5473,
-      "sha256": "c9825de2c7788bfe37b09ca87fdfe714c067a5d85da91f7c668ef2dccd55eca7"
+      "sha256": "ee93e0499e1a2b3feeac600015046073b135f02fd8c1588ef900aa5e0264367d"
     },
     "children": [],
     "review": {
       "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
       "rationale": "Inspected fresh desktop/mobile captures, current article and glossary, retained DH matrix and FK controls, real playground link, absence of unsupported attribution and formula, and unchanged solver. Source histories and all older execution records are preserved. This binds current merged dependencies to genuine new reader observations, not a relabelled earlier execution.",
       "observedAt": "2026-09-24T01:17:16.307Z",
-      "inputDigest": "d9accc4f5a250a2312e88cbca04c2fbde609da8c87bd3cec8dbd0aa2a090b0ef"
+      "inputDigest": "9476f10b5209faf0af674972b6eb82eeeca9e4c7d5a8afb715ffaea1a11d8219"
     }
   }
 ]

@@ -5678,11 +5678,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Checked audit/rl-sim2real.md:legged-locomotion:8 authored parameters and units against the corrected article and pinned model file; these chosen values are not measurements. The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
-          "inputDigest": "3d47ef614873a2702cd1046447f3dbc237e09f17594289d7051ff2eef0c517d4",
+          "inputDigest": "993bb54c8c33eaad27478c8a587b14401dbe4776c6d5e7b0a6d6d4a7b2b8c6d5",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters-20260923.review.json",
             "bytes": 4742,
-            "sha256": "5090e9faf6f4d2bfd42e4951d28c687ab668ab15c24b6d3c8aeab142aec41cd7"
+            "sha256": "05fc0da3169d1815701e0712f8ea620d4832c9e3cb404c5ddef3a289d2daacd8"
           },
           "partId": "8-parameters",
           "outcome": "supported"
@@ -5690,11 +5690,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Compared exact finite numeric result, units and rounding for audit/rl-sim2real.md:legged-locomotion:8 with independently calculated arithmetic; this remains a bounded illustrative model. The finite calculation and display rounding follow the explicit model inputs; numerical agreement is not a source truth claim.",
-          "inputDigest": "4694cb9414b5f2df6fc40e83ca69ed2017a19a2f547ca637851267299f946cb6",
+          "inputDigest": "77796fbcae5cd7a58f46324cfbd8000b65a90c162a6620e24e69d4fd2163278c",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation-20260923.review.json",
             "bytes": 4742,
-            "sha256": "195121cc4a4ba8f0dbce36e68645a0d4cb1d2d1798fa3c3f05c4353e8223d2cb"
+            "sha256": "4db85af6d410f7b5ea94e7b3e94f856e8ce893cee597b3d4620a7ac9e8fa7b38"
           },
           "partId": "8-derivation",
           "outcome": "supported"
@@ -5702,11 +5702,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 4 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "889a36b650658e366eff6580f61200af49b304bafac921f39c33dbcb736f6536",
+          "inputDigest": "138b6fc4d01ea7ed3752cdaf344cd9004833c6f76e8330377e7e555a7fb9a9e1",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0-20260923.review.json",
             "bytes": 4710,
-            "sha256": "da1a3089ec9afbef66c2f6214cd111cadbde0b17a5200aa5031c479551c497ac"
+            "sha256": "cedc314fc04d21d4e470461e39aae96ce02702788dac96d0026bf0bcc7236a03"
           },
           "partId": "8-mounted-0",
           "outcome": "supported"
@@ -5714,11 +5714,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows discrete-options controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "9734b87987f928e45b5ca5cc32163ce52e47ccc21be69ef623d77b41e3c8c22c",
+          "inputDigest": "63e9906efe044edb97f6b4bfdaa44949c82707e25dc1122e971704201dec051f",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1-20260923.review.json",
             "bytes": 4712,
-            "sha256": "f987754b8be8f07c42b594044bfb35b1ba0c12400f73f3a1dd40ac04bbd75005"
+            "sha256": "afd141e09cf211ff19668f886e01a9c6da0d5bc32693c16d842aec0a20cdaf05"
           },
           "partId": "8-mounted-1",
           "outcome": "supported"
@@ -5726,11 +5726,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows slider-boundaries-and-anchors controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "a518b409f0eec982b52adf8f606aa7dd020addc74bc5d2b052be132082119209",
+          "inputDigest": "15ac1cac172acc937681d68fc1e0f5b4f12ec40a3493849503097e872cc2b1b3",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2-20260923.review.json",
             "bytes": 4725,
-            "sha256": "3da51f0513efe3a38d620aadf41c64b92a58df76160ebf64339c29640870735d"
+            "sha256": "1f91ad0bff2b8b544b7950fc22e99511cadef89d3ad8a620b7b0269ebe911ae3"
           },
           "partId": "8-mounted-2",
           "outcome": "supported"
@@ -5912,11 +5912,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Checked audit/rl-sim2real.md:legged-locomotion:17 authored parameters and units against the corrected article and pinned model file; these chosen values are not measurements. The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
-          "inputDigest": "ee5dca06efcf6870bd750950a3a4ea92c26ecf5f129f16672de05e678654de15",
+          "inputDigest": "72567529b06500d88c14095f151b3f91a3fd828bf677fd7ca09fe1ee486ae4db",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters-20260923.review.json",
             "bytes": 4762,
-            "sha256": "7a64ad8577a0767bee1b4dba10fa0fb0e9443fd53e33aa041172d846a48b2c87"
+            "sha256": "4a0ded772852d819976cd8bbae32dfcac5295275b769a578328488de84979cc5"
           },
           "partId": "17-parameters",
           "outcome": "supported"
@@ -5924,11 +5924,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Compared exact finite numeric result, units and rounding for audit/rl-sim2real.md:legged-locomotion:17 with independently calculated arithmetic; this remains a bounded illustrative model. The finite calculation and display rounding follow the explicit model inputs; numerical agreement is not a source truth claim.",
-          "inputDigest": "8f69795112073d92d6b9a58d505b1360216c240c1e47930287defe6029cace46",
+          "inputDigest": "fd20830283e888553fb11d5d3b1d4bdf7b692296a27b7554d6dd4237e0f903ee",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation-20260923.review.json",
             "bytes": 4762,
-            "sha256": "5b3841769f42ff97716775d3e01d5f0556a0180ca9bef8e43b71814f540ffa7b"
+            "sha256": "81f727cc5d4923115c0d8079a866deb19068ee219cb2f478b8a075f98a552fb5"
           },
           "partId": "17-derivation",
           "outcome": "supported"
@@ -5936,11 +5936,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 4 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "b4bda9a61b25d475e15534636b0918f666bc04f97165512d498dbff2c7500762",
+          "inputDigest": "52d53399243f6661948213ed026e606edd84fc8eb4f33110e0ceb5941fda511e",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0-20260923.review.json",
             "bytes": 4729,
-            "sha256": "d42e8eeb168d6f1c7cdd719a0d2540847dfdb05038a580e98ec8a83ebcc122ae"
+            "sha256": "b58aa137667c880b633d01388cf212948cd25e9452a4830f49e1bc0f40378ce8"
           },
           "partId": "17-mounted-0",
           "outcome": "supported"
@@ -5948,11 +5948,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows discrete-options controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "7b6f417144227acbcafc045e41ebd5eee90010b017ca2f4f2c2b794131202c13",
+          "inputDigest": "7c6ba191852d33f95c7aa3834f54e2c64983ba2b3eb411c46317f7833783dd62",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1-20260923.review.json",
             "bytes": 4731,
-            "sha256": "7106793a74631681326ce9c15cfc1dc50f2f72c817fdbd0734d16a94e78dd2b7"
+            "sha256": "1335cdd0212c5c70cbd7f0fd7f14c3a91d2a38effb2af2f5710bab5e15ca57ed"
           },
           "partId": "17-mounted-1",
           "outcome": "supported"
@@ -5960,11 +5960,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows slider-boundaries-and-anchors controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "222c3f36f401ea71eb350dd7cc39f379bd08700398051b211a59237fbb85e6c0",
+          "inputDigest": "c2cc121b48af81f89ff0d92642f53ae8a4d42a3574dea253719dcb465492644f",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2-20260923.review.json",
             "bytes": 4744,
-            "sha256": "27a9679336aa0661b2187fbb7393a237d32da5aa9622e9fe34caee99e7c5089c"
+            "sha256": "2893fbb70f1e24fc752c7bc7f1aff94d69c118cc2d6bf18252a342698e20df07"
           },
           "partId": "17-mounted-2",
           "outcome": "supported"
@@ -6755,11 +6755,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Checked audit/data-hardware.md:evaluation-crisis:1 authored parameters and units against the corrected article and pinned model file; these chosen values are not measurements. The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
-          "inputDigest": "6a256b8e0c6b73f29f5f93ea41c8f92806cc727a28eb4752be083f00b10429f2",
+          "inputDigest": "b22bc6a9e6bcfe3557f73a0618a3d7e3c622bcd90a9127549508d7bf7a71cd13",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters-20260923.review.json",
             "bytes": 4853,
-            "sha256": "2c1fe87dae20ee27673196f9d979cdad0ae467c231aa463a5fe8c13acadf975d"
+            "sha256": "63cdceb81d496bc9f100a8baca3b0d6b550006515f7c005518892c6dfafae76a"
           },
           "partId": "1-parameters",
           "outcome": "supported"
@@ -6767,11 +6767,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Compared exact finite numeric result, units and rounding for audit/data-hardware.md:evaluation-crisis:1 with independently calculated arithmetic; this remains a bounded illustrative model. The finite calculation and display rounding follow the explicit model inputs; numerical agreement is not a source truth claim.",
-          "inputDigest": "1ad6990df35290f3790d08ddee615942f20750bd75d113ec11e383aa12b778b6",
+          "inputDigest": "a31efa7229255ceba39078e68813630e1901bce131f617c220b2d259cf8ccf8f",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation-20260923.review.json",
             "bytes": 4853,
-            "sha256": "9945d184956e55f14d05b26e3dca5d8bcb084d28681bafa327932e48a045897e"
+            "sha256": "39313066df75bd0d7b1b59caf51ad7ae46477359b48630c15822d07547c2a955"
           },
           "partId": "1-derivation",
           "outcome": "supported"
@@ -6779,11 +6779,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 4 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "eb3b414392d906cdc3a9d366b40a0cd2cfcdd6750e8ef502f0bae66fd73a8f74",
+          "inputDigest": "59f38896c8ee4b54d04480fbf173577c4ce666f01cd82ec4e1fae037630b32f6",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0-20260923.review.json",
             "bytes": 4819,
-            "sha256": "a877e724639983b68cea41304752905f9aa1efce557ab45d2f4c3e919a70f4af"
+            "sha256": "12478d77eb0cdef876aff87344c93167596146fed9f4021fe3259f584a6c6df8"
           },
           "partId": "1-mounted-0",
           "outcome": "supported"
@@ -6791,11 +6791,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows slider-boundaries-and-anchors controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "406f39f164d0cbf47f2faa22c95646c63e54036ce6911339ecee182766f702e7",
+          "inputDigest": "3aa4292c10e1bdcf5840c4483b2fd9f8c2b94bfb78f3e8cfb6251882570b9207",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1-20260923.review.json",
             "bytes": 4834,
-            "sha256": "0046bba05f87194fd820a3886bcf356b46c9c180581065ae921de5de4d3d3865"
+            "sha256": "b857eb68efee47893d3c6acc7a1342d1ff83c79bd09aba25268a6d93a4a05d59"
           },
           "partId": "1-mounted-1",
           "outcome": "supported"
@@ -6803,11 +6803,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 2 shows default controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "902eb42d6bb74b19ef2fadfa97debfa58603d03d020cb09031a8c18d58d5a554",
+          "inputDigest": "599925c5a53dcfe5faea2411459156a9cd519f6192ffd3e8ee593ada07e319ea",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2-20260923.review.json",
             "bytes": 4812,
-            "sha256": "1af07414b11aebc6348a9d7514060ce6bf3c54735a8012b297bafed43ae962b2"
+            "sha256": "abc4bf50b76db0abe03c2f1e94053d0b3c44d0691db2674e580bf6e9667763f3"
           },
           "partId": "1-mounted-2",
           "outcome": "supported"
@@ -47647,16 +47647,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -47831,7 +47831,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters.receipt.json",
           "bytes": 3009,
-          "sha256": "0721145991508170cf64821ea8c7cc3a3af040337777c8f296e40be4642f2c58"
+          "sha256": "cf9519e718ccae5de866cf865ce7422163fddb6ae7f01a37198a85dd866699ce"
         }
       },
       "bases": [],
@@ -47859,16 +47859,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -48000,7 +48000,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation.receipt.json",
           "bytes": 3009,
-          "sha256": "73403267c0f5c525dafb3cd02e11f8ab787ca87ab39c8f7c032c27595550925e"
+          "sha256": "ea457ee5e0eef94824c5f27aed4239d72d8ffa128dac53c9198c04133c5aca80"
         }
       },
       "bases": [
@@ -48050,16 +48050,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -48191,7 +48191,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0.receipt.json",
           "bytes": 6874,
-          "sha256": "5f7a12539db2e7b60872fe063269e258a483cf54ff94adc23ec659c55eb0f127"
+          "sha256": "2e8037414219b2678f2d96a98e163251d8adaeb89b712f991cd9d472e7dbfc87"
         }
       },
       "bases": [
@@ -48367,16 +48367,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -48508,7 +48508,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1.receipt.json",
           "bytes": 5025,
-          "sha256": "6e835992b3aca68d42ff2c220a2dfb76d825c9c2c34120177d216814d755403d"
+          "sha256": "b629b930ede32d1e8bc36965e6a46c97a4bd1fa67e4b19e7a0851239c6f7cfc6"
         }
       },
       "bases": [
@@ -48622,16 +48622,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -48763,7 +48763,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2.receipt.json",
           "bytes": 5137,
-          "sha256": "ddf36508a2ccd2ede29ad42e5ce6f79a33fe88db06dc2d70bfdff6b468b188ff"
+          "sha256": "54723bf7f482ff459448da4379aa92dd69d013958fe491669ccf6e6b9e8cdcc8"
         }
       },
       "bases": [
@@ -48877,16 +48877,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -49061,7 +49061,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters.receipt.json",
           "bytes": 3009,
-          "sha256": "0721145991508170cf64821ea8c7cc3a3af040337777c8f296e40be4642f2c58"
+          "sha256": "cf9519e718ccae5de866cf865ce7422163fddb6ae7f01a37198a85dd866699ce"
         }
       },
       "bases": [],
@@ -49089,16 +49089,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -49230,7 +49230,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation.receipt.json",
           "bytes": 3009,
-          "sha256": "73403267c0f5c525dafb3cd02e11f8ab787ca87ab39c8f7c032c27595550925e"
+          "sha256": "ea457ee5e0eef94824c5f27aed4239d72d8ffa128dac53c9198c04133c5aca80"
         }
       },
       "bases": [
@@ -49280,16 +49280,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -49421,7 +49421,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0.receipt.json",
           "bytes": 6874,
-          "sha256": "5f7a12539db2e7b60872fe063269e258a483cf54ff94adc23ec659c55eb0f127"
+          "sha256": "2e8037414219b2678f2d96a98e163251d8adaeb89b712f991cd9d472e7dbfc87"
         }
       },
       "bases": [
@@ -49597,16 +49597,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -49738,7 +49738,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1.receipt.json",
           "bytes": 5025,
-          "sha256": "6e835992b3aca68d42ff2c220a2dfb76d825c9c2c34120177d216814d755403d"
+          "sha256": "b629b930ede32d1e8bc36965e6a46c97a4bd1fa67e4b19e7a0851239c6f7cfc6"
         }
       },
       "bases": [
@@ -49852,16 +49852,16 @@
         {
           "file": {
             "path": "components/interactive/gait-diagram.tsx",
-            "bytes": 16220,
-            "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8"
+            "bytes": 16503,
+            "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
           },
           "id": "source:components/interactive/gait-diagram.tsx",
           "offset": 0,
-          "length": 16220,
-          "sha256": "a59f11ac82ed425179b34c4c2f468fdfbd00b659b988a689994602afa24a99c8",
+          "length": 16503,
+          "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "39e701b06584515c23b232b70355d3e46e280e8495ed645ecb63f3ca1577e2ba"
+            "hash": "6b3bd3a514d381fc35a436c4b72c55678abcd7e803cdfa4288245f60307e5a26"
           }
         },
         {
@@ -49993,7 +49993,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2.receipt.json",
           "bytes": 5137,
-          "sha256": "ddf36508a2ccd2ede29ad42e5ce6f79a33fe88db06dc2d70bfdff6b468b188ff"
+          "sha256": "54723bf7f482ff459448da4379aa92dd69d013958fe491669ccf6e6b9e8cdcc8"
         }
       },
       "bases": [
@@ -52299,16 +52299,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 10597,
-            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
+            "bytes": 10857,
+            "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 10597,
-          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
+          "length": 10857,
+          "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
+            "hash": "3ed2d11590659c05dcad0218025cd19691d759c6816c77228d323fcaa6346791"
           }
         },
         {
@@ -52426,7 +52426,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters.receipt.json",
           "bytes": 3049,
-          "sha256": "9f7cfdb9e366adc6a2604d7bcf0307c7359a1d2ee419ad772670a88bb3c8d0fb"
+          "sha256": "37b11137ea8ee013d7b6951e330ade35d6720cf3f5196c8250b80f45d394be43"
         }
       },
       "bases": [],
@@ -52454,16 +52454,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 10597,
-            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
+            "bytes": 10857,
+            "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 10597,
-          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
+          "length": 10857,
+          "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
+            "hash": "3ed2d11590659c05dcad0218025cd19691d759c6816c77228d323fcaa6346791"
           }
         },
         {
@@ -52573,7 +52573,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation.receipt.json",
           "bytes": 3049,
-          "sha256": "9f54d7dab91e9793f66f31dfc29b8745590369276c16c21dc4c7e6cbbc1370e5"
+          "sha256": "45a4dcf8f2254463e45c8f2831f062b10fb9fd18def1539dcf2635cf1be9cc18"
         }
       },
       "bases": [
@@ -52623,16 +52623,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 10597,
-            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
+            "bytes": 10857,
+            "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 10597,
-          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
+          "length": 10857,
+          "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
+            "hash": "3ed2d11590659c05dcad0218025cd19691d759c6816c77228d323fcaa6346791"
           }
         },
         {
@@ -52742,7 +52742,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0.receipt.json",
           "bytes": 6708,
-          "sha256": "ad1a8c9a213c2a75774964579ddd75356fbb428ab712de0ac15d8fc5a5e251cb"
+          "sha256": "30b8017cdd491579653fcdd5b2f29a3daa4310f5244089b2806e99bad770a37b"
         }
       },
       "bases": [
@@ -52902,16 +52902,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 10597,
-            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
+            "bytes": 10857,
+            "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 10597,
-          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
+          "length": 10857,
+          "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
+            "hash": "3ed2d11590659c05dcad0218025cd19691d759c6816c77228d323fcaa6346791"
           }
         },
         {
@@ -53021,7 +53021,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1.receipt.json",
           "bytes": 5051,
-          "sha256": "6d049d82ad9950f308b32e98a7019e33ac00cb69bf076cfa9bf32848379e13b3"
+          "sha256": "6b560a4b20f79b463ac724aeb16ab6d950ff2edf2f850633abb2cc9f1970ed26"
         }
       },
       "bases": [
@@ -53127,16 +53127,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 10597,
-            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
+            "bytes": 10857,
+            "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 10597,
-          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
+          "length": 10857,
+          "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
+            "hash": "3ed2d11590659c05dcad0218025cd19691d759c6816c77228d323fcaa6346791"
           }
         },
         {
@@ -53246,7 +53246,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2.receipt.json",
           "bytes": 4925,
-          "sha256": "ffd8f206682cc827798affab61b26dc301a5b6c6301767b4b2fe7474550da605"
+          "sha256": "81be0c7099c25bbbccb92e34228b889e03fd2a143bd28105f0161805ed38b6c4"
         }
       },
       "bases": [

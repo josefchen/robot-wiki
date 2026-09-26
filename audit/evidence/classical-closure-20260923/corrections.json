@@ -203,13 +203,13 @@
       },
       {
         "path": "components/interactive/pendulum-controller.tsx",
-        "bytes": 18392,
-        "sha256": "be06ffbbb472de3fc74f85ecbae9fc7b1a36f9dce4f1eaa8f12933c570bc1774"
+        "bytes": 18637,
+        "sha256": "eade20a4a0a513bb452ef8aa17a0dcdb1e1e4046049e5640f168e68e431aa88a"
       },
       {
         "path": "components/interactive/impedance-contact-lab.tsx",
-        "bytes": 15993,
-        "sha256": "295280baed6df5ab78af80e47db6dab321ac8b47cfdee7ab2cdd1b5589da142d"
+        "bytes": 16264,
+        "sha256": "9ee19883e1d9787f8cc7c86cccb37f9accf9a6de4f2b7e0da26c27a0673f33f2"
       }
     ],
     "requiredPresent": [
@@ -231,14 +231,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "bfbc4c171d24e90195a851874099dc654dff198f968fc87faed1a6532f97a5aa"
+      "sha256": "f10f9548312d23d3d2909a8ff37be8a5216aae16ed8fa05bc7d1f23722d8e3eb"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
       "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-25T15:11:07.752Z",
-      "inputDigest": "261aad64ad0d01834415c7cc014fdfebbfcd06d9038869454c7f0543392896f1"
+      "inputDigest": "48e46649d0b8cbf0e79e819fb1de44499d12ba4619207931200d0e22e7f2558f"
     }
   },
   {
@@ -283,13 +283,13 @@
       },
       {
         "path": "components/interactive/pendulum-controller.tsx",
-        "bytes": 18392,
-        "sha256": "be06ffbbb472de3fc74f85ecbae9fc7b1a36f9dce4f1eaa8f12933c570bc1774"
+        "bytes": 18637,
+        "sha256": "eade20a4a0a513bb452ef8aa17a0dcdb1e1e4046049e5640f168e68e431aa88a"
       },
       {
         "path": "components/interactive/impedance-contact-lab.tsx",
-        "bytes": 15993,
-        "sha256": "295280baed6df5ab78af80e47db6dab321ac8b47cfdee7ab2cdd1b5589da142d"
+        "bytes": 16264,
+        "sha256": "9ee19883e1d9787f8cc7c86cccb37f9accf9a6de4f2b7e0da26c27a0673f33f2"
       }
     ],
     "requiredPresent": [
@@ -311,14 +311,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "bfbc4c171d24e90195a851874099dc654dff198f968fc87faed1a6532f97a5aa"
+      "sha256": "f10f9548312d23d3d2909a8ff37be8a5216aae16ed8fa05bc7d1f23722d8e3eb"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
       "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-25T15:11:07.753Z",
-      "inputDigest": "2983dea56cc3548d672d9f94d82f38b2fe92cd2bd6b000a5e5ab0aba0e156efa"
+      "inputDigest": "1fd89e46367753fad9039b716156eac34911fd1f7ac67bbfdf81f46a33af8043"
     }
   }
 ]

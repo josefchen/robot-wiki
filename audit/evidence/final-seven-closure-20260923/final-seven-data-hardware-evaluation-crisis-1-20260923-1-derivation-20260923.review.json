@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "1-derivation",
-  "inputDigest": "1ad6990df35290f3790d08ddee615942f20750bd75d113ec11e383aa12b778b6",
+  "inputDigest": "a31efa7229255ceba39078e68813630e1901bce131f617c220b2d259cf8ccf8f",
   "inventory": [
     {
       "id": "1-parameters",

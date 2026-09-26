@@ -367,6 +367,12 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
         )}
       </PlotStage>
 
+      {/* Self-label: this instrument is a schematic, not a measurement. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">
+        Schematic lab: computed traces on an idealized one-dimensional
+        contact model, not measured contact forces.
+      </p>
+
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <InstrumentReset
           onClick={reset}

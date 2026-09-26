@@ -36334,7 +36334,7 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2-interactive-data.spec.ts",
           "title": "brand-v2 interactive data legends and render parity › VAL-B2-VIZ-006 schematics and generated signals label what they are",
-          "mechanism": "Requires the status vocabulary in every non-source-data frame, with the audit-frozen boundary reported exactly as recorded."
+          "mechanism": "Requires the status vocabulary in every non-source-data frame; the recorded audit-frozen exception set is empty, so zero frozen unlabeled frames are tolerated."
         }
       ],
       "enforcementMode": "browser-state",

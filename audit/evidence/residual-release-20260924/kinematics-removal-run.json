@@ -32,8 +32,8 @@
     },
     {
       "path": "components/interactive/planar-fk-arm.tsx",
-      "bytes": 8577,
-      "sha256": "dd1348a8454f95885e086aa221f8ec0f566fdb1d5dbae0e10ada20c278fd73ae"
+      "bytes": 8827,
+      "sha256": "ad94ec5712bd2e1208466d90da56d625193895de509c731c97fef8f23a9cb055"
     },
     {
       "path": "components/mdx/dh-parameter-table.tsx",

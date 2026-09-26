@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "17-derivation",
-  "inputDigest": "8f69795112073d92d6b9a58d505b1360216c240c1e47930287defe6029cace46",
+  "inputDigest": "fd20830283e888553fb11d5d3b1d4bdf7b692296a27b7554d6dd4237e0f903ee",
   "inventory": [
     {
       "id": "17-parameters",
