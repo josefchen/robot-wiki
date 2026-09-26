@@ -381,6 +381,12 @@ export function PendulumController({
         />
       </PlotStage>
 
+      {/* Self-label: this instrument is a schematic, not a measurement. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">
+        Schematic lab: an idealized simulated pendulum plant, not a measured
+        controller.
+      </p>
+
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
           data-brand-control-id="control:secondary-action"

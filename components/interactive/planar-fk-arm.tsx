@@ -227,6 +227,12 @@ export function PlanarFkArm({ className }: { className?: string }) {
         </g>
       </PlotStage>
 
+      {/* Self-label: this instrument is a schematic, not a measurement. */}
+      <p className="mt-1 font-sans text-xs text-text-dim">
+        Schematic: computed planar kinematics on chosen link lengths, not a
+        traced robot arm.
+      </p>
+
       <InstrumentReadout>
         <span className="text-text-dim">end effector</span>{' '}
         <span className="text-text-dim">x</span>{' '}

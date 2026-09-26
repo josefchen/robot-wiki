@@ -200,21 +200,18 @@ export const STATUS_LABEL_VOCABULARY = {
 
 /**
  * The frozen-evidence boundary for VAL-B2-VIZ-006 (and the lead-series
- * clause of VAL-B2-VIZ-003). Five registered non-source-data instruments
- * cannot take new rendered self-labels or data-series marks this change:
- * their component bytes are pinned by sealed audit evidence
- * (audit/evidence/classical-closure-20260923/corrections.json for the
- * three classical schematics, the compound-plan catalog in
- * audit/local-basis.json for the RL/data instruments), and any edit to a
- * pinned file fails `npm run check:audit-coverage` until an integrator
- * rebinds those pins the way 9f190e6 did for the primitive migration.
+ * clause of VAL-B2-VIZ-003). Empty since the status-label closeout: the
+ * five formerly unlabeled instruments (gait-diagram, planar-fk-arm,
+ * pendulum-controller, impedance-contact-lab, reliability-compounding)
+ * now carry an in-frame STATUS_LABEL_VOCABULARY label on every mount,
+ * and their component bytes were re-bound in the sealed audit evidence
+ * the way 9f190e6 rebound the primitive migration.
  *
- * Two of the five already self-label in their own rendered prose, so they
- * stay under the ordinary rule and are listed only for the lead-series
- * clause. One is labelled by the article sentence that introduces the
- * instrument, which the gate verifies live against the route text. The
- * remaining two schematics plus the gait diagram carry no in-frame label
- * and are recorded here as the honest, bounded residue the gate reports.
+ * The map stays as the recorded-residue mechanism: an instrument that
+ * genuinely cannot take an in-frame label (for example a component whose
+ * bytes sealed audit evidence pins against any edit) is recorded here
+ * with its reason rather than silently widening the gate, and the e2e
+ * sweep reports exactly the recorded set.
  */
 export type StatusLabelException = {
   /** Why this instrument is outside the in-frame rule. */
@@ -231,35 +228,7 @@ export type StatusLabelException = {
   adjacentProse?: RegExp;
 };
 
-export const STATUS_LABEL_EXCEPTIONS: Readonly<Record<string, StatusLabelException>> = {
-  'interactive:GaitDiagram': {
-    // Authored duty factors; the component bytes are pinned by the
-    // legged-locomotion compound plan in audit/local-basis.json.
-    reason: 'audit-frozen',
-  },
-  'interactive:PlanarFkArm': {
-    // Schematic; pinned by the kinematics removed-assertion corrections.
-    reason: 'audit-frozen',
-  },
-  'interactive:PendulumController': {
-    // Schematic; pinned by the control removed-assertion corrections.
-    reason: 'audit-frozen',
-  },
-  'interactive:ImpedanceContactLab': {
-    // Schematic; pinned by the control removed-assertion corrections.
-    reason: 'audit-frozen',
-  },
-  'interactive:ReliabilityCompounding': {
-    // The evaluation-crisis article sentence that introduces the calculator
-    // names the model: "This is an illustrative probability model, not a
-    // measured robot policy." The gate verifies that sentence stays on the
-    // route. The home mount has no such sentence and the component is
-    // audit-frozen, so it is reported inside the frozen boundary.
-    reason: 'labelled-in-adjacent-prose',
-    routes: ['/data-hardware/evaluation-crisis/'],
-    adjacentProse: /illustrative probability model, not a measured robot policy/i,
-  },
-};
+export const STATUS_LABEL_EXCEPTIONS: Readonly<Record<string, StatusLabelException>> = {};
 
 
 /**
@@ -437,7 +406,8 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'authored-model',
   },
   'interactive:GaitDiagram': {
-    // Gait parameters of a labelled reference quadruped gait set.
+    // Gait parameters of a labelled reference quadruped gait set; the
+    // frame self-labels the duty factors as authored teaching values.
     kind: 'authored-model',
   },
   'interactive:HierarchyTimescales': {
@@ -469,10 +439,9 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'authored-model',
   },
   'interactive:ReliabilityCompounding': {
-    // The compounding calculator over reader-set per-step probabilities.
+    // The compounding calculator over reader-set per-step probabilities;
+    // every mount self-labels as an illustrative probability model.
     kind: 'authored-model',
-    // Audit-frozen (STATUS_LABEL_EXCEPTIONS): the article sentence that
-    // introduces the calculator carries the generative-status label.
   },
   'interactive:RewardShaping': {
     // "Twelve sliders set illustrative weights, not a pinned simulator".

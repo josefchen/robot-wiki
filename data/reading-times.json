@@ -76,7 +76,7 @@
     "minutes": 15
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 2236,
+    "words": 2253,
     "minutes": 11
   },
   "rl-sim2real/humanoid-wbc": {
@@ -140,7 +140,7 @@
     "minutes": 9
   },
   "data-hardware/evaluation-crisis": {
-    "words": 2029,
+    "words": 2040,
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
@@ -152,7 +152,7 @@
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 2264,
+    "words": 2277,
     "minutes": 11
   },
   "classical/motion-planning": {
@@ -160,7 +160,7 @@
     "minutes": 20
   },
   "classical/control": {
-    "words": 3390,
+    "words": 3415,
     "minutes": 17
   },
   "classical/state-estimation": {
@@ -188,7 +188,7 @@
     "minutes": 7
   },
   "frontier/reliability-gap": {
-    "words": 1614,
+    "words": 1625,
     "minutes": 8
   },
   "frontier/dexterity": {

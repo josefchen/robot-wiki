@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "979a6f5e022c8950c083c9ff44a1db41040dcf06c2893123f1c5ac949c675f8b",
+  "fingerprint": "949400e9c7303afe87a9db91a6a52c8705abfae69104bb0b3ad3e2be8881d9be",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -80,7 +80,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 5405,
+      "visibleTextLength": 5496,
       "header": {
         "present": true,
         "display": "flex",
@@ -1547,7 +1547,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 25224,
+      "visibleTextLength": 25416,
       "header": {
         "present": true,
         "display": "flex",
@@ -1873,7 +1873,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 14990,
+      "visibleTextLength": 15077,
       "header": {
         "present": true,
         "display": "flex",
@@ -3503,7 +3503,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 17439,
+      "visibleTextLength": 17530,
       "header": {
         "present": true,
         "display": "flex",
@@ -5288,7 +5288,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 14135,
+      "visibleTextLength": 14226,
       "header": {
         "present": true,
         "display": "flex",
@@ -9192,7 +9192,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 18423,
+      "visibleTextLength": 18537,
       "header": {
         "present": true,
         "display": "flex",

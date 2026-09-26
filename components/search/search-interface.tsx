@@ -263,7 +263,14 @@ export function SearchInterface({
   } else if (status === 'done') {
     const proseCount = hits.length;
     const entityCount = structuredHits.length;
-    if (proseFailed) {
+    if (facetNarrowing && proseFailed) {
+      // A type facet is hiding real entity hits while the module surface is
+      // also down. The filter is named, never a total miss, because the
+      // page still shows the filter-hiding recovery note: what a screen
+      // reader hears must agree with it (VAL-SEARCH-027). This check runs
+      // before the proseFailed empty-match copy for exactly that reason.
+      statusText = `No ${ENTITY_TYPE_LABEL[facetType as EntityType]} results for "${trimmed}" under the active type filter; the module index is unavailable`;
+    } else if (proseFailed) {
       // The module surface did not answer, so the status names its failure
       // alongside whatever the entity surface did answer.
       statusText =

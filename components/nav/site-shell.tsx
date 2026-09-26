@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { List, X } from '@phosphor-icons/react';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
 import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { BrandDevice } from '@/components/ui/brand-device';
 import { SkipLink } from '@/components/ui/skip-link';
@@ -141,8 +141,15 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <>
       {/* History focus restoration lives in the shell (not the layout) so
-          it can stand down while the drawer owns focus. */}
-      <HistoryFocus suspended={drawerOpen} />
+          it can stand down while the drawer owns focus. The Suspense
+          boundary is required because the helper reads ?q= through
+          useSearchParams: without it every statically prerendered route
+          would bail out of server rendering, rather than only this
+          null-rendering helper whose fallback is indistinguishable from
+          its real output. */}
+      <Suspense fallback={null}>
+        <HistoryFocus suspended={drawerOpen} />
+      </Suspense>
       <SkipLink inert={drawerOpen} />
       <div className="flex min-h-[100dvh] flex-col lg:flex-row">
         {/* Mobile top bar (drawer pattern below lg). */}

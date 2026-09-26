@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ef9aecfa31cf5d5c1acc08b1e35ceae86c9f7ed8e2f5a98a0b7c08b493b772f7",
+  "fingerprint": "0839117371491a075c52f19aad4f298a5ff626464c639d831c76cf2254c288c2",
   "viewports": [
     "375x812",
     "1440x900"
@@ -141,7 +141,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 5405,
+      "visibleTextLength": 5496,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4671,7 +4671,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25224,
+      "visibleTextLength": 25416,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4838,6 +4838,15 @@
           "text": "Damping. Near zero, the pole rings instead of settling."
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: an idealized simulated pendulum plant, not a "
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -4944,6 +4953,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Damping. Near zero, the pole rings instead of settling."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 243,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: an idealized simulated pendulum plant, not a "
         },
         {
           "familyHead": "ibm plex mono",
@@ -5151,6 +5169,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "the programmable damper at the contact"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: computed traces on an idealized one-dimension"
         },
         {
           "familyHead": "ibm plex mono",
@@ -6478,7 +6505,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14990,
+      "visibleTextLength": 15077,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6601,6 +6628,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The asymmetry is easiest to feel with an arm in front of you"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: computed planar kinematics on chosen link lengths"
         },
         {
           "familyHead": "ibm plex mono",
@@ -14006,7 +14042,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17439,
+      "visibleTextLength": 17530,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14125,6 +14161,15 @@
           "text": "This is an illustrative probability model, not a measured ro"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -14159,6 +14204,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Prediction"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 243,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
         },
         {
           "familyHead": "ibm plex mono",
@@ -21850,7 +21904,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14135,
+      "visibleTextLength": 14226,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21968,6 +22022,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A manipulation task is a chain of decisions, and the chain s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
         },
         {
           "familyHead": "ibm plex mono",
@@ -40017,7 +40080,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18423,
+      "visibleTextLength": 18537,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40138,6 +40201,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Underneath all of it sits an older idea that learning did no"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored gait set: the duty factors and footfall offsets are"
         },
         {
           "familyHead": "ibm plex mono",
@@ -52949,7 +53021,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 5627,
+      "visibleTextLength": 5718,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57479,7 +57551,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25645,
+      "visibleTextLength": 25837,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57646,6 +57718,15 @@
           "text": "Damping. Near zero, the pole rings instead of settling."
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: an idealized simulated pendulum plant, not a "
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -57752,6 +57833,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Damping. Near zero, the pole rings instead of settling."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 599,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: an idealized simulated pendulum plant, not a "
         },
         {
           "familyHead": "ibm plex mono",
@@ -57959,6 +58049,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "the programmable damper at the contact"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic lab: computed traces on an idealized one-dimension"
         },
         {
           "familyHead": "ibm plex mono",
@@ -59286,7 +59385,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15411,
+      "visibleTextLength": 15498,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59409,6 +59508,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The asymmetry is easiest to feel with an arm in front of you"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: computed planar kinematics on chosen link lengths"
         },
         {
           "familyHead": "ibm plex mono",
@@ -66814,7 +66922,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17818,
+      "visibleTextLength": 17909,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66933,6 +67041,15 @@
           "text": "This is an illustrative probability model, not a measured ro"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -66967,6 +67084,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Prediction"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 599,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
         },
         {
           "familyHead": "ibm plex mono",
@@ -74658,7 +74784,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14470,
+      "visibleTextLength": 14561,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74776,6 +74902,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A manipulation task is a chain of decisions, and the chain s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
         },
         {
           "familyHead": "ibm plex mono",
@@ -92825,7 +92960,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18898,
+      "visibleTextLength": 19012,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92946,6 +93081,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Underneath all of it sits an older idea that learning did no"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored gait set: the duty factors and footfall offsets are"
         },
         {
           "familyHead": "ibm plex mono",

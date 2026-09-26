@@ -839,14 +839,11 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
       new Set(frozen),
       'the only unlabelled schematics are the recorded audit-frozen boundary',
     ).toEqual(
-      new Set([
-        ...Object.entries(STATUS_LABEL_EXCEPTIONS)
+      new Set(
+        Object.entries(STATUS_LABEL_EXCEPTIONS)
           .filter(([, exception]) => exception.reason === 'audit-frozen')
           .map(([sourceId]) => sourceId),
-        // The reliability calculator is prose-labelled on its own article
-        // and frozen everywhere else it mounts.
-        'interactive:ReliabilityCompounding',
-      ]),
+      ),
     );
     expect(
       labelled,

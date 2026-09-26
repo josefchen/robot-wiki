@@ -7,6 +7,8 @@ const mockPush = vi.fn();
 
 vi.mock('next/navigation', () => ({
   usePathname: () => mockPathname,
+  // HistoryFocus reads ?q= so query-only Back steps can restore focus.
+  useSearchParams: () => new URLSearchParams(),
   useRouter: () => ({ push: mockPush }),
 }));
 

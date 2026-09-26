@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9e91ecfcc4199a946483afaa344acf7b392cfc0c319d85f54808fb4cd9d9b0ae",
+  "fingerprint": "b4d8d218d2f87aa9129d4edc1ef3237e19f7247ce0277e66e46df606e60218ad",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -3167,7 +3167,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 310
+      "measuredMembers": 311
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -3178,7 +3178,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 310
+      "measuredMembers": 311
     },
     {
       "id": "profile:home-text-200",
@@ -3189,7 +3189,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 169
+      "measuredMembers": 170
     }
   ],
   "progressCounters": [

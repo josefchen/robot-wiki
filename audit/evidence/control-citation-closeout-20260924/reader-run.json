@@ -30,13 +30,13 @@
     },
     {
       "path": "components/interactive/pendulum-controller.tsx",
-      "bytes": 18392,
-      "sha256": "be06ffbbb472de3fc74f85ecbae9fc7b1a36f9dce4f1eaa8f12933c570bc1774"
+      "bytes": 18637,
+      "sha256": "eade20a4a0a513bb452ef8aa17a0dcdb1e1e4046049e5640f168e68e431aa88a"
     },
     {
       "path": "components/interactive/impedance-contact-lab.tsx",
-      "bytes": 15993,
-      "sha256": "295280baed6df5ab78af80e47db6dab321ac8b47cfdee7ab2cdd1b5589da142d"
+      "bytes": 16264,
+      "sha256": "9ee19883e1d9787f8cc7c86cccb37f9accf9a6de4f2b7e0da26c27a0673f33f2"
     }
   ],
   "surfaceObservations": [

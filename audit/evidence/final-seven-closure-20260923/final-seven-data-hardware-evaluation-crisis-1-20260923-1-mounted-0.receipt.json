@@ -31,16 +31,16 @@
     {
       "file": {
         "path": "components/interactive/reliability-compounding.tsx",
-        "bytes": 10597,
-        "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
+        "bytes": 10857,
+        "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382"
       },
       "id": "source:components/interactive/reliability-compounding.tsx",
       "offset": 0,
-      "length": 10597,
-      "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
+      "length": 10857,
+      "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
+        "hash": "3ed2d11590659c05dcad0218025cd19691d759c6816c77228d323fcaa6346791"
       }
     },
     {
