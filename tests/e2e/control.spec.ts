@@ -13,7 +13,7 @@ const ROUTE = '/classical/control/';
  */
 function pendulum(page: Page) {
   return page
-    .locator('div.prose > div.rounded-md:has([data-testid="pendulum-scene"])')
+    .locator('div.prose > div.rounded-md:has([data-testid="pendulum-scene"]), div.prose > div.rounded-none:has([data-testid="pendulum-scene"])')
     .first();
 }
 

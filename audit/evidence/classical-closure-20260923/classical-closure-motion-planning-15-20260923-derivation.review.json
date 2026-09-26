@@ -6,7 +6,7 @@
   "observedAt": "2026-09-23T19:54:47.683Z",
   "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
   "rationale": "Inspected current numeric results and independent test arithmetic after real execution. Deterministic fixed-seed tree and finite reveal states; sampled segment rejection and step cap are not an external completeness or optimality theorem. Units, range, rounding and counterexamples are explicit; the chosen headings occur once and tangent examples are geometry, not calibration measurements.",
-  "inputDigest": "a330a4cc9857a619299dfff868975fb4c6f30d0570d97cb1106050d5dbcf0ca6",
+  "inputDigest": "c3642d3105fecfc60bf38ba45c3427a322fb7afe95013ff5002c2a5c0212f25e",
   "outcome": "supported",
   "scope": "part",
   "partId": "derivation",

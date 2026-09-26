@@ -364,7 +364,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     // for useId-derived input ids).
     await page.goto('/');
     const homeFigure = page
-      .locator('div.rounded-md')
+      .locator('div.rounded-md, div.rounded-none')
       .filter({
         has: page.locator('svg[aria-label^="Line chart of episode success"]'),
       })
@@ -381,7 +381,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     // mount (document order puts it before the wrapped prediction figure).
     await page.goto('/manipulation/realtime-execution/');
     const clbStandalone = page
-      .locator('div.rounded-md')
+      .locator('div.rounded-md, div.rounded-none')
       .filter({
         has: page.locator('svg[aria-label^="Control-loop timeline"]'),
       })
@@ -401,7 +401,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     // mount, document order puts it before the wrapped prediction figure).
     await page.goto('/classical/control/');
     const pendulumStandalone = page
-      .locator('div.rounded-md')
+      .locator('div.rounded-md, div.rounded-none')
       .filter({
         has: page.locator('svg[aria-label^="Inverted pendulum with PID control"]'),
       })
@@ -425,7 +425,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     // /frontier/generalization/ : EgoScaleScaling (the standalone mount).
     await page.goto('/frontier/generalization/');
     const egsStandalone = page
-      .locator('div.rounded-md')
+      .locator('div.rounded-md, div.rounded-none')
       .filter({
         has: page.locator('[data-testid="horizon-readout"]'),
       })

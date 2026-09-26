@@ -3,13 +3,19 @@
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   DEFAULT_ANGLES_DEG,
   JOINT_LIMIT_DEG,
   LINK_LENGTHS,
   planarForwardKinematics,
   totalReach,
 } from '@/lib/planar-fk';
-import { cx } from '@/lib/utils';
 
 /**
  * PlanarFkArm: the 2D forward-kinematics visualizer for the classical
@@ -72,28 +78,18 @@ export function PlanarFkArm({ className }: { className?: string }) {
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr_auto] lg:items-end">
         {JOINT_META.map((joint, i) => (
           <div key={joint.id}>
-            <label
+            <ControlLabel
               htmlFor={joint.id}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
+              value={
+                <span data-testid={`fk-theta-${i + 1}`}>{angles[i]}°</span>
+              }
             >
               {joint.label}
-              <span
-                data-testid={`fk-theta-${i + 1}`}
-                className="font-mono text-xs text-text"
-              >
-                {angles[i]}°
-              </span>
-            </label>
+            </ControlLabel>
             <input
               id={joint.id}
               type="range"
@@ -108,23 +104,14 @@ export function PlanarFkArm({ className }: { className?: string }) {
             />
           </div>
         ))}
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Planar three-link arm. Base angle ${angles[0]} degrees, elbow ${angles[1]} degrees, wrist ${angles[2]} degrees. End effector at x ${formatSigned(effector.x)}, y ${formatSigned(effector.y)} link units.`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Reachable workspace disc. */}
         <circle
@@ -238,9 +225,9 @@ export function PlanarFkArm({ className }: { className?: string }) {
             fill="var(--color-accent)"
           />
         </g>
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">end effector</span>{' '}
         <span className="text-text-dim">x</span>{' '}
         <span data-testid="fk-ee-x" className="text-accent">
@@ -251,7 +238,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
           {formatSigned(effector.y)}
         </span>{' '}
         <span className="text-text-dim">link units</span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -272,6 +259,6 @@ export function PlanarFkArm({ className }: { className?: string }) {
         three link vectors: the planar form of the forward-kinematics
         transform product.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

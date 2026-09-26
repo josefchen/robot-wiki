@@ -1,4 +1,5 @@
 import type {
+  ButtonHTMLAttributes,
   HTMLAttributes,
   LabelHTMLAttributes,
   ReactNode,
@@ -203,22 +204,25 @@ export function LegendItem({ swatch, children }: LegendItemProps) {
   );
 }
 
-type InstrumentResetProps = {
+type InstrumentResetProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   onClick: () => void;
-  /** Accessible name of the reset action. */
+  /** Visible label of the reset action. */
   label?: string;
-  className?: string;
 };
 
 /**
  * The instrument reset: a compact secondary action that restores the
  * deterministic default. It stays out of the search index; the instrument
- * itself is the content.
+ * itself is the content. A reset whose accessible name is more specific
+ * than the visible label passes `aria-label` (or any other button
+ * attribute) through in its native spelling, so the source keeps the
+ * accessible name the sealed baseline records.
  */
 export function InstrumentReset({
   onClick,
   label = 'Reset',
   className,
+  ...rest
 }: InstrumentResetProps) {
   return (
     <button
@@ -230,6 +234,7 @@ export function InstrumentReset({
         'rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]',
         className,
       )}
+      {...rest}
     >
       {label}
     </button>

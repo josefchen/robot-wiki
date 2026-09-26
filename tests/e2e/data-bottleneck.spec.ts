@@ -10,7 +10,7 @@ const ROUTE = '/data-hardware/data-bottleneck/';
  */
 function chart(page: Page) {
   return page
-    .locator('div.prose > div.rounded-md:has([data-testid="hours-readout"])')
+    .locator('div.prose > div.rounded-md:has([data-testid="hours-readout"]), div.prose > div.rounded-none:has([data-testid="hours-readout"])')
     .first();
 }
 

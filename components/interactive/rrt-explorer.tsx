@@ -4,6 +4,13 @@ import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   RRT_SCENE,
   buildRrt,
   edgesUpTo,
@@ -161,24 +168,15 @@ export function RrtExplorer({ className }: { className?: string }) {
     'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="rrt-iteration"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`${iteration} / ${total}`}
           >
             Exploration iteration
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {iteration} / {total}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="rrt-iteration"
             type="range"
@@ -221,19 +219,16 @@ export function RrtExplorer({ className }: { className?: string }) {
           >
             Step forward
           </button>
-          <button data-brand-control-id="control:secondary-action" data-pagefind-ignore type="button" onClick={reset} className={buttonBase}>
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} />
         </div>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`RRT exploration of a 2D planning scene with ${RRT_SCENE.obstacles.length} obstacles between a start on the left and a goal on the right. Iteration ${iteration} of ${total}, ${nodes.length} nodes. Status: ${status}.`}
         aria-describedby={descriptionId}
         data-testid="rrt-scene"
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* World frame */}
         <rect
@@ -352,9 +347,9 @@ export function RrtExplorer({ className }: { className?: string }) {
             start
           </text>
         </g>
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">iteration</span>{' '}
         <span
           ref={cadenceSignalRef}
@@ -377,7 +372,7 @@ export function RrtExplorer({ className }: { className?: string }) {
         >
           {goalReached ? `${formatLength(result.pathLength)} units` : 'n/a'}
         </span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -402,6 +397,6 @@ export function RrtExplorer({ className }: { className?: string }) {
         the chosen step length and passes this demo&apos;s sampled segment check.
         Attempts rejected by that check do not advance the displayed count.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { ControlLabel, InstrumentFrame, InstrumentReset } from '@/components/ui/instrument';
 import {
   AMORTIZATION_MONTHS,
   DEFAULT_INPUTS,
@@ -12,7 +13,6 @@ import {
   paysBackWithinTarget,
   type EconomicsInputs,
 } from '@/lib/deployment-economics';
-import { cx } from '@/lib/utils';
 
 /**
  * DeploymentEconomics: the payback calculator for a robotic pick cell.
@@ -118,24 +118,10 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
     breakdownTotal > 0 ? `${((v / breakdownTotal) * 100).toFixed(1)}%` : '0%';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex items-baseline justify-between gap-3">
         <p className="text-[13px] font-medium text-text">Cell economics calculator</p>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-4 grid gap-x-6 gap-y-4 sm:grid-cols-2">
@@ -145,15 +131,9 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           const value = inputs[key];
           return (
             <div key={key}>
-              <label
-                htmlFor={id}
-                className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-              >
+              <ControlLabel htmlFor={id} value={format(value)}>
                 {label}
-                <span className="font-mono text-xs normal-case tracking-normal text-text">
-                  {format(value)}
-                </span>
-              </label>
+              </ControlLabel>
               <input
                 id={id}
                 type="range"
@@ -272,6 +252,6 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           sum to it at every control setting.
         </p>
       </div>
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -60033,11 +60033,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled truth, estimate and uncertainty across the window",
-                  "clientWidth": 673,
-                  "scrollWidth": 673,
+                  "clientWidth": 665,
+                  "scrollWidth": 665,
                   "scrolledBy": 0
                 },
-                "tableWidth": 673,
+                "tableWidth": 665,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60145,11 +60145,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Datasets and corpora by scale, with the farm projection",
-                  "clientWidth": 673,
-                  "scrollWidth": 673,
+                  "clientWidth": 665,
+                  "scrollWidth": 665,
                   "scrolledBy": 0
                 },
-                "tableWidth": 673,
+                "tableWidth": 665,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60201,11 +60201,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Datasets and corpora by scale, with the farm projection",
-                  "clientWidth": 607,
-                  "scrollWidth": 607,
+                  "clientWidth": 599,
+                  "scrollWidth": 599,
                   "scrolledBy": 0
                 },
-                "tableWidth": 607,
+                "tableWidth": 599,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60481,11 +60481,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
-                  "clientWidth": 1060,
-                  "scrollWidth": 1060,
+                  "clientWidth": 1052,
+                  "scrollWidth": 1052,
                   "scrolledBy": 0
                 },
-                "tableWidth": 1060,
+                "tableWidth": 1052,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60593,11 +60593,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 673,
-                  "scrollWidth": 673,
+                  "clientWidth": 665,
+                  "scrollWidth": 665,
                   "scrolledBy": 0
                 },
-                "tableWidth": 673,
+                "tableWidth": 665,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60649,11 +60649,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 607,
-                  "scrollWidth": 607,
+                  "clientWidth": 599,
+                  "scrollWidth": 599,
                   "scrolledBy": 0
                 },
-                "tableWidth": 607,
+                "tableWidth": 599,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60817,11 +60817,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
-                  "clientWidth": 1060,
-                  "scrollWidth": 1060,
+                  "clientWidth": 1052,
+                  "scrollWidth": 1052,
                   "scrolledBy": 0
                 },
-                "tableWidth": 1060,
+                "tableWidth": 1052,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60929,11 +60929,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "4 teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.",
-                  "clientWidth": 1060,
-                  "scrollWidth": 1060,
+                  "clientWidth": 1052,
+                  "scrollWidth": 1052,
                   "scrolledBy": 0
                 },
-                "tableWidth": 1060,
+                "tableWidth": 1052,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61041,11 +61041,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-                  "clientWidth": 1062,
-                  "scrollWidth": 1062,
+                  "clientWidth": 1054,
+                  "scrollWidth": 1054,
                   "scrolledBy": 0
                 },
-                "tableWidth": 1062,
+                "tableWidth": 1054,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61153,11 +61153,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-                  "clientWidth": 1062,
-                  "scrollWidth": 1062,
+                  "clientWidth": 1054,
+                  "scrollWidth": 1054,
                   "scrolledBy": 0
                 },
-                "tableWidth": 1062,
+                "tableWidth": 1054,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61265,11 +61265,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-                  "clientWidth": 673,
-                  "scrollWidth": 673,
+                  "clientWidth": 665,
+                  "scrollWidth": 665,
                   "scrolledBy": 0
                 },
-                "tableWidth": 673,
+                "tableWidth": 665,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61377,11 +61377,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled loss and completion by pretraining hours",
-                  "clientWidth": 673,
-                  "scrollWidth": 673,
+                  "clientWidth": 665,
+                  "scrollWidth": 665,
                   "scrolledBy": 0
                 },
-                "tableWidth": 673,
+                "tableWidth": 665,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61433,11 +61433,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled loss and completion by pretraining hours",
-                  "clientWidth": 607,
-                  "scrollWidth": 607,
+                  "clientWidth": 599,
+                  "scrollWidth": 599,
                   "scrolledBy": 0
                 },
-                "tableWidth": 607,
+                "tableWidth": 599,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61601,11 +61601,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 673,
-                  "scrollWidth": 673,
+                  "clientWidth": 665,
+                  "scrollWidth": 665,
                   "scrolledBy": 0
                 },
-                "tableWidth": 673,
+                "tableWidth": 665,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61657,11 +61657,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
-                  "clientWidth": 673,
-                  "scrollWidth": 673,
+                  "clientWidth": 665,
+                  "scrollWidth": 665,
                   "scrolledBy": 0
                 },
-                "tableWidth": 673,
+                "tableWidth": 665,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -103897,7 +103897,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/perception/ ships 86 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 86 outbound anchor occurrences on it with a visible focus ring in 235 stops",
+      "actual": "/classical/perception/ ships 86 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 86 outbound anchor occurrences on it with a visible focus ring in 236 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103916,7 +103916,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 83,
           "reachedByTab": 86,
-          "tabStops": 235,
+          "tabStops": 236,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104629,7 +104629,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/safety-and-assurance/ ships 64 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 64 outbound anchor occurrences on it with a visible focus ring in 171 stops",
+      "actual": "/frontier/safety-and-assurance/ ships 64 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 64 outbound anchor occurrences on it with a visible focus ring in 170 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104648,7 +104648,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 61,
           "reachedByTab": 64,
-          "tabStops": 171,
+          "tabStops": 170,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -118185,7 +118185,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#117:line:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#124:line:error",
               "element": "line",
               "binding": "class-constant",
               "via": "ERR",
@@ -118194,7 +118194,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#126:line:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#133:line:error",
               "element": "line",
               "binding": "class-constant",
               "via": "ERR",
@@ -118203,7 +118203,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#135:circle:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#142:circle:error",
               "element": "circle",
               "binding": "class-constant",
               "via": "ERR",
@@ -118212,7 +118212,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#280:span:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#279:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -118221,7 +118221,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#317:span:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#316:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -118230,7 +118230,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#369:rect:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#367:rect:error",
               "element": "rect",
               "binding": "class-constant",
               "via": "ERR",
@@ -118239,7 +118239,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#386:text:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#384:text:error",
               "element": "text",
               "binding": "class-constant",
               "via": "ERR",
@@ -118248,7 +118248,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#400:text:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#398:text:error",
               "element": "text",
               "binding": "class-constant",
               "via": "ERR",
@@ -118257,7 +118257,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#418:RobotGlyph:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#416:RobotGlyph:error",
               "element": "RobotGlyph",
               "binding": "class-constant",
               "via": "ERR",
@@ -118266,7 +118266,7 @@
               ]
             },
             {
-              "id": "components/interactive/collaborative-operation-modes.tsx#428:text:error",
+              "id": "components/interactive/collaborative-operation-modes.tsx#426:text:error",
               "element": "text",
               "binding": "class-constant",
               "via": "ERR",
@@ -118746,7 +118746,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/egoscale-scaling.tsx#511:text:error",
+              "id": "components/interactive/egoscale-scaling.tsx#497:text:error",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119273,7 +119273,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#379:circle:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#367:circle:error",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119282,7 +119282,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#394:text:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#382:text:error",
               "element": "text",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119291,7 +119291,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#427:circle:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#415:circle:error",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119300,7 +119300,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#484:span:error",
+              "id": "components/interactive/grasp-wrench-lab.tsx#466:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119346,7 +119346,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#379:circle:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#367:circle:ok",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119355,7 +119355,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#394:text:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#382:text:ok",
               "element": "text",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119364,7 +119364,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#427:circle:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#415:circle:ok",
               "element": "circle",
               "binding": "class-constant",
               "via": "stateColor",
@@ -119373,7 +119373,7 @@
               ]
             },
             {
-              "id": "components/interactive/grasp-wrench-lab.tsx#484:span:ok",
+              "id": "components/interactive/grasp-wrench-lab.tsx#466:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119474,7 +119474,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/impedance-contact-lab.tsx#310:line:error",
+              "id": "components/interactive/impedance-contact-lab.tsx#302:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119483,7 +119483,7 @@
               ]
             },
             {
-              "id": "components/interactive/impedance-contact-lab.tsx#319:text:error",
+              "id": "components/interactive/impedance-contact-lab.tsx#311:text:error",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119492,7 +119492,7 @@
               ]
             },
             {
-              "id": "components/interactive/impedance-contact-lab.tsx#397:span:error",
+              "id": "components/interactive/impedance-contact-lab.tsx#383:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119501,7 +119501,7 @@
               ]
             },
             {
-              "id": "components/interactive/impedance-contact-lab.tsx#404:span:error",
+              "id": "components/interactive/impedance-contact-lab.tsx#390:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -120260,7 +120260,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/pendulum-controller.tsx#342:line:error",
+              "id": "components/interactive/pendulum-controller.tsx#341:line:error",
               "element": "line",
               "binding": "class-constant",
               "via": "poleColor",
@@ -120269,7 +120269,7 @@
               ]
             },
             {
-              "id": "components/interactive/pendulum-controller.tsx#364:circle:error",
+              "id": "components/interactive/pendulum-controller.tsx#363:circle:error",
               "element": "circle",
               "binding": "class-constant",
               "via": "poleColor",
@@ -120278,7 +120278,7 @@
               ]
             },
             {
-              "id": "components/interactive/pendulum-controller.tsx#443:span:error",
+              "id": "components/interactive/pendulum-controller.tsx#436:span:error",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -120324,7 +120324,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/perception-error-budget.tsx#326:rect:error",
+              "id": "components/interactive/perception-error-budget.tsx#316:rect:error",
               "element": "rect",
               "binding": "class-constant",
               "via": "barTone",
@@ -120333,7 +120333,7 @@
               ]
             },
             {
-              "id": "components/interactive/perception-error-budget.tsx#398:span:error",
+              "id": "components/interactive/perception-error-budget.tsx#382:span:error",
               "element": "span",
               "binding": "class-constant",
               "via": "verdictTone",
@@ -120379,7 +120379,7 @@
           "authored": "#8A5A00",
           "marks": [
             {
-              "id": "components/interactive/perception-error-budget.tsx#256:rect:warn",
+              "id": "components/interactive/perception-error-budget.tsx#246:rect:warn",
               "element": "rect",
               "binding": "inline",
               "via": null,
@@ -120388,7 +120388,7 @@
               ]
             },
             {
-              "id": "components/interactive/perception-error-budget.tsx#271:text:warn",
+              "id": "components/interactive/perception-error-budget.tsx#261:text:warn",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -120397,7 +120397,7 @@
               ]
             },
             {
-              "id": "components/interactive/perception-error-budget.tsx#398:span:warn",
+              "id": "components/interactive/perception-error-budget.tsx#382:span:warn",
               "element": "span",
               "binding": "class-constant",
               "via": "verdictTone",
@@ -120442,7 +120442,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/perception-latency.tsx#236:path:error",
+              "id": "components/interactive/perception-latency.tsx#231:path:error",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -120451,7 +120451,7 @@
               ]
             },
             {
-              "id": "components/interactive/perception-latency.tsx#243:text:error",
+              "id": "components/interactive/perception-latency.tsx#238:text:error",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -120688,7 +120688,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/rrt-explorer.tsx#337:path:ok",
+              "id": "components/interactive/rrt-explorer.tsx#332:path:ok",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -120824,7 +120824,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/scene-representation-ladder.tsx uses warn through border-warn, text-warn, var(--color-warn) on 12 marks, each carrying its own non-colour cue (accessible-label, assistive-state, role-switch, semantic-rule, stroke-pattern, text-carrier), and the token resolved on all 73 swept public routes",
+      "actual": "components/interactive/scene-representation-ladder.tsx uses warn through border-warn, text-warn, var(--color-warn) on 12 marks, each carrying its own non-colour cue (accessible-label, assistive-state, semantic-rule, stroke-pattern, text-carrier), and the token resolved on all 73 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -120844,7 +120844,7 @@
           "authored": "#8A5A00",
           "marks": [
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#226:polyline:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#233:polyline:warn",
               "element": "polyline",
               "binding": "class-constant",
               "via": "WARN",
@@ -120853,7 +120853,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#238:rect:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#245:rect:warn",
               "element": "rect",
               "binding": "class-constant",
               "via": "WARN",
@@ -120862,7 +120862,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#252:circle:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#259:circle:warn",
               "element": "circle",
               "binding": "class-constant",
               "via": "WARN",
@@ -120871,7 +120871,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#274:ellipse:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#281:ellipse:warn",
               "element": "ellipse",
               "binding": "class-constant",
               "via": "WARN",
@@ -120880,7 +120880,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#288:ellipse:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#295:ellipse:warn",
               "element": "ellipse",
               "binding": "class-constant",
               "via": "WARN",
@@ -120889,7 +120889,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#303:text:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#310:text:warn",
               "element": "text",
               "binding": "class-constant",
               "via": "WARN",
@@ -120898,7 +120898,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#358:SamplePanel:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#363:SamplePanel:warn",
               "element": "SamplePanel",
               "binding": "class-constant",
               "via": "WARN",
@@ -120907,7 +120907,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#359:SamplePanel:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#364:SamplePanel:warn",
               "element": "SamplePanel",
               "binding": "class-constant",
               "via": "WARN",
@@ -120916,7 +120916,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#360:SamplePanel:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#365:SamplePanel:warn",
               "element": "SamplePanel",
               "binding": "class-constant",
               "via": "WARN",
@@ -120925,7 +120925,7 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#361:SplatPanel:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#366:SplatPanel:warn",
               "element": "SplatPanel",
               "binding": "class-constant",
               "via": "WARN",
@@ -120934,18 +120934,17 @@
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#473:Panel:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#474:Panel:warn",
               "element": "Panel",
               "binding": "class-constant",
               "via": "WARN",
               "cues": [
                 "accessible-label",
-                "assistive-state",
-                "role-switch"
+                "assistive-state"
               ]
             },
             {
-              "id": "components/interactive/scene-representation-ladder.tsx#529:li:warn",
+              "id": "components/interactive/scene-representation-ladder.tsx#526:li:warn",
               "element": "li",
               "binding": "class-constant",
               "via": "STATE_TONE",
@@ -121924,35 +121923,21 @@
             "components/article/commit-to-reveal.tsx",
             "components/article/heading-permalink.tsx",
             "components/interactive/appearance-physics-push.tsx",
-            "components/interactive/collaborative-operation-modes.tsx",
             "components/interactive/comparison-matrix.tsx",
-            "components/interactive/data-scale-chart.tsx",
             "components/interactive/dataset-table.tsx",
             "components/interactive/denoising-loop.tsx",
-            "components/interactive/deployment-dashboard.tsx",
-            "components/interactive/deployment-economics.tsx",
-            "components/interactive/egoscale-scaling.tsx",
             "components/interactive/eureka-loop.tsx",
             "components/interactive/gait-diagram.tsx",
             "components/interactive/grasp-wrench-lab.tsx",
             "components/interactive/hand-comparison.tsx",
             "components/interactive/hardware-guide.tsx",
-            "components/interactive/impedance-contact-lab.tsx",
             "components/interactive/jepa-planning.tsx",
             "components/interactive/kalman-tracker.tsx",
-            "components/interactive/milestones-watchlist.tsx",
             "components/interactive/pendulum-controller.tsx",
-            "components/interactive/perception-error-budget.tsx",
-            "components/interactive/perception-latency.tsx",
-            "components/interactive/planar-fk-arm.tsx",
             "components/interactive/receding-horizon.tsx",
-            "components/interactive/reliability-compounding.tsx",
             "components/interactive/reward-shaping.tsx",
             "components/interactive/rrt-explorer.tsx",
             "components/interactive/sample-efficiency-ledger.tsx",
-            "components/interactive/scene-representation-ladder.tsx",
-            "components/interactive/teleop-rig-matrix.tsx",
-            "components/interactive/thesis-explorer.tsx",
             "components/market-map/company-card.tsx",
             "components/market-map/filter-bar.tsx",
             "components/market-map/funding-timeline.tsx",
@@ -131254,7 +131239,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 35850 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 35854 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132617,7 +132602,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/safety-and-assurance/ rendered no v1 identity spelling and no v1 descriptor in 53867 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/safety-and-assurance/ rendered no v1 identity spelling and no v1 descriptor in 53871 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -184867,7 +184852,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"plain/module-heading/ordered-link-lists\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/ordered-link-lists (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/primary-action\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.\",\"derivedStructuralForm\":\"rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"Domain index\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"Featured interactive\",\"declaredSignature\":\"plain/module-heading/live-instrument\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.\",\"derivedStructuralForm\":\"rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|8|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"Real hardware\",\"declaredSignature\":\"plain/module-heading/credited-figure\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The real-hardware figure, a credited photograph whose caption carries its source and licence.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"Interactive tools\",\"declaredSignature\":\"plain/module-heading/schematic-pair\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"Learning paths\",\"declaredSignature\":\"plain/module-heading/ordered-link-lists\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=0,ol=3,li=23,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=3,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":6,\"label\":\"How to read this wiki\",\"declaredSignature\":\"ruled-plain/closing-heading/guidance-prose\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:6\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:5\",\"form:6\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":2,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"plain/module-heading/ordered-link-lists\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/ordered-link-lists (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/primary-action\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.\",\"derivedStructuralForm\":\"rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"Domain index\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"Featured interactive\",\"declaredSignature\":\"plain/module-heading/live-instrument\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.\",\"derivedStructuralForm\":\"rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"Real hardware\",\"declaredSignature\":\"plain/module-heading/credited-figure\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The real-hardware figure, a credited photograph whose caption carries its source and licence.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"Interactive tools\",\"declaredSignature\":\"plain/module-heading/schematic-pair\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"Learning paths\",\"declaredSignature\":\"plain/module-heading/ordered-link-lists\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=0,ol=3,li=23,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=3,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":6,\"label\":\"How to read this wiki\",\"declaredSignature\":\"ruled-plain/closing-heading/guidance-prose\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:6\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:5\",\"form:6\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":2,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -184922,7 +184907,7 @@
               "declaredSignature": "plain/module-heading/live-instrument",
               "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
               "registeredPurpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.",
-              "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|8|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
               "derivedForm": "form:3",
               "derivedSurfaceHeadingActionForm": "form:3"
             },
@@ -204630,7 +204615,7 @@
               "id": "/adjacent/drones/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 4,
+                "registeredFrameParagraphCount": 6,
                 "offendingFamilies": []
               }
             }
@@ -205518,7 +205503,7 @@
               "id": "/frontier/safety-and-assurance/",
               "observed": {
                 "paragraphCount": 62,
-                "registeredFrameParagraphCount": 8,
+                "registeredFrameParagraphCount": 10,
                 "offendingFamilies": []
               }
             }

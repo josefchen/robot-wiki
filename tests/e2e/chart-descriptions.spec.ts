@@ -121,7 +121,7 @@ for (const chart of CHARTS) {
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
-      const shell = page.locator('div.rounded-md.border', { has: desc }).first();
+      const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: desc }).first();
       // Bind the SVG to the takeaway we selected. `.first()` on
       // svg[role][aria-describedby] silently picks CompoundingError's
       // rollout root when the test meant the bounds series.
@@ -196,7 +196,7 @@ for (const chart of CHARTS) {
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
-      const shell = page.locator('div.rounded-md', { has: desc }).first();
+      const shell = page.locator('div.rounded-md, div.rounded-none', { has: desc }).first();
       const details = disclosureFor(desc);
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
       const original = (await desc.innerText()).trim();
@@ -236,7 +236,7 @@ for (const chart of CHARTS) {
       expect(text.length).toBeGreaterThanOrEqual(60);
       // The description's digit tokens that name plotted values appear in
       // the chart's own SSR readout or axis labels.
-      const shell = page.locator('div.rounded-md', { has: desc }).first();
+      const shell = page.locator('div.rounded-md, div.rounded-none', { has: desc }).first();
       const shellText = (await shell.innerText()).replace(text, '');
       const digits = text.match(/\S*\d\S*/g) ?? [];
       const plotted = digits.filter((d) => shellText.includes(d));
@@ -266,7 +266,7 @@ test.describe('compounding rollout state description (/manipulation/bc-foundatio
       .locator('[data-chart-description]', { hasText: 'Per-timestep prediction' })
       .first();
     await expect(desc).toBeAttached();
-    const shell = page.locator('div.rounded-md.border', { has: desc }).first();
+    const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: desc }).first();
     const descId = await desc.getAttribute('id');
     expect(descId, 'description has an id').toBeTruthy();
     const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`).first();
