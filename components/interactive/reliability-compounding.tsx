@@ -3,7 +3,13 @@
 import { useId, useMemo, useState } from 'react';
 import { compoundingCurve, compoundedSuccessRate } from '@/lib/reliability';
 import { ChartDescription } from '@/components/ui/chart-description';
-import { cx } from '@/lib/utils';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
 
 /**
  * ReliabilityCompounding: the compounding cost of per-step error.
@@ -134,24 +140,15 @@ export function ReliabilityCompounding({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor={perStepId}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`${perStepPercent.toFixed(1)}%`}
           >
             Per-step success
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              {perStepPercent.toFixed(1)}%
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={perStepId}
             type="range"
@@ -166,15 +163,9 @@ export function ReliabilityCompounding({
           />
         </div>
         <div>
-          <label
-            htmlFor={stepsId}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor={stepsId} value={`${steps} steps`}>
             Episode length
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              {steps} steps
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={stepsId}
             type="range"
@@ -188,23 +179,14 @@ export function ReliabilityCompounding({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Line chart of episode success against episode length at ${perStepPercent.toFixed(1)} percent per-step success`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Horizontal gridlines at 25/50/75% with axis labels. */}
         {[0.25, 0.5, 0.75, 1].map((p) => {
@@ -274,9 +256,9 @@ export function ReliabilityCompounding({
           stroke="var(--color-accent)"
           strokeWidth={2}
         />
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">
           ({perStep.toFixed(3)})^{steps} =
         </span>{' '}
@@ -284,7 +266,7 @@ export function ReliabilityCompounding({
           {formatPercent(episodeSuccess)}
         </span>{' '}
         <span className="text-text-dim">episode success</span>
-      </p>
+      </InstrumentReadout>
 
       <ChartDescription
         id={descriptionId}
@@ -307,6 +289,6 @@ export function ReliabilityCompounding({
           ),
         })}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

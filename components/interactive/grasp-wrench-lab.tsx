@@ -3,6 +3,14 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   CONTACT_POSITION_MAX,
   CONTACT_POSITION_MIN,
   CONTACT_POSITION_STEP,
@@ -16,8 +24,6 @@ import {
   type Vec3,
 } from '@/lib/grasp';
 import { EDGE_DASH } from '@/lib/semantic-mark-cues';
-import { cx } from '@/lib/utils';
-
 /**
  * GraspWrenchLab: a planar grasp on a unit square, with the grasp wrench
  * space drawn next to it. Contacts slide along the perimeter and a slider
@@ -139,29 +145,17 @@ export function GraspWrenchLab({ className }: { className?: string }) {
   ];
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div>
-        <label
+        <ControlLabel
           htmlFor="grasp-mu"
-          className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+          value={<span data-testid="grasp-mu-value">{mu.toFixed(2)}</span>}
         >
           <span>
             <span className="normal-case tracking-normal">μ</span> friction
             coefficient
           </span>
-          <span
-            className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-            data-testid="grasp-mu-value"
-          >
-            {mu.toFixed(2)}
-          </span>
-        </label>
+        </ControlLabel>
         <input
           id="grasp-mu"
           type="range"
@@ -186,18 +180,16 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         <div className="mt-1 grid gap-x-4 gap-y-2 sm:grid-cols-2">
           {contacts.map((s, i) => (
             <div key={i}>
-              <label
+              <ControlLabel
                 htmlFor={`grasp-contact-${i}`}
-                className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
+                value={
+                  <span data-testid={`grasp-contact-${i + 1}-value`}>
+                    {s.toFixed(3)}
+                  </span>
+                }
               >
                 contact {i + 1}
-                <span
-                  className="whitespace-nowrap font-mono text-xs text-text"
-                  data-testid={`grasp-contact-${i + 1}-value`}
-                >
-                  {s.toFixed(3)}
-                </span>
-              </label>
+              </ControlLabel>
               <input
                 id={`grasp-contact-${i}`}
                 type="range"
@@ -225,13 +217,11 @@ export function GraspWrenchLab({ className }: { className?: string }) {
       </fieldset>
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
-        <svg
+        <PlotStage
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-          role="img"
           aria-label={`Square object held by ${contacts.length} frictional point contacts; each contact shows its friction cone opening inward.`}
           aria-describedby={objectDescriptionId}
           data-testid="grasp-object-view"
-          className="block w-full"
         >
           {/* Object */}
           <rect
@@ -307,15 +297,13 @@ export function GraspWrenchLab({ className }: { className?: string }) {
               </text>
             </g>
           ))}
-        </svg>
+        </PlotStage>
 
-        <svg
+        <PlotStage
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-          role="img"
           aria-label={`Grasp wrench space: the convex hull of the primitive contact wrenches. Force closure ${analysis.forceClosure ? 'yes' : 'no'}, quality epsilon ${analysis.epsilon.toFixed(3)}.`}
           aria-describedby={wrenchDescriptionId}
           data-testid="grasp-wrench-view"
-          className="block w-full"
         >
           {/* Axes through the origin */}
           {axisEnds.map(({ v, label }) => (
@@ -400,11 +388,11 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           >
             0
           </text>
-        </svg>
+        </PlotStage>
       </div>
 
       {/* Legend */}
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-text-dim">
+      <InstrumentLegend className="mt-2">
         <span className="inline-flex items-center gap-1.5">
           <span
             className="inline-block h-2.5 w-4"
@@ -438,7 +426,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           </svg>
           zero wrench{analysis.forceClosure ? ' (inside hull)' : ' (outside hull)'}
         </span>
-      </div>
+      </InstrumentLegend>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
@@ -463,19 +451,13 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         >
           Remove contact
         </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
+        <InstrumentReset
           onClick={reset}
           aria-label="Reset: restore the default grasp and friction"
-          className={buttonBase}
-        >
-          Reset
-        </button>
+        />
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">contacts</span>{' '}
         <span data-testid="grasp-contacts-readout" className="text-text">
           {contacts.length}
@@ -491,7 +473,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         <span data-testid="grasp-epsilon-readout" className="text-accent">
           {analysis.epsilon.toFixed(3)}
         </span>
-      </p>
+      </InstrumentReadout>
 
       <ChartDescription
         id={objectDescriptionId}
@@ -536,6 +518,6 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         onto the origin, then slide contact 2 to 0.625 so the pair is
         antipodal; or drag μ down and watch ε shrink.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

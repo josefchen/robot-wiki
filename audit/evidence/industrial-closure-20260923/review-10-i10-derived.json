@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "i10-derived",
-  "inputDigest": "d572adbe86f57ee4e16da45e95486f9d2c81263b19675c32b6e7e4c1e1fd52e9",
+  "inputDigest": "da24165a3256ef33cd2acf877aa833e2131368de4ba03927ecdcc66708195908",
   "inventory": [
     {
       "id": "i10-parameters",

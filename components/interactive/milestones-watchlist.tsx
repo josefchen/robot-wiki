@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from 'react';
 import { CiteRef } from '@/components/article/citation-records';
 import { Badge, TableScroll } from '@/components/ui';
+import { InstrumentFrame, InstrumentReset } from '@/components/ui/instrument';
 import {
   MILESTONES,
   filterMilestones,
@@ -109,14 +110,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
       : `showing ${visible.length} of ${MILESTONES.length} milestones (${STATUS_LABEL[filter]})`;
 
   return (
-    <div
-      data-testid="milestones-watchlist"
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame data-testid="milestones-watchlist" className={className}>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
         <div
           role="group"
@@ -149,15 +143,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
         >
           {readout}
         </p>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       {visible.length === 0 ? (
@@ -288,7 +274,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           )}
         </>
       )}
-    </div>
+    </InstrumentFrame>
   );
 }
 

@@ -16,8 +16,14 @@ import {
 } from '@/lib/perception-error';
 import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { ChartDescription } from '@/components/ui';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
 import { CiteRef } from '@/components/article/citation-records';
-import { cx } from '@/lib/utils';
 
 /**
  * Authored teaching model: controls select three input magnitudes, composed
@@ -80,17 +86,10 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
 
   const ticks = [0, max / 2, max];
 
-  const buttonBase =
-    'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]';
-
   return (
-    <div
+    <InstrumentFrame
       data-testid="perception-budget"
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
+      className={className}
     >
       <fieldset className="border-0 p-0">
         <legend className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
@@ -126,18 +125,16 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-handeye`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="perception-handeye-value">
+                {params.handEyeDeg.toFixed(1)}
+              </span>
+            }
           >
             hand-eye rotation {`(deg)`}
-            <span
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-              data-testid="perception-handeye-value"
-            >
-              {params.handEyeDeg.toFixed(1)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-handeye`}
             type="range"
@@ -153,18 +150,16 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           />
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-distance`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="perception-distance-value">
+                {params.workingDistanceM.toFixed(2)}
+              </span>
+            }
           >
             working distance {`(m)`}
-            <span
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-              data-testid="perception-distance-value"
-            >
-              {params.workingDistanceM.toFixed(2)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-distance`}
             type="range"
@@ -180,18 +175,16 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           />
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-depth`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="perception-depth-value">
+                {params.depthPct.toFixed(1)}
+              </span>
+            }
           >
             depth error {`(% of range)`}
-            <span
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-              data-testid="perception-depth-value"
-            >
-              {params.depthPct.toFixed(1)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-depth`}
             type="range"
@@ -207,18 +200,16 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           />
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-pose`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="perception-pose-value">
+                {params.poseMm.toFixed(1)}
+              </span>
+            }
           >
             object pose {`(mm)`}
-            <span
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-              data-testid="perception-pose-value"
-            >
-              {params.poseMm.toFixed(1)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-pose`}
             type="range"
@@ -235,13 +226,12 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         </div>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Authored input magnitudes and root-sum-of-squares total against the model band. Total ${budget.totalMm.toFixed(1)} millimetres.`}
         aria-describedby={descriptionId}
         data-testid="perception-chart"
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* The clearance band: within to the left of the first edge,
             marginal out to twice it. */}
@@ -370,22 +360,16 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         >
           mm
         </text>
-      </svg>
+      </PlotStage>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
+        <InstrumentReset
           onClick={reset}
           aria-label="Reset the error budget to its opening values"
-          className={buttonBase}
-        >
-          Reset
-        </button>
+        />
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">composed</span>{' '}
         <span data-testid="perception-total-readout" className="text-text">
           {budget.totalMm.toFixed(2)} mm
@@ -398,7 +382,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         <span data-testid="perception-verdict-readout" className={verdictTone}>
           {verdictText}
         </span>
-      </p>
+      </InstrumentReadout>
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         <span data-testid="perception-target-note">
@@ -457,6 +441,6 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         then repeat with the angle set to zero. Reset restores the authored
         opening inputs.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

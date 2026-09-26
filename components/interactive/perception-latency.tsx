@@ -3,6 +3,13 @@
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   AGILITY_STEPS,
   DEFAULT_AGILITY,
   DEFAULT_LATENCY_MS,
@@ -75,24 +82,15 @@ export function PerceptionLatency({ className }: { className?: string }) {
   };
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="perception-latency"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={formatSeconds(latencyS)}
           >
             Perception latency
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {formatSeconds(latencyS)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="perception-latency"
             type="range"
@@ -119,42 +117,39 @@ export function PerceptionLatency({ className }: { className?: string }) {
               {u} m/s²
             </button>
           ))}
-          <button data-brand-control-id="control:secondary-action" type="button" onClick={reset} className={cx(buttonBase, buttonIdle)}>
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} />
         </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">
           max speed:{' '}
           <span data-testid="max-speed-readout" className="text-accent">
             {formatSpeed(outcome.maxSpeedMs)}
           </span>
-        </span>
+        </span>{' '}
         <span className="text-text-dim">
           time to contact:{' '}
           <span data-testid="ttc-readout" className="text-text">
             {formatSeconds(ttc)}
           </span>
-        </span>
+        </span>{' '}
         <span className="text-text-dim">
           lost to latency:{' '}
           <span data-testid="latency-readout" className="text-text">
             {formatSeconds(latencyS)}
           </span>
-        </span>
+        </span>{' '}
         <span className="text-text-dim">
           avoidance maneuver:{' '}
           <span data-testid="avoid-readout" className="text-text">
             {formatSeconds(tAvoid)}
           </span>
         </span>
-      </div>
+      </InstrumentReadout>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Sense-and-avoid timeline at the maximum speed of ${formatSpeed(
           outcome.maxSpeedMs,
         )}. Obstacle detected at the sensing range, ${formatSeconds(
@@ -165,7 +160,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
           ttc,
         )}.`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         {/* Interval band: latency (dead time) then avoidance maneuver. */}
         <rect
@@ -299,7 +294,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
             </text>
           </g>
         ))}
-      </svg>
+      </PlotStage>
 
       <ChartDescription
         id={descriptionId}
@@ -325,6 +320,6 @@ export function PerceptionLatency({ className }: { className?: string }) {
         ))}
         . Model: maximum speed = range / (latency + 2 sqrt(r / u)), r = 0.75 m.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

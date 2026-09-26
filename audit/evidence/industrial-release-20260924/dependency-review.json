@@ -203,8 +203,8 @@
       },
       "current": {
         "path": "components/interactive/data-scale-chart.tsx",
-        "bytes": 20080,
-        "sha256": "6d95c5b717f0fdbe1f56c5a2c5bd70dde5ee3dcc4fa5fe3c44def6bdab5e3c85"
+        "bytes": 19374,
+        "sha256": "10664b665c58529e71fcaa15b8693782b41c88bef4de81e84454fe98327f4e7f"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/components--interactive--data-scale-chart.tsx.txt",
@@ -241,8 +241,8 @@
       },
       "current": {
         "path": "components/interactive/perception-error-budget.tsx",
-        "bytes": 17989,
-        "sha256": "ecf0e9b43cc89cc6135846f784f823f46345feca9c775e1c4a5e63758f42fca1"
+        "bytes": 16745,
+        "sha256": "975355aeffe1d4e5f47f94e842ab379b1b257d4f18ecd0bb10e0bc1d3bb545cd"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/components--interactive--perception-error-budget.tsx.txt",
@@ -325,8 +325,8 @@
       },
       "current": {
         "path": "components/interactive/collaborative-operation-modes.tsx",
-        "bytes": 20172,
-        "sha256": "7b6f054ac59bef093fc47dd35c900607ec40e7ddc9d4efe7ddeda786f076b5c1"
+        "bytes": 19581,
+        "sha256": "fdd669e1313c1def05df50c29cb92821d450440b74fe8e322031e511dd9384dd"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/collaborative-operation-modes-before-range.tsx.txt",

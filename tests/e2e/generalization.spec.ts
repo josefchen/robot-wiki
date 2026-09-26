@@ -16,7 +16,9 @@ const ROUTE = '/frontier/generalization/';
  */
 function egs(page: Page) {
   return page
-    .locator('div.prose > div.rounded-md:has([data-testid="horizon-readout"])')
+    .locator(
+      'div.prose > div.rounded-md:has([data-testid="horizon-readout"]), div.prose > div.rounded-none:has([data-testid="horizon-readout"])',
+    )
     .first();
 }
 

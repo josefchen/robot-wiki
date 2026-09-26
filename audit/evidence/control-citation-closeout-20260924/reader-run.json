@@ -9,8 +9,8 @@
   },
   "test": {
     "path": "tests/e2e/control.spec.ts",
-    "bytes": 24182,
-    "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+    "bytes": 24248,
+    "sha256": "0d2bd55a1ac1c6657bcc2852a6db9bd4b058832bdff35b4d4529c618f138dafd"
   },
   "dependencies": [
     {
@@ -25,18 +25,18 @@
     },
     {
       "path": "tests/e2e/control.spec.ts",
-      "bytes": 24182,
-      "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+      "bytes": 24248,
+      "sha256": "0d2bd55a1ac1c6657bcc2852a6db9bd4b058832bdff35b4d4529c618f138dafd"
     },
     {
       "path": "components/interactive/pendulum-controller.tsx",
-      "bytes": 18785,
-      "sha256": "e41261f46b6932194261d87b026e707eaab82e0ccf0a8498635702f97d5fcfe8"
+      "bytes": 18392,
+      "sha256": "be06ffbbb472de3fc74f85ecbae9fc7b1a36f9dce4f1eaa8f12933c570bc1774"
     },
     {
       "path": "components/interactive/impedance-contact-lab.tsx",
-      "bytes": 17022,
-      "sha256": "22fe6e156af0b19433c58ed86749fc5203970a6820986e7d4d78b9f7273e2f0e"
+      "bytes": 15993,
+      "sha256": "295280baed6df5ab78af80e47db6dab321ac8b47cfdee7ab2cdd1b5589da142d"
     }
   ],
   "surfaceObservations": [

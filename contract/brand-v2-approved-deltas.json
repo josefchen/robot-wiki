@@ -31647,6 +31647,21 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "instrument-migration-20260926-rrt-source",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/rrt-explorer.tsx",
+      "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+      "newHash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3",
+      "reason": "The RRT explorer now renders through the shared instrument family (frame, control labels, reset, plot stage) instead of its own one-off chrome. The migration is presentation-only: the sampler, scene, controls, geometry and accessible names are unchanged, and the mounted disclosure copy is retained verbatim. This entry re-anchors the sealed source member to the migrated rendering.",
+      "ownerApproval": "Owner-delegated approval: the brand-v2 authority in AGENTS.md delegates this migration to the shared instrument family while preserving data, geometry, keyboard operation and accessible names; approved in the brand-v2-interactives milestone against VAL-CLASS-038's keyboard and reset contract.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-CLASS-038",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

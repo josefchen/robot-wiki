@@ -3,6 +3,13 @@
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   CONTACT_LIMIT_LABEL,
   CONTACT_LIMIT_N,
   DEFAULT_HUMAN_SPEED_M_S,
@@ -203,7 +210,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
         : `Under ${mode.name.toLowerCase()} the ${formatSpeed(robotSpeed)} robot speed and ${formatSpeed(humanSpeed)} operator approach set no distance and no force budget, because the mode permits no autonomous motion beside the operator: the ${formatMetres(separation)} separation and ${formatForce(force)} impact force are what the other two modes would have to hold.`;
 
   return (
-    <div data-brand-surface-id="surface:flat" className={cx('rounded-md border border-border bg-surface p-4 sm:p-5', className)}>
+    <InstrumentFrame className={className}>
       <div role="group" aria-label="Collaborative operation mode" className="flex flex-wrap gap-1">
         {MODES.map((m) => (
           <button
@@ -218,22 +225,17 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             {m.short}
           </button>
         ))}
-        <button data-brand-control-id="control:secondary-action" type="button" onClick={reset} className={cx(buttonBase, buttonIdle)}>
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         <div>
-          <label
+          <ControlLabel
             htmlFor="safety-robot-speed"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={formatSpeed(robotSpeed)}
           >
             Robot speed
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {formatSpeed(robotSpeed)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="safety-robot-speed"
             type="range"
@@ -248,15 +250,12 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           />
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor="safety-human-speed"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={formatSpeed(humanSpeed)}
           >
             Operator approach
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {formatSpeed(humanSpeed)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="safety-human-speed"
             type="range"
@@ -272,7 +271,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
         </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs" aria-live="polite">
+      <InstrumentReadout>
         {mode.readout === 'separation' && (
           <>
             <span className="text-text-dim">
@@ -283,25 +282,25 @@ export function CollaborativeOperationModes({ className }: { className?: string 
               >
                 {formatMetres(separation)}
               </span>
-            </span>
+            </span>{' '}
             <span className="text-text-dim">
               operator travel:{' '}
               <span data-testid="term-human" className="text-text">
                 {formatMetres(terms.humanTravelM)}
               </span>
-            </span>
+            </span>{' '}
             <span className="text-text-dim">
               robot travel before braking:{' '}
               <span data-testid="term-reaction" className="text-text">
                 {formatMetres(terms.robotReactionM)}
               </span>
-            </span>
+            </span>{' '}
             <span className="text-text-dim">
               braking:{' '}
               <span data-testid="term-braking" className="text-text">
                 {formatMetres(terms.brakingM)}
               </span>
-            </span>
+            </span>{' '}
             <span className="text-text-dim">
               margin and uncertainty:{' '}
               <span data-testid="term-margin" className="text-text">
@@ -320,7 +319,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
               >
                 {formatForce(force)}
               </span>
-            </span>
+            </span>{' '}
             <span className="text-text-dim">
               limit:{' '}
               <span data-testid="force-limit-readout" className="text-text">
@@ -337,11 +336,10 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             </span>
           </span>
         )}
-      </div>
+      </InstrumentReadout>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Workcell with a robot at the left wall and an operator ${formatMetres(
           WORKCELL_SEPARATION_M,
         )} away, under ${mode.name.toLowerCase()}. Robot speed ${formatSpeed(
@@ -358,7 +356,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
               : 'No separation distance or contact force applies in this mode.'
         }`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         <line x1={CELL_LEFT} y1={FLOOR_Y} x2={CELL_RIGHT} y2={FLOOR_Y} stroke={BORDER_STRONG} />
         <line x1={CELL_LEFT} y1={30} x2={CELL_LEFT} y2={FLOOR_Y} stroke={BORDER} strokeDasharray="3 3" />
@@ -436,7 +434,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             safety-rated stop
           </text>
         )}
-      </svg>
+      </PlotStage>
 
       <p
         data-testid="mode-constraint"
@@ -487,6 +485,6 @@ export function CollaborativeOperationModes({ className }: { className?: string 
         force-limit label is {CONTACT_LIMIT_LABEL}. These calculations are
         illustrative, not measurements or safety certification.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

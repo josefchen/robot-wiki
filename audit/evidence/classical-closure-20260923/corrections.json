@@ -198,18 +198,18 @@
       },
       {
         "path": "tests/e2e/control.spec.ts",
-        "bytes": 24182,
-        "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+        "bytes": 24248,
+        "sha256": "0d2bd55a1ac1c6657bcc2852a6db9bd4b058832bdff35b4d4529c618f138dafd"
       },
       {
         "path": "components/interactive/pendulum-controller.tsx",
-        "bytes": 18785,
-        "sha256": "e41261f46b6932194261d87b026e707eaab82e0ccf0a8498635702f97d5fcfe8"
+        "bytes": 18392,
+        "sha256": "be06ffbbb472de3fc74f85ecbae9fc7b1a36f9dce4f1eaa8f12933c570bc1774"
       },
       {
         "path": "components/interactive/impedance-contact-lab.tsx",
-        "bytes": 17022,
-        "sha256": "22fe6e156af0b19433c58ed86749fc5203970a6820986e7d4d78b9f7273e2f0e"
+        "bytes": 15993,
+        "sha256": "295280baed6df5ab78af80e47db6dab321ac8b47cfdee7ab2cdd1b5589da142d"
       }
     ],
     "requiredPresent": [
@@ -231,14 +231,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "2c87a962a3896468a2ff0d48788826514b3b8e91cacdabfb779f6e1e8961305e"
+      "sha256": "970d8c9bbe0d4d55d5bcd7cf4282aac0e515e05f22662d3d6304634b32fb97d6"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
       "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-25T15:11:07.752Z",
-      "inputDigest": "40cd95871b92ca77492d9a6332338537027054502db6c7de90e133b6fcaf7ab3"
+      "inputDigest": "5d0ec21c9d9d3813057a5a4291cca26c1064c420a5c1a4747aa9bd759da0d984"
     }
   },
   {
@@ -278,18 +278,18 @@
       },
       {
         "path": "tests/e2e/control.spec.ts",
-        "bytes": 24182,
-        "sha256": "53bc51c4bd0897236c6c51fb9b62670ecb02f912dc41ff548d9e514259057027"
+        "bytes": 24248,
+        "sha256": "0d2bd55a1ac1c6657bcc2852a6db9bd4b058832bdff35b4d4529c618f138dafd"
       },
       {
         "path": "components/interactive/pendulum-controller.tsx",
-        "bytes": 18785,
-        "sha256": "e41261f46b6932194261d87b026e707eaab82e0ccf0a8498635702f97d5fcfe8"
+        "bytes": 18392,
+        "sha256": "be06ffbbb472de3fc74f85ecbae9fc7b1a36f9dce4f1eaa8f12933c570bc1774"
       },
       {
         "path": "components/interactive/impedance-contact-lab.tsx",
-        "bytes": 17022,
-        "sha256": "22fe6e156af0b19433c58ed86749fc5203970a6820986e7d4d78b9f7273e2f0e"
+        "bytes": 15993,
+        "sha256": "295280baed6df5ab78af80e47db6dab321ac8b47cfdee7ab2cdd1b5589da142d"
       }
     ],
     "requiredPresent": [
@@ -311,14 +311,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "2c87a962a3896468a2ff0d48788826514b3b8e91cacdabfb779f6e1e8961305e"
+      "sha256": "970d8c9bbe0d4d55d5bcd7cf4282aac0e515e05f22662d3d6304634b32fb97d6"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
       "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-25T15:11:07.753Z",
-      "inputDigest": "73d80f8ab1435a1bb73dba304da85a3a4d034d26fb1a9d038adf1ce5c68cc957"
+      "inputDigest": "6b3c28f903b227b76345b2b05eb13122cf64713244c442407e652c68691e40ac"
     }
   }
 ]

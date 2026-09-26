@@ -2,6 +2,13 @@
 
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
 import { CiteRef } from '@/components/article/citation-records';
 import {
   BACK_WALL,
@@ -335,15 +342,13 @@ function Panel({
   describedBy: string;
 }) {
   return (
-    <svg
+    <PlotStage
       // A band above the scene carries the panel title, so the title cannot
       // sit on top of the back wall or its label.
       viewBox={`0 ${-TITLE_BAND_CM} ${SCENE_WIDTH_CM} ${SCENE_DEPTH_CM + TITLE_BAND_CM}`}
-      role="img"
       aria-label={PANEL_LABEL[id]}
       aria-describedby={describedBy}
       data-testid={`scene-panel-${id}`}
-      className="block w-full"
     >
       <text
         x={0}
@@ -390,7 +395,7 @@ function Panel({
       >
         thin post
       </text>
-    </svg>
+    </PlotStage>
   );
 }
 
@@ -422,13 +427,9 @@ export function SceneRepresentationLadder({
   ).length;
 
   return (
-    <div
+    <InstrumentFrame
       data-testid="scene-ladder"
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
+      className={className}
     >
       <div
         role="group"
@@ -478,18 +479,14 @@ export function SceneRepresentationLadder({
         </div>
 
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-resolution`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="scene-resolution-value">{cellCm} cm</span>
+            }
           >
             resolution
-            <span
-              data-testid="scene-resolution-value"
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-            >
-              {cellCm} cm
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-resolution`}
             type="range"
@@ -505,7 +502,7 @@ export function SceneRepresentationLadder({
             className="mt-2 w-full accent-accent"
           />
 
-          <p className="mt-3 font-mono text-sm" aria-live="polite">
+          <InstrumentReadout className="mt-3">
             <span className="text-text-dim">footprint</span>{' '}
             <span data-testid="scene-footprint-readout" className="text-text">
               {formatBytes(cost.bytes)}
@@ -516,7 +513,7 @@ export function SceneRepresentationLadder({
               </span>{' '}
               at {cellCm} cm
             </span>
-          </p>
+          </InstrumentReadout>
 
           <ul
             aria-label="What this representation can answer"
@@ -549,16 +546,11 @@ export function SceneRepresentationLadder({
             })}
           </ul>
 
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
+          <InstrumentReset
             onClick={reset}
             aria-label="Reset the representation and resolution to their opening values"
-            className="mt-3 rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+            className="mt-3"
+          />
         </div>
       </div>
 
@@ -616,6 +608,6 @@ export function SceneRepresentationLadder({
         rendered geometry nothing ever measured{' '}
         <CiteRef id="moravec-elfes-1985" />.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -118,18 +118,24 @@ const humanizerAppends = [
   'expo-ft-intake-20260925-citation-realtime-expo-ft-2026',
   'expo-ft-intake-20260925-chart-aria-label',
 ] as const;
+// The data/classical instrument migration (2026-09-26) re-anchored the RRT
+// explorer's sealed source member to its migrated rendering.
+const instrumentMigrationAppends = [
+  'instrument-migration-20260926-rrt-source',
+] as const;
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval in order and appends exactly seven local-only approvals', () => {
     const mainIds = new Set(main.map(x => x.id));
     const localOnly = local.filter(x => !mainIds.has(x.id));
     // The 20260925 manipulation humanizer pass and EXPO-FT intake appended
-    // 25 more approvals after the merge.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1632]);
+    // 25 more approvals after the merge, and the 20260926 instrument
+    // migration appended one more.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1633]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends]);
     expect(new Set(merged.map(x => x.id)).size).toBe(merged.length);
     expect(validateApprovedDeltas(merged)).toEqual([]);
   });

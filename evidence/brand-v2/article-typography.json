@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ca310dbc312aff97412dd729d301dc9845707effc0e492b01e3eaa6c3c61f344",
+  "fingerprint": "6661619c0881f6b9b61a5b017064cc6ee82af25a7417626a65cb0c335bb52d67",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1870,7 +1870,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17766,
+      "visibleTextLength": 17768,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1995,6 +1995,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The hardest constraint on a flying robot is below, and it is"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "max speed: 19.21 m/s time to contact: 416 ms lost to latency"
         },
         {
           "familyHead": "ibm plex sans",
@@ -22531,7 +22540,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26766,
+      "visibleTextLength": 26768,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22686,6 +22695,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Select each mode below, then drag the robot-speed slider und"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "protective separation: 1.42 m operator travel: 0.32 m robot "
         },
         {
           "familyHead": "newsreader",
@@ -54540,7 +54558,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18084,
+      "visibleTextLength": 18086,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54667,10 +54685,19 @@
           "text": "The hardest constraint on a flying robot is below, and it is"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "max speed: 19.21 m/s time to contact: 416 ms lost to latency"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 70 ms of perception latency and 25 m/s² lateral agility t"
@@ -54679,7 +54706,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Reference latencies from the study (8 m sensing range): Ster"
@@ -57475,7 +57502,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 213.66,
+          "widthPx": 211,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Below 9.81 the pole cannot be held up at all."
@@ -57484,7 +57511,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 213.67,
+          "widthPx": 211,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Removes the steady lean left by the offset payload."
@@ -57493,7 +57520,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 213.67,
+          "widthPx": 211,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Damping. Near zero, the pole rings instead of settling."
@@ -57502,7 +57529,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "angle +12.0° rate +0.0°/s integral 0.00 torque -5.2 N·m stat"
@@ -57511,7 +57538,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Default gains Kp 25.0, Ki 0.0 and Kd 3.0 leave the lab pole "
@@ -57520,7 +57547,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "A point mass on a 1 m rod with torque applied at the pivot. "
@@ -57583,7 +57610,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 191.66,
+          "widthPx": 189,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Below 9.81 the pole cannot be held up at all."
@@ -57592,7 +57619,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 191.67,
+          "widthPx": 189,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Removes the steady lean left by the offset payload."
@@ -57601,7 +57628,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 191.67,
+          "widthPx": 189,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Damping. Near zero, the pole rings instead of settling."
@@ -57610,7 +57637,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "angle +12.0° rate +0.0°/s integral 0.00 torque -2.0 N·m stat"
@@ -57619,7 +57646,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The prediction-step pole starts at Kp 9.5, under the 9.81 mg"
@@ -57628,7 +57655,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "A point mass on a 1 m rod with torque applied at the pivot. "
@@ -57790,7 +57817,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 213.66,
+          "widthPx": 211,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "the surface is closer than the model said, by this much"
@@ -57799,7 +57826,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 213.67,
+          "widthPx": 211,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "the programmable spring at the contact"
@@ -57808,7 +57835,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 213.67,
+          "widthPx": 211,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "the programmable damper at the contact"
@@ -57817,7 +57844,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "steady 1.6 N peak 23.7 N outcome task succeeded"
@@ -57826,7 +57853,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "On the torque-controlled arm at depth 2.0 mm, stiffness 800 "
@@ -57835,7 +57862,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "A 4 kg effective end-effector mass pressing into a surface m"
@@ -58509,7 +58536,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The cones narrow as μ drops; the wrench hull shrinks with th"
@@ -58518,7 +58545,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Position along the perimeter: 0.00 at the top-right corner, "
@@ -58527,7 +58554,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "contacts 3 force closure yes ε 0.444"
@@ -58536,7 +58563,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "3 frictional contacts on the unit square at mu 0.70 open inw"
@@ -58545,7 +58572,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The grasp wrench hull of 3 contacts currently reports force "
@@ -58554,7 +58581,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Left: the object and its friction cones, half-angle arctan μ"
@@ -59258,7 +59285,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "end effector x +0.45 y +1.89 link units"
@@ -59267,7 +59294,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "With base 110 degrees, elbow -45 degrees and wrist -35 degre"
@@ -59276,7 +59303,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Link lengths 1.00, 0.75, and 0.55. Each angle is measured re"
@@ -60010,7 +60037,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "iteration 0 / 288 nodes 1 tree not started path length n/a"
@@ -60019,7 +60046,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The RRT tree is at iteration 0 of 288 with 1 node and status"
@@ -60028,7 +60055,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Authored scene and sampling settings, not a published benchm"
@@ -60974,7 +61001,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "composed 11.32 mm depth term 10.00 mm at 2.0% model band wit"
@@ -60983,7 +61010,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The opaque box case uses an authored depth floor of 2% of th"
@@ -60992,7 +61019,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Simplification, stated rather than hidden: the depth term he"
@@ -61001,7 +61028,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At an authored angle of 0.5 degrees and axial distance 0.50 "
@@ -61010,7 +61037,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "These are authored teaching settings. The opaque-case floor "
@@ -62991,7 +63018,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "An occupancy grid stores: One occupancy probability per voxe"
@@ -63000,7 +63027,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Stored as an occupancy grid at 20 cm, the same scene costs 2"
@@ -63009,7 +63036,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Scene and models, stated rather than hidden: a 3.0 by 3.0 by"
@@ -63898,7 +63925,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 328.5,
+          "widthPx": 324.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "What the filter assumes about the target’s per-step accelera"
@@ -63907,7 +63934,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 328.5,
+          "widthPx": 324.5,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "What the filter assumes about the sensor’s scatter. Raise it"
@@ -63916,7 +63943,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "step 60 / 600 seed 1 sigma 0.72 gain 0.52 rms err 0.90"
@@ -63925,7 +63952,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "A constant-velocity Kalman filter tracking a wandering targe"
@@ -63934,7 +63961,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Over the 61-step window ending at step 60, the estimate stay"
@@ -65141,7 +65168,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "15 rigs: 15,000 h/yr hypothetical, 10,000 h in 8 mo, 1,000,0"
@@ -65150,7 +65177,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Authored hypothetical: 1,000 productive hours per rig-year. "
@@ -65159,7 +65186,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "OXE: 1M+ trajectories across 22 robot embodiments. This char"
@@ -65168,7 +65195,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale"
@@ -65204,7 +65231,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "10 rigs: 70 h/yr hypothetical, 10,000 h in 143 yr, 1,000,000"
@@ -65213,7 +65240,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Authored hypothetical: 7 productive hours per rig-year, not "
@@ -65222,7 +65249,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "OXE: 1M+ trajectories across 22 robot embodiments. This char"
@@ -65231,7 +65258,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale"
@@ -66762,7 +66789,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "(0.950)^30 = 21.5% episode success"
@@ -66771,7 +66798,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The evaluation calculator at 95.0 percent per-step success r"
@@ -66798,7 +66825,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "(0.950)^14 = 48.8% episode success"
@@ -66807,7 +66834,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The evaluation-crisis prediction panel is seeded at 14 steps"
@@ -68448,7 +68475,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
+          "widthPx": 320.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Assumption: $80k is a chosen example, not a sourced arm-pric"
@@ -68457,7 +68484,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
+          "widthPx": 320.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Assumption: 2.5x is chosen within EVST’s 2-3x complete-cell "
@@ -68466,7 +68493,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
+          "widthPx": 320.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Assumption: a paced piece-picking cycle; drag it to match an"
@@ -68475,7 +68502,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
+          "widthPx": 320.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Assumption: availability net of maintenance and faults; 95% "
@@ -68484,7 +68511,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
+          "widthPx": 320.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Assumption: the policy headline number; the demonstration te"
@@ -68493,7 +68520,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
+          "widthPx": 320.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Assumption: seconds of human attention per failed pick; this"
@@ -68502,7 +68529,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
+          "widthPx": 320.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Assumption: fully loaded picker wage; set it to your own fac"
@@ -68511,7 +68538,7 @@
           "familyHead": "newsreader",
           "sizePx": 13,
           "lineHeightRatio": 1.7,
-          "widthPx": 216.33,
+          "widthPx": 213.66,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Cost per pick"
@@ -68520,7 +68547,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 216.33,
+          "widthPx": 213.66,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "0.008 USD over 5 yr"
@@ -68529,7 +68556,7 @@
           "familyHead": "newsreader",
           "sizePx": 13,
           "lineHeightRatio": 1.7,
-          "widthPx": 216.33,
+          "widthPx": 213.67,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Payback"
@@ -68538,7 +68565,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 216.33,
+          "widthPx": 213.67,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "11.6 months"
@@ -68547,7 +68574,7 @@
           "familyHead": "newsreader",
           "sizePx": 13,
           "lineHeightRatio": 1.7,
-          "widthPx": 216.33,
+          "widthPx": 213.67,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Verdict"
@@ -68556,7 +68583,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 216.33,
+          "widthPx": 213.67,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Pays back inside 24 months"
@@ -68565,7 +68592,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 672.98,
+          "widthPx": 665,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "Cell cost $200,000; 569 modeled picks per elapsed hour and 4"
@@ -68574,7 +68601,7 @@
           "familyHead": "newsreader",
           "sizePx": 13,
           "lineHeightRatio": 1.7,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Where each elapsed hour goes"
@@ -68583,7 +68610,7 @@
           "familyHead": "newsreader",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
           "text": "One elapsed hour is 3600 seconds; the three shares sum to it"
@@ -71230,7 +71257,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 1062,
+          "widthPx": 1054,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Why it matters"
@@ -71248,7 +71275,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 523,
+          "widthPx": 519,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Current status"
@@ -71257,7 +71284,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 523,
+          "widthPx": 519,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "π0.5 cleaned kitchens and bedrooms in homes that were entire"
@@ -71266,7 +71293,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 523,
+          "widthPx": 519,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "How we’d know"
@@ -71275,7 +71302,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 523,
+          "widthPx": 519,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "A published, reproducible evaluation of one policy across mo"
@@ -72161,7 +72188,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 1062,
+          "widthPx": 1054,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "End-to-end VLA scaling"
@@ -72179,7 +72206,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 1062,
+          "widthPx": 1054,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Proponents"
@@ -72188,7 +72215,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 523,
+          "widthPx": 519,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Evidence for"
@@ -72197,7 +72224,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 523,
+          "widthPx": 519,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Evidence against"
@@ -72206,7 +72233,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.7,
-          "widthPx": 1062,
+          "widthPx": 1054,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Falsification criterion"
@@ -73017,7 +73044,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 154.73,
+          "widthPx": 152.84,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Sanctuary AI · Hydraulic, miniaturized valves"
@@ -73026,7 +73053,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 154.73,
+          "widthPx": 152.84,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Figure AI · Actuation not disclosed"
@@ -73035,7 +73062,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 154.73,
+          "widthPx": 152.84,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Tesla · Tendon-driven electric, motors in the forearm"
@@ -73044,7 +73071,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 154.73,
+          "widthPx": 152.84,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Shadow Robot · Tendon-driven electric, 20 DC motors, 24 join"
@@ -73053,7 +73080,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 11,
           "lineHeightRatio": 1.38,
-          "widthPx": 154.73,
+          "widthPx": 152.84,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Unitree · Electric"
@@ -73062,7 +73089,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Select hands to compare their trade-offs."
@@ -73820,7 +73847,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 100k h: 0.0102 loss if the law holds, 0.0150 if it platea"
@@ -73829,7 +73856,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Validation loss falls from 0.0240 at 1k hours to 0.0150 at 2"
@@ -73838,7 +73865,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The law (L = 0.024 - 0.003 ln D, R² = 0.9983) is fit to held"
@@ -73982,7 +74009,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 250k h: 0.0074 loss if the law holds, 0.0150 if it platea"
@@ -73991,7 +74018,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The generalization prediction-step law panel is seeded past "
@@ -74000,7 +74027,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 607,
+          "widthPx": 599,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "The law (L = 0.024 - 0.003 ln D, R² = 0.9983) is fit to held"
@@ -74598,7 +74625,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "(0.950)^30 = 21.5% episode success"
@@ -74607,7 +74634,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "On the reliability-gap calculator a 95.0 percent per-step po"
@@ -75201,7 +75228,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27101,
+      "visibleTextLength": 27103,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75358,10 +75385,19 @@
           "text": "Select each mode below, then drag the robot-speed slider und"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "protective separation: 1.42 m operator travel: 0.32 m robot "
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Speed and separation monitoring. The robot and the person ma"
@@ -75370,7 +75406,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "verdict: Speed and separation monitoring is available at the"
@@ -75379,7 +75415,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 1.00 m/s robot speed and 1.60 m/s operator approach, the "
@@ -75388,7 +75424,7 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "lineHeightRatio": 1.63,
-          "widthPx": 673,
+          "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_"

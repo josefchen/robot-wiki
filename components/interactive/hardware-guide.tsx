@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState, type ReactNode } from 'react';
-import { Table, type Column } from '@/components/ui';
+import { Table, InstrumentFrame, InstrumentReset, type Column } from '@/components/ui';
 import { HARDWARE } from '@/data/hardware';
 import type { HardwareEntry } from '@/data/schemas/hardware';
 import {
@@ -288,13 +288,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
         <FilterGroup
           label="Filter by category"
@@ -325,15 +319,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
           <p aria-live="polite" className="font-mono text-xs text-text-dim">
             {rows.length} of {HARDWARE.length} entries
           </p>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={reset}
-            className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} className="cursor-pointer" />
         </div>
       </div>
 
@@ -369,6 +355,6 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
           initialSort={{ key: 'category', direction: 'asc' }}
         />
       )}
-    </div>
+    </InstrumentFrame>
   );
 }

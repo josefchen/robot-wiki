@@ -155,7 +155,7 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
           ? document.querySelector(`svg[aria-describedby="${descId}"]`)
           : null;
         let panel: Element | null = wrapper;
-        while (panel && !/rounded-md/.test(panel.getAttribute('class') ?? '')) {
+        while (panel && !/rounded-(?:md|none)/.test(panel.getAttribute('class') ?? '')) {
           panel = panel.parentElement;
         }
         const sliders = Array.from(
@@ -348,7 +348,7 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
             )[chartIdx] as HTMLElement | undefined;
             if (!d) return 'disclosure-missing';
             let panel: Element | null = d.parentElement;
-            while (panel && !/rounded-md/.test(panel.getAttribute('class') ?? '')) {
+            while (panel && !/rounded-(?:md|none)/.test(panel.getAttribute('class') ?? '')) {
               panel = panel.parentElement;
             }
             if (!panel) return 'panel-missing';
@@ -417,7 +417,7 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
           )[chartIdx];
           if (!d) return;
           let panel: Element | null = d.parentElement;
-          while (panel && !/rounded-md/.test(panel.getAttribute('class') ?? '')) {
+          while (panel && !/rounded-(?:md|none)/.test(panel.getAttribute('class') ?? '')) {
             panel = panel.parentElement;
           }
           const range = panel?.querySelectorAll('input[type="range"]')[sliderIndex] as

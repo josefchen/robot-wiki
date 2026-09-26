@@ -3,6 +3,14 @@
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   COLLECTION_RATES,
   DEFAULT_RIGS,
   FRONTIER_HOURS,
@@ -165,24 +173,12 @@ export function DataScaleChart({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
-            htmlFor={rigsId}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor={rigsId} value={`${formatRigs(rigs)} rigs`}>
             Teleoperation rigs
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {formatRigs(rigs)} rigs
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={rigsId}
             type="range"
@@ -196,15 +192,7 @@ export function DataScaleChart({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div
@@ -258,12 +246,11 @@ export function DataScaleChart({
         </span>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Demonstration hours against pretraining tokens, ${formatRigs(rigs)}-rig hypothetical farm projection`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         <text
           x={PLOT.left}
@@ -461,9 +448,9 @@ export function DataScaleChart({
         >
           {`your farm: ${formatHours(perYear)}/yr`}
         </text>
-      </svg>
+      </PlotStage>
 
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-text-dim">
+      <InstrumentLegend className="mt-2">
         <span className="flex items-center gap-1.5">
           <span
             className="inline-block h-2 w-2 rounded-full"
@@ -493,20 +480,16 @@ export function DataScaleChart({
           your farm
         </span>
         <span>~ = estimated hours, not a published count</span>
-      </div>
+      </InstrumentLegend>
 
-      <p
-        data-testid="projection-summary"
-        className="mt-3 font-mono text-sm text-text"
-        aria-live="polite"
-      >
+      <InstrumentReadout data-testid="projection-summary">
         <span className="text-text-dim">{formatRigs(rigs)} rigs:</span>{' '}
         <span className="text-accent">{formatHours(perYear)}/yr</span>{' '}
         <span className="text-text-dim">hypothetical, 10,000 h in</span>{' '}
         <span className="text-text">{formatDuration(targetYears)}</span>
         <span className="text-text-dim">, 1,000,000 h in</span>{' '}
         <span className="text-text">{formatDuration(largerTargetYears)}</span>
-      </p>
+      </InstrumentReadout>
       <p
         data-testid="rate-explanation"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
@@ -574,6 +557,6 @@ export function DataScaleChart({
           </>
         }
       />
-    </div>
+    </InstrumentFrame>
   );
 }

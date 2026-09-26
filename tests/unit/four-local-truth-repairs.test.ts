@@ -119,7 +119,11 @@ describe('four bounded local truth repairs without completion credit', () => {
       .toBe('ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e');
     expect(hash(committedSource('d928b6b', 'components/interactive/deployment-economics.tsx')))
       .toBe('0e982f1dde7f8be7fb5c1d70bda395dc80c403fbdda210b703a45d2870bf6756');
-    expect(read('components/interactive/deployment-economics.tsx'))
+    // The repair left the calculator byte-identical; the 2026-09-26
+    // instrument migration later re-rendered its presentation only, so the
+    // no-implementation-change guarantee stays pinned between these two
+    // commits rather than against the live file.
+    expect(committedSource('6235b1b', 'components/interactive/deployment-economics.tsx'))
       .toBe(committedSource('358f505', 'components/interactive/deployment-economics.tsx'));
   });
 
@@ -145,7 +149,11 @@ describe('four bounded local truth repairs without completion credit', () => {
   it('changes no RRT controls, styling, geometry or behavior', () => {
     const prior = read('audit/evidence/classical-closure-20260923/rrt-component-before.tsx.txt');
     const beforeDisclosure = (text: string) => text.slice(0, text.lastIndexOf('      <p className="mt-2 font-sans'));
-    expect(beforeDisclosure(rrtComponent)).toBe(beforeDisclosure(prior));
+    // The repair's no-change guarantee is pinned to the pre-migration
+    // rendering; the 2026-09-26 instrument migration re-rendered the
+    // chrome afterwards and carries its own source re-anchor.
+    const repaired = committedSource('6235b1b', 'components/interactive/rrt-explorer.tsx');
+    expect(beforeDisclosure(repaired)).toBe(beforeDisclosure(prior));
   });
 
   it('evaluates the half-degree example as marginal at the far distance', () => {

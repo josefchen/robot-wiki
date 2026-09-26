@@ -17,8 +17,14 @@ import {
   TRANSIENT_CONTACT_LIMIT_N,
 } from '@/lib/force-limits';
 import { ChartDescription } from '@/components/ui';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
 import { CiteRef } from '@/components/article/citation-records';
-import { cx } from '@/lib/utils';
 
 /**
  * ImpedanceContactLab: a one-dimensional compliant-contact lab. A
@@ -119,17 +125,10 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
     })
     .join(' ');
 
-  const buttonBase =
-    'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]';
-
   return (
-    <div
+    <InstrumentFrame
       data-testid="impedance-lab"
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
+      className={className}
     >
       {/* Hardware selector: a native radio group, tab-reachable in visual
           order, arrow-key operable. */}
@@ -169,18 +168,16 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           tab-reachable, visibly greyed, honestly unavailable. */}
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-depth`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="impedance-depth-value">
+                {(params.depthM * 1000).toFixed(1)}
+              </span>
+            }
           >
             depth {`(mm)`}
-            <span
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-              data-testid="impedance-depth-value"
-            >
-              {(params.depthM * 1000).toFixed(1)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-depth`}
             type="range"
@@ -199,18 +196,16 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           </p>
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-stiffness`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="impedance-stiffness-value">
+                {params.stiffnessKNPerM.toFixed(0)}
+              </span>
+            }
           >
             stiffness K {`(N/m)`}
-            <span
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-              data-testid="impedance-stiffness-value"
-            >
-              {params.stiffnessKNPerM.toFixed(0)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-stiffness`}
             type="range"
@@ -230,18 +225,16 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           </p>
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor={`${uid}-damping`}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="impedance-damping-value">
+                {params.dampingNPerM.toFixed(0)}
+              </span>
+            }
           >
             damping D {`(N·s/m)`}
-            <span
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-              data-testid="impedance-damping-value"
-            >
-              {params.dampingNPerM.toFixed(0)}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={`${uid}-damping`}
             type="range"
@@ -262,13 +255,12 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
         </div>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Contact force over the approach. Peak ${positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} newtons`}, outcome ${outcomeText[outcome]}.`}
         aria-describedby={descriptionId}
         data-testid="impedance-chart"
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Force axis ticks */}
         {[0, 100, 200, AXIS_MAX_N].map((tick) => (
@@ -373,22 +365,16 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
             strokeLinejoin="round"
           />
         )}
-      </svg>
+      </PlotStage>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
+        <InstrumentReset
           onClick={reset}
           aria-label="Reset the lab to the torque-controlled defaults"
-          className={buttonBase}
-        >
-          Reset
-        </button>
+        />
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">steady</span>{' '}
         <span data-testid="impedance-steady-readout" className="text-text">
           {positionMode ? 'unbounded' : `${run.steadyForceN.toFixed(1)} N`}
@@ -407,7 +393,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
         >
           {outcomeText[outcome]}
         </span>
-      </p>
+      </InstrumentReadout>
 
       <ChartDescription
         id={descriptionId}
@@ -443,6 +429,6 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
         compliance sliders grey out, because a position loop has no force
         to program.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

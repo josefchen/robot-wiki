@@ -19,6 +19,13 @@ import {
   type Stability,
 } from '@/lib/pendulum';
 import { ChartDescription } from '@/components/ui';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
 import { cx } from '@/lib/utils';
 
 /**
@@ -218,28 +225,21 @@ export function PendulumController({
     'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-3">
         {GAIN_SPECS.map((spec) => (
           <div key={spec.id}>
-            <label
+            <ControlLabel
               htmlFor={`${uid}-gain-${spec.id}`}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              value={
+                <span data-testid={`pendulum-gain-${spec.id}-value`}>
+                  {gains[spec.id].toFixed(1)}
+                </span>
+              }
             >
-              {spec.symbol} {spec.id === 'kp' ? 'proportional' : spec.id === 'ki' ? 'integral' : 'derivative'}
-              <span
-                className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-                data-testid={`pendulum-gain-${spec.id}-value`}
-              >
-                {gains[spec.id].toFixed(1)}
-              </span>
-            </label>
+              {spec.symbol}{' '}
+              {spec.id === 'kp' ? 'proportional' : spec.id === 'ki' ? 'integral' : 'derivative'}
+            </ControlLabel>
             <input
               id={`${uid}-gain-${spec.id}`}
               type="range"
@@ -263,15 +263,14 @@ export function PendulumController({
         ))}
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Inverted pendulum with PID control. Pole angle ${formatDeg(
           sim.theta,
         )} degrees from upright, status ${status}.`}
         aria-describedby={descriptionId}
         data-testid="pendulum-scene"
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Ground with hatch ticks */}
         <line
@@ -380,7 +379,7 @@ export function PendulumController({
           stroke="var(--color-border-strong)"
           strokeWidth={1}
         />
-      </svg>
+      </PlotStage>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
@@ -410,19 +409,13 @@ export function PendulumController({
         >
           Push
         </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
+        <InstrumentReset
           onClick={reset}
           aria-label="Reset the simulation and restore default gains"
-          className={buttonBase}
-        >
-          Reset
-        </button>
+        />
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">angle</span>{' '}
         <span data-testid="pendulum-angle-readout" className="text-accent">
           {formatDeg(sim.theta)}°
@@ -446,7 +439,7 @@ export function PendulumController({
         >
           {status}
         </span>
-      </p>
+      </InstrumentReadout>
 
       <ChartDescription
         id={descriptionId}
@@ -492,6 +485,6 @@ export function PendulumController({
         the pole up. The physics is exact and deterministic: the same gains
         always produce the same motion.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

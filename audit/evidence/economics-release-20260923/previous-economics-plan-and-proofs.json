@@ -248,7 +248,7 @@
       {
         "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I checked the reader-local authored/not-measured paragraph, seven slider notes and parameter output:80000USD default,20000..250000/5000step, integration2.5,cycle6s,uptime95%,success99.9%,jam15s,wage25USD/hour, all seven complete ranges/steps,730hours/month,60months amortization and24month chosen target. Model constants/defaults/ranges and control geometry are unchanged. Every derived input uses an equal same-plan authored pointer with native units. Existing capital-only modeled-pick and no-running-cost disclosure is intact. The broad no-source-anywhere statement is removed. I reviewed the final type-narrowing-only producer change and actual numeric rerun: all four recipes/outputs are deep-equal to their initial values. Only the producing test hash, times and receipts changed; no model or browser dependency changed. Original run and review remain retained.",
-        "inputDigest": "4d79e5673b4fe57b1e05d75aeda2d973163546e5bffd429d6914f185f623c759",
+        "inputDigest": "37f7d0ea6f3397bafaf76c3606070c636abea4a3e85b5e49445f96b462d0dee9",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-authored-price-and-inputs.final.review.json",
           "bytes": 6954,
@@ -260,7 +260,7 @@
       {
         "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the independent elapsed-hour oracle, red/producer results and final output values. At robot20000/80000/250000 with fixed other defaults, capital is50000/200000/625000; payback is2.891131939437634/11.564527757750536/36.139149242970426months and capital cost/pick is0.0020077305134983572/0.008030922053993429/0.025096631418729465USD. Throughput568.5785536159602picks per elapsed hour, monthly415062.344139651picks and labour17294.264339152127USD are common. Productive3411.471321695761s + jam8.52867830423892s + downtime180s =3600. All seven input clamps and nonfinite fallbacks were independently checked. Exact formatting yields0.002/2.9,0.008/11.6,0.025/36.1 with the final verdict outside24. This is authored arithmetic, not a deployment forecast. I reviewed the final type-narrowing-only producer change and actual numeric rerun: all four recipes/outputs are deep-equal to their initial values. Only the producing test hash, times and receipts changed; no model or browser dependency changed. Original run and review remain retained.",
-        "inputDigest": "1b87d4b5ef15bc7c5e7c6c44fcd9abf1724bea234a2ed988bafb334703218ca4",
+        "inputDigest": "48f418b6d65e0d5cda3a0f43d8b2104d5f153734b25188ae0cdf2d1b6cd66132",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-price-arithmetic.final.review.json",
           "bytes": 7116,
@@ -272,7 +272,7 @@
       {
         "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost20000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:min. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.",
-        "inputDigest": "f8a9b8b602547eb803b83030829235027f81b9771bcc87001b8230e7ed1c92dc",
+        "inputDigest": "e59f2fe518fbd4c705484a86b57d03bd104545266e85b01136af30a4b07c16de",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-mounted-20000.review.json",
           "bytes": 7259,
@@ -284,7 +284,7 @@
       {
         "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost80000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:default,reset,mobile-default. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.",
-        "inputDigest": "d2028c301d958f36791ab52145224e3b0a0ed7fbb1dc72a11aaa32000107eb61",
+        "inputDigest": "fd4a55a1f66723c98dd7935df1bde82250053cc376ada5bbb53a238fe2bcc5d1",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-mounted-80000.review.json",
           "bytes": 7284,
@@ -296,7 +296,7 @@
       {
         "reviewedBy": "integrator run f86f6148; integrator review; max",
         "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost250000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:max. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated.",
-        "inputDigest": "17daedbd8580c67db2512ce0ca5726af572b1dad3e9329bf9dc4bfd83274fd4e",
+        "inputDigest": "e7d72ede6940d6c01bd4af811d620cff45dfe6ec36dfd94306b12df02fdcc052",
         "event": {
           "path": "audit/evidence/economics-local-20260923/i52-mounted-250000.review.json",
           "bytes": 7262,
@@ -334,16 +334,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -509,7 +509,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-parameters.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "3f318c636719be1cd8579a125bb123e7edc59a9ed1606fd9dd54813e7fa787e8"
+          "sha256": "ef59da3e758bb3fd57548641c93ceaccd8670e29648b121445f188514c54add9"
         }
       },
       "bases": [],
@@ -541,16 +541,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -704,7 +704,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-20000.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "5fad9281d3f0c076f22065bbef02c97673ebadf1ef66cc269c51079ddee40333"
+          "sha256": "4291d6e0a965bc8108c5c22ee437db5585d4c40ffceb88abe2f4b7bac9a9a5bf"
         }
       },
       "bases": [
@@ -786,16 +786,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -949,7 +949,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-80000.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "839d96eaabf2d8208ff4b9991df3201238ccecb8f40db0cdac1e7aab582eb612"
+          "sha256": "64af17b7aa7710c45ef90b7f954b6cbd62f95374cdcaa8f23183543f79354dd8"
         }
       },
       "bases": [
@@ -1031,16 +1031,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -1194,7 +1194,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-250000.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "1903b973d5453f9fb6faa742cd989f76263b1f1093c39a7f093626e0d7f33a8d"
+          "sha256": "10cdc4e0b5d9fa41fef2afb2e04b32da472691c18f7a698022863f750c5e6976"
         }
       },
       "bases": [
@@ -1276,16 +1276,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -1483,7 +1483,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-observed-20000.bound.receipt.json",
           "bytes": 6652,
-          "sha256": "3493d358a86ddd54a3e758e671af792cb2724d9fe28dacb33db8ca93564ab061"
+          "sha256": "9dac01f6d50abe1b5a001be3f6cc13dc52ed8bc37c1d2478f6cc830f191b8406"
         }
       },
       "bases": [
@@ -1598,16 +1598,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -1805,7 +1805,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-observed-80000.bound.receipt.json",
           "bytes": 9012,
-          "sha256": "f922db3dd2ecaeecdeaf4306c1b2f5f5ff841c3ab490657e315c51b7d4c86383"
+          "sha256": "7b7581bfcf0824503b98043a00e94d48b2af706b5a6820d4aa8d8a9928a556f8"
         }
       },
       "bases": [
@@ -1982,16 +1982,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -2189,7 +2189,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-observed-250000.bound.receipt.json",
           "bytes": 6656,
-          "sha256": "f111455fdd919ffa549d34587b9603818bed9699821676f67e7ef83077d0dd5d"
+          "sha256": "2291b70731019fe097793984360cb8c027e63e95cc50abd67a9ede4e4c533548"
         }
       },
       "bases": [

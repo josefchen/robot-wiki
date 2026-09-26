@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "1dca8dadb0c09b4ec72644f0f72d5d13171537bb589e0de7224c72e56fc37f66",
+  "fingerprint": "421f867e3a437e9de8a23bc430824f2a4b573fa593cab06b5d2726b95416ca0e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -123,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17766,
+      "visibleTextLength": 17768,
       "tables": [
         {
           "index": 0,
@@ -4738,7 +4738,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26766,
+      "visibleTextLength": 26768,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7667,7 +7667,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18084,
+      "visibleTextLength": 18086,
       "tables": [
         {
           "index": 0,
@@ -10890,11 +10890,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled truth, estimate and uncertainty across the window",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11357,8 +11357,8 @@
           "role": "region",
           "accessibleName": "Sampled truth, estimate and uncertainty across the window",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -11489,11 +11489,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -11513,11 +11513,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -11555,8 +11555,8 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -11566,8 +11566,8 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         },
         {
@@ -11610,11 +11610,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
-            "clientWidth": 1060,
-            "scrollWidth": 1060,
+            "clientWidth": 1052,
+            "scrollWidth": 1052,
             "scrolledBy": 0
           },
-          "tableWidth": 1060,
+          "tableWidth": 1052,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11628,8 +11628,8 @@
           "role": "region",
           "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
           "tabIndex": 0,
-          "clientWidth": 1060,
-          "scrollWidth": 1060,
+          "clientWidth": 1052,
+          "scrollWidth": 1052,
           "scrolledBy": 0
         }
       ],
@@ -11661,11 +11661,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -11685,11 +11685,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11703,8 +11703,8 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -11714,8 +11714,8 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         }
       ],
@@ -11747,11 +11747,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
-            "clientWidth": 1060,
-            "scrollWidth": 1060,
+            "clientWidth": 1052,
+            "scrollWidth": 1052,
             "scrolledBy": 0
           },
-          "tableWidth": 1060,
+          "tableWidth": 1052,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11765,8 +11765,8 @@
           "role": "region",
           "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
           "tabIndex": 0,
-          "clientWidth": 1060,
-          "scrollWidth": 1060,
+          "clientWidth": 1052,
+          "scrollWidth": 1052,
           "scrolledBy": 0
         }
       ],
@@ -11826,11 +11826,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "4 teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.",
-            "clientWidth": 1060,
-            "scrollWidth": 1060,
+            "clientWidth": 1052,
+            "scrollWidth": 1052,
             "scrolledBy": 0
           },
-          "tableWidth": 1060,
+          "tableWidth": 1052,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11844,8 +11844,8 @@
           "role": "region",
           "accessibleName": "4 teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.",
           "tabIndex": 0,
-          "clientWidth": 1060,
-          "scrollWidth": 1060,
+          "clientWidth": 1052,
+          "scrollWidth": 1052,
           "scrolledBy": 0
         }
       ],
@@ -11877,11 +11877,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-            "clientWidth": 1062,
-            "scrollWidth": 1062,
+            "clientWidth": 1054,
+            "scrollWidth": 1054,
             "scrolledBy": 0
           },
-          "tableWidth": 1062,
+          "tableWidth": 1054,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11895,8 +11895,8 @@
           "role": "region",
           "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
           "tabIndex": 0,
-          "clientWidth": 1062,
-          "scrollWidth": 1062,
+          "clientWidth": 1054,
+          "scrollWidth": 1054,
           "scrolledBy": 0
         }
       ],
@@ -11928,11 +11928,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-            "clientWidth": 1062,
-            "scrollWidth": 1062,
+            "clientWidth": 1054,
+            "scrollWidth": 1054,
             "scrolledBy": 0
           },
-          "tableWidth": 1062,
+          "tableWidth": 1054,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11946,8 +11946,8 @@
           "role": "region",
           "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
           "tabIndex": 0,
-          "clientWidth": 1062,
-          "scrollWidth": 1062,
+          "clientWidth": 1054,
+          "scrollWidth": 1054,
           "scrolledBy": 0
         }
       ],
@@ -11979,11 +11979,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11997,8 +11997,8 @@
           "role": "region",
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -12030,11 +12030,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12054,11 +12054,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 607,
-            "scrollWidth": 607,
+            "clientWidth": 599,
+            "scrollWidth": 599,
             "scrolledBy": 0
           },
-          "tableWidth": 607,
+          "tableWidth": 599,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12121,8 +12121,8 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -12132,8 +12132,8 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 607,
-          "scrollWidth": 607,
+          "clientWidth": 599,
+          "scrollWidth": 599,
           "scrolledBy": 0
         }
       ],
@@ -12165,11 +12165,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12189,11 +12189,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
-            "clientWidth": 673,
-            "scrollWidth": 673,
+            "clientWidth": 665,
+            "scrollWidth": 665,
             "scrolledBy": 0
           },
-          "tableWidth": 673,
+          "tableWidth": 665,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12256,8 +12256,8 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         },
         {
@@ -12267,8 +12267,8 @@
           "role": "region",
           "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "tabIndex": 0,
-          "clientWidth": 673,
-          "scrollWidth": 673,
+          "clientWidth": 665,
+          "scrollWidth": 665,
           "scrolledBy": 0
         }
       ],
@@ -12282,7 +12282,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27101,
+      "visibleTextLength": 27103,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

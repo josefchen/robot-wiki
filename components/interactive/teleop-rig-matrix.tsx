@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState, type ReactNode } from 'react';
-import { Table, type Column } from '@/components/ui';
+import { Table, InstrumentFrame, InstrumentReset, type Column } from '@/components/ui';
 import { TELEOP_RIGS } from '@/data/teleop-rigs';
 import type { TeleopRig } from '@/data/schemas/teleop-rig';
 import {
@@ -195,13 +195,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
         <div
           role="group"
@@ -236,15 +230,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
           <p aria-live="polite" className="font-mono text-xs text-text-dim">
             {TELEOP_RIGS.length} of {TELEOP_RIGS.length} rigs
           </p>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={reset}
-            className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} className="cursor-pointer" />
         </div>
       </div>
 
@@ -281,6 +267,6 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         rows={TELEOP_RIGS}
         initialSort={{ key: 'costUsd', direction: 'asc' }}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

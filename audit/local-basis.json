@@ -2260,11 +2260,11 @@
         {
           "reviewedBy": "Robot Wiki release steward , integrator, not independent project acceptance",
           "rationale": "I checked the reader-local authored/not-measured paragraph, seven slider notes and parameter output:80000USD default,20000..250000/5000step, integration2.5,cycle6s,uptime95%,success99.9%,jam15s,wage25USD/hour, all seven complete ranges/steps,730hours/month,60months amortization and24month chosen target. Model constants/defaults/ranges and control geometry are unchanged. Every derived input uses an equal same-plan authored pointer with native units. Existing capital-only modeled-pick and no-running-cost disclosure is intact. The broad no-source-anywhere statement is removed. I reviewed the final type-narrowing-only producer change and actual numeric rerun: all four recipes/outputs are deep-equal to their initial values. Only the producing test hash, times and receipts changed; no model or browser dependency changed. Original run and review remain retained. Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent project acceptance.",
-          "inputDigest": "a7b2167ba8a4f4beb204293061b807e9640d01dd7a2426b047a7b2c25b9bd352",
+          "inputDigest": "9fb8ddfe4998465c885022129bc008fa783cf6b21e98e370f4a6d2f48b2cbe5e",
           "event": {
             "path": "audit/evidence/economics-release-20260923/i52-authored-price-and-inputs.bound.review.json",
             "bytes": 7677,
-            "sha256": "6ba5f1ac3ca8ef25dba11301a0948c9a918da22fbe4d4db4f800c8524c60dac8"
+            "sha256": "0780f316b9258eea1795315fe2662288c235c67159376134081f5ed3cebb3b77"
           },
           "partId": "i52-authored-price-and-inputs",
           "outcome": "supported"
@@ -2272,11 +2272,11 @@
         {
           "reviewedBy": "Robot Wiki release steward , integrator, not independent project acceptance",
           "rationale": "I reviewed the independent elapsed-hour oracle, red/producer results and final output values. At robot20000/80000/250000 with fixed other defaults, capital is50000/200000/625000; payback is2.891131939437634/11.564527757750536/36.139149242970426months and capital cost/pick is0.0020077305134983572/0.008030922053993429/0.025096631418729465USD. Throughput568.5785536159602picks per elapsed hour, monthly415062.344139651picks and labour17294.264339152127USD are common. Productive3411.471321695761s + jam8.52867830423892s + downtime180s =3600. All seven input clamps and nonfinite fallbacks were independently checked. Exact formatting yields0.002/2.9,0.008/11.6,0.025/36.1 with the final verdict outside24. This is authored arithmetic, not a deployment forecast. I reviewed the final type-narrowing-only producer change and actual numeric rerun: all four recipes/outputs are deep-equal to their initial values. Only the producing test hash, times and receipts changed; no model or browser dependency changed. Original run and review remain retained. Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent project acceptance.",
-          "inputDigest": "5aaa1760e539366b019d4ac82c9058c886733f15cfefd405fea3632d05370bd8",
+          "inputDigest": "149921cbc3f3e0311cb99196f4aa5d78e823216dc956566ef2b510b9f525371a",
           "event": {
             "path": "audit/evidence/economics-release-20260923/i52-price-arithmetic.bound.review.json",
             "bytes": 7839,
-            "sha256": "1d60579231ea2b938fb3ed515d0fdd122bdcf4e8a6ce3206ca74dde965d03049"
+            "sha256": "9f6416b628d0579dde2776cfb7fe0cfa7c00a7d7a9365254c6ab698efe02e595"
           },
           "partId": "i52-price-arithmetic",
           "outcome": "supported"
@@ -2284,11 +2284,11 @@
         {
           "reviewedBy": "Robot Wiki release steward , integrator, not independent project acceptance",
           "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost20000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:min. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated. Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent project acceptance.",
-          "inputDigest": "06585cb1203f54361fedd50efd4d3f49443c3a93f505a46b9873a9182f9087f6",
+          "inputDigest": "966de15a329ea4ed0dc85e1239108c476667130706899fad2e4b69cd188ce50f",
           "event": {
             "path": "audit/evidence/economics-release-20260923/i52-mounted-20000.bound.review.json",
             "bytes": 7998,
-            "sha256": "34ca7b2f97212edaf9fd912025d74ed0c9fd391bee61692c27f8feb3e71ac6f9"
+            "sha256": "d1f1685458d80fc40ca7054163962063c736a66ed7ef3d2d440cf4e895a32bac"
           },
           "partId": "i52-mounted-20000",
           "outcome": "supported"
@@ -2296,11 +2296,11 @@
         {
           "reviewedBy": "Robot Wiki release steward , integrator, not independent project acceptance",
           "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost80000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:default,reset,mobile-default. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated. Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent project acceptance.",
-          "inputDigest": "73835124ec27a583d98e63f233642272b072d1d04dae1bd8632885d57f3f1287",
+          "inputDigest": "ae87996a8fc90cdb15927c943999deb50491d7a74208d9cd9a6f9df7bd2c84fd",
           "event": {
             "path": "audit/evidence/economics-release-20260923/i52-mounted-80000.bound.review.json",
             "bytes": 8023,
-            "sha256": "7dbafdd8e847c880762a8269497e61e39c82e02ed9d5470f4dba8cf842729591"
+            "sha256": "cb2c965a037bfc7bda2b6bd48100d5e85a218c75be94c81c01a4afeda7b2251a"
           },
           "partId": "i52-mounted-80000",
           "outcome": "supported"
@@ -2308,11 +2308,11 @@
         {
           "reviewedBy": "Robot Wiki release steward , integrator, not independent project acceptance",
           "rationale": "I reviewed the exact real observation group: The real mounted calculator at robotCost250000, other authored defaults fixed, shows the chosen-price disclosure and independently checked capital cost, cost/pick, payback, verdict, picks and elapsed-hour breakdown. Required observations:max. The original mounted-disclosure obligation survives across all three price groups; Reset restores all seven defaults. Actual Playwright controls, current values, bounds/steps, chosen-price note, capital/picks summary, readouts, verdict and hourly shares/seconds match the independent oracle. Default/min/max/Reset/mobile captures and full real rendered DOM are retained; each proof covers all transitions required by its own group. I manually inspected default,max and mobile-default images: desktop calculator and readouts render cleanly;375px shows upper controls and note without overflow, while lower controls/readouts and disclosure continue below the screenshot and were DOM-tested, not claimed visually visible. Desktop/mobile Axe and error checks passed. Initial CSSOM5% versus5.0% test failure and a repair import typo are retained; only the failed producer reran, the12 green existing route tests were not repeated. Release integration review: the main-only 2021-2024 hyphen changes whole-article identity but no economics claim or source passage. The original seven-part AND inventory, source provenance, original/current tuples, formulas and outputs remain identical. I checked the actual fresh release numeric and static-export browser runs at default, minimum, maximum, Reset and mobile default; all seven input domains, independent readouts, elapsed-hour wording, capital-only scope, Axe and error checks passed. New receipts bind the current article and checker without altering historical execution times or receipts. This is integrator review, not independent project acceptance.",
-          "inputDigest": "ecf342559eecef88bf5f6fcdd9cf784f4e458f7bb70a1ca809540bebb30937b9",
+          "inputDigest": "0ff3769a14e9853e852e4d168137cbe12bee5fa54ccb5a44a3b75abf593ce105",
           "event": {
             "path": "audit/evidence/economics-release-20260923/i52-mounted-250000.bound.review.json",
             "bytes": 8001,
-            "sha256": "7bee0ab180bb9b006d5b69409ed84af8f6077ee151d96d829db01cb2ac86c183"
+            "sha256": "9586d407928875d0bd773d566bb3eee41f22d9654282bebed4aba1324ceb43a6"
           },
           "partId": "i52-mounted-250000",
           "outcome": "supported"
@@ -2445,11 +2445,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "8e346d29037bb20c879824ff93be0a709e1f729d36db52c2e4c5a11a56482c58",
+          "inputDigest": "ec3c8522fd268e2e55fe3b1cc778474348ee65a64a61a6cfd8bb757af975e817",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-9-i9-parameters.json",
             "bytes": 3432,
-            "sha256": "5f6527744e8dfaf84683e7ffe38909f97fc9a2a996b3045acd72ab402cc0ad50"
+            "sha256": "4bee66f4efb596a123a713aec29023e0e4c89d612b9c7f137222e26ae7e10ec8"
           }
         },
         {
@@ -2457,11 +2457,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "6a58448b8b95bdb78c59976165f53e8bf272bac2ec07c4ae9fa7b4ab0e7eca29",
+          "inputDigest": "05909fe961438cc86eb1ca29cce97b37976a200e62c4f9df33b31430c442edf6",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-9-i9-derived.json",
             "bytes": 3500,
-            "sha256": "7227fb05472db086ba7422708b240dabdc1f6e3e38ffcc58db5d560ae59a65e8"
+            "sha256": "ddfc34cbca6259d26ae3f2e65246839a128e9abcbaad9cb0304eab0bbd7eb4fc"
           }
         },
         {
@@ -2469,11 +2469,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "Actual existing mount at success99.9% and clearing15s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "68fa8bb4c75d5b22fe7ed714676f7697cc6544f71973e6f90cd376a062c4a2dd",
+          "inputDigest": "0a12a734a082eab2fd98538da3d8fdf51cafba1d69649c4450b83ef29fadc298",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-0.json",
             "bytes": 3425,
-            "sha256": "2ef515fe80632fa957571ff752b2882e2d6ce10cf6738e6ed09dec6ebc1a0088"
+            "sha256": "1cd593acce56aa1f3a1836737aa7b6fb574757f52c0f3fe1d2b3f9dae5b9107e"
           }
         },
         {
@@ -2481,11 +2481,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "Actual existing mount at success99% and clearing15s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two full-precision evaluations at15s imply11.56→11.82 months; difference rounds0.26 and relative increase2.2%, not2.3%. Actual UI shows11.6→11.8. All constants are authored; no claim of measured profitability. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "3de375569134508db812fe8f9fddb97f4000ca7ab23b805c797038892ee6eff4",
+          "inputDigest": "185fc215f46802305d3b19e7358456e100807f11bce891692f615143ef2c19d1",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-9-i9-observed-1.json",
             "bytes": 3423,
-            "sha256": "bbfc6f7a5574a6f5050a66bef981bd0fbcae633887584939738db63d8bf8e9d3"
+            "sha256": "ec50d16ca223325cd134ada4cf561a1bbce623c793f08870f11fa0333fab440e"
           }
         }
       ]
@@ -2616,11 +2616,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "b5b4e7e96cce5049b8796d6cfa896ef530bb734463f2e65471a28889a7bab84b",
+          "inputDigest": "bded747e99358fffa3272d151da8fbb6ecb0dadaa50dc9ce9e067bf33ed4e68f",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-10-i10-parameters.json",
             "bytes": 3466,
-            "sha256": "dd598d3aa7511589270eeb6c5b4177f8d355a52a93fea3d45970513c70eb84e9"
+            "sha256": "b3f63dc5ee0b28b6be733ead63b0b8834fe5f966ec4c40e4dda94875f526bc54"
           }
         },
         {
@@ -2628,11 +2628,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "d572adbe86f57ee4e16da45e95486f9d2c81263b19675c32b6e7e4c1e1fd52e9",
+          "inputDigest": "da24165a3256ef33cd2acf877aa833e2131368de4ba03927ecdcc66708195908",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-10-i10-derived.json",
             "bytes": 3543,
-            "sha256": "3fb7f7f12fc47a5e009a97e5d7033f4fba7a4782b6f76cc18dfa6c48036e275c"
+            "sha256": "aadc15ea870a1d566800d9ad94462670c36a5303b7fad65155f80af407310b86"
           }
         },
         {
@@ -2640,11 +2640,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "Actual existing mount at success99.9% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "49d695f90d3c176562933bc34a53f972dcf4dba5b26dbbef35e310de9926dc26",
+          "inputDigest": "9f3f6479131578abc23f09e9b8f3f704c03a17cd7379ddeb8166d4e54b41feff",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-2.json",
             "bytes": 3460,
-            "sha256": "8dbad8bb13d2c6c96e36a1d5fe83e8aa168e1499ffc7c0c651712c596ff62047"
+            "sha256": "be14d77d28eb33aa0d7ca71ed0eaf6f26ed2b9e58b06ebeca26bfd32559f038b"
           }
         },
         {
@@ -2652,11 +2652,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "Actual existing mount at success99% and clearing300s; rounded cost/payback and integer throughput, with the chosen24-month verdict. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Two evaluations at300s imply12.11→17.30 months (+5.19),542.9→380.0 elapsed-hour picks (30% lower); both within the chosen24-month horizon. Actual UI shows12.1→17.3 and integer throughput543→380, not a verdict flip. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "a38aee68d838bce1449081803a7677be93fbd9dff2807c0f67d4b72fb25a6e12",
+          "inputDigest": "31a67262a089dde0350b1119bf1ff70035ec0c7f54d894de92730ebed50e5868",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-10-i10-observed-3.json",
             "bytes": 3458,
-            "sha256": "43e2d9a06ba8e44b6b2b7eacd3225e3263c8d0f1432ae6164019565392baa5d5"
+            "sha256": "ca35e9b939c270d365cf8b421c1b621e10eb26d8f0ecfbf3a527e11e07179c9d"
           }
         }
       ]
@@ -2845,11 +2845,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "2f0ca31bf140d58c4c486a85db964ebd34f3ff13a68238f5cf869b5fe36d227c",
+          "inputDigest": "be628443e3d53ed3400d385bc951ba75b7cf1ea426bb179b65df2de1bbb77d4c",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-32-i32-parameters.json",
             "bytes": 2705,
-            "sha256": "cbb7ae458c61613596a9de55db4a1efb2da5467d44ac7434c455ab6d37dba95a"
+            "sha256": "a6f8a0e999c4b78ea0addeb3d56ebe767cc2e117140f0caffc7d8bb79fdc5e2a"
           }
         },
         {
@@ -2857,11 +2857,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. LEI supports measured part/process cycle time. NASA explicitly distinguishes inherent/operational availability and operable-state uptime; equation images were not read and no removed equation is certified. Independently checked capital-only cost/pick equals cell capital/(monthly modeled picks×60), with no operating-cost term. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "2f79026e0fcacb76fc4562417455bd0430ddd3bdb1a1cc7888a1c3c1f349c6f3",
+          "inputDigest": "950ff59111e9fb7ca6a4df7d8bd12684602d7e1d260f7bf173be766781796dbb",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-32-i32-derived.json",
             "bytes": 2888,
-            "sha256": "5e093909126ae0ff8acd15560d7535fd31bc6bbd18d4a17aaff976cbfc08499e"
+            "sha256": "3b8db2316d311c1218ec94ea7a001fdbaa7a03d94a7fca9e90162dc0423ac83f"
           }
         }
       ]
@@ -2957,11 +2957,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "All seven input choices and ranges plus730-hour/60-month/24-month constants; explicit99%/10s/300s comparison choices, not empirical values. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "850a50c9a588f77455741ac8264e40c06ab426ad0131e380d522ca0e8684e654",
+          "inputDigest": "28eb32d4873eaf54c0467540487e500d65445a79317ea39f8a9a06f9310ce7bd",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-33-i33-parameters.json",
             "bytes": 1778,
-            "sha256": "9d1d9ed93d360ff6a02e99df89b54fb98a593003ceecf5b1128a281f929d2433"
+            "sha256": "863b28d580afcfe4b3788ac37b8f4aa0222b00a07c2a596244c3945cb9197233"
           }
         },
         {
@@ -2969,11 +2969,11 @@
           "outcome": "supported",
           "reviewedBy": "integrator run 7260b9a1 (integrator review; not independent acceptance)",
           "rationale": "Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. Reviewed retained document context or actual independently checked numeric/mounted artifacts for this precise part. Explicit99% success and10s per failed attempt imply0.01×10=0.1 seconds per attempt. This is a hypothetical expectation, not a measured intervention rate or economic viability claim. No new retrieval, historical replay or independent acceptance is claimed.",
-          "inputDigest": "a520d205e6a354498635d269cb0619e0e6ceaa356f8c70a1d8a83c0d0844f662",
+          "inputDigest": "06be89f2130469280dfb39cc25e37b02d46817d0bbf10889063b766e7b74b277",
           "event": {
             "path": "audit/evidence/industrial-closure-20260923/review-33-i33-derived.json",
             "bytes": 1815,
-            "sha256": "b6eb6d247cad973cbb2ae0b6092bf2f2c899c1e94eff0053619319386fa51d7d"
+            "sha256": "1053378c91fad30f2dbabb458811d49e41e6985c64738905924c561b48097f06"
           }
         }
       ]
@@ -3190,11 +3190,11 @@
         {
           "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
           "rationale": "Inspected the actual unchanged model constants and corrected article disclosure: the selected geometry, scene, target multipliers and finite examples are explicitly authored assumptions, not empirical values. For mixed plans the borrowed specification remains an external AND part.",
-          "inputDigest": "eaa9d2d7acdd12fb7059a71aaa7edadb479c76077aecad0ee611a27047e7a92b",
+          "inputDigest": "d099c37bcdaf8851638003bc10b7a1c0a373046233bfe8bddb3a1f10bb308dc2",
           "event": {
             "path": "audit/evidence/classical-closure-20260923/classical-closure-motion-planning-15-20260923-parameters.review.json",
             "bytes": 5816,
-            "sha256": "6a4b076ab581e79463ecadd258917d732708d2aa5becc6db4aadc18c994d0b82"
+            "sha256": "be50c562e72efc2fb58fec611af932663438d145fe78da8962914eccf5d16567"
           },
           "partId": "parameters",
           "outcome": "supported"
@@ -3202,11 +3202,11 @@
         {
           "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
           "rationale": "Inspected current numeric results and independent test arithmetic after real execution. Deterministic fixed-seed tree and finite reveal states; sampled segment rejection and step cap are not an external completeness or optimality theorem. Units, range, rounding and counterexamples are explicit; the chosen headings occur once and tangent examples are geometry, not calibration measurements.",
-          "inputDigest": "a330a4cc9857a619299dfff868975fb4c6f30d0570d97cb1106050d5dbcf0ca6",
+          "inputDigest": "c3642d3105fecfc60bf38ba45c3427a322fb7afe95013ff5002c2a5c0212f25e",
           "event": {
             "path": "audit/evidence/classical-closure-20260923/classical-closure-motion-planning-15-20260923-derivation.review.json",
             "bytes": 5926,
-            "sha256": "d3f919b22ced170dae9b467a1d5fc6c933542c153763427ad4bc4ee7fd96b344"
+            "sha256": "f7ddbcc9386b817c7562a3e311ede1ba5bb087f53b3371f75ca07aed5023815b"
           },
           "partId": "derivation",
           "outcome": "supported"
@@ -3214,11 +3214,11 @@
         {
           "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
           "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted opening readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
-          "inputDigest": "8361ecd9f9d20278b1beef30e33b7b2af0c3aeab59d30ba897d7c386f51ea5ea",
+          "inputDigest": "a8f01dcb3eee5abf4e79fbcd93b6850281b2c485d4562f7cb449c4d8783ed55e",
           "event": {
             "path": "audit/evidence/classical-closure-20260923/classical-closure-motion-planning-15-20260923-observed-opening.review.json",
             "bytes": 6075,
-            "sha256": "48c8df11a08c60362ee44111589bdbd68afaffbccc99a86b04132790ba18885b"
+            "sha256": "650131ea42597c2fde1094a915d6a7454d9399174260f56eb24d4d7ab3ce29d9"
           },
           "partId": "observed-opening",
           "outcome": "supported"
@@ -3226,11 +3226,11 @@
         {
           "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
           "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted step readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
-          "inputDigest": "44d34c66db2e8b10fbb71c6993f18fbd769987d8314321e88bace5e6178a416d",
+          "inputDigest": "e293137e07096657db94cc873c99b14b06b02c310d097bae0496c323b94e2578",
           "event": {
             "path": "audit/evidence/classical-closure-20260923/classical-closure-motion-planning-15-20260923-observed-step.review.json",
             "bytes": 6066,
-            "sha256": "238b048fd01a9417d2ea39ed7c49f582e1186b741b010dc2f332d4694cd5bcf5"
+            "sha256": "1808825c4c4a32fd0860367a477a649cee7245012a68c5fc57f65ee6d316f67d"
           },
           "partId": "observed-step",
           "outcome": "supported"
@@ -3238,11 +3238,11 @@
         {
           "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
           "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted playback readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
-          "inputDigest": "34ab96cbc349aa035d5b7921f5701c9355ec85e86f34ecdba9eb1cb1933d95b5",
+          "inputDigest": "0bac568a24ec59c0ae9cbe632068c589bee9cfe4bff4d5bf7196deb977d57db3",
           "event": {
             "path": "audit/evidence/classical-closure-20260923/classical-closure-motion-planning-15-20260923-observed-playback.review.json",
             "bytes": 6078,
-            "sha256": "13ab749fb777184c2f30d6db8fe77680cdc6457ec5dd84edbcbdc205f8264b6f"
+            "sha256": "aefecfa4987ca97034b3268982bdbfa79a41fb5013c1c19552a7243538667841"
           },
           "partId": "observed-playback",
           "outcome": "supported"
@@ -3250,11 +3250,11 @@
         {
           "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
           "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted scrub readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
-          "inputDigest": "dcb5cb392893a38a867259f512672872baddafb8f4dbacab1c301aba015486a8",
+          "inputDigest": "8b96f5b31f5773dff5be91057d230e986be829216d10141339424061894baac2",
           "event": {
             "path": "audit/evidence/classical-closure-20260923/classical-closure-motion-planning-15-20260923-observed-scrub.review.json",
             "bytes": 6069,
-            "sha256": "6f9e64b13da735ba6951ce58ffa807a5f9d9317e4cd4903e0fda635e8c45ea3e"
+            "sha256": "19b7003473646ec33b7a1de7a12922167716bdcbeb8c8f638befcd0afb7c09e0"
           },
           "partId": "observed-scrub",
           "outcome": "supported"
@@ -3262,11 +3262,11 @@
         {
           "reviewedBy": "reviewer run e781d819; integrator review; integrator, not independent validator",
           "rationale": "Inspected the actual Playwright transitions and readouts in both registered viewports. Actual mounted reset readouts at 1440×1000 and 375×812, with the recorded input transition. RRT playback advances 0 to 3 accepted extensions after one 50ms tick and resets to 0/288; perception changes from 10.52mm near to 16.74mm far, stays 10.44mm at zero angle, and target/reset readouts match the finite model. Current reviewed captures are byte-identical to the visually inspected captures; no old receipt is relabelled as a new run.",
-          "inputDigest": "0c0a825ad7a87a0c9d3b9e077e907eb33b2868c7b9e9ed08e106ed5547908b8c",
+          "inputDigest": "61d4c569df4f63b802eeafbe71218d2546f5a1d7a80c6dcc079c1b771cd61720",
           "event": {
             "path": "audit/evidence/classical-closure-20260923/classical-closure-motion-planning-15-20260923-observed-reset.review.json",
             "bytes": 6069,
-            "sha256": "1189e15135bc38da71880ff6fb32207705909e5bca884a371b479e47af2e0daf"
+            "sha256": "c07fac86cc3f3251e0edbd3e463aac759fbd136780b2f24c813f204a60f15d65"
           },
           "partId": "observed-reset",
           "outcome": "supported"
@@ -6755,11 +6755,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Checked audit/data-hardware.md:evaluation-crisis:1 authored parameters and units against the corrected article and pinned model file; these chosen values are not measurements. The fixed scenario parameters, units, ranges and default choices are authored, disclosed in the article and pinned to the executable model.",
-          "inputDigest": "6ccdb66fc32ac75fc83f4c0af5b312f00ed204747ea4a6bc4853bb0a6fc2a947",
+          "inputDigest": "6a256b8e0c6b73f29f5f93ea41c8f92806cc727a28eb4752be083f00b10429f2",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters-20260923.review.json",
             "bytes": 4853,
-            "sha256": "7242eb931e4236bbcdf0a41bdfed402b7d07c9813ad983fc39880f600af3fe37"
+            "sha256": "2c1fe87dae20ee27673196f9d979cdad0ae467c231aa463a5fe8c13acadf975d"
           },
           "partId": "1-parameters",
           "outcome": "supported"
@@ -6767,11 +6767,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Compared exact finite numeric result, units and rounding for audit/data-hardware.md:evaluation-crisis:1 with independently calculated arithmetic; this remains a bounded illustrative model. The finite calculation and display rounding follow the explicit model inputs; numerical agreement is not a source truth claim.",
-          "inputDigest": "a986070961e676d7e25869ddb7ea7e661792752f04052959e0e057cd2f0f21f5",
+          "inputDigest": "1ad6990df35290f3790d08ddee615942f20750bd75d113ec11e383aa12b778b6",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation-20260923.review.json",
             "bytes": 4853,
-            "sha256": "6ba49d6fdac98f0e79f9737511306fecd655b58ba4eadd0561e39e945b0e315f"
+            "sha256": "9945d184956e55f14d05b26e3dca5d8bcb084d28681bafa327932e48a045897e"
           },
           "partId": "1-derivation",
           "outcome": "supported"
@@ -6779,11 +6779,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 4 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows default, reset controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "76500782902453e342718411ce4cd39f845aec62b68b5a15764cfdc1d12f171a",
+          "inputDigest": "eb3b414392d906cdc3a9d366b40a0cd2cfcdd6750e8ef502f0bae66fd73a8f74",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0-20260923.review.json",
             "bytes": 4819,
-            "sha256": "cb0eaa7d77b0abcb5a364d1da0f86e6a08e304fde5748002e183f40338dd7e88"
+            "sha256": "a877e724639983b68cea41304752905f9aa1efce557ab45d2f4c3e919a70f4af"
           },
           "partId": "1-mounted-0",
           "outcome": "supported"
@@ -6791,11 +6791,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 1 shows slider-boundaries-and-anchors controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "2b8c70381ba2577758015daa58fe7ebf5a88fcc09ac17c83a2870240896ba78a",
+          "inputDigest": "406f39f164d0cbf47f2faa22c95646c63e54036ce6911339ecee182766f702e7",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1-20260923.review.json",
             "bytes": 4834,
-            "sha256": "13e0a28a0c8d622fe92934b880d6c08b831acbbb2e0c739465e7c67f0c55a364"
+            "sha256": "0046bba05f87194fd820a3886bcf356b46c9c180581065ae921de5de4d3d3865"
           },
           "partId": "1-mounted-1",
           "outcome": "supported"
@@ -6803,11 +6803,11 @@
         {
           "reviewedBy": "Delegated implementation integrator; independent reviewer pending",
           "rationale": "Inspected actual 1440x1000 and 375x812 article-mount readouts and disclosure after 2 registered transitions; no page errors reported. The registered desktop and mobile article mount 2 shows default controls, disclosure and model-specific readouts after real state transitions.",
-          "inputDigest": "7bd1cad7e8b2820f7150cc78aeaccf4b224f5ab70dc0038a148b278f6c9f5b91",
+          "inputDigest": "902eb42d6bb74b19ef2fadfa97debfa58603d03d020cb09031a8c18d58d5a554",
           "event": {
             "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2-20260923.review.json",
             "bytes": 4812,
-            "sha256": "25402c5fcf1230bd6cffef115f7c9088c9d52ffaf769d71eb7a8a7b430b38a1a"
+            "sha256": "1af07414b11aebc6348a9d7514060ce6bf3c54735a8012b297bafed43ae962b2"
           },
           "partId": "1-mounted-2",
           "outcome": "supported"
@@ -22582,16 +22582,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -22757,7 +22757,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-parameters.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "3f318c636719be1cd8579a125bb123e7edc59a9ed1606fd9dd54813e7fa787e8"
+          "sha256": "ef59da3e758bb3fd57548641c93ceaccd8670e29648b121445f188514c54add9"
         }
       },
       "bases": [],
@@ -22789,16 +22789,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -22952,7 +22952,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-20000.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "5fad9281d3f0c076f22065bbef02c97673ebadf1ef66cc269c51079ddee40333"
+          "sha256": "4291d6e0a965bc8108c5c22ee437db5585d4c40ffceb88abe2f4b7bac9a9a5bf"
         }
       },
       "bases": [
@@ -23034,16 +23034,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -23197,7 +23197,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-80000.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "839d96eaabf2d8208ff4b9991df3201238ccecb8f40db0cdac1e7aab582eb612"
+          "sha256": "64af17b7aa7710c45ef90b7f954b6cbd62f95374cdcaa8f23183543f79354dd8"
         }
       },
       "bases": [
@@ -23279,16 +23279,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -23442,7 +23442,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-250000.bound.receipt.json",
           "bytes": 3867,
-          "sha256": "1903b973d5453f9fb6faa742cd989f76263b1f1093c39a7f093626e0d7f33a8d"
+          "sha256": "10cdc4e0b5d9fa41fef2afb2e04b32da472691c18f7a698022863f750c5e6976"
         }
       },
       "bases": [
@@ -23524,16 +23524,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -23731,7 +23731,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-observed-20000.bound.receipt.json",
           "bytes": 6652,
-          "sha256": "3493d358a86ddd54a3e758e671af792cb2724d9fe28dacb33db8ca93564ab061"
+          "sha256": "9dac01f6d50abe1b5a001be3f6cc13dc52ed8bc37c1d2478f6cc830f191b8406"
         }
       },
       "bases": [
@@ -23846,16 +23846,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -24053,7 +24053,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-observed-80000.bound.receipt.json",
           "bytes": 9012,
-          "sha256": "f922db3dd2ecaeecdeaf4306c1b2f5f5ff841c3ab490657e315c51b7d4c86383"
+          "sha256": "7b7581bfcf0824503b98043a00e94d48b2af706b5a6820d4aa8d8a9928a556f8"
         }
       },
       "bases": [
@@ -24230,16 +24230,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -24437,7 +24437,7 @@
         "receipt": {
           "path": "audit/evidence/economics-release-20260923/i52-observed-250000.bound.receipt.json",
           "bytes": 6656,
-          "sha256": "f111455fdd919ffa549d34587b9603818bed9699821676f67e7ef83077d0dd5d"
+          "sha256": "2291b70731019fe097793984360cb8c027e63e95cc50abd67a9ede4e4c533548"
         }
       },
       "bases": [
@@ -24552,16 +24552,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -24733,7 +24733,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i9-parameters-receipt.json",
           "bytes": 3911,
-          "sha256": "aa63302b10440ea8a5fd18257360e6d6bb02c718809fc955bc3449627aa89a7c"
+          "sha256": "7835ad25a0cafa4010261514c325ef77ccf57bbaf19c6e90239012ec3d75ad81"
         }
       }
     },
@@ -24763,16 +24763,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -24979,7 +24979,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i9-derived-1-receipt.json",
           "bytes": 3911,
-          "sha256": "c3f4192f78fa503b8b96519f1ba0612c47eb303877ae29413e8a1c6db36912c0"
+          "sha256": "e2f98d0ad3927c53d9e837a56a7071106ffab2a41fb9a9179f5d9f7789602bc1"
         }
       }
     },
@@ -25009,16 +25009,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -25225,7 +25225,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i9-derived-2-receipt.json",
           "bytes": 3911,
-          "sha256": "e37f7542e1f5daf2d9fca854b30bd793d20d9b74e0be9c93aa52f3a45ce23968"
+          "sha256": "bbc8ccf25a92444233aac211ed3dc88080b347e452305331beb206122b34eea7"
         }
       }
     },
@@ -25255,16 +25255,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -25482,7 +25482,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i9-observed-0-receipt.json",
           "bytes": 5533,
-          "sha256": "200d338f3ed8287e9834c0f6cb15a101bbf6fb7739e7945dd662e5caf9525eb0"
+          "sha256": "1840f02a3b2d34788e836ccd6d9ef1af57f497218ab0f0dcfaeb150a7920099b"
         }
       },
       "observations": [
@@ -25545,16 +25545,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -25772,7 +25772,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i9-observed-1-receipt.json",
           "bytes": 5527,
-          "sha256": "7e42b6685b9285054185ac803cf18710c749fdb4337f3f33e6dca072986e9571"
+          "sha256": "a000468ab64227946d953a5e28e69dbfc39034dd9061d4e9ff0a68481394bfb9"
         }
       },
       "observations": [
@@ -25835,16 +25835,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -26016,7 +26016,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i10-parameters-receipt.json",
           "bytes": 3911,
-          "sha256": "aa63302b10440ea8a5fd18257360e6d6bb02c718809fc955bc3449627aa89a7c"
+          "sha256": "7835ad25a0cafa4010261514c325ef77ccf57bbaf19c6e90239012ec3d75ad81"
         }
       }
     },
@@ -26046,16 +26046,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -26262,7 +26262,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i10-derived-3-receipt.json",
           "bytes": 3911,
-          "sha256": "4890ec3b73504d2088d8bde50ffa6b900151cd1a93b8bd66e2ebfee21401fbd9"
+          "sha256": "b4d00fdb8d2280b428d996ee94a4cb214f0c276237a7b26905d2a9d169e1e74c"
         }
       }
     },
@@ -26292,16 +26292,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -26508,7 +26508,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i10-derived-4-receipt.json",
           "bytes": 3911,
-          "sha256": "2b6c6941c4778ebcd5101b707a10d58fee0f796f608ad31be8b9e956c884e644"
+          "sha256": "e373bf5b1e619176d8d94254f924447b0a782ab4c23315c7bf296a6adf660e53"
         }
       }
     },
@@ -26538,16 +26538,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -26765,7 +26765,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i10-observed-2-receipt.json",
           "bytes": 5534,
-          "sha256": "7753863bbbd3a08bd6bd6a7fd521d6ff7f0bbfe13c709b92724a7c47acef3e4d"
+          "sha256": "6c1d8ffd67dd05b853b28f2e15132ea029b2fa2a01931157a40555138a354195"
         }
       },
       "observations": [
@@ -26828,16 +26828,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -27055,7 +27055,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i10-observed-3-receipt.json",
           "bytes": 5531,
-          "sha256": "c9453981915b6da681a9b7398decc828a51198dfbced910126335f16aaf60f82"
+          "sha256": "7a61bc82c0b542276ddbd30994e539c6d4be400e8a1b8c9cda40e4186bd40ddc"
         }
       },
       "observations": [
@@ -27118,16 +27118,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -27299,7 +27299,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i32-parameters-receipt.json",
           "bytes": 3911,
-          "sha256": "aa63302b10440ea8a5fd18257360e6d6bb02c718809fc955bc3449627aa89a7c"
+          "sha256": "7835ad25a0cafa4010261514c325ef77ccf57bbaf19c6e90239012ec3d75ad81"
         }
       }
     },
@@ -27329,16 +27329,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -27545,7 +27545,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i32-derived-1-receipt.json",
           "bytes": 3911,
-          "sha256": "c3f4192f78fa503b8b96519f1ba0612c47eb303877ae29413e8a1c6db36912c0"
+          "sha256": "e2f98d0ad3927c53d9e837a56a7071106ffab2a41fb9a9179f5d9f7789602bc1"
         }
       }
     },
@@ -27575,16 +27575,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -27756,7 +27756,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i33-parameters-receipt.json",
           "bytes": 3911,
-          "sha256": "aa63302b10440ea8a5fd18257360e6d6bb02c718809fc955bc3449627aa89a7c"
+          "sha256": "7835ad25a0cafa4010261514c325ef77ccf57bbaf19c6e90239012ec3d75ad81"
         }
       }
     },
@@ -27786,16 +27786,16 @@
         {
           "file": {
             "path": "components/interactive/deployment-economics.tsx",
-            "bytes": 9866,
-            "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+            "bytes": 9226,
+            "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
           },
           "id": "source:components/interactive/deployment-economics.tsx",
           "offset": 0,
-          "length": 9866,
-          "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f",
+          "length": 9226,
+          "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "468f3066a9863e9c7b5883216e07603b04cedca5f64d39a611c9c90cbad3f23d"
+            "hash": "a6de1f58fefc77444435fa17c4d0eeb1dca8282c93f6f1a2e3cd809feba2a7b5"
           }
         },
         {
@@ -28002,7 +28002,7 @@
         "receipt": {
           "path": "audit/evidence/industrial-closure-20260923/i33-derived-5-receipt.json",
           "bytes": 3911,
-          "sha256": "a3995d6644e7a1262c244d93131f5dc4334c9a10eae215e0025e32b0a8bc4a8b"
+          "sha256": "5cbcc85d0948077214b43bc3f92e9282e32918037d7625909fa7afbbf15052c7"
         }
       }
     },
@@ -28029,16 +28029,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -28208,7 +28208,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-parameters.run.json",
           "bytes": 2989,
-          "sha256": "00bad8f403bd1113115552051059d674afabf8fd8527d8036bc9cfdb25982356"
+          "sha256": "479a0acc8519408b49cf20ea541bafbb75306bf37b9567b1a94472cfb2b77518"
         }
       }
     },
@@ -28235,16 +28235,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -28369,7 +28369,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-rrt-opening.run.json",
           "bytes": 2989,
-          "sha256": "ff4a125ac233034d1a06ae04749ad1aa72e72dd86c5dc9ac3cec7e7c7f91b70f"
+          "sha256": "f08c355897729339944296b0edd1586134fde09037fa07340f2992505a1971c2"
         }
       }
     },
@@ -28396,16 +28396,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -28530,7 +28530,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-rrt-step.run.json",
           "bytes": 2989,
-          "sha256": "4eb14c68a0b2654cdb7c5fad21141aa3790e9040b44f027b6cd0a59733d41f96"
+          "sha256": "194a78624b81239f5e18cfd279f09808edda542a886eddd676b6a7d7ad274067"
         }
       }
     },
@@ -28557,16 +28557,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -28691,7 +28691,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-rrt-playback.run.json",
           "bytes": 2989,
-          "sha256": "184b8e596f0faa63899913487945a619b73d541cbdb85aa5201162046c9ce44d"
+          "sha256": "e230f9ffd44eaab7df56249bc5dcdad8ee97fa237ab978d4ffc216d219ad420c"
         }
       }
     },
@@ -28718,16 +28718,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -28852,7 +28852,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-rrt-scrub.run.json",
           "bytes": 2989,
-          "sha256": "ff5ee6b875f6ca16b4358e095a615c87da7f3a1cdd0fb255a2e900b95c9544ae"
+          "sha256": "f5fe9ed40eaf3b8e15683f14786534488f9ad5e60ccbc7f5b928f9c435376bd4"
         }
       }
     },
@@ -28879,16 +28879,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -29013,7 +29013,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-observed-opening.run.json",
           "bytes": 5413,
-          "sha256": "0428701b6eace7c3e1d293e842426da2805671a24f855fc3b2f5d9868949d9ce"
+          "sha256": "68a6942d2bb26201619a30f553e82bdb2f7661073251c5c7bf3a82ef2a7bf43e"
         }
       },
       "observations": [
@@ -29120,16 +29120,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -29254,7 +29254,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-observed-step.run.json",
           "bytes": 5429,
-          "sha256": "a695aa39906c2b79de866e574cb0aa9b9c09dfaa2e81f5a66ae5a6287dc564c9"
+          "sha256": "95a024fcca5b9ba8fc9ef386c0239a2b75223039381b9512182c04bd102cb240"
         }
       },
       "observations": [
@@ -29361,16 +29361,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -29495,7 +29495,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-observed-playback.run.json",
           "bytes": 5497,
-          "sha256": "670d9f521d0ed914b5fc2bf913f51342ea60889b1c68c96b2b22fb4389748be3"
+          "sha256": "0ffc07e11506aae02afb5178ac41ca802df416a9ede7ee548c01ef74562696d8"
         }
       },
       "observations": [
@@ -29602,16 +29602,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -29736,7 +29736,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-observed-scrub.run.json",
           "bytes": 5485,
-          "sha256": "495e8e4547f4844d964d595bb554e37136d782c8166c455a41672f0391c9590d"
+          "sha256": "03c7ecd50064758ba23d7d89e8be24eebf98ae8340f824a1fccd5980e6636673"
         }
       },
       "observations": [
@@ -29843,16 +29843,16 @@
         {
           "file": {
             "path": "components/interactive/rrt-explorer.tsx",
-            "bytes": 15289,
-            "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c"
+            "bytes": 14890,
+            "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
           },
           "id": "source:components/interactive/rrt-explorer.tsx",
           "offset": 0,
-          "length": 15289,
-          "sha256": "7f82d6bf47ed5e7f7851d991fcb568d35c4cad65a37e12042cb7204f818d0a8c",
+          "length": 14890,
+          "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+            "hash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
           }
         },
         {
@@ -29977,7 +29977,7 @@
         "receipt": {
           "path": "audit/evidence/classical-closure-20260923/rrt15-observed-reset.run.json",
           "bytes": 5375,
-          "sha256": "274e8eff205872118e5ed2d51f5dc52ddca271aa661fc3cec98094056e6fae6e"
+          "sha256": "e51977f786a119035ecb282a1e87d23fedf8b603417556f846124f4355d43f8f"
         }
       },
       "observations": [
@@ -52299,16 +52299,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 11433,
-            "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"
+            "bytes": 10597,
+            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 11433,
-          "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd",
+          "length": 10597,
+          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "87193bd97cc8765eb03f0f3bf5dc9d43d5f324726a5cd95070bd79ddfc7d146f"
+            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
           }
         },
         {
@@ -52426,7 +52426,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-parameters.receipt.json",
           "bytes": 3049,
-          "sha256": "25f57c984247b15e59a572a2898608926c1f90dd2372bb49357b11e9b5f9477c"
+          "sha256": "9f7cfdb9e366adc6a2604d7bcf0307c7359a1d2ee419ad772670a88bb3c8d0fb"
         }
       },
       "bases": [],
@@ -52454,16 +52454,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 11433,
-            "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"
+            "bytes": 10597,
+            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 11433,
-          "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd",
+          "length": 10597,
+          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "87193bd97cc8765eb03f0f3bf5dc9d43d5f324726a5cd95070bd79ddfc7d146f"
+            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
           }
         },
         {
@@ -52573,7 +52573,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-derivation.receipt.json",
           "bytes": 3049,
-          "sha256": "307303dea86c08ffb748da6e30aa886399fa0a9470bcab9ab67368f01de8d7c2"
+          "sha256": "9f54d7dab91e9793f66f31dfc29b8745590369276c16c21dc4c7e6cbbc1370e5"
         }
       },
       "bases": [
@@ -52623,16 +52623,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 11433,
-            "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"
+            "bytes": 10597,
+            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 11433,
-          "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd",
+          "length": 10597,
+          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "87193bd97cc8765eb03f0f3bf5dc9d43d5f324726a5cd95070bd79ddfc7d146f"
+            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
           }
         },
         {
@@ -52742,7 +52742,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-0.receipt.json",
           "bytes": 6708,
-          "sha256": "8ed3a9990c818b0641d4577aeee8a9e24e3a569190420bf49996151f241c8ca6"
+          "sha256": "ad1a8c9a213c2a75774964579ddd75356fbb428ab712de0ac15d8fc5a5e251cb"
         }
       },
       "bases": [
@@ -52902,16 +52902,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 11433,
-            "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"
+            "bytes": 10597,
+            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 11433,
-          "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd",
+          "length": 10597,
+          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "87193bd97cc8765eb03f0f3bf5dc9d43d5f324726a5cd95070bd79ddfc7d146f"
+            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
           }
         },
         {
@@ -53021,7 +53021,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-1.receipt.json",
           "bytes": 5051,
-          "sha256": "6ed3589d1dcc2d5de45868aa12ac49fd629cbb6065c3a08e3c6f0ee32191fff8"
+          "sha256": "6d049d82ad9950f308b32e98a7019e33ac00cb69bf076cfa9bf32848379e13b3"
         }
       },
       "bases": [
@@ -53127,16 +53127,16 @@
         {
           "file": {
             "path": "components/interactive/reliability-compounding.tsx",
-            "bytes": 11433,
-            "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd"
+            "bytes": 10597,
+            "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1"
           },
           "id": "source:components/interactive/reliability-compounding.tsx",
           "offset": 0,
-          "length": 11433,
-          "sha256": "c1fe6ba2bcf94cb8ee19141d87d2bb2466e4cfa122461cbb3c48afb48607bcbd",
+          "length": 10597,
+          "sha256": "0e24581e9841802d9b09a7f4af72496555df5051954aec0be2768e86e5766bc1",
           "baseline": {
             "kind": "interactive-sources-mounts",
-            "hash": "87193bd97cc8765eb03f0f3bf5dc9d43d5f324726a5cd95070bd79ddfc7d146f"
+            "hash": "de5954ee533fb0ed464ef38a312a7c1a067ce479112fc76c288cf4b45b5a79fa"
           }
         },
         {
@@ -53246,7 +53246,7 @@
         "receipt": {
           "path": "audit/evidence/final-seven-closure-20260923/final-seven-data-hardware-evaluation-crisis-1-20260923-1-mounted-2.receipt.json",
           "bytes": 4925,
-          "sha256": "4994ef3161964f7034e40587cf007fd0e8c49836ebfc6127288514f10a401b61"
+          "sha256": "ffd8f206682cc827798affab61b26dc301a5b6c6301767b4b2fe7474550da605"
         }
       },
       "bases": [

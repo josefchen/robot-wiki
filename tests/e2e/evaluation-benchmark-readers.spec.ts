@@ -152,7 +152,7 @@ for (const width of [375, 1440]) {
       }
       expect(new Set(names).size).toBe(groups.length);
       await expect(page.getByRole('radio')).toHaveCount(groups.reduce((n, group) => n + group.values.length, 0));
-      const calculator = page.locator('div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"])');
+      const calculator = page.locator('div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"]), div.prose > div.rounded-none:has(svg[aria-label^="Line chart of episode success"])');
       await setSlider(calculator.getByRole('slider', { name: /per-step success/i }), 0);
       await expect(calculator.getByTestId('episode-success-readout')).toHaveText('0.0%');
       await calculator.getByRole('button', { name: /reset/i }).click();

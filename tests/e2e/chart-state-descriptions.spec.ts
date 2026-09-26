@@ -296,7 +296,7 @@ for (const chart of CHARTS) {
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
-      const shell = page.locator('div.rounded-md.border', { has: desc }).first();
+      const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: desc }).first();
       const svg = shell.locator('svg[role][aria-describedby]').first();
       const describedby = await svg.getAttribute('aria-describedby');
       expect(describedby, 'aria-describedby is set').toBeTruthy();
@@ -352,7 +352,7 @@ for (const chart of CHARTS) {
       const descId = await desc.getAttribute('id');
       expect(descId, 'takeaway has an id').toBeTruthy();
       const descById = page.locator(`[id=${JSON.stringify(descId)}]`);
-      const shell = page.locator('div.rounded-md.border', { has: descById }).first();
+      const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: descById }).first();
       const details = descById.locator('xpath=../details[@data-chart-data]').first();
       await details.evaluate((el) => {
         (el as HTMLDetailsElement).open = true;

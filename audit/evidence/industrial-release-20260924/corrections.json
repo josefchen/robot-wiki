@@ -66,8 +66,8 @@
       },
       {
         "path": "components/interactive/deployment-economics.tsx",
-        "bytes": 9866,
-        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+        "bytes": 9226,
+        "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
       },
       {
         "path": "audit/evidence/industrial-closure-20260923/support.ts",
@@ -94,14 +94,14 @@
     "execution": {
       "path": "audit/evidence/industrial-release-20260924/browser-run.json",
       "bytes": 22908,
-      "sha256": "81701cf22e53dc6673f21ac094fbe475a9b918dfc72f51822871870030f8a9bb"
+      "sha256": "c272ef03e4d3a72d07d8fa36ae4cc3cf0b596be45cbaab42bb2738951742e409"
     },
     "children": [],
     "review": {
       "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
       "rationale": "Fresh desktop/mobile observation after the exact Kroger citation comment correction. The article and citation fields are unchanged; all glossary, bibliography, authored-input and dashboard checks ran again. Both industrial-closure-20260923 and industrial-release-20260923 remain immutable. Rebind the complete P4 child conjunction without claiming independent project acceptance.",
       "observedAt": "2026-09-25T15:11:07.744Z",
-      "inputDigest": "862b13a00eb7d9f2d614950ac2fb77df8dddbcd887a12d6f68ed1a01d2cb44d2"
+      "inputDigest": "663b36530e271c227362fa863221d3a9709208011cec7bd3cb6751f2eba97135"
     }
   },
   {
@@ -171,8 +171,8 @@
       },
       {
         "path": "components/interactive/deployment-economics.tsx",
-        "bytes": 9866,
-        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+        "bytes": 9226,
+        "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
       },
       {
         "path": "audit/evidence/industrial-closure-20260923/support.ts",
@@ -195,14 +195,14 @@
     "execution": {
       "path": "audit/evidence/industrial-release-20260924/browser-run.json",
       "bytes": 22908,
-      "sha256": "81701cf22e53dc6673f21ac094fbe475a9b918dfc72f51822871870030f8a9bb"
+      "sha256": "c272ef03e4d3a72d07d8fa36ae4cc3cf0b596be45cbaab42bb2738951742e409"
     },
     "children": [],
     "review": {
       "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
       "rationale": "Fresh desktop/mobile observation after the exact Kroger citation comment correction. The article and citation fields are unchanged; all glossary, bibliography, authored-input and dashboard checks ran again. Both industrial-closure-20260923 and industrial-release-20260923 remain immutable. Rebind the complete P4 child conjunction without claiming independent project acceptance.",
       "observedAt": "2026-09-25T15:11:07.744Z",
-      "inputDigest": "7d1ab0fe90ea780feb256da4f013813802ee26a7a6234db9268c0dd0429027b2"
+      "inputDigest": "63b4083ba349d6d17d5c360024c948f19e7587a6ce707ff2e86a359bb38132cf"
     }
   },
   {
@@ -272,8 +272,8 @@
       },
       {
         "path": "components/interactive/deployment-economics.tsx",
-        "bytes": 9866,
-        "sha256": "af7a4c70caaa5d401a94ed7eadd0a2232940360f946e0434525681e7f01e029f"
+        "bytes": 9226,
+        "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
       },
       {
         "path": "audit/evidence/industrial-closure-20260923/support.ts",
@@ -300,7 +300,7 @@
     "execution": {
       "path": "audit/evidence/industrial-release-20260924/browser-run.json",
       "bytes": 22908,
-      "sha256": "81701cf22e53dc6673f21ac094fbe475a9b918dfc72f51822871870030f8a9bb"
+      "sha256": "c272ef03e4d3a72d07d8fa36ae4cc3cf0b596be45cbaab42bb2738951742e409"
     },
     "children": [
       {
@@ -512,7 +512,7 @@
       "reviewedBy": "integrator techwithdraw-20260924",
       "rationale": "Technology.org withdrawal rebind 2026-09-24: industrial-deployment rows 5-8 were cut/corrected to inspected first-party sources (audit/evidence/technology-withdrawal-20260924/), so their child digests are rebound to the current parsed rows; the prior complete record is preserved verbatim in prior-corrections-industrial-release.json. Original cells, snapshot, currentCells, dependencies, execution receipt and the Kroger changed-children review are unchanged; no independent project acceptance is claimed.",
       "observedAt": "2026-09-25T15:11:07.744Z",
-      "inputDigest": "5f6fea7b55145c7de9917170c48be60659fe31453b6e01817c2125d41eb9cbbc"
+      "inputDigest": "b9d2adac9e43cdf6071c46074f039681127dac6060b58ee53b28d407cbb7edd5"
     }
   }
 ]
